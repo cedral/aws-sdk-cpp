@@ -269,37 +269,114 @@ namespace Model
 
 
     /**
-     * <p>The name of the association document.</p>
+     * <p>The name of the SSM document that contains the configuration information for
+     * the instance. You can specify Command, Policy, or Automation documents.</p>
+     * <p>You can specify AWS-predefined documents, documents you created, or a
+     * document that is shared with you from another account.</p> <p>For SSM documents
+     * that are shared with you from other AWS accounts, you must specify the complete
+     * SSM document ARN, in the following format:</p> <p>
+     * <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
+     * </code> </p> <p>For example:</p> <p>
+     * <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p>
+     * <p>For AWS-predefined documents and SSM documents you created in your account,
+     * you only need to specify the document name. For example,
+     * <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
-     * <p>The name of the association document.</p>
+     * <p>The name of the SSM document that contains the configuration information for
+     * the instance. You can specify Command, Policy, or Automation documents.</p>
+     * <p>You can specify AWS-predefined documents, documents you created, or a
+     * document that is shared with you from another account.</p> <p>For SSM documents
+     * that are shared with you from other AWS accounts, you must specify the complete
+     * SSM document ARN, in the following format:</p> <p>
+     * <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
+     * </code> </p> <p>For example:</p> <p>
+     * <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p>
+     * <p>For AWS-predefined documents and SSM documents you created in your account,
+     * you only need to specify the document name. For example,
+     * <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
-     * <p>The name of the association document.</p>
+     * <p>The name of the SSM document that contains the configuration information for
+     * the instance. You can specify Command, Policy, or Automation documents.</p>
+     * <p>You can specify AWS-predefined documents, documents you created, or a
+     * document that is shared with you from another account.</p> <p>For SSM documents
+     * that are shared with you from other AWS accounts, you must specify the complete
+     * SSM document ARN, in the following format:</p> <p>
+     * <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
+     * </code> </p> <p>For example:</p> <p>
+     * <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p>
+     * <p>For AWS-predefined documents and SSM documents you created in your account,
+     * you only need to specify the document name. For example,
+     * <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
     /**
-     * <p>The name of the association document.</p>
+     * <p>The name of the SSM document that contains the configuration information for
+     * the instance. You can specify Command, Policy, or Automation documents.</p>
+     * <p>You can specify AWS-predefined documents, documents you created, or a
+     * document that is shared with you from another account.</p> <p>For SSM documents
+     * that are shared with you from other AWS accounts, you must specify the complete
+     * SSM document ARN, in the following format:</p> <p>
+     * <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
+     * </code> </p> <p>For example:</p> <p>
+     * <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p>
+     * <p>For AWS-predefined documents and SSM documents you created in your account,
+     * you only need to specify the document name. For example,
+     * <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
     /**
-     * <p>The name of the association document.</p>
+     * <p>The name of the SSM document that contains the configuration information for
+     * the instance. You can specify Command, Policy, or Automation documents.</p>
+     * <p>You can specify AWS-predefined documents, documents you created, or a
+     * document that is shared with you from another account.</p> <p>For SSM documents
+     * that are shared with you from other AWS accounts, you must specify the complete
+     * SSM document ARN, in the following format:</p> <p>
+     * <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
+     * </code> </p> <p>For example:</p> <p>
+     * <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p>
+     * <p>For AWS-predefined documents and SSM documents you created in your account,
+     * you only need to specify the document name. For example,
+     * <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>
      */
     inline UpdateAssociationRequest& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
-     * <p>The name of the association document.</p>
+     * <p>The name of the SSM document that contains the configuration information for
+     * the instance. You can specify Command, Policy, or Automation documents.</p>
+     * <p>You can specify AWS-predefined documents, documents you created, or a
+     * document that is shared with you from another account.</p> <p>For SSM documents
+     * that are shared with you from other AWS accounts, you must specify the complete
+     * SSM document ARN, in the following format:</p> <p>
+     * <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
+     * </code> </p> <p>For example:</p> <p>
+     * <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p>
+     * <p>For AWS-predefined documents and SSM documents you created in your account,
+     * you only need to specify the document name. For example,
+     * <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>
      */
     inline UpdateAssociationRequest& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the association document.</p>
+     * <p>The name of the SSM document that contains the configuration information for
+     * the instance. You can specify Command, Policy, or Automation documents.</p>
+     * <p>You can specify AWS-predefined documents, documents you created, or a
+     * document that is shared with you from another account.</p> <p>For SSM documents
+     * that are shared with you from other AWS accounts, you must specify the complete
+     * SSM document ARN, in the following format:</p> <p>
+     * <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
+     * </code> </p> <p>For example:</p> <p>
+     * <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p>
+     * <p>For AWS-predefined documents and SSM documents you created in your account,
+     * you only need to specify the document name. For example,
+     * <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>
      */
     inline UpdateAssociationRequest& WithName(const char* value) { SetName(value); return *this;}
 
@@ -431,6 +508,56 @@ namespace Model
      * parameter.</p>
      */
     inline UpdateAssociationRequest& WithAssociationVersion(const char* value) { SetAssociationVersion(value); return *this;}
+
+
+    /**
+     * <p>Specify the target for the association. This target is required for
+     * associations that use an Automation document and target resources by using rate
+     * controls.</p>
+     */
+    inline const Aws::String& GetAutomationTargetParameterName() const{ return m_automationTargetParameterName; }
+
+    /**
+     * <p>Specify the target for the association. This target is required for
+     * associations that use an Automation document and target resources by using rate
+     * controls.</p>
+     */
+    inline void SetAutomationTargetParameterName(const Aws::String& value) { m_automationTargetParameterNameHasBeenSet = true; m_automationTargetParameterName = value; }
+
+    /**
+     * <p>Specify the target for the association. This target is required for
+     * associations that use an Automation document and target resources by using rate
+     * controls.</p>
+     */
+    inline void SetAutomationTargetParameterName(Aws::String&& value) { m_automationTargetParameterNameHasBeenSet = true; m_automationTargetParameterName = std::move(value); }
+
+    /**
+     * <p>Specify the target for the association. This target is required for
+     * associations that use an Automation document and target resources by using rate
+     * controls.</p>
+     */
+    inline void SetAutomationTargetParameterName(const char* value) { m_automationTargetParameterNameHasBeenSet = true; m_automationTargetParameterName.assign(value); }
+
+    /**
+     * <p>Specify the target for the association. This target is required for
+     * associations that use an Automation document and target resources by using rate
+     * controls.</p>
+     */
+    inline UpdateAssociationRequest& WithAutomationTargetParameterName(const Aws::String& value) { SetAutomationTargetParameterName(value); return *this;}
+
+    /**
+     * <p>Specify the target for the association. This target is required for
+     * associations that use an Automation document and target resources by using rate
+     * controls.</p>
+     */
+    inline UpdateAssociationRequest& WithAutomationTargetParameterName(Aws::String&& value) { SetAutomationTargetParameterName(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the target for the association. This target is required for
+     * associations that use an Automation document and target resources by using rate
+     * controls.</p>
+     */
+    inline UpdateAssociationRequest& WithAutomationTargetParameterName(const char* value) { SetAutomationTargetParameterName(value); return *this;}
 
 
     /**
@@ -684,6 +811,9 @@ namespace Model
 
     Aws::String m_associationVersion;
     bool m_associationVersionHasBeenSet;
+
+    Aws::String m_automationTargetParameterName;
+    bool m_automationTargetParameterNameHasBeenSet;
 
     Aws::String m_maxErrors;
     bool m_maxErrorsHasBeenSet;

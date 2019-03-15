@@ -24,6 +24,7 @@
 #include <aws/medialive/model/HlsDirectoryStructure.h>
 #include <aws/medialive/model/HlsEncryptionType.h>
 #include <aws/medialive/model/HlsCdnSettings.h>
+#include <aws/medialive/model/IFrameOnlyPlaylistType.h>
 #include <aws/medialive/model/InputLossActionForHlsOut.h>
 #include <aws/medialive/model/HlsIvInManifest.h>
 #include <aws/medialive/model/HlsIvSource.h>
@@ -565,23 +566,92 @@ omit: Omit any CLOSED-CAPTIONS line
 
 
     /**
-     * If mode is "live", the number of segments to retain in the manifest (.m3u8)
-     * file. This number must be less than or equal to keepSegments. If mode is "vod",
-     * this parameter has no effect.
+     * DISABLED: Do not create an I-frame-only manifest, but do create the master and
+     * media manifests (according to the Output Selection field).
+
+STANDARD: Create an
+     * I-frame-only manifest for each output that contains video, as well as the other
+     * manifests (according to the Output Selection field). The I-frame manifest
+     * contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or
+     * more #EXT-X-BYTERANGE entries identifying the I-frame position. For example,
+     * #EXT-X-BYTERANGE:160364@1461888"
+     */
+    inline const IFrameOnlyPlaylistType& GetIFrameOnlyPlaylists() const{ return m_iFrameOnlyPlaylists; }
+
+    /**
+     * DISABLED: Do not create an I-frame-only manifest, but do create the master and
+     * media manifests (according to the Output Selection field).
+
+STANDARD: Create an
+     * I-frame-only manifest for each output that contains video, as well as the other
+     * manifests (according to the Output Selection field). The I-frame manifest
+     * contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or
+     * more #EXT-X-BYTERANGE entries identifying the I-frame position. For example,
+     * #EXT-X-BYTERANGE:160364@1461888"
+     */
+    inline void SetIFrameOnlyPlaylists(const IFrameOnlyPlaylistType& value) { m_iFrameOnlyPlaylistsHasBeenSet = true; m_iFrameOnlyPlaylists = value; }
+
+    /**
+     * DISABLED: Do not create an I-frame-only manifest, but do create the master and
+     * media manifests (according to the Output Selection field).
+
+STANDARD: Create an
+     * I-frame-only manifest for each output that contains video, as well as the other
+     * manifests (according to the Output Selection field). The I-frame manifest
+     * contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or
+     * more #EXT-X-BYTERANGE entries identifying the I-frame position. For example,
+     * #EXT-X-BYTERANGE:160364@1461888"
+     */
+    inline void SetIFrameOnlyPlaylists(IFrameOnlyPlaylistType&& value) { m_iFrameOnlyPlaylistsHasBeenSet = true; m_iFrameOnlyPlaylists = std::move(value); }
+
+    /**
+     * DISABLED: Do not create an I-frame-only manifest, but do create the master and
+     * media manifests (according to the Output Selection field).
+
+STANDARD: Create an
+     * I-frame-only manifest for each output that contains video, as well as the other
+     * manifests (according to the Output Selection field). The I-frame manifest
+     * contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or
+     * more #EXT-X-BYTERANGE entries identifying the I-frame position. For example,
+     * #EXT-X-BYTERANGE:160364@1461888"
+     */
+    inline HlsGroupSettings& WithIFrameOnlyPlaylists(const IFrameOnlyPlaylistType& value) { SetIFrameOnlyPlaylists(value); return *this;}
+
+    /**
+     * DISABLED: Do not create an I-frame-only manifest, but do create the master and
+     * media manifests (according to the Output Selection field).
+
+STANDARD: Create an
+     * I-frame-only manifest for each output that contains video, as well as the other
+     * manifests (according to the Output Selection field). The I-frame manifest
+     * contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or
+     * more #EXT-X-BYTERANGE entries identifying the I-frame position. For example,
+     * #EXT-X-BYTERANGE:160364@1461888"
+     */
+    inline HlsGroupSettings& WithIFrameOnlyPlaylists(IFrameOnlyPlaylistType&& value) { SetIFrameOnlyPlaylists(std::move(value)); return *this;}
+
+
+    /**
+     * Applies only if Mode field is LIVE. Specifies the maximum number of segments in
+     * the media manifest file. After this maximum, older segments are removed from the
+     * media manifest. This number must be less than or equal to the Keep Segments
+     * field.
      */
     inline int GetIndexNSegments() const{ return m_indexNSegments; }
 
     /**
-     * If mode is "live", the number of segments to retain in the manifest (.m3u8)
-     * file. This number must be less than or equal to keepSegments. If mode is "vod",
-     * this parameter has no effect.
+     * Applies only if Mode field is LIVE. Specifies the maximum number of segments in
+     * the media manifest file. After this maximum, older segments are removed from the
+     * media manifest. This number must be less than or equal to the Keep Segments
+     * field.
      */
     inline void SetIndexNSegments(int value) { m_indexNSegmentsHasBeenSet = true; m_indexNSegments = value; }
 
     /**
-     * If mode is "live", the number of segments to retain in the manifest (.m3u8)
-     * file. This number must be less than or equal to keepSegments. If mode is "vod",
-     * this parameter has no effect.
+     * Applies only if Mode field is LIVE. Specifies the maximum number of segments in
+     * the media manifest file. After this maximum, older segments are removed from the
+     * media manifest. This number must be less than or equal to the Keep Segments
+     * field.
      */
     inline HlsGroupSettings& WithIndexNSegments(int value) { SetIndexNSegments(value); return *this;}
 
@@ -695,20 +765,20 @@ omit: Omit any CLOSED-CAPTIONS line
 
 
     /**
-     * If mode is "live", the number of TS segments to retain in the destination
-     * directory. If mode is "vod", this parameter has no effect.
+     * Applies only if Mode field is LIVE. Specifies the number of media segments (.ts
+     * files) to retain in the destination directory.
      */
     inline int GetKeepSegments() const{ return m_keepSegments; }
 
     /**
-     * If mode is "live", the number of TS segments to retain in the destination
-     * directory. If mode is "vod", this parameter has no effect.
+     * Applies only if Mode field is LIVE. Specifies the number of media segments (.ts
+     * files) to retain in the destination directory.
      */
     inline void SetKeepSegments(int value) { m_keepSegmentsHasBeenSet = true; m_keepSegments = value; }
 
     /**
-     * If mode is "live", the number of TS segments to retain in the destination
-     * directory. If mode is "vod", this parameter has no effect.
+     * Applies only if Mode field is LIVE. Specifies the number of media segments (.ts
+     * files) to retain in the destination directory.
      */
     inline HlsGroupSettings& WithKeepSegments(int value) { SetKeepSegments(value); return *this;}
 
@@ -970,32 +1040,47 @@ VOD
 
 
     /**
-     * Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly
-     * option will output segments without the .m3u8 file.
+     * MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and
+     * media manifests) for this output group.
+
+SEGMENTSONLY: Does not generate any
+     * manifests for this output group.
      */
     inline const HlsOutputSelection& GetOutputSelection() const{ return m_outputSelection; }
 
     /**
-     * Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly
-     * option will output segments without the .m3u8 file.
+     * MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and
+     * media manifests) for this output group.
+
+SEGMENTSONLY: Does not generate any
+     * manifests for this output group.
      */
     inline void SetOutputSelection(const HlsOutputSelection& value) { m_outputSelectionHasBeenSet = true; m_outputSelection = value; }
 
     /**
-     * Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly
-     * option will output segments without the .m3u8 file.
+     * MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and
+     * media manifests) for this output group.
+
+SEGMENTSONLY: Does not generate any
+     * manifests for this output group.
      */
     inline void SetOutputSelection(HlsOutputSelection&& value) { m_outputSelectionHasBeenSet = true; m_outputSelection = std::move(value); }
 
     /**
-     * Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly
-     * option will output segments without the .m3u8 file.
+     * MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and
+     * media manifests) for this output group.
+
+SEGMENTSONLY: Does not generate any
+     * manifests for this output group.
      */
     inline HlsGroupSettings& WithOutputSelection(const HlsOutputSelection& value) { SetOutputSelection(value); return *this;}
 
     /**
-     * Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly
-     * option will output segments without the .m3u8 file.
+     * MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and
+     * media manifests) for this output group.
+
+SEGMENTSONLY: Does not generate any
+     * manifests for this output group.
      */
     inline HlsGroupSettings& WithOutputSelection(HlsOutputSelection&& value) { SetOutputSelection(std::move(value)); return *this;}
 
@@ -1058,32 +1143,97 @@ VOD
 
 
     /**
-     * When set to "enabled", includes the media playlists from both pipelines in the
-     * master manifest (.m3u8) file.
+     * ENABLED: The master manifest (.m3u8 file) for each pipeline includes information
+     * about both pipelines: first its own media files, then the media files of the
+     * other pipeline. This feature allows playout device that support stale manifest
+     * detection to switch from one manifest to the other, when the current manifest
+     * seems to be stale. There are still two destinations and two master manifests,
+     * but both master manifests reference the media files from both
+     * pipelines.
+
+DISABLED: The master manifest (.m3u8 file) for each pipeline
+     * includes information about its own pipeline only.
+
+For an HLS output group with
+     * MediaPackage as the destination, the DISABLED behavior is always followed.
+     * MediaPackage regenerates the manifests it serves to players so a redundant
+     * manifest from MediaLive is irrelevant.
      */
     inline const HlsRedundantManifest& GetRedundantManifest() const{ return m_redundantManifest; }
 
     /**
-     * When set to "enabled", includes the media playlists from both pipelines in the
-     * master manifest (.m3u8) file.
+     * ENABLED: The master manifest (.m3u8 file) for each pipeline includes information
+     * about both pipelines: first its own media files, then the media files of the
+     * other pipeline. This feature allows playout device that support stale manifest
+     * detection to switch from one manifest to the other, when the current manifest
+     * seems to be stale. There are still two destinations and two master manifests,
+     * but both master manifests reference the media files from both
+     * pipelines.
+
+DISABLED: The master manifest (.m3u8 file) for each pipeline
+     * includes information about its own pipeline only.
+
+For an HLS output group with
+     * MediaPackage as the destination, the DISABLED behavior is always followed.
+     * MediaPackage regenerates the manifests it serves to players so a redundant
+     * manifest from MediaLive is irrelevant.
      */
     inline void SetRedundantManifest(const HlsRedundantManifest& value) { m_redundantManifestHasBeenSet = true; m_redundantManifest = value; }
 
     /**
-     * When set to "enabled", includes the media playlists from both pipelines in the
-     * master manifest (.m3u8) file.
+     * ENABLED: The master manifest (.m3u8 file) for each pipeline includes information
+     * about both pipelines: first its own media files, then the media files of the
+     * other pipeline. This feature allows playout device that support stale manifest
+     * detection to switch from one manifest to the other, when the current manifest
+     * seems to be stale. There are still two destinations and two master manifests,
+     * but both master manifests reference the media files from both
+     * pipelines.
+
+DISABLED: The master manifest (.m3u8 file) for each pipeline
+     * includes information about its own pipeline only.
+
+For an HLS output group with
+     * MediaPackage as the destination, the DISABLED behavior is always followed.
+     * MediaPackage regenerates the manifests it serves to players so a redundant
+     * manifest from MediaLive is irrelevant.
      */
     inline void SetRedundantManifest(HlsRedundantManifest&& value) { m_redundantManifestHasBeenSet = true; m_redundantManifest = std::move(value); }
 
     /**
-     * When set to "enabled", includes the media playlists from both pipelines in the
-     * master manifest (.m3u8) file.
+     * ENABLED: The master manifest (.m3u8 file) for each pipeline includes information
+     * about both pipelines: first its own media files, then the media files of the
+     * other pipeline. This feature allows playout device that support stale manifest
+     * detection to switch from one manifest to the other, when the current manifest
+     * seems to be stale. There are still two destinations and two master manifests,
+     * but both master manifests reference the media files from both
+     * pipelines.
+
+DISABLED: The master manifest (.m3u8 file) for each pipeline
+     * includes information about its own pipeline only.
+
+For an HLS output group with
+     * MediaPackage as the destination, the DISABLED behavior is always followed.
+     * MediaPackage regenerates the manifests it serves to players so a redundant
+     * manifest from MediaLive is irrelevant.
      */
     inline HlsGroupSettings& WithRedundantManifest(const HlsRedundantManifest& value) { SetRedundantManifest(value); return *this;}
 
     /**
-     * When set to "enabled", includes the media playlists from both pipelines in the
-     * master manifest (.m3u8) file.
+     * ENABLED: The master manifest (.m3u8 file) for each pipeline includes information
+     * about both pipelines: first its own media files, then the media files of the
+     * other pipeline. This feature allows playout device that support stale manifest
+     * detection to switch from one manifest to the other, when the current manifest
+     * seems to be stale. There are still two destinations and two master manifests,
+     * but both master manifests reference the media files from both
+     * pipelines.
+
+DISABLED: The master manifest (.m3u8 file) for each pipeline
+     * includes information about its own pipeline only.
+
+For an HLS output group with
+     * MediaPackage as the destination, the DISABLED behavior is always followed.
+     * MediaPackage regenerates the manifests it serves to players so a redundant
+     * manifest from MediaLive is irrelevant.
      */
     inline HlsGroupSettings& WithRedundantManifest(HlsRedundantManifest&& value) { SetRedundantManifest(std::move(value)); return *this;}
 
@@ -1253,37 +1403,67 @@ VOD
 
 
     /**
-     * When set to "singleFile", emits the program as a single media resource (.ts)
-     * file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of
-     * VOD mode content during event is not guaranteed due to HTTP server caching.
+     * SEGMENTEDFILES: Emit the program as segments - multiple .ts media
+     * files.
+
+SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a
+     * single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to
+     * index segments for playback. A typical use for this value is when sending the
+     * output to AWS Elemental MediaConvert, which can accept only a single media file.
+     * Playback while the channel is running is not guaranteed due to HTTP server
+     * caching.
      */
     inline const HlsTsFileMode& GetTsFileMode() const{ return m_tsFileMode; }
 
     /**
-     * When set to "singleFile", emits the program as a single media resource (.ts)
-     * file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of
-     * VOD mode content during event is not guaranteed due to HTTP server caching.
+     * SEGMENTEDFILES: Emit the program as segments - multiple .ts media
+     * files.
+
+SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a
+     * single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to
+     * index segments for playback. A typical use for this value is when sending the
+     * output to AWS Elemental MediaConvert, which can accept only a single media file.
+     * Playback while the channel is running is not guaranteed due to HTTP server
+     * caching.
      */
     inline void SetTsFileMode(const HlsTsFileMode& value) { m_tsFileModeHasBeenSet = true; m_tsFileMode = value; }
 
     /**
-     * When set to "singleFile", emits the program as a single media resource (.ts)
-     * file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of
-     * VOD mode content during event is not guaranteed due to HTTP server caching.
+     * SEGMENTEDFILES: Emit the program as segments - multiple .ts media
+     * files.
+
+SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a
+     * single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to
+     * index segments for playback. A typical use for this value is when sending the
+     * output to AWS Elemental MediaConvert, which can accept only a single media file.
+     * Playback while the channel is running is not guaranteed due to HTTP server
+     * caching.
      */
     inline void SetTsFileMode(HlsTsFileMode&& value) { m_tsFileModeHasBeenSet = true; m_tsFileMode = std::move(value); }
 
     /**
-     * When set to "singleFile", emits the program as a single media resource (.ts)
-     * file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of
-     * VOD mode content during event is not guaranteed due to HTTP server caching.
+     * SEGMENTEDFILES: Emit the program as segments - multiple .ts media
+     * files.
+
+SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a
+     * single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to
+     * index segments for playback. A typical use for this value is when sending the
+     * output to AWS Elemental MediaConvert, which can accept only a single media file.
+     * Playback while the channel is running is not guaranteed due to HTTP server
+     * caching.
      */
     inline HlsGroupSettings& WithTsFileMode(const HlsTsFileMode& value) { SetTsFileMode(value); return *this;}
 
     /**
-     * When set to "singleFile", emits the program as a single media resource (.ts)
-     * file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of
-     * VOD mode content during event is not guaranteed due to HTTP server caching.
+     * SEGMENTEDFILES: Emit the program as segments - multiple .ts media
+     * files.
+
+SINGLEFILE: Applies only if Mode field is VOD. Emit the program as a
+     * single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to
+     * index segments for playback. A typical use for this value is when sending the
+     * output to AWS Elemental MediaConvert, which can accept only a single media file.
+     * Playback while the channel is running is not guaranteed due to HTTP server
+     * caching.
      */
     inline HlsGroupSettings& WithTsFileMode(HlsTsFileMode&& value) { SetTsFileMode(std::move(value)); return *this;}
 
@@ -1324,6 +1504,9 @@ VOD
 
     HlsCdnSettings m_hlsCdnSettings;
     bool m_hlsCdnSettingsHasBeenSet;
+
+    IFrameOnlyPlaylistType m_iFrameOnlyPlaylists;
+    bool m_iFrameOnlyPlaylistsHasBeenSet;
 
     int m_indexNSegments;
     bool m_indexNSegmentsHasBeenSet;

@@ -21,6 +21,7 @@
 #include <aws/ec2/model/ConnectionLogOptions.h>
 #include <aws/ec2/model/TransportProtocol.h>
 #include <aws/ec2/model/ClientVpnAuthenticationRequest.h>
+#include <aws/ec2/model/TagSpecification.h>
 #include <utility>
 #include <aws/core/utils/UUID.h>
 
@@ -117,50 +118,50 @@ namespace Model
 
     /**
      * <p>The ARN of the server certificate. For more information, see the <a
-     * href="acm/latest/userguide/acm-overview.html">AWS Certificate Manager User
-     * Guide</a> .</p>
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
+     * User Guide</a>.</p>
      */
     inline const Aws::String& GetServerCertificateArn() const{ return m_serverCertificateArn; }
 
     /**
      * <p>The ARN of the server certificate. For more information, see the <a
-     * href="acm/latest/userguide/acm-overview.html">AWS Certificate Manager User
-     * Guide</a> .</p>
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
+     * User Guide</a>.</p>
      */
     inline void SetServerCertificateArn(const Aws::String& value) { m_serverCertificateArnHasBeenSet = true; m_serverCertificateArn = value; }
 
     /**
      * <p>The ARN of the server certificate. For more information, see the <a
-     * href="acm/latest/userguide/acm-overview.html">AWS Certificate Manager User
-     * Guide</a> .</p>
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
+     * User Guide</a>.</p>
      */
     inline void SetServerCertificateArn(Aws::String&& value) { m_serverCertificateArnHasBeenSet = true; m_serverCertificateArn = std::move(value); }
 
     /**
      * <p>The ARN of the server certificate. For more information, see the <a
-     * href="acm/latest/userguide/acm-overview.html">AWS Certificate Manager User
-     * Guide</a> .</p>
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
+     * User Guide</a>.</p>
      */
     inline void SetServerCertificateArn(const char* value) { m_serverCertificateArnHasBeenSet = true; m_serverCertificateArn.assign(value); }
 
     /**
      * <p>The ARN of the server certificate. For more information, see the <a
-     * href="acm/latest/userguide/acm-overview.html">AWS Certificate Manager User
-     * Guide</a> .</p>
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
+     * User Guide</a>.</p>
      */
     inline CreateClientVpnEndpointRequest& WithServerCertificateArn(const Aws::String& value) { SetServerCertificateArn(value); return *this;}
 
     /**
      * <p>The ARN of the server certificate. For more information, see the <a
-     * href="acm/latest/userguide/acm-overview.html">AWS Certificate Manager User
-     * Guide</a> .</p>
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
+     * User Guide</a>.</p>
      */
     inline CreateClientVpnEndpointRequest& WithServerCertificateArn(Aws::String&& value) { SetServerCertificateArn(std::move(value)); return *this;}
 
     /**
      * <p>The ARN of the server certificate. For more information, see the <a
-     * href="acm/latest/userguide/acm-overview.html">AWS Certificate Manager User
-     * Guide</a> .</p>
+     * href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager
+     * User Guide</a>.</p>
      */
     inline CreateClientVpnEndpointRequest& WithServerCertificateArn(const char* value) { SetServerCertificateArn(value); return *this;}
 
@@ -419,7 +420,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
      * How to Ensure Idempotency</a>.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
@@ -427,7 +428,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
      * How to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(const Aws::String& value) { m_clientTokenHasBeenSet = true; m_clientToken = value; }
@@ -435,7 +436,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
      * How to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(Aws::String&& value) { m_clientTokenHasBeenSet = true; m_clientToken = std::move(value); }
@@ -443,7 +444,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
      * How to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(const char* value) { m_clientTokenHasBeenSet = true; m_clientToken.assign(value); }
@@ -451,7 +452,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
      * How to Ensure Idempotency</a>.</p>
      */
     inline CreateClientVpnEndpointRequest& WithClientToken(const Aws::String& value) { SetClientToken(value); return *this;}
@@ -459,7 +460,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
      * How to Ensure Idempotency</a>.</p>
      */
     inline CreateClientVpnEndpointRequest& WithClientToken(Aws::String&& value) { SetClientToken(std::move(value)); return *this;}
@@ -467,10 +468,46 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
      * How to Ensure Idempotency</a>.</p>
      */
     inline CreateClientVpnEndpointRequest& WithClientToken(const char* value) { SetClientToken(value); return *this;}
+
+
+    /**
+     * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+     */
+    inline const Aws::Vector<TagSpecification>& GetTagSpecifications() const{ return m_tagSpecifications; }
+
+    /**
+     * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+     */
+    inline void SetTagSpecifications(const Aws::Vector<TagSpecification>& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = value; }
+
+    /**
+     * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+     */
+    inline void SetTagSpecifications(Aws::Vector<TagSpecification>&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = std::move(value); }
+
+    /**
+     * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+     */
+    inline CreateClientVpnEndpointRequest& WithTagSpecifications(const Aws::Vector<TagSpecification>& value) { SetTagSpecifications(value); return *this;}
+
+    /**
+     * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+     */
+    inline CreateClientVpnEndpointRequest& WithTagSpecifications(Aws::Vector<TagSpecification>&& value) { SetTagSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+     */
+    inline CreateClientVpnEndpointRequest& AddTagSpecifications(const TagSpecification& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+     */
+    inline CreateClientVpnEndpointRequest& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
 
   private:
 
@@ -500,6 +537,9 @@ namespace Model
 
     Aws::String m_clientToken;
     bool m_clientTokenHasBeenSet;
+
+    Aws::Vector<TagSpecification> m_tagSpecifications;
+    bool m_tagSpecificationsHasBeenSet;
   };
 
 } // namespace Model

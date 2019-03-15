@@ -272,37 +272,37 @@ namespace Model
 
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>accoun</p>
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>accoun</p>
      */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>accoun</p>
      */
     inline void SetArn(Aws::String&& value) { m_arnHasBeenSet = true; m_arn = std::move(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>accoun</p>
      */
     inline void SetArn(const char* value) { m_arnHasBeenSet = true; m_arn.assign(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>accoun</p>
      */
     inline ConfigurationItem& WithArn(const Aws::String& value) { SetArn(value); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>accoun</p>
      */
     inline ConfigurationItem& WithArn(Aws::String&& value) { SetArn(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>accoun</p>
      */
     inline ConfigurationItem& WithArn(const char* value) { SetArn(value); return *this;}
 
@@ -568,7 +568,7 @@ namespace Model
      * <p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the
      * current configuration was initiated by the events recorded in the CloudTrail
      * log. For more information about CloudTrail, see <a
-     * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
+     * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
      * Is AWS CloudTrail</a>.</p> <p>An empty field indicates that the current
      * configuration was not initiated by any event.</p>
      */
@@ -578,7 +578,7 @@ namespace Model
      * <p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the
      * current configuration was initiated by the events recorded in the CloudTrail
      * log. For more information about CloudTrail, see <a
-     * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
+     * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
      * Is AWS CloudTrail</a>.</p> <p>An empty field indicates that the current
      * configuration was not initiated by any event.</p>
      */
@@ -588,7 +588,7 @@ namespace Model
      * <p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the
      * current configuration was initiated by the events recorded in the CloudTrail
      * log. For more information about CloudTrail, see <a
-     * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
+     * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
      * Is AWS CloudTrail</a>.</p> <p>An empty field indicates that the current
      * configuration was not initiated by any event.</p>
      */
@@ -598,7 +598,7 @@ namespace Model
      * <p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the
      * current configuration was initiated by the events recorded in the CloudTrail
      * log. For more information about CloudTrail, see <a
-     * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
+     * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
      * Is AWS CloudTrail</a>.</p> <p>An empty field indicates that the current
      * configuration was not initiated by any event.</p>
      */
@@ -608,7 +608,7 @@ namespace Model
      * <p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the
      * current configuration was initiated by the events recorded in the CloudTrail
      * log. For more information about CloudTrail, see <a
-     * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
+     * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
      * Is AWS CloudTrail</a>.</p> <p>An empty field indicates that the current
      * configuration was not initiated by any event.</p>
      */
@@ -618,7 +618,7 @@ namespace Model
      * <p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the
      * current configuration was initiated by the events recorded in the CloudTrail
      * log. For more information about CloudTrail, see <a
-     * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
+     * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
      * Is AWS CloudTrail</a>.</p> <p>An empty field indicates that the current
      * configuration was not initiated by any event.</p>
      */
@@ -628,7 +628,7 @@ namespace Model
      * <p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the
      * current configuration was initiated by the events recorded in the CloudTrail
      * log. For more information about CloudTrail, see <a
-     * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
+     * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
      * Is AWS CloudTrail</a>.</p> <p>An empty field indicates that the current
      * configuration was not initiated by any event.</p>
      */
@@ -638,7 +638,7 @@ namespace Model
      * <p>A list of CloudTrail event IDs.</p> <p>A populated field indicates that the
      * current configuration was initiated by the events recorded in the CloudTrail
      * log. For more information about CloudTrail, see <a
-     * href="http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
+     * href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">What
      * Is AWS CloudTrail</a>.</p> <p>An empty field indicates that the current
      * configuration was not initiated by any event.</p>
      */

@@ -16,7 +16,9 @@
 #pragma once
 #include <aws/medialive/MediaLive_EXPORTS.h>
 #include <aws/medialive/model/ArchiveOutputSettings.h>
+#include <aws/medialive/model/FrameCaptureOutputSettings.h>
 #include <aws/medialive/model/HlsOutputSettings.h>
+#include <aws/medialive/model/MediaPackageOutputSettings.h>
 #include <aws/medialive/model/MsSmoothOutputSettings.h>
 #include <aws/medialive/model/RtmpOutputSettings.h>
 #include <aws/medialive/model/UdpOutputSettings.h>
@@ -68,6 +70,22 @@ namespace Model
 
 
     
+    inline const FrameCaptureOutputSettings& GetFrameCaptureOutputSettings() const{ return m_frameCaptureOutputSettings; }
+
+    
+    inline void SetFrameCaptureOutputSettings(const FrameCaptureOutputSettings& value) { m_frameCaptureOutputSettingsHasBeenSet = true; m_frameCaptureOutputSettings = value; }
+
+    
+    inline void SetFrameCaptureOutputSettings(FrameCaptureOutputSettings&& value) { m_frameCaptureOutputSettingsHasBeenSet = true; m_frameCaptureOutputSettings = std::move(value); }
+
+    
+    inline OutputSettings& WithFrameCaptureOutputSettings(const FrameCaptureOutputSettings& value) { SetFrameCaptureOutputSettings(value); return *this;}
+
+    
+    inline OutputSettings& WithFrameCaptureOutputSettings(FrameCaptureOutputSettings&& value) { SetFrameCaptureOutputSettings(std::move(value)); return *this;}
+
+
+    
     inline const HlsOutputSettings& GetHlsOutputSettings() const{ return m_hlsOutputSettings; }
 
     
@@ -81,6 +99,22 @@ namespace Model
 
     
     inline OutputSettings& WithHlsOutputSettings(HlsOutputSettings&& value) { SetHlsOutputSettings(std::move(value)); return *this;}
+
+
+    
+    inline const MediaPackageOutputSettings& GetMediaPackageOutputSettings() const{ return m_mediaPackageOutputSettings; }
+
+    
+    inline void SetMediaPackageOutputSettings(const MediaPackageOutputSettings& value) { m_mediaPackageOutputSettingsHasBeenSet = true; m_mediaPackageOutputSettings = value; }
+
+    
+    inline void SetMediaPackageOutputSettings(MediaPackageOutputSettings&& value) { m_mediaPackageOutputSettingsHasBeenSet = true; m_mediaPackageOutputSettings = std::move(value); }
+
+    
+    inline OutputSettings& WithMediaPackageOutputSettings(const MediaPackageOutputSettings& value) { SetMediaPackageOutputSettings(value); return *this;}
+
+    
+    inline OutputSettings& WithMediaPackageOutputSettings(MediaPackageOutputSettings&& value) { SetMediaPackageOutputSettings(std::move(value)); return *this;}
 
 
     
@@ -135,8 +169,14 @@ namespace Model
     ArchiveOutputSettings m_archiveOutputSettings;
     bool m_archiveOutputSettingsHasBeenSet;
 
+    FrameCaptureOutputSettings m_frameCaptureOutputSettings;
+    bool m_frameCaptureOutputSettingsHasBeenSet;
+
     HlsOutputSettings m_hlsOutputSettings;
     bool m_hlsOutputSettingsHasBeenSet;
+
+    MediaPackageOutputSettings m_mediaPackageOutputSettings;
+    bool m_mediaPackageOutputSettingsHasBeenSet;
 
     MsSmoothOutputSettings m_msSmoothOutputSettings;
     bool m_msSmoothOutputSettingsHasBeenSet;

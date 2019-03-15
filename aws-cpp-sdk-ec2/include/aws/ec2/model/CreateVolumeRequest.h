@@ -109,7 +109,7 @@ namespace Model
      * There is no way to create an encrypted volume from an unencrypted snapshot or
      * vice versa. If your AMI uses encrypted volumes, you can only launch it on
      * supported instance types. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
      * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline bool GetEncrypted() const{ return m_encrypted; }
@@ -121,7 +121,7 @@ namespace Model
      * There is no way to create an encrypted volume from an unencrypted snapshot or
      * vice versa. If your AMI uses encrypted volumes, you can only launch it on
      * supported instance types. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
      * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline void SetEncrypted(bool value) { m_encryptedHasBeenSet = true; m_encrypted = value; }
@@ -133,7 +133,7 @@ namespace Model
      * There is no way to create an encrypted volume from an unencrypted snapshot or
      * vice versa. If your AMI uses encrypted volumes, you can only launch it on
      * supported instance types. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
      * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline CreateVolumeRequest& WithEncrypted(bool value) { SetEncrypted(value); return *this;}
@@ -142,11 +142,11 @@ namespace Model
     /**
      * <p>The number of I/O operations per second (IOPS) to provision for the volume,
      * with a maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in
-     * most regions. Maximum IOPS of 64,000 is guaranteed only on <a
-     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * most Regions. Maximum IOPS of 64,000 is guaranteed only on <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
      * instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
      * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * <p>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</p>
      */
@@ -155,11 +155,11 @@ namespace Model
     /**
      * <p>The number of I/O operations per second (IOPS) to provision for the volume,
      * with a maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in
-     * most regions. Maximum IOPS of 64,000 is guaranteed only on <a
-     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * most Regions. Maximum IOPS of 64,000 is guaranteed only on <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
      * instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
      * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * <p>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</p>
      */
@@ -168,11 +168,11 @@ namespace Model
     /**
      * <p>The number of I/O operations per second (IOPS) to provision for the volume,
      * with a maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in
-     * most regions. Maximum IOPS of 64,000 is guaranteed only on <a
-     * href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * most Regions. Maximum IOPS of 64,000 is guaranteed only on <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
      * instances</a>. Other instance families guarantee performance up to 32,000 IOPS.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
      * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * <p>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</p>
      */
@@ -348,7 +348,8 @@ namespace Model
      * <code>standard</code>. If you specify a snapshot, the volume size must be equal
      * to or larger than the snapshot size.</p> <p>Default: If you're creating the
      * volume from a snapshot and don't specify a volume size, the default is the
-     * snapshot size.</p>
+     * snapshot size.</p> <note> <p>At least one of Size or SnapshotId are
+     * required.</p> </note>
      */
     inline int GetSize() const{ return m_size; }
 
@@ -359,7 +360,8 @@ namespace Model
      * <code>standard</code>. If you specify a snapshot, the volume size must be equal
      * to or larger than the snapshot size.</p> <p>Default: If you're creating the
      * volume from a snapshot and don't specify a volume size, the default is the
-     * snapshot size.</p>
+     * snapshot size.</p> <note> <p>At least one of Size or SnapshotId are
+     * required.</p> </note>
      */
     inline void SetSize(int value) { m_sizeHasBeenSet = true; m_size = value; }
 
@@ -370,43 +372,51 @@ namespace Model
      * <code>standard</code>. If you specify a snapshot, the volume size must be equal
      * to or larger than the snapshot size.</p> <p>Default: If you're creating the
      * volume from a snapshot and don't specify a volume size, the default is the
-     * snapshot size.</p>
+     * snapshot size.</p> <note> <p>At least one of Size or SnapshotId are
+     * required.</p> </note>
      */
     inline CreateVolumeRequest& WithSize(int value) { SetSize(value); return *this;}
 
 
     /**
-     * <p>The snapshot from which to create the volume.</p>
+     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
+     * Size or SnapshotId are required.</p> </note>
      */
     inline const Aws::String& GetSnapshotId() const{ return m_snapshotId; }
 
     /**
-     * <p>The snapshot from which to create the volume.</p>
+     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
+     * Size or SnapshotId are required.</p> </note>
      */
     inline void SetSnapshotId(const Aws::String& value) { m_snapshotIdHasBeenSet = true; m_snapshotId = value; }
 
     /**
-     * <p>The snapshot from which to create the volume.</p>
+     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
+     * Size or SnapshotId are required.</p> </note>
      */
     inline void SetSnapshotId(Aws::String&& value) { m_snapshotIdHasBeenSet = true; m_snapshotId = std::move(value); }
 
     /**
-     * <p>The snapshot from which to create the volume.</p>
+     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
+     * Size or SnapshotId are required.</p> </note>
      */
     inline void SetSnapshotId(const char* value) { m_snapshotIdHasBeenSet = true; m_snapshotId.assign(value); }
 
     /**
-     * <p>The snapshot from which to create the volume.</p>
+     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
+     * Size or SnapshotId are required.</p> </note>
      */
     inline CreateVolumeRequest& WithSnapshotId(const Aws::String& value) { SetSnapshotId(value); return *this;}
 
     /**
-     * <p>The snapshot from which to create the volume.</p>
+     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
+     * Size or SnapshotId are required.</p> </note>
      */
     inline CreateVolumeRequest& WithSnapshotId(Aws::String&& value) { SetSnapshotId(std::move(value)); return *this;}
 
     /**
-     * <p>The snapshot from which to create the volume.</p>
+     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
+     * Size or SnapshotId are required.</p> </note>
      */
     inline CreateVolumeRequest& WithSnapshotId(const char* value) { SetSnapshotId(value); return *this;}
 
@@ -418,7 +428,7 @@ namespace Model
      * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
      * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
      * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other regions,
+     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
      * EBS defaults to <code>gp2</code>.</p>
      */
     inline const VolumeType& GetVolumeType() const{ return m_volumeType; }
@@ -430,7 +440,7 @@ namespace Model
      * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
      * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
      * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other regions,
+     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
      * EBS defaults to <code>gp2</code>.</p>
      */
     inline void SetVolumeType(const VolumeType& value) { m_volumeTypeHasBeenSet = true; m_volumeType = value; }
@@ -442,7 +452,7 @@ namespace Model
      * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
      * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
      * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other regions,
+     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
      * EBS defaults to <code>gp2</code>.</p>
      */
     inline void SetVolumeType(VolumeType&& value) { m_volumeTypeHasBeenSet = true; m_volumeType = std::move(value); }
@@ -454,7 +464,7 @@ namespace Model
      * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
      * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
      * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other regions,
+     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
      * EBS defaults to <code>gp2</code>.</p>
      */
     inline CreateVolumeRequest& WithVolumeType(const VolumeType& value) { SetVolumeType(value); return *this;}
@@ -466,7 +476,7 @@ namespace Model
      * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
      * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
      * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other regions,
+     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
      * EBS defaults to <code>gp2</code>.</p>
      */
     inline CreateVolumeRequest& WithVolumeType(VolumeType&& value) { SetVolumeType(std::move(value)); return *this;}

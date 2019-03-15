@@ -18,6 +18,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/medialive/model/InputState.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/medialive/model/InputType.h>
 #include <aws/medialive/model/InputDestination.h>
 #include <aws/medialive/model/MediaConnectFlow.h>
@@ -326,42 +327,42 @@ namespace Model
 
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline void SetSecurityGroups(const Aws::Vector<Aws::String>& value) { m_securityGroups = value; }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline void SetSecurityGroups(Aws::Vector<Aws::String>&& value) { m_securityGroups = std::move(value); }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline DescribeInputResult& WithSecurityGroups(const Aws::Vector<Aws::String>& value) { SetSecurityGroups(value); return *this;}
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline DescribeInputResult& WithSecurityGroups(Aws::Vector<Aws::String>&& value) { SetSecurityGroups(std::move(value)); return *this;}
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline DescribeInputResult& AddSecurityGroups(const Aws::String& value) { m_securityGroups.push_back(value); return *this; }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline DescribeInputResult& AddSecurityGroups(Aws::String&& value) { m_securityGroups.push_back(std::move(value)); return *this; }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline DescribeInputResult& AddSecurityGroups(const char* value) { m_securityGroups.push_back(value); return *this; }
 
@@ -418,6 +419,67 @@ namespace Model
     inline DescribeInputResult& WithState(InputState&& value) { SetState(std::move(value)); return *this;}
 
 
+    /**
+     * A collection of key-value pairs.
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tags = value; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tags = std::move(value); }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& AddTags(const Aws::String& key, const Aws::String& value) { m_tags.emplace(key, value); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& AddTags(Aws::String&& key, const Aws::String& value) { m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& AddTags(const Aws::String& key, Aws::String&& value) { m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& AddTags(Aws::String&& key, Aws::String&& value) { m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& AddTags(const char* key, Aws::String&& value) { m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& AddTags(Aws::String&& key, const char* value) { m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline DescribeInputResult& AddTags(const char* key, const char* value) { m_tags.emplace(key, value); return *this; }
+
+
     
     inline const InputType& GetType() const{ return m_type; }
 
@@ -454,6 +516,8 @@ namespace Model
     Aws::Vector<InputSource> m_sources;
 
     InputState m_state;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
 
     InputType m_type;
   };

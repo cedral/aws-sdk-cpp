@@ -114,8 +114,7 @@ namespace Model
      * </li> <li> <p>CACHE_ENGINE</p> </li> <li> <p>DATABASE_ENGINE</p> </li> <li>
      * <p>DEPLOYMENT_OPTION</p> </li> <li> <p>INSTANCE_TYPE</p> </li> <li>
      * <p>LINKED_ACCOUNT</p> </li> <li> <p>OPERATING_SYSTEM</p> </li> <li>
-     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TAG</p> </li> <li>
-     * <p>TENANCY</p> </li> </ul>
+     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TENANCY</p> </li> </ul>
      */
     inline const Aws::Vector<GroupDefinition>& GetGroupBy() const{ return m_groupBy; }
 
@@ -124,8 +123,7 @@ namespace Model
      * </li> <li> <p>CACHE_ENGINE</p> </li> <li> <p>DATABASE_ENGINE</p> </li> <li>
      * <p>DEPLOYMENT_OPTION</p> </li> <li> <p>INSTANCE_TYPE</p> </li> <li>
      * <p>LINKED_ACCOUNT</p> </li> <li> <p>OPERATING_SYSTEM</p> </li> <li>
-     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TAG</p> </li> <li>
-     * <p>TENANCY</p> </li> </ul>
+     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TENANCY</p> </li> </ul>
      */
     inline void SetGroupBy(const Aws::Vector<GroupDefinition>& value) { m_groupByHasBeenSet = true; m_groupBy = value; }
 
@@ -134,8 +132,7 @@ namespace Model
      * </li> <li> <p>CACHE_ENGINE</p> </li> <li> <p>DATABASE_ENGINE</p> </li> <li>
      * <p>DEPLOYMENT_OPTION</p> </li> <li> <p>INSTANCE_TYPE</p> </li> <li>
      * <p>LINKED_ACCOUNT</p> </li> <li> <p>OPERATING_SYSTEM</p> </li> <li>
-     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TAG</p> </li> <li>
-     * <p>TENANCY</p> </li> </ul>
+     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TENANCY</p> </li> </ul>
      */
     inline void SetGroupBy(Aws::Vector<GroupDefinition>&& value) { m_groupByHasBeenSet = true; m_groupBy = std::move(value); }
 
@@ -144,8 +141,7 @@ namespace Model
      * </li> <li> <p>CACHE_ENGINE</p> </li> <li> <p>DATABASE_ENGINE</p> </li> <li>
      * <p>DEPLOYMENT_OPTION</p> </li> <li> <p>INSTANCE_TYPE</p> </li> <li>
      * <p>LINKED_ACCOUNT</p> </li> <li> <p>OPERATING_SYSTEM</p> </li> <li>
-     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TAG</p> </li> <li>
-     * <p>TENANCY</p> </li> </ul>
+     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TENANCY</p> </li> </ul>
      */
     inline GetReservationCoverageRequest& WithGroupBy(const Aws::Vector<GroupDefinition>& value) { SetGroupBy(value); return *this;}
 
@@ -154,8 +150,7 @@ namespace Model
      * </li> <li> <p>CACHE_ENGINE</p> </li> <li> <p>DATABASE_ENGINE</p> </li> <li>
      * <p>DEPLOYMENT_OPTION</p> </li> <li> <p>INSTANCE_TYPE</p> </li> <li>
      * <p>LINKED_ACCOUNT</p> </li> <li> <p>OPERATING_SYSTEM</p> </li> <li>
-     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TAG</p> </li> <li>
-     * <p>TENANCY</p> </li> </ul>
+     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TENANCY</p> </li> </ul>
      */
     inline GetReservationCoverageRequest& WithGroupBy(Aws::Vector<GroupDefinition>&& value) { SetGroupBy(std::move(value)); return *this;}
 
@@ -164,8 +159,7 @@ namespace Model
      * </li> <li> <p>CACHE_ENGINE</p> </li> <li> <p>DATABASE_ENGINE</p> </li> <li>
      * <p>DEPLOYMENT_OPTION</p> </li> <li> <p>INSTANCE_TYPE</p> </li> <li>
      * <p>LINKED_ACCOUNT</p> </li> <li> <p>OPERATING_SYSTEM</p> </li> <li>
-     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TAG</p> </li> <li>
-     * <p>TENANCY</p> </li> </ul>
+     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TENANCY</p> </li> </ul>
      */
     inline GetReservationCoverageRequest& AddGroupBy(const GroupDefinition& value) { m_groupByHasBeenSet = true; m_groupBy.push_back(value); return *this; }
 
@@ -174,8 +168,7 @@ namespace Model
      * </li> <li> <p>CACHE_ENGINE</p> </li> <li> <p>DATABASE_ENGINE</p> </li> <li>
      * <p>DEPLOYMENT_OPTION</p> </li> <li> <p>INSTANCE_TYPE</p> </li> <li>
      * <p>LINKED_ACCOUNT</p> </li> <li> <p>OPERATING_SYSTEM</p> </li> <li>
-     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TAG</p> </li> <li>
-     * <p>TENANCY</p> </li> </ul>
+     * <p>PLATFORM</p> </li> <li> <p>REGION</p> </li> <li> <p>TENANCY</p> </li> </ul>
      */
     inline GetReservationCoverageRequest& AddGroupBy(GroupDefinition&& value) { m_groupByHasBeenSet = true; m_groupBy.push_back(std::move(value)); return *this; }
 
@@ -317,28 +310,60 @@ namespace Model
     inline GetReservationCoverageRequest& WithFilter(Expression&& value) { SetFilter(std::move(value)); return *this;}
 
 
-    
+    /**
+     * <p>The measurement that you want your reservation coverage reported in.</p>
+     * <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.
+     * You can use multiple values in a request.</p>
+     */
     inline const Aws::Vector<Aws::String>& GetMetrics() const{ return m_metrics; }
 
-    
+    /**
+     * <p>The measurement that you want your reservation coverage reported in.</p>
+     * <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.
+     * You can use multiple values in a request.</p>
+     */
     inline void SetMetrics(const Aws::Vector<Aws::String>& value) { m_metricsHasBeenSet = true; m_metrics = value; }
 
-    
+    /**
+     * <p>The measurement that you want your reservation coverage reported in.</p>
+     * <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.
+     * You can use multiple values in a request.</p>
+     */
     inline void SetMetrics(Aws::Vector<Aws::String>&& value) { m_metricsHasBeenSet = true; m_metrics = std::move(value); }
 
-    
+    /**
+     * <p>The measurement that you want your reservation coverage reported in.</p>
+     * <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.
+     * You can use multiple values in a request.</p>
+     */
     inline GetReservationCoverageRequest& WithMetrics(const Aws::Vector<Aws::String>& value) { SetMetrics(value); return *this;}
 
-    
+    /**
+     * <p>The measurement that you want your reservation coverage reported in.</p>
+     * <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.
+     * You can use multiple values in a request.</p>
+     */
     inline GetReservationCoverageRequest& WithMetrics(Aws::Vector<Aws::String>&& value) { SetMetrics(std::move(value)); return *this;}
 
-    
+    /**
+     * <p>The measurement that you want your reservation coverage reported in.</p>
+     * <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.
+     * You can use multiple values in a request.</p>
+     */
     inline GetReservationCoverageRequest& AddMetrics(const Aws::String& value) { m_metricsHasBeenSet = true; m_metrics.push_back(value); return *this; }
 
-    
+    /**
+     * <p>The measurement that you want your reservation coverage reported in.</p>
+     * <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.
+     * You can use multiple values in a request.</p>
+     */
     inline GetReservationCoverageRequest& AddMetrics(Aws::String&& value) { m_metricsHasBeenSet = true; m_metrics.push_back(std::move(value)); return *this; }
 
-    
+    /**
+     * <p>The measurement that you want your reservation coverage reported in.</p>
+     * <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>.
+     * You can use multiple values in a request.</p>
+     */
     inline GetReservationCoverageRequest& AddMetrics(const char* value) { m_metricsHasBeenSet = true; m_metrics.push_back(value); return *this; }
 
 

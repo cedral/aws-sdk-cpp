@@ -864,10 +864,10 @@ namespace Model
    * with each device (Registry), configure logging, and create and manage policies
    * and credentials to authenticate devices.</p> <p>For more information about how
    * AWS IoT works, see the <a
-   * href="http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
+   * href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer
    * Guide</a>.</p> <p>For information about how to use the credentials provider for
    * AWS IoT, see <a
-   * href="http://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing
+   * href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing
    * Direct Calls to AWS Services</a>.</p>
    */
   class AWS_IOT_API IoTClient : public Aws::Client::AWSJsonClient
@@ -1080,16 +1080,18 @@ namespace Model
         virtual void AttachSecurityProfileAsync(const Model::AttachSecurityProfileRequest& request, const AttachSecurityProfileResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Attaches the specified principal to the specified thing.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Attaches the specified principal to the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/AttachThingPrincipal">AWS
          * API Reference</a></p>
          */
         virtual Model::AttachThingPrincipalOutcome AttachThingPrincipal(const Model::AttachThingPrincipalRequest& request) const;
 
         /**
-         * <p>Attaches the specified principal to the specified thing.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Attaches the specified principal to the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/AttachThingPrincipal">AWS
          * API Reference</a></p>
          *
@@ -1098,8 +1100,9 @@ namespace Model
         virtual Model::AttachThingPrincipalOutcomeCallable AttachThingPrincipalCallable(const Model::AttachThingPrincipalRequest& request) const;
 
         /**
-         * <p>Attaches the specified principal to the specified thing.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Attaches the specified principal to the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/AttachThingPrincipal">AWS
          * API Reference</a></p>
          *
@@ -1728,7 +1731,7 @@ namespace Model
         /**
          * <p>Creates a thing record in the registry.</p> <note> <p>This is a control plane
          * operation. See <a
-         * href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+         * href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
          * for information about authorizing control plane actions.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateThing">AWS API
@@ -1739,7 +1742,7 @@ namespace Model
         /**
          * <p>Creates a thing record in the registry.</p> <note> <p>This is a control plane
          * operation. See <a
-         * href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+         * href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
          * for information about authorizing control plane actions.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateThing">AWS API
@@ -1752,7 +1755,7 @@ namespace Model
         /**
          * <p>Creates a thing record in the registry.</p> <note> <p>This is a control plane
          * operation. See <a
-         * href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+         * href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
          * for information about authorizing control plane actions.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateThing">AWS API
@@ -1764,7 +1767,7 @@ namespace Model
 
         /**
          * <p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a
-         * href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+         * href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
          * for information about authorizing control plane actions.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateThingGroup">AWS
@@ -1774,7 +1777,7 @@ namespace Model
 
         /**
          * <p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a
-         * href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+         * href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
          * for information about authorizing control plane actions.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateThingGroup">AWS
@@ -1786,7 +1789,7 @@ namespace Model
 
         /**
          * <p>Create a thing group.</p> <note> <p>This is a control plane operation. See <a
-         * href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+         * href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
          * for information about authorizing control plane actions.</p> </note><p><h3>See
          * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/CreateThingGroup">AWS
@@ -3061,18 +3064,22 @@ namespace Model
         virtual void DetachSecurityProfileAsync(const Model::DetachSecurityProfileRequest& request, const DetachSecurityProfileResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Detaches the specified principal from the specified thing.</p> <note> <p>This
-         * call is asynchronous. It might take several seconds for the detachment to
-         * propagate.</p> </note><p><h3>See Also:</h3>   <a
+         * <p>Detaches the specified principal from the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p> <note> <p>This call is asynchronous. It might take
+         * several seconds for the detachment to propagate.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DetachThingPrincipal">AWS
          * API Reference</a></p>
          */
         virtual Model::DetachThingPrincipalOutcome DetachThingPrincipal(const Model::DetachThingPrincipalRequest& request) const;
 
         /**
-         * <p>Detaches the specified principal from the specified thing.</p> <note> <p>This
-         * call is asynchronous. It might take several seconds for the detachment to
-         * propagate.</p> </note><p><h3>See Also:</h3>   <a
+         * <p>Detaches the specified principal from the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p> <note> <p>This call is asynchronous. It might take
+         * several seconds for the detachment to propagate.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DetachThingPrincipal">AWS
          * API Reference</a></p>
          *
@@ -3081,9 +3088,11 @@ namespace Model
         virtual Model::DetachThingPrincipalOutcomeCallable DetachThingPrincipalCallable(const Model::DetachThingPrincipalRequest& request) const;
 
         /**
-         * <p>Detaches the specified principal from the specified thing.</p> <note> <p>This
-         * call is asynchronous. It might take several seconds for the detachment to
-         * propagate.</p> </note><p><h3>See Also:</h3>   <a
+         * <p>Detaches the specified principal from the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p> <note> <p>This call is asynchronous. It might take
+         * several seconds for the detachment to propagate.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/DetachThingPrincipal">AWS
          * API Reference</a></p>
          *
@@ -3880,16 +3889,18 @@ namespace Model
         virtual void ListPolicyVersionsAsync(const Model::ListPolicyVersionsRequest& request, const ListPolicyVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Lists the things associated with the specified principal.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the things associated with the specified principal. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ListPrincipalThings">AWS
          * API Reference</a></p>
          */
         virtual Model::ListPrincipalThingsOutcome ListPrincipalThings(const Model::ListPrincipalThingsRequest& request) const;
 
         /**
-         * <p>Lists the things associated with the specified principal.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the things associated with the specified principal. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ListPrincipalThings">AWS
          * API Reference</a></p>
          *
@@ -3898,8 +3909,9 @@ namespace Model
         virtual Model::ListPrincipalThingsOutcomeCallable ListPrincipalThingsCallable(const Model::ListPrincipalThingsRequest& request) const;
 
         /**
-         * <p>Lists the things associated with the specified principal.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the things associated with the specified principal. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ListPrincipalThings">AWS
          * API Reference</a></p>
          *
@@ -4179,16 +4191,18 @@ namespace Model
         virtual void ListThingGroupsForThingAsync(const Model::ListThingGroupsForThingRequest& request, const ListThingGroupsForThingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Lists the principals associated with the specified thing.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the principals associated with the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ListThingPrincipals">AWS
          * API Reference</a></p>
          */
         virtual Model::ListThingPrincipalsOutcome ListThingPrincipals(const Model::ListThingPrincipalsRequest& request) const;
 
         /**
-         * <p>Lists the principals associated with the specified thing.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the principals associated with the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ListThingPrincipals">AWS
          * API Reference</a></p>
          *
@@ -4197,8 +4211,9 @@ namespace Model
         virtual Model::ListThingPrincipalsOutcomeCallable ListThingPrincipalsCallable(const Model::ListThingPrincipalsRequest& request) const;
 
         /**
-         * <p>Lists the principals associated with the specified thing.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the principals associated with the specified thing. A principal can be
+         * X.509 certificates, IAM users, groups, and roles, Amazon Cognito identities or
+         * federated identities.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ListThingPrincipals">AWS
          * API Reference</a></p>
          *

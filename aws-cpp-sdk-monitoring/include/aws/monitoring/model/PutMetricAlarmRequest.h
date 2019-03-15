@@ -1018,7 +1018,7 @@ namespace Model
      * <p>The number of datapoints that must be breaching to trigger the alarm. This is
      * used only if you are setting an "M out of N" alarm. In that case, this value is
      * the M. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating
      * an Alarm</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
      */
     inline int GetDatapointsToAlarm() const{ return m_datapointsToAlarm; }
@@ -1027,7 +1027,7 @@ namespace Model
      * <p>The number of datapoints that must be breaching to trigger the alarm. This is
      * used only if you are setting an "M out of N" alarm. In that case, this value is
      * the M. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating
      * an Alarm</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
      */
     inline void SetDatapointsToAlarm(int value) { m_datapointsToAlarmHasBeenSet = true; m_datapointsToAlarm = value; }
@@ -1036,7 +1036,7 @@ namespace Model
      * <p>The number of datapoints that must be breaching to trigger the alarm. This is
      * used only if you are setting an "M out of N" alarm. In that case, this value is
      * the M. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation">Evaluating
      * an Alarm</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
      */
     inline PutMetricAlarmRequest& WithDatapointsToAlarm(int value) { SetDatapointsToAlarm(value); return *this;}
@@ -1093,7 +1093,7 @@ namespace Model
      * <p> Sets how this alarm is to handle missing data points. If
      * <code>TreatMissingData</code> is omitted, the default behavior of
      * <code>missing</code> is used. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
      * How CloudWatch Alarms Treats Missing Data</a>.</p> <p>Valid Values:
      * <code>breaching | notBreaching | ignore | missing</code> </p>
      */
@@ -1103,7 +1103,7 @@ namespace Model
      * <p> Sets how this alarm is to handle missing data points. If
      * <code>TreatMissingData</code> is omitted, the default behavior of
      * <code>missing</code> is used. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
      * How CloudWatch Alarms Treats Missing Data</a>.</p> <p>Valid Values:
      * <code>breaching | notBreaching | ignore | missing</code> </p>
      */
@@ -1113,7 +1113,7 @@ namespace Model
      * <p> Sets how this alarm is to handle missing data points. If
      * <code>TreatMissingData</code> is omitted, the default behavior of
      * <code>missing</code> is used. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
      * How CloudWatch Alarms Treats Missing Data</a>.</p> <p>Valid Values:
      * <code>breaching | notBreaching | ignore | missing</code> </p>
      */
@@ -1123,7 +1123,7 @@ namespace Model
      * <p> Sets how this alarm is to handle missing data points. If
      * <code>TreatMissingData</code> is omitted, the default behavior of
      * <code>missing</code> is used. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
      * How CloudWatch Alarms Treats Missing Data</a>.</p> <p>Valid Values:
      * <code>breaching | notBreaching | ignore | missing</code> </p>
      */
@@ -1133,7 +1133,7 @@ namespace Model
      * <p> Sets how this alarm is to handle missing data points. If
      * <code>TreatMissingData</code> is omitted, the default behavior of
      * <code>missing</code> is used. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
      * How CloudWatch Alarms Treats Missing Data</a>.</p> <p>Valid Values:
      * <code>breaching | notBreaching | ignore | missing</code> </p>
      */
@@ -1143,7 +1143,7 @@ namespace Model
      * <p> Sets how this alarm is to handle missing data points. If
      * <code>TreatMissingData</code> is omitted, the default behavior of
      * <code>missing</code> is used. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
      * How CloudWatch Alarms Treats Missing Data</a>.</p> <p>Valid Values:
      * <code>breaching | notBreaching | ignore | missing</code> </p>
      */
@@ -1153,7 +1153,7 @@ namespace Model
      * <p> Sets how this alarm is to handle missing data points. If
      * <code>TreatMissingData</code> is omitted, the default behavior of
      * <code>missing</code> is used. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarms-and-missing-data">Configuring
      * How CloudWatch Alarms Treats Missing Data</a>.</p> <p>Valid Values:
      * <code>breaching | notBreaching | ignore | missing</code> </p>
      */
@@ -1167,7 +1167,7 @@ namespace Model
      * <code>evaluate</code> or omit this parameter, the alarm is always evaluated and
      * possibly changes state no matter how many data points are available. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
      * CloudWatch Alarms and Low Data Samples</a>.</p> <p>Valid Values: <code>evaluate
      * | ignore</code> </p>
      */
@@ -1180,7 +1180,7 @@ namespace Model
      * <code>evaluate</code> or omit this parameter, the alarm is always evaluated and
      * possibly changes state no matter how many data points are available. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
      * CloudWatch Alarms and Low Data Samples</a>.</p> <p>Valid Values: <code>evaluate
      * | ignore</code> </p>
      */
@@ -1193,7 +1193,7 @@ namespace Model
      * <code>evaluate</code> or omit this parameter, the alarm is always evaluated and
      * possibly changes state no matter how many data points are available. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
      * CloudWatch Alarms and Low Data Samples</a>.</p> <p>Valid Values: <code>evaluate
      * | ignore</code> </p>
      */
@@ -1206,7 +1206,7 @@ namespace Model
      * <code>evaluate</code> or omit this parameter, the alarm is always evaluated and
      * possibly changes state no matter how many data points are available. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
      * CloudWatch Alarms and Low Data Samples</a>.</p> <p>Valid Values: <code>evaluate
      * | ignore</code> </p>
      */
@@ -1219,7 +1219,7 @@ namespace Model
      * <code>evaluate</code> or omit this parameter, the alarm is always evaluated and
      * possibly changes state no matter how many data points are available. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
      * CloudWatch Alarms and Low Data Samples</a>.</p> <p>Valid Values: <code>evaluate
      * | ignore</code> </p>
      */
@@ -1232,7 +1232,7 @@ namespace Model
      * <code>evaluate</code> or omit this parameter, the alarm is always evaluated and
      * possibly changes state no matter how many data points are available. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
      * CloudWatch Alarms and Low Data Samples</a>.</p> <p>Valid Values: <code>evaluate
      * | ignore</code> </p>
      */
@@ -1245,7 +1245,7 @@ namespace Model
      * <code>evaluate</code> or omit this parameter, the alarm is always evaluated and
      * possibly changes state no matter how many data points are available. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+     * href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
      * CloudWatch Alarms and Low Data Samples</a>.</p> <p>Valid Values: <code>evaluate
      * | ignore</code> </p>
      */

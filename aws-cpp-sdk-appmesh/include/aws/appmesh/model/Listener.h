@@ -37,7 +37,7 @@ namespace Model
   /**
    * <p>An object representing a listener for a virtual node.</p><p><h3>See
    * Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/appmesh-2018-10-01/Listener">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/appmesh-2019-01-25/Listener">AWS
    * API Reference</a></p>
    */
   class AWS_APPMESH_API Listener
@@ -51,51 +51,26 @@ namespace Model
 
     /**
      * <p>The health check information for the listener.</p>
-         <note>
-          
-     * <p>Listener health checks are not available during the App Mesh preview.</p>
-   
-     *      </note>
      */
     inline const HealthCheckPolicy& GetHealthCheck() const{ return m_healthCheck; }
 
     /**
      * <p>The health check information for the listener.</p>
-         <note>
-          
-     * <p>Listener health checks are not available during the App Mesh preview.</p>
-   
-     *      </note>
      */
     inline void SetHealthCheck(const HealthCheckPolicy& value) { m_healthCheckHasBeenSet = true; m_healthCheck = value; }
 
     /**
      * <p>The health check information for the listener.</p>
-         <note>
-          
-     * <p>Listener health checks are not available during the App Mesh preview.</p>
-   
-     *      </note>
      */
     inline void SetHealthCheck(HealthCheckPolicy&& value) { m_healthCheckHasBeenSet = true; m_healthCheck = std::move(value); }
 
     /**
      * <p>The health check information for the listener.</p>
-         <note>
-          
-     * <p>Listener health checks are not available during the App Mesh preview.</p>
-   
-     *      </note>
      */
     inline Listener& WithHealthCheck(const HealthCheckPolicy& value) { SetHealthCheck(value); return *this;}
 
     /**
      * <p>The health check information for the listener.</p>
-         <note>
-          
-     * <p>Listener health checks are not available during the App Mesh preview.</p>
-   
-     *      </note>
      */
     inline Listener& WithHealthCheck(HealthCheckPolicy&& value) { SetHealthCheck(std::move(value)); return *this;}
 

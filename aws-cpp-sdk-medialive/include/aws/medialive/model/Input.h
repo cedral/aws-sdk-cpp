@@ -18,6 +18,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/medialive/model/InputState.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/medialive/model/InputType.h>
 #include <aws/medialive/model/InputDestination.h>
 #include <aws/medialive/model/MediaConnectFlow.h>
@@ -326,42 +327,42 @@ namespace Model
 
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline void SetSecurityGroups(const Aws::Vector<Aws::String>& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = value; }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline void SetSecurityGroups(Aws::Vector<Aws::String>&& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = std::move(value); }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline Input& WithSecurityGroups(const Aws::Vector<Aws::String>& value) { SetSecurityGroups(value); return *this;}
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline Input& WithSecurityGroups(Aws::Vector<Aws::String>&& value) { SetSecurityGroups(std::move(value)); return *this;}
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline Input& AddSecurityGroups(const Aws::String& value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(value); return *this; }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline Input& AddSecurityGroups(Aws::String&& value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(std::move(value)); return *this; }
 
     /**
-     * A list of IDs for all the security groups attached to the input.
+     * A list of IDs for all the Input Security Groups attached to the input.
      */
     inline Input& AddSecurityGroups(const char* value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(value); return *this; }
 
@@ -418,6 +419,67 @@ namespace Model
     inline Input& WithState(InputState&& value) { SetState(std::move(value)); return *this;}
 
 
+    /**
+     * A collection of key-value pairs.
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline Input& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+
     
     inline const InputType& GetType() const{ return m_type; }
 
@@ -464,6 +526,9 @@ namespace Model
 
     InputState m_state;
     bool m_stateHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
 
     InputType m_type;
     bool m_typeHasBeenSet;

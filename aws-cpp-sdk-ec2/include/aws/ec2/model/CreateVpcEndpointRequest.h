@@ -189,58 +189,51 @@ namespace Model
 
 
     /**
-     * <p>(Gateway endpoint) A policy to attach to the endpoint that controls access to
-     * the service. The policy must be in valid JSON format. If this parameter is not
-     * specified, we attach a default policy that allows full access to the
-     * service.</p>
+     * <p>A policy to attach to the endpoint that controls access to the service. The
+     * policy must be in valid JSON format. If this parameter is not specified, we
+     * attach a default policy that allows full access to the service.</p>
      */
     inline const Aws::String& GetPolicyDocument() const{ return m_policyDocument; }
 
     /**
-     * <p>(Gateway endpoint) A policy to attach to the endpoint that controls access to
-     * the service. The policy must be in valid JSON format. If this parameter is not
-     * specified, we attach a default policy that allows full access to the
-     * service.</p>
+     * <p>A policy to attach to the endpoint that controls access to the service. The
+     * policy must be in valid JSON format. If this parameter is not specified, we
+     * attach a default policy that allows full access to the service.</p>
      */
     inline void SetPolicyDocument(const Aws::String& value) { m_policyDocumentHasBeenSet = true; m_policyDocument = value; }
 
     /**
-     * <p>(Gateway endpoint) A policy to attach to the endpoint that controls access to
-     * the service. The policy must be in valid JSON format. If this parameter is not
-     * specified, we attach a default policy that allows full access to the
-     * service.</p>
+     * <p>A policy to attach to the endpoint that controls access to the service. The
+     * policy must be in valid JSON format. If this parameter is not specified, we
+     * attach a default policy that allows full access to the service.</p>
      */
     inline void SetPolicyDocument(Aws::String&& value) { m_policyDocumentHasBeenSet = true; m_policyDocument = std::move(value); }
 
     /**
-     * <p>(Gateway endpoint) A policy to attach to the endpoint that controls access to
-     * the service. The policy must be in valid JSON format. If this parameter is not
-     * specified, we attach a default policy that allows full access to the
-     * service.</p>
+     * <p>A policy to attach to the endpoint that controls access to the service. The
+     * policy must be in valid JSON format. If this parameter is not specified, we
+     * attach a default policy that allows full access to the service.</p>
      */
     inline void SetPolicyDocument(const char* value) { m_policyDocumentHasBeenSet = true; m_policyDocument.assign(value); }
 
     /**
-     * <p>(Gateway endpoint) A policy to attach to the endpoint that controls access to
-     * the service. The policy must be in valid JSON format. If this parameter is not
-     * specified, we attach a default policy that allows full access to the
-     * service.</p>
+     * <p>A policy to attach to the endpoint that controls access to the service. The
+     * policy must be in valid JSON format. If this parameter is not specified, we
+     * attach a default policy that allows full access to the service.</p>
      */
     inline CreateVpcEndpointRequest& WithPolicyDocument(const Aws::String& value) { SetPolicyDocument(value); return *this;}
 
     /**
-     * <p>(Gateway endpoint) A policy to attach to the endpoint that controls access to
-     * the service. The policy must be in valid JSON format. If this parameter is not
-     * specified, we attach a default policy that allows full access to the
-     * service.</p>
+     * <p>A policy to attach to the endpoint that controls access to the service. The
+     * policy must be in valid JSON format. If this parameter is not specified, we
+     * attach a default policy that allows full access to the service.</p>
      */
     inline CreateVpcEndpointRequest& WithPolicyDocument(Aws::String&& value) { SetPolicyDocument(std::move(value)); return *this;}
 
     /**
-     * <p>(Gateway endpoint) A policy to attach to the endpoint that controls access to
-     * the service. The policy must be in valid JSON format. If this parameter is not
-     * specified, we attach a default policy that allows full access to the
-     * service.</p>
+     * <p>A policy to attach to the endpoint that controls access to the service. The
+     * policy must be in valid JSON format. If this parameter is not specified, we
+     * attach a default policy that allows full access to the service.</p>
      */
     inline CreateVpcEndpointRequest& WithPolicyDocument(const char* value) { SetPolicyDocument(value); return *this;}
 
@@ -387,7 +380,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
@@ -395,7 +388,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(const Aws::String& value) { m_clientTokenHasBeenSet = true; m_clientToken = value; }
@@ -403,7 +396,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(Aws::String&& value) { m_clientTokenHasBeenSet = true; m_clientToken = std::move(value); }
@@ -411,7 +404,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(const char* value) { m_clientTokenHasBeenSet = true; m_clientToken.assign(value); }
@@ -419,7 +412,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline CreateVpcEndpointRequest& WithClientToken(const Aws::String& value) { SetClientToken(value); return *this;}
@@ -427,7 +420,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline CreateVpcEndpointRequest& WithClientToken(Aws::String&& value) { SetClientToken(std::move(value)); return *this;}
@@ -435,7 +428,7 @@ namespace Model
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
      * the request. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline CreateVpcEndpointRequest& WithClientToken(const char* value) { SetClientToken(value); return *this;}

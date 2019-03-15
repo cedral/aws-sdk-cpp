@@ -15,18 +15,14 @@
 
 #include <aws/apigatewayv2/model/DeleteApiMappingRequest.h>
 #include <aws/core/utils/json/JsonSerializer.h>
-#include <aws/core/http/URI.h>
-#include <aws/core/utils/memory/stl/AWSStringStream.h>
 
 #include <utility>
 
 using namespace Aws::ApiGatewayV2::Model;
 using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
-using namespace Aws::Http;
 
 DeleteApiMappingRequest::DeleteApiMappingRequest() : 
-    m_apiIdHasBeenSet(false),
     m_apiMappingIdHasBeenSet(false),
     m_domainNameHasBeenSet(false)
 {
@@ -34,20 +30,9 @@ DeleteApiMappingRequest::DeleteApiMappingRequest() :
 
 Aws::String DeleteApiMappingRequest::SerializePayload() const
 {
-  return "";
+  return {};
 }
 
-void DeleteApiMappingRequest::AddQueryStringParameters(URI& uri) const
-{
-    Aws::StringStream ss;
-    if(m_apiIdHasBeenSet)
-    {
-      ss << m_apiId;
-      uri.AddQueryStringParameter("apiId", ss.str());
-      ss.str("");
-    }
-
-}
 
 
 

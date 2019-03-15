@@ -16,7 +16,9 @@
 #pragma once
 #include <aws/medialive/MediaLive_EXPORTS.h>
 #include <aws/medialive/model/ArchiveGroupSettings.h>
+#include <aws/medialive/model/FrameCaptureGroupSettings.h>
 #include <aws/medialive/model/HlsGroupSettings.h>
+#include <aws/medialive/model/MediaPackageGroupSettings.h>
 #include <aws/medialive/model/MsSmoothGroupSettings.h>
 #include <aws/medialive/model/RtmpGroupSettings.h>
 #include <aws/medialive/model/UdpGroupSettings.h>
@@ -68,6 +70,22 @@ namespace Model
 
 
     
+    inline const FrameCaptureGroupSettings& GetFrameCaptureGroupSettings() const{ return m_frameCaptureGroupSettings; }
+
+    
+    inline void SetFrameCaptureGroupSettings(const FrameCaptureGroupSettings& value) { m_frameCaptureGroupSettingsHasBeenSet = true; m_frameCaptureGroupSettings = value; }
+
+    
+    inline void SetFrameCaptureGroupSettings(FrameCaptureGroupSettings&& value) { m_frameCaptureGroupSettingsHasBeenSet = true; m_frameCaptureGroupSettings = std::move(value); }
+
+    
+    inline OutputGroupSettings& WithFrameCaptureGroupSettings(const FrameCaptureGroupSettings& value) { SetFrameCaptureGroupSettings(value); return *this;}
+
+    
+    inline OutputGroupSettings& WithFrameCaptureGroupSettings(FrameCaptureGroupSettings&& value) { SetFrameCaptureGroupSettings(std::move(value)); return *this;}
+
+
+    
     inline const HlsGroupSettings& GetHlsGroupSettings() const{ return m_hlsGroupSettings; }
 
     
@@ -81,6 +99,22 @@ namespace Model
 
     
     inline OutputGroupSettings& WithHlsGroupSettings(HlsGroupSettings&& value) { SetHlsGroupSettings(std::move(value)); return *this;}
+
+
+    
+    inline const MediaPackageGroupSettings& GetMediaPackageGroupSettings() const{ return m_mediaPackageGroupSettings; }
+
+    
+    inline void SetMediaPackageGroupSettings(const MediaPackageGroupSettings& value) { m_mediaPackageGroupSettingsHasBeenSet = true; m_mediaPackageGroupSettings = value; }
+
+    
+    inline void SetMediaPackageGroupSettings(MediaPackageGroupSettings&& value) { m_mediaPackageGroupSettingsHasBeenSet = true; m_mediaPackageGroupSettings = std::move(value); }
+
+    
+    inline OutputGroupSettings& WithMediaPackageGroupSettings(const MediaPackageGroupSettings& value) { SetMediaPackageGroupSettings(value); return *this;}
+
+    
+    inline OutputGroupSettings& WithMediaPackageGroupSettings(MediaPackageGroupSettings&& value) { SetMediaPackageGroupSettings(std::move(value)); return *this;}
 
 
     
@@ -135,8 +169,14 @@ namespace Model
     ArchiveGroupSettings m_archiveGroupSettings;
     bool m_archiveGroupSettingsHasBeenSet;
 
+    FrameCaptureGroupSettings m_frameCaptureGroupSettings;
+    bool m_frameCaptureGroupSettingsHasBeenSet;
+
     HlsGroupSettings m_hlsGroupSettings;
     bool m_hlsGroupSettingsHasBeenSet;
+
+    MediaPackageGroupSettings m_mediaPackageGroupSettings;
+    bool m_mediaPackageGroupSettingsHasBeenSet;
 
     MsSmoothGroupSettings m_msSmoothGroupSettings;
     bool m_msSmoothGroupSettingsHasBeenSet;

@@ -86,85 +86,85 @@ namespace Model
 
 
     /**
-     * <p>The destination region to use in the <code>PresignedUrl</code> parameter of a
+     * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a
      * snapshot copy operation. This parameter is only valid for specifying the
-     * destination region in a <code>PresignedUrl</code> parameter, where it is
+     * destination Region in a <code>PresignedUrl</code> parameter, where it is
      * required.</p> <p>The snapshot copy is sent to the regional endpoint that you
      * sent the HTTP request to (for example,
      * <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is specified
-     * using the <code>--region</code> parameter or the default region in your AWS
+     * using the <code>--region</code> parameter or the default Region in your AWS
      * configuration file.</p>
      */
     inline const Aws::String& GetDestinationRegion() const{ return m_destinationRegion; }
 
     /**
-     * <p>The destination region to use in the <code>PresignedUrl</code> parameter of a
+     * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a
      * snapshot copy operation. This parameter is only valid for specifying the
-     * destination region in a <code>PresignedUrl</code> parameter, where it is
+     * destination Region in a <code>PresignedUrl</code> parameter, where it is
      * required.</p> <p>The snapshot copy is sent to the regional endpoint that you
      * sent the HTTP request to (for example,
      * <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is specified
-     * using the <code>--region</code> parameter or the default region in your AWS
+     * using the <code>--region</code> parameter or the default Region in your AWS
      * configuration file.</p>
      */
     inline void SetDestinationRegion(const Aws::String& value) { m_destinationRegionHasBeenSet = true; m_destinationRegion = value; }
 
     /**
-     * <p>The destination region to use in the <code>PresignedUrl</code> parameter of a
+     * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a
      * snapshot copy operation. This parameter is only valid for specifying the
-     * destination region in a <code>PresignedUrl</code> parameter, where it is
+     * destination Region in a <code>PresignedUrl</code> parameter, where it is
      * required.</p> <p>The snapshot copy is sent to the regional endpoint that you
      * sent the HTTP request to (for example,
      * <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is specified
-     * using the <code>--region</code> parameter or the default region in your AWS
+     * using the <code>--region</code> parameter or the default Region in your AWS
      * configuration file.</p>
      */
     inline void SetDestinationRegion(Aws::String&& value) { m_destinationRegionHasBeenSet = true; m_destinationRegion = std::move(value); }
 
     /**
-     * <p>The destination region to use in the <code>PresignedUrl</code> parameter of a
+     * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a
      * snapshot copy operation. This parameter is only valid for specifying the
-     * destination region in a <code>PresignedUrl</code> parameter, where it is
+     * destination Region in a <code>PresignedUrl</code> parameter, where it is
      * required.</p> <p>The snapshot copy is sent to the regional endpoint that you
      * sent the HTTP request to (for example,
      * <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is specified
-     * using the <code>--region</code> parameter or the default region in your AWS
+     * using the <code>--region</code> parameter or the default Region in your AWS
      * configuration file.</p>
      */
     inline void SetDestinationRegion(const char* value) { m_destinationRegionHasBeenSet = true; m_destinationRegion.assign(value); }
 
     /**
-     * <p>The destination region to use in the <code>PresignedUrl</code> parameter of a
+     * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a
      * snapshot copy operation. This parameter is only valid for specifying the
-     * destination region in a <code>PresignedUrl</code> parameter, where it is
+     * destination Region in a <code>PresignedUrl</code> parameter, where it is
      * required.</p> <p>The snapshot copy is sent to the regional endpoint that you
      * sent the HTTP request to (for example,
      * <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is specified
-     * using the <code>--region</code> parameter or the default region in your AWS
+     * using the <code>--region</code> parameter or the default Region in your AWS
      * configuration file.</p>
      */
     inline CopySnapshotRequest& WithDestinationRegion(const Aws::String& value) { SetDestinationRegion(value); return *this;}
 
     /**
-     * <p>The destination region to use in the <code>PresignedUrl</code> parameter of a
+     * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a
      * snapshot copy operation. This parameter is only valid for specifying the
-     * destination region in a <code>PresignedUrl</code> parameter, where it is
+     * destination Region in a <code>PresignedUrl</code> parameter, where it is
      * required.</p> <p>The snapshot copy is sent to the regional endpoint that you
      * sent the HTTP request to (for example,
      * <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is specified
-     * using the <code>--region</code> parameter or the default region in your AWS
+     * using the <code>--region</code> parameter or the default Region in your AWS
      * configuration file.</p>
      */
     inline CopySnapshotRequest& WithDestinationRegion(Aws::String&& value) { SetDestinationRegion(std::move(value)); return *this;}
 
     /**
-     * <p>The destination region to use in the <code>PresignedUrl</code> parameter of a
+     * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a
      * snapshot copy operation. This parameter is only valid for specifying the
-     * destination region in a <code>PresignedUrl</code> parameter, where it is
+     * destination Region in a <code>PresignedUrl</code> parameter, where it is
      * required.</p> <p>The snapshot copy is sent to the regional endpoint that you
      * sent the HTTP request to (for example,
      * <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is specified
-     * using the <code>--region</code> parameter or the default region in your AWS
+     * using the <code>--region</code> parameter or the default Region in your AWS
      * configuration file.</p>
      */
     inline CopySnapshotRequest& WithDestinationRegion(const char* value) { SetDestinationRegion(value); return *this;}
@@ -176,7 +176,7 @@ namespace Model
      * unencrypted copy of an encrypted snapshot. Your default CMK for EBS is used
      * unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using
      * <code>KmsKeyId</code>. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
      * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline bool GetEncrypted() const{ return m_encrypted; }
@@ -187,7 +187,7 @@ namespace Model
      * unencrypted copy of an encrypted snapshot. Your default CMK for EBS is used
      * unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using
      * <code>KmsKeyId</code>. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
      * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline void SetEncrypted(bool value) { m_encryptedHasBeenSet = true; m_encrypted = value; }
@@ -198,7 +198,7 @@ namespace Model
      * unencrypted copy of an encrypted snapshot. Your default CMK for EBS is used
      * unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using
      * <code>KmsKeyId</code>. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
      * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline CopySnapshotRequest& WithEncrypted(bool value) { SetEncrypted(value); return *this;}
@@ -370,7 +370,7 @@ namespace Model
      * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API,
      * you must supply a pre-signed URL. This parameter is optional for unencrypted
      * snapshots. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
      * Requests</a>.</p> <p>The <code>PresignedUrl</code> should use the snapshot
      * source endpoint, the <code>CopySnapshot</code> action, and include the
      * <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and
@@ -378,7 +378,7 @@ namespace Model
      * signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon
      * S3, the signing algorithm for this parameter uses the same logic that is
      * described in <a
-     * href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
      * Requests by Using Query Parameters (AWS Signature Version 4)</a> in the
      * <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly
      * signed <code>PresignedUrl</code> will cause the copy operation to fail
@@ -390,7 +390,7 @@ namespace Model
      * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API,
      * you must supply a pre-signed URL. This parameter is optional for unencrypted
      * snapshots. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
      * Requests</a>.</p> <p>The <code>PresignedUrl</code> should use the snapshot
      * source endpoint, the <code>CopySnapshot</code> action, and include the
      * <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and
@@ -398,7 +398,7 @@ namespace Model
      * signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon
      * S3, the signing algorithm for this parameter uses the same logic that is
      * described in <a
-     * href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
      * Requests by Using Query Parameters (AWS Signature Version 4)</a> in the
      * <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly
      * signed <code>PresignedUrl</code> will cause the copy operation to fail
@@ -410,7 +410,7 @@ namespace Model
      * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API,
      * you must supply a pre-signed URL. This parameter is optional for unencrypted
      * snapshots. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
      * Requests</a>.</p> <p>The <code>PresignedUrl</code> should use the snapshot
      * source endpoint, the <code>CopySnapshot</code> action, and include the
      * <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and
@@ -418,7 +418,7 @@ namespace Model
      * signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon
      * S3, the signing algorithm for this parameter uses the same logic that is
      * described in <a
-     * href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
      * Requests by Using Query Parameters (AWS Signature Version 4)</a> in the
      * <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly
      * signed <code>PresignedUrl</code> will cause the copy operation to fail
@@ -430,7 +430,7 @@ namespace Model
      * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API,
      * you must supply a pre-signed URL. This parameter is optional for unencrypted
      * snapshots. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
      * Requests</a>.</p> <p>The <code>PresignedUrl</code> should use the snapshot
      * source endpoint, the <code>CopySnapshot</code> action, and include the
      * <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and
@@ -438,7 +438,7 @@ namespace Model
      * signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon
      * S3, the signing algorithm for this parameter uses the same logic that is
      * described in <a
-     * href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
      * Requests by Using Query Parameters (AWS Signature Version 4)</a> in the
      * <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly
      * signed <code>PresignedUrl</code> will cause the copy operation to fail
@@ -450,7 +450,7 @@ namespace Model
      * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API,
      * you must supply a pre-signed URL. This parameter is optional for unencrypted
      * snapshots. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
      * Requests</a>.</p> <p>The <code>PresignedUrl</code> should use the snapshot
      * source endpoint, the <code>CopySnapshot</code> action, and include the
      * <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and
@@ -458,7 +458,7 @@ namespace Model
      * signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon
      * S3, the signing algorithm for this parameter uses the same logic that is
      * described in <a
-     * href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
      * Requests by Using Query Parameters (AWS Signature Version 4)</a> in the
      * <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly
      * signed <code>PresignedUrl</code> will cause the copy operation to fail
@@ -470,7 +470,7 @@ namespace Model
      * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API,
      * you must supply a pre-signed URL. This parameter is optional for unencrypted
      * snapshots. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
      * Requests</a>.</p> <p>The <code>PresignedUrl</code> should use the snapshot
      * source endpoint, the <code>CopySnapshot</code> action, and include the
      * <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and
@@ -478,7 +478,7 @@ namespace Model
      * signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon
      * S3, the signing algorithm for this parameter uses the same logic that is
      * described in <a
-     * href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
      * Requests by Using Query Parameters (AWS Signature Version 4)</a> in the
      * <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly
      * signed <code>PresignedUrl</code> will cause the copy operation to fail
@@ -490,7 +490,7 @@ namespace Model
      * <p>When you copy an encrypted source snapshot using the Amazon EC2 Query API,
      * you must supply a pre-signed URL. This parameter is optional for unencrypted
      * snapshots. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html">Query
      * Requests</a>.</p> <p>The <code>PresignedUrl</code> should use the snapshot
      * source endpoint, the <code>CopySnapshot</code> action, and include the
      * <code>SourceRegion</code>, <code>SourceSnapshotId</code>, and
@@ -498,7 +498,7 @@ namespace Model
      * signed using AWS Signature Version 4. Because EBS snapshots are stored in Amazon
      * S3, the signing algorithm for this parameter uses the same logic that is
      * described in <a
-     * href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
      * Requests by Using Query Parameters (AWS Signature Version 4)</a> in the
      * <i>Amazon Simple Storage Service API Reference</i>. An invalid or improperly
      * signed <code>PresignedUrl</code> will cause the copy operation to fail
@@ -508,37 +508,37 @@ namespace Model
 
 
     /**
-     * <p>The ID of the region that contains the snapshot to be copied.</p>
+     * <p>The ID of the Region that contains the snapshot to be copied.</p>
      */
     inline const Aws::String& GetSourceRegion() const{ return m_sourceRegion; }
 
     /**
-     * <p>The ID of the region that contains the snapshot to be copied.</p>
+     * <p>The ID of the Region that contains the snapshot to be copied.</p>
      */
     inline void SetSourceRegion(const Aws::String& value) { m_sourceRegionHasBeenSet = true; m_sourceRegion = value; }
 
     /**
-     * <p>The ID of the region that contains the snapshot to be copied.</p>
+     * <p>The ID of the Region that contains the snapshot to be copied.</p>
      */
     inline void SetSourceRegion(Aws::String&& value) { m_sourceRegionHasBeenSet = true; m_sourceRegion = std::move(value); }
 
     /**
-     * <p>The ID of the region that contains the snapshot to be copied.</p>
+     * <p>The ID of the Region that contains the snapshot to be copied.</p>
      */
     inline void SetSourceRegion(const char* value) { m_sourceRegionHasBeenSet = true; m_sourceRegion.assign(value); }
 
     /**
-     * <p>The ID of the region that contains the snapshot to be copied.</p>
+     * <p>The ID of the Region that contains the snapshot to be copied.</p>
      */
     inline CopySnapshotRequest& WithSourceRegion(const Aws::String& value) { SetSourceRegion(value); return *this;}
 
     /**
-     * <p>The ID of the region that contains the snapshot to be copied.</p>
+     * <p>The ID of the Region that contains the snapshot to be copied.</p>
      */
     inline CopySnapshotRequest& WithSourceRegion(Aws::String&& value) { SetSourceRegion(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the region that contains the snapshot to be copied.</p>
+     * <p>The ID of the Region that contains the snapshot to be copied.</p>
      */
     inline CopySnapshotRequest& WithSourceRegion(const char* value) { SetSourceRegion(value); return *this;}
 

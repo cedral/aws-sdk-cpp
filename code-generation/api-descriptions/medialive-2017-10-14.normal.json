@@ -196,6 +196,36 @@
       ],
       "documentation": "Creates a Input Security Group"
     },
+    "CreateTags": {
+      "name": "CreateTags",
+      "http": {
+        "method": "POST",
+        "requestUri": "/prod/tags/{resource-arn}",
+        "responseCode": 204
+      },
+      "input": {
+        "shape": "CreateTagsRequest"
+      },
+      "errors": [
+        {
+          "shape": "NotFoundException",
+          "documentation": "The arn was not found."
+        },
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid"
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Internal Service Error"
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "Access was denied"
+        }
+      ],
+      "documentation": "Create tags for a resource"
+    },
     "DeleteChannel": {
       "name": "DeleteChannel",
       "http": {
@@ -391,6 +421,36 @@
         }
       ],
       "documentation": "Delete an expired reservation."
+    },
+    "DeleteTags": {
+      "name": "DeleteTags",
+      "http": {
+        "method": "DELETE",
+        "requestUri": "/prod/tags/{resource-arn}",
+        "responseCode": 204
+      },
+      "input": {
+        "shape": "DeleteTagsRequest"
+      },
+      "errors": [
+        {
+          "shape": "NotFoundException",
+          "documentation": "The arn was not found."
+        },
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid"
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Internal Service Error"
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "Access was denied"
+        }
+      ],
+      "documentation": "Removes tags for a resource"
     },
     "DescribeChannel": {
       "name": "DescribeChannel",
@@ -877,6 +937,40 @@
         }
       ],
       "documentation": "List purchased reservations."
+    },
+    "ListTagsForResource": {
+      "name": "ListTagsForResource",
+      "http": {
+        "method": "GET",
+        "requestUri": "/prod/tags/{resource-arn}",
+        "responseCode": 200
+      },
+      "input": {
+        "shape": "ListTagsForResourceRequest"
+      },
+      "output": {
+        "shape": "ListTagsForResourceResponse",
+        "documentation": "An array of tags"
+      },
+      "errors": [
+        {
+          "shape": "NotFoundException",
+          "documentation": "The arn was not found"
+        },
+        {
+          "shape": "BadRequestException",
+          "documentation": "This request was invalid"
+        },
+        {
+          "shape": "InternalServerErrorException",
+          "documentation": "Internal Service Error"
+        },
+        {
+          "shape": "ForbiddenException",
+          "documentation": "Access was denied"
+        }
+      ],
+      "documentation": "Produces list of tags that have been created for a resource"
     },
     "PurchaseOffering": {
       "name": "PurchaseOffering",
@@ -1405,7 +1499,7 @@
         "Destination": {
           "shape": "OutputLocationRef",
           "locationName": "destination",
-          "documentation": "A directory and base filename where archive files should be written.  If the base filename portion of the URI is left blank, the base filename of the first input will be automatically inserted."
+          "documentation": "A directory and base filename where archive files should be written."
         },
         "RolloverInterval": {
           "shape": "__integerMin1",
@@ -2350,6 +2444,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for Channel"
@@ -2450,6 +2549,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for ChannelSummary"
@@ -2515,6 +2619,11 @@
           "shape": "__string",
           "locationName": "roleArn",
           "documentation": "An optional Amazon Resource Name (ARN) of the role to assume when running the Channel."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for CreateChannel"
@@ -2566,6 +2675,11 @@
           "shape": "__string",
           "locationName": "roleArn",
           "documentation": "An optional Amazon Resource Name (ARN) of the role to assume when running the Channel."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "A request to create a channel"
@@ -2629,9 +2743,18 @@
           "locationName": "sources",
           "documentation": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "Type": {
           "shape": "InputType",
           "locationName": "type"
+        },
+        "Vpc": {
+          "shape": "InputVpcRequest",
+          "locationName": "vpc"
         }
       },
       "documentation": "Placeholder documentation for CreateInput"
@@ -2675,9 +2798,18 @@
           "locationName": "sources",
           "documentation": "The source URLs for a PULL-type input. Every PULL type input needs\nexactly two source URLs for redundancy.\nOnly specify sources for PULL type Inputs. Leave Destinations empty.\n"
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "Type": {
           "shape": "InputType",
           "locationName": "type"
+        },
+        "Vpc": {
+          "shape": "InputVpcRequest",
+          "locationName": "vpc"
         }
       },
       "documentation": "The name of the input"
@@ -2705,6 +2837,11 @@
     "CreateInputSecurityGroupRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRuleCidr",
           "locationName": "whitelistRules",
@@ -2732,6 +2869,24 @@
         }
       },
       "documentation": "Placeholder documentation for CreateInputSecurityGroupResultModel"
+    },
+    "CreateTagsRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "resource-arn"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags"
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "documentation": "Placeholder documentation for CreateTagsRequest"
     },
     "DeleteChannelRequest": {
       "type": "structure",
@@ -2807,6 +2962,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for DeleteChannelResponse"
@@ -2959,6 +3119,27 @@
       },
       "documentation": "Placeholder documentation for DeleteReservationResponse"
     },
+    "DeleteTagsRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "resource-arn"
+        },
+        "TagKeys": {
+          "shape": "__listOf__string",
+          "location": "querystring",
+          "locationName": "tagKeys",
+          "documentation": "An array of tag keys to delete"
+        }
+      },
+      "required": [
+        "TagKeys",
+        "ResourceArn"
+      ],
+      "documentation": "Placeholder documentation for DeleteTagsRequest"
+    },
     "DescribeChannelRequest": {
       "type": "structure",
       "members": {
@@ -3033,6 +3214,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for DescribeChannelResponse"
@@ -3093,7 +3279,7 @@
         "SecurityGroups": {
           "shape": "__listOf__string",
           "locationName": "securityGroups",
-          "documentation": "A list of IDs for all the security groups attached to the input."
+          "documentation": "A list of IDs for all the Input Security Groups attached to the input."
         },
         "Sources": {
           "shape": "__listOfInputSource",
@@ -3103,6 +3289,11 @@
         "State": {
           "shape": "InputState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         },
         "Type": {
           "shape": "InputType",
@@ -3148,6 +3339,11 @@
           "shape": "InputSecurityGroupState",
           "locationName": "state",
           "documentation": "The current state of the Input Security Group."
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRule",
@@ -4063,6 +4259,45 @@
       },
       "documentation": "Placeholder documentation for ForbiddenException"
     },
+    "FrameCaptureGroupSettings": {
+      "type": "structure",
+      "members": {
+        "Destination": {
+          "shape": "OutputLocationRef",
+          "locationName": "destination",
+          "documentation": "The destination for the frame capture files. Either the URI for an Amazon S3 bucket and object, plus a file name prefix (for example, s3ssl://sportsDelivery/highlights/20180820/curling_) or the URI for a MediaStore container, plus a file name prefix (for example, mediastoressl://sportsDelivery/20180820/curling_). The final file names consist of the prefix from the destination field (for example, \"curling_\") + name modifier + the counter (5 digits, starting from 00001) + extension (which is always .jpg).  For example, curlingLow.00001.jpg"
+        }
+      },
+      "documentation": "Frame Capture Group Settings",
+      "required": [
+        "Destination"
+      ]
+    },
+    "FrameCaptureOutputSettings": {
+      "type": "structure",
+      "members": {
+        "NameModifier": {
+          "shape": "__string",
+          "locationName": "nameModifier",
+          "documentation": "Required if the output group contains more than one output. This modifier forms part of the output file name."
+        }
+      },
+      "documentation": "Frame Capture Output Settings"
+    },
+    "FrameCaptureSettings": {
+      "type": "structure",
+      "members": {
+        "CaptureInterval": {
+          "shape": "__integerMin1Max3600",
+          "locationName": "captureInterval",
+          "documentation": "The frequency, in seconds, for capturing frames for inclusion in the output.  For example, \"10\" means capture a frame every 10 seconds."
+        }
+      },
+      "documentation": "Frame Capture Settings",
+      "required": [
+        "CaptureInterval"
+      ]
+    },
     "GatewayTimeoutException": {
       "type": "structure",
       "members": {
@@ -4323,12 +4558,12 @@
           "documentation": "This field indicates how the output video frame rate is specified.  If \"specified\" is selected then the output video frame rate is determined by framerateNumerator and framerateDenominator, else if \"initializeFromSource\" is selected then the output video frame rate will be set equal to the input video frame rate of the first input."
         },
         "FramerateDenominator": {
-          "shape": "__integer",
+          "shape": "__integerMin1",
           "locationName": "framerateDenominator",
           "documentation": "Framerate denominator."
         },
         "FramerateNumerator": {
-          "shape": "__integer",
+          "shape": "__integerMin1",
           "locationName": "framerateNumerator",
           "documentation": "Framerate numerator - framerate is a fraction, e.g. 24000 / 1001 = 23.976 fps."
         },
@@ -4710,10 +4945,15 @@
           "locationName": "hlsCdnSettings",
           "documentation": "Parameters that control interactions with the CDN."
         },
+        "IFrameOnlyPlaylists": {
+          "shape": "IFrameOnlyPlaylistType",
+          "locationName": "iFrameOnlyPlaylists",
+          "documentation": "DISABLED: Do not create an I-frame-only manifest, but do create the master and media manifests (according to the Output Selection field).\n\nSTANDARD: Create an I-frame-only manifest for each output that contains video, as well as the other manifests (according to the Output Selection field). The I-frame manifest contains a #EXT-X-I-FRAMES-ONLY tag to indicate it is I-frame only, and one or more #EXT-X-BYTERANGE entries identifying the I-frame position. For example, #EXT-X-BYTERANGE:160364@1461888\""
+        },
         "IndexNSegments": {
           "shape": "__integerMin3",
           "locationName": "indexNSegments",
-          "documentation": "If mode is \"live\", the number of segments to retain in the manifest (.m3u8) file. This number must be less than or equal to keepSegments. If mode is \"vod\", this parameter has no effect."
+          "documentation": "Applies only if Mode field is LIVE. Specifies the maximum number of segments in the media manifest file. After this maximum, older segments are removed from the media manifest. This number must be less than or equal to the Keep Segments field."
         },
         "InputLossAction": {
           "shape": "InputLossActionForHlsOut",
@@ -4733,7 +4973,7 @@
         "KeepSegments": {
           "shape": "__integerMin1",
           "locationName": "keepSegments",
-          "documentation": "If mode is \"live\", the number of TS segments to retain in the destination directory. If mode is \"vod\", this parameter has no effect."
+          "documentation": "Applies only if Mode field is LIVE. Specifies the number of media segments (.ts files) to retain in the destination directory."
         },
         "KeyFormat": {
           "shape": "__string",
@@ -4773,7 +5013,7 @@
         "OutputSelection": {
           "shape": "HlsOutputSelection",
           "locationName": "outputSelection",
-          "documentation": "Generates the .m3u8 playlist file for this HLS output group. The segmentsOnly option will output segments without the .m3u8 file."
+          "documentation": "MANIFESTSANDSEGMENTS: Generates manifests (master manifest, if applicable, and media manifests) for this output group.\n\nSEGMENTSONLY: Does not generate any manifests for this output group."
         },
         "ProgramDateTime": {
           "shape": "HlsProgramDateTime",
@@ -4788,7 +5028,7 @@
         "RedundantManifest": {
           "shape": "HlsRedundantManifest",
           "locationName": "redundantManifest",
-          "documentation": "When set to \"enabled\", includes the media playlists from both pipelines in the master manifest (.m3u8) file."
+          "documentation": "ENABLED: The master manifest (.m3u8 file) for each pipeline includes information about both pipelines: first its own media files, then the media files of the other pipeline. This feature allows playout device that support stale manifest detection to switch from one manifest to the other, when the current manifest seems to be stale. There are still two destinations and two master manifests, but both master manifests reference the media files from both pipelines.\n\nDISABLED: The master manifest (.m3u8 file) for each pipeline includes information about its own pipeline only.\n\nFor an HLS output group with MediaPackage as the destination, the DISABLED behavior is always followed. MediaPackage regenerates the manifests it serves to players so a redundant manifest from MediaLive is irrelevant."
         },
         "SegmentLength": {
           "shape": "__integerMin1",
@@ -4828,7 +5068,7 @@
         "TsFileMode": {
           "shape": "HlsTsFileMode",
           "locationName": "tsFileMode",
-          "documentation": "When set to \"singleFile\", emits the program as a single media resource (.ts) file, and uses #EXT-X-BYTERANGE tags to index segment for playback. Playback of VOD mode content during event is not guaranteed due to HTTP server caching."
+          "documentation": "SEGMENTEDFILES: Emit the program as segments - multiple .ts media files.\n\nSINGLEFILE: Applies only if Mode field is VOD. Emit the program as a single .ts media file. The media manifest includes #EXT-X-BYTERANGE tags to index segments for playback. A typical use for this value is when sending the output to AWS Elemental MediaConvert, which can accept only a single media file. Playback while the channel is running is not guaranteed due to HTTP server caching."
         }
       },
       "required": [
@@ -5088,6 +5328,14 @@
       },
       "documentation": "Placeholder documentation for HlsWebdavSettings"
     },
+    "IFrameOnlyPlaylistType": {
+      "type": "string",
+      "documentation": "When set to \"standard\", an I-Frame only playlist will be written out for each video output in the output group. This I-Frame only playlist will contain byte range offsets pointing to the I-frame(s) in each segment.",
+      "enum": [
+        "DISABLED",
+        "STANDARD"
+      ]
+    },
     "Input": {
       "type": "structure",
       "members": {
@@ -5129,7 +5377,7 @@
         "SecurityGroups": {
           "shape": "__listOf__string",
           "locationName": "securityGroups",
-          "documentation": "A list of IDs for all the security groups attached to the input."
+          "documentation": "A list of IDs for all the Input Security Groups attached to the input."
         },
         "Sources": {
           "shape": "__listOfInputSource",
@@ -5139,6 +5387,11 @@
         "State": {
           "shape": "InputState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         },
         "Type": {
           "shape": "InputType",
@@ -5230,6 +5483,10 @@
           "shape": "__string",
           "locationName": "url",
           "documentation": "This represents the endpoint that the customer stream will be\npushed to.\n"
+        },
+        "Vpc": {
+          "shape": "InputDestinationVpc",
+          "locationName": "vpc"
         }
       },
       "documentation": "The settings for a PUSH type input."
@@ -5244,6 +5501,22 @@
         }
       },
       "documentation": "Endpoint settings for a PUSH type input."
+    },
+    "InputDestinationVpc": {
+      "type": "structure",
+      "members": {
+        "AvailabilityZone": {
+          "shape": "__string",
+          "locationName": "availabilityZone",
+          "documentation": "The availability zone of the Input destination.\n"
+        },
+        "NetworkInterfaceId": {
+          "shape": "__string",
+          "locationName": "networkInterfaceId",
+          "documentation": "The network interface ID of the Input destination in the VPC.\n"
+        }
+      },
+      "documentation": "The properties for a VPC type input destination."
     },
     "InputFilter": {
       "type": "string",
@@ -5391,6 +5664,11 @@
           "locationName": "state",
           "documentation": "The current state of the Input Security Group."
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRule",
           "locationName": "whitelistRules",
@@ -5412,6 +5690,11 @@
     "InputSecurityGroupWhitelistRequest": {
       "type": "structure",
       "members": {
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRuleCidr",
           "locationName": "whitelistRules",
@@ -5579,6 +5862,25 @@
         "MEDIACONNECT"
       ],
       "documentation": "Placeholder documentation for InputType"
+    },
+    "InputVpcRequest": {
+      "type": "structure",
+      "members": {
+        "SecurityGroupIds": {
+          "shape": "__listOf__string",
+          "locationName": "securityGroupIds",
+          "documentation": "A list of up to 5 EC2 VPC security group IDs to attach to the Input VPC network interfaces.\nRequires subnetIds. If none are specified then the VPC default security group will be used.\n"
+        },
+        "SubnetIds": {
+          "shape": "__listOf__string",
+          "locationName": "subnetIds",
+          "documentation": "A list of 2 VPC subnet IDs from the same VPC.\nSubnet IDs must be mapped to two unique availability zones (AZ).\n"
+        }
+      },
+      "documentation": "Settings for a private VPC Input.\nWhen this property is specified, the input destination addresses will be created in a VPC rather than with public Internet addresses.\nThis property requires setting the roleArn property on Input creation.\nNot compatible with the inputSecurityGroups property.\n",
+      "required": [
+        "SubnetIds"
+      ]
     },
     "InputWhitelistRule": {
       "type": "structure",
@@ -5975,6 +6277,30 @@
         }
       },
       "documentation": "ListReservations response"
+    },
+    "ListTagsForResourceRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "shape": "__string",
+          "location": "uri",
+          "locationName": "resource-arn"
+        }
+      },
+      "required": [
+        "ResourceArn"
+      ],
+      "documentation": "Placeholder documentation for ListTagsForResourceRequest"
+    },
+    "ListTagsForResourceResponse": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags"
+        }
+      },
+      "documentation": "Placeholder documentation for ListTagsForResourceResponse"
     },
     "LogLevel": {
       "type": "string",
@@ -6509,6 +6835,37 @@
       },
       "documentation": "The settings for a MediaConnect Flow."
     },
+    "MediaPackageGroupSettings": {
+      "type": "structure",
+      "members": {
+        "Destination": {
+          "shape": "OutputLocationRef",
+          "locationName": "destination",
+          "documentation": "MediaPackage channel destination."
+        }
+      },
+      "documentation": "Media Package Group Settings",
+      "required": [
+        "Destination"
+      ]
+    },
+    "MediaPackageOutputDestinationSettings": {
+      "type": "structure",
+      "members": {
+        "ChannelId": {
+          "shape": "__stringMin1",
+          "locationName": "channelId",
+          "documentation": "ID of the channel in MediaPackage that is the destination for this output group. You do not need to specify the individual inputs in MediaPackage; MediaLive will handle the connection of the two MediaLive pipelines to the two MediaPackage inputs. The MediaPackage channel and MediaLive channel must be in the same region."
+        }
+      },
+      "documentation": "Media Package Output Destination Settings"
+    },
+    "MediaPackageOutputSettings": {
+      "type": "structure",
+      "members": {
+      },
+      "documentation": "Media Package Output Settings"
+    },
     "Mp2CodingMode": {
       "type": "string",
       "enum": [
@@ -6808,10 +7165,15 @@
           "locationName": "id",
           "documentation": "User-specified id. This is used in an output group or an output."
         },
+        "MediaPackageSettings": {
+          "shape": "__listOfMediaPackageOutputDestinationSettings",
+          "locationName": "mediaPackageSettings",
+          "documentation": "Destination settings for a MediaPackage output; one destination for both encoders."
+        },
         "Settings": {
           "shape": "__listOfOutputDestinationSettings",
           "locationName": "settings",
-          "documentation": "Destination settings for output; one for each redundant encoder."
+          "documentation": "Destination settings for a standard output; one destination for each redundant encoder."
         }
       },
       "documentation": "Placeholder documentation for OutputDestination"
@@ -6873,9 +7235,17 @@
           "shape": "ArchiveGroupSettings",
           "locationName": "archiveGroupSettings"
         },
+        "FrameCaptureGroupSettings": {
+          "shape": "FrameCaptureGroupSettings",
+          "locationName": "frameCaptureGroupSettings"
+        },
         "HlsGroupSettings": {
           "shape": "HlsGroupSettings",
           "locationName": "hlsGroupSettings"
+        },
+        "MediaPackageGroupSettings": {
+          "shape": "MediaPackageGroupSettings",
+          "locationName": "mediaPackageGroupSettings"
         },
         "MsSmoothGroupSettings": {
           "shape": "MsSmoothGroupSettings",
@@ -6909,9 +7279,17 @@
           "shape": "ArchiveOutputSettings",
           "locationName": "archiveOutputSettings"
         },
+        "FrameCaptureOutputSettings": {
+          "shape": "FrameCaptureOutputSettings",
+          "locationName": "frameCaptureOutputSettings"
+        },
         "HlsOutputSettings": {
           "shape": "HlsOutputSettings",
           "locationName": "hlsOutputSettings"
+        },
+        "MediaPackageOutputSettings": {
+          "shape": "MediaPackageOutputSettings",
+          "locationName": "mediaPackageOutputSettings"
         },
         "MsSmoothOutputSettings": {
           "shape": "MsSmoothOutputSettings",
@@ -6933,6 +7311,38 @@
       "members": {
       },
       "documentation": "Placeholder documentation for PassThroughSettings"
+    },
+    "PauseStateScheduleActionSettings": {
+      "type": "structure",
+      "members": {
+        "Pipelines": {
+          "shape": "__listOfPipelinePauseStateSettings",
+          "locationName": "pipelines"
+        }
+      },
+      "documentation": "Settings for the action to set pause state of a channel."
+    },
+    "PipelineId": {
+      "type": "string",
+      "documentation": "Pipeline ID",
+      "enum": [
+        "PIPELINE_0",
+        "PIPELINE_1"
+      ]
+    },
+    "PipelinePauseStateSettings": {
+      "type": "structure",
+      "members": {
+        "PipelineId": {
+          "shape": "PipelineId",
+          "locationName": "pipelineId",
+          "documentation": "Pipeline ID to pause (\"PIPELINE_0\" or \"PIPELINE_1\")."
+        }
+      },
+      "documentation": "Settings for pausing a pipeline.",
+      "required": [
+        "PipelineId"
+      ]
     },
     "PurchaseOffering": {
       "type": "structure",
@@ -7397,37 +7807,42 @@
         "HlsTimedMetadataSettings": {
           "shape": "HlsTimedMetadataScheduleActionSettings",
           "locationName": "hlsTimedMetadataSettings",
-          "documentation": "Settings to emit HLS metadata"
+          "documentation": "Action to insert HLS metadata"
         },
         "InputSwitchSettings": {
           "shape": "InputSwitchScheduleActionSettings",
           "locationName": "inputSwitchSettings",
-          "documentation": "Settings to switch an input"
+          "documentation": "Action to switch the input"
+        },
+        "PauseStateSettings": {
+          "shape": "PauseStateScheduleActionSettings",
+          "locationName": "pauseStateSettings",
+          "documentation": "Action to pause or unpause one or both channel pipelines"
         },
         "Scte35ReturnToNetworkSettings": {
           "shape": "Scte35ReturnToNetworkScheduleActionSettings",
           "locationName": "scte35ReturnToNetworkSettings",
-          "documentation": "Settings for SCTE-35 return_to_network message"
+          "documentation": "Action to insert SCTE-35 return_to_network message"
         },
         "Scte35SpliceInsertSettings": {
           "shape": "Scte35SpliceInsertScheduleActionSettings",
           "locationName": "scte35SpliceInsertSettings",
-          "documentation": "Settings for SCTE-35 splice_insert message"
+          "documentation": "Action to insert SCTE-35 splice_insert message"
         },
         "Scte35TimeSignalSettings": {
           "shape": "Scte35TimeSignalScheduleActionSettings",
           "locationName": "scte35TimeSignalSettings",
-          "documentation": "Settings for SCTE-35 time_signal message"
+          "documentation": "Action to insert SCTE-35 time_signal message"
         },
         "StaticImageActivateSettings": {
           "shape": "StaticImageActivateScheduleActionSettings",
           "locationName": "staticImageActivateSettings",
-          "documentation": "Settings to activate a static image overlay"
+          "documentation": "Action to activate a static image overlay"
         },
         "StaticImageDeactivateSettings": {
           "shape": "StaticImageDeactivateScheduleActionSettings",
           "locationName": "staticImageDeactivateSettings",
-          "documentation": "Settings to deactivate a static image overlay"
+          "documentation": "Action to deactivate a static image overlay"
         }
       },
       "documentation": "Holds the settings for a single schedule action."
@@ -7965,6 +8380,11 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for StartChannelResponse"
@@ -8137,9 +8557,34 @@
         "State": {
           "shape": "ChannelState",
           "locationName": "state"
+        },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
         }
       },
       "documentation": "Placeholder documentation for StopChannelResponse"
+    },
+    "Tags": {
+      "type": "map",
+      "key": {
+        "shape": "__string"
+      },
+      "value": {
+        "shape": "__string"
+      },
+      "documentation": "Placeholder documentation for Tags"
+    },
+    "TagsModel": {
+      "type": "structure",
+      "members": {
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags"
+        }
+      },
+      "documentation": "Placeholder documentation for TagsModel"
     },
     "TeletextDestinationSettings": {
       "type": "structure",
@@ -8526,6 +8971,11 @@
           "locationName": "inputSecurityGroupId",
           "documentation": "The id of the Input Security Group to update."
         },
+        "Tags": {
+          "shape": "Tags",
+          "locationName": "tags",
+          "documentation": "A collection of key-value pairs."
+        },
         "WhitelistRules": {
           "shape": "__listOfInputWhitelistRuleCidr",
           "locationName": "whitelistRules",
@@ -8574,6 +9024,10 @@
     "VideoCodecSettings": {
       "type": "structure",
       "members": {
+        "FrameCaptureSettings": {
+          "shape": "FrameCaptureSettings",
+          "locationName": "frameCaptureSettings"
+        },
         "H264Settings": {
           "shape": "H264Settings",
           "locationName": "h264Settings"
@@ -8592,7 +9046,7 @@
         "Height": {
           "shape": "__integer",
           "locationName": "height",
-          "documentation": "Output video height (in pixels). Leave blank to use source video height. If left blank, width must also be unspecified."
+          "documentation": "Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required."
         },
         "Name": {
           "shape": "__string",
@@ -8602,22 +9056,22 @@
         "RespondToAfd": {
           "shape": "VideoDescriptionRespondToAfd",
           "locationName": "respondToAfd",
-          "documentation": "Indicates how to respond to the AFD values in the input stream. Setting to \"respond\" causes input video to be clipped, depending on AFD value, input display aspect ratio and output display aspect ratio."
+          "documentation": "Indicates how to respond to the AFD values in the input stream. RESPOND causes input video to be clipped, depending on the AFD value, input display aspect ratio, and output display aspect ratio, and (except for FRAMECAPTURE codec) includes the values in the output. PASSTHROUGH (does not apply to FRAMECAPTURE codec) ignores the AFD values and includes the values in the output, so input video is not clipped. NONE ignores the AFD values and does not include the values through to the output, so input video is not clipped."
         },
         "ScalingBehavior": {
           "shape": "VideoDescriptionScalingBehavior",
           "locationName": "scalingBehavior",
-          "documentation": "When set to \"stretchToOutput\", automatically configures the output position to stretch the video to the specified output resolution. This option will override any position value."
+          "documentation": "STRETCHTOOUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution."
         },
         "Sharpness": {
           "shape": "__integerMin0Max100",
           "locationName": "sharpness",
-          "documentation": "Changes the width of the anti-alias filter kernel used for scaling. Only applies if scaling is being performed and antiAlias is set to true. 0 is the softest setting, 100 the sharpest, and 50 recommended for most content."
+          "documentation": "Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content."
         },
         "Width": {
           "shape": "__integer",
           "locationName": "width",
-          "documentation": "Output video width (in pixels). Leave out to use source video width.  If left out, height must also be left out. Display aspect ratio is always preserved by letterboxing or pillarboxing when necessary."
+          "documentation": "Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required."
         }
       },
       "documentation": "Video settings for this stream.",
@@ -8917,6 +9371,11 @@
       "max": 32,
       "documentation": "Placeholder documentation for __integerMin1Max32"
     },
+    "__integerMin1Max3600": {
+      "type": "integer",
+      "min": 1,
+      "max": 3600
+    },
     "__integerMin1Max4": {
       "type": "integer",
       "min": 1,
@@ -9140,6 +9599,13 @@
       },
       "documentation": "Placeholder documentation for __listOfMediaConnectFlowRequest"
     },
+    "__listOfMediaPackageOutputDestinationSettings": {
+      "type": "list",
+      "member": {
+        "shape": "MediaPackageOutputDestinationSettings"
+      },
+      "documentation": "Placeholder documentation for __listOfMediaPackageOutputDestinationSettings"
+    },
     "__listOfOffering": {
       "type": "list",
       "member": {
@@ -9174,6 +9640,13 @@
         "shape": "OutputGroup"
       },
       "documentation": "Placeholder documentation for __listOfOutputGroup"
+    },
+    "__listOfPipelinePauseStateSettings": {
+      "type": "list",
+      "member": {
+        "shape": "PipelinePauseStateSettings"
+      },
+      "documentation": "Placeholder documentation for __listOfPipelinePauseStateSettings"
     },
     "__listOfReservation": {
       "type": "list",

@@ -43,12 +43,11 @@ namespace Model
 {
 
   /**
-   * <p>General properties describing a fleet.</p> <p>Fleet-related operations
-   * include:</p> <ul> <li> <p> <a>CreateFleet</a> </p> </li> <li> <p>
-   * <a>ListFleets</a> </p> </li> <li> <p> <a>DeleteFleet</a> </p> </li> <li>
-   * <p>Describe fleets:</p> <ul> <li> <p> <a>DescribeFleetAttributes</a> </p> </li>
-   * <li> <p> <a>DescribeFleetCapacity</a> </p> </li> <li> <p>
-   * <a>DescribeFleetPortSettings</a> </p> </li> <li> <p>
+   * <p>General properties describing a fleet.</p> <ul> <li> <p> <a>CreateFleet</a>
+   * </p> </li> <li> <p> <a>ListFleets</a> </p> </li> <li> <p> <a>DeleteFleet</a>
+   * </p> </li> <li> <p>Describe fleets:</p> <ul> <li> <p>
+   * <a>DescribeFleetAttributes</a> </p> </li> <li> <p> <a>DescribeFleetCapacity</a>
+   * </p> </li> <li> <p> <a>DescribeFleetPortSettings</a> </p> </li> <li> <p>
    * <a>DescribeFleetUtilization</a> </p> </li> <li> <p>
    * <a>DescribeRuntimeConfiguration</a> </p> </li> <li> <p>
    * <a>DescribeEC2InstanceLimits</a> </p> </li> <li> <p> <a>DescribeFleetEvents</a>
@@ -578,7 +577,7 @@ namespace Model
      * <p>Location of default log files. When a server process is shut down, Amazon
      * GameLift captures and stores any log files in this location. These logs are in
      * addition to game session logs; see more on game session logs in the <a
-     * href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
      * GameLift Developer Guide</a>. If no default log path for a fleet is specified,
      * Amazon GameLift automatically uploads logs that are stored on each instance at
      * <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
@@ -590,7 +589,7 @@ namespace Model
      * <p>Location of default log files. When a server process is shut down, Amazon
      * GameLift captures and stores any log files in this location. These logs are in
      * addition to game session logs; see more on game session logs in the <a
-     * href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
      * GameLift Developer Guide</a>. If no default log path for a fleet is specified,
      * Amazon GameLift automatically uploads logs that are stored on each instance at
      * <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
@@ -602,7 +601,7 @@ namespace Model
      * <p>Location of default log files. When a server process is shut down, Amazon
      * GameLift captures and stores any log files in this location. These logs are in
      * addition to game session logs; see more on game session logs in the <a
-     * href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
      * GameLift Developer Guide</a>. If no default log path for a fleet is specified,
      * Amazon GameLift automatically uploads logs that are stored on each instance at
      * <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
@@ -614,7 +613,7 @@ namespace Model
      * <p>Location of default log files. When a server process is shut down, Amazon
      * GameLift captures and stores any log files in this location. These logs are in
      * addition to game session logs; see more on game session logs in the <a
-     * href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
      * GameLift Developer Guide</a>. If no default log path for a fleet is specified,
      * Amazon GameLift automatically uploads logs that are stored on each instance at
      * <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
@@ -626,7 +625,7 @@ namespace Model
      * <p>Location of default log files. When a server process is shut down, Amazon
      * GameLift captures and stores any log files in this location. These logs are in
      * addition to game session logs; see more on game session logs in the <a
-     * href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
      * GameLift Developer Guide</a>. If no default log path for a fleet is specified,
      * Amazon GameLift automatically uploads logs that are stored on each instance at
      * <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
@@ -638,7 +637,7 @@ namespace Model
      * <p>Location of default log files. When a server process is shut down, Amazon
      * GameLift captures and stores any log files in this location. These logs are in
      * addition to game session logs; see more on game session logs in the <a
-     * href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
      * GameLift Developer Guide</a>. If no default log path for a fleet is specified,
      * Amazon GameLift automatically uploads logs that are stored on each instance at
      * <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
@@ -650,7 +649,7 @@ namespace Model
      * <p>Location of default log files. When a server process is shut down, Amazon
      * GameLift captures and stores any log files in this location. These logs are in
      * addition to game session logs; see more on game session logs in the <a
-     * href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
      * GameLift Developer Guide</a>. If no default log path for a fleet is specified,
      * Amazon GameLift automatically uploads logs that are stored on each instance at
      * <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
@@ -662,7 +661,7 @@ namespace Model
      * <p>Location of default log files. When a server process is shut down, Amazon
      * GameLift captures and stores any log files in this location. These logs are in
      * addition to game session logs; see more on game session logs in the <a
-     * href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-api-server-code">Amazon
      * GameLift Developer Guide</a>. If no default log path for a fleet is specified,
      * Amazon GameLift automatically uploads logs that are stored on each instance at
      * <code>C:\game\logs</code> (for Windows) or <code>/local/game/logs</code> (for
@@ -891,6 +890,98 @@ namespace Model
      */
     inline FleetAttributes& AddStoppedActions(FleetAction&& value) { m_stoppedActionsHasBeenSet = true; m_stoppedActions.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>Unique identifier for an AWS IAM role that manages access to your AWS
+     * services. Any application that runs on an instance in this fleet can assume the
+     * role, including install scripts, server processs, daemons (background
+     * processes). Create a role or look up a role's ARN using the <a
+     * href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS
+     * Management Console. Learn more about using on-box credentials for your game
+     * servers at <a
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+     * Access external resources from a game server</a>.</p>
+     */
+    inline const Aws::String& GetInstanceRoleArn() const{ return m_instanceRoleArn; }
+
+    /**
+     * <p>Unique identifier for an AWS IAM role that manages access to your AWS
+     * services. Any application that runs on an instance in this fleet can assume the
+     * role, including install scripts, server processs, daemons (background
+     * processes). Create a role or look up a role's ARN using the <a
+     * href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS
+     * Management Console. Learn more about using on-box credentials for your game
+     * servers at <a
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+     * Access external resources from a game server</a>.</p>
+     */
+    inline void SetInstanceRoleArn(const Aws::String& value) { m_instanceRoleArnHasBeenSet = true; m_instanceRoleArn = value; }
+
+    /**
+     * <p>Unique identifier for an AWS IAM role that manages access to your AWS
+     * services. Any application that runs on an instance in this fleet can assume the
+     * role, including install scripts, server processs, daemons (background
+     * processes). Create a role or look up a role's ARN using the <a
+     * href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS
+     * Management Console. Learn more about using on-box credentials for your game
+     * servers at <a
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+     * Access external resources from a game server</a>.</p>
+     */
+    inline void SetInstanceRoleArn(Aws::String&& value) { m_instanceRoleArnHasBeenSet = true; m_instanceRoleArn = std::move(value); }
+
+    /**
+     * <p>Unique identifier for an AWS IAM role that manages access to your AWS
+     * services. Any application that runs on an instance in this fleet can assume the
+     * role, including install scripts, server processs, daemons (background
+     * processes). Create a role or look up a role's ARN using the <a
+     * href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS
+     * Management Console. Learn more about using on-box credentials for your game
+     * servers at <a
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+     * Access external resources from a game server</a>.</p>
+     */
+    inline void SetInstanceRoleArn(const char* value) { m_instanceRoleArnHasBeenSet = true; m_instanceRoleArn.assign(value); }
+
+    /**
+     * <p>Unique identifier for an AWS IAM role that manages access to your AWS
+     * services. Any application that runs on an instance in this fleet can assume the
+     * role, including install scripts, server processs, daemons (background
+     * processes). Create a role or look up a role's ARN using the <a
+     * href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS
+     * Management Console. Learn more about using on-box credentials for your game
+     * servers at <a
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+     * Access external resources from a game server</a>.</p>
+     */
+    inline FleetAttributes& WithInstanceRoleArn(const Aws::String& value) { SetInstanceRoleArn(value); return *this;}
+
+    /**
+     * <p>Unique identifier for an AWS IAM role that manages access to your AWS
+     * services. Any application that runs on an instance in this fleet can assume the
+     * role, including install scripts, server processs, daemons (background
+     * processes). Create a role or look up a role's ARN using the <a
+     * href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS
+     * Management Console. Learn more about using on-box credentials for your game
+     * servers at <a
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+     * Access external resources from a game server</a>.</p>
+     */
+    inline FleetAttributes& WithInstanceRoleArn(Aws::String&& value) { SetInstanceRoleArn(std::move(value)); return *this;}
+
+    /**
+     * <p>Unique identifier for an AWS IAM role that manages access to your AWS
+     * services. Any application that runs on an instance in this fleet can assume the
+     * role, including install scripts, server processs, daemons (background
+     * processes). Create a role or look up a role's ARN using the <a
+     * href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the AWS
+     * Management Console. Learn more about using on-box credentials for your game
+     * servers at <a
+     * href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+     * Access external resources from a game server</a>.</p>
+     */
+    inline FleetAttributes& WithInstanceRoleArn(const char* value) { SetInstanceRoleArn(value); return *this;}
+
   private:
 
     Aws::String m_fleetId;
@@ -946,6 +1037,9 @@ namespace Model
 
     Aws::Vector<FleetAction> m_stoppedActions;
     bool m_stoppedActionsHasBeenSet;
+
+    Aws::String m_instanceRoleArn;
+    bool m_instanceRoleArnHasBeenSet;
   };
 
 } // namespace Model

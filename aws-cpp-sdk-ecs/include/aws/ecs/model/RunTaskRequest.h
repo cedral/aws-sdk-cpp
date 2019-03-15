@@ -474,7 +474,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -482,7 +482,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -490,7 +490,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -498,7 +498,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -506,7 +506,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -518,7 +518,7 @@ namespace Model
      * specified for tasks using the Fargate launch type. If one is not specified, the
      * <code>LATEST</code> platform version is used by default. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -529,7 +529,7 @@ namespace Model
      * specified for tasks using the Fargate launch type. If one is not specified, the
      * <code>LATEST</code> platform version is used by default. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -540,7 +540,7 @@ namespace Model
      * specified for tasks using the Fargate launch type. If one is not specified, the
      * <code>LATEST</code> platform version is used by default. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -551,7 +551,7 @@ namespace Model
      * specified for tasks using the Fargate launch type. If one is not specified, the
      * <code>LATEST</code> platform version is used by default. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -562,7 +562,7 @@ namespace Model
      * specified for tasks using the Fargate launch type. If one is not specified, the
      * <code>LATEST</code> platform version is used by default. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -573,7 +573,7 @@ namespace Model
      * specified for tasks using the Fargate launch type. If one is not specified, the
      * <code>LATEST</code> platform version is used by default. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -584,7 +584,7 @@ namespace Model
      * specified for tasks using the Fargate launch type. If one is not specified, the
      * <code>LATEST</code> platform version is used by default. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -707,7 +707,7 @@ namespace Model
     /**
      * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
      * Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -716,7 +716,7 @@ namespace Model
     /**
      * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
      * Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -725,7 +725,7 @@ namespace Model
     /**
      * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
      * Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -733,32 +733,52 @@ namespace Model
 
 
     /**
-     * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the task. If no value is specified, the tags are not propagated.</p>
+     * <p>Specifies whether to propagate the tags from the task definition to the task.
+     * If no value is specified, the tags are not propagated. Tags can only be
+     * propagated to the task during task creation. To add tags to a task after task
+     * creation, use the <a>TagResource</a> API action.</p> <note> <p>An error will be
+     * received if you specify the <code>SERVICE</code> option when running a task.</p>
+     * </note>
      */
     inline const PropagateTags& GetPropagateTags() const{ return m_propagateTags; }
 
     /**
-     * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the task. If no value is specified, the tags are not propagated.</p>
+     * <p>Specifies whether to propagate the tags from the task definition to the task.
+     * If no value is specified, the tags are not propagated. Tags can only be
+     * propagated to the task during task creation. To add tags to a task after task
+     * creation, use the <a>TagResource</a> API action.</p> <note> <p>An error will be
+     * received if you specify the <code>SERVICE</code> option when running a task.</p>
+     * </note>
      */
     inline void SetPropagateTags(const PropagateTags& value) { m_propagateTagsHasBeenSet = true; m_propagateTags = value; }
 
     /**
-     * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the task. If no value is specified, the tags are not propagated.</p>
+     * <p>Specifies whether to propagate the tags from the task definition to the task.
+     * If no value is specified, the tags are not propagated. Tags can only be
+     * propagated to the task during task creation. To add tags to a task after task
+     * creation, use the <a>TagResource</a> API action.</p> <note> <p>An error will be
+     * received if you specify the <code>SERVICE</code> option when running a task.</p>
+     * </note>
      */
     inline void SetPropagateTags(PropagateTags&& value) { m_propagateTagsHasBeenSet = true; m_propagateTags = std::move(value); }
 
     /**
-     * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the task. If no value is specified, the tags are not propagated.</p>
+     * <p>Specifies whether to propagate the tags from the task definition to the task.
+     * If no value is specified, the tags are not propagated. Tags can only be
+     * propagated to the task during task creation. To add tags to a task after task
+     * creation, use the <a>TagResource</a> API action.</p> <note> <p>An error will be
+     * received if you specify the <code>SERVICE</code> option when running a task.</p>
+     * </note>
      */
     inline RunTaskRequest& WithPropagateTags(const PropagateTags& value) { SetPropagateTags(value); return *this;}
 
     /**
-     * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the task. If no value is specified, the tags are not propagated.</p>
+     * <p>Specifies whether to propagate the tags from the task definition to the task.
+     * If no value is specified, the tags are not propagated. Tags can only be
+     * propagated to the task during task creation. To add tags to a task after task
+     * creation, use the <a>TagResource</a> API action.</p> <note> <p>An error will be
+     * received if you specify the <code>SERVICE</code> option when running a task.</p>
+     * </note>
      */
     inline RunTaskRequest& WithPropagateTags(PropagateTags&& value) { SetPropagateTags(std::move(value)); return *this;}
 

@@ -15,24 +15,20 @@ endif()
 include(ExternalProject)
 
 set(AWS_DEPS_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}" CACHE PATH "Dependencies install directory.")
-set(AWS_DEPS_BIN_DIR "${AWS_DEPS_INSTALL_DIR}/bin" CACHE PATH "Dependencies binary install directory.")
-set(AWS_DEPS_LIB_DIR "${AWS_DEPS_INSTALL_DIR}/lib" CACHE PATH "Dependencies library install directory.")
 set(AWS_DEPS_BUILD_DIR "${CMAKE_BINARY_DIR}/build" CACHE PATH "Dependencies build directory.")
 set(AWS_DEPS_DOWNLOAD_DIR "${AWS_DEPS_BUILD_DIR}/downloads" CACHE PATH "Dependencies download directory.")
 
-set(AWS_CHECKSUMS_URL "https://github.com/awslabs/aws-checksums.git")
-set(AWS_CHECKSUMS_SHA "8db7ac89d232b")
-include(BuildAwsChecksums)
-
 set(AWS_C_COMMON_URL "https://github.com/awslabs/aws-c-common.git")
-set(AWS_C_COMMON_SHA "a9380a43ab3762")
+set(AWS_C_COMMON_TAG "f5383755e934745811d777a8e6c6866791b4302e")
 include(BuildAwsCCommon)
 
+set(AWS_CHECKSUMS_URL "https://github.com/awslabs/aws-checksums.git")
+set(AWS_CHECKSUMS_TAG "v0.1.2")
+include(BuildAwsChecksums)
+
 set(AWS_EVENT_STREAM_URL "https://github.com/awslabs/aws-c-event-stream.git")
-set(AWS_EVENT_STREAM_SHA "40dc42f47f3")
+set(AWS_EVENT_STREAM_TAG "v0.1.1")
 include(BuildAwsEventStream)
 
 add_dependencies(AwsCEventStream AwsCCommon AwsChecksums)
-
-
 

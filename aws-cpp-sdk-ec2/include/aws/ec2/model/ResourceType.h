@@ -26,12 +26,14 @@ namespace Model
   enum class ResourceType
   {
     NOT_SET,
+    client_vpn_endpoint,
     customer_gateway,
     dedicated_host,
     dhcp_options,
     elastic_ip,
     fleet,
     fpga_image,
+    host_reservation,
     image,
     instance,
     internet_gateway,

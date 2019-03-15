@@ -53,44 +53,44 @@ namespace Model
 
 
     /**
-     * <p>The name of an AWS CodeDeploy application associated with the applicable IAM
-     * user or AWS account.</p>
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
 
     /**
-     * <p>The name of an AWS CodeDeploy application associated with the applicable IAM
-     * user or AWS account.</p>
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
      */
     inline void SetApplicationName(const Aws::String& value) { m_applicationNameHasBeenSet = true; m_applicationName = value; }
 
     /**
-     * <p>The name of an AWS CodeDeploy application associated with the applicable IAM
-     * user or AWS account.</p>
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
      */
     inline void SetApplicationName(Aws::String&& value) { m_applicationNameHasBeenSet = true; m_applicationName = std::move(value); }
 
     /**
-     * <p>The name of an AWS CodeDeploy application associated with the applicable IAM
-     * user or AWS account.</p>
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
      */
     inline void SetApplicationName(const char* value) { m_applicationNameHasBeenSet = true; m_applicationName.assign(value); }
 
     /**
-     * <p>The name of an AWS CodeDeploy application associated with the applicable IAM
-     * user or AWS account.</p>
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
      */
     inline CreateDeploymentRequest& WithApplicationName(const Aws::String& value) { SetApplicationName(value); return *this;}
 
     /**
-     * <p>The name of an AWS CodeDeploy application associated with the applicable IAM
-     * user or AWS account.</p>
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
      */
     inline CreateDeploymentRequest& WithApplicationName(Aws::String&& value) { SetApplicationName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of an AWS CodeDeploy application associated with the applicable IAM
-     * user or AWS account.</p>
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
      */
     inline CreateDeploymentRequest& WithApplicationName(const char* value) { SetApplicationName(value); return *this;}
 
@@ -158,65 +158,65 @@ namespace Model
 
 
     /**
-     * <p>The name of a deployment configuration associated with the applicable IAM
-     * user or AWS account.</p> <p>If not specified, the value configured in the
-     * deployment group will be used as the default. If the deployment group does not
-     * have a deployment configuration associated with it, then
-     * CodeDeployDefault.OneAtATime will be used by default.</p>
+     * <p>The name of a deployment configuration associated with the IAM user or AWS
+     * account.</p> <p>If not specified, the value configured in the deployment group
+     * is used as the default. If the deployment group does not have a deployment
+     * configuration associated with it, CodeDeployDefault.OneAtATime is used by
+     * default.</p>
      */
     inline const Aws::String& GetDeploymentConfigName() const{ return m_deploymentConfigName; }
 
     /**
-     * <p>The name of a deployment configuration associated with the applicable IAM
-     * user or AWS account.</p> <p>If not specified, the value configured in the
-     * deployment group will be used as the default. If the deployment group does not
-     * have a deployment configuration associated with it, then
-     * CodeDeployDefault.OneAtATime will be used by default.</p>
+     * <p>The name of a deployment configuration associated with the IAM user or AWS
+     * account.</p> <p>If not specified, the value configured in the deployment group
+     * is used as the default. If the deployment group does not have a deployment
+     * configuration associated with it, CodeDeployDefault.OneAtATime is used by
+     * default.</p>
      */
     inline void SetDeploymentConfigName(const Aws::String& value) { m_deploymentConfigNameHasBeenSet = true; m_deploymentConfigName = value; }
 
     /**
-     * <p>The name of a deployment configuration associated with the applicable IAM
-     * user or AWS account.</p> <p>If not specified, the value configured in the
-     * deployment group will be used as the default. If the deployment group does not
-     * have a deployment configuration associated with it, then
-     * CodeDeployDefault.OneAtATime will be used by default.</p>
+     * <p>The name of a deployment configuration associated with the IAM user or AWS
+     * account.</p> <p>If not specified, the value configured in the deployment group
+     * is used as the default. If the deployment group does not have a deployment
+     * configuration associated with it, CodeDeployDefault.OneAtATime is used by
+     * default.</p>
      */
     inline void SetDeploymentConfigName(Aws::String&& value) { m_deploymentConfigNameHasBeenSet = true; m_deploymentConfigName = std::move(value); }
 
     /**
-     * <p>The name of a deployment configuration associated with the applicable IAM
-     * user or AWS account.</p> <p>If not specified, the value configured in the
-     * deployment group will be used as the default. If the deployment group does not
-     * have a deployment configuration associated with it, then
-     * CodeDeployDefault.OneAtATime will be used by default.</p>
+     * <p>The name of a deployment configuration associated with the IAM user or AWS
+     * account.</p> <p>If not specified, the value configured in the deployment group
+     * is used as the default. If the deployment group does not have a deployment
+     * configuration associated with it, CodeDeployDefault.OneAtATime is used by
+     * default.</p>
      */
     inline void SetDeploymentConfigName(const char* value) { m_deploymentConfigNameHasBeenSet = true; m_deploymentConfigName.assign(value); }
 
     /**
-     * <p>The name of a deployment configuration associated with the applicable IAM
-     * user or AWS account.</p> <p>If not specified, the value configured in the
-     * deployment group will be used as the default. If the deployment group does not
-     * have a deployment configuration associated with it, then
-     * CodeDeployDefault.OneAtATime will be used by default.</p>
+     * <p>The name of a deployment configuration associated with the IAM user or AWS
+     * account.</p> <p>If not specified, the value configured in the deployment group
+     * is used as the default. If the deployment group does not have a deployment
+     * configuration associated with it, CodeDeployDefault.OneAtATime is used by
+     * default.</p>
      */
     inline CreateDeploymentRequest& WithDeploymentConfigName(const Aws::String& value) { SetDeploymentConfigName(value); return *this;}
 
     /**
-     * <p>The name of a deployment configuration associated with the applicable IAM
-     * user or AWS account.</p> <p>If not specified, the value configured in the
-     * deployment group will be used as the default. If the deployment group does not
-     * have a deployment configuration associated with it, then
-     * CodeDeployDefault.OneAtATime will be used by default.</p>
+     * <p>The name of a deployment configuration associated with the IAM user or AWS
+     * account.</p> <p>If not specified, the value configured in the deployment group
+     * is used as the default. If the deployment group does not have a deployment
+     * configuration associated with it, CodeDeployDefault.OneAtATime is used by
+     * default.</p>
      */
     inline CreateDeploymentRequest& WithDeploymentConfigName(Aws::String&& value) { SetDeploymentConfigName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of a deployment configuration associated with the applicable IAM
-     * user or AWS account.</p> <p>If not specified, the value configured in the
-     * deployment group will be used as the default. If the deployment group does not
-     * have a deployment configuration associated with it, then
-     * CodeDeployDefault.OneAtATime will be used by default.</p>
+     * <p>The name of a deployment configuration associated with the IAM user or AWS
+     * account.</p> <p>If not specified, the value configured in the deployment group
+     * is used as the default. If the deployment group does not have a deployment
+     * configuration associated with it, CodeDeployDefault.OneAtATime is used by
+     * default.</p>
      */
     inline CreateDeploymentRequest& WithDeploymentConfigName(const char* value) { SetDeploymentConfigName(value); return *this;}
 
@@ -258,69 +258,102 @@ namespace Model
 
 
     /**
-     * <p> If set to true, then if the deployment causes the ApplicationStop deployment
-     * lifecycle event to an instance to fail, the deployment to that instance will not
-     * be considered to have failed at that point and will continue on to the
-     * BeforeInstall deployment lifecycle event. </p> <p> If set to false or not
-     * specified, then if the deployment causes the ApplicationStop deployment
-     * lifecycle event to fail to an instance, the deployment to that instance will
-     * stop, and the deployment to that instance will be considered to have failed.
-     * </p>
+     * <p> If true, then if an ApplicationStop, BeforeBlockTraffic, or
+     * AfterBlockTraffic deployment lifecycle event to an instance fails, then the
+     * deployment continues to the next deployment lifecycle event. For example, if
+     * ApplicationStop fails, the deployment continues with DownloadBundle. If
+     * BeforeBlockTraffic fails, the deployment continues with BlockTraffic. If
+     * AfterBlockTraffic fails, the deployment continues with ApplicationStop. </p> <p>
+     * If false or not specified, then if a lifecycle event fails during a deployment
+     * to an instance, that deployment fails. If deployment to that instance is part of
+     * an overall deployment and the number of healthy hosts is not less than the
+     * minimum number of healthy hosts, then a deployment to the next instance is
+     * attempted. </p> <p> During a deployment, the AWS CodeDeploy agent runs the
+     * scripts specified for ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic
+     * in the AppSpec file from the previous successful deployment. (All other scripts
+     * are run from the AppSpec file in the current deployment.) If one of these
+     * scripts contains an error and does not run successfully, the deployment can
+     * fail. </p> <p> If the cause of the failure is a script from the last successful
+     * deployment that will never run successfully, create a new deployment and use
+     * <code>ignoreApplicationStopFailures</code> to specify that the ApplicationStop,
+     * BeforeBlockTraffic, and AfterBlockTraffic failures should be ignored. </p>
      */
     inline bool GetIgnoreApplicationStopFailures() const{ return m_ignoreApplicationStopFailures; }
 
     /**
-     * <p> If set to true, then if the deployment causes the ApplicationStop deployment
-     * lifecycle event to an instance to fail, the deployment to that instance will not
-     * be considered to have failed at that point and will continue on to the
-     * BeforeInstall deployment lifecycle event. </p> <p> If set to false or not
-     * specified, then if the deployment causes the ApplicationStop deployment
-     * lifecycle event to fail to an instance, the deployment to that instance will
-     * stop, and the deployment to that instance will be considered to have failed.
-     * </p>
+     * <p> If true, then if an ApplicationStop, BeforeBlockTraffic, or
+     * AfterBlockTraffic deployment lifecycle event to an instance fails, then the
+     * deployment continues to the next deployment lifecycle event. For example, if
+     * ApplicationStop fails, the deployment continues with DownloadBundle. If
+     * BeforeBlockTraffic fails, the deployment continues with BlockTraffic. If
+     * AfterBlockTraffic fails, the deployment continues with ApplicationStop. </p> <p>
+     * If false or not specified, then if a lifecycle event fails during a deployment
+     * to an instance, that deployment fails. If deployment to that instance is part of
+     * an overall deployment and the number of healthy hosts is not less than the
+     * minimum number of healthy hosts, then a deployment to the next instance is
+     * attempted. </p> <p> During a deployment, the AWS CodeDeploy agent runs the
+     * scripts specified for ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic
+     * in the AppSpec file from the previous successful deployment. (All other scripts
+     * are run from the AppSpec file in the current deployment.) If one of these
+     * scripts contains an error and does not run successfully, the deployment can
+     * fail. </p> <p> If the cause of the failure is a script from the last successful
+     * deployment that will never run successfully, create a new deployment and use
+     * <code>ignoreApplicationStopFailures</code> to specify that the ApplicationStop,
+     * BeforeBlockTraffic, and AfterBlockTraffic failures should be ignored. </p>
      */
     inline void SetIgnoreApplicationStopFailures(bool value) { m_ignoreApplicationStopFailuresHasBeenSet = true; m_ignoreApplicationStopFailures = value; }
 
     /**
-     * <p> If set to true, then if the deployment causes the ApplicationStop deployment
-     * lifecycle event to an instance to fail, the deployment to that instance will not
-     * be considered to have failed at that point and will continue on to the
-     * BeforeInstall deployment lifecycle event. </p> <p> If set to false or not
-     * specified, then if the deployment causes the ApplicationStop deployment
-     * lifecycle event to fail to an instance, the deployment to that instance will
-     * stop, and the deployment to that instance will be considered to have failed.
-     * </p>
+     * <p> If true, then if an ApplicationStop, BeforeBlockTraffic, or
+     * AfterBlockTraffic deployment lifecycle event to an instance fails, then the
+     * deployment continues to the next deployment lifecycle event. For example, if
+     * ApplicationStop fails, the deployment continues with DownloadBundle. If
+     * BeforeBlockTraffic fails, the deployment continues with BlockTraffic. If
+     * AfterBlockTraffic fails, the deployment continues with ApplicationStop. </p> <p>
+     * If false or not specified, then if a lifecycle event fails during a deployment
+     * to an instance, that deployment fails. If deployment to that instance is part of
+     * an overall deployment and the number of healthy hosts is not less than the
+     * minimum number of healthy hosts, then a deployment to the next instance is
+     * attempted. </p> <p> During a deployment, the AWS CodeDeploy agent runs the
+     * scripts specified for ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic
+     * in the AppSpec file from the previous successful deployment. (All other scripts
+     * are run from the AppSpec file in the current deployment.) If one of these
+     * scripts contains an error and does not run successfully, the deployment can
+     * fail. </p> <p> If the cause of the failure is a script from the last successful
+     * deployment that will never run successfully, create a new deployment and use
+     * <code>ignoreApplicationStopFailures</code> to specify that the ApplicationStop,
+     * BeforeBlockTraffic, and AfterBlockTraffic failures should be ignored. </p>
      */
     inline CreateDeploymentRequest& WithIgnoreApplicationStopFailures(bool value) { SetIgnoreApplicationStopFailures(value); return *this;}
 
 
     /**
-     * <p> Information about the instances that will belong to the replacement
-     * environment in a blue/green deployment. </p>
+     * <p> Information about the instances that belong to the replacement environment
+     * in a blue/green deployment. </p>
      */
     inline const TargetInstances& GetTargetInstances() const{ return m_targetInstances; }
 
     /**
-     * <p> Information about the instances that will belong to the replacement
-     * environment in a blue/green deployment. </p>
+     * <p> Information about the instances that belong to the replacement environment
+     * in a blue/green deployment. </p>
      */
     inline void SetTargetInstances(const TargetInstances& value) { m_targetInstancesHasBeenSet = true; m_targetInstances = value; }
 
     /**
-     * <p> Information about the instances that will belong to the replacement
-     * environment in a blue/green deployment. </p>
+     * <p> Information about the instances that belong to the replacement environment
+     * in a blue/green deployment. </p>
      */
     inline void SetTargetInstances(TargetInstances&& value) { m_targetInstancesHasBeenSet = true; m_targetInstances = std::move(value); }
 
     /**
-     * <p> Information about the instances that will belong to the replacement
-     * environment in a blue/green deployment. </p>
+     * <p> Information about the instances that belong to the replacement environment
+     * in a blue/green deployment. </p>
      */
     inline CreateDeploymentRequest& WithTargetInstances(const TargetInstances& value) { SetTargetInstances(value); return *this;}
 
     /**
-     * <p> Information about the instances that will belong to the replacement
-     * environment in a blue/green deployment. </p>
+     * <p> Information about the instances that belong to the replacement environment
+     * in a blue/green deployment. </p>
      */
     inline CreateDeploymentRequest& WithTargetInstances(TargetInstances&& value) { SetTargetInstances(std::move(value)); return *this;}
 

@@ -30,12 +30,14 @@ namespace Aws
       namespace ResourceTypeMapper
       {
 
+        static const int client_vpn_endpoint_HASH = HashingUtils::HashString("client-vpn-endpoint");
         static const int customer_gateway_HASH = HashingUtils::HashString("customer-gateway");
         static const int dedicated_host_HASH = HashingUtils::HashString("dedicated-host");
         static const int dhcp_options_HASH = HashingUtils::HashString("dhcp-options");
         static const int elastic_ip_HASH = HashingUtils::HashString("elastic-ip");
         static const int fleet_HASH = HashingUtils::HashString("fleet");
         static const int fpga_image_HASH = HashingUtils::HashString("fpga-image");
+        static const int host_reservation_HASH = HashingUtils::HashString("host-reservation");
         static const int image_HASH = HashingUtils::HashString("image");
         static const int instance_HASH = HashingUtils::HashString("instance");
         static const int internet_gateway_HASH = HashingUtils::HashString("internet-gateway");
@@ -62,7 +64,11 @@ namespace Aws
         ResourceType GetResourceTypeForName(const Aws::String& name)
         {
           int hashCode = HashingUtils::HashString(name.c_str());
-          if (hashCode == customer_gateway_HASH)
+          if (hashCode == client_vpn_endpoint_HASH)
+          {
+            return ResourceType::client_vpn_endpoint;
+          }
+          else if (hashCode == customer_gateway_HASH)
           {
             return ResourceType::customer_gateway;
           }
@@ -85,6 +91,10 @@ namespace Aws
           else if (hashCode == fpga_image_HASH)
           {
             return ResourceType::fpga_image;
+          }
+          else if (hashCode == host_reservation_HASH)
+          {
+            return ResourceType::host_reservation;
           }
           else if (hashCode == image_HASH)
           {
@@ -184,6 +194,8 @@ namespace Aws
         {
           switch(enumValue)
           {
+          case ResourceType::client_vpn_endpoint:
+            return "client-vpn-endpoint";
           case ResourceType::customer_gateway:
             return "customer-gateway";
           case ResourceType::dedicated_host:
@@ -196,6 +208,8 @@ namespace Aws
             return "fleet";
           case ResourceType::fpga_image:
             return "fpga-image";
+          case ResourceType::host_reservation:
+            return "host-reservation";
           case ResourceType::image:
             return "image";
           case ResourceType::instance:
@@ -245,7 +259,7 @@ namespace Aws
               return overflowContainer->RetrieveOverflow(static_cast<int>(enumValue));
             }
 
-            return "";
+            return {};
           }
         }
 

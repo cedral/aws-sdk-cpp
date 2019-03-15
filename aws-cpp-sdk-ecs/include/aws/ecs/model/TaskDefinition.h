@@ -21,6 +21,7 @@
 #include <aws/ecs/model/TaskDefinitionStatus.h>
 #include <aws/ecs/model/PidMode.h>
 #include <aws/ecs/model/IpcMode.h>
+#include <aws/ecs/model/ProxyConfiguration.h>
 #include <aws/ecs/model/ContainerDefinition.h>
 #include <aws/ecs/model/Volume.h>
 #include <aws/ecs/model/Attribute.h>
@@ -97,7 +98,7 @@ namespace Model
      * <p>A list of container definitions in JSON format that describe the different
      * containers that make up your task. For more information about container
      * definition parameters and defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -107,7 +108,7 @@ namespace Model
      * <p>A list of container definitions in JSON format that describe the different
      * containers that make up your task. For more information about container
      * definition parameters and defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -117,7 +118,7 @@ namespace Model
      * <p>A list of container definitions in JSON format that describe the different
      * containers that make up your task. For more information about container
      * definition parameters and defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -127,7 +128,7 @@ namespace Model
      * <p>A list of container definitions in JSON format that describe the different
      * containers that make up your task. For more information about container
      * definition parameters and defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -137,7 +138,7 @@ namespace Model
      * <p>A list of container definitions in JSON format that describe the different
      * containers that make up your task. For more information about container
      * definition parameters and defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -147,7 +148,7 @@ namespace Model
      * <p>A list of container definitions in JSON format that describe the different
      * containers that make up your task. For more information about container
      * definition parameters and defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -157,7 +158,7 @@ namespace Model
      * <p>A list of container definitions in JSON format that describe the different
      * containers that make up your task. For more information about container
      * definition parameters and defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -207,7 +208,7 @@ namespace Model
      * <code>-EnableTaskIAMRole</code> option is set when you launch the Amazon
      * ECS-optimized Windows AMI. Your containers must also run some configuration code
      * in order to take advantage of the feature. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
      * IAM Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -220,7 +221,7 @@ namespace Model
      * <code>-EnableTaskIAMRole</code> option is set when you launch the Amazon
      * ECS-optimized Windows AMI. Your containers must also run some configuration code
      * in order to take advantage of the feature. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
      * IAM Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -233,7 +234,7 @@ namespace Model
      * <code>-EnableTaskIAMRole</code> option is set when you launch the Amazon
      * ECS-optimized Windows AMI. Your containers must also run some configuration code
      * in order to take advantage of the feature. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
      * IAM Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -246,7 +247,7 @@ namespace Model
      * <code>-EnableTaskIAMRole</code> option is set when you launch the Amazon
      * ECS-optimized Windows AMI. Your containers must also run some configuration code
      * in order to take advantage of the feature. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
      * IAM Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -259,7 +260,7 @@ namespace Model
      * <code>-EnableTaskIAMRole</code> option is set when you launch the Amazon
      * ECS-optimized Windows AMI. Your containers must also run some configuration code
      * in order to take advantage of the feature. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
      * IAM Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -272,7 +273,7 @@ namespace Model
      * <code>-EnableTaskIAMRole</code> option is set when you launch the Amazon
      * ECS-optimized Windows AMI. Your containers must also run some configuration code
      * in order to take advantage of the feature. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
      * IAM Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -285,7 +286,7 @@ namespace Model
      * <code>-EnableTaskIAMRole</code> option is set when you launch the Amazon
      * ECS-optimized Windows AMI. Your containers must also run some configuration code
      * in order to take advantage of the feature. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows_task_IAM_roles.html">Windows
      * IAM Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -557,7 +558,7 @@ namespace Model
      * type, the <code>host</code> and <code>sourcePath</code> parameters are not
      * supported.</p> <p>For more information about volume definition parameters and
      * defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -568,7 +569,7 @@ namespace Model
      * type, the <code>host</code> and <code>sourcePath</code> parameters are not
      * supported.</p> <p>For more information about volume definition parameters and
      * defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -579,7 +580,7 @@ namespace Model
      * type, the <code>host</code> and <code>sourcePath</code> parameters are not
      * supported.</p> <p>For more information about volume definition parameters and
      * defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -590,7 +591,7 @@ namespace Model
      * type, the <code>host</code> and <code>sourcePath</code> parameters are not
      * supported.</p> <p>For more information about volume definition parameters and
      * defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -601,7 +602,7 @@ namespace Model
      * type, the <code>host</code> and <code>sourcePath</code> parameters are not
      * supported.</p> <p>For more information about volume definition parameters and
      * defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -612,7 +613,7 @@ namespace Model
      * type, the <code>host</code> and <code>sourcePath</code> parameters are not
      * supported.</p> <p>For more information about volume definition parameters and
      * defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -623,7 +624,7 @@ namespace Model
      * type, the <code>host</code> and <code>sourcePath</code> parameters are not
      * supported.</p> <p>For more information about volume definition parameters and
      * defaults, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html">Amazon
      * ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -744,7 +745,7 @@ namespace Model
 
     /**
      * <p>The launch type to use with your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -752,7 +753,7 @@ namespace Model
 
     /**
      * <p>The launch type to use with your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -760,7 +761,7 @@ namespace Model
 
     /**
      * <p>The launch type to use with your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -768,7 +769,7 @@ namespace Model
 
     /**
      * <p>The launch type to use with your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -776,7 +777,7 @@ namespace Model
 
     /**
      * <p>The launch type to use with your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -784,7 +785,7 @@ namespace Model
 
     /**
      * <p>The launch type to use with your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -792,7 +793,7 @@ namespace Model
 
     /**
      * <p>The launch type to use with your task. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -1328,6 +1329,32 @@ namespace Model
      */
     inline TaskDefinition& WithIpcMode(IpcMode&& value) { SetIpcMode(std::move(value)); return *this;}
 
+
+    /**
+     * <p/>
+     */
+    inline const ProxyConfiguration& GetProxyConfiguration() const{ return m_proxyConfiguration; }
+
+    /**
+     * <p/>
+     */
+    inline void SetProxyConfiguration(const ProxyConfiguration& value) { m_proxyConfigurationHasBeenSet = true; m_proxyConfiguration = value; }
+
+    /**
+     * <p/>
+     */
+    inline void SetProxyConfiguration(ProxyConfiguration&& value) { m_proxyConfigurationHasBeenSet = true; m_proxyConfiguration = std::move(value); }
+
+    /**
+     * <p/>
+     */
+    inline TaskDefinition& WithProxyConfiguration(const ProxyConfiguration& value) { SetProxyConfiguration(value); return *this;}
+
+    /**
+     * <p/>
+     */
+    inline TaskDefinition& WithProxyConfiguration(ProxyConfiguration&& value) { SetProxyConfiguration(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_taskDefinitionArn;
@@ -1380,6 +1407,9 @@ namespace Model
 
     IpcMode m_ipcMode;
     bool m_ipcModeHasBeenSet;
+
+    ProxyConfiguration m_proxyConfiguration;
+    bool m_proxyConfigurationHasBeenSet;
   };
 
 } // namespace Model

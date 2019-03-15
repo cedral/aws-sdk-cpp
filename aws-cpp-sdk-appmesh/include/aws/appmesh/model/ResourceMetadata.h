@@ -36,7 +36,7 @@ namespace Model
 
   /**
    * <p>An object representing metadata for a resource.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/appmesh-2018-10-01/ResourceMetadata">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/appmesh-2019-01-25/ResourceMetadata">AWS
    * API Reference</a></p>
    */
   class AWS_APPMESH_API ResourceMetadata
@@ -246,57 +246,57 @@ namespace Model
 
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was created.</p>
+     * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
      */
     inline const Aws::Utils::DateTime& GetCreatedAt() const{ return m_createdAt; }
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was created.</p>
+     * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
      */
     inline void SetCreatedAt(const Aws::Utils::DateTime& value) { m_createdAtHasBeenSet = true; m_createdAt = value; }
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was created.</p>
+     * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
      */
     inline void SetCreatedAt(Aws::Utils::DateTime&& value) { m_createdAtHasBeenSet = true; m_createdAt = std::move(value); }
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was created.</p>
+     * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
      */
     inline ResourceMetadata& WithCreatedAt(const Aws::Utils::DateTime& value) { SetCreatedAt(value); return *this;}
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was created.</p>
+     * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
      */
     inline ResourceMetadata& WithCreatedAt(Aws::Utils::DateTime&& value) { SetCreatedAt(std::move(value)); return *this;}
 
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was last
+     * <p>The Unix epoch timestamp in seconds for when the resource was last
      * updated.</p>
      */
     inline const Aws::Utils::DateTime& GetLastUpdatedAt() const{ return m_lastUpdatedAt; }
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was last
+     * <p>The Unix epoch timestamp in seconds for when the resource was last
      * updated.</p>
      */
     inline void SetLastUpdatedAt(const Aws::Utils::DateTime& value) { m_lastUpdatedAtHasBeenSet = true; m_lastUpdatedAt = value; }
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was last
+     * <p>The Unix epoch timestamp in seconds for when the resource was last
      * updated.</p>
      */
     inline void SetLastUpdatedAt(Aws::Utils::DateTime&& value) { m_lastUpdatedAtHasBeenSet = true; m_lastUpdatedAt = std::move(value); }
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was last
+     * <p>The Unix epoch timestamp in seconds for when the resource was last
      * updated.</p>
      */
     inline ResourceMetadata& WithLastUpdatedAt(const Aws::Utils::DateTime& value) { SetLastUpdatedAt(value); return *this;}
 
     /**
-     * <p>The Unix epoch timestamp in seconds for when the cluster was last
+     * <p>The Unix epoch timestamp in seconds for when the resource was last
      * updated.</p>
      */
     inline ResourceMetadata& WithLastUpdatedAt(Aws::Utils::DateTime&& value) { SetLastUpdatedAt(std::move(value)); return *this;}
@@ -341,21 +341,21 @@ namespace Model
     /**
      * <p>The version of the resource. Resources are created at version 1, and this
      * version is
-         incremented each time they are updated.</p>
+         incremented each time that they're updated.</p>
      */
     inline long long GetVersion() const{ return m_version; }
 
     /**
      * <p>The version of the resource. Resources are created at version 1, and this
      * version is
-         incremented each time they are updated.</p>
+         incremented each time that they're updated.</p>
      */
     inline void SetVersion(long long value) { m_versionHasBeenSet = true; m_version = value; }
 
     /**
      * <p>The version of the resource. Resources are created at version 1, and this
      * version is
-         incremented each time they are updated.</p>
+         incremented each time that they're updated.</p>
      */
     inline ResourceMetadata& WithVersion(long long value) { SetVersion(value); return *this;}
 

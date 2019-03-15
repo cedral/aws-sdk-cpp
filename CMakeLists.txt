@@ -109,11 +109,17 @@ include(initialize_project_version)
 
 # build third-party targets
 if (BUILD_DEPS)
+    # If building third party dependencies, we will move them to the same directory where SDK has been installed during installation.
+    # Therefore, we should set rpath to $ORIGIN to let SDK find these third party dependencies.
+    # Otherwise, customers are responsible for handling the linkage to these libraries.
+    set(CMAKE_INSTALL_RPATH "$ORIGIN")
     set(AWS_DEPS_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR}/.deps)
-    if (DEFINED CMAKE_INSTALL_PREFIX)
-        set(AWS_DEPS_INSTALL_DIR ${CMAKE_INSTALL_PREFIX})
-    else()
-        set(AWS_DEPS_INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/.deps/install)
+    if (NOT DEFINED AWS_DEPS_INSTALL_DIR)
+        if (DEFINED CMAKE_INSTALL_PREFIX)
+            set(AWS_DEPS_INSTALL_DIR ${CMAKE_INSTALL_PREFIX} CACHE STRING "A string describes the path where 3rd-party dependencies will be or have been installed")
+        else()
+            set(AWS_DEPS_INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/.deps/install CACHE STRING "A string describes the path where 3rd-party dependencies will be or have been installed")
+        endif()
     endif()
     file(MAKE_DIRECTORY ${AWS_DEPS_BUILD_DIR})
     if(TARGET_ARCH STREQUAL "ANDROID")
@@ -131,7 +137,25 @@ if (BUILD_DEPS)
             -DCMAKE_INSTALL_PREFIX=${AWS_DEPS_INSTALL_DIR}
             -DGIT_EXECUTABLE=${GIT_EXECUTABLE}
             ${CMAKE_CURRENT_SOURCE_DIR}/third-party
-            WORKING_DIRECTORY ${AWS_DEPS_BUILD_DIR})
+            WORKING_DIRECTORY ${AWS_DEPS_BUILD_DIR}
+            RESULT_VARIABLE BUILD_3P_EXIT_CODE)
+    elseif(TARGET_ARCH STREQUAL "APPLE" AND DEFINED CMAKE_OSX_ARCHITECTURES AND NOT CMAKE_OSX_ARCHITECTURES STREQUAL "")
+        message("Cross compiling third-party dependencies for architecture ${CMAKE_OSX_ARCHITECTURES}")
+        execute_process(
+            COMMAND ${CMAKE_COMMAND} -G ${CMAKE_GENERATOR}
+            -DTARGET_ARCH=${TARGET_ARCH}
+            -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+            -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+            -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS}
+            -DCMAKE_INSTALL_PREFIX=${AWS_DEPS_INSTALL_DIR}
+            -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
+            -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
+            -DCMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME}
+            -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
+            -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=${CMAKE_CURRENT_BINARY_DIR}/bin
+            ${CMAKE_CURRENT_SOURCE_DIR}/third-party
+            WORKING_DIRECTORY ${AWS_DEPS_BUILD_DIR}
+            RESULT_VARIABLE BUILD_3P_EXIT_CODE)
     else()
         execute_process(
             COMMAND ${CMAKE_COMMAND} -G ${CMAKE_GENERATOR}

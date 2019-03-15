@@ -629,7 +629,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -637,7 +637,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -645,7 +645,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -653,7 +653,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -661,7 +661,7 @@ namespace Model
 
     /**
      * <p>The launch type on which to run your service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p>
      */
@@ -673,7 +673,7 @@ namespace Model
      * platform version is only specified for tasks using the Fargate launch type. If
      * one is not specified, the <code>LATEST</code> platform version is used by
      * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -684,7 +684,7 @@ namespace Model
      * platform version is only specified for tasks using the Fargate launch type. If
      * one is not specified, the <code>LATEST</code> platform version is used by
      * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -695,7 +695,7 @@ namespace Model
      * platform version is only specified for tasks using the Fargate launch type. If
      * one is not specified, the <code>LATEST</code> platform version is used by
      * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -706,7 +706,7 @@ namespace Model
      * platform version is only specified for tasks using the Fargate launch type. If
      * one is not specified, the <code>LATEST</code> platform version is used by
      * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -717,7 +717,7 @@ namespace Model
      * platform version is only specified for tasks using the Fargate launch type. If
      * one is not specified, the <code>LATEST</code> platform version is used by
      * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -728,7 +728,7 @@ namespace Model
      * platform version is only specified for tasks using the Fargate launch type. If
      * one is not specified, the <code>LATEST</code> platform version is used by
      * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -739,7 +739,7 @@ namespace Model
      * platform version is only specified for tasks using the Fargate launch type. If
      * one is not specified, the <code>LATEST</code> platform version is used by
      * default. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -765,7 +765,7 @@ namespace Model
      * role with the name <code>bar</code> has a path of <code>/foo/</code> then you
      * would specify <code>/foo/bar</code> as the role name. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
      * Names and Paths</a> in the <i>IAM User Guide</i>.</p>
      */
     inline const Aws::String& GetRole() const{ return m_role; }
@@ -789,7 +789,7 @@ namespace Model
      * role with the name <code>bar</code> has a path of <code>/foo/</code> then you
      * would specify <code>/foo/bar</code> as the role name. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
      * Names and Paths</a> in the <i>IAM User Guide</i>.</p>
      */
     inline void SetRole(const Aws::String& value) { m_roleHasBeenSet = true; m_role = value; }
@@ -813,7 +813,7 @@ namespace Model
      * role with the name <code>bar</code> has a path of <code>/foo/</code> then you
      * would specify <code>/foo/bar</code> as the role name. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
      * Names and Paths</a> in the <i>IAM User Guide</i>.</p>
      */
     inline void SetRole(Aws::String&& value) { m_roleHasBeenSet = true; m_role = std::move(value); }
@@ -837,7 +837,7 @@ namespace Model
      * role with the name <code>bar</code> has a path of <code>/foo/</code> then you
      * would specify <code>/foo/bar</code> as the role name. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
      * Names and Paths</a> in the <i>IAM User Guide</i>.</p>
      */
     inline void SetRole(const char* value) { m_roleHasBeenSet = true; m_role.assign(value); }
@@ -861,7 +861,7 @@ namespace Model
      * role with the name <code>bar</code> has a path of <code>/foo/</code> then you
      * would specify <code>/foo/bar</code> as the role name. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
      * Names and Paths</a> in the <i>IAM User Guide</i>.</p>
      */
     inline CreateServiceRequest& WithRole(const Aws::String& value) { SetRole(value); return *this;}
@@ -885,7 +885,7 @@ namespace Model
      * role with the name <code>bar</code> has a path of <code>/foo/</code> then you
      * would specify <code>/foo/bar</code> as the role name. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
      * Names and Paths</a> in the <i>IAM User Guide</i>.</p>
      */
     inline CreateServiceRequest& WithRole(Aws::String&& value) { SetRole(std::move(value)); return *this;}
@@ -909,7 +909,7 @@ namespace Model
      * role with the name <code>bar</code> has a path of <code>/foo/</code> then you
      * would specify <code>/foo/bar</code> as the role name. For more information, see
      * <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names">Friendly
      * Names and Paths</a> in the <i>IAM User Guide</i>.</p>
      */
     inline CreateServiceRequest& WithRole(const char* value) { SetRole(value); return *this;}
@@ -1101,9 +1101,9 @@ namespace Model
      * first started. This is only valid if your service is configured to use a load
      * balancer. If your service's tasks take a while to start and respond to Elastic
      * Load Balancing health checks, you can specify a health check grace period of up
-     * to 7,200 seconds. During that time, the ECS service scheduler ignores health
-     * check status. This grace period can prevent the ECS service scheduler from
-     * marking tasks as unhealthy and stopping them before they have time to come
+     * to 2,147,483,647 seconds. During that time, the ECS service scheduler ignores
+     * health check status. This grace period can prevent the ECS service scheduler
+     * from marking tasks as unhealthy and stopping them before they have time to come
      * up.</p>
      */
     inline int GetHealthCheckGracePeriodSeconds() const{ return m_healthCheckGracePeriodSeconds; }
@@ -1114,9 +1114,9 @@ namespace Model
      * first started. This is only valid if your service is configured to use a load
      * balancer. If your service's tasks take a while to start and respond to Elastic
      * Load Balancing health checks, you can specify a health check grace period of up
-     * to 7,200 seconds. During that time, the ECS service scheduler ignores health
-     * check status. This grace period can prevent the ECS service scheduler from
-     * marking tasks as unhealthy and stopping them before they have time to come
+     * to 2,147,483,647 seconds. During that time, the ECS service scheduler ignores
+     * health check status. This grace period can prevent the ECS service scheduler
+     * from marking tasks as unhealthy and stopping them before they have time to come
      * up.</p>
      */
     inline void SetHealthCheckGracePeriodSeconds(int value) { m_healthCheckGracePeriodSecondsHasBeenSet = true; m_healthCheckGracePeriodSeconds = value; }
@@ -1127,9 +1127,9 @@ namespace Model
      * first started. This is only valid if your service is configured to use a load
      * balancer. If your service's tasks take a while to start and respond to Elastic
      * Load Balancing health checks, you can specify a health check grace period of up
-     * to 7,200 seconds. During that time, the ECS service scheduler ignores health
-     * check status. This grace period can prevent the ECS service scheduler from
-     * marking tasks as unhealthy and stopping them before they have time to come
+     * to 2,147,483,647 seconds. During that time, the ECS service scheduler ignores
+     * health check status. This grace period can prevent the ECS service scheduler
+     * from marking tasks as unhealthy and stopping them before they have time to come
      * up.</p>
      */
     inline CreateServiceRequest& WithHealthCheckGracePeriodSeconds(int value) { SetHealthCheckGracePeriodSeconds(value); return *this;}
@@ -1329,7 +1329,7 @@ namespace Model
     /**
      * <p>Specifies whether to enable Amazon ECS managed tags for the tasks within the
      * service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
      * Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -1338,7 +1338,7 @@ namespace Model
     /**
      * <p>Specifies whether to enable Amazon ECS managed tags for the tasks within the
      * service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
      * Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -1347,7 +1347,7 @@ namespace Model
     /**
      * <p>Specifies whether to enable Amazon ECS managed tags for the tasks within the
      * service. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging
+     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
      * Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
      */
@@ -1356,45 +1356,45 @@ namespace Model
 
     /**
      * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the tasks. If no value is specified, the tags are not propagated.
-     * Tags can only be propagated to the tasks within the service during service
-     * creation. To add tags to a task after service creation, use the
+     * service to the tasks in the service. If no value is specified, the tags are not
+     * propagated. Tags can only be propagated to the tasks within the service during
+     * service creation. To add tags to a task after service creation, use the
      * <a>TagResource</a> API action.</p>
      */
     inline const PropagateTags& GetPropagateTags() const{ return m_propagateTags; }
 
     /**
      * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the tasks. If no value is specified, the tags are not propagated.
-     * Tags can only be propagated to the tasks within the service during service
-     * creation. To add tags to a task after service creation, use the
+     * service to the tasks in the service. If no value is specified, the tags are not
+     * propagated. Tags can only be propagated to the tasks within the service during
+     * service creation. To add tags to a task after service creation, use the
      * <a>TagResource</a> API action.</p>
      */
     inline void SetPropagateTags(const PropagateTags& value) { m_propagateTagsHasBeenSet = true; m_propagateTags = value; }
 
     /**
      * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the tasks. If no value is specified, the tags are not propagated.
-     * Tags can only be propagated to the tasks within the service during service
-     * creation. To add tags to a task after service creation, use the
+     * service to the tasks in the service. If no value is specified, the tags are not
+     * propagated. Tags can only be propagated to the tasks within the service during
+     * service creation. To add tags to a task after service creation, use the
      * <a>TagResource</a> API action.</p>
      */
     inline void SetPropagateTags(PropagateTags&& value) { m_propagateTagsHasBeenSet = true; m_propagateTags = std::move(value); }
 
     /**
      * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the tasks. If no value is specified, the tags are not propagated.
-     * Tags can only be propagated to the tasks within the service during service
-     * creation. To add tags to a task after service creation, use the
+     * service to the tasks in the service. If no value is specified, the tags are not
+     * propagated. Tags can only be propagated to the tasks within the service during
+     * service creation. To add tags to a task after service creation, use the
      * <a>TagResource</a> API action.</p>
      */
     inline CreateServiceRequest& WithPropagateTags(const PropagateTags& value) { SetPropagateTags(value); return *this;}
 
     /**
      * <p>Specifies whether to propagate the tags from the task definition or the
-     * service to the tasks. If no value is specified, the tags are not propagated.
-     * Tags can only be propagated to the tasks within the service during service
-     * creation. To add tags to a task after service creation, use the
+     * service to the tasks in the service. If no value is specified, the tags are not
+     * propagated. Tags can only be propagated to the tasks within the service during
+     * service creation. To add tags to a task after service creation, use the
      * <a>TagResource</a> API action.</p>
      */
     inline CreateServiceRequest& WithPropagateTags(PropagateTags&& value) { SetPropagateTags(std::move(value)); return *this;}
