@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     GetQueueUrlRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * (<code>_</code>).</p> <p>Queue URLs and names are case-sensitive.</p>
      */
     inline const Aws::String& GetQueueName() const{ return m_queueName; }
+
+    /**
+     * <p>The name of the queue whose URL must be fetched. Maximum 80 characters. Valid
+     * values: alphanumeric characters, hyphens (<code>-</code>), and underscores
+     * (<code>_</code>).</p> <p>Queue URLs and names are case-sensitive.</p>
+     */
+    inline bool QueueNameHasBeenSet() const { return m_queueNameHasBeenSet; }
 
     /**
      * <p>The name of the queue whose URL must be fetched. Maximum 80 characters. Valid
@@ -103,6 +110,11 @@ namespace Model
      * <p>The AWS account ID of the account that created the queue.</p>
      */
     inline const Aws::String& GetQueueOwnerAWSAccountId() const{ return m_queueOwnerAWSAccountId; }
+
+    /**
+     * <p>The AWS account ID of the account that created the queue.</p>
+     */
+    inline bool QueueOwnerAWSAccountIdHasBeenSet() const { return m_queueOwnerAWSAccountIdHasBeenSet; }
 
     /**
      * <p>The AWS account ID of the account that created the queue.</p>

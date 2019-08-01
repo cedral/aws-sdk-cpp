@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetQueryResultsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The unique ID of the query execution.</p>
      */
     inline const Aws::String& GetQueryExecutionId() const{ return m_queryExecutionId; }
+
+    /**
+     * <p>The unique ID of the query execution.</p>
+     */
+    inline bool QueryExecutionIdHasBeenSet() const { return m_queryExecutionIdHasBeenSet; }
 
     /**
      * <p>The unique ID of the query execution.</p>
@@ -90,6 +95,12 @@ namespace Model
      * <p>The token that specifies where to start pagination if a previous request was
      * truncated.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token that specifies where to start pagination if a previous request was
+     * truncated.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -127,6 +138,11 @@ namespace Model
      * <p>The maximum number of results (rows) to return in this request.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results (rows) to return in this request.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results (rows) to return in this request.</p>

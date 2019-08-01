@@ -68,6 +68,15 @@ namespace Model
      * You cannot specify more than one network interface in the request. If launching
      * into a default subnet, the default value is <code>true</code>.</p>
      */
+    inline bool AssociatePublicIpAddressHasBeenSet() const { return m_associatePublicIpAddressHasBeenSet; }
+
+    /**
+     * <p>Indicates whether to assign a public IPv4 address to an instance you launch
+     * in a VPC. The public IP address can only be assigned to a network interface for
+     * eth0, and can only be assigned to a new network interface, not an existing one.
+     * You cannot specify more than one network interface in the request. If launching
+     * into a default subnet, the default value is <code>true</code>.</p>
+     */
     inline void SetAssociatePublicIpAddress(bool value) { m_associatePublicIpAddressHasBeenSet = true; m_associatePublicIpAddress = value; }
 
     /**
@@ -92,6 +101,13 @@ namespace Model
      * terminated. You can specify <code>true</code> only if creating a new network
      * interface when launching an instance.</p>
      */
+    inline bool DeleteOnTerminationHasBeenSet() const { return m_deleteOnTerminationHasBeenSet; }
+
+    /**
+     * <p>If set to <code>true</code>, the interface is deleted when the instance is
+     * terminated. You can specify <code>true</code> only if creating a new network
+     * interface when launching an instance.</p>
+     */
     inline void SetDeleteOnTermination(bool value) { m_deleteOnTerminationHasBeenSet = true; m_deleteOnTermination = value; }
 
     /**
@@ -107,6 +123,12 @@ namespace Model
      * interface when launching an instance.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The description of the network interface. Applies only if creating a network
+     * interface when launching an instance.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The description of the network interface. Applies only if creating a network
@@ -146,23 +168,30 @@ namespace Model
 
 
     /**
-     * <p>The index of the device on the instance for the network interface attachment.
-     * If you are specifying a network interface in a <a>RunInstances</a> request, you
-     * must provide the device index.</p>
+     * <p>The position of the network interface in the attachment order. A primary
+     * network interface has a device index of 0.</p> <p>If you specify a network
+     * interface when launching an instance, you must specify the device index.</p>
      */
     inline int GetDeviceIndex() const{ return m_deviceIndex; }
 
     /**
-     * <p>The index of the device on the instance for the network interface attachment.
-     * If you are specifying a network interface in a <a>RunInstances</a> request, you
-     * must provide the device index.</p>
+     * <p>The position of the network interface in the attachment order. A primary
+     * network interface has a device index of 0.</p> <p>If you specify a network
+     * interface when launching an instance, you must specify the device index.</p>
+     */
+    inline bool DeviceIndexHasBeenSet() const { return m_deviceIndexHasBeenSet; }
+
+    /**
+     * <p>The position of the network interface in the attachment order. A primary
+     * network interface has a device index of 0.</p> <p>If you specify a network
+     * interface when launching an instance, you must specify the device index.</p>
      */
     inline void SetDeviceIndex(int value) { m_deviceIndexHasBeenSet = true; m_deviceIndex = value; }
 
     /**
-     * <p>The index of the device on the instance for the network interface attachment.
-     * If you are specifying a network interface in a <a>RunInstances</a> request, you
-     * must provide the device index.</p>
+     * <p>The position of the network interface in the attachment order. A primary
+     * network interface has a device index of 0.</p> <p>If you specify a network
+     * interface when launching an instance, you must specify the device index.</p>
      */
     inline InstanceNetworkInterfaceSpecification& WithDeviceIndex(int value) { SetDeviceIndex(value); return *this;}
 
@@ -172,6 +201,12 @@ namespace Model
      * creating a network interface when launching an instance.</p>
      */
     inline const Aws::Vector<Aws::String>& GetGroups() const{ return m_groups; }
+
+    /**
+     * <p>The IDs of the security groups for the network interface. Applies only if
+     * creating a network interface when launching an instance.</p>
+     */
+    inline bool GroupsHasBeenSet() const { return m_groupsHasBeenSet; }
 
     /**
      * <p>The IDs of the security groups for the network interface. Applies only if
@@ -232,6 +267,15 @@ namespace Model
      * can specify this option if you've specified a minimum number of instances to
      * launch.</p>
      */
+    inline bool Ipv6AddressCountHasBeenSet() const { return m_ipv6AddressCountHasBeenSet; }
+
+    /**
+     * <p>A number of IPv6 addresses to assign to the network interface. Amazon EC2
+     * chooses the IPv6 addresses from the range of the subnet. You cannot specify this
+     * option and the option to assign specific IPv6 addresses in the same request. You
+     * can specify this option if you've specified a minimum number of instances to
+     * launch.</p>
+     */
     inline void SetIpv6AddressCount(int value) { m_ipv6AddressCountHasBeenSet = true; m_ipv6AddressCount = value; }
 
     /**
@@ -251,6 +295,14 @@ namespace Model
      * number of instances to launch.</p>
      */
     inline const Aws::Vector<InstanceIpv6Address>& GetIpv6Addresses() const{ return m_ipv6Addresses; }
+
+    /**
+     * <p>One or more IPv6 addresses to assign to the network interface. You cannot
+     * specify this option and the option to assign a number of IPv6 addresses in the
+     * same request. You cannot specify this option if you've specified a minimum
+     * number of instances to launch.</p>
+     */
+    inline bool Ipv6AddressesHasBeenSet() const { return m_ipv6AddressesHasBeenSet; }
 
     /**
      * <p>One or more IPv6 addresses to assign to the network interface. You cannot
@@ -309,6 +361,11 @@ namespace Model
     /**
      * <p>The ID of the network interface.</p>
      */
+    inline bool NetworkInterfaceIdHasBeenSet() const { return m_networkInterfaceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the network interface.</p>
+     */
     inline void SetNetworkInterfaceId(const Aws::String& value) { m_networkInterfaceIdHasBeenSet = true; m_networkInterfaceId = value; }
 
     /**
@@ -340,49 +397,72 @@ namespace Model
     /**
      * <p>The private IPv4 address of the network interface. Applies only if creating a
      * network interface when launching an instance. You cannot specify this option if
-     * you're launching more than one instance in a <a>RunInstances</a> request.</p>
+     * you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline const Aws::String& GetPrivateIpAddress() const{ return m_privateIpAddress; }
 
     /**
      * <p>The private IPv4 address of the network interface. Applies only if creating a
      * network interface when launching an instance. You cannot specify this option if
-     * you're launching more than one instance in a <a>RunInstances</a> request.</p>
+     * you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
+     */
+    inline bool PrivateIpAddressHasBeenSet() const { return m_privateIpAddressHasBeenSet; }
+
+    /**
+     * <p>The private IPv4 address of the network interface. Applies only if creating a
+     * network interface when launching an instance. You cannot specify this option if
+     * you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline void SetPrivateIpAddress(const Aws::String& value) { m_privateIpAddressHasBeenSet = true; m_privateIpAddress = value; }
 
     /**
      * <p>The private IPv4 address of the network interface. Applies only if creating a
      * network interface when launching an instance. You cannot specify this option if
-     * you're launching more than one instance in a <a>RunInstances</a> request.</p>
+     * you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline void SetPrivateIpAddress(Aws::String&& value) { m_privateIpAddressHasBeenSet = true; m_privateIpAddress = std::move(value); }
 
     /**
      * <p>The private IPv4 address of the network interface. Applies only if creating a
      * network interface when launching an instance. You cannot specify this option if
-     * you're launching more than one instance in a <a>RunInstances</a> request.</p>
+     * you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline void SetPrivateIpAddress(const char* value) { m_privateIpAddressHasBeenSet = true; m_privateIpAddress.assign(value); }
 
     /**
      * <p>The private IPv4 address of the network interface. Applies only if creating a
      * network interface when launching an instance. You cannot specify this option if
-     * you're launching more than one instance in a <a>RunInstances</a> request.</p>
+     * you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline InstanceNetworkInterfaceSpecification& WithPrivateIpAddress(const Aws::String& value) { SetPrivateIpAddress(value); return *this;}
 
     /**
      * <p>The private IPv4 address of the network interface. Applies only if creating a
      * network interface when launching an instance. You cannot specify this option if
-     * you're launching more than one instance in a <a>RunInstances</a> request.</p>
+     * you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline InstanceNetworkInterfaceSpecification& WithPrivateIpAddress(Aws::String&& value) { SetPrivateIpAddress(std::move(value)); return *this;}
 
     /**
      * <p>The private IPv4 address of the network interface. Applies only if creating a
      * network interface when launching an instance. You cannot specify this option if
-     * you're launching more than one instance in a <a>RunInstances</a> request.</p>
+     * you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline InstanceNetworkInterfaceSpecification& WithPrivateIpAddress(const char* value) { SetPrivateIpAddress(value); return *this;}
 
@@ -390,7 +470,8 @@ namespace Model
     /**
      * <p>One or more private IPv4 addresses to assign to the network interface. Only
      * one private IPv4 address can be designated as primary. You cannot specify this
-     * option if you're launching more than one instance in a <a>RunInstances</a>
+     * option if you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
      * request.</p>
      */
     inline const Aws::Vector<PrivateIpAddressSpecification>& GetPrivateIpAddresses() const{ return m_privateIpAddresses; }
@@ -398,7 +479,17 @@ namespace Model
     /**
      * <p>One or more private IPv4 addresses to assign to the network interface. Only
      * one private IPv4 address can be designated as primary. You cannot specify this
-     * option if you're launching more than one instance in a <a>RunInstances</a>
+     * option if you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
+     */
+    inline bool PrivateIpAddressesHasBeenSet() const { return m_privateIpAddressesHasBeenSet; }
+
+    /**
+     * <p>One or more private IPv4 addresses to assign to the network interface. Only
+     * one private IPv4 address can be designated as primary. You cannot specify this
+     * option if you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
      * request.</p>
      */
     inline void SetPrivateIpAddresses(const Aws::Vector<PrivateIpAddressSpecification>& value) { m_privateIpAddressesHasBeenSet = true; m_privateIpAddresses = value; }
@@ -406,7 +497,8 @@ namespace Model
     /**
      * <p>One or more private IPv4 addresses to assign to the network interface. Only
      * one private IPv4 address can be designated as primary. You cannot specify this
-     * option if you're launching more than one instance in a <a>RunInstances</a>
+     * option if you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
      * request.</p>
      */
     inline void SetPrivateIpAddresses(Aws::Vector<PrivateIpAddressSpecification>&& value) { m_privateIpAddressesHasBeenSet = true; m_privateIpAddresses = std::move(value); }
@@ -414,7 +506,8 @@ namespace Model
     /**
      * <p>One or more private IPv4 addresses to assign to the network interface. Only
      * one private IPv4 address can be designated as primary. You cannot specify this
-     * option if you're launching more than one instance in a <a>RunInstances</a>
+     * option if you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
      * request.</p>
      */
     inline InstanceNetworkInterfaceSpecification& WithPrivateIpAddresses(const Aws::Vector<PrivateIpAddressSpecification>& value) { SetPrivateIpAddresses(value); return *this;}
@@ -422,7 +515,8 @@ namespace Model
     /**
      * <p>One or more private IPv4 addresses to assign to the network interface. Only
      * one private IPv4 address can be designated as primary. You cannot specify this
-     * option if you're launching more than one instance in a <a>RunInstances</a>
+     * option if you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
      * request.</p>
      */
     inline InstanceNetworkInterfaceSpecification& WithPrivateIpAddresses(Aws::Vector<PrivateIpAddressSpecification>&& value) { SetPrivateIpAddresses(std::move(value)); return *this;}
@@ -430,7 +524,8 @@ namespace Model
     /**
      * <p>One or more private IPv4 addresses to assign to the network interface. Only
      * one private IPv4 address can be designated as primary. You cannot specify this
-     * option if you're launching more than one instance in a <a>RunInstances</a>
+     * option if you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
      * request.</p>
      */
     inline InstanceNetworkInterfaceSpecification& AddPrivateIpAddresses(const PrivateIpAddressSpecification& value) { m_privateIpAddressesHasBeenSet = true; m_privateIpAddresses.push_back(value); return *this; }
@@ -438,7 +533,8 @@ namespace Model
     /**
      * <p>One or more private IPv4 addresses to assign to the network interface. Only
      * one private IPv4 address can be designated as primary. You cannot specify this
-     * option if you're launching more than one instance in a <a>RunInstances</a>
+     * option if you're launching more than one instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
      * request.</p>
      */
     inline InstanceNetworkInterfaceSpecification& AddPrivateIpAddresses(PrivateIpAddressSpecification&& value) { m_privateIpAddressesHasBeenSet = true; m_privateIpAddresses.push_back(std::move(value)); return *this; }
@@ -448,7 +544,9 @@ namespace Model
      * <p>The number of secondary private IPv4 addresses. You can't specify this option
      * and specify more than one private IP address using the private IP addresses
      * option. You cannot specify this option if you're launching more than one
-     * instance in a <a>RunInstances</a> request.</p>
+     * instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline int GetSecondaryPrivateIpAddressCount() const{ return m_secondaryPrivateIpAddressCount; }
 
@@ -456,7 +554,19 @@ namespace Model
      * <p>The number of secondary private IPv4 addresses. You can't specify this option
      * and specify more than one private IP address using the private IP addresses
      * option. You cannot specify this option if you're launching more than one
-     * instance in a <a>RunInstances</a> request.</p>
+     * instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
+     */
+    inline bool SecondaryPrivateIpAddressCountHasBeenSet() const { return m_secondaryPrivateIpAddressCountHasBeenSet; }
+
+    /**
+     * <p>The number of secondary private IPv4 addresses. You can't specify this option
+     * and specify more than one private IP address using the private IP addresses
+     * option. You cannot specify this option if you're launching more than one
+     * instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline void SetSecondaryPrivateIpAddressCount(int value) { m_secondaryPrivateIpAddressCountHasBeenSet = true; m_secondaryPrivateIpAddressCount = value; }
 
@@ -464,7 +574,9 @@ namespace Model
      * <p>The number of secondary private IPv4 addresses. You can't specify this option
      * and specify more than one private IP address using the private IP addresses
      * option. You cannot specify this option if you're launching more than one
-     * instance in a <a>RunInstances</a> request.</p>
+     * instance in a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>
+     * request.</p>
      */
     inline InstanceNetworkInterfaceSpecification& WithSecondaryPrivateIpAddressCount(int value) { SetSecondaryPrivateIpAddressCount(value); return *this;}
 
@@ -474,6 +586,12 @@ namespace Model
      * creating a network interface when launching an instance.</p>
      */
     inline const Aws::String& GetSubnetId() const{ return m_subnetId; }
+
+    /**
+     * <p>The ID of the subnet associated with the network string. Applies only if
+     * creating a network interface when launching an instance.</p>
+     */
+    inline bool SubnetIdHasBeenSet() const { return m_subnetIdHasBeenSet; }
 
     /**
      * <p>The ID of the subnet associated with the network string. Applies only if
@@ -510,6 +628,87 @@ namespace Model
      * creating a network interface when launching an instance.</p>
      */
     inline InstanceNetworkInterfaceSpecification& WithSubnetId(const char* value) { SetSubnetId(value); return *this;}
+
+
+    /**
+     * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA),
+     * specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+     * parameter.</p> <p>Valid values: <code>interface</code> | <code>efa</code> </p>
+     */
+    inline const Aws::String& GetInterfaceType() const{ return m_interfaceType; }
+
+    /**
+     * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA),
+     * specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+     * parameter.</p> <p>Valid values: <code>interface</code> | <code>efa</code> </p>
+     */
+    inline bool InterfaceTypeHasBeenSet() const { return m_interfaceTypeHasBeenSet; }
+
+    /**
+     * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA),
+     * specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+     * parameter.</p> <p>Valid values: <code>interface</code> | <code>efa</code> </p>
+     */
+    inline void SetInterfaceType(const Aws::String& value) { m_interfaceTypeHasBeenSet = true; m_interfaceType = value; }
+
+    /**
+     * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA),
+     * specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+     * parameter.</p> <p>Valid values: <code>interface</code> | <code>efa</code> </p>
+     */
+    inline void SetInterfaceType(Aws::String&& value) { m_interfaceTypeHasBeenSet = true; m_interfaceType = std::move(value); }
+
+    /**
+     * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA),
+     * specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+     * parameter.</p> <p>Valid values: <code>interface</code> | <code>efa</code> </p>
+     */
+    inline void SetInterfaceType(const char* value) { m_interfaceTypeHasBeenSet = true; m_interfaceType.assign(value); }
+
+    /**
+     * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA),
+     * specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+     * parameter.</p> <p>Valid values: <code>interface</code> | <code>efa</code> </p>
+     */
+    inline InstanceNetworkInterfaceSpecification& WithInterfaceType(const Aws::String& value) { SetInterfaceType(value); return *this;}
+
+    /**
+     * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA),
+     * specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+     * parameter.</p> <p>Valid values: <code>interface</code> | <code>efa</code> </p>
+     */
+    inline InstanceNetworkInterfaceSpecification& WithInterfaceType(Aws::String&& value) { SetInterfaceType(std::move(value)); return *this;}
+
+    /**
+     * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA),
+     * specify <code>efa</code>. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic
+     * Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>If you are not creating an EFA, specify <code>interface</code> or omit this
+     * parameter.</p> <p>Valid values: <code>interface</code> | <code>efa</code> </p>
+     */
+    inline InstanceNetworkInterfaceSpecification& WithInterfaceType(const char* value) { SetInterfaceType(value); return *this;}
 
   private:
 
@@ -548,6 +747,9 @@ namespace Model
 
     Aws::String m_subnetId;
     bool m_subnetIdHasBeenSet;
+
+    Aws::String m_interfaceType;
+    bool m_interfaceTypeHasBeenSet;
   };
 
 } // namespace Model

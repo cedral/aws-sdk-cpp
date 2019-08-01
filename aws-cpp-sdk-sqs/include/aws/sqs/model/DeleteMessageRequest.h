@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteMessageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * URLs and names are case-sensitive.</p>
      */
     inline const Aws::String& GetQueueUrl() const{ return m_queueUrl; }
+
+    /**
+     * <p>The URL of the Amazon SQS queue from which messages are deleted.</p> <p>Queue
+     * URLs and names are case-sensitive.</p>
+     */
+    inline bool QueueUrlHasBeenSet() const { return m_queueUrlHasBeenSet; }
 
     /**
      * <p>The URL of the Amazon SQS queue from which messages are deleted.</p> <p>Queue
@@ -96,6 +102,11 @@ namespace Model
      * <p>The receipt handle associated with the message to delete.</p>
      */
     inline const Aws::String& GetReceiptHandle() const{ return m_receiptHandle; }
+
+    /**
+     * <p>The receipt handle associated with the message to delete.</p>
+     */
+    inline bool ReceiptHandleHasBeenSet() const { return m_receiptHandleHasBeenSet; }
 
     /**
      * <p>The receipt handle associated with the message to delete.</p>

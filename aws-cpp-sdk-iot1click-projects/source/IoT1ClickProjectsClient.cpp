@@ -41,6 +41,9 @@
 #include <aws/iot1click-projects/model/GetDevicesInPlacementRequest.h>
 #include <aws/iot1click-projects/model/ListPlacementsRequest.h>
 #include <aws/iot1click-projects/model/ListProjectsRequest.h>
+#include <aws/iot1click-projects/model/ListTagsForResourceRequest.h>
+#include <aws/iot1click-projects/model/TagResourceRequest.h>
+#include <aws/iot1click-projects/model/UntagResourceRequest.h>
 #include <aws/iot1click-projects/model/UpdatePlacementRequest.h>
 #include <aws/iot1click-projects/model/UpdateProjectRequest.h>
 
@@ -115,8 +118,24 @@ void IoT1ClickProjectsClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 AssociateDeviceWithPlacementOutcome IoT1ClickProjectsClient::AssociateDeviceWithPlacement(const AssociateDeviceWithPlacementRequest& request) const
 {
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("AssociateDeviceWithPlacement", "Required field: ProjectName, is not set");
+    return AssociateDeviceWithPlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
+  if (!request.PlacementNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("AssociateDeviceWithPlacement", "Required field: PlacementName, is not set");
+    return AssociateDeviceWithPlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PlacementName]", false));
+  }
+  if (!request.DeviceTemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("AssociateDeviceWithPlacement", "Required field: DeviceTemplateName, is not set");
+    return AssociateDeviceWithPlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DeviceTemplateName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -157,6 +176,11 @@ void IoT1ClickProjectsClient::AssociateDeviceWithPlacementAsyncHelper(const Asso
 
 CreatePlacementOutcome IoT1ClickProjectsClient::CreatePlacement(const CreatePlacementRequest& request) const
 {
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreatePlacement", "Required field: ProjectName, is not set");
+    return CreatePlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -229,6 +253,16 @@ void IoT1ClickProjectsClient::CreateProjectAsyncHelper(const CreateProjectReques
 
 DeletePlacementOutcome IoT1ClickProjectsClient::DeletePlacement(const DeletePlacementRequest& request) const
 {
+  if (!request.PlacementNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeletePlacement", "Required field: PlacementName, is not set");
+    return DeletePlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PlacementName]", false));
+  }
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeletePlacement", "Required field: ProjectName, is not set");
+    return DeletePlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -267,6 +301,11 @@ void IoT1ClickProjectsClient::DeletePlacementAsyncHelper(const DeletePlacementRe
 
 DeleteProjectOutcome IoT1ClickProjectsClient::DeleteProject(const DeleteProjectRequest& request) const
 {
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteProject", "Required field: ProjectName, is not set");
+    return DeleteProjectOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -303,6 +342,16 @@ void IoT1ClickProjectsClient::DeleteProjectAsyncHelper(const DeleteProjectReques
 
 DescribePlacementOutcome IoT1ClickProjectsClient::DescribePlacement(const DescribePlacementRequest& request) const
 {
+  if (!request.PlacementNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribePlacement", "Required field: PlacementName, is not set");
+    return DescribePlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PlacementName]", false));
+  }
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribePlacement", "Required field: ProjectName, is not set");
+    return DescribePlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -341,6 +390,11 @@ void IoT1ClickProjectsClient::DescribePlacementAsyncHelper(const DescribePlaceme
 
 DescribeProjectOutcome IoT1ClickProjectsClient::DescribeProject(const DescribeProjectRequest& request) const
 {
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeProject", "Required field: ProjectName, is not set");
+    return DescribeProjectOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -377,6 +431,21 @@ void IoT1ClickProjectsClient::DescribeProjectAsyncHelper(const DescribeProjectRe
 
 DisassociateDeviceFromPlacementOutcome IoT1ClickProjectsClient::DisassociateDeviceFromPlacement(const DisassociateDeviceFromPlacementRequest& request) const
 {
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DisassociateDeviceFromPlacement", "Required field: ProjectName, is not set");
+    return DisassociateDeviceFromPlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
+  if (!request.PlacementNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DisassociateDeviceFromPlacement", "Required field: PlacementName, is not set");
+    return DisassociateDeviceFromPlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PlacementName]", false));
+  }
+  if (!request.DeviceTemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DisassociateDeviceFromPlacement", "Required field: DeviceTemplateName, is not set");
+    return DisassociateDeviceFromPlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DeviceTemplateName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -417,6 +486,16 @@ void IoT1ClickProjectsClient::DisassociateDeviceFromPlacementAsyncHelper(const D
 
 GetDevicesInPlacementOutcome IoT1ClickProjectsClient::GetDevicesInPlacement(const GetDevicesInPlacementRequest& request) const
 {
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetDevicesInPlacement", "Required field: ProjectName, is not set");
+    return GetDevicesInPlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
+  if (!request.PlacementNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetDevicesInPlacement", "Required field: PlacementName, is not set");
+    return GetDevicesInPlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PlacementName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -456,6 +535,11 @@ void IoT1ClickProjectsClient::GetDevicesInPlacementAsyncHelper(const GetDevicesI
 
 ListPlacementsOutcome IoT1ClickProjectsClient::ListPlacements(const ListPlacementsRequest& request) const
 {
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListPlacements", "Required field: ProjectName, is not set");
+    return ListPlacementsOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -526,8 +610,146 @@ void IoT1ClickProjectsClient::ListProjectsAsyncHelper(const ListProjectsRequest&
   handler(this, request, ListProjects(request), context);
 }
 
+ListTagsForResourceOutcome IoT1ClickProjectsClient::ListTagsForResource(const ListTagsForResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListTagsForResource", "Required field: ResourceArn, is not set");
+    return ListTagsForResourceOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTagsForResourceOutcome(outcome.GetError());
+  }
+}
+
+ListTagsForResourceOutcomeCallable IoT1ClickProjectsClient::ListTagsForResourceCallable(const ListTagsForResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTagsForResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTagsForResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoT1ClickProjectsClient::ListTagsForResourceAsync(const ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTagsForResourceAsyncHelper( request, handler, context ); } );
+}
+
+void IoT1ClickProjectsClient::ListTagsForResourceAsyncHelper(const ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTagsForResource(request), context);
+}
+
+TagResourceOutcome IoT1ClickProjectsClient::TagResource(const TagResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("TagResource", "Required field: ResourceArn, is not set");
+    return TagResourceOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return TagResourceOutcome(outcome.GetError());
+  }
+}
+
+TagResourceOutcomeCallable IoT1ClickProjectsClient::TagResourceCallable(const TagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< TagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->TagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoT1ClickProjectsClient::TagResourceAsync(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->TagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void IoT1ClickProjectsClient::TagResourceAsyncHelper(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, TagResource(request), context);
+}
+
+UntagResourceOutcome IoT1ClickProjectsClient::UntagResource(const UntagResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UntagResource", "Required field: ResourceArn, is not set");
+    return UntagResourceOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  if (!request.TagKeysHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UntagResource", "Required field: TagKeys, is not set");
+    return UntagResourceOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UntagResourceOutcome(outcome.GetError());
+  }
+}
+
+UntagResourceOutcomeCallable IoT1ClickProjectsClient::UntagResourceCallable(const UntagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UntagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UntagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoT1ClickProjectsClient::UntagResourceAsync(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UntagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void IoT1ClickProjectsClient::UntagResourceAsyncHelper(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UntagResource(request), context);
+}
+
 UpdatePlacementOutcome IoT1ClickProjectsClient::UpdatePlacement(const UpdatePlacementRequest& request) const
 {
+  if (!request.PlacementNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdatePlacement", "Required field: PlacementName, is not set");
+    return UpdatePlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PlacementName]", false));
+  }
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdatePlacement", "Required field: ProjectName, is not set");
+    return UpdatePlacementOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";
@@ -566,6 +788,11 @@ void IoT1ClickProjectsClient::UpdatePlacementAsyncHelper(const UpdatePlacementRe
 
 UpdateProjectOutcome IoT1ClickProjectsClient::UpdateProject(const UpdateProjectRequest& request) const
 {
+  if (!request.ProjectNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateProject", "Required field: ProjectName, is not set");
+    return UpdateProjectOutcome(Aws::Client::AWSError<IoT1ClickProjectsErrors>(IoT1ClickProjectsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProjectName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/projects/";

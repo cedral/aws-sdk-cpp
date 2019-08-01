@@ -36,7 +36,9 @@ namespace Model
 
   /**
    * <p>The configuration setting for the log types to be enabled for export to
-   * CloudWatch Logs for a specific DB instance or DB cluster.</p><p><h3>See
+   * CloudWatch Logs for a specific DB instance or DB cluster.</p> <p>The
+   * <code>EnableLogTypes</code> and <code>DisableLogTypes</code> arrays determine
+   * which logs will be exported (or not exported) to CloudWatch Logs.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CloudwatchLogsExportConfiguration">AWS
    * API Reference</a></p>
@@ -56,6 +58,11 @@ namespace Model
      * <p>The list of log types to enable.</p>
      */
     inline const Aws::Vector<Aws::String>& GetEnableLogTypes() const{ return m_enableLogTypes; }
+
+    /**
+     * <p>The list of log types to enable.</p>
+     */
+    inline bool EnableLogTypesHasBeenSet() const { return m_enableLogTypesHasBeenSet; }
 
     /**
      * <p>The list of log types to enable.</p>
@@ -97,6 +104,11 @@ namespace Model
      * <p>The list of log types to disable.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDisableLogTypes() const{ return m_disableLogTypes; }
+
+    /**
+     * <p>The list of log types to disable.</p>
+     */
+    inline bool DisableLogTypesHasBeenSet() const { return m_disableLogTypesHasBeenSet; }
 
     /**
      * <p>The list of log types to disable.</p>

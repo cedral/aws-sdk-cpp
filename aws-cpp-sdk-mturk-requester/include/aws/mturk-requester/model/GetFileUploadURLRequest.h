@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetFileUploadURLRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * FileUploadAnswer.</p>
      */
     inline const Aws::String& GetAssignmentId() const{ return m_assignmentId; }
+
+    /**
+     * <p>The ID of the assignment that contains the question with a
+     * FileUploadAnswer.</p>
+     */
+    inline bool AssignmentIdHasBeenSet() const { return m_assignmentIdHasBeenSet; }
 
     /**
      * <p>The ID of the assignment that contains the question with a
@@ -92,6 +98,12 @@ namespace Model
      * QuestionForm of the HIT.</p>
      */
     inline const Aws::String& GetQuestionIdentifier() const{ return m_questionIdentifier; }
+
+    /**
+     * <p>The identifier of the question with a FileUploadAnswer, as specified in the
+     * QuestionForm of the HIT.</p>
+     */
+    inline bool QuestionIdentifierHasBeenSet() const { return m_questionIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier of the question with a FileUploadAnswer, as specified in the

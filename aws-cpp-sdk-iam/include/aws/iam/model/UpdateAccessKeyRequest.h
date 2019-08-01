@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateAccessKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,15 @@ namespace Model
      * _+=,.@-</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the user whose key you want to update.</p> <p>This parameter
+     * allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+     * a string of characters consisting of upper and lowercase alphanumeric characters
+     * with no spaces. You can also include any of the following characters:
+     * _+=,.@-</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the user whose key you want to update.</p> <p>This parameter
@@ -125,6 +134,14 @@ namespace Model
      * pattern</a>) a string of characters that can consist of any upper or lowercased
      * letter or digit.</p>
      */
+    inline bool AccessKeyIdHasBeenSet() const { return m_accessKeyIdHasBeenSet; }
+
+    /**
+     * <p>The access key ID of the secret access key you want to update.</p> <p>This
+     * parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters that can consist of any upper or lowercased
+     * letter or digit.</p>
+     */
     inline void SetAccessKeyId(const Aws::String& value) { m_accessKeyIdHasBeenSet = true; m_accessKeyId = value; }
 
     /**
@@ -174,6 +191,13 @@ namespace Model
      * means that the key cannot be used.</p>
      */
     inline const StatusType& GetStatus() const{ return m_status; }
+
+    /**
+     * <p> The status you want to assign to the secret access key. <code>Active</code>
+     * means that the key can be used for API calls to AWS, while <code>Inactive</code>
+     * means that the key cannot be used.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p> The status you want to assign to the secret access key. <code>Active</code>

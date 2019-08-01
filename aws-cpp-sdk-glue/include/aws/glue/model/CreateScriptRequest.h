@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateScriptRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>A list of the nodes in the DAG.</p>
      */
     inline const Aws::Vector<CodeGenNode>& GetDagNodes() const{ return m_dagNodes; }
+
+    /**
+     * <p>A list of the nodes in the DAG.</p>
+     */
+    inline bool DagNodesHasBeenSet() const { return m_dagNodesHasBeenSet; }
 
     /**
      * <p>A list of the nodes in the DAG.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>A list of the edges in the DAG.</p>
      */
+    inline bool DagEdgesHasBeenSet() const { return m_dagEdgesHasBeenSet; }
+
+    /**
+     * <p>A list of the edges in the DAG.</p>
+     */
     inline void SetDagEdges(const Aws::Vector<CodeGenEdge>& value) { m_dagEdgesHasBeenSet = true; m_dagEdges = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
      * <p>The programming language of the resulting code from the DAG.</p>
      */
     inline const Language& GetLanguage() const{ return m_language; }
+
+    /**
+     * <p>The programming language of the resulting code from the DAG.</p>
+     */
+    inline bool LanguageHasBeenSet() const { return m_languageHasBeenSet; }
 
     /**
      * <p>The programming language of the resulting code from the DAG.</p>

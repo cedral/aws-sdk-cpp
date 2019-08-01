@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     StartDocumentTextDetectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The location of the document to be processed.</p>
      */
     inline const DocumentLocation& GetDocumentLocation() const{ return m_documentLocation; }
+
+    /**
+     * <p>The location of the document to be processed.</p>
+     */
+    inline bool DocumentLocationHasBeenSet() const { return m_documentLocationHasBeenSet; }
 
     /**
      * <p>The location of the document to be processed.</p>
@@ -79,6 +84,14 @@ namespace Model
      * prevent the same job from being accidentally started more than once. </p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>The idempotent token that's used to identify the start request. If you use
+     * the same token with multiple <code>StartDocumentTextDetection</code> requests,
+     * the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to
+     * prevent the same job from being accidentally started more than once. </p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>The idempotent token that's used to identify the start request. If you use
@@ -130,51 +143,66 @@ namespace Model
 
 
     /**
-     * <p>A unique identifier you specify to identify the job in the completion status
-     * that's published to the Amazon Simple Notification Service (Amazon SNS)
-     * topic.</p>
+     * <p>An identifier you specify that's included in the completion notification
+     * that's published to the Amazon SNS topic. For example, you can use
+     * <code>JobTag</code> to identify the type of document, such as a tax form or a
+     * receipt, that the completion notification corresponds to.</p>
      */
     inline const Aws::String& GetJobTag() const{ return m_jobTag; }
 
     /**
-     * <p>A unique identifier you specify to identify the job in the completion status
-     * that's published to the Amazon Simple Notification Service (Amazon SNS)
-     * topic.</p>
+     * <p>An identifier you specify that's included in the completion notification
+     * that's published to the Amazon SNS topic. For example, you can use
+     * <code>JobTag</code> to identify the type of document, such as a tax form or a
+     * receipt, that the completion notification corresponds to.</p>
+     */
+    inline bool JobTagHasBeenSet() const { return m_jobTagHasBeenSet; }
+
+    /**
+     * <p>An identifier you specify that's included in the completion notification
+     * that's published to the Amazon SNS topic. For example, you can use
+     * <code>JobTag</code> to identify the type of document, such as a tax form or a
+     * receipt, that the completion notification corresponds to.</p>
      */
     inline void SetJobTag(const Aws::String& value) { m_jobTagHasBeenSet = true; m_jobTag = value; }
 
     /**
-     * <p>A unique identifier you specify to identify the job in the completion status
-     * that's published to the Amazon Simple Notification Service (Amazon SNS)
-     * topic.</p>
+     * <p>An identifier you specify that's included in the completion notification
+     * that's published to the Amazon SNS topic. For example, you can use
+     * <code>JobTag</code> to identify the type of document, such as a tax form or a
+     * receipt, that the completion notification corresponds to.</p>
      */
     inline void SetJobTag(Aws::String&& value) { m_jobTagHasBeenSet = true; m_jobTag = std::move(value); }
 
     /**
-     * <p>A unique identifier you specify to identify the job in the completion status
-     * that's published to the Amazon Simple Notification Service (Amazon SNS)
-     * topic.</p>
+     * <p>An identifier you specify that's included in the completion notification
+     * that's published to the Amazon SNS topic. For example, you can use
+     * <code>JobTag</code> to identify the type of document, such as a tax form or a
+     * receipt, that the completion notification corresponds to.</p>
      */
     inline void SetJobTag(const char* value) { m_jobTagHasBeenSet = true; m_jobTag.assign(value); }
 
     /**
-     * <p>A unique identifier you specify to identify the job in the completion status
-     * that's published to the Amazon Simple Notification Service (Amazon SNS)
-     * topic.</p>
+     * <p>An identifier you specify that's included in the completion notification
+     * that's published to the Amazon SNS topic. For example, you can use
+     * <code>JobTag</code> to identify the type of document, such as a tax form or a
+     * receipt, that the completion notification corresponds to.</p>
      */
     inline StartDocumentTextDetectionRequest& WithJobTag(const Aws::String& value) { SetJobTag(value); return *this;}
 
     /**
-     * <p>A unique identifier you specify to identify the job in the completion status
-     * that's published to the Amazon Simple Notification Service (Amazon SNS)
-     * topic.</p>
+     * <p>An identifier you specify that's included in the completion notification
+     * that's published to the Amazon SNS topic. For example, you can use
+     * <code>JobTag</code> to identify the type of document, such as a tax form or a
+     * receipt, that the completion notification corresponds to.</p>
      */
     inline StartDocumentTextDetectionRequest& WithJobTag(Aws::String&& value) { SetJobTag(std::move(value)); return *this;}
 
     /**
-     * <p>A unique identifier you specify to identify the job in the completion status
-     * that's published to the Amazon Simple Notification Service (Amazon SNS)
-     * topic.</p>
+     * <p>An identifier you specify that's included in the completion notification
+     * that's published to the Amazon SNS topic. For example, you can use
+     * <code>JobTag</code> to identify the type of document, such as a tax form or a
+     * receipt, that the completion notification corresponds to.</p>
      */
     inline StartDocumentTextDetectionRequest& WithJobTag(const char* value) { SetJobTag(value); return *this;}
 
@@ -184,6 +212,12 @@ namespace Model
      * completion status of the operation to. </p>
      */
     inline const NotificationChannel& GetNotificationChannel() const{ return m_notificationChannel; }
+
+    /**
+     * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the
+     * completion status of the operation to. </p>
+     */
+    inline bool NotificationChannelHasBeenSet() const { return m_notificationChannelHasBeenSet; }
 
     /**
      * <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the

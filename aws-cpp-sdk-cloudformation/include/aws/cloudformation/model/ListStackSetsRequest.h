@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListStackSetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,16 @@ namespace Model
      * <code>NextToken</code> parameter is set to <code>null</code>.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If the previous paginated request didn't return all of the remaining results,
+     * the response object's <code>NextToken</code> parameter value is set to a token.
+     * To retrieve the next set of results, call <code>ListStackSets</code> again and
+     * assign that token to the request object's <code>NextToken</code> parameter. If
+     * there are no remaining results, the previous response object's
+     * <code>NextToken</code> parameter is set to <code>null</code>.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If the previous paginated request didn't return all of the remaining results,
@@ -132,6 +142,14 @@ namespace Model
      * <code>NextToken</code> value that you can assign to the <code>NextToken</code>
      * request parameter to get the next set of results.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to be returned with a single call. If the
+     * number of available results exceeds this maximum, the response includes a
+     * <code>NextToken</code> value that you can assign to the <code>NextToken</code>
+     * request parameter to get the next set of results.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -148,6 +166,12 @@ namespace Model
      * about.</p>
      */
     inline const StackSetStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the stack sets that you want to get summary information
+     * about.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the stack sets that you want to get summary information

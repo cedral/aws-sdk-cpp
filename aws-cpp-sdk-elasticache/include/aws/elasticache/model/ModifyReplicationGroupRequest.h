@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ModifyReplicationGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The identifier of the replication group to modify.</p>
      */
     inline const Aws::String& GetReplicationGroupId() const{ return m_replicationGroupId; }
+
+    /**
+     * <p>The identifier of the replication group to modify.</p>
+     */
+    inline bool ReplicationGroupIdHasBeenSet() const { return m_replicationGroupIdHasBeenSet; }
 
     /**
      * <p>The identifier of the replication group to modify.</p>
@@ -92,6 +97,12 @@ namespace Model
      * characters.</p>
      */
     inline const Aws::String& GetReplicationGroupDescription() const{ return m_replicationGroupDescription; }
+
+    /**
+     * <p>A description for the replication group. Maximum length is 255
+     * characters.</p>
+     */
+    inline bool ReplicationGroupDescriptionHasBeenSet() const { return m_replicationGroupDescriptionHasBeenSet; }
 
     /**
      * <p>A description for the replication group. Maximum length is 255
@@ -137,6 +148,14 @@ namespace Model
      * read replicas.</p>
      */
     inline const Aws::String& GetPrimaryClusterId() const{ return m_primaryClusterId; }
+
+    /**
+     * <p>For replication groups with a single primary, if this parameter is specified,
+     * ElastiCache promotes the specified cluster in the specified replication group to
+     * the primary role. The nodes of all other clusters in the replication group are
+     * read replicas.</p>
+     */
+    inline bool PrimaryClusterIdHasBeenSet() const { return m_primaryClusterIdHasBeenSet; }
 
     /**
      * <p>For replication groups with a single primary, if this parameter is specified,
@@ -199,6 +218,13 @@ namespace Model
      * group. This parameter cannot be set for Redis (cluster mode enabled) replication
      * groups.</p>
      */
+    inline bool SnapshottingClusterIdHasBeenSet() const { return m_snapshottingClusterIdHasBeenSet; }
+
+    /**
+     * <p>The cluster ID that is used as the daily snapshot source for the replication
+     * group. This parameter cannot be set for Redis (cluster mode enabled) replication
+     * groups.</p>
+     */
     inline void SetSnapshottingClusterId(const Aws::String& value) { m_snapshottingClusterIdHasBeenSet = true; m_snapshottingClusterId = value; }
 
     /**
@@ -242,9 +268,9 @@ namespace Model
      * primary if the existing primary encounters a failure.</p> <p>Valid values:
      * <code>true</code> | <code>false</code> </p> <p>Amazon ElastiCache for Redis does
      * not support Multi-AZ with automatic failover on:</p> <ul> <li> <p>Redis versions
-     * earlier than 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 and T2
-     * cache node types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node
-     * types.</p> </li> </ul>
+     * earlier than 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node
+     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
+     * </ul>
      */
     inline bool GetAutomaticFailoverEnabled() const{ return m_automaticFailoverEnabled; }
 
@@ -253,9 +279,20 @@ namespace Model
      * primary if the existing primary encounters a failure.</p> <p>Valid values:
      * <code>true</code> | <code>false</code> </p> <p>Amazon ElastiCache for Redis does
      * not support Multi-AZ with automatic failover on:</p> <ul> <li> <p>Redis versions
-     * earlier than 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 and T2
-     * cache node types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node
-     * types.</p> </li> </ul>
+     * earlier than 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node
+     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
+     * </ul>
+     */
+    inline bool AutomaticFailoverEnabledHasBeenSet() const { return m_automaticFailoverEnabledHasBeenSet; }
+
+    /**
+     * <p>Determines whether a read replica is automatically promoted to read/write
+     * primary if the existing primary encounters a failure.</p> <p>Valid values:
+     * <code>true</code> | <code>false</code> </p> <p>Amazon ElastiCache for Redis does
+     * not support Multi-AZ with automatic failover on:</p> <ul> <li> <p>Redis versions
+     * earlier than 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node
+     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
+     * </ul>
      */
     inline void SetAutomaticFailoverEnabled(bool value) { m_automaticFailoverEnabledHasBeenSet = true; m_automaticFailoverEnabled = value; }
 
@@ -264,9 +301,9 @@ namespace Model
      * primary if the existing primary encounters a failure.</p> <p>Valid values:
      * <code>true</code> | <code>false</code> </p> <p>Amazon ElastiCache for Redis does
      * not support Multi-AZ with automatic failover on:</p> <ul> <li> <p>Redis versions
-     * earlier than 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 and T2
-     * cache node types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node
-     * types.</p> </li> </ul>
+     * earlier than 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node
+     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
+     * </ul>
      */
     inline ModifyReplicationGroupRequest& WithAutomaticFailoverEnabled(bool value) { SetAutomaticFailoverEnabled(value); return *this;}
 
@@ -280,6 +317,16 @@ namespace Model
      * Must not be <code>Default</code>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetCacheSecurityGroupNames() const{ return m_cacheSecurityGroupNames; }
+
+    /**
+     * <p>A list of cache security group names to authorize for the clusters in this
+     * replication group. This change is asynchronously applied as soon as
+     * possible.</p> <p>This parameter can be used only with replication group
+     * containing clusters running outside of an Amazon Virtual Private Cloud (Amazon
+     * VPC).</p> <p>Constraints: Must contain no more than 255 alphanumeric characters.
+     * Must not be <code>Default</code>.</p>
+     */
+    inline bool CacheSecurityGroupNamesHasBeenSet() const { return m_cacheSecurityGroupNamesHasBeenSet; }
 
     /**
      * <p>A list of cache security group names to authorize for the clusters in this
@@ -364,6 +411,13 @@ namespace Model
      * replication group.</p> <p>This parameter can be used only with replication group
      * containing clusters running in an Amazon Virtual Private Cloud (Amazon VPC).</p>
      */
+    inline bool SecurityGroupIdsHasBeenSet() const { return m_securityGroupIdsHasBeenSet; }
+
+    /**
+     * <p>Specifies the VPC Security Groups associated with the clusters in the
+     * replication group.</p> <p>This parameter can be used only with replication group
+     * containing clusters running in an Amazon Virtual Private Cloud (Amazon VPC).</p>
+     */
     inline void SetSecurityGroupIds(const Aws::Vector<Aws::String>& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = value; }
 
     /**
@@ -420,6 +474,18 @@ namespace Model
      * <p>Example: <code>sun:23:00-mon:01:30</code> </p>
      */
     inline const Aws::String& GetPreferredMaintenanceWindow() const{ return m_preferredMaintenanceWindow; }
+
+    /**
+     * <p>Specifies the weekly time range during which maintenance on the cluster is
+     * performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H
+     * Clock UTC). The minimum maintenance window is a 60 minute period.</p> <p>Valid
+     * values for <code>ddd</code> are:</p> <ul> <li> <p> <code>sun</code> </p> </li>
+     * <li> <p> <code>mon</code> </p> </li> <li> <p> <code>tue</code> </p> </li> <li>
+     * <p> <code>wed</code> </p> </li> <li> <p> <code>thu</code> </p> </li> <li> <p>
+     * <code>fri</code> </p> </li> <li> <p> <code>sat</code> </p> </li> </ul>
+     * <p>Example: <code>sun:23:00-mon:01:30</code> </p>
+     */
+    inline bool PreferredMaintenanceWindowHasBeenSet() const { return m_preferredMaintenanceWindowHasBeenSet; }
 
     /**
      * <p>Specifies the weekly time range during which maintenance on the cluster is
@@ -506,6 +572,13 @@ namespace Model
      * are sent.</p> <note> <p>The Amazon SNS topic owner must be same as the
      * replication group owner. </p> </note>
      */
+    inline bool NotificationTopicArnHasBeenSet() const { return m_notificationTopicArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
+     * are sent.</p> <note> <p>The Amazon SNS topic owner must be same as the
+     * replication group owner. </p> </note>
+     */
     inline void SetNotificationTopicArn(const Aws::String& value) { m_notificationTopicArnHasBeenSet = true; m_notificationTopicArn = value; }
 
     /**
@@ -551,6 +624,14 @@ namespace Model
      * <code>true</code> for this request.</p>
      */
     inline const Aws::String& GetCacheParameterGroupName() const{ return m_cacheParameterGroupName; }
+
+    /**
+     * <p>The name of the cache parameter group to apply to all of the clusters in this
+     * replication group. This change is asynchronously applied as soon as possible for
+     * parameters when the <code>ApplyImmediately</code> parameter is specified as
+     * <code>true</code> for this request.</p>
+     */
+    inline bool CacheParameterGroupNameHasBeenSet() const { return m_cacheParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the cache parameter group to apply to all of the clusters in this
@@ -607,6 +688,13 @@ namespace Model
      * values: <code>active</code> | <code>inactive</code> </p>
      */
     inline const Aws::String& GetNotificationTopicStatus() const{ return m_notificationTopicStatus; }
+
+    /**
+     * <p>The status of the Amazon SNS notification topic for the replication group.
+     * Notifications are sent only if the status is <code>active</code>.</p> <p>Valid
+     * values: <code>active</code> | <code>inactive</code> </p>
+     */
+    inline bool NotificationTopicStatusHasBeenSet() const { return m_notificationTopicStatusHasBeenSet; }
 
     /**
      * <p>The status of the Amazon SNS notification topic for the replication group.
@@ -671,6 +759,17 @@ namespace Model
      * failure reboot, whichever occurs first.</p> <p>Valid values: <code>true</code> |
      * <code>false</code> </p> <p>Default: <code>false</code> </p>
      */
+    inline bool ApplyImmediatelyHasBeenSet() const { return m_applyImmediatelyHasBeenSet; }
+
+    /**
+     * <p>If <code>true</code>, this parameter causes the modifications in this request
+     * and any pending modifications to be applied, asynchronously and as soon as
+     * possible, regardless of the <code>PreferredMaintenanceWindow</code> setting for
+     * the replication group.</p> <p>If <code>false</code>, changes to the nodes in the
+     * replication group are applied on the next maintenance reboot, or the next
+     * failure reboot, whichever occurs first.</p> <p>Valid values: <code>true</code> |
+     * <code>false</code> </p> <p>Default: <code>false</code> </p>
+     */
     inline void SetApplyImmediately(bool value) { m_applyImmediatelyHasBeenSet = true; m_applyImmediately = value; }
 
     /**
@@ -689,7 +788,7 @@ namespace Model
      * <p>The upgraded version of the cache engine to be run on the clusters in the
      * replication group.</p> <p> <b>Important:</b> You can upgrade to a newer engine
      * version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+     * href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
      * a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
      * version. If you want to use an earlier engine version, you must delete the
      * existing replication group and create it anew with the earlier engine version.
@@ -701,7 +800,19 @@ namespace Model
      * <p>The upgraded version of the cache engine to be run on the clusters in the
      * replication group.</p> <p> <b>Important:</b> You can upgrade to a newer engine
      * version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+     * href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+     * a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
+     * version. If you want to use an earlier engine version, you must delete the
+     * existing replication group and create it anew with the earlier engine version.
+     * </p>
+     */
+    inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
+
+    /**
+     * <p>The upgraded version of the cache engine to be run on the clusters in the
+     * replication group.</p> <p> <b>Important:</b> You can upgrade to a newer engine
+     * version (see <a
+     * href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
      * a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
      * version. If you want to use an earlier engine version, you must delete the
      * existing replication group and create it anew with the earlier engine version.
@@ -713,7 +824,7 @@ namespace Model
      * <p>The upgraded version of the cache engine to be run on the clusters in the
      * replication group.</p> <p> <b>Important:</b> You can upgrade to a newer engine
      * version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+     * href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
      * a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
      * version. If you want to use an earlier engine version, you must delete the
      * existing replication group and create it anew with the earlier engine version.
@@ -725,7 +836,7 @@ namespace Model
      * <p>The upgraded version of the cache engine to be run on the clusters in the
      * replication group.</p> <p> <b>Important:</b> You can upgrade to a newer engine
      * version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+     * href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
      * a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
      * version. If you want to use an earlier engine version, you must delete the
      * existing replication group and create it anew with the earlier engine version.
@@ -737,7 +848,7 @@ namespace Model
      * <p>The upgraded version of the cache engine to be run on the clusters in the
      * replication group.</p> <p> <b>Important:</b> You can upgrade to a newer engine
      * version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+     * href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
      * a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
      * version. If you want to use an earlier engine version, you must delete the
      * existing replication group and create it anew with the earlier engine version.
@@ -749,7 +860,7 @@ namespace Model
      * <p>The upgraded version of the cache engine to be run on the clusters in the
      * replication group.</p> <p> <b>Important:</b> You can upgrade to a newer engine
      * version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+     * href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
      * a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
      * version. If you want to use an earlier engine version, you must delete the
      * existing replication group and create it anew with the earlier engine version.
@@ -761,7 +872,7 @@ namespace Model
      * <p>The upgraded version of the cache engine to be run on the clusters in the
      * replication group.</p> <p> <b>Important:</b> You can upgrade to a newer engine
      * version (see <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+     * href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
      * a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
      * version. If you want to use an earlier engine version, you must delete the
      * existing replication group and create it anew with the earlier engine version.
@@ -774,6 +885,11 @@ namespace Model
      * <p>This parameter is currently disabled.</p>
      */
     inline bool GetAutoMinorVersionUpgrade() const{ return m_autoMinorVersionUpgrade; }
+
+    /**
+     * <p>This parameter is currently disabled.</p>
+     */
+    inline bool AutoMinorVersionUpgradeHasBeenSet() const { return m_autoMinorVersionUpgradeHasBeenSet; }
 
     /**
      * <p>This parameter is currently disabled.</p>
@@ -802,6 +918,15 @@ namespace Model
      * retained for 5 days before being deleted.</p> <p> <b>Important</b> If the value
      * of SnapshotRetentionLimit is set to zero (0), backups are turned off.</p>
      */
+    inline bool SnapshotRetentionLimitHasBeenSet() const { return m_snapshotRetentionLimitHasBeenSet; }
+
+    /**
+     * <p>The number of days for which ElastiCache retains automatic node group (shard)
+     * snapshots before deleting them. For example, if you set
+     * <code>SnapshotRetentionLimit</code> to 5, a snapshot that was taken today is
+     * retained for 5 days before being deleted.</p> <p> <b>Important</b> If the value
+     * of SnapshotRetentionLimit is set to zero (0), backups are turned off.</p>
+     */
     inline void SetSnapshotRetentionLimit(int value) { m_snapshotRetentionLimitHasBeenSet = true; m_snapshotRetentionLimit = value; }
 
     /**
@@ -822,6 +947,15 @@ namespace Model
      * an appropriate time range.</p>
      */
     inline const Aws::String& GetSnapshotWindow() const{ return m_snapshotWindow; }
+
+    /**
+     * <p>The daily time range (in UTC) during which ElastiCache begins taking a daily
+     * snapshot of the node group (shard) specified by
+     * <code>SnapshottingClusterId</code>.</p> <p>Example: <code>05:00-09:00</code>
+     * </p> <p>If you do not specify this parameter, ElastiCache automatically chooses
+     * an appropriate time range.</p>
+     */
+    inline bool SnapshotWindowHasBeenSet() const { return m_snapshotWindowHasBeenSet; }
 
     /**
      * <p>The daily time range (in UTC) during which ElastiCache begins taking a daily
@@ -882,6 +1016,11 @@ namespace Model
      * <p>A valid cache node type that you want to scale this replication group to.</p>
      */
     inline const Aws::String& GetCacheNodeType() const{ return m_cacheNodeType; }
+
+    /**
+     * <p>A valid cache node type that you want to scale this replication group to.</p>
+     */
+    inline bool CacheNodeTypeHasBeenSet() const { return m_cacheNodeTypeHasBeenSet; }
 
     /**
      * <p>A valid cache node type that you want to scale this replication group to.</p>

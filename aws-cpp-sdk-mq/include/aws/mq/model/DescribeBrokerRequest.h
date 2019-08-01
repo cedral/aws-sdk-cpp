@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeBrokerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,14 @@ namespace Model
      * characters.
      */
     inline const Aws::String& GetBrokerId() const{ return m_brokerId; }
+
+    /**
+     * The name of the broker. This value must be unique in your AWS account, 1-50
+     * characters long, must contain only letters, numbers, dashes, and underscores,
+     * and must not contain whitespaces, brackets, wildcard characters, or special
+     * characters.
+     */
+    inline bool BrokerIdHasBeenSet() const { return m_brokerIdHasBeenSet; }
 
     /**
      * The name of the broker. This value must be unique in your AWS account, 1-50

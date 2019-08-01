@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>A name for the group that you want to create.</p>
      */
     inline const Aws::String& GetGroupName() const{ return m_groupName; }
+
+    /**
+     * <p>A name for the group that you want to create.</p>
+     */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
 
     /**
      * <p>A name for the group that you want to create.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>A description for the group that you want to create.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description for the group that you want to create.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description for the group that you want to create.</p>
@@ -127,6 +137,12 @@ namespace Model
      * <p>The ID for the AWS account that the group is in. Currently, you use the ID
      * for the AWS account that contains your Amazon QuickSight account.</p>
      */
+    inline bool AwsAccountIdHasBeenSet() const { return m_awsAccountIdHasBeenSet; }
+
+    /**
+     * <p>The ID for the AWS account that the group is in. Currently, you use the ID
+     * for the AWS account that contains your Amazon QuickSight account.</p>
+     */
     inline void SetAwsAccountId(const Aws::String& value) { m_awsAccountIdHasBeenSet = true; m_awsAccountId = value; }
 
     /**
@@ -164,6 +180,11 @@ namespace Model
      * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
      */
     inline const Aws::String& GetNamespace() const{ return m_namespace; }
+
+    /**
+     * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+     */
+    inline bool NamespaceHasBeenSet() const { return m_namespaceHasBeenSet; }
 
     /**
      * <p>The namespace. Currently, you should set this to <code>default</code>.</p>

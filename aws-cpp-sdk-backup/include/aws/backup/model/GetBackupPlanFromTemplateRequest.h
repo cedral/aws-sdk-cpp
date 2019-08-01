@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetBackupPlanFromTemplateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>Uniquely identifies a stored backup plan template.</p>
      */
     inline const Aws::String& GetBackupPlanTemplateId() const{ return m_backupPlanTemplateId; }
+
+    /**
+     * <p>Uniquely identifies a stored backup plan template.</p>
+     */
+    inline bool BackupPlanTemplateIdHasBeenSet() const { return m_backupPlanTemplateIdHasBeenSet; }
 
     /**
      * <p>Uniquely identifies a stored backup plan template.</p>

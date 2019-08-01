@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     GetSubscriptionAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The ARN of the subscription whose properties you want to get.</p>
      */
     inline const Aws::String& GetSubscriptionArn() const{ return m_subscriptionArn; }
+
+    /**
+     * <p>The ARN of the subscription whose properties you want to get.</p>
+     */
+    inline bool SubscriptionArnHasBeenSet() const { return m_subscriptionArnHasBeenSet; }
 
     /**
      * <p>The ARN of the subscription whose properties you want to get.</p>

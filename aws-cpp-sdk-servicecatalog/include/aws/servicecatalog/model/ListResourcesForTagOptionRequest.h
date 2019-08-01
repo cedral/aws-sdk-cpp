@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListResourcesForTagOptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The TagOption identifier.</p>
      */
     inline const Aws::String& GetTagOptionId() const{ return m_tagOptionId; }
+
+    /**
+     * <p>The TagOption identifier.</p>
+     */
+    inline bool TagOptionIdHasBeenSet() const { return m_tagOptionIdHasBeenSet; }
 
     /**
      * <p>The TagOption identifier.</p>
@@ -85,6 +90,12 @@ namespace Model
      * <p> <code>Product</code> </p> </li> </ul>
      */
     inline const Aws::String& GetResourceType() const{ return m_resourceType; }
+
+    /**
+     * <p>The resource type.</p> <ul> <li> <p> <code>Portfolio</code> </p> </li> <li>
+     * <p> <code>Product</code> </p> </li> </ul>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
 
     /**
      * <p>The resource type.</p> <ul> <li> <p> <code>Portfolio</code> </p> </li> <li>
@@ -131,6 +142,11 @@ namespace Model
     /**
      * <p>The maximum number of items to return with this call.</p>
      */
+    inline bool PageSizeHasBeenSet() const { return m_pageSizeHasBeenSet; }
+
+    /**
+     * <p>The maximum number of items to return with this call.</p>
+     */
     inline void SetPageSize(int value) { m_pageSizeHasBeenSet = true; m_pageSize = value; }
 
     /**
@@ -144,6 +160,12 @@ namespace Model
      * results, use null.</p>
      */
     inline const Aws::String& GetPageToken() const{ return m_pageToken; }
+
+    /**
+     * <p>The page token for the next set of results. To retrieve the first set of
+     * results, use null.</p>
+     */
+    inline bool PageTokenHasBeenSet() const { return m_pageTokenHasBeenSet; }
 
     /**
      * <p>The page token for the next set of results. To retrieve the first set of

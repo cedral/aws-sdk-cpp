@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ModifyClusterSnapshotScheduleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * modify. </p>
      */
     inline const Aws::String& GetClusterIdentifier() const{ return m_clusterIdentifier; }
+
+    /**
+     * <p>A unique identifier for the cluster whose snapshot schedule you want to
+     * modify. </p>
+     */
+    inline bool ClusterIdentifierHasBeenSet() const { return m_clusterIdentifierHasBeenSet; }
 
     /**
      * <p>A unique identifier for the cluster whose snapshot schedule you want to
@@ -99,6 +105,12 @@ namespace Model
      * <p>A unique alphanumeric identifier for the schedule that you want to associate
      * with the cluster.</p>
      */
+    inline bool ScheduleIdentifierHasBeenSet() const { return m_scheduleIdentifierHasBeenSet; }
+
+    /**
+     * <p>A unique alphanumeric identifier for the schedule that you want to associate
+     * with the cluster.</p>
+     */
     inline void SetScheduleIdentifier(const Aws::String& value) { m_scheduleIdentifierHasBeenSet = true; m_scheduleIdentifier = value; }
 
     /**
@@ -137,6 +149,12 @@ namespace Model
      * and the schedule.</p>
      */
     inline bool GetDisassociateSchedule() const{ return m_disassociateSchedule; }
+
+    /**
+     * <p>A boolean to indicate whether to remove the assoiciation between the cluster
+     * and the schedule.</p>
+     */
+    inline bool DisassociateScheduleHasBeenSet() const { return m_disassociateScheduleHasBeenSet; }
 
     /**
      * <p>A boolean to indicate whether to remove the assoiciation between the cluster

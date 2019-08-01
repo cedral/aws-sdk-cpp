@@ -56,6 +56,11 @@ namespace Model
     /**
      * <p>The name of the log stream.</p>
      */
+    inline bool LogStreamNameHasBeenSet() const { return m_logStreamNameHasBeenSet; }
+
+    /**
+     * <p>The name of the log stream.</p>
+     */
     inline void SetLogStreamName(const Aws::String& value) { m_logStreamNameHasBeenSet = true; m_logStreamName = value; }
 
     /**
@@ -94,6 +99,12 @@ namespace Model
      * <p>The creation time of the stream, expressed as the number of milliseconds
      * after Jan 1, 1970 00:00:00 UTC.</p>
      */
+    inline bool CreationTimeHasBeenSet() const { return m_creationTimeHasBeenSet; }
+
+    /**
+     * <p>The creation time of the stream, expressed as the number of milliseconds
+     * after Jan 1, 1970 00:00:00 UTC.</p>
+     */
     inline void SetCreationTime(long long value) { m_creationTimeHasBeenSet = true; m_creationTime = value; }
 
     /**
@@ -108,6 +119,12 @@ namespace Model
      * Jan 1, 1970 00:00:00 UTC.</p>
      */
     inline long long GetFirstEventTimestamp() const{ return m_firstEventTimestamp; }
+
+    /**
+     * <p>The time of the first event, expressed as the number of milliseconds after
+     * Jan 1, 1970 00:00:00 UTC.</p>
+     */
+    inline bool FirstEventTimestampHasBeenSet() const { return m_firstEventTimestampHasBeenSet; }
 
     /**
      * <p>The time of the first event, expressed as the number of milliseconds after
@@ -138,6 +155,15 @@ namespace Model
      * consistency basis. It typically updates in less than an hour from ingestion, but
      * may take longer in some rare situations.</p>
      */
+    inline bool LastEventTimestampHasBeenSet() const { return m_lastEventTimestampHasBeenSet; }
+
+    /**
+     * <p>The time of the most recent log event in the log stream in CloudWatch Logs.
+     * This number is expressed as the number of milliseconds after Jan 1, 1970
+     * 00:00:00 UTC. The <code>lastEventTime</code> value updates on an eventual
+     * consistency basis. It typically updates in less than an hour from ingestion, but
+     * may take longer in some rare situations.</p>
+     */
     inline void SetLastEventTimestamp(long long value) { m_lastEventTimestampHasBeenSet = true; m_lastEventTimestamp = value; }
 
     /**
@@ -160,6 +186,12 @@ namespace Model
      * <p>The ingestion time, expressed as the number of milliseconds after Jan 1, 1970
      * 00:00:00 UTC.</p>
      */
+    inline bool LastIngestionTimeHasBeenSet() const { return m_lastIngestionTimeHasBeenSet; }
+
+    /**
+     * <p>The ingestion time, expressed as the number of milliseconds after Jan 1, 1970
+     * 00:00:00 UTC.</p>
+     */
     inline void SetLastIngestionTime(long long value) { m_lastIngestionTimeHasBeenSet = true; m_lastIngestionTime = value; }
 
     /**
@@ -173,6 +205,11 @@ namespace Model
      * <p>The sequence token.</p>
      */
     inline const Aws::String& GetUploadSequenceToken() const{ return m_uploadSequenceToken; }
+
+    /**
+     * <p>The sequence token.</p>
+     */
+    inline bool UploadSequenceTokenHasBeenSet() const { return m_uploadSequenceTokenHasBeenSet; }
 
     /**
      * <p>The sequence token.</p>
@@ -213,6 +250,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the log stream.</p>
      */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the log stream.</p>
+     */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
@@ -240,22 +282,6 @@ namespace Model
      */
     inline LogStream& WithArn(const char* value) { SetArn(value); return *this;}
 
-
-    /**
-     * <p>The number of bytes stored.</p>
-     */
-    inline long long GetStoredBytes() const{ return m_storedBytes; }
-
-    /**
-     * <p>The number of bytes stored.</p>
-     */
-    inline void SetStoredBytes(long long value) { m_storedBytesHasBeenSet = true; m_storedBytes = value; }
-
-    /**
-     * <p>The number of bytes stored.</p>
-     */
-    inline LogStream& WithStoredBytes(long long value) { SetStoredBytes(value); return *this;}
-
   private:
 
     Aws::String m_logStreamName;
@@ -278,9 +304,6 @@ namespace Model
 
     Aws::String m_arn;
     bool m_arnHasBeenSet;
-
-    long long m_storedBytes;
-    bool m_storedBytesHasBeenSet;
   };
 
 } // namespace Model

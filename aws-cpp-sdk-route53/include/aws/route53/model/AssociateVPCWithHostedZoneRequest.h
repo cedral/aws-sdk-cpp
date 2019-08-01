@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     AssociateVPCWithHostedZoneRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * have an existing VPC association.</p>
      */
     inline const Aws::String& GetHostedZoneId() const{ return m_hostedZoneId; }
+
+    /**
+     * <p>The ID of the private hosted zone that you want to associate an Amazon VPC
+     * with.</p> <p>Note that you can't associate a VPC with a hosted zone that doesn't
+     * have an existing VPC association.</p>
+     */
+    inline bool HostedZoneIdHasBeenSet() const { return m_hostedZoneIdHasBeenSet; }
 
     /**
      * <p>The ID of the private hosted zone that you want to associate an Amazon VPC
@@ -107,6 +114,12 @@ namespace Model
      * <p>A complex type that contains information about the VPC that you want to
      * associate with a private hosted zone.</p>
      */
+    inline bool VPCHasBeenSet() const { return m_vPCHasBeenSet; }
+
+    /**
+     * <p>A complex type that contains information about the VPC that you want to
+     * associate with a private hosted zone.</p>
+     */
     inline void SetVPC(const VPC& value) { m_vPCHasBeenSet = true; m_vPC = value; }
 
     /**
@@ -132,6 +145,11 @@ namespace Model
      * <p> <i>Optional:</i> A comment about the association request.</p>
      */
     inline const Aws::String& GetComment() const{ return m_comment; }
+
+    /**
+     * <p> <i>Optional:</i> A comment about the association request.</p>
+     */
+    inline bool CommentHasBeenSet() const { return m_commentHasBeenSet; }
 
     /**
      * <p> <i>Optional:</i> A comment about the association request.</p>

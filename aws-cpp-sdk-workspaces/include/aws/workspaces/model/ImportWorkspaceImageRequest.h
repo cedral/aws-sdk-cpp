@@ -18,6 +18,8 @@
 #include <aws/workspaces/WorkSpacesRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/workspaces/model/WorkspaceImageIngestionProcess.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/workspaces/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -33,7 +35,7 @@ namespace Model
   {
   public:
     ImportWorkspaceImageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +51,11 @@ namespace Model
      * <p>The identifier of the EC2 image.</p>
      */
     inline const Aws::String& GetEc2ImageId() const{ return m_ec2ImageId; }
+
+    /**
+     * <p>The identifier of the EC2 image.</p>
+     */
+    inline bool Ec2ImageIdHasBeenSet() const { return m_ec2ImageIdHasBeenSet; }
 
     /**
      * <p>The identifier of the EC2 image.</p>
@@ -89,6 +96,11 @@ namespace Model
     /**
      * <p>The ingestion process to be used when importing the image.</p>
      */
+    inline bool IngestionProcessHasBeenSet() const { return m_ingestionProcessHasBeenSet; }
+
+    /**
+     * <p>The ingestion process to be used when importing the image.</p>
+     */
     inline void SetIngestionProcess(const WorkspaceImageIngestionProcess& value) { m_ingestionProcessHasBeenSet = true; m_ingestionProcess = value; }
 
     /**
@@ -111,6 +123,11 @@ namespace Model
      * <p>The name of the WorkSpace image.</p>
      */
     inline const Aws::String& GetImageName() const{ return m_imageName; }
+
+    /**
+     * <p>The name of the WorkSpace image.</p>
+     */
+    inline bool ImageNameHasBeenSet() const { return m_imageNameHasBeenSet; }
 
     /**
      * <p>The name of the WorkSpace image.</p>
@@ -151,6 +168,11 @@ namespace Model
     /**
      * <p>The description of the WorkSpace image.</p>
      */
+    inline bool ImageDescriptionHasBeenSet() const { return m_imageDescriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the WorkSpace image.</p>
+     */
     inline void SetImageDescription(const Aws::String& value) { m_imageDescriptionHasBeenSet = true; m_imageDescription = value; }
 
     /**
@@ -178,6 +200,47 @@ namespace Model
      */
     inline ImportWorkspaceImageRequest& WithImageDescription(const char* value) { SetImageDescription(value); return *this;}
 
+
+    /**
+     * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+     */
+    inline ImportWorkspaceImageRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+     */
+    inline ImportWorkspaceImageRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+     */
+    inline ImportWorkspaceImageRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</p>
+     */
+    inline ImportWorkspaceImageRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_ec2ImageId;
@@ -191,6 +254,9 @@ namespace Model
 
     Aws::String m_imageDescription;
     bool m_imageDescriptionHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

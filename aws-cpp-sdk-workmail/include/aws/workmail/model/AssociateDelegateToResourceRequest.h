@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateDelegateToResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The organization under which the resource exists.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The organization under which the resource exists.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The organization under which the resource exists.</p>
@@ -81,37 +86,42 @@ namespace Model
 
 
     /**
-     * <p>The resource for which members are associated.</p>
+     * <p>The resource for which members (users or groups) are associated.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
 
     /**
-     * <p>The resource for which members are associated.</p>
+     * <p>The resource for which members (users or groups) are associated.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
+
+    /**
+     * <p>The resource for which members (users or groups) are associated.</p>
      */
     inline void SetResourceId(const Aws::String& value) { m_resourceIdHasBeenSet = true; m_resourceId = value; }
 
     /**
-     * <p>The resource for which members are associated.</p>
+     * <p>The resource for which members (users or groups) are associated.</p>
      */
     inline void SetResourceId(Aws::String&& value) { m_resourceIdHasBeenSet = true; m_resourceId = std::move(value); }
 
     /**
-     * <p>The resource for which members are associated.</p>
+     * <p>The resource for which members (users or groups) are associated.</p>
      */
     inline void SetResourceId(const char* value) { m_resourceIdHasBeenSet = true; m_resourceId.assign(value); }
 
     /**
-     * <p>The resource for which members are associated.</p>
+     * <p>The resource for which members (users or groups) are associated.</p>
      */
     inline AssociateDelegateToResourceRequest& WithResourceId(const Aws::String& value) { SetResourceId(value); return *this;}
 
     /**
-     * <p>The resource for which members are associated.</p>
+     * <p>The resource for which members (users or groups) are associated.</p>
      */
     inline AssociateDelegateToResourceRequest& WithResourceId(Aws::String&& value) { SetResourceId(std::move(value)); return *this;}
 
     /**
-     * <p>The resource for which members are associated.</p>
+     * <p>The resource for which members (users or groups) are associated.</p>
      */
     inline AssociateDelegateToResourceRequest& WithResourceId(const char* value) { SetResourceId(value); return *this;}
 
@@ -120,6 +130,11 @@ namespace Model
      * <p>The member (user or group) to associate to the resource.</p>
      */
     inline const Aws::String& GetEntityId() const{ return m_entityId; }
+
+    /**
+     * <p>The member (user or group) to associate to the resource.</p>
+     */
+    inline bool EntityIdHasBeenSet() const { return m_entityIdHasBeenSet; }
 
     /**
      * <p>The member (user or group) to associate to the resource.</p>

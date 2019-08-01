@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetSlotTypesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,14 @@ namespace Model
      * next request.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A pagination token that fetches the next page of slot types. If the response
+     * to this API call is truncated, Amazon Lex returns a pagination token in the
+     * response. To fetch next page of slot types, specify the pagination token in the
+     * next request.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A pagination token that fetches the next page of slot types. If the response
@@ -115,6 +123,12 @@ namespace Model
      * <p>The maximum number of slot types to return in the response. The default is
      * 10.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of slot types to return in the response. The default is
+     * 10.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -130,6 +144,13 @@ namespace Model
      * and "abcxyz."</p>
      */
     inline const Aws::String& GetNameContains() const{ return m_nameContains; }
+
+    /**
+     * <p>Substring to match in slot type names. A slot type will be returned if any
+     * part of its name matches the substring. For example, "xyz" matches both "xyzabc"
+     * and "abcxyz."</p>
+     */
+    inline bool NameContainsHasBeenSet() const { return m_nameContainsHasBeenSet; }
 
     /**
      * <p>Substring to match in slot type names. A slot type will be returned if any

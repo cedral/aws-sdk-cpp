@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AdminUpdateAuthEventFeedbackRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The user pool ID.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The user pool username.</p>
      */
+    inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
+
+    /**
+     * <p>The user pool username.</p>
+     */
     inline void SetUsername(const Aws::String& value) { m_usernameHasBeenSet = true; m_username = value; }
 
     /**
@@ -125,6 +135,11 @@ namespace Model
     /**
      * <p>The authentication event ID.</p>
      */
+    inline bool EventIdHasBeenSet() const { return m_eventIdHasBeenSet; }
+
+    /**
+     * <p>The authentication event ID.</p>
+     */
     inline void SetEventId(const Aws::String& value) { m_eventIdHasBeenSet = true; m_eventId = value; }
 
     /**
@@ -157,6 +172,11 @@ namespace Model
      * <p>The authentication event feedback value.</p>
      */
     inline const FeedbackValueType& GetFeedbackValue() const{ return m_feedbackValue; }
+
+    /**
+     * <p>The authentication event feedback value.</p>
+     */
+    inline bool FeedbackValueHasBeenSet() const { return m_feedbackValueHasBeenSet; }
 
     /**
      * <p>The authentication event feedback value.</p>

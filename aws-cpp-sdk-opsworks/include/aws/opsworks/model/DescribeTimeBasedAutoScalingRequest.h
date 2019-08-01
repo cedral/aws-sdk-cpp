@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeTimeBasedAutoScalingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>An array of instance IDs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetInstanceIds() const{ return m_instanceIds; }
+
+    /**
+     * <p>An array of instance IDs.</p>
+     */
+    inline bool InstanceIdsHasBeenSet() const { return m_instanceIdsHasBeenSet; }
 
     /**
      * <p>An array of instance IDs.</p>

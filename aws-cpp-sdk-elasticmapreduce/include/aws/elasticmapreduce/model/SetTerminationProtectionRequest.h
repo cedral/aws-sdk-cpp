@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     SetTerminationProtectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * <a>DescribeJobFlows</a> . </p>
      */
     inline const Aws::Vector<Aws::String>& GetJobFlowIds() const{ return m_jobFlowIds; }
+
+    /**
+     * <p> A list of strings that uniquely identify the clusters to protect. This
+     * identifier is returned by <a>RunJobFlow</a> and can also be obtained from
+     * <a>DescribeJobFlows</a> . </p>
+     */
+    inline bool JobFlowIdsHasBeenSet() const { return m_jobFlowIdsHasBeenSet; }
 
     /**
      * <p> A list of strings that uniquely identify the clusters to protect. This
@@ -112,6 +119,13 @@ namespace Model
      * intervention, or job-flow error.</p>
      */
     inline bool GetTerminationProtected() const{ return m_terminationProtected; }
+
+    /**
+     * <p>A Boolean that indicates whether to protect the cluster and prevent the
+     * Amazon EC2 instances in the cluster from shutting down due to API calls, user
+     * intervention, or job-flow error.</p>
+     */
+    inline bool TerminationProtectedHasBeenSet() const { return m_terminationProtectedHasBeenSet; }
 
     /**
      * <p>A Boolean that indicates whether to protect the cluster and prevent the

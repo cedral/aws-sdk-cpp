@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RemoveRoleFromDBInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the DB instance to disassociate the IAM role from.</p>
      */
     inline const Aws::String& GetDBInstanceIdentifier() const{ return m_dBInstanceIdentifier; }
+
+    /**
+     * <p>The name of the DB instance to disassociate the IAM role from.</p>
+     */
+    inline bool DBInstanceIdentifierHasBeenSet() const { return m_dBInstanceIdentifierHasBeenSet; }
 
     /**
      * <p>The name of the DB instance to disassociate the IAM role from.</p>
@@ -88,6 +93,13 @@ namespace Model
      * <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB
+     * instance, for example
+     * <code>arn:aws:iam::123456789012:role/AccessRole</code>.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB
@@ -135,49 +147,56 @@ namespace Model
     /**
      * <p>The name of the feature for the DB instance that the IAM role is to be
      * disassociated from. For the list of supported feature names, see
-     * <a>DBEngineVersion</a>. </p>
+     * <code>DBEngineVersion</code>. </p>
      */
     inline const Aws::String& GetFeatureName() const{ return m_featureName; }
 
     /**
      * <p>The name of the feature for the DB instance that the IAM role is to be
      * disassociated from. For the list of supported feature names, see
-     * <a>DBEngineVersion</a>. </p>
+     * <code>DBEngineVersion</code>. </p>
+     */
+    inline bool FeatureNameHasBeenSet() const { return m_featureNameHasBeenSet; }
+
+    /**
+     * <p>The name of the feature for the DB instance that the IAM role is to be
+     * disassociated from. For the list of supported feature names, see
+     * <code>DBEngineVersion</code>. </p>
      */
     inline void SetFeatureName(const Aws::String& value) { m_featureNameHasBeenSet = true; m_featureName = value; }
 
     /**
      * <p>The name of the feature for the DB instance that the IAM role is to be
      * disassociated from. For the list of supported feature names, see
-     * <a>DBEngineVersion</a>. </p>
+     * <code>DBEngineVersion</code>. </p>
      */
     inline void SetFeatureName(Aws::String&& value) { m_featureNameHasBeenSet = true; m_featureName = std::move(value); }
 
     /**
      * <p>The name of the feature for the DB instance that the IAM role is to be
      * disassociated from. For the list of supported feature names, see
-     * <a>DBEngineVersion</a>. </p>
+     * <code>DBEngineVersion</code>. </p>
      */
     inline void SetFeatureName(const char* value) { m_featureNameHasBeenSet = true; m_featureName.assign(value); }
 
     /**
      * <p>The name of the feature for the DB instance that the IAM role is to be
      * disassociated from. For the list of supported feature names, see
-     * <a>DBEngineVersion</a>. </p>
+     * <code>DBEngineVersion</code>. </p>
      */
     inline RemoveRoleFromDBInstanceRequest& WithFeatureName(const Aws::String& value) { SetFeatureName(value); return *this;}
 
     /**
      * <p>The name of the feature for the DB instance that the IAM role is to be
      * disassociated from. For the list of supported feature names, see
-     * <a>DBEngineVersion</a>. </p>
+     * <code>DBEngineVersion</code>. </p>
      */
     inline RemoveRoleFromDBInstanceRequest& WithFeatureName(Aws::String&& value) { SetFeatureName(std::move(value)); return *this;}
 
     /**
      * <p>The name of the feature for the DB instance that the IAM role is to be
      * disassociated from. For the list of supported feature names, see
-     * <a>DBEngineVersion</a>. </p>
+     * <code>DBEngineVersion</code>. </p>
      */
     inline RemoveRoleFromDBInstanceRequest& WithFeatureName(const char* value) { SetFeatureName(value); return *this;}
 

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetTerminologyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the custom terminology being retrieved.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the custom terminology being retrieved.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the custom terminology being retrieved.</p>
@@ -86,6 +91,12 @@ namespace Model
      * TMX.</p>
      */
     inline const TerminologyDataFormat& GetTerminologyDataFormat() const{ return m_terminologyDataFormat; }
+
+    /**
+     * <p>The data format of the custom terminology being retrieved, either CSV or
+     * TMX.</p>
+     */
+    inline bool TerminologyDataFormatHasBeenSet() const { return m_terminologyDataFormatHasBeenSet; }
 
     /**
      * <p>The data format of the custom terminology being retrieved, either CSV or

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateRepositoryDescriptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * for.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository to set or change the comment or description
+     * for.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository to set or change the comment or description
@@ -96,6 +102,12 @@ namespace Model
      * descriptions are limited to 1,000 characters.</p>
      */
     inline const Aws::String& GetRepositoryDescription() const{ return m_repositoryDescription; }
+
+    /**
+     * <p>The new comment or description for the specified repository. Repository
+     * descriptions are limited to 1,000 characters.</p>
+     */
+    inline bool RepositoryDescriptionHasBeenSet() const { return m_repositoryDescriptionHasBeenSet; }
 
     /**
      * <p>The new comment or description for the specified repository. Repository

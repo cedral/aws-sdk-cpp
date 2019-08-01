@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The organization under which the group is to be created.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The organization under which the group is to be created.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The organization under which the group is to be created.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The name of the group.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the group.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the group.</p>

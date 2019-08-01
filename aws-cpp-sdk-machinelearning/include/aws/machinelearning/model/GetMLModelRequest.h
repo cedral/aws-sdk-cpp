@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetMLModelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID assigned to the <code>MLModel</code> at creation.</p>
      */
     inline const Aws::String& GetMLModelId() const{ return m_mLModelId; }
+
+    /**
+     * <p>The ID assigned to the <code>MLModel</code> at creation.</p>
+     */
+    inline bool MLModelIdHasBeenSet() const { return m_mLModelIdHasBeenSet; }
 
     /**
      * <p>The ID assigned to the <code>MLModel</code> at creation.</p>
@@ -86,6 +91,13 @@ namespace Model
      * false, <code>Recipe</code> is not returned.</p>
      */
     inline bool GetVerbose() const{ return m_verbose; }
+
+    /**
+     * <p>Specifies whether the <code>GetMLModel</code> operation should return
+     * <code>Recipe</code>.</p> <p>If true, <code>Recipe</code> is returned.</p> <p>If
+     * false, <code>Recipe</code> is not returned.</p>
+     */
+    inline bool VerboseHasBeenSet() const { return m_verboseHasBeenSet; }
 
     /**
      * <p>Specifies whether the <code>GetMLModel</code> operation should return

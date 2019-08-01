@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SetTimeBasedAutoScalingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The instance ID.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The instance ID.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The instance ID.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>An <code>AutoScalingSchedule</code> with the instance schedule.</p>
      */
     inline const WeeklyAutoScalingSchedule& GetAutoScalingSchedule() const{ return m_autoScalingSchedule; }
+
+    /**
+     * <p>An <code>AutoScalingSchedule</code> with the instance schedule.</p>
+     */
+    inline bool AutoScalingScheduleHasBeenSet() const { return m_autoScalingScheduleHasBeenSet; }
 
     /**
      * <p>An <code>AutoScalingSchedule</code> with the instance schedule.</p>

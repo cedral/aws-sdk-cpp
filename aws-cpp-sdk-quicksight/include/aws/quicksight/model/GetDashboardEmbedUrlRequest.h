@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     GetDashboardEmbedUrlRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>AWS account ID that contains the dashboard you are embedding.</p>
      */
     inline const Aws::String& GetAwsAccountId() const{ return m_awsAccountId; }
+
+    /**
+     * <p>AWS account ID that contains the dashboard you are embedding.</p>
+     */
+    inline bool AwsAccountIdHasBeenSet() const { return m_awsAccountIdHasBeenSet; }
 
     /**
      * <p>AWS account ID that contains the dashboard you are embedding.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The ID for the dashboard, also added to IAM policy</p>
      */
+    inline bool DashboardIdHasBeenSet() const { return m_dashboardIdHasBeenSet; }
+
+    /**
+     * <p>The ID for the dashboard, also added to IAM policy</p>
+     */
     inline void SetDashboardId(const Aws::String& value) { m_dashboardIdHasBeenSet = true; m_dashboardId = value; }
 
     /**
@@ -129,6 +139,11 @@ namespace Model
     /**
      * <p>The authentication method the user uses to sign in (IAM only).</p>
      */
+    inline bool IdentityTypeHasBeenSet() const { return m_identityTypeHasBeenSet; }
+
+    /**
+     * <p>The authentication method the user uses to sign in (IAM only).</p>
+     */
     inline void SetIdentityType(const IdentityType& value) { m_identityTypeHasBeenSet = true; m_identityType = value; }
 
     /**
@@ -157,6 +172,12 @@ namespace Model
      * <p>How many minutes the session is valid. The session lifetime must be between
      * 15 and 600 minutes.</p>
      */
+    inline bool SessionLifetimeInMinutesHasBeenSet() const { return m_sessionLifetimeInMinutesHasBeenSet; }
+
+    /**
+     * <p>How many minutes the session is valid. The session lifetime must be between
+     * 15 and 600 minutes.</p>
+     */
     inline void SetSessionLifetimeInMinutes(long long value) { m_sessionLifetimeInMinutesHasBeenSet = true; m_sessionLifetimeInMinutes = value; }
 
     /**
@@ -171,6 +192,12 @@ namespace Model
      * which enables the undo/redo button.</p>
      */
     inline bool GetUndoRedoDisabled() const{ return m_undoRedoDisabled; }
+
+    /**
+     * <p>Remove the undo/redo button on embedded dashboard. The default is FALSE,
+     * which enables the undo/redo button.</p>
+     */
+    inline bool UndoRedoDisabledHasBeenSet() const { return m_undoRedoDisabledHasBeenSet; }
 
     /**
      * <p>Remove the undo/redo button on embedded dashboard. The default is FALSE,
@@ -195,6 +222,12 @@ namespace Model
      * <p>Remove the reset button on embedded dashboard. The default is FALSE, which
      * allows the reset button.</p>
      */
+    inline bool ResetDisabledHasBeenSet() const { return m_resetDisabledHasBeenSet; }
+
+    /**
+     * <p>Remove the reset button on embedded dashboard. The default is FALSE, which
+     * allows the reset button.</p>
+     */
     inline void SetResetDisabled(bool value) { m_resetDisabledHasBeenSet = true; m_resetDisabled = value; }
 
     /**
@@ -202,6 +235,87 @@ namespace Model
      * allows the reset button.</p>
      */
     inline GetDashboardEmbedUrlRequest& WithResetDisabled(bool value) { SetResetDisabled(value); return *this;}
+
+
+    /**
+     * <p>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code>
+     * identity type. You can use this for any of the following:</p> <ul> <li>
+     * <p>Amazon QuickSight users in your account (readers, authors, or admins)</p>
+     * </li> <li> <p>AD users</p> </li> <li> <p>Invited non-federated users</p> </li>
+     * <li> <p>Federated IAM users</p> </li> <li> <p>Federated IAM role-based
+     * sessions</p> </li> </ul>
+     */
+    inline const Aws::String& GetUserArn() const{ return m_userArn; }
+
+    /**
+     * <p>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code>
+     * identity type. You can use this for any of the following:</p> <ul> <li>
+     * <p>Amazon QuickSight users in your account (readers, authors, or admins)</p>
+     * </li> <li> <p>AD users</p> </li> <li> <p>Invited non-federated users</p> </li>
+     * <li> <p>Federated IAM users</p> </li> <li> <p>Federated IAM role-based
+     * sessions</p> </li> </ul>
+     */
+    inline bool UserArnHasBeenSet() const { return m_userArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code>
+     * identity type. You can use this for any of the following:</p> <ul> <li>
+     * <p>Amazon QuickSight users in your account (readers, authors, or admins)</p>
+     * </li> <li> <p>AD users</p> </li> <li> <p>Invited non-federated users</p> </li>
+     * <li> <p>Federated IAM users</p> </li> <li> <p>Federated IAM role-based
+     * sessions</p> </li> </ul>
+     */
+    inline void SetUserArn(const Aws::String& value) { m_userArnHasBeenSet = true; m_userArn = value; }
+
+    /**
+     * <p>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code>
+     * identity type. You can use this for any of the following:</p> <ul> <li>
+     * <p>Amazon QuickSight users in your account (readers, authors, or admins)</p>
+     * </li> <li> <p>AD users</p> </li> <li> <p>Invited non-federated users</p> </li>
+     * <li> <p>Federated IAM users</p> </li> <li> <p>Federated IAM role-based
+     * sessions</p> </li> </ul>
+     */
+    inline void SetUserArn(Aws::String&& value) { m_userArnHasBeenSet = true; m_userArn = std::move(value); }
+
+    /**
+     * <p>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code>
+     * identity type. You can use this for any of the following:</p> <ul> <li>
+     * <p>Amazon QuickSight users in your account (readers, authors, or admins)</p>
+     * </li> <li> <p>AD users</p> </li> <li> <p>Invited non-federated users</p> </li>
+     * <li> <p>Federated IAM users</p> </li> <li> <p>Federated IAM role-based
+     * sessions</p> </li> </ul>
+     */
+    inline void SetUserArn(const char* value) { m_userArnHasBeenSet = true; m_userArn.assign(value); }
+
+    /**
+     * <p>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code>
+     * identity type. You can use this for any of the following:</p> <ul> <li>
+     * <p>Amazon QuickSight users in your account (readers, authors, or admins)</p>
+     * </li> <li> <p>AD users</p> </li> <li> <p>Invited non-federated users</p> </li>
+     * <li> <p>Federated IAM users</p> </li> <li> <p>Federated IAM role-based
+     * sessions</p> </li> </ul>
+     */
+    inline GetDashboardEmbedUrlRequest& WithUserArn(const Aws::String& value) { SetUserArn(value); return *this;}
+
+    /**
+     * <p>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code>
+     * identity type. You can use this for any of the following:</p> <ul> <li>
+     * <p>Amazon QuickSight users in your account (readers, authors, or admins)</p>
+     * </li> <li> <p>AD users</p> </li> <li> <p>Invited non-federated users</p> </li>
+     * <li> <p>Federated IAM users</p> </li> <li> <p>Federated IAM role-based
+     * sessions</p> </li> </ul>
+     */
+    inline GetDashboardEmbedUrlRequest& WithUserArn(Aws::String&& value) { SetUserArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon QuickSight user's ARN, for use with <code>QUICKSIGHT</code>
+     * identity type. You can use this for any of the following:</p> <ul> <li>
+     * <p>Amazon QuickSight users in your account (readers, authors, or admins)</p>
+     * </li> <li> <p>AD users</p> </li> <li> <p>Invited non-federated users</p> </li>
+     * <li> <p>Federated IAM users</p> </li> <li> <p>Federated IAM role-based
+     * sessions</p> </li> </ul>
+     */
+    inline GetDashboardEmbedUrlRequest& WithUserArn(const char* value) { SetUserArn(value); return *this;}
 
   private:
 
@@ -222,6 +336,9 @@ namespace Model
 
     bool m_resetDisabled;
     bool m_resetDisabledHasBeenSet;
+
+    Aws::String m_userArn;
+    bool m_userArnHasBeenSet;
   };
 
 } // namespace Model

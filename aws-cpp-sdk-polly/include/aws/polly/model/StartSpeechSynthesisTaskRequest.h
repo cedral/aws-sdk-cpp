@@ -16,12 +16,13 @@
 #pragma once
 #include <aws/polly/Polly_EXPORTS.h>
 #include <aws/polly/PollyRequest.h>
+#include <aws/polly/model/Engine.h>
+#include <aws/polly/model/LanguageCode.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/polly/model/OutputFormat.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/polly/model/TextType.h>
 #include <aws/polly/model/VoiceId.h>
-#include <aws/polly/model/LanguageCode.h>
 #include <aws/polly/model/SpeechMarkType.h>
 #include <utility>
 
@@ -38,7 +39,7 @@ namespace Model
   {
   public:
     StartSpeechSynthesisTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,11 +50,140 @@ namespace Model
 
 
     /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline const Engine& GetEngine() const{ return m_engine; }
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline bool EngineHasBeenSet() const { return m_engineHasBeenSet; }
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline void SetEngine(const Engine& value) { m_engineHasBeenSet = true; m_engine = value; }
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline void SetEngine(Engine&& value) { m_engineHasBeenSet = true; m_engine = std::move(value); }
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline StartSpeechSynthesisTaskRequest& WithEngine(const Engine& value) { SetEngine(value); return *this;}
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline StartSpeechSynthesisTaskRequest& WithEngine(Engine&& value) { SetEngine(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Optional language code for the Speech Synthesis request. This is only
+     * necessary if using a bilingual voice, such as Aditi, which can be used for
+     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
+     * used and no language code is specified, Amazon Polly will use the default
+     * language of the bilingual voice. The default language for any voice is the one
+     * returned by the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+     * operation for the <code>LanguageCode</code> parameter. For example, if no
+     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
+     */
+    inline const LanguageCode& GetLanguageCode() const{ return m_languageCode; }
+
+    /**
+     * <p>Optional language code for the Speech Synthesis request. This is only
+     * necessary if using a bilingual voice, such as Aditi, which can be used for
+     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
+     * used and no language code is specified, Amazon Polly will use the default
+     * language of the bilingual voice. The default language for any voice is the one
+     * returned by the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+     * operation for the <code>LanguageCode</code> parameter. For example, if no
+     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
+     */
+    inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
+
+    /**
+     * <p>Optional language code for the Speech Synthesis request. This is only
+     * necessary if using a bilingual voice, such as Aditi, which can be used for
+     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
+     * used and no language code is specified, Amazon Polly will use the default
+     * language of the bilingual voice. The default language for any voice is the one
+     * returned by the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+     * operation for the <code>LanguageCode</code> parameter. For example, if no
+     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
+     */
+    inline void SetLanguageCode(const LanguageCode& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
+
+    /**
+     * <p>Optional language code for the Speech Synthesis request. This is only
+     * necessary if using a bilingual voice, such as Aditi, which can be used for
+     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
+     * used and no language code is specified, Amazon Polly will use the default
+     * language of the bilingual voice. The default language for any voice is the one
+     * returned by the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+     * operation for the <code>LanguageCode</code> parameter. For example, if no
+     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
+     */
+    inline void SetLanguageCode(LanguageCode&& value) { m_languageCodeHasBeenSet = true; m_languageCode = std::move(value); }
+
+    /**
+     * <p>Optional language code for the Speech Synthesis request. This is only
+     * necessary if using a bilingual voice, such as Aditi, which can be used for
+     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
+     * used and no language code is specified, Amazon Polly will use the default
+     * language of the bilingual voice. The default language for any voice is the one
+     * returned by the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+     * operation for the <code>LanguageCode</code> parameter. For example, if no
+     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
+     */
+    inline StartSpeechSynthesisTaskRequest& WithLanguageCode(const LanguageCode& value) { SetLanguageCode(value); return *this;}
+
+    /**
+     * <p>Optional language code for the Speech Synthesis request. This is only
+     * necessary if using a bilingual voice, such as Aditi, which can be used for
+     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
+     * used and no language code is specified, Amazon Polly will use the default
+     * language of the bilingual voice. The default language for any voice is the one
+     * returned by the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+     * operation for the <code>LanguageCode</code> parameter. For example, if no
+     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
+     */
+    inline StartSpeechSynthesisTaskRequest& WithLanguageCode(LanguageCode&& value) { SetLanguageCode(std::move(value)); return *this;}
+
+
+    /**
      * <p>List of one or more pronunciation lexicon names you want the service to apply
      * during synthesis. Lexicons are applied only if the language of the lexicon is
      * the same as the language of the voice. </p>
      */
     inline const Aws::Vector<Aws::String>& GetLexiconNames() const{ return m_lexiconNames; }
+
+    /**
+     * <p>List of one or more pronunciation lexicon names you want the service to apply
+     * during synthesis. Lexicons are applied only if the language of the lexicon is
+     * the same as the language of the voice. </p>
+     */
+    inline bool LexiconNamesHasBeenSet() const { return m_lexiconNamesHasBeenSet; }
 
     /**
      * <p>List of one or more pronunciation lexicon names you want the service to apply
@@ -115,6 +245,12 @@ namespace Model
      * <p>The format in which the returned output will be encoded. For audio stream,
      * this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
      */
+    inline bool OutputFormatHasBeenSet() const { return m_outputFormatHasBeenSet; }
+
+    /**
+     * <p>The format in which the returned output will be encoded. For audio stream,
+     * this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
+     */
     inline void SetOutputFormat(const OutputFormat& value) { m_outputFormatHasBeenSet = true; m_outputFormat = value; }
 
     /**
@@ -140,6 +276,11 @@ namespace Model
      * <p>Amazon S3 bucket name to which the output file will be saved.</p>
      */
     inline const Aws::String& GetOutputS3BucketName() const{ return m_outputS3BucketName; }
+
+    /**
+     * <p>Amazon S3 bucket name to which the output file will be saved.</p>
+     */
+    inline bool OutputS3BucketNameHasBeenSet() const { return m_outputS3BucketNameHasBeenSet; }
 
     /**
      * <p>Amazon S3 bucket name to which the output file will be saved.</p>
@@ -180,6 +321,11 @@ namespace Model
     /**
      * <p>The Amazon S3 key prefix for the output speech file.</p>
      */
+    inline bool OutputS3KeyPrefixHasBeenSet() const { return m_outputS3KeyPrefixHasBeenSet; }
+
+    /**
+     * <p>The Amazon S3 key prefix for the output speech file.</p>
+     */
     inline void SetOutputS3KeyPrefix(const Aws::String& value) { m_outputS3KeyPrefixHasBeenSet = true; m_outputS3KeyPrefix = value; }
 
     /**
@@ -210,7 +356,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -218,7 +365,17 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
+     * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
+     * </p>
+     */
+    inline bool SampleRateHasBeenSet() const { return m_sampleRateHasBeenSet; }
+
+    /**
+     * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -226,7 +383,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -234,7 +392,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -242,7 +401,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -250,7 +410,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -258,7 +419,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -270,6 +432,12 @@ namespace Model
      * speech synthesis task.</p>
      */
     inline const Aws::String& GetSnsTopicArn() const{ return m_snsTopicArn; }
+
+    /**
+     * <p>ARN for the SNS topic optionally used for providing status notification for a
+     * speech synthesis task.</p>
+     */
+    inline bool SnsTopicArnHasBeenSet() const { return m_snsTopicArnHasBeenSet; }
 
     /**
      * <p>ARN for the SNS topic optionally used for providing status notification for a
@@ -316,6 +484,11 @@ namespace Model
     /**
      * <p>The type of speech marks returned for the input text.</p>
      */
+    inline bool SpeechMarkTypesHasBeenSet() const { return m_speechMarkTypesHasBeenSet; }
+
+    /**
+     * <p>The type of speech marks returned for the input text.</p>
+     */
     inline void SetSpeechMarkTypes(const Aws::Vector<SpeechMarkType>& value) { m_speechMarkTypesHasBeenSet = true; m_speechMarkTypes = value; }
 
     /**
@@ -349,6 +522,12 @@ namespace Model
      * SSML format for the input text. </p>
      */
     inline const Aws::String& GetText() const{ return m_text; }
+
+    /**
+     * <p>The input text to synthesize. If you specify ssml as the TextType, follow the
+     * SSML format for the input text. </p>
+     */
+    inline bool TextHasBeenSet() const { return m_textHasBeenSet; }
 
     /**
      * <p>The input text to synthesize. If you specify ssml as the TextType, follow the
@@ -397,6 +576,12 @@ namespace Model
      * <p>Specifies whether the input text is plain text or SSML. The default value is
      * plain text. </p>
      */
+    inline bool TextTypeHasBeenSet() const { return m_textTypeHasBeenSet; }
+
+    /**
+     * <p>Specifies whether the input text is plain text or SSML. The default value is
+     * plain text. </p>
+     */
     inline void SetTextType(const TextType& value) { m_textTypeHasBeenSet = true; m_textType = value; }
 
     /**
@@ -426,6 +611,11 @@ namespace Model
     /**
      * <p>Voice ID to use for the synthesis. </p>
      */
+    inline bool VoiceIdHasBeenSet() const { return m_voiceIdHasBeenSet; }
+
+    /**
+     * <p>Voice ID to use for the synthesis. </p>
+     */
     inline void SetVoiceId(const VoiceId& value) { m_voiceIdHasBeenSet = true; m_voiceId = value; }
 
     /**
@@ -443,73 +633,13 @@ namespace Model
      */
     inline StartSpeechSynthesisTaskRequest& WithVoiceId(VoiceId&& value) { SetVoiceId(std::move(value)); return *this;}
 
-
-    /**
-     * <p>Optional language code for the Speech Synthesis request. This is only
-     * necessary if using a bilingual voice, such as Aditi, which can be used for
-     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
-     * used and no language code is specified, Amazon Polly will use the default
-     * language of the bilingual voice. The default language for any voice is the one
-     * returned by the <a
-     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
-     * operation for the <code>LanguageCode</code> parameter. For example, if no
-     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
-     */
-    inline const LanguageCode& GetLanguageCode() const{ return m_languageCode; }
-
-    /**
-     * <p>Optional language code for the Speech Synthesis request. This is only
-     * necessary if using a bilingual voice, such as Aditi, which can be used for
-     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
-     * used and no language code is specified, Amazon Polly will use the default
-     * language of the bilingual voice. The default language for any voice is the one
-     * returned by the <a
-     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
-     * operation for the <code>LanguageCode</code> parameter. For example, if no
-     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
-     */
-    inline void SetLanguageCode(const LanguageCode& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
-
-    /**
-     * <p>Optional language code for the Speech Synthesis request. This is only
-     * necessary if using a bilingual voice, such as Aditi, which can be used for
-     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
-     * used and no language code is specified, Amazon Polly will use the default
-     * language of the bilingual voice. The default language for any voice is the one
-     * returned by the <a
-     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
-     * operation for the <code>LanguageCode</code> parameter. For example, if no
-     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
-     */
-    inline void SetLanguageCode(LanguageCode&& value) { m_languageCodeHasBeenSet = true; m_languageCode = std::move(value); }
-
-    /**
-     * <p>Optional language code for the Speech Synthesis request. This is only
-     * necessary if using a bilingual voice, such as Aditi, which can be used for
-     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
-     * used and no language code is specified, Amazon Polly will use the default
-     * language of the bilingual voice. The default language for any voice is the one
-     * returned by the <a
-     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
-     * operation for the <code>LanguageCode</code> parameter. For example, if no
-     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
-     */
-    inline StartSpeechSynthesisTaskRequest& WithLanguageCode(const LanguageCode& value) { SetLanguageCode(value); return *this;}
-
-    /**
-     * <p>Optional language code for the Speech Synthesis request. This is only
-     * necessary if using a bilingual voice, such as Aditi, which can be used for
-     * either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is
-     * used and no language code is specified, Amazon Polly will use the default
-     * language of the bilingual voice. The default language for any voice is the one
-     * returned by the <a
-     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
-     * operation for the <code>LanguageCode</code> parameter. For example, if no
-     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
-     */
-    inline StartSpeechSynthesisTaskRequest& WithLanguageCode(LanguageCode&& value) { SetLanguageCode(std::move(value)); return *this;}
-
   private:
+
+    Engine m_engine;
+    bool m_engineHasBeenSet;
+
+    LanguageCode m_languageCode;
+    bool m_languageCodeHasBeenSet;
 
     Aws::Vector<Aws::String> m_lexiconNames;
     bool m_lexiconNamesHasBeenSet;
@@ -540,9 +670,6 @@ namespace Model
 
     VoiceId m_voiceId;
     bool m_voiceIdHasBeenSet;
-
-    LanguageCode m_languageCode;
-    bool m_languageCodeHasBeenSet;
   };
 
 } // namespace Model

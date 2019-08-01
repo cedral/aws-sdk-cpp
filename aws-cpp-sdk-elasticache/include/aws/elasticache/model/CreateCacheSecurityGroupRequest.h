@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateCacheSecurityGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,14 @@ namespace Model
      * <code>mysecuritygroup</code> </p>
      */
     inline const Aws::String& GetCacheSecurityGroupName() const{ return m_cacheSecurityGroupName; }
+
+    /**
+     * <p>A name for the cache security group. This value is stored as a lowercase
+     * string.</p> <p>Constraints: Must contain no more than 255 alphanumeric
+     * characters. Cannot be the word "Default".</p> <p>Example:
+     * <code>mysecuritygroup</code> </p>
+     */
+    inline bool CacheSecurityGroupNameHasBeenSet() const { return m_cacheSecurityGroupNameHasBeenSet; }
 
     /**
      * <p>A name for the cache security group. This value is stored as a lowercase
@@ -111,6 +119,11 @@ namespace Model
      * <p>A description for the cache security group.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description for the cache security group.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description for the cache security group.</p>

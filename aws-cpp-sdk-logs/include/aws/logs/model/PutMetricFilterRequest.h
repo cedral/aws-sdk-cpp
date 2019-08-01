@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutMetricFilterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the log group.</p>
      */
     inline const Aws::String& GetLogGroupName() const{ return m_logGroupName; }
+
+    /**
+     * <p>The name of the log group.</p>
+     */
+    inline bool LogGroupNameHasBeenSet() const { return m_logGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the log group.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>A name for the metric filter.</p>
      */
+    inline bool FilterNameHasBeenSet() const { return m_filterNameHasBeenSet; }
+
+    /**
+     * <p>A name for the metric filter.</p>
+     */
     inline void SetFilterName(const Aws::String& value) { m_filterNameHasBeenSet = true; m_filterName = value; }
 
     /**
@@ -126,6 +136,11 @@ namespace Model
     /**
      * <p>A filter pattern for extracting metric data out of ingested log events.</p>
      */
+    inline bool FilterPatternHasBeenSet() const { return m_filterPatternHasBeenSet; }
+
+    /**
+     * <p>A filter pattern for extracting metric data out of ingested log events.</p>
+     */
     inline void SetFilterPattern(const Aws::String& value) { m_filterPatternHasBeenSet = true; m_filterPattern = value; }
 
     /**
@@ -158,6 +173,11 @@ namespace Model
      * <p>A collection of information that defines how metric data gets emitted.</p>
      */
     inline const Aws::Vector<MetricTransformation>& GetMetricTransformations() const{ return m_metricTransformations; }
+
+    /**
+     * <p>A collection of information that defines how metric data gets emitted.</p>
+     */
+    inline bool MetricTransformationsHasBeenSet() const { return m_metricTransformationsHasBeenSet; }
 
     /**
      * <p>A collection of information that defines how metric data gets emitted.</p>

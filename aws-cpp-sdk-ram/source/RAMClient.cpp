@@ -118,6 +118,7 @@ void RAMClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 AcceptResourceShareInvitationOutcome RAMClient::AcceptResourceShareInvitation(const AcceptResourceShareInvitationRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -225,6 +226,11 @@ void RAMClient::CreateResourceShareAsyncHelper(const CreateResourceShareRequest&
 
 DeleteResourceShareOutcome RAMClient::DeleteResourceShare(const DeleteResourceShareRequest& request) const
 {
+  if (!request.ResourceShareArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteResourceShare", "Required field: ResourceShareArn, is not set");
+    return DeleteResourceShareOutcome(Aws::Client::AWSError<RAMErrors>(RAMErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceShareArn]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/deleteresourceshare";

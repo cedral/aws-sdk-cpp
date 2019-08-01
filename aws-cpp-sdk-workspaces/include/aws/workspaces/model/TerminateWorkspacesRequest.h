@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     TerminateWorkspacesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
      */
     inline const Aws::Vector<TerminateRequest>& GetTerminateWorkspaceRequests() const{ return m_terminateWorkspaceRequests; }
+
+    /**
+     * <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>
+     */
+    inline bool TerminateWorkspaceRequestsHasBeenSet() const { return m_terminateWorkspaceRequestsHasBeenSet; }
 
     /**
      * <p>The WorkSpaces to terminate. You can specify up to 25 WorkSpaces.</p>

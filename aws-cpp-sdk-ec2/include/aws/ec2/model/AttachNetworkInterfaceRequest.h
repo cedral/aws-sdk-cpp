@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     AttachNetworkInterfaceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The index of the device for the network interface attachment.</p>
      */
     inline int GetDeviceIndex() const{ return m_deviceIndex; }
+
+    /**
+     * <p>The index of the device for the network interface attachment.</p>
+     */
+    inline bool DeviceIndexHasBeenSet() const { return m_deviceIndexHasBeenSet; }
 
     /**
      * <p>The index of the device for the network interface attachment.</p>
@@ -80,6 +85,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -95,6 +108,11 @@ namespace Model
      * <p>The ID of the instance.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The ID of the instance.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The ID of the instance.</p>
@@ -131,6 +149,11 @@ namespace Model
      * <p>The ID of the network interface.</p>
      */
     inline const Aws::String& GetNetworkInterfaceId() const{ return m_networkInterfaceId; }
+
+    /**
+     * <p>The ID of the network interface.</p>
+     */
+    inline bool NetworkInterfaceIdHasBeenSet() const { return m_networkInterfaceIdHasBeenSet; }
 
     /**
      * <p>The ID of the network interface.</p>

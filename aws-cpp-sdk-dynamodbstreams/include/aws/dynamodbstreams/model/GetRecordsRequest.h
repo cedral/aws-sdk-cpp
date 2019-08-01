@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetRecordsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * shard.</p>
      */
     inline const Aws::String& GetShardIterator() const{ return m_shardIterator; }
+
+    /**
+     * <p>A shard iterator that was retrieved from a previous GetShardIterator
+     * operation. This iterator can be used to access the stream records in this
+     * shard.</p>
+     */
+    inline bool ShardIteratorHasBeenSet() const { return m_shardIteratorHasBeenSet; }
 
     /**
      * <p>A shard iterator that was retrieved from a previous GetShardIterator
@@ -100,6 +107,12 @@ namespace Model
      * 1000.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of records to return from the shard. The upper limit is
+     * 1000.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of records to return from the shard. The upper limit is

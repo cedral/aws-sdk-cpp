@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     CreateProjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p> Name of the project. </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p> Name of the project. </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p> Name of the project. </p>
@@ -95,6 +100,11 @@ namespace Model
     /**
      * <p> Default region where project resources should be created. </p>
      */
+    inline bool RegionHasBeenSet() const { return m_regionHasBeenSet; }
+
+    /**
+     * <p> Default region where project resources should be created. </p>
+     */
     inline void SetRegion(const Aws::String& value) { m_regionHasBeenSet = true; m_region = value; }
 
     /**
@@ -129,6 +139,13 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetSnapshotId() const{ return m_snapshotId; }
+
+    /**
+     * <p> Unique identifier for an exported snapshot of project configuration. This
+     * snapshot identifier is included in the share URL when a project is exported.
+     * </p>
+     */
+    inline bool SnapshotIdHasBeenSet() const { return m_snapshotIdHasBeenSet; }
 
     /**
      * <p> Unique identifier for an exported snapshot of project configuration. This

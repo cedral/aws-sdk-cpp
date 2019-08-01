@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetDeploymentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * <p> The unique ID of a deployment associated with the IAM user or AWS account.
+     * </p>
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * <p> The unique ID of a deployment associated with the IAM user or AWS account.

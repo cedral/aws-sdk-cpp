@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeAcceleratorAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * you want to describe. Value is required.</p>
      */
     inline const Aws::String& GetAcceleratorArn() const{ return m_acceleratorArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the accelerator with the attributes that
+     * you want to describe. Value is required.</p>
+     */
+    inline bool AcceleratorArnHasBeenSet() const { return m_acceleratorArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the accelerator with the attributes that

@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CreateDBClusterParameterGroupMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API CreateDBClusterParameterGroupRequest : public NeptuneRequest
   {
   public:
     CreateDBClusterParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +54,13 @@ namespace Model
      * <note> <p>This value is stored as a lowercase string.</p> </note>
      */
     inline const Aws::String& GetDBClusterParameterGroupName() const{ return m_dBClusterParameterGroupName; }
+
+    /**
+     * <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li>
+     * <p>Must match the name of an existing DBClusterParameterGroup.</p> </li> </ul>
+     * <note> <p>This value is stored as a lowercase string.</p> </note>
+     */
+    inline bool DBClusterParameterGroupNameHasBeenSet() const { return m_dBClusterParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li>
@@ -115,6 +119,14 @@ namespace Model
      * be applied only to a DB cluster running a database engine and engine version
      * compatible with that DB cluster parameter group family.</p>
      */
+    inline bool DBParameterGroupFamilyHasBeenSet() const { return m_dBParameterGroupFamilyHasBeenSet; }
+
+    /**
+     * <p>The DB cluster parameter group family name. A DB cluster parameter group can
+     * be associated with one and only one DB cluster parameter group family, and can
+     * be applied only to a DB cluster running a database engine and engine version
+     * compatible with that DB cluster parameter group family.</p>
+     */
     inline void SetDBParameterGroupFamily(const Aws::String& value) { m_dBParameterGroupFamilyHasBeenSet = true; m_dBParameterGroupFamily = value; }
 
     /**
@@ -166,6 +178,11 @@ namespace Model
     /**
      * <p>The description for the DB cluster parameter group.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description for the DB cluster parameter group.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -194,25 +211,44 @@ namespace Model
     inline CreateDBClusterParameterGroupRequest& WithDescription(const char* value) { SetDescription(value); return *this;}
 
 
-    
+    /**
+     * <p>The tags to be assigned to the new DB cluster parameter group.</p>
+     */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
-    
+    /**
+     * <p>The tags to be assigned to the new DB cluster parameter group.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The tags to be assigned to the new DB cluster parameter group.</p>
+     */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
-    
+    /**
+     * <p>The tags to be assigned to the new DB cluster parameter group.</p>
+     */
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
-    
+    /**
+     * <p>The tags to be assigned to the new DB cluster parameter group.</p>
+     */
     inline CreateDBClusterParameterGroupRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
-    
+    /**
+     * <p>The tags to be assigned to the new DB cluster parameter group.</p>
+     */
     inline CreateDBClusterParameterGroupRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
-    
+    /**
+     * <p>The tags to be assigned to the new DB cluster parameter group.</p>
+     */
     inline CreateDBClusterParameterGroupRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
-    
+    /**
+     * <p>The tags to be assigned to the new DB cluster parameter group.</p>
+     */
     inline CreateDBClusterParameterGroupRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
   private:

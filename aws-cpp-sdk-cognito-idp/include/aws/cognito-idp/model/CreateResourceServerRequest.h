@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreateResourceServerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The user pool ID for the user pool.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool.</p>
@@ -88,6 +93,13 @@ namespace Model
      * <code>https://my-weather-api.example.com</code>.</p>
      */
     inline const Aws::String& GetIdentifier() const{ return m_identifier; }
+
+    /**
+     * <p>A unique resource server identifier for the resource server. This could be an
+     * HTTPS endpoint where the resource server is located. For example,
+     * <code>https://my-weather-api.example.com</code>.</p>
+     */
+    inline bool IdentifierHasBeenSet() const { return m_identifierHasBeenSet; }
 
     /**
      * <p>A unique resource server identifier for the resource server. This could be an
@@ -140,6 +152,11 @@ namespace Model
     /**
      * <p>A friendly name for the resource server.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>A friendly name for the resource server.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -173,6 +190,12 @@ namespace Model
      * <code>description</code>.</p>
      */
     inline const Aws::Vector<ResourceServerScopeType>& GetScopes() const{ return m_scopes; }
+
+    /**
+     * <p>A list of scopes. Each scope is map, where the keys are <code>name</code> and
+     * <code>description</code>.</p>
+     */
+    inline bool ScopesHasBeenSet() const { return m_scopesHasBeenSet; }
 
     /**
      * <p>A list of scopes. Each scope is map, where the keys are <code>name</code> and

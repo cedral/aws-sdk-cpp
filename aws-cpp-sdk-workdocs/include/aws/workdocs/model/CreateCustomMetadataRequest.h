@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateCustomMetadataRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * administrative API actions, as in accessing the API using AWS credentials.</p>
      */
     inline const Aws::String& GetAuthenticationToken() const{ return m_authenticationToken; }
+
+    /**
+     * <p>Amazon WorkDocs authentication token. Do not set this field when using
+     * administrative API actions, as in accessing the API using AWS credentials.</p>
+     */
+    inline bool AuthenticationTokenHasBeenSet() const { return m_authenticationTokenHasBeenSet; }
 
     /**
      * <p>Amazon WorkDocs authentication token. Do not set this field when using
@@ -102,6 +108,11 @@ namespace Model
     /**
      * <p>The ID of the resource.</p>
      */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the resource.</p>
+     */
     inline void SetResourceId(const Aws::String& value) { m_resourceIdHasBeenSet = true; m_resourceId = value; }
 
     /**
@@ -135,6 +146,12 @@ namespace Model
      * version.</p>
      */
     inline const Aws::String& GetVersionId() const{ return m_versionId; }
+
+    /**
+     * <p>The ID of the version, if the custom metadata is being added to a document
+     * version.</p>
+     */
+    inline bool VersionIdHasBeenSet() const { return m_versionIdHasBeenSet; }
 
     /**
      * <p>The ID of the version, if the custom metadata is being added to a document
@@ -177,6 +194,11 @@ namespace Model
      * <p>Custom metadata in the form of name-value pairs.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomMetadata() const{ return m_customMetadata; }
+
+    /**
+     * <p>Custom metadata in the form of name-value pairs.</p>
+     */
+    inline bool CustomMetadataHasBeenSet() const { return m_customMetadataHasBeenSet; }
 
     /**
      * <p>Custom metadata in the form of name-value pairs.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AddThingToThingGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the group to which you are adding a thing.</p>
      */
     inline const Aws::String& GetThingGroupName() const{ return m_thingGroupName; }
+
+    /**
+     * <p>The name of the group to which you are adding a thing.</p>
+     */
+    inline bool ThingGroupNameHasBeenSet() const { return m_thingGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the group to which you are adding a thing.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The ARN of the group to which you are adding a thing.</p>
      */
+    inline bool ThingGroupArnHasBeenSet() const { return m_thingGroupArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the group to which you are adding a thing.</p>
+     */
     inline void SetThingGroupArn(const Aws::String& value) { m_thingGroupArnHasBeenSet = true; m_thingGroupArn = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The name of the thing to add to a group.</p>
      */
     inline const Aws::String& GetThingName() const{ return m_thingName; }
+
+    /**
+     * <p>The name of the thing to add to a group.</p>
+     */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
 
     /**
      * <p>The name of the thing to add to a group.</p>
@@ -158,6 +173,11 @@ namespace Model
     /**
      * <p>The ARN of the thing to add to a group.</p>
      */
+    inline bool ThingArnHasBeenSet() const { return m_thingArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the thing to add to a group.</p>
+     */
     inline void SetThingArn(const Aws::String& value) { m_thingArnHasBeenSet = true; m_thingArn = value; }
 
     /**
@@ -193,6 +213,14 @@ namespace Model
      * from the last dynamic group.</p>
      */
     inline bool GetOverrideDynamicGroups() const{ return m_overrideDynamicGroups; }
+
+    /**
+     * <p>Override dynamic thing groups with static thing groups when 10-group limit is
+     * reached. If a thing belongs to 10 thing groups, and one or more of those groups
+     * are dynamic thing groups, adding a thing to a static group removes the thing
+     * from the last dynamic group.</p>
+     */
+    inline bool OverrideDynamicGroupsHasBeenSet() const { return m_overrideDynamicGroupsHasBeenSet; }
 
     /**
      * <p>Override dynamic thing groups with static thing groups when 10-group limit is

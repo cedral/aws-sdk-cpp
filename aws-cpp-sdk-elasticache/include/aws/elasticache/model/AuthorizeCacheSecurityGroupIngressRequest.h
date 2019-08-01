@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     AuthorizeCacheSecurityGroupIngressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The cache security group that allows network ingress.</p>
      */
     inline const Aws::String& GetCacheSecurityGroupName() const{ return m_cacheSecurityGroupName; }
+
+    /**
+     * <p>The cache security group that allows network ingress.</p>
+     */
+    inline bool CacheSecurityGroupNameHasBeenSet() const { return m_cacheSecurityGroupNameHasBeenSet; }
 
     /**
      * <p>The cache security group that allows network ingress.</p>
@@ -91,6 +96,12 @@ namespace Model
      * security group.</p>
      */
     inline const Aws::String& GetEC2SecurityGroupName() const{ return m_eC2SecurityGroupName; }
+
+    /**
+     * <p>The Amazon EC2 security group to be authorized for ingress to the cache
+     * security group.</p>
+     */
+    inline bool EC2SecurityGroupNameHasBeenSet() const { return m_eC2SecurityGroupNameHasBeenSet; }
 
     /**
      * <p>The Amazon EC2 security group to be authorized for ingress to the cache
@@ -135,6 +146,13 @@ namespace Model
      * account number for this parameter.</p>
      */
     inline const Aws::String& GetEC2SecurityGroupOwnerId() const{ return m_eC2SecurityGroupOwnerId; }
+
+    /**
+     * <p>The AWS account number of the Amazon EC2 security group owner. Note that this
+     * is not the same thing as an AWS access key ID - you must provide a valid AWS
+     * account number for this parameter.</p>
+     */
+    inline bool EC2SecurityGroupOwnerIdHasBeenSet() const { return m_eC2SecurityGroupOwnerIdHasBeenSet; }
 
     /**
      * <p>The AWS account number of the Amazon EC2 security group owner. Note that this

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListApplicationVersionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the application.</p>
      */
     inline const Aws::String& GetApplicationId() const{ return m_applicationId; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the application.</p>
+     */
+    inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The total number of items to return.</p>
      */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
+
+    /**
+     * <p>The total number of items to return.</p>
+     */
     inline void SetMaxItems(int value) { m_maxItemsHasBeenSet = true; m_maxItems = value; }
 
     /**
@@ -104,6 +114,11 @@ namespace Model
      * <p>A token to specify where to start paginating.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A token to specify where to start paginating.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A token to specify where to start paginating.</p>

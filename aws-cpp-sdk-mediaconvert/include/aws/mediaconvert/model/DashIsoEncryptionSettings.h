@@ -15,6 +15,7 @@
 
 #pragma once
 #include <aws/mediaconvert/MediaConvert_EXPORTS.h>
+#include <aws/mediaconvert/model/DashIsoPlaybackDeviceCompatibility.h>
 #include <aws/mediaconvert/model/SpekeKeyProvider.h>
 #include <utility>
 
@@ -47,22 +48,101 @@ namespace Model
     Aws::Utils::Json::JsonValue Jsonize() const;
 
 
-    
+    /**
+     * This setting can improve the compatibility of your output with video players on
+     * obsolete devices. It applies only to DASH H.264 outputs with DRM encryption.
+     * Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback
+     * on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you
+     * choose Unencrypted SEI, for that output, the service will exclude the access
+     * unit delimiter and will leave the SEI NAL units unencrypted.
+     */
+    inline const DashIsoPlaybackDeviceCompatibility& GetPlaybackDeviceCompatibility() const{ return m_playbackDeviceCompatibility; }
+
+    /**
+     * This setting can improve the compatibility of your output with video players on
+     * obsolete devices. It applies only to DASH H.264 outputs with DRM encryption.
+     * Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback
+     * on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you
+     * choose Unencrypted SEI, for that output, the service will exclude the access
+     * unit delimiter and will leave the SEI NAL units unencrypted.
+     */
+    inline bool PlaybackDeviceCompatibilityHasBeenSet() const { return m_playbackDeviceCompatibilityHasBeenSet; }
+
+    /**
+     * This setting can improve the compatibility of your output with video players on
+     * obsolete devices. It applies only to DASH H.264 outputs with DRM encryption.
+     * Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback
+     * on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you
+     * choose Unencrypted SEI, for that output, the service will exclude the access
+     * unit delimiter and will leave the SEI NAL units unencrypted.
+     */
+    inline void SetPlaybackDeviceCompatibility(const DashIsoPlaybackDeviceCompatibility& value) { m_playbackDeviceCompatibilityHasBeenSet = true; m_playbackDeviceCompatibility = value; }
+
+    /**
+     * This setting can improve the compatibility of your output with video players on
+     * obsolete devices. It applies only to DASH H.264 outputs with DRM encryption.
+     * Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback
+     * on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you
+     * choose Unencrypted SEI, for that output, the service will exclude the access
+     * unit delimiter and will leave the SEI NAL units unencrypted.
+     */
+    inline void SetPlaybackDeviceCompatibility(DashIsoPlaybackDeviceCompatibility&& value) { m_playbackDeviceCompatibilityHasBeenSet = true; m_playbackDeviceCompatibility = std::move(value); }
+
+    /**
+     * This setting can improve the compatibility of your output with video players on
+     * obsolete devices. It applies only to DASH H.264 outputs with DRM encryption.
+     * Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback
+     * on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you
+     * choose Unencrypted SEI, for that output, the service will exclude the access
+     * unit delimiter and will leave the SEI NAL units unencrypted.
+     */
+    inline DashIsoEncryptionSettings& WithPlaybackDeviceCompatibility(const DashIsoPlaybackDeviceCompatibility& value) { SetPlaybackDeviceCompatibility(value); return *this;}
+
+    /**
+     * This setting can improve the compatibility of your output with video players on
+     * obsolete devices. It applies only to DASH H.264 outputs with DRM encryption.
+     * Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback
+     * on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you
+     * choose Unencrypted SEI, for that output, the service will exclude the access
+     * unit delimiter and will leave the SEI NAL units unencrypted.
+     */
+    inline DashIsoEncryptionSettings& WithPlaybackDeviceCompatibility(DashIsoPlaybackDeviceCompatibility&& value) { SetPlaybackDeviceCompatibility(std::move(value)); return *this;}
+
+
+    /**
+     * Settings for use with a SPEKE key provider
+     */
     inline const SpekeKeyProvider& GetSpekeKeyProvider() const{ return m_spekeKeyProvider; }
 
-    
+    /**
+     * Settings for use with a SPEKE key provider
+     */
+    inline bool SpekeKeyProviderHasBeenSet() const { return m_spekeKeyProviderHasBeenSet; }
+
+    /**
+     * Settings for use with a SPEKE key provider
+     */
     inline void SetSpekeKeyProvider(const SpekeKeyProvider& value) { m_spekeKeyProviderHasBeenSet = true; m_spekeKeyProvider = value; }
 
-    
+    /**
+     * Settings for use with a SPEKE key provider
+     */
     inline void SetSpekeKeyProvider(SpekeKeyProvider&& value) { m_spekeKeyProviderHasBeenSet = true; m_spekeKeyProvider = std::move(value); }
 
-    
+    /**
+     * Settings for use with a SPEKE key provider
+     */
     inline DashIsoEncryptionSettings& WithSpekeKeyProvider(const SpekeKeyProvider& value) { SetSpekeKeyProvider(value); return *this;}
 
-    
+    /**
+     * Settings for use with a SPEKE key provider
+     */
     inline DashIsoEncryptionSettings& WithSpekeKeyProvider(SpekeKeyProvider&& value) { SetSpekeKeyProvider(std::move(value)); return *this;}
 
   private:
+
+    DashIsoPlaybackDeviceCompatibility m_playbackDeviceCompatibility;
+    bool m_playbackDeviceCompatibilityHasBeenSet;
 
     SpekeKeyProvider m_spekeKeyProvider;
     bool m_spekeKeyProviderHasBeenSet;

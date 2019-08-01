@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DescribeVirtualServiceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the service mesh that the virtual service resides in.</p>
      */
     inline const Aws::String& GetMeshName() const{ return m_meshName; }
+
+    /**
+     * <p>The name of the service mesh that the virtual service resides in.</p>
+     */
+    inline bool MeshNameHasBeenSet() const { return m_meshNameHasBeenSet; }
 
     /**
      * <p>The name of the service mesh that the virtual service resides in.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The name of the virtual service to describe.</p>
      */
     inline const Aws::String& GetVirtualServiceName() const{ return m_virtualServiceName; }
+
+    /**
+     * <p>The name of the virtual service to describe.</p>
+     */
+    inline bool VirtualServiceNameHasBeenSet() const { return m_virtualServiceNameHasBeenSet; }
 
     /**
      * <p>The name of the virtual service to describe.</p>

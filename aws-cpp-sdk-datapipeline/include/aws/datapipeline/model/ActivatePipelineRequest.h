@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ActivatePipelineRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The ID of the pipeline.</p>
      */
     inline const Aws::String& GetPipelineId() const{ return m_pipelineId; }
+
+    /**
+     * <p>The ID of the pipeline.</p>
+     */
+    inline bool PipelineIdHasBeenSet() const { return m_pipelineIdHasBeenSet; }
 
     /**
      * <p>The ID of the pipeline.</p>
@@ -94,6 +99,11 @@ namespace Model
     /**
      * <p>A list of parameter values to pass to the pipeline at activation.</p>
      */
+    inline bool ParameterValuesHasBeenSet() const { return m_parameterValuesHasBeenSet; }
+
+    /**
+     * <p>A list of parameter values to pass to the pipeline at activation.</p>
+     */
     inline void SetParameterValues(const Aws::Vector<ParameterValue>& value) { m_parameterValuesHasBeenSet = true; m_parameterValues = value; }
 
     /**
@@ -127,6 +137,12 @@ namespace Model
      * from the last completed execution.</p>
      */
     inline const Aws::Utils::DateTime& GetStartTimestamp() const{ return m_startTimestamp; }
+
+    /**
+     * <p>The date and time to resume the pipeline. By default, the pipeline resumes
+     * from the last completed execution.</p>
+     */
+    inline bool StartTimestampHasBeenSet() const { return m_startTimestampHasBeenSet; }
 
     /**
      * <p>The date and time to resume the pipeline. By default, the pipeline resumes

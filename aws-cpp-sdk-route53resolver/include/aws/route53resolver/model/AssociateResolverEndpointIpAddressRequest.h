@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AssociateResolverEndpointIpAddressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * with.</p>
      */
     inline const Aws::String& GetResolverEndpointId() const{ return m_resolverEndpointId; }
+
+    /**
+     * <p>The ID of the resolver endpoint that you want to associate IP addresses
+     * with.</p>
+     */
+    inline bool ResolverEndpointIdHasBeenSet() const { return m_resolverEndpointIdHasBeenSet; }
 
     /**
      * <p>The ID of the resolver endpoint that you want to associate IP addresses
@@ -94,6 +100,13 @@ namespace Model
      * from the available IPs in the specified subnet.</p>
      */
     inline const IpAddressUpdate& GetIpAddress() const{ return m_ipAddress; }
+
+    /**
+     * <p>Either the IPv4 address that you want to add to a resolver endpoint or a
+     * subnet ID. If you specify a subnet ID, Resolver chooses an IP address for you
+     * from the available IPs in the specified subnet.</p>
+     */
+    inline bool IpAddressHasBeenSet() const { return m_ipAddressHasBeenSet; }
 
     /**
      * <p>Either the IPv4 address that you want to add to a resolver endpoint or a

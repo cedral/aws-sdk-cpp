@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateFunctionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The GraphQL API ID.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The GraphQL API ID.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The GraphQL API ID.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The <code>Function</code> name.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The <code>Function</code> name.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The <code>Function</code> description.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The <code>Function</code> description.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The <code>Function</code> description.</p>
@@ -158,6 +173,11 @@ namespace Model
     /**
      * <p>The function ID.</p>
      */
+    inline bool FunctionIdHasBeenSet() const { return m_functionIdHasBeenSet; }
+
+    /**
+     * <p>The function ID.</p>
+     */
     inline void SetFunctionId(const Aws::String& value) { m_functionIdHasBeenSet = true; m_functionId = value; }
 
     /**
@@ -190,6 +210,11 @@ namespace Model
      * <p>The <code>Function</code> <code>DataSource</code> name.</p>
      */
     inline const Aws::String& GetDataSourceName() const{ return m_dataSourceName; }
+
+    /**
+     * <p>The <code>Function</code> <code>DataSource</code> name.</p>
+     */
+    inline bool DataSourceNameHasBeenSet() const { return m_dataSourceNameHasBeenSet; }
 
     /**
      * <p>The <code>Function</code> <code>DataSource</code> name.</p>
@@ -227,6 +252,12 @@ namespace Model
      * the 2018-05-29 version of the request mapping template.</p>
      */
     inline const Aws::String& GetRequestMappingTemplate() const{ return m_requestMappingTemplate; }
+
+    /**
+     * <p>The <code>Function</code> request mapping template. Functions support only
+     * the 2018-05-29 version of the request mapping template.</p>
+     */
+    inline bool RequestMappingTemplateHasBeenSet() const { return m_requestMappingTemplateHasBeenSet; }
 
     /**
      * <p>The <code>Function</code> request mapping template. Functions support only
@@ -273,6 +304,11 @@ namespace Model
     /**
      * <p>The <code>Function</code> request mapping template. </p>
      */
+    inline bool ResponseMappingTemplateHasBeenSet() const { return m_responseMappingTemplateHasBeenSet; }
+
+    /**
+     * <p>The <code>Function</code> request mapping template. </p>
+     */
     inline void SetResponseMappingTemplate(const Aws::String& value) { m_responseMappingTemplateHasBeenSet = true; m_responseMappingTemplate = value; }
 
     /**
@@ -306,6 +342,12 @@ namespace Model
      * supported value is 2018-05-29. </p>
      */
     inline const Aws::String& GetFunctionVersion() const{ return m_functionVersion; }
+
+    /**
+     * <p>The <code>version</code> of the request mapping template. Currently the
+     * supported value is 2018-05-29. </p>
+     */
+    inline bool FunctionVersionHasBeenSet() const { return m_functionVersionHasBeenSet; }
 
     /**
      * <p>The <code>version</code> of the request mapping template. Currently the

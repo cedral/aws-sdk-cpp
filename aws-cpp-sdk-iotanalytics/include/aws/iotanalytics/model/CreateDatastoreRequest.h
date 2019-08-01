@@ -17,6 +17,7 @@
 #include <aws/iotanalytics/IoTAnalytics_EXPORTS.h>
 #include <aws/iotanalytics/IoTAnalyticsRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/iotanalytics/model/DatastoreStorage.h>
 #include <aws/iotanalytics/model/RetentionPeriod.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/iotanalytics/model/Tag.h>
@@ -35,7 +36,7 @@ namespace Model
   {
   public:
     CreateDatastoreRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +50,11 @@ namespace Model
      * <p>The name of the data store.</p>
      */
     inline const Aws::String& GetDatastoreName() const{ return m_datastoreName; }
+
+    /**
+     * <p>The name of the data store.</p>
+     */
+    inline bool DatastoreNameHasBeenSet() const { return m_datastoreNameHasBeenSet; }
 
     /**
      * <p>The name of the data store.</p>
@@ -82,9 +88,45 @@ namespace Model
 
 
     /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline const DatastoreStorage& GetDatastoreStorage() const{ return m_datastoreStorage; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline bool DatastoreStorageHasBeenSet() const { return m_datastoreStorageHasBeenSet; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline void SetDatastoreStorage(const DatastoreStorage& value) { m_datastoreStorageHasBeenSet = true; m_datastoreStorage = value; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline void SetDatastoreStorage(DatastoreStorage&& value) { m_datastoreStorageHasBeenSet = true; m_datastoreStorage = std::move(value); }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline CreateDatastoreRequest& WithDatastoreStorage(const DatastoreStorage& value) { SetDatastoreStorage(value); return *this;}
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline CreateDatastoreRequest& WithDatastoreStorage(DatastoreStorage&& value) { SetDatastoreStorage(std::move(value)); return *this;}
+
+
+    /**
      * <p>How long, in days, message data is kept for the data store.</p>
      */
     inline const RetentionPeriod& GetRetentionPeriod() const{ return m_retentionPeriod; }
+
+    /**
+     * <p>How long, in days, message data is kept for the data store.</p>
+     */
+    inline bool RetentionPeriodHasBeenSet() const { return m_retentionPeriodHasBeenSet; }
 
     /**
      * <p>How long, in days, message data is kept for the data store.</p>
@@ -111,6 +153,11 @@ namespace Model
      * <p>Metadata which can be used to manage the data store.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Metadata which can be used to manage the data store.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Metadata which can be used to manage the data store.</p>
@@ -146,6 +193,9 @@ namespace Model
 
     Aws::String m_datastoreName;
     bool m_datastoreNameHasBeenSet;
+
+    DatastoreStorage m_datastoreStorage;
+    bool m_datastoreStorageHasBeenSet;
 
     RetentionPeriod m_retentionPeriod;
     bool m_retentionPeriodHasBeenSet;

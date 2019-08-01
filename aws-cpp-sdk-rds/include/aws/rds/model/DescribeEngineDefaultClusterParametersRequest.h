@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeEngineDefaultClusterParametersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * information for.</p>
      */
     inline const Aws::String& GetDBParameterGroupFamily() const{ return m_dBParameterGroupFamily; }
+
+    /**
+     * <p>The name of the DB cluster parameter group family to return engine parameter
+     * information for.</p>
+     */
+    inline bool DBParameterGroupFamilyHasBeenSet() const { return m_dBParameterGroupFamilyHasBeenSet; }
 
     /**
      * <p>The name of the DB cluster parameter group family to return engine parameter
@@ -102,6 +108,11 @@ namespace Model
     /**
      * <p>This parameter is not currently supported.</p>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>This parameter is not currently supported.</p>
+     */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -144,6 +155,14 @@ namespace Model
      * called a marker is included in the response so that the remaining results can be
      * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p> The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -162,6 +181,14 @@ namespace Model
      * value specified by <code>MaxRecords</code>. </p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p> An optional pagination token provided by a previous
+     * <code>DescribeEngineDefaultClusterParameters</code> request. If this parameter
+     * is specified, the response includes only records beyond the marker, up to the
+     * value specified by <code>MaxRecords</code>. </p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p> An optional pagination token provided by a previous

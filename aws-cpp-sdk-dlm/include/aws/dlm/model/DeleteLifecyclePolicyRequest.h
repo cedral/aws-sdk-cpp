@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteLifecyclePolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The identifier of the lifecycle policy.</p>
      */
     inline const Aws::String& GetPolicyId() const{ return m_policyId; }
+
+    /**
+     * <p>The identifier of the lifecycle policy.</p>
+     */
+    inline bool PolicyIdHasBeenSet() const { return m_policyIdHasBeenSet; }
 
     /**
      * <p>The identifier of the lifecycle policy.</p>

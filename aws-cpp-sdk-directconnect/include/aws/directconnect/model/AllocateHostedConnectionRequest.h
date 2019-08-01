@@ -17,6 +17,8 @@
 #include <aws/directconnect/DirectConnect_EXPORTS.h>
 #include <aws/directconnect/DirectConnectRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/directconnect/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -32,7 +34,7 @@ namespace Model
   {
   public:
     AllocateHostedConnectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +50,11 @@ namespace Model
      * <p>The ID of the interconnect or LAG.</p>
      */
     inline const Aws::String& GetConnectionId() const{ return m_connectionId; }
+
+    /**
+     * <p>The ID of the interconnect or LAG.</p>
+     */
+    inline bool ConnectionIdHasBeenSet() const { return m_connectionIdHasBeenSet; }
 
     /**
      * <p>The ID of the interconnect or LAG.</p>
@@ -88,6 +95,11 @@ namespace Model
     /**
      * <p>The ID of the AWS account ID of the customer for the connection.</p>
      */
+    inline bool OwnerAccountHasBeenSet() const { return m_ownerAccountHasBeenSet; }
+
+    /**
+     * <p>The ID of the AWS account ID of the customer for the connection.</p>
+     */
     inline void SetOwnerAccount(const Aws::String& value) { m_ownerAccountHasBeenSet = true; m_ownerAccount = value; }
 
     /**
@@ -117,44 +129,66 @@ namespace Model
 
 
     /**
-     * <p>The bandwidth of the hosted connection, in Mbps. The possible values are
-     * 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</p>
+     * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps,
+     * 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that
+     * only those AWS Direct Connect Partners who have met specific requirements are
+     * allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
      */
     inline const Aws::String& GetBandwidth() const{ return m_bandwidth; }
 
     /**
-     * <p>The bandwidth of the hosted connection, in Mbps. The possible values are
-     * 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</p>
+     * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps,
+     * 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that
+     * only those AWS Direct Connect Partners who have met specific requirements are
+     * allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
+     */
+    inline bool BandwidthHasBeenSet() const { return m_bandwidthHasBeenSet; }
+
+    /**
+     * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps,
+     * 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that
+     * only those AWS Direct Connect Partners who have met specific requirements are
+     * allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
      */
     inline void SetBandwidth(const Aws::String& value) { m_bandwidthHasBeenSet = true; m_bandwidth = value; }
 
     /**
-     * <p>The bandwidth of the hosted connection, in Mbps. The possible values are
-     * 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</p>
+     * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps,
+     * 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that
+     * only those AWS Direct Connect Partners who have met specific requirements are
+     * allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
      */
     inline void SetBandwidth(Aws::String&& value) { m_bandwidthHasBeenSet = true; m_bandwidth = std::move(value); }
 
     /**
-     * <p>The bandwidth of the hosted connection, in Mbps. The possible values are
-     * 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</p>
+     * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps,
+     * 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that
+     * only those AWS Direct Connect Partners who have met specific requirements are
+     * allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
      */
     inline void SetBandwidth(const char* value) { m_bandwidthHasBeenSet = true; m_bandwidth.assign(value); }
 
     /**
-     * <p>The bandwidth of the hosted connection, in Mbps. The possible values are
-     * 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</p>
+     * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps,
+     * 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that
+     * only those AWS Direct Connect Partners who have met specific requirements are
+     * allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
      */
     inline AllocateHostedConnectionRequest& WithBandwidth(const Aws::String& value) { SetBandwidth(value); return *this;}
 
     /**
-     * <p>The bandwidth of the hosted connection, in Mbps. The possible values are
-     * 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</p>
+     * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps,
+     * 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that
+     * only those AWS Direct Connect Partners who have met specific requirements are
+     * allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
      */
     inline AllocateHostedConnectionRequest& WithBandwidth(Aws::String&& value) { SetBandwidth(std::move(value)); return *this;}
 
     /**
-     * <p>The bandwidth of the hosted connection, in Mbps. The possible values are
-     * 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</p>
+     * <p>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps,
+     * 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that
+     * only those AWS Direct Connect Partners who have met specific requirements are
+     * allowed to create a 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </p>
      */
     inline AllocateHostedConnectionRequest& WithBandwidth(const char* value) { SetBandwidth(value); return *this;}
 
@@ -163,6 +197,11 @@ namespace Model
      * <p>The name of the hosted connection.</p>
      */
     inline const Aws::String& GetConnectionName() const{ return m_connectionName; }
+
+    /**
+     * <p>The name of the hosted connection.</p>
+     */
+    inline bool ConnectionNameHasBeenSet() const { return m_connectionNameHasBeenSet; }
 
     /**
      * <p>The name of the hosted connection.</p>
@@ -203,12 +242,58 @@ namespace Model
     /**
      * <p>The dedicated VLAN provisioned to the hosted connection.</p>
      */
+    inline bool VlanHasBeenSet() const { return m_vlanHasBeenSet; }
+
+    /**
+     * <p>The dedicated VLAN provisioned to the hosted connection.</p>
+     */
     inline void SetVlan(int value) { m_vlanHasBeenSet = true; m_vlan = value; }
 
     /**
      * <p>The dedicated VLAN provisioned to the hosted connection.</p>
      */
     inline AllocateHostedConnectionRequest& WithVlan(int value) { SetVlan(value); return *this;}
+
+
+    /**
+     * <p>The tags to assign to the hosted connection.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags to assign to the hosted connection.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The tags to assign to the hosted connection.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The tags to assign to the hosted connection.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The tags to assign to the hosted connection.</p>
+     */
+    inline AllocateHostedConnectionRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The tags to assign to the hosted connection.</p>
+     */
+    inline AllocateHostedConnectionRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags to assign to the hosted connection.</p>
+     */
+    inline AllocateHostedConnectionRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>The tags to assign to the hosted connection.</p>
+     */
+    inline AllocateHostedConnectionRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
   private:
 
@@ -226,6 +311,9 @@ namespace Model
 
     int m_vlan;
     bool m_vlanHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

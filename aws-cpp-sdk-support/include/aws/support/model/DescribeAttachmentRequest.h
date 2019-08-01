@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeAttachmentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <a>DescribeCommunications</a> operation.</p>
      */
     inline const Aws::String& GetAttachmentId() const{ return m_attachmentId; }
+
+    /**
+     * <p>The ID of the attachment to return. Attachment IDs are returned by the
+     * <a>DescribeCommunications</a> operation.</p>
+     */
+    inline bool AttachmentIdHasBeenSet() const { return m_attachmentIdHasBeenSet; }
 
     /**
      * <p>The ID of the attachment to return. Attachment IDs are returned by the

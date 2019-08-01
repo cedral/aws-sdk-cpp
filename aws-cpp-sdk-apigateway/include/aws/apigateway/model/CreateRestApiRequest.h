@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/apigateway/model/ApiKeySourceType.h>
 #include <aws/apigateway/model/EndpointConfiguration.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
 
 namespace Aws
@@ -39,7 +40,7 @@ namespace Model
   {
   public:
     CreateRestApiRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +54,11 @@ namespace Model
      * <p>[Required] The name of the <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>[Required] The name of the <a>RestApi</a>.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>[Required] The name of the <a>RestApi</a>.</p>
@@ -93,6 +99,11 @@ namespace Model
     /**
      * <p>The description of the <a>RestApi</a>.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the <a>RestApi</a>.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -125,6 +136,11 @@ namespace Model
      * <p>A version identifier for the API.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>A version identifier for the API.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>A version identifier for the API.</p>
@@ -165,6 +181,11 @@ namespace Model
     /**
      * <p>The ID of the <a>RestApi</a> that you want to clone from.</p>
      */
+    inline bool CloneFromHasBeenSet() const { return m_cloneFromHasBeenSet; }
+
+    /**
+     * <p>The ID of the <a>RestApi</a> that you want to clone from.</p>
+     */
     inline void SetCloneFrom(const Aws::String& value) { m_cloneFromHasBeenSet = true; m_cloneFrom = value; }
 
     /**
@@ -198,6 +219,12 @@ namespace Model
      * the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
      */
     inline const Aws::Vector<Aws::String>& GetBinaryMediaTypes() const{ return m_binaryMediaTypes; }
+
+    /**
+     * <p>The list of binary media types supported by the <a>RestApi</a>. By default,
+     * the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
+     */
+    inline bool BinaryMediaTypesHasBeenSet() const { return m_binaryMediaTypesHasBeenSet; }
 
     /**
      * <p>The list of binary media types supported by the <a>RestApi</a>. By default,
@@ -258,6 +285,15 @@ namespace Model
      * is not applied on the payload if the payload size is smaller than this value.
      * Setting it to zero allows compression for any payload size.</p>
      */
+    inline bool MinimumCompressionSizeHasBeenSet() const { return m_minimumCompressionSizeHasBeenSet; }
+
+    /**
+     * <p>A nullable integer that is used to enable compression (with non-negative
+     * between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a
+     * null value) on an API. When compression is enabled, compression or decompression
+     * is not applied on the payload if the payload size is smaller than this value.
+     * Setting it to zero allows compression for any payload size.</p>
+     */
     inline void SetMinimumCompressionSize(int value) { m_minimumCompressionSizeHasBeenSet = true; m_minimumCompressionSize = value; }
 
     /**
@@ -278,6 +314,15 @@ namespace Model
      * authorizer.</li></ul> </p>
      */
     inline const ApiKeySourceType& GetApiKeySource() const{ return m_apiKeySource; }
+
+    /**
+     * <p>The source of the API key for metering requests according to a usage plan.
+     * Valid values are: <ul><li><code>HEADER</code> to read the API key from the
+     * <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to
+     * read the API key from the <code>UsageIdentifierKey</code> from a custom
+     * authorizer.</li></ul> </p>
+     */
+    inline bool ApiKeySourceHasBeenSet() const { return m_apiKeySourceHasBeenSet; }
 
     /**
      * <p>The source of the API key for metering requests according to a usage plan.
@@ -326,6 +371,12 @@ namespace Model
      * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types
      * of the API. </p>
      */
+    inline bool EndpointConfigurationHasBeenSet() const { return m_endpointConfigurationHasBeenSet; }
+
+    /**
+     * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types
+     * of the API. </p>
+     */
     inline void SetEndpointConfiguration(const EndpointConfiguration& value) { m_endpointConfigurationHasBeenSet = true; m_endpointConfiguration = value; }
 
     /**
@@ -352,6 +403,12 @@ namespace Model
      * the caller and <a>Method</a> configuration.
      */
     inline const Aws::String& GetPolicy() const{ return m_policy; }
+
+    /**
+     * A stringified JSON policy document that applies to this RestApi regardless of
+     * the caller and <a>Method</a> configuration.
+     */
+    inline bool PolicyHasBeenSet() const { return m_policyHasBeenSet; }
 
     /**
      * A stringified JSON policy document that applies to this RestApi regardless of
@@ -389,6 +446,98 @@ namespace Model
      */
     inline CreateRestApiRequest& WithPolicy(const char* value) { SetPolicy(value); return *this;}
 
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateRestApiRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     Aws::String m_name;
@@ -417,6 +566,9 @@ namespace Model
 
     Aws::String m_policy;
     bool m_policyHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

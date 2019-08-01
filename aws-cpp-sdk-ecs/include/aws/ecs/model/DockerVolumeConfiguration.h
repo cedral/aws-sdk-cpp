@@ -66,6 +66,14 @@ namespace Model
      * task starts and destroyed when the task stops. Docker volumes that are scoped as
      * <code>shared</code> persist after the task stops.</p>
      */
+    inline bool ScopeHasBeenSet() const { return m_scopeHasBeenSet; }
+
+    /**
+     * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes
+     * that are scoped to a <code>task</code> are automatically provisioned when the
+     * task starts and destroyed when the task stops. Docker volumes that are scoped as
+     * <code>shared</code> persist after the task stops.</p>
+     */
     inline void SetScope(const Scope& value) { m_scopeHasBeenSet = true; m_scope = value; }
 
     /**
@@ -105,6 +113,13 @@ namespace Model
      * not already exist.</p> <note> <p>This field is only used if the
      * <code>scope</code> is <code>shared</code>.</p> </note>
      */
+    inline bool AutoprovisionHasBeenSet() const { return m_autoprovisionHasBeenSet; }
+
+    /**
+     * <p>If this value is <code>true</code>, the Docker volume is created if it does
+     * not already exist.</p> <note> <p>This field is only used if the
+     * <code>scope</code> is <code>shared</code>.</p> </note>
+     */
     inline void SetAutoprovision(bool value) { m_autoprovisionHasBeenSet = true; m_autoprovision = value; }
 
     /**
@@ -128,8 +143,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxdriver</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline const Aws::String& GetDriver() const{ return m_driver; }
 
@@ -146,8 +161,26 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxdriver</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
+     */
+    inline bool DriverHasBeenSet() const { return m_driverHasBeenSet; }
+
+    /**
+     * <p>The Docker volume driver to use. The driver value must match the driver name
+     * provided by Docker because it is used for task placement. If the driver was
+     * installed using the Docker plugin CLI, use <code>docker plugin ls</code> to
+     * retrieve the driver name from your container instance. If the driver was
+     * installed using another method, use Docker plugin discovery to retrieve the
+     * driver name. For more information, see <a
+     * href="https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery">Docker
+     * plugin discovery</a>. This parameter maps to <code>Driver</code> in the <a
+     * href="https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate">Create a
+     * volume</a> section of the <a
+     * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
+     * <code>xxdriver</code> option to <a
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline void SetDriver(const Aws::String& value) { m_driverHasBeenSet = true; m_driver = value; }
 
@@ -164,8 +197,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxdriver</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline void SetDriver(Aws::String&& value) { m_driverHasBeenSet = true; m_driver = std::move(value); }
 
@@ -182,8 +215,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxdriver</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline void SetDriver(const char* value) { m_driverHasBeenSet = true; m_driver.assign(value); }
 
@@ -200,8 +233,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxdriver</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& WithDriver(const Aws::String& value) { SetDriver(value); return *this;}
 
@@ -218,8 +251,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxdriver</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& WithDriver(Aws::String&& value) { SetDriver(std::move(value)); return *this;}
 
@@ -236,8 +269,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxdriver</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& WithDriver(const char* value) { SetDriver(value); return *this;}
 
@@ -249,8 +282,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetDriverOpts() const{ return m_driverOpts; }
 
@@ -261,8 +294,20 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
+     */
+    inline bool DriverOptsHasBeenSet() const { return m_driverOptsHasBeenSet; }
+
+    /**
+     * <p>A map of Docker driver-specific options passed through. This parameter maps
+     * to <code>DriverOpts</code> in the <a
+     * href="https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate">Create a
+     * volume</a> section of the <a
+     * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
+     * <code>xxopt</code> option to <a
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline void SetDriverOpts(const Aws::Map<Aws::String, Aws::String>& value) { m_driverOptsHasBeenSet = true; m_driverOpts = value; }
 
@@ -273,8 +318,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline void SetDriverOpts(Aws::Map<Aws::String, Aws::String>&& value) { m_driverOptsHasBeenSet = true; m_driverOpts = std::move(value); }
 
@@ -285,8 +330,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& WithDriverOpts(const Aws::Map<Aws::String, Aws::String>& value) { SetDriverOpts(value); return *this;}
 
@@ -297,8 +342,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& WithDriverOpts(Aws::Map<Aws::String, Aws::String>&& value) { SetDriverOpts(std::move(value)); return *this;}
 
@@ -309,8 +354,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddDriverOpts(const Aws::String& key, const Aws::String& value) { m_driverOptsHasBeenSet = true; m_driverOpts.emplace(key, value); return *this; }
 
@@ -321,8 +366,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddDriverOpts(Aws::String&& key, const Aws::String& value) { m_driverOptsHasBeenSet = true; m_driverOpts.emplace(std::move(key), value); return *this; }
 
@@ -333,8 +378,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddDriverOpts(const Aws::String& key, Aws::String&& value) { m_driverOptsHasBeenSet = true; m_driverOpts.emplace(key, std::move(value)); return *this; }
 
@@ -345,8 +390,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddDriverOpts(Aws::String&& key, Aws::String&& value) { m_driverOptsHasBeenSet = true; m_driverOpts.emplace(std::move(key), std::move(value)); return *this; }
 
@@ -357,8 +402,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddDriverOpts(const char* key, Aws::String&& value) { m_driverOptsHasBeenSet = true; m_driverOpts.emplace(key, std::move(value)); return *this; }
 
@@ -369,8 +414,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddDriverOpts(Aws::String&& key, const char* value) { m_driverOptsHasBeenSet = true; m_driverOpts.emplace(std::move(key), value); return *this; }
 
@@ -381,8 +426,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxopt</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddDriverOpts(const char* key, const char* value) { m_driverOptsHasBeenSet = true; m_driverOpts.emplace(key, value); return *this; }
 
@@ -394,8 +439,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetLabels() const{ return m_labels; }
 
@@ -406,8 +451,20 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
+     */
+    inline bool LabelsHasBeenSet() const { return m_labelsHasBeenSet; }
+
+    /**
+     * <p>Custom metadata to add to your Docker volume. This parameter maps to
+     * <code>Labels</code> in the <a
+     * href="https://docs.docker.com/engine/api/v1.35/#operation/VolumeCreate">Create a
+     * volume</a> section of the <a
+     * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
+     * <code>xxlabel</code> option to <a
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline void SetLabels(const Aws::Map<Aws::String, Aws::String>& value) { m_labelsHasBeenSet = true; m_labels = value; }
 
@@ -418,8 +475,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline void SetLabels(Aws::Map<Aws::String, Aws::String>&& value) { m_labelsHasBeenSet = true; m_labels = std::move(value); }
 
@@ -430,8 +487,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& WithLabels(const Aws::Map<Aws::String, Aws::String>& value) { SetLabels(value); return *this;}
 
@@ -442,8 +499,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& WithLabels(Aws::Map<Aws::String, Aws::String>&& value) { SetLabels(std::move(value)); return *this;}
 
@@ -454,8 +511,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddLabels(const Aws::String& key, const Aws::String& value) { m_labelsHasBeenSet = true; m_labels.emplace(key, value); return *this; }
 
@@ -466,8 +523,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddLabels(Aws::String&& key, const Aws::String& value) { m_labelsHasBeenSet = true; m_labels.emplace(std::move(key), value); return *this; }
 
@@ -478,8 +535,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddLabels(const Aws::String& key, Aws::String&& value) { m_labelsHasBeenSet = true; m_labels.emplace(key, std::move(value)); return *this; }
 
@@ -490,8 +547,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddLabels(Aws::String&& key, Aws::String&& value) { m_labelsHasBeenSet = true; m_labels.emplace(std::move(key), std::move(value)); return *this; }
 
@@ -502,8 +559,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddLabels(const char* key, Aws::String&& value) { m_labelsHasBeenSet = true; m_labels.emplace(key, std::move(value)); return *this; }
 
@@ -514,8 +571,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddLabels(Aws::String&& key, const char* value) { m_labelsHasBeenSet = true; m_labels.emplace(std::move(key), value); return *this; }
 
@@ -526,8 +583,8 @@ namespace Model
      * volume</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>xxlabel</code> option to <a
-     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">
-     * <code>docker volume create</code> </a>.</p>
+     * href="https://docs.docker.com/engine/reference/commandline/volume_create/">docker
+     * volume create</a>.</p>
      */
     inline DockerVolumeConfiguration& AddLabels(const char* key, const char* value) { m_labelsHasBeenSet = true; m_labels.emplace(key, value); return *this; }
 

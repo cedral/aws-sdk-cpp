@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     RemoveAttributesFromFindingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * from.</p>
      */
     inline const Aws::Vector<Aws::String>& GetFindingArns() const{ return m_findingArns; }
+
+    /**
+     * <p>The ARNs that specify the findings that you want to remove attributes
+     * from.</p>
+     */
+    inline bool FindingArnsHasBeenSet() const { return m_findingArnsHasBeenSet; }
 
     /**
      * <p>The ARNs that specify the findings that you want to remove attributes
@@ -99,6 +105,12 @@ namespace Model
      * findings.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAttributeKeys() const{ return m_attributeKeys; }
+
+    /**
+     * <p>The array of attribute keys that you want to remove from specified
+     * findings.</p>
+     */
+    inline bool AttributeKeysHasBeenSet() const { return m_attributeKeysHasBeenSet; }
 
     /**
      * <p>The array of attribute keys that you want to remove from specified

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteWorkGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The unique name of the workgroup to delete.</p>
      */
     inline const Aws::String& GetWorkGroup() const{ return m_workGroup; }
+
+    /**
+     * <p>The unique name of the workgroup to delete.</p>
+     */
+    inline bool WorkGroupHasBeenSet() const { return m_workGroupHasBeenSet; }
 
     /**
      * <p>The unique name of the workgroup to delete.</p>
@@ -85,6 +90,12 @@ namespace Model
      * contains any named queries.</p>
      */
     inline bool GetRecursiveDeleteOption() const{ return m_recursiveDeleteOption; }
+
+    /**
+     * <p>The option to delete the workgroup and its contents even if the workgroup
+     * contains any named queries.</p>
+     */
+    inline bool RecursiveDeleteOptionHasBeenSet() const { return m_recursiveDeleteOptionHasBeenSet; }
 
     /**
      * <p>The option to delete the workgroup and its contents even if the workgroup

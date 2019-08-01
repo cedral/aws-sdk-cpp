@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateFleetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the fleet. </p>
      */
     inline const Aws::String& GetFleetName() const{ return m_fleetName; }
+
+    /**
+     * <p>The name of the fleet. </p>
+     */
+    inline bool FleetNameHasBeenSet() const { return m_fleetNameHasBeenSet; }
 
     /**
      * <p>The name of the fleet. </p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The name of the stack.</p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>The name of the stack.</p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>The name of the stack.</p>

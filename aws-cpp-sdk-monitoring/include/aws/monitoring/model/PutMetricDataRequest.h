@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutMetricDataRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * Amazon Web Services products.</p>
      */
     inline const Aws::String& GetNamespace() const{ return m_namespace; }
+
+    /**
+     * <p>The namespace for the metric data.</p> <p>You cannot specify a namespace that
+     * begins with "AWS/". Namespaces that begin with "AWS/" are reserved for use by
+     * Amazon Web Services products.</p>
+     */
+    inline bool NamespaceHasBeenSet() const { return m_namespaceHasBeenSet; }
 
     /**
      * <p>The namespace for the metric data.</p> <p>You cannot specify a namespace that
@@ -103,6 +110,12 @@ namespace Model
      * call.</p>
      */
     inline const Aws::Vector<MetricDatum>& GetMetricData() const{ return m_metricData; }
+
+    /**
+     * <p>The data for the metric. The array can include no more than 20 metrics per
+     * call.</p>
+     */
+    inline bool MetricDataHasBeenSet() const { return m_metricDataHasBeenSet; }
 
     /**
      * <p>The data for the metric. The array can include no more than 20 metrics per

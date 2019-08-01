@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     AdminSetUserSettingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * such as MFA options.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool where you want to set the user's settings,
+     * such as MFA options.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool where you want to set the user's settings,
@@ -101,6 +107,11 @@ namespace Model
     /**
      * <p>The user name of the user for whom you wish to set user settings.</p>
      */
+    inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
+
+    /**
+     * <p>The user name of the user for whom you wish to set user settings.</p>
+     */
     inline void SetUsername(const Aws::String& value) { m_usernameHasBeenSet = true; m_username = value; }
 
     /**
@@ -133,6 +144,11 @@ namespace Model
      * <p>Specifies the options for MFA (e.g., email or phone number).</p>
      */
     inline const Aws::Vector<MFAOptionType>& GetMFAOptions() const{ return m_mFAOptions; }
+
+    /**
+     * <p>Specifies the options for MFA (e.g., email or phone number).</p>
+     */
+    inline bool MFAOptionsHasBeenSet() const { return m_mFAOptionsHasBeenSet; }
 
     /**
      * <p>Specifies the options for MFA (e.g., email or phone number).</p>

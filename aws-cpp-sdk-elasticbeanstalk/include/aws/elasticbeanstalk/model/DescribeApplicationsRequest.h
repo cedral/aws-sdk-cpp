@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeApplicationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * only include those with the specified names.</p>
      */
     inline const Aws::Vector<Aws::String>& GetApplicationNames() const{ return m_applicationNames; }
+
+    /**
+     * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to
+     * only include those with the specified names.</p>
+     */
+    inline bool ApplicationNamesHasBeenSet() const { return m_applicationNamesHasBeenSet; }
 
     /**
      * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to

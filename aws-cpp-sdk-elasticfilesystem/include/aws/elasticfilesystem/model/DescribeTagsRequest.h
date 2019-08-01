@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     DescribeTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,19 +53,29 @@ namespace Model
 
     /**
      * <p>(Optional) The maximum number of file system tags to return in the response.
-     * Currently, this number is automatically set to 10.</p>
+     * Currently, this number is automatically set to 10, and other values are ignored.
+     * The response is paginated at 10 per page if you have more than 10 tags.</p>
      */
     inline int GetMaxItems() const{ return m_maxItems; }
 
     /**
      * <p>(Optional) The maximum number of file system tags to return in the response.
-     * Currently, this number is automatically set to 10.</p>
+     * Currently, this number is automatically set to 10, and other values are ignored.
+     * The response is paginated at 10 per page if you have more than 10 tags.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
+
+    /**
+     * <p>(Optional) The maximum number of file system tags to return in the response.
+     * Currently, this number is automatically set to 10, and other values are ignored.
+     * The response is paginated at 10 per page if you have more than 10 tags.</p>
      */
     inline void SetMaxItems(int value) { m_maxItemsHasBeenSet = true; m_maxItems = value; }
 
     /**
      * <p>(Optional) The maximum number of file system tags to return in the response.
-     * Currently, this number is automatically set to 10.</p>
+     * Currently, this number is automatically set to 10, and other values are ignored.
+     * The response is paginated at 10 per page if you have more than 10 tags.</p>
      */
     inline DescribeTagsRequest& WithMaxItems(int value) { SetMaxItems(value); return *this;}
 
@@ -76,6 +86,13 @@ namespace Model
      * continue the list from where the previous call left off.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>(Optional) An opaque pagination token returned from a previous
+     * <code>DescribeTags</code> operation (String). If present, it specifies to
+     * continue the list from where the previous call left off.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>(Optional) An opaque pagination token returned from a previous
@@ -124,6 +141,11 @@ namespace Model
      * <p>The ID of the file system whose tag set you want to retrieve.</p>
      */
     inline const Aws::String& GetFileSystemId() const{ return m_fileSystemId; }
+
+    /**
+     * <p>The ID of the file system whose tag set you want to retrieve.</p>
+     */
+    inline bool FileSystemIdHasBeenSet() const { return m_fileSystemIdHasBeenSet; }
 
     /**
      * <p>The ID of the file system whose tag set you want to retrieve.</p>

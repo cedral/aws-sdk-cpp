@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListServerNeighborsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Configuration ID of the server for which neighbors are being listed.</p>
      */
     inline const Aws::String& GetConfigurationId() const{ return m_configurationId; }
+
+    /**
+     * <p>Configuration ID of the server for which neighbors are being listed.</p>
+     */
+    inline bool ConfigurationIdHasBeenSet() const { return m_configurationIdHasBeenSet; }
 
     /**
      * <p>Configuration ID of the server for which neighbors are being listed.</p>
@@ -91,6 +96,12 @@ namespace Model
      * <p>Flag to indicate if port and protocol information is needed as part of the
      * response.</p>
      */
+    inline bool PortInformationNeededHasBeenSet() const { return m_portInformationNeededHasBeenSet; }
+
+    /**
+     * <p>Flag to indicate if port and protocol information is needed as part of the
+     * response.</p>
+     */
     inline void SetPortInformationNeeded(bool value) { m_portInformationNeededHasBeenSet = true; m_portInformationNeeded = value; }
 
     /**
@@ -104,6 +115,11 @@ namespace Model
      * <p>List of configuration IDs to test for one-hop-away.</p>
      */
     inline const Aws::Vector<Aws::String>& GetNeighborConfigurationIds() const{ return m_neighborConfigurationIds; }
+
+    /**
+     * <p>List of configuration IDs to test for one-hop-away.</p>
+     */
+    inline bool NeighborConfigurationIdsHasBeenSet() const { return m_neighborConfigurationIdsHasBeenSet; }
 
     /**
      * <p>List of configuration IDs to test for one-hop-away.</p>
@@ -149,6 +165,11 @@ namespace Model
     /**
      * <p>Maximum number of results to return in a single page of output.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>Maximum number of results to return in a single page of output.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -166,6 +187,16 @@ namespace Model
      * of 10.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Token to retrieve the next set of results. For example, if you previously
+     * specified 100 IDs for
+     * <code>ListServerNeighborsRequest$neighborConfigurationIds</code> but set
+     * <code>ListServerNeighborsRequest$maxResults</code> to 10, you received a set of
+     * 10 results along with a token. Use that token in this query to get the next set
+     * of 10.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Token to retrieve the next set of results. For example, if you previously

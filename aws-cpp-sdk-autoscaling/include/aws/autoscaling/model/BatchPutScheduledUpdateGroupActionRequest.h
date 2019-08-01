@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     BatchPutScheduledUpdateGroupActionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the Auto Scaling group.</p>
      */
     inline const Aws::String& GetAutoScalingGroupName() const{ return m_autoScalingGroupName; }
+
+    /**
+     * <p>The name of the Auto Scaling group.</p>
+     */
+    inline bool AutoScalingGroupNameHasBeenSet() const { return m_autoScalingGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the Auto Scaling group.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>One or more scheduled actions. The maximum number allowed is 50. </p>
      */
     inline const Aws::Vector<ScheduledUpdateGroupActionRequest>& GetScheduledUpdateGroupActions() const{ return m_scheduledUpdateGroupActions; }
+
+    /**
+     * <p>One or more scheduled actions. The maximum number allowed is 50. </p>
+     */
+    inline bool ScheduledUpdateGroupActionsHasBeenSet() const { return m_scheduledUpdateGroupActionsHasBeenSet; }
 
     /**
      * <p>One or more scheduled actions. The maximum number allowed is 50. </p>

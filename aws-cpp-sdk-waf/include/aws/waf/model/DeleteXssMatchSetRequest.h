@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteXssMatchSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * by <a>ListXssMatchSets</a>.</p>
      */
     inline const Aws::String& GetXssMatchSetId() const{ return m_xssMatchSetId; }
+
+    /**
+     * <p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to
+     * delete. <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and
+     * by <a>ListXssMatchSets</a>.</p>
+     */
+    inline bool XssMatchSetIdHasBeenSet() const { return m_xssMatchSetIdHasBeenSet; }
 
     /**
      * <p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to
@@ -102,6 +109,11 @@ namespace Model
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
      */
     inline const Aws::String& GetChangeToken() const{ return m_changeToken; }
+
+    /**
+     * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+     */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
 
     /**
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>

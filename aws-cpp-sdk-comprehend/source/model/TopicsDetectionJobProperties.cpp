@@ -39,7 +39,10 @@ TopicsDetectionJobProperties::TopicsDetectionJobProperties() :
     m_inputDataConfigHasBeenSet(false),
     m_outputDataConfigHasBeenSet(false),
     m_numberOfTopics(0),
-    m_numberOfTopicsHasBeenSet(false)
+    m_numberOfTopicsHasBeenSet(false),
+    m_dataAccessRoleArnHasBeenSet(false),
+    m_volumeKmsKeyIdHasBeenSet(false),
+    m_vpcConfigHasBeenSet(false)
 {
 }
 
@@ -54,7 +57,10 @@ TopicsDetectionJobProperties::TopicsDetectionJobProperties(JsonView jsonValue) :
     m_inputDataConfigHasBeenSet(false),
     m_outputDataConfigHasBeenSet(false),
     m_numberOfTopics(0),
-    m_numberOfTopicsHasBeenSet(false)
+    m_numberOfTopicsHasBeenSet(false),
+    m_dataAccessRoleArnHasBeenSet(false),
+    m_volumeKmsKeyIdHasBeenSet(false),
+    m_vpcConfigHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -124,6 +130,27 @@ TopicsDetectionJobProperties& TopicsDetectionJobProperties::operator =(JsonView 
     m_numberOfTopicsHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("DataAccessRoleArn"))
+  {
+    m_dataAccessRoleArn = jsonValue.GetString("DataAccessRoleArn");
+
+    m_dataAccessRoleArnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("VolumeKmsKeyId"))
+  {
+    m_volumeKmsKeyId = jsonValue.GetString("VolumeKmsKeyId");
+
+    m_volumeKmsKeyIdHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("VpcConfig"))
+  {
+    m_vpcConfig = jsonValue.GetObject("VpcConfig");
+
+    m_vpcConfigHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -179,6 +206,24 @@ JsonValue TopicsDetectionJobProperties::Jsonize() const
   if(m_numberOfTopicsHasBeenSet)
   {
    payload.WithInteger("NumberOfTopics", m_numberOfTopics);
+
+  }
+
+  if(m_dataAccessRoleArnHasBeenSet)
+  {
+   payload.WithString("DataAccessRoleArn", m_dataAccessRoleArn);
+
+  }
+
+  if(m_volumeKmsKeyIdHasBeenSet)
+  {
+   payload.WithString("VolumeKmsKeyId", m_volumeKmsKeyId);
+
+  }
+
+  if(m_vpcConfigHasBeenSet)
+  {
+   payload.WithObject("VpcConfig", m_vpcConfig.Jsonize());
 
   }
 

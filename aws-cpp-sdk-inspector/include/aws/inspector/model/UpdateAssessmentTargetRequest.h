@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateAssessmentTargetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the assessment target that you want to update.</p>
      */
     inline const Aws::String& GetAssessmentTargetArn() const{ return m_assessmentTargetArn; }
+
+    /**
+     * <p>The ARN of the assessment target that you want to update.</p>
+     */
+    inline bool AssessmentTargetArnHasBeenSet() const { return m_assessmentTargetArnHasBeenSet; }
 
     /**
      * <p>The ARN of the assessment target that you want to update.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The name of the assessment target that you want to update.</p>
      */
+    inline bool AssessmentTargetNameHasBeenSet() const { return m_assessmentTargetNameHasBeenSet; }
+
+    /**
+     * <p>The name of the assessment target that you want to update.</p>
+     */
     inline void SetAssessmentTargetName(const Aws::String& value) { m_assessmentTargetNameHasBeenSet = true; m_assessmentTargetName = value; }
 
     /**
@@ -121,6 +131,12 @@ namespace Model
      * to associate with the assessment target.</p>
      */
     inline const Aws::String& GetResourceGroupArn() const{ return m_resourceGroupArn; }
+
+    /**
+     * <p>The ARN of the resource group that is used to specify the new resource group
+     * to associate with the assessment target.</p>
+     */
+    inline bool ResourceGroupArnHasBeenSet() const { return m_resourceGroupArnHasBeenSet; }
 
     /**
      * <p>The ARN of the resource group that is used to specify the new resource group

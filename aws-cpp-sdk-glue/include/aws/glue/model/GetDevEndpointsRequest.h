@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDevEndpointsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
     /**
      * <p>The maximum size of information to return.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum size of information to return.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -64,6 +69,11 @@ namespace Model
      * <p>A continuation token, if this is a continuation call.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A continuation token, if this is a continuation call.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A continuation token, if this is a continuation call.</p>

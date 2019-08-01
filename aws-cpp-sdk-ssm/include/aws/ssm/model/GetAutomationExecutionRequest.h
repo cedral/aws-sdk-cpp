@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetAutomationExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * Automation document is initiated.</p>
      */
     inline const Aws::String& GetAutomationExecutionId() const{ return m_automationExecutionId; }
+
+    /**
+     * <p>The unique identifier for an existing automation execution to examine. The
+     * execution ID is returned by StartAutomationExecution when the execution of an
+     * Automation document is initiated.</p>
+     */
+    inline bool AutomationExecutionIdHasBeenSet() const { return m_automationExecutionIdHasBeenSet; }
 
     /**
      * <p>The unique identifier for an existing automation execution to examine. The

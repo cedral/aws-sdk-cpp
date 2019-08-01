@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DisassociateResolverRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the VPC that you want to disassociate the resolver rule from.</p>
      */
     inline const Aws::String& GetVPCId() const{ return m_vPCId; }
+
+    /**
+     * <p>The ID of the VPC that you want to disassociate the resolver rule from.</p>
+     */
+    inline bool VPCIdHasBeenSet() const { return m_vPCIdHasBeenSet; }
 
     /**
      * <p>The ID of the VPC that you want to disassociate the resolver rule from.</p>
@@ -85,6 +90,12 @@ namespace Model
      * VPC.</p>
      */
     inline const Aws::String& GetResolverRuleId() const{ return m_resolverRuleId; }
+
+    /**
+     * <p>The ID of the resolver rule that you want to disassociate from the specified
+     * VPC.</p>
+     */
+    inline bool ResolverRuleIdHasBeenSet() const { return m_resolverRuleIdHasBeenSet; }
 
     /**
      * <p>The ID of the resolver rule that you want to disassociate from the specified

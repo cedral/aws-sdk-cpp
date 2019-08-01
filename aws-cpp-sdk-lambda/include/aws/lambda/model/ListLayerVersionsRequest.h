@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListLayerVersionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
      */
     inline const Runtime& GetCompatibleRuntime() const{ return m_compatibleRuntime; }
+
+    /**
+     * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
+     */
+    inline bool CompatibleRuntimeHasBeenSet() const { return m_compatibleRuntimeHasBeenSet; }
 
     /**
      * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
@@ -79,6 +84,11 @@ namespace Model
      * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
      */
     inline const Aws::String& GetLayerName() const{ return m_layerName; }
+
+    /**
+     * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+     */
+    inline bool LayerNameHasBeenSet() const { return m_layerNameHasBeenSet; }
 
     /**
      * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -119,6 +129,11 @@ namespace Model
     /**
      * <p>A pagination token returned by a previous call.</p>
      */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>A pagination token returned by a previous call.</p>
+     */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
@@ -151,6 +166,11 @@ namespace Model
      * <p>The maximum number of versions to return.</p>
      */
     inline int GetMaxItems() const{ return m_maxItems; }
+
+    /**
+     * <p>The maximum number of versions to return.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
 
     /**
      * <p>The maximum number of versions to return.</p>

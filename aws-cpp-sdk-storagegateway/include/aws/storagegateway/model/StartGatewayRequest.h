@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     StartGatewayRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,9 @@ namespace Model
 
     
     inline const Aws::String& GetGatewayARN() const{ return m_gatewayARN; }
+
+    
+    inline bool GatewayARNHasBeenSet() const { return m_gatewayARNHasBeenSet; }
 
     
     inline void SetGatewayARN(const Aws::String& value) { m_gatewayARNHasBeenSet = true; m_gatewayARN = value; }

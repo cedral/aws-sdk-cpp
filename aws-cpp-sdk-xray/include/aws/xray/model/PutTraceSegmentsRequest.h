@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutTraceSegmentsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,12 @@ namespace Model
      * subsegments.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTraceSegmentDocuments() const{ return m_traceSegmentDocuments; }
+
+    /**
+     * <p>A string containing a JSON document defining one or more segments or
+     * subsegments.</p>
+     */
+    inline bool TraceSegmentDocumentsHasBeenSet() const { return m_traceSegmentDocumentsHasBeenSet; }
 
     /**
      * <p>A string containing a JSON document defining one or more segments or

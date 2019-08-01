@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>A description for the snapshot.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description for the snapshot.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description for the snapshot.</p>
@@ -95,6 +100,11 @@ namespace Model
     /**
      * <p>The ID of the EBS volume.</p>
      */
+    inline bool VolumeIdHasBeenSet() const { return m_volumeIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the EBS volume.</p>
+     */
     inline void SetVolumeId(const Aws::String& value) { m_volumeIdHasBeenSet = true; m_volumeId = value; }
 
     /**
@@ -127,6 +137,11 @@ namespace Model
      * <p>The tags to apply to the snapshot during creation.</p>
      */
     inline const Aws::Vector<TagSpecification>& GetTagSpecifications() const{ return m_tagSpecifications; }
+
+    /**
+     * <p>The tags to apply to the snapshot during creation.</p>
+     */
+    inline bool TagSpecificationsHasBeenSet() const { return m_tagSpecificationsHasBeenSet; }
 
     /**
      * <p>The tags to apply to the snapshot during creation.</p>
@@ -166,6 +181,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

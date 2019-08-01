@@ -28,8 +28,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of an EnableStageTransition action.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Represents the input of an <code>EnableStageTransition</code>
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/EnableStageTransitionInput">AWS
    * API Reference</a></p>
    */
@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     EnableStageTransitionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * from one stage to another.</p>
      */
     inline const Aws::String& GetPipelineName() const{ return m_pipelineName; }
+
+    /**
+     * <p>The name of the pipeline in which you want to enable the flow of artifacts
+     * from one stage to another.</p>
+     */
+    inline bool PipelineNameHasBeenSet() const { return m_pipelineNameHasBeenSet; }
 
     /**
      * <p>The name of the pipeline in which you want to enable the flow of artifacts
@@ -104,6 +110,13 @@ namespace Model
      * either into the stage (inbound) or from that stage to the next stage
      * (outbound).</p>
      */
+    inline bool StageNameHasBeenSet() const { return m_stageNameHasBeenSet; }
+
+    /**
+     * <p>The name of the stage where you want to enable the transition of artifacts,
+     * either into the stage (inbound) or from that stage to the next stage
+     * (outbound).</p>
+     */
     inline void SetStageName(const Aws::String& value) { m_stageNameHasBeenSet = true; m_stageName = value; }
 
     /**
@@ -148,6 +161,13 @@ namespace Model
      * artifacts will be allowed to transition to the next stage (outbound).</p>
      */
     inline const StageTransitionType& GetTransitionType() const{ return m_transitionType; }
+
+    /**
+     * <p>Specifies whether artifacts will be allowed to enter the stage and be
+     * processed by the actions in that stage (inbound) or whether already-processed
+     * artifacts will be allowed to transition to the next stage (outbound).</p>
+     */
+    inline bool TransitionTypeHasBeenSet() const { return m_transitionTypeHasBeenSet; }
 
     /**
      * <p>Specifies whether artifacts will be allowed to enter the stage and be

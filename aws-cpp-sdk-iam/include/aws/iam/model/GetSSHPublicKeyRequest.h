@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetSSHPublicKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,15 @@ namespace Model
      * following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the IAM user associated with the SSH public key.</p> <p>This
+     * parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters consisting of upper and lowercase
+     * alphanumeric characters with no spaces. You can also include any of the
+     * following characters: _+=,.@-</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the IAM user associated with the SSH public key.</p> <p>This
@@ -125,6 +134,14 @@ namespace Model
      * string of characters that can consist of any upper or lowercased letter or
      * digit.</p>
      */
+    inline bool SSHPublicKeyIdHasBeenSet() const { return m_sSHPublicKeyIdHasBeenSet; }
+
+    /**
+     * <p>The unique identifier for the SSH public key.</p> <p>This parameter allows
+     * (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a
+     * string of characters that can consist of any upper or lowercased letter or
+     * digit.</p>
+     */
     inline void SetSSHPublicKeyId(const Aws::String& value) { m_sSHPublicKeyIdHasBeenSet = true; m_sSHPublicKeyId = value; }
 
     /**
@@ -174,6 +191,13 @@ namespace Model
      * key in PEM format, use <code>PEM</code>.</p>
      */
     inline const EncodingType& GetEncoding() const{ return m_encoding; }
+
+    /**
+     * <p>Specifies the public key encoding format to use in the response. To retrieve
+     * the public key in ssh-rsa format, use <code>SSH</code>. To retrieve the public
+     * key in PEM format, use <code>PEM</code>.</p>
+     */
+    inline bool EncodingHasBeenSet() const { return m_encodingHasBeenSet; }
 
     /**
      * <p>Specifies the public key encoding format to use in the response. To retrieve

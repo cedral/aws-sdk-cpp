@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListQueuesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * case-sensitive.</p>
      */
     inline const Aws::String& GetQueueNamePrefix() const{ return m_queueNamePrefix; }
+
+    /**
+     * <p>A string to use for filtering the list results. Only those queues whose name
+     * begins with the specified string are returned.</p> <p>Queue URLs and names are
+     * case-sensitive.</p>
+     */
+    inline bool QueueNamePrefixHasBeenSet() const { return m_queueNamePrefixHasBeenSet; }
 
     /**
      * <p>A string to use for filtering the list results. Only those queues whose name

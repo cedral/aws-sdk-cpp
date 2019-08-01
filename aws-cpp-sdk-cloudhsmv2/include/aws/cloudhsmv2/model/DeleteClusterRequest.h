@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * ID, use <a>DescribeClusters</a>.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>The identifier (ID) of the cluster that you are deleting. To find the cluster
+     * ID, use <a>DescribeClusters</a>.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>The identifier (ID) of the cluster that you are deleting. To find the cluster

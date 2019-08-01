@@ -37,7 +37,7 @@ namespace Model
   /**
    * <p>The type and amount of a resource to assign to a container. The only
    * supported resource is a GPU. For more information, see <a
-   * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working
+   * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working
    * with GPUs on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer
    * Guide</i> </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/ResourceRequirement">AWS
@@ -59,6 +59,14 @@ namespace Model
      * the task is launched on.</p>
      */
     inline const Aws::String& GetValue() const{ return m_value; }
+
+    /**
+     * <p>The number of physical <code>GPUs</code> the Amazon ECS container agent will
+     * reserve for the container. The number of GPUs reserved for all containers in a
+     * task should not exceed the number of available GPUs on the container instance
+     * the task is launched on.</p>
+     */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
 
     /**
      * <p>The number of physical <code>GPUs</code> the Amazon ECS container agent will
@@ -114,6 +122,12 @@ namespace Model
      * <code>GPU</code>.</p>
      */
     inline const ResourceType& GetType() const{ return m_type; }
+
+    /**
+     * <p>The type of resource to assign to a container. The only supported value is
+     * <code>GPU</code>.</p>
+     */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
 
     /**
      * <p>The type of resource to assign to a container. The only supported value is

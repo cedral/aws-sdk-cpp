@@ -35,8 +35,8 @@ namespace Model
 {
 
   /**
-   * <p>Crawler policy for update and deletion behavior.</p><p><h3>See Also:</h3>  
-   * <a
+   * <p>A policy that specifies update and deletion behaviors for the
+   * crawler.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/SchemaChangePolicy">AWS
    * API Reference</a></p>
    */
@@ -53,6 +53,11 @@ namespace Model
      * <p>The update behavior when the crawler finds a changed schema.</p>
      */
     inline const UpdateBehavior& GetUpdateBehavior() const{ return m_updateBehavior; }
+
+    /**
+     * <p>The update behavior when the crawler finds a changed schema.</p>
+     */
+    inline bool UpdateBehaviorHasBeenSet() const { return m_updateBehaviorHasBeenSet; }
 
     /**
      * <p>The update behavior when the crawler finds a changed schema.</p>
@@ -79,6 +84,11 @@ namespace Model
      * <p>The deletion behavior when the crawler finds a deleted object.</p>
      */
     inline const DeleteBehavior& GetDeleteBehavior() const{ return m_deleteBehavior; }
+
+    /**
+     * <p>The deletion behavior when the crawler finds a deleted object.</p>
+     */
+    inline bool DeleteBehaviorHasBeenSet() const { return m_deleteBehaviorHasBeenSet; }
 
     /**
      * <p>The deletion behavior when the crawler finds a deleted object.</p>

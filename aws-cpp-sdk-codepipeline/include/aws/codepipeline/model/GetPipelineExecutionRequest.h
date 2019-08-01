@@ -27,8 +27,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a GetPipelineExecution action.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Represents the input of a <code>GetPipelineExecution</code>
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetPipelineExecutionInput">AWS
    * API Reference</a></p>
    */
@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetPipelineExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the pipeline about which you want to get execution details.</p>
      */
     inline const Aws::String& GetPipelineName() const{ return m_pipelineName; }
+
+    /**
+     * <p>The name of the pipeline about which you want to get execution details.</p>
+     */
+    inline bool PipelineNameHasBeenSet() const { return m_pipelineNameHasBeenSet; }
 
     /**
      * <p>The name of the pipeline about which you want to get execution details.</p>
@@ -89,6 +94,12 @@ namespace Model
      * details.</p>
      */
     inline const Aws::String& GetPipelineExecutionId() const{ return m_pipelineExecutionId; }
+
+    /**
+     * <p>The ID of the pipeline execution about which you want to get execution
+     * details.</p>
+     */
+    inline bool PipelineExecutionIdHasBeenSet() const { return m_pipelineExecutionIdHasBeenSet; }
 
     /**
      * <p>The ID of the pipeline execution about which you want to get execution

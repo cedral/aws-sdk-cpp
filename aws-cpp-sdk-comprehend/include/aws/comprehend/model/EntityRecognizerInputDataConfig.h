@@ -53,37 +53,50 @@ namespace Model
 
 
     /**
-     * <p>The entity types in the input data for an entity recognizer.</p>
+     * <p>The entity types in the input data for an entity recognizer. A maximum of 12
+     * entity types can be used at one time to train an entity recognizer.</p>
      */
     inline const Aws::Vector<EntityTypesListItem>& GetEntityTypes() const{ return m_entityTypes; }
 
     /**
-     * <p>The entity types in the input data for an entity recognizer.</p>
+     * <p>The entity types in the input data for an entity recognizer. A maximum of 12
+     * entity types can be used at one time to train an entity recognizer.</p>
+     */
+    inline bool EntityTypesHasBeenSet() const { return m_entityTypesHasBeenSet; }
+
+    /**
+     * <p>The entity types in the input data for an entity recognizer. A maximum of 12
+     * entity types can be used at one time to train an entity recognizer.</p>
      */
     inline void SetEntityTypes(const Aws::Vector<EntityTypesListItem>& value) { m_entityTypesHasBeenSet = true; m_entityTypes = value; }
 
     /**
-     * <p>The entity types in the input data for an entity recognizer.</p>
+     * <p>The entity types in the input data for an entity recognizer. A maximum of 12
+     * entity types can be used at one time to train an entity recognizer.</p>
      */
     inline void SetEntityTypes(Aws::Vector<EntityTypesListItem>&& value) { m_entityTypesHasBeenSet = true; m_entityTypes = std::move(value); }
 
     /**
-     * <p>The entity types in the input data for an entity recognizer.</p>
+     * <p>The entity types in the input data for an entity recognizer. A maximum of 12
+     * entity types can be used at one time to train an entity recognizer.</p>
      */
     inline EntityRecognizerInputDataConfig& WithEntityTypes(const Aws::Vector<EntityTypesListItem>& value) { SetEntityTypes(value); return *this;}
 
     /**
-     * <p>The entity types in the input data for an entity recognizer.</p>
+     * <p>The entity types in the input data for an entity recognizer. A maximum of 12
+     * entity types can be used at one time to train an entity recognizer.</p>
      */
     inline EntityRecognizerInputDataConfig& WithEntityTypes(Aws::Vector<EntityTypesListItem>&& value) { SetEntityTypes(std::move(value)); return *this;}
 
     /**
-     * <p>The entity types in the input data for an entity recognizer.</p>
+     * <p>The entity types in the input data for an entity recognizer. A maximum of 12
+     * entity types can be used at one time to train an entity recognizer.</p>
      */
     inline EntityRecognizerInputDataConfig& AddEntityTypes(const EntityTypesListItem& value) { m_entityTypesHasBeenSet = true; m_entityTypes.push_back(value); return *this; }
 
     /**
-     * <p>The entity types in the input data for an entity recognizer.</p>
+     * <p>The entity types in the input data for an entity recognizer. A maximum of 12
+     * entity types can be used at one time to train an entity recognizer.</p>
      */
     inline EntityRecognizerInputDataConfig& AddEntityTypes(EntityTypesListItem&& value) { m_entityTypesHasBeenSet = true; m_entityTypes.push_back(std::move(value)); return *this; }
 
@@ -92,6 +105,11 @@ namespace Model
      * <p>S3 location of the documents folder for an entity recognizer</p>
      */
     inline const EntityRecognizerDocuments& GetDocuments() const{ return m_documents; }
+
+    /**
+     * <p>S3 location of the documents folder for an entity recognizer</p>
+     */
+    inline bool DocumentsHasBeenSet() const { return m_documentsHasBeenSet; }
 
     /**
      * <p>S3 location of the documents folder for an entity recognizer</p>
@@ -122,6 +140,11 @@ namespace Model
     /**
      * <p>S3 location of the annotations file for an entity recognizer.</p>
      */
+    inline bool AnnotationsHasBeenSet() const { return m_annotationsHasBeenSet; }
+
+    /**
+     * <p>S3 location of the annotations file for an entity recognizer.</p>
+     */
     inline void SetAnnotations(const EntityRecognizerAnnotations& value) { m_annotationsHasBeenSet = true; m_annotations = value; }
 
     /**
@@ -144,6 +167,11 @@ namespace Model
      * <p>S3 location of the entity list for an entity recognizer.</p>
      */
     inline const EntityRecognizerEntityList& GetEntityList() const{ return m_entityList; }
+
+    /**
+     * <p>S3 location of the entity list for an entity recognizer.</p>
+     */
+    inline bool EntityListHasBeenSet() const { return m_entityListHasBeenSet; }
 
     /**
      * <p>S3 location of the entity list for an entity recognizer.</p>

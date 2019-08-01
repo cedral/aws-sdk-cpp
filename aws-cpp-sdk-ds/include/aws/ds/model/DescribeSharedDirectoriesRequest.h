@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeSharedDirectoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Returns the identifier of the directory in the directory owner account. </p>
      */
     inline const Aws::String& GetOwnerDirectoryId() const{ return m_ownerDirectoryId; }
+
+    /**
+     * <p>Returns the identifier of the directory in the directory owner account. </p>
+     */
+    inline bool OwnerDirectoryIdHasBeenSet() const { return m_ownerDirectoryIdHasBeenSet; }
 
     /**
      * <p>Returns the identifier of the directory in the directory owner account. </p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>A list of identifiers of all shared directories in your account. </p>
      */
     inline const Aws::Vector<Aws::String>& GetSharedDirectoryIds() const{ return m_sharedDirectoryIds; }
+
+    /**
+     * <p>A list of identifiers of all shared directories in your account. </p>
+     */
+    inline bool SharedDirectoryIdsHasBeenSet() const { return m_sharedDirectoryIdsHasBeenSet; }
 
     /**
      * <p>A list of identifiers of all shared directories in your account. </p>
@@ -134,6 +144,13 @@ namespace Model
      * previous call to <a>DescribeSharedDirectories</a>. Pass null if this is the
      * first call. </p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The <code>DescribeSharedDirectoriesResult.NextToken</code> value from a
+     * previous call to <a>DescribeSharedDirectories</a>. Pass null if this is the
+     * first call. </p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -176,6 +193,11 @@ namespace Model
      * <p>The number of shared directories to return in the response object.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The number of shared directories to return in the response object.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The number of shared directories to return in the response object.</p>

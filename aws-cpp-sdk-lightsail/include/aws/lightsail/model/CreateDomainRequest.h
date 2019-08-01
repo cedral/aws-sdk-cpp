@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreateDomainRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,15 @@ namespace Model
      * DNS records for that domain.</p> </note>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>The domain name to manage (e.g., <code>example.com</code>).</p> <note> <p>You
+     * cannot register a new domain name using Lightsail. You must register a domain
+     * name using Amazon Route 53 or another domain name registrar. If you have already
+     * registered your domain, you can enter its name in this parameter to manage the
+     * DNS records for that domain.</p> </note>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>The domain name to manage (e.g., <code>example.com</code>).</p> <note> <p>You
@@ -116,6 +125,13 @@ namespace Model
      * resource</code> operation.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tag keys and optional values to add to the resource during create.</p>
+     * <p>To tag a resource after it has been created, see the <code>tag
+     * resource</code> operation.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tag keys and optional values to add to the resource during create.</p>

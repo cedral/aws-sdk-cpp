@@ -17,6 +17,7 @@
 #include <aws/ecr/ECR_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/DateTime.h>
+#include <aws/ecr/model/ImageTagMutability.h>
 #include <utility>
 
 namespace Aws
@@ -56,6 +57,15 @@ namespace Model
      * <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
      */
     inline const Aws::String& GetRepositoryArn() const{ return m_repositoryArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN
+     * contains the <code>arn:aws:ecr</code> namespace, followed by the region of the
+     * repository, AWS account ID of the repository owner, repository namespace, and
+     * repository name. For example,
+     * <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
+     */
+    inline bool RepositoryArnHasBeenSet() const { return m_repositoryArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN
@@ -122,6 +132,12 @@ namespace Model
      * <p>The AWS account ID associated with the registry that contains the
      * repository.</p>
      */
+    inline bool RegistryIdHasBeenSet() const { return m_registryIdHasBeenSet; }
+
+    /**
+     * <p>The AWS account ID associated with the registry that contains the
+     * repository.</p>
+     */
     inline void SetRegistryId(const Aws::String& value) { m_registryIdHasBeenSet = true; m_registryId = value; }
 
     /**
@@ -163,6 +179,11 @@ namespace Model
     /**
      * <p>The name of the repository.</p>
      */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
+
+    /**
+     * <p>The name of the repository.</p>
+     */
     inline void SetRepositoryName(const Aws::String& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = value; }
 
     /**
@@ -196,6 +217,12 @@ namespace Model
      * or <code>pull</code> operations.</p>
      */
     inline const Aws::String& GetRepositoryUri() const{ return m_repositoryUri; }
+
+    /**
+     * <p>The URI for the repository. You can use this URI for Docker <code>push</code>
+     * or <code>pull</code> operations.</p>
+     */
+    inline bool RepositoryUriHasBeenSet() const { return m_repositoryUriHasBeenSet; }
 
     /**
      * <p>The URI for the repository. You can use this URI for Docker <code>push</code>
@@ -244,6 +271,12 @@ namespace Model
      * <p>The date and time, in JavaScript date format, when the repository was
      * created.</p>
      */
+    inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
+
+    /**
+     * <p>The date and time, in JavaScript date format, when the repository was
+     * created.</p>
+     */
     inline void SetCreatedAt(const Aws::Utils::DateTime& value) { m_createdAtHasBeenSet = true; m_createdAt = value; }
 
     /**
@@ -264,6 +297,37 @@ namespace Model
      */
     inline Repository& WithCreatedAt(Aws::Utils::DateTime&& value) { SetCreatedAt(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The tag mutability setting for the repository.</p>
+     */
+    inline const ImageTagMutability& GetImageTagMutability() const{ return m_imageTagMutability; }
+
+    /**
+     * <p>The tag mutability setting for the repository.</p>
+     */
+    inline bool ImageTagMutabilityHasBeenSet() const { return m_imageTagMutabilityHasBeenSet; }
+
+    /**
+     * <p>The tag mutability setting for the repository.</p>
+     */
+    inline void SetImageTagMutability(const ImageTagMutability& value) { m_imageTagMutabilityHasBeenSet = true; m_imageTagMutability = value; }
+
+    /**
+     * <p>The tag mutability setting for the repository.</p>
+     */
+    inline void SetImageTagMutability(ImageTagMutability&& value) { m_imageTagMutabilityHasBeenSet = true; m_imageTagMutability = std::move(value); }
+
+    /**
+     * <p>The tag mutability setting for the repository.</p>
+     */
+    inline Repository& WithImageTagMutability(const ImageTagMutability& value) { SetImageTagMutability(value); return *this;}
+
+    /**
+     * <p>The tag mutability setting for the repository.</p>
+     */
+    inline Repository& WithImageTagMutability(ImageTagMutability&& value) { SetImageTagMutability(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_repositoryArn;
@@ -280,6 +344,9 @@ namespace Model
 
     Aws::Utils::DateTime m_createdAt;
     bool m_createdAtHasBeenSet;
+
+    ImageTagMutability m_imageTagMutability;
+    bool m_imageTagMutabilityHasBeenSet;
   };
 
 } // namespace Model

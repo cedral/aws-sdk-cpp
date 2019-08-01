@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateHsmClientCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * cluster will use to connect to the HSM to use the database encryption keys.</p>
      */
     inline const Aws::String& GetHsmClientCertificateIdentifier() const{ return m_hsmClientCertificateIdentifier; }
+
+    /**
+     * <p>The identifier to be assigned to the new HSM client certificate that the
+     * cluster will use to connect to the HSM to use the database encryption keys.</p>
+     */
+    inline bool HsmClientCertificateIdentifierHasBeenSet() const { return m_hsmClientCertificateIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier to be assigned to the new HSM client certificate that the
@@ -98,6 +104,11 @@ namespace Model
      * <p>A list of tag instances.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A list of tag instances.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A list of tag instances.</p>

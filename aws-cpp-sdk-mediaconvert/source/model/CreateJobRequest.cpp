@@ -29,11 +29,13 @@ CreateJobRequest::CreateJobRequest() :
     m_clientRequestToken(Aws::Utils::UUID::RandomUUID()),
     m_clientRequestTokenHasBeenSet(true),
     m_jobTemplateHasBeenSet(false),
+    m_priority(0),
+    m_priorityHasBeenSet(false),
     m_queueHasBeenSet(false),
     m_roleHasBeenSet(false),
     m_settingsHasBeenSet(false),
-    m_statusUpdateIntervalInSecs(0),
-    m_statusUpdateIntervalInSecsHasBeenSet(false),
+    m_statusUpdateInterval(StatusUpdateInterval::NOT_SET),
+    m_statusUpdateIntervalHasBeenSet(false),
     m_userMetadataHasBeenSet(false)
 {
 }
@@ -65,6 +67,12 @@ Aws::String CreateJobRequest::SerializePayload() const
 
   }
 
+  if(m_priorityHasBeenSet)
+  {
+   payload.WithInteger("priority", m_priority);
+
+  }
+
   if(m_queueHasBeenSet)
   {
    payload.WithString("queue", m_queue);
@@ -83,10 +91,9 @@ Aws::String CreateJobRequest::SerializePayload() const
 
   }
 
-  if(m_statusUpdateIntervalInSecsHasBeenSet)
+  if(m_statusUpdateIntervalHasBeenSet)
   {
-   payload.WithInt64("statusUpdateIntervalInSecs", m_statusUpdateIntervalInSecs);
-
+   payload.WithString("statusUpdateInterval", StatusUpdateIntervalMapper::GetNameForStatusUpdateInterval(m_statusUpdateInterval));
   }
 
   if(m_userMetadataHasBeenSet)

@@ -63,6 +63,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Number (ARN) of a layer.</p>
      */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Number (ARN) of a layer.</p>
+     */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
@@ -95,6 +100,11 @@ namespace Model
      * <p>The layer stack ID.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>The layer stack ID.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>The layer stack ID.</p>
@@ -135,6 +145,11 @@ namespace Model
     /**
      * <p>The layer ID.</p>
      */
+    inline bool LayerIdHasBeenSet() const { return m_layerIdHasBeenSet; }
+
+    /**
+     * <p>The layer ID.</p>
+     */
     inline void SetLayerId(const Aws::String& value) { m_layerIdHasBeenSet = true; m_layerId = value; }
 
     /**
@@ -171,6 +186,11 @@ namespace Model
     /**
      * <p>The layer type.</p>
      */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
+
+    /**
+     * <p>The layer type.</p>
+     */
     inline void SetType(const LayerType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
@@ -193,6 +213,11 @@ namespace Model
      * <p>The layer name.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The layer name.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The layer name.</p>
@@ -233,6 +258,11 @@ namespace Model
     /**
      * <p>The layer short name.</p>
      */
+    inline bool ShortnameHasBeenSet() const { return m_shortnameHasBeenSet; }
+
+    /**
+     * <p>The layer short name.</p>
+     */
     inline void SetShortname(const Aws::String& value) { m_shortnameHasBeenSet = true; m_shortname = value; }
 
     /**
@@ -269,6 +299,15 @@ namespace Model
      * <code>EcsClusterArn</code> attribute is set to the cluster's ARN.</p>
      */
     inline const Aws::Map<LayerAttributesKeys, Aws::String>& GetAttributes() const{ return m_attributes; }
+
+    /**
+     * <p>The layer attributes.</p> <p>For the <code>HaproxyStatsPassword</code>,
+     * <code>MysqlRootPassword</code>, and <code>GangliaPassword</code> attributes, AWS
+     * OpsWorks Stacks returns <code>*****FILTERED*****</code> instead of the actual
+     * value</p> <p>For an ECS Cluster layer, AWS OpsWorks Stacks the
+     * <code>EcsClusterArn</code> attribute is set to the cluster's ARN.</p>
+     */
+    inline bool AttributesHasBeenSet() const { return m_attributesHasBeenSet; }
 
     /**
      * <p>The layer attributes.</p> <p>For the <code>HaproxyStatsPassword</code>,
@@ -369,6 +408,11 @@ namespace Model
     /**
      * <p>The Amazon CloudWatch Logs configuration settings for the layer.</p>
      */
+    inline bool CloudWatchLogsConfigurationHasBeenSet() const { return m_cloudWatchLogsConfigurationHasBeenSet; }
+
+    /**
+     * <p>The Amazon CloudWatch Logs configuration settings for the layer.</p>
+     */
     inline void SetCloudWatchLogsConfiguration(const CloudWatchLogsConfiguration& value) { m_cloudWatchLogsConfigurationHasBeenSet = true; m_cloudWatchLogsConfiguration = value; }
 
     /**
@@ -390,7 +434,7 @@ namespace Model
     /**
      * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances.
      * For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline const Aws::String& GetCustomInstanceProfileArn() const{ return m_customInstanceProfileArn; }
@@ -398,7 +442,15 @@ namespace Model
     /**
      * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances.
      * For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * Identifiers</a>.</p>
+     */
+    inline bool CustomInstanceProfileArnHasBeenSet() const { return m_customInstanceProfileArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances.
+     * For more information about IAM ARNs, see <a
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline void SetCustomInstanceProfileArn(const Aws::String& value) { m_customInstanceProfileArnHasBeenSet = true; m_customInstanceProfileArn = value; }
@@ -406,7 +458,7 @@ namespace Model
     /**
      * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances.
      * For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline void SetCustomInstanceProfileArn(Aws::String&& value) { m_customInstanceProfileArnHasBeenSet = true; m_customInstanceProfileArn = std::move(value); }
@@ -414,7 +466,7 @@ namespace Model
     /**
      * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances.
      * For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline void SetCustomInstanceProfileArn(const char* value) { m_customInstanceProfileArnHasBeenSet = true; m_customInstanceProfileArn.assign(value); }
@@ -422,7 +474,7 @@ namespace Model
     /**
      * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances.
      * For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline Layer& WithCustomInstanceProfileArn(const Aws::String& value) { SetCustomInstanceProfileArn(value); return *this;}
@@ -430,7 +482,7 @@ namespace Model
     /**
      * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances.
      * For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline Layer& WithCustomInstanceProfileArn(Aws::String&& value) { SetCustomInstanceProfileArn(std::move(value)); return *this;}
@@ -438,7 +490,7 @@ namespace Model
     /**
      * <p>The ARN of the default IAM profile to be used for the layer's EC2 instances.
      * For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline Layer& WithCustomInstanceProfileArn(const char* value) { SetCustomInstanceProfileArn(value); return *this;}
@@ -449,6 +501,12 @@ namespace Model
      * deployment attributes.</p>
      */
     inline const Aws::String& GetCustomJson() const{ return m_customJson; }
+
+    /**
+     * <p>A JSON formatted string containing the layer's custom stack configuration and
+     * deployment attributes.</p>
+     */
+    inline bool CustomJsonHasBeenSet() const { return m_customJsonHasBeenSet; }
 
     /**
      * <p>A JSON formatted string containing the layer's custom stack configuration and
@@ -495,6 +553,11 @@ namespace Model
     /**
      * <p>An array containing the layer's custom security group IDs.</p>
      */
+    inline bool CustomSecurityGroupIdsHasBeenSet() const { return m_customSecurityGroupIdsHasBeenSet; }
+
+    /**
+     * <p>An array containing the layer's custom security group IDs.</p>
+     */
     inline void SetCustomSecurityGroupIds(const Aws::Vector<Aws::String>& value) { m_customSecurityGroupIdsHasBeenSet = true; m_customSecurityGroupIds = value; }
 
     /**
@@ -532,6 +595,11 @@ namespace Model
      * <p>An array containing the layer's security group names.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDefaultSecurityGroupNames() const{ return m_defaultSecurityGroupNames; }
+
+    /**
+     * <p>An array containing the layer's security group names.</p>
+     */
+    inline bool DefaultSecurityGroupNamesHasBeenSet() const { return m_defaultSecurityGroupNamesHasBeenSet; }
 
     /**
      * <p>An array containing the layer's security group names.</p>
@@ -574,6 +642,12 @@ namespace Model
      * packages.</p>
      */
     inline const Aws::Vector<Aws::String>& GetPackages() const{ return m_packages; }
+
+    /**
+     * <p>An array of <code>Package</code> objects that describe the layer's
+     * packages.</p>
+     */
+    inline bool PackagesHasBeenSet() const { return m_packagesHasBeenSet; }
 
     /**
      * <p>An array of <code>Package</code> objects that describe the layer's
@@ -628,6 +702,12 @@ namespace Model
      * <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon
      * EBS volumes.</p>
      */
+    inline bool VolumeConfigurationsHasBeenSet() const { return m_volumeConfigurationsHasBeenSet; }
+
+    /**
+     * <p>A <code>VolumeConfigurations</code> object that describes the layer's Amazon
+     * EBS volumes.</p>
+     */
     inline void SetVolumeConfigurations(const Aws::Vector<VolumeConfiguration>& value) { m_volumeConfigurationsHasBeenSet = true; m_volumeConfigurations = value; }
 
     /**
@@ -669,6 +749,11 @@ namespace Model
     /**
      * <p>Whether auto healing is disabled for the layer.</p>
      */
+    inline bool EnableAutoHealingHasBeenSet() const { return m_enableAutoHealingHasBeenSet; }
+
+    /**
+     * <p>Whether auto healing is disabled for the layer.</p>
+     */
     inline void SetEnableAutoHealing(bool value) { m_enableAutoHealingHasBeenSet = true; m_enableAutoHealing = value; }
 
     /**
@@ -679,27 +764,36 @@ namespace Model
 
     /**
      * <p>Whether to automatically assign an <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
      * IP address</a> to the layer's instances. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
      * to Edit a Layer</a>.</p>
      */
     inline bool GetAutoAssignElasticIps() const{ return m_autoAssignElasticIps; }
 
     /**
      * <p>Whether to automatically assign an <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
      * IP address</a> to the layer's instances. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
+     * to Edit a Layer</a>.</p>
+     */
+    inline bool AutoAssignElasticIpsHasBeenSet() const { return m_autoAssignElasticIpsHasBeenSet; }
+
+    /**
+     * <p>Whether to automatically assign an <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+     * IP address</a> to the layer's instances. For more information, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
      * to Edit a Layer</a>.</p>
      */
     inline void SetAutoAssignElasticIps(bool value) { m_autoAssignElasticIpsHasBeenSet = true; m_autoAssignElasticIps = value; }
 
     /**
      * <p>Whether to automatically assign an <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
      * IP address</a> to the layer's instances. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
      * to Edit a Layer</a>.</p>
      */
     inline Layer& WithAutoAssignElasticIps(bool value) { SetAutoAssignElasticIps(value); return *this;}
@@ -708,7 +802,7 @@ namespace Model
     /**
      * <p>For stacks that are running in a VPC, whether to automatically assign a
      * public IP address to the layer's instances. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
      * to Edit a Layer</a>.</p>
      */
     inline bool GetAutoAssignPublicIps() const{ return m_autoAssignPublicIps; }
@@ -716,7 +810,15 @@ namespace Model
     /**
      * <p>For stacks that are running in a VPC, whether to automatically assign a
      * public IP address to the layer's instances. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
+     * to Edit a Layer</a>.</p>
+     */
+    inline bool AutoAssignPublicIpsHasBeenSet() const { return m_autoAssignPublicIpsHasBeenSet; }
+
+    /**
+     * <p>For stacks that are running in a VPC, whether to automatically assign a
+     * public IP address to the layer's instances. For more information, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
      * to Edit a Layer</a>.</p>
      */
     inline void SetAutoAssignPublicIps(bool value) { m_autoAssignPublicIpsHasBeenSet = true; m_autoAssignPublicIps = value; }
@@ -724,25 +826,106 @@ namespace Model
     /**
      * <p>For stacks that are running in a VPC, whether to automatically assign a
      * public IP address to the layer's instances. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html">How
      * to Edit a Layer</a>.</p>
      */
     inline Layer& WithAutoAssignPublicIps(bool value) { SetAutoAssignPublicIps(value); return *this;}
 
 
-    
+    /**
+     * <p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>,
+     * <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For
+     * each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event.
+     * You can also provide custom recipes for any or all layers and events. AWS
+     * OpsWorks Stacks runs custom event recipes after the standard recipes.
+     * <code>LayerCustomRecipes</code> specifies the custom recipes for a particular
+     * layer to be run in response to each of the five events.</p> <p>To specify a
+     * recipe, use the cookbook's directory name in the repository followed by two
+     * colons and the recipe name, which is the recipe's file name without the
+     * <code>.rb</code> extension. For example: <code>phpapp2::dbsetup</code> specifies
+     * the <code>dbsetup.rb</code> recipe in the repository's <code>phpapp2</code>
+     * folder.</p>
+     */
     inline const Recipes& GetDefaultRecipes() const{ return m_defaultRecipes; }
 
-    
+    /**
+     * <p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>,
+     * <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For
+     * each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event.
+     * You can also provide custom recipes for any or all layers and events. AWS
+     * OpsWorks Stacks runs custom event recipes after the standard recipes.
+     * <code>LayerCustomRecipes</code> specifies the custom recipes for a particular
+     * layer to be run in response to each of the five events.</p> <p>To specify a
+     * recipe, use the cookbook's directory name in the repository followed by two
+     * colons and the recipe name, which is the recipe's file name without the
+     * <code>.rb</code> extension. For example: <code>phpapp2::dbsetup</code> specifies
+     * the <code>dbsetup.rb</code> recipe in the repository's <code>phpapp2</code>
+     * folder.</p>
+     */
+    inline bool DefaultRecipesHasBeenSet() const { return m_defaultRecipesHasBeenSet; }
+
+    /**
+     * <p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>,
+     * <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For
+     * each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event.
+     * You can also provide custom recipes for any or all layers and events. AWS
+     * OpsWorks Stacks runs custom event recipes after the standard recipes.
+     * <code>LayerCustomRecipes</code> specifies the custom recipes for a particular
+     * layer to be run in response to each of the five events.</p> <p>To specify a
+     * recipe, use the cookbook's directory name in the repository followed by two
+     * colons and the recipe name, which is the recipe's file name without the
+     * <code>.rb</code> extension. For example: <code>phpapp2::dbsetup</code> specifies
+     * the <code>dbsetup.rb</code> recipe in the repository's <code>phpapp2</code>
+     * folder.</p>
+     */
     inline void SetDefaultRecipes(const Recipes& value) { m_defaultRecipesHasBeenSet = true; m_defaultRecipes = value; }
 
-    
+    /**
+     * <p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>,
+     * <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For
+     * each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event.
+     * You can also provide custom recipes for any or all layers and events. AWS
+     * OpsWorks Stacks runs custom event recipes after the standard recipes.
+     * <code>LayerCustomRecipes</code> specifies the custom recipes for a particular
+     * layer to be run in response to each of the five events.</p> <p>To specify a
+     * recipe, use the cookbook's directory name in the repository followed by two
+     * colons and the recipe name, which is the recipe's file name without the
+     * <code>.rb</code> extension. For example: <code>phpapp2::dbsetup</code> specifies
+     * the <code>dbsetup.rb</code> recipe in the repository's <code>phpapp2</code>
+     * folder.</p>
+     */
     inline void SetDefaultRecipes(Recipes&& value) { m_defaultRecipesHasBeenSet = true; m_defaultRecipes = std::move(value); }
 
-    
+    /**
+     * <p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>,
+     * <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For
+     * each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event.
+     * You can also provide custom recipes for any or all layers and events. AWS
+     * OpsWorks Stacks runs custom event recipes after the standard recipes.
+     * <code>LayerCustomRecipes</code> specifies the custom recipes for a particular
+     * layer to be run in response to each of the five events.</p> <p>To specify a
+     * recipe, use the cookbook's directory name in the repository followed by two
+     * colons and the recipe name, which is the recipe's file name without the
+     * <code>.rb</code> extension. For example: <code>phpapp2::dbsetup</code> specifies
+     * the <code>dbsetup.rb</code> recipe in the repository's <code>phpapp2</code>
+     * folder.</p>
+     */
     inline Layer& WithDefaultRecipes(const Recipes& value) { SetDefaultRecipes(value); return *this;}
 
-    
+    /**
+     * <p>AWS OpsWorks Stacks supports five lifecycle events: <b>setup</b>,
+     * <b>configuration</b>, <b>deploy</b>, <b>undeploy</b>, and <b>shutdown</b>. For
+     * each layer, AWS OpsWorks Stacks runs a set of standard recipes for each event.
+     * You can also provide custom recipes for any or all layers and events. AWS
+     * OpsWorks Stacks runs custom event recipes after the standard recipes.
+     * <code>LayerCustomRecipes</code> specifies the custom recipes for a particular
+     * layer to be run in response to each of the five events.</p> <p>To specify a
+     * recipe, use the cookbook's directory name in the repository followed by two
+     * colons and the recipe name, which is the recipe's file name without the
+     * <code>.rb</code> extension. For example: <code>phpapp2::dbsetup</code> specifies
+     * the <code>dbsetup.rb</code> recipe in the repository's <code>phpapp2</code>
+     * folder.</p>
+     */
     inline Layer& WithDefaultRecipes(Recipes&& value) { SetDefaultRecipes(std::move(value)); return *this;}
 
 
@@ -751,6 +934,12 @@ namespace Model
      * recipes.</p>
      */
     inline const Recipes& GetCustomRecipes() const{ return m_customRecipes; }
+
+    /**
+     * <p>A <code>LayerCustomRecipes</code> object that specifies the layer's custom
+     * recipes.</p>
+     */
+    inline bool CustomRecipesHasBeenSet() const { return m_customRecipesHasBeenSet; }
 
     /**
      * <p>A <code>LayerCustomRecipes</code> object that specifies the layer's custom
@@ -781,6 +970,11 @@ namespace Model
      * <p>Date when the layer was created.</p>
      */
     inline const Aws::String& GetCreatedAt() const{ return m_createdAt; }
+
+    /**
+     * <p>Date when the layer was created.</p>
+     */
+    inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
 
     /**
      * <p>Date when the layer was created.</p>
@@ -835,6 +1029,18 @@ namespace Model
      * recommend using the default value of <code>true</code>, to ensure that your
      * instances have the latest security updates.</p> </note>
      */
+    inline bool InstallUpdatesOnBootHasBeenSet() const { return m_installUpdatesOnBootHasBeenSet; }
+
+    /**
+     * <p>Whether to install operating system and package updates when the instance
+     * boots. The default value is <code>true</code>. If this value is set to
+     * <code>false</code>, you must then update your instances manually by using
+     * <a>CreateDeployment</a> to run the <code>update_dependencies</code> stack
+     * command or manually running <code>yum</code> (Amazon Linux) or
+     * <code>apt-get</code> (Ubuntu) on the instances. </p> <note> <p>We strongly
+     * recommend using the default value of <code>true</code>, to ensure that your
+     * instances have the latest security updates.</p> </note>
+     */
     inline void SetInstallUpdatesOnBoot(bool value) { m_installUpdatesOnBootHasBeenSet = true; m_installUpdatesOnBoot = value; }
 
     /**
@@ -858,6 +1064,11 @@ namespace Model
     /**
      * <p>Whether the layer uses Amazon EBS-optimized instances.</p>
      */
+    inline bool UseEbsOptimizedInstancesHasBeenSet() const { return m_useEbsOptimizedInstancesHasBeenSet; }
+
+    /**
+     * <p>Whether the layer uses Amazon EBS-optimized instances.</p>
+     */
     inline void SetUseEbsOptimizedInstances(bool value) { m_useEbsOptimizedInstancesHasBeenSet = true; m_useEbsOptimizedInstances = value; }
 
     /**
@@ -871,6 +1082,12 @@ namespace Model
      * event configuration.</p>
      */
     inline const LifecycleEventConfiguration& GetLifecycleEventConfiguration() const{ return m_lifecycleEventConfiguration; }
+
+    /**
+     * <p>A <code>LifeCycleEventConfiguration</code> object that specifies the Shutdown
+     * event configuration.</p>
+     */
+    inline bool LifecycleEventConfigurationHasBeenSet() const { return m_lifecycleEventConfigurationHasBeenSet; }
 
     /**
      * <p>A <code>LifeCycleEventConfiguration</code> object that specifies the Shutdown

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     SetUserPoolMfaConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The user pool ID.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The SMS text message MFA configuration.</p>
      */
+    inline bool SmsMfaConfigurationHasBeenSet() const { return m_smsMfaConfigurationHasBeenSet; }
+
+    /**
+     * <p>The SMS text message MFA configuration.</p>
+     */
     inline void SetSmsMfaConfiguration(const SmsMfaConfigType& value) { m_smsMfaConfigurationHasBeenSet = true; m_smsMfaConfiguration = value; }
 
     /**
@@ -117,6 +127,11 @@ namespace Model
     /**
      * <p>The software token MFA configuration.</p>
      */
+    inline bool SoftwareTokenMfaConfigurationHasBeenSet() const { return m_softwareTokenMfaConfigurationHasBeenSet; }
+
+    /**
+     * <p>The software token MFA configuration.</p>
+     */
     inline void SetSoftwareTokenMfaConfiguration(const SoftwareTokenMfaConfigType& value) { m_softwareTokenMfaConfigurationHasBeenSet = true; m_softwareTokenMfaConfiguration = value; }
 
     /**
@@ -139,6 +154,11 @@ namespace Model
      * <p>The MFA configuration.</p>
      */
     inline const UserPoolMfaType& GetMfaConfiguration() const{ return m_mfaConfiguration; }
+
+    /**
+     * <p>The MFA configuration.</p>
+     */
+    inline bool MfaConfigurationHasBeenSet() const { return m_mfaConfigurationHasBeenSet; }
 
     /**
      * <p>The MFA configuration.</p>

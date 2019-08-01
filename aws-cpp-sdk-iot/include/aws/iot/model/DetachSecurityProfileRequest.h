@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DetachSecurityProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The security profile that is detached.</p>
      */
     inline const Aws::String& GetSecurityProfileName() const{ return m_securityProfileName; }
+
+    /**
+     * <p>The security profile that is detached.</p>
+     */
+    inline bool SecurityProfileNameHasBeenSet() const { return m_securityProfileNameHasBeenSet; }
 
     /**
      * <p>The security profile that is detached.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The ARN of the thing group from which the security profile is detached.</p>
      */
     inline const Aws::String& GetSecurityProfileTargetArn() const{ return m_securityProfileTargetArn; }
+
+    /**
+     * <p>The ARN of the thing group from which the security profile is detached.</p>
+     */
+    inline bool SecurityProfileTargetArnHasBeenSet() const { return m_securityProfileTargetArnHasBeenSet; }
 
     /**
      * <p>The ARN of the thing group from which the security profile is detached.</p>

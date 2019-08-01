@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ImportTerminologyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the custom terminology being imported.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the custom terminology being imported.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the custom terminology being imported.</p>
@@ -95,6 +100,13 @@ namespace Model
      * the OVERWRITE merge strategy is supported. In this case, the imported
      * terminology will overwrite an existing terminology of the same name.</p>
      */
+    inline bool MergeStrategyHasBeenSet() const { return m_mergeStrategyHasBeenSet; }
+
+    /**
+     * <p>The merge strategy of the custom terminology being imported. Currently, only
+     * the OVERWRITE merge strategy is supported. In this case, the imported
+     * terminology will overwrite an existing terminology of the same name.</p>
+     */
     inline void SetMergeStrategy(const MergeStrategy& value) { m_mergeStrategyHasBeenSet = true; m_mergeStrategy = value; }
 
     /**
@@ -123,6 +135,11 @@ namespace Model
      * <p>The description of the custom terminology being imported.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The description of the custom terminology being imported.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The description of the custom terminology being imported.</p>
@@ -163,6 +180,11 @@ namespace Model
     /**
      * <p>The terminology data for the custom terminology being imported.</p>
      */
+    inline bool TerminologyDataHasBeenSet() const { return m_terminologyDataHasBeenSet; }
+
+    /**
+     * <p>The terminology data for the custom terminology being imported.</p>
+     */
     inline void SetTerminologyData(const TerminologyData& value) { m_terminologyDataHasBeenSet = true; m_terminologyData = value; }
 
     /**
@@ -185,6 +207,11 @@ namespace Model
      * <p>The encryption key for the custom terminology being imported.</p>
      */
     inline const EncryptionKey& GetEncryptionKey() const{ return m_encryptionKey; }
+
+    /**
+     * <p>The encryption key for the custom terminology being imported.</p>
+     */
+    inline bool EncryptionKeyHasBeenSet() const { return m_encryptionKeyHasBeenSet; }
 
     /**
      * <p>The encryption key for the custom terminology being imported.</p>

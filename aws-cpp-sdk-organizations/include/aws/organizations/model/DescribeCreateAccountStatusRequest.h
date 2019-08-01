@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeCreateAccountStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,16 @@ namespace Model
      * digits.</p>
      */
     inline const Aws::String& GetCreateAccountRequestId() const{ return m_createAccountRequestId; }
+
+    /**
+     * <p>Specifies the <code>operationId</code> that uniquely identifies the request.
+     * You can get the ID from the response to an earlier <a>CreateAccount</a> request,
+     * or from the <a>ListCreateAccountStatus</a> operation.</p> <p>The <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a> for an create account
+     * request ID string requires "car-" followed by from 8 to 32 lower-case letters or
+     * digits.</p>
+     */
+    inline bool CreateAccountRequestIdHasBeenSet() const { return m_createAccountRequestIdHasBeenSet; }
 
     /**
      * <p>Specifies the <code>operationId</code> that uniquely identifies the request.

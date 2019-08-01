@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CancelClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>The 39-character ID for the cluster that you want to cancel, for example
+     * <code>CID123e4567-e89b-12d3-a456-426655440000</code>.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>The 39-character ID for the cluster that you want to cancel, for example

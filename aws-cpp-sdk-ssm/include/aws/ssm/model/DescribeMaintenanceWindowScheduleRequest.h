@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeMaintenanceWindowScheduleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,37 +49,42 @@ namespace Model
 
 
     /**
-     * <p>The ID of the Maintenance Window to retrieve information about.</p>
+     * <p>The ID of the maintenance window to retrieve information about.</p>
      */
     inline const Aws::String& GetWindowId() const{ return m_windowId; }
 
     /**
-     * <p>The ID of the Maintenance Window to retrieve information about.</p>
+     * <p>The ID of the maintenance window to retrieve information about.</p>
+     */
+    inline bool WindowIdHasBeenSet() const { return m_windowIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the maintenance window to retrieve information about.</p>
      */
     inline void SetWindowId(const Aws::String& value) { m_windowIdHasBeenSet = true; m_windowId = value; }
 
     /**
-     * <p>The ID of the Maintenance Window to retrieve information about.</p>
+     * <p>The ID of the maintenance window to retrieve information about.</p>
      */
     inline void SetWindowId(Aws::String&& value) { m_windowIdHasBeenSet = true; m_windowId = std::move(value); }
 
     /**
-     * <p>The ID of the Maintenance Window to retrieve information about.</p>
+     * <p>The ID of the maintenance window to retrieve information about.</p>
      */
     inline void SetWindowId(const char* value) { m_windowIdHasBeenSet = true; m_windowId.assign(value); }
 
     /**
-     * <p>The ID of the Maintenance Window to retrieve information about.</p>
+     * <p>The ID of the maintenance window to retrieve information about.</p>
      */
     inline DescribeMaintenanceWindowScheduleRequest& WithWindowId(const Aws::String& value) { SetWindowId(value); return *this;}
 
     /**
-     * <p>The ID of the Maintenance Window to retrieve information about.</p>
+     * <p>The ID of the maintenance window to retrieve information about.</p>
      */
     inline DescribeMaintenanceWindowScheduleRequest& WithWindowId(Aws::String&& value) { SetWindowId(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the Maintenance Window to retrieve information about.</p>
+     * <p>The ID of the maintenance window to retrieve information about.</p>
      */
     inline DescribeMaintenanceWindowScheduleRequest& WithWindowId(const char* value) { SetWindowId(value); return *this;}
 
@@ -88,6 +93,11 @@ namespace Model
      * <p>The instance ID or key/value pair to retrieve information about.</p>
      */
     inline const Aws::Vector<Target>& GetTargets() const{ return m_targets; }
+
+    /**
+     * <p>The instance ID or key/value pair to retrieve information about.</p>
+     */
+    inline bool TargetsHasBeenSet() const { return m_targetsHasBeenSet; }
 
     /**
      * <p>The instance ID or key/value pair to retrieve information about.</p>
@@ -130,6 +140,12 @@ namespace Model
      * <p>The type of resource you want to retrieve information about. For example,
      * "INSTANCE".</p>
      */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
+
+    /**
+     * <p>The type of resource you want to retrieve information about. For example,
+     * "INSTANCE".</p>
+     */
     inline void SetResourceType(const MaintenanceWindowResourceType& value) { m_resourceTypeHasBeenSet = true; m_resourceType = value; }
 
     /**
@@ -153,49 +169,56 @@ namespace Model
 
     /**
      * <p>Filters used to limit the range of results. For example, you can limit
-     * Maintenance Window executions to only those scheduled before or after a certain
+     * maintenance window executions to only those scheduled before or after a certain
      * date and time.</p>
      */
     inline const Aws::Vector<PatchOrchestratorFilter>& GetFilters() const{ return m_filters; }
 
     /**
      * <p>Filters used to limit the range of results. For example, you can limit
-     * Maintenance Window executions to only those scheduled before or after a certain
+     * maintenance window executions to only those scheduled before or after a certain
+     * date and time.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>Filters used to limit the range of results. For example, you can limit
+     * maintenance window executions to only those scheduled before or after a certain
      * date and time.</p>
      */
     inline void SetFilters(const Aws::Vector<PatchOrchestratorFilter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
      * <p>Filters used to limit the range of results. For example, you can limit
-     * Maintenance Window executions to only those scheduled before or after a certain
+     * maintenance window executions to only those scheduled before or after a certain
      * date and time.</p>
      */
     inline void SetFilters(Aws::Vector<PatchOrchestratorFilter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
      * <p>Filters used to limit the range of results. For example, you can limit
-     * Maintenance Window executions to only those scheduled before or after a certain
+     * maintenance window executions to only those scheduled before or after a certain
      * date and time.</p>
      */
     inline DescribeMaintenanceWindowScheduleRequest& WithFilters(const Aws::Vector<PatchOrchestratorFilter>& value) { SetFilters(value); return *this;}
 
     /**
      * <p>Filters used to limit the range of results. For example, you can limit
-     * Maintenance Window executions to only those scheduled before or after a certain
+     * maintenance window executions to only those scheduled before or after a certain
      * date and time.</p>
      */
     inline DescribeMaintenanceWindowScheduleRequest& WithFilters(Aws::Vector<PatchOrchestratorFilter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
      * <p>Filters used to limit the range of results. For example, you can limit
-     * Maintenance Window executions to only those scheduled before or after a certain
+     * maintenance window executions to only those scheduled before or after a certain
      * date and time.</p>
      */
     inline DescribeMaintenanceWindowScheduleRequest& AddFilters(const PatchOrchestratorFilter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
      * <p>Filters used to limit the range of results. For example, you can limit
-     * Maintenance Window executions to only those scheduled before or after a certain
+     * maintenance window executions to only those scheduled before or after a certain
      * date and time.</p>
      */
     inline DescribeMaintenanceWindowScheduleRequest& AddFilters(PatchOrchestratorFilter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
@@ -207,6 +230,13 @@ namespace Model
      * results.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of items to return for this call. The call also returns a
+     * token that you can specify in a subsequent call to get the next set of
+     * results.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return for this call. The call also returns a
@@ -228,6 +258,12 @@ namespace Model
      * a previous call.)</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next set of items to return. (You received this token from

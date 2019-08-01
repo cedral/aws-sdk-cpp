@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListResourceDelegatesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * delegates are listed.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The identifier for the organization that contains the resource for which
+     * delegates are listed.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The identifier for the organization that contains the resource for which
@@ -95,6 +101,11 @@ namespace Model
     /**
      * <p>The identifier for the resource whose delegates are listed.</p>
      */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
+
+    /**
+     * <p>The identifier for the resource whose delegates are listed.</p>
+     */
     inline void SetResourceId(const Aws::String& value) { m_resourceIdHasBeenSet = true; m_resourceId = value; }
 
     /**
@@ -128,6 +139,12 @@ namespace Model
      * resource.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token used to paginate through the delegates associated with a
+     * resource.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token used to paginate through the delegates associated with a
@@ -170,6 +187,11 @@ namespace Model
      * <p>The number of maximum results in a page.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The number of maximum results in a page.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The number of maximum results in a page.</p>

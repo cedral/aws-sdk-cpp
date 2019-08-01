@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateNumberOfDomainControllersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * removed.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>Identifier of the directory to which the domain controllers will be added or
+     * removed.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>Identifier of the directory to which the domain controllers will be added or
@@ -91,6 +97,11 @@ namespace Model
      * <p>The number of domain controllers desired in the directory.</p>
      */
     inline int GetDesiredNumber() const{ return m_desiredNumber; }
+
+    /**
+     * <p>The number of domain controllers desired in the directory.</p>
+     */
+    inline bool DesiredNumberHasBeenSet() const { return m_desiredNumberHasBeenSet; }
 
     /**
      * <p>The number of domain controllers desired in the directory.</p>

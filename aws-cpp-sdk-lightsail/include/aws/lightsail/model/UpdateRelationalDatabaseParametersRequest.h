@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateRelationalDatabaseParametersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of your database for which to update parameters.</p>
      */
     inline const Aws::String& GetRelationalDatabaseName() const{ return m_relationalDatabaseName; }
+
+    /**
+     * <p>The name of your database for which to update parameters.</p>
+     */
+    inline bool RelationalDatabaseNameHasBeenSet() const { return m_relationalDatabaseNameHasBeenSet; }
 
     /**
      * <p>The name of your database for which to update parameters.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The database parameters to update.</p>
      */
     inline const Aws::Vector<RelationalDatabaseParameter>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>The database parameters to update.</p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>The database parameters to update.</p>

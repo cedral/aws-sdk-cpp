@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     AdminGetUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * the user.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool where you want to get information about
+     * the user.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool where you want to get information about
@@ -95,6 +101,11 @@ namespace Model
      * <p>The user name of the user you wish to retrieve.</p>
      */
     inline const Aws::String& GetUsername() const{ return m_username; }
+
+    /**
+     * <p>The user name of the user you wish to retrieve.</p>
+     */
+    inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
 
     /**
      * <p>The user name of the user you wish to retrieve.</p>

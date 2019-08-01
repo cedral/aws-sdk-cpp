@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/xray/model/ServiceId.h>
+#include <aws/core/utils/DateTime.h>
 #include <aws/xray/model/TraceUser.h>
 #include <aws/xray/model/ResourceARNDetail.h>
 #include <aws/xray/model/InstanceIdDetail.h>
@@ -70,6 +71,12 @@ namespace Model
      * <p>The unique identifier for the request that generated the trace's segments and
      * subsegments.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The unique identifier for the request that generated the trace's segments and
+     * subsegments.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -113,6 +120,12 @@ namespace Model
      * <p>The length of time in seconds between the start time of the root segment and
      * the end time of the last segment that completed.</p>
      */
+    inline bool DurationHasBeenSet() const { return m_durationHasBeenSet; }
+
+    /**
+     * <p>The length of time in seconds between the start time of the root segment and
+     * the end time of the last segment that completed.</p>
+     */
     inline void SetDuration(double value) { m_durationHasBeenSet = true; m_duration = value; }
 
     /**
@@ -129,6 +142,14 @@ namespace Model
      * the amount of time before the last traced activity completes.</p>
      */
     inline double GetResponseTime() const{ return m_responseTime; }
+
+    /**
+     * <p>The length of time in seconds between the start and end times of the root
+     * segment. If the service performs work asynchronously, the response time measures
+     * the time before the response is sent to the user, while the duration measures
+     * the amount of time before the last traced activity completes.</p>
+     */
+    inline bool ResponseTimeHasBeenSet() const { return m_responseTimeHasBeenSet; }
 
     /**
      * <p>The length of time in seconds between the start and end times of the root
@@ -155,6 +176,11 @@ namespace Model
     /**
      * <p>One or more of the segment documents has a 500 series error.</p>
      */
+    inline bool HasFaultHasBeenSet() const { return m_hasFaultHasBeenSet; }
+
+    /**
+     * <p>One or more of the segment documents has a 500 series error.</p>
+     */
     inline void SetHasFault(bool value) { m_hasFaultHasBeenSet = true; m_hasFault = value; }
 
     /**
@@ -167,6 +193,11 @@ namespace Model
      * <p>One or more of the segment documents has a 400 series error.</p>
      */
     inline bool GetHasError() const{ return m_hasError; }
+
+    /**
+     * <p>One or more of the segment documents has a 400 series error.</p>
+     */
+    inline bool HasErrorHasBeenSet() const { return m_hasErrorHasBeenSet; }
 
     /**
      * <p>One or more of the segment documents has a 400 series error.</p>
@@ -187,6 +218,11 @@ namespace Model
     /**
      * <p>One or more of the segment documents has a 429 throttling error.</p>
      */
+    inline bool HasThrottleHasBeenSet() const { return m_hasThrottleHasBeenSet; }
+
+    /**
+     * <p>One or more of the segment documents has a 429 throttling error.</p>
+     */
     inline void SetHasThrottle(bool value) { m_hasThrottleHasBeenSet = true; m_hasThrottle = value; }
 
     /**
@@ -203,6 +239,11 @@ namespace Model
     /**
      * <p>One or more of the segment documents is in progress.</p>
      */
+    inline bool IsPartialHasBeenSet() const { return m_isPartialHasBeenSet; }
+
+    /**
+     * <p>One or more of the segment documents is in progress.</p>
+     */
     inline void SetIsPartial(bool value) { m_isPartialHasBeenSet = true; m_isPartial = value; }
 
     /**
@@ -215,6 +256,11 @@ namespace Model
      * <p>Information about the HTTP request served by the trace.</p>
      */
     inline const Http& GetHttp() const{ return m_http; }
+
+    /**
+     * <p>Information about the HTTP request served by the trace.</p>
+     */
+    inline bool HttpHasBeenSet() const { return m_httpHasBeenSet; }
 
     /**
      * <p>Information about the HTTP request served by the trace.</p>
@@ -241,6 +287,11 @@ namespace Model
      * <p>Annotations from the trace's segment documents.</p>
      */
     inline const Aws::Map<Aws::String, Aws::Vector<ValueWithServiceIds>>& GetAnnotations() const{ return m_annotations; }
+
+    /**
+     * <p>Annotations from the trace's segment documents.</p>
+     */
+    inline bool AnnotationsHasBeenSet() const { return m_annotationsHasBeenSet; }
 
     /**
      * <p>Annotations from the trace's segment documents.</p>
@@ -301,6 +352,11 @@ namespace Model
     /**
      * <p>Users from the trace's segment documents.</p>
      */
+    inline bool UsersHasBeenSet() const { return m_usersHasBeenSet; }
+
+    /**
+     * <p>Users from the trace's segment documents.</p>
+     */
     inline void SetUsers(const Aws::Vector<TraceUser>& value) { m_usersHasBeenSet = true; m_users = value; }
 
     /**
@@ -333,6 +389,11 @@ namespace Model
      * <p>Service IDs from the trace's segment documents.</p>
      */
     inline const Aws::Vector<ServiceId>& GetServiceIds() const{ return m_serviceIds; }
+
+    /**
+     * <p>Service IDs from the trace's segment documents.</p>
+     */
+    inline bool ServiceIdsHasBeenSet() const { return m_serviceIdsHasBeenSet; }
 
     /**
      * <p>Service IDs from the trace's segment documents.</p>
@@ -370,6 +431,12 @@ namespace Model
      * segments.</p>
      */
     inline const Aws::Vector<ResourceARNDetail>& GetResourceARNs() const{ return m_resourceARNs; }
+
+    /**
+     * <p>A list of resource ARNs for any resource corresponding to the trace
+     * segments.</p>
+     */
+    inline bool ResourceARNsHasBeenSet() const { return m_resourceARNsHasBeenSet; }
 
     /**
      * <p>A list of resource ARNs for any resource corresponding to the trace
@@ -418,6 +485,12 @@ namespace Model
      * <p>A list of EC2 instance IDs for any instance corresponding to the trace
      * segments.</p>
      */
+    inline bool InstanceIdsHasBeenSet() const { return m_instanceIdsHasBeenSet; }
+
+    /**
+     * <p>A list of EC2 instance IDs for any instance corresponding to the trace
+     * segments.</p>
+     */
     inline void SetInstanceIds(const Aws::Vector<InstanceIdDetail>& value) { m_instanceIdsHasBeenSet = true; m_instanceIds = value; }
 
     /**
@@ -456,6 +529,12 @@ namespace Model
      * segments.</p>
      */
     inline const Aws::Vector<AvailabilityZoneDetail>& GetAvailabilityZones() const{ return m_availabilityZones; }
+
+    /**
+     * <p>A list of availability zones for any zone corresponding to the trace
+     * segments.</p>
+     */
+    inline bool AvailabilityZonesHasBeenSet() const { return m_availabilityZonesHasBeenSet; }
 
     /**
      * <p>A list of availability zones for any zone corresponding to the trace
@@ -502,6 +581,11 @@ namespace Model
     /**
      * <p>The root of a trace.</p>
      */
+    inline bool EntryPointHasBeenSet() const { return m_entryPointHasBeenSet; }
+
+    /**
+     * <p>The root of a trace.</p>
+     */
     inline void SetEntryPoint(const ServiceId& value) { m_entryPointHasBeenSet = true; m_entryPoint = value; }
 
     /**
@@ -525,6 +609,12 @@ namespace Model
      * segments.</p>
      */
     inline const Aws::Vector<FaultRootCause>& GetFaultRootCauses() const{ return m_faultRootCauses; }
+
+    /**
+     * <p>A collection of FaultRootCause structures corresponding to the the trace
+     * segments.</p>
+     */
+    inline bool FaultRootCausesHasBeenSet() const { return m_faultRootCausesHasBeenSet; }
 
     /**
      * <p>A collection of FaultRootCause structures corresponding to the the trace
@@ -573,6 +663,12 @@ namespace Model
      * <p>A collection of ErrorRootCause structures corresponding to the trace
      * segments.</p>
      */
+    inline bool ErrorRootCausesHasBeenSet() const { return m_errorRootCausesHasBeenSet; }
+
+    /**
+     * <p>A collection of ErrorRootCause structures corresponding to the trace
+     * segments.</p>
+     */
     inline void SetErrorRootCauses(const Aws::Vector<ErrorRootCause>& value) { m_errorRootCausesHasBeenSet = true; m_errorRootCauses = value; }
 
     /**
@@ -611,6 +707,12 @@ namespace Model
      * segments.</p>
      */
     inline const Aws::Vector<ResponseTimeRootCause>& GetResponseTimeRootCauses() const{ return m_responseTimeRootCauses; }
+
+    /**
+     * <p>A collection of ResponseTimeRootCause structures corresponding to the trace
+     * segments.</p>
+     */
+    inline bool ResponseTimeRootCausesHasBeenSet() const { return m_responseTimeRootCausesHasBeenSet; }
 
     /**
      * <p>A collection of ResponseTimeRootCause structures corresponding to the trace
@@ -657,12 +759,48 @@ namespace Model
     /**
      * <p>The revision number of a trace.</p>
      */
+    inline bool RevisionHasBeenSet() const { return m_revisionHasBeenSet; }
+
+    /**
+     * <p>The revision number of a trace.</p>
+     */
     inline void SetRevision(int value) { m_revisionHasBeenSet = true; m_revision = value; }
 
     /**
      * <p>The revision number of a trace.</p>
      */
     inline TraceSummary& WithRevision(int value) { SetRevision(value); return *this;}
+
+
+    /**
+     * <p>The matched time stamp of a defined event.</p>
+     */
+    inline const Aws::Utils::DateTime& GetMatchedEventTime() const{ return m_matchedEventTime; }
+
+    /**
+     * <p>The matched time stamp of a defined event.</p>
+     */
+    inline bool MatchedEventTimeHasBeenSet() const { return m_matchedEventTimeHasBeenSet; }
+
+    /**
+     * <p>The matched time stamp of a defined event.</p>
+     */
+    inline void SetMatchedEventTime(const Aws::Utils::DateTime& value) { m_matchedEventTimeHasBeenSet = true; m_matchedEventTime = value; }
+
+    /**
+     * <p>The matched time stamp of a defined event.</p>
+     */
+    inline void SetMatchedEventTime(Aws::Utils::DateTime&& value) { m_matchedEventTimeHasBeenSet = true; m_matchedEventTime = std::move(value); }
+
+    /**
+     * <p>The matched time stamp of a defined event.</p>
+     */
+    inline TraceSummary& WithMatchedEventTime(const Aws::Utils::DateTime& value) { SetMatchedEventTime(value); return *this;}
+
+    /**
+     * <p>The matched time stamp of a defined event.</p>
+     */
+    inline TraceSummary& WithMatchedEventTime(Aws::Utils::DateTime&& value) { SetMatchedEventTime(std::move(value)); return *this;}
 
   private:
 
@@ -722,6 +860,9 @@ namespace Model
 
     int m_revision;
     bool m_revisionHasBeenSet;
+
+    Aws::Utils::DateTime m_matchedEventTime;
+    bool m_matchedEventTimeHasBeenSet;
   };
 
 } // namespace Model

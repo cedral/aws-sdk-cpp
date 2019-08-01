@@ -40,7 +40,7 @@ namespace Model
    * Amazon CloudWatch, are associated with configuration sets, which enable you to
    * publish email sending events. For information about using configuration sets,
    * see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CloudWatchDestination">AWS
    * API Reference</a></p>
@@ -61,6 +61,12 @@ namespace Model
      * email sending events to Amazon CloudWatch.</p>
      */
     inline const Aws::Vector<CloudWatchDimensionConfiguration>& GetDimensionConfigurations() const{ return m_dimensionConfigurations; }
+
+    /**
+     * <p>A list of dimensions upon which to categorize your emails when you publish
+     * email sending events to Amazon CloudWatch.</p>
+     */
+    inline bool DimensionConfigurationsHasBeenSet() const { return m_dimensionConfigurationsHasBeenSet; }
 
     /**
      * <p>A list of dimensions upon which to categorize your emails when you publish

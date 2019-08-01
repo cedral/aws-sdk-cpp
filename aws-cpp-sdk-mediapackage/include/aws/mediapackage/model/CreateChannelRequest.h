@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateChannelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * A short text description of the Channel.
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * A short text description of the Channel.
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * A short text description of the Channel.
@@ -89,6 +94,14 @@ cannot be
 
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * The ID of the Channel. The ID must be unique within the region and it
+cannot be
+     * changed after a Channel is created.
+
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * The ID of the Channel. The ID must be unique within the region and it
@@ -141,6 +154,9 @@ cannot be
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     
     inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }

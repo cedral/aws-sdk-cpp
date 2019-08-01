@@ -17,6 +17,7 @@
 #include <aws/robomaker/RoboMaker_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/DateTime.h>
+#include <aws/robomaker/model/RobotSoftwareSuite.h>
 #include <utility>
 
 namespace Aws
@@ -52,6 +53,11 @@ namespace Model
      * <p>The name of the robot application.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the robot application.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the robot application.</p>
@@ -92,6 +98,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the robot.</p>
      */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the robot.</p>
+     */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
@@ -124,6 +135,11 @@ namespace Model
      * <p>The version of the robot application.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The version of the robot application.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The version of the robot application.</p>
@@ -166,6 +182,12 @@ namespace Model
      * <p>The time, in milliseconds since the epoch, when the robot application was
      * last updated.</p>
      */
+    inline bool LastUpdatedAtHasBeenSet() const { return m_lastUpdatedAtHasBeenSet; }
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the robot application was
+     * last updated.</p>
+     */
     inline void SetLastUpdatedAt(const Aws::Utils::DateTime& value) { m_lastUpdatedAtHasBeenSet = true; m_lastUpdatedAt = value; }
 
     /**
@@ -186,6 +208,37 @@ namespace Model
      */
     inline RobotApplicationSummary& WithLastUpdatedAt(Aws::Utils::DateTime&& value) { SetLastUpdatedAt(std::move(value)); return *this;}
 
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline const RobotSoftwareSuite& GetRobotSoftwareSuite() const{ return m_robotSoftwareSuite; }
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline bool RobotSoftwareSuiteHasBeenSet() const { return m_robotSoftwareSuiteHasBeenSet; }
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline void SetRobotSoftwareSuite(const RobotSoftwareSuite& value) { m_robotSoftwareSuiteHasBeenSet = true; m_robotSoftwareSuite = value; }
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline void SetRobotSoftwareSuite(RobotSoftwareSuite&& value) { m_robotSoftwareSuiteHasBeenSet = true; m_robotSoftwareSuite = std::move(value); }
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline RobotApplicationSummary& WithRobotSoftwareSuite(const RobotSoftwareSuite& value) { SetRobotSoftwareSuite(value); return *this;}
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline RobotApplicationSummary& WithRobotSoftwareSuite(RobotSoftwareSuite&& value) { SetRobotSoftwareSuite(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_name;
@@ -199,6 +252,9 @@ namespace Model
 
     Aws::Utils::DateTime m_lastUpdatedAt;
     bool m_lastUpdatedAtHasBeenSet;
+
+    RobotSoftwareSuite m_robotSoftwareSuite;
+    bool m_robotSoftwareSuiteHasBeenSet;
   };
 
 } // namespace Model

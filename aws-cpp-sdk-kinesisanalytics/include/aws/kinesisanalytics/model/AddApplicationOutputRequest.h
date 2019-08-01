@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     AddApplicationOutputRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * configuration.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>Name of the application to which you want to add the output
+     * configuration.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>Name of the application to which you want to add the output
@@ -93,25 +99,41 @@ namespace Model
 
     /**
      * <p>Version of the application to which you want to add the output configuration.
-     * You can use the <a>DescribeApplication</a> operation to get the current
-     * application version. If the version specified is not the current version, the
-     * <code>ConcurrentModificationException</code> is returned. </p>
+     * You can use the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned. </p>
      */
     inline long long GetCurrentApplicationVersionId() const{ return m_currentApplicationVersionId; }
 
     /**
      * <p>Version of the application to which you want to add the output configuration.
-     * You can use the <a>DescribeApplication</a> operation to get the current
-     * application version. If the version specified is not the current version, the
-     * <code>ConcurrentModificationException</code> is returned. </p>
+     * You can use the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned. </p>
+     */
+    inline bool CurrentApplicationVersionIdHasBeenSet() const { return m_currentApplicationVersionIdHasBeenSet; }
+
+    /**
+     * <p>Version of the application to which you want to add the output configuration.
+     * You can use the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned. </p>
      */
     inline void SetCurrentApplicationVersionId(long long value) { m_currentApplicationVersionIdHasBeenSet = true; m_currentApplicationVersionId = value; }
 
     /**
      * <p>Version of the application to which you want to add the output configuration.
-     * You can use the <a>DescribeApplication</a> operation to get the current
-     * application version. If the version specified is not the current version, the
-     * <code>ConcurrentModificationException</code> is returned. </p>
+     * You can use the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_DescribeApplication.html">DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned. </p>
      */
     inline AddApplicationOutputRequest& WithCurrentApplicationVersionId(long long value) { SetCurrentApplicationVersionId(value); return *this;}
 
@@ -124,6 +146,15 @@ namespace Model
      * destination.</p>
      */
     inline const Output& GetOutput() const{ return m_output; }
+
+    /**
+     * <p>An array of objects, each describing one output configuration. In the output
+     * configuration, you specify the name of an in-application stream, a destination
+     * (that is, an Amazon Kinesis stream, an Amazon Kinesis Firehose delivery stream,
+     * or an AWS Lambda function), and record the formation to use when writing to the
+     * destination.</p>
+     */
+    inline bool OutputHasBeenSet() const { return m_outputHasBeenSet; }
 
     /**
      * <p>An array of objects, each describing one output configuration. In the output

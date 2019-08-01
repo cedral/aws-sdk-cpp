@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateCommitRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the repository where you will create the commit.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository where you will create the commit.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository where you will create the commit.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The name of the branch where you will create the commit.</p>
      */
+    inline bool BranchNameHasBeenSet() const { return m_branchNameHasBeenSet; }
+
+    /**
+     * <p>The name of the branch where you will create the commit.</p>
+     */
     inline void SetBranchName(const Aws::String& value) { m_branchNameHasBeenSet = true; m_branchName = value; }
 
     /**
@@ -125,6 +135,12 @@ namespace Model
      * this is an empty repository, this is not required.</p>
      */
     inline const Aws::String& GetParentCommitId() const{ return m_parentCommitId; }
+
+    /**
+     * <p>The ID of the commit that is the parent of the commit you will create. If
+     * this is an empty repository, this is not required.</p>
+     */
+    inline bool ParentCommitIdHasBeenSet() const { return m_parentCommitIdHasBeenSet; }
 
     /**
      * <p>The ID of the commit that is the parent of the commit you will create. If
@@ -173,6 +189,12 @@ namespace Model
      * <p>The name of the author who created the commit. This information will be used
      * as both the author and committer for the commit.</p>
      */
+    inline bool AuthorNameHasBeenSet() const { return m_authorNameHasBeenSet; }
+
+    /**
+     * <p>The name of the author who created the commit. This information will be used
+     * as both the author and committer for the commit.</p>
+     */
     inline void SetAuthorName(const Aws::String& value) { m_authorNameHasBeenSet = true; m_authorName = value; }
 
     /**
@@ -214,6 +236,11 @@ namespace Model
     /**
      * <p>The email address of the person who created the commit.</p>
      */
+    inline bool EmailHasBeenSet() const { return m_emailHasBeenSet; }
+
+    /**
+     * <p>The email address of the person who created the commit.</p>
+     */
     inline void SetEmail(const Aws::String& value) { m_emailHasBeenSet = true; m_email = value; }
 
     /**
@@ -248,6 +275,13 @@ namespace Model
      * will be used.</p>
      */
     inline const Aws::String& GetCommitMessage() const{ return m_commitMessage; }
+
+    /**
+     * <p>The commit message you want to include as part of creating the commit. Commit
+     * messages are limited to 256 KB. If no message is specified, a default message
+     * will be used.</p>
+     */
+    inline bool CommitMessageHasBeenSet() const { return m_commitMessageHasBeenSet; }
 
     /**
      * <p>The commit message you want to include as part of creating the commit. Commit
@@ -295,21 +329,28 @@ namespace Model
     /**
      * <p>If the commit contains deletions, whether to keep a folder or folder
      * structure if the changes leave the folders empty. If this is specified as true,
-     * a .gitkeep file will be created for empty folders.</p>
+     * a .gitkeep file will be created for empty folders. The default is false.</p>
      */
     inline bool GetKeepEmptyFolders() const{ return m_keepEmptyFolders; }
 
     /**
      * <p>If the commit contains deletions, whether to keep a folder or folder
      * structure if the changes leave the folders empty. If this is specified as true,
-     * a .gitkeep file will be created for empty folders.</p>
+     * a .gitkeep file will be created for empty folders. The default is false.</p>
+     */
+    inline bool KeepEmptyFoldersHasBeenSet() const { return m_keepEmptyFoldersHasBeenSet; }
+
+    /**
+     * <p>If the commit contains deletions, whether to keep a folder or folder
+     * structure if the changes leave the folders empty. If this is specified as true,
+     * a .gitkeep file will be created for empty folders. The default is false.</p>
      */
     inline void SetKeepEmptyFolders(bool value) { m_keepEmptyFoldersHasBeenSet = true; m_keepEmptyFolders = value; }
 
     /**
      * <p>If the commit contains deletions, whether to keep a folder or folder
      * structure if the changes leave the folders empty. If this is specified as true,
-     * a .gitkeep file will be created for empty folders.</p>
+     * a .gitkeep file will be created for empty folders. The default is false.</p>
      */
     inline CreateCommitRequest& WithKeepEmptyFolders(bool value) { SetKeepEmptyFolders(value); return *this;}
 
@@ -318,6 +359,11 @@ namespace Model
      * <p>The files to add or update in this commit.</p>
      */
     inline const Aws::Vector<PutFileEntry>& GetPutFiles() const{ return m_putFiles; }
+
+    /**
+     * <p>The files to add or update in this commit.</p>
+     */
+    inline bool PutFilesHasBeenSet() const { return m_putFilesHasBeenSet; }
 
     /**
      * <p>The files to add or update in this commit.</p>
@@ -360,6 +406,12 @@ namespace Model
      * <p>The files to delete in this commit. These files will still exist in prior
      * commits.</p>
      */
+    inline bool DeleteFilesHasBeenSet() const { return m_deleteFilesHasBeenSet; }
+
+    /**
+     * <p>The files to delete in this commit. These files will still exist in prior
+     * commits.</p>
+     */
     inline void SetDeleteFiles(const Aws::Vector<DeleteFileEntry>& value) { m_deleteFilesHasBeenSet = true; m_deleteFiles = value; }
 
     /**
@@ -397,6 +449,11 @@ namespace Model
      * <p>The file modes to update for files in this commit.</p>
      */
     inline const Aws::Vector<SetFileModeEntry>& GetSetFileModes() const{ return m_setFileModes; }
+
+    /**
+     * <p>The file modes to update for files in this commit.</p>
+     */
+    inline bool SetFileModesHasBeenSet() const { return m_setFileModesHasBeenSet; }
 
     /**
      * <p>The file modes to update for files in this commit.</p>

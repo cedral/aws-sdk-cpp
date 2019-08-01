@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteScalingPlanRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the scaling plan.</p>
      */
     inline const Aws::String& GetScalingPlanName() const{ return m_scalingPlanName; }
+
+    /**
+     * <p>The name of the scaling plan.</p>
+     */
+    inline bool ScalingPlanNameHasBeenSet() const { return m_scalingPlanNameHasBeenSet; }
 
     /**
      * <p>The name of the scaling plan.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The version number of the scaling plan.</p>
      */
     inline long long GetScalingPlanVersion() const{ return m_scalingPlanVersion; }
+
+    /**
+     * <p>The version number of the scaling plan.</p>
+     */
+    inline bool ScalingPlanVersionHasBeenSet() const { return m_scalingPlanVersionHasBeenSet; }
 
     /**
      * <p>The version number of the scaling plan.</p>

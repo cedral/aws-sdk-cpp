@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteRolePermissionsBoundaryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * remove the permissions boundary.</p>
      */
     inline const Aws::String& GetRoleName() const{ return m_roleName; }
+
+    /**
+     * <p>The name (friendly name, not ARN) of the IAM role from which you want to
+     * remove the permissions boundary.</p>
+     */
+    inline bool RoleNameHasBeenSet() const { return m_roleNameHasBeenSet; }
 
     /**
      * <p>The name (friendly name, not ARN) of the IAM role from which you want to

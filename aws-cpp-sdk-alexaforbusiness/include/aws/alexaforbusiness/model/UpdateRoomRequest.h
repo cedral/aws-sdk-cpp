@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateRoomRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the room to update. </p>
      */
     inline const Aws::String& GetRoomArn() const{ return m_roomArn; }
+
+    /**
+     * <p>The ARN of the room to update. </p>
+     */
+    inline bool RoomArnHasBeenSet() const { return m_roomArnHasBeenSet; }
 
     /**
      * <p>The ARN of the room to update. </p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The updated name for the room.</p>
      */
+    inline bool RoomNameHasBeenSet() const { return m_roomNameHasBeenSet; }
+
+    /**
+     * <p>The updated name for the room.</p>
+     */
     inline void SetRoomName(const Aws::String& value) { m_roomNameHasBeenSet = true; m_roomName = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The updated description for the room.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The updated description for the room.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The updated description for the room.</p>
@@ -160,6 +175,11 @@ namespace Model
     /**
      * <p>The updated provider calendar ARN for the room.</p>
      */
+    inline bool ProviderCalendarIdHasBeenSet() const { return m_providerCalendarIdHasBeenSet; }
+
+    /**
+     * <p>The updated provider calendar ARN for the room.</p>
+     */
     inline void SetProviderCalendarId(const Aws::String& value) { m_providerCalendarIdHasBeenSet = true; m_providerCalendarId = value; }
 
     /**
@@ -192,6 +212,11 @@ namespace Model
      * <p>The updated profile ARN for the room.</p>
      */
     inline const Aws::String& GetProfileArn() const{ return m_profileArn; }
+
+    /**
+     * <p>The updated profile ARN for the room.</p>
+     */
+    inline bool ProfileArnHasBeenSet() const { return m_profileArnHasBeenSet; }
 
     /**
      * <p>The updated profile ARN for the room.</p>

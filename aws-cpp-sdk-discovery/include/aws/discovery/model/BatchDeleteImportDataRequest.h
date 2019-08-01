@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     BatchDeleteImportDataRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The IDs for the import tasks that you want to delete.</p>
      */
     inline const Aws::Vector<Aws::String>& GetImportTaskIds() const{ return m_importTaskIds; }
+
+    /**
+     * <p>The IDs for the import tasks that you want to delete.</p>
+     */
+    inline bool ImportTaskIdsHasBeenSet() const { return m_importTaskIdsHasBeenSet; }
 
     /**
      * <p>The IDs for the import tasks that you want to delete.</p>

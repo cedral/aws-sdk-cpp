@@ -36,11 +36,14 @@
 #include <aws/core/Globals.h>
 #include <aws/core/utils/EnumParseOverflowContainer.h>
 #include <aws/core/utils/crypto/MD5.h>
-#include <thread>
 #include <aws/core/utils/HashingUtils.h>
 #include <aws/core/utils/crypto/Factories.h>
 #include <aws/core/http/URI.h>
 #include <aws/core/monitoring/MonitoringManager.h>
+#include <aws/core/utils/event/EventStream.h>
+
+#include <cstring>
+#include <cassert>
 
 using namespace Aws;
 using namespace Aws::Client;
@@ -296,6 +299,11 @@ HttpResponseOutcome AWSClient::AttemptOneRequest(const std::shared_ptr<HttpReque
         return HttpResponseOutcome(AWSError<CoreErrors>(CoreErrors::CLIENT_SIGNING_FAILURE, "", "SDK failed to sign the request", false/*retryable*/));
     }
 
+    if (request.GetRequestSignedHandler())
+    {
+        request.GetRequestSignedHandler()(*httpRequest);
+    }
+
     AWS_LOGSTREAM_DEBUG(AWS_CLIENT_LOG_TAG, "Request Successfully signed");
     std::shared_ptr<HttpResponse> httpResponse(
         m_httpClient->MakeRequest(httpRequest, m_readRateLimiter.get(), m_writeRateLimiter.get()));
@@ -303,7 +311,13 @@ HttpResponseOutcome AWSClient::AttemptOneRequest(const std::shared_ptr<HttpReque
     if (DoesResponseGenerateError(httpResponse))
     {
         AWS_LOGSTREAM_DEBUG(AWS_CLIENT_LOG_TAG, "Request returned error. Attempting to generate appropriate error codes from response");
-        return HttpResponseOutcome(BuildAWSError(httpResponse));
+        auto err = BuildAWSError(httpResponse);
+        auto ip = httpRequest->GetResolvedRemoteHost();
+        if (!ip.empty())
+        {
+            err.SetMessage(err.GetMessage() + " with address : " + ip);
+        }
+        return HttpResponseOutcome(err);
     }
 
     AWS_LOGSTREAM_DEBUG(AWS_CLIENT_LOG_TAG, "Request returned successful response.");
@@ -409,7 +423,7 @@ void AWSClient::AddHeadersToRequest(const std::shared_ptr<Aws::Http::HttpRequest
 }
 
 void AWSClient::AddContentBodyToRequest(const std::shared_ptr<Aws::Http::HttpRequest>& httpRequest,
-    const std::shared_ptr<Aws::IOStream>& body, bool needsContentMd5) const
+    const std::shared_ptr<Aws::IOStream>& body, bool needsContentMd5, bool isChunked) const
 {
     httpRequest->AddContentBody(body);
 
@@ -430,10 +444,20 @@ void AWSClient::AddContentBodyToRequest(const std::shared_ptr<Aws::Http::HttpReq
         }
     }
 
+    //Add transfer-encoding:chunked to header
+    if (body && isChunked)
+    {
+        httpRequest->SetTransferEncoding(CHUNKED_VALUE);
+    }
     //in the scenario where we are adding a content body as a stream, the request object likely already
     //has a content-length header set and we don't want to seek the stream just to find this information.
-    if (body && !httpRequest->HasHeader(Http::CONTENT_LENGTH_HEADER))
+    else if (body && !httpRequest->HasHeader(Http::CONTENT_LENGTH_HEADER))
     {
+        if (!m_httpClient->SupportsChunkedTransferEncoding())
+        {
+            AWS_LOGSTREAM_WARN(AWS_CLIENT_LOG_TAG, "This http client doesn't support transfer-encoding:chunked. " <<
+                                                   "The request may fail if it's not a seekable stream.");
+        }
         AWS_LOGSTREAM_TRACE(AWS_CLIENT_LOG_TAG, "Found body, but content-length has not been set, attempting to compute content-length");
         body->seekg(0, body->end);
         auto streamSize = body->tellg();
@@ -461,12 +485,36 @@ void AWSClient::AddContentBodyToRequest(const std::shared_ptr<Aws::Http::HttpReq
     }
 }
 
+Aws::String Aws::Client::GetAuthorizationHeader(const Aws::Http::HttpRequest& httpRequest)
+{
+    // Extract the hex-encoded signature from the authorization header rather than recalculating it.
+    assert(httpRequest.HasAwsAuthorization());
+    const auto& authHeader = httpRequest.GetAwsAuthorization();
+    auto signaturePosition = authHeader.rfind(Aws::Auth::SIGNATURE);
+    // The auth header should end with 'Signature=<64 chars>'
+    // Make sure we found the word 'Signature' in the header and make sure it's the last item followed by its 64 hex chars
+    if (signaturePosition == Aws::String::npos || (signaturePosition + strlen(Aws::Auth::SIGNATURE) + 1/*'=' character*/ + 64/*hex chars*/) != authHeader.length())
+    {
+        AWS_LOGSTREAM_ERROR(AWS_CLIENT_LOG_TAG, "Failed to extract signature from authorization header.");
+        return {};
+    }
+    return authHeader.substr(signaturePosition + strlen(Aws::Auth::SIGNATURE) + 1);
+}
+
 void AWSClient::BuildHttpRequest(const Aws::AmazonWebServiceRequest& request,
     const std::shared_ptr<HttpRequest>& httpRequest) const
 {
     //do headers first since the request likely will set content-length as it's own header.
     AddHeadersToRequest(httpRequest, request.GetHeaders());
-    AddContentBodyToRequest(httpRequest, request.GetBody(), request.ShouldComputeContentMd5());
+
+    if (request.IsEventStreamRequest())
+    {
+        httpRequest->AddContentBody(request.GetBody());
+    }
+    else
+    {
+        AddContentBodyToRequest(httpRequest, request.GetBody(), request.ShouldComputeContentMd5(), request.IsStreaming() && request.IsChunked() && m_httpClient->SupportsChunkedTransferEncoding());
+    }
 
     // Pass along handlers for processing data sent/received in bytes
     httpRequest->SetDataReceivedEventHandler(request.GetDataReceivedEventHandler());
@@ -589,6 +637,11 @@ std::shared_ptr<Aws::Http::HttpRequest> AWSClient::ConvertToRequestForPresigning
     return httpRequest;
 }
 
+std::shared_ptr<Aws::Http::HttpResponse> AWSClient::MakeHttpRequest(std::shared_ptr<Aws::Http::HttpRequest>& request) const
+{
+    return m_httpClient->MakeRequest(request, m_readRateLimiter.get(), m_writeRateLimiter.get());
+}
+
 
 ////////////////////////////////////////////////////////////////////////////
 AWSJsonClient::AWSJsonClient(const Aws::Client::ClientConfiguration& configuration,
@@ -637,6 +690,39 @@ JsonOutcome AWSJsonClient::MakeRequest(const Aws::Http::URI& uri,
     {
         return JsonOutcome(httpOutcome.GetError());
     }
+
+    if (httpOutcome.GetResult()->GetResponseBody().tellp() > 0)
+    {
+        JsonValue jsonValue(httpOutcome.GetResult()->GetResponseBody());
+        if (!jsonValue.WasParseSuccessful())
+        {
+            return JsonOutcome(AWSError<CoreErrors>(CoreErrors::UNKNOWN, "Json Parser Error", jsonValue.GetErrorMessage(), false));
+        }
+
+        //this is stupid, but gcc doesn't pick up the covariant on the dereference so we have to give it a little hint.
+        return JsonOutcome(AmazonWebServiceResult<JsonValue>(std::move(jsonValue),
+            httpOutcome.GetResult()->GetHeaders(),
+            httpOutcome.GetResult()->GetResponseCode()));
+    }
+
+    return JsonOutcome(AmazonWebServiceResult<JsonValue>(JsonValue(), httpOutcome.GetResult()->GetHeaders()));
+}
+
+JsonOutcome AWSJsonClient::MakeEventStreamRequest(std::shared_ptr<Aws::Http::HttpRequest>& request) const
+{
+    // request is assumed to be signed
+    std::shared_ptr<HttpResponse> httpResponse = MakeHttpRequest(request);
+
+    if (DoesResponseGenerateError(httpResponse))
+    {
+        AWS_LOGSTREAM_DEBUG(AWS_CLIENT_LOG_TAG, "Request returned error. Attempting to generate appropriate error codes from response");
+        HttpResponseOutcome httpOutcome(BuildAWSError(httpResponse));
+        return JsonOutcome(httpOutcome.GetError());
+    }
+
+    AWS_LOGSTREAM_DEBUG(AWS_CLIENT_LOG_TAG, "Request returned successful response.");
+
+    HttpResponseOutcome httpOutcome(httpResponse);
 
     if (httpOutcome.GetResult()->GetResponseBody().tellp() > 0)
     {
@@ -761,8 +847,6 @@ AWSError<CoreErrors> AWSXMLClient::BuildAWSError(const std::shared_ptr<Http::Htt
         AWS_LOGSTREAM_ERROR(AWS_CLIENT_LOG_TAG, error);
         return error;
     }
-
-
 
     if (httpResponse->GetResponseBody().tellp() < 1)
     {

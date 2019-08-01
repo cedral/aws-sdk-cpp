@@ -46,7 +46,7 @@ namespace Model
    * event attribute's <code>cause</code> parameter is set to
    * <code>OPERATION_NOT_PERMITTED</code>. For details and example IAM policies, see
    * <a
-   * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+   * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
    * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
    * Guide</i>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/FailWorkflowExecutionDecisionAttributes">AWS
@@ -65,6 +65,11 @@ namespace Model
      * <p>A descriptive reason for the failure that may help in diagnostics.</p>
      */
     inline const Aws::String& GetReason() const{ return m_reason; }
+
+    /**
+     * <p>A descriptive reason for the failure that may help in diagnostics.</p>
+     */
+    inline bool ReasonHasBeenSet() const { return m_reasonHasBeenSet; }
 
     /**
      * <p>A descriptive reason for the failure that may help in diagnostics.</p>
@@ -101,6 +106,11 @@ namespace Model
      * <p> Details of the failure.</p>
      */
     inline const Aws::String& GetDetails() const{ return m_details; }
+
+    /**
+     * <p> Details of the failure.</p>
+     */
+    inline bool DetailsHasBeenSet() const { return m_detailsHasBeenSet; }
 
     /**
      * <p> Details of the failure.</p>

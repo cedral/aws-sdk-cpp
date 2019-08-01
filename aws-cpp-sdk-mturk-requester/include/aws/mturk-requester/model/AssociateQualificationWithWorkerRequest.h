@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateQualificationWithWorkerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the Qualification type to use for the assigned Qualification.</p>
      */
     inline const Aws::String& GetQualificationTypeId() const{ return m_qualificationTypeId; }
+
+    /**
+     * <p>The ID of the Qualification type to use for the assigned Qualification.</p>
+     */
+    inline bool QualificationTypeIdHasBeenSet() const { return m_qualificationTypeIdHasBeenSet; }
 
     /**
      * <p>The ID of the Qualification type to use for the assigned Qualification.</p>
@@ -85,6 +90,12 @@ namespace Model
      * are included with submitted HIT assignments and Qualification requests. </p>
      */
     inline const Aws::String& GetWorkerId() const{ return m_workerId; }
+
+    /**
+     * <p> The ID of the Worker to whom the Qualification is being assigned. Worker IDs
+     * are included with submitted HIT assignments and Qualification requests. </p>
+     */
+    inline bool WorkerIdHasBeenSet() const { return m_workerIdHasBeenSet; }
 
     /**
      * <p> The ID of the Worker to whom the Qualification is being assigned. Worker IDs
@@ -131,6 +142,11 @@ namespace Model
     /**
      * <p>The value of the Qualification to assign.</p>
      */
+    inline bool IntegerValueHasBeenSet() const { return m_integerValueHasBeenSet; }
+
+    /**
+     * <p>The value of the Qualification to assign.</p>
+     */
     inline void SetIntegerValue(int value) { m_integerValueHasBeenSet = true; m_integerValue = value; }
 
     /**
@@ -145,6 +161,13 @@ namespace Model
      * default. </p>
      */
     inline bool GetSendNotification() const{ return m_sendNotification; }
+
+    /**
+     * <p> Specifies whether to send a notification email message to the Worker saying
+     * that the qualification was assigned to the Worker. Note: this is true by
+     * default. </p>
+     */
+    inline bool SendNotificationHasBeenSet() const { return m_sendNotificationHasBeenSet; }
 
     /**
      * <p> Specifies whether to send a notification email message to the Worker saying

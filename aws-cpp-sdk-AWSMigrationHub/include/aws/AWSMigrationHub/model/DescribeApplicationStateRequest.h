@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeApplicationStateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * application.</p>
      */
     inline const Aws::String& GetApplicationId() const{ return m_applicationId; }
+
+    /**
+     * <p>The configurationId in ADS that uniquely identifies the grouped
+     * application.</p>
+     */
+    inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
 
     /**
      * <p>The configurationId in ADS that uniquely identifies the grouped

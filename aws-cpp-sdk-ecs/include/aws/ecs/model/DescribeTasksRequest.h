@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeTasksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,50 +48,65 @@ namespace Model
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
-     * the task to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * the task or tasks to describe. If you do not specify a cluster, the default
+     * cluster is assumed. This parameter is required if the task or tasks you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline const Aws::String& GetCluster() const{ return m_cluster; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
-     * the task to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * the task or tasks to describe. If you do not specify a cluster, the default
+     * cluster is assumed. This parameter is required if the task or tasks you are
+     * describing were launched in any cluster other than the default cluster.</p>
+     */
+    inline bool ClusterHasBeenSet() const { return m_clusterHasBeenSet; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
+     * the task or tasks to describe. If you do not specify a cluster, the default
+     * cluster is assumed. This parameter is required if the task or tasks you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(const Aws::String& value) { m_clusterHasBeenSet = true; m_cluster = value; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
-     * the task to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * the task or tasks to describe. If you do not specify a cluster, the default
+     * cluster is assumed. This parameter is required if the task or tasks you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(Aws::String&& value) { m_clusterHasBeenSet = true; m_cluster = std::move(value); }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
-     * the task to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * the task or tasks to describe. If you do not specify a cluster, the default
+     * cluster is assumed. This parameter is required if the task or tasks you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(const char* value) { m_clusterHasBeenSet = true; m_cluster.assign(value); }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
-     * the task to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * the task or tasks to describe. If you do not specify a cluster, the default
+     * cluster is assumed. This parameter is required if the task or tasks you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeTasksRequest& WithCluster(const Aws::String& value) { SetCluster(value); return *this;}
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
-     * the task to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * the task or tasks to describe. If you do not specify a cluster, the default
+     * cluster is assumed. This parameter is required if the task or tasks you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeTasksRequest& WithCluster(Aws::String&& value) { SetCluster(std::move(value)); return *this;}
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
-     * the task to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * the task or tasks to describe. If you do not specify a cluster, the default
+     * cluster is assumed. This parameter is required if the task or tasks you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeTasksRequest& WithCluster(const char* value) { SetCluster(value); return *this;}
 
@@ -100,6 +115,11 @@ namespace Model
      * <p>A list of up to 100 task IDs or full ARN entries.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTasks() const{ return m_tasks; }
+
+    /**
+     * <p>A list of up to 100 task IDs or full ARN entries.</p>
+     */
+    inline bool TasksHasBeenSet() const { return m_tasksHasBeenSet; }
 
     /**
      * <p>A list of up to 100 task IDs or full ARN entries.</p>
@@ -143,6 +163,13 @@ namespace Model
      * field is omitted, tags are not included in the response.</p>
      */
     inline const Aws::Vector<TaskField>& GetInclude() const{ return m_include; }
+
+    /**
+     * <p>Specifies whether you want to see the resource tags for the task. If
+     * <code>TAGS</code> is specified, the tags are included in the response. If this
+     * field is omitted, tags are not included in the response.</p>
+     */
+    inline bool IncludeHasBeenSet() const { return m_includeHasBeenSet; }
 
     /**
      * <p>Specifies whether you want to see the resource tags for the task. If

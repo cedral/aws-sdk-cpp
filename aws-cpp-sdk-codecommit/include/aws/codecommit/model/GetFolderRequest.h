@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetFolderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the repository.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository.</p>
@@ -88,6 +93,15 @@ namespace Model
      * commit.</p>
      */
     inline const Aws::String& GetCommitSpecifier() const{ return m_commitSpecifier; }
+
+    /**
+     * <p>A fully-qualified reference used to identify a commit that contains the
+     * version of the folder's content to return. A fully-qualified reference can be a
+     * commit ID, branch name, tag, or reference such as HEAD. If no specifier is
+     * provided, the folder content will be returned as it exists in the HEAD
+     * commit.</p>
+     */
+    inline bool CommitSpecifierHasBeenSet() const { return m_commitSpecifierHasBeenSet; }
 
     /**
      * <p>A fully-qualified reference used to identify a commit that contains the
@@ -151,6 +165,14 @@ namespace Model
      * repository. </p>
      */
     inline const Aws::String& GetFolderPath() const{ return m_folderPath; }
+
+    /**
+     * <p>The fully-qualified path to the folder whose contents will be returned,
+     * including the folder name. For example, /examples is a fully-qualified path to a
+     * folder named examples that was created off of the root directory (/) of a
+     * repository. </p>
+     */
+    inline bool FolderPathHasBeenSet() const { return m_folderPathHasBeenSet; }
 
     /**
      * <p>The fully-qualified path to the folder whose contents will be returned,

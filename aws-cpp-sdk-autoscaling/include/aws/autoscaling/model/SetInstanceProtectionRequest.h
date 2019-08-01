@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SetInstanceProtectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>One or more instance IDs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetInstanceIds() const{ return m_instanceIds; }
+
+    /**
+     * <p>One or more instance IDs.</p>
+     */
+    inline bool InstanceIdsHasBeenSet() const { return m_instanceIdsHasBeenSet; }
 
     /**
      * <p>One or more instance IDs.</p>
@@ -96,6 +101,11 @@ namespace Model
     /**
      * <p>The name of the Auto Scaling group.</p>
      */
+    inline bool AutoScalingGroupNameHasBeenSet() const { return m_autoScalingGroupNameHasBeenSet; }
+
+    /**
+     * <p>The name of the Auto Scaling group.</p>
+     */
     inline void SetAutoScalingGroupName(const Aws::String& value) { m_autoScalingGroupNameHasBeenSet = true; m_autoScalingGroupName = value; }
 
     /**
@@ -129,6 +139,12 @@ namespace Model
      * Auto Scaling when scaling in.</p>
      */
     inline bool GetProtectedFromScaleIn() const{ return m_protectedFromScaleIn; }
+
+    /**
+     * <p>Indicates whether the instance is protected from termination by Amazon EC2
+     * Auto Scaling when scaling in.</p>
+     */
+    inline bool ProtectedFromScaleInHasBeenSet() const { return m_protectedFromScaleInHasBeenSet; }
 
     /**
      * <p>Indicates whether the instance is protected from termination by Amazon EC2

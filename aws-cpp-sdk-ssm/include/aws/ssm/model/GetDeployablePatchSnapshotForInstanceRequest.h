@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDeployablePatchSnapshotForInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * retrieved.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The ID of the instance for which the appropriate patch snapshot should be
+     * retrieved.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The ID of the instance for which the appropriate patch snapshot should be
@@ -91,6 +97,11 @@ namespace Model
      * <p>The user-defined snapshot ID.</p>
      */
     inline const Aws::String& GetSnapshotId() const{ return m_snapshotId; }
+
+    /**
+     * <p>The user-defined snapshot ID.</p>
+     */
+    inline bool SnapshotIdHasBeenSet() const { return m_snapshotIdHasBeenSet; }
 
     /**
      * <p>The user-defined snapshot ID.</p>

@@ -32,7 +32,7 @@ namespace Model
 {
 
   /**
-   * <p> Detailed information about the accuracy of an entity recognizer.
+   * <p>Detailed information about the accuracy of an entity recognizer.
    * </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/comprehend-2017-11-27/EntityRecognizerEvaluationMetrics">AWS
    * API Reference</a></p>
@@ -52,6 +52,13 @@ namespace Model
      * than irrelevant ones. </p>
      */
     inline double GetPrecision() const{ return m_precision; }
+
+    /**
+     * <p>A measure of the usefulness of the recognizer results in the test data. High
+     * precision means that the recognizer returned substantially more relevant results
+     * than irrelevant ones. </p>
+     */
+    inline bool PrecisionHasBeenSet() const { return m_precisionHasBeenSet; }
 
     /**
      * <p>A measure of the usefulness of the recognizer results in the test data. High
@@ -78,6 +85,12 @@ namespace Model
      * <p>A measure of how complete the recognizer results are for the test data. High
      * recall means that the recognizer returned most of the relevant results.</p>
      */
+    inline bool RecallHasBeenSet() const { return m_recallHasBeenSet; }
+
+    /**
+     * <p>A measure of how complete the recognizer results are for the test data. High
+     * recall means that the recognizer returned most of the relevant results.</p>
+     */
     inline void SetRecall(double value) { m_recallHasBeenSet = true; m_recall = value; }
 
     /**
@@ -94,6 +107,14 @@ namespace Model
      * score is 1, and the worst score is 0. </p>
      */
     inline double GetF1Score() const{ return m_f1Score; }
+
+    /**
+     * <p>A measure of how accurate the recognizer results are for the test data. It is
+     * derived from the <code>Precision</code> and <code>Recall</code> values. The
+     * <code>F1Score</code> is the harmonic average of the two scores. The highest
+     * score is 1, and the worst score is 0. </p>
+     */
+    inline bool F1ScoreHasBeenSet() const { return m_f1ScoreHasBeenSet; }
 
     /**
      * <p>A measure of how accurate the recognizer results are for the test data. It is

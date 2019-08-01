@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     GetAccountAuthorizationDetailsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,16 @@ namespace Model
      * below.</p>
      */
     inline const Aws::Vector<EntityType>& GetFilter() const{ return m_filter; }
+
+    /**
+     * <p>A list of entity types used to filter the results. Only the entities that
+     * match the types you specify are included in the output. Use the value
+     * <code>LocalManagedPolicy</code> to include customer managed policies.</p> <p>The
+     * format for this parameter is a comma-separated (if more than one) list of
+     * strings. Each string value in the list must be one of the valid values listed
+     * below.</p>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
      * <p>A list of entity types used to filter the results. Only the entities that
@@ -141,6 +151,18 @@ namespace Model
      * <code>true</code>, and <code>Marker</code> contains a value to include in the
      * subsequent call that tells the service where to continue from.</p>
      */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
+
+    /**
+     * <p>Use this only when paginating results to indicate the maximum number of items
+     * you want in the response. If additional items exist beyond the maximum you
+     * specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
+     * <p>If you do not include this parameter, the number of items defaults to 100.
+     * Note that IAM might return fewer results, even when there are more results
+     * available. In that case, the <code>IsTruncated</code> response element returns
+     * <code>true</code>, and <code>Marker</code> contains a value to include in the
+     * subsequent call that tells the service where to continue from.</p>
+     */
     inline void SetMaxItems(int value) { m_maxItemsHasBeenSet = true; m_maxItems = value; }
 
     /**
@@ -163,6 +185,14 @@ namespace Model
      * the next call should start.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>Use this parameter only when paginating results and only after you receive a
+     * response indicating that the results are truncated. Set it to the value of the
+     * <code>Marker</code> element in the response that you received to indicate where
+     * the next call should start.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>Use this parameter only when paginating results and only after you receive a

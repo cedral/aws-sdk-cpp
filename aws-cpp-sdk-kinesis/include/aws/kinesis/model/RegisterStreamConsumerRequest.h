@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RegisterStreamConsumerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,14 @@ namespace Model
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline const Aws::String& GetStreamARN() const{ return m_streamARN; }
+
+    /**
+     * <p>The ARN of the Kinesis data stream that you want to register the consumer
+     * with. For more info, see <a
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon
+     * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+     */
+    inline bool StreamARNHasBeenSet() const { return m_streamARNHasBeenSet; }
 
     /**
      * <p>The ARN of the Kinesis data stream that you want to register the consumer
@@ -106,6 +114,12 @@ namespace Model
      * However, consumer names don't have to be unique across data streams.</p>
      */
     inline const Aws::String& GetConsumerName() const{ return m_consumerName; }
+
+    /**
+     * <p>For a given Kinesis data stream, each consumer must have a unique name.
+     * However, consumer names don't have to be unique across data streams.</p>
+     */
+    inline bool ConsumerNameHasBeenSet() const { return m_consumerNameHasBeenSet; }
 
     /**
      * <p>For a given Kinesis data stream, each consumer must have a unique name.

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeIdentityProviderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The user pool ID.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The identity provider name.</p>
      */
     inline const Aws::String& GetProviderName() const{ return m_providerName; }
+
+    /**
+     * <p>The identity provider name.</p>
+     */
+    inline bool ProviderNameHasBeenSet() const { return m_providerNameHasBeenSet; }
 
     /**
      * <p>The identity provider name.</p>

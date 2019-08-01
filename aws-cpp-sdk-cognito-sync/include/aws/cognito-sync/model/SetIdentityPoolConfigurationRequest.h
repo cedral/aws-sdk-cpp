@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     SetIdentityPoolConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * is the ID of the pool to modify.</p>
      */
     inline const Aws::String& GetIdentityPoolId() const{ return m_identityPoolId; }
+
+    /**
+     * <p>A name-spaced GUID (for example,
+     * us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This
+     * is the ID of the pool to modify.</p>
+     */
+    inline bool IdentityPoolIdHasBeenSet() const { return m_identityPoolIdHasBeenSet; }
 
     /**
      * <p>A name-spaced GUID (for example,
@@ -106,6 +113,11 @@ namespace Model
     /**
      * <p>Options to apply to this identity pool for push synchronization.</p>
      */
+    inline bool PushSyncHasBeenSet() const { return m_pushSyncHasBeenSet; }
+
+    /**
+     * <p>Options to apply to this identity pool for push synchronization.</p>
+     */
     inline void SetPushSync(const PushSync& value) { m_pushSyncHasBeenSet = true; m_pushSync = value; }
 
     /**
@@ -128,6 +140,11 @@ namespace Model
      * Options to apply to this identity pool for Amazon Cognito streams.
      */
     inline const CognitoStreams& GetCognitoStreams() const{ return m_cognitoStreams; }
+
+    /**
+     * Options to apply to this identity pool for Amazon Cognito streams.
+     */
+    inline bool CognitoStreamsHasBeenSet() const { return m_cognitoStreamsHasBeenSet; }
 
     /**
      * Options to apply to this identity pool for Amazon Cognito streams.

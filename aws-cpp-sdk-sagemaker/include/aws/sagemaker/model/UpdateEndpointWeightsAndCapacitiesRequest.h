@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateEndpointWeightsAndCapacitiesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of an existing Amazon SageMaker endpoint.</p>
      */
     inline const Aws::String& GetEndpointName() const{ return m_endpointName; }
+
+    /**
+     * <p>The name of an existing Amazon SageMaker endpoint.</p>
+     */
+    inline bool EndpointNameHasBeenSet() const { return m_endpointNameHasBeenSet; }
 
     /**
      * <p>The name of an existing Amazon SageMaker endpoint.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>An object that provides new capacity and weight values for a variant.</p>
      */
     inline const Aws::Vector<DesiredWeightAndCapacity>& GetDesiredWeightsAndCapacities() const{ return m_desiredWeightsAndCapacities; }
+
+    /**
+     * <p>An object that provides new capacity and weight values for a variant.</p>
+     */
+    inline bool DesiredWeightsAndCapacitiesHasBeenSet() const { return m_desiredWeightsAndCapacitiesHasBeenSet; }
 
     /**
      * <p>An object that provides new capacity and weight values for a variant.</p>

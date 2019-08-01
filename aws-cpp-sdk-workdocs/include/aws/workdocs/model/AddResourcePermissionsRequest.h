@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     AddResourcePermissionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * administrative API actions, as in accessing the API using AWS credentials.</p>
      */
     inline const Aws::String& GetAuthenticationToken() const{ return m_authenticationToken; }
+
+    /**
+     * <p>Amazon WorkDocs authentication token. Do not set this field when using
+     * administrative API actions, as in accessing the API using AWS credentials.</p>
+     */
+    inline bool AuthenticationTokenHasBeenSet() const { return m_authenticationTokenHasBeenSet; }
 
     /**
      * <p>Amazon WorkDocs authentication token. Do not set this field when using
@@ -98,6 +104,11 @@ namespace Model
     /**
      * <p>The ID of the resource.</p>
      */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the resource.</p>
+     */
     inline void SetResourceId(const Aws::String& value) { m_resourceIdHasBeenSet = true; m_resourceId = value; }
 
     /**
@@ -134,6 +145,11 @@ namespace Model
     /**
      * <p>The users, groups, or organization being granted permission.</p>
      */
+    inline bool PrincipalsHasBeenSet() const { return m_principalsHasBeenSet; }
+
+    /**
+     * <p>The users, groups, or organization being granted permission.</p>
+     */
     inline void SetPrincipals(const Aws::Vector<SharePrincipal>& value) { m_principalsHasBeenSet = true; m_principals = value; }
 
     /**
@@ -166,6 +182,11 @@ namespace Model
      * <p>The notification options.</p>
      */
     inline const NotificationOptions& GetNotificationOptions() const{ return m_notificationOptions; }
+
+    /**
+     * <p>The notification options.</p>
+     */
+    inline bool NotificationOptionsHasBeenSet() const { return m_notificationOptionsHasBeenSet; }
 
     /**
      * <p>The notification options.</p>

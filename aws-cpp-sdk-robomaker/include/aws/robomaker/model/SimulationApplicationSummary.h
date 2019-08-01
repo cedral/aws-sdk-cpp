@@ -17,6 +17,8 @@
 #include <aws/robomaker/RoboMaker_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/DateTime.h>
+#include <aws/robomaker/model/RobotSoftwareSuite.h>
+#include <aws/robomaker/model/SimulationSoftwareSuite.h>
 #include <utility>
 
 namespace Aws
@@ -57,6 +59,11 @@ namespace Model
     /**
      * <p>The name of the simulation application.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the simulation application.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -93,6 +100,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
      */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the simulation application.</p>
+     */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
@@ -125,6 +137,11 @@ namespace Model
      * <p>The version of the simulation application.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The version of the simulation application.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The version of the simulation application.</p>
@@ -167,6 +184,12 @@ namespace Model
      * <p>The time, in milliseconds since the epoch, when the simulation application
      * was last updated.</p>
      */
+    inline bool LastUpdatedAtHasBeenSet() const { return m_lastUpdatedAtHasBeenSet; }
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the simulation application
+     * was last updated.</p>
+     */
     inline void SetLastUpdatedAt(const Aws::Utils::DateTime& value) { m_lastUpdatedAtHasBeenSet = true; m_lastUpdatedAt = value; }
 
     /**
@@ -187,6 +210,68 @@ namespace Model
      */
     inline SimulationApplicationSummary& WithLastUpdatedAt(Aws::Utils::DateTime&& value) { SetLastUpdatedAt(std::move(value)); return *this;}
 
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline const RobotSoftwareSuite& GetRobotSoftwareSuite() const{ return m_robotSoftwareSuite; }
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline bool RobotSoftwareSuiteHasBeenSet() const { return m_robotSoftwareSuiteHasBeenSet; }
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline void SetRobotSoftwareSuite(const RobotSoftwareSuite& value) { m_robotSoftwareSuiteHasBeenSet = true; m_robotSoftwareSuite = value; }
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline void SetRobotSoftwareSuite(RobotSoftwareSuite&& value) { m_robotSoftwareSuiteHasBeenSet = true; m_robotSoftwareSuite = std::move(value); }
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline SimulationApplicationSummary& WithRobotSoftwareSuite(const RobotSoftwareSuite& value) { SetRobotSoftwareSuite(value); return *this;}
+
+    /**
+     * <p>Information about a robot software suite.</p>
+     */
+    inline SimulationApplicationSummary& WithRobotSoftwareSuite(RobotSoftwareSuite&& value) { SetRobotSoftwareSuite(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Information about a simulation software suite.</p>
+     */
+    inline const SimulationSoftwareSuite& GetSimulationSoftwareSuite() const{ return m_simulationSoftwareSuite; }
+
+    /**
+     * <p>Information about a simulation software suite.</p>
+     */
+    inline bool SimulationSoftwareSuiteHasBeenSet() const { return m_simulationSoftwareSuiteHasBeenSet; }
+
+    /**
+     * <p>Information about a simulation software suite.</p>
+     */
+    inline void SetSimulationSoftwareSuite(const SimulationSoftwareSuite& value) { m_simulationSoftwareSuiteHasBeenSet = true; m_simulationSoftwareSuite = value; }
+
+    /**
+     * <p>Information about a simulation software suite.</p>
+     */
+    inline void SetSimulationSoftwareSuite(SimulationSoftwareSuite&& value) { m_simulationSoftwareSuiteHasBeenSet = true; m_simulationSoftwareSuite = std::move(value); }
+
+    /**
+     * <p>Information about a simulation software suite.</p>
+     */
+    inline SimulationApplicationSummary& WithSimulationSoftwareSuite(const SimulationSoftwareSuite& value) { SetSimulationSoftwareSuite(value); return *this;}
+
+    /**
+     * <p>Information about a simulation software suite.</p>
+     */
+    inline SimulationApplicationSummary& WithSimulationSoftwareSuite(SimulationSoftwareSuite&& value) { SetSimulationSoftwareSuite(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_name;
@@ -200,6 +285,12 @@ namespace Model
 
     Aws::Utils::DateTime m_lastUpdatedAt;
     bool m_lastUpdatedAtHasBeenSet;
+
+    RobotSoftwareSuite m_robotSoftwareSuite;
+    bool m_robotSoftwareSuiteHasBeenSet;
+
+    SimulationSoftwareSuite m_simulationSoftwareSuite;
+    bool m_simulationSoftwareSuiteHasBeenSet;
   };
 
 } // namespace Model

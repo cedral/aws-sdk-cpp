@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     AttachVolumeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * <code>xvdh</code>).</p>
      */
     inline const Aws::String& GetDevice() const{ return m_device; }
+
+    /**
+     * <p>The device name (for example, <code>/dev/sdh</code> or
+     * <code>xvdh</code>).</p>
+     */
+    inline bool DeviceHasBeenSet() const { return m_deviceHasBeenSet; }
 
     /**
      * <p>The device name (for example, <code>/dev/sdh</code> or
@@ -100,6 +106,11 @@ namespace Model
     /**
      * <p>The ID of the instance.</p>
      */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the instance.</p>
+     */
     inline void SetInstanceId(const Aws::String& value) { m_instanceIdHasBeenSet = true; m_instanceId = value; }
 
     /**
@@ -133,6 +144,12 @@ namespace Model
      * Availability Zone.</p>
      */
     inline const Aws::String& GetVolumeId() const{ return m_volumeId; }
+
+    /**
+     * <p>The ID of the EBS volume. The volume and instance must be within the same
+     * Availability Zone.</p>
+     */
+    inline bool VolumeIdHasBeenSet() const { return m_volumeIdHasBeenSet; }
 
     /**
      * <p>The ID of the EBS volume. The volume and instance must be within the same
@@ -178,6 +195,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

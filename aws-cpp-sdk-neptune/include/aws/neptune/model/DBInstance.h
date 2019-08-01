@@ -45,9 +45,9 @@ namespace Model
 {
 
   /**
-   * <p>Contains the details of an Amazon Neptune DB instance. </p> <p>This data type
-   * is used as a response element in the <a>DescribeDBInstances</a> action.
-   * </p><p><h3>See Also:</h3>   <a
+   * <p>Contains the details of an Amazon Neptune DB instance.</p> <p>This data type
+   * is used as a response element in the <a>DescribeDBInstances</a>
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DBInstance">AWS
    * API Reference</a></p>
    */
@@ -67,6 +67,12 @@ namespace Model
      * key that identifies a DB instance.</p>
      */
     inline const Aws::String& GetDBInstanceIdentifier() const{ return m_dBInstanceIdentifier; }
+
+    /**
+     * <p>Contains a user-supplied database identifier. This identifier is the unique
+     * key that identifies a DB instance.</p>
+     */
+    inline bool DBInstanceIdentifierHasBeenSet() const { return m_dBInstanceIdentifierHasBeenSet; }
 
     /**
      * <p>Contains a user-supplied database identifier. This identifier is the unique
@@ -115,6 +121,12 @@ namespace Model
      * <p>Contains the name of the compute and memory capacity class of the DB
      * instance.</p>
      */
+    inline bool DBInstanceClassHasBeenSet() const { return m_dBInstanceClassHasBeenSet; }
+
+    /**
+     * <p>Contains the name of the compute and memory capacity class of the DB
+     * instance.</p>
+     */
     inline void SetDBInstanceClass(const Aws::String& value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass = value; }
 
     /**
@@ -156,6 +168,11 @@ namespace Model
     /**
      * <p>Provides the name of the database engine to be used for this DB instance.</p>
      */
+    inline bool EngineHasBeenSet() const { return m_engineHasBeenSet; }
+
+    /**
+     * <p>Provides the name of the database engine to be used for this DB instance.</p>
+     */
     inline void SetEngine(const Aws::String& value) { m_engineHasBeenSet = true; m_engine = value; }
 
     /**
@@ -188,6 +205,11 @@ namespace Model
      * <p>Specifies the current state of this database.</p>
      */
     inline const Aws::String& GetDBInstanceStatus() const{ return m_dBInstanceStatus; }
+
+    /**
+     * <p>Specifies the current state of this database.</p>
+     */
+    inline bool DBInstanceStatusHasBeenSet() const { return m_dBInstanceStatusHasBeenSet; }
 
     /**
      * <p>Specifies the current state of this database.</p>
@@ -228,6 +250,11 @@ namespace Model
     /**
      * <p>Contains the master username for the DB instance.</p>
      */
+    inline bool MasterUsernameHasBeenSet() const { return m_masterUsernameHasBeenSet; }
+
+    /**
+     * <p>Contains the master username for the DB instance.</p>
+     */
     inline void SetMasterUsername(const Aws::String& value) { m_masterUsernameHasBeenSet = true; m_masterUsername = value; }
 
     /**
@@ -260,6 +287,11 @@ namespace Model
      * <p>The database name.</p>
      */
     inline const Aws::String& GetDBName() const{ return m_dBName; }
+
+    /**
+     * <p>The database name.</p>
+     */
+    inline bool DBNameHasBeenSet() const { return m_dBNameHasBeenSet; }
 
     /**
      * <p>The database name.</p>
@@ -300,6 +332,11 @@ namespace Model
     /**
      * <p>Specifies the connection endpoint.</p>
      */
+    inline bool EndpointHasBeenSet() const { return m_endpointHasBeenSet; }
+
+    /**
+     * <p>Specifies the connection endpoint.</p>
+     */
     inline void SetEndpoint(const Endpoint& value) { m_endpointHasBeenSet = true; m_endpoint = value; }
 
     /**
@@ -326,6 +363,11 @@ namespace Model
     /**
      * <p>Specifies the allocated storage size specified in gibibytes.</p>
      */
+    inline bool AllocatedStorageHasBeenSet() const { return m_allocatedStorageHasBeenSet; }
+
+    /**
+     * <p>Specifies the allocated storage size specified in gibibytes.</p>
+     */
     inline void SetAllocatedStorage(int value) { m_allocatedStorageHasBeenSet = true; m_allocatedStorage = value; }
 
     /**
@@ -338,6 +380,11 @@ namespace Model
      * <p>Provides the date and time the DB instance was created.</p>
      */
     inline const Aws::Utils::DateTime& GetInstanceCreateTime() const{ return m_instanceCreateTime; }
+
+    /**
+     * <p>Provides the date and time the DB instance was created.</p>
+     */
+    inline bool InstanceCreateTimeHasBeenSet() const { return m_instanceCreateTimeHasBeenSet; }
 
     /**
      * <p>Provides the date and time the DB instance was created.</p>
@@ -363,49 +410,56 @@ namespace Model
     /**
      * <p> Specifies the daily time range during which automated backups are created if
      * automated backups are enabled, as determined by the
-     * <code>BackupRetentionPeriod</code>. </p>
+     * <code>BackupRetentionPeriod</code>.</p>
      */
     inline const Aws::String& GetPreferredBackupWindow() const{ return m_preferredBackupWindow; }
 
     /**
      * <p> Specifies the daily time range during which automated backups are created if
      * automated backups are enabled, as determined by the
-     * <code>BackupRetentionPeriod</code>. </p>
+     * <code>BackupRetentionPeriod</code>.</p>
+     */
+    inline bool PreferredBackupWindowHasBeenSet() const { return m_preferredBackupWindowHasBeenSet; }
+
+    /**
+     * <p> Specifies the daily time range during which automated backups are created if
+     * automated backups are enabled, as determined by the
+     * <code>BackupRetentionPeriod</code>.</p>
      */
     inline void SetPreferredBackupWindow(const Aws::String& value) { m_preferredBackupWindowHasBeenSet = true; m_preferredBackupWindow = value; }
 
     /**
      * <p> Specifies the daily time range during which automated backups are created if
      * automated backups are enabled, as determined by the
-     * <code>BackupRetentionPeriod</code>. </p>
+     * <code>BackupRetentionPeriod</code>.</p>
      */
     inline void SetPreferredBackupWindow(Aws::String&& value) { m_preferredBackupWindowHasBeenSet = true; m_preferredBackupWindow = std::move(value); }
 
     /**
      * <p> Specifies the daily time range during which automated backups are created if
      * automated backups are enabled, as determined by the
-     * <code>BackupRetentionPeriod</code>. </p>
+     * <code>BackupRetentionPeriod</code>.</p>
      */
     inline void SetPreferredBackupWindow(const char* value) { m_preferredBackupWindowHasBeenSet = true; m_preferredBackupWindow.assign(value); }
 
     /**
      * <p> Specifies the daily time range during which automated backups are created if
      * automated backups are enabled, as determined by the
-     * <code>BackupRetentionPeriod</code>. </p>
+     * <code>BackupRetentionPeriod</code>.</p>
      */
     inline DBInstance& WithPreferredBackupWindow(const Aws::String& value) { SetPreferredBackupWindow(value); return *this;}
 
     /**
      * <p> Specifies the daily time range during which automated backups are created if
      * automated backups are enabled, as determined by the
-     * <code>BackupRetentionPeriod</code>. </p>
+     * <code>BackupRetentionPeriod</code>.</p>
      */
     inline DBInstance& WithPreferredBackupWindow(Aws::String&& value) { SetPreferredBackupWindow(std::move(value)); return *this;}
 
     /**
      * <p> Specifies the daily time range during which automated backups are created if
      * automated backups are enabled, as determined by the
-     * <code>BackupRetentionPeriod</code>. </p>
+     * <code>BackupRetentionPeriod</code>.</p>
      */
     inline DBInstance& WithPreferredBackupWindow(const char* value) { SetPreferredBackupWindow(value); return *this;}
 
@@ -415,6 +469,12 @@ namespace Model
      * retained.</p>
      */
     inline int GetBackupRetentionPeriod() const{ return m_backupRetentionPeriod; }
+
+    /**
+     * <p>Specifies the number of days for which automatic DB snapshots are
+     * retained.</p>
+     */
+    inline bool BackupRetentionPeriodHasBeenSet() const { return m_backupRetentionPeriodHasBeenSet; }
 
     /**
      * <p>Specifies the number of days for which automatic DB snapshots are
@@ -432,49 +492,56 @@ namespace Model
     /**
      * <p> Provides List of DB security group elements containing only
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
-     * subelements. </p>
+     * subelements.</p>
      */
     inline const Aws::Vector<DBSecurityGroupMembership>& GetDBSecurityGroups() const{ return m_dBSecurityGroups; }
 
     /**
      * <p> Provides List of DB security group elements containing only
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
-     * subelements. </p>
+     * subelements.</p>
+     */
+    inline bool DBSecurityGroupsHasBeenSet() const { return m_dBSecurityGroupsHasBeenSet; }
+
+    /**
+     * <p> Provides List of DB security group elements containing only
+     * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
+     * subelements.</p>
      */
     inline void SetDBSecurityGroups(const Aws::Vector<DBSecurityGroupMembership>& value) { m_dBSecurityGroupsHasBeenSet = true; m_dBSecurityGroups = value; }
 
     /**
      * <p> Provides List of DB security group elements containing only
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
-     * subelements. </p>
+     * subelements.</p>
      */
     inline void SetDBSecurityGroups(Aws::Vector<DBSecurityGroupMembership>&& value) { m_dBSecurityGroupsHasBeenSet = true; m_dBSecurityGroups = std::move(value); }
 
     /**
      * <p> Provides List of DB security group elements containing only
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
-     * subelements. </p>
+     * subelements.</p>
      */
     inline DBInstance& WithDBSecurityGroups(const Aws::Vector<DBSecurityGroupMembership>& value) { SetDBSecurityGroups(value); return *this;}
 
     /**
      * <p> Provides List of DB security group elements containing only
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
-     * subelements. </p>
+     * subelements.</p>
      */
     inline DBInstance& WithDBSecurityGroups(Aws::Vector<DBSecurityGroupMembership>&& value) { SetDBSecurityGroups(std::move(value)); return *this;}
 
     /**
      * <p> Provides List of DB security group elements containing only
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
-     * subelements. </p>
+     * subelements.</p>
      */
     inline DBInstance& AddDBSecurityGroups(const DBSecurityGroupMembership& value) { m_dBSecurityGroupsHasBeenSet = true; m_dBSecurityGroups.push_back(value); return *this; }
 
     /**
      * <p> Provides List of DB security group elements containing only
      * <code>DBSecurityGroup.Name</code> and <code>DBSecurityGroup.Status</code>
-     * subelements. </p>
+     * subelements.</p>
      */
     inline DBInstance& AddDBSecurityGroups(DBSecurityGroupMembership&& value) { m_dBSecurityGroupsHasBeenSet = true; m_dBSecurityGroups.push_back(std::move(value)); return *this; }
 
@@ -484,6 +551,12 @@ namespace Model
      * to.</p>
      */
     inline const Aws::Vector<VpcSecurityGroupMembership>& GetVpcSecurityGroups() const{ return m_vpcSecurityGroups; }
+
+    /**
+     * <p>Provides a list of VPC security group elements that the DB instance belongs
+     * to.</p>
+     */
+    inline bool VpcSecurityGroupsHasBeenSet() const { return m_vpcSecurityGroupsHasBeenSet; }
 
     /**
      * <p>Provides a list of VPC security group elements that the DB instance belongs
@@ -530,6 +603,11 @@ namespace Model
     /**
      * <p>Provides the list of DB parameter groups applied to this DB instance.</p>
      */
+    inline bool DBParameterGroupsHasBeenSet() const { return m_dBParameterGroupsHasBeenSet; }
+
+    /**
+     * <p>Provides the list of DB parameter groups applied to this DB instance.</p>
+     */
     inline void SetDBParameterGroups(const Aws::Vector<DBParameterGroupStatus>& value) { m_dBParameterGroupsHasBeenSet = true; m_dBParameterGroups = value; }
 
     /**
@@ -563,6 +641,12 @@ namespace Model
      * in.</p>
      */
     inline const Aws::String& GetAvailabilityZone() const{ return m_availabilityZone; }
+
+    /**
+     * <p>Specifies the name of the Availability Zone the DB instance is located
+     * in.</p>
+     */
+    inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
 
     /**
      * <p>Specifies the name of the Availability Zone the DB instance is located
@@ -611,6 +695,12 @@ namespace Model
      * <p>Specifies information on the subnet group associated with the DB instance,
      * including the name, description, and subnets in the subnet group.</p>
      */
+    inline bool DBSubnetGroupHasBeenSet() const { return m_dBSubnetGroupHasBeenSet; }
+
+    /**
+     * <p>Specifies information on the subnet group associated with the DB instance,
+     * including the name, description, and subnets in the subnet group.</p>
+     */
     inline void SetDBSubnetGroup(const DBSubnetGroup& value) { m_dBSubnetGroupHasBeenSet = true; m_dBSubnetGroup = value; }
 
     /**
@@ -637,6 +727,12 @@ namespace Model
      * Universal Coordinated Time (UTC).</p>
      */
     inline const Aws::String& GetPreferredMaintenanceWindow() const{ return m_preferredMaintenanceWindow; }
+
+    /**
+     * <p>Specifies the weekly time range during which system maintenance can occur, in
+     * Universal Coordinated Time (UTC).</p>
+     */
+    inline bool PreferredMaintenanceWindowHasBeenSet() const { return m_preferredMaintenanceWindowHasBeenSet; }
 
     /**
      * <p>Specifies the weekly time range during which system maintenance can occur, in
@@ -687,6 +783,13 @@ namespace Model
      * included when changes are pending. Specific changes are identified by
      * subelements.</p>
      */
+    inline bool PendingModifiedValuesHasBeenSet() const { return m_pendingModifiedValuesHasBeenSet; }
+
+    /**
+     * <p>Specifies that changes to the DB instance are pending. This element is only
+     * included when changes are pending. Specific changes are identified by
+     * subelements.</p>
+     */
     inline void SetPendingModifiedValues(const PendingModifiedValues& value) { m_pendingModifiedValuesHasBeenSet = true; m_pendingModifiedValues = value; }
 
     /**
@@ -721,6 +824,12 @@ namespace Model
      * <p>Specifies the latest time to which a database can be restored with
      * point-in-time restore.</p>
      */
+    inline bool LatestRestorableTimeHasBeenSet() const { return m_latestRestorableTimeHasBeenSet; }
+
+    /**
+     * <p>Specifies the latest time to which a database can be restored with
+     * point-in-time restore.</p>
+     */
     inline void SetLatestRestorableTime(const Aws::Utils::DateTime& value) { m_latestRestorableTimeHasBeenSet = true; m_latestRestorableTime = value; }
 
     /**
@@ -750,6 +859,11 @@ namespace Model
     /**
      * <p>Specifies if the DB instance is a Multi-AZ deployment.</p>
      */
+    inline bool MultiAZHasBeenSet() const { return m_multiAZHasBeenSet; }
+
+    /**
+     * <p>Specifies if the DB instance is a Multi-AZ deployment.</p>
+     */
     inline void SetMultiAZ(bool value) { m_multiAZHasBeenSet = true; m_multiAZ = value; }
 
     /**
@@ -762,6 +876,11 @@ namespace Model
      * <p>Indicates the database engine version.</p>
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
+
+    /**
+     * <p>Indicates the database engine version.</p>
+     */
+    inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
      * <p>Indicates the database engine version.</p>
@@ -802,6 +921,11 @@ namespace Model
     /**
      * <p>Indicates that minor version patches are applied automatically.</p>
      */
+    inline bool AutoMinorVersionUpgradeHasBeenSet() const { return m_autoMinorVersionUpgradeHasBeenSet; }
+
+    /**
+     * <p>Indicates that minor version patches are applied automatically.</p>
+     */
     inline void SetAutoMinorVersionUpgrade(bool value) { m_autoMinorVersionUpgradeHasBeenSet = true; m_autoMinorVersionUpgrade = value; }
 
     /**
@@ -815,6 +939,12 @@ namespace Model
      * Read Replica.</p>
      */
     inline const Aws::String& GetReadReplicaSourceDBInstanceIdentifier() const{ return m_readReplicaSourceDBInstanceIdentifier; }
+
+    /**
+     * <p>Contains the identifier of the source DB instance if this DB instance is a
+     * Read Replica.</p>
+     */
+    inline bool ReadReplicaSourceDBInstanceIdentifierHasBeenSet() const { return m_readReplicaSourceDBInstanceIdentifierHasBeenSet; }
 
     /**
      * <p>Contains the identifier of the source DB instance if this DB instance is a
@@ -858,6 +988,12 @@ namespace Model
      * instance.</p>
      */
     inline const Aws::Vector<Aws::String>& GetReadReplicaDBInstanceIdentifiers() const{ return m_readReplicaDBInstanceIdentifiers; }
+
+    /**
+     * <p>Contains one or more identifiers of the Read Replicas associated with this DB
+     * instance.</p>
+     */
+    inline bool ReadReplicaDBInstanceIdentifiersHasBeenSet() const { return m_readReplicaDBInstanceIdentifiersHasBeenSet; }
 
     /**
      * <p>Contains one or more identifiers of the Read Replicas associated with this DB
@@ -912,6 +1048,12 @@ namespace Model
      * <p>Contains one or more identifiers of DB clusters that are Read Replicas of
      * this DB instance.</p>
      */
+    inline bool ReadReplicaDBClusterIdentifiersHasBeenSet() const { return m_readReplicaDBClusterIdentifiersHasBeenSet; }
+
+    /**
+     * <p>Contains one or more identifiers of DB clusters that are Read Replicas of
+     * this DB instance.</p>
+     */
     inline void SetReadReplicaDBClusterIdentifiers(const Aws::Vector<Aws::String>& value) { m_readReplicaDBClusterIdentifiersHasBeenSet = true; m_readReplicaDBClusterIdentifiers = value; }
 
     /**
@@ -959,6 +1101,11 @@ namespace Model
     /**
      * <p>License model information for this DB instance.</p>
      */
+    inline bool LicenseModelHasBeenSet() const { return m_licenseModelHasBeenSet; }
+
+    /**
+     * <p>License model information for this DB instance.</p>
+     */
     inline void SetLicenseModel(const Aws::String& value) { m_licenseModelHasBeenSet = true; m_licenseModel = value; }
 
     /**
@@ -995,6 +1142,11 @@ namespace Model
     /**
      * <p>Specifies the Provisioned IOPS (I/O operations per second) value.</p>
      */
+    inline bool IopsHasBeenSet() const { return m_iopsHasBeenSet; }
+
+    /**
+     * <p>Specifies the Provisioned IOPS (I/O operations per second) value.</p>
+     */
     inline void SetIops(int value) { m_iopsHasBeenSet = true; m_iops = value; }
 
     /**
@@ -1007,6 +1159,11 @@ namespace Model
      * <p>Provides the list of option group memberships for this DB instance.</p>
      */
     inline const Aws::Vector<OptionGroupMembership>& GetOptionGroupMemberships() const{ return m_optionGroupMemberships; }
+
+    /**
+     * <p>Provides the list of option group memberships for this DB instance.</p>
+     */
+    inline bool OptionGroupMembershipsHasBeenSet() const { return m_optionGroupMembershipsHasBeenSet; }
 
     /**
      * <p>Provides the list of option group memberships for this DB instance.</p>
@@ -1044,6 +1201,12 @@ namespace Model
      * associated with.</p>
      */
     inline const Aws::String& GetCharacterSetName() const{ return m_characterSetName; }
+
+    /**
+     * <p>If present, specifies the name of the character set that this instance is
+     * associated with.</p>
+     */
+    inline bool CharacterSetNameHasBeenSet() const { return m_characterSetNameHasBeenSet; }
 
     /**
      * <p>If present, specifies the name of the character set that this instance is
@@ -1092,6 +1255,12 @@ namespace Model
      * <p>If present, specifies the name of the secondary Availability Zone for a DB
      * instance with multi-AZ support.</p>
      */
+    inline bool SecondaryAvailabilityZoneHasBeenSet() const { return m_secondaryAvailabilityZoneHasBeenSet; }
+
+    /**
+     * <p>If present, specifies the name of the secondary Availability Zone for a DB
+     * instance with multi-AZ support.</p>
+     */
     inline void SetSecondaryAvailabilityZone(const Aws::String& value) { m_secondaryAvailabilityZoneHasBeenSet = true; m_secondaryAvailabilityZone = value; }
 
     /**
@@ -1130,6 +1299,12 @@ namespace Model
      * blank.</p>
      */
     inline const Aws::Vector<DBInstanceStatusInfo>& GetStatusInfos() const{ return m_statusInfos; }
+
+    /**
+     * <p>The status of a Read Replica. If the instance is not a Read Replica, this is
+     * blank.</p>
+     */
+    inline bool StatusInfosHasBeenSet() const { return m_statusInfosHasBeenSet; }
 
     /**
      * <p>The status of a Read Replica. If the instance is not a Read Replica, this is
@@ -1176,6 +1351,11 @@ namespace Model
     /**
      * <p>Specifies the storage type associated with DB instance.</p>
      */
+    inline bool StorageTypeHasBeenSet() const { return m_storageTypeHasBeenSet; }
+
+    /**
+     * <p>Specifies the storage type associated with DB instance.</p>
+     */
     inline void SetStorageType(const Aws::String& value) { m_storageTypeHasBeenSet = true; m_storageType = value; }
 
     /**
@@ -1209,6 +1389,12 @@ namespace Model
      * encryption.</p>
      */
     inline const Aws::String& GetTdeCredentialArn() const{ return m_tdeCredentialArn; }
+
+    /**
+     * <p>The ARN from the key store with which the instance is associated for TDE
+     * encryption.</p>
+     */
+    inline bool TdeCredentialArnHasBeenSet() const { return m_tdeCredentialArnHasBeenSet; }
 
     /**
      * <p>The ARN from the key store with which the instance is associated for TDE
@@ -1257,6 +1443,12 @@ namespace Model
      * <p>Specifies the port that the DB instance listens on. If the DB instance is
      * part of a DB cluster, this can be a different port than the DB cluster port.</p>
      */
+    inline bool DbInstancePortHasBeenSet() const { return m_dbInstancePortHasBeenSet; }
+
+    /**
+     * <p>Specifies the port that the DB instance listens on. If the DB instance is
+     * part of a DB cluster, this can be a different port than the DB cluster port.</p>
+     */
     inline void SetDbInstancePort(int value) { m_dbInstancePortHasBeenSet = true; m_dbInstancePort = value; }
 
     /**
@@ -1271,6 +1463,12 @@ namespace Model
      * cluster that the DB instance is a member of.</p>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
+
+    /**
+     * <p>If the DB instance is a member of a DB cluster, contains the name of the DB
+     * cluster that the DB instance is a member of.</p>
+     */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
      * <p>If the DB instance is a member of a DB cluster, contains the name of the DB
@@ -1310,60 +1508,75 @@ namespace Model
 
 
     /**
-     * <p>Specifies whether the DB instance is encrypted.</p>
+     * <p>Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline bool GetStorageEncrypted() const{ return m_storageEncrypted; }
 
     /**
-     * <p>Specifies whether the DB instance is encrypted.</p>
+     * <p>Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
+     */
+    inline bool StorageEncryptedHasBeenSet() const { return m_storageEncryptedHasBeenSet; }
+
+    /**
+     * <p>Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline void SetStorageEncrypted(bool value) { m_storageEncryptedHasBeenSet = true; m_storageEncrypted = value; }
 
     /**
-     * <p>Specifies whether the DB instance is encrypted.</p>
+     * <p>Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline DBInstance& WithStorageEncrypted(bool value) { SetStorageEncrypted(value); return *this;}
 
 
     /**
-     * <p> If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB instance. </p>
+     * <p> Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
 
     /**
-     * <p> If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB instance. </p>
+     * <p> Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
+     */
+    inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
+
+    /**
+     * <p> Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
 
     /**
-     * <p> If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB instance. </p>
+     * <p> Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = std::move(value); }
 
     /**
-     * <p> If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB instance. </p>
+     * <p> Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline void SetKmsKeyId(const char* value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId.assign(value); }
 
     /**
-     * <p> If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB instance. </p>
+     * <p> Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline DBInstance& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
 
     /**
-     * <p> If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB instance. </p>
+     * <p> Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline DBInstance& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
 
     /**
-     * <p> If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-     * encrypted DB instance. </p>
+     * <p> Not supported: The encryption for DB instances is managed by the DB
+     * cluster.</p>
      */
     inline DBInstance& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
@@ -1374,6 +1587,13 @@ namespace Model
      * the DB instance is accessed.</p>
      */
     inline const Aws::String& GetDbiResourceId() const{ return m_dbiResourceId; }
+
+    /**
+     * <p>The AWS Region-unique, immutable identifier for the DB instance. This
+     * identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for
+     * the DB instance is accessed.</p>
+     */
+    inline bool DbiResourceIdHasBeenSet() const { return m_dbiResourceIdHasBeenSet; }
 
     /**
      * <p>The AWS Region-unique, immutable identifier for the DB instance. This
@@ -1426,6 +1646,11 @@ namespace Model
     /**
      * <p>The identifier of the CA certificate for this DB instance.</p>
      */
+    inline bool CACertificateIdentifierHasBeenSet() const { return m_cACertificateIdentifierHasBeenSet; }
+
+    /**
+     * <p>The identifier of the CA certificate for this DB instance.</p>
+     */
     inline void SetCACertificateIdentifier(const Aws::String& value) { m_cACertificateIdentifierHasBeenSet = true; m_cACertificateIdentifier = value; }
 
     /**
@@ -1458,6 +1683,11 @@ namespace Model
      * <p>Not supported</p>
      */
     inline const Aws::Vector<DomainMembership>& GetDomainMemberships() const{ return m_domainMemberships; }
+
+    /**
+     * <p>Not supported</p>
+     */
+    inline bool DomainMembershipsHasBeenSet() const { return m_domainMembershipsHasBeenSet; }
 
     /**
      * <p>Not supported</p>
@@ -1500,6 +1730,12 @@ namespace Model
      * <p>Specifies whether tags are copied from the DB instance to snapshots of the DB
      * instance.</p>
      */
+    inline bool CopyTagsToSnapshotHasBeenSet() const { return m_copyTagsToSnapshotHasBeenSet; }
+
+    /**
+     * <p>Specifies whether tags are copied from the DB instance to snapshots of the DB
+     * instance.</p>
+     */
     inline void SetCopyTagsToSnapshot(bool value) { m_copyTagsToSnapshotHasBeenSet = true; m_copyTagsToSnapshot = value; }
 
     /**
@@ -1519,6 +1755,12 @@ namespace Model
      * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are
      * collected for the DB instance.</p>
      */
+    inline bool MonitoringIntervalHasBeenSet() const { return m_monitoringIntervalHasBeenSet; }
+
+    /**
+     * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are
+     * collected for the DB instance.</p>
+     */
     inline void SetMonitoringInterval(int value) { m_monitoringIntervalHasBeenSet = true; m_monitoringInterval = value; }
 
     /**
@@ -1533,6 +1775,12 @@ namespace Model
      * receives the Enhanced Monitoring metrics data for the DB instance.</p>
      */
     inline const Aws::String& GetEnhancedMonitoringResourceArn() const{ return m_enhancedMonitoringResourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that
+     * receives the Enhanced Monitoring metrics data for the DB instance.</p>
+     */
+    inline bool EnhancedMonitoringResourceArnHasBeenSet() const { return m_enhancedMonitoringResourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that
@@ -1581,6 +1829,12 @@ namespace Model
      * <p>The ARN for the IAM role that permits Neptune to send Enhanced Monitoring
      * metrics to Amazon CloudWatch Logs.</p>
      */
+    inline bool MonitoringRoleArnHasBeenSet() const { return m_monitoringRoleArnHasBeenSet; }
+
+    /**
+     * <p>The ARN for the IAM role that permits Neptune to send Enhanced Monitoring
+     * metrics to Amazon CloudWatch Logs.</p>
+     */
     inline void SetMonitoringRoleArn(const Aws::String& value) { m_monitoringRoleArnHasBeenSet = true; m_monitoringRoleArn = value; }
 
     /**
@@ -1624,6 +1878,12 @@ namespace Model
      * <p>A value that specifies the order in which a Read Replica is promoted to the
      * primary instance after a failure of the existing primary instance. </p>
      */
+    inline bool PromotionTierHasBeenSet() const { return m_promotionTierHasBeenSet; }
+
+    /**
+     * <p>A value that specifies the order in which a Read Replica is promoted to the
+     * primary instance after a failure of the existing primary instance. </p>
+     */
     inline void SetPromotionTier(int value) { m_promotionTierHasBeenSet = true; m_promotionTier = value; }
 
     /**
@@ -1637,6 +1897,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) for the DB instance.</p>
      */
     inline const Aws::String& GetDBInstanceArn() const{ return m_dBInstanceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB instance.</p>
+     */
+    inline bool DBInstanceArnHasBeenSet() const { return m_dBInstanceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) for the DB instance.</p>
@@ -1670,37 +1935,42 @@ namespace Model
 
 
     /**
-     * <p>Not supported. </p>
+     * <p>Not supported.</p>
      */
     inline const Aws::String& GetTimezone() const{ return m_timezone; }
 
     /**
-     * <p>Not supported. </p>
+     * <p>Not supported.</p>
+     */
+    inline bool TimezoneHasBeenSet() const { return m_timezoneHasBeenSet; }
+
+    /**
+     * <p>Not supported.</p>
      */
     inline void SetTimezone(const Aws::String& value) { m_timezoneHasBeenSet = true; m_timezone = value; }
 
     /**
-     * <p>Not supported. </p>
+     * <p>Not supported.</p>
      */
     inline void SetTimezone(Aws::String&& value) { m_timezoneHasBeenSet = true; m_timezone = std::move(value); }
 
     /**
-     * <p>Not supported. </p>
+     * <p>Not supported.</p>
      */
     inline void SetTimezone(const char* value) { m_timezoneHasBeenSet = true; m_timezone.assign(value); }
 
     /**
-     * <p>Not supported. </p>
+     * <p>Not supported.</p>
      */
     inline DBInstance& WithTimezone(const Aws::String& value) { SetTimezone(value); return *this;}
 
     /**
-     * <p>Not supported. </p>
+     * <p>Not supported.</p>
      */
     inline DBInstance& WithTimezone(Aws::String&& value) { SetTimezone(std::move(value)); return *this;}
 
     /**
-     * <p>Not supported. </p>
+     * <p>Not supported.</p>
      */
     inline DBInstance& WithTimezone(const char* value) { SetTimezone(value); return *this;}
 
@@ -1710,6 +1980,12 @@ namespace Model
      * and otherwise false.</p>
      */
     inline bool GetIAMDatabaseAuthenticationEnabled() const{ return m_iAMDatabaseAuthenticationEnabled; }
+
+    /**
+     * <p>True if AWS Identity and Access Management (IAM) authentication is enabled,
+     * and otherwise false.</p>
+     */
+    inline bool IAMDatabaseAuthenticationEnabledHasBeenSet() const { return m_iAMDatabaseAuthenticationEnabledHasBeenSet; }
 
     /**
      * <p>True if AWS Identity and Access Management (IAM) authentication is enabled,
@@ -1734,6 +2010,12 @@ namespace Model
      * <p>True if Performance Insights is enabled for the DB instance, and otherwise
      * false.</p>
      */
+    inline bool PerformanceInsightsEnabledHasBeenSet() const { return m_performanceInsightsEnabledHasBeenSet; }
+
+    /**
+     * <p>True if Performance Insights is enabled for the DB instance, and otherwise
+     * false.</p>
+     */
     inline void SetPerformanceInsightsEnabled(bool value) { m_performanceInsightsEnabledHasBeenSet = true; m_performanceInsightsEnabled = value; }
 
     /**
@@ -1749,6 +2031,13 @@ namespace Model
      * alias for the KMS encryption key.</p>
      */
     inline const Aws::String& GetPerformanceInsightsKMSKeyId() const{ return m_performanceInsightsKMSKeyId; }
+
+    /**
+     * <p>The AWS KMS key identifier for encryption of Performance Insights data. The
+     * KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key
+     * alias for the KMS encryption key.</p>
+     */
+    inline bool PerformanceInsightsKMSKeyIdHasBeenSet() const { return m_performanceInsightsKMSKeyIdHasBeenSet; }
 
     /**
      * <p>The AWS KMS key identifier for encryption of Performance Insights data. The
@@ -1798,6 +2087,12 @@ namespace Model
      * CloudWatch Logs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetEnabledCloudwatchLogsExports() const{ return m_enabledCloudwatchLogsExports; }
+
+    /**
+     * <p>A list of log types that this DB instance is configured to export to
+     * CloudWatch Logs.</p>
+     */
+    inline bool EnabledCloudwatchLogsExportsHasBeenSet() const { return m_enabledCloudwatchLogsExportsHasBeenSet; }
 
     /**
      * <p>A list of log types that this DB instance is configured to export to

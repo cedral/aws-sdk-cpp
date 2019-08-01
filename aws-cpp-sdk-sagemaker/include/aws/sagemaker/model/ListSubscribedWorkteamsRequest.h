@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListSubscribedWorkteamsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * name contains the specified string.</p>
      */
     inline const Aws::String& GetNameContains() const{ return m_nameContains; }
+
+    /**
+     * <p>A string in the work team name. This filter returns only work teams whose
+     * name contains the specified string.</p>
+     */
+    inline bool NameContainsHasBeenSet() const { return m_nameContainsHasBeenSet; }
 
     /**
      * <p>A string in the work team name. This filter returns only work teams whose
@@ -99,6 +105,13 @@ namespace Model
      * was truncated, the response includes a <code>NextToken</code>. To retrieve the
      * next set of labeling jobs, use the token in the next request.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>If the result of the previous <code>ListSubscribedWorkteams</code> request
+     * was truncated, the response includes a <code>NextToken</code>. To retrieve the
+     * next set of labeling jobs, use the token in the next request.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -141,6 +154,11 @@ namespace Model
      * <p>The maximum number of work teams to return in each page of the response.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of work teams to return in each page of the response.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of work teams to return in each page of the response.</p>

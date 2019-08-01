@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListV2LoggingLevelsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * <code>THING_Group</code>.</p>
      */
     inline const LogTargetType& GetTargetType() const{ return m_targetType; }
+
+    /**
+     * <p>The type of resource for which you are configuring logging. Must be
+     * <code>THING_Group</code>.</p>
+     */
+    inline bool TargetTypeHasBeenSet() const { return m_targetTypeHasBeenSet; }
 
     /**
      * <p>The type of resource for which you are configuring logging. Must be
@@ -85,6 +91,12 @@ namespace Model
      * additional results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token used to get the next set of results, or <b>null</b> if there are no
+     * additional results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token used to get the next set of results, or <b>null</b> if there are no
@@ -127,6 +139,11 @@ namespace Model
      * <p>The maximum number of results to return at one time.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return at one time.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return at one time.</p>

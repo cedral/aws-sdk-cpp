@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     RegisterCACertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,11 @@ namespace Model
      * <p>The CA certificate.</p>
      */
     inline const Aws::String& GetCaCertificate() const{ return m_caCertificate; }
+
+    /**
+     * <p>The CA certificate.</p>
+     */
+    inline bool CaCertificateHasBeenSet() const { return m_caCertificateHasBeenSet; }
 
     /**
      * <p>The CA certificate.</p>
@@ -97,6 +102,11 @@ namespace Model
     /**
      * <p>The private key verification certificate.</p>
      */
+    inline bool VerificationCertificateHasBeenSet() const { return m_verificationCertificateHasBeenSet; }
+
+    /**
+     * <p>The private key verification certificate.</p>
+     */
     inline void SetVerificationCertificate(const Aws::String& value) { m_verificationCertificateHasBeenSet = true; m_verificationCertificate = value; }
 
     /**
@@ -133,6 +143,11 @@ namespace Model
     /**
      * <p>A boolean value that specifies if the CA certificate is set to active.</p>
      */
+    inline bool SetAsActiveHasBeenSet() const { return m_setAsActiveHasBeenSet; }
+
+    /**
+     * <p>A boolean value that specifies if the CA certificate is set to active.</p>
+     */
     inline void SetSetAsActive(bool value) { m_setAsActiveHasBeenSet = true; m_setAsActive = value; }
 
     /**
@@ -151,6 +166,12 @@ namespace Model
      * <p>Allows this CA certificate to be used for auto registration of device
      * certificates.</p>
      */
+    inline bool AllowAutoRegistrationHasBeenSet() const { return m_allowAutoRegistrationHasBeenSet; }
+
+    /**
+     * <p>Allows this CA certificate to be used for auto registration of device
+     * certificates.</p>
+     */
     inline void SetAllowAutoRegistration(bool value) { m_allowAutoRegistrationHasBeenSet = true; m_allowAutoRegistration = value; }
 
     /**
@@ -164,6 +185,11 @@ namespace Model
      * <p>Information about the registration configuration.</p>
      */
     inline const RegistrationConfig& GetRegistrationConfig() const{ return m_registrationConfig; }
+
+    /**
+     * <p>Information about the registration configuration.</p>
+     */
+    inline bool RegistrationConfigHasBeenSet() const { return m_registrationConfigHasBeenSet; }
 
     /**
      * <p>Information about the registration configuration.</p>

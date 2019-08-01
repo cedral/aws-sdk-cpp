@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * assigned.</p>
      */
     inline const Aws::String& GetServerId() const{ return m_serverId; }
+
+    /**
+     * <p>A system-assigned unique identifier for an SFTP server that has this user
+     * assigned.</p>
+     */
+    inline bool ServerIdHasBeenSet() const { return m_serverIdHasBeenSet; }
 
     /**
      * <p>A system-assigned unique identifier for an SFTP server that has this user
@@ -93,6 +99,13 @@ namespace Model
      * transfer tasks.</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the user assigned to one or more servers. User names are part of
+     * the sign-in credentials to use the AWS Transfer service and perform file
+     * transfer tasks.</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the user assigned to one or more servers. User names are part of

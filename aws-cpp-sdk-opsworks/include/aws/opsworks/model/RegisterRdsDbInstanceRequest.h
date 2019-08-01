@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RegisterRdsDbInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The stack ID.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>The stack ID.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>The stack ID.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The Amazon RDS instance's ARN.</p>
      */
+    inline bool RdsDbInstanceArnHasBeenSet() const { return m_rdsDbInstanceArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon RDS instance's ARN.</p>
+     */
     inline void SetRdsDbInstanceArn(const Aws::String& value) { m_rdsDbInstanceArnHasBeenSet = true; m_rdsDbInstanceArn = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
     /**
      * <p>The database's master user name.</p>
      */
+    inline bool DbUserHasBeenSet() const { return m_dbUserHasBeenSet; }
+
+    /**
+     * <p>The database's master user name.</p>
+     */
     inline void SetDbUser(const Aws::String& value) { m_dbUserHasBeenSet = true; m_dbUser = value; }
 
     /**
@@ -156,6 +171,11 @@ namespace Model
      * <p>The database password.</p>
      */
     inline const Aws::String& GetDbPassword() const{ return m_dbPassword; }
+
+    /**
+     * <p>The database password.</p>
+     */
+    inline bool DbPasswordHasBeenSet() const { return m_dbPasswordHasBeenSet; }
 
     /**
      * <p>The database password.</p>

@@ -28,8 +28,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a PutActionRevision action.</p><p><h3>See Also:</h3> 
-   * <a
+   * <p>Represents the input of a <code>PutActionRevision</code>
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PutActionRevisionInput">AWS
    * API Reference</a></p>
    */
@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     PutActionRevisionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * source.</p>
      */
     inline const Aws::String& GetPipelineName() const{ return m_pipelineName; }
+
+    /**
+     * <p>The name of the pipeline that will start processing the revision to the
+     * source.</p>
+     */
+    inline bool PipelineNameHasBeenSet() const { return m_pipelineNameHasBeenSet; }
 
     /**
      * <p>The name of the pipeline that will start processing the revision to the
@@ -102,6 +108,12 @@ namespace Model
      * <p>The name of the stage that contains the action that will act upon the
      * revision.</p>
      */
+    inline bool StageNameHasBeenSet() const { return m_stageNameHasBeenSet; }
+
+    /**
+     * <p>The name of the stage that contains the action that will act upon the
+     * revision.</p>
+     */
     inline void SetStageName(const Aws::String& value) { m_stageNameHasBeenSet = true; m_stageName = value; }
 
     /**
@@ -143,6 +155,11 @@ namespace Model
     /**
      * <p>The name of the action that will process the revision.</p>
      */
+    inline bool ActionNameHasBeenSet() const { return m_actionNameHasBeenSet; }
+
+    /**
+     * <p>The name of the action that will process the revision.</p>
+     */
     inline void SetActionName(const Aws::String& value) { m_actionNameHasBeenSet = true; m_actionName = value; }
 
     /**
@@ -175,6 +192,11 @@ namespace Model
      * <p>Represents information about the version (or revision) of an action.</p>
      */
     inline const ActionRevision& GetActionRevision() const{ return m_actionRevision; }
+
+    /**
+     * <p>Represents information about the version (or revision) of an action.</p>
+     */
+    inline bool ActionRevisionHasBeenSet() const { return m_actionRevisionHasBeenSet; }
 
     /**
      * <p>Represents information about the version (or revision) of an action.</p>

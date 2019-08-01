@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     PublishLayerVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
      */
     inline const Aws::String& GetLayerName() const{ return m_layerName; }
+
+    /**
+     * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+     */
+    inline bool LayerNameHasBeenSet() const { return m_layerNameHasBeenSet; }
 
     /**
      * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The description of the version.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the version.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -125,6 +135,11 @@ namespace Model
     /**
      * <p>The function layer archive.</p>
      */
+    inline bool ContentHasBeenSet() const { return m_contentHasBeenSet; }
+
+    /**
+     * <p>The function layer archive.</p>
+     */
     inline void SetContent(const LayerVersionContentInput& value) { m_contentHasBeenSet = true; m_content = value; }
 
     /**
@@ -150,6 +165,14 @@ namespace Model
      * <a>ListLayerVersions</a>.</p>
      */
     inline const Aws::Vector<Runtime>& GetCompatibleRuntimes() const{ return m_compatibleRuntimes; }
+
+    /**
+     * <p>A list of compatible <a
+     * href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function
+     * runtimes</a>. Used for filtering with <a>ListLayers</a> and
+     * <a>ListLayerVersions</a>.</p>
+     */
+    inline bool CompatibleRuntimesHasBeenSet() const { return m_compatibleRuntimesHasBeenSet; }
 
     /**
      * <p>A list of compatible <a
@@ -208,6 +231,15 @@ namespace Model
      * </li> <li> <p>The full text of the license.</p> </li> </ul>
      */
     inline const Aws::String& GetLicenseInfo() const{ return m_licenseInfo; }
+
+    /**
+     * <p>The layer's software license. It can be any of the following:</p> <ul> <li>
+     * <p>An <a href="https://spdx.org/licenses/">SPDX license identifier</a>. For
+     * example, <code>MIT</code>.</p> </li> <li> <p>The URL of a license hosted on the
+     * internet. For example, <code>https://opensource.org/licenses/MIT</code>.</p>
+     * </li> <li> <p>The full text of the license.</p> </li> </ul>
+     */
+    inline bool LicenseInfoHasBeenSet() const { return m_licenseInfoHasBeenSet; }
 
     /**
      * <p>The layer's software license. It can be any of the following:</p> <ul> <li>

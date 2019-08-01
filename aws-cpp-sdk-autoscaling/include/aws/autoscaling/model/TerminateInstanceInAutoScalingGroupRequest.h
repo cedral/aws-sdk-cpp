@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     TerminateInstanceInAutoScalingGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the instance.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The ID of the instance.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The ID of the instance.</p>
@@ -87,6 +92,12 @@ namespace Model
      * Auto Scaling group.</p>
      */
     inline bool GetShouldDecrementDesiredCapacity() const{ return m_shouldDecrementDesiredCapacity; }
+
+    /**
+     * <p>Indicates whether terminating the instance also decrements the size of the
+     * Auto Scaling group.</p>
+     */
+    inline bool ShouldDecrementDesiredCapacityHasBeenSet() const { return m_shouldDecrementDesiredCapacityHasBeenSet; }
 
     /**
      * <p>Indicates whether terminating the instance also decrements the size of the

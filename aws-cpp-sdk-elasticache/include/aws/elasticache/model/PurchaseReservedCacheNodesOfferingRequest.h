@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     PurchaseReservedCacheNodesOfferingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code> </p>
      */
     inline const Aws::String& GetReservedCacheNodesOfferingId() const{ return m_reservedCacheNodesOfferingId; }
+
+    /**
+     * <p>The ID of the reserved cache node offering to purchase.</p> <p>Example:
+     * <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code> </p>
+     */
+    inline bool ReservedCacheNodesOfferingIdHasBeenSet() const { return m_reservedCacheNodesOfferingIdHasBeenSet; }
 
     /**
      * <p>The ID of the reserved cache node offering to purchase.</p> <p>Example:
@@ -101,6 +107,15 @@ namespace Model
      * myreservationID</p>
      */
     inline const Aws::String& GetReservedCacheNodeId() const{ return m_reservedCacheNodeId; }
+
+    /**
+     * <p>A customer-specified identifier to track this reservation.</p> <note> <p>The
+     * Reserved Cache Node ID is an unique customer-specified identifier to track this
+     * reservation. If this parameter is not specified, ElastiCache automatically
+     * generates an identifier for the reservation.</p> </note> <p>Example:
+     * myreservationID</p>
+     */
+    inline bool ReservedCacheNodeIdHasBeenSet() const { return m_reservedCacheNodeIdHasBeenSet; }
 
     /**
      * <p>A customer-specified identifier to track this reservation.</p> <note> <p>The
@@ -162,6 +177,12 @@ namespace Model
      * </p>
      */
     inline int GetCacheNodeCount() const{ return m_cacheNodeCount; }
+
+    /**
+     * <p>The number of cache node instances to reserve.</p> <p>Default: <code>1</code>
+     * </p>
+     */
+    inline bool CacheNodeCountHasBeenSet() const { return m_cacheNodeCountHasBeenSet; }
 
     /**
      * <p>The number of cache node instances to reserve.</p> <p>Default: <code>1</code>

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     RenderUiTemplateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * render.</p>
      */
     inline const UiTemplate& GetUiTemplate() const{ return m_uiTemplate; }
+
+    /**
+     * <p>A <code>Template</code> object containing the worker UI template to
+     * render.</p>
+     */
+    inline bool UiTemplateHasBeenSet() const { return m_uiTemplateHasBeenSet; }
 
     /**
      * <p>A <code>Template</code> object containing the worker UI template to
@@ -87,6 +93,12 @@ namespace Model
      * <p>A <code>RenderableTask</code> object containing a representative task to
      * render.</p>
      */
+    inline bool TaskHasBeenSet() const { return m_taskHasBeenSet; }
+
+    /**
+     * <p>A <code>RenderableTask</code> object containing a representative task to
+     * render.</p>
+     */
     inline void SetTask(const RenderableTask& value) { m_taskHasBeenSet = true; m_task = value; }
 
     /**
@@ -113,6 +125,12 @@ namespace Model
      * used by the template.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that has access to the S3 objects that are
+     * used by the template.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that has access to the S3 objects that are

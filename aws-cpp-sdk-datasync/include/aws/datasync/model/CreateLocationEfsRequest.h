@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateLocationEfsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,13 @@ namespace Model
      * EFS destination. By default, AWS DataSync uses the root directory.</p>
      */
     inline const Aws::String& GetSubdirectory() const{ return m_subdirectory; }
+
+    /**
+     * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
+     * system is used to read data from the EFS source location or write data to the
+     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     */
+    inline bool SubdirectoryHasBeenSet() const { return m_subdirectoryHasBeenSet; }
 
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
@@ -108,6 +115,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the Amazon EFS file system.</p>
      */
+    inline bool EfsFilesystemArnHasBeenSet() const { return m_efsFilesystemArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the Amazon EFS file system.</p>
+     */
     inline void SetEfsFilesystemArn(const Aws::String& value) { m_efsFilesystemArnHasBeenSet = true; m_efsFilesystemArn = value; }
 
     /**
@@ -137,27 +149,122 @@ namespace Model
 
 
     /**
-     * <p>The subnet and security group that the Amazon EFS file system uses.</p>
+     * <p>The subnet and security group that the Amazon EFS file system uses. The
+     * security group that you provide needs to be able to communicate with the
+     * security group on the mount target in the subnet specified.</p> <p>The exact
+     * relationship between security group M (of the mount target) and security group S
+     * (which you provide for DataSync to use at this stage) is as follows: </p> <ul>
+     * <li> <p> Security group M (which you associate with the mount target) must allow
+     * inbound access for the Transmission Control Protocol (TCP) on the NFS port
+     * (2049) from security group S. You can enable inbound connections either by IP
+     * address (CIDR range) or security group. </p> </li> <li> <p>Security group S
+     * (provided to DataSync to access EFS) should have a rule that enables outbound
+     * connections to the NFS port on one of the file system’s mount targets. You can
+     * enable outbound connections either by IP address (CIDR range) or security
+     * group.</p> <p>For information about security groups and mount targets, see
+     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
+     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
+     * EFS User Guide</i>.</p> </li> </ul>
      */
     inline const Ec2Config& GetEc2Config() const{ return m_ec2Config; }
 
     /**
-     * <p>The subnet and security group that the Amazon EFS file system uses.</p>
+     * <p>The subnet and security group that the Amazon EFS file system uses. The
+     * security group that you provide needs to be able to communicate with the
+     * security group on the mount target in the subnet specified.</p> <p>The exact
+     * relationship between security group M (of the mount target) and security group S
+     * (which you provide for DataSync to use at this stage) is as follows: </p> <ul>
+     * <li> <p> Security group M (which you associate with the mount target) must allow
+     * inbound access for the Transmission Control Protocol (TCP) on the NFS port
+     * (2049) from security group S. You can enable inbound connections either by IP
+     * address (CIDR range) or security group. </p> </li> <li> <p>Security group S
+     * (provided to DataSync to access EFS) should have a rule that enables outbound
+     * connections to the NFS port on one of the file system’s mount targets. You can
+     * enable outbound connections either by IP address (CIDR range) or security
+     * group.</p> <p>For information about security groups and mount targets, see
+     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
+     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
+     * EFS User Guide</i>.</p> </li> </ul>
+     */
+    inline bool Ec2ConfigHasBeenSet() const { return m_ec2ConfigHasBeenSet; }
+
+    /**
+     * <p>The subnet and security group that the Amazon EFS file system uses. The
+     * security group that you provide needs to be able to communicate with the
+     * security group on the mount target in the subnet specified.</p> <p>The exact
+     * relationship between security group M (of the mount target) and security group S
+     * (which you provide for DataSync to use at this stage) is as follows: </p> <ul>
+     * <li> <p> Security group M (which you associate with the mount target) must allow
+     * inbound access for the Transmission Control Protocol (TCP) on the NFS port
+     * (2049) from security group S. You can enable inbound connections either by IP
+     * address (CIDR range) or security group. </p> </li> <li> <p>Security group S
+     * (provided to DataSync to access EFS) should have a rule that enables outbound
+     * connections to the NFS port on one of the file system’s mount targets. You can
+     * enable outbound connections either by IP address (CIDR range) or security
+     * group.</p> <p>For information about security groups and mount targets, see
+     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
+     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
+     * EFS User Guide</i>.</p> </li> </ul>
      */
     inline void SetEc2Config(const Ec2Config& value) { m_ec2ConfigHasBeenSet = true; m_ec2Config = value; }
 
     /**
-     * <p>The subnet and security group that the Amazon EFS file system uses.</p>
+     * <p>The subnet and security group that the Amazon EFS file system uses. The
+     * security group that you provide needs to be able to communicate with the
+     * security group on the mount target in the subnet specified.</p> <p>The exact
+     * relationship between security group M (of the mount target) and security group S
+     * (which you provide for DataSync to use at this stage) is as follows: </p> <ul>
+     * <li> <p> Security group M (which you associate with the mount target) must allow
+     * inbound access for the Transmission Control Protocol (TCP) on the NFS port
+     * (2049) from security group S. You can enable inbound connections either by IP
+     * address (CIDR range) or security group. </p> </li> <li> <p>Security group S
+     * (provided to DataSync to access EFS) should have a rule that enables outbound
+     * connections to the NFS port on one of the file system’s mount targets. You can
+     * enable outbound connections either by IP address (CIDR range) or security
+     * group.</p> <p>For information about security groups and mount targets, see
+     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
+     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
+     * EFS User Guide</i>.</p> </li> </ul>
      */
     inline void SetEc2Config(Ec2Config&& value) { m_ec2ConfigHasBeenSet = true; m_ec2Config = std::move(value); }
 
     /**
-     * <p>The subnet and security group that the Amazon EFS file system uses.</p>
+     * <p>The subnet and security group that the Amazon EFS file system uses. The
+     * security group that you provide needs to be able to communicate with the
+     * security group on the mount target in the subnet specified.</p> <p>The exact
+     * relationship between security group M (of the mount target) and security group S
+     * (which you provide for DataSync to use at this stage) is as follows: </p> <ul>
+     * <li> <p> Security group M (which you associate with the mount target) must allow
+     * inbound access for the Transmission Control Protocol (TCP) on the NFS port
+     * (2049) from security group S. You can enable inbound connections either by IP
+     * address (CIDR range) or security group. </p> </li> <li> <p>Security group S
+     * (provided to DataSync to access EFS) should have a rule that enables outbound
+     * connections to the NFS port on one of the file system’s mount targets. You can
+     * enable outbound connections either by IP address (CIDR range) or security
+     * group.</p> <p>For information about security groups and mount targets, see
+     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
+     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
+     * EFS User Guide</i>.</p> </li> </ul>
      */
     inline CreateLocationEfsRequest& WithEc2Config(const Ec2Config& value) { SetEc2Config(value); return *this;}
 
     /**
-     * <p>The subnet and security group that the Amazon EFS file system uses.</p>
+     * <p>The subnet and security group that the Amazon EFS file system uses. The
+     * security group that you provide needs to be able to communicate with the
+     * security group on the mount target in the subnet specified.</p> <p>The exact
+     * relationship between security group M (of the mount target) and security group S
+     * (which you provide for DataSync to use at this stage) is as follows: </p> <ul>
+     * <li> <p> Security group M (which you associate with the mount target) must allow
+     * inbound access for the Transmission Control Protocol (TCP) on the NFS port
+     * (2049) from security group S. You can enable inbound connections either by IP
+     * address (CIDR range) or security group. </p> </li> <li> <p>Security group S
+     * (provided to DataSync to access EFS) should have a rule that enables outbound
+     * connections to the NFS port on one of the file system’s mount targets. You can
+     * enable outbound connections either by IP address (CIDR range) or security
+     * group.</p> <p>For information about security groups and mount targets, see
+     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
+     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
+     * EFS User Guide</i>.</p> </li> </ul>
      */
     inline CreateLocationEfsRequest& WithEc2Config(Ec2Config&& value) { SetEc2Config(std::move(value)); return *this;}
 
@@ -169,6 +276,14 @@ namespace Model
      * location.</p>
      */
     inline const Aws::Vector<TagListEntry>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value pair that represents a tag that you want to add to the
+     * resource. The value can be an empty string. This value helps you manage, filter,
+     * and search for your resources. We recommend that you create a name tag for your
+     * location.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The key-value pair that represents a tag that you want to add to the

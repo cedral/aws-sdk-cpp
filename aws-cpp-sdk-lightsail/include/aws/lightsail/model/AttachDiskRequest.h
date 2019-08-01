@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AttachDiskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
      */
     inline const Aws::String& GetDiskName() const{ return m_diskName; }
+
+    /**
+     * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
+     */
+    inline bool DiskNameHasBeenSet() const { return m_diskNameHasBeenSet; }
 
     /**
      * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
@@ -90,6 +95,12 @@ namespace Model
      * <p>The name of the Lightsail instance where you want to utilize the storage
      * disk.</p>
      */
+    inline bool InstanceNameHasBeenSet() const { return m_instanceNameHasBeenSet; }
+
+    /**
+     * <p>The name of the Lightsail instance where you want to utilize the storage
+     * disk.</p>
+     */
     inline void SetInstanceName(const Aws::String& value) { m_instanceNameHasBeenSet = true; m_instanceName = value; }
 
     /**
@@ -127,6 +138,11 @@ namespace Model
      * <p>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</p>
      */
     inline const Aws::String& GetDiskPath() const{ return m_diskPath; }
+
+    /**
+     * <p>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</p>
+     */
+    inline bool DiskPathHasBeenSet() const { return m_diskPathHasBeenSet; }
 
     /**
      * <p>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</p>

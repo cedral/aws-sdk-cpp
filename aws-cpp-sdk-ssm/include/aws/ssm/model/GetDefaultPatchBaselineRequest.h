@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDefaultPatchBaselineRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>Returns the default patch baseline for the specified operating system.</p>
      */
     inline const OperatingSystem& GetOperatingSystem() const{ return m_operatingSystem; }
+
+    /**
+     * <p>Returns the default patch baseline for the specified operating system.</p>
+     */
+    inline bool OperatingSystemHasBeenSet() const { return m_operatingSystemHasBeenSet; }
 
     /**
      * <p>Returns the default patch baseline for the specified operating system.</p>

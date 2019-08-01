@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetAuthorizationTokenRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * registry is assumed.</p>
      */
     inline const Aws::Vector<Aws::String>& GetRegistryIds() const{ return m_registryIds; }
+
+    /**
+     * <p>A list of AWS account IDs that are associated with the registries for which
+     * to get authorization tokens. If you do not specify a registry, the default
+     * registry is assumed.</p>
+     */
+    inline bool RegistryIdsHasBeenSet() const { return m_registryIdsHasBeenSet; }
 
     /**
      * <p>A list of AWS account IDs that are associated with the registries for which

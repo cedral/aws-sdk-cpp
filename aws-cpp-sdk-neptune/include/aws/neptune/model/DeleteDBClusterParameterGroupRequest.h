@@ -27,15 +27,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DeleteDBClusterParameterGroupMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API DeleteDBClusterParameterGroupRequest : public NeptuneRequest
   {
   public:
     DeleteDBClusterParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +53,14 @@ namespace Model
      * <p>Cannot be associated with any DB clusters.</p> </li> </ul>
      */
     inline const Aws::String& GetDBClusterParameterGroupName() const{ return m_dBClusterParameterGroupName; }
+
+    /**
+     * <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li>
+     * <p>Must be the name of an existing DB cluster parameter group.</p> </li> <li>
+     * <p>You can't delete a default DB cluster parameter group.</p> </li> <li>
+     * <p>Cannot be associated with any DB clusters.</p> </li> </ul>
+     */
+    inline bool DBClusterParameterGroupNameHasBeenSet() const { return m_dBClusterParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li>

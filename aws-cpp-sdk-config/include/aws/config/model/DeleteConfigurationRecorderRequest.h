@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteConfigurationRecorderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * <code>DescribeConfigurationRecorders</code> action.</p>
      */
     inline const Aws::String& GetConfigurationRecorderName() const{ return m_configurationRecorderName; }
+
+    /**
+     * <p>The name of the configuration recorder to be deleted. You can retrieve the
+     * name of your configuration recorder by using the
+     * <code>DescribeConfigurationRecorders</code> action.</p>
+     */
+    inline bool ConfigurationRecorderNameHasBeenSet() const { return m_configurationRecorderNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration recorder to be deleted. You can retrieve the

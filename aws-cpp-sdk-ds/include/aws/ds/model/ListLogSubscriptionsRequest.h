@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListLogSubscriptionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,15 @@ namespace Model
      * returned.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>If a <i>DirectoryID</i> is provided, lists only the log subscription
+     * associated with that directory. If no <i>DirectoryId</i> is provided, lists all
+     * log subscriptions associated with your AWS account. If there are no log
+     * subscriptions for the AWS account or the directory, an empty list will be
+     * returned.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>If a <i>DirectoryID</i> is provided, lists only the log subscription
@@ -116,6 +125,11 @@ namespace Model
     /**
      * <p>The token for the next set of items to return.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token for the next set of items to return.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -148,6 +162,11 @@ namespace Model
      * <p>The maximum number of items returned.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of items returned.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of items returned.</p>

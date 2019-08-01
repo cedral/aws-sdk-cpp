@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateReusableDelegationSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,16 @@ namespace Model
      * can be any unique string, for example a date/time stamp.</p>
      */
     inline const Aws::String& GetCallerReference() const{ return m_callerReference; }
+
+    /**
+     * <p>A unique string that identifies the request, and that allows you to retry
+     * failed <code>CreateReusableDelegationSet</code> requests without the risk of
+     * executing the operation twice. You must use a unique
+     * <code>CallerReference</code> string every time you submit a
+     * <code>CreateReusableDelegationSet</code> request. <code>CallerReference</code>
+     * can be any unique string, for example a date/time stamp.</p>
+     */
+    inline bool CallerReferenceHasBeenSet() const { return m_callerReferenceHasBeenSet; }
 
     /**
      * <p>A unique string that identifies the request, and that allows you to retry
@@ -118,6 +128,12 @@ namespace Model
      * reusable, the ID for that hosted zone.</p>
      */
     inline const Aws::String& GetHostedZoneId() const{ return m_hostedZoneId; }
+
+    /**
+     * <p>If you want to mark the delegation set for an existing hosted zone as
+     * reusable, the ID for that hosted zone.</p>
+     */
+    inline bool HostedZoneIdHasBeenSet() const { return m_hostedZoneIdHasBeenSet; }
 
     /**
      * <p>If you want to mark the delegation set for an existing hosted zone as

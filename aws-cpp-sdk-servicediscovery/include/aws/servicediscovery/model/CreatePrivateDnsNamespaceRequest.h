@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreatePrivateDnsNamespaceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * hosted zone that has the same name as the namespace.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name that you want to assign to this namespace. When you create a private
+     * DNS namespace, AWS Cloud Map automatically creates an Amazon Route 53 private
+     * hosted zone that has the same name as the namespace.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name that you want to assign to this namespace. When you create a private
@@ -109,6 +116,14 @@ namespace Model
      * of executing the operation twice. <code>CreatorRequestId</code> can be any
      * unique string, for example, a date/time stamp.</p>
      */
+    inline bool CreatorRequestIdHasBeenSet() const { return m_creatorRequestIdHasBeenSet; }
+
+    /**
+     * <p>A unique string that identifies the request and that allows failed
+     * <code>CreatePrivateDnsNamespace</code> requests to be retried without the risk
+     * of executing the operation twice. <code>CreatorRequestId</code> can be any
+     * unique string, for example, a date/time stamp.</p>
+     */
     inline void SetCreatorRequestId(const Aws::String& value) { m_creatorRequestIdHasBeenSet = true; m_creatorRequestId = value; }
 
     /**
@@ -160,6 +175,11 @@ namespace Model
     /**
      * <p>A description for the namespace.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>A description for the namespace.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -192,6 +212,11 @@ namespace Model
      * <p>The ID of the Amazon VPC that you want to associate the namespace with.</p>
      */
     inline const Aws::String& GetVpc() const{ return m_vpc; }
+
+    /**
+     * <p>The ID of the Amazon VPC that you want to associate the namespace with.</p>
+     */
+    inline bool VpcHasBeenSet() const { return m_vpcHasBeenSet; }
 
     /**
      * <p>The ID of the Amazon VPC that you want to associate the namespace with.</p>

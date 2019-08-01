@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     RegisterUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,15 @@ namespace Model
      * by Amazon QuickSight. </p> </li> </ul>
      */
     inline const IdentityType& GetIdentityType() const{ return m_identityType; }
+
+    /**
+     * <p>Amazon QuickSight supports several ways of managing the identity of users.
+     * This parameter accepts two values:</p> <ul> <li> <p> <code>IAM</code>: A user
+     * whose identity maps to an existing IAM user or role. </p> </li> <li> <p>
+     * <code>QUICKSIGHT</code>: A user whose identity is owned and managed internally
+     * by Amazon QuickSight. </p> </li> </ul>
+     */
+    inline bool IdentityTypeHasBeenSet() const { return m_identityTypeHasBeenSet; }
 
     /**
      * <p>Amazon QuickSight supports several ways of managing the identity of users.
@@ -98,6 +107,11 @@ namespace Model
     /**
      * <p>The email address of the user that you want to register.</p>
      */
+    inline bool EmailHasBeenSet() const { return m_emailHasBeenSet; }
+
+    /**
+     * <p>The email address of the user that you want to register.</p>
+     */
     inline void SetEmail(const Aws::String& value) { m_emailHasBeenSet = true; m_email = value; }
 
     /**
@@ -135,6 +149,16 @@ namespace Model
      * QuickSight settings.</p> </li> </ul>
      */
     inline const UserRole& GetUserRole() const{ return m_userRole; }
+
+    /**
+     * <p>The Amazon QuickSight role of the user. The user role can be one of the
+     * following:</p> <ul> <li> <p> <code>READER</code>: A user who has read-only
+     * access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can
+     * create data sources, data sets, analyses, and dashboards.</p> </li> <li> <p>
+     * <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+     * QuickSight settings.</p> </li> </ul>
+     */
+    inline bool UserRoleHasBeenSet() const { return m_userRoleHasBeenSet; }
 
     /**
      * <p>The Amazon QuickSight role of the user. The user role can be one of the
@@ -187,6 +211,12 @@ namespace Model
      * <p>The ARN of the IAM user or role that you are registering with Amazon
      * QuickSight. </p>
      */
+    inline bool IamArnHasBeenSet() const { return m_iamArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the IAM user or role that you are registering with Amazon
+     * QuickSight. </p>
+     */
     inline void SetIamArn(const Aws::String& value) { m_iamArnHasBeenSet = true; m_iamArn = value; }
 
     /**
@@ -221,63 +251,96 @@ namespace Model
 
 
     /**
-     * <p>The name of the session with the assumed IAM role. By using this parameter,
-     * you can register multiple users with the same IAM role, provided that each has a
-     * different session name. For more information on assuming IAM roles, see <a
+     * <p>You need to use this parameter only when you register one or more users using
+     * an assumed IAM role. You don't need to provide the session name for other
+     * scenarios, for example when you are registering an IAM user or an Amazon
+     * QuickSight user. You can register multiple users using the same IAM role if each
+     * user has a different session name. For more information on assuming IAM roles,
+     * see <a
      * href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
      * <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
      */
     inline const Aws::String& GetSessionName() const{ return m_sessionName; }
 
     /**
-     * <p>The name of the session with the assumed IAM role. By using this parameter,
-     * you can register multiple users with the same IAM role, provided that each has a
-     * different session name. For more information on assuming IAM roles, see <a
+     * <p>You need to use this parameter only when you register one or more users using
+     * an assumed IAM role. You don't need to provide the session name for other
+     * scenarios, for example when you are registering an IAM user or an Amazon
+     * QuickSight user. You can register multiple users using the same IAM role if each
+     * user has a different session name. For more information on assuming IAM roles,
+     * see <a
+     * href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
+     * <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
+     */
+    inline bool SessionNameHasBeenSet() const { return m_sessionNameHasBeenSet; }
+
+    /**
+     * <p>You need to use this parameter only when you register one or more users using
+     * an assumed IAM role. You don't need to provide the session name for other
+     * scenarios, for example when you are registering an IAM user or an Amazon
+     * QuickSight user. You can register multiple users using the same IAM role if each
+     * user has a different session name. For more information on assuming IAM roles,
+     * see <a
      * href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
      * <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
      */
     inline void SetSessionName(const Aws::String& value) { m_sessionNameHasBeenSet = true; m_sessionName = value; }
 
     /**
-     * <p>The name of the session with the assumed IAM role. By using this parameter,
-     * you can register multiple users with the same IAM role, provided that each has a
-     * different session name. For more information on assuming IAM roles, see <a
+     * <p>You need to use this parameter only when you register one or more users using
+     * an assumed IAM role. You don't need to provide the session name for other
+     * scenarios, for example when you are registering an IAM user or an Amazon
+     * QuickSight user. You can register multiple users using the same IAM role if each
+     * user has a different session name. For more information on assuming IAM roles,
+     * see <a
      * href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
      * <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
      */
     inline void SetSessionName(Aws::String&& value) { m_sessionNameHasBeenSet = true; m_sessionName = std::move(value); }
 
     /**
-     * <p>The name of the session with the assumed IAM role. By using this parameter,
-     * you can register multiple users with the same IAM role, provided that each has a
-     * different session name. For more information on assuming IAM roles, see <a
+     * <p>You need to use this parameter only when you register one or more users using
+     * an assumed IAM role. You don't need to provide the session name for other
+     * scenarios, for example when you are registering an IAM user or an Amazon
+     * QuickSight user. You can register multiple users using the same IAM role if each
+     * user has a different session name. For more information on assuming IAM roles,
+     * see <a
      * href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
      * <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
      */
     inline void SetSessionName(const char* value) { m_sessionNameHasBeenSet = true; m_sessionName.assign(value); }
 
     /**
-     * <p>The name of the session with the assumed IAM role. By using this parameter,
-     * you can register multiple users with the same IAM role, provided that each has a
-     * different session name. For more information on assuming IAM roles, see <a
+     * <p>You need to use this parameter only when you register one or more users using
+     * an assumed IAM role. You don't need to provide the session name for other
+     * scenarios, for example when you are registering an IAM user or an Amazon
+     * QuickSight user. You can register multiple users using the same IAM role if each
+     * user has a different session name. For more information on assuming IAM roles,
+     * see <a
      * href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
      * <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
      */
     inline RegisterUserRequest& WithSessionName(const Aws::String& value) { SetSessionName(value); return *this;}
 
     /**
-     * <p>The name of the session with the assumed IAM role. By using this parameter,
-     * you can register multiple users with the same IAM role, provided that each has a
-     * different session name. For more information on assuming IAM roles, see <a
+     * <p>You need to use this parameter only when you register one or more users using
+     * an assumed IAM role. You don't need to provide the session name for other
+     * scenarios, for example when you are registering an IAM user or an Amazon
+     * QuickSight user. You can register multiple users using the same IAM role if each
+     * user has a different session name. For more information on assuming IAM roles,
+     * see <a
      * href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
      * <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
      */
     inline RegisterUserRequest& WithSessionName(Aws::String&& value) { SetSessionName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the session with the assumed IAM role. By using this parameter,
-     * you can register multiple users with the same IAM role, provided that each has a
-     * different session name. For more information on assuming IAM roles, see <a
+     * <p>You need to use this parameter only when you register one or more users using
+     * an assumed IAM role. You don't need to provide the session name for other
+     * scenarios, for example when you are registering an IAM user or an Amazon
+     * QuickSight user. You can register multiple users using the same IAM role if each
+     * user has a different session name. For more information on assuming IAM roles,
+     * see <a
      * href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
      * <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> </p>
      */
@@ -289,6 +352,12 @@ namespace Model
      * the AWS account that contains your Amazon QuickSight account.</p>
      */
     inline const Aws::String& GetAwsAccountId() const{ return m_awsAccountId; }
+
+    /**
+     * <p>The ID for the AWS account that the user is in. Currently, you use the ID for
+     * the AWS account that contains your Amazon QuickSight account.</p>
+     */
+    inline bool AwsAccountIdHasBeenSet() const { return m_awsAccountIdHasBeenSet; }
 
     /**
      * <p>The ID for the AWS account that the user is in. Currently, you use the ID for
@@ -335,6 +404,11 @@ namespace Model
     /**
      * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
      */
+    inline bool NamespaceHasBeenSet() const { return m_namespaceHasBeenSet; }
+
+    /**
+     * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+     */
     inline void SetNamespace(const Aws::String& value) { m_namespaceHasBeenSet = true; m_namespace = value; }
 
     /**
@@ -368,6 +442,12 @@ namespace Model
      * registering.</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The Amazon QuickSight user name that you want to create for the user you are
+     * registering.</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The Amazon QuickSight user name that you want to create for the user you are

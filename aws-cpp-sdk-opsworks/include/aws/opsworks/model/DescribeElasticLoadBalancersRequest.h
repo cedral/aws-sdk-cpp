@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeElasticLoadBalancersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * instances.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>A stack ID. The action describes the stack's Elastic Load Balancing
+     * instances.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>A stack ID. The action describes the stack's Elastic Load Balancing
@@ -93,6 +99,12 @@ namespace Model
      * instances for the specified layers.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLayerIds() const{ return m_layerIds; }
+
+    /**
+     * <p>A list of layer IDs. The action describes the Elastic Load Balancing
+     * instances for the specified layers.</p>
+     */
+    inline bool LayerIdsHasBeenSet() const { return m_layerIdsHasBeenSet; }
 
     /**
      * <p>A list of layer IDs. The action describes the Elastic Load Balancing

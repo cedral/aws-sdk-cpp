@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeDBParametersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * DBParameterGroup.</p> </li> </ul>
      */
     inline const Aws::String& GetDBParameterGroupName() const{ return m_dBParameterGroupName; }
+
+    /**
+     * <p>The name of a specific DB parameter group to return details for.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> </ul>
+     */
+    inline bool DBParameterGroupNameHasBeenSet() const { return m_dBParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of a specific DB parameter group to return details for.</p>
@@ -108,6 +115,12 @@ namespace Model
      * <p>The parameter types to return.</p> <p>Default: All parameter types
      * returned</p> <p>Valid Values: <code>user | system | engine-default</code> </p>
      */
+    inline bool SourceHasBeenSet() const { return m_sourceHasBeenSet; }
+
+    /**
+     * <p>The parameter types to return.</p> <p>Default: All parameter types
+     * returned</p> <p>Valid Values: <code>user | system | engine-default</code> </p>
+     */
     inline void SetSource(const Aws::String& value) { m_sourceHasBeenSet = true; m_source = value; }
 
     /**
@@ -149,6 +162,11 @@ namespace Model
     /**
      * <p>This parameter is not currently supported.</p>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>This parameter is not currently supported.</p>
+     */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -178,83 +196,99 @@ namespace Model
 
 
     /**
-     * <p> The maximum number of records to include in the response. If more records
+     * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
 
     /**
-     * <p> The maximum number of records to include in the response. If more records
+     * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
-     * <p> The maximum number of records to include in the response. If more records
+     * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline DescribeDBParametersRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
 
 
     /**
-     * <p> An optional pagination token provided by a previous
+     * <p>An optional pagination token provided by a previous
      * <code>DescribeDBParameters</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <code>MaxRecords</code>. </p>
+     * <code>MaxRecords</code>.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
 
     /**
-     * <p> An optional pagination token provided by a previous
+     * <p>An optional pagination token provided by a previous
      * <code>DescribeDBParameters</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <code>MaxRecords</code>. </p>
+     * <code>MaxRecords</code>.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBParameters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
-     * <p> An optional pagination token provided by a previous
+     * <p>An optional pagination token provided by a previous
      * <code>DescribeDBParameters</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <code>MaxRecords</code>. </p>
+     * <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(Aws::String&& value) { m_markerHasBeenSet = true; m_marker = std::move(value); }
 
     /**
-     * <p> An optional pagination token provided by a previous
+     * <p>An optional pagination token provided by a previous
      * <code>DescribeDBParameters</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <code>MaxRecords</code>. </p>
+     * <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(const char* value) { m_markerHasBeenSet = true; m_marker.assign(value); }
 
     /**
-     * <p> An optional pagination token provided by a previous
+     * <p>An optional pagination token provided by a previous
      * <code>DescribeDBParameters</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <code>MaxRecords</code>. </p>
+     * <code>MaxRecords</code>.</p>
      */
     inline DescribeDBParametersRequest& WithMarker(const Aws::String& value) { SetMarker(value); return *this;}
 
     /**
-     * <p> An optional pagination token provided by a previous
+     * <p>An optional pagination token provided by a previous
      * <code>DescribeDBParameters</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <code>MaxRecords</code>. </p>
+     * <code>MaxRecords</code>.</p>
      */
     inline DescribeDBParametersRequest& WithMarker(Aws::String&& value) { SetMarker(std::move(value)); return *this;}
 
     /**
-     * <p> An optional pagination token provided by a previous
+     * <p>An optional pagination token provided by a previous
      * <code>DescribeDBParameters</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
-     * <code>MaxRecords</code>. </p>
+     * <code>MaxRecords</code>.</p>
      */
     inline DescribeDBParametersRequest& WithMarker(const char* value) { SetMarker(value); return *this;}
 

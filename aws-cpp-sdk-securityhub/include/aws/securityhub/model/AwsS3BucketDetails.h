@@ -34,7 +34,7 @@ namespace Model
 {
 
   /**
-   * <p>The details of an AWS S3 Bucket.</p><p><h3>See Also:</h3>   <a
+   * <p>The details of an Amazon S3 bucket.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/AwsS3BucketDetails">AWS
    * API Reference</a></p>
    */
@@ -51,6 +51,11 @@ namespace Model
      * <p>The canonical user ID of the owner of the S3 bucket.</p>
      */
     inline const Aws::String& GetOwnerId() const{ return m_ownerId; }
+
+    /**
+     * <p>The canonical user ID of the owner of the S3 bucket.</p>
+     */
+    inline bool OwnerIdHasBeenSet() const { return m_ownerIdHasBeenSet; }
 
     /**
      * <p>The canonical user ID of the owner of the S3 bucket.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The display name of the owner of the S3 bucket.</p>
      */
     inline const Aws::String& GetOwnerName() const{ return m_ownerName; }
+
+    /**
+     * <p>The display name of the owner of the S3 bucket.</p>
+     */
+    inline bool OwnerNameHasBeenSet() const { return m_ownerNameHasBeenSet; }
 
     /**
      * <p>The display name of the owner of the S3 bucket.</p>

@@ -34,7 +34,7 @@ namespace Model
 {
 
   /**
-   * <p>An Active Directory Domain membership record associated with the DB
+   * <p>An Active Directory Domain membership record associated with a DB
    * instance.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DomainMembership">AWS
    * API Reference</a></p>
@@ -54,6 +54,11 @@ namespace Model
      * <p>The identifier of the Active Directory Domain.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The identifier of the Active Directory Domain.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The identifier of the Active Directory Domain.</p>
@@ -91,6 +96,12 @@ namespace Model
      * joined, pending-join, failed etc).</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the DB instance's Active Directory Domain membership, such as
+     * joined, pending-join, failed etc).</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the DB instance's Active Directory Domain membership, such as
@@ -137,6 +148,11 @@ namespace Model
     /**
      * <p>The fully qualified domain name of the Active Directory Domain.</p>
      */
+    inline bool FQDNHasBeenSet() const { return m_fQDNHasBeenSet; }
+
+    /**
+     * <p>The fully qualified domain name of the Active Directory Domain.</p>
+     */
     inline void SetFQDN(const Aws::String& value) { m_fQDNHasBeenSet = true; m_fQDN = value; }
 
     /**
@@ -170,6 +186,12 @@ namespace Model
      * Service.</p>
      */
     inline const Aws::String& GetIAMRoleName() const{ return m_iAMRoleName; }
+
+    /**
+     * <p>The name of the IAM role to be used when making API calls to the Directory
+     * Service.</p>
+     */
+    inline bool IAMRoleNameHasBeenSet() const { return m_iAMRoleNameHasBeenSet; }
 
     /**
      * <p>The name of the IAM role to be used when making API calls to the Directory

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateConfigurationSetEventDestinationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * ConfigurationSetName
      */
     inline const Aws::String& GetConfigurationSetName() const{ return m_configurationSetName; }
+
+    /**
+     * ConfigurationSetName
+     */
+    inline bool ConfigurationSetNameHasBeenSet() const { return m_configurationSetNameHasBeenSet; }
 
     /**
      * ConfigurationSetName
@@ -86,6 +91,9 @@ namespace Model
     inline const EventDestinationDefinition& GetEventDestination() const{ return m_eventDestination; }
 
     
+    inline bool EventDestinationHasBeenSet() const { return m_eventDestinationHasBeenSet; }
+
+    
     inline void SetEventDestination(const EventDestinationDefinition& value) { m_eventDestinationHasBeenSet = true; m_eventDestination = value; }
 
     
@@ -102,6 +110,11 @@ namespace Model
      * A name that identifies the event destination.
      */
     inline const Aws::String& GetEventDestinationName() const{ return m_eventDestinationName; }
+
+    /**
+     * A name that identifies the event destination.
+     */
+    inline bool EventDestinationNameHasBeenSet() const { return m_eventDestinationNameHasBeenSet; }
 
     /**
      * A name that identifies the event destination.

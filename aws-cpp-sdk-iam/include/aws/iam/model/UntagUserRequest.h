@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UntagUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,15 @@ namespace Model
      * following characters: =,.@-</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the IAM user from which you want to remove tags.</p> <p>This
+     * parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters that consist of upper and lowercase
+     * alphanumeric characters with no spaces. You can also include any of the
+     * following characters: =,.@-</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the IAM user from which you want to remove tags.</p> <p>This
@@ -116,6 +125,12 @@ namespace Model
      * are removed from the specified user.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeys() const{ return m_tagKeys; }
+
+    /**
+     * <p>A list of key names as a simple array of strings. The tags with matching keys
+     * are removed from the specified user.</p>
+     */
+    inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }
 
     /**
      * <p>A list of key names as a simple array of strings. The tags with matching keys

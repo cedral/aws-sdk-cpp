@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeUserStackAssociationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the stack that is associated with the user.</p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>The name of the stack that is associated with the user.</p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>The name of the stack that is associated with the user.</p>
@@ -82,37 +87,50 @@ namespace Model
 
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
+
+    /**
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline void SetUserName(const Aws::String& value) { m_userNameHasBeenSet = true; m_userName = value; }
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline void SetUserName(Aws::String&& value) { m_userNameHasBeenSet = true; m_userName = std::move(value); }
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline void SetUserName(const char* value) { m_userNameHasBeenSet = true; m_userName.assign(value); }
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline DescribeUserStackAssociationsRequest& WithUserName(const Aws::String& value) { SetUserName(value); return *this;}
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline DescribeUserStackAssociationsRequest& WithUserName(Aws::String&& value) { SetUserName(std::move(value)); return *this;}
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline DescribeUserStackAssociationsRequest& WithUserName(const char* value) { SetUserName(value); return *this;}
 
@@ -122,6 +140,12 @@ namespace Model
      * must specify USERPOOL.</p>
      */
     inline const AuthenticationType& GetAuthenticationType() const{ return m_authenticationType; }
+
+    /**
+     * <p>The authentication type for the user who is associated with the stack. You
+     * must specify USERPOOL.</p>
+     */
+    inline bool AuthenticationTypeHasBeenSet() const { return m_authenticationTypeHasBeenSet; }
 
     /**
      * <p>The authentication type for the user who is associated with the stack. You
@@ -156,6 +180,11 @@ namespace Model
     /**
      * <p>The maximum size of each page of results.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum size of each page of results.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -169,6 +198,12 @@ namespace Model
      * operation. If this value is null, it retrieves the first page.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The pagination token to use to retrieve the next page of results for this
+     * operation. If this value is null, it retrieves the first page.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The pagination token to use to retrieve the next page of results for this

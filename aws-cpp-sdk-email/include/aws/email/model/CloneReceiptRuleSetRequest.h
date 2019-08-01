@@ -30,7 +30,7 @@ namespace Model
    * <p>Represents a request to create a receipt rule set by cloning an existing one.
    * You use receipt rule sets to receive email with Amazon SES. For more
    * information, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CloneReceiptRuleSetRequest">AWS
    * API Reference</a></p>
@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     CloneReceiptRuleSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -60,6 +60,14 @@ namespace Model
      * </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>
      */
     inline const Aws::String& GetRuleSetName() const{ return m_ruleSetName; }
+
+    /**
+     * <p>The name of the rule set to create. The name must:</p> <ul> <li> <p>This
+     * value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
+     * or dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p>
+     * </li> <li> <p>Contain less than 64 characters.</p> </li> </ul>
+     */
+    inline bool RuleSetNameHasBeenSet() const { return m_ruleSetNameHasBeenSet; }
 
     /**
      * <p>The name of the rule set to create. The name must:</p> <ul> <li> <p>This
@@ -114,6 +122,11 @@ namespace Model
      * <p>The name of the rule set to clone.</p>
      */
     inline const Aws::String& GetOriginalRuleSetName() const{ return m_originalRuleSetName; }
+
+    /**
+     * <p>The name of the rule set to clone.</p>
+     */
+    inline bool OriginalRuleSetNameHasBeenSet() const { return m_originalRuleSetNameHasBeenSet; }
 
     /**
      * <p>The name of the rule set to clone.</p>

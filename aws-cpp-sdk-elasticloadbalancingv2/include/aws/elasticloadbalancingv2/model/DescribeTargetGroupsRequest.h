@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeTargetGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
      */
     inline const Aws::String& GetLoadBalancerArn() const{ return m_loadBalancerArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+     */
+    inline bool LoadBalancerArnHasBeenSet() const { return m_loadBalancerArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The Amazon Resource Names (ARN) of the target groups.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTargetGroupArns() const{ return m_targetGroupArns; }
+
+    /**
+     * <p>The Amazon Resource Names (ARN) of the target groups.</p>
+     */
+    inline bool TargetGroupArnsHasBeenSet() const { return m_targetGroupArnsHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Names (ARN) of the target groups.</p>
@@ -128,6 +138,11 @@ namespace Model
      * <p>The names of the target groups.</p>
      */
     inline const Aws::Vector<Aws::String>& GetNames() const{ return m_names; }
+
+    /**
+     * <p>The names of the target groups.</p>
+     */
+    inline bool NamesHasBeenSet() const { return m_namesHasBeenSet; }
 
     /**
      * <p>The names of the target groups.</p>
@@ -175,6 +190,12 @@ namespace Model
      * <p>The marker for the next set of results. (You received this marker from a
      * previous call.)</p>
      */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>The marker for the next set of results. (You received this marker from a
+     * previous call.)</p>
+     */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
@@ -212,6 +233,11 @@ namespace Model
      * <p>The maximum number of results to return with this call.</p>
      */
     inline int GetPageSize() const{ return m_pageSize; }
+
+    /**
+     * <p>The maximum number of results to return with this call.</p>
+     */
+    inline bool PageSizeHasBeenSet() const { return m_pageSizeHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return with this call.</p>

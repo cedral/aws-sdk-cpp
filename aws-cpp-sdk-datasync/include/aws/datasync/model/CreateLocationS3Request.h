@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateLocationS3Request();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,13 @@ namespace Model
      * destination.</p>
      */
     inline const Aws::String& GetSubdirectory() const{ return m_subdirectory; }
+
+    /**
+     * <p>A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is
+     * used to read data from the S3 source location or write data to the S3
+     * destination.</p>
+     */
+    inline bool SubdirectoryHasBeenSet() const { return m_subdirectoryHasBeenSet; }
 
     /**
      * <p>A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is
@@ -108,6 +115,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</p>
      */
+    inline bool S3BucketArnHasBeenSet() const { return m_s3BucketArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket.</p>
+     */
     inline void SetS3BucketArn(const Aws::String& value) { m_s3BucketArnHasBeenSet = true; m_s3BucketArn = value; }
 
     /**
@@ -140,6 +152,9 @@ namespace Model
     inline const S3Config& GetS3Config() const{ return m_s3Config; }
 
     
+    inline bool S3ConfigHasBeenSet() const { return m_s3ConfigHasBeenSet; }
+
+    
     inline void SetS3Config(const S3Config& value) { m_s3ConfigHasBeenSet = true; m_s3Config = value; }
 
     
@@ -158,6 +173,13 @@ namespace Model
      * resources.</p>
      */
     inline const Aws::Vector<TagListEntry>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value pair that represents the tag that you want to add to the
+     * location. The value can be an empty string. We recommend using tags to name your
+     * resources.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The key-value pair that represents the tag that you want to add to the

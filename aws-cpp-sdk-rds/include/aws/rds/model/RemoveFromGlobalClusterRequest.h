@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RemoveFromGlobalClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetGlobalClusterIdentifier() const{ return m_globalClusterIdentifier; }
+
+    /**
+     * <p> The cluster identifier to detach from the Aurora global database cluster.
+     * </p>
+     */
+    inline bool GlobalClusterIdentifierHasBeenSet() const { return m_globalClusterIdentifierHasBeenSet; }
 
     /**
      * <p> The cluster identifier to detach from the Aurora global database cluster.
@@ -94,6 +100,12 @@ namespace Model
      * from the Aurora global database cluster. </p>
      */
     inline const Aws::String& GetDbClusterIdentifier() const{ return m_dbClusterIdentifier; }
+
+    /**
+     * <p> The Amazon Resource Name (ARN) identifying the cluster that was detached
+     * from the Aurora global database cluster. </p>
+     */
+    inline bool DbClusterIdentifierHasBeenSet() const { return m_dbClusterIdentifierHasBeenSet; }
 
     /**
      * <p> The Amazon Resource Name (ARN) identifying the cluster that was detached

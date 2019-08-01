@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateHostedConnectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the hosted connection.</p>
      */
     inline const Aws::String& GetConnectionId() const{ return m_connectionId; }
+
+    /**
+     * <p>The ID of the hosted connection.</p>
+     */
+    inline bool ConnectionIdHasBeenSet() const { return m_connectionIdHasBeenSet; }
 
     /**
      * <p>The ID of the hosted connection.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The ID of the interconnect or the LAG.</p>
      */
     inline const Aws::String& GetParentConnectionId() const{ return m_parentConnectionId; }
+
+    /**
+     * <p>The ID of the interconnect or the LAG.</p>
+     */
+    inline bool ParentConnectionIdHasBeenSet() const { return m_parentConnectionIdHasBeenSet; }
 
     /**
      * <p>The ID of the interconnect or the LAG.</p>

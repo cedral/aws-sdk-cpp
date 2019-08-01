@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * the ARN of an Elastic Beanstalk environment.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resouce to be updated.</p> <p>Must be
+     * the ARN of an Elastic Beanstalk environment.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the resouce to be updated.</p> <p>Must be
@@ -101,6 +107,12 @@ namespace Model
      * <p>A list of tags to add or update.</p> <p>If a key of an existing tag is added,
      * the tag's value is updated.</p>
      */
+    inline bool TagsToAddHasBeenSet() const { return m_tagsToAddHasBeenSet; }
+
+    /**
+     * <p>A list of tags to add or update.</p> <p>If a key of an existing tag is added,
+     * the tag's value is updated.</p>
+     */
     inline void SetTagsToAdd(const Aws::Vector<Tag>& value) { m_tagsToAddHasBeenSet = true; m_tagsToAdd = value; }
 
     /**
@@ -139,6 +151,12 @@ namespace Model
      * silently ignored.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagsToRemove() const{ return m_tagsToRemove; }
+
+    /**
+     * <p>A list of tag keys to remove.</p> <p>If a tag key doesn't exist, it is
+     * silently ignored.</p>
+     */
+    inline bool TagsToRemoveHasBeenSet() const { return m_tagsToRemoveHasBeenSet; }
 
     /**
      * <p>A list of tag keys to remove.</p> <p>If a tag key doesn't exist, it is

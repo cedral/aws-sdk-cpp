@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     RegisterImageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,37 +53,74 @@ namespace Model
   public:
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline const Aws::String& GetImageLocation() const{ return m_imageLocation; }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
+     */
+    inline bool ImageLocationHasBeenSet() const { return m_imageLocationHasBeenSet; }
+
+    /**
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline void SetImageLocation(const Aws::String& value) { m_imageLocationHasBeenSet = true; m_imageLocation = value; }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline void SetImageLocation(Aws::String&& value) { m_imageLocationHasBeenSet = true; m_imageLocation = std::move(value); }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline void SetImageLocation(const char* value) { m_imageLocationHasBeenSet = true; m_imageLocation.assign(value); }
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline RegisterImageRequest& WithImageLocation(const Aws::String& value) { SetImageLocation(value); return *this;}
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline RegisterImageRequest& WithImageLocation(Aws::String&& value) { SetImageLocation(std::move(value)); return *this;}
 
     /**
-     * <p>The full path to your AMI manifest in Amazon S3 storage.</p>
+     * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket
+     * must have the <code>aws-exec-read</code> canned access control list (ACL) to
+     * ensure that it can be accessed by Amazon EC2. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned
+     * ACLs</a> in the <i>Amazon S3 Service Developer Guide</i>.</p>
      */
     inline RegisterImageRequest& WithImageLocation(const char* value) { SetImageLocation(value); return *this;}
 
@@ -94,6 +131,13 @@ namespace Model
      * the manifest file.</p>
      */
     inline const ArchitectureValues& GetArchitecture() const{ return m_architecture; }
+
+    /**
+     * <p>The architecture of the AMI.</p> <p>Default: For Amazon EBS-backed AMIs,
+     * <code>i386</code>. For instance store-backed AMIs, the architecture specified in
+     * the manifest file.</p>
+     */
+    inline bool ArchitectureHasBeenSet() const { return m_architectureHasBeenSet; }
 
     /**
      * <p>The architecture of the AMI.</p> <p>Default: For Amazon EBS-backed AMIs,
@@ -125,37 +169,42 @@ namespace Model
 
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline const Aws::Vector<BlockDeviceMapping>& GetBlockDeviceMappings() const{ return m_blockDeviceMappings; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
+     */
+    inline bool BlockDeviceMappingsHasBeenSet() const { return m_blockDeviceMappingsHasBeenSet; }
+
+    /**
+     * <p>The block device mapping entries.</p>
      */
     inline void SetBlockDeviceMappings(const Aws::Vector<BlockDeviceMapping>& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = value; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline void SetBlockDeviceMappings(Aws::Vector<BlockDeviceMapping>&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = std::move(value); }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RegisterImageRequest& WithBlockDeviceMappings(const Aws::Vector<BlockDeviceMapping>& value) { SetBlockDeviceMappings(value); return *this;}
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RegisterImageRequest& WithBlockDeviceMappings(Aws::Vector<BlockDeviceMapping>&& value) { SetBlockDeviceMappings(std::move(value)); return *this;}
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RegisterImageRequest& AddBlockDeviceMappings(const BlockDeviceMapping& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(value); return *this; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline RegisterImageRequest& AddBlockDeviceMappings(BlockDeviceMapping&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(std::move(value)); return *this; }
 
@@ -164,6 +213,11 @@ namespace Model
      * <p>A description for your AMI.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description for your AMI.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description for your AMI.</p>
@@ -210,6 +264,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -235,6 +297,14 @@ namespace Model
      * only for HVM AMIs. Specifying this option with a PV AMI can make instances
      * launched from the AMI unreachable.</p>
      */
+    inline bool EnaSupportHasBeenSet() const { return m_enaSupportHasBeenSet; }
+
+    /**
+     * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI
+     * and any instances that you launch from the AMI.</p> <p>This option is supported
+     * only for HVM AMIs. Specifying this option with a PV AMI can make instances
+     * launched from the AMI unreachable.</p>
+     */
     inline void SetEnaSupport(bool value) { m_enaSupportHasBeenSet = true; m_enaSupport = value; }
 
     /**
@@ -250,6 +320,11 @@ namespace Model
      * <p>The ID of the kernel.</p>
      */
     inline const Aws::String& GetKernelId() const{ return m_kernelId; }
+
+    /**
+     * <p>The ID of the kernel.</p>
+     */
+    inline bool KernelIdHasBeenSet() const { return m_kernelIdHasBeenSet; }
 
     /**
      * <p>The ID of the kernel.</p>
@@ -288,6 +363,13 @@ namespace Model
      * dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>A name for your AMI.</p> <p>Constraints: 3-128 alphanumeric characters,
+     * parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/),
+     * dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>A name for your AMI.</p> <p>Constraints: 3-128 alphanumeric characters,
@@ -338,6 +420,13 @@ namespace Model
      * an AMI.</p>
      */
     inline const Aws::Vector<Aws::String>& GetBillingProducts() const{ return m_billingProducts; }
+
+    /**
+     * <p>The billing product codes. Your account must be authorized to specify billing
+     * product codes. Otherwise, you can use the AWS Marketplace to bill for the use of
+     * an AMI.</p>
+     */
+    inline bool BillingProductsHasBeenSet() const { return m_billingProductsHasBeenSet; }
 
     /**
      * <p>The billing product codes. Your account must be authorized to specify billing
@@ -397,6 +486,11 @@ namespace Model
     /**
      * <p>The ID of the RAM disk.</p>
      */
+    inline bool RamdiskIdHasBeenSet() const { return m_ramdiskIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the RAM disk.</p>
+     */
     inline void SetRamdiskId(const Aws::String& value) { m_ramdiskIdHasBeenSet = true; m_ramdiskId = value; }
 
     /**
@@ -430,6 +524,12 @@ namespace Model
      * <code>/dev/sda1</code>).</p>
      */
     inline const Aws::String& GetRootDeviceName() const{ return m_rootDeviceName; }
+
+    /**
+     * <p>The device name of the root device volume (for example,
+     * <code>/dev/sda1</code>).</p>
+     */
+    inline bool RootDeviceNameHasBeenSet() const { return m_rootDeviceNameHasBeenSet; }
 
     /**
      * <p>The device name of the root device volume (for example,
@@ -476,6 +576,15 @@ namespace Model
      * with a PV AMI can make instances launched from the AMI unreachable.</p>
      */
     inline const Aws::String& GetSriovNetSupport() const{ return m_sriovNetSupport; }
+
+    /**
+     * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599
+     * Virtual Function interface for the AMI and any instances that you launch from
+     * the AMI.</p> <p>There is no way to disable <code>sriovNetSupport</code> at this
+     * time.</p> <p>This option is supported only for HVM AMIs. Specifying this option
+     * with a PV AMI can make instances launched from the AMI unreachable.</p>
+     */
+    inline bool SriovNetSupportHasBeenSet() const { return m_sriovNetSupportHasBeenSet; }
 
     /**
      * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599
@@ -537,6 +646,12 @@ namespace Model
      * <p>Default: <code>paravirtual</code> </p>
      */
     inline const Aws::String& GetVirtualizationType() const{ return m_virtualizationType; }
+
+    /**
+     * <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p>
+     * <p>Default: <code>paravirtual</code> </p>
+     */
+    inline bool VirtualizationTypeHasBeenSet() const { return m_virtualizationTypeHasBeenSet; }
 
     /**
      * <p>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ResolveRoomRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the user. Required.</p>
      */
     inline const Aws::String& GetUserId() const{ return m_userId; }
+
+    /**
+     * <p>The ARN of the user. Required.</p>
+     */
+    inline bool UserIdHasBeenSet() const { return m_userIdHasBeenSet; }
 
     /**
      * <p>The ARN of the user. Required.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The ARN of the skill that was requested. Required.</p>
      */
     inline const Aws::String& GetSkillId() const{ return m_skillId; }
+
+    /**
+     * <p>The ARN of the skill that was requested. Required.</p>
+     */
+    inline bool SkillIdHasBeenSet() const { return m_skillIdHasBeenSet; }
 
     /**
      * <p>The ARN of the skill that was requested. Required.</p>

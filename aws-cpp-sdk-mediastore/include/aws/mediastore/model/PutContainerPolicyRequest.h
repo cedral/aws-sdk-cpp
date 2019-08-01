@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutContainerPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the container.</p>
      */
     inline const Aws::String& GetContainerName() const{ return m_containerName; }
+
+    /**
+     * <p>The name of the container.</p>
+     */
+    inline bool ContainerNameHasBeenSet() const { return m_containerNameHasBeenSet; }
 
     /**
      * <p>The name of the container.</p>
@@ -86,6 +91,13 @@ namespace Model
      * that contains the standard tags for the policy.</p> </li> </ul>
      */
     inline const Aws::String& GetPolicy() const{ return m_policy; }
+
+    /**
+     * <p>The contents of the policy, which includes the following: </p> <ul> <li>
+     * <p>One <code>Version</code> tag</p> </li> <li> <p>One <code>Statement</code> tag
+     * that contains the standard tags for the policy.</p> </li> </ul>
+     */
+    inline bool PolicyHasBeenSet() const { return m_policyHasBeenSet; }
 
     /**
      * <p>The contents of the policy, which includes the following: </p> <ul> <li>

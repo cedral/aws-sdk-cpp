@@ -37,9 +37,9 @@ namespace Model
    * <p>The name of the configuration set.</p> <p>Configuration sets let you create
    * groups of rules that you can apply to the emails you send using Amazon SES. For
    * more information about using configuration sets, see <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html">Using
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html">Using
    * Amazon SES Configuration Sets</a> in the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon SES
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon SES
    * Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ConfigurationSet">AWS
    * API Reference</a></p>
@@ -62,6 +62,14 @@ namespace Model
      * fewer.</p> </li> </ul>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the configuration set. The name must meet the following
+     * requirements:</p> <ul> <li> <p>Contain only letters (a-z, A-Z), numbers (0-9),
+     * underscores (_), or dashes (-).</p> </li> <li> <p>Contain 64 characters or
+     * fewer.</p> </li> </ul>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the configuration set. The name must meet the following

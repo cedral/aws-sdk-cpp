@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     SetLoadBalancerListenerSSLCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the load balancer.</p>
      */
     inline const Aws::String& GetLoadBalancerName() const{ return m_loadBalancerName; }
+
+    /**
+     * <p>The name of the load balancer.</p>
+     */
+    inline bool LoadBalancerNameHasBeenSet() const { return m_loadBalancerNameHasBeenSet; }
 
     /**
      * <p>The name of the load balancer.</p>
@@ -94,6 +99,11 @@ namespace Model
     /**
      * <p>The port that uses the specified SSL certificate.</p>
      */
+    inline bool LoadBalancerPortHasBeenSet() const { return m_loadBalancerPortHasBeenSet; }
+
+    /**
+     * <p>The port that uses the specified SSL certificate.</p>
+     */
     inline void SetLoadBalancerPort(int value) { m_loadBalancerPortHasBeenSet = true; m_loadBalancerPort = value; }
 
     /**
@@ -106,6 +116,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the SSL certificate.</p>
      */
     inline const Aws::String& GetSSLCertificateId() const{ return m_sSLCertificateId; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the SSL certificate.</p>
+     */
+    inline bool SSLCertificateIdHasBeenSet() const { return m_sSLCertificateIdHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the SSL certificate.</p>

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     PurchaseReservedDBInstancesOfferingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * 438012d3-4052-4cc7-b2e3-8d3372e0e706</p>
      */
     inline const Aws::String& GetReservedDBInstancesOfferingId() const{ return m_reservedDBInstancesOfferingId; }
+
+    /**
+     * <p>The ID of the Reserved DB instance offering to purchase.</p> <p>Example:
+     * 438012d3-4052-4cc7-b2e3-8d3372e0e706</p>
+     */
+    inline bool ReservedDBInstancesOfferingIdHasBeenSet() const { return m_reservedDBInstancesOfferingIdHasBeenSet; }
 
     /**
      * <p>The ID of the Reserved DB instance offering to purchase.</p> <p>Example:
@@ -104,6 +110,12 @@ namespace Model
      * <p>Customer-specified identifier to track this reservation.</p> <p>Example:
      * myreservationID</p>
      */
+    inline bool ReservedDBInstanceIdHasBeenSet() const { return m_reservedDBInstanceIdHasBeenSet; }
+
+    /**
+     * <p>Customer-specified identifier to track this reservation.</p> <p>Example:
+     * myreservationID</p>
+     */
     inline void SetReservedDBInstanceId(const Aws::String& value) { m_reservedDBInstanceIdHasBeenSet = true; m_reservedDBInstanceId = value; }
 
     /**
@@ -145,6 +157,11 @@ namespace Model
     /**
      * <p>The number of instances to reserve.</p> <p>Default: <code>1</code> </p>
      */
+    inline bool DBInstanceCountHasBeenSet() const { return m_dBInstanceCountHasBeenSet; }
+
+    /**
+     * <p>The number of instances to reserve.</p> <p>Default: <code>1</code> </p>
+     */
     inline void SetDBInstanceCount(int value) { m_dBInstanceCountHasBeenSet = true; m_dBInstanceCount = value; }
 
     /**
@@ -155,6 +172,9 @@ namespace Model
 
     
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }

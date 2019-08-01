@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CancelJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,9 @@ namespace Model
 
     
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     
     inline void SetJobId(const Aws::String& value) { m_jobIdHasBeenSet = true; m_jobId = value; }
@@ -73,6 +76,9 @@ namespace Model
 
     
     inline const Aws::String& GetAPIVersion() const{ return m_aPIVersion; }
+
+    
+    inline bool APIVersionHasBeenSet() const { return m_aPIVersionHasBeenSet; }
 
     
     inline void SetAPIVersion(const Aws::String& value) { m_aPIVersionHasBeenSet = true; m_aPIVersion = value; }

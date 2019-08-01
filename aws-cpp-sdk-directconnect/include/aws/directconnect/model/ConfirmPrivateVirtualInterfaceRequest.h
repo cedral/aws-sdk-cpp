@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ConfirmPrivateVirtualInterfaceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the virtual interface.</p>
      */
     inline const Aws::String& GetVirtualInterfaceId() const{ return m_virtualInterfaceId; }
+
+    /**
+     * <p>The ID of the virtual interface.</p>
+     */
+    inline bool VirtualInterfaceIdHasBeenSet() const { return m_virtualInterfaceIdHasBeenSet; }
 
     /**
      * <p>The ID of the virtual interface.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The ID of the virtual private gateway.</p>
      */
+    inline bool VirtualGatewayIdHasBeenSet() const { return m_virtualGatewayIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the virtual private gateway.</p>
+     */
     inline void SetVirtualGatewayId(const Aws::String& value) { m_virtualGatewayIdHasBeenSet = true; m_virtualGatewayId = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The ID of the Direct Connect gateway.</p>
      */
     inline const Aws::String& GetDirectConnectGatewayId() const{ return m_directConnectGatewayId; }
+
+    /**
+     * <p>The ID of the Direct Connect gateway.</p>
+     */
+    inline bool DirectConnectGatewayIdHasBeenSet() const { return m_directConnectGatewayIdHasBeenSet; }
 
     /**
      * <p>The ID of the Direct Connect gateway.</p>

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagDeliveryStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the delivery stream to which you want to add the tags.</p>
      */
     inline const Aws::String& GetDeliveryStreamName() const{ return m_deliveryStreamName; }
+
+    /**
+     * <p>The name of the delivery stream to which you want to add the tags.</p>
+     */
+    inline bool DeliveryStreamNameHasBeenSet() const { return m_deliveryStreamNameHasBeenSet; }
 
     /**
      * <p>The name of the delivery stream to which you want to add the tags.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>A set of key-value pairs to use to create the tags.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A set of key-value pairs to use to create the tags.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A set of key-value pairs to use to create the tags.</p>

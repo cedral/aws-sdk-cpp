@@ -57,6 +57,11 @@ namespace Model
     /**
      * <p>The name of the stack that is associated with the user.</p>
      */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
+
+    /**
+     * <p>The name of the stack that is associated with the user.</p>
+     */
     inline void SetStackName(const Aws::String& value) { m_stackNameHasBeenSet = true; m_stackName = value; }
 
     /**
@@ -86,37 +91,50 @@ namespace Model
 
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
+
+    /**
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline void SetUserName(const Aws::String& value) { m_userNameHasBeenSet = true; m_userName = value; }
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline void SetUserName(Aws::String&& value) { m_userNameHasBeenSet = true; m_userName = std::move(value); }
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline void SetUserName(const char* value) { m_userNameHasBeenSet = true; m_userName.assign(value); }
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline UserStackAssociation& WithUserName(const Aws::String& value) { SetUserName(value); return *this;}
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline UserStackAssociation& WithUserName(Aws::String&& value) { SetUserName(std::move(value)); return *this;}
 
     /**
-     * <p>The email address of the user who is associated with the stack.</p>
+     * <p>The email address of the user who is associated with the stack.</p> <note>
+     * <p>Users' email addresses are case-sensitive.</p> </note>
      */
     inline UserStackAssociation& WithUserName(const char* value) { SetUserName(value); return *this;}
 
@@ -125,6 +143,11 @@ namespace Model
      * <p>The authentication type for the user.</p>
      */
     inline const AuthenticationType& GetAuthenticationType() const{ return m_authenticationType; }
+
+    /**
+     * <p>The authentication type for the user.</p>
+     */
+    inline bool AuthenticationTypeHasBeenSet() const { return m_authenticationTypeHasBeenSet; }
 
     /**
      * <p>The authentication type for the user.</p>
@@ -152,6 +175,12 @@ namespace Model
      * in the user pool.</p>
      */
     inline bool GetSendEmailNotification() const{ return m_sendEmailNotification; }
+
+    /**
+     * <p>Specifies whether a welcome email is sent to a user after the user is created
+     * in the user pool.</p>
+     */
+    inline bool SendEmailNotificationHasBeenSet() const { return m_sendEmailNotificationHasBeenSet; }
 
     /**
      * <p>Specifies whether a welcome email is sent to a user after the user is created

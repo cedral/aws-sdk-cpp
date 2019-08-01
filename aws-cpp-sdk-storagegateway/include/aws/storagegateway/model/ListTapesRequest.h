@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ListTapesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,9 @@ namespace Model
 
     
     inline const Aws::Vector<Aws::String>& GetTapeARNs() const{ return m_tapeARNs; }
+
+    
+    inline bool TapeARNsHasBeenSet() const { return m_tapeARNsHasBeenSet; }
 
     
     inline void SetTapeARNs(const Aws::Vector<Aws::String>& value) { m_tapeARNsHasBeenSet = true; m_tapeARNs = value; }
@@ -81,6 +84,12 @@ namespace Model
      * tapes.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>A string that indicates the position at which to begin the returned list of
+     * tapes.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>A string that indicates the position at which to begin the returned list of
@@ -123,6 +132,11 @@ namespace Model
      * <p>An optional number limit for the tapes in the list returned by this call.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>An optional number limit for the tapes in the list returned by this call.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>An optional number limit for the tapes in the list returned by this call.</p>

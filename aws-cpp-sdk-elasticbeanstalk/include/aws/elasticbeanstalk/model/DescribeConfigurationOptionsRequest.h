@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     DescribeConfigurationOptionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,13 @@ namespace Model
      * associated with either the configuration template or environment.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application associated with the configuration template or
+     * environment. Only needed if you want to describe the configuration options
+     * associated with either the configuration template or environment.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application associated with the configuration template or
@@ -112,6 +119,12 @@ namespace Model
      * <p>The name of the configuration template whose configuration options you want
      * to describe.</p>
      */
+    inline bool TemplateNameHasBeenSet() const { return m_templateNameHasBeenSet; }
+
+    /**
+     * <p>The name of the configuration template whose configuration options you want
+     * to describe.</p>
+     */
     inline void SetTemplateName(const Aws::String& value) { m_templateNameHasBeenSet = true; m_templateName = value; }
 
     /**
@@ -150,6 +163,12 @@ namespace Model
      * describe.</p>
      */
     inline const Aws::String& GetEnvironmentName() const{ return m_environmentName; }
+
+    /**
+     * <p>The name of the environment whose configuration options you want to
+     * describe.</p>
+     */
+    inline bool EnvironmentNameHasBeenSet() const { return m_environmentNameHasBeenSet; }
 
     /**
      * <p>The name of the environment whose configuration options you want to
@@ -198,6 +217,12 @@ namespace Model
      * <p>The name of the solution stack whose configuration options you want to
      * describe.</p>
      */
+    inline bool SolutionStackNameHasBeenSet() const { return m_solutionStackNameHasBeenSet; }
+
+    /**
+     * <p>The name of the solution stack whose configuration options you want to
+     * describe.</p>
+     */
     inline void SetSolutionStackName(const Aws::String& value) { m_solutionStackNameHasBeenSet = true; m_solutionStackName = value; }
 
     /**
@@ -239,6 +264,11 @@ namespace Model
     /**
      * <p>The ARN of the custom platform.</p>
      */
+    inline bool PlatformArnHasBeenSet() const { return m_platformArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the custom platform.</p>
+     */
     inline void SetPlatformArn(const Aws::String& value) { m_platformArnHasBeenSet = true; m_platformArn = value; }
 
     /**
@@ -271,6 +301,11 @@ namespace Model
      * <p>If specified, restricts the descriptions to only the specified options.</p>
      */
     inline const Aws::Vector<OptionSpecification>& GetOptions() const{ return m_options; }
+
+    /**
+     * <p>If specified, restricts the descriptions to only the specified options.</p>
+     */
+    inline bool OptionsHasBeenSet() const { return m_optionsHasBeenSet; }
 
     /**
      * <p>If specified, restricts the descriptions to only the specified options.</p>

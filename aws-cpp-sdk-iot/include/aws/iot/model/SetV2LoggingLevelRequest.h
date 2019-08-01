@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SetV2LoggingLevelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The log target.</p>
      */
     inline const LogTarget& GetLogTarget() const{ return m_logTarget; }
+
+    /**
+     * <p>The log target.</p>
+     */
+    inline bool LogTargetHasBeenSet() const { return m_logTargetHasBeenSet; }
 
     /**
      * <p>The log target.</p>
@@ -73,6 +78,11 @@ namespace Model
      * <p>The log level.</p>
      */
     inline const LogLevel& GetLogLevel() const{ return m_logLevel; }
+
+    /**
+     * <p>The log level.</p>
+     */
+    inline bool LogLevelHasBeenSet() const { return m_logLevelHasBeenSet; }
 
     /**
      * <p>The log level.</p>

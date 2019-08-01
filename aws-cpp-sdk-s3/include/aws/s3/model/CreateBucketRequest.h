@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     CreateBucketRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,11 @@ namespace Model
      * <p>The canned ACL to apply to the bucket.</p>
      */
     inline const BucketCannedACL& GetACL() const{ return m_aCL; }
+
+    /**
+     * <p>The canned ACL to apply to the bucket.</p>
+     */
+    inline bool ACLHasBeenSet() const { return m_aCLHasBeenSet; }
 
     /**
      * <p>The canned ACL to apply to the bucket.</p>
@@ -83,6 +88,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p/>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p/>
@@ -123,6 +133,11 @@ namespace Model
     /**
      * <p/>
      */
+    inline bool CreateBucketConfigurationHasBeenSet() const { return m_createBucketConfigurationHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetCreateBucketConfiguration(const CreateBucketConfiguration& value) { m_createBucketConfigurationHasBeenSet = true; m_createBucketConfiguration = value; }
 
     /**
@@ -146,6 +161,12 @@ namespace Model
      * bucket.</p>
      */
     inline const Aws::String& GetGrantFullControl() const{ return m_grantFullControl; }
+
+    /**
+     * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
+     * bucket.</p>
+     */
+    inline bool GrantFullControlHasBeenSet() const { return m_grantFullControlHasBeenSet; }
 
     /**
      * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
@@ -192,6 +213,11 @@ namespace Model
     /**
      * <p>Allows grantee to list the objects in the bucket.</p>
      */
+    inline bool GrantReadHasBeenSet() const { return m_grantReadHasBeenSet; }
+
+    /**
+     * <p>Allows grantee to list the objects in the bucket.</p>
+     */
     inline void SetGrantRead(const Aws::String& value) { m_grantReadHasBeenSet = true; m_grantRead = value; }
 
     /**
@@ -224,6 +250,11 @@ namespace Model
      * <p>Allows grantee to read the bucket ACL.</p>
      */
     inline const Aws::String& GetGrantReadACP() const{ return m_grantReadACP; }
+
+    /**
+     * <p>Allows grantee to read the bucket ACL.</p>
+     */
+    inline bool GrantReadACPHasBeenSet() const { return m_grantReadACPHasBeenSet; }
 
     /**
      * <p>Allows grantee to read the bucket ACL.</p>
@@ -264,6 +295,11 @@ namespace Model
     /**
      * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
      */
+    inline bool GrantWriteHasBeenSet() const { return m_grantWriteHasBeenSet; }
+
+    /**
+     * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
+     */
     inline void SetGrantWrite(const Aws::String& value) { m_grantWriteHasBeenSet = true; m_grantWrite = value; }
 
     /**
@@ -300,6 +336,11 @@ namespace Model
     /**
      * <p>Allows grantee to write the ACL for the applicable bucket.</p>
      */
+    inline bool GrantWriteACPHasBeenSet() const { return m_grantWriteACPHasBeenSet; }
+
+    /**
+     * <p>Allows grantee to write the ACL for the applicable bucket.</p>
+     */
     inline void SetGrantWriteACP(const Aws::String& value) { m_grantWriteACPHasBeenSet = true; m_grantWriteACP = value; }
 
     /**
@@ -329,19 +370,25 @@ namespace Model
 
 
     /**
-     * <p>Specifies whether you want S3 Object Lock to be enabled for the new
+     * <p>Specifies whether you want Amazon S3 object lock to be enabled for the new
      * bucket.</p>
      */
     inline bool GetObjectLockEnabledForBucket() const{ return m_objectLockEnabledForBucket; }
 
     /**
-     * <p>Specifies whether you want S3 Object Lock to be enabled for the new
+     * <p>Specifies whether you want Amazon S3 object lock to be enabled for the new
+     * bucket.</p>
+     */
+    inline bool ObjectLockEnabledForBucketHasBeenSet() const { return m_objectLockEnabledForBucketHasBeenSet; }
+
+    /**
+     * <p>Specifies whether you want Amazon S3 object lock to be enabled for the new
      * bucket.</p>
      */
     inline void SetObjectLockEnabledForBucket(bool value) { m_objectLockEnabledForBucketHasBeenSet = true; m_objectLockEnabledForBucket = value; }
 
     /**
-     * <p>Specifies whether you want S3 Object Lock to be enabled for the new
+     * <p>Specifies whether you want Amazon S3 object lock to be enabled for the new
      * bucket.</p>
      */
     inline CreateBucketRequest& WithObjectLockEnabledForBucket(bool value) { SetObjectLockEnabledForBucket(value); return *this;}
@@ -349,6 +396,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }

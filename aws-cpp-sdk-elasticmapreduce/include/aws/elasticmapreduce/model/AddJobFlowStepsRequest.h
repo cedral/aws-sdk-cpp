@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     AddJobFlowStepsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * by <a>RunJobFlow</a> and can also be obtained from <a>ListClusters</a>. </p>
      */
     inline const Aws::String& GetJobFlowId() const{ return m_jobFlowId; }
+
+    /**
+     * <p>A string that uniquely identifies the job flow. This identifier is returned
+     * by <a>RunJobFlow</a> and can also be obtained from <a>ListClusters</a>. </p>
+     */
+    inline bool JobFlowIdHasBeenSet() const { return m_jobFlowIdHasBeenSet; }
 
     /**
      * <p>A string that uniquely identifies the job flow. This identifier is returned
@@ -97,6 +103,11 @@ namespace Model
      * <p> A list of <a>StepConfig</a> to be executed by the job flow. </p>
      */
     inline const Aws::Vector<StepConfig>& GetSteps() const{ return m_steps; }
+
+    /**
+     * <p> A list of <a>StepConfig</a> to be executed by the job flow. </p>
+     */
+    inline bool StepsHasBeenSet() const { return m_stepsHasBeenSet; }
 
     /**
      * <p> A list of <a>StepConfig</a> to be executed by the job flow. </p>

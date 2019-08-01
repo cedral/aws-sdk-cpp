@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteBillingGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the billing group.</p>
      */
     inline const Aws::String& GetBillingGroupName() const{ return m_billingGroupName; }
+
+    /**
+     * <p>The name of the billing group.</p>
+     */
+    inline bool BillingGroupNameHasBeenSet() const { return m_billingGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the billing group.</p>
@@ -91,6 +96,14 @@ namespace Model
      * <code>VersionConflictException</code>.</p>
      */
     inline long long GetExpectedVersion() const{ return m_expectedVersion; }
+
+    /**
+     * <p>The expected version of the billing group. If the version of the billing
+     * group does not match the expected version specified in the request, the
+     * <code>DeleteBillingGroup</code> request is rejected with a
+     * <code>VersionConflictException</code>.</p>
+     */
+    inline bool ExpectedVersionHasBeenSet() const { return m_expectedVersionHasBeenSet; }
 
     /**
      * <p>The expected version of the billing group. If the version of the billing

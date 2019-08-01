@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ModifyDBClusterParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>The name of the DB cluster parameter group to modify.</p>
      */
     inline const Aws::String& GetDBClusterParameterGroupName() const{ return m_dBClusterParameterGroupName; }
+
+    /**
+     * <p>The name of the DB cluster parameter group to modify.</p>
+     */
+    inline bool DBClusterParameterGroupNameHasBeenSet() const { return m_dBClusterParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB cluster parameter group to modify.</p>
@@ -92,6 +97,11 @@ namespace Model
      * <p>A list of parameters in the DB cluster parameter group to modify.</p>
      */
     inline const Aws::Vector<Parameter>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>A list of parameters in the DB cluster parameter group to modify.</p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>A list of parameters in the DB cluster parameter group to modify.</p>

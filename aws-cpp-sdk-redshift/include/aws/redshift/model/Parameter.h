@@ -59,6 +59,11 @@ namespace Model
     /**
      * <p>The name of the parameter.</p>
      */
+    inline bool ParameterNameHasBeenSet() const { return m_parameterNameHasBeenSet; }
+
+    /**
+     * <p>The name of the parameter.</p>
+     */
     inline void SetParameterName(const Aws::String& value) { m_parameterNameHasBeenSet = true; m_parameterName = value; }
 
     /**
@@ -91,6 +96,11 @@ namespace Model
      * <p>The value of the parameter.</p>
      */
     inline const Aws::String& GetParameterValue() const{ return m_parameterValue; }
+
+    /**
+     * <p>The value of the parameter.</p>
+     */
+    inline bool ParameterValueHasBeenSet() const { return m_parameterValueHasBeenSet; }
 
     /**
      * <p>The value of the parameter.</p>
@@ -131,6 +141,11 @@ namespace Model
     /**
      * <p>A description of the parameter.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>A description of the parameter.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -163,6 +178,11 @@ namespace Model
      * <p>The source of the parameter value, such as "engine-default" or "user".</p>
      */
     inline const Aws::String& GetSource() const{ return m_source; }
+
+    /**
+     * <p>The source of the parameter value, such as "engine-default" or "user".</p>
+     */
+    inline bool SourceHasBeenSet() const { return m_sourceHasBeenSet; }
 
     /**
      * <p>The source of the parameter value, such as "engine-default" or "user".</p>
@@ -203,6 +223,11 @@ namespace Model
     /**
      * <p>The data type of the parameter.</p>
      */
+    inline bool DataTypeHasBeenSet() const { return m_dataTypeHasBeenSet; }
+
+    /**
+     * <p>The data type of the parameter.</p>
+     */
     inline void SetDataType(const Aws::String& value) { m_dataTypeHasBeenSet = true; m_dataType = value; }
 
     /**
@@ -235,6 +260,11 @@ namespace Model
      * <p>The valid range of values for the parameter.</p>
      */
     inline const Aws::String& GetAllowedValues() const{ return m_allowedValues; }
+
+    /**
+     * <p>The valid range of values for the parameter.</p>
+     */
+    inline bool AllowedValuesHasBeenSet() const { return m_allowedValuesHasBeenSet; }
 
     /**
      * <p>The valid range of values for the parameter.</p>
@@ -272,7 +302,7 @@ namespace Model
      * be applied dynamically, while other properties require that any associated
      * clusters be rebooted for the configuration changes to be applied. For more
      * information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
      * Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>.</p>
      */
@@ -283,7 +313,18 @@ namespace Model
      * be applied dynamically, while other properties require that any associated
      * clusters be rebooted for the configuration changes to be applied. For more
      * information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
+     * Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management
+     * Guide</i>.</p>
+     */
+    inline bool ApplyTypeHasBeenSet() const { return m_applyTypeHasBeenSet; }
+
+    /**
+     * <p>Specifies how to apply the WLM configuration parameter. Some properties can
+     * be applied dynamically, while other properties require that any associated
+     * clusters be rebooted for the configuration changes to be applied. For more
+     * information about parameters and parameter groups, go to <a
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
      * Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>.</p>
      */
@@ -294,7 +335,7 @@ namespace Model
      * be applied dynamically, while other properties require that any associated
      * clusters be rebooted for the configuration changes to be applied. For more
      * information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
      * Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>.</p>
      */
@@ -305,7 +346,7 @@ namespace Model
      * be applied dynamically, while other properties require that any associated
      * clusters be rebooted for the configuration changes to be applied. For more
      * information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
      * Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>.</p>
      */
@@ -316,7 +357,7 @@ namespace Model
      * be applied dynamically, while other properties require that any associated
      * clusters be rebooted for the configuration changes to be applied. For more
      * information about parameters and parameter groups, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon
      * Redshift Parameter Groups</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>.</p>
      */
@@ -328,6 +369,12 @@ namespace Model
      * security or operational implications that prevent them from being changed. </p>
      */
     inline bool GetIsModifiable() const{ return m_isModifiable; }
+
+    /**
+     * <p>If <code>true</code>, the parameter can be modified. Some parameters have
+     * security or operational implications that prevent them from being changed. </p>
+     */
+    inline bool IsModifiableHasBeenSet() const { return m_isModifiableHasBeenSet; }
 
     /**
      * <p>If <code>true</code>, the parameter can be modified. Some parameters have
@@ -346,6 +393,11 @@ namespace Model
      * <p>The earliest engine version to which the parameter can apply.</p>
      */
     inline const Aws::String& GetMinimumEngineVersion() const{ return m_minimumEngineVersion; }
+
+    /**
+     * <p>The earliest engine version to which the parameter can apply.</p>
+     */
+    inline bool MinimumEngineVersionHasBeenSet() const { return m_minimumEngineVersionHasBeenSet; }
 
     /**
      * <p>The earliest engine version to which the parameter can apply.</p>

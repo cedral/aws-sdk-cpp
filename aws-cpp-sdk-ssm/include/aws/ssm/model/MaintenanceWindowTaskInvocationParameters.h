@@ -58,6 +58,11 @@ namespace Model
     /**
      * <p>The parameters for a RUN_COMMAND task type.</p>
      */
+    inline bool RunCommandHasBeenSet() const { return m_runCommandHasBeenSet; }
+
+    /**
+     * <p>The parameters for a RUN_COMMAND task type.</p>
+     */
     inline void SetRunCommand(const MaintenanceWindowRunCommandParameters& value) { m_runCommandHasBeenSet = true; m_runCommand = value; }
 
     /**
@@ -84,6 +89,11 @@ namespace Model
     /**
      * <p>The parameters for an AUTOMATION task type.</p>
      */
+    inline bool AutomationHasBeenSet() const { return m_automationHasBeenSet; }
+
+    /**
+     * <p>The parameters for an AUTOMATION task type.</p>
+     */
     inline void SetAutomation(const MaintenanceWindowAutomationParameters& value) { m_automationHasBeenSet = true; m_automation = value; }
 
     /**
@@ -103,27 +113,32 @@ namespace Model
 
 
     /**
-     * <p>The parameters for a STEP_FUNCTION task type.</p>
+     * <p>The parameters for a STEP_FUNCTIONS task type.</p>
      */
     inline const MaintenanceWindowStepFunctionsParameters& GetStepFunctions() const{ return m_stepFunctions; }
 
     /**
-     * <p>The parameters for a STEP_FUNCTION task type.</p>
+     * <p>The parameters for a STEP_FUNCTIONS task type.</p>
+     */
+    inline bool StepFunctionsHasBeenSet() const { return m_stepFunctionsHasBeenSet; }
+
+    /**
+     * <p>The parameters for a STEP_FUNCTIONS task type.</p>
      */
     inline void SetStepFunctions(const MaintenanceWindowStepFunctionsParameters& value) { m_stepFunctionsHasBeenSet = true; m_stepFunctions = value; }
 
     /**
-     * <p>The parameters for a STEP_FUNCTION task type.</p>
+     * <p>The parameters for a STEP_FUNCTIONS task type.</p>
      */
     inline void SetStepFunctions(MaintenanceWindowStepFunctionsParameters&& value) { m_stepFunctionsHasBeenSet = true; m_stepFunctions = std::move(value); }
 
     /**
-     * <p>The parameters for a STEP_FUNCTION task type.</p>
+     * <p>The parameters for a STEP_FUNCTIONS task type.</p>
      */
     inline MaintenanceWindowTaskInvocationParameters& WithStepFunctions(const MaintenanceWindowStepFunctionsParameters& value) { SetStepFunctions(value); return *this;}
 
     /**
-     * <p>The parameters for a STEP_FUNCTION task type.</p>
+     * <p>The parameters for a STEP_FUNCTIONS task type.</p>
      */
     inline MaintenanceWindowTaskInvocationParameters& WithStepFunctions(MaintenanceWindowStepFunctionsParameters&& value) { SetStepFunctions(std::move(value)); return *this;}
 
@@ -132,6 +147,11 @@ namespace Model
      * <p>The parameters for a LAMBDA task type.</p>
      */
     inline const MaintenanceWindowLambdaParameters& GetLambda() const{ return m_lambda; }
+
+    /**
+     * <p>The parameters for a LAMBDA task type.</p>
+     */
+    inline bool LambdaHasBeenSet() const { return m_lambdaHasBeenSet; }
 
     /**
      * <p>The parameters for a LAMBDA task type.</p>

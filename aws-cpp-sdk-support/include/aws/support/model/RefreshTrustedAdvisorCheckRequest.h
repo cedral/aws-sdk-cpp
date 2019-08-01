@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     RefreshTrustedAdvisorCheckRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * <code>InvalidParameterValue</code> error.</p>
      */
     inline const Aws::String& GetCheckId() const{ return m_checkId; }
+
+    /**
+     * <p>The unique identifier for the Trusted Advisor check to refresh. <b>Note:</b>
+     * Specifying the check ID of a check that is automatically refreshed causes an
+     * <code>InvalidParameterValue</code> error.</p>
+     */
+    inline bool CheckIdHasBeenSet() const { return m_checkIdHasBeenSet; }
 
     /**
      * <p>The unique identifier for the Trusted Advisor check to refresh. <b>Note:</b>

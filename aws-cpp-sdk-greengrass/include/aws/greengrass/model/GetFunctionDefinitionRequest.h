@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetFunctionDefinitionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * The ID of the Lambda function definition.
      */
     inline const Aws::String& GetFunctionDefinitionId() const{ return m_functionDefinitionId; }
+
+    /**
+     * The ID of the Lambda function definition.
+     */
+    inline bool FunctionDefinitionIdHasBeenSet() const { return m_functionDefinitionIdHasBeenSet; }
 
     /**
      * The ID of the Lambda function definition.

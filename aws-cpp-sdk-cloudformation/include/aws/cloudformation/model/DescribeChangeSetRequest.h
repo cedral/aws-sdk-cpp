@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeChangeSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * describe.</p>
      */
     inline const Aws::String& GetChangeSetName() const{ return m_changeSetName; }
+
+    /**
+     * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
+     * describe.</p>
+     */
+    inline bool ChangeSetNameHasBeenSet() const { return m_changeSetNameHasBeenSet; }
 
     /**
      * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
@@ -103,6 +109,12 @@ namespace Model
      * <p>If you specified the name of a change set, specify the stack name or ID (ARN)
      * of the change set you want to describe.</p>
      */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
+
+    /**
+     * <p>If you specified the name of a change set, specify the stack name or ID (ARN)
+     * of the change set you want to describe.</p>
+     */
     inline void SetStackName(const Aws::String& value) { m_stackNameHasBeenSet = true; m_stackName = value; }
 
     /**
@@ -141,6 +153,12 @@ namespace Model
      * identifies the next page of information that you want to retrieve.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A string (provided by the <a>DescribeChangeSet</a> response output) that
+     * identifies the next page of information that you want to retrieve.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A string (provided by the <a>DescribeChangeSet</a> response output) that

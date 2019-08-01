@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateComputeEnvironmentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * lowercase), numbers, hyphens, and underscores are allowed.</p>
      */
     inline const Aws::String& GetComputeEnvironmentName() const{ return m_computeEnvironmentName; }
+
+    /**
+     * <p>The name for your compute environment. Up to 128 letters (uppercase and
+     * lowercase), numbers, hyphens, and underscores are allowed.</p>
+     */
+    inline bool ComputeEnvironmentNameHasBeenSet() const { return m_computeEnvironmentNameHasBeenSet; }
 
     /**
      * <p>The name for your compute environment. Up to 128 letters (uppercase and
@@ -90,35 +96,42 @@ namespace Model
 
     /**
      * <p>The type of the compute environment. For more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
      * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline const CEType& GetType() const{ return m_type; }
 
     /**
      * <p>The type of the compute environment. For more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
+     */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
+
+    /**
+     * <p>The type of the compute environment. For more information, see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
      * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline void SetType(const CEType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
      * <p>The type of the compute environment. For more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
      * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline void SetType(CEType&& value) { m_typeHasBeenSet = true; m_type = std::move(value); }
 
     /**
      * <p>The type of the compute environment. For more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
      * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline CreateComputeEnvironmentRequest& WithType(const CEType& value) { SetType(value); return *this;}
 
     /**
      * <p>The type of the compute environment. For more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
      * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline CreateComputeEnvironmentRequest& WithType(CEType&& value) { SetType(std::move(value)); return *this;}
@@ -130,6 +143,13 @@ namespace Model
      * automatically based on queues.</p>
      */
     inline const CEState& GetState() const{ return m_state; }
+
+    /**
+     * <p>The state of the compute environment. If the state is <code>ENABLED</code>,
+     * then the compute environment accepts jobs from a queue and can scale out
+     * automatically based on queues.</p>
+     */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
 
     /**
      * <p>The state of the compute environment. If the state is <code>ENABLED</code>,
@@ -162,31 +182,55 @@ namespace Model
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline const ComputeResource& GetComputeResources() const{ return m_computeResources; }
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
+     */
+    inline bool ComputeResourcesHasBeenSet() const { return m_computeResourcesHasBeenSet; }
+
+    /**
+     * <p>Details of the compute resources managed by the compute environment. This
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline void SetComputeResources(const ComputeResource& value) { m_computeResourcesHasBeenSet = true; m_computeResources = value; }
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline void SetComputeResources(ComputeResource&& value) { m_computeResourcesHasBeenSet = true; m_computeResources = std::move(value); }
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline CreateComputeEnvironmentRequest& WithComputeResources(const ComputeResource& value) { SetComputeResources(value); return *this;}
 
     /**
      * <p>Details of the compute resources managed by the compute environment. This
-     * parameter is required for managed compute environments.</p>
+     * parameter is required for managed compute environments. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+     * Environments</a> in the <i>AWS Batch User Guide</i>.</p>
      */
     inline CreateComputeEnvironmentRequest& WithComputeResources(ComputeResource&& value) { SetComputeResources(std::move(value)); return *this;}
 
@@ -204,6 +248,20 @@ namespace Model
      * environments.</p> </note>
      */
     inline const Aws::String& GetServiceRole() const{ return m_serviceRole; }
+
+    /**
+     * <p>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to
+     * make calls to other AWS services on your behalf.</p> <p>If your specified role
+     * has a path other than <code>/</code>, then you must either specify the full role
+     * ARN (this is recommended) or prefix the role name with the path.</p> <note>
+     * <p>Depending on how you created your AWS Batch service role, its ARN may contain
+     * the <code>service-role</code> path prefix. When you only specify the name of the
+     * service role, AWS Batch assumes that your ARN does not use the
+     * <code>service-role</code> path prefix. Because of this, we recommend that you
+     * specify the full ARN of your service role when you create compute
+     * environments.</p> </note>
+     */
+    inline bool ServiceRoleHasBeenSet() const { return m_serviceRoleHasBeenSet; }
 
     /**
      * <p>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to

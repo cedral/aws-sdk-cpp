@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     SearchProfilesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,14 @@ namespace Model
      * <code>MaxResults</code>.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>An optional token returned from a prior request. Use this token for
+     * pagination of results from this action. If this parameter is specified, the
+     * response includes only results beyond the token, up to the value specified by
+     * <code>MaxResults</code>.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>An optional token returned from a prior request. Use this token for
@@ -116,6 +124,13 @@ namespace Model
      * exist than the specified <code>MaxResults</code> value, a token is included in
      * the response so that the remaining results can be retrieved.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to include in the response. If more results
+     * exist than the specified <code>MaxResults</code> value, a token is included in
+     * the response so that the remaining results can be retrieved.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -131,6 +146,12 @@ namespace Model
      * keys are ProfileName and Address. Required. </p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>The filters to use to list a specified set of room profiles. Supported filter
+     * keys are ProfileName and Address. Required. </p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>The filters to use to list a specified set of room profiles. Supported filter
@@ -174,6 +195,12 @@ namespace Model
      * Supported sort keys are ProfileName and Address.</p>
      */
     inline const Aws::Vector<Sort>& GetSortCriteria() const{ return m_sortCriteria; }
+
+    /**
+     * <p>The sort order to use in listing the specified set of room profiles.
+     * Supported sort keys are ProfileName and Address.</p>
+     */
+    inline bool SortCriteriaHasBeenSet() const { return m_sortCriteriaHasBeenSet; }
 
     /**
      * <p>The sort order to use in listing the specified set of room profiles.

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     PollForTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,16 @@ namespace Model
      * match.</p>
      */
     inline const Aws::String& GetWorkerGroup() const{ return m_workerGroup; }
+
+    /**
+     * <p>The type of task the task runner is configured to accept and process. The
+     * worker group is set as a field on objects in the pipeline when they are created.
+     * You can only specify a single value for <code>workerGroup</code> in the call to
+     * <code>PollForTask</code>. There are no wildcard values permitted in
+     * <code>workerGroup</code>; the string must be an exact, case-sensitive,
+     * match.</p>
+     */
+    inline bool WorkerGroupHasBeenSet() const { return m_workerGroupHasBeenSet; }
 
     /**
      * <p>The type of task the task runner is configured to accept and process. The
@@ -127,6 +137,11 @@ namespace Model
     /**
      * <p>The public DNS name of the calling task runner.</p>
      */
+    inline bool HostnameHasBeenSet() const { return m_hostnameHasBeenSet; }
+
+    /**
+     * <p>The public DNS name of the calling task runner.</p>
+     */
     inline void SetHostname(const Aws::String& value) { m_hostnameHasBeenSet = true; m_hostname = value; }
 
     /**
@@ -167,6 +182,19 @@ namespace Model
      * pipeline.</p>
      */
     inline const InstanceIdentity& GetInstanceIdentity() const{ return m_instanceIdentity; }
+
+    /**
+     * <p>Identity information for the EC2 instance that is hosting the task runner.
+     * You can get this value from the instance using
+     * <code>http://169.254.169.254/latest/meta-data/instance-id</code>. For more
+     * information, see <a
+     * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html">Instance
+     * Metadata</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i> Passing in
+     * this value proves that your task runner is running on an EC2 instance, and
+     * ensures the proper AWS Data Pipeline service charges are applied to your
+     * pipeline.</p>
+     */
+    inline bool InstanceIdentityHasBeenSet() const { return m_instanceIdentityHasBeenSet; }
 
     /**
      * <p>Identity information for the EC2 instance that is hosting the task runner.

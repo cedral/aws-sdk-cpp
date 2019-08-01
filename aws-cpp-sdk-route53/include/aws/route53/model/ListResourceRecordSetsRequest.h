@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     ListResourceRecordSetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,12 @@ namespace Model
      * want to list.</p>
      */
     inline const Aws::String& GetHostedZoneId() const{ return m_hostedZoneId; }
+
+    /**
+     * <p>The ID of the hosted zone that contains the resource record sets that you
+     * want to list.</p>
+     */
+    inline bool HostedZoneIdHasBeenSet() const { return m_hostedZoneIdHasBeenSet; }
 
     /**
      * <p>The ID of the hosted zone that contains the resource record sets that you
@@ -106,6 +112,12 @@ namespace Model
      * <p>The first name in the lexicographic ordering of resource record sets that you
      * want to list.</p>
      */
+    inline bool StartRecordNameHasBeenSet() const { return m_startRecordNameHasBeenSet; }
+
+    /**
+     * <p>The first name in the lexicographic ordering of resource record sets that you
+     * want to list.</p>
+     */
     inline void SetStartRecordName(const Aws::String& value) { m_startRecordNameHasBeenSet = true; m_startRecordName = value; }
 
     /**
@@ -149,13 +161,16 @@ namespace Model
      * <code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> |
      * <code>MX</code> | <code>NAPTR</code> | <code>PTR</code> | <code>SPF</code> |
      * <code>SRV</code> | <code>TXT</code> </p> <p>Values for alias resource record
-     * sets: </p> <ul> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p> </li>
-     * <li> <p> <b>Elastic Beanstalk environment that has a regionalized subdomain</b>:
-     * A</p> </li> <li> <p> <b>ELB load balancer</b>: A | AAAA</p> </li> <li> <p>
-     * <b>Amazon S3 bucket</b>: A</p> </li> <li> <p> <b>Another resource record set in
-     * this hosted zone:</b> The type of the resource record set that the alias
-     * references.</p> </li> </ul> <p>Constraint: Specifying <code>type</code> without
-     * specifying <code>name</code> returns an <code>InvalidInput</code> error.</p>
+     * sets: </p> <ul> <li> <p> <b>API Gateway custom regional API or edge-optimized
+     * API</b>: A</p> </li> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p>
+     * </li> <li> <p> <b>Elastic Beanstalk environment that has a regionalized
+     * subdomain</b>: A</p> </li> <li> <p> <b>Elastic Load Balancing load balancer</b>:
+     * A | AAAA</p> </li> <li> <p> <b>Amazon S3 bucket</b>: A</p> </li> <li> <p>
+     * <b>Amazon VPC interface VPC endpoint</b>: A</p> </li> <li> <p> <b>Another
+     * resource record set in this hosted zone:</b> The type of the resource record set
+     * that the alias references.</p> </li> </ul> <p>Constraint: Specifying
+     * <code>type</code> without specifying <code>name</code> returns an
+     * <code>InvalidInput</code> error.</p>
      */
     inline const RRType& GetStartRecordType() const{ return m_startRecordType; }
 
@@ -169,13 +184,39 @@ namespace Model
      * <code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> |
      * <code>MX</code> | <code>NAPTR</code> | <code>PTR</code> | <code>SPF</code> |
      * <code>SRV</code> | <code>TXT</code> </p> <p>Values for alias resource record
-     * sets: </p> <ul> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p> </li>
-     * <li> <p> <b>Elastic Beanstalk environment that has a regionalized subdomain</b>:
-     * A</p> </li> <li> <p> <b>ELB load balancer</b>: A | AAAA</p> </li> <li> <p>
-     * <b>Amazon S3 bucket</b>: A</p> </li> <li> <p> <b>Another resource record set in
-     * this hosted zone:</b> The type of the resource record set that the alias
-     * references.</p> </li> </ul> <p>Constraint: Specifying <code>type</code> without
-     * specifying <code>name</code> returns an <code>InvalidInput</code> error.</p>
+     * sets: </p> <ul> <li> <p> <b>API Gateway custom regional API or edge-optimized
+     * API</b>: A</p> </li> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p>
+     * </li> <li> <p> <b>Elastic Beanstalk environment that has a regionalized
+     * subdomain</b>: A</p> </li> <li> <p> <b>Elastic Load Balancing load balancer</b>:
+     * A | AAAA</p> </li> <li> <p> <b>Amazon S3 bucket</b>: A</p> </li> <li> <p>
+     * <b>Amazon VPC interface VPC endpoint</b>: A</p> </li> <li> <p> <b>Another
+     * resource record set in this hosted zone:</b> The type of the resource record set
+     * that the alias references.</p> </li> </ul> <p>Constraint: Specifying
+     * <code>type</code> without specifying <code>name</code> returns an
+     * <code>InvalidInput</code> error.</p>
+     */
+    inline bool StartRecordTypeHasBeenSet() const { return m_startRecordTypeHasBeenSet; }
+
+    /**
+     * <p>The type of resource record set to begin the record listing from.</p>
+     * <p>Valid values for basic resource record sets: <code>A</code> |
+     * <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> | <code>MX</code> |
+     * <code>NAPTR</code> | <code>NS</code> | <code>PTR</code> | <code>SOA</code> |
+     * <code>SPF</code> | <code>SRV</code> | <code>TXT</code> </p> <p>Values for
+     * weighted, latency, geolocation, and failover resource record sets:
+     * <code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> |
+     * <code>MX</code> | <code>NAPTR</code> | <code>PTR</code> | <code>SPF</code> |
+     * <code>SRV</code> | <code>TXT</code> </p> <p>Values for alias resource record
+     * sets: </p> <ul> <li> <p> <b>API Gateway custom regional API or edge-optimized
+     * API</b>: A</p> </li> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p>
+     * </li> <li> <p> <b>Elastic Beanstalk environment that has a regionalized
+     * subdomain</b>: A</p> </li> <li> <p> <b>Elastic Load Balancing load balancer</b>:
+     * A | AAAA</p> </li> <li> <p> <b>Amazon S3 bucket</b>: A</p> </li> <li> <p>
+     * <b>Amazon VPC interface VPC endpoint</b>: A</p> </li> <li> <p> <b>Another
+     * resource record set in this hosted zone:</b> The type of the resource record set
+     * that the alias references.</p> </li> </ul> <p>Constraint: Specifying
+     * <code>type</code> without specifying <code>name</code> returns an
+     * <code>InvalidInput</code> error.</p>
      */
     inline void SetStartRecordType(const RRType& value) { m_startRecordTypeHasBeenSet = true; m_startRecordType = value; }
 
@@ -189,13 +230,16 @@ namespace Model
      * <code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> |
      * <code>MX</code> | <code>NAPTR</code> | <code>PTR</code> | <code>SPF</code> |
      * <code>SRV</code> | <code>TXT</code> </p> <p>Values for alias resource record
-     * sets: </p> <ul> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p> </li>
-     * <li> <p> <b>Elastic Beanstalk environment that has a regionalized subdomain</b>:
-     * A</p> </li> <li> <p> <b>ELB load balancer</b>: A | AAAA</p> </li> <li> <p>
-     * <b>Amazon S3 bucket</b>: A</p> </li> <li> <p> <b>Another resource record set in
-     * this hosted zone:</b> The type of the resource record set that the alias
-     * references.</p> </li> </ul> <p>Constraint: Specifying <code>type</code> without
-     * specifying <code>name</code> returns an <code>InvalidInput</code> error.</p>
+     * sets: </p> <ul> <li> <p> <b>API Gateway custom regional API or edge-optimized
+     * API</b>: A</p> </li> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p>
+     * </li> <li> <p> <b>Elastic Beanstalk environment that has a regionalized
+     * subdomain</b>: A</p> </li> <li> <p> <b>Elastic Load Balancing load balancer</b>:
+     * A | AAAA</p> </li> <li> <p> <b>Amazon S3 bucket</b>: A</p> </li> <li> <p>
+     * <b>Amazon VPC interface VPC endpoint</b>: A</p> </li> <li> <p> <b>Another
+     * resource record set in this hosted zone:</b> The type of the resource record set
+     * that the alias references.</p> </li> </ul> <p>Constraint: Specifying
+     * <code>type</code> without specifying <code>name</code> returns an
+     * <code>InvalidInput</code> error.</p>
      */
     inline void SetStartRecordType(RRType&& value) { m_startRecordTypeHasBeenSet = true; m_startRecordType = std::move(value); }
 
@@ -209,13 +253,16 @@ namespace Model
      * <code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> |
      * <code>MX</code> | <code>NAPTR</code> | <code>PTR</code> | <code>SPF</code> |
      * <code>SRV</code> | <code>TXT</code> </p> <p>Values for alias resource record
-     * sets: </p> <ul> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p> </li>
-     * <li> <p> <b>Elastic Beanstalk environment that has a regionalized subdomain</b>:
-     * A</p> </li> <li> <p> <b>ELB load balancer</b>: A | AAAA</p> </li> <li> <p>
-     * <b>Amazon S3 bucket</b>: A</p> </li> <li> <p> <b>Another resource record set in
-     * this hosted zone:</b> The type of the resource record set that the alias
-     * references.</p> </li> </ul> <p>Constraint: Specifying <code>type</code> without
-     * specifying <code>name</code> returns an <code>InvalidInput</code> error.</p>
+     * sets: </p> <ul> <li> <p> <b>API Gateway custom regional API or edge-optimized
+     * API</b>: A</p> </li> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p>
+     * </li> <li> <p> <b>Elastic Beanstalk environment that has a regionalized
+     * subdomain</b>: A</p> </li> <li> <p> <b>Elastic Load Balancing load balancer</b>:
+     * A | AAAA</p> </li> <li> <p> <b>Amazon S3 bucket</b>: A</p> </li> <li> <p>
+     * <b>Amazon VPC interface VPC endpoint</b>: A</p> </li> <li> <p> <b>Another
+     * resource record set in this hosted zone:</b> The type of the resource record set
+     * that the alias references.</p> </li> </ul> <p>Constraint: Specifying
+     * <code>type</code> without specifying <code>name</code> returns an
+     * <code>InvalidInput</code> error.</p>
      */
     inline ListResourceRecordSetsRequest& WithStartRecordType(const RRType& value) { SetStartRecordType(value); return *this;}
 
@@ -229,70 +276,81 @@ namespace Model
      * <code>A</code> | <code>AAAA</code> | <code>CAA</code> | <code>CNAME</code> |
      * <code>MX</code> | <code>NAPTR</code> | <code>PTR</code> | <code>SPF</code> |
      * <code>SRV</code> | <code>TXT</code> </p> <p>Values for alias resource record
-     * sets: </p> <ul> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p> </li>
-     * <li> <p> <b>Elastic Beanstalk environment that has a regionalized subdomain</b>:
-     * A</p> </li> <li> <p> <b>ELB load balancer</b>: A | AAAA</p> </li> <li> <p>
-     * <b>Amazon S3 bucket</b>: A</p> </li> <li> <p> <b>Another resource record set in
-     * this hosted zone:</b> The type of the resource record set that the alias
-     * references.</p> </li> </ul> <p>Constraint: Specifying <code>type</code> without
-     * specifying <code>name</code> returns an <code>InvalidInput</code> error.</p>
+     * sets: </p> <ul> <li> <p> <b>API Gateway custom regional API or edge-optimized
+     * API</b>: A</p> </li> <li> <p> <b>CloudFront distribution</b>: A or AAAA</p>
+     * </li> <li> <p> <b>Elastic Beanstalk environment that has a regionalized
+     * subdomain</b>: A</p> </li> <li> <p> <b>Elastic Load Balancing load balancer</b>:
+     * A | AAAA</p> </li> <li> <p> <b>Amazon S3 bucket</b>: A</p> </li> <li> <p>
+     * <b>Amazon VPC interface VPC endpoint</b>: A</p> </li> <li> <p> <b>Another
+     * resource record set in this hosted zone:</b> The type of the resource record set
+     * that the alias references.</p> </li> </ul> <p>Constraint: Specifying
+     * <code>type</code> without specifying <code>name</code> returns an
+     * <code>InvalidInput</code> error.</p>
      */
     inline ListResourceRecordSetsRequest& WithStartRecordType(RRType&& value) { SetStartRecordType(std::move(value)); return *this;}
 
 
     /**
-     * <p> <i>Weighted resource record sets only:</i> If results were truncated for a
-     * given DNS name and type, specify the value of <code>NextRecordIdentifier</code>
-     * from the previous response to get the next resource record set that has the
-     * current DNS name and type.</p>
+     * <p> <i>Resource record sets that have a routing policy other than simple:</i> If
+     * results were truncated for a given DNS name and type, specify the value of
+     * <code>NextRecordIdentifier</code> from the previous response to get the next
+     * resource record set that has the current DNS name and type.</p>
      */
     inline const Aws::String& GetStartRecordIdentifier() const{ return m_startRecordIdentifier; }
 
     /**
-     * <p> <i>Weighted resource record sets only:</i> If results were truncated for a
-     * given DNS name and type, specify the value of <code>NextRecordIdentifier</code>
-     * from the previous response to get the next resource record set that has the
-     * current DNS name and type.</p>
+     * <p> <i>Resource record sets that have a routing policy other than simple:</i> If
+     * results were truncated for a given DNS name and type, specify the value of
+     * <code>NextRecordIdentifier</code> from the previous response to get the next
+     * resource record set that has the current DNS name and type.</p>
+     */
+    inline bool StartRecordIdentifierHasBeenSet() const { return m_startRecordIdentifierHasBeenSet; }
+
+    /**
+     * <p> <i>Resource record sets that have a routing policy other than simple:</i> If
+     * results were truncated for a given DNS name and type, specify the value of
+     * <code>NextRecordIdentifier</code> from the previous response to get the next
+     * resource record set that has the current DNS name and type.</p>
      */
     inline void SetStartRecordIdentifier(const Aws::String& value) { m_startRecordIdentifierHasBeenSet = true; m_startRecordIdentifier = value; }
 
     /**
-     * <p> <i>Weighted resource record sets only:</i> If results were truncated for a
-     * given DNS name and type, specify the value of <code>NextRecordIdentifier</code>
-     * from the previous response to get the next resource record set that has the
-     * current DNS name and type.</p>
+     * <p> <i>Resource record sets that have a routing policy other than simple:</i> If
+     * results were truncated for a given DNS name and type, specify the value of
+     * <code>NextRecordIdentifier</code> from the previous response to get the next
+     * resource record set that has the current DNS name and type.</p>
      */
     inline void SetStartRecordIdentifier(Aws::String&& value) { m_startRecordIdentifierHasBeenSet = true; m_startRecordIdentifier = std::move(value); }
 
     /**
-     * <p> <i>Weighted resource record sets only:</i> If results were truncated for a
-     * given DNS name and type, specify the value of <code>NextRecordIdentifier</code>
-     * from the previous response to get the next resource record set that has the
-     * current DNS name and type.</p>
+     * <p> <i>Resource record sets that have a routing policy other than simple:</i> If
+     * results were truncated for a given DNS name and type, specify the value of
+     * <code>NextRecordIdentifier</code> from the previous response to get the next
+     * resource record set that has the current DNS name and type.</p>
      */
     inline void SetStartRecordIdentifier(const char* value) { m_startRecordIdentifierHasBeenSet = true; m_startRecordIdentifier.assign(value); }
 
     /**
-     * <p> <i>Weighted resource record sets only:</i> If results were truncated for a
-     * given DNS name and type, specify the value of <code>NextRecordIdentifier</code>
-     * from the previous response to get the next resource record set that has the
-     * current DNS name and type.</p>
+     * <p> <i>Resource record sets that have a routing policy other than simple:</i> If
+     * results were truncated for a given DNS name and type, specify the value of
+     * <code>NextRecordIdentifier</code> from the previous response to get the next
+     * resource record set that has the current DNS name and type.</p>
      */
     inline ListResourceRecordSetsRequest& WithStartRecordIdentifier(const Aws::String& value) { SetStartRecordIdentifier(value); return *this;}
 
     /**
-     * <p> <i>Weighted resource record sets only:</i> If results were truncated for a
-     * given DNS name and type, specify the value of <code>NextRecordIdentifier</code>
-     * from the previous response to get the next resource record set that has the
-     * current DNS name and type.</p>
+     * <p> <i>Resource record sets that have a routing policy other than simple:</i> If
+     * results were truncated for a given DNS name and type, specify the value of
+     * <code>NextRecordIdentifier</code> from the previous response to get the next
+     * resource record set that has the current DNS name and type.</p>
      */
     inline ListResourceRecordSetsRequest& WithStartRecordIdentifier(Aws::String&& value) { SetStartRecordIdentifier(std::move(value)); return *this;}
 
     /**
-     * <p> <i>Weighted resource record sets only:</i> If results were truncated for a
-     * given DNS name and type, specify the value of <code>NextRecordIdentifier</code>
-     * from the previous response to get the next resource record set that has the
-     * current DNS name and type.</p>
+     * <p> <i>Resource record sets that have a routing policy other than simple:</i> If
+     * results were truncated for a given DNS name and type, specify the value of
+     * <code>NextRecordIdentifier</code> from the previous response to get the next
+     * resource record set that has the current DNS name and type.</p>
      */
     inline ListResourceRecordSetsRequest& WithStartRecordIdentifier(const char* value) { SetStartRecordIdentifier(value); return *this;}
 
@@ -307,6 +365,17 @@ namespace Model
      * group of <code>maxitems</code> resource record sets.</p>
      */
     inline const Aws::String& GetMaxItems() const{ return m_maxItems; }
+
+    /**
+     * <p>(Optional) The maximum number of resource records sets to include in the
+     * response body for this request. If the response includes more than
+     * <code>maxitems</code> resource record sets, the value of the
+     * <code>IsTruncated</code> element in the response is <code>true</code>, and the
+     * values of the <code>NextRecordName</code> and <code>NextRecordType</code>
+     * elements in the response identify the first resource record set in the next
+     * group of <code>maxitems</code> resource record sets.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
 
     /**
      * <p>(Optional) The maximum number of resource records sets to include in the

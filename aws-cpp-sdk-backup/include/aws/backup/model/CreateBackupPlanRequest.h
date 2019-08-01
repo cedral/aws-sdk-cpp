@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreateBackupPlanRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * and one or more sets of <code>Rules</code>.</p>
      */
     inline const BackupPlanInput& GetBackupPlan() const{ return m_backupPlan; }
+
+    /**
+     * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code>
+     * and one or more sets of <code>Rules</code>.</p>
+     */
+    inline bool BackupPlanHasBeenSet() const { return m_backupPlanHasBeenSet; }
 
     /**
      * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code>
@@ -81,6 +87,13 @@ namespace Model
      * assigned to all backups created with this plan.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetBackupPlanTags() const{ return m_backupPlanTags; }
+
+    /**
+     * <p>To help organize your resources, you can assign your own metadata to the
+     * resources that you create. Each tag is a key-value pair. The specified tags are
+     * assigned to all backups created with this plan.</p>
+     */
+    inline bool BackupPlanTagsHasBeenSet() const { return m_backupPlanTagsHasBeenSet; }
 
     /**
      * <p>To help organize your resources, you can assign your own metadata to the
@@ -167,6 +180,14 @@ namespace Model
      * returned. This parameter is optional.</p>
      */
     inline const Aws::String& GetCreatorRequestId() const{ return m_creatorRequestId; }
+
+    /**
+     * <p>Identifies the request and allows failed requests to be retried without the
+     * risk of executing the operation twice. If the request includes a
+     * <code>CreatorRequestId</code> that matches an existing backup plan, that plan is
+     * returned. This parameter is optional.</p>
+     */
+    inline bool CreatorRequestIdHasBeenSet() const { return m_creatorRequestIdHasBeenSet; }
 
     /**
      * <p>Identifies the request and allows failed requests to be retried without the

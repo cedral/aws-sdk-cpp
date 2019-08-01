@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ApplyPendingMaintenanceActionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,14 @@ namespace Model
      * Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
      */
     inline const Aws::String& GetResourceIdentifier() const{ return m_resourceIdentifier; }
+
+    /**
+     * <p>The RDS Amazon Resource Name (ARN) of the resource that the pending
+     * maintenance action applies to. For information about creating an ARN, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
+     */
+    inline bool ResourceIdentifierHasBeenSet() const { return m_resourceIdentifierHasBeenSet; }
 
     /**
      * <p>The RDS Amazon Resource Name (ARN) of the resource that the pending
@@ -108,43 +116,57 @@ namespace Model
 
     /**
      * <p>The pending maintenance action to apply to this resource.</p> <p>Valid
-     * values: <code>system-update</code>, <code>db-upgrade</code> </p>
+     * values: <code>system-update</code>, <code>db-upgrade</code>,
+     * <code>hardware-maintenance</code> </p>
      */
     inline const Aws::String& GetApplyAction() const{ return m_applyAction; }
 
     /**
      * <p>The pending maintenance action to apply to this resource.</p> <p>Valid
-     * values: <code>system-update</code>, <code>db-upgrade</code> </p>
+     * values: <code>system-update</code>, <code>db-upgrade</code>,
+     * <code>hardware-maintenance</code> </p>
+     */
+    inline bool ApplyActionHasBeenSet() const { return m_applyActionHasBeenSet; }
+
+    /**
+     * <p>The pending maintenance action to apply to this resource.</p> <p>Valid
+     * values: <code>system-update</code>, <code>db-upgrade</code>,
+     * <code>hardware-maintenance</code> </p>
      */
     inline void SetApplyAction(const Aws::String& value) { m_applyActionHasBeenSet = true; m_applyAction = value; }
 
     /**
      * <p>The pending maintenance action to apply to this resource.</p> <p>Valid
-     * values: <code>system-update</code>, <code>db-upgrade</code> </p>
+     * values: <code>system-update</code>, <code>db-upgrade</code>,
+     * <code>hardware-maintenance</code> </p>
      */
     inline void SetApplyAction(Aws::String&& value) { m_applyActionHasBeenSet = true; m_applyAction = std::move(value); }
 
     /**
      * <p>The pending maintenance action to apply to this resource.</p> <p>Valid
-     * values: <code>system-update</code>, <code>db-upgrade</code> </p>
+     * values: <code>system-update</code>, <code>db-upgrade</code>,
+     * <code>hardware-maintenance</code> </p>
      */
     inline void SetApplyAction(const char* value) { m_applyActionHasBeenSet = true; m_applyAction.assign(value); }
 
     /**
      * <p>The pending maintenance action to apply to this resource.</p> <p>Valid
-     * values: <code>system-update</code>, <code>db-upgrade</code> </p>
+     * values: <code>system-update</code>, <code>db-upgrade</code>,
+     * <code>hardware-maintenance</code> </p>
      */
     inline ApplyPendingMaintenanceActionRequest& WithApplyAction(const Aws::String& value) { SetApplyAction(value); return *this;}
 
     /**
      * <p>The pending maintenance action to apply to this resource.</p> <p>Valid
-     * values: <code>system-update</code>, <code>db-upgrade</code> </p>
+     * values: <code>system-update</code>, <code>db-upgrade</code>,
+     * <code>hardware-maintenance</code> </p>
      */
     inline ApplyPendingMaintenanceActionRequest& WithApplyAction(Aws::String&& value) { SetApplyAction(std::move(value)); return *this;}
 
     /**
      * <p>The pending maintenance action to apply to this resource.</p> <p>Valid
-     * values: <code>system-update</code>, <code>db-upgrade</code> </p>
+     * values: <code>system-update</code>, <code>db-upgrade</code>,
+     * <code>hardware-maintenance</code> </p>
      */
     inline ApplyPendingMaintenanceActionRequest& WithApplyAction(const char* value) { SetApplyAction(value); return *this;}
 
@@ -159,6 +181,17 @@ namespace Model
      * <code>next-maintenance</code> opt-in requests.</p> </li> </ul>
      */
     inline const Aws::String& GetOptInType() const{ return m_optInType; }
+
+    /**
+     * <p>A value that specifies the type of opt-in request, or undoes an opt-in
+     * request. An opt-in request of type <code>immediate</code> can't be undone.</p>
+     * <p>Valid values:</p> <ul> <li> <p> <code>immediate</code> - Apply the
+     * maintenance action immediately.</p> </li> <li> <p> <code>next-maintenance</code>
+     * - Apply the maintenance action during the next maintenance window for the
+     * resource.</p> </li> <li> <p> <code>undo-opt-in</code> - Cancel any existing
+     * <code>next-maintenance</code> opt-in requests.</p> </li> </ul>
+     */
+    inline bool OptInTypeHasBeenSet() const { return m_optInTypeHasBeenSet; }
 
     /**
      * <p>A value that specifies the type of opt-in request, or undoes an opt-in

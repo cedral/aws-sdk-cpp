@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeRaidArraysRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The instance ID. If you use this parameter, <code>DescribeRaidArrays</code>
+     * returns descriptions of the RAID arrays associated with the specified instance.
+     * </p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The instance ID. If you use this parameter, <code>DescribeRaidArrays</code>
@@ -103,6 +110,11 @@ namespace Model
     /**
      * <p>The stack ID.</p>
      */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
+
+    /**
+     * <p>The stack ID.</p>
+     */
     inline void SetStackId(const Aws::String& value) { m_stackIdHasBeenSet = true; m_stackId = value; }
 
     /**
@@ -137,6 +149,13 @@ namespace Model
      * Otherwise, it returns a description of every array.</p>
      */
     inline const Aws::Vector<Aws::String>& GetRaidArrayIds() const{ return m_raidArrayIds; }
+
+    /**
+     * <p>An array of RAID array IDs. If you use this parameter,
+     * <code>DescribeRaidArrays</code> returns descriptions of the specified arrays.
+     * Otherwise, it returns a description of every array.</p>
+     */
+    inline bool RaidArrayIdsHasBeenSet() const { return m_raidArrayIdsHasBeenSet; }
 
     /**
      * <p>An array of RAID array IDs. If you use this parameter,

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetAccessKeyLastUsedRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * that can consist of any upper or lowercased letter or digit.</p>
      */
     inline const Aws::String& GetAccessKeyId() const{ return m_accessKeyId; }
+
+    /**
+     * <p>The identifier of an access key.</p> <p>This parameter allows (through its <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters
+     * that can consist of any upper or lowercased letter or digit.</p>
+     */
+    inline bool AccessKeyIdHasBeenSet() const { return m_accessKeyIdHasBeenSet; }
 
     /**
      * <p>The identifier of an access key.</p> <p>This parameter allows (through its <a

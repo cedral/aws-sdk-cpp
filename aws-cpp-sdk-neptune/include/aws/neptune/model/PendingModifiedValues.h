@@ -36,7 +36,7 @@ namespace Model
 
   /**
    * <p> This data type is used as a response element in the <a>ModifyDBInstance</a>
-   * action. </p><p><h3>See Also:</h3>   <a
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/PendingModifiedValues">AWS
    * API Reference</a></p>
    */
@@ -53,62 +53,74 @@ namespace Model
 
     /**
      * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will
-     * be applied or is currently being applied. </p>
+     * be applied or is currently being applied.</p>
      */
     inline const Aws::String& GetDBInstanceClass() const{ return m_dBInstanceClass; }
 
     /**
      * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will
-     * be applied or is currently being applied. </p>
+     * be applied or is currently being applied.</p>
+     */
+    inline bool DBInstanceClassHasBeenSet() const { return m_dBInstanceClassHasBeenSet; }
+
+    /**
+     * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will
+     * be applied or is currently being applied.</p>
      */
     inline void SetDBInstanceClass(const Aws::String& value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass = value; }
 
     /**
      * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will
-     * be applied or is currently being applied. </p>
+     * be applied or is currently being applied.</p>
      */
     inline void SetDBInstanceClass(Aws::String&& value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass = std::move(value); }
 
     /**
      * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will
-     * be applied or is currently being applied. </p>
+     * be applied or is currently being applied.</p>
      */
     inline void SetDBInstanceClass(const char* value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass.assign(value); }
 
     /**
      * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will
-     * be applied or is currently being applied. </p>
+     * be applied or is currently being applied.</p>
      */
     inline PendingModifiedValues& WithDBInstanceClass(const Aws::String& value) { SetDBInstanceClass(value); return *this;}
 
     /**
      * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will
-     * be applied or is currently being applied. </p>
+     * be applied or is currently being applied.</p>
      */
     inline PendingModifiedValues& WithDBInstanceClass(Aws::String&& value) { SetDBInstanceClass(std::move(value)); return *this;}
 
     /**
      * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will
-     * be applied or is currently being applied. </p>
+     * be applied or is currently being applied.</p>
      */
     inline PendingModifiedValues& WithDBInstanceClass(const char* value) { SetDBInstanceClass(value); return *this;}
 
 
     /**
      * <p> Contains the new <code>AllocatedStorage</code> size for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
      */
     inline int GetAllocatedStorage() const{ return m_allocatedStorage; }
 
     /**
      * <p> Contains the new <code>AllocatedStorage</code> size for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
+     */
+    inline bool AllocatedStorageHasBeenSet() const { return m_allocatedStorageHasBeenSet; }
+
+    /**
+     * <p> Contains the new <code>AllocatedStorage</code> size for the DB instance that
+     * will be applied or is currently being applied.</p>
      */
     inline void SetAllocatedStorage(int value) { m_allocatedStorageHasBeenSet = true; m_allocatedStorage = value; }
 
     /**
      * <p> Contains the new <code>AllocatedStorage</code> size for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
      */
     inline PendingModifiedValues& WithAllocatedStorage(int value) { SetAllocatedStorage(value); return *this;}
 
@@ -118,6 +130,12 @@ namespace Model
      * credentials for the DB instance.</p>
      */
     inline const Aws::String& GetMasterUserPassword() const{ return m_masterUserPassword; }
+
+    /**
+     * <p>Contains the pending or currently-in-progress change of the master
+     * credentials for the DB instance.</p>
+     */
+    inline bool MasterUserPasswordHasBeenSet() const { return m_masterUserPasswordHasBeenSet; }
 
     /**
      * <p>Contains the pending or currently-in-progress change of the master
@@ -164,6 +182,11 @@ namespace Model
     /**
      * <p>Specifies the pending port for the DB instance.</p>
      */
+    inline bool PortHasBeenSet() const { return m_portHasBeenSet; }
+
+    /**
+     * <p>Specifies the pending port for the DB instance.</p>
+     */
     inline void SetPort(int value) { m_portHasBeenSet = true; m_port = value; }
 
     /**
@@ -177,6 +200,12 @@ namespace Model
      * retained.</p>
      */
     inline int GetBackupRetentionPeriod() const{ return m_backupRetentionPeriod; }
+
+    /**
+     * <p>Specifies the pending number of days for which automated backups are
+     * retained.</p>
+     */
+    inline bool BackupRetentionPeriodHasBeenSet() const { return m_backupRetentionPeriodHasBeenSet; }
 
     /**
      * <p>Specifies the pending number of days for which automated backups are
@@ -201,6 +230,12 @@ namespace Model
      * <p>Indicates that the Single-AZ DB instance is to change to a Multi-AZ
      * deployment.</p>
      */
+    inline bool MultiAZHasBeenSet() const { return m_multiAZHasBeenSet; }
+
+    /**
+     * <p>Indicates that the Single-AZ DB instance is to change to a Multi-AZ
+     * deployment.</p>
+     */
     inline void SetMultiAZ(bool value) { m_multiAZHasBeenSet = true; m_multiAZ = value; }
 
     /**
@@ -214,6 +249,11 @@ namespace Model
      * <p>Indicates the database engine version.</p>
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
+
+    /**
+     * <p>Indicates the database engine version.</p>
+     */
+    inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
      * <p>Indicates the database engine version.</p>
@@ -252,6 +292,13 @@ namespace Model
      * <code>general-public-license</code> </p>
      */
     inline const Aws::String& GetLicenseModel() const{ return m_licenseModel; }
+
+    /**
+     * <p>The license model for the DB instance.</p> <p>Valid values:
+     * <code>license-included</code> | <code>bring-your-own-license</code> |
+     * <code>general-public-license</code> </p>
+     */
+    inline bool LicenseModelHasBeenSet() const { return m_licenseModelHasBeenSet; }
 
     /**
      * <p>The license model for the DB instance.</p> <p>Valid values:
@@ -306,6 +353,12 @@ namespace Model
      * <p>Specifies the new Provisioned IOPS value for the DB instance that will be
      * applied or is currently being applied.</p>
      */
+    inline bool IopsHasBeenSet() const { return m_iopsHasBeenSet; }
+
+    /**
+     * <p>Specifies the new Provisioned IOPS value for the DB instance that will be
+     * applied or is currently being applied.</p>
+     */
     inline void SetIops(int value) { m_iopsHasBeenSet = true; m_iops = value; }
 
     /**
@@ -317,43 +370,49 @@ namespace Model
 
     /**
      * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
      */
     inline const Aws::String& GetDBInstanceIdentifier() const{ return m_dBInstanceIdentifier; }
 
     /**
      * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
+     */
+    inline bool DBInstanceIdentifierHasBeenSet() const { return m_dBInstanceIdentifierHasBeenSet; }
+
+    /**
+     * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that
+     * will be applied or is currently being applied.</p>
      */
     inline void SetDBInstanceIdentifier(const Aws::String& value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier = value; }
 
     /**
      * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
      */
     inline void SetDBInstanceIdentifier(Aws::String&& value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier = std::move(value); }
 
     /**
      * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
      */
     inline void SetDBInstanceIdentifier(const char* value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier.assign(value); }
 
     /**
      * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
      */
     inline PendingModifiedValues& WithDBInstanceIdentifier(const Aws::String& value) { SetDBInstanceIdentifier(value); return *this;}
 
     /**
      * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
      */
     inline PendingModifiedValues& WithDBInstanceIdentifier(Aws::String&& value) { SetDBInstanceIdentifier(std::move(value)); return *this;}
 
     /**
      * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that
-     * will be applied or is currently being applied. </p>
+     * will be applied or is currently being applied.</p>
      */
     inline PendingModifiedValues& WithDBInstanceIdentifier(const char* value) { SetDBInstanceIdentifier(value); return *this;}
 
@@ -362,6 +421,11 @@ namespace Model
      * <p>Specifies the storage type to be associated with the DB instance.</p>
      */
     inline const Aws::String& GetStorageType() const{ return m_storageType; }
+
+    /**
+     * <p>Specifies the storage type to be associated with the DB instance.</p>
+     */
+    inline bool StorageTypeHasBeenSet() const { return m_storageTypeHasBeenSet; }
 
     /**
      * <p>Specifies the storage type to be associated with the DB instance.</p>
@@ -402,6 +466,11 @@ namespace Model
     /**
      * <p>Specifies the identifier of the CA certificate for the DB instance.</p>
      */
+    inline bool CACertificateIdentifierHasBeenSet() const { return m_cACertificateIdentifierHasBeenSet; }
+
+    /**
+     * <p>Specifies the identifier of the CA certificate for the DB instance.</p>
+     */
     inline void SetCACertificateIdentifier(const Aws::String& value) { m_cACertificateIdentifierHasBeenSet = true; m_cACertificateIdentifier = value; }
 
     /**
@@ -431,54 +500,74 @@ namespace Model
 
 
     /**
-     * <p>The new DB subnet group for the DB instance. </p>
+     * <p>The new DB subnet group for the DB instance.</p>
      */
     inline const Aws::String& GetDBSubnetGroupName() const{ return m_dBSubnetGroupName; }
 
     /**
-     * <p>The new DB subnet group for the DB instance. </p>
+     * <p>The new DB subnet group for the DB instance.</p>
+     */
+    inline bool DBSubnetGroupNameHasBeenSet() const { return m_dBSubnetGroupNameHasBeenSet; }
+
+    /**
+     * <p>The new DB subnet group for the DB instance.</p>
      */
     inline void SetDBSubnetGroupName(const Aws::String& value) { m_dBSubnetGroupNameHasBeenSet = true; m_dBSubnetGroupName = value; }
 
     /**
-     * <p>The new DB subnet group for the DB instance. </p>
+     * <p>The new DB subnet group for the DB instance.</p>
      */
     inline void SetDBSubnetGroupName(Aws::String&& value) { m_dBSubnetGroupNameHasBeenSet = true; m_dBSubnetGroupName = std::move(value); }
 
     /**
-     * <p>The new DB subnet group for the DB instance. </p>
+     * <p>The new DB subnet group for the DB instance.</p>
      */
     inline void SetDBSubnetGroupName(const char* value) { m_dBSubnetGroupNameHasBeenSet = true; m_dBSubnetGroupName.assign(value); }
 
     /**
-     * <p>The new DB subnet group for the DB instance. </p>
+     * <p>The new DB subnet group for the DB instance.</p>
      */
     inline PendingModifiedValues& WithDBSubnetGroupName(const Aws::String& value) { SetDBSubnetGroupName(value); return *this;}
 
     /**
-     * <p>The new DB subnet group for the DB instance. </p>
+     * <p>The new DB subnet group for the DB instance.</p>
      */
     inline PendingModifiedValues& WithDBSubnetGroupName(Aws::String&& value) { SetDBSubnetGroupName(std::move(value)); return *this;}
 
     /**
-     * <p>The new DB subnet group for the DB instance. </p>
+     * <p>The new DB subnet group for the DB instance.</p>
      */
     inline PendingModifiedValues& WithDBSubnetGroupName(const char* value) { SetDBSubnetGroupName(value); return *this;}
 
 
-    
+    /**
+     * <p>Specifies the CloudWatch logs to be exported.</p>
+     */
     inline const PendingCloudwatchLogsExports& GetPendingCloudwatchLogsExports() const{ return m_pendingCloudwatchLogsExports; }
 
-    
+    /**
+     * <p>Specifies the CloudWatch logs to be exported.</p>
+     */
+    inline bool PendingCloudwatchLogsExportsHasBeenSet() const { return m_pendingCloudwatchLogsExportsHasBeenSet; }
+
+    /**
+     * <p>Specifies the CloudWatch logs to be exported.</p>
+     */
     inline void SetPendingCloudwatchLogsExports(const PendingCloudwatchLogsExports& value) { m_pendingCloudwatchLogsExportsHasBeenSet = true; m_pendingCloudwatchLogsExports = value; }
 
-    
+    /**
+     * <p>Specifies the CloudWatch logs to be exported.</p>
+     */
     inline void SetPendingCloudwatchLogsExports(PendingCloudwatchLogsExports&& value) { m_pendingCloudwatchLogsExportsHasBeenSet = true; m_pendingCloudwatchLogsExports = std::move(value); }
 
-    
+    /**
+     * <p>Specifies the CloudWatch logs to be exported.</p>
+     */
     inline PendingModifiedValues& WithPendingCloudwatchLogsExports(const PendingCloudwatchLogsExports& value) { SetPendingCloudwatchLogsExports(value); return *this;}
 
-    
+    /**
+     * <p>Specifies the CloudWatch logs to be exported.</p>
+     */
     inline PendingModifiedValues& WithPendingCloudwatchLogsExports(PendingCloudwatchLogsExports&& value) { SetPendingCloudwatchLogsExports(std::move(value)); return *this;}
 
   private:

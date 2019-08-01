@@ -27,6 +27,7 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 StopChannelResult::StopChannelResult() : 
+    m_channelClass(ChannelClass::NOT_SET),
     m_logLevel(LogLevel::NOT_SET),
     m_pipelinesRunningCount(0),
     m_state(ChannelState::NOT_SET)
@@ -34,6 +35,7 @@ StopChannelResult::StopChannelResult() :
 }
 
 StopChannelResult::StopChannelResult(const Aws::AmazonWebServiceResult<JsonValue>& result) : 
+    m_channelClass(ChannelClass::NOT_SET),
     m_logLevel(LogLevel::NOT_SET),
     m_pipelinesRunningCount(0),
     m_state(ChannelState::NOT_SET)
@@ -47,6 +49,12 @@ StopChannelResult& StopChannelResult::operator =(const Aws::AmazonWebServiceResu
   if(jsonValue.ValueExists("arn"))
   {
     m_arn = jsonValue.GetString("arn");
+
+  }
+
+  if(jsonValue.ValueExists("channelClass"))
+  {
+    m_channelClass = ChannelClassMapper::GetChannelClassForName(jsonValue.GetString("channelClass"));
 
   }
 
@@ -105,6 +113,15 @@ StopChannelResult& StopChannelResult::operator =(const Aws::AmazonWebServiceResu
   {
     m_name = jsonValue.GetString("name");
 
+  }
+
+  if(jsonValue.ValueExists("pipelineDetails"))
+  {
+    Array<JsonView> pipelineDetailsJsonList = jsonValue.GetArray("pipelineDetails");
+    for(unsigned pipelineDetailsIndex = 0; pipelineDetailsIndex < pipelineDetailsJsonList.GetLength(); ++pipelineDetailsIndex)
+    {
+      m_pipelineDetails.push_back(pipelineDetailsJsonList[pipelineDetailsIndex].AsObject());
+    }
   }
 
   if(jsonValue.ValueExists("pipelinesRunningCount"))

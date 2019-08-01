@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CancelCommandRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The ID of the command you want to cancel.</p>
      */
     inline const Aws::String& GetCommandId() const{ return m_commandId; }
+
+    /**
+     * <p>The ID of the command you want to cancel.</p>
+     */
+    inline bool CommandIdHasBeenSet() const { return m_commandIdHasBeenSet; }
 
     /**
      * <p>The ID of the command you want to cancel.</p>
@@ -90,6 +95,13 @@ namespace Model
      * requested.</p>
      */
     inline const Aws::Vector<Aws::String>& GetInstanceIds() const{ return m_instanceIds; }
+
+    /**
+     * <p>(Optional) A list of instance IDs on which you want to cancel the command. If
+     * not provided, the command is canceled on every instance on which it was
+     * requested.</p>
+     */
+    inline bool InstanceIdsHasBeenSet() const { return m_instanceIdsHasBeenSet; }
 
     /**
      * <p>(Optional) A list of instance IDs on which you want to cancel the command. If

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PublishSchemaRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * schema. For more information, see <a>arns</a>.</p>
      */
     inline const Aws::String& GetDevelopmentSchemaArn() const{ return m_developmentSchemaArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that is associated with the development
+     * schema. For more information, see <a>arns</a>.</p>
+     */
+    inline bool DevelopmentSchemaArnHasBeenSet() const { return m_developmentSchemaArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that is associated with the development
@@ -92,6 +98,12 @@ namespace Model
      * a major and minor version associated with them.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The major version under which the schema will be published. Schemas have both
+     * a major and minor version associated with them.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The major version under which the schema will be published. Schemas have both
@@ -142,6 +154,13 @@ namespace Model
      * recommended. Schemas have both a major and minor version associated with
      * them.</p>
      */
+    inline bool MinorVersionHasBeenSet() const { return m_minorVersionHasBeenSet; }
+
+    /**
+     * <p>The minor version under which the schema will be published. This parameter is
+     * recommended. Schemas have both a major and minor version associated with
+     * them.</p>
+     */
     inline void SetMinorVersion(const Aws::String& value) { m_minorVersionHasBeenSet = true; m_minorVersion = value; }
 
     /**
@@ -185,6 +204,12 @@ namespace Model
      * provided, the development schema is considered.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The new name under which the schema will be published. If this is not
+     * provided, the development schema is considered.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The new name under which the schema will be published. If this is not

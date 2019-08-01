@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreateCoreDefinitionVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * A client token used to correlate requests and responses.
      */
     inline const Aws::String& GetAmznClientToken() const{ return m_amznClientToken; }
+
+    /**
+     * A client token used to correlate requests and responses.
+     */
+    inline bool AmznClientTokenHasBeenSet() const { return m_amznClientTokenHasBeenSet; }
 
     /**
      * A client token used to correlate requests and responses.
@@ -90,6 +95,11 @@ namespace Model
     /**
      * The ID of the core definition.
      */
+    inline bool CoreDefinitionIdHasBeenSet() const { return m_coreDefinitionIdHasBeenSet; }
+
+    /**
+     * The ID of the core definition.
+     */
     inline void SetCoreDefinitionId(const Aws::String& value) { m_coreDefinitionIdHasBeenSet = true; m_coreDefinitionId = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
      * A list of cores in the core definition version.
      */
     inline const Aws::Vector<Core>& GetCores() const{ return m_cores; }
+
+    /**
+     * A list of cores in the core definition version.
+     */
+    inline bool CoresHasBeenSet() const { return m_coresHasBeenSet; }
 
     /**
      * A list of cores in the core definition version.

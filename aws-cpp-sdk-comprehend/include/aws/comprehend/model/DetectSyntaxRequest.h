@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DetectSyntaxRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * encoded characters.</p>
      */
     inline const Aws::String& GetText() const{ return m_text; }
+
+    /**
+     * <p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF
+     * encoded characters.</p>
+     */
+    inline bool TextHasBeenSet() const { return m_textHasBeenSet; }
 
     /**
      * <p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF
@@ -89,32 +95,44 @@ namespace Model
 
 
     /**
-     * <p>The language code of the input documents. You can specify English ("en") or
-     * Spanish ("es").</p>
+     * <p>The language code of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
      */
     inline const SyntaxLanguageCode& GetLanguageCode() const{ return m_languageCode; }
 
     /**
-     * <p>The language code of the input documents. You can specify English ("en") or
-     * Spanish ("es").</p>
+     * <p>The language code of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
+     */
+    inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
+
+    /**
+     * <p>The language code of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
      */
     inline void SetLanguageCode(const SyntaxLanguageCode& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
 
     /**
-     * <p>The language code of the input documents. You can specify English ("en") or
-     * Spanish ("es").</p>
+     * <p>The language code of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
      */
     inline void SetLanguageCode(SyntaxLanguageCode&& value) { m_languageCodeHasBeenSet = true; m_languageCode = std::move(value); }
 
     /**
-     * <p>The language code of the input documents. You can specify English ("en") or
-     * Spanish ("es").</p>
+     * <p>The language code of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
      */
     inline DetectSyntaxRequest& WithLanguageCode(const SyntaxLanguageCode& value) { SetLanguageCode(value); return *this;}
 
     /**
-     * <p>The language code of the input documents. You can specify English ("en") or
-     * Spanish ("es").</p>
+     * <p>The language code of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt").</p>
      */
     inline DetectSyntaxRequest& WithLanguageCode(SyntaxLanguageCode&& value) { SetLanguageCode(std::move(value)); return *this;}
 

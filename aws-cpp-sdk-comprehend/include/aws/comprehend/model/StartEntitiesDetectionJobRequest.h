@@ -20,6 +20,7 @@
 #include <aws/comprehend/model/OutputDataConfig.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/comprehend/model/LanguageCode.h>
+#include <aws/comprehend/model/VpcConfig.h>
 #include <utility>
 #include <aws/core/utils/UUID.h>
 
@@ -36,7 +37,7 @@ namespace Model
   {
   public:
     StartEntitiesDetectionJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +53,11 @@ namespace Model
      * <p>Specifies the format and location of the input data for the job.</p>
      */
     inline const InputDataConfig& GetInputDataConfig() const{ return m_inputDataConfig; }
+
+    /**
+     * <p>Specifies the format and location of the input data for the job.</p>
+     */
+    inline bool InputDataConfigHasBeenSet() const { return m_inputDataConfigHasBeenSet; }
 
     /**
      * <p>Specifies the format and location of the input data for the job.</p>
@@ -82,6 +88,11 @@ namespace Model
     /**
      * <p>Specifies where to send the output files.</p>
      */
+    inline bool OutputDataConfigHasBeenSet() const { return m_outputDataConfigHasBeenSet; }
+
+    /**
+     * <p>Specifies where to send the output files.</p>
+     */
     inline void SetOutputDataConfig(const OutputDataConfig& value) { m_outputDataConfigHasBeenSet = true; m_outputDataConfig = value; }
 
     /**
@@ -107,6 +118,14 @@ namespace Model
      * href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
      */
     inline const Aws::String& GetDataAccessRoleArn() const{ return m_dataAccessRoleArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management
+     * (IAM) role that grants Amazon Comprehend read access to your input data. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions</a>.</p>
+     */
+    inline bool DataAccessRoleArnHasBeenSet() const { return m_dataAccessRoleArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management
@@ -165,6 +184,11 @@ namespace Model
     /**
      * <p>The identifier of the job.</p>
      */
+    inline bool JobNameHasBeenSet() const { return m_jobNameHasBeenSet; }
+
+    /**
+     * <p>The identifier of the job.</p>
+     */
     inline void SetJobName(const Aws::String& value) { m_jobNameHasBeenSet = true; m_jobName = value; }
 
     /**
@@ -199,6 +223,13 @@ namespace Model
      * and is only used for a custom entity recognition job.</p>
      */
     inline const Aws::String& GetEntityRecognizerArn() const{ return m_entityRecognizerArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the specific entity recognizer
+     * to be used by the <code>StartEntitiesDetectionJob</code>. This ARN is optional
+     * and is only used for a custom entity recognition job.</p>
+     */
+    inline bool EntityRecognizerArnHasBeenSet() const { return m_entityRecognizerArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the specific entity recognizer
@@ -259,6 +290,15 @@ namespace Model
      * Portuguese ("pt"). If custom entities recognition is used, this parameter is
      * ignored and the language used for training the model is used instead.</p>
      */
+    inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
+
+    /**
+     * <p>The language of the input documents. All documents must be in the same
+     * language. You can specify any of the languages supported by Amazon Comprehend:
+     * English ("en"), Spanish ("es"), French ("fr"), German ("de"), Italian ("it"), or
+     * Portuguese ("pt"). If custom entities recognition is used, this parameter is
+     * ignored and the language used for training the model is used instead.</p>
+     */
     inline void SetLanguageCode(const LanguageCode& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
 
     /**
@@ -299,6 +339,12 @@ namespace Model
      * <p>A unique identifier for the request. If you don't set the client request
      * token, Amazon Comprehend generates one.</p>
      */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
+
+    /**
+     * <p>A unique identifier for the request. If you don't set the client request
+     * token, Amazon Comprehend generates one.</p>
+     */
     inline void SetClientRequestToken(const Aws::String& value) { m_clientRequestTokenHasBeenSet = true; m_clientRequestToken = value; }
 
     /**
@@ -331,6 +377,158 @@ namespace Model
      */
     inline StartEntitiesDetectionJobRequest& WithClientRequestToken(const char* value) { SetClientRequestToken(value); return *this;}
 
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline const Aws::String& GetVolumeKmsKeyId() const{ return m_volumeKmsKeyId; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline bool VolumeKmsKeyIdHasBeenSet() const { return m_volumeKmsKeyIdHasBeenSet; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(const Aws::String& value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId = value; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(Aws::String&& value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId = std::move(value); }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(const char* value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId.assign(value); }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline StartEntitiesDetectionJobRequest& WithVolumeKmsKeyId(const Aws::String& value) { SetVolumeKmsKeyId(value); return *this;}
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline StartEntitiesDetectionJobRequest& WithVolumeKmsKeyId(Aws::String&& value) { SetVolumeKmsKeyId(std::move(value)); return *this;}
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline StartEntitiesDetectionJobRequest& WithVolumeKmsKeyId(const char* value) { SetVolumeKmsKeyId(value); return *this;}
+
+
+    /**
+     * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your entity detection job. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline const VpcConfig& GetVpcConfig() const{ return m_vpcConfig; }
+
+    /**
+     * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your entity detection job. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline bool VpcConfigHasBeenSet() const { return m_vpcConfigHasBeenSet; }
+
+    /**
+     * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your entity detection job. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline void SetVpcConfig(const VpcConfig& value) { m_vpcConfigHasBeenSet = true; m_vpcConfig = value; }
+
+    /**
+     * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your entity detection job. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline void SetVpcConfig(VpcConfig&& value) { m_vpcConfigHasBeenSet = true; m_vpcConfig = std::move(value); }
+
+    /**
+     * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your entity detection job. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline StartEntitiesDetectionJobRequest& WithVpcConfig(const VpcConfig& value) { SetVpcConfig(value); return *this;}
+
+    /**
+     * <p>Configuration parameters for an optional private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your entity detection job. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline StartEntitiesDetectionJobRequest& WithVpcConfig(VpcConfig&& value) { SetVpcConfig(std::move(value)); return *this;}
+
   private:
 
     InputDataConfig m_inputDataConfig;
@@ -353,6 +551,12 @@ namespace Model
 
     Aws::String m_clientRequestToken;
     bool m_clientRequestTokenHasBeenSet;
+
+    Aws::String m_volumeKmsKeyId;
+    bool m_volumeKmsKeyIdHasBeenSet;
+
+    VpcConfig m_vpcConfig;
+    bool m_vpcConfigHasBeenSet;
   };
 
 } // namespace Model

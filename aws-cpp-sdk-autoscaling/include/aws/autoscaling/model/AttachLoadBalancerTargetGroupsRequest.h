@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AttachLoadBalancerTargetGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the Auto Scaling group.</p>
      */
     inline const Aws::String& GetAutoScalingGroupName() const{ return m_autoScalingGroupName; }
+
+    /**
+     * <p>The name of the Auto Scaling group.</p>
+     */
+    inline bool AutoScalingGroupNameHasBeenSet() const { return m_autoScalingGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the Auto Scaling group.</p>
@@ -88,6 +93,12 @@ namespace Model
      * 10 target groups.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTargetGroupARNs() const{ return m_targetGroupARNs; }
+
+    /**
+     * <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to
+     * 10 target groups.</p>
+     */
+    inline bool TargetGroupARNsHasBeenSet() const { return m_targetGroupARNsHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Names (ARN) of the target groups. You can specify up to

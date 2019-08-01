@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     StopDeploymentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p> The unique ID of a deployment. </p>
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * <p> The unique ID of a deployment. </p>
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * <p> The unique ID of a deployment. </p>
@@ -90,6 +95,13 @@ namespace Model
      * revision. </p>
      */
     inline bool GetAutoRollbackEnabled() const{ return m_autoRollbackEnabled; }
+
+    /**
+     * <p> Indicates, when a deployment is stopped, whether instances that have been
+     * updated should be rolled back to the previous version of the application
+     * revision. </p>
+     */
+    inline bool AutoRollbackEnabledHasBeenSet() const { return m_autoRollbackEnabledHasBeenSet; }
 
     /**
      * <p> Indicates, when a deployment is stopped, whether instances that have been

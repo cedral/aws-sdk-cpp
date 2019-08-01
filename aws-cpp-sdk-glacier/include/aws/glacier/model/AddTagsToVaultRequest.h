@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     AddTagsToVaultRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,63 +50,72 @@ namespace Model
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID.</p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID.</p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
+
+    /**
+     * <p>The <code>AccountId</code> value is the AWS account ID of the account that
+     * owns the vault. You can either specify an AWS account ID or optionally a single
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID.</p>
      */
     inline void SetAccountId(const Aws::String& value) { m_accountIdHasBeenSet = true; m_accountId = value; }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID.</p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID.</p>
      */
     inline void SetAccountId(Aws::String&& value) { m_accountIdHasBeenSet = true; m_accountId = std::move(value); }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID.</p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID.</p>
      */
     inline void SetAccountId(const char* value) { m_accountIdHasBeenSet = true; m_accountId.assign(value); }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID.</p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID.</p>
      */
     inline AddTagsToVaultRequest& WithAccountId(const Aws::String& value) { SetAccountId(value); return *this;}
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID.</p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID.</p>
      */
     inline AddTagsToVaultRequest& WithAccountId(Aws::String&& value) { SetAccountId(std::move(value)); return *this;}
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID.</p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID.</p>
      */
     inline AddTagsToVaultRequest& WithAccountId(const char* value) { SetAccountId(value); return *this;}
 
@@ -115,6 +124,11 @@ namespace Model
      * <p>The name of the vault.</p>
      */
     inline const Aws::String& GetVaultName() const{ return m_vaultName; }
+
+    /**
+     * <p>The name of the vault.</p>
+     */
+    inline bool VaultNameHasBeenSet() const { return m_vaultNameHasBeenSet; }
 
     /**
      * <p>The name of the vault.</p>
@@ -152,6 +166,12 @@ namespace Model
      * value can be an empty string.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags to add to the vault. Each tag is composed of a key and a value. The
+     * value can be an empty string.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags to add to the vault. Each tag is composed of a key and a value. The

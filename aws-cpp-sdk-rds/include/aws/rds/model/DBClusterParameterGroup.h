@@ -36,7 +36,8 @@ namespace Model
   /**
    * <p>Contains the details of an Amazon RDS DB cluster parameter group. </p>
    * <p>This data type is used as a response element in the
-   * <a>DescribeDBClusterParameterGroups</a> action. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeDBClusterParameterGroups</code> action. </p><p><h3>See Also:</h3> 
+   * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBClusterParameterGroup">AWS
    * API Reference</a></p>
    */
@@ -55,6 +56,11 @@ namespace Model
      * <p>Provides the name of the DB cluster parameter group.</p>
      */
     inline const Aws::String& GetDBClusterParameterGroupName() const{ return m_dBClusterParameterGroupName; }
+
+    /**
+     * <p>Provides the name of the DB cluster parameter group.</p>
+     */
+    inline bool DBClusterParameterGroupNameHasBeenSet() const { return m_dBClusterParameterGroupNameHasBeenSet; }
 
     /**
      * <p>Provides the name of the DB cluster parameter group.</p>
@@ -92,6 +98,12 @@ namespace Model
      * parameter group is compatible with.</p>
      */
     inline const Aws::String& GetDBParameterGroupFamily() const{ return m_dBParameterGroupFamily; }
+
+    /**
+     * <p>Provides the name of the DB parameter group family that this DB cluster
+     * parameter group is compatible with.</p>
+     */
+    inline bool DBParameterGroupFamilyHasBeenSet() const { return m_dBParameterGroupFamilyHasBeenSet; }
 
     /**
      * <p>Provides the name of the DB parameter group family that this DB cluster
@@ -140,6 +152,12 @@ namespace Model
      * <p>Provides the customer-specified description for this DB cluster parameter
      * group.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>Provides the customer-specified description for this DB cluster parameter
+     * group.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -177,6 +195,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) for the DB cluster parameter group.</p>
      */
     inline const Aws::String& GetDBClusterParameterGroupArn() const{ return m_dBClusterParameterGroupArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB cluster parameter group.</p>
+     */
+    inline bool DBClusterParameterGroupArnHasBeenSet() const { return m_dBClusterParameterGroupArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) for the DB cluster parameter group.</p>

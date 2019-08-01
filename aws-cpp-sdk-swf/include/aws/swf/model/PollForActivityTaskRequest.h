@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PollForActivityTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the domain that contains the task lists being polled.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The name of the domain that contains the task lists being polled.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The name of the domain that contains the task lists being polled.</p>
@@ -86,7 +91,7 @@ namespace Model
      * string must not start or end with whitespace. It must not contain a
      * <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar),
      * or any control characters (<code>\u0000-\u001f</code> |
-     * <code>\u007f-\u009f</code>). Also, it must not contain the literal string
+     * <code>\u007f-\u009f</code>). Also, it must not <i>be</i> the literal string
      * <code>arn</code>.</p>
      */
     inline const TaskList& GetTaskList() const{ return m_taskList; }
@@ -96,7 +101,17 @@ namespace Model
      * string must not start or end with whitespace. It must not contain a
      * <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar),
      * or any control characters (<code>\u0000-\u001f</code> |
-     * <code>\u007f-\u009f</code>). Also, it must not contain the literal string
+     * <code>\u007f-\u009f</code>). Also, it must not <i>be</i> the literal string
+     * <code>arn</code>.</p>
+     */
+    inline bool TaskListHasBeenSet() const { return m_taskListHasBeenSet; }
+
+    /**
+     * <p>Specifies the task list to poll for activity tasks.</p> <p>The specified
+     * string must not start or end with whitespace. It must not contain a
+     * <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar),
+     * or any control characters (<code>\u0000-\u001f</code> |
+     * <code>\u007f-\u009f</code>). Also, it must not <i>be</i> the literal string
      * <code>arn</code>.</p>
      */
     inline void SetTaskList(const TaskList& value) { m_taskListHasBeenSet = true; m_taskList = value; }
@@ -106,7 +121,7 @@ namespace Model
      * string must not start or end with whitespace. It must not contain a
      * <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar),
      * or any control characters (<code>\u0000-\u001f</code> |
-     * <code>\u007f-\u009f</code>). Also, it must not contain the literal string
+     * <code>\u007f-\u009f</code>). Also, it must not <i>be</i> the literal string
      * <code>arn</code>.</p>
      */
     inline void SetTaskList(TaskList&& value) { m_taskListHasBeenSet = true; m_taskList = std::move(value); }
@@ -116,7 +131,7 @@ namespace Model
      * string must not start or end with whitespace. It must not contain a
      * <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar),
      * or any control characters (<code>\u0000-\u001f</code> |
-     * <code>\u007f-\u009f</code>). Also, it must not contain the literal string
+     * <code>\u007f-\u009f</code>). Also, it must not <i>be</i> the literal string
      * <code>arn</code>.</p>
      */
     inline PollForActivityTaskRequest& WithTaskList(const TaskList& value) { SetTaskList(value); return *this;}
@@ -126,7 +141,7 @@ namespace Model
      * string must not start or end with whitespace. It must not contain a
      * <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar),
      * or any control characters (<code>\u0000-\u001f</code> |
-     * <code>\u007f-\u009f</code>). Also, it must not contain the literal string
+     * <code>\u007f-\u009f</code>). Also, it must not <i>be</i> the literal string
      * <code>arn</code>.</p>
      */
     inline PollForActivityTaskRequest& WithTaskList(TaskList&& value) { SetTaskList(std::move(value)); return *this;}
@@ -139,6 +154,14 @@ namespace Model
      * defined.</p>
      */
     inline const Aws::String& GetIdentity() const{ return m_identity; }
+
+    /**
+     * <p>Identity of the worker making the request, recorded in the
+     * <code>ActivityTaskStarted</code> event in the workflow history. This enables
+     * diagnostic tracing when problems arise. The form of this identity is user
+     * defined.</p>
+     */
+    inline bool IdentityHasBeenSet() const { return m_identityHasBeenSet; }
 
     /**
      * <p>Identity of the worker making the request, recorded in the

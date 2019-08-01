@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateServerEngineAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the server to update. </p>
      */
     inline const Aws::String& GetServerName() const{ return m_serverName; }
+
+    /**
+     * <p>The name of the server to update. </p>
+     */
+    inline bool ServerNameHasBeenSet() const { return m_serverNameHasBeenSet; }
 
     /**
      * <p>The name of the server to update. </p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The name of the engine attribute to update. </p>
      */
+    inline bool AttributeNameHasBeenSet() const { return m_attributeNameHasBeenSet; }
+
+    /**
+     * <p>The name of the engine attribute to update. </p>
+     */
     inline void SetAttributeName(const Aws::String& value) { m_attributeNameHasBeenSet = true; m_attributeName = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The value to set for the attribute. </p>
      */
     inline const Aws::String& GetAttributeValue() const{ return m_attributeValue; }
+
+    /**
+     * <p>The value to set for the attribute. </p>
+     */
+    inline bool AttributeValueHasBeenSet() const { return m_attributeValueHasBeenSet; }
 
     /**
      * <p>The value to set for the attribute. </p>

@@ -23,7 +23,8 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 CreateEmailIdentityRequest::CreateEmailIdentityRequest() : 
-    m_emailIdentityHasBeenSet(false)
+    m_emailIdentityHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -37,15 +38,18 @@ Aws::String CreateEmailIdentityRequest::SerializePayload() const
 
   }
 
+  if(m_tagsHasBeenSet)
+  {
+   Array<JsonValue> tagsJsonList(m_tags.size());
+   for(unsigned tagsIndex = 0; tagsIndex < tagsJsonList.GetLength(); ++tagsIndex)
+   {
+     tagsJsonList[tagsIndex].AsObject(m_tags[tagsIndex].Jsonize());
+   }
+   payload.WithArray("Tags", std::move(tagsJsonList));
+
+  }
+
   return payload.View().WriteReadable();
-}
-
-Aws::Http::HeaderValueCollection CreateEmailIdentityRequest::GetRequestSpecificHeaders() const
-{
-  Aws::Http::HeaderValueCollection headers;
-  headers.insert(Aws::Http::HeaderValuePair("X-Amz-Target", "com.amazonaws.services.pinpoint.email.CreateEmailIdentity"));
-  return headers;
-
 }
 
 

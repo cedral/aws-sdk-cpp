@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     UpdateVirtualServiceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,14 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
      * allowed.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the
+request. Up to 36 letters, numbers, hyphens, and underscores are
+     * allowed.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
@@ -112,6 +120,11 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
     /**
      * <p>The name of the service mesh that the virtual service resides in.</p>
      */
+    inline bool MeshNameHasBeenSet() const { return m_meshNameHasBeenSet; }
+
+    /**
+     * <p>The name of the service mesh that the virtual service resides in.</p>
+     */
     inline void SetMeshName(const Aws::String& value) { m_meshNameHasBeenSet = true; m_meshName = value; }
 
     /**
@@ -152,6 +165,13 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
 
      *         data.</p>
      */
+    inline bool SpecHasBeenSet() const { return m_specHasBeenSet; }
+
+    /**
+     * <p>The new virtual service specification to apply. This overwrites the existing
+
+     *         data.</p>
+     */
     inline void SetSpec(const VirtualServiceSpec& value) { m_specHasBeenSet = true; m_spec = value; }
 
     /**
@@ -180,6 +200,11 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
      * <p>The name of the virtual service to update.</p>
      */
     inline const Aws::String& GetVirtualServiceName() const{ return m_virtualServiceName; }
+
+    /**
+     * <p>The name of the virtual service to update.</p>
+     */
+    inline bool VirtualServiceNameHasBeenSet() const { return m_virtualServiceNameHasBeenSet; }
 
     /**
      * <p>The name of the virtual service to update.</p>

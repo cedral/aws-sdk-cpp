@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteConditionalForwarderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The directory ID for which you are deleting the conditional forwarder.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The directory ID for which you are deleting the conditional forwarder.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The directory ID for which you are deleting the conditional forwarder.</p>
@@ -88,6 +93,12 @@ namespace Model
      * are deleting the conditional forwarder.</p>
      */
     inline const Aws::String& GetRemoteDomainName() const{ return m_remoteDomainName; }
+
+    /**
+     * <p>The fully qualified domain name (FQDN) of the remote domain with which you
+     * are deleting the conditional forwarder.</p>
+     */
+    inline bool RemoteDomainNameHasBeenSet() const { return m_remoteDomainNameHasBeenSet; }
 
     /**
      * <p>The fully qualified domain name (FQDN) of the remote domain with which you

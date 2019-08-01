@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListInstanceGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The identifier of the cluster for which to list the instance groups.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>The identifier of the cluster for which to list the instance groups.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>The identifier of the cluster for which to list the instance groups.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The pagination token that indicates the next set of results to retrieve.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>The pagination token that indicates the next set of results to retrieve.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>The pagination token that indicates the next set of results to retrieve.</p>

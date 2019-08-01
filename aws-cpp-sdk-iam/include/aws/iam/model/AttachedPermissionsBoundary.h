@@ -39,7 +39,7 @@ namespace Model
    * attached permissions boundary is a managed policy that has been attached to a
    * user or role to set the permissions boundary.</p> <p>For more information about
    * permissions boundaries, see <a
-   * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
+   * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions
    * Boundaries for IAM Identities </a> in the <i>IAM User Guide</i>.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/iam-2010-05-08/AttachedPermissionsBoundary">AWS
@@ -62,6 +62,13 @@ namespace Model
      * a value of <code>Policy</code>.</p>
      */
     inline const PermissionsBoundaryAttachmentType& GetPermissionsBoundaryType() const{ return m_permissionsBoundaryType; }
+
+    /**
+     * <p> The permissions boundary usage type that indicates what type of IAM resource
+     * is used as the permissions boundary for an entity. This data type can only have
+     * a value of <code>Policy</code>.</p>
+     */
+    inline bool PermissionsBoundaryTypeHasBeenSet() const { return m_permissionsBoundaryTypeHasBeenSet; }
 
     /**
      * <p> The permissions boundary usage type that indicates what type of IAM resource
@@ -97,6 +104,12 @@ namespace Model
      * role.</p>
      */
     inline const Aws::String& GetPermissionsBoundaryArn() const{ return m_permissionsBoundaryArn; }
+
+    /**
+     * <p> The ARN of the policy used to set the permissions boundary for the user or
+     * role.</p>
+     */
+    inline bool PermissionsBoundaryArnHasBeenSet() const { return m_permissionsBoundaryArnHasBeenSet; }
 
     /**
      * <p> The ARN of the policy used to set the permissions boundary for the user or

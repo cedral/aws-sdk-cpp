@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     StartChannelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * A request to start a channel
      */
     inline const Aws::String& GetChannelId() const{ return m_channelId; }
+
+    /**
+     * A request to start a channel
+     */
+    inline bool ChannelIdHasBeenSet() const { return m_channelIdHasBeenSet; }
 
     /**
      * A request to start a channel

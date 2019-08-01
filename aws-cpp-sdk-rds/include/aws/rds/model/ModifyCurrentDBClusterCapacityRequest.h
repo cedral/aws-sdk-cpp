@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ModifyCurrentDBClusterCapacityRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
+
+    /**
+     * <p>The DB cluster identifier for the cluster being modified. This parameter is
+     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * identifier of an existing DB cluster.</p> </li> </ul>
+     */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
      * <p>The DB cluster identifier for the cluster being modified. This parameter is
@@ -97,26 +104,38 @@ namespace Model
 
 
     /**
-     * <p>The DB cluster capacity.</p> <p>Constraints:</p> <ul> <li> <p>Value must be
-     * <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
-     * <code>32</code>, <code>64</code>, <code>128</code>, or <code>256</code>.</p>
-     * </li> </ul>
+     * <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused
+     * Aurora Serverless DB cluster, it automatically resumes.</p> <p>Constraints:</p>
+     * <ul> <li> <p>Value must be <code>1</code>, <code>2</code>, <code>4</code>,
+     * <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>,
+     * <code>128</code>, or <code>256</code>.</p> </li> </ul>
      */
     inline int GetCapacity() const{ return m_capacity; }
 
     /**
-     * <p>The DB cluster capacity.</p> <p>Constraints:</p> <ul> <li> <p>Value must be
-     * <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
-     * <code>32</code>, <code>64</code>, <code>128</code>, or <code>256</code>.</p>
-     * </li> </ul>
+     * <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused
+     * Aurora Serverless DB cluster, it automatically resumes.</p> <p>Constraints:</p>
+     * <ul> <li> <p>Value must be <code>1</code>, <code>2</code>, <code>4</code>,
+     * <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>,
+     * <code>128</code>, or <code>256</code>.</p> </li> </ul>
+     */
+    inline bool CapacityHasBeenSet() const { return m_capacityHasBeenSet; }
+
+    /**
+     * <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused
+     * Aurora Serverless DB cluster, it automatically resumes.</p> <p>Constraints:</p>
+     * <ul> <li> <p>Value must be <code>1</code>, <code>2</code>, <code>4</code>,
+     * <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>,
+     * <code>128</code>, or <code>256</code>.</p> </li> </ul>
      */
     inline void SetCapacity(int value) { m_capacityHasBeenSet = true; m_capacity = value; }
 
     /**
-     * <p>The DB cluster capacity.</p> <p>Constraints:</p> <ul> <li> <p>Value must be
-     * <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
-     * <code>32</code>, <code>64</code>, <code>128</code>, or <code>256</code>.</p>
-     * </li> </ul>
+     * <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused
+     * Aurora Serverless DB cluster, it automatically resumes.</p> <p>Constraints:</p>
+     * <ul> <li> <p>Value must be <code>1</code>, <code>2</code>, <code>4</code>,
+     * <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>,
+     * <code>128</code>, or <code>256</code>.</p> </li> </ul>
      */
     inline ModifyCurrentDBClusterCapacityRequest& WithCapacity(int value) { SetCapacity(value); return *this;}
 
@@ -128,6 +147,14 @@ namespace Model
      * </li> </ul>
      */
     inline int GetSecondsBeforeTimeout() const{ return m_secondsBeforeTimeout; }
+
+    /**
+     * <p>The amount of time, in seconds, that Aurora Serverless tries to find a
+     * scaling point to perform seamless scaling before enforcing the timeout action.
+     * The default is 300.</p> <ul> <li> <p>Value must be from 10 through 600.</p>
+     * </li> </ul>
+     */
+    inline bool SecondsBeforeTimeoutHasBeenSet() const { return m_secondsBeforeTimeoutHasBeenSet; }
 
     /**
      * <p>The amount of time, in seconds, that Aurora Serverless tries to find a
@@ -156,6 +183,17 @@ namespace Model
      * period.</p>
      */
     inline const Aws::String& GetTimeoutAction() const{ return m_timeoutAction; }
+
+    /**
+     * <p>The action to take when the timeout is reached, either
+     * <code>ForceApplyCapacityChange</code> or
+     * <code>RollbackCapacityChange</code>.</p> <p>
+     * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
+     * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
+     * ignores the capacity change if a scaling point is not found in the timeout
+     * period.</p>
+     */
+    inline bool TimeoutActionHasBeenSet() const { return m_timeoutActionHasBeenSet; }
 
     /**
      * <p>The action to take when the timeout is reached, either

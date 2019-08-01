@@ -65,6 +65,11 @@ namespace Model
     /**
      * <p>The ID of the Capacity Reservation.</p>
      */
+    inline bool CapacityReservationIdHasBeenSet() const { return m_capacityReservationIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the Capacity Reservation.</p>
+     */
     inline void SetCapacityReservationId(const Aws::String& value) { m_capacityReservationIdHasBeenSet = true; m_capacityReservationId = value; }
 
     /**
@@ -93,11 +98,92 @@ namespace Model
     inline CapacityReservation& WithCapacityReservationId(const char* value) { SetCapacityReservationId(value); return *this;}
 
 
+    
+    inline const Aws::String& GetOwnerId() const{ return m_ownerId; }
+
+    
+    inline bool OwnerIdHasBeenSet() const { return m_ownerIdHasBeenSet; }
+
+    
+    inline void SetOwnerId(const Aws::String& value) { m_ownerIdHasBeenSet = true; m_ownerId = value; }
+
+    
+    inline void SetOwnerId(Aws::String&& value) { m_ownerIdHasBeenSet = true; m_ownerId = std::move(value); }
+
+    
+    inline void SetOwnerId(const char* value) { m_ownerIdHasBeenSet = true; m_ownerId.assign(value); }
+
+    
+    inline CapacityReservation& WithOwnerId(const Aws::String& value) { SetOwnerId(value); return *this;}
+
+    
+    inline CapacityReservation& WithOwnerId(Aws::String&& value) { SetOwnerId(std::move(value)); return *this;}
+
+    
+    inline CapacityReservation& WithOwnerId(const char* value) { SetOwnerId(value); return *this;}
+
+
+    
+    inline const Aws::String& GetCapacityReservationArn() const{ return m_capacityReservationArn; }
+
+    
+    inline bool CapacityReservationArnHasBeenSet() const { return m_capacityReservationArnHasBeenSet; }
+
+    
+    inline void SetCapacityReservationArn(const Aws::String& value) { m_capacityReservationArnHasBeenSet = true; m_capacityReservationArn = value; }
+
+    
+    inline void SetCapacityReservationArn(Aws::String&& value) { m_capacityReservationArnHasBeenSet = true; m_capacityReservationArn = std::move(value); }
+
+    
+    inline void SetCapacityReservationArn(const char* value) { m_capacityReservationArnHasBeenSet = true; m_capacityReservationArn.assign(value); }
+
+    
+    inline CapacityReservation& WithCapacityReservationArn(const Aws::String& value) { SetCapacityReservationArn(value); return *this;}
+
+    
+    inline CapacityReservation& WithCapacityReservationArn(Aws::String&& value) { SetCapacityReservationArn(std::move(value)); return *this;}
+
+    
+    inline CapacityReservation& WithCapacityReservationArn(const char* value) { SetCapacityReservationArn(value); return *this;}
+
+
+    
+    inline const Aws::String& GetAvailabilityZoneId() const{ return m_availabilityZoneId; }
+
+    
+    inline bool AvailabilityZoneIdHasBeenSet() const { return m_availabilityZoneIdHasBeenSet; }
+
+    
+    inline void SetAvailabilityZoneId(const Aws::String& value) { m_availabilityZoneIdHasBeenSet = true; m_availabilityZoneId = value; }
+
+    
+    inline void SetAvailabilityZoneId(Aws::String&& value) { m_availabilityZoneIdHasBeenSet = true; m_availabilityZoneId = std::move(value); }
+
+    
+    inline void SetAvailabilityZoneId(const char* value) { m_availabilityZoneIdHasBeenSet = true; m_availabilityZoneId.assign(value); }
+
+    
+    inline CapacityReservation& WithAvailabilityZoneId(const Aws::String& value) { SetAvailabilityZoneId(value); return *this;}
+
+    
+    inline CapacityReservation& WithAvailabilityZoneId(Aws::String&& value) { SetAvailabilityZoneId(std::move(value)); return *this;}
+
+    
+    inline CapacityReservation& WithAvailabilityZoneId(const char* value) { SetAvailabilityZoneId(value); return *this;}
+
+
     /**
      * <p>The type of instance for which the Capacity Reservation reserves
      * capacity.</p>
      */
     inline const Aws::String& GetInstanceType() const{ return m_instanceType; }
+
+    /**
+     * <p>The type of instance for which the Capacity Reservation reserves
+     * capacity.</p>
+     */
+    inline bool InstanceTypeHasBeenSet() const { return m_instanceTypeHasBeenSet; }
 
     /**
      * <p>The type of instance for which the Capacity Reservation reserves
@@ -146,6 +232,12 @@ namespace Model
      * <p>The type of operating system for which the Capacity Reservation reserves
      * capacity.</p>
      */
+    inline bool InstancePlatformHasBeenSet() const { return m_instancePlatformHasBeenSet; }
+
+    /**
+     * <p>The type of operating system for which the Capacity Reservation reserves
+     * capacity.</p>
+     */
     inline void SetInstancePlatform(const CapacityReservationInstancePlatform& value) { m_instancePlatformHasBeenSet = true; m_instancePlatform = value; }
 
     /**
@@ -171,6 +263,11 @@ namespace Model
      * <p>The Availability Zone in which the capacity is reserved.</p>
      */
     inline const Aws::String& GetAvailabilityZone() const{ return m_availabilityZone; }
+
+    /**
+     * <p>The Availability Zone in which the capacity is reserved.</p>
+     */
+    inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
 
     /**
      * <p>The Availability Zone in which the capacity is reserved.</p>
@@ -212,6 +309,16 @@ namespace Model
      * single AWS account.</p> </li> </ul>
      */
     inline const CapacityReservationTenancy& GetTenancy() const{ return m_tenancy; }
+
+    /**
+     * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can
+     * have one of the following tenancy settings:</p> <ul> <li> <p>
+     * <code>default</code> - The Capacity Reservation is created on hardware that is
+     * shared with other AWS accounts.</p> </li> <li> <p> <code>dedicated</code> - The
+     * Capacity Reservation is created on single-tenant hardware that is dedicated to a
+     * single AWS account.</p> </li> </ul>
+     */
+    inline bool TenancyHasBeenSet() const { return m_tenancyHasBeenSet; }
 
     /**
      * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can
@@ -264,6 +371,12 @@ namespace Model
      * <p>The number of instances for which the Capacity Reservation reserves
      * capacity.</p>
      */
+    inline bool TotalInstanceCountHasBeenSet() const { return m_totalInstanceCountHasBeenSet; }
+
+    /**
+     * <p>The number of instances for which the Capacity Reservation reserves
+     * capacity.</p>
+     */
     inline void SetTotalInstanceCount(int value) { m_totalInstanceCountHasBeenSet = true; m_totalInstanceCount = value; }
 
     /**
@@ -278,6 +391,12 @@ namespace Model
      * launched in the Capacity Reservation.</p>
      */
     inline int GetAvailableInstanceCount() const{ return m_availableInstanceCount; }
+
+    /**
+     * <p>The remaining capacity. Indicates the number of instances that can be
+     * launched in the Capacity Reservation.</p>
+     */
+    inline bool AvailableInstanceCountHasBeenSet() const { return m_availableInstanceCountHasBeenSet; }
 
     /**
      * <p>The remaining capacity. Indicates the number of instances that can be
@@ -308,6 +427,15 @@ namespace Model
      * available with all instance types. Additional usage charges apply when using an
      * EBS- optimized instance.</p>
      */
+    inline bool EbsOptimizedHasBeenSet() const { return m_ebsOptimizedHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the Capacity Reservation supports EBS-optimized instances.
+     * This optimization provides dedicated throughput to Amazon EBS and an optimized
+     * configuration stack to provide optimal I/O performance. This optimization isn't
+     * available with all instance types. Additional usage charges apply when using an
+     * EBS- optimized instance.</p>
+     */
     inline void SetEbsOptimized(bool value) { m_ebsOptimizedHasBeenSet = true; m_ebsOptimized = value; }
 
     /**
@@ -325,6 +453,12 @@ namespace Model
      * block-level storage.</p>
      */
     inline bool GetEphemeralStorage() const{ return m_ephemeralStorage; }
+
+    /**
+     * <p>Indicates whether the Capacity Reservation supports instances with temporary,
+     * block-level storage.</p>
+     */
+    inline bool EphemeralStorageHasBeenSet() const { return m_ephemeralStorageHasBeenSet; }
 
     /**
      * <p>Indicates whether the Capacity Reservation supports instances with temporary,
@@ -355,6 +489,23 @@ namespace Model
      * requests are retained for 60 minutes.</p> </li> </ul>
      */
     inline const CapacityReservationState& GetState() const{ return m_state; }
+
+    /**
+     * <p>The current state of the Capacity Reservation. A Capacity Reservation can be
+     * in one of the following states:</p> <ul> <li> <p> <code>active</code> - The
+     * Capacity Reservation is active and the capacity is available for your use.</p>
+     * </li> <li> <p> <code>cancelled</code> - The Capacity Reservation expired
+     * automatically at the date and time specified in your request. The reserved
+     * capacity is no longer available for your use.</p> </li> <li> <p>
+     * <code>expired</code> - The Capacity Reservation was manually cancelled. The
+     * reserved capacity is no longer available for your use.</p> </li> <li> <p>
+     * <code>pending</code> - The Capacity Reservation request was successful but the
+     * capacity provisioning is still pending.</p> </li> <li> <p> <code>failed</code> -
+     * The Capacity Reservation request has failed. A request might fail due to invalid
+     * request parameters, capacity constraints, or instance limit constraints. Failed
+     * requests are retained for 60 minutes.</p> </li> </ul>
+     */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
 
     /**
      * <p>The current state of the Capacity Reservation. A Capacity Reservation can be
@@ -439,6 +590,14 @@ namespace Model
      * launch instances into it. The Capacity Reservation's state changes to
      * <code>expired</code> when it reaches its end date and time.</p>
      */
+    inline bool EndDateHasBeenSet() const { return m_endDateHasBeenSet; }
+
+    /**
+     * <p>The date and time at which the Capacity Reservation expires. When a Capacity
+     * Reservation expires, the reserved capacity is released and you can no longer
+     * launch instances into it. The Capacity Reservation's state changes to
+     * <code>expired</code> when it reaches its end date and time.</p>
+     */
     inline void SetEndDate(const Aws::Utils::DateTime& value) { m_endDateHasBeenSet = true; m_endDate = value; }
 
     /**
@@ -474,6 +633,15 @@ namespace Model
      * Reservation expires automatically at a specified date and time.</p> </li> </ul>
      */
     inline const EndDateType& GetEndDateType() const{ return m_endDateType; }
+
+    /**
+     * <p>Indicates the way in which the Capacity Reservation ends. A Capacity
+     * Reservation can have one of the following end types:</p> <ul> <li> <p>
+     * <code>unlimited</code> - The Capacity Reservation remains active until you
+     * explicitly cancel it.</p> </li> <li> <p> <code>limited</code> - The Capacity
+     * Reservation expires automatically at a specified date and time.</p> </li> </ul>
+     */
+    inline bool EndDateTypeHasBeenSet() const { return m_endDateTypeHasBeenSet; }
 
     /**
      * <p>Indicates the way in which the Capacity Reservation ends. A Capacity
@@ -525,6 +693,20 @@ namespace Model
      * </ul>
      */
     inline const InstanceMatchCriteria& GetInstanceMatchCriteria() const{ return m_instanceMatchCriteria; }
+
+    /**
+     * <p>Indicates the type of instance launches that the Capacity Reservation
+     * accepts. The options include:</p> <ul> <li> <p> <code>open</code> - The Capacity
+     * Reservation accepts all instances that have matching attributes (instance type,
+     * platform, and Availability Zone). Instances that have matching attributes launch
+     * into the Capacity Reservation automatically without specifying any additional
+     * parameters.</p> </li> <li> <p> <code>targeted</code> - The Capacity Reservation
+     * only accepts instances that have matching attributes (instance type, platform,
+     * and Availability Zone), and explicitly target the Capacity Reservation. This
+     * ensures that only permitted instances can use the reserved capacity. </p> </li>
+     * </ul>
+     */
+    inline bool InstanceMatchCriteriaHasBeenSet() const { return m_instanceMatchCriteriaHasBeenSet; }
 
     /**
      * <p>Indicates the type of instance launches that the Capacity Reservation
@@ -591,6 +773,11 @@ namespace Model
     /**
      * <p>The date and time at which the Capacity Reservation was created.</p>
      */
+    inline bool CreateDateHasBeenSet() const { return m_createDateHasBeenSet; }
+
+    /**
+     * <p>The date and time at which the Capacity Reservation was created.</p>
+     */
     inline void SetCreateDate(const Aws::Utils::DateTime& value) { m_createDateHasBeenSet = true; m_createDate = value; }
 
     /**
@@ -613,6 +800,11 @@ namespace Model
      * <p>Any tags assigned to the Capacity Reservation.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to the Capacity Reservation.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Any tags assigned to the Capacity Reservation.</p>
@@ -648,6 +840,15 @@ namespace Model
 
     Aws::String m_capacityReservationId;
     bool m_capacityReservationIdHasBeenSet;
+
+    Aws::String m_ownerId;
+    bool m_ownerIdHasBeenSet;
+
+    Aws::String m_capacityReservationArn;
+    bool m_capacityReservationArnHasBeenSet;
+
+    Aws::String m_availabilityZoneId;
+    bool m_availabilityZoneIdHasBeenSet;
 
     Aws::String m_instanceType;
     bool m_instanceTypeHasBeenSet;

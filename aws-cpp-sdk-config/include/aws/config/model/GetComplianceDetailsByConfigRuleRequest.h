@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     GetComplianceDetailsByConfigRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * information.</p>
      */
     inline const Aws::String& GetConfigRuleName() const{ return m_configRuleName; }
+
+    /**
+     * <p>The name of the AWS Config rule for which you want compliance
+     * information.</p>
+     */
+    inline bool ConfigRuleNameHasBeenSet() const { return m_configRuleNameHasBeenSet; }
 
     /**
      * <p>The name of the AWS Config rule for which you want compliance
@@ -98,6 +104,13 @@ namespace Model
      * <code>NOT_APPLICABLE</code>.</p>
      */
     inline const Aws::Vector<ComplianceType>& GetComplianceTypes() const{ return m_complianceTypes; }
+
+    /**
+     * <p>Filters the results by compliance.</p> <p>The allowed values are
+     * <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and
+     * <code>NOT_APPLICABLE</code>.</p>
+     */
+    inline bool ComplianceTypesHasBeenSet() const { return m_complianceTypesHasBeenSet; }
 
     /**
      * <p>Filters the results by compliance.</p> <p>The allowed values are
@@ -154,6 +167,13 @@ namespace Model
      * is 10. You cannot specify a number greater than 100. If you specify 0, AWS
      * Config uses the default.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of evaluation results returned on each page. The default
+     * is 10. You cannot specify a number greater than 100. If you specify 0, AWS
+     * Config uses the default.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -169,6 +189,12 @@ namespace Model
      * get the next page of results in a paginated response.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The <code>nextToken</code> string returned on a previous page that you use to
+     * get the next page of results in a paginated response.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The <code>nextToken</code> string returned on a previous page that you use to

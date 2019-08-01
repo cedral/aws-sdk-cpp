@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DescribeStepRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The identifier of the cluster with steps to describe.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>The identifier of the cluster with steps to describe.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>The identifier of the cluster with steps to describe.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The identifier of the step to describe.</p>
      */
     inline const Aws::String& GetStepId() const{ return m_stepId; }
+
+    /**
+     * <p>The identifier of the step to describe.</p>
+     */
+    inline bool StepIdHasBeenSet() const { return m_stepIdHasBeenSet; }
 
     /**
      * <p>The identifier of the step to describe.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateLogSubscriptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * real-time logs to your specified CloudWatch log group.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>Identifier (ID) of the directory to which you want to subscribe and receive
+     * real-time logs to your specified CloudWatch log group.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>Identifier (ID) of the directory to which you want to subscribe and receive
@@ -92,6 +98,12 @@ namespace Model
      * logs are forwarded.</p>
      */
     inline const Aws::String& GetLogGroupName() const{ return m_logGroupName; }
+
+    /**
+     * <p>The name of the CloudWatch log group where the real-time domain controller
+     * logs are forwarded.</p>
+     */
+    inline bool LogGroupNameHasBeenSet() const { return m_logGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the CloudWatch log group where the real-time domain controller

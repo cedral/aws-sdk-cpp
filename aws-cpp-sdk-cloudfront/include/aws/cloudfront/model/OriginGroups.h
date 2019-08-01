@@ -36,7 +36,7 @@ namespace Model
   /**
    * <p>A complex data type for the origin groups specified for a
    * distribution.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/OriginGroups">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/OriginGroups">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API OriginGroups
@@ -57,6 +57,11 @@ namespace Model
     /**
      * <p>The number of origin groups.</p>
      */
+    inline bool QuantityHasBeenSet() const { return m_quantityHasBeenSet; }
+
+    /**
+     * <p>The number of origin groups.</p>
+     */
     inline void SetQuantity(int value) { m_quantityHasBeenSet = true; m_quantity = value; }
 
     /**
@@ -69,6 +74,11 @@ namespace Model
      * <p>The items (origin groups) in a distribution.</p>
      */
     inline const Aws::Vector<OriginGroup>& GetItems() const{ return m_items; }
+
+    /**
+     * <p>The items (origin groups) in a distribution.</p>
+     */
+    inline bool ItemsHasBeenSet() const { return m_itemsHasBeenSet; }
 
     /**
      * <p>The items (origin groups) in a distribution.</p>

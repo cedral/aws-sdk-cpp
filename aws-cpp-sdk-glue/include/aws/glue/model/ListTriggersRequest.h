@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListTriggersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>A continuation token, if this is a continuation request.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A continuation token, if this is a continuation request.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A continuation token, if this is a continuation request.</p>
@@ -83,50 +88,57 @@ namespace Model
 
     /**
      * <p> The name of the job for which to retrieve triggers. The trigger that can
-     * start this job will be returned, and if there is no such trigger, all triggers
-     * will be returned.</p>
+     * start this job is returned. If there is no such trigger, all triggers are
+     * returned.</p>
      */
     inline const Aws::String& GetDependentJobName() const{ return m_dependentJobName; }
 
     /**
      * <p> The name of the job for which to retrieve triggers. The trigger that can
-     * start this job will be returned, and if there is no such trigger, all triggers
-     * will be returned.</p>
+     * start this job is returned. If there is no such trigger, all triggers are
+     * returned.</p>
+     */
+    inline bool DependentJobNameHasBeenSet() const { return m_dependentJobNameHasBeenSet; }
+
+    /**
+     * <p> The name of the job for which to retrieve triggers. The trigger that can
+     * start this job is returned. If there is no such trigger, all triggers are
+     * returned.</p>
      */
     inline void SetDependentJobName(const Aws::String& value) { m_dependentJobNameHasBeenSet = true; m_dependentJobName = value; }
 
     /**
      * <p> The name of the job for which to retrieve triggers. The trigger that can
-     * start this job will be returned, and if there is no such trigger, all triggers
-     * will be returned.</p>
+     * start this job is returned. If there is no such trigger, all triggers are
+     * returned.</p>
      */
     inline void SetDependentJobName(Aws::String&& value) { m_dependentJobNameHasBeenSet = true; m_dependentJobName = std::move(value); }
 
     /**
      * <p> The name of the job for which to retrieve triggers. The trigger that can
-     * start this job will be returned, and if there is no such trigger, all triggers
-     * will be returned.</p>
+     * start this job is returned. If there is no such trigger, all triggers are
+     * returned.</p>
      */
     inline void SetDependentJobName(const char* value) { m_dependentJobNameHasBeenSet = true; m_dependentJobName.assign(value); }
 
     /**
      * <p> The name of the job for which to retrieve triggers. The trigger that can
-     * start this job will be returned, and if there is no such trigger, all triggers
-     * will be returned.</p>
+     * start this job is returned. If there is no such trigger, all triggers are
+     * returned.</p>
      */
     inline ListTriggersRequest& WithDependentJobName(const Aws::String& value) { SetDependentJobName(value); return *this;}
 
     /**
      * <p> The name of the job for which to retrieve triggers. The trigger that can
-     * start this job will be returned, and if there is no such trigger, all triggers
-     * will be returned.</p>
+     * start this job is returned. If there is no such trigger, all triggers are
+     * returned.</p>
      */
     inline ListTriggersRequest& WithDependentJobName(Aws::String&& value) { SetDependentJobName(std::move(value)); return *this;}
 
     /**
      * <p> The name of the job for which to retrieve triggers. The trigger that can
-     * start this job will be returned, and if there is no such trigger, all triggers
-     * will be returned.</p>
+     * start this job is returned. If there is no such trigger, all triggers are
+     * returned.</p>
      */
     inline ListTriggersRequest& WithDependentJobName(const char* value) { SetDependentJobName(value); return *this;}
 
@@ -135,6 +147,11 @@ namespace Model
      * <p>The maximum size of a list to return.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum size of a list to return.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum size of a list to return.</p>
@@ -151,6 +168,11 @@ namespace Model
      * <p>Specifies to return only these tagged resources.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Specifies to return only these tagged resources.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Specifies to return only these tagged resources.</p>

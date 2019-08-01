@@ -34,7 +34,14 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
+   * <p>Specifies a metrics configuration for the CloudWatch request metrics
+   * (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're
+   * updating an existing metrics configuration, note that this is a full replacement
+   * of the existing metrics configuration. If you don't include the elements you
+   * want to keep, they are erased. For more information, see <a
+   * href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html">
+   * PUT Bucket metrics</a> in the <i>Amazon Simple Storage Service API
+   * Reference</i>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/MetricsConfiguration">AWS
    * API Reference</a></p>
    */
@@ -52,6 +59,11 @@ namespace Model
      * <p>The ID used to identify the metrics configuration.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID used to identify the metrics configuration.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID used to identify the metrics configuration.</p>
@@ -90,6 +102,13 @@ namespace Model
      * tag, or a conjunction (MetricsAndOperator).</p>
      */
     inline const MetricsFilter& GetFilter() const{ return m_filter; }
+
+    /**
+     * <p>Specifies a metrics configuration filter. The metrics configuration will only
+     * include objects that meet the filter's criteria. A filter must be a prefix, a
+     * tag, or a conjunction (MetricsAndOperator).</p>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
      * <p>Specifies a metrics configuration filter. The metrics configuration will only

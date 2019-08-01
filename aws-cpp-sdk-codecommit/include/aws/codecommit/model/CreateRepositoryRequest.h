@@ -17,6 +17,7 @@
 #include <aws/codecommit/CodeCommit_EXPORTS.h>
 #include <aws/codecommit/CodeCommitRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
 
 namespace Aws
@@ -36,7 +37,7 @@ namespace Model
   {
   public:
     CreateRepositoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,7 +55,7 @@ namespace Model
      * names are limited to 100 alphanumeric, dash, and underscore characters, and
      * cannot include certain characters. For a full description of the limits on
      * repository names, see <a
-     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+     * href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
      * in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</p> </note>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
@@ -65,7 +66,18 @@ namespace Model
      * names are limited to 100 alphanumeric, dash, and underscore characters, and
      * cannot include certain characters. For a full description of the limits on
      * repository names, see <a
-     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+     * href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+     * in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</p> </note>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
+
+    /**
+     * <p>The name of the new repository to be created.</p> <note> <p>The repository
+     * name must be unique across the calling AWS account. In addition, repository
+     * names are limited to 100 alphanumeric, dash, and underscore characters, and
+     * cannot include certain characters. For a full description of the limits on
+     * repository names, see <a
+     * href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
      * in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</p> </note>
      */
     inline void SetRepositoryName(const Aws::String& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = value; }
@@ -76,7 +88,7 @@ namespace Model
      * names are limited to 100 alphanumeric, dash, and underscore characters, and
      * cannot include certain characters. For a full description of the limits on
      * repository names, see <a
-     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+     * href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
      * in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</p> </note>
      */
     inline void SetRepositoryName(Aws::String&& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = std::move(value); }
@@ -87,7 +99,7 @@ namespace Model
      * names are limited to 100 alphanumeric, dash, and underscore characters, and
      * cannot include certain characters. For a full description of the limits on
      * repository names, see <a
-     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+     * href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
      * in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</p> </note>
      */
     inline void SetRepositoryName(const char* value) { m_repositoryNameHasBeenSet = true; m_repositoryName.assign(value); }
@@ -98,7 +110,7 @@ namespace Model
      * names are limited to 100 alphanumeric, dash, and underscore characters, and
      * cannot include certain characters. For a full description of the limits on
      * repository names, see <a
-     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+     * href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
      * in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</p> </note>
      */
     inline CreateRepositoryRequest& WithRepositoryName(const Aws::String& value) { SetRepositoryName(value); return *this;}
@@ -109,7 +121,7 @@ namespace Model
      * names are limited to 100 alphanumeric, dash, and underscore characters, and
      * cannot include certain characters. For a full description of the limits on
      * repository names, see <a
-     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+     * href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
      * in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</p> </note>
      */
     inline CreateRepositoryRequest& WithRepositoryName(Aws::String&& value) { SetRepositoryName(std::move(value)); return *this;}
@@ -120,7 +132,7 @@ namespace Model
      * names are limited to 100 alphanumeric, dash, and underscore characters, and
      * cannot include certain characters. For a full description of the limits on
      * repository names, see <a
-     * href="http://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
+     * href="https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html">Limits</a>
      * in the AWS CodeCommit User Guide. The suffix ".git" is prohibited.</p> </note>
      */
     inline CreateRepositoryRequest& WithRepositoryName(const char* value) { SetRepositoryName(value); return *this;}
@@ -135,6 +147,16 @@ namespace Model
      * this API to display the repository description on a web page.</p> </note>
      */
     inline const Aws::String& GetRepositoryDescription() const{ return m_repositoryDescription; }
+
+    /**
+     * <p>A comment or description about the new repository.</p> <note> <p>The
+     * description field for a repository accepts all HTML characters and all valid
+     * Unicode characters. Applications that do not HTML-encode the description and
+     * display it in a web page could expose users to potentially malicious code. Make
+     * sure that you HTML-encode the description field in any application that uses
+     * this API to display the repository description on a web page.</p> </note>
+     */
+    inline bool RepositoryDescriptionHasBeenSet() const { return m_repositoryDescriptionHasBeenSet; }
 
     /**
      * <p>A comment or description about the new repository.</p> <note> <p>The
@@ -196,6 +218,72 @@ namespace Model
      */
     inline CreateRepositoryRequest& WithRepositoryDescription(const char* value) { SetRepositoryDescription(value); return *this;}
 
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>One or more tag key-value pairs to use when tagging this repository.</p>
+     */
+    inline CreateRepositoryRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     Aws::String m_repositoryName;
@@ -203,6 +291,9 @@ namespace Model
 
     Aws::String m_repositoryDescription;
     bool m_repositoryDescriptionHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

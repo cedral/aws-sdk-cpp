@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ChangeMessageVisibilityBatchRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * <p>Queue URLs and names are case-sensitive.</p>
      */
     inline const Aws::String& GetQueueUrl() const{ return m_queueUrl; }
+
+    /**
+     * <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
+     * <p>Queue URLs and names are case-sensitive.</p>
+     */
+    inline bool QueueUrlHasBeenSet() const { return m_queueUrlHasBeenSet; }
 
     /**
      * <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
@@ -99,6 +105,12 @@ namespace Model
      * must be changed.</p>
      */
     inline const Aws::Vector<ChangeMessageVisibilityBatchRequestEntry>& GetEntries() const{ return m_entries; }
+
+    /**
+     * <p>A list of receipt handles of the messages for which the visibility timeout
+     * must be changed.</p>
+     */
+    inline bool EntriesHasBeenSet() const { return m_entriesHasBeenSet; }
 
     /**
      * <p>A list of receipt handles of the messages for which the visibility timeout

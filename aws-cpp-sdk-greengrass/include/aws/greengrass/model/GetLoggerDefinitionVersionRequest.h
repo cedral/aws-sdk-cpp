@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetLoggerDefinitionVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * The ID of the logger definition.
      */
     inline const Aws::String& GetLoggerDefinitionId() const{ return m_loggerDefinitionId; }
+
+    /**
+     * The ID of the logger definition.
+     */
+    inline bool LoggerDefinitionIdHasBeenSet() const { return m_loggerDefinitionIdHasBeenSet; }
 
     /**
      * The ID of the logger definition.
@@ -85,37 +90,82 @@ namespace Model
 
 
     /**
-     * The ID of the logger definition version.
+     * The ID of the logger definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListLoggerDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a logger definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline const Aws::String& GetLoggerDefinitionVersionId() const{ return m_loggerDefinitionVersionId; }
 
     /**
-     * The ID of the logger definition version.
+     * The ID of the logger definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListLoggerDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a logger definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
+     */
+    inline bool LoggerDefinitionVersionIdHasBeenSet() const { return m_loggerDefinitionVersionIdHasBeenSet; }
+
+    /**
+     * The ID of the logger definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListLoggerDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a logger definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline void SetLoggerDefinitionVersionId(const Aws::String& value) { m_loggerDefinitionVersionIdHasBeenSet = true; m_loggerDefinitionVersionId = value; }
 
     /**
-     * The ID of the logger definition version.
+     * The ID of the logger definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListLoggerDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a logger definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline void SetLoggerDefinitionVersionId(Aws::String&& value) { m_loggerDefinitionVersionIdHasBeenSet = true; m_loggerDefinitionVersionId = std::move(value); }
 
     /**
-     * The ID of the logger definition version.
+     * The ID of the logger definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListLoggerDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a logger definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline void SetLoggerDefinitionVersionId(const char* value) { m_loggerDefinitionVersionIdHasBeenSet = true; m_loggerDefinitionVersionId.assign(value); }
 
     /**
-     * The ID of the logger definition version.
+     * The ID of the logger definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListLoggerDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a logger definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline GetLoggerDefinitionVersionRequest& WithLoggerDefinitionVersionId(const Aws::String& value) { SetLoggerDefinitionVersionId(value); return *this;}
 
     /**
-     * The ID of the logger definition version.
+     * The ID of the logger definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListLoggerDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a logger definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline GetLoggerDefinitionVersionRequest& WithLoggerDefinitionVersionId(Aws::String&& value) { SetLoggerDefinitionVersionId(std::move(value)); return *this;}
 
     /**
-     * The ID of the logger definition version.
+     * The ID of the logger definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListLoggerDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a logger definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline GetLoggerDefinitionVersionRequest& WithLoggerDefinitionVersionId(const char* value) { SetLoggerDefinitionVersionId(value); return *this;}
 
@@ -125,6 +175,12 @@ namespace Model
      * results.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * The token for the next set of results, or ''null'' if there are no additional
+     * results.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * The token for the next set of results, or ''null'' if there are no additional

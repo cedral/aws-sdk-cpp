@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteConnectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * provided, the AWS account ID is used by default.</p>
      */
     inline const Aws::String& GetCatalogId() const{ return m_catalogId; }
+
+    /**
+     * <p>The ID of the Data Catalog in which the connection resides. If none is
+     * provided, the AWS account ID is used by default.</p>
+     */
+    inline bool CatalogIdHasBeenSet() const { return m_catalogIdHasBeenSet; }
 
     /**
      * <p>The ID of the Data Catalog in which the connection resides. If none is
@@ -91,6 +97,11 @@ namespace Model
      * <p>The name of the connection to delete.</p>
      */
     inline const Aws::String& GetConnectionName() const{ return m_connectionName; }
+
+    /**
+     * <p>The name of the connection to delete.</p>
+     */
+    inline bool ConnectionNameHasBeenSet() const { return m_connectionNameHasBeenSet; }
 
     /**
      * <p>The name of the connection to delete.</p>

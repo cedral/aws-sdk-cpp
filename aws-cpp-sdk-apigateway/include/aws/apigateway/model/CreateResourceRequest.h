@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>[Required] The parent resource's identifier.</p>
      */
+    inline bool ParentIdHasBeenSet() const { return m_parentIdHasBeenSet; }
+
+    /**
+     * <p>[Required] The parent resource's identifier.</p>
+     */
     inline void SetParentId(const Aws::String& value) { m_parentIdHasBeenSet = true; m_parentId = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
      * <p>The last path segment for this resource.</p>
      */
     inline const Aws::String& GetPathPart() const{ return m_pathPart; }
+
+    /**
+     * <p>The last path segment for this resource.</p>
+     */
+    inline bool PathPartHasBeenSet() const { return m_pathPartHasBeenSet; }
 
     /**
      * <p>The last path segment for this resource.</p>

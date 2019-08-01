@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeLoadBalancerPolicyTypesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * policy types defined by Elastic Load Balancing.</p>
      */
     inline const Aws::Vector<Aws::String>& GetPolicyTypeNames() const{ return m_policyTypeNames; }
+
+    /**
+     * <p>The names of the policy types. If no names are specified, describes all
+     * policy types defined by Elastic Load Balancing.</p>
+     */
+    inline bool PolicyTypeNamesHasBeenSet() const { return m_policyTypeNamesHasBeenSet; }
 
     /**
      * <p>The names of the policy types. If no names are specified, describes all

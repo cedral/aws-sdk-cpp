@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     GetSdkRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,11 @@ namespace Model
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -97,6 +102,11 @@ namespace Model
     /**
      * <p>[Required] The name of the <a>Stage</a> that the SDK will use.</p>
      */
+    inline bool StageNameHasBeenSet() const { return m_stageNameHasBeenSet; }
+
+    /**
+     * <p>[Required] The name of the <a>Stage</a> that the SDK will use.</p>
+     */
     inline void SetStageName(const Aws::String& value) { m_stageNameHasBeenSet = true; m_stageName = value; }
 
     /**
@@ -131,6 +141,13 @@ namespace Model
      * iOS), <code>swift</code> (for iOS), and <code>ruby</code> are supported.</p>
      */
     inline const Aws::String& GetSdkType() const{ return m_sdkType; }
+
+    /**
+     * <p>[Required] The language for the generated SDK. Currently <code>java</code>,
+     * <code>javascript</code>, <code>android</code>, <code>objectivec</code> (for
+     * iOS), <code>swift</code> (for iOS), and <code>ruby</code> are supported.</p>
+     */
+    inline bool SdkTypeHasBeenSet() const { return m_sdkTypeHasBeenSet; }
 
     /**
      * <p>[Required] The language for the generated SDK. Currently <code>java</code>,
@@ -187,6 +204,19 @@ namespace Model
      * <code>javaPackageName</code> are required. </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>A string-to-string key-value map of query parameters
+     * <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code>
+     * of <code>objectivec</code> or <code>swift</code>, a parameter named
+     * <code>classPrefix</code> is required. For <code>sdkType</code> of
+     * <code>android</code>, parameters named <code>groupId</code>,
+     * <code>artifactId</code>, <code>artifactVersion</code>, and
+     * <code>invokerPackage</code> are required. For <code>sdkType</code> of
+     * <code>java</code>, parameters named <code>serviceName</code> and
+     * <code>javaPackageName</code> are required. </p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>A string-to-string key-value map of query parameters

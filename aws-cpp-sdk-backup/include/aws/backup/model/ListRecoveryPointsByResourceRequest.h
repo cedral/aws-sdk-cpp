@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListRecoveryPointsByResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * the resource type.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on
+     * the resource type.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on
@@ -98,6 +104,14 @@ namespace Model
      * the location pointed to by the next token.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The next item following a partial list of returned items. For example, if a
+     * request is made to return <code>maxResults</code> number of items,
+     * <code>NextToken</code> allows you to return more items in your list starting at
+     * the location pointed to by the next token.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The next item following a partial list of returned items. For example, if a
@@ -152,6 +166,11 @@ namespace Model
      * <p>The maximum number of items to be returned.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of items to be returned.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to be returned.</p>

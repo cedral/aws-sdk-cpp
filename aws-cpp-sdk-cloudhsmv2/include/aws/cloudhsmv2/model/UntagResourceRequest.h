@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UntagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * find the cluster ID, use <a>DescribeClusters</a>.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The cluster identifier (ID) for the cluster whose tags you are removing. To
+     * find the cluster ID, use <a>DescribeClusters</a>.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The cluster identifier (ID) for the cluster whose tags you are removing. To
@@ -93,6 +99,12 @@ namespace Model
      * only the tag keys, not the tag values.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeyList() const{ return m_tagKeyList; }
+
+    /**
+     * <p>A list of one or more tag keys for the tags that you are removing. Specify
+     * only the tag keys, not the tag values.</p>
+     */
+    inline bool TagKeyListHasBeenSet() const { return m_tagKeyListHasBeenSet; }
 
     /**
      * <p>A list of one or more tag keys for the tags that you are removing. Specify

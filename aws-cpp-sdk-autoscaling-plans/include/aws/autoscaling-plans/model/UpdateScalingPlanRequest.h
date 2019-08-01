@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     UpdateScalingPlanRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the scaling plan.</p>
      */
     inline const Aws::String& GetScalingPlanName() const{ return m_scalingPlanName; }
+
+    /**
+     * <p>The name of the scaling plan.</p>
+     */
+    inline bool ScalingPlanNameHasBeenSet() const { return m_scalingPlanNameHasBeenSet; }
 
     /**
      * <p>The name of the scaling plan.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The version number of the scaling plan.</p>
      */
+    inline bool ScalingPlanVersionHasBeenSet() const { return m_scalingPlanVersionHasBeenSet; }
+
+    /**
+     * <p>The version number of the scaling plan.</p>
+     */
     inline void SetScalingPlanVersion(long long value) { m_scalingPlanVersionHasBeenSet = true; m_scalingPlanVersion = value; }
 
     /**
@@ -103,6 +113,11 @@ namespace Model
      * <p>A CloudFormation stack or set of tags.</p>
      */
     inline const ApplicationSource& GetApplicationSource() const{ return m_applicationSource; }
+
+    /**
+     * <p>A CloudFormation stack or set of tags.</p>
+     */
+    inline bool ApplicationSourceHasBeenSet() const { return m_applicationSourceHasBeenSet; }
 
     /**
      * <p>A CloudFormation stack or set of tags.</p>
@@ -129,6 +144,11 @@ namespace Model
      * <p>The scaling instructions.</p>
      */
     inline const Aws::Vector<ScalingInstruction>& GetScalingInstructions() const{ return m_scalingInstructions; }
+
+    /**
+     * <p>The scaling instructions.</p>
+     */
+    inline bool ScalingInstructionsHasBeenSet() const { return m_scalingInstructionsHasBeenSet; }
 
     /**
      * <p>The scaling instructions.</p>

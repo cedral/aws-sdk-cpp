@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutSubscriptionFilterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the log group.</p>
      */
     inline const Aws::String& GetLogGroupName() const{ return m_logGroupName; }
+
+    /**
+     * <p>The name of the log group.</p>
+     */
+    inline bool LogGroupNameHasBeenSet() const { return m_logGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the log group.</p>
@@ -89,6 +94,15 @@ namespace Model
      * <a>DescribeSubscriptionFilters</a>.</p>
      */
     inline const Aws::String& GetFilterName() const{ return m_filterName; }
+
+    /**
+     * <p>A name for the subscription filter. If you are updating an existing filter,
+     * you must specify the correct name in <code>filterName</code>. Otherwise, the
+     * call fails because you cannot associate a second filter with a log group. To
+     * find the name of the filter currently associated with a log group, use
+     * <a>DescribeSubscriptionFilters</a>.</p>
+     */
+    inline bool FilterNameHasBeenSet() const { return m_filterNameHasBeenSet; }
 
     /**
      * <p>A name for the subscription filter. If you are updating an existing filter,
@@ -153,6 +167,11 @@ namespace Model
     /**
      * <p>A filter pattern for subscribing to a filtered stream of log events.</p>
      */
+    inline bool FilterPatternHasBeenSet() const { return m_filterPatternHasBeenSet; }
+
+    /**
+     * <p>A filter pattern for subscribing to a filtered stream of log events.</p>
+     */
     inline void SetFilterPattern(const Aws::String& value) { m_filterPatternHasBeenSet = true; m_filterPattern = value; }
 
     /**
@@ -193,6 +212,19 @@ namespace Model
      * same-account delivery.</p> </li> </ul>
      */
     inline const Aws::String& GetDestinationArn() const{ return m_destinationArn; }
+
+    /**
+     * <p>The ARN of the destination to deliver matching log events to. Currently, the
+     * supported destinations are:</p> <ul> <li> <p>An Amazon Kinesis stream belonging
+     * to the same account as the subscription filter, for same-account delivery.</p>
+     * </li> <li> <p>A logical destination (specified using an ARN) belonging to a
+     * different account, for cross-account delivery.</p> </li> <li> <p>An Amazon
+     * Kinesis Firehose delivery stream belonging to the same account as the
+     * subscription filter, for same-account delivery.</p> </li> <li> <p>An AWS Lambda
+     * function belonging to the same account as the subscription filter, for
+     * same-account delivery.</p> </li> </ul>
+     */
+    inline bool DestinationArnHasBeenSet() const { return m_destinationArnHasBeenSet; }
 
     /**
      * <p>The ARN of the destination to deliver matching log events to. Currently, the
@@ -285,6 +317,13 @@ namespace Model
      * ingested log events to the destination stream. You don't need to provide the ARN
      * when you are working with a logical destination for cross-account delivery.</p>
      */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of an IAM role that grants CloudWatch Logs permissions to deliver
+     * ingested log events to the destination stream. You don't need to provide the ARN
+     * when you are working with a logical destination for cross-account delivery.</p>
+     */
     inline void SetRoleArn(const Aws::String& value) { m_roleArnHasBeenSet = true; m_roleArn = value; }
 
     /**
@@ -330,6 +369,14 @@ namespace Model
      * Amazon Kinesis stream. </p>
      */
     inline const Distribution& GetDistribution() const{ return m_distribution; }
+
+    /**
+     * <p>The method used to distribute log data to the destination. By default log
+     * data is grouped by log stream, but the grouping can be set to random for a more
+     * even distribution. This property is only applicable when the destination is an
+     * Amazon Kinesis stream. </p>
+     */
+    inline bool DistributionHasBeenSet() const { return m_distributionHasBeenSet; }
 
     /**
      * <p>The method used to distribute log data to the destination. By default log

@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     ListVPCAssociationAuthorizationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,12 @@ namespace Model
      * associated with the hosted zone.</p>
      */
     inline const Aws::String& GetHostedZoneId() const{ return m_hostedZoneId; }
+
+    /**
+     * <p>The ID of the hosted zone for which you want a list of VPCs that can be
+     * associated with the hosted zone.</p>
+     */
+    inline bool HostedZoneIdHasBeenSet() const { return m_hostedZoneIdHasBeenSet; }
 
     /**
      * <p>The ID of the hosted zone for which you want a list of VPCs that can be
@@ -103,6 +109,15 @@ namespace Model
      * in another <code>ListVPCAssociationAuthorizations</code> request.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p> <i>Optional</i>: If a response includes a <code>NextToken</code> element,
+     * there are more VPCs that can be associated with the specified hosted zone. To
+     * get the next page of results, submit another request, and include the value of
+     * <code>NextToken</code> from the response in the <code>nexttoken</code> parameter
+     * in another <code>ListVPCAssociationAuthorizations</code> request.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p> <i>Optional</i>: If a response includes a <code>NextToken</code> element,
@@ -165,6 +180,13 @@ namespace Model
      * <code>MaxResults</code>, Route 53 returns up to 50 VPCs per page.</p>
      */
     inline const Aws::String& GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p> <i>Optional</i>: An integer that specifies the maximum number of VPCs that
+     * you want Amazon Route 53 to return. If you don't specify a value for
+     * <code>MaxResults</code>, Route 53 returns up to 50 VPCs per page.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p> <i>Optional</i>: An integer that specifies the maximum number of VPCs that

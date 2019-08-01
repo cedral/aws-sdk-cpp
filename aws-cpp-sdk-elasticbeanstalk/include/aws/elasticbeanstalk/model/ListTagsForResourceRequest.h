@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * requested.</p> <p>Must be the ARN of an Elastic Beanstalk environment.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resouce for which a tag list is
+     * requested.</p> <p>Must be the ARN of an Elastic Beanstalk environment.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the resouce for which a tag list is

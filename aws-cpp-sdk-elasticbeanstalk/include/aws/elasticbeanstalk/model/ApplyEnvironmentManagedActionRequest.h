@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ApplyEnvironmentManagedActionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the target environment.</p>
      */
     inline const Aws::String& GetEnvironmentName() const{ return m_environmentName; }
+
+    /**
+     * <p>The name of the target environment.</p>
+     */
+    inline bool EnvironmentNameHasBeenSet() const { return m_environmentNameHasBeenSet; }
 
     /**
      * <p>The name of the target environment.</p>
@@ -94,6 +99,11 @@ namespace Model
     /**
      * <p>The environment ID of the target environment.</p>
      */
+    inline bool EnvironmentIdHasBeenSet() const { return m_environmentIdHasBeenSet; }
+
+    /**
+     * <p>The environment ID of the target environment.</p>
+     */
     inline void SetEnvironmentId(const Aws::String& value) { m_environmentIdHasBeenSet = true; m_environmentId = value; }
 
     /**
@@ -126,6 +136,11 @@ namespace Model
      * <p>The action ID of the scheduled managed action to execute.</p>
      */
     inline const Aws::String& GetActionId() const{ return m_actionId; }
+
+    /**
+     * <p>The action ID of the scheduled managed action to execute.</p>
+     */
+    inline bool ActionIdHasBeenSet() const { return m_actionIdHasBeenSet; }
 
     /**
      * <p>The action ID of the scheduled managed action to execute.</p>

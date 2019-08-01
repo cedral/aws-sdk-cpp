@@ -18,6 +18,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/apigateway/model/VpcLinkStatus.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
 
 namespace Aws
@@ -68,6 +69,12 @@ namespace Model
      * <p>The identifier of the <a>VpcLink</a>. It is used in an <a>Integration</a> to
      * reference this <a>VpcLink</a>.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The identifier of the <a>VpcLink</a>. It is used in an <a>Integration</a> to
+     * reference this <a>VpcLink</a>.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -109,6 +116,11 @@ namespace Model
     /**
      * <p>The name used to label and identify the VPC link.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name used to label and identify the VPC link.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -141,6 +153,11 @@ namespace Model
      * <p>The description of the VPC link.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The description of the VPC link.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The description of the VPC link.</p>
@@ -179,6 +196,13 @@ namespace Model
      * owner.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTargetArns() const{ return m_targetArns; }
+
+    /**
+     * <p>The ARNs of network load balancers of the VPC targeted by the VPC link. The
+     * network load balancers must be owned by the same AWS account of the API
+     * owner.</p>
+     */
+    inline bool TargetArnsHasBeenSet() const { return m_targetArnsHasBeenSet; }
 
     /**
      * <p>The ARNs of network load balancers of the VPC targeted by the VPC link. The
@@ -244,6 +268,14 @@ namespace Model
      * an API will wait if the status is <code>PENDING</code> and will fail if the
      * status is <code>DELETING</code>. </p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>The status of the VPC link. The valid values are <code>AVAILABLE</code>,
+     * <code>PENDING</code>, <code>DELETING</code>, or <code>FAILED</code>. Deploying
+     * an API will wait if the status is <code>PENDING</code> and will fail if the
+     * status is <code>DELETING</code>. </p>
+     */
     inline void SetStatus(const VpcLinkStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -279,6 +311,11 @@ namespace Model
     /**
      * <p>A description about the VPC link status.</p>
      */
+    inline bool StatusMessageHasBeenSet() const { return m_statusMessageHasBeenSet; }
+
+    /**
+     * <p>A description about the VPC link status.</p>
+     */
     inline void SetStatusMessage(const Aws::String& value) { m_statusMessageHasBeenSet = true; m_statusMessage = value; }
 
     /**
@@ -306,6 +343,85 @@ namespace Model
      */
     inline VpcLink& WithStatusMessage(const char* value) { SetStatusMessage(value); return *this;}
 
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline VpcLink& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     Aws::String m_id;
@@ -325,6 +441,9 @@ namespace Model
 
     Aws::String m_statusMessage;
     bool m_statusMessageHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

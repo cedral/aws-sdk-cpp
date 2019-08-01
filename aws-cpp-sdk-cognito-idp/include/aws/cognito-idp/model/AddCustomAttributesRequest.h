@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     AddCustomAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * attributes.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool where you want to add custom
+     * attributes.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool where you want to add custom
@@ -97,6 +103,11 @@ namespace Model
      * <p>An array of custom attributes, such as Mutable and Name.</p>
      */
     inline const Aws::Vector<SchemaAttributeType>& GetCustomAttributes() const{ return m_customAttributes; }
+
+    /**
+     * <p>An array of custom attributes, such as Mutable and Name.</p>
+     */
+    inline bool CustomAttributesHasBeenSet() const { return m_customAttributesHasBeenSet; }
 
     /**
      * <p>An array of custom attributes, such as Mutable and Name.</p>

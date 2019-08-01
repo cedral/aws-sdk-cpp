@@ -36,6 +36,7 @@
 #include <aws/eks/model/DescribeUpdateRequest.h>
 #include <aws/eks/model/ListClustersRequest.h>
 #include <aws/eks/model/ListUpdatesRequest.h>
+#include <aws/eks/model/UpdateClusterConfigRequest.h>
 #include <aws/eks/model/UpdateClusterVersionRequest.h>
 
 using namespace Aws;
@@ -109,6 +110,7 @@ void EKSClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 CreateClusterOutcome EKSClient::CreateCluster(const CreateClusterRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -146,6 +148,11 @@ void EKSClient::CreateClusterAsyncHelper(const CreateClusterRequest& request, co
 
 DeleteClusterOutcome EKSClient::DeleteCluster(const DeleteClusterRequest& request) const
 {
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteCluster", "Required field: Name, is not set");
+    return DeleteClusterOutcome(Aws::Client::AWSError<EKSErrors>(EKSErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/clusters/";
@@ -182,6 +189,11 @@ void EKSClient::DeleteClusterAsyncHelper(const DeleteClusterRequest& request, co
 
 DescribeClusterOutcome EKSClient::DescribeCluster(const DescribeClusterRequest& request) const
 {
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeCluster", "Required field: Name, is not set");
+    return DescribeClusterOutcome(Aws::Client::AWSError<EKSErrors>(EKSErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/clusters/";
@@ -218,6 +230,16 @@ void EKSClient::DescribeClusterAsyncHelper(const DescribeClusterRequest& request
 
 DescribeUpdateOutcome EKSClient::DescribeUpdate(const DescribeUpdateRequest& request) const
 {
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeUpdate", "Required field: Name, is not set");
+    return DescribeUpdateOutcome(Aws::Client::AWSError<EKSErrors>(EKSErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  if (!request.UpdateIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeUpdate", "Required field: UpdateId, is not set");
+    return DescribeUpdateOutcome(Aws::Client::AWSError<EKSErrors>(EKSErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [UpdateId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/clusters/";
@@ -291,6 +313,11 @@ void EKSClient::ListClustersAsyncHelper(const ListClustersRequest& request, cons
 
 ListUpdatesOutcome EKSClient::ListUpdates(const ListUpdatesRequest& request) const
 {
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListUpdates", "Required field: Name, is not set");
+    return ListUpdatesOutcome(Aws::Client::AWSError<EKSErrors>(EKSErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/clusters/";
@@ -326,8 +353,55 @@ void EKSClient::ListUpdatesAsyncHelper(const ListUpdatesRequest& request, const 
   handler(this, request, ListUpdates(request), context);
 }
 
+UpdateClusterConfigOutcome EKSClient::UpdateClusterConfig(const UpdateClusterConfigRequest& request) const
+{
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateClusterConfig", "Required field: Name, is not set");
+    return UpdateClusterConfigOutcome(Aws::Client::AWSError<EKSErrors>(EKSErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/clusters/";
+  ss << request.GetName();
+  ss << "/update-config";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateClusterConfigOutcome(UpdateClusterConfigResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateClusterConfigOutcome(outcome.GetError());
+  }
+}
+
+UpdateClusterConfigOutcomeCallable EKSClient::UpdateClusterConfigCallable(const UpdateClusterConfigRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateClusterConfigOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateClusterConfig(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EKSClient::UpdateClusterConfigAsync(const UpdateClusterConfigRequest& request, const UpdateClusterConfigResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateClusterConfigAsyncHelper( request, handler, context ); } );
+}
+
+void EKSClient::UpdateClusterConfigAsyncHelper(const UpdateClusterConfigRequest& request, const UpdateClusterConfigResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateClusterConfig(request), context);
+}
+
 UpdateClusterVersionOutcome EKSClient::UpdateClusterVersion(const UpdateClusterVersionRequest& request) const
 {
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateClusterVersion", "Required field: Name, is not set");
+    return UpdateClusterVersionOutcome(Aws::Client::AWSError<EKSErrors>(EKSErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/clusters/";

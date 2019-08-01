@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetComplianceSummaryByResourceTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,15 @@ namespace Model
      * AWS account by specifying <code>AWS::::Account</code>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetResourceTypes() const{ return m_resourceTypes; }
+
+    /**
+     * <p>Specify one or more resource types to get the number of resources that are
+     * compliant and the number that are noncompliant for each resource type.</p>
+     * <p>For this request, you can specify an AWS resource type such as
+     * <code>AWS::EC2::Instance</code>. You can specify that the resource type is an
+     * AWS account by specifying <code>AWS::::Account</code>.</p>
+     */
+    inline bool ResourceTypesHasBeenSet() const { return m_resourceTypesHasBeenSet; }
 
     /**
      * <p>Specify one or more resource types to get the number of resources that are

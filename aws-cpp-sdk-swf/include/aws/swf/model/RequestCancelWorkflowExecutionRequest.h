@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RequestCancelWorkflowExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the domain containing the workflow execution to cancel.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The name of the domain containing the workflow execution to cancel.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The name of the domain containing the workflow execution to cancel.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The workflowId of the workflow execution to cancel.</p>
      */
+    inline bool WorkflowIdHasBeenSet() const { return m_workflowIdHasBeenSet; }
+
+    /**
+     * <p>The workflowId of the workflow execution to cancel.</p>
+     */
     inline void SetWorkflowId(const Aws::String& value) { m_workflowIdHasBeenSet = true; m_workflowId = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The runId of the workflow execution to cancel.</p>
      */
     inline const Aws::String& GetRunId() const{ return m_runId; }
+
+    /**
+     * <p>The runId of the workflow execution to cancel.</p>
+     */
+    inline bool RunIdHasBeenSet() const { return m_runIdHasBeenSet; }
 
     /**
      * <p>The runId of the workflow execution to cancel.</p>

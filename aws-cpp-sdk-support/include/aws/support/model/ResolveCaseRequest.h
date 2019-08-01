@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ResolveCaseRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * case-<i>12345678910-2013-c4c1d2bf33c5cf47</i> </p>
      */
     inline const Aws::String& GetCaseId() const{ return m_caseId; }
+
+    /**
+     * <p>The AWS Support case ID requested or returned in the call. The case ID is an
+     * alphanumeric string formatted as shown in this example:
+     * case-<i>12345678910-2013-c4c1d2bf33c5cf47</i> </p>
+     */
+    inline bool CaseIdHasBeenSet() const { return m_caseIdHasBeenSet; }
 
     /**
      * <p>The AWS Support case ID requested or returned in the call. The case ID is an

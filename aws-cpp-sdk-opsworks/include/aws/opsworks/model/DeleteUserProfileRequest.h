@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteUserProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
      */
     inline const Aws::String& GetIamUserArn() const{ return m_iamUserArn; }
+
+    /**
+     * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>
+     */
+    inline bool IamUserArnHasBeenSet() const { return m_iamUserArnHasBeenSet; }
 
     /**
      * <p>The user's IAM ARN. This can also be a federated user's ARN.</p>

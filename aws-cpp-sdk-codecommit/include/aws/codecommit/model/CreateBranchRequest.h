@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateBranchRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the repository in which you want to create the new branch.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository in which you want to create the new branch.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository in which you want to create the new branch.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The name of the new branch to create.</p>
      */
+    inline bool BranchNameHasBeenSet() const { return m_branchNameHasBeenSet; }
+
+    /**
+     * <p>The name of the new branch to create.</p>
+     */
     inline void SetBranchName(const Aws::String& value) { m_branchNameHasBeenSet = true; m_branchName = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
      * <p>The ID of the commit to point the new branch to.</p>
      */
     inline const Aws::String& GetCommitId() const{ return m_commitId; }
+
+    /**
+     * <p>The ID of the commit to point the new branch to.</p>
+     */
+    inline bool CommitIdHasBeenSet() const { return m_commitIdHasBeenSet; }
 
     /**
      * <p>The ID of the commit to point the new branch to.</p>

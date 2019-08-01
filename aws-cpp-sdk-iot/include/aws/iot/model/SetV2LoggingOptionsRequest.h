@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SetV2LoggingOptionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>
@@ -87,6 +92,11 @@ namespace Model
     /**
      * <p>The default logging level.</p>
      */
+    inline bool DefaultLogLevelHasBeenSet() const { return m_defaultLogLevelHasBeenSet; }
+
+    /**
+     * <p>The default logging level.</p>
+     */
     inline void SetDefaultLogLevel(const LogLevel& value) { m_defaultLogLevelHasBeenSet = true; m_defaultLogLevel = value; }
 
     /**
@@ -109,6 +119,11 @@ namespace Model
      * <p>If true all logs are disabled. The default is false.</p>
      */
     inline bool GetDisableAllLogs() const{ return m_disableAllLogs; }
+
+    /**
+     * <p>If true all logs are disabled. The default is false.</p>
+     */
+    inline bool DisableAllLogsHasBeenSet() const { return m_disableAllLogsHasBeenSet; }
 
     /**
      * <p>If true all logs are disabled. The default is false.</p>

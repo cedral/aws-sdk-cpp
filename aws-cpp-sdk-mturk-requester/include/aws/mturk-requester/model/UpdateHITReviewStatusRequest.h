@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateHITReviewStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p> The ID of the HIT to update. </p>
      */
     inline const Aws::String& GetHITId() const{ return m_hITId; }
+
+    /**
+     * <p> The ID of the HIT to update. </p>
+     */
+    inline bool HITIdHasBeenSet() const { return m_hITIdHasBeenSet; }
 
     /**
      * <p> The ID of the HIT to update. </p>
@@ -88,6 +93,15 @@ namespace Model
      * <code>Reviewable</code> </p> </li> </ul>
      */
     inline bool GetRevert() const{ return m_revert; }
+
+    /**
+     * <p> Specifies how to update the HIT status. Default is <code>False</code>. </p>
+     * <ul> <li> <p> Setting this to false will only transition a HIT from
+     * <code>Reviewable</code> to <code>Reviewing</code> </p> </li> <li> <p> Setting
+     * this to true will only transition a HIT from <code>Reviewing</code> to
+     * <code>Reviewable</code> </p> </li> </ul>
+     */
+    inline bool RevertHasBeenSet() const { return m_revertHasBeenSet; }
 
     /**
      * <p> Specifies how to update the HIT status. Default is <code>False</code>. </p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetReplicationRunsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The identifier of the replication job.</p>
      */
     inline const Aws::String& GetReplicationJobId() const{ return m_replicationJobId; }
+
+    /**
+     * <p>The identifier of the replication job.</p>
+     */
+    inline bool ReplicationJobIdHasBeenSet() const { return m_replicationJobIdHasBeenSet; }
 
     /**
      * <p>The identifier of the replication job.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The token for the next set of results.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token for the next set of results.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -122,6 +132,13 @@ namespace Model
      * <code>NextToken</code> value.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return in a single call. The default value
+     * is 50. To retrieve the remaining results, make another call with the returned
+     * <code>NextToken</code> value.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return in a single call. The default value

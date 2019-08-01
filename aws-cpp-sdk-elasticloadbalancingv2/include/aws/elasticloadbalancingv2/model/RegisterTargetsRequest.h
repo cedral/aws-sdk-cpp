@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     RegisterTargetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the target group.</p>
      */
     inline const Aws::String& GetTargetGroupArn() const{ return m_targetGroupArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the target group.</p>
+     */
+    inline bool TargetGroupArnHasBeenSet() const { return m_targetGroupArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -90,6 +95,13 @@ namespace Model
      * Lambda function, specify the ARN of the Lambda function.</p>
      */
     inline const Aws::Vector<TargetDescription>& GetTargets() const{ return m_targets; }
+
+    /**
+     * <p>The targets.</p> <p>To register a target by instance ID, specify the instance
+     * ID. To register a target by IP address, specify the IP address. To register a
+     * Lambda function, specify the ARN of the Lambda function.</p>
+     */
+    inline bool TargetsHasBeenSet() const { return m_targetsHasBeenSet; }
 
     /**
      * <p>The targets.</p> <p>To register a target by instance ID, specify the instance

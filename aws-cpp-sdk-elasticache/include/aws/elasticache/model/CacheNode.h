@@ -42,43 +42,43 @@ namespace Model
    * ElastiCache. Generally speaking, the current generation types provide more
    * memory and computational power at lower cost when compared to their equivalent
    * previous generation counterparts.</p> <ul> <li> <p>General purpose:</p> <ul>
-   * <li> <p>Current generation: </p> <p> <b>T2 node types:</b>
-   * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
-   * <code>cache.t2.medium</code> </p> <p> <b>M3 node types:</b>
-   * <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-   * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> <p> <b>M4 node
-   * types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+   * <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+   * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+   * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+   * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+   * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
    * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-   * <code>cache.m4.10xlarge</code> </p> </li> <li> <p>Previous generation: (not
+   * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+   * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+   * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
    * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
    * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-   * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> </li> </ul> </li>
-   * <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+   * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+   * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+   * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+   * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
    * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
    * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
-   * </p> <p> <b>R3 node types:</b> <code>cache.r3.large</code>,
-   * <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-   * <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> </p> <p> <b>R4 node
-   * types;</b> <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+   * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+   * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+   * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+   * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+   * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
    * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
    * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
    * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
    * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-   * <code>cache.m2.4xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Notes:</b>
-   * </p> <ul> <li> <p>All T2 instances are created in an Amazon Virtual Private
-   * Cloud (Amazon VPC).</p> </li> <li> <p>Redis (cluster mode disabled): Redis
-   * backup/restore is not supported on T1 and T2 instances. </p> </li> <li> <p>Redis
-   * (cluster mode enabled): Backup/restore is not supported on T1 instances.</p>
-   * </li> <li> <p>Redis Append-only files (AOF) functionality is not supported for
-   * T1 or T2 instances.</p> </li> </ul> <p>For a complete listing of node types and
-   * specifications, see:</p> <ul> <li> <p> <a
-   * href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product
-   * Features and Details</a> </p> </li> <li> <p> <a
-   * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-   * Node Type-Specific Parameters for Memcached</a> </p> </li> <li> <p> <a
-   * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-   * Node Type-Specific Parameters for Redis</a> </p> </li> </ul><p><h3>See
-   * Also:</h3>   <a
+   * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+   * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+   * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+   * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+   * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+   * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+   * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+   * with automatic failover is not supported on T1 instances.</p> </li> <li>
+   * <p>Redis configuration variables <code>appendonly</code> and
+   * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+   * later.</p> </li> </ul><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/elasticache-2015-02-02/CacheNode">AWS
    * API Reference</a></p>
    */
@@ -99,6 +99,13 @@ namespace Model
      * node used in a customer's AWS account.</p>
      */
     inline const Aws::String& GetCacheNodeId() const{ return m_cacheNodeId; }
+
+    /**
+     * <p>The cache node identifier. A node ID is a numeric identifier (0001, 0002,
+     * etc.). The combination of cluster ID and node ID uniquely identifies every cache
+     * node used in a customer's AWS account.</p>
+     */
+    inline bool CacheNodeIdHasBeenSet() const { return m_cacheNodeIdHasBeenSet; }
 
     /**
      * <p>The cache node identifier. A node ID is a numeric identifier (0001, 0002,
@@ -151,6 +158,11 @@ namespace Model
     /**
      * <p>The current state of this cache node.</p>
      */
+    inline bool CacheNodeStatusHasBeenSet() const { return m_cacheNodeStatusHasBeenSet; }
+
+    /**
+     * <p>The current state of this cache node.</p>
+     */
     inline void SetCacheNodeStatus(const Aws::String& value) { m_cacheNodeStatusHasBeenSet = true; m_cacheNodeStatus = value; }
 
     /**
@@ -187,6 +199,11 @@ namespace Model
     /**
      * <p>The date and time when the cache node was created.</p>
      */
+    inline bool CacheNodeCreateTimeHasBeenSet() const { return m_cacheNodeCreateTimeHasBeenSet; }
+
+    /**
+     * <p>The date and time when the cache node was created.</p>
+     */
     inline void SetCacheNodeCreateTime(const Aws::Utils::DateTime& value) { m_cacheNodeCreateTimeHasBeenSet = true; m_cacheNodeCreateTime = value; }
 
     /**
@@ -213,6 +230,11 @@ namespace Model
     /**
      * <p>The hostname for connecting to this cache node.</p>
      */
+    inline bool EndpointHasBeenSet() const { return m_endpointHasBeenSet; }
+
+    /**
+     * <p>The hostname for connecting to this cache node.</p>
+     */
     inline void SetEndpoint(const Endpoint& value) { m_endpointHasBeenSet = true; m_endpoint = value; }
 
     /**
@@ -235,6 +257,11 @@ namespace Model
      * <p>The status of the parameter group applied to this cache node.</p>
      */
     inline const Aws::String& GetParameterGroupStatus() const{ return m_parameterGroupStatus; }
+
+    /**
+     * <p>The status of the parameter group applied to this cache node.</p>
+     */
+    inline bool ParameterGroupStatusHasBeenSet() const { return m_parameterGroupStatusHasBeenSet; }
 
     /**
      * <p>The status of the parameter group applied to this cache node.</p>
@@ -277,6 +304,12 @@ namespace Model
      * <p>The ID of the primary node to which this read replica node is synchronized.
      * If this field is empty, this node is not associated with a primary cluster.</p>
      */
+    inline bool SourceCacheNodeIdHasBeenSet() const { return m_sourceCacheNodeIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the primary node to which this read replica node is synchronized.
+     * If this field is empty, this node is not associated with a primary cluster.</p>
+     */
     inline void SetSourceCacheNodeId(const Aws::String& value) { m_sourceCacheNodeIdHasBeenSet = true; m_sourceCacheNodeId = value; }
 
     /**
@@ -314,6 +347,11 @@ namespace Model
      * <p>The Availability Zone where this node was created and now resides.</p>
      */
     inline const Aws::String& GetCustomerAvailabilityZone() const{ return m_customerAvailabilityZone; }
+
+    /**
+     * <p>The Availability Zone where this node was created and now resides.</p>
+     */
+    inline bool CustomerAvailabilityZoneHasBeenSet() const { return m_customerAvailabilityZoneHasBeenSet; }
 
     /**
      * <p>The Availability Zone where this node was created and now resides.</p>

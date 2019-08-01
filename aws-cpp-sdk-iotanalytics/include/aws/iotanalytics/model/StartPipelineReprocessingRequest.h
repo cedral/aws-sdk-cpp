@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     StartPipelineReprocessingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The name of the pipeline on which to start reprocessing.</p>
      */
     inline const Aws::String& GetPipelineName() const{ return m_pipelineName; }
+
+    /**
+     * <p>The name of the pipeline on which to start reprocessing.</p>
+     */
+    inline bool PipelineNameHasBeenSet() const { return m_pipelineNameHasBeenSet; }
 
     /**
      * <p>The name of the pipeline on which to start reprocessing.</p>
@@ -87,6 +92,11 @@ namespace Model
     /**
      * <p>The start time (inclusive) of raw message data that is reprocessed.</p>
      */
+    inline bool StartTimeHasBeenSet() const { return m_startTimeHasBeenSet; }
+
+    /**
+     * <p>The start time (inclusive) of raw message data that is reprocessed.</p>
+     */
     inline void SetStartTime(const Aws::Utils::DateTime& value) { m_startTimeHasBeenSet = true; m_startTime = value; }
 
     /**
@@ -109,6 +119,11 @@ namespace Model
      * <p>The end time (exclusive) of raw message data that is reprocessed.</p>
      */
     inline const Aws::Utils::DateTime& GetEndTime() const{ return m_endTime; }
+
+    /**
+     * <p>The end time (exclusive) of raw message data that is reprocessed.</p>
+     */
+    inline bool EndTimeHasBeenSet() const { return m_endTimeHasBeenSet; }
 
     /**
      * <p>The end time (exclusive) of raw message data that is reprocessed.</p>

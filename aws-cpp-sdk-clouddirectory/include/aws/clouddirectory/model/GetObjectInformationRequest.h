@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     GetObjectInformationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ARN of the directory being retrieved.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The ARN of the directory being retrieved.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The ARN of the directory being retrieved.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>A reference to the object.</p>
      */
+    inline bool ObjectReferenceHasBeenSet() const { return m_objectReferenceHasBeenSet; }
+
+    /**
+     * <p>A reference to the object.</p>
+     */
     inline void SetObjectReference(const ObjectReference& value) { m_objectReferenceHasBeenSet = true; m_objectReference = value; }
 
     /**
@@ -112,6 +122,11 @@ namespace Model
      * <p>The consistency level at which to retrieve the object information.</p>
      */
     inline const ConsistencyLevel& GetConsistencyLevel() const{ return m_consistencyLevel; }
+
+    /**
+     * <p>The consistency level at which to retrieve the object information.</p>
+     */
+    inline bool ConsistencyLevelHasBeenSet() const { return m_consistencyLevelHasBeenSet; }
 
     /**
      * <p>The consistency level at which to retrieve the object information.</p>

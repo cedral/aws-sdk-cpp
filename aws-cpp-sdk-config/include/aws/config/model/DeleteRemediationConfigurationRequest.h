@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteRemediationConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * configuration.</p>
      */
     inline const Aws::String& GetConfigRuleName() const{ return m_configRuleName; }
+
+    /**
+     * <p>The name of the AWS Config rule for which you want to delete remediation
+     * configuration.</p>
+     */
+    inline bool ConfigRuleNameHasBeenSet() const { return m_configRuleNameHasBeenSet; }
 
     /**
      * <p>The name of the AWS Config rule for which you want to delete remediation
@@ -91,6 +97,11 @@ namespace Model
      * <p>The type of a resource.</p>
      */
     inline const Aws::String& GetResourceType() const{ return m_resourceType; }
+
+    /**
+     * <p>The type of a resource.</p>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
 
     /**
      * <p>The type of a resource.</p>

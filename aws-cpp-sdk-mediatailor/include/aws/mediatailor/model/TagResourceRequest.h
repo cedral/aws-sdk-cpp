@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,12 @@ namespace Model
      * this from the response to any playback configuration request. </p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the playback configuration. You can get
+     * this from the response to any playback configuration request. </p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) for the playback configuration. You can get
@@ -96,6 +102,17 @@ namespace Model
  </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A comma-separated list of tag key:value pairs. For example: 
+ {
+ "Key1":
+     * "Value1",
+ "Key2": "Value2"
+ }
+ </p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A comma-separated list of tag key:value pairs. For example: 

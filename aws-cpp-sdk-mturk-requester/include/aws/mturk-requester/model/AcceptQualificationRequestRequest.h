@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AcceptQualificationRequestRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <code>GetQualificationRequests</code> operation.</p>
      */
     inline const Aws::String& GetQualificationRequestId() const{ return m_qualificationRequestId; }
+
+    /**
+     * <p>The ID of the Qualification request, as returned by the
+     * <code>GetQualificationRequests</code> operation.</p>
+     */
+    inline bool QualificationRequestIdHasBeenSet() const { return m_qualificationRequestIdHasBeenSet; }
 
     /**
      * <p>The ID of the Qualification request, as returned by the
@@ -93,6 +99,13 @@ namespace Model
      * </p>
      */
     inline int GetIntegerValue() const{ return m_integerValue; }
+
+    /**
+     * <p> The value of the Qualification. You can omit this value if you are using the
+     * presence or absence of the Qualification as the basis for a HIT requirement.
+     * </p>
+     */
+    inline bool IntegerValueHasBeenSet() const { return m_integerValueHasBeenSet; }
 
     /**
      * <p> The value of the Qualification. You can omit this value if you are using the

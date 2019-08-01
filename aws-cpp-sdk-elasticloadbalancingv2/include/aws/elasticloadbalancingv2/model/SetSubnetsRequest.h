@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     SetSubnetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
      */
     inline const Aws::String& GetLoadBalancerArn() const{ return m_loadBalancerArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+     */
+    inline bool LoadBalancerArnHasBeenSet() const { return m_loadBalancerArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
@@ -90,6 +95,13 @@ namespace Model
      * must specify either subnets or subnet mappings.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSubnets() const{ return m_subnets; }
+
+    /**
+     * <p>The IDs of the public subnets. You must specify subnets from at least two
+     * Availability Zones. You can specify only one subnet per Availability Zone. You
+     * must specify either subnets or subnet mappings.</p>
+     */
+    inline bool SubnetsHasBeenSet() const { return m_subnetsHasBeenSet; }
 
     /**
      * <p>The IDs of the public subnets. You must specify subnets from at least two
@@ -148,6 +160,14 @@ namespace Model
      * Elastic IP addresses for your subnets.</p>
      */
     inline const Aws::Vector<SubnetMapping>& GetSubnetMappings() const{ return m_subnetMappings; }
+
+    /**
+     * <p>The IDs of the public subnets. You must specify subnets from at least two
+     * Availability Zones. You can specify only one subnet per Availability Zone. You
+     * must specify either subnets or subnet mappings.</p> <p>You cannot specify
+     * Elastic IP addresses for your subnets.</p>
+     */
+    inline bool SubnetMappingsHasBeenSet() const { return m_subnetMappingsHasBeenSet; }
 
     /**
      * <p>The IDs of the public subnets. You must specify subnets from at least two

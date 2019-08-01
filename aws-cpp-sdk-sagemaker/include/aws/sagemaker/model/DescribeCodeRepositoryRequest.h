@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeCodeRepositoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the Git repository to describe.</p>
      */
     inline const Aws::String& GetCodeRepositoryName() const{ return m_codeRepositoryName; }
+
+    /**
+     * <p>The name of the Git repository to describe.</p>
+     */
+    inline bool CodeRepositoryNameHasBeenSet() const { return m_codeRepositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the Git repository to describe.</p>

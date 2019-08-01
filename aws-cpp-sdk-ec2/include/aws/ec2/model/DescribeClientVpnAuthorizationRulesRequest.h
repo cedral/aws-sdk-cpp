@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeClientVpnAuthorizationRulesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The ID of the Client VPN endpoint.</p>
      */
     inline const Aws::String& GetClientVpnEndpointId() const{ return m_clientVpnEndpointId; }
+
+    /**
+     * <p>The ID of the Client VPN endpoint.</p>
+     */
+    inline bool ClientVpnEndpointIdHasBeenSet() const { return m_clientVpnEndpointIdHasBeenSet; }
 
     /**
      * <p>The ID of the Client VPN endpoint.</p>
@@ -98,6 +103,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -113,6 +126,11 @@ namespace Model
      * <p>The token to retrieve the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token to retrieve the next page of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token to retrieve the next page of results.</p>
@@ -153,6 +171,11 @@ namespace Model
     /**
      * <p>One or more filters. Filter names and values are case-sensitive.</p>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>One or more filters. Filter names and values are case-sensitive.</p>
+     */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -187,6 +210,13 @@ namespace Model
      * value.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return for the request in a single page. The
+     * remaining results can be seen by sending another request with the nextToken
+     * value.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return for the request in a single page. The

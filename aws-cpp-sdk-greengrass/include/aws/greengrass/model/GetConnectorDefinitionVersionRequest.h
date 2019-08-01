@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetConnectorDefinitionVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * The ID of the connector definition.
      */
     inline const Aws::String& GetConnectorDefinitionId() const{ return m_connectorDefinitionId; }
+
+    /**
+     * The ID of the connector definition.
+     */
+    inline bool ConnectorDefinitionIdHasBeenSet() const { return m_connectorDefinitionIdHasBeenSet; }
 
     /**
      * The ID of the connector definition.
@@ -85,37 +90,82 @@ namespace Model
 
 
     /**
-     * The ID of the connector definition version.
+     * The ID of the connector definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListConnectorDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a connector definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline const Aws::String& GetConnectorDefinitionVersionId() const{ return m_connectorDefinitionVersionId; }
 
     /**
-     * The ID of the connector definition version.
+     * The ID of the connector definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListConnectorDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a connector definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
+     */
+    inline bool ConnectorDefinitionVersionIdHasBeenSet() const { return m_connectorDefinitionVersionIdHasBeenSet; }
+
+    /**
+     * The ID of the connector definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListConnectorDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a connector definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline void SetConnectorDefinitionVersionId(const Aws::String& value) { m_connectorDefinitionVersionIdHasBeenSet = true; m_connectorDefinitionVersionId = value; }
 
     /**
-     * The ID of the connector definition version.
+     * The ID of the connector definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListConnectorDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a connector definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline void SetConnectorDefinitionVersionId(Aws::String&& value) { m_connectorDefinitionVersionIdHasBeenSet = true; m_connectorDefinitionVersionId = std::move(value); }
 
     /**
-     * The ID of the connector definition version.
+     * The ID of the connector definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListConnectorDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a connector definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline void SetConnectorDefinitionVersionId(const char* value) { m_connectorDefinitionVersionIdHasBeenSet = true; m_connectorDefinitionVersionId.assign(value); }
 
     /**
-     * The ID of the connector definition version.
+     * The ID of the connector definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListConnectorDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a connector definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline GetConnectorDefinitionVersionRequest& WithConnectorDefinitionVersionId(const Aws::String& value) { SetConnectorDefinitionVersionId(value); return *this;}
 
     /**
-     * The ID of the connector definition version.
+     * The ID of the connector definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListConnectorDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a connector definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline GetConnectorDefinitionVersionRequest& WithConnectorDefinitionVersionId(Aws::String&& value) { SetConnectorDefinitionVersionId(std::move(value)); return *this;}
 
     /**
-     * The ID of the connector definition version.
+     * The ID of the connector definition version. This value maps to the ''Version''
+     * property of the corresponding ''VersionInformation'' object, which is returned
+     * by ''ListConnectorDefinitionVersions'' requests. If the version is the last one
+     * that was associated with a connector definition, the value also maps to the
+     * ''LatestVersion'' property of the corresponding ''DefinitionInformation''
+     * object.
      */
     inline GetConnectorDefinitionVersionRequest& WithConnectorDefinitionVersionId(const char* value) { SetConnectorDefinitionVersionId(value); return *this;}
 
@@ -125,6 +175,12 @@ namespace Model
      * results.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * The token for the next set of results, or ''null'' if there are no additional
+     * results.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * The token for the next set of results, or ''null'' if there are no additional

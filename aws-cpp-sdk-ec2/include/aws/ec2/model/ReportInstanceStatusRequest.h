@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ReportInstanceStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>Descriptive text about the health state of your instance.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>Descriptive text about the health state of your instance.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>Descriptive text about the health state of your instance.</p>
@@ -100,6 +105,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -115,6 +128,11 @@ namespace Model
      * <p>The time at which the reported instance health state ended.</p>
      */
     inline const Aws::Utils::DateTime& GetEndTime() const{ return m_endTime; }
+
+    /**
+     * <p>The time at which the reported instance health state ended.</p>
+     */
+    inline bool EndTimeHasBeenSet() const { return m_endTimeHasBeenSet; }
 
     /**
      * <p>The time at which the reported instance health state ended.</p>
@@ -138,49 +156,54 @@ namespace Model
 
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline const Aws::Vector<Aws::String>& GetInstances() const{ return m_instances; }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
+     */
+    inline bool InstancesHasBeenSet() const { return m_instancesHasBeenSet; }
+
+    /**
+     * <p>The instances.</p>
      */
     inline void SetInstances(const Aws::Vector<Aws::String>& value) { m_instancesHasBeenSet = true; m_instances = value; }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline void SetInstances(Aws::Vector<Aws::String>&& value) { m_instancesHasBeenSet = true; m_instances = std::move(value); }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline ReportInstanceStatusRequest& WithInstances(const Aws::Vector<Aws::String>& value) { SetInstances(value); return *this;}
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline ReportInstanceStatusRequest& WithInstances(Aws::Vector<Aws::String>&& value) { SetInstances(std::move(value)); return *this;}
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline ReportInstanceStatusRequest& AddInstances(const Aws::String& value) { m_instancesHasBeenSet = true; m_instances.push_back(value); return *this; }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline ReportInstanceStatusRequest& AddInstances(Aws::String&& value) { m_instancesHasBeenSet = true; m_instances.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline ReportInstanceStatusRequest& AddInstances(const char* value) { m_instancesHasBeenSet = true; m_instances.push_back(value); return *this; }
 
 
     /**
-     * <p>One or more reason codes that describe the health state of your instance.</p>
-     * <ul> <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
+     * <p>The reason codes that describe the health state of your instance.</p> <ul>
+     * <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
      * state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is
      * unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My
      * instance is not accepting my credentials.</p> </li> <li> <p>
@@ -198,8 +221,27 @@ namespace Model
     inline const Aws::Vector<ReportInstanceReasonCodes>& GetReasonCodes() const{ return m_reasonCodes; }
 
     /**
-     * <p>One or more reason codes that describe the health state of your instance.</p>
-     * <ul> <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
+     * <p>The reason codes that describe the health state of your instance.</p> <ul>
+     * <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
+     * state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is
+     * unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My
+     * instance is not accepting my credentials.</p> </li> <li> <p>
+     * <code>password-not-available</code>: A password is not available for my
+     * instance.</p> </li> <li> <p> <code>performance-network</code>: My instance is
+     * experiencing performance problems that I believe are network related.</p> </li>
+     * <li> <p> <code>performance-instance-store</code>: My instance is experiencing
+     * performance problems that I believe are related to the instance stores.</p>
+     * </li> <li> <p> <code>performance-ebs-volume</code>: My instance is experiencing
+     * performance problems that I believe are related to an EBS volume.</p> </li> <li>
+     * <p> <code>performance-other</code>: My instance is experiencing performance
+     * problems.</p> </li> <li> <p> <code>other</code>: [explain using the description
+     * parameter]</p> </li> </ul>
+     */
+    inline bool ReasonCodesHasBeenSet() const { return m_reasonCodesHasBeenSet; }
+
+    /**
+     * <p>The reason codes that describe the health state of your instance.</p> <ul>
+     * <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
      * state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is
      * unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My
      * instance is not accepting my credentials.</p> </li> <li> <p>
@@ -217,8 +259,8 @@ namespace Model
     inline void SetReasonCodes(const Aws::Vector<ReportInstanceReasonCodes>& value) { m_reasonCodesHasBeenSet = true; m_reasonCodes = value; }
 
     /**
-     * <p>One or more reason codes that describe the health state of your instance.</p>
-     * <ul> <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
+     * <p>The reason codes that describe the health state of your instance.</p> <ul>
+     * <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
      * state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is
      * unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My
      * instance is not accepting my credentials.</p> </li> <li> <p>
@@ -236,8 +278,8 @@ namespace Model
     inline void SetReasonCodes(Aws::Vector<ReportInstanceReasonCodes>&& value) { m_reasonCodesHasBeenSet = true; m_reasonCodes = std::move(value); }
 
     /**
-     * <p>One or more reason codes that describe the health state of your instance.</p>
-     * <ul> <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
+     * <p>The reason codes that describe the health state of your instance.</p> <ul>
+     * <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
      * state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is
      * unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My
      * instance is not accepting my credentials.</p> </li> <li> <p>
@@ -255,8 +297,8 @@ namespace Model
     inline ReportInstanceStatusRequest& WithReasonCodes(const Aws::Vector<ReportInstanceReasonCodes>& value) { SetReasonCodes(value); return *this;}
 
     /**
-     * <p>One or more reason codes that describe the health state of your instance.</p>
-     * <ul> <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
+     * <p>The reason codes that describe the health state of your instance.</p> <ul>
+     * <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
      * state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is
      * unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My
      * instance is not accepting my credentials.</p> </li> <li> <p>
@@ -274,8 +316,8 @@ namespace Model
     inline ReportInstanceStatusRequest& WithReasonCodes(Aws::Vector<ReportInstanceReasonCodes>&& value) { SetReasonCodes(std::move(value)); return *this;}
 
     /**
-     * <p>One or more reason codes that describe the health state of your instance.</p>
-     * <ul> <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
+     * <p>The reason codes that describe the health state of your instance.</p> <ul>
+     * <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
      * state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is
      * unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My
      * instance is not accepting my credentials.</p> </li> <li> <p>
@@ -293,8 +335,8 @@ namespace Model
     inline ReportInstanceStatusRequest& AddReasonCodes(const ReportInstanceReasonCodes& value) { m_reasonCodesHasBeenSet = true; m_reasonCodes.push_back(value); return *this; }
 
     /**
-     * <p>One or more reason codes that describe the health state of your instance.</p>
-     * <ul> <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
+     * <p>The reason codes that describe the health state of your instance.</p> <ul>
+     * <li> <p> <code>instance-stuck-in-state</code>: My instance is stuck in a
      * state.</p> </li> <li> <p> <code>unresponsive</code>: My instance is
      * unresponsive.</p> </li> <li> <p> <code>not-accepting-credentials</code>: My
      * instance is not accepting my credentials.</p> </li> <li> <p>
@@ -316,6 +358,11 @@ namespace Model
      * <p>The time at which the reported instance health state began.</p>
      */
     inline const Aws::Utils::DateTime& GetStartTime() const{ return m_startTime; }
+
+    /**
+     * <p>The time at which the reported instance health state began.</p>
+     */
+    inline bool StartTimeHasBeenSet() const { return m_startTimeHasBeenSet; }
 
     /**
      * <p>The time at which the reported instance health state began.</p>
@@ -342,6 +389,11 @@ namespace Model
      * <p>The status of all instances listed.</p>
      */
     inline const ReportStatusType& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of all instances listed.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of all instances listed.</p>

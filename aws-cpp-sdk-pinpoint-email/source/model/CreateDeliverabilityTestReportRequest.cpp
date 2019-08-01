@@ -25,7 +25,8 @@ using namespace Aws::Utils;
 CreateDeliverabilityTestReportRequest::CreateDeliverabilityTestReportRequest() : 
     m_reportNameHasBeenSet(false),
     m_fromEmailAddressHasBeenSet(false),
-    m_contentHasBeenSet(false)
+    m_contentHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -51,15 +52,18 @@ Aws::String CreateDeliverabilityTestReportRequest::SerializePayload() const
 
   }
 
+  if(m_tagsHasBeenSet)
+  {
+   Array<JsonValue> tagsJsonList(m_tags.size());
+   for(unsigned tagsIndex = 0; tagsIndex < tagsJsonList.GetLength(); ++tagsIndex)
+   {
+     tagsJsonList[tagsIndex].AsObject(m_tags[tagsIndex].Jsonize());
+   }
+   payload.WithArray("Tags", std::move(tagsJsonList));
+
+  }
+
   return payload.View().WriteReadable();
-}
-
-Aws::Http::HeaderValueCollection CreateDeliverabilityTestReportRequest::GetRequestSpecificHeaders() const
-{
-  Aws::Http::HeaderValueCollection headers;
-  headers.insert(Aws::Http::HeaderValuePair("X-Amz-Target", "com.amazonaws.services.pinpoint.email.CreateDeliverabilityTestReport"));
-  return headers;
-
 }
 
 

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpgradeAppliedSchemaRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The revision of the published schema to upgrade the directory to.</p>
      */
     inline const Aws::String& GetPublishedSchemaArn() const{ return m_publishedSchemaArn; }
+
+    /**
+     * <p>The revision of the published schema to upgrade the directory to.</p>
+     */
+    inline bool PublishedSchemaArnHasBeenSet() const { return m_publishedSchemaArnHasBeenSet; }
 
     /**
      * <p>The revision of the published schema to upgrade the directory to.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The ARN for the directory to which the upgraded schema will be applied.</p>
      */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
+
+    /**
+     * <p>The ARN for the directory to which the upgraded schema will be applied.</p>
+     */
     inline void SetDirectoryArn(const Aws::String& value) { m_directoryArnHasBeenSet = true; m_directoryArn = value; }
 
     /**
@@ -120,6 +130,13 @@ namespace Model
      * would succeed but no changes will be saved. This parameter is optional.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Used for testing whether the major version schemas are backward compatible or
+     * not. If schema compatibility fails, an exception would be thrown else the call
+     * would succeed but no changes will be saved. This parameter is optional.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Used for testing whether the major version schemas are backward compatible or

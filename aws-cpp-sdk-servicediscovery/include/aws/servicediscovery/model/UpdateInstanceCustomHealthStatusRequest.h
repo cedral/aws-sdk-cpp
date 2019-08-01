@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateInstanceCustomHealthStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * check that you want to change the status for.</p>
      */
     inline const Aws::String& GetServiceId() const{ return m_serviceId; }
+
+    /**
+     * <p>The ID of the service that includes the configuration for the custom health
+     * check that you want to change the status for.</p>
+     */
+    inline bool ServiceIdHasBeenSet() const { return m_serviceIdHasBeenSet; }
 
     /**
      * <p>The ID of the service that includes the configuration for the custom health
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>The ID of the instance that you want to change the health status for.</p>
      */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the instance that you want to change the health status for.</p>
+     */
     inline void SetInstanceId(const Aws::String& value) { m_instanceIdHasBeenSet = true; m_instanceId = value; }
 
     /**
@@ -129,6 +140,12 @@ namespace Model
      * <code>UNHEALTHY</code>.</p>
      */
     inline const CustomHealthStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The new status of the instance, <code>HEALTHY</code> or
+     * <code>UNHEALTHY</code>.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The new status of the instance, <code>HEALTHY</code> or

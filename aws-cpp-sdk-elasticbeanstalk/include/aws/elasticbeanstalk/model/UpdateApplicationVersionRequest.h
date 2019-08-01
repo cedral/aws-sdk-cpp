@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     UpdateApplicationVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * <code>InvalidParameterValue</code> error.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application associated with this version.</p> <p> If no
+     * application is found with this name, <code>UpdateApplication</code> returns an
+     * <code>InvalidParameterValue</code> error.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application associated with this version.</p> <p> If no
@@ -111,6 +118,13 @@ namespace Model
      * with this label, <code>UpdateApplication</code> returns an
      * <code>InvalidParameterValue</code> error. </p>
      */
+    inline bool VersionLabelHasBeenSet() const { return m_versionLabelHasBeenSet; }
+
+    /**
+     * <p>The name of the version to update.</p> <p>If no application version is found
+     * with this label, <code>UpdateApplication</code> returns an
+     * <code>InvalidParameterValue</code> error. </p>
+     */
     inline void SetVersionLabel(const Aws::String& value) { m_versionLabelHasBeenSet = true; m_versionLabel = value; }
 
     /**
@@ -153,6 +167,11 @@ namespace Model
      * <p>A new description for this version.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A new description for this version.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A new description for this version.</p>

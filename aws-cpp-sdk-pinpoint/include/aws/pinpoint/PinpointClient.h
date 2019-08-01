@@ -48,11 +48,13 @@
 #include <aws/pinpoint/model/GetApnsVoipChannelResult.h>
 #include <aws/pinpoint/model/GetApnsVoipSandboxChannelResult.h>
 #include <aws/pinpoint/model/GetAppResult.h>
+#include <aws/pinpoint/model/GetApplicationDateRangeKpiResult.h>
 #include <aws/pinpoint/model/GetApplicationSettingsResult.h>
 #include <aws/pinpoint/model/GetAppsResult.h>
 #include <aws/pinpoint/model/GetBaiduChannelResult.h>
 #include <aws/pinpoint/model/GetCampaignResult.h>
 #include <aws/pinpoint/model/GetCampaignActivitiesResult.h>
+#include <aws/pinpoint/model/GetCampaignDateRangeKpiResult.h>
 #include <aws/pinpoint/model/GetCampaignVersionResult.h>
 #include <aws/pinpoint/model/GetCampaignVersionsResult.h>
 #include <aws/pinpoint/model/GetCampaignsResult.h>
@@ -114,7 +116,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -164,11 +165,13 @@ namespace Model
         class GetApnsVoipChannelRequest;
         class GetApnsVoipSandboxChannelRequest;
         class GetAppRequest;
+        class GetApplicationDateRangeKpiRequest;
         class GetApplicationSettingsRequest;
         class GetAppsRequest;
         class GetBaiduChannelRequest;
         class GetCampaignRequest;
         class GetCampaignActivitiesRequest;
+        class GetCampaignDateRangeKpiRequest;
         class GetCampaignVersionRequest;
         class GetCampaignVersionsRequest;
         class GetCampaignsRequest;
@@ -242,11 +245,13 @@ namespace Model
         typedef Aws::Utils::Outcome<GetApnsVoipChannelResult, Aws::Client::AWSError<PinpointErrors>> GetApnsVoipChannelOutcome;
         typedef Aws::Utils::Outcome<GetApnsVoipSandboxChannelResult, Aws::Client::AWSError<PinpointErrors>> GetApnsVoipSandboxChannelOutcome;
         typedef Aws::Utils::Outcome<GetAppResult, Aws::Client::AWSError<PinpointErrors>> GetAppOutcome;
+        typedef Aws::Utils::Outcome<GetApplicationDateRangeKpiResult, Aws::Client::AWSError<PinpointErrors>> GetApplicationDateRangeKpiOutcome;
         typedef Aws::Utils::Outcome<GetApplicationSettingsResult, Aws::Client::AWSError<PinpointErrors>> GetApplicationSettingsOutcome;
         typedef Aws::Utils::Outcome<GetAppsResult, Aws::Client::AWSError<PinpointErrors>> GetAppsOutcome;
         typedef Aws::Utils::Outcome<GetBaiduChannelResult, Aws::Client::AWSError<PinpointErrors>> GetBaiduChannelOutcome;
         typedef Aws::Utils::Outcome<GetCampaignResult, Aws::Client::AWSError<PinpointErrors>> GetCampaignOutcome;
         typedef Aws::Utils::Outcome<GetCampaignActivitiesResult, Aws::Client::AWSError<PinpointErrors>> GetCampaignActivitiesOutcome;
+        typedef Aws::Utils::Outcome<GetCampaignDateRangeKpiResult, Aws::Client::AWSError<PinpointErrors>> GetCampaignDateRangeKpiOutcome;
         typedef Aws::Utils::Outcome<GetCampaignVersionResult, Aws::Client::AWSError<PinpointErrors>> GetCampaignVersionOutcome;
         typedef Aws::Utils::Outcome<GetCampaignVersionsResult, Aws::Client::AWSError<PinpointErrors>> GetCampaignVersionsOutcome;
         typedef Aws::Utils::Outcome<GetCampaignsResult, Aws::Client::AWSError<PinpointErrors>> GetCampaignsOutcome;
@@ -320,11 +325,13 @@ namespace Model
         typedef std::future<GetApnsVoipChannelOutcome> GetApnsVoipChannelOutcomeCallable;
         typedef std::future<GetApnsVoipSandboxChannelOutcome> GetApnsVoipSandboxChannelOutcomeCallable;
         typedef std::future<GetAppOutcome> GetAppOutcomeCallable;
+        typedef std::future<GetApplicationDateRangeKpiOutcome> GetApplicationDateRangeKpiOutcomeCallable;
         typedef std::future<GetApplicationSettingsOutcome> GetApplicationSettingsOutcomeCallable;
         typedef std::future<GetAppsOutcome> GetAppsOutcomeCallable;
         typedef std::future<GetBaiduChannelOutcome> GetBaiduChannelOutcomeCallable;
         typedef std::future<GetCampaignOutcome> GetCampaignOutcomeCallable;
         typedef std::future<GetCampaignActivitiesOutcome> GetCampaignActivitiesOutcomeCallable;
+        typedef std::future<GetCampaignDateRangeKpiOutcome> GetCampaignDateRangeKpiOutcomeCallable;
         typedef std::future<GetCampaignVersionOutcome> GetCampaignVersionOutcomeCallable;
         typedef std::future<GetCampaignVersionsOutcome> GetCampaignVersionsOutcomeCallable;
         typedef std::future<GetCampaignsOutcome> GetCampaignsOutcomeCallable;
@@ -401,11 +408,13 @@ namespace Model
     typedef std::function<void(const PinpointClient*, const Model::GetApnsVoipChannelRequest&, const Model::GetApnsVoipChannelOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetApnsVoipChannelResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetApnsVoipSandboxChannelRequest&, const Model::GetApnsVoipSandboxChannelOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetApnsVoipSandboxChannelResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetAppRequest&, const Model::GetAppOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetAppResponseReceivedHandler;
+    typedef std::function<void(const PinpointClient*, const Model::GetApplicationDateRangeKpiRequest&, const Model::GetApplicationDateRangeKpiOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetApplicationDateRangeKpiResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetApplicationSettingsRequest&, const Model::GetApplicationSettingsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetApplicationSettingsResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetAppsRequest&, const Model::GetAppsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetAppsResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetBaiduChannelRequest&, const Model::GetBaiduChannelOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetBaiduChannelResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetCampaignRequest&, const Model::GetCampaignOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetCampaignResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetCampaignActivitiesRequest&, const Model::GetCampaignActivitiesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetCampaignActivitiesResponseReceivedHandler;
+    typedef std::function<void(const PinpointClient*, const Model::GetCampaignDateRangeKpiRequest&, const Model::GetCampaignDateRangeKpiOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetCampaignDateRangeKpiResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetCampaignVersionRequest&, const Model::GetCampaignVersionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetCampaignVersionResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetCampaignVersionsRequest&, const Model::GetCampaignVersionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetCampaignVersionsResponseReceivedHandler;
     typedef std::function<void(const PinpointClient*, const Model::GetCampaignsRequest&, const Model::GetCampaignsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetCampaignsResponseReceivedHandler;
@@ -453,7 +462,7 @@ namespace Model
     typedef std::function<void(const PinpointClient*, const Model::UpdateVoiceChannelRequest&, const Model::UpdateVoiceChannelOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateVoiceChannelResponseReceivedHandler;
 
   /**
-   * Amazon Pinpoint
+   * <p>Doc Engage API - Amazon Pinpoint API</p>
    */
   class AWS_PINPOINT_API PinpointClient : public Aws::Client::AWSJsonClient
   {
@@ -485,14 +494,14 @@ namespace Model
 
 
         /**
-         * Creates or updates an app.<p><h3>See Also:</h3>   <a
+         * <p>Creates an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateApp">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateAppOutcome CreateApp(const Model::CreateAppRequest& request) const;
 
         /**
-         * Creates or updates an app.<p><h3>See Also:</h3>   <a
+         * <p>Creates an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateApp">AWS
          * API Reference</a></p>
          *
@@ -501,7 +510,7 @@ namespace Model
         virtual Model::CreateAppOutcomeCallable CreateAppCallable(const Model::CreateAppRequest& request) const;
 
         /**
-         * Creates or updates an app.<p><h3>See Also:</h3>   <a
+         * <p>Creates an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateApp">AWS
          * API Reference</a></p>
          *
@@ -510,14 +519,16 @@ namespace Model
         virtual void CreateAppAsync(const Model::CreateAppRequest& request, const CreateAppResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Creates or updates a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new campaign for an application or updates the settings of an
+         * existing campaign for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateCampaign">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateCampaignOutcome CreateCampaign(const Model::CreateCampaignRequest& request) const;
 
         /**
-         * Creates or updates a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new campaign for an application or updates the settings of an
+         * existing campaign for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateCampaign">AWS
          * API Reference</a></p>
          *
@@ -526,7 +537,8 @@ namespace Model
         virtual Model::CreateCampaignOutcomeCallable CreateCampaignCallable(const Model::CreateCampaignRequest& request) const;
 
         /**
-         * Creates or updates a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new campaign for an application or updates the settings of an
+         * existing campaign for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateCampaign">AWS
          * API Reference</a></p>
          *
@@ -535,14 +547,14 @@ namespace Model
         virtual void CreateCampaignAsync(const Model::CreateCampaignRequest& request, const CreateCampaignResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Creates an export job.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new export job for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateExportJob">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateExportJobOutcome CreateExportJob(const Model::CreateExportJobRequest& request) const;
 
         /**
-         * Creates an export job.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new export job for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateExportJob">AWS
          * API Reference</a></p>
          *
@@ -551,7 +563,7 @@ namespace Model
         virtual Model::CreateExportJobOutcomeCallable CreateExportJobCallable(const Model::CreateExportJobRequest& request) const;
 
         /**
-         * Creates an export job.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new export job for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateExportJob">AWS
          * API Reference</a></p>
          *
@@ -560,14 +572,14 @@ namespace Model
         virtual void CreateExportJobAsync(const Model::CreateExportJobRequest& request, const CreateExportJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Creates or updates an import job.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new import job for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateImportJob">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateImportJobOutcome CreateImportJob(const Model::CreateImportJobRequest& request) const;
 
         /**
-         * Creates or updates an import job.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new import job for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateImportJob">AWS
          * API Reference</a></p>
          *
@@ -576,7 +588,7 @@ namespace Model
         virtual Model::CreateImportJobOutcomeCallable CreateImportJobCallable(const Model::CreateImportJobRequest& request) const;
 
         /**
-         * Creates or updates an import job.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new import job for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateImportJob">AWS
          * API Reference</a></p>
          *
@@ -585,14 +597,18 @@ namespace Model
         virtual void CreateImportJobAsync(const Model::CreateImportJobRequest& request, const CreateImportJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Used to create or update a segment.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new segment for an application or updates the configuration,
+         * dimension, and other settings for an existing segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateSegment">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateSegmentOutcome CreateSegment(const Model::CreateSegmentRequest& request) const;
 
         /**
-         * Used to create or update a segment.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new segment for an application or updates the configuration,
+         * dimension, and other settings for an existing segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateSegment">AWS
          * API Reference</a></p>
          *
@@ -601,7 +617,9 @@ namespace Model
         virtual Model::CreateSegmentOutcomeCallable CreateSegmentCallable(const Model::CreateSegmentRequest& request) const;
 
         /**
-         * Used to create or update a segment.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new segment for an application or updates the configuration,
+         * dimension, and other settings for an existing segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/CreateSegment">AWS
          * API Reference</a></p>
          *
@@ -610,14 +628,16 @@ namespace Model
         virtual void CreateSegmentAsync(const Model::CreateSegmentRequest& request, const CreateSegmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Delete an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the ADM channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteAdmChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteAdmChannelOutcome DeleteAdmChannel(const Model::DeleteAdmChannelRequest& request) const;
 
         /**
-         * Delete an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the ADM channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteAdmChannel">AWS
          * API Reference</a></p>
          *
@@ -626,7 +646,8 @@ namespace Model
         virtual Model::DeleteAdmChannelOutcomeCallable DeleteAdmChannelCallable(const Model::DeleteAdmChannelRequest& request) const;
 
         /**
-         * Delete an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the ADM channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteAdmChannel">AWS
          * API Reference</a></p>
          *
@@ -635,14 +656,16 @@ namespace Model
         virtual void DeleteAdmChannelAsync(const Model::DeleteAdmChannelRequest& request, const DeleteAdmChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteApnsChannelOutcome DeleteApnsChannel(const Model::DeleteApnsChannelRequest& request) const;
 
         /**
-         * Deletes the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsChannel">AWS
          * API Reference</a></p>
          *
@@ -651,7 +674,8 @@ namespace Model
         virtual Model::DeleteApnsChannelOutcomeCallable DeleteApnsChannelCallable(const Model::DeleteApnsChannelRequest& request) const;
 
         /**
-         * Deletes the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsChannel">AWS
          * API Reference</a></p>
          *
@@ -660,14 +684,16 @@ namespace Model
         virtual void DeleteApnsChannelAsync(const Model::DeleteApnsChannelRequest& request, const DeleteApnsChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Delete an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs sandbox channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsSandboxChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteApnsSandboxChannelOutcome DeleteApnsSandboxChannel(const Model::DeleteApnsSandboxChannelRequest& request) const;
 
         /**
-         * Delete an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs sandbox channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -676,7 +702,8 @@ namespace Model
         virtual Model::DeleteApnsSandboxChannelOutcomeCallable DeleteApnsSandboxChannelCallable(const Model::DeleteApnsSandboxChannelRequest& request) const;
 
         /**
-         * Delete an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs sandbox channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -685,14 +712,16 @@ namespace Model
         virtual void DeleteApnsSandboxChannelAsync(const Model::DeleteApnsSandboxChannelRequest& request, const DeleteApnsSandboxChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Delete an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs VoIP channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsVoipChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteApnsVoipChannelOutcome DeleteApnsVoipChannel(const Model::DeleteApnsVoipChannelRequest& request) const;
 
         /**
-         * Delete an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs VoIP channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsVoipChannel">AWS
          * API Reference</a></p>
          *
@@ -701,7 +730,8 @@ namespace Model
         virtual Model::DeleteApnsVoipChannelOutcomeCallable DeleteApnsVoipChannelCallable(const Model::DeleteApnsVoipChannelRequest& request) const;
 
         /**
-         * Delete an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs VoIP channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsVoipChannel">AWS
          * API Reference</a></p>
          *
@@ -710,14 +740,16 @@ namespace Model
         virtual void DeleteApnsVoipChannelAsync(const Model::DeleteApnsVoipChannelRequest& request, const DeleteApnsVoipChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Delete an APNS VoIP sandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs VoIP sandbox channel for an application and deletes any
+         * existing settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteApnsVoipSandboxChannelOutcome DeleteApnsVoipSandboxChannel(const Model::DeleteApnsVoipSandboxChannelRequest& request) const;
 
         /**
-         * Delete an APNS VoIP sandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs VoIP sandbox channel for an application and deletes any
+         * existing settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -726,7 +758,8 @@ namespace Model
         virtual Model::DeleteApnsVoipSandboxChannelOutcomeCallable DeleteApnsVoipSandboxChannelCallable(const Model::DeleteApnsVoipSandboxChannelRequest& request) const;
 
         /**
-         * Delete an APNS VoIP sandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the APNs VoIP sandbox channel for an application and deletes any
+         * existing settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -735,14 +768,14 @@ namespace Model
         virtual void DeleteApnsVoipSandboxChannelAsync(const Model::DeleteApnsVoipSandboxChannelRequest& request, const DeleteApnsVoipSandboxChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes an app.<p><h3>See Also:</h3>   <a
+         * <p>Deletes an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApp">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteAppOutcome DeleteApp(const Model::DeleteAppRequest& request) const;
 
         /**
-         * Deletes an app.<p><h3>See Also:</h3>   <a
+         * <p>Deletes an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApp">AWS
          * API Reference</a></p>
          *
@@ -751,7 +784,7 @@ namespace Model
         virtual Model::DeleteAppOutcomeCallable DeleteAppCallable(const Model::DeleteAppRequest& request) const;
 
         /**
-         * Deletes an app.<p><h3>See Also:</h3>   <a
+         * <p>Deletes an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteApp">AWS
          * API Reference</a></p>
          *
@@ -760,14 +793,16 @@ namespace Model
         virtual void DeleteAppAsync(const Model::DeleteAppRequest& request, const DeleteAppResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Delete a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the Baidu channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteBaiduChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteBaiduChannelOutcome DeleteBaiduChannel(const Model::DeleteBaiduChannelRequest& request) const;
 
         /**
-         * Delete a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the Baidu channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteBaiduChannel">AWS
          * API Reference</a></p>
          *
@@ -776,7 +811,8 @@ namespace Model
         virtual Model::DeleteBaiduChannelOutcomeCallable DeleteBaiduChannelCallable(const Model::DeleteBaiduChannelRequest& request) const;
 
         /**
-         * Delete a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the Baidu channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteBaiduChannel">AWS
          * API Reference</a></p>
          *
@@ -785,14 +821,14 @@ namespace Model
         virtual void DeleteBaiduChannelAsync(const Model::DeleteBaiduChannelRequest& request, const DeleteBaiduChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Deletes a campaign from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteCampaign">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteCampaignOutcome DeleteCampaign(const Model::DeleteCampaignRequest& request) const;
 
         /**
-         * Deletes a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Deletes a campaign from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteCampaign">AWS
          * API Reference</a></p>
          *
@@ -801,7 +837,7 @@ namespace Model
         virtual Model::DeleteCampaignOutcomeCallable DeleteCampaignCallable(const Model::DeleteCampaignRequest& request) const;
 
         /**
-         * Deletes a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Deletes a campaign from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteCampaign">AWS
          * API Reference</a></p>
          *
@@ -810,14 +846,16 @@ namespace Model
         virtual void DeleteCampaignAsync(const Model::DeleteCampaignRequest& request, const DeleteCampaignResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Delete an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the email channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEmailChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteEmailChannelOutcome DeleteEmailChannel(const Model::DeleteEmailChannelRequest& request) const;
 
         /**
-         * Delete an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the email channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEmailChannel">AWS
          * API Reference</a></p>
          *
@@ -826,7 +864,8 @@ namespace Model
         virtual Model::DeleteEmailChannelOutcomeCallable DeleteEmailChannelCallable(const Model::DeleteEmailChannelRequest& request) const;
 
         /**
-         * Delete an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the email channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEmailChannel">AWS
          * API Reference</a></p>
          *
@@ -835,14 +874,14 @@ namespace Model
         virtual void DeleteEmailChannelAsync(const Model::DeleteEmailChannelRequest& request, const DeleteEmailChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Deletes an endpoint from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEndpoint">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteEndpointOutcome DeleteEndpoint(const Model::DeleteEndpointRequest& request) const;
 
         /**
-         * Deletes an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Deletes an endpoint from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEndpoint">AWS
          * API Reference</a></p>
          *
@@ -851,7 +890,7 @@ namespace Model
         virtual Model::DeleteEndpointOutcomeCallable DeleteEndpointCallable(const Model::DeleteEndpointRequest& request) const;
 
         /**
-         * Deletes an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Deletes an endpoint from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEndpoint">AWS
          * API Reference</a></p>
          *
@@ -860,14 +899,14 @@ namespace Model
         virtual void DeleteEndpointAsync(const Model::DeleteEndpointRequest& request, const DeleteEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Deletes the event stream for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEventStream">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteEventStreamOutcome DeleteEventStream(const Model::DeleteEventStreamRequest& request) const;
 
         /**
-         * Deletes the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Deletes the event stream for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEventStream">AWS
          * API Reference</a></p>
          *
@@ -876,7 +915,7 @@ namespace Model
         virtual Model::DeleteEventStreamOutcomeCallable DeleteEventStreamCallable(const Model::DeleteEventStreamRequest& request) const;
 
         /**
-         * Deletes the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Deletes the event stream for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteEventStream">AWS
          * API Reference</a></p>
          *
@@ -885,14 +924,16 @@ namespace Model
         virtual void DeleteEventStreamAsync(const Model::DeleteEventStreamRequest& request, const DeleteEventStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Disables the GCM channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteGcmChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteGcmChannelOutcome DeleteGcmChannel(const Model::DeleteGcmChannelRequest& request) const;
 
         /**
-         * Deletes the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Disables the GCM channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteGcmChannel">AWS
          * API Reference</a></p>
          *
@@ -901,7 +942,8 @@ namespace Model
         virtual Model::DeleteGcmChannelOutcomeCallable DeleteGcmChannelCallable(const Model::DeleteGcmChannelRequest& request) const;
 
         /**
-         * Deletes the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Disables the GCM channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteGcmChannel">AWS
          * API Reference</a></p>
          *
@@ -910,14 +952,14 @@ namespace Model
         virtual void DeleteGcmChannelAsync(const Model::DeleteGcmChannelRequest& request, const DeleteGcmChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes a segment.<p><h3>See Also:</h3>   <a
+         * <p>Deletes a segment from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteSegment">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteSegmentOutcome DeleteSegment(const Model::DeleteSegmentRequest& request) const;
 
         /**
-         * Deletes a segment.<p><h3>See Also:</h3>   <a
+         * <p>Deletes a segment from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteSegment">AWS
          * API Reference</a></p>
          *
@@ -926,7 +968,7 @@ namespace Model
         virtual Model::DeleteSegmentOutcomeCallable DeleteSegmentCallable(const Model::DeleteSegmentRequest& request) const;
 
         /**
-         * Deletes a segment.<p><h3>See Also:</h3>   <a
+         * <p>Deletes a segment from an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteSegment">AWS
          * API Reference</a></p>
          *
@@ -935,14 +977,16 @@ namespace Model
         virtual void DeleteSegmentAsync(const Model::DeleteSegmentRequest& request, const DeleteSegmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Delete an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the SMS channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteSmsChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteSmsChannelOutcome DeleteSmsChannel(const Model::DeleteSmsChannelRequest& request) const;
 
         /**
-         * Delete an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the SMS channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteSmsChannel">AWS
          * API Reference</a></p>
          *
@@ -951,7 +995,8 @@ namespace Model
         virtual Model::DeleteSmsChannelOutcomeCallable DeleteSmsChannelCallable(const Model::DeleteSmsChannelRequest& request) const;
 
         /**
-         * Delete an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Disables the SMS channel for an application and deletes any existing settings
+         * for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteSmsChannel">AWS
          * API Reference</a></p>
          *
@@ -960,14 +1005,16 @@ namespace Model
         virtual void DeleteSmsChannelAsync(const Model::DeleteSmsChannelRequest& request, const DeleteSmsChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Deletes endpoints that are associated with a User ID.<p><h3>See Also:</h3>   <a
+         * <p>Deletes all the endpoints that are associated with a specific user
+         * ID.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteUserEndpoints">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteUserEndpointsOutcome DeleteUserEndpoints(const Model::DeleteUserEndpointsRequest& request) const;
 
         /**
-         * Deletes endpoints that are associated with a User ID.<p><h3>See Also:</h3>   <a
+         * <p>Deletes all the endpoints that are associated with a specific user
+         * ID.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteUserEndpoints">AWS
          * API Reference</a></p>
          *
@@ -976,7 +1023,8 @@ namespace Model
         virtual Model::DeleteUserEndpointsOutcomeCallable DeleteUserEndpointsCallable(const Model::DeleteUserEndpointsRequest& request) const;
 
         /**
-         * Deletes endpoints that are associated with a User ID.<p><h3>See Also:</h3>   <a
+         * <p>Deletes all the endpoints that are associated with a specific user
+         * ID.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteUserEndpoints">AWS
          * API Reference</a></p>
          *
@@ -985,14 +1033,16 @@ namespace Model
         virtual void DeleteUserEndpointsAsync(const Model::DeleteUserEndpointsRequest& request, const DeleteUserEndpointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Delete an Voice channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the voice channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteVoiceChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteVoiceChannelOutcome DeleteVoiceChannel(const Model::DeleteVoiceChannelRequest& request) const;
 
         /**
-         * Delete an Voice channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the voice channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteVoiceChannel">AWS
          * API Reference</a></p>
          *
@@ -1001,7 +1051,8 @@ namespace Model
         virtual Model::DeleteVoiceChannelOutcomeCallable DeleteVoiceChannelCallable(const Model::DeleteVoiceChannelRequest& request) const;
 
         /**
-         * Delete an Voice channel<p><h3>See Also:</h3>   <a
+         * <p>Disables the voice channel for an application and deletes any existing
+         * settings for the channel.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/DeleteVoiceChannel">AWS
          * API Reference</a></p>
          *
@@ -1010,14 +1061,16 @@ namespace Model
         virtual void DeleteVoiceChannelAsync(const Model::DeleteVoiceChannelRequest& request, const DeleteVoiceChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the ADM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetAdmChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetAdmChannelOutcome GetAdmChannel(const Model::GetAdmChannelRequest& request) const;
 
         /**
-         * Get an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the ADM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetAdmChannel">AWS
          * API Reference</a></p>
          *
@@ -1026,7 +1079,8 @@ namespace Model
         virtual Model::GetAdmChannelOutcomeCallable GetAdmChannelCallable(const Model::GetAdmChannelRequest& request) const;
 
         /**
-         * Get an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the ADM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetAdmChannel">AWS
          * API Reference</a></p>
          *
@@ -1035,14 +1089,16 @@ namespace Model
         virtual void GetAdmChannelAsync(const Model::GetAdmChannelRequest& request, const GetAdmChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetApnsChannelOutcome GetApnsChannel(const Model::GetApnsChannelRequest& request) const;
 
         /**
-         * Returns information about the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsChannel">AWS
          * API Reference</a></p>
          *
@@ -1051,7 +1107,8 @@ namespace Model
         virtual Model::GetApnsChannelOutcomeCallable GetApnsChannelCallable(const Model::GetApnsChannelRequest& request) const;
 
         /**
-         * Returns information about the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsChannel">AWS
          * API Reference</a></p>
          *
@@ -1060,14 +1117,16 @@ namespace Model
         virtual void GetApnsChannelAsync(const Model::GetApnsChannelRequest& request, const GetApnsChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs sandbox
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsSandboxChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetApnsSandboxChannelOutcome GetApnsSandboxChannel(const Model::GetApnsSandboxChannelRequest& request) const;
 
         /**
-         * Get an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs sandbox
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -1076,7 +1135,8 @@ namespace Model
         virtual Model::GetApnsSandboxChannelOutcomeCallable GetApnsSandboxChannelCallable(const Model::GetApnsSandboxChannelRequest& request) const;
 
         /**
-         * Get an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs sandbox
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -1085,14 +1145,16 @@ namespace Model
         virtual void GetApnsSandboxChannelAsync(const Model::GetApnsSandboxChannelRequest& request, const GetApnsSandboxChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs VoIP channel
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsVoipChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetApnsVoipChannelOutcome GetApnsVoipChannel(const Model::GetApnsVoipChannelRequest& request) const;
 
         /**
-         * Get an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs VoIP channel
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsVoipChannel">AWS
          * API Reference</a></p>
          *
@@ -1101,7 +1163,8 @@ namespace Model
         virtual Model::GetApnsVoipChannelOutcomeCallable GetApnsVoipChannelCallable(const Model::GetApnsVoipChannelRequest& request) const;
 
         /**
-         * Get an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs VoIP channel
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsVoipChannel">AWS
          * API Reference</a></p>
          *
@@ -1110,14 +1173,16 @@ namespace Model
         virtual void GetApnsVoipChannelAsync(const Model::GetApnsVoipChannelRequest& request, const GetApnsVoipChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get an APNS VoIPSandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs VoIP sandbox
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetApnsVoipSandboxChannelOutcome GetApnsVoipSandboxChannel(const Model::GetApnsVoipSandboxChannelRequest& request) const;
 
         /**
-         * Get an APNS VoIPSandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs VoIP sandbox
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -1126,7 +1191,8 @@ namespace Model
         virtual Model::GetApnsVoipSandboxChannelOutcomeCallable GetApnsVoipSandboxChannelCallable(const Model::GetApnsVoipSandboxChannelRequest& request) const;
 
         /**
-         * Get an APNS VoIPSandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the APNs VoIP sandbox
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -1135,14 +1201,14 @@ namespace Model
         virtual void GetApnsVoipSandboxChannelAsync(const Model::GetApnsVoipSandboxChannelRequest& request, const GetApnsVoipSandboxChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApp">AWS API
          * Reference</a></p>
          */
         virtual Model::GetAppOutcome GetApp(const Model::GetAppRequest& request) const;
 
         /**
-         * Returns information about an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApp">AWS API
          * Reference</a></p>
          *
@@ -1151,7 +1217,7 @@ namespace Model
         virtual Model::GetAppOutcomeCallable GetAppCallable(const Model::GetAppRequest& request) const;
 
         /**
-         * Returns information about an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApp">AWS API
          * Reference</a></p>
          *
@@ -1160,14 +1226,44 @@ namespace Model
         virtual void GetAppAsync(const Model::GetAppRequest& request, const GetAppResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Used to request the settings for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to
+         * an application.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApplicationDateRangeKpi">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::GetApplicationDateRangeKpiOutcome GetApplicationDateRangeKpi(const Model::GetApplicationDateRangeKpiRequest& request) const;
+
+        /**
+         * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to
+         * an application.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApplicationDateRangeKpi">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::GetApplicationDateRangeKpiOutcomeCallable GetApplicationDateRangeKpiCallable(const Model::GetApplicationDateRangeKpiRequest& request) const;
+
+        /**
+         * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to
+         * an application.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApplicationDateRangeKpi">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void GetApplicationDateRangeKpiAsync(const Model::GetApplicationDateRangeKpiRequest& request, const GetApplicationDateRangeKpiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Retrieves information about the settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApplicationSettings">AWS
          * API Reference</a></p>
          */
         virtual Model::GetApplicationSettingsOutcome GetApplicationSettings(const Model::GetApplicationSettingsRequest& request) const;
 
         /**
-         * Used to request the settings for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApplicationSettings">AWS
          * API Reference</a></p>
          *
@@ -1176,7 +1272,8 @@ namespace Model
         virtual Model::GetApplicationSettingsOutcomeCallable GetApplicationSettingsCallable(const Model::GetApplicationSettingsRequest& request) const;
 
         /**
-         * Used to request the settings for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApplicationSettings">AWS
          * API Reference</a></p>
          *
@@ -1185,14 +1282,16 @@ namespace Model
         virtual void GetApplicationSettingsAsync(const Model::GetApplicationSettingsRequest& request, const GetApplicationSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about your apps.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about all of your applications.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApps">AWS
          * API Reference</a></p>
          */
         virtual Model::GetAppsOutcome GetApps(const Model::GetAppsRequest& request) const;
 
         /**
-         * Returns information about your apps.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about all of your applications.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApps">AWS
          * API Reference</a></p>
          *
@@ -1201,7 +1300,8 @@ namespace Model
         virtual Model::GetAppsOutcomeCallable GetAppsCallable(const Model::GetAppsRequest& request) const;
 
         /**
-         * Returns information about your apps.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about all of your applications.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetApps">AWS
          * API Reference</a></p>
          *
@@ -1210,14 +1310,16 @@ namespace Model
         virtual void GetAppsAsync(const Model::GetAppsRequest& request, const GetAppsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the Baidu Cloud Push
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetBaiduChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetBaiduChannelOutcome GetBaiduChannel(const Model::GetBaiduChannelRequest& request) const;
 
         /**
-         * Get a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the Baidu Cloud Push
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetBaiduChannel">AWS
          * API Reference</a></p>
          *
@@ -1226,7 +1328,8 @@ namespace Model
         virtual Model::GetBaiduChannelOutcomeCallable GetBaiduChannelCallable(const Model::GetBaiduChannelRequest& request) const;
 
         /**
-         * Get a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the Baidu Cloud Push
+         * channel for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetBaiduChannel">AWS
          * API Reference</a></p>
          *
@@ -1235,14 +1338,16 @@ namespace Model
         virtual void GetBaiduChannelAsync(const Model::GetBaiduChannelRequest& request, const GetBaiduChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaign">AWS
          * API Reference</a></p>
          */
         virtual Model::GetCampaignOutcome GetCampaign(const Model::GetCampaignRequest& request) const;
 
         /**
-         * Returns information about a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaign">AWS
          * API Reference</a></p>
          *
@@ -1251,7 +1356,8 @@ namespace Model
         virtual Model::GetCampaignOutcomeCallable GetCampaignCallable(const Model::GetCampaignRequest& request) const;
 
         /**
-         * Returns information about a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaign">AWS
          * API Reference</a></p>
          *
@@ -1260,16 +1366,16 @@ namespace Model
         virtual void GetCampaignAsync(const Model::GetCampaignRequest& request, const GetCampaignResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about the activity performed by a campaign.<p><h3>See
-         * Also:</h3>   <a
+         * <p>Retrieves information about the activity performed by a
+         * campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignActivities">AWS
          * API Reference</a></p>
          */
         virtual Model::GetCampaignActivitiesOutcome GetCampaignActivities(const Model::GetCampaignActivitiesRequest& request) const;
 
         /**
-         * Returns information about the activity performed by a campaign.<p><h3>See
-         * Also:</h3>   <a
+         * <p>Retrieves information about the activity performed by a
+         * campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignActivities">AWS
          * API Reference</a></p>
          *
@@ -1278,8 +1384,8 @@ namespace Model
         virtual Model::GetCampaignActivitiesOutcomeCallable GetCampaignActivitiesCallable(const Model::GetCampaignActivitiesRequest& request) const;
 
         /**
-         * Returns information about the activity performed by a campaign.<p><h3>See
-         * Also:</h3>   <a
+         * <p>Retrieves information about the activity performed by a
+         * campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignActivities">AWS
          * API Reference</a></p>
          *
@@ -1288,16 +1394,44 @@ namespace Model
         virtual void GetCampaignActivitiesAsync(const Model::GetCampaignActivitiesRequest& request, const GetCampaignActivitiesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about a specific version of a campaign.<p><h3>See Also:</h3>
-         * <a
+         * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to
+         * a campaign.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignDateRangeKpi">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::GetCampaignDateRangeKpiOutcome GetCampaignDateRangeKpi(const Model::GetCampaignDateRangeKpiRequest& request) const;
+
+        /**
+         * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to
+         * a campaign.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignDateRangeKpi">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::GetCampaignDateRangeKpiOutcomeCallable GetCampaignDateRangeKpiCallable(const Model::GetCampaignDateRangeKpiRequest& request) const;
+
+        /**
+         * <p>Retrieves (queries) pre-aggregated data for a standard metric that applies to
+         * a campaign.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignDateRangeKpi">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void GetCampaignDateRangeKpiAsync(const Model::GetCampaignDateRangeKpiRequest& request, const GetCampaignDateRangeKpiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * a specific version of a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignVersion">AWS
          * API Reference</a></p>
          */
         virtual Model::GetCampaignVersionOutcome GetCampaignVersion(const Model::GetCampaignVersionRequest& request) const;
 
         /**
-         * Returns information about a specific version of a campaign.<p><h3>See Also:</h3>
-         * <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * a specific version of a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignVersion">AWS
          * API Reference</a></p>
          *
@@ -1306,8 +1440,8 @@ namespace Model
         virtual Model::GetCampaignVersionOutcomeCallable GetCampaignVersionCallable(const Model::GetCampaignVersionRequest& request) const;
 
         /**
-         * Returns information about a specific version of a campaign.<p><h3>See Also:</h3>
-         * <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * a specific version of a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignVersion">AWS
          * API Reference</a></p>
          *
@@ -1316,14 +1450,16 @@ namespace Model
         virtual void GetCampaignVersionAsync(const Model::GetCampaignVersionRequest& request, const GetCampaignVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about your campaign versions.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * all versions of a specific campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignVersions">AWS
          * API Reference</a></p>
          */
         virtual Model::GetCampaignVersionsOutcome GetCampaignVersions(const Model::GetCampaignVersionsRequest& request) const;
 
         /**
-         * Returns information about your campaign versions.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * all versions of a specific campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignVersions">AWS
          * API Reference</a></p>
          *
@@ -1332,7 +1468,8 @@ namespace Model
         virtual Model::GetCampaignVersionsOutcomeCallable GetCampaignVersionsCallable(const Model::GetCampaignVersionsRequest& request) const;
 
         /**
-         * Returns information about your campaign versions.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * all versions of a specific campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaignVersions">AWS
          * API Reference</a></p>
          *
@@ -1341,14 +1478,18 @@ namespace Model
         virtual void GetCampaignVersionsAsync(const Model::GetCampaignVersionsRequest& request, const GetCampaignVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about your campaigns.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * all the campaigns that are associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaigns">AWS
          * API Reference</a></p>
          */
         virtual Model::GetCampaignsOutcome GetCampaigns(const Model::GetCampaignsRequest& request) const;
 
         /**
-         * Returns information about your campaigns.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * all the campaigns that are associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaigns">AWS
          * API Reference</a></p>
          *
@@ -1357,7 +1498,9 @@ namespace Model
         virtual Model::GetCampaignsOutcomeCallable GetCampaignsCallable(const Model::GetCampaignsRequest& request) const;
 
         /**
-         * Returns information about your campaigns.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status, configuration, and other settings for
+         * all the campaigns that are associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetCampaigns">AWS
          * API Reference</a></p>
          *
@@ -1366,14 +1509,16 @@ namespace Model
         virtual void GetCampaignsAsync(const Model::GetCampaignsRequest& request, const GetCampaignsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get all channels.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the history and status of each channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetChannels">AWS
          * API Reference</a></p>
          */
         virtual Model::GetChannelsOutcome GetChannels(const Model::GetChannelsRequest& request) const;
 
         /**
-         * Get all channels.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the history and status of each channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetChannels">AWS
          * API Reference</a></p>
          *
@@ -1382,7 +1527,8 @@ namespace Model
         virtual Model::GetChannelsOutcomeCallable GetChannelsCallable(const Model::GetChannelsRequest& request) const;
 
         /**
-         * Get all channels.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the history and status of each channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetChannels">AWS
          * API Reference</a></p>
          *
@@ -1391,14 +1537,16 @@ namespace Model
         virtual void GetChannelsAsync(const Model::GetChannelsRequest& request, const GetChannelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the email channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEmailChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetEmailChannelOutcome GetEmailChannel(const Model::GetEmailChannelRequest& request) const;
 
         /**
-         * Get an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the email channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEmailChannel">AWS
          * API Reference</a></p>
          *
@@ -1407,7 +1555,8 @@ namespace Model
         virtual Model::GetEmailChannelOutcomeCallable GetEmailChannelCallable(const Model::GetEmailChannelRequest& request) const;
 
         /**
-         * Get an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the email channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEmailChannel">AWS
          * API Reference</a></p>
          *
@@ -1416,14 +1565,16 @@ namespace Model
         virtual void GetEmailChannelAsync(const Model::GetEmailChannelRequest& request, const GetEmailChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the settings and attributes of a specific
+         * endpoint for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEndpoint">AWS
          * API Reference</a></p>
          */
         virtual Model::GetEndpointOutcome GetEndpoint(const Model::GetEndpointRequest& request) const;
 
         /**
-         * Returns information about an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the settings and attributes of a specific
+         * endpoint for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEndpoint">AWS
          * API Reference</a></p>
          *
@@ -1432,7 +1583,8 @@ namespace Model
         virtual Model::GetEndpointOutcomeCallable GetEndpointCallable(const Model::GetEndpointRequest& request) const;
 
         /**
-         * Returns information about an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the settings and attributes of a specific
+         * endpoint for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEndpoint">AWS
          * API Reference</a></p>
          *
@@ -1441,14 +1593,16 @@ namespace Model
         virtual void GetEndpointAsync(const Model::GetEndpointRequest& request, const GetEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the event stream settings for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEventStream">AWS
          * API Reference</a></p>
          */
         virtual Model::GetEventStreamOutcome GetEventStream(const Model::GetEventStreamRequest& request) const;
 
         /**
-         * Returns the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the event stream settings for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEventStream">AWS
          * API Reference</a></p>
          *
@@ -1457,7 +1611,8 @@ namespace Model
         virtual Model::GetEventStreamOutcomeCallable GetEventStreamCallable(const Model::GetEventStreamRequest& request) const;
 
         /**
-         * Returns the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the event stream settings for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetEventStream">AWS
          * API Reference</a></p>
          *
@@ -1466,14 +1621,16 @@ namespace Model
         virtual void GetEventStreamAsync(const Model::GetEventStreamRequest& request, const GetEventStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about an export job.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of a specific export job
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetExportJob">AWS
          * API Reference</a></p>
          */
         virtual Model::GetExportJobOutcome GetExportJob(const Model::GetExportJobRequest& request) const;
 
         /**
-         * Returns information about an export job.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of a specific export job
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetExportJob">AWS
          * API Reference</a></p>
          *
@@ -1482,7 +1639,8 @@ namespace Model
         virtual Model::GetExportJobOutcomeCallable GetExportJobCallable(const Model::GetExportJobRequest& request) const;
 
         /**
-         * Returns information about an export job.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of a specific export job
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetExportJob">AWS
          * API Reference</a></p>
          *
@@ -1491,14 +1649,16 @@ namespace Model
         virtual void GetExportJobAsync(const Model::GetExportJobRequest& request, const GetExportJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about your export jobs.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of all the export jobs
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetExportJobs">AWS
          * API Reference</a></p>
          */
         virtual Model::GetExportJobsOutcome GetExportJobs(const Model::GetExportJobsRequest& request) const;
 
         /**
-         * Returns information about your export jobs.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of all the export jobs
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetExportJobs">AWS
          * API Reference</a></p>
          *
@@ -1507,7 +1667,8 @@ namespace Model
         virtual Model::GetExportJobsOutcomeCallable GetExportJobsCallable(const Model::GetExportJobsRequest& request) const;
 
         /**
-         * Returns information about your export jobs.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of all the export jobs
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetExportJobs">AWS
          * API Reference</a></p>
          *
@@ -1516,14 +1677,16 @@ namespace Model
         virtual void GetExportJobsAsync(const Model::GetExportJobsRequest& request, const GetExportJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the GCM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetGcmChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetGcmChannelOutcome GetGcmChannel(const Model::GetGcmChannelRequest& request) const;
 
         /**
-         * Returns information about the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the GCM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetGcmChannel">AWS
          * API Reference</a></p>
          *
@@ -1532,7 +1695,8 @@ namespace Model
         virtual Model::GetGcmChannelOutcomeCallable GetGcmChannelCallable(const Model::GetGcmChannelRequest& request) const;
 
         /**
-         * Returns information about the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the GCM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetGcmChannel">AWS
          * API Reference</a></p>
          *
@@ -1541,14 +1705,16 @@ namespace Model
         virtual void GetGcmChannelAsync(const Model::GetGcmChannelRequest& request, const GetGcmChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about an import job.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of a specific import job
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetImportJob">AWS
          * API Reference</a></p>
          */
         virtual Model::GetImportJobOutcome GetImportJob(const Model::GetImportJobRequest& request) const;
 
         /**
-         * Returns information about an import job.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of a specific import job
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetImportJob">AWS
          * API Reference</a></p>
          *
@@ -1557,7 +1723,8 @@ namespace Model
         virtual Model::GetImportJobOutcomeCallable GetImportJobCallable(const Model::GetImportJobRequest& request) const;
 
         /**
-         * Returns information about an import job.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of a specific import job
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetImportJob">AWS
          * API Reference</a></p>
          *
@@ -1566,14 +1733,16 @@ namespace Model
         virtual void GetImportJobAsync(const Model::GetImportJobRequest& request, const GetImportJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about your import jobs.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of all the import jobs
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetImportJobs">AWS
          * API Reference</a></p>
          */
         virtual Model::GetImportJobsOutcome GetImportJobs(const Model::GetImportJobsRequest& request) const;
 
         /**
-         * Returns information about your import jobs.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of all the import jobs
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetImportJobs">AWS
          * API Reference</a></p>
          *
@@ -1582,7 +1751,8 @@ namespace Model
         virtual Model::GetImportJobsOutcomeCallable GetImportJobsCallable(const Model::GetImportJobsRequest& request) const;
 
         /**
-         * Returns information about your import jobs.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of all the import jobs
+         * for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetImportJobs">AWS
          * API Reference</a></p>
          *
@@ -1591,14 +1761,18 @@ namespace Model
         virtual void GetImportJobsAsync(const Model::GetImportJobsRequest& request, const GetImportJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about a segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for a specific segment that's associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegment">AWS
          * API Reference</a></p>
          */
         virtual Model::GetSegmentOutcome GetSegment(const Model::GetSegmentRequest& request) const;
 
         /**
-         * Returns information about a segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for a specific segment that's associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegment">AWS
          * API Reference</a></p>
          *
@@ -1607,7 +1781,9 @@ namespace Model
         virtual Model::GetSegmentOutcomeCallable GetSegmentCallable(const Model::GetSegmentRequest& request) const;
 
         /**
-         * Returns information about a segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for a specific segment that's associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegment">AWS
          * API Reference</a></p>
          *
@@ -1616,14 +1792,16 @@ namespace Model
         virtual void GetSegmentAsync(const Model::GetSegmentRequest& request, const GetSegmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns a list of export jobs for a specific segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the export jobs for a
+         * segment.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentExportJobs">AWS
          * API Reference</a></p>
          */
         virtual Model::GetSegmentExportJobsOutcome GetSegmentExportJobs(const Model::GetSegmentExportJobsRequest& request) const;
 
         /**
-         * Returns a list of export jobs for a specific segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the export jobs for a
+         * segment.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentExportJobs">AWS
          * API Reference</a></p>
          *
@@ -1632,7 +1810,8 @@ namespace Model
         virtual Model::GetSegmentExportJobsOutcomeCallable GetSegmentExportJobsCallable(const Model::GetSegmentExportJobsRequest& request) const;
 
         /**
-         * Returns a list of export jobs for a specific segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the export jobs for a
+         * segment.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentExportJobs">AWS
          * API Reference</a></p>
          *
@@ -1641,14 +1820,16 @@ namespace Model
         virtual void GetSegmentExportJobsAsync(const Model::GetSegmentExportJobsRequest& request, const GetSegmentExportJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns a list of import jobs for a specific segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the import jobs for a
+         * segment.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentImportJobs">AWS
          * API Reference</a></p>
          */
         virtual Model::GetSegmentImportJobsOutcome GetSegmentImportJobs(const Model::GetSegmentImportJobsRequest& request) const;
 
         /**
-         * Returns a list of import jobs for a specific segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the import jobs for a
+         * segment.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentImportJobs">AWS
          * API Reference</a></p>
          *
@@ -1657,7 +1838,8 @@ namespace Model
         virtual Model::GetSegmentImportJobsOutcomeCallable GetSegmentImportJobsCallable(const Model::GetSegmentImportJobsRequest& request) const;
 
         /**
-         * Returns a list of import jobs for a specific segment.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the import jobs for a
+         * segment.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentImportJobs">AWS
          * API Reference</a></p>
          *
@@ -1666,14 +1848,18 @@ namespace Model
         virtual void GetSegmentImportJobsAsync(const Model::GetSegmentImportJobsRequest& request, const GetSegmentImportJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about a segment version.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for a specific version of a segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentVersion">AWS
          * API Reference</a></p>
          */
         virtual Model::GetSegmentVersionOutcome GetSegmentVersion(const Model::GetSegmentVersionRequest& request) const;
 
         /**
-         * Returns information about a segment version.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for a specific version of a segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentVersion">AWS
          * API Reference</a></p>
          *
@@ -1682,7 +1868,9 @@ namespace Model
         virtual Model::GetSegmentVersionOutcomeCallable GetSegmentVersionCallable(const Model::GetSegmentVersionRequest& request) const;
 
         /**
-         * Returns information about a segment version.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for a specific version of a segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentVersion">AWS
          * API Reference</a></p>
          *
@@ -1691,14 +1879,18 @@ namespace Model
         virtual void GetSegmentVersionAsync(const Model::GetSegmentVersionRequest& request, const GetSegmentVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about your segment versions.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for all versions of a specific segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentVersions">AWS
          * API Reference</a></p>
          */
         virtual Model::GetSegmentVersionsOutcome GetSegmentVersions(const Model::GetSegmentVersionsRequest& request) const;
 
         /**
-         * Returns information about your segment versions.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for all versions of a specific segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentVersions">AWS
          * API Reference</a></p>
          *
@@ -1707,7 +1899,9 @@ namespace Model
         virtual Model::GetSegmentVersionsOutcomeCallable GetSegmentVersionsCallable(const Model::GetSegmentVersionsRequest& request) const;
 
         /**
-         * Returns information about your segment versions.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for all versions of a specific segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegmentVersions">AWS
          * API Reference</a></p>
          *
@@ -1716,14 +1910,18 @@ namespace Model
         virtual void GetSegmentVersionsAsync(const Model::GetSegmentVersionsRequest& request, const GetSegmentVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Used to get information about your segments.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for all the segments that are associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegments">AWS
          * API Reference</a></p>
          */
         virtual Model::GetSegmentsOutcome GetSegments(const Model::GetSegmentsRequest& request) const;
 
         /**
-         * Used to get information about your segments.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for all the segments that are associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegments">AWS
          * API Reference</a></p>
          *
@@ -1732,7 +1930,9 @@ namespace Model
         virtual Model::GetSegmentsOutcomeCallable GetSegmentsCallable(const Model::GetSegmentsRequest& request) const;
 
         /**
-         * Used to get information about your segments.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the configuration, dimension, and other settings
+         * for all the segments that are associated with an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSegments">AWS
          * API Reference</a></p>
          *
@@ -1741,14 +1941,16 @@ namespace Model
         virtual void GetSegmentsAsync(const Model::GetSegmentsRequest& request, const GetSegmentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the SMS channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSmsChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetSmsChannelOutcome GetSmsChannel(const Model::GetSmsChannelRequest& request) const;
 
         /**
-         * Get an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the SMS channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSmsChannel">AWS
          * API Reference</a></p>
          *
@@ -1757,7 +1959,8 @@ namespace Model
         virtual Model::GetSmsChannelOutcomeCallable GetSmsChannelCallable(const Model::GetSmsChannelRequest& request) const;
 
         /**
-         * Get an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the SMS channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetSmsChannel">AWS
          * API Reference</a></p>
          *
@@ -1766,16 +1969,16 @@ namespace Model
         virtual void GetSmsChannelAsync(const Model::GetSmsChannelRequest& request, const GetSmsChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about the endpoints that are associated with a User
-         * ID.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about all the endpoints that are associated with a
+         * specific user ID.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetUserEndpoints">AWS
          * API Reference</a></p>
          */
         virtual Model::GetUserEndpointsOutcome GetUserEndpoints(const Model::GetUserEndpointsRequest& request) const;
 
         /**
-         * Returns information about the endpoints that are associated with a User
-         * ID.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about all the endpoints that are associated with a
+         * specific user ID.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetUserEndpoints">AWS
          * API Reference</a></p>
          *
@@ -1784,8 +1987,8 @@ namespace Model
         virtual Model::GetUserEndpointsOutcomeCallable GetUserEndpointsCallable(const Model::GetUserEndpointsRequest& request) const;
 
         /**
-         * Returns information about the endpoints that are associated with a User
-         * ID.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about all the endpoints that are associated with a
+         * specific user ID.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetUserEndpoints">AWS
          * API Reference</a></p>
          *
@@ -1794,14 +1997,16 @@ namespace Model
         virtual void GetUserEndpointsAsync(const Model::GetUserEndpointsRequest& request, const GetUserEndpointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Get a Voice Channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the voice channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetVoiceChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::GetVoiceChannelOutcome GetVoiceChannel(const Model::GetVoiceChannelRequest& request) const;
 
         /**
-         * Get a Voice Channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the voice channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetVoiceChannel">AWS
          * API Reference</a></p>
          *
@@ -1810,7 +2015,8 @@ namespace Model
         virtual Model::GetVoiceChannelOutcomeCallable GetVoiceChannelCallable(const Model::GetVoiceChannelRequest& request) const;
 
         /**
-         * Get a Voice Channel<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about the status and settings of the voice channel for
+         * an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/GetVoiceChannel">AWS
          * API Reference</a></p>
          *
@@ -1819,33 +2025,42 @@ namespace Model
         virtual void GetVoiceChannelAsync(const Model::GetVoiceChannelRequest& request, const GetVoiceChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * 
+         * <p>Retrieves all the tags (keys and values) that are associated with an
+         * application, campaign, or segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/ListTagsForResource">AWS
+         * API Reference</a></p>
          */
         virtual Model::ListTagsForResourceOutcome ListTagsForResource(const Model::ListTagsForResourceRequest& request) const;
 
         /**
-         * 
+         * <p>Retrieves all the tags (keys and values) that are associated with an
+         * application, campaign, or segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/ListTagsForResource">AWS
+         * API Reference</a></p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
         virtual Model::ListTagsForResourceOutcomeCallable ListTagsForResourceCallable(const Model::ListTagsForResourceRequest& request) const;
 
         /**
-         * 
+         * <p>Retrieves all the tags (keys and values) that are associated with an
+         * application, campaign, or segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/ListTagsForResource">AWS
+         * API Reference</a></p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void ListTagsForResourceAsync(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Returns information about the specified phone number.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about a phone number.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PhoneNumberValidate">AWS
          * API Reference</a></p>
          */
         virtual Model::PhoneNumberValidateOutcome PhoneNumberValidate(const Model::PhoneNumberValidateRequest& request) const;
 
         /**
-         * Returns information about the specified phone number.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about a phone number.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PhoneNumberValidate">AWS
          * API Reference</a></p>
          *
@@ -1854,7 +2069,7 @@ namespace Model
         virtual Model::PhoneNumberValidateOutcomeCallable PhoneNumberValidateCallable(const Model::PhoneNumberValidateRequest& request) const;
 
         /**
-         * Returns information about the specified phone number.<p><h3>See Also:</h3>   <a
+         * <p>Retrieves information about a phone number.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PhoneNumberValidate">AWS
          * API Reference</a></p>
          *
@@ -1863,14 +2078,16 @@ namespace Model
         virtual void PhoneNumberValidateAsync(const Model::PhoneNumberValidateRequest& request, const PhoneNumberValidateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Use to create or update the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new event stream for an application or updates the settings of an
+         * existing event stream for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PutEventStream">AWS
          * API Reference</a></p>
          */
         virtual Model::PutEventStreamOutcome PutEventStream(const Model::PutEventStreamRequest& request) const;
 
         /**
-         * Use to create or update the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new event stream for an application or updates the settings of an
+         * existing event stream for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PutEventStream">AWS
          * API Reference</a></p>
          *
@@ -1879,7 +2096,8 @@ namespace Model
         virtual Model::PutEventStreamOutcomeCallable PutEventStreamCallable(const Model::PutEventStreamRequest& request) const;
 
         /**
-         * Use to create or update the event stream for an app.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new event stream for an application or updates the settings of an
+         * existing event stream for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PutEventStream">AWS
          * API Reference</a></p>
          *
@@ -1888,18 +2106,16 @@ namespace Model
         virtual void PutEventStreamAsync(const Model::PutEventStreamRequest& request, const PutEventStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Use to record events for endpoints. This method creates events and creates or
-         * updates the endpoints that those events are associated with.<p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates a new event to record for endpoints, or creates or updates endpoint
+         * data that existing events are associated with.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PutEvents">AWS
          * API Reference</a></p>
          */
         virtual Model::PutEventsOutcome PutEvents(const Model::PutEventsRequest& request) const;
 
         /**
-         * Use to record events for endpoints. This method creates events and creates or
-         * updates the endpoints that those events are associated with.<p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates a new event to record for endpoints, or creates or updates endpoint
+         * data that existing events are associated with.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PutEvents">AWS
          * API Reference</a></p>
          *
@@ -1908,9 +2124,8 @@ namespace Model
         virtual Model::PutEventsOutcomeCallable PutEventsCallable(const Model::PutEventsRequest& request) const;
 
         /**
-         * Use to record events for endpoints. This method creates events and creates or
-         * updates the endpoints that those events are associated with.<p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates a new event to record for endpoints, or creates or updates endpoint
+         * data that existing events are associated with.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/PutEvents">AWS
          * API Reference</a></p>
          *
@@ -1919,14 +2134,16 @@ namespace Model
         virtual void PutEventsAsync(const Model::PutEventsRequest& request, const PutEventsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Used to remove the attributes for an app<p><h3>See Also:</h3>   <a
+         * <p>Removes one or more attributes, of the same attribute type, from all the
+         * endpoints that are associated with an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/RemoveAttributes">AWS
          * API Reference</a></p>
          */
         virtual Model::RemoveAttributesOutcome RemoveAttributes(const Model::RemoveAttributesRequest& request) const;
 
         /**
-         * Used to remove the attributes for an app<p><h3>See Also:</h3>   <a
+         * <p>Removes one or more attributes, of the same attribute type, from all the
+         * endpoints that are associated with an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/RemoveAttributes">AWS
          * API Reference</a></p>
          *
@@ -1935,7 +2152,8 @@ namespace Model
         virtual Model::RemoveAttributesOutcomeCallable RemoveAttributesCallable(const Model::RemoveAttributesRequest& request) const;
 
         /**
-         * Used to remove the attributes for an app<p><h3>See Also:</h3>   <a
+         * <p>Removes one or more attributes, of the same attribute type, from all the
+         * endpoints that are associated with an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/RemoveAttributes">AWS
          * API Reference</a></p>
          *
@@ -1944,14 +2162,14 @@ namespace Model
         virtual void RemoveAttributesAsync(const Model::RemoveAttributesRequest& request, const RemoveAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Used to send a direct message.<p><h3>See Also:</h3>   <a
+         * <p>Creates and sends a direct message.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/SendMessages">AWS
          * API Reference</a></p>
          */
         virtual Model::SendMessagesOutcome SendMessages(const Model::SendMessagesRequest& request) const;
 
         /**
-         * Used to send a direct message.<p><h3>See Also:</h3>   <a
+         * <p>Creates and sends a direct message.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/SendMessages">AWS
          * API Reference</a></p>
          *
@@ -1960,7 +2178,7 @@ namespace Model
         virtual Model::SendMessagesOutcomeCallable SendMessagesCallable(const Model::SendMessagesRequest& request) const;
 
         /**
-         * Used to send a direct message.<p><h3>See Also:</h3>   <a
+         * <p>Creates and sends a direct message.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/SendMessages">AWS
          * API Reference</a></p>
          *
@@ -1969,14 +2187,14 @@ namespace Model
         virtual void SendMessagesAsync(const Model::SendMessagesRequest& request, const SendMessagesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Used to send a message to a list of users.<p><h3>See Also:</h3>   <a
+         * <p>Creates and sends a message to a list of users.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/SendUsersMessages">AWS
          * API Reference</a></p>
          */
         virtual Model::SendUsersMessagesOutcome SendUsersMessages(const Model::SendUsersMessagesRequest& request) const;
 
         /**
-         * Used to send a message to a list of users.<p><h3>See Also:</h3>   <a
+         * <p>Creates and sends a message to a list of users.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/SendUsersMessages">AWS
          * API Reference</a></p>
          *
@@ -1985,7 +2203,7 @@ namespace Model
         virtual Model::SendUsersMessagesOutcomeCallable SendUsersMessagesCallable(const Model::SendUsersMessagesRequest& request) const;
 
         /**
-         * Used to send a message to a list of users.<p><h3>See Also:</h3>   <a
+         * <p>Creates and sends a message to a list of users.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/SendUsersMessages">AWS
          * API Reference</a></p>
          *
@@ -1994,52 +2212,72 @@ namespace Model
         virtual void SendUsersMessagesAsync(const Model::SendUsersMessagesRequest& request, const SendUsersMessagesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * 
+         * <p>Adds one or more tags (keys and values) to an application, campaign, or
+         * segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/TagResource">AWS
+         * API Reference</a></p>
          */
         virtual Model::TagResourceOutcome TagResource(const Model::TagResourceRequest& request) const;
 
         /**
-         * 
+         * <p>Adds one or more tags (keys and values) to an application, campaign, or
+         * segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/TagResource">AWS
+         * API Reference</a></p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
         virtual Model::TagResourceOutcomeCallable TagResourceCallable(const Model::TagResourceRequest& request) const;
 
         /**
-         * 
+         * <p>Adds one or more tags (keys and values) to an application, campaign, or
+         * segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/TagResource">AWS
+         * API Reference</a></p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void TagResourceAsync(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * 
+         * <p>Removes one or more tags (keys and values) from an application, campaign, or
+         * segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UntagResource">AWS
+         * API Reference</a></p>
          */
         virtual Model::UntagResourceOutcome UntagResource(const Model::UntagResourceRequest& request) const;
 
         /**
-         * 
+         * <p>Removes one or more tags (keys and values) from an application, campaign, or
+         * segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UntagResource">AWS
+         * API Reference</a></p>
          *
          * returns a future to the operation so that it can be executed in parallel to other requests.
          */
         virtual Model::UntagResourceOutcomeCallable UntagResourceCallable(const Model::UntagResourceRequest& request) const;
 
         /**
-         * 
+         * <p>Removes one or more tags (keys and values) from an application, campaign, or
+         * segment.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UntagResource">AWS
+         * API Reference</a></p>
          *
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void UntagResourceAsync(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Update an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the ADM channel settings for an application.</p><p><h3>See Also:</h3>
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateAdmChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateAdmChannelOutcome UpdateAdmChannel(const Model::UpdateAdmChannelRequest& request) const;
 
         /**
-         * Update an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the ADM channel settings for an application.</p><p><h3>See Also:</h3>
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateAdmChannel">AWS
          * API Reference</a></p>
          *
@@ -2048,7 +2286,8 @@ namespace Model
         virtual Model::UpdateAdmChannelOutcomeCallable UpdateAdmChannelCallable(const Model::UpdateAdmChannelRequest& request) const;
 
         /**
-         * Update an ADM channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the ADM channel settings for an application.</p><p><h3>See Also:</h3>
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateAdmChannel">AWS
          * API Reference</a></p>
          *
@@ -2057,14 +2296,16 @@ namespace Model
         virtual void UpdateAdmChannelAsync(const Model::UpdateAdmChannelRequest& request, const UpdateAdmChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Use to update the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateApnsChannelOutcome UpdateApnsChannel(const Model::UpdateApnsChannelRequest& request) const;
 
         /**
-         * Use to update the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsChannel">AWS
          * API Reference</a></p>
          *
@@ -2073,7 +2314,8 @@ namespace Model
         virtual Model::UpdateApnsChannelOutcomeCallable UpdateApnsChannelCallable(const Model::UpdateApnsChannelRequest& request) const;
 
         /**
-         * Use to update the APNs channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsChannel">AWS
          * API Reference</a></p>
          *
@@ -2082,14 +2324,16 @@ namespace Model
         virtual void UpdateApnsChannelAsync(const Model::UpdateApnsChannelRequest& request, const UpdateApnsChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Update an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs sandbox channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsSandboxChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateApnsSandboxChannelOutcome UpdateApnsSandboxChannel(const Model::UpdateApnsSandboxChannelRequest& request) const;
 
         /**
-         * Update an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs sandbox channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -2098,7 +2342,8 @@ namespace Model
         virtual Model::UpdateApnsSandboxChannelOutcomeCallable UpdateApnsSandboxChannelCallable(const Model::UpdateApnsSandboxChannelRequest& request) const;
 
         /**
-         * Update an APNS sandbox channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs sandbox channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -2107,14 +2352,16 @@ namespace Model
         virtual void UpdateApnsSandboxChannelAsync(const Model::UpdateApnsSandboxChannelRequest& request, const UpdateApnsSandboxChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Update an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs VoIP channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsVoipChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateApnsVoipChannelOutcome UpdateApnsVoipChannel(const Model::UpdateApnsVoipChannelRequest& request) const;
 
         /**
-         * Update an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs VoIP channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsVoipChannel">AWS
          * API Reference</a></p>
          *
@@ -2123,7 +2370,8 @@ namespace Model
         virtual Model::UpdateApnsVoipChannelOutcomeCallable UpdateApnsVoipChannelCallable(const Model::UpdateApnsVoipChannelRequest& request) const;
 
         /**
-         * Update an APNS VoIP channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the APNs VoIP channel settings for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsVoipChannel">AWS
          * API Reference</a></p>
          *
@@ -2132,14 +2380,16 @@ namespace Model
         virtual void UpdateApnsVoipChannelAsync(const Model::UpdateApnsVoipChannelRequest& request, const UpdateApnsVoipChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Update an APNS VoIP sandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for the APNs VoIP sandbox channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateApnsVoipSandboxChannelOutcome UpdateApnsVoipSandboxChannel(const Model::UpdateApnsVoipSandboxChannelRequest& request) const;
 
         /**
-         * Update an APNS VoIP sandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for the APNs VoIP sandbox channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -2148,7 +2398,8 @@ namespace Model
         virtual Model::UpdateApnsVoipSandboxChannelOutcomeCallable UpdateApnsVoipSandboxChannelCallable(const Model::UpdateApnsVoipSandboxChannelRequest& request) const;
 
         /**
-         * Update an APNS VoIP sandbox channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for the APNs VoIP sandbox channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApnsVoipSandboxChannel">AWS
          * API Reference</a></p>
          *
@@ -2157,14 +2408,14 @@ namespace Model
         virtual void UpdateApnsVoipSandboxChannelAsync(const Model::UpdateApnsVoipSandboxChannelRequest& request, const UpdateApnsVoipSandboxChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Used to update the settings for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApplicationSettings">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateApplicationSettingsOutcome UpdateApplicationSettings(const Model::UpdateApplicationSettingsRequest& request) const;
 
         /**
-         * Used to update the settings for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApplicationSettings">AWS
          * API Reference</a></p>
          *
@@ -2173,7 +2424,7 @@ namespace Model
         virtual Model::UpdateApplicationSettingsOutcomeCallable UpdateApplicationSettingsCallable(const Model::UpdateApplicationSettingsRequest& request) const;
 
         /**
-         * Used to update the settings for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for an application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateApplicationSettings">AWS
          * API Reference</a></p>
          *
@@ -2182,14 +2433,16 @@ namespace Model
         virtual void UpdateApplicationSettingsAsync(const Model::UpdateApplicationSettingsRequest& request, const UpdateApplicationSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Update a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings of the Baidu channel for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateBaiduChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateBaiduChannelOutcome UpdateBaiduChannel(const Model::UpdateBaiduChannelRequest& request) const;
 
         /**
-         * Update a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings of the Baidu channel for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateBaiduChannel">AWS
          * API Reference</a></p>
          *
@@ -2198,7 +2451,8 @@ namespace Model
         virtual Model::UpdateBaiduChannelOutcomeCallable UpdateBaiduChannelCallable(const Model::UpdateBaiduChannelRequest& request) const;
 
         /**
-         * Update a BAIDU GCM channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings of the Baidu channel for an application.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateBaiduChannel">AWS
          * API Reference</a></p>
          *
@@ -2207,14 +2461,14 @@ namespace Model
         virtual void UpdateBaiduChannelAsync(const Model::UpdateBaiduChannelRequest& request, const UpdateBaiduChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Use to update a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateCampaign">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateCampaignOutcome UpdateCampaign(const Model::UpdateCampaignRequest& request) const;
 
         /**
-         * Use to update a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateCampaign">AWS
          * API Reference</a></p>
          *
@@ -2223,7 +2477,7 @@ namespace Model
         virtual Model::UpdateCampaignOutcomeCallable UpdateCampaignCallable(const Model::UpdateCampaignRequest& request) const;
 
         /**
-         * Use to update a campaign.<p><h3>See Also:</h3>   <a
+         * <p>Updates the settings for a campaign.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateCampaign">AWS
          * API Reference</a></p>
          *
@@ -2232,14 +2486,16 @@ namespace Model
         virtual void UpdateCampaignAsync(const Model::UpdateCampaignRequest& request, const UpdateCampaignResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Update an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the email channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEmailChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateEmailChannelOutcome UpdateEmailChannel(const Model::UpdateEmailChannelRequest& request) const;
 
         /**
-         * Update an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the email channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEmailChannel">AWS
          * API Reference</a></p>
          *
@@ -2248,7 +2504,8 @@ namespace Model
         virtual Model::UpdateEmailChannelOutcomeCallable UpdateEmailChannelCallable(const Model::UpdateEmailChannelRequest& request) const;
 
         /**
-         * Update an email channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the email channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEmailChannel">AWS
          * API Reference</a></p>
          *
@@ -2257,14 +2514,20 @@ namespace Model
         virtual void UpdateEmailChannelAsync(const Model::UpdateEmailChannelRequest& request, const UpdateEmailChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Creates or updates an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new endpoint for an application or updates the settings and
+         * attributes of an existing endpoint for an application. You can also use this
+         * operation to define custom attributes (Attributes, Metrics, and UserAttributes
+         * properties) for an endpoint.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEndpoint">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateEndpointOutcome UpdateEndpoint(const Model::UpdateEndpointRequest& request) const;
 
         /**
-         * Creates or updates an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new endpoint for an application or updates the settings and
+         * attributes of an existing endpoint for an application. You can also use this
+         * operation to define custom attributes (Attributes, Metrics, and UserAttributes
+         * properties) for an endpoint.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEndpoint">AWS
          * API Reference</a></p>
          *
@@ -2273,7 +2536,10 @@ namespace Model
         virtual Model::UpdateEndpointOutcomeCallable UpdateEndpointCallable(const Model::UpdateEndpointRequest& request) const;
 
         /**
-         * Creates or updates an endpoint.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new endpoint for an application or updates the settings and
+         * attributes of an existing endpoint for an application. You can also use this
+         * operation to define custom attributes (Attributes, Metrics, and UserAttributes
+         * properties) for an endpoint.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEndpoint">AWS
          * API Reference</a></p>
          *
@@ -2282,14 +2548,22 @@ namespace Model
         virtual void UpdateEndpointAsync(const Model::UpdateEndpointRequest& request, const UpdateEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Use to update a batch of endpoints.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new batch of endpoints for an application or updates the settings
+         * and attributes of a batch of existing endpoints for an application. You can also
+         * use this operation to define custom attributes (Attributes, Metrics, and
+         * UserAttributes properties) for a batch of endpoints.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEndpointsBatch">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateEndpointsBatchOutcome UpdateEndpointsBatch(const Model::UpdateEndpointsBatchRequest& request) const;
 
         /**
-         * Use to update a batch of endpoints.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new batch of endpoints for an application or updates the settings
+         * and attributes of a batch of existing endpoints for an application. You can also
+         * use this operation to define custom attributes (Attributes, Metrics, and
+         * UserAttributes properties) for a batch of endpoints.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEndpointsBatch">AWS
          * API Reference</a></p>
          *
@@ -2298,7 +2572,11 @@ namespace Model
         virtual Model::UpdateEndpointsBatchOutcomeCallable UpdateEndpointsBatchCallable(const Model::UpdateEndpointsBatchRequest& request) const;
 
         /**
-         * Use to update a batch of endpoints.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new batch of endpoints for an application or updates the settings
+         * and attributes of a batch of existing endpoints for an application. You can also
+         * use this operation to define custom attributes (Attributes, Metrics, and
+         * UserAttributes properties) for a batch of endpoints.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateEndpointsBatch">AWS
          * API Reference</a></p>
          *
@@ -2307,14 +2585,16 @@ namespace Model
         virtual void UpdateEndpointsBatchAsync(const Model::UpdateEndpointsBatchRequest& request, const UpdateEndpointsBatchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Use to update the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the GCM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateGcmChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateGcmChannelOutcome UpdateGcmChannel(const Model::UpdateGcmChannelRequest& request) const;
 
         /**
-         * Use to update the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the GCM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateGcmChannel">AWS
          * API Reference</a></p>
          *
@@ -2323,7 +2603,8 @@ namespace Model
         virtual Model::UpdateGcmChannelOutcomeCallable UpdateGcmChannelCallable(const Model::UpdateGcmChannelRequest& request) const;
 
         /**
-         * Use to update the GCM channel for an app.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the GCM channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateGcmChannel">AWS
          * API Reference</a></p>
          *
@@ -2332,14 +2613,18 @@ namespace Model
         virtual void UpdateGcmChannelAsync(const Model::UpdateGcmChannelRequest& request, const UpdateGcmChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Used to update a segment.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new segment for an application or updates the configuration,
+         * dimension, and other settings for an existing segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateSegment">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateSegmentOutcome UpdateSegment(const Model::UpdateSegmentRequest& request) const;
 
         /**
-         * Used to update a segment.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new segment for an application or updates the configuration,
+         * dimension, and other settings for an existing segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateSegment">AWS
          * API Reference</a></p>
          *
@@ -2348,7 +2633,9 @@ namespace Model
         virtual Model::UpdateSegmentOutcomeCallable UpdateSegmentCallable(const Model::UpdateSegmentRequest& request) const;
 
         /**
-         * Used to update a segment.<p><h3>See Also:</h3>   <a
+         * <p>Creates a new segment for an application or updates the configuration,
+         * dimension, and other settings for an existing segment that's associated with an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateSegment">AWS
          * API Reference</a></p>
          *
@@ -2357,14 +2644,16 @@ namespace Model
         virtual void UpdateSegmentAsync(const Model::UpdateSegmentRequest& request, const UpdateSegmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Update an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the SMS channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateSmsChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateSmsChannelOutcome UpdateSmsChannel(const Model::UpdateSmsChannelRequest& request) const;
 
         /**
-         * Update an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the SMS channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateSmsChannel">AWS
          * API Reference</a></p>
          *
@@ -2373,7 +2662,8 @@ namespace Model
         virtual Model::UpdateSmsChannelOutcomeCallable UpdateSmsChannelCallable(const Model::UpdateSmsChannelRequest& request) const;
 
         /**
-         * Update an SMS channel.<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the SMS channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateSmsChannel">AWS
          * API Reference</a></p>
          *
@@ -2382,14 +2672,16 @@ namespace Model
         virtual void UpdateSmsChannelAsync(const Model::UpdateSmsChannelRequest& request, const UpdateSmsChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * Update an Voice channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the voice channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateVoiceChannel">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateVoiceChannelOutcome UpdateVoiceChannel(const Model::UpdateVoiceChannelRequest& request) const;
 
         /**
-         * Update an Voice channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the voice channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateVoiceChannel">AWS
          * API Reference</a></p>
          *
@@ -2398,7 +2690,8 @@ namespace Model
         virtual Model::UpdateVoiceChannelOutcomeCallable UpdateVoiceChannelCallable(const Model::UpdateVoiceChannelRequest& request) const;
 
         /**
-         * Update an Voice channel<p><h3>See Also:</h3>   <a
+         * <p>Updates the status and settings of the voice channel for an
+         * application.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/UpdateVoiceChannel">AWS
          * API Reference</a></p>
          *
@@ -2406,11 +2699,10 @@ namespace Model
          */
         virtual void UpdateVoiceChannelAsync(const Model::UpdateVoiceChannelRequest& request, const UpdateVoiceChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void CreateAppAsyncHelper(const Model::CreateAppRequest& request, const CreateAppResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateCampaignAsyncHelper(const Model::CreateCampaignRequest& request, const CreateCampaignResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateExportJobAsyncHelper(const Model::CreateExportJobRequest& request, const CreateExportJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -2438,11 +2730,13 @@ namespace Model
         void GetApnsVoipChannelAsyncHelper(const Model::GetApnsVoipChannelRequest& request, const GetApnsVoipChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetApnsVoipSandboxChannelAsyncHelper(const Model::GetApnsVoipSandboxChannelRequest& request, const GetApnsVoipSandboxChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetAppAsyncHelper(const Model::GetAppRequest& request, const GetAppResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void GetApplicationDateRangeKpiAsyncHelper(const Model::GetApplicationDateRangeKpiRequest& request, const GetApplicationDateRangeKpiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetApplicationSettingsAsyncHelper(const Model::GetApplicationSettingsRequest& request, const GetApplicationSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetAppsAsyncHelper(const Model::GetAppsRequest& request, const GetAppsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetBaiduChannelAsyncHelper(const Model::GetBaiduChannelRequest& request, const GetBaiduChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetCampaignAsyncHelper(const Model::GetCampaignRequest& request, const GetCampaignResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetCampaignActivitiesAsyncHelper(const Model::GetCampaignActivitiesRequest& request, const GetCampaignActivitiesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void GetCampaignDateRangeKpiAsyncHelper(const Model::GetCampaignDateRangeKpiRequest& request, const GetCampaignDateRangeKpiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetCampaignVersionAsyncHelper(const Model::GetCampaignVersionRequest& request, const GetCampaignVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetCampaignVersionsAsyncHelper(const Model::GetCampaignVersionsRequest& request, const GetCampaignVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetCampaignsAsyncHelper(const Model::GetCampaignsRequest& request, const GetCampaignsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

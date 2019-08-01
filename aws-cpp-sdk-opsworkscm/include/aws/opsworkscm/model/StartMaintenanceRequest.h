@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     StartMaintenanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the server on which to run maintenance. </p>
      */
     inline const Aws::String& GetServerName() const{ return m_serverName; }
+
+    /**
+     * <p>The name of the server on which to run maintenance. </p>
+     */
+    inline bool ServerNameHasBeenSet() const { return m_serverNameHasBeenSet; }
 
     /**
      * <p>The name of the server on which to run maintenance. </p>
@@ -87,6 +92,12 @@ namespace Model
      * maintenance. </p>
      */
     inline const Aws::Vector<EngineAttribute>& GetEngineAttributes() const{ return m_engineAttributes; }
+
+    /**
+     * <p>Engine attributes that are specific to the server on which you want to run
+     * maintenance. </p>
+     */
+    inline bool EngineAttributesHasBeenSet() const { return m_engineAttributesHasBeenSet; }
 
     /**
      * <p>Engine attributes that are specific to the server on which you want to run

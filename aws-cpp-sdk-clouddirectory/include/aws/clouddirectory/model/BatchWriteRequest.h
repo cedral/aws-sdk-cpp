@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     BatchWriteRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * For more information, see <a>arns</a>.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
+     * For more information, see <a>arns</a>.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>.
@@ -93,6 +99,11 @@ namespace Model
      * <p>A list of operations that are part of the batch.</p>
      */
     inline const Aws::Vector<BatchWriteOperation>& GetOperations() const{ return m_operations; }
+
+    /**
+     * <p>A list of operations that are part of the batch.</p>
+     */
+    inline bool OperationsHasBeenSet() const { return m_operationsHasBeenSet; }
 
     /**
      * <p>A list of operations that are part of the batch.</p>

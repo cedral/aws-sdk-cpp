@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     AddFlowOutputsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * The flow that you want to add outputs to.
      */
     inline const Aws::String& GetFlowArn() const{ return m_flowArn; }
+
+    /**
+     * The flow that you want to add outputs to.
+     */
+    inline bool FlowArnHasBeenSet() const { return m_flowArnHasBeenSet; }
 
     /**
      * The flow that you want to add outputs to.
@@ -87,6 +92,11 @@ namespace Model
      * A list of outputs that you want to add.
      */
     inline const Aws::Vector<AddOutputRequest>& GetOutputs() const{ return m_outputs; }
+
+    /**
+     * A list of outputs that you want to add.
+     */
+    inline bool OutputsHasBeenSet() const { return m_outputsHasBeenSet; }
 
     /**
      * A list of outputs that you want to add.

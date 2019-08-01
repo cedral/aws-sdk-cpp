@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     RestoreFromClusterSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +59,16 @@ namespace Model
      * <p>Must be unique for all clusters within an AWS account.</p> </li> </ul>
      */
     inline const Aws::String& GetClusterIdentifier() const{ return m_clusterIdentifier; }
+
+    /**
+     * <p>The identifier of the cluster that will be created from restoring the
+     * snapshot.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
+     * alphanumeric characters or hyphens.</p> </li> <li> <p>Alphabetic characters must
+     * be lowercase.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> <li>
+     * <p>Must be unique for all clusters within an AWS account.</p> </li> </ul>
+     */
+    inline bool ClusterIdentifierHasBeenSet() const { return m_clusterIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier of the cluster that will be created from restoring the
@@ -131,6 +141,12 @@ namespace Model
      * <p>The name of the snapshot from which to create the new cluster. This parameter
      * isn't case sensitive.</p> <p>Example: <code>my-snapshot-id</code> </p>
      */
+    inline bool SnapshotIdentifierHasBeenSet() const { return m_snapshotIdentifierHasBeenSet; }
+
+    /**
+     * <p>The name of the snapshot from which to create the new cluster. This parameter
+     * isn't case sensitive.</p> <p>Example: <code>my-snapshot-id</code> </p>
+     */
     inline void SetSnapshotIdentifier(const Aws::String& value) { m_snapshotIdentifierHasBeenSet = true; m_snapshotIdentifier = value; }
 
     /**
@@ -170,6 +186,13 @@ namespace Model
      * that specifies anything other than * for the cluster name.</p>
      */
     inline const Aws::String& GetSnapshotClusterIdentifier() const{ return m_snapshotClusterIdentifier; }
+
+    /**
+     * <p>The name of the cluster the source snapshot was created from. This parameter
+     * is required if your IAM user has a policy containing a snapshot resource element
+     * that specifies anything other than * for the cluster name.</p>
+     */
+    inline bool SnapshotClusterIdentifierHasBeenSet() const { return m_snapshotClusterIdentifierHasBeenSet; }
 
     /**
      * <p>The name of the cluster the source snapshot was created from. This parameter
@@ -226,6 +249,13 @@ namespace Model
      * same port as the original cluster.</p> <p>Constraints: Must be between
      * <code>1115</code> and <code>65535</code>.</p>
      */
+    inline bool PortHasBeenSet() const { return m_portHasBeenSet; }
+
+    /**
+     * <p>The port number on which the cluster accepts connections.</p> <p>Default: The
+     * same port as the original cluster.</p> <p>Constraints: Must be between
+     * <code>1115</code> and <code>65535</code>.</p>
+     */
     inline void SetPort(int value) { m_portHasBeenSet = true; m_port = value; }
 
     /**
@@ -242,6 +272,13 @@ namespace Model
      * <code>us-east-1a</code> </p>
      */
     inline const Aws::String& GetAvailabilityZone() const{ return m_availabilityZone; }
+
+    /**
+     * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
+     * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
+     * <code>us-east-1a</code> </p>
+     */
+    inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
 
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
@@ -298,6 +335,13 @@ namespace Model
      * maintenance window to the Amazon Redshift engine that is running on the cluster.
      * </p> <p>Default: <code>true</code> </p>
      */
+    inline bool AllowVersionUpgradeHasBeenSet() const { return m_allowVersionUpgradeHasBeenSet; }
+
+    /**
+     * <p>If <code>true</code>, major version upgrades can be applied during the
+     * maintenance window to the Amazon Redshift engine that is running on the cluster.
+     * </p> <p>Default: <code>true</code> </p>
+     */
     inline void SetAllowVersionUpgrade(bool value) { m_allowVersionUpgradeHasBeenSet = true; m_allowVersionUpgrade = value; }
 
     /**
@@ -314,6 +358,13 @@ namespace Model
      * provide subnet group name where you want the cluster restored.</p>
      */
     inline const Aws::String& GetClusterSubnetGroupName() const{ return m_clusterSubnetGroupName; }
+
+    /**
+     * <p>The name of the subnet group where you want to cluster restored.</p> <p>A
+     * snapshot of cluster in VPC can be restored only in VPC. Therefore, you must
+     * provide subnet group name where you want the cluster restored.</p>
+     */
+    inline bool ClusterSubnetGroupNameHasBeenSet() const { return m_clusterSubnetGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the subnet group where you want to cluster restored.</p> <p>A
@@ -366,6 +417,11 @@ namespace Model
     /**
      * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
      */
+    inline bool PubliclyAccessibleHasBeenSet() const { return m_publiclyAccessibleHasBeenSet; }
+
+    /**
+     * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
+     */
     inline void SetPubliclyAccessible(bool value) { m_publiclyAccessibleHasBeenSet = true; m_publiclyAccessible = value; }
 
     /**
@@ -379,6 +435,12 @@ namespace Model
      * are restoring a snapshot you do not own, optional if you own the snapshot.</p>
      */
     inline const Aws::String& GetOwnerAccount() const{ return m_ownerAccount; }
+
+    /**
+     * <p>The AWS customer account used to create or copy the snapshot. Required if you
+     * are restoring a snapshot you do not own, optional if you own the snapshot.</p>
+     */
+    inline bool OwnerAccountHasBeenSet() const { return m_ownerAccountHasBeenSet; }
 
     /**
      * <p>The AWS customer account used to create or copy the snapshot. Required if you
@@ -427,6 +489,12 @@ namespace Model
      * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster
      * uses to retrieve the data encryption keys stored in an HSM.</p>
      */
+    inline bool HsmClientCertificateIdentifierHasBeenSet() const { return m_hsmClientCertificateIdentifierHasBeenSet; }
+
+    /**
+     * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster
+     * uses to retrieve the data encryption keys stored in an HSM.</p>
+     */
     inline void SetHsmClientCertificateIdentifier(const Aws::String& value) { m_hsmClientCertificateIdentifierHasBeenSet = true; m_hsmClientCertificateIdentifier = value; }
 
     /**
@@ -465,6 +533,12 @@ namespace Model
      * Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
      */
     inline const Aws::String& GetHsmConfigurationIdentifier() const{ return m_hsmConfigurationIdentifier; }
+
+    /**
+     * <p>Specifies the name of the HSM configuration that contains the information the
+     * Amazon Redshift cluster can use to retrieve and store keys in an HSM.</p>
+     */
+    inline bool HsmConfigurationIdentifierHasBeenSet() const { return m_hsmConfigurationIdentifierHasBeenSet; }
 
     /**
      * <p>Specifies the name of the HSM configuration that contains the information the
@@ -511,6 +585,11 @@ namespace Model
     /**
      * <p>The elastic IP (EIP) address for the cluster.</p>
      */
+    inline bool ElasticIpHasBeenSet() const { return m_elasticIpHasBeenSet; }
+
+    /**
+     * <p>The elastic IP (EIP) address for the cluster.</p>
+     */
     inline void SetElasticIp(const Aws::String& value) { m_elasticIpHasBeenSet = true; m_elasticIp = value; }
 
     /**
@@ -543,7 +622,7 @@ namespace Model
      * <p>The name of the parameter group to be associated with this cluster.</p>
      * <p>Default: The default Amazon Redshift cluster parameter group. For information
      * about the default parameter group, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
      * with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First
      * character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or
@@ -555,7 +634,19 @@ namespace Model
      * <p>The name of the parameter group to be associated with this cluster.</p>
      * <p>Default: The default Amazon Redshift cluster parameter group. For information
      * about the default parameter group, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+     * with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li>
+     * <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First
+     * character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or
+     * contain two consecutive hyphens.</p> </li> </ul>
+     */
+    inline bool ClusterParameterGroupNameHasBeenSet() const { return m_clusterParameterGroupNameHasBeenSet; }
+
+    /**
+     * <p>The name of the parameter group to be associated with this cluster.</p>
+     * <p>Default: The default Amazon Redshift cluster parameter group. For information
+     * about the default parameter group, go to <a
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
      * with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First
      * character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or
@@ -567,7 +658,7 @@ namespace Model
      * <p>The name of the parameter group to be associated with this cluster.</p>
      * <p>Default: The default Amazon Redshift cluster parameter group. For information
      * about the default parameter group, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
      * with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First
      * character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or
@@ -579,7 +670,7 @@ namespace Model
      * <p>The name of the parameter group to be associated with this cluster.</p>
      * <p>Default: The default Amazon Redshift cluster parameter group. For information
      * about the default parameter group, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
      * with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First
      * character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or
@@ -591,7 +682,7 @@ namespace Model
      * <p>The name of the parameter group to be associated with this cluster.</p>
      * <p>Default: The default Amazon Redshift cluster parameter group. For information
      * about the default parameter group, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
      * with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First
      * character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or
@@ -603,7 +694,7 @@ namespace Model
      * <p>The name of the parameter group to be associated with this cluster.</p>
      * <p>Default: The default Amazon Redshift cluster parameter group. For information
      * about the default parameter group, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
      * with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First
      * character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or
@@ -615,7 +706,7 @@ namespace Model
      * <p>The name of the parameter group to be associated with this cluster.</p>
      * <p>Default: The default Amazon Redshift cluster parameter group. For information
      * about the default parameter group, go to <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
      * with Amazon Redshift Parameter Groups</a>.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First
      * character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or
@@ -630,6 +721,13 @@ namespace Model
      * groups only apply to clusters outside of VPCs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetClusterSecurityGroups() const{ return m_clusterSecurityGroups; }
+
+    /**
+     * <p>A list of security groups to be associated with this cluster.</p> <p>Default:
+     * The default cluster security group for Amazon Redshift.</p> <p>Cluster security
+     * groups only apply to clusters outside of VPCs.</p>
+     */
+    inline bool ClusterSecurityGroupsHasBeenSet() const { return m_clusterSecurityGroupsHasBeenSet; }
 
     /**
      * <p>A list of security groups to be associated with this cluster.</p> <p>Default:
@@ -693,6 +791,13 @@ namespace Model
      * the cluster.</p> <p>Default: The default VPC security group is associated with
      * the cluster.</p> <p>VPC security groups only apply to clusters in VPCs.</p>
      */
+    inline bool VpcSecurityGroupIdsHasBeenSet() const { return m_vpcSecurityGroupIdsHasBeenSet; }
+
+    /**
+     * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with
+     * the cluster.</p> <p>Default: The default VPC security group is associated with
+     * the cluster.</p> <p>VPC security groups only apply to clusters in VPCs.</p>
+     */
     inline void SetVpcSecurityGroupIds(const Aws::Vector<Aws::String>& value) { m_vpcSecurityGroupIdsHasBeenSet = true; m_vpcSecurityGroupIds = value; }
 
     /**
@@ -743,7 +848,7 @@ namespace Model
      * occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default:
      * The value selected for the cluster from which the snapshot was taken. For more
      * information about the time blocks for each region, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
      * Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon
      * | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute
      * window.</p>
@@ -755,7 +860,19 @@ namespace Model
      * occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default:
      * The value selected for the cluster from which the snapshot was taken. For more
      * information about the time blocks for each region, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+     * Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon
+     * | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute
+     * window.</p>
+     */
+    inline bool PreferredMaintenanceWindowHasBeenSet() const { return m_preferredMaintenanceWindowHasBeenSet; }
+
+    /**
+     * <p>The weekly time range (in UTC) during which automated cluster maintenance can
+     * occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default:
+     * The value selected for the cluster from which the snapshot was taken. For more
+     * information about the time blocks for each region, see <a
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
      * Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon
      * | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute
      * window.</p>
@@ -767,7 +884,7 @@ namespace Model
      * occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default:
      * The value selected for the cluster from which the snapshot was taken. For more
      * information about the time blocks for each region, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
      * Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon
      * | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute
      * window.</p>
@@ -779,7 +896,7 @@ namespace Model
      * occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default:
      * The value selected for the cluster from which the snapshot was taken. For more
      * information about the time blocks for each region, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
      * Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon
      * | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute
      * window.</p>
@@ -791,7 +908,7 @@ namespace Model
      * occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default:
      * The value selected for the cluster from which the snapshot was taken. For more
      * information about the time blocks for each region, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
      * Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon
      * | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute
      * window.</p>
@@ -803,7 +920,7 @@ namespace Model
      * occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default:
      * The value selected for the cluster from which the snapshot was taken. For more
      * information about the time blocks for each region, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
      * Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon
      * | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute
      * window.</p>
@@ -815,7 +932,7 @@ namespace Model
      * occur.</p> <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code> </p> <p> Default:
      * The value selected for the cluster from which the snapshot was taken. For more
      * information about the time blocks for each region, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
      * Windows</a> in Amazon Redshift Cluster Management Guide. </p> <p>Valid Days: Mon
      * | Tue | Wed | Thu | Fri | Sat | Sun</p> <p>Constraints: Minimum 30-minute
      * window.</p>
@@ -841,6 +958,16 @@ namespace Model
      * cluster from which the snapshot was taken.</p> <p>Constraints: Must be a value
      * from 0 to 35.</p>
      */
+    inline bool AutomatedSnapshotRetentionPeriodHasBeenSet() const { return m_automatedSnapshotRetentionPeriodHasBeenSet; }
+
+    /**
+     * <p>The number of days that automated snapshots are retained. If the value is 0,
+     * automated snapshots are disabled. Even if automated snapshots are disabled, you
+     * can still create manual snapshots when you want with
+     * <a>CreateClusterSnapshot</a>. </p> <p>Default: The value selected for the
+     * cluster from which the snapshot was taken.</p> <p>Constraints: Must be a value
+     * from 0 to 35.</p>
+     */
     inline void SetAutomatedSnapshotRetentionPeriod(int value) { m_automatedSnapshotRetentionPeriodHasBeenSet = true; m_automatedSnapshotRetentionPeriod = value; }
 
     /**
@@ -854,13 +981,36 @@ namespace Model
     inline RestoreFromClusterSnapshotRequest& WithAutomatedSnapshotRetentionPeriod(int value) { SetAutomatedSnapshotRetentionPeriod(value); return *this;}
 
 
-    
+    /**
+     * <p>The default number of days to retain a manual snapshot. If the value is -1,
+     * the snapshot is retained indefinitely. This setting doesn't change the retention
+     * period of existing snapshots.</p> <p>The value must be either -1 or an integer
+     * between 1 and 3,653.</p>
+     */
     inline int GetManualSnapshotRetentionPeriod() const{ return m_manualSnapshotRetentionPeriod; }
 
-    
+    /**
+     * <p>The default number of days to retain a manual snapshot. If the value is -1,
+     * the snapshot is retained indefinitely. This setting doesn't change the retention
+     * period of existing snapshots.</p> <p>The value must be either -1 or an integer
+     * between 1 and 3,653.</p>
+     */
+    inline bool ManualSnapshotRetentionPeriodHasBeenSet() const { return m_manualSnapshotRetentionPeriodHasBeenSet; }
+
+    /**
+     * <p>The default number of days to retain a manual snapshot. If the value is -1,
+     * the snapshot is retained indefinitely. This setting doesn't change the retention
+     * period of existing snapshots.</p> <p>The value must be either -1 or an integer
+     * between 1 and 3,653.</p>
+     */
     inline void SetManualSnapshotRetentionPeriod(int value) { m_manualSnapshotRetentionPeriodHasBeenSet = true; m_manualSnapshotRetentionPeriod = value; }
 
-    
+    /**
+     * <p>The default number of days to retain a manual snapshot. If the value is -1,
+     * the snapshot is retained indefinitely. This setting doesn't change the retention
+     * period of existing snapshots.</p> <p>The value must be either -1 or an integer
+     * between 1 and 3,653.</p>
+     */
     inline RestoreFromClusterSnapshotRequest& WithManualSnapshotRetentionPeriod(int value) { SetManualSnapshotRetentionPeriod(value); return *this;}
 
 
@@ -870,6 +1020,13 @@ namespace Model
      * snapshot.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
+
+    /**
+     * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you
+     * want to use to encrypt data in the cluster that you restore from a shared
+     * snapshot.</p>
+     */
+    inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
 
     /**
      * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you
@@ -925,7 +1082,7 @@ namespace Model
      * dc1.large instance type or dc2.large instance type. You can't restore
      * dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize
      * to a dc2.8large cluster. For more information about node types, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
      * About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>. </p>
      */
@@ -942,7 +1099,24 @@ namespace Model
      * dc1.large instance type or dc2.large instance type. You can't restore
      * dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize
      * to a dc2.8large cluster. For more information about node types, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+     * About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management
+     * Guide</i>. </p>
+     */
+    inline bool NodeTypeHasBeenSet() const { return m_nodeTypeHasBeenSet; }
+
+    /**
+     * <p>The node type that the restored cluster will be provisioned with.</p>
+     * <p>Default: The node type of the cluster from which the snapshot was taken. You
+     * can modify this if you are using any DS node type. In that case, you can choose
+     * to restore into another DS node type of the same size. For example, you can
+     * restore ds1.8xlarge into ds2.8xlarge, or ds1.xlarge into ds2.xlarge. If you have
+     * a DC instance type, you must restore into that same instance type and size. In
+     * other words, you can only restore a dc1.large instance type into another
+     * dc1.large instance type or dc2.large instance type. You can't restore
+     * dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize
+     * to a dc2.8large cluster. For more information about node types, see <a
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
      * About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>. </p>
      */
@@ -959,7 +1133,7 @@ namespace Model
      * dc1.large instance type or dc2.large instance type. You can't restore
      * dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize
      * to a dc2.8large cluster. For more information about node types, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
      * About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>. </p>
      */
@@ -976,7 +1150,7 @@ namespace Model
      * dc1.large instance type or dc2.large instance type. You can't restore
      * dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize
      * to a dc2.8large cluster. For more information about node types, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
      * About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>. </p>
      */
@@ -993,7 +1167,7 @@ namespace Model
      * dc1.large instance type or dc2.large instance type. You can't restore
      * dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize
      * to a dc2.8large cluster. For more information about node types, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
      * About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>. </p>
      */
@@ -1010,7 +1184,7 @@ namespace Model
      * dc1.large instance type or dc2.large instance type. You can't restore
      * dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize
      * to a dc2.8large cluster. For more information about node types, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
      * About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>. </p>
      */
@@ -1027,7 +1201,7 @@ namespace Model
      * dc1.large instance type or dc2.large instance type. You can't restore
      * dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg cluster, then resize
      * to a dc2.8large cluster. For more information about node types, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
      * About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management
      * Guide</i>. </p>
      */
@@ -1038,7 +1212,7 @@ namespace Model
      * <p>An option that specifies whether to create the cluster with enhanced VPC
      * routing enabled. To create a cluster that uses enhanced VPC routing, the cluster
      * must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
      * VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this
      * option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default:
      * false</p>
@@ -1049,7 +1223,18 @@ namespace Model
      * <p>An option that specifies whether to create the cluster with enhanced VPC
      * routing enabled. To create a cluster that uses enhanced VPC routing, the cluster
      * must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+     * VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this
+     * option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default:
+     * false</p>
+     */
+    inline bool EnhancedVpcRoutingHasBeenSet() const { return m_enhancedVpcRoutingHasBeenSet; }
+
+    /**
+     * <p>An option that specifies whether to create the cluster with enhanced VPC
+     * routing enabled. To create a cluster that uses enhanced VPC routing, the cluster
+     * must be in a VPC. For more information, see <a
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
      * VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this
      * option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default:
      * false</p>
@@ -1060,7 +1245,7 @@ namespace Model
      * <p>An option that specifies whether to create the cluster with enhanced VPC
      * routing enabled. To create a cluster that uses enhanced VPC routing, the cluster
      * must be in a VPC. For more information, see <a
-     * href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+     * href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
      * VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</p> <p>If this
      * option is <code>true</code>, enhanced VPC routing is enabled. </p> <p>Default:
      * false</p>
@@ -1072,6 +1257,11 @@ namespace Model
      * <p>Reserved.</p>
      */
     inline const Aws::String& GetAdditionalInfo() const{ return m_additionalInfo; }
+
+    /**
+     * <p>Reserved.</p>
+     */
+    inline bool AdditionalInfoHasBeenSet() const { return m_additionalInfoHasBeenSet; }
 
     /**
      * <p>Reserved.</p>
@@ -1112,6 +1302,15 @@ namespace Model
      * time.</p>
      */
     inline const Aws::Vector<Aws::String>& GetIamRoles() const{ return m_iamRoles; }
+
+    /**
+     * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by
+     * the cluster to access other AWS services. You must supply the IAM roles in their
+     * Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
+     * request.</p> <p>A cluster can have up to 10 IAM roles associated at any
+     * time.</p>
+     */
+    inline bool IamRolesHasBeenSet() const { return m_iamRolesHasBeenSet; }
 
     /**
      * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by
@@ -1197,6 +1396,17 @@ namespace Model
      * trailing track. In this case, the snapshot and the source cluster are on
      * different tracks.</p>
      */
+    inline bool MaintenanceTrackNameHasBeenSet() const { return m_maintenanceTrackNameHasBeenSet; }
+
+    /**
+     * <p>The name of the maintenance track for the restored cluster. When you take a
+     * snapshot, the snapshot inherits the <code>MaintenanceTrack</code> value from the
+     * cluster. The snapshot might be on a different track than the cluster that was
+     * the source for the snapshot. For example, suppose that you take a snapshot of a
+     * cluster that is on the current track and then change the cluster to be on the
+     * trailing track. In this case, the snapshot and the source cluster are on
+     * different tracks.</p>
+     */
     inline void SetMaintenanceTrackName(const Aws::String& value) { m_maintenanceTrackNameHasBeenSet = true; m_maintenanceTrackName = value; }
 
     /**
@@ -1259,6 +1469,11 @@ namespace Model
      * <p>A unique identifier for the snapshot schedule.</p>
      */
     inline const Aws::String& GetSnapshotScheduleIdentifier() const{ return m_snapshotScheduleIdentifier; }
+
+    /**
+     * <p>A unique identifier for the snapshot schedule.</p>
+     */
+    inline bool SnapshotScheduleIdentifierHasBeenSet() const { return m_snapshotScheduleIdentifierHasBeenSet; }
 
     /**
      * <p>A unique identifier for the snapshot schedule.</p>

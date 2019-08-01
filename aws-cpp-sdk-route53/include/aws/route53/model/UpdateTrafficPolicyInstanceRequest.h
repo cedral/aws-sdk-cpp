@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     UpdateTrafficPolicyInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ID of the traffic policy instance that you want to update.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID of the traffic policy instance that you want to update.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID of the traffic policy instance that you want to update.</p>
@@ -93,6 +98,12 @@ namespace Model
      * <p>The TTL that you want Amazon Route 53 to assign to all of the updated
      * resource record sets.</p>
      */
+    inline bool TTLHasBeenSet() const { return m_tTLHasBeenSet; }
+
+    /**
+     * <p>The TTL that you want Amazon Route 53 to assign to all of the updated
+     * resource record sets.</p>
+     */
     inline void SetTTL(long long value) { m_tTLHasBeenSet = true; m_tTL = value; }
 
     /**
@@ -107,6 +118,12 @@ namespace Model
      * resource record sets for the specified traffic policy instance.</p>
      */
     inline const Aws::String& GetTrafficPolicyId() const{ return m_trafficPolicyId; }
+
+    /**
+     * <p>The ID of the traffic policy that you want Amazon Route 53 to use to update
+     * resource record sets for the specified traffic policy instance.</p>
+     */
+    inline bool TrafficPolicyIdHasBeenSet() const { return m_trafficPolicyIdHasBeenSet; }
 
     /**
      * <p>The ID of the traffic policy that you want Amazon Route 53 to use to update
@@ -150,6 +167,12 @@ namespace Model
      * update resource record sets for the specified traffic policy instance.</p>
      */
     inline int GetTrafficPolicyVersion() const{ return m_trafficPolicyVersion; }
+
+    /**
+     * <p>The version of the traffic policy that you want Amazon Route 53 to use to
+     * update resource record sets for the specified traffic policy instance.</p>
+     */
+    inline bool TrafficPolicyVersionHasBeenSet() const { return m_trafficPolicyVersionHasBeenSet; }
 
     /**
      * <p>The version of the traffic policy that you want Amazon Route 53 to use to

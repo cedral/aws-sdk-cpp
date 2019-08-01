@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeSentimentDetectionJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * returns this identifier in its response.</p>
      */
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    /**
+     * <p>The identifier that Amazon Comprehend generated for the job. The operation
+     * returns this identifier in its response.</p>
+     */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     /**
      * <p>The identifier that Amazon Comprehend generated for the job. The operation

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DetachVolumeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the volume to detach from the gateway.</p>
      */
     inline const Aws::String& GetVolumeARN() const{ return m_volumeARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the volume to detach from the gateway.</p>
+     */
+    inline bool VolumeARNHasBeenSet() const { return m_volumeARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the volume to detach from the gateway.</p>
@@ -90,6 +95,14 @@ namespace Model
      * connection from the target volume.</p>
      */
     inline bool GetForceDetach() const{ return m_forceDetach; }
+
+    /**
+     * <p>Set to <code>true</code> to forcibly remove the iSCSI connection of the
+     * target volume and detach the volume. The default is <code>false</code>. If this
+     * value is set to <code>false</code>, you must manually disconnect the iSCSI
+     * connection from the target volume.</p>
+     */
+    inline bool ForceDetachHasBeenSet() const { return m_forceDetachHasBeenSet; }
 
     /**
      * <p>Set to <code>true</code> to forcibly remove the iSCSI connection of the

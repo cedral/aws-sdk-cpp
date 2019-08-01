@@ -42,12 +42,12 @@ namespace Model
    * been deprecated. To specify an S3 bucket to contain logs, instead use the
    * <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in
    * the <code>TaskInvocationParameters</code> structure. For information about how
-   * Systems Manager handles these options for the supported Maintenance Window task
+   * Systems Manager handles these options for the supported maintenance window task
    * types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>
    * <code>TaskParameters</code> has been deprecated. To specify parameters to pass
    * to a task when it runs, instead use the <code>Parameters</code> option in the
    * <code>TaskInvocationParameters</code> structure. For information about how
-   * Systems Manager handles these options for the supported Maintenance Window task
+   * Systems Manager handles these options for the supported maintenance window task
    * types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For Lambda
    * tasks, Systems Manager ignores any values specified for TaskParameters and
    * LoggingInfo.</p> </note><p><h3>See Also:</h3>   <a
@@ -69,6 +69,13 @@ namespace Model
      * you choose through the context variable.</p>
      */
     inline const Aws::String& GetClientContext() const{ return m_clientContext; }
+
+    /**
+     * <p>Pass client-specific information to the Lambda function that you are
+     * invoking. You can then process the client information in your Lambda function as
+     * you choose through the context variable.</p>
+     */
+    inline bool ClientContextHasBeenSet() const { return m_clientContextHasBeenSet; }
 
     /**
      * <p>Pass client-specific information to the Lambda function that you are
@@ -127,6 +134,14 @@ namespace Model
      * specific Lambda function. If you specify an alias name, the action uses the
      * alias ARN to invoke the Lambda function version to which the alias points.</p>
      */
+    inline bool QualifierHasBeenSet() const { return m_qualifierHasBeenSet; }
+
+    /**
+     * <p>(Optional) Specify a Lambda function version or alias name. If you specify a
+     * function version, the action uses the qualified function ARN to invoke a
+     * specific Lambda function. If you specify an alias name, the action uses the
+     * alias ARN to invoke the Lambda function version to which the alias points.</p>
+     */
     inline void SetQualifier(const Aws::String& value) { m_qualifierHasBeenSet = true; m_qualifier = value; }
 
     /**
@@ -174,6 +189,11 @@ namespace Model
      * <p>JSON to provide to your Lambda function as input.</p>
      */
     inline const Aws::Utils::CryptoBuffer& GetPayload() const{ return m_payload; }
+
+    /**
+     * <p>JSON to provide to your Lambda function as input.</p>
+     */
+    inline bool PayloadHasBeenSet() const { return m_payloadHasBeenSet; }
 
     /**
      * <p>JSON to provide to your Lambda function as input.</p>

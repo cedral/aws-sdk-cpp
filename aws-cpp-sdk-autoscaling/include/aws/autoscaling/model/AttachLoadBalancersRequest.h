@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AttachLoadBalancersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the Auto Scaling group.</p>
      */
     inline const Aws::String& GetAutoScalingGroupName() const{ return m_autoScalingGroupName; }
+
+    /**
+     * <p>The name of the Auto Scaling group.</p>
+     */
+    inline bool AutoScalingGroupNameHasBeenSet() const { return m_autoScalingGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the Auto Scaling group.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLoadBalancerNames() const{ return m_loadBalancerNames; }
+
+    /**
+     * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>
+     */
+    inline bool LoadBalancerNamesHasBeenSet() const { return m_loadBalancerNamesHasBeenSet; }
 
     /**
      * <p>The names of the load balancers. You can specify up to 10 load balancers.</p>

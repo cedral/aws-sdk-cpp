@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeVpcAttributeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The VPC attribute.</p>
      */
     inline const VpcAttributeName& GetAttribute() const{ return m_attribute; }
+
+    /**
+     * <p>The VPC attribute.</p>
+     */
+    inline bool AttributeHasBeenSet() const { return m_attributeHasBeenSet; }
 
     /**
      * <p>The VPC attribute.</p>
@@ -77,6 +82,11 @@ namespace Model
      * <p>The ID of the VPC.</p>
      */
     inline const Aws::String& GetVpcId() const{ return m_vpcId; }
+
+    /**
+     * <p>The ID of the VPC.</p>
+     */
+    inline bool VpcIdHasBeenSet() const { return m_vpcIdHasBeenSet; }
 
     /**
      * <p>The ID of the VPC.</p>
@@ -116,6 +126,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

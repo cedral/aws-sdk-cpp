@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     RemoveTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * want to delete the specified tags.</p>
      */
     inline const Aws::String& GetARN() const{ return m_aRN; }
+
+    /**
+     * <p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you
+     * want to delete the specified tags.</p>
+     */
+    inline bool ARNHasBeenSet() const { return m_aRNHasBeenSet; }
 
     /**
      * <p>Specifies the <code>ARN</code> for the Elasticsearch domain from which you
@@ -96,6 +102,12 @@ namespace Model
      * Elasticsearch domain.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeys() const{ return m_tagKeys; }
+
+    /**
+     * <p>Specifies the <code>TagKey</code> list which you want to remove from the
+     * Elasticsearch domain.</p>
+     */
+    inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }
 
     /**
      * <p>Specifies the <code>TagKey</code> list which you want to remove from the

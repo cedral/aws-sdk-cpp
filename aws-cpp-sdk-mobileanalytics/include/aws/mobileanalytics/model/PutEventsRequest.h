@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     PutEventsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>An array of Event JSON objects</p>
      */
     inline const Aws::Vector<Event>& GetEvents() const{ return m_events; }
+
+    /**
+     * <p>An array of Event JSON objects</p>
+     */
+    inline bool EventsHasBeenSet() const { return m_eventsHasBeenSet; }
 
     /**
      * <p>An array of Event JSON objects</p>
@@ -93,6 +98,12 @@ namespace Model
      * <p>The client context including the client ID, app title, app version and
      * package name.</p>
      */
+    inline bool ClientContextHasBeenSet() const { return m_clientContextHasBeenSet; }
+
+    /**
+     * <p>The client context including the client ID, app title, app version and
+     * package name.</p>
+     */
     inline void SetClientContext(const Aws::String& value) { m_clientContextHasBeenSet = true; m_clientContext = value; }
 
     /**
@@ -130,6 +141,11 @@ namespace Model
      * <p>The encoding used for the client context.</p>
      */
     inline const Aws::String& GetClientContextEncoding() const{ return m_clientContextEncoding; }
+
+    /**
+     * <p>The encoding used for the client context.</p>
+     */
+    inline bool ClientContextEncodingHasBeenSet() const { return m_clientContextEncodingHasBeenSet; }
 
     /**
      * <p>The encoding used for the client context.</p>

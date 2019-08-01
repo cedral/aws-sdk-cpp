@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
      */
     inline const Aws::Vector<Aws::String>& GetResourceIdList() const{ return m_resourceIdList; }
+
+    /**
+     * <p>Specifies a list of trail ARNs whose tags will be listed. The list has a
+     * limit of 20 ARNs. The format of a trail ARN is:</p> <p>
+     * <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
+     */
+    inline bool ResourceIdListHasBeenSet() const { return m_resourceIdListHasBeenSet; }
 
     /**
      * <p>Specifies a list of trail ARNs whose tags will be listed. The list has a
@@ -109,6 +116,11 @@ namespace Model
      * <p>Reserved for future use.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Reserved for future use.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Reserved for future use.</p>

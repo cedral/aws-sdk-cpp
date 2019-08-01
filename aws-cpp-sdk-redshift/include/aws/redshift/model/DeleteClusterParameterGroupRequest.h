@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteClusterParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * <p>Cannot delete a default cluster parameter group.</p> </li> </ul>
      */
     inline const Aws::String& GetParameterGroupName() const{ return m_parameterGroupName; }
+
+    /**
+     * <p>The name of the parameter group to be deleted.</p> <p>Constraints:</p> <ul>
+     * <li> <p>Must be the name of an existing cluster parameter group.</p> </li> <li>
+     * <p>Cannot delete a default cluster parameter group.</p> </li> </ul>
+     */
+    inline bool ParameterGroupNameHasBeenSet() const { return m_parameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the parameter group to be deleted.</p> <p>Constraints:</p> <ul>

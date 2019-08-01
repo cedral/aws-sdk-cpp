@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     UpdateUsageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>[Required] The Id of the usage plan associated with the usage data.</p>
      */
     inline const Aws::String& GetUsagePlanId() const{ return m_usagePlanId; }
+
+    /**
+     * <p>[Required] The Id of the usage plan associated with the usage data.</p>
+     */
+    inline bool UsagePlanIdHasBeenSet() const { return m_usagePlanIdHasBeenSet; }
 
     /**
      * <p>[Required] The Id of the usage plan associated with the usage data.</p>
@@ -89,6 +94,12 @@ namespace Model
      * which a temporary extension is granted to the remaining quota.</p>
      */
     inline const Aws::String& GetKeyId() const{ return m_keyId; }
+
+    /**
+     * <p>[Required] The identifier of the API key associated with the usage plan in
+     * which a temporary extension is granted to the remaining quota.</p>
+     */
+    inline bool KeyIdHasBeenSet() const { return m_keyIdHasBeenSet; }
 
     /**
      * <p>[Required] The identifier of the API key associated with the usage plan in
@@ -132,6 +143,12 @@ namespace Model
      * the order specified in this list.</p>
      */
     inline const Aws::Vector<PatchOperation>& GetPatchOperations() const{ return m_patchOperations; }
+
+    /**
+     * <p>A list of update operations to be applied to the specified resource and in
+     * the order specified in this list.</p>
+     */
+    inline bool PatchOperationsHasBeenSet() const { return m_patchOperationsHasBeenSet; }
 
     /**
      * <p>A list of update operations to be applied to the specified resource and in

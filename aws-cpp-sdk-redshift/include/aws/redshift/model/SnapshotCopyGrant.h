@@ -40,7 +40,7 @@ namespace Model
    * copied snapshots with the specified customer master key (CMK) from AWS KMS in
    * the destination region.</p> <p> For more information about managing snapshot
    * copy grants, go to <a
-   * href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon
+   * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html">Amazon
    * Redshift Database Encryption</a> in the <i>Amazon Redshift Cluster Management
    * Guide</i>. </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/SnapshotCopyGrant">AWS
@@ -61,6 +61,11 @@ namespace Model
      * <p>The name of the snapshot copy grant.</p>
      */
     inline const Aws::String& GetSnapshotCopyGrantName() const{ return m_snapshotCopyGrantName; }
+
+    /**
+     * <p>The name of the snapshot copy grant.</p>
+     */
+    inline bool SnapshotCopyGrantNameHasBeenSet() const { return m_snapshotCopyGrantNameHasBeenSet; }
 
     /**
      * <p>The name of the snapshot copy grant.</p>
@@ -103,6 +108,12 @@ namespace Model
      * <p>The unique identifier of the customer master key (CMK) in AWS KMS to which
      * Amazon Redshift is granted permission.</p>
      */
+    inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
+
+    /**
+     * <p>The unique identifier of the customer master key (CMK) in AWS KMS to which
+     * Amazon Redshift is granted permission.</p>
+     */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
 
     /**
@@ -140,6 +151,11 @@ namespace Model
      * <p>A list of tag instances.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A list of tag instances.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A list of tag instances.</p>

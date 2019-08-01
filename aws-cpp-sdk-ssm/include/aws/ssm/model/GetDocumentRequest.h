@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetDocumentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the Systems Manager document.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the Systems Manager document.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the Systems Manager document.</p>
@@ -87,6 +92,13 @@ namespace Model
      * versions of a document, and cannot be changed.</p>
      */
     inline const Aws::String& GetVersionName() const{ return m_versionName; }
+
+    /**
+     * <p>An optional field specifying the version of the artifact associated with the
+     * document. For example, "Release 12, Update 6". This value is unique across all
+     * versions of a document, and cannot be changed.</p>
+     */
+    inline bool VersionNameHasBeenSet() const { return m_versionNameHasBeenSet; }
 
     /**
      * <p>An optional field specifying the version of the artifact associated with the
@@ -139,6 +151,11 @@ namespace Model
     /**
      * <p>The document version for which you want information.</p>
      */
+    inline bool DocumentVersionHasBeenSet() const { return m_documentVersionHasBeenSet; }
+
+    /**
+     * <p>The document version for which you want information.</p>
+     */
     inline void SetDocumentVersion(const Aws::String& value) { m_documentVersionHasBeenSet = true; m_documentVersion = value; }
 
     /**
@@ -172,6 +189,12 @@ namespace Model
      * either JSON or YAML. JSON is the default format.</p>
      */
     inline const DocumentFormat& GetDocumentFormat() const{ return m_documentFormat; }
+
+    /**
+     * <p>Returns the document in the specified format. The document format can be
+     * either JSON or YAML. JSON is the default format.</p>
+     */
+    inline bool DocumentFormatHasBeenSet() const { return m_documentFormatHasBeenSet; }
 
     /**
      * <p>Returns the document in the specified format. The document format can be

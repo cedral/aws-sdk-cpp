@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateFleetMetadataRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The ARN of the fleet.</p>
      */
     inline const Aws::String& GetFleetArn() const{ return m_fleetArn; }
+
+    /**
+     * <p>The ARN of the fleet.</p>
+     */
+    inline bool FleetArnHasBeenSet() const { return m_fleetArnHasBeenSet; }
 
     /**
      * <p>The ARN of the fleet.</p>
@@ -83,6 +88,12 @@ namespace Model
      * passed.</p>
      */
     inline const Aws::String& GetDisplayName() const{ return m_displayName; }
+
+    /**
+     * <p>The fleet name to display. The existing DisplayName is unset if null is
+     * passed.</p>
+     */
+    inline bool DisplayNameHasBeenSet() const { return m_displayNameHasBeenSet; }
 
     /**
      * <p>The fleet name to display. The existing DisplayName is unset if null is
@@ -126,6 +137,12 @@ namespace Model
      * closest AWS Region to users, which may be outside of your home Region.</p>
      */
     inline bool GetOptimizeForEndUserLocation() const{ return m_optimizeForEndUserLocation; }
+
+    /**
+     * <p>The option to optimize for better performance by routing traffic through the
+     * closest AWS Region to users, which may be outside of your home Region.</p>
+     */
+    inline bool OptimizeForEndUserLocationHasBeenSet() const { return m_optimizeForEndUserLocationHasBeenSet; }
 
     /**
      * <p>The option to optimize for better performance by routing traffic through the

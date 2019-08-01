@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsForDeliveryStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the delivery stream whose tags you want to list.</p>
      */
     inline const Aws::String& GetDeliveryStreamName() const{ return m_deliveryStreamName; }
+
+    /**
+     * <p>The name of the delivery stream whose tags you want to list.</p>
+     */
+    inline bool DeliveryStreamNameHasBeenSet() const { return m_deliveryStreamNameHasBeenSet; }
 
     /**
      * <p>The name of the delivery stream whose tags you want to list.</p>
@@ -86,6 +91,13 @@ namespace Model
      * <code>ExclusiveStartTagKey</code>.</p>
      */
     inline const Aws::String& GetExclusiveStartTagKey() const{ return m_exclusiveStartTagKey; }
+
+    /**
+     * <p>The key to use as the starting point for the list of tags. If you set this
+     * parameter, <code>ListTagsForDeliveryStream</code> gets all tags that occur after
+     * <code>ExclusiveStartTagKey</code>.</p>
+     */
+    inline bool ExclusiveStartTagKeyHasBeenSet() const { return m_exclusiveStartTagKeyHasBeenSet; }
 
     /**
      * <p>The key to use as the starting point for the list of tags. If you set this
@@ -137,6 +149,14 @@ namespace Model
      * <code>ExclusiveStartTagKey</code> to the last key in the response. </p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The number of tags to return. If this number is less than the total number of
+     * tags associated with the delivery stream, <code>HasMoreTags</code> is set to
+     * <code>true</code> in the response. To list additional tags, set
+     * <code>ExclusiveStartTagKey</code> to the last key in the response. </p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The number of tags to return. If this number is less than the total number of

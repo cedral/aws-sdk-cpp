@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     DeleteThingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The name of the thing to delete.</p>
      */
     inline const Aws::String& GetThingName() const{ return m_thingName; }
+
+    /**
+     * <p>The name of the thing to delete.</p>
+     */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
 
     /**
      * <p>The name of the thing to delete.</p>
@@ -94,6 +99,14 @@ namespace Model
      * <code>VersionConflictException</code>.</p>
      */
     inline long long GetExpectedVersion() const{ return m_expectedVersion; }
+
+    /**
+     * <p>The expected version of the thing record in the registry. If the version of
+     * the record in the registry does not match the expected version specified in the
+     * request, the <code>DeleteThing</code> request is rejected with a
+     * <code>VersionConflictException</code>.</p>
+     */
+    inline bool ExpectedVersionHasBeenSet() const { return m_expectedVersionHasBeenSet; }
 
     /**
      * <p>The expected version of the thing record in the registry. If the version of

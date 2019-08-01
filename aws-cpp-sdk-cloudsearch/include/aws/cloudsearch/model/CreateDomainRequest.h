@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateDomainRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,13 @@ namespace Model
      * or number and be at least 3 and no more than 28 characters long.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>A name for the domain you are creating. Allowed characters are a-z
+     * (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter
+     * or number and be at least 3 and no more than 28 characters long.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>A name for the domain you are creating. Allowed characters are a-z

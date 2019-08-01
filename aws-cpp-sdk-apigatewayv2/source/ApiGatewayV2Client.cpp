@@ -75,6 +75,9 @@
 #include <aws/apigatewayv2/model/GetRoutesRequest.h>
 #include <aws/apigatewayv2/model/GetStageRequest.h>
 #include <aws/apigatewayv2/model/GetStagesRequest.h>
+#include <aws/apigatewayv2/model/GetTagsRequest.h>
+#include <aws/apigatewayv2/model/TagResourceRequest.h>
+#include <aws/apigatewayv2/model/UntagResourceRequest.h>
 #include <aws/apigatewayv2/model/UpdateApiRequest.h>
 #include <aws/apigatewayv2/model/UpdateApiMappingRequest.h>
 #include <aws/apigatewayv2/model/UpdateAuthorizerRequest.h>
@@ -158,6 +161,7 @@ void ApiGatewayV2Client::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 CreateApiOutcome ApiGatewayV2Client::CreateApi(const CreateApiRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -195,6 +199,11 @@ void ApiGatewayV2Client::CreateApiAsyncHelper(const CreateApiRequest& request, c
 
 CreateApiMappingOutcome ApiGatewayV2Client::CreateApiMapping(const CreateApiMappingRequest& request) const
 {
+  if (!request.DomainNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateApiMapping", "Required field: DomainName, is not set");
+    return CreateApiMappingOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/domainnames/";
@@ -232,6 +241,11 @@ void ApiGatewayV2Client::CreateApiMappingAsyncHelper(const CreateApiMappingReque
 
 CreateAuthorizerOutcome ApiGatewayV2Client::CreateAuthorizer(const CreateAuthorizerRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateAuthorizer", "Required field: ApiId, is not set");
+    return CreateAuthorizerOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -269,6 +283,11 @@ void ApiGatewayV2Client::CreateAuthorizerAsyncHelper(const CreateAuthorizerReque
 
 CreateDeploymentOutcome ApiGatewayV2Client::CreateDeployment(const CreateDeploymentRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateDeployment", "Required field: ApiId, is not set");
+    return CreateDeploymentOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -341,6 +360,11 @@ void ApiGatewayV2Client::CreateDomainNameAsyncHelper(const CreateDomainNameReque
 
 CreateIntegrationOutcome ApiGatewayV2Client::CreateIntegration(const CreateIntegrationRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateIntegration", "Required field: ApiId, is not set");
+    return CreateIntegrationOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -378,6 +402,16 @@ void ApiGatewayV2Client::CreateIntegrationAsyncHelper(const CreateIntegrationReq
 
 CreateIntegrationResponseOutcome ApiGatewayV2Client::CreateIntegrationResponse(const CreateIntegrationResponseRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateIntegrationResponse", "Required field: ApiId, is not set");
+    return CreateIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.IntegrationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateIntegrationResponse", "Required field: IntegrationId, is not set");
+    return CreateIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -417,6 +451,11 @@ void ApiGatewayV2Client::CreateIntegrationResponseAsyncHelper(const CreateIntegr
 
 CreateModelOutcome ApiGatewayV2Client::CreateModel(const CreateModelRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateModel", "Required field: ApiId, is not set");
+    return CreateModelOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -454,6 +493,11 @@ void ApiGatewayV2Client::CreateModelAsyncHelper(const CreateModelRequest& reques
 
 CreateRouteOutcome ApiGatewayV2Client::CreateRoute(const CreateRouteRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateRoute", "Required field: ApiId, is not set");
+    return CreateRouteOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -491,6 +535,16 @@ void ApiGatewayV2Client::CreateRouteAsyncHelper(const CreateRouteRequest& reques
 
 CreateRouteResponseOutcome ApiGatewayV2Client::CreateRouteResponse(const CreateRouteResponseRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateRouteResponse", "Required field: ApiId, is not set");
+    return CreateRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateRouteResponse", "Required field: RouteId, is not set");
+    return CreateRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -530,6 +584,11 @@ void ApiGatewayV2Client::CreateRouteResponseAsyncHelper(const CreateRouteRespons
 
 CreateStageOutcome ApiGatewayV2Client::CreateStage(const CreateStageRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateStage", "Required field: ApiId, is not set");
+    return CreateStageOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -567,6 +626,11 @@ void ApiGatewayV2Client::CreateStageAsyncHelper(const CreateStageRequest& reques
 
 DeleteApiOutcome ApiGatewayV2Client::DeleteApi(const DeleteApiRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteApi", "Required field: ApiId, is not set");
+    return DeleteApiOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -603,6 +667,16 @@ void ApiGatewayV2Client::DeleteApiAsyncHelper(const DeleteApiRequest& request, c
 
 DeleteApiMappingOutcome ApiGatewayV2Client::DeleteApiMapping(const DeleteApiMappingRequest& request) const
 {
+  if (!request.ApiMappingIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteApiMapping", "Required field: ApiMappingId, is not set");
+    return DeleteApiMappingOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiMappingId]", false));
+  }
+  if (!request.DomainNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteApiMapping", "Required field: DomainName, is not set");
+    return DeleteApiMappingOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/domainnames/";
@@ -641,6 +715,16 @@ void ApiGatewayV2Client::DeleteApiMappingAsyncHelper(const DeleteApiMappingReque
 
 DeleteAuthorizerOutcome ApiGatewayV2Client::DeleteAuthorizer(const DeleteAuthorizerRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteAuthorizer", "Required field: ApiId, is not set");
+    return DeleteAuthorizerOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.AuthorizerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteAuthorizer", "Required field: AuthorizerId, is not set");
+    return DeleteAuthorizerOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AuthorizerId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -679,6 +763,16 @@ void ApiGatewayV2Client::DeleteAuthorizerAsyncHelper(const DeleteAuthorizerReque
 
 DeleteDeploymentOutcome ApiGatewayV2Client::DeleteDeployment(const DeleteDeploymentRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteDeployment", "Required field: ApiId, is not set");
+    return DeleteDeploymentOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.DeploymentIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteDeployment", "Required field: DeploymentId, is not set");
+    return DeleteDeploymentOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DeploymentId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -717,6 +811,11 @@ void ApiGatewayV2Client::DeleteDeploymentAsyncHelper(const DeleteDeploymentReque
 
 DeleteDomainNameOutcome ApiGatewayV2Client::DeleteDomainName(const DeleteDomainNameRequest& request) const
 {
+  if (!request.DomainNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteDomainName", "Required field: DomainName, is not set");
+    return DeleteDomainNameOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/domainnames/";
@@ -753,6 +852,16 @@ void ApiGatewayV2Client::DeleteDomainNameAsyncHelper(const DeleteDomainNameReque
 
 DeleteIntegrationOutcome ApiGatewayV2Client::DeleteIntegration(const DeleteIntegrationRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteIntegration", "Required field: ApiId, is not set");
+    return DeleteIntegrationOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.IntegrationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteIntegration", "Required field: IntegrationId, is not set");
+    return DeleteIntegrationOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -791,6 +900,21 @@ void ApiGatewayV2Client::DeleteIntegrationAsyncHelper(const DeleteIntegrationReq
 
 DeleteIntegrationResponseOutcome ApiGatewayV2Client::DeleteIntegrationResponse(const DeleteIntegrationResponseRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteIntegrationResponse", "Required field: ApiId, is not set");
+    return DeleteIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.IntegrationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteIntegrationResponse", "Required field: IntegrationId, is not set");
+    return DeleteIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationId]", false));
+  }
+  if (!request.IntegrationResponseIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteIntegrationResponse", "Required field: IntegrationResponseId, is not set");
+    return DeleteIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationResponseId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -831,6 +955,16 @@ void ApiGatewayV2Client::DeleteIntegrationResponseAsyncHelper(const DeleteIntegr
 
 DeleteModelOutcome ApiGatewayV2Client::DeleteModel(const DeleteModelRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteModel", "Required field: ApiId, is not set");
+    return DeleteModelOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.ModelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteModel", "Required field: ModelId, is not set");
+    return DeleteModelOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ModelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -869,6 +1003,16 @@ void ApiGatewayV2Client::DeleteModelAsyncHelper(const DeleteModelRequest& reques
 
 DeleteRouteOutcome ApiGatewayV2Client::DeleteRoute(const DeleteRouteRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRoute", "Required field: ApiId, is not set");
+    return DeleteRouteOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRoute", "Required field: RouteId, is not set");
+    return DeleteRouteOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -907,6 +1051,21 @@ void ApiGatewayV2Client::DeleteRouteAsyncHelper(const DeleteRouteRequest& reques
 
 DeleteRouteResponseOutcome ApiGatewayV2Client::DeleteRouteResponse(const DeleteRouteResponseRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteResponse", "Required field: ApiId, is not set");
+    return DeleteRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteResponse", "Required field: RouteId, is not set");
+    return DeleteRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
+  if (!request.RouteResponseIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteResponse", "Required field: RouteResponseId, is not set");
+    return DeleteRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteResponseId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -947,6 +1106,16 @@ void ApiGatewayV2Client::DeleteRouteResponseAsyncHelper(const DeleteRouteRespons
 
 DeleteStageOutcome ApiGatewayV2Client::DeleteStage(const DeleteStageRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteStage", "Required field: ApiId, is not set");
+    return DeleteStageOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.StageNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteStage", "Required field: StageName, is not set");
+    return DeleteStageOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -985,6 +1154,11 @@ void ApiGatewayV2Client::DeleteStageAsyncHelper(const DeleteStageRequest& reques
 
 GetApiOutcome ApiGatewayV2Client::GetApi(const GetApiRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetApi", "Required field: ApiId, is not set");
+    return GetApiOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1021,6 +1195,16 @@ void ApiGatewayV2Client::GetApiAsyncHelper(const GetApiRequest& request, const G
 
 GetApiMappingOutcome ApiGatewayV2Client::GetApiMapping(const GetApiMappingRequest& request) const
 {
+  if (!request.ApiMappingIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetApiMapping", "Required field: ApiMappingId, is not set");
+    return GetApiMappingOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiMappingId]", false));
+  }
+  if (!request.DomainNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetApiMapping", "Required field: DomainName, is not set");
+    return GetApiMappingOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/domainnames/";
@@ -1059,6 +1243,11 @@ void ApiGatewayV2Client::GetApiMappingAsyncHelper(const GetApiMappingRequest& re
 
 GetApiMappingsOutcome ApiGatewayV2Client::GetApiMappings(const GetApiMappingsRequest& request) const
 {
+  if (!request.DomainNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetApiMappings", "Required field: DomainName, is not set");
+    return GetApiMappingsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/domainnames/";
@@ -1131,6 +1320,16 @@ void ApiGatewayV2Client::GetApisAsyncHelper(const GetApisRequest& request, const
 
 GetAuthorizerOutcome ApiGatewayV2Client::GetAuthorizer(const GetAuthorizerRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAuthorizer", "Required field: ApiId, is not set");
+    return GetAuthorizerOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.AuthorizerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAuthorizer", "Required field: AuthorizerId, is not set");
+    return GetAuthorizerOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AuthorizerId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1169,6 +1368,11 @@ void ApiGatewayV2Client::GetAuthorizerAsyncHelper(const GetAuthorizerRequest& re
 
 GetAuthorizersOutcome ApiGatewayV2Client::GetAuthorizers(const GetAuthorizersRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAuthorizers", "Required field: ApiId, is not set");
+    return GetAuthorizersOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1206,6 +1410,16 @@ void ApiGatewayV2Client::GetAuthorizersAsyncHelper(const GetAuthorizersRequest& 
 
 GetDeploymentOutcome ApiGatewayV2Client::GetDeployment(const GetDeploymentRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetDeployment", "Required field: ApiId, is not set");
+    return GetDeploymentOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.DeploymentIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetDeployment", "Required field: DeploymentId, is not set");
+    return GetDeploymentOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DeploymentId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1244,6 +1458,11 @@ void ApiGatewayV2Client::GetDeploymentAsyncHelper(const GetDeploymentRequest& re
 
 GetDeploymentsOutcome ApiGatewayV2Client::GetDeployments(const GetDeploymentsRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetDeployments", "Required field: ApiId, is not set");
+    return GetDeploymentsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1281,6 +1500,11 @@ void ApiGatewayV2Client::GetDeploymentsAsyncHelper(const GetDeploymentsRequest& 
 
 GetDomainNameOutcome ApiGatewayV2Client::GetDomainName(const GetDomainNameRequest& request) const
 {
+  if (!request.DomainNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetDomainName", "Required field: DomainName, is not set");
+    return GetDomainNameOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/domainnames/";
@@ -1352,6 +1576,16 @@ void ApiGatewayV2Client::GetDomainNamesAsyncHelper(const GetDomainNamesRequest& 
 
 GetIntegrationOutcome ApiGatewayV2Client::GetIntegration(const GetIntegrationRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIntegration", "Required field: ApiId, is not set");
+    return GetIntegrationOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.IntegrationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIntegration", "Required field: IntegrationId, is not set");
+    return GetIntegrationOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1390,6 +1624,21 @@ void ApiGatewayV2Client::GetIntegrationAsyncHelper(const GetIntegrationRequest& 
 
 GetIntegrationResponseOutcome ApiGatewayV2Client::GetIntegrationResponse(const GetIntegrationResponseRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIntegrationResponse", "Required field: ApiId, is not set");
+    return GetIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.IntegrationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIntegrationResponse", "Required field: IntegrationId, is not set");
+    return GetIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationId]", false));
+  }
+  if (!request.IntegrationResponseIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIntegrationResponse", "Required field: IntegrationResponseId, is not set");
+    return GetIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationResponseId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1430,6 +1679,16 @@ void ApiGatewayV2Client::GetIntegrationResponseAsyncHelper(const GetIntegrationR
 
 GetIntegrationResponsesOutcome ApiGatewayV2Client::GetIntegrationResponses(const GetIntegrationResponsesRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIntegrationResponses", "Required field: ApiId, is not set");
+    return GetIntegrationResponsesOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.IntegrationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIntegrationResponses", "Required field: IntegrationId, is not set");
+    return GetIntegrationResponsesOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1469,6 +1728,11 @@ void ApiGatewayV2Client::GetIntegrationResponsesAsyncHelper(const GetIntegration
 
 GetIntegrationsOutcome ApiGatewayV2Client::GetIntegrations(const GetIntegrationsRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIntegrations", "Required field: ApiId, is not set");
+    return GetIntegrationsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1506,6 +1770,16 @@ void ApiGatewayV2Client::GetIntegrationsAsyncHelper(const GetIntegrationsRequest
 
 GetModelOutcome ApiGatewayV2Client::GetModel(const GetModelRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetModel", "Required field: ApiId, is not set");
+    return GetModelOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.ModelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetModel", "Required field: ModelId, is not set");
+    return GetModelOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ModelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1544,6 +1818,16 @@ void ApiGatewayV2Client::GetModelAsyncHelper(const GetModelRequest& request, con
 
 GetModelTemplateOutcome ApiGatewayV2Client::GetModelTemplate(const GetModelTemplateRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetModelTemplate", "Required field: ApiId, is not set");
+    return GetModelTemplateOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.ModelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetModelTemplate", "Required field: ModelId, is not set");
+    return GetModelTemplateOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ModelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1583,6 +1867,11 @@ void ApiGatewayV2Client::GetModelTemplateAsyncHelper(const GetModelTemplateReque
 
 GetModelsOutcome ApiGatewayV2Client::GetModels(const GetModelsRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetModels", "Required field: ApiId, is not set");
+    return GetModelsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1620,6 +1909,16 @@ void ApiGatewayV2Client::GetModelsAsyncHelper(const GetModelsRequest& request, c
 
 GetRouteOutcome ApiGatewayV2Client::GetRoute(const GetRouteRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRoute", "Required field: ApiId, is not set");
+    return GetRouteOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRoute", "Required field: RouteId, is not set");
+    return GetRouteOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1658,6 +1957,21 @@ void ApiGatewayV2Client::GetRouteAsyncHelper(const GetRouteRequest& request, con
 
 GetRouteResponseOutcome ApiGatewayV2Client::GetRouteResponse(const GetRouteResponseRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRouteResponse", "Required field: ApiId, is not set");
+    return GetRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRouteResponse", "Required field: RouteId, is not set");
+    return GetRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
+  if (!request.RouteResponseIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRouteResponse", "Required field: RouteResponseId, is not set");
+    return GetRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteResponseId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1698,6 +2012,16 @@ void ApiGatewayV2Client::GetRouteResponseAsyncHelper(const GetRouteResponseReque
 
 GetRouteResponsesOutcome ApiGatewayV2Client::GetRouteResponses(const GetRouteResponsesRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRouteResponses", "Required field: ApiId, is not set");
+    return GetRouteResponsesOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRouteResponses", "Required field: RouteId, is not set");
+    return GetRouteResponsesOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1737,6 +2061,11 @@ void ApiGatewayV2Client::GetRouteResponsesAsyncHelper(const GetRouteResponsesReq
 
 GetRoutesOutcome ApiGatewayV2Client::GetRoutes(const GetRoutesRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRoutes", "Required field: ApiId, is not set");
+    return GetRoutesOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1774,6 +2103,16 @@ void ApiGatewayV2Client::GetRoutesAsyncHelper(const GetRoutesRequest& request, c
 
 GetStageOutcome ApiGatewayV2Client::GetStage(const GetStageRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetStage", "Required field: ApiId, is not set");
+    return GetStageOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.StageNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetStage", "Required field: StageName, is not set");
+    return GetStageOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1812,6 +2151,11 @@ void ApiGatewayV2Client::GetStageAsyncHelper(const GetStageRequest& request, con
 
 GetStagesOutcome ApiGatewayV2Client::GetStages(const GetStagesRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetStages", "Required field: ApiId, is not set");
+    return GetStagesOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1847,8 +2191,141 @@ void ApiGatewayV2Client::GetStagesAsyncHelper(const GetStagesRequest& request, c
   handler(this, request, GetStages(request), context);
 }
 
+GetTagsOutcome ApiGatewayV2Client::GetTags(const GetTagsRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetTags", "Required field: ResourceArn, is not set");
+    return GetTagsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetTagsOutcome(GetTagsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetTagsOutcome(outcome.GetError());
+  }
+}
+
+GetTagsOutcomeCallable ApiGatewayV2Client::GetTagsCallable(const GetTagsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetTagsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetTags(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::GetTagsAsync(const GetTagsRequest& request, const GetTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetTagsAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::GetTagsAsyncHelper(const GetTagsRequest& request, const GetTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetTags(request), context);
+}
+
+TagResourceOutcome ApiGatewayV2Client::TagResource(const TagResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("TagResource", "Required field: ResourceArn, is not set");
+    return TagResourceOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return TagResourceOutcome(outcome.GetError());
+  }
+}
+
+TagResourceOutcomeCallable ApiGatewayV2Client::TagResourceCallable(const TagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< TagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->TagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::TagResourceAsync(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->TagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::TagResourceAsyncHelper(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, TagResource(request), context);
+}
+
+UntagResourceOutcome ApiGatewayV2Client::UntagResource(const UntagResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UntagResource", "Required field: ResourceArn, is not set");
+    return UntagResourceOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  if (!request.TagKeysHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UntagResource", "Required field: TagKeys, is not set");
+    return UntagResourceOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UntagResourceOutcome(NoResult());
+  }
+  else
+  {
+    return UntagResourceOutcome(outcome.GetError());
+  }
+}
+
+UntagResourceOutcomeCallable ApiGatewayV2Client::UntagResourceCallable(const UntagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UntagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UntagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::UntagResourceAsync(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UntagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::UntagResourceAsyncHelper(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UntagResource(request), context);
+}
+
 UpdateApiOutcome ApiGatewayV2Client::UpdateApi(const UpdateApiRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateApi", "Required field: ApiId, is not set");
+    return UpdateApiOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1885,6 +2362,16 @@ void ApiGatewayV2Client::UpdateApiAsyncHelper(const UpdateApiRequest& request, c
 
 UpdateApiMappingOutcome ApiGatewayV2Client::UpdateApiMapping(const UpdateApiMappingRequest& request) const
 {
+  if (!request.ApiMappingIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateApiMapping", "Required field: ApiMappingId, is not set");
+    return UpdateApiMappingOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiMappingId]", false));
+  }
+  if (!request.DomainNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateApiMapping", "Required field: DomainName, is not set");
+    return UpdateApiMappingOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/domainnames/";
@@ -1923,6 +2410,16 @@ void ApiGatewayV2Client::UpdateApiMappingAsyncHelper(const UpdateApiMappingReque
 
 UpdateAuthorizerOutcome ApiGatewayV2Client::UpdateAuthorizer(const UpdateAuthorizerRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateAuthorizer", "Required field: ApiId, is not set");
+    return UpdateAuthorizerOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.AuthorizerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateAuthorizer", "Required field: AuthorizerId, is not set");
+    return UpdateAuthorizerOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AuthorizerId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1961,6 +2458,16 @@ void ApiGatewayV2Client::UpdateAuthorizerAsyncHelper(const UpdateAuthorizerReque
 
 UpdateDeploymentOutcome ApiGatewayV2Client::UpdateDeployment(const UpdateDeploymentRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateDeployment", "Required field: ApiId, is not set");
+    return UpdateDeploymentOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.DeploymentIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateDeployment", "Required field: DeploymentId, is not set");
+    return UpdateDeploymentOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DeploymentId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -1999,6 +2506,11 @@ void ApiGatewayV2Client::UpdateDeploymentAsyncHelper(const UpdateDeploymentReque
 
 UpdateDomainNameOutcome ApiGatewayV2Client::UpdateDomainName(const UpdateDomainNameRequest& request) const
 {
+  if (!request.DomainNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateDomainName", "Required field: DomainName, is not set");
+    return UpdateDomainNameOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/domainnames/";
@@ -2035,6 +2547,16 @@ void ApiGatewayV2Client::UpdateDomainNameAsyncHelper(const UpdateDomainNameReque
 
 UpdateIntegrationOutcome ApiGatewayV2Client::UpdateIntegration(const UpdateIntegrationRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateIntegration", "Required field: ApiId, is not set");
+    return UpdateIntegrationOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.IntegrationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateIntegration", "Required field: IntegrationId, is not set");
+    return UpdateIntegrationOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -2073,6 +2595,21 @@ void ApiGatewayV2Client::UpdateIntegrationAsyncHelper(const UpdateIntegrationReq
 
 UpdateIntegrationResponseOutcome ApiGatewayV2Client::UpdateIntegrationResponse(const UpdateIntegrationResponseRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateIntegrationResponse", "Required field: ApiId, is not set");
+    return UpdateIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.IntegrationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateIntegrationResponse", "Required field: IntegrationId, is not set");
+    return UpdateIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationId]", false));
+  }
+  if (!request.IntegrationResponseIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateIntegrationResponse", "Required field: IntegrationResponseId, is not set");
+    return UpdateIntegrationResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IntegrationResponseId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -2113,6 +2650,16 @@ void ApiGatewayV2Client::UpdateIntegrationResponseAsyncHelper(const UpdateIntegr
 
 UpdateModelOutcome ApiGatewayV2Client::UpdateModel(const UpdateModelRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateModel", "Required field: ApiId, is not set");
+    return UpdateModelOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.ModelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateModel", "Required field: ModelId, is not set");
+    return UpdateModelOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ModelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -2151,6 +2698,16 @@ void ApiGatewayV2Client::UpdateModelAsyncHelper(const UpdateModelRequest& reques
 
 UpdateRouteOutcome ApiGatewayV2Client::UpdateRoute(const UpdateRouteRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRoute", "Required field: ApiId, is not set");
+    return UpdateRouteOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRoute", "Required field: RouteId, is not set");
+    return UpdateRouteOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -2189,6 +2746,21 @@ void ApiGatewayV2Client::UpdateRouteAsyncHelper(const UpdateRouteRequest& reques
 
 UpdateRouteResponseOutcome ApiGatewayV2Client::UpdateRouteResponse(const UpdateRouteResponseRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRouteResponse", "Required field: ApiId, is not set");
+    return UpdateRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRouteResponse", "Required field: RouteId, is not set");
+    return UpdateRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
+  if (!request.RouteResponseIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRouteResponse", "Required field: RouteResponseId, is not set");
+    return UpdateRouteResponseOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteResponseId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";
@@ -2229,6 +2801,16 @@ void ApiGatewayV2Client::UpdateRouteResponseAsyncHelper(const UpdateRouteRespons
 
 UpdateStageOutcome ApiGatewayV2Client::UpdateStage(const UpdateStageRequest& request) const
 {
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateStage", "Required field: ApiId, is not set");
+    return UpdateStageOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.StageNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateStage", "Required field: StageName, is not set");
+    return UpdateStageOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2/apis/";

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateDocumentationPartRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -93,6 +98,12 @@ namespace Model
      * <p>[Required] The location of the targeted API entity of the to-be-created
      * documentation part.</p>
      */
+    inline bool LocationHasBeenSet() const { return m_locationHasBeenSet; }
+
+    /**
+     * <p>[Required] The location of the targeted API entity of the to-be-created
+     * documentation part.</p>
+     */
     inline void SetLocation(const DocumentationPartLocation& value) { m_locationHasBeenSet = true; m_location = value; }
 
     /**
@@ -120,6 +131,13 @@ namespace Model
      * pairs can be exported and, hence, published.</p>
      */
     inline const Aws::String& GetProperties() const{ return m_properties; }
+
+    /**
+     * <p>[Required] The new documentation content map of the targeted API entity.
+     * Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value
+     * pairs can be exported and, hence, published.</p>
+     */
+    inline bool PropertiesHasBeenSet() const { return m_propertiesHasBeenSet; }
 
     /**
      * <p>[Required] The new documentation content map of the targeted API entity.

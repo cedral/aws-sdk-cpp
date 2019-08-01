@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListMigrationTasksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * using the returned token in <code>NextToken</code>.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If a <code>NextToken</code> was returned by a previous call, there are more
+     * results available. To retrieve the next page of results, make the call again
+     * using the returned token in <code>NextToken</code>.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If a <code>NextToken</code> was returned by a previous call, there are more
@@ -102,6 +109,11 @@ namespace Model
     /**
      * <p>Value to specify how many results are returned per page.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>Value to specify how many results are returned per page.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -114,6 +126,11 @@ namespace Model
      * <p>Filter migration tasks by discovered resource name.</p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
+
+    /**
+     * <p>Filter migration tasks by discovered resource name.</p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
 
     /**
      * <p>Filter migration tasks by discovered resource name.</p>

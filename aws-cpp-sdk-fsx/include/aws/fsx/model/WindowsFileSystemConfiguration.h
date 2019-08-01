@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/fsx/FSx_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/fsx/model/SelfManagedActiveDirectoryAttributes.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/fsx/model/FileSystemMaintenanceOperation.h>
 #include <utility>
@@ -60,6 +61,12 @@ namespace Model
      * <p>The ID for an existing Microsoft Active Directory instance that the file
      * system should join when it's created.</p>
      */
+    inline bool ActiveDirectoryIdHasBeenSet() const { return m_activeDirectoryIdHasBeenSet; }
+
+    /**
+     * <p>The ID for an existing Microsoft Active Directory instance that the file
+     * system should join when it's created.</p>
+     */
     inline void SetActiveDirectoryId(const Aws::String& value) { m_activeDirectoryIdHasBeenSet = true; m_activeDirectoryId = value; }
 
     /**
@@ -93,11 +100,36 @@ namespace Model
     inline WindowsFileSystemConfiguration& WithActiveDirectoryId(const char* value) { SetActiveDirectoryId(value); return *this;}
 
 
+    
+    inline const SelfManagedActiveDirectoryAttributes& GetSelfManagedActiveDirectoryConfiguration() const{ return m_selfManagedActiveDirectoryConfiguration; }
+
+    
+    inline bool SelfManagedActiveDirectoryConfigurationHasBeenSet() const { return m_selfManagedActiveDirectoryConfigurationHasBeenSet; }
+
+    
+    inline void SetSelfManagedActiveDirectoryConfiguration(const SelfManagedActiveDirectoryAttributes& value) { m_selfManagedActiveDirectoryConfigurationHasBeenSet = true; m_selfManagedActiveDirectoryConfiguration = value; }
+
+    
+    inline void SetSelfManagedActiveDirectoryConfiguration(SelfManagedActiveDirectoryAttributes&& value) { m_selfManagedActiveDirectoryConfigurationHasBeenSet = true; m_selfManagedActiveDirectoryConfiguration = std::move(value); }
+
+    
+    inline WindowsFileSystemConfiguration& WithSelfManagedActiveDirectoryConfiguration(const SelfManagedActiveDirectoryAttributes& value) { SetSelfManagedActiveDirectoryConfiguration(value); return *this;}
+
+    
+    inline WindowsFileSystemConfiguration& WithSelfManagedActiveDirectoryConfiguration(SelfManagedActiveDirectoryAttributes&& value) { SetSelfManagedActiveDirectoryConfiguration(std::move(value)); return *this;}
+
+
     /**
      * <p>The throughput of an Amazon FSx file system, measured in megabytes per
      * second.</p>
      */
     inline int GetThroughputCapacity() const{ return m_throughputCapacity; }
+
+    /**
+     * <p>The throughput of an Amazon FSx file system, measured in megabytes per
+     * second.</p>
+     */
+    inline bool ThroughputCapacityHasBeenSet() const { return m_throughputCapacityHasBeenSet; }
 
     /**
      * <p>The throughput of an Amazon FSx file system, measured in megabytes per
@@ -116,6 +148,11 @@ namespace Model
      * <p>The list of maintenance operations in progress for this file system.</p>
      */
     inline const Aws::Vector<FileSystemMaintenanceOperation>& GetMaintenanceOperationsInProgress() const{ return m_maintenanceOperationsInProgress; }
+
+    /**
+     * <p>The list of maintenance operations in progress for this file system.</p>
+     */
+    inline bool MaintenanceOperationsInProgressHasBeenSet() const { return m_maintenanceOperationsInProgressHasBeenSet; }
 
     /**
      * <p>The list of maintenance operations in progress for this file system.</p>
@@ -156,6 +193,11 @@ namespace Model
     /**
      * <p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>
      */
+    inline bool WeeklyMaintenanceStartTimeHasBeenSet() const { return m_weeklyMaintenanceStartTimeHasBeenSet; }
+
+    /**
+     * <p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>
+     */
     inline void SetWeeklyMaintenanceStartTime(const Aws::String& value) { m_weeklyMaintenanceStartTimeHasBeenSet = true; m_weeklyMaintenanceStartTime = value; }
 
     /**
@@ -188,6 +230,11 @@ namespace Model
      * <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
      */
     inline const Aws::String& GetDailyAutomaticBackupStartTime() const{ return m_dailyAutomaticBackupStartTime; }
+
+    /**
+     * <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
+     */
+    inline bool DailyAutomaticBackupStartTimeHasBeenSet() const { return m_dailyAutomaticBackupStartTimeHasBeenSet; }
 
     /**
      * <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
@@ -232,6 +279,13 @@ namespace Model
      * automatic backups. You can retain automatic backups for a maximum of 35
      * days.</p>
      */
+    inline bool AutomaticBackupRetentionDaysHasBeenSet() const { return m_automaticBackupRetentionDaysHasBeenSet; }
+
+    /**
+     * <p>The number of days to retain automatic backups. Setting this to 0 disables
+     * automatic backups. You can retain automatic backups for a maximum of 35
+     * days.</p>
+     */
     inline void SetAutomaticBackupRetentionDays(int value) { m_automaticBackupRetentionDaysHasBeenSet = true; m_automaticBackupRetentionDays = value; }
 
     /**
@@ -258,6 +312,15 @@ namespace Model
      * the user doesn't specify any tags. If this value is true, and you specify one or
      * more tags, only the specified tags are copied to backups.</p>
      */
+    inline bool CopyTagsToBackupsHasBeenSet() const { return m_copyTagsToBackupsHasBeenSet; }
+
+    /**
+     * <p>A boolean flag indicating whether tags on the file system should be copied to
+     * backups. This value defaults to false. If it's set to true, all tags on the file
+     * system are copied to all automatic backups and any user-initiated backups where
+     * the user doesn't specify any tags. If this value is true, and you specify one or
+     * more tags, only the specified tags are copied to backups.</p>
+     */
     inline void SetCopyTagsToBackups(bool value) { m_copyTagsToBackupsHasBeenSet = true; m_copyTagsToBackups = value; }
 
     /**
@@ -273,6 +336,9 @@ namespace Model
 
     Aws::String m_activeDirectoryId;
     bool m_activeDirectoryIdHasBeenSet;
+
+    SelfManagedActiveDirectoryAttributes m_selfManagedActiveDirectoryConfiguration;
+    bool m_selfManagedActiveDirectoryConfigurationHasBeenSet;
 
     int m_throughputCapacity;
     bool m_throughputCapacityHasBeenSet;

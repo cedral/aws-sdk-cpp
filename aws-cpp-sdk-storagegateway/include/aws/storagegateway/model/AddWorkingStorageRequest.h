@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     AddWorkingStorageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,9 @@ namespace Model
 
     
     inline const Aws::String& GetGatewayARN() const{ return m_gatewayARN; }
+
+    
+    inline bool GatewayARNHasBeenSet() const { return m_gatewayARNHasBeenSet; }
 
     
     inline void SetGatewayARN(const Aws::String& value) { m_gatewayARNHasBeenSet = true; m_gatewayARN = value; }
@@ -78,6 +81,13 @@ namespace Model
      * can get the disk IDs from the <a>ListLocalDisks</a> API.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDiskIds() const{ return m_diskIds; }
+
+    /**
+     * <p>An array of strings that identify disks that are to be configured as working
+     * storage. Each string have a minimum length of 1 and maximum length of 300. You
+     * can get the disk IDs from the <a>ListLocalDisks</a> API.</p>
+     */
+    inline bool DiskIdsHasBeenSet() const { return m_diskIdsHasBeenSet; }
 
     /**
      * <p>An array of strings that identify disks that are to be configured as working

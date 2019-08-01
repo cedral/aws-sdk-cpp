@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetFileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the repository that contains the file.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository that contains the file.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository that contains the file.</p>
@@ -87,6 +92,14 @@ namespace Model
      * will be used.</p>
      */
     inline const Aws::String& GetCommitSpecifier() const{ return m_commitSpecifier; }
+
+    /**
+     * <p>The fully-quaified reference that identifies the commit that contains the
+     * file. For example, you could specify a full commit ID, a tag, a branch name, or
+     * a reference such as refs/heads/master. If none is provided, then the head commit
+     * will be used.</p>
+     */
+    inline bool CommitSpecifierHasBeenSet() const { return m_commitSpecifierHasBeenSet; }
 
     /**
      * <p>The fully-quaified reference that identifies the commit that contains the
@@ -143,6 +156,13 @@ namespace Model
      * file named file.md in a folder named examples.</p>
      */
     inline const Aws::String& GetFilePath() const{ return m_filePath; }
+
+    /**
+     * <p>The fully-qualified path to the file, including the full name and extension
+     * of the file. For example, /examples/file.md is the fully-qualified path to a
+     * file named file.md in a folder named examples.</p>
+     */
+    inline bool FilePathHasBeenSet() const { return m_filePathHasBeenSet; }
 
     /**
      * <p>The fully-qualified path to the file, including the full name and extension

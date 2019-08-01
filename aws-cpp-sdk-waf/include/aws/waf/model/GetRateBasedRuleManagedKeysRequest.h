@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetRateBasedRuleManagedKeysRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</p>
      */
     inline const Aws::String& GetRuleId() const{ return m_ruleId; }
+
+    /**
+     * <p>The <code>RuleId</code> of the <a>RateBasedRule</a> for which you want to get
+     * a list of <code>ManagedKeys</code>. <code>RuleId</code> is returned by
+     * <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</p>
+     */
+    inline bool RuleIdHasBeenSet() const { return m_ruleIdHasBeenSet; }
 
     /**
      * <p>The <code>RuleId</code> of the <a>RateBasedRule</a> for which you want to get
@@ -98,6 +105,11 @@ namespace Model
      * <p>A null value and not currently used. Do not include this in your request.</p>
      */
     inline const Aws::String& GetNextMarker() const{ return m_nextMarker; }
+
+    /**
+     * <p>A null value and not currently used. Do not include this in your request.</p>
+     */
+    inline bool NextMarkerHasBeenSet() const { return m_nextMarkerHasBeenSet; }
 
     /**
      * <p>A null value and not currently used. Do not include this in your request.</p>

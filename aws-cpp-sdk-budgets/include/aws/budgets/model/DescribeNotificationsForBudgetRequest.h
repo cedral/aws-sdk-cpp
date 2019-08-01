@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DescribeNotificationsForBudgetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * notifications you want descriptions of.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The <code>accountId</code> that is associated with the budget whose
+     * notifications you want descriptions of.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The <code>accountId</code> that is associated with the budget whose
@@ -98,6 +104,11 @@ namespace Model
     /**
      * <p>The name of the budget whose notifications you want descriptions of.</p>
      */
+    inline bool BudgetNameHasBeenSet() const { return m_budgetNameHasBeenSet; }
+
+    /**
+     * <p>The name of the budget whose notifications you want descriptions of.</p>
+     */
     inline void SetBudgetName(const Aws::String& value) { m_budgetNameHasBeenSet = true; m_budgetName = value; }
 
     /**
@@ -136,6 +147,12 @@ namespace Model
      * <p>An optional integer that represents how many entries a paginated response
      * contains. The maximum is 100.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>An optional integer that represents how many entries a paginated response
+     * contains. The maximum is 100.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -150,6 +167,12 @@ namespace Model
      * set of results that you want to retrieve.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The pagination token that you include in your request to indicate the next
+     * set of results that you want to retrieve.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The pagination token that you include in your request to indicate the next

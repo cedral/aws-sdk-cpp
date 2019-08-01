@@ -60,6 +60,11 @@ namespace Model
     /**
      * <p>The identifier of the streaming session.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The identifier of the streaming session.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -92,6 +97,11 @@ namespace Model
      * <p>The identifier of the user for whom the session was created.</p>
      */
     inline const Aws::String& GetUserId() const{ return m_userId; }
+
+    /**
+     * <p>The identifier of the user for whom the session was created.</p>
+     */
+    inline bool UserIdHasBeenSet() const { return m_userIdHasBeenSet; }
 
     /**
      * <p>The identifier of the user for whom the session was created.</p>
@@ -132,6 +142,11 @@ namespace Model
     /**
      * <p>The name of the stack for the streaming session.</p>
      */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
+
+    /**
+     * <p>The name of the stack for the streaming session.</p>
+     */
     inline void SetStackName(const Aws::String& value) { m_stackNameHasBeenSet = true; m_stackName = value; }
 
     /**
@@ -164,6 +179,11 @@ namespace Model
      * <p>The name of the fleet for the streaming session.</p>
      */
     inline const Aws::String& GetFleetName() const{ return m_fleetName; }
+
+    /**
+     * <p>The name of the fleet for the streaming session.</p>
+     */
+    inline bool FleetNameHasBeenSet() const { return m_fleetNameHasBeenSet; }
 
     /**
      * <p>The name of the fleet for the streaming session.</p>
@@ -204,6 +224,11 @@ namespace Model
     /**
      * <p>The current state of the streaming session.</p>
      */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
+
+    /**
+     * <p>The current state of the streaming session.</p>
+     */
     inline void SetState(const SessionState& value) { m_stateHasBeenSet = true; m_state = value; }
 
     /**
@@ -223,53 +248,63 @@ namespace Model
 
 
     /**
-     * <p>Specifies whether a user is connected to the streaming session. </p>
+     * <p>Specifies whether a user is connected to the streaming session.</p>
      */
     inline const SessionConnectionState& GetConnectionState() const{ return m_connectionState; }
 
     /**
-     * <p>Specifies whether a user is connected to the streaming session. </p>
+     * <p>Specifies whether a user is connected to the streaming session.</p>
+     */
+    inline bool ConnectionStateHasBeenSet() const { return m_connectionStateHasBeenSet; }
+
+    /**
+     * <p>Specifies whether a user is connected to the streaming session.</p>
      */
     inline void SetConnectionState(const SessionConnectionState& value) { m_connectionStateHasBeenSet = true; m_connectionState = value; }
 
     /**
-     * <p>Specifies whether a user is connected to the streaming session. </p>
+     * <p>Specifies whether a user is connected to the streaming session.</p>
      */
     inline void SetConnectionState(SessionConnectionState&& value) { m_connectionStateHasBeenSet = true; m_connectionState = std::move(value); }
 
     /**
-     * <p>Specifies whether a user is connected to the streaming session. </p>
+     * <p>Specifies whether a user is connected to the streaming session.</p>
      */
     inline Session& WithConnectionState(const SessionConnectionState& value) { SetConnectionState(value); return *this;}
 
     /**
-     * <p>Specifies whether a user is connected to the streaming session. </p>
+     * <p>Specifies whether a user is connected to the streaming session.</p>
      */
     inline Session& WithConnectionState(SessionConnectionState&& value) { SetConnectionState(std::move(value)); return *this;}
 
 
     /**
-     * <p>The time when a streaming instance is dedicated for the user. </p>
+     * <p>The time when a streaming instance is dedicated for the user.</p>
      */
     inline const Aws::Utils::DateTime& GetStartTime() const{ return m_startTime; }
 
     /**
-     * <p>The time when a streaming instance is dedicated for the user. </p>
+     * <p>The time when a streaming instance is dedicated for the user.</p>
+     */
+    inline bool StartTimeHasBeenSet() const { return m_startTimeHasBeenSet; }
+
+    /**
+     * <p>The time when a streaming instance is dedicated for the user.</p>
      */
     inline void SetStartTime(const Aws::Utils::DateTime& value) { m_startTimeHasBeenSet = true; m_startTime = value; }
 
     /**
-     * <p>The time when a streaming instance is dedicated for the user. </p>
+     * <p>The time when a streaming instance is dedicated for the user.</p>
      */
     inline void SetStartTime(Aws::Utils::DateTime&& value) { m_startTimeHasBeenSet = true; m_startTime = std::move(value); }
 
     /**
-     * <p>The time when a streaming instance is dedicated for the user. </p>
+     * <p>The time when a streaming instance is dedicated for the user.</p>
      */
     inline Session& WithStartTime(const Aws::Utils::DateTime& value) { SetStartTime(value); return *this;}
 
     /**
-     * <p>The time when a streaming instance is dedicated for the user. </p>
+     * <p>The time when a streaming instance is dedicated for the user.</p>
      */
     inline Session& WithStartTime(Aws::Utils::DateTime&& value) { SetStartTime(std::move(value)); return *this;}
 
@@ -285,6 +320,18 @@ namespace Model
      * and the streaming session ends.</p>
      */
     inline const Aws::Utils::DateTime& GetMaxExpirationTime() const{ return m_maxExpirationTime; }
+
+    /**
+     * <p>The time when the streaming session is set to expire. This time is based on
+     * the <code>MaxUserDurationinSeconds</code> value, which determines the maximum
+     * length of time that a streaming session can run. A streaming session might end
+     * earlier than the time specified in <code>SessionMaxExpirationTime</code>, when
+     * the <code>DisconnectTimeOutInSeconds</code> elapses or the user chooses to end
+     * his or her session. If the <code>DisconnectTimeOutInSeconds</code> elapses, or
+     * the user chooses to end his or her session, the streaming instance is terminated
+     * and the streaming session ends.</p>
+     */
+    inline bool MaxExpirationTimeHasBeenSet() const { return m_maxExpirationTimeHasBeenSet; }
 
     /**
      * <p>The time when the streaming session is set to expire. This time is based on
@@ -337,41 +384,37 @@ namespace Model
 
     /**
      * <p>The authentication method. The user is authenticated using a streaming URL
-     * (<code>API</code>), SAML 2.0 federation (<code>SAML</code>), or the AppStream
-     * 2.0 user pool (<code>USERPOOL</code>). The default is to authenticate users
-     * using a streaming URL. </p>
+     * (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
      */
     inline const AuthenticationType& GetAuthenticationType() const{ return m_authenticationType; }
 
     /**
      * <p>The authentication method. The user is authenticated using a streaming URL
-     * (<code>API</code>), SAML 2.0 federation (<code>SAML</code>), or the AppStream
-     * 2.0 user pool (<code>USERPOOL</code>). The default is to authenticate users
-     * using a streaming URL. </p>
+     * (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
+     */
+    inline bool AuthenticationTypeHasBeenSet() const { return m_authenticationTypeHasBeenSet; }
+
+    /**
+     * <p>The authentication method. The user is authenticated using a streaming URL
+     * (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
      */
     inline void SetAuthenticationType(const AuthenticationType& value) { m_authenticationTypeHasBeenSet = true; m_authenticationType = value; }
 
     /**
      * <p>The authentication method. The user is authenticated using a streaming URL
-     * (<code>API</code>), SAML 2.0 federation (<code>SAML</code>), or the AppStream
-     * 2.0 user pool (<code>USERPOOL</code>). The default is to authenticate users
-     * using a streaming URL. </p>
+     * (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
      */
     inline void SetAuthenticationType(AuthenticationType&& value) { m_authenticationTypeHasBeenSet = true; m_authenticationType = std::move(value); }
 
     /**
      * <p>The authentication method. The user is authenticated using a streaming URL
-     * (<code>API</code>), SAML 2.0 federation (<code>SAML</code>), or the AppStream
-     * 2.0 user pool (<code>USERPOOL</code>). The default is to authenticate users
-     * using a streaming URL. </p>
+     * (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
      */
     inline Session& WithAuthenticationType(const AuthenticationType& value) { SetAuthenticationType(value); return *this;}
 
     /**
      * <p>The authentication method. The user is authenticated using a streaming URL
-     * (<code>API</code>), SAML 2.0 federation (<code>SAML</code>), or the AppStream
-     * 2.0 user pool (<code>USERPOOL</code>). The default is to authenticate users
-     * using a streaming URL. </p>
+     * (<code>API</code>) or SAML 2.0 federation (<code>SAML</code>).</p>
      */
     inline Session& WithAuthenticationType(AuthenticationType&& value) { SetAuthenticationType(std::move(value)); return *this;}
 
@@ -380,6 +423,11 @@ namespace Model
      * <p>The network details for the streaming session.</p>
      */
     inline const NetworkAccessConfiguration& GetNetworkAccessConfiguration() const{ return m_networkAccessConfiguration; }
+
+    /**
+     * <p>The network details for the streaming session.</p>
+     */
+    inline bool NetworkAccessConfigurationHasBeenSet() const { return m_networkAccessConfigurationHasBeenSet; }
 
     /**
      * <p>The network details for the streaming session.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetTrailStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,15 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>Specifies the name or the CloudTrail ARN of the trail for which you are
+     * requesting status. To get the status of a shadow trail (a replication of the
+     * trail in another region), you must specify its ARN. The format of a trail ARN
+     * is:</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+     * </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>Specifies the name or the CloudTrail ARN of the trail for which you are

@@ -27,8 +27,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a PollForThirdPartyJobs action.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Represents the input of a <code>PollForThirdPartyJobs</code>
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/PollForThirdPartyJobsInput">AWS
    * API Reference</a></p>
    */
@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     PollForThirdPartyJobsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>Represents information about an action type.</p>
      */
     inline const ActionTypeId& GetActionTypeId() const{ return m_actionTypeId; }
+
+    /**
+     * <p>Represents information about an action type.</p>
+     */
+    inline bool ActionTypeIdHasBeenSet() const { return m_actionTypeIdHasBeenSet; }
 
     /**
      * <p>Represents information about an action type.</p>
@@ -78,6 +83,11 @@ namespace Model
      * <p>The maximum number of jobs to return in a poll for jobs call.</p>
      */
     inline int GetMaxBatchSize() const{ return m_maxBatchSize; }
+
+    /**
+     * <p>The maximum number of jobs to return in a poll for jobs call.</p>
+     */
+    inline bool MaxBatchSizeHasBeenSet() const { return m_maxBatchSizeHasBeenSet; }
 
     /**
      * <p>The maximum number of jobs to return in a poll for jobs call.</p>

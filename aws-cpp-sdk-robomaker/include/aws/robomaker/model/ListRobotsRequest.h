@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListRobotsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,17 @@ namespace Model
      * purposes.</p> </note>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The <code>nextToken</code> value returned from a previous paginated
+     * <code>ListRobots</code> request where <code>maxResults</code> was used and the
+     * results exceeded the value of that parameter. Pagination continues from the end
+     * of the previous results that returned the <code>nextToken</code> value. </p>
+     * <note> <p>This token should be treated as an opaque identifier that is only used
+     * to retrieve the next items in a list and not for other programmatic
+     * purposes.</p> </note>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -127,7 +138,7 @@ namespace Model
      * <code>ListRobots</code> in paginated output. When this parameter is used,
      * <code>ListRobots</code> only returns <code>maxResults</code> results in a single
      * page along with a <code>nextToken</code> response element. The remaining results
-     * of the initial request can be seen by sending another <code>ListFleets</code>
+     * of the initial request can be seen by sending another <code>ListRobots</code>
      * request with the returned <code>nextToken</code> value. This value can be
      * between 1 and 100. If this parameter is not used, then <code>ListRobots</code>
      * returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
@@ -139,7 +150,19 @@ namespace Model
      * <code>ListRobots</code> in paginated output. When this parameter is used,
      * <code>ListRobots</code> only returns <code>maxResults</code> results in a single
      * page along with a <code>nextToken</code> response element. The remaining results
-     * of the initial request can be seen by sending another <code>ListFleets</code>
+     * of the initial request can be seen by sending another <code>ListRobots</code>
+     * request with the returned <code>nextToken</code> value. This value can be
+     * between 1 and 100. If this parameter is not used, then <code>ListRobots</code>
+     * returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of deployment job results returned by
+     * <code>ListRobots</code> in paginated output. When this parameter is used,
+     * <code>ListRobots</code> only returns <code>maxResults</code> results in a single
+     * page along with a <code>nextToken</code> response element. The remaining results
+     * of the initial request can be seen by sending another <code>ListRobots</code>
      * request with the returned <code>nextToken</code> value. This value can be
      * between 1 and 100. If this parameter is not used, then <code>ListRobots</code>
      * returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
@@ -151,7 +174,7 @@ namespace Model
      * <code>ListRobots</code> in paginated output. When this parameter is used,
      * <code>ListRobots</code> only returns <code>maxResults</code> results in a single
      * page along with a <code>nextToken</code> response element. The remaining results
-     * of the initial request can be seen by sending another <code>ListFleets</code>
+     * of the initial request can be seen by sending another <code>ListRobots</code>
      * request with the returned <code>nextToken</code> value. This value can be
      * between 1 and 100. If this parameter is not used, then <code>ListRobots</code>
      * returns up to 100 results and a <code>nextToken</code> value if applicable. </p>
@@ -160,37 +183,82 @@ namespace Model
 
 
     /**
-     * <p>Optional filters to limit results.</p>
+     * <p>Optional filters to limit results.</p> <p>The filter names
+     * <code>status</code> and <code>fleetName</code> are supported. When filtering,
+     * you must use the complete value of the filtered item. You can use up to three
+     * filters, but they must be for the same named item. For example, if you are
+     * looking for items with the status <code>Registered</code> or the status
+     * <code>Available</code>.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>Optional filters to limit results.</p>
+     * <p>Optional filters to limit results.</p> <p>The filter names
+     * <code>status</code> and <code>fleetName</code> are supported. When filtering,
+     * you must use the complete value of the filtered item. You can use up to three
+     * filters, but they must be for the same named item. For example, if you are
+     * looking for items with the status <code>Registered</code> or the status
+     * <code>Available</code>.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>Optional filters to limit results.</p> <p>The filter names
+     * <code>status</code> and <code>fleetName</code> are supported. When filtering,
+     * you must use the complete value of the filtered item. You can use up to three
+     * filters, but they must be for the same named item. For example, if you are
+     * looking for items with the status <code>Registered</code> or the status
+     * <code>Available</code>.</p>
      */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>Optional filters to limit results.</p>
+     * <p>Optional filters to limit results.</p> <p>The filter names
+     * <code>status</code> and <code>fleetName</code> are supported. When filtering,
+     * you must use the complete value of the filtered item. You can use up to three
+     * filters, but they must be for the same named item. For example, if you are
+     * looking for items with the status <code>Registered</code> or the status
+     * <code>Available</code>.</p>
      */
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>Optional filters to limit results.</p>
+     * <p>Optional filters to limit results.</p> <p>The filter names
+     * <code>status</code> and <code>fleetName</code> are supported. When filtering,
+     * you must use the complete value of the filtered item. You can use up to three
+     * filters, but they must be for the same named item. For example, if you are
+     * looking for items with the status <code>Registered</code> or the status
+     * <code>Available</code>.</p>
      */
     inline ListRobotsRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>Optional filters to limit results.</p>
+     * <p>Optional filters to limit results.</p> <p>The filter names
+     * <code>status</code> and <code>fleetName</code> are supported. When filtering,
+     * you must use the complete value of the filtered item. You can use up to three
+     * filters, but they must be for the same named item. For example, if you are
+     * looking for items with the status <code>Registered</code> or the status
+     * <code>Available</code>.</p>
      */
     inline ListRobotsRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
-     * <p>Optional filters to limit results.</p>
+     * <p>Optional filters to limit results.</p> <p>The filter names
+     * <code>status</code> and <code>fleetName</code> are supported. When filtering,
+     * you must use the complete value of the filtered item. You can use up to three
+     * filters, but they must be for the same named item. For example, if you are
+     * looking for items with the status <code>Registered</code> or the status
+     * <code>Available</code>.</p>
      */
     inline ListRobotsRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
-     * <p>Optional filters to limit results.</p>
+     * <p>Optional filters to limit results.</p> <p>The filter names
+     * <code>status</code> and <code>fleetName</code> are supported. When filtering,
+     * you must use the complete value of the filtered item. You can use up to three
+     * filters, but they must be for the same named item. For example, if you are
+     * looking for items with the status <code>Registered</code> or the status
+     * <code>Available</code>.</p>
      */
     inline ListRobotsRequest& AddFilters(Filter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
 

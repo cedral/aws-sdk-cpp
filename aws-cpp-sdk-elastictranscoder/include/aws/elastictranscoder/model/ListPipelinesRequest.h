@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ListPipelinesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,13 @@ namespace Model
      * order, enter <code>false</code>.</p>
      */
     inline const Aws::String& GetAscending() const{ return m_ascending; }
+
+    /**
+     * <p>To list pipelines in chronological order by the date and time that they were
+     * created, enter <code>true</code>. To list pipelines in reverse chronological
+     * order, enter <code>false</code>.</p>
+     */
+    inline bool AscendingHasBeenSet() const { return m_ascendingHasBeenSet; }
 
     /**
      * <p>To list pipelines in chronological order by the date and time that they were
@@ -107,6 +114,13 @@ namespace Model
      * successive page of results. </p>
      */
     inline const Aws::String& GetPageToken() const{ return m_pageToken; }
+
+    /**
+     * <p>When Elastic Transcoder returns more than one page of results, use
+     * <code>pageToken</code> in subsequent <code>GET</code> requests to get each
+     * successive page of results. </p>
+     */
+    inline bool PageTokenHasBeenSet() const { return m_pageTokenHasBeenSet; }
 
     /**
      * <p>When Elastic Transcoder returns more than one page of results, use

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteEndpointConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the endpoint configuration that you want to delete.</p>
      */
     inline const Aws::String& GetEndpointConfigName() const{ return m_endpointConfigName; }
+
+    /**
+     * <p>The name of the endpoint configuration that you want to delete.</p>
+     */
+    inline bool EndpointConfigNameHasBeenSet() const { return m_endpointConfigNameHasBeenSet; }
 
     /**
      * <p>The name of the endpoint configuration that you want to delete.</p>

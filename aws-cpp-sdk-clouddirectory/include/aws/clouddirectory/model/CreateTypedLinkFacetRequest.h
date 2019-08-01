@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateTypedLinkFacetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * information, see <a>arns</a>.</p>
      */
     inline const Aws::String& GetSchemaArn() const{ return m_schemaArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
+     * information, see <a>arns</a>.</p>
+     */
+    inline bool SchemaArnHasBeenSet() const { return m_schemaArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that is associated with the schema. For more
@@ -92,6 +98,11 @@ namespace Model
      * <p> <a>Facet</a> structure that is associated with the typed link facet.</p>
      */
     inline const TypedLinkFacet& GetFacet() const{ return m_facet; }
+
+    /**
+     * <p> <a>Facet</a> structure that is associated with the typed link facet.</p>
+     */
+    inline bool FacetHasBeenSet() const { return m_facetHasBeenSet; }
 
     /**
      * <p> <a>Facet</a> structure that is associated with the typed link facet.</p>

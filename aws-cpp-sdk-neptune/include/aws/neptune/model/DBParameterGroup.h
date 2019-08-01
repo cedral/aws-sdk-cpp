@@ -34,9 +34,9 @@ namespace Model
 {
 
   /**
-   * <p>Contains the details of an Amazon Neptune DB parameter group. </p> <p>This
+   * <p>Contains the details of an Amazon Neptune DB parameter group.</p> <p>This
    * data type is used as a response element in the <a>DescribeDBParameterGroups</a>
-   * action. </p><p><h3>See Also:</h3>   <a
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DBParameterGroup">AWS
    * API Reference</a></p>
    */
@@ -55,6 +55,11 @@ namespace Model
      * <p>Provides the name of the DB parameter group.</p>
      */
     inline const Aws::String& GetDBParameterGroupName() const{ return m_dBParameterGroupName; }
+
+    /**
+     * <p>Provides the name of the DB parameter group.</p>
+     */
+    inline bool DBParameterGroupNameHasBeenSet() const { return m_dBParameterGroupNameHasBeenSet; }
 
     /**
      * <p>Provides the name of the DB parameter group.</p>
@@ -92,6 +97,12 @@ namespace Model
      * group is compatible with.</p>
      */
     inline const Aws::String& GetDBParameterGroupFamily() const{ return m_dBParameterGroupFamily; }
+
+    /**
+     * <p>Provides the name of the DB parameter group family that this DB parameter
+     * group is compatible with.</p>
+     */
+    inline bool DBParameterGroupFamilyHasBeenSet() const { return m_dBParameterGroupFamilyHasBeenSet; }
 
     /**
      * <p>Provides the name of the DB parameter group family that this DB parameter
@@ -138,6 +149,11 @@ namespace Model
     /**
      * <p>Provides the customer-specified description for this DB parameter group.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>Provides the customer-specified description for this DB parameter group.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -170,6 +186,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) for the DB parameter group.</p>
      */
     inline const Aws::String& GetDBParameterGroupArn() const{ return m_dBParameterGroupArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the DB parameter group.</p>
+     */
+    inline bool DBParameterGroupArnHasBeenSet() const { return m_dBParameterGroupArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) for the DB parameter group.</p>

@@ -19,6 +19,8 @@
 #include <aws/ssm/model/ParameterType.h>
 #include <aws/core/utils/DateTime.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ssm/model/ParameterTier.h>
+#include <aws/ssm/model/ParameterInlinePolicy.h>
 #include <utility>
 
 namespace Aws
@@ -54,6 +56,11 @@ namespace Model
      * <p>The name of the parameter.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the parameter.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the parameter.</p>
@@ -94,6 +101,11 @@ namespace Model
     /**
      * <p>The type of parameter used.</p>
      */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
+
+    /**
+     * <p>The type of parameter used.</p>
+     */
     inline void SetType(const ParameterType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
@@ -116,6 +128,11 @@ namespace Model
      * <p>The ID of the query key used for this parameter.</p>
      */
     inline const Aws::String& GetKeyId() const{ return m_keyId; }
+
+    /**
+     * <p>The ID of the query key used for this parameter.</p>
+     */
+    inline bool KeyIdHasBeenSet() const { return m_keyIdHasBeenSet; }
 
     /**
      * <p>The ID of the query key used for this parameter.</p>
@@ -156,6 +173,11 @@ namespace Model
     /**
      * <p>Date the parameter was last changed or updated.</p>
      */
+    inline bool LastModifiedDateHasBeenSet() const { return m_lastModifiedDateHasBeenSet; }
+
+    /**
+     * <p>Date the parameter was last changed or updated.</p>
+     */
     inline void SetLastModifiedDate(const Aws::Utils::DateTime& value) { m_lastModifiedDateHasBeenSet = true; m_lastModifiedDate = value; }
 
     /**
@@ -179,6 +201,12 @@ namespace Model
      * parameter.</p>
      */
     inline const Aws::String& GetLastModifiedUser() const{ return m_lastModifiedUser; }
+
+    /**
+     * <p>Amazon Resource Name (ARN) of the AWS user who last changed the
+     * parameter.</p>
+     */
+    inline bool LastModifiedUserHasBeenSet() const { return m_lastModifiedUserHasBeenSet; }
 
     /**
      * <p>Amazon Resource Name (ARN) of the AWS user who last changed the
@@ -225,6 +253,11 @@ namespace Model
     /**
      * <p>Information about the parameter.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>Information about the parameter.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -257,6 +290,11 @@ namespace Model
      * <p>The parameter value.</p>
      */
     inline const Aws::String& GetValue() const{ return m_value; }
+
+    /**
+     * <p>The parameter value.</p>
+     */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
 
     /**
      * <p>The parameter value.</p>
@@ -294,6 +332,12 @@ namespace Model
      * <p>a-zA-Z0-9_.-</p>
      */
     inline const Aws::String& GetAllowedPattern() const{ return m_allowedPattern; }
+
+    /**
+     * <p>Parameter names can include the following letters and symbols.</p>
+     * <p>a-zA-Z0-9_.-</p>
+     */
+    inline bool AllowedPatternHasBeenSet() const { return m_allowedPatternHasBeenSet; }
 
     /**
      * <p>Parameter names can include the following letters and symbols.</p>
@@ -340,6 +384,11 @@ namespace Model
     /**
      * <p>The parameter version.</p>
      */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
+
+    /**
+     * <p>The parameter version.</p>
+     */
     inline void SetVersion(long long value) { m_versionHasBeenSet = true; m_version = value; }
 
     /**
@@ -352,6 +401,11 @@ namespace Model
      * <p>Labels assigned to the parameter version.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLabels() const{ return m_labels; }
+
+    /**
+     * <p>Labels assigned to the parameter version.</p>
+     */
+    inline bool LabelsHasBeenSet() const { return m_labelsHasBeenSet; }
 
     /**
      * <p>Labels assigned to the parameter version.</p>
@@ -388,6 +442,94 @@ namespace Model
      */
     inline ParameterHistory& AddLabels(const char* value) { m_labelsHasBeenSet = true; m_labels.push_back(value); return *this; }
 
+
+    /**
+     * <p>The parameter tier.</p>
+     */
+    inline const ParameterTier& GetTier() const{ return m_tier; }
+
+    /**
+     * <p>The parameter tier.</p>
+     */
+    inline bool TierHasBeenSet() const { return m_tierHasBeenSet; }
+
+    /**
+     * <p>The parameter tier.</p>
+     */
+    inline void SetTier(const ParameterTier& value) { m_tierHasBeenSet = true; m_tier = value; }
+
+    /**
+     * <p>The parameter tier.</p>
+     */
+    inline void SetTier(ParameterTier&& value) { m_tierHasBeenSet = true; m_tier = std::move(value); }
+
+    /**
+     * <p>The parameter tier.</p>
+     */
+    inline ParameterHistory& WithTier(const ParameterTier& value) { SetTier(value); return *this;}
+
+    /**
+     * <p>The parameter tier.</p>
+     */
+    inline ParameterHistory& WithTier(ParameterTier&& value) { SetTier(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Information about the policies assigned to a parameter.</p> <p> <a
+     * href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working
+     * with Parameter Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+     */
+    inline const Aws::Vector<ParameterInlinePolicy>& GetPolicies() const{ return m_policies; }
+
+    /**
+     * <p>Information about the policies assigned to a parameter.</p> <p> <a
+     * href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working
+     * with Parameter Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+     */
+    inline bool PoliciesHasBeenSet() const { return m_policiesHasBeenSet; }
+
+    /**
+     * <p>Information about the policies assigned to a parameter.</p> <p> <a
+     * href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working
+     * with Parameter Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+     */
+    inline void SetPolicies(const Aws::Vector<ParameterInlinePolicy>& value) { m_policiesHasBeenSet = true; m_policies = value; }
+
+    /**
+     * <p>Information about the policies assigned to a parameter.</p> <p> <a
+     * href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working
+     * with Parameter Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+     */
+    inline void SetPolicies(Aws::Vector<ParameterInlinePolicy>&& value) { m_policiesHasBeenSet = true; m_policies = std::move(value); }
+
+    /**
+     * <p>Information about the policies assigned to a parameter.</p> <p> <a
+     * href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working
+     * with Parameter Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+     */
+    inline ParameterHistory& WithPolicies(const Aws::Vector<ParameterInlinePolicy>& value) { SetPolicies(value); return *this;}
+
+    /**
+     * <p>Information about the policies assigned to a parameter.</p> <p> <a
+     * href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working
+     * with Parameter Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+     */
+    inline ParameterHistory& WithPolicies(Aws::Vector<ParameterInlinePolicy>&& value) { SetPolicies(std::move(value)); return *this;}
+
+    /**
+     * <p>Information about the policies assigned to a parameter.</p> <p> <a
+     * href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working
+     * with Parameter Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+     */
+    inline ParameterHistory& AddPolicies(const ParameterInlinePolicy& value) { m_policiesHasBeenSet = true; m_policies.push_back(value); return *this; }
+
+    /**
+     * <p>Information about the policies assigned to a parameter.</p> <p> <a
+     * href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-policies.html">Working
+     * with Parameter Policies</a> in the <i>AWS Systems Manager User Guide</i>.</p>
+     */
+    inline ParameterHistory& AddPolicies(ParameterInlinePolicy&& value) { m_policiesHasBeenSet = true; m_policies.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_name;
@@ -419,6 +561,12 @@ namespace Model
 
     Aws::Vector<Aws::String> m_labels;
     bool m_labelsHasBeenSet;
+
+    ParameterTier m_tier;
+    bool m_tierHasBeenSet;
+
+    Aws::Vector<ParameterInlinePolicy> m_policies;
+    bool m_policiesHasBeenSet;
   };
 
 } // namespace Model

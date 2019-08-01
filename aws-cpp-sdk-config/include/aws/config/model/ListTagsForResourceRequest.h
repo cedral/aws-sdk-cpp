@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,14 @@ namespace Model
      * <code>AggregatorAuthorization</code>.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list
+     * the tags. Currently, the supported resources are <code>ConfigRule</code>,
+     * <code>ConfigurationAggregator</code> and
+     * <code>AggregatorAuthorization</code>.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list
@@ -113,6 +121,13 @@ namespace Model
      * You cannot specify a number greater than 50. If you specify 0, AWS Config uses
      * the default. </p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of tags returned on each page. The limit maximum is 50.
+     * You cannot specify a number greater than 50. If you specify 0, AWS Config uses
+     * the default. </p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -128,6 +143,12 @@ namespace Model
      * page of results in a paginated response. </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The nextToken string returned on a previous page that you use to get the next
+     * page of results in a paginated response. </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The nextToken string returned on a previous page that you use to get the next

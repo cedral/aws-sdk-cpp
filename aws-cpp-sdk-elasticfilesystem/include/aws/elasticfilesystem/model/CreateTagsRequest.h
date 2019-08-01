@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * operation modifies the tags only, not the file system.</p>
      */
     inline const Aws::String& GetFileSystemId() const{ return m_fileSystemId; }
+
+    /**
+     * <p>The ID of the file system whose tags you want to modify (String). This
+     * operation modifies the tags only, not the file system.</p>
+     */
+    inline bool FileSystemIdHasBeenSet() const { return m_fileSystemIdHasBeenSet; }
 
     /**
      * <p>The ID of the file system whose tags you want to modify (String). This
@@ -95,6 +101,12 @@ namespace Model
      * a key-value pair. </p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is
+     * a key-value pair. </p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListEntityRecognizersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * one filter at a time.</p>
      */
     inline const EntityRecognizerFilter& GetFilter() const{ return m_filter; }
+
+    /**
+     * <p>Filters the list of entities returned. You can filter on <code>Status</code>,
+     * <code>SubmitTimeBefore</code>, or <code>SubmitTimeAfter</code>. You can only set
+     * one filter at a time.</p>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
      * <p>Filters the list of entities returned. You can filter on <code>Status</code>,
@@ -89,6 +96,11 @@ namespace Model
     /**
      * <p>Identifies the next page of results to return.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>Identifies the next page of results to return.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -122,6 +134,12 @@ namespace Model
      * 100.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p> The maximum number of results to return on each page. The default is
+     * 100.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p> The maximum number of results to return on each page. The default is

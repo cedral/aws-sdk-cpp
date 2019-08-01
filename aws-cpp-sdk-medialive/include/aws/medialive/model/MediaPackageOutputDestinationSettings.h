@@ -34,7 +34,7 @@ namespace Model
 {
 
   /**
-   * Media Package Output Destination Settings<p><h3>See Also:</h3>   <a
+   * MediaPackage Output Destination Settings<p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/MediaPackageOutputDestinationSettings">AWS
    * API Reference</a></p>
    */
@@ -55,6 +55,15 @@ namespace Model
      * region.
      */
     inline const Aws::String& GetChannelId() const{ return m_channelId; }
+
+    /**
+     * ID of the channel in MediaPackage that is the destination for this output group.
+     * You do not need to specify the individual inputs in MediaPackage; MediaLive will
+     * handle the connection of the two MediaLive pipelines to the two MediaPackage
+     * inputs. The MediaPackage channel and MediaLive channel must be in the same
+     * region.
+     */
+    inline bool ChannelIdHasBeenSet() const { return m_channelIdHasBeenSet; }
 
     /**
      * ID of the channel in MediaPackage that is the destination for this output group.

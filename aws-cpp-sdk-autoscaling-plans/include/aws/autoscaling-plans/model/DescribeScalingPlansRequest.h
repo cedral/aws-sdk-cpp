@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeScalingPlansRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * sources, you cannot specify scaling plan names.</p>
      */
     inline const Aws::Vector<Aws::String>& GetScalingPlanNames() const{ return m_scalingPlanNames; }
+
+    /**
+     * <p>The names of the scaling plans (up to 10). If you specify application
+     * sources, you cannot specify scaling plan names.</p>
+     */
+    inline bool ScalingPlanNamesHasBeenSet() const { return m_scalingPlanNamesHasBeenSet; }
 
     /**
      * <p>The names of the scaling plans (up to 10). If you specify application
@@ -105,6 +111,12 @@ namespace Model
      * <p>The version number of the scaling plan. If you specify a scaling plan
      * version, you must also specify a scaling plan name.</p>
      */
+    inline bool ScalingPlanVersionHasBeenSet() const { return m_scalingPlanVersionHasBeenSet; }
+
+    /**
+     * <p>The version number of the scaling plan. If you specify a scaling plan
+     * version, you must also specify a scaling plan name.</p>
+     */
     inline void SetScalingPlanVersion(long long value) { m_scalingPlanVersionHasBeenSet = true; m_scalingPlanVersion = value; }
 
     /**
@@ -119,6 +131,12 @@ namespace Model
      * names, you cannot specify application sources.</p>
      */
     inline const Aws::Vector<ApplicationSource>& GetApplicationSources() const{ return m_applicationSources; }
+
+    /**
+     * <p>The sources for the applications (up to 10). If you specify scaling plan
+     * names, you cannot specify application sources.</p>
+     */
+    inline bool ApplicationSourcesHasBeenSet() const { return m_applicationSourcesHasBeenSet; }
 
     /**
      * <p>The sources for the applications (up to 10). If you specify scaling plan
@@ -167,6 +185,12 @@ namespace Model
      * <p>The maximum number of scalable resources to return. This value can be between
      * 1 and 50. The default value is 50.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of scalable resources to return. This value can be between
+     * 1 and 50. The default value is 50.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -180,6 +204,11 @@ namespace Model
      * <p>The token for the next set of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next set of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next set of results.</p>

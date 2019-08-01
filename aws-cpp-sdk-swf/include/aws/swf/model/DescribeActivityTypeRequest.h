@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeActivityTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the domain in which the activity type is registered.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The name of the domain in which the activity type is registered.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The name of the domain in which the activity type is registered.</p>
@@ -87,6 +92,13 @@ namespace Model
      * activity was registered.</p>
      */
     inline const ActivityType& GetActivityType() const{ return m_activityType; }
+
+    /**
+     * <p>The activity type to get information about. Activity types are identified by
+     * the <code>name</code> and <code>version</code> that were supplied when the
+     * activity was registered.</p>
+     */
+    inline bool ActivityTypeHasBeenSet() const { return m_activityTypeHasBeenSet; }
 
     /**
      * <p>The activity type to get information about. Activity types are identified by

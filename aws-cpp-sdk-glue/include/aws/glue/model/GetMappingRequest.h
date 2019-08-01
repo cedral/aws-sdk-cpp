@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     GetMappingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>Specifies the source table.</p>
      */
     inline const CatalogEntry& GetSource() const{ return m_source; }
+
+    /**
+     * <p>Specifies the source table.</p>
+     */
+    inline bool SourceHasBeenSet() const { return m_sourceHasBeenSet; }
 
     /**
      * <p>Specifies the source table.</p>
@@ -76,6 +81,11 @@ namespace Model
      * <p>A list of target tables.</p>
      */
     inline const Aws::Vector<CatalogEntry>& GetSinks() const{ return m_sinks; }
+
+    /**
+     * <p>A list of target tables.</p>
+     */
+    inline bool SinksHasBeenSet() const { return m_sinksHasBeenSet; }
 
     /**
      * <p>A list of target tables.</p>
@@ -112,6 +122,11 @@ namespace Model
      * <p>Parameters for the mapping.</p>
      */
     inline const Location& GetLocation() const{ return m_location; }
+
+    /**
+     * <p>Parameters for the mapping.</p>
+     */
+    inline bool LocationHasBeenSet() const { return m_locationHasBeenSet; }
 
     /**
      * <p>Parameters for the mapping.</p>

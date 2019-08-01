@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     CreateFlowRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * limited to the Availability Zones within the current AWS Region.
      */
     inline const Aws::String& GetAvailabilityZone() const{ return m_availabilityZone; }
+
+    /**
+     * The Availability Zone that you want to create the flow in. These options are
+     * limited to the Availability Zones within the current AWS Region.
+     */
+    inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
 
     /**
      * The Availability Zone that you want to create the flow in. These options are
@@ -102,6 +108,11 @@ namespace Model
     /**
      * The entitlements that you want to grant on a flow.
      */
+    inline bool EntitlementsHasBeenSet() const { return m_entitlementsHasBeenSet; }
+
+    /**
+     * The entitlements that you want to grant on a flow.
+     */
     inline void SetEntitlements(const Aws::Vector<GrantEntitlementRequest>& value) { m_entitlementsHasBeenSet = true; m_entitlements = value; }
 
     /**
@@ -134,6 +145,11 @@ namespace Model
      * The name of the flow.
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * The name of the flow.
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * The name of the flow.
@@ -174,6 +190,11 @@ namespace Model
     /**
      * The outputs that you want to add to this flow.
      */
+    inline bool OutputsHasBeenSet() const { return m_outputsHasBeenSet; }
+
+    /**
+     * The outputs that you want to add to this flow.
+     */
     inline void SetOutputs(const Aws::Vector<AddOutputRequest>& value) { m_outputsHasBeenSet = true; m_outputs = value; }
 
     /**
@@ -204,6 +225,9 @@ namespace Model
 
     
     inline const SetSourceRequest& GetSource() const{ return m_source; }
+
+    
+    inline bool SourceHasBeenSet() const { return m_sourceHasBeenSet; }
 
     
     inline void SetSource(const SetSourceRequest& value) { m_sourceHasBeenSet = true; m_source = value; }

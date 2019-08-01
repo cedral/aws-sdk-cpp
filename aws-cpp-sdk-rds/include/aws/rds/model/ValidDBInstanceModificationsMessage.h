@@ -38,8 +38,9 @@ namespace Model
   /**
    * <p>Information about valid modifications that you can make to your DB instance.
    * Contains the result of a successful call to the
-   * <a>DescribeValidDBInstanceModifications</a> action. You can use this information
-   * when you call <a>ModifyDBInstance</a>. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeValidDBInstanceModifications</code> action. You can use this
+   * information when you call <code>ModifyDBInstance</code>. </p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ValidDBInstanceModificationsMessage">AWS
    * API Reference</a></p>
    */
@@ -58,6 +59,11 @@ namespace Model
      * <p>Valid storage options for your DB instance. </p>
      */
     inline const Aws::Vector<ValidStorageOptions>& GetStorage() const{ return m_storage; }
+
+    /**
+     * <p>Valid storage options for your DB instance. </p>
+     */
+    inline bool StorageHasBeenSet() const { return m_storageHasBeenSet; }
 
     /**
      * <p>Valid storage options for your DB instance. </p>
@@ -94,6 +100,11 @@ namespace Model
      * <p>Valid processor features for your DB instance. </p>
      */
     inline const Aws::Vector<AvailableProcessorFeature>& GetValidProcessorFeatures() const{ return m_validProcessorFeatures; }
+
+    /**
+     * <p>Valid processor features for your DB instance. </p>
+     */
+    inline bool ValidProcessorFeaturesHasBeenSet() const { return m_validProcessorFeaturesHasBeenSet; }
 
     /**
      * <p>Valid processor features for your DB instance. </p>

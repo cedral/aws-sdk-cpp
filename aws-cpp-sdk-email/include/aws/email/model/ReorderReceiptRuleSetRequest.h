@@ -31,7 +31,7 @@ namespace Model
    * <p>Represents a request to reorder the receipt rules within a receipt rule set.
    * You use receipt rule sets to receive email with Amazon SES. For more
    * information, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ReorderReceiptRuleSetRequest">AWS
    * API Reference</a></p>
@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     ReorderReceiptRuleSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,11 @@ namespace Model
      * <p>The name of the receipt rule set to reorder.</p>
      */
     inline const Aws::String& GetRuleSetName() const{ return m_ruleSetName; }
+
+    /**
+     * <p>The name of the receipt rule set to reorder.</p>
+     */
+    inline bool RuleSetNameHasBeenSet() const { return m_ruleSetNameHasBeenSet; }
 
     /**
      * <p>The name of the receipt rule set to reorder.</p>
@@ -95,6 +100,12 @@ namespace Model
      * you want to put them.</p>
      */
     inline const Aws::Vector<Aws::String>& GetRuleNames() const{ return m_ruleNames; }
+
+    /**
+     * <p>A list of the specified receipt rule set's receipt rules in the order that
+     * you want to put them.</p>
+     */
+    inline bool RuleNamesHasBeenSet() const { return m_ruleNamesHasBeenSet; }
 
     /**
      * <p>A list of the specified receipt rule set's receipt rules in the order that

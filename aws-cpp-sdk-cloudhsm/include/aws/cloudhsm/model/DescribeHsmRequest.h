@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeHsmRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * <code>SerialNumber</code> parameter must be specified.</p>
      */
     inline const Aws::String& GetHsmArn() const{ return m_hsmArn; }
+
+    /**
+     * <p>The ARN of the HSM. Either the <code>HsmArn</code> or the
+     * <code>SerialNumber</code> parameter must be specified.</p>
+     */
+    inline bool HsmArnHasBeenSet() const { return m_hsmArnHasBeenSet; }
 
     /**
      * <p>The ARN of the HSM. Either the <code>HsmArn</code> or the
@@ -96,6 +102,12 @@ namespace Model
      * <code>HsmSerialNumber</code> parameter must be specified.</p>
      */
     inline const Aws::String& GetHsmSerialNumber() const{ return m_hsmSerialNumber; }
+
+    /**
+     * <p>The serial number of the HSM. Either the <code>HsmArn</code> or the
+     * <code>HsmSerialNumber</code> parameter must be specified.</p>
+     */
+    inline bool HsmSerialNumberHasBeenSet() const { return m_hsmSerialNumberHasBeenSet; }
 
     /**
      * <p>The serial number of the HSM. Either the <code>HsmArn</code> or the

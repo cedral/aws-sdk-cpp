@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     BatchGetImageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * describe. If you do not specify a registry, the default registry is assumed.</p>
      */
     inline const Aws::String& GetRegistryId() const{ return m_registryId; }
+
+    /**
+     * <p>The AWS account ID associated with the registry that contains the images to
+     * describe. If you do not specify a registry, the default registry is assumed.</p>
+     */
+    inline bool RegistryIdHasBeenSet() const { return m_registryIdHasBeenSet; }
 
     /**
      * <p>The AWS account ID associated with the registry that contains the images to
@@ -97,6 +103,11 @@ namespace Model
     /**
      * <p>The repository that contains the images to describe.</p>
      */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
+
+    /**
+     * <p>The repository that contains the images to describe.</p>
+     */
     inline void SetRepositoryName(const Aws::String& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = value; }
 
     /**
@@ -131,6 +142,13 @@ namespace Model
      * <code>imageDigest=digest</code>.</p>
      */
     inline const Aws::Vector<ImageIdentifier>& GetImageIds() const{ return m_imageIds; }
+
+    /**
+     * <p>A list of image ID references that correspond to images to describe. The
+     * format of the <code>imageIds</code> reference is <code>imageTag=tag</code> or
+     * <code>imageDigest=digest</code>.</p>
+     */
+    inline bool ImageIdsHasBeenSet() const { return m_imageIdsHasBeenSet; }
 
     /**
      * <p>A list of image ID references that correspond to images to describe. The
@@ -182,6 +200,14 @@ namespace Model
      * <code>application/vnd.oci.image.manifest.v1+json</code> </p>
      */
     inline const Aws::Vector<Aws::String>& GetAcceptedMediaTypes() const{ return m_acceptedMediaTypes; }
+
+    /**
+     * <p>The accepted media types for the request.</p> <p>Valid values:
+     * <code>application/vnd.docker.distribution.manifest.v1+json</code> |
+     * <code>application/vnd.docker.distribution.manifest.v2+json</code> |
+     * <code>application/vnd.oci.image.manifest.v1+json</code> </p>
+     */
+    inline bool AcceptedMediaTypesHasBeenSet() const { return m_acceptedMediaTypesHasBeenSet; }
 
     /**
      * <p>The accepted media types for the request.</p> <p>Valid values:

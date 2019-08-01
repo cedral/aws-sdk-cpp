@@ -23,6 +23,7 @@
 #include <aws/ecs/model/Scale.h>
 #include <aws/ecs/model/StabilityStatus.h>
 #include <aws/ecs/model/LoadBalancer.h>
+#include <aws/ecs/model/ServiceRegistry.h>
 #include <utility>
 
 namespace Aws
@@ -41,10 +42,10 @@ namespace Model
 {
 
   /**
-   * <p>Information about a set of Amazon ECS tasks in an AWS CodeDeploy deployment.
-   * An Amazon ECS task set includes details such as the desired number of tasks, how
-   * many tasks are running, and whether the task set serves production
-   * traffic.</p><p><h3>See Also:</h3>   <a
+   * <p>Information about a set of Amazon ECS tasks in either an AWS CodeDeploy or an
+   * <code>EXTERNAL</code> deployment. An Amazon ECS task set includes details such
+   * as the desired number of tasks, how many tasks are running, and whether the task
+   * set serves production traffic.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/TaskSet">AWS API
    * Reference</a></p>
    */
@@ -61,6 +62,11 @@ namespace Model
      * <p>The ID of the task set.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID of the task set.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID of the task set.</p>
@@ -101,6 +107,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the task set.</p>
      */
+    inline bool TaskSetArnHasBeenSet() const { return m_taskSetArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the task set.</p>
+     */
     inline void SetTaskSetArn(const Aws::String& value) { m_taskSetArnHasBeenSet = true; m_taskSetArn = value; }
 
     /**
@@ -130,87 +141,237 @@ namespace Model
 
 
     /**
-     * <p>The tag specified when a task set is started. If the task is started by an
-     * AWS CodeDeploy deployment, then the <code>startedBy</code> parameter is
-     * <code>CODE_DEPLOY</code>.</p>
+     * <p>The Amazon Resource Name (ARN) of the service the task set exists in.</p>
+     */
+    inline const Aws::String& GetServiceArn() const{ return m_serviceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the service the task set exists in.</p>
+     */
+    inline bool ServiceArnHasBeenSet() const { return m_serviceArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the service the task set exists in.</p>
+     */
+    inline void SetServiceArn(const Aws::String& value) { m_serviceArnHasBeenSet = true; m_serviceArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the service the task set exists in.</p>
+     */
+    inline void SetServiceArn(Aws::String&& value) { m_serviceArnHasBeenSet = true; m_serviceArn = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the service the task set exists in.</p>
+     */
+    inline void SetServiceArn(const char* value) { m_serviceArnHasBeenSet = true; m_serviceArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the service the task set exists in.</p>
+     */
+    inline TaskSet& WithServiceArn(const Aws::String& value) { SetServiceArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the service the task set exists in.</p>
+     */
+    inline TaskSet& WithServiceArn(Aws::String&& value) { SetServiceArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the service the task set exists in.</p>
+     */
+    inline TaskSet& WithServiceArn(const char* value) { SetServiceArn(value); return *this;}
+
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the
+     * task set exists in.</p>
+     */
+    inline const Aws::String& GetClusterArn() const{ return m_clusterArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the
+     * task set exists in.</p>
+     */
+    inline bool ClusterArnHasBeenSet() const { return m_clusterArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the
+     * task set exists in.</p>
+     */
+    inline void SetClusterArn(const Aws::String& value) { m_clusterArnHasBeenSet = true; m_clusterArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the
+     * task set exists in.</p>
+     */
+    inline void SetClusterArn(Aws::String&& value) { m_clusterArnHasBeenSet = true; m_clusterArn = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the
+     * task set exists in.</p>
+     */
+    inline void SetClusterArn(const char* value) { m_clusterArnHasBeenSet = true; m_clusterArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the
+     * task set exists in.</p>
+     */
+    inline TaskSet& WithClusterArn(const Aws::String& value) { SetClusterArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the
+     * task set exists in.</p>
+     */
+    inline TaskSet& WithClusterArn(Aws::String&& value) { SetClusterArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the cluster that the service that hosts the
+     * task set exists in.</p>
+     */
+    inline TaskSet& WithClusterArn(const char* value) { SetClusterArn(value); return *this;}
+
+
+    /**
+     * <p>The tag specified when a task set is started. If the task set is created by
+     * an AWS CodeDeploy deployment, the <code>startedBy</code> parameter is
+     * <code>CODE_DEPLOY</code>. For a task set created for an external deployment, the
+     * startedBy field isn't used.</p>
      */
     inline const Aws::String& GetStartedBy() const{ return m_startedBy; }
 
     /**
-     * <p>The tag specified when a task set is started. If the task is started by an
-     * AWS CodeDeploy deployment, then the <code>startedBy</code> parameter is
-     * <code>CODE_DEPLOY</code>.</p>
+     * <p>The tag specified when a task set is started. If the task set is created by
+     * an AWS CodeDeploy deployment, the <code>startedBy</code> parameter is
+     * <code>CODE_DEPLOY</code>. For a task set created for an external deployment, the
+     * startedBy field isn't used.</p>
+     */
+    inline bool StartedByHasBeenSet() const { return m_startedByHasBeenSet; }
+
+    /**
+     * <p>The tag specified when a task set is started. If the task set is created by
+     * an AWS CodeDeploy deployment, the <code>startedBy</code> parameter is
+     * <code>CODE_DEPLOY</code>. For a task set created for an external deployment, the
+     * startedBy field isn't used.</p>
      */
     inline void SetStartedBy(const Aws::String& value) { m_startedByHasBeenSet = true; m_startedBy = value; }
 
     /**
-     * <p>The tag specified when a task set is started. If the task is started by an
-     * AWS CodeDeploy deployment, then the <code>startedBy</code> parameter is
-     * <code>CODE_DEPLOY</code>.</p>
+     * <p>The tag specified when a task set is started. If the task set is created by
+     * an AWS CodeDeploy deployment, the <code>startedBy</code> parameter is
+     * <code>CODE_DEPLOY</code>. For a task set created for an external deployment, the
+     * startedBy field isn't used.</p>
      */
     inline void SetStartedBy(Aws::String&& value) { m_startedByHasBeenSet = true; m_startedBy = std::move(value); }
 
     /**
-     * <p>The tag specified when a task set is started. If the task is started by an
-     * AWS CodeDeploy deployment, then the <code>startedBy</code> parameter is
-     * <code>CODE_DEPLOY</code>.</p>
+     * <p>The tag specified when a task set is started. If the task set is created by
+     * an AWS CodeDeploy deployment, the <code>startedBy</code> parameter is
+     * <code>CODE_DEPLOY</code>. For a task set created for an external deployment, the
+     * startedBy field isn't used.</p>
      */
     inline void SetStartedBy(const char* value) { m_startedByHasBeenSet = true; m_startedBy.assign(value); }
 
     /**
-     * <p>The tag specified when a task set is started. If the task is started by an
-     * AWS CodeDeploy deployment, then the <code>startedBy</code> parameter is
-     * <code>CODE_DEPLOY</code>.</p>
+     * <p>The tag specified when a task set is started. If the task set is created by
+     * an AWS CodeDeploy deployment, the <code>startedBy</code> parameter is
+     * <code>CODE_DEPLOY</code>. For a task set created for an external deployment, the
+     * startedBy field isn't used.</p>
      */
     inline TaskSet& WithStartedBy(const Aws::String& value) { SetStartedBy(value); return *this;}
 
     /**
-     * <p>The tag specified when a task set is started. If the task is started by an
-     * AWS CodeDeploy deployment, then the <code>startedBy</code> parameter is
-     * <code>CODE_DEPLOY</code>.</p>
+     * <p>The tag specified when a task set is started. If the task set is created by
+     * an AWS CodeDeploy deployment, the <code>startedBy</code> parameter is
+     * <code>CODE_DEPLOY</code>. For a task set created for an external deployment, the
+     * startedBy field isn't used.</p>
      */
     inline TaskSet& WithStartedBy(Aws::String&& value) { SetStartedBy(std::move(value)); return *this;}
 
     /**
-     * <p>The tag specified when a task set is started. If the task is started by an
-     * AWS CodeDeploy deployment, then the <code>startedBy</code> parameter is
-     * <code>CODE_DEPLOY</code>.</p>
+     * <p>The tag specified when a task set is started. If the task set is created by
+     * an AWS CodeDeploy deployment, the <code>startedBy</code> parameter is
+     * <code>CODE_DEPLOY</code>. For a task set created for an external deployment, the
+     * startedBy field isn't used.</p>
      */
     inline TaskSet& WithStartedBy(const char* value) { SetStartedBy(value); return *this;}
 
 
     /**
-     * <p>The deployment ID of the AWS CodeDeploy deployment.</p>
+     * <p>The external ID associated with the task set.</p> <p>If a task set is created
+     * by an AWS CodeDeploy deployment, the <code>externalId</code> parameter contains
+     * the AWS CodeDeploy deployment ID.</p> <p>If a task set is created for an
+     * external deployment and is associated with a service discovery registry, the
+     * <code>externalId</code> parameter contains the
+     * <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
      */
     inline const Aws::String& GetExternalId() const{ return m_externalId; }
 
     /**
-     * <p>The deployment ID of the AWS CodeDeploy deployment.</p>
+     * <p>The external ID associated with the task set.</p> <p>If a task set is created
+     * by an AWS CodeDeploy deployment, the <code>externalId</code> parameter contains
+     * the AWS CodeDeploy deployment ID.</p> <p>If a task set is created for an
+     * external deployment and is associated with a service discovery registry, the
+     * <code>externalId</code> parameter contains the
+     * <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
+     */
+    inline bool ExternalIdHasBeenSet() const { return m_externalIdHasBeenSet; }
+
+    /**
+     * <p>The external ID associated with the task set.</p> <p>If a task set is created
+     * by an AWS CodeDeploy deployment, the <code>externalId</code> parameter contains
+     * the AWS CodeDeploy deployment ID.</p> <p>If a task set is created for an
+     * external deployment and is associated with a service discovery registry, the
+     * <code>externalId</code> parameter contains the
+     * <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
      */
     inline void SetExternalId(const Aws::String& value) { m_externalIdHasBeenSet = true; m_externalId = value; }
 
     /**
-     * <p>The deployment ID of the AWS CodeDeploy deployment.</p>
+     * <p>The external ID associated with the task set.</p> <p>If a task set is created
+     * by an AWS CodeDeploy deployment, the <code>externalId</code> parameter contains
+     * the AWS CodeDeploy deployment ID.</p> <p>If a task set is created for an
+     * external deployment and is associated with a service discovery registry, the
+     * <code>externalId</code> parameter contains the
+     * <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
      */
     inline void SetExternalId(Aws::String&& value) { m_externalIdHasBeenSet = true; m_externalId = std::move(value); }
 
     /**
-     * <p>The deployment ID of the AWS CodeDeploy deployment.</p>
+     * <p>The external ID associated with the task set.</p> <p>If a task set is created
+     * by an AWS CodeDeploy deployment, the <code>externalId</code> parameter contains
+     * the AWS CodeDeploy deployment ID.</p> <p>If a task set is created for an
+     * external deployment and is associated with a service discovery registry, the
+     * <code>externalId</code> parameter contains the
+     * <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
      */
     inline void SetExternalId(const char* value) { m_externalIdHasBeenSet = true; m_externalId.assign(value); }
 
     /**
-     * <p>The deployment ID of the AWS CodeDeploy deployment.</p>
+     * <p>The external ID associated with the task set.</p> <p>If a task set is created
+     * by an AWS CodeDeploy deployment, the <code>externalId</code> parameter contains
+     * the AWS CodeDeploy deployment ID.</p> <p>If a task set is created for an
+     * external deployment and is associated with a service discovery registry, the
+     * <code>externalId</code> parameter contains the
+     * <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
      */
     inline TaskSet& WithExternalId(const Aws::String& value) { SetExternalId(value); return *this;}
 
     /**
-     * <p>The deployment ID of the AWS CodeDeploy deployment.</p>
+     * <p>The external ID associated with the task set.</p> <p>If a task set is created
+     * by an AWS CodeDeploy deployment, the <code>externalId</code> parameter contains
+     * the AWS CodeDeploy deployment ID.</p> <p>If a task set is created for an
+     * external deployment and is associated with a service discovery registry, the
+     * <code>externalId</code> parameter contains the
+     * <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
      */
     inline TaskSet& WithExternalId(Aws::String&& value) { SetExternalId(std::move(value)); return *this;}
 
     /**
-     * <p>The deployment ID of the AWS CodeDeploy deployment.</p>
+     * <p>The external ID associated with the task set.</p> <p>If a task set is created
+     * by an AWS CodeDeploy deployment, the <code>externalId</code> parameter contains
+     * the AWS CodeDeploy deployment ID.</p> <p>If a task set is created for an
+     * external deployment and is associated with a service discovery registry, the
+     * <code>externalId</code> parameter contains the
+     * <code>ECS_TASK_SET_EXTERNAL_ID</code> AWS Cloud Map attribute.</p>
      */
     inline TaskSet& WithExternalId(const char* value) { SetExternalId(value); return *this;}
 
@@ -224,6 +385,16 @@ namespace Model
      * </dd> </dl>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the task set. The following describes each state:</p> <dl>
+     * <dt>PRIMARY</dt> <dd> <p>The task set is serving production traffic.</p> </dd>
+     * <dt>ACTIVE</dt> <dd> <p>The task set is not serving production traffic.</p>
+     * </dd> <dt>DRAINING</dt> <dd> <p>The tasks in the task set are being stopped and
+     * their corresponding targets are being deregistered from their target group.</p>
+     * </dd> </dl>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the task set. The following describes each state:</p> <dl>
@@ -294,6 +465,11 @@ namespace Model
     /**
      * <p>The task definition the task set is using.</p>
      */
+    inline bool TaskDefinitionHasBeenSet() const { return m_taskDefinitionHasBeenSet; }
+
+    /**
+     * <p>The task definition the task set is using.</p>
+     */
     inline void SetTaskDefinition(const Aws::String& value) { m_taskDefinitionHasBeenSet = true; m_taskDefinition = value; }
 
     /**
@@ -325,21 +501,32 @@ namespace Model
     /**
      * <p>The computed desired count for the task set. This is calculated by
      * multiplying the service's <code>desiredCount</code> by the task set's
-     * <code>scale</code> percentage.</p>
+     * <code>scale</code> percentage. The result is always rounded up. For example, if
+     * the computed desired count is 1.2, it rounds up to 2 tasks.</p>
      */
     inline int GetComputedDesiredCount() const{ return m_computedDesiredCount; }
 
     /**
      * <p>The computed desired count for the task set. This is calculated by
      * multiplying the service's <code>desiredCount</code> by the task set's
-     * <code>scale</code> percentage.</p>
+     * <code>scale</code> percentage. The result is always rounded up. For example, if
+     * the computed desired count is 1.2, it rounds up to 2 tasks.</p>
+     */
+    inline bool ComputedDesiredCountHasBeenSet() const { return m_computedDesiredCountHasBeenSet; }
+
+    /**
+     * <p>The computed desired count for the task set. This is calculated by
+     * multiplying the service's <code>desiredCount</code> by the task set's
+     * <code>scale</code> percentage. The result is always rounded up. For example, if
+     * the computed desired count is 1.2, it rounds up to 2 tasks.</p>
      */
     inline void SetComputedDesiredCount(int value) { m_computedDesiredCountHasBeenSet = true; m_computedDesiredCount = value; }
 
     /**
      * <p>The computed desired count for the task set. This is calculated by
      * multiplying the service's <code>desiredCount</code> by the task set's
-     * <code>scale</code> percentage.</p>
+     * <code>scale</code> percentage. The result is always rounded up. For example, if
+     * the computed desired count is 1.2, it rounds up to 2 tasks.</p>
      */
     inline TaskSet& WithComputedDesiredCount(int value) { SetComputedDesiredCount(value); return *this;}
 
@@ -348,7 +535,7 @@ namespace Model
      * <p>The number of tasks in the task set that are in the <code>PENDING</code>
      * status during a deployment. A task in the <code>PENDING</code> state is
      * preparing to enter the <code>RUNNING</code> state. A task set enters the
-     * <code>PENDING</code> status when it launches for the first time, or when it is
+     * <code>PENDING</code> status when it launches for the first time or when it is
      * restarted after being in the <code>STOPPED</code> state.</p>
      */
     inline int GetPendingCount() const{ return m_pendingCount; }
@@ -357,7 +544,16 @@ namespace Model
      * <p>The number of tasks in the task set that are in the <code>PENDING</code>
      * status during a deployment. A task in the <code>PENDING</code> state is
      * preparing to enter the <code>RUNNING</code> state. A task set enters the
-     * <code>PENDING</code> status when it launches for the first time, or when it is
+     * <code>PENDING</code> status when it launches for the first time or when it is
+     * restarted after being in the <code>STOPPED</code> state.</p>
+     */
+    inline bool PendingCountHasBeenSet() const { return m_pendingCountHasBeenSet; }
+
+    /**
+     * <p>The number of tasks in the task set that are in the <code>PENDING</code>
+     * status during a deployment. A task in the <code>PENDING</code> state is
+     * preparing to enter the <code>RUNNING</code> state. A task set enters the
+     * <code>PENDING</code> status when it launches for the first time or when it is
      * restarted after being in the <code>STOPPED</code> state.</p>
      */
     inline void SetPendingCount(int value) { m_pendingCountHasBeenSet = true; m_pendingCount = value; }
@@ -366,7 +562,7 @@ namespace Model
      * <p>The number of tasks in the task set that are in the <code>PENDING</code>
      * status during a deployment. A task in the <code>PENDING</code> state is
      * preparing to enter the <code>RUNNING</code> state. A task set enters the
-     * <code>PENDING</code> status when it launches for the first time, or when it is
+     * <code>PENDING</code> status when it launches for the first time or when it is
      * restarted after being in the <code>STOPPED</code> state.</p>
      */
     inline TaskSet& WithPendingCount(int value) { SetPendingCount(value); return *this;}
@@ -378,6 +574,13 @@ namespace Model
      * and ready for use.</p>
      */
     inline int GetRunningCount() const{ return m_runningCount; }
+
+    /**
+     * <p>The number of tasks in the task set that are in the <code>RUNNING</code>
+     * status during a deployment. A task in the <code>RUNNING</code> state is running
+     * and ready for use.</p>
+     */
+    inline bool RunningCountHasBeenSet() const { return m_runningCountHasBeenSet; }
 
     /**
      * <p>The number of tasks in the task set that are in the <code>RUNNING</code>
@@ -398,6 +601,11 @@ namespace Model
      * <p>The Unix timestamp for when the task set was created.</p>
      */
     inline const Aws::Utils::DateTime& GetCreatedAt() const{ return m_createdAt; }
+
+    /**
+     * <p>The Unix timestamp for when the task set was created.</p>
+     */
+    inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
 
     /**
      * <p>The Unix timestamp for when the task set was created.</p>
@@ -428,6 +636,11 @@ namespace Model
     /**
      * <p>The Unix timestamp for when the task set was last updated.</p>
      */
+    inline bool UpdatedAtHasBeenSet() const { return m_updatedAtHasBeenSet; }
+
+    /**
+     * <p>The Unix timestamp for when the task set was last updated.</p>
+     */
     inline void SetUpdatedAt(const Aws::Utils::DateTime& value) { m_updatedAtHasBeenSet = true; m_updatedAt = value; }
 
     /**
@@ -454,6 +667,15 @@ namespace Model
      * Guide</i>.</p>
      */
     inline const LaunchType& GetLaunchType() const{ return m_launchType; }
+
+    /**
+     * <p>The launch type the tasks in the task set are using. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+     * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p>
+     */
+    inline bool LaunchTypeHasBeenSet() const { return m_launchTypeHasBeenSet; }
 
     /**
      * <p>The launch type the tasks in the task set are using. For more information,
@@ -502,6 +724,17 @@ namespace Model
      * Developer Guide</i>.</p>
      */
     inline const Aws::String& GetPlatformVersion() const{ return m_platformVersion; }
+
+    /**
+     * <p>The platform version on which the tasks in the task set are running. A
+     * platform version is only specified for tasks using the Fargate launch type. If
+     * one is not specified, the <code>LATEST</code> platform version is used by
+     * default. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+     * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p>
+     */
+    inline bool PlatformVersionHasBeenSet() const { return m_platformVersionHasBeenSet; }
 
     /**
      * <p>The platform version on which the tasks in the task set are running. A
@@ -578,6 +811,11 @@ namespace Model
     /**
      * <p>The network configuration for the task set.</p>
      */
+    inline bool NetworkConfigurationHasBeenSet() const { return m_networkConfigurationHasBeenSet; }
+
+    /**
+     * <p>The network configuration for the task set.</p>
+     */
     inline void SetNetworkConfiguration(const NetworkConfiguration& value) { m_networkConfigurationHasBeenSet = true; m_networkConfiguration = value; }
 
     /**
@@ -600,6 +838,11 @@ namespace Model
      * <p>Details on a load balancer that is used with a task set.</p>
      */
     inline const Aws::Vector<LoadBalancer>& GetLoadBalancers() const{ return m_loadBalancers; }
+
+    /**
+     * <p>Details on a load balancer that is used with a task set.</p>
+     */
+    inline bool LoadBalancersHasBeenSet() const { return m_loadBalancersHasBeenSet; }
 
     /**
      * <p>Details on a load balancer that is used with a task set.</p>
@@ -633,32 +876,103 @@ namespace Model
 
 
     /**
+     * <p>The details of the service discovery registries to assign to this task set.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * Discovery</a>.</p>
+     */
+    inline const Aws::Vector<ServiceRegistry>& GetServiceRegistries() const{ return m_serviceRegistries; }
+
+    /**
+     * <p>The details of the service discovery registries to assign to this task set.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * Discovery</a>.</p>
+     */
+    inline bool ServiceRegistriesHasBeenSet() const { return m_serviceRegistriesHasBeenSet; }
+
+    /**
+     * <p>The details of the service discovery registries to assign to this task set.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * Discovery</a>.</p>
+     */
+    inline void SetServiceRegistries(const Aws::Vector<ServiceRegistry>& value) { m_serviceRegistriesHasBeenSet = true; m_serviceRegistries = value; }
+
+    /**
+     * <p>The details of the service discovery registries to assign to this task set.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * Discovery</a>.</p>
+     */
+    inline void SetServiceRegistries(Aws::Vector<ServiceRegistry>&& value) { m_serviceRegistriesHasBeenSet = true; m_serviceRegistries = std::move(value); }
+
+    /**
+     * <p>The details of the service discovery registries to assign to this task set.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * Discovery</a>.</p>
+     */
+    inline TaskSet& WithServiceRegistries(const Aws::Vector<ServiceRegistry>& value) { SetServiceRegistries(value); return *this;}
+
+    /**
+     * <p>The details of the service discovery registries to assign to this task set.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * Discovery</a>.</p>
+     */
+    inline TaskSet& WithServiceRegistries(Aws::Vector<ServiceRegistry>&& value) { SetServiceRegistries(std::move(value)); return *this;}
+
+    /**
+     * <p>The details of the service discovery registries to assign to this task set.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * Discovery</a>.</p>
+     */
+    inline TaskSet& AddServiceRegistries(const ServiceRegistry& value) { m_serviceRegistriesHasBeenSet = true; m_serviceRegistries.push_back(value); return *this; }
+
+    /**
+     * <p>The details of the service discovery registries to assign to this task set.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html">Service
+     * Discovery</a>.</p>
+     */
+    inline TaskSet& AddServiceRegistries(ServiceRegistry&& value) { m_serviceRegistriesHasBeenSet = true; m_serviceRegistries.push_back(std::move(value)); return *this; }
+
+
+    /**
      * <p>A floating-point percentage of the desired number of tasks to place and keep
-     * running in the service.</p>
+     * running in the task set.</p>
      */
     inline const Scale& GetScale() const{ return m_scale; }
 
     /**
      * <p>A floating-point percentage of the desired number of tasks to place and keep
-     * running in the service.</p>
+     * running in the task set.</p>
+     */
+    inline bool ScaleHasBeenSet() const { return m_scaleHasBeenSet; }
+
+    /**
+     * <p>A floating-point percentage of the desired number of tasks to place and keep
+     * running in the task set.</p>
      */
     inline void SetScale(const Scale& value) { m_scaleHasBeenSet = true; m_scale = value; }
 
     /**
      * <p>A floating-point percentage of the desired number of tasks to place and keep
-     * running in the service.</p>
+     * running in the task set.</p>
      */
     inline void SetScale(Scale&& value) { m_scaleHasBeenSet = true; m_scale = std::move(value); }
 
     /**
      * <p>A floating-point percentage of the desired number of tasks to place and keep
-     * running in the service.</p>
+     * running in the task set.</p>
      */
     inline TaskSet& WithScale(const Scale& value) { SetScale(value); return *this;}
 
     /**
      * <p>A floating-point percentage of the desired number of tasks to place and keep
-     * running in the service.</p>
+     * running in the task set.</p>
      */
     inline TaskSet& WithScale(Scale&& value) { SetScale(std::move(value)); return *this;}
 
@@ -671,9 +985,12 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
-     * those conditions are not met, the stability status returns
-     * <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> <note> <p>If a
+     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
+     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
+     * Load Balancing target health checks will be ignored until it expires.</p>
+     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
+     * status returns <code>STABILIZING</code>.</p>
      */
     inline const StabilityStatus& GetStabilityStatus() const{ return m_stabilityStatus; }
 
@@ -685,9 +1002,29 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
-     * those conditions are not met, the stability status returns
-     * <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> <note> <p>If a
+     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
+     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
+     * Load Balancing target health checks will be ignored until it expires.</p>
+     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
+     * status returns <code>STABILIZING</code>.</p>
+     */
+    inline bool StabilityStatusHasBeenSet() const { return m_stabilityStatusHasBeenSet; }
+
+    /**
+     * <p>The stability status, which indicates whether the task set has reached a
+     * steady state. If the following conditions are met, the task set will be in
+     * <code>STEADY_STATE</code>:</p> <ul> <li> <p>The task <code>runningCount</code>
+     * is equal to the <code>computedDesiredCount</code>.</p> </li> <li> <p>The
+     * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
+     * tasks running on container instances in the <code>DRAINING</code> status.</p>
+     * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
+     * service discovery, and container health checks.</p> <note> <p>If a
+     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
+     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
+     * Load Balancing target health checks will be ignored until it expires.</p>
+     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
+     * status returns <code>STABILIZING</code>.</p>
      */
     inline void SetStabilityStatus(const StabilityStatus& value) { m_stabilityStatusHasBeenSet = true; m_stabilityStatus = value; }
 
@@ -699,9 +1036,12 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
-     * those conditions are not met, the stability status returns
-     * <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> <note> <p>If a
+     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
+     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
+     * Load Balancing target health checks will be ignored until it expires.</p>
+     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
+     * status returns <code>STABILIZING</code>.</p>
      */
     inline void SetStabilityStatus(StabilityStatus&& value) { m_stabilityStatusHasBeenSet = true; m_stabilityStatus = std::move(value); }
 
@@ -713,9 +1053,12 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
-     * those conditions are not met, the stability status returns
-     * <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> <note> <p>If a
+     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
+     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
+     * Load Balancing target health checks will be ignored until it expires.</p>
+     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
+     * status returns <code>STABILIZING</code>.</p>
      */
     inline TaskSet& WithStabilityStatus(const StabilityStatus& value) { SetStabilityStatus(value); return *this;}
 
@@ -727,9 +1070,12 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
-     * those conditions are not met, the stability status returns
-     * <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> <note> <p>If a
+     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
+     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
+     * Load Balancing target health checks will be ignored until it expires.</p>
+     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
+     * status returns <code>STABILIZING</code>.</p>
      */
     inline TaskSet& WithStabilityStatus(StabilityStatus&& value) { SetStabilityStatus(std::move(value)); return *this;}
 
@@ -738,6 +1084,11 @@ namespace Model
      * <p>The Unix timestamp for when the task set stability status was retrieved.</p>
      */
     inline const Aws::Utils::DateTime& GetStabilityStatusAt() const{ return m_stabilityStatusAt; }
+
+    /**
+     * <p>The Unix timestamp for when the task set stability status was retrieved.</p>
+     */
+    inline bool StabilityStatusAtHasBeenSet() const { return m_stabilityStatusAtHasBeenSet; }
 
     /**
      * <p>The Unix timestamp for when the task set stability status was retrieved.</p>
@@ -766,6 +1117,12 @@ namespace Model
 
     Aws::String m_taskSetArn;
     bool m_taskSetArnHasBeenSet;
+
+    Aws::String m_serviceArn;
+    bool m_serviceArnHasBeenSet;
+
+    Aws::String m_clusterArn;
+    bool m_clusterArnHasBeenSet;
 
     Aws::String m_startedBy;
     bool m_startedByHasBeenSet;
@@ -805,6 +1162,9 @@ namespace Model
 
     Aws::Vector<LoadBalancer> m_loadBalancers;
     bool m_loadBalancersHasBeenSet;
+
+    Aws::Vector<ServiceRegistry> m_serviceRegistries;
+    bool m_serviceRegistriesHasBeenSet;
 
     Scale m_scale;
     bool m_scaleHasBeenSet;

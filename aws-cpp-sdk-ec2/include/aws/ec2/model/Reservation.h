@@ -54,73 +54,83 @@ namespace Model
 
 
     /**
-     * <p>[EC2-Classic only] One or more security groups.</p>
+     * <p>[EC2-Classic only] The security groups.</p>
      */
     inline const Aws::Vector<GroupIdentifier>& GetGroups() const{ return m_groups; }
 
     /**
-     * <p>[EC2-Classic only] One or more security groups.</p>
+     * <p>[EC2-Classic only] The security groups.</p>
+     */
+    inline bool GroupsHasBeenSet() const { return m_groupsHasBeenSet; }
+
+    /**
+     * <p>[EC2-Classic only] The security groups.</p>
      */
     inline void SetGroups(const Aws::Vector<GroupIdentifier>& value) { m_groupsHasBeenSet = true; m_groups = value; }
 
     /**
-     * <p>[EC2-Classic only] One or more security groups.</p>
+     * <p>[EC2-Classic only] The security groups.</p>
      */
     inline void SetGroups(Aws::Vector<GroupIdentifier>&& value) { m_groupsHasBeenSet = true; m_groups = std::move(value); }
 
     /**
-     * <p>[EC2-Classic only] One or more security groups.</p>
+     * <p>[EC2-Classic only] The security groups.</p>
      */
     inline Reservation& WithGroups(const Aws::Vector<GroupIdentifier>& value) { SetGroups(value); return *this;}
 
     /**
-     * <p>[EC2-Classic only] One or more security groups.</p>
+     * <p>[EC2-Classic only] The security groups.</p>
      */
     inline Reservation& WithGroups(Aws::Vector<GroupIdentifier>&& value) { SetGroups(std::move(value)); return *this;}
 
     /**
-     * <p>[EC2-Classic only] One or more security groups.</p>
+     * <p>[EC2-Classic only] The security groups.</p>
      */
     inline Reservation& AddGroups(const GroupIdentifier& value) { m_groupsHasBeenSet = true; m_groups.push_back(value); return *this; }
 
     /**
-     * <p>[EC2-Classic only] One or more security groups.</p>
+     * <p>[EC2-Classic only] The security groups.</p>
      */
     inline Reservation& AddGroups(GroupIdentifier&& value) { m_groupsHasBeenSet = true; m_groups.push_back(std::move(value)); return *this; }
 
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline const Aws::Vector<Instance>& GetInstances() const{ return m_instances; }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
+     */
+    inline bool InstancesHasBeenSet() const { return m_instancesHasBeenSet; }
+
+    /**
+     * <p>The instances.</p>
      */
     inline void SetInstances(const Aws::Vector<Instance>& value) { m_instancesHasBeenSet = true; m_instances = value; }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline void SetInstances(Aws::Vector<Instance>&& value) { m_instancesHasBeenSet = true; m_instances = std::move(value); }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline Reservation& WithInstances(const Aws::Vector<Instance>& value) { SetInstances(value); return *this;}
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline Reservation& WithInstances(Aws::Vector<Instance>&& value) { SetInstances(std::move(value)); return *this;}
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline Reservation& AddInstances(const Instance& value) { m_instancesHasBeenSet = true; m_instances.push_back(value); return *this; }
 
     /**
-     * <p>One or more instances.</p>
+     * <p>The instances.</p>
      */
     inline Reservation& AddInstances(Instance&& value) { m_instancesHasBeenSet = true; m_instances.push_back(std::move(value)); return *this; }
 
@@ -129,6 +139,11 @@ namespace Model
      * <p>The ID of the AWS account that owns the reservation.</p>
      */
     inline const Aws::String& GetOwnerId() const{ return m_ownerId; }
+
+    /**
+     * <p>The ID of the AWS account that owns the reservation.</p>
+     */
+    inline bool OwnerIdHasBeenSet() const { return m_ownerIdHasBeenSet; }
 
     /**
      * <p>The ID of the AWS account that owns the reservation.</p>
@@ -166,6 +181,12 @@ namespace Model
      * example, AWS Management Console or Auto Scaling).</p>
      */
     inline const Aws::String& GetRequesterId() const{ return m_requesterId; }
+
+    /**
+     * <p>The ID of the requester that launched the instances on your behalf (for
+     * example, AWS Management Console or Auto Scaling).</p>
+     */
+    inline bool RequesterIdHasBeenSet() const { return m_requesterIdHasBeenSet; }
 
     /**
      * <p>The ID of the requester that launched the instances on your behalf (for
@@ -212,6 +233,11 @@ namespace Model
     /**
      * <p>The ID of the reservation.</p>
      */
+    inline bool ReservationIdHasBeenSet() const { return m_reservationIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the reservation.</p>
+     */
     inline void SetReservationId(const Aws::String& value) { m_reservationIdHasBeenSet = true; m_reservationId = value; }
 
     /**
@@ -242,6 +268,9 @@ namespace Model
 
     
     inline const ResponseMetadata& GetResponseMetadata() const{ return m_responseMetadata; }
+
+    
+    inline bool ResponseMetadataHasBeenSet() const { return m_responseMetadataHasBeenSet; }
 
     
     inline void SetResponseMetadata(const ResponseMetadata& value) { m_responseMetadataHasBeenSet = true; m_responseMetadata = value; }

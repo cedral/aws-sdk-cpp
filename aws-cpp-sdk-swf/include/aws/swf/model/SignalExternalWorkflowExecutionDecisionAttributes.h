@@ -46,7 +46,7 @@ namespace Model
    * associated event attribute's <code>cause</code> parameter is set to
    * <code>OPERATION_NOT_PERMITTED</code>. For details and example IAM policies, see
    * <a
-   * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+   * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
    * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
    * Guide</i>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/SignalExternalWorkflowExecutionDecisionAttributes">AWS
@@ -65,6 +65,11 @@ namespace Model
      * <p> The <code>workflowId</code> of the workflow execution to be signaled.</p>
      */
     inline const Aws::String& GetWorkflowId() const{ return m_workflowId; }
+
+    /**
+     * <p> The <code>workflowId</code> of the workflow execution to be signaled.</p>
+     */
+    inline bool WorkflowIdHasBeenSet() const { return m_workflowIdHasBeenSet; }
 
     /**
      * <p> The <code>workflowId</code> of the workflow execution to be signaled.</p>
@@ -105,6 +110,11 @@ namespace Model
     /**
      * <p>The <code>runId</code> of the workflow execution to be signaled.</p>
      */
+    inline bool RunIdHasBeenSet() const { return m_runIdHasBeenSet; }
+
+    /**
+     * <p>The <code>runId</code> of the workflow execution to be signaled.</p>
+     */
     inline void SetRunId(const Aws::String& value) { m_runIdHasBeenSet = true; m_runId = value; }
 
     /**
@@ -138,6 +148,12 @@ namespace Model
      * and input to process the signal.</p>
      */
     inline const Aws::String& GetSignalName() const{ return m_signalName; }
+
+    /**
+     * <p> The name of the signal.The target workflow execution uses the signal name
+     * and input to process the signal.</p>
+     */
+    inline bool SignalNameHasBeenSet() const { return m_signalNameHasBeenSet; }
 
     /**
      * <p> The name of the signal.The target workflow execution uses the signal name
@@ -186,6 +202,12 @@ namespace Model
      * <p> The input data to be provided with the signal. The target workflow execution
      * uses the signal name and input data to process the signal.</p>
      */
+    inline bool InputHasBeenSet() const { return m_inputHasBeenSet; }
+
+    /**
+     * <p> The input data to be provided with the signal. The target workflow execution
+     * uses the signal name and input data to process the signal.</p>
+     */
     inline void SetInput(const Aws::String& value) { m_inputHasBeenSet = true; m_input = value; }
 
     /**
@@ -224,6 +246,12 @@ namespace Model
      * decision tasks.</p>
      */
     inline const Aws::String& GetControl() const{ return m_control; }
+
+    /**
+     * <p>The data attached to the event that can be used by the decider in subsequent
+     * decision tasks.</p>
+     */
+    inline bool ControlHasBeenSet() const { return m_controlHasBeenSet; }
 
     /**
      * <p>The data attached to the event that can be used by the decider in subsequent

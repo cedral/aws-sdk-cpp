@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListMetricsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The namespace to filter against.</p>
      */
     inline const Aws::String& GetNamespace() const{ return m_namespace; }
+
+    /**
+     * <p>The namespace to filter against.</p>
+     */
+    inline bool NamespaceHasBeenSet() const { return m_namespaceHasBeenSet; }
 
     /**
      * <p>The namespace to filter against.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The name of the metric to filter against.</p>
      */
+    inline bool MetricNameHasBeenSet() const { return m_metricNameHasBeenSet; }
+
+    /**
+     * <p>The name of the metric to filter against.</p>
+     */
     inline void SetMetricName(const Aws::String& value) { m_metricNameHasBeenSet = true; m_metricName = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
      * <p>The dimensions to filter against.</p>
      */
     inline const Aws::Vector<DimensionFilter>& GetDimensions() const{ return m_dimensions; }
+
+    /**
+     * <p>The dimensions to filter against.</p>
+     */
+    inline bool DimensionsHasBeenSet() const { return m_dimensionsHasBeenSet; }
 
     /**
      * <p>The dimensions to filter against.</p>
@@ -161,6 +176,12 @@ namespace Model
      * available.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token returned by a previous call to indicate that there is more data
+     * available.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token returned by a previous call to indicate that there is more data

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ReplaceNetworkAclAssociationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * subnet.</p>
      */
     inline const Aws::String& GetAssociationId() const{ return m_associationId; }
+
+    /**
+     * <p>The ID of the current association between the original network ACL and the
+     * subnet.</p>
+     */
+    inline bool AssociationIdHasBeenSet() const { return m_associationIdHasBeenSet; }
 
     /**
      * <p>The ID of the current association between the original network ACL and the
@@ -103,6 +109,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -118,6 +132,11 @@ namespace Model
      * <p>The ID of the new network ACL to associate with the subnet.</p>
      */
     inline const Aws::String& GetNetworkAclId() const{ return m_networkAclId; }
+
+    /**
+     * <p>The ID of the new network ACL to associate with the subnet.</p>
+     */
+    inline bool NetworkAclIdHasBeenSet() const { return m_networkAclIdHasBeenSet; }
 
     /**
      * <p>The ID of the new network ACL to associate with the subnet.</p>

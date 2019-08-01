@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     PutDeliveryChannelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * information to an Amazon S3 bucket and to an Amazon SNS topic.</p>
      */
     inline const DeliveryChannel& GetDeliveryChannel() const{ return m_deliveryChannel; }
+
+    /**
+     * <p>The configuration delivery channel object that delivers the configuration
+     * information to an Amazon S3 bucket and to an Amazon SNS topic.</p>
+     */
+    inline bool DeliveryChannelHasBeenSet() const { return m_deliveryChannelHasBeenSet; }
 
     /**
      * <p>The configuration delivery channel object that delivers the configuration

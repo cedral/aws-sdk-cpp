@@ -46,7 +46,7 @@ namespace Model
    * event attribute's <code>cause</code> parameter is set to
    * <code>OPERATION_NOT_PERMITTED</code>. For details and example IAM policies, see
    * <a
-   * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+   * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
    * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
    * Guide</i>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/StartTimerDecisionAttributes">AWS
@@ -69,6 +69,15 @@ namespace Model
      * contain the literal string <code>arn</code>.</p>
      */
     inline const Aws::String& GetTimerId() const{ return m_timerId; }
+
+    /**
+     * <p> The unique ID of the timer.</p> <p>The specified string must not start or
+     * end with whitespace. It must not contain a <code>:</code> (colon),
+     * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
+     * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
+     * contain the literal string <code>arn</code>.</p>
+     */
+    inline bool TimerIdHasBeenSet() const { return m_timerIdHasBeenSet; }
 
     /**
      * <p> The unique ID of the timer.</p> <p>The specified string must not start or
@@ -135,6 +144,12 @@ namespace Model
      * <p>The data attached to the event that can be used by the decider in subsequent
      * workflow tasks.</p>
      */
+    inline bool ControlHasBeenSet() const { return m_controlHasBeenSet; }
+
+    /**
+     * <p>The data attached to the event that can be used by the decider in subsequent
+     * workflow tasks.</p>
+     */
     inline void SetControl(const Aws::String& value) { m_controlHasBeenSet = true; m_control = value; }
 
     /**
@@ -173,6 +188,12 @@ namespace Model
      * specified in seconds, an integer greater than or equal to <code>0</code>.</p>
      */
     inline const Aws::String& GetStartToFireTimeout() const{ return m_startToFireTimeout; }
+
+    /**
+     * <p> The duration to wait before firing the timer.</p> <p>The duration is
+     * specified in seconds, an integer greater than or equal to <code>0</code>.</p>
+     */
+    inline bool StartToFireTimeoutHasBeenSet() const { return m_startToFireTimeoutHasBeenSet; }
 
     /**
      * <p> The duration to wait before firing the timer.</p> <p>The duration is

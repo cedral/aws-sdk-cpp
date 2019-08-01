@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     PutBucketAclRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,11 @@ namespace Model
      * <p>The canned ACL to apply to the bucket.</p>
      */
     inline const BucketCannedACL& GetACL() const{ return m_aCL; }
+
+    /**
+     * <p>The canned ACL to apply to the bucket.</p>
+     */
+    inline bool ACLHasBeenSet() const { return m_aCLHasBeenSet; }
 
     /**
      * <p>The canned ACL to apply to the bucket.</p>
@@ -80,27 +85,38 @@ namespace Model
 
 
     /**
-     * <p/>
+     * <p>Contains the elements that set the ACL permissions for an object per
+     * grantee.</p>
      */
     inline const AccessControlPolicy& GetAccessControlPolicy() const{ return m_accessControlPolicy; }
 
     /**
-     * <p/>
+     * <p>Contains the elements that set the ACL permissions for an object per
+     * grantee.</p>
+     */
+    inline bool AccessControlPolicyHasBeenSet() const { return m_accessControlPolicyHasBeenSet; }
+
+    /**
+     * <p>Contains the elements that set the ACL permissions for an object per
+     * grantee.</p>
      */
     inline void SetAccessControlPolicy(const AccessControlPolicy& value) { m_accessControlPolicyHasBeenSet = true; m_accessControlPolicy = value; }
 
     /**
-     * <p/>
+     * <p>Contains the elements that set the ACL permissions for an object per
+     * grantee.</p>
      */
     inline void SetAccessControlPolicy(AccessControlPolicy&& value) { m_accessControlPolicyHasBeenSet = true; m_accessControlPolicy = std::move(value); }
 
     /**
-     * <p/>
+     * <p>Contains the elements that set the ACL permissions for an object per
+     * grantee.</p>
      */
     inline PutBucketAclRequest& WithAccessControlPolicy(const AccessControlPolicy& value) { SetAccessControlPolicy(value); return *this;}
 
     /**
-     * <p/>
+     * <p>Contains the elements that set the ACL permissions for an object per
+     * grantee.</p>
      */
     inline PutBucketAclRequest& WithAccessControlPolicy(AccessControlPolicy&& value) { SetAccessControlPolicy(std::move(value)); return *this;}
 
@@ -109,6 +125,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p/>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p/>
@@ -149,6 +170,11 @@ namespace Model
     /**
      * <p/>
      */
+    inline bool ContentMD5HasBeenSet() const { return m_contentMD5HasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetContentMD5(const Aws::String& value) { m_contentMD5HasBeenSet = true; m_contentMD5 = value; }
 
     /**
@@ -182,6 +208,12 @@ namespace Model
      * bucket.</p>
      */
     inline const Aws::String& GetGrantFullControl() const{ return m_grantFullControl; }
+
+    /**
+     * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
+     * bucket.</p>
+     */
+    inline bool GrantFullControlHasBeenSet() const { return m_grantFullControlHasBeenSet; }
 
     /**
      * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
@@ -228,6 +260,11 @@ namespace Model
     /**
      * <p>Allows grantee to list the objects in the bucket.</p>
      */
+    inline bool GrantReadHasBeenSet() const { return m_grantReadHasBeenSet; }
+
+    /**
+     * <p>Allows grantee to list the objects in the bucket.</p>
+     */
     inline void SetGrantRead(const Aws::String& value) { m_grantReadHasBeenSet = true; m_grantRead = value; }
 
     /**
@@ -260,6 +297,11 @@ namespace Model
      * <p>Allows grantee to read the bucket ACL.</p>
      */
     inline const Aws::String& GetGrantReadACP() const{ return m_grantReadACP; }
+
+    /**
+     * <p>Allows grantee to read the bucket ACL.</p>
+     */
+    inline bool GrantReadACPHasBeenSet() const { return m_grantReadACPHasBeenSet; }
 
     /**
      * <p>Allows grantee to read the bucket ACL.</p>
@@ -300,6 +342,11 @@ namespace Model
     /**
      * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
      */
+    inline bool GrantWriteHasBeenSet() const { return m_grantWriteHasBeenSet; }
+
+    /**
+     * <p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>
+     */
     inline void SetGrantWrite(const Aws::String& value) { m_grantWriteHasBeenSet = true; m_grantWrite = value; }
 
     /**
@@ -336,6 +383,11 @@ namespace Model
     /**
      * <p>Allows grantee to write the ACL for the applicable bucket.</p>
      */
+    inline bool GrantWriteACPHasBeenSet() const { return m_grantWriteACPHasBeenSet; }
+
+    /**
+     * <p>Allows grantee to write the ACL for the applicable bucket.</p>
+     */
     inline void SetGrantWriteACP(const Aws::String& value) { m_grantWriteACPHasBeenSet = true; m_grantWriteACP = value; }
 
     /**
@@ -366,6 +418,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }

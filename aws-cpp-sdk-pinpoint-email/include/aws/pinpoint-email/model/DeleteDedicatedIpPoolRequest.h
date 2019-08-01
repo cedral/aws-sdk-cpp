@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteDedicatedIpPoolRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -44,13 +44,16 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>The name of the dedicated IP pool that you want to delete.</p>
      */
     inline const Aws::String& GetPoolName() const{ return m_poolName; }
+
+    /**
+     * <p>The name of the dedicated IP pool that you want to delete.</p>
+     */
+    inline bool PoolNameHasBeenSet() const { return m_poolNameHasBeenSet; }
 
     /**
      * <p>The name of the dedicated IP pool that you want to delete.</p>

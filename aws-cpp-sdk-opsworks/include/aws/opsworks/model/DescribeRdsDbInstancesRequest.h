@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeRdsDbInstancesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * returns descriptions of all registered Amazon RDS instances.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>The ID of the stack with which the instances are registered. The operation
+     * returns descriptions of all registered Amazon RDS instances.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>The ID of the stack with which the instances are registered. The operation
@@ -92,6 +98,11 @@ namespace Model
      * <p>An array containing the ARNs of the instances to be described.</p>
      */
     inline const Aws::Vector<Aws::String>& GetRdsDbInstanceArns() const{ return m_rdsDbInstanceArns; }
+
+    /**
+     * <p>An array containing the ARNs of the instances to be described.</p>
+     */
+    inline bool RdsDbInstanceArnsHasBeenSet() const { return m_rdsDbInstanceArnsHasBeenSet; }
 
     /**
      * <p>An array containing the ARNs of the instances to be described.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeNodeAssociationStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * DisassociateNodeResponse. </p>
      */
     inline const Aws::String& GetNodeAssociationStatusToken() const{ return m_nodeAssociationStatusToken; }
+
+    /**
+     * <p>The token returned in either the AssociateNodeResponse or the
+     * DisassociateNodeResponse. </p>
+     */
+    inline bool NodeAssociationStatusTokenHasBeenSet() const { return m_nodeAssociationStatusTokenHasBeenSet; }
 
     /**
      * <p>The token returned in either the AssociateNodeResponse or the
@@ -91,6 +97,11 @@ namespace Model
      * <p>The name of the server from which to disassociate the node. </p>
      */
     inline const Aws::String& GetServerName() const{ return m_serverName; }
+
+    /**
+     * <p>The name of the server from which to disassociate the node. </p>
+     */
+    inline bool ServerNameHasBeenSet() const { return m_serverNameHasBeenSet; }
 
     /**
      * <p>The name of the server from which to disassociate the node. </p>

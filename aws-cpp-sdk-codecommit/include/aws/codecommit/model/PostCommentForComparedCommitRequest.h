@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PostCommentForComparedCommitRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * between commits.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository where you want to post a comment on the comparison
+     * between commits.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository where you want to post a comment on the comparison
@@ -91,43 +97,57 @@ namespace Model
 
     /**
      * <p>To establish the directionality of the comparison, the full commit ID of the
-     * 'before' commit.</p>
+     * 'before' commit.</p> <note> <p>This is required for commenting on any commit
+     * unless that commit is the initial commit.</p> </note>
      */
     inline const Aws::String& GetBeforeCommitId() const{ return m_beforeCommitId; }
 
     /**
      * <p>To establish the directionality of the comparison, the full commit ID of the
-     * 'before' commit.</p>
+     * 'before' commit.</p> <note> <p>This is required for commenting on any commit
+     * unless that commit is the initial commit.</p> </note>
+     */
+    inline bool BeforeCommitIdHasBeenSet() const { return m_beforeCommitIdHasBeenSet; }
+
+    /**
+     * <p>To establish the directionality of the comparison, the full commit ID of the
+     * 'before' commit.</p> <note> <p>This is required for commenting on any commit
+     * unless that commit is the initial commit.</p> </note>
      */
     inline void SetBeforeCommitId(const Aws::String& value) { m_beforeCommitIdHasBeenSet = true; m_beforeCommitId = value; }
 
     /**
      * <p>To establish the directionality of the comparison, the full commit ID of the
-     * 'before' commit.</p>
+     * 'before' commit.</p> <note> <p>This is required for commenting on any commit
+     * unless that commit is the initial commit.</p> </note>
      */
     inline void SetBeforeCommitId(Aws::String&& value) { m_beforeCommitIdHasBeenSet = true; m_beforeCommitId = std::move(value); }
 
     /**
      * <p>To establish the directionality of the comparison, the full commit ID of the
-     * 'before' commit.</p>
+     * 'before' commit.</p> <note> <p>This is required for commenting on any commit
+     * unless that commit is the initial commit.</p> </note>
      */
     inline void SetBeforeCommitId(const char* value) { m_beforeCommitIdHasBeenSet = true; m_beforeCommitId.assign(value); }
 
     /**
      * <p>To establish the directionality of the comparison, the full commit ID of the
-     * 'before' commit.</p>
+     * 'before' commit.</p> <note> <p>This is required for commenting on any commit
+     * unless that commit is the initial commit.</p> </note>
      */
     inline PostCommentForComparedCommitRequest& WithBeforeCommitId(const Aws::String& value) { SetBeforeCommitId(value); return *this;}
 
     /**
      * <p>To establish the directionality of the comparison, the full commit ID of the
-     * 'before' commit.</p>
+     * 'before' commit.</p> <note> <p>This is required for commenting on any commit
+     * unless that commit is the initial commit.</p> </note>
      */
     inline PostCommentForComparedCommitRequest& WithBeforeCommitId(Aws::String&& value) { SetBeforeCommitId(std::move(value)); return *this;}
 
     /**
      * <p>To establish the directionality of the comparison, the full commit ID of the
-     * 'before' commit.</p>
+     * 'before' commit.</p> <note> <p>This is required for commenting on any commit
+     * unless that commit is the initial commit.</p> </note>
      */
     inline PostCommentForComparedCommitRequest& WithBeforeCommitId(const char* value) { SetBeforeCommitId(value); return *this;}
 
@@ -137,6 +157,12 @@ namespace Model
      * 'after' commit.</p>
      */
     inline const Aws::String& GetAfterCommitId() const{ return m_afterCommitId; }
+
+    /**
+     * <p>To establish the directionality of the comparison, the full commit ID of the
+     * 'after' commit.</p>
+     */
+    inline bool AfterCommitIdHasBeenSet() const { return m_afterCommitIdHasBeenSet; }
 
     /**
      * <p>To establish the directionality of the comparison, the full commit ID of the
@@ -183,6 +209,11 @@ namespace Model
     /**
      * <p>The location of the comparison where you want to comment.</p>
      */
+    inline bool LocationHasBeenSet() const { return m_locationHasBeenSet; }
+
+    /**
+     * <p>The location of the comparison where you want to comment.</p>
+     */
     inline void SetLocation(const Location& value) { m_locationHasBeenSet = true; m_location = value; }
 
     /**
@@ -205,6 +236,11 @@ namespace Model
      * <p>The content of the comment you want to make.</p>
      */
     inline const Aws::String& GetContent() const{ return m_content; }
+
+    /**
+     * <p>The content of the comment you want to make.</p>
+     */
+    inline bool ContentHasBeenSet() const { return m_contentHasBeenSet; }
 
     /**
      * <p>The content of the comment you want to make.</p>
@@ -244,6 +280,14 @@ namespace Model
      * return information about the initial request that used that token.</p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>A unique, client-generated idempotency token that when provided in a request,
+     * ensures the request cannot be repeated with a changed parameter. If a request is
+     * received with the same parameters and a token is included, the request will
+     * return information about the initial request that used that token.</p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>A unique, client-generated idempotency token that when provided in a request,

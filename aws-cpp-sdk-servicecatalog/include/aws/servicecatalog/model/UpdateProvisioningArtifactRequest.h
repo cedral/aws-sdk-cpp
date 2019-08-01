@@ -17,6 +17,7 @@
 #include <aws/servicecatalog/ServiceCatalog_EXPORTS.h>
 #include <aws/servicecatalog/ServiceCatalogRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/servicecatalog/model/ProvisioningArtifactGuidance.h>
 #include <utility>
 
 namespace Aws
@@ -32,7 +33,7 @@ namespace Model
   {
   public:
     UpdateProvisioningArtifactRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +51,13 @@ namespace Model
      * Chinese</p> </li> </ul>
      */
     inline const Aws::String& GetAcceptLanguage() const{ return m_acceptLanguage; }
+
+    /**
+     * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
+     * </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> -
+     * Chinese</p> </li> </ul>
+     */
+    inline bool AcceptLanguageHasBeenSet() const { return m_acceptLanguageHasBeenSet; }
 
     /**
      * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
@@ -102,6 +110,11 @@ namespace Model
     /**
      * <p>The product identifier.</p>
      */
+    inline bool ProductIdHasBeenSet() const { return m_productIdHasBeenSet; }
+
+    /**
+     * <p>The product identifier.</p>
+     */
     inline void SetProductId(const Aws::String& value) { m_productIdHasBeenSet = true; m_productId = value; }
 
     /**
@@ -134,6 +147,11 @@ namespace Model
      * <p>The identifier of the provisioning artifact.</p>
      */
     inline const Aws::String& GetProvisioningArtifactId() const{ return m_provisioningArtifactId; }
+
+    /**
+     * <p>The identifier of the provisioning artifact.</p>
+     */
+    inline bool ProvisioningArtifactIdHasBeenSet() const { return m_provisioningArtifactIdHasBeenSet; }
 
     /**
      * <p>The identifier of the provisioning artifact.</p>
@@ -174,6 +192,11 @@ namespace Model
     /**
      * <p>The updated name of the provisioning artifact.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The updated name of the provisioning artifact.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -206,6 +229,11 @@ namespace Model
      * <p>The updated description of the provisioning artifact.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The updated description of the provisioning artifact.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The updated description of the provisioning artifact.</p>
@@ -246,12 +274,84 @@ namespace Model
     /**
      * <p>Indicates whether the product version is active.</p>
      */
+    inline bool ActiveHasBeenSet() const { return m_activeHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the product version is active.</p>
+     */
     inline void SetActive(bool value) { m_activeHasBeenSet = true; m_active = value; }
 
     /**
      * <p>Indicates whether the product version is active.</p>
      */
     inline UpdateProvisioningArtifactRequest& WithActive(bool value) { SetActive(value); return *this;}
+
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value
+     * indicates that the product version is active.</p> <p>The administrator can set
+     * the guidance to <code>DEPRECATED</code> to inform users that the product version
+     * is deprecated. Users are able to make updates to a provisioned product of a
+     * deprecated version but cannot launch new provisioned products using a deprecated
+     * version.</p>
+     */
+    inline const ProvisioningArtifactGuidance& GetGuidance() const{ return m_guidance; }
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value
+     * indicates that the product version is active.</p> <p>The administrator can set
+     * the guidance to <code>DEPRECATED</code> to inform users that the product version
+     * is deprecated. Users are able to make updates to a provisioned product of a
+     * deprecated version but cannot launch new provisioned products using a deprecated
+     * version.</p>
+     */
+    inline bool GuidanceHasBeenSet() const { return m_guidanceHasBeenSet; }
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value
+     * indicates that the product version is active.</p> <p>The administrator can set
+     * the guidance to <code>DEPRECATED</code> to inform users that the product version
+     * is deprecated. Users are able to make updates to a provisioned product of a
+     * deprecated version but cannot launch new provisioned products using a deprecated
+     * version.</p>
+     */
+    inline void SetGuidance(const ProvisioningArtifactGuidance& value) { m_guidanceHasBeenSet = true; m_guidance = value; }
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value
+     * indicates that the product version is active.</p> <p>The administrator can set
+     * the guidance to <code>DEPRECATED</code> to inform users that the product version
+     * is deprecated. Users are able to make updates to a provisioned product of a
+     * deprecated version but cannot launch new provisioned products using a deprecated
+     * version.</p>
+     */
+    inline void SetGuidance(ProvisioningArtifactGuidance&& value) { m_guidanceHasBeenSet = true; m_guidance = std::move(value); }
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value
+     * indicates that the product version is active.</p> <p>The administrator can set
+     * the guidance to <code>DEPRECATED</code> to inform users that the product version
+     * is deprecated. Users are able to make updates to a provisioned product of a
+     * deprecated version but cannot launch new provisioned products using a deprecated
+     * version.</p>
+     */
+    inline UpdateProvisioningArtifactRequest& WithGuidance(const ProvisioningArtifactGuidance& value) { SetGuidance(value); return *this;}
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p> <p>The <code>DEFAULT</code> value
+     * indicates that the product version is active.</p> <p>The administrator can set
+     * the guidance to <code>DEPRECATED</code> to inform users that the product version
+     * is deprecated. Users are able to make updates to a provisioned product of a
+     * deprecated version but cannot launch new provisioned products using a deprecated
+     * version.</p>
+     */
+    inline UpdateProvisioningArtifactRequest& WithGuidance(ProvisioningArtifactGuidance&& value) { SetGuidance(std::move(value)); return *this;}
 
   private:
 
@@ -272,6 +372,9 @@ namespace Model
 
     bool m_active;
     bool m_activeHasBeenSet;
+
+    ProvisioningArtifactGuidance m_guidance;
+    bool m_guidanceHasBeenSet;
   };
 
 } // namespace Model

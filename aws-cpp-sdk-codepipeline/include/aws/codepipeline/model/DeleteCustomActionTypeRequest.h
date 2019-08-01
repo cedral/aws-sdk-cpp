@@ -28,8 +28,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a DeleteCustomActionType operation. The custom action
-   * will be marked as deleted.</p><p><h3>See Also:</h3>   <a
+   * <p>Represents the input of a <code>DeleteCustomActionType</code> operation. The
+   * custom action will be marked as deleted.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/DeleteCustomActionTypeInput">AWS
    * API Reference</a></p>
    */
@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DeleteCustomActionTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * deploy.</p>
      */
     inline const ActionCategory& GetCategory() const{ return m_category; }
+
+    /**
+     * <p>The category of the custom action that you want to delete, such as source or
+     * deploy.</p>
+     */
+    inline bool CategoryHasBeenSet() const { return m_categoryHasBeenSet; }
 
     /**
      * <p>The category of the custom action that you want to delete, such as source or
@@ -85,6 +91,12 @@ namespace Model
      * CodeDeploy.</p>
      */
     inline const Aws::String& GetProvider() const{ return m_provider; }
+
+    /**
+     * <p>The provider of the service used in the custom action, such as AWS
+     * CodeDeploy.</p>
+     */
+    inline bool ProviderHasBeenSet() const { return m_providerHasBeenSet; }
 
     /**
      * <p>The provider of the service used in the custom action, such as AWS
@@ -127,6 +139,11 @@ namespace Model
      * <p>The version of the custom action to delete.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The version of the custom action to delete.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The version of the custom action to delete.</p>

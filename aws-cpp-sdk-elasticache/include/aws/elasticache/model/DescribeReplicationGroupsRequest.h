@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeReplicationGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,13 @@ namespace Model
      * about all replication groups is returned.</p>
      */
     inline const Aws::String& GetReplicationGroupId() const{ return m_replicationGroupId; }
+
+    /**
+     * <p>The identifier for the replication group to be described. This parameter is
+     * not case sensitive.</p> <p>If you do not specify this parameter, information
+     * about all replication groups is returned.</p>
+     */
+    inline bool ReplicationGroupIdHasBeenSet() const { return m_replicationGroupIdHasBeenSet; }
 
     /**
      * <p>The identifier for the replication group to be described. This parameter is
@@ -114,6 +121,14 @@ namespace Model
      * the response so that the remaining results can be retrieved.</p> <p>Default:
      * 100</p> <p>Constraints: minimum 20; maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a marker is included in
+     * the response so that the remaining results can be retrieved.</p> <p>Default:
+     * 100</p> <p>Constraints: minimum 20; maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -132,6 +147,14 @@ namespace Model
      * <code>MaxRecords</code>.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>An optional marker returned from a prior request. Use this marker for
+     * pagination of results from this operation. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for

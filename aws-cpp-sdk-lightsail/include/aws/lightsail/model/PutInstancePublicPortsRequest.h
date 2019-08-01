@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutInstancePublicPortsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>Specifies information about the public port(s).</p>
      */
     inline const Aws::Vector<PortInfo>& GetPortInfos() const{ return m_portInfos; }
+
+    /**
+     * <p>Specifies information about the public port(s).</p>
+     */
+    inline bool PortInfosHasBeenSet() const { return m_portInfosHasBeenSet; }
 
     /**
      * <p>Specifies information about the public port(s).</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The Lightsail instance name of the public port(s) you are setting.</p>
      */
     inline const Aws::String& GetInstanceName() const{ return m_instanceName; }
+
+    /**
+     * <p>The Lightsail instance name of the public port(s) you are setting.</p>
+     */
+    inline bool InstanceNameHasBeenSet() const { return m_instanceNameHasBeenSet; }
 
     /**
      * <p>The Lightsail instance name of the public port(s) you are setting.</p>

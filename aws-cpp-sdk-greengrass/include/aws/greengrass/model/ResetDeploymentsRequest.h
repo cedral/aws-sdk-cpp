@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ResetDeploymentsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * A client token used to correlate requests and responses.
      */
     inline const Aws::String& GetAmznClientToken() const{ return m_amznClientToken; }
+
+    /**
+     * A client token used to correlate requests and responses.
+     */
+    inline bool AmznClientTokenHasBeenSet() const { return m_amznClientTokenHasBeenSet; }
 
     /**
      * A client token used to correlate requests and responses.
@@ -91,6 +96,11 @@ namespace Model
     /**
      * If true, performs a best-effort only core reset.
      */
+    inline bool ForceHasBeenSet() const { return m_forceHasBeenSet; }
+
+    /**
+     * If true, performs a best-effort only core reset.
+     */
     inline void SetForce(bool value) { m_forceHasBeenSet = true; m_force = value; }
 
     /**
@@ -103,6 +113,11 @@ namespace Model
      * The ID of the Greengrass group.
      */
     inline const Aws::String& GetGroupId() const{ return m_groupId; }
+
+    /**
+     * The ID of the Greengrass group.
+     */
+    inline bool GroupIdHasBeenSet() const { return m_groupIdHasBeenSet; }
 
     /**
      * The ID of the Greengrass group.

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutTelemetryRecordsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::Vector<TelemetryRecord>& GetTelemetryRecords() const{ return m_telemetryRecords; }
+
+    /**
+     * <p/>
+     */
+    inline bool TelemetryRecordsHasBeenSet() const { return m_telemetryRecordsHasBeenSet; }
 
     /**
      * <p/>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p/>
      */
+    inline bool EC2InstanceIdHasBeenSet() const { return m_eC2InstanceIdHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetEC2InstanceId(const Aws::String& value) { m_eC2InstanceIdHasBeenSet = true; m_eC2InstanceId = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
     /**
      * <p/>
      */
+    inline bool HostnameHasBeenSet() const { return m_hostnameHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetHostname(const Aws::String& value) { m_hostnameHasBeenSet = true; m_hostname = value; }
 
     /**
@@ -156,6 +171,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::String& GetResourceARN() const{ return m_resourceARN; }
+
+    /**
+     * <p/>
+     */
+    inline bool ResourceARNHasBeenSet() const { return m_resourceARNHasBeenSet; }
 
     /**
      * <p/>

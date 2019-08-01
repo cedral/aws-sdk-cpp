@@ -35,7 +35,7 @@ namespace Model
 {
 
   /**
-   * Placeholder documentation for VideoCodecSettings<p><h3>See Also:</h3>   <a
+   * Video Codec Settings<p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/VideoCodecSettings">AWS
    * API Reference</a></p>
    */
@@ -52,6 +52,9 @@ namespace Model
     inline const FrameCaptureSettings& GetFrameCaptureSettings() const{ return m_frameCaptureSettings; }
 
     
+    inline bool FrameCaptureSettingsHasBeenSet() const { return m_frameCaptureSettingsHasBeenSet; }
+
+    
     inline void SetFrameCaptureSettings(const FrameCaptureSettings& value) { m_frameCaptureSettingsHasBeenSet = true; m_frameCaptureSettings = value; }
 
     
@@ -66,6 +69,9 @@ namespace Model
 
     
     inline const H264Settings& GetH264Settings() const{ return m_h264Settings; }
+
+    
+    inline bool H264SettingsHasBeenSet() const { return m_h264SettingsHasBeenSet; }
 
     
     inline void SetH264Settings(const H264Settings& value) { m_h264SettingsHasBeenSet = true; m_h264Settings = value; }

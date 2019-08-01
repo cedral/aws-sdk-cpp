@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteSecurityGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the security group. Required for a nondefault VPC.</p>
      */
     inline const Aws::String& GetGroupId() const{ return m_groupId; }
+
+    /**
+     * <p>The ID of the security group. Required for a nondefault VPC.</p>
+     */
+    inline bool GroupIdHasBeenSet() const { return m_groupIdHasBeenSet; }
 
     /**
      * <p>The ID of the security group. Required for a nondefault VPC.</p>
@@ -87,6 +92,12 @@ namespace Model
      * either the security group name or the security group ID.</p>
      */
     inline const Aws::String& GetGroupName() const{ return m_groupName; }
+
+    /**
+     * <p>[EC2-Classic, default VPC] The name of the security group. You can specify
+     * either the security group name or the security group ID.</p>
+     */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
 
     /**
      * <p>[EC2-Classic, default VPC] The name of the security group. You can specify
@@ -132,6 +143,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

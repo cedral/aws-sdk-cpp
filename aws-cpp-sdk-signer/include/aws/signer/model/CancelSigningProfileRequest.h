@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CancelSigningProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the signing profile to be canceled.</p>
      */
     inline const Aws::String& GetProfileName() const{ return m_profileName; }
+
+    /**
+     * <p>The name of the signing profile to be canceled.</p>
+     */
+    inline bool ProfileNameHasBeenSet() const { return m_profileNameHasBeenSet; }
 
     /**
      * <p>The name of the signing profile to be canceled.</p>

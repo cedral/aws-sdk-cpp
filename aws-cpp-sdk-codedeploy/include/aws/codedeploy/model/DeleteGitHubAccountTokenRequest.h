@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteGitHubAccountTokenRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the GitHub account connection to delete.</p>
      */
     inline const Aws::String& GetTokenName() const{ return m_tokenName; }
+
+    /**
+     * <p>The name of the GitHub account connection to delete.</p>
+     */
+    inline bool TokenNameHasBeenSet() const { return m_tokenNameHasBeenSet; }
 
     /**
      * <p>The name of the GitHub account connection to delete.</p>

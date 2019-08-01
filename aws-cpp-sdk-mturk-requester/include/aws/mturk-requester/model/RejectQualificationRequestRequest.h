@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RejectQualificationRequestRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <code>ListQualificationRequests</code> operation. </p>
      */
     inline const Aws::String& GetQualificationRequestId() const{ return m_qualificationRequestId; }
+
+    /**
+     * <p> The ID of the Qualification request, as returned by the
+     * <code>ListQualificationRequests</code> operation. </p>
+     */
+    inline bool QualificationRequestIdHasBeenSet() const { return m_qualificationRequestIdHasBeenSet; }
 
     /**
      * <p> The ID of the Qualification request, as returned by the
@@ -92,6 +98,12 @@ namespace Model
      * Worker who made the request.</p>
      */
     inline const Aws::String& GetReason() const{ return m_reason; }
+
+    /**
+     * <p>A text message explaining why the request was rejected, to be shown to the
+     * Worker who made the request.</p>
+     */
+    inline bool ReasonHasBeenSet() const { return m_reasonHasBeenSet; }
 
     /**
      * <p>A text message explaining why the request was rejected, to be shown to the

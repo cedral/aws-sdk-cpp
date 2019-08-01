@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListPublicKeysRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * and the current public key is returned.</p>
      */
     inline const Aws::Utils::DateTime& GetStartTime() const{ return m_startTime; }
+
+    /**
+     * <p>Optionally specifies, in UTC, the start of the time range to look up public
+     * keys for CloudTrail digest files. If not specified, the current time is used,
+     * and the current public key is returned.</p>
+     */
+    inline bool StartTimeHasBeenSet() const { return m_startTimeHasBeenSet; }
 
     /**
      * <p>Optionally specifies, in UTC, the start of the time range to look up public
@@ -97,6 +104,13 @@ namespace Model
      * keys for CloudTrail digest files. If not specified, the current time is
      * used.</p>
      */
+    inline bool EndTimeHasBeenSet() const { return m_endTimeHasBeenSet; }
+
+    /**
+     * <p>Optionally specifies, in UTC, the end of the time range to look up public
+     * keys for CloudTrail digest files. If not specified, the current time is
+     * used.</p>
+     */
     inline void SetEndTime(const Aws::Utils::DateTime& value) { m_endTimeHasBeenSet = true; m_endTime = value; }
 
     /**
@@ -125,6 +139,11 @@ namespace Model
      * <p>Reserved for future use.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Reserved for future use.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Reserved for future use.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeConfigRulesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * specify any names, AWS Config returns details for all your rules.</p>
      */
     inline const Aws::Vector<Aws::String>& GetConfigRuleNames() const{ return m_configRuleNames; }
+
+    /**
+     * <p>The names of the AWS Config rules for which you want details. If you do not
+     * specify any names, AWS Config returns details for all your rules.</p>
+     */
+    inline bool ConfigRuleNamesHasBeenSet() const { return m_configRuleNamesHasBeenSet; }
 
     /**
      * <p>The names of the AWS Config rules for which you want details. If you do not
@@ -102,6 +108,12 @@ namespace Model
      * get the next page of results in a paginated response.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The <code>nextToken</code> string returned on a previous page that you use to
+     * get the next page of results in a paginated response.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The <code>nextToken</code> string returned on a previous page that you use to

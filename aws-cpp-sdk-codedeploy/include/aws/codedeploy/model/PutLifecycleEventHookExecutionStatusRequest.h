@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutLifecycleEventHookExecutionStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * validates a deployment lifecycle event. </p>
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * <p> The unique ID of a deployment. Pass this ID to a Lambda function that
+     * validates a deployment lifecycle event. </p>
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * <p> The unique ID of a deployment. Pass this ID to a Lambda function that
@@ -98,6 +104,12 @@ namespace Model
      * <p> The execution ID of a deployment's lifecycle hook. A deployment lifecycle
      * hook is specified in the <code>hooks</code> section of the AppSpec file. </p>
      */
+    inline bool LifecycleEventHookExecutionIdHasBeenSet() const { return m_lifecycleEventHookExecutionIdHasBeenSet; }
+
+    /**
+     * <p> The execution ID of a deployment's lifecycle hook. A deployment lifecycle
+     * hook is specified in the <code>hooks</code> section of the AppSpec file. </p>
+     */
     inline void SetLifecycleEventHookExecutionId(const Aws::String& value) { m_lifecycleEventHookExecutionIdHasBeenSet = true; m_lifecycleEventHookExecutionId = value; }
 
     /**
@@ -136,6 +148,12 @@ namespace Model
      * (<code>Succeeded</code> or <code>Failed</code>).</p>
      */
     inline const LifecycleEventStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The result of a Lambda function that validates a deployment lifecycle event
+     * (<code>Succeeded</code> or <code>Failed</code>).</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The result of a Lambda function that validates a deployment lifecycle event

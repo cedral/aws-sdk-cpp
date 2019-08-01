@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdatePullRequestDescriptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <a>ListPullRequests</a>.</p>
      */
     inline const Aws::String& GetPullRequestId() const{ return m_pullRequestId; }
+
+    /**
+     * <p>The system-generated ID of the pull request. To get this ID, use
+     * <a>ListPullRequests</a>.</p>
+     */
+    inline bool PullRequestIdHasBeenSet() const { return m_pullRequestIdHasBeenSet; }
 
     /**
      * <p>The system-generated ID of the pull request. To get this ID, use
@@ -92,6 +98,12 @@ namespace Model
      * will replace the existing description.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The updated content of the description for the pull request. This content
+     * will replace the existing description.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The updated content of the description for the pull request. This content

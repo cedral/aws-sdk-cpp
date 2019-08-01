@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     DeleteChapCredentialsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,13 @@ namespace Model
      * for specified VolumeARN.</p>
      */
     inline const Aws::String& GetTargetARN() const{ return m_targetARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
+     * <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN
+     * for specified VolumeARN.</p>
+     */
+    inline bool TargetARNHasBeenSet() const { return m_targetARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
@@ -104,6 +111,11 @@ namespace Model
      * <p>The iSCSI initiator that connects to the target.</p>
      */
     inline const Aws::String& GetInitiatorName() const{ return m_initiatorName; }
+
+    /**
+     * <p>The iSCSI initiator that connects to the target.</p>
+     */
+    inline bool InitiatorNameHasBeenSet() const { return m_initiatorNameHasBeenSet; }
 
     /**
      * <p>The iSCSI initiator that connects to the target.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdatePipelineStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The identifier of the pipeline to update.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The identifier of the pipeline to update.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The identifier of the pipeline to update.</p>
@@ -88,6 +93,13 @@ namespace Model
      * pipeline is not currently processing jobs.</p> </li> </ul>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The desired status of the pipeline:</p> <ul> <li> <p> <code>Active</code>:
+     * The pipeline is processing jobs.</p> </li> <li> <p> <code>Paused</code>: The
+     * pipeline is not currently processing jobs.</p> </li> </ul>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The desired status of the pipeline:</p> <ul> <li> <p> <code>Active</code>:

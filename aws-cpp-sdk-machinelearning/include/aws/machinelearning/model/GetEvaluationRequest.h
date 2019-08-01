@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetEvaluationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * access the information. </p>
      */
     inline const Aws::String& GetEvaluationId() const{ return m_evaluationId; }
+
+    /**
+     * <p>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each
+     * <code>MLModel</code> is recorded and cataloged. The ID provides the means to
+     * access the information. </p>
+     */
+    inline bool EvaluationIdHasBeenSet() const { return m_evaluationIdHasBeenSet; }
 
     /**
      * <p>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each

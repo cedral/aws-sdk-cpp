@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribePoliciesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the Auto Scaling group.</p>
      */
     inline const Aws::String& GetAutoScalingGroupName() const{ return m_autoScalingGroupName; }
+
+    /**
+     * <p>The name of the Auto Scaling group.</p>
+     */
+    inline bool AutoScalingGroupNameHasBeenSet() const { return m_autoScalingGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the Auto Scaling group.</p>
@@ -90,6 +95,14 @@ namespace Model
      * it is ignored with no error.</p>
      */
     inline const Aws::Vector<Aws::String>& GetPolicyNames() const{ return m_policyNames; }
+
+    /**
+     * <p>The names of one or more policies. If you omit this parameter, all policies
+     * are described. If a group name is provided, the results are limited to that
+     * group. This list is limited to 50 items. If you specify an unknown policy name,
+     * it is ignored with no error.</p>
+     */
+    inline bool PolicyNamesHasBeenSet() const { return m_policyNamesHasBeenSet; }
 
     /**
      * <p>The names of one or more policies. If you omit this parameter, all policies
@@ -158,6 +171,12 @@ namespace Model
      * <p>One or more policy types. The valid values are <code>SimpleScaling</code>,
      * <code>StepScaling</code>, and <code>TargetTrackingScaling</code>.</p>
      */
+    inline bool PolicyTypesHasBeenSet() const { return m_policyTypesHasBeenSet; }
+
+    /**
+     * <p>One or more policy types. The valid values are <code>SimpleScaling</code>,
+     * <code>StepScaling</code>, and <code>TargetTrackingScaling</code>.</p>
+     */
     inline void SetPolicyTypes(const Aws::Vector<Aws::String>& value) { m_policyTypesHasBeenSet = true; m_policyTypes = value; }
 
     /**
@@ -207,6 +226,12 @@ namespace Model
      * <p>The token for the next set of items to return. (You received this token from
      * a previous call.)</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -245,6 +270,12 @@ namespace Model
      * is <code>50</code> and the maximum value is <code>100</code>.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
+
+    /**
+     * <p>The maximum number of items to be returned with each call. The default value
+     * is <code>50</code> and the maximum value is <code>100</code>.</p>
+     */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to be returned with each call. The default value

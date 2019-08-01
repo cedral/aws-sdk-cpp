@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeProvisioningParametersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * Chinese</p> </li> </ul>
      */
     inline const Aws::String& GetAcceptLanguage() const{ return m_acceptLanguage; }
+
+    /**
+     * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
+     * </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> -
+     * Chinese</p> </li> </ul>
+     */
+    inline bool AcceptLanguageHasBeenSet() const { return m_acceptLanguageHasBeenSet; }
 
     /**
      * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
@@ -102,6 +109,11 @@ namespace Model
     /**
      * <p>The product identifier.</p>
      */
+    inline bool ProductIdHasBeenSet() const { return m_productIdHasBeenSet; }
+
+    /**
+     * <p>The product identifier.</p>
+     */
     inline void SetProductId(const Aws::String& value) { m_productIdHasBeenSet = true; m_productId = value; }
 
     /**
@@ -134,6 +146,11 @@ namespace Model
      * <p>The identifier of the provisioning artifact.</p>
      */
     inline const Aws::String& GetProvisioningArtifactId() const{ return m_provisioningArtifactId; }
+
+    /**
+     * <p>The identifier of the provisioning artifact.</p>
+     */
+    inline bool ProvisioningArtifactIdHasBeenSet() const { return m_provisioningArtifactIdHasBeenSet; }
 
     /**
      * <p>The identifier of the provisioning artifact.</p>
@@ -172,6 +189,13 @@ namespace Model
      * paths for a product, use <a>ListLaunchPaths</a>.</p>
      */
     inline const Aws::String& GetPathId() const{ return m_pathId; }
+
+    /**
+     * <p>The path identifier of the product. This value is optional if the product has
+     * a default path, and required if the product has more than one path. To list the
+     * paths for a product, use <a>ListLaunchPaths</a>.</p>
+     */
+    inline bool PathIdHasBeenSet() const { return m_pathIdHasBeenSet; }
 
     /**
      * <p>The path identifier of the product. This value is optional if the product has

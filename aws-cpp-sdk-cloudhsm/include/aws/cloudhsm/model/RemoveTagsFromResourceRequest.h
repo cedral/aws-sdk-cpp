@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     RemoveTagsFromResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource.</p>
@@ -87,6 +92,13 @@ namespace Model
      * <a>AddTagsToResource</a>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeyList() const{ return m_tagKeyList; }
+
+    /**
+     * <p>The tag key or keys to remove.</p> <p>Specify only the tag key to remove (not
+     * the value). To overwrite the value for an existing tag, use
+     * <a>AddTagsToResource</a>.</p>
+     */
+    inline bool TagKeyListHasBeenSet() const { return m_tagKeyListHasBeenSet; }
 
     /**
      * <p>The tag key or keys to remove.</p> <p>Specify only the tag key to remove (not

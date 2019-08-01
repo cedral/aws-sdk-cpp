@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetUsagePlanRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * retrieved.</p>
      */
     inline const Aws::String& GetUsagePlanId() const{ return m_usagePlanId; }
+
+    /**
+     * <p>[Required] The identifier of the <a>UsagePlan</a> resource to be
+     * retrieved.</p>
+     */
+    inline bool UsagePlanIdHasBeenSet() const { return m_usagePlanIdHasBeenSet; }
 
     /**
      * <p>[Required] The identifier of the <a>UsagePlan</a> resource to be

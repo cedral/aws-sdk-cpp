@@ -32,6 +32,9 @@ namespace Aws
 
         static const int Version_HASH = HashingUtils::HashString("Version");
         static const int PlatformVersion_HASH = HashingUtils::HashString("PlatformVersion");
+        static const int EndpointPrivateAccess_HASH = HashingUtils::HashString("EndpointPrivateAccess");
+        static const int EndpointPublicAccess_HASH = HashingUtils::HashString("EndpointPublicAccess");
+        static const int ClusterLogging_HASH = HashingUtils::HashString("ClusterLogging");
 
 
         UpdateParamType GetUpdateParamTypeForName(const Aws::String& name)
@@ -44,6 +47,18 @@ namespace Aws
           else if (hashCode == PlatformVersion_HASH)
           {
             return UpdateParamType::PlatformVersion;
+          }
+          else if (hashCode == EndpointPrivateAccess_HASH)
+          {
+            return UpdateParamType::EndpointPrivateAccess;
+          }
+          else if (hashCode == EndpointPublicAccess_HASH)
+          {
+            return UpdateParamType::EndpointPublicAccess;
+          }
+          else if (hashCode == ClusterLogging_HASH)
+          {
+            return UpdateParamType::ClusterLogging;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -63,6 +78,12 @@ namespace Aws
             return "Version";
           case UpdateParamType::PlatformVersion:
             return "PlatformVersion";
+          case UpdateParamType::EndpointPrivateAccess:
+            return "EndpointPrivateAccess";
+          case UpdateParamType::EndpointPublicAccess:
+            return "EndpointPublicAccess";
+          case UpdateParamType::ClusterLogging:
+            return "ClusterLogging";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

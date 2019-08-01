@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteDBInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,13 @@ namespace Model
      * of an existing DB instance.</p> </li> </ul>
      */
     inline const Aws::String& GetDBInstanceIdentifier() const{ return m_dBInstanceIdentifier; }
+
+    /**
+     * <p>The DB instance identifier for the DB instance to be deleted. This parameter
+     * isn't case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the name
+     * of an existing DB instance.</p> </li> </ul>
+     */
+    inline bool DBInstanceIdentifierHasBeenSet() const { return m_dBInstanceIdentifierHasBeenSet; }
 
     /**
      * <p>The DB instance identifier for the DB instance to be deleted. This parameter

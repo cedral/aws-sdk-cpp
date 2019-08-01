@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GrantAccessRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The instance's AWS OpsWorks Stacks ID.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The instance's AWS OpsWorks Stacks ID.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The instance's AWS OpsWorks Stacks ID.</p>
@@ -87,6 +92,14 @@ namespace Model
      * automatically will be logged out.</p>
      */
     inline int GetValidForInMinutes() const{ return m_validForInMinutes; }
+
+    /**
+     * <p>The length of time (in minutes) that the grant is valid. When the grant
+     * expires at the end of this period, the user will no longer be able to use the
+     * credentials to log in. If the user is logged in at the time, he or she
+     * automatically will be logged out.</p>
+     */
+    inline bool ValidForInMinutesHasBeenSet() const { return m_validForInMinutesHasBeenSet; }
 
     /**
      * <p>The length of time (in minutes) that the grant is valid. When the grant

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateServiceSpecificCredentialRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,17 @@ namespace Model
      * can also include any of the following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the IAM user that is to be associated with the credentials. The
+     * new service-specific credentials have the same permissions as the associated
+     * user except that they can be used only to access the specified service.</p>
+     * <p>This parameter allows (through its <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters
+     * consisting of upper and lowercase alphanumeric characters with no spaces. You
+     * can also include any of the following characters: _+=,.@-</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the IAM user that is to be associated with the credentials. The
@@ -130,6 +141,13 @@ namespace Model
      * these credentials.</p>
      */
     inline const Aws::String& GetServiceName() const{ return m_serviceName; }
+
+    /**
+     * <p>The name of the AWS service that is to be associated with the credentials.
+     * The service you specify here is the only service that can be accessed using
+     * these credentials.</p>
+     */
+    inline bool ServiceNameHasBeenSet() const { return m_serviceNameHasBeenSet; }
 
     /**
      * <p>The name of the AWS service that is to be associated with the credentials.

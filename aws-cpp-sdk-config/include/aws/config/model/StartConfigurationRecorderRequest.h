@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     StartConfigurationRecorderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * to the resources.</p>
      */
     inline const Aws::String& GetConfigurationRecorderName() const{ return m_configurationRecorderName; }
+
+    /**
+     * <p>The name of the recorder object that records each configuration change made
+     * to the resources.</p>
+     */
+    inline bool ConfigurationRecorderNameHasBeenSet() const { return m_configurationRecorderNameHasBeenSet; }
 
     /**
      * <p>The name of the recorder object that records each configuration change made

@@ -39,7 +39,7 @@ namespace Model
    * collection of rules that specify what Amazon SES should do with mail it receives
    * on behalf of your account's verified domains.</p> <p>For information about
    * setting up receipt rule sets, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ReceiptRuleSetMetadata">AWS
    * API Reference</a></p>
@@ -62,6 +62,14 @@ namespace Model
      * <li> <p>Contain less than 64 characters.</p> </li> </ul>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the receipt rule set. The name must:</p> <ul> <li> <p>This value
+     * can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or
+     * dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li>
+     * <li> <p>Contain less than 64 characters.</p> </li> </ul>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the receipt rule set. The name must:</p> <ul> <li> <p>This value
@@ -116,6 +124,11 @@ namespace Model
      * <p>The date and time the receipt rule set was created.</p>
      */
     inline const Aws::Utils::DateTime& GetCreatedTimestamp() const{ return m_createdTimestamp; }
+
+    /**
+     * <p>The date and time the receipt rule set was created.</p>
+     */
+    inline bool CreatedTimestampHasBeenSet() const { return m_createdTimestampHasBeenSet; }
 
     /**
      * <p>The date and time the receipt rule set was created.</p>

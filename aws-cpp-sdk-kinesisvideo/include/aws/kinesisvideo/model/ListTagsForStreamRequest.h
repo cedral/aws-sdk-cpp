@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsForStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,13 @@ namespace Model
      * that you can use in the next request to fetch the next batch of tags.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If you specify this parameter and the result of a
+     * <code>ListTagsForStream</code> call is truncated, the response includes a token
+     * that you can use in the next request to fetch the next batch of tags.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If you specify this parameter and the result of a
@@ -102,6 +109,12 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the stream that you want to list tags
      * for.</p>
      */
+    inline bool StreamARNHasBeenSet() const { return m_streamARNHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the stream that you want to list tags
+     * for.</p>
+     */
     inline void SetStreamARN(const Aws::String& value) { m_streamARNHasBeenSet = true; m_streamARN = value; }
 
     /**
@@ -139,6 +152,11 @@ namespace Model
      * <p>The name of the stream that you want to list tags for.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>The name of the stream that you want to list tags for.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>The name of the stream that you want to list tags for.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetUserDefinedFunctionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * If none is supplied, the AWS account ID is used by default.</p>
      */
     inline const Aws::String& GetCatalogId() const{ return m_catalogId; }
+
+    /**
+     * <p>The ID of the Data Catalog where the functions to be retrieved are located.
+     * If none is supplied, the AWS account ID is used by default.</p>
+     */
+    inline bool CatalogIdHasBeenSet() const { return m_catalogIdHasBeenSet; }
 
     /**
      * <p>The ID of the Data Catalog where the functions to be retrieved are located.
@@ -95,6 +101,11 @@ namespace Model
     /**
      * <p>The name of the catalog database where the functions are located.</p>
      */
+    inline bool DatabaseNameHasBeenSet() const { return m_databaseNameHasBeenSet; }
+
+    /**
+     * <p>The name of the catalog database where the functions are located.</p>
+     */
     inline void SetDatabaseName(const Aws::String& value) { m_databaseNameHasBeenSet = true; m_databaseName = value; }
 
     /**
@@ -128,6 +139,12 @@ namespace Model
      * definitions returned.</p>
      */
     inline const Aws::String& GetPattern() const{ return m_pattern; }
+
+    /**
+     * <p>An optional function-name pattern string that filters the function
+     * definitions returned.</p>
+     */
+    inline bool PatternHasBeenSet() const { return m_patternHasBeenSet; }
 
     /**
      * <p>An optional function-name pattern string that filters the function
@@ -174,6 +191,11 @@ namespace Model
     /**
      * <p>A continuation token, if this is a continuation call.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>A continuation token, if this is a continuation call.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -206,6 +228,11 @@ namespace Model
      * <p>The maximum number of functions to return in one response.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of functions to return in one response.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of functions to return in one response.</p>

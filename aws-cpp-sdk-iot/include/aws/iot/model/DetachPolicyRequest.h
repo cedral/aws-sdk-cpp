@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DetachPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The policy to detach.</p>
      */
     inline const Aws::String& GetPolicyName() const{ return m_policyName; }
+
+    /**
+     * <p>The policy to detach.</p>
+     */
+    inline bool PolicyNameHasBeenSet() const { return m_policyNameHasBeenSet; }
 
     /**
      * <p>The policy to detach.</p>
@@ -82,6 +87,11 @@ namespace Model
      * <p>The target from which the policy will be detached.</p>
      */
     inline const Aws::String& GetTarget() const{ return m_target; }
+
+    /**
+     * <p>The target from which the policy will be detached.</p>
+     */
+    inline bool TargetHasBeenSet() const { return m_targetHasBeenSet; }
 
     /**
      * <p>The target from which the policy will be detached.</p>

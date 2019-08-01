@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteLaunchConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the launch configuration.</p>
      */
     inline const Aws::String& GetLaunchConfigurationName() const{ return m_launchConfigurationName; }
+
+    /**
+     * <p>The name of the launch configuration.</p>
+     */
+    inline bool LaunchConfigurationNameHasBeenSet() const { return m_launchConfigurationNameHasBeenSet; }
 
     /**
      * <p>The name of the launch configuration.</p>

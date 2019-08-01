@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     StopUserImportJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * into.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool that the users are being imported
+     * into.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool that the users are being imported
@@ -95,6 +101,11 @@ namespace Model
      * <p>The job ID for the user import job.</p>
      */
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    /**
+     * <p>The job ID for the user import job.</p>
+     */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     /**
      * <p>The job ID for the user import job.</p>

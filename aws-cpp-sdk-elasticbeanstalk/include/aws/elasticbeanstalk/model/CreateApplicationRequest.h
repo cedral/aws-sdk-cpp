@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,13 @@ namespace Model
      * <code>InvalidParameterValue</code> error.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application.</p> <p>Constraint: This name must be unique
+     * within your account. If the specified name already exists, the action returns an
+     * <code>InvalidParameterValue</code> error.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application.</p> <p>Constraint: This name must be unique
@@ -110,6 +117,11 @@ namespace Model
     /**
      * <p>Describes the application.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>Describes the application.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -148,6 +160,12 @@ namespace Model
      * <p>Specify an application resource lifecycle configuration to prevent your
      * application from accumulating too many versions.</p>
      */
+    inline bool ResourceLifecycleConfigHasBeenSet() const { return m_resourceLifecycleConfigHasBeenSet; }
+
+    /**
+     * <p>Specify an application resource lifecycle configuration to prevent your
+     * application from accumulating too many versions.</p>
+     */
     inline void SetResourceLifecycleConfig(const ApplicationResourceLifecycleConfig& value) { m_resourceLifecycleConfigHasBeenSet = true; m_resourceLifecycleConfig = value; }
 
     /**
@@ -175,6 +193,13 @@ namespace Model
      * application don't inherit the tags.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Specifies the tags applied to the application.</p> <p>Elastic Beanstalk
+     * applies these tags only to the application. Environments that you create in the
+     * application don't inherit the tags.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Specifies the tags applied to the application.</p> <p>Elastic Beanstalk

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DisableTopicRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the rule to disable.</p>
      */
     inline const Aws::String& GetRuleName() const{ return m_ruleName; }
+
+    /**
+     * <p>The name of the rule to disable.</p>
+     */
+    inline bool RuleNameHasBeenSet() const { return m_ruleNameHasBeenSet; }
 
     /**
      * <p>The name of the rule to disable.</p>

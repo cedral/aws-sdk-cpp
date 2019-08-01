@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateShardCountRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the stream.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>The name of the stream.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>The name of the stream.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The new number of shards.</p>
      */
+    inline bool TargetShardCountHasBeenSet() const { return m_targetShardCountHasBeenSet; }
+
+    /**
+     * <p>The new number of shards.</p>
+     */
     inline void SetTargetShardCount(int value) { m_targetShardCountHasBeenSet = true; m_targetShardCount = value; }
 
     /**
@@ -101,6 +111,11 @@ namespace Model
      * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
      */
     inline const ScalingType& GetScalingType() const{ return m_scalingType; }
+
+    /**
+     * <p>The scaling type. Uniform scaling creates shards of equal size.</p>
+     */
+    inline bool ScalingTypeHasBeenSet() const { return m_scalingTypeHasBeenSet; }
 
     /**
      * <p>The scaling type. Uniform scaling creates shards of equal size.</p>

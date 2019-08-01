@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeInterconnectsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the interconnect.</p>
      */
     inline const Aws::String& GetInterconnectId() const{ return m_interconnectId; }
+
+    /**
+     * <p>The ID of the interconnect.</p>
+     */
+    inline bool InterconnectIdHasBeenSet() const { return m_interconnectIdHasBeenSet; }
 
     /**
      * <p>The ID of the interconnect.</p>

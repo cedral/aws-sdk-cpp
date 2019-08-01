@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateDomainEntryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * the domain entry.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>The domain name (e.g., <code>example.com</code>) for which you want to create
+     * the domain entry.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>The domain name (e.g., <code>example.com</code>) for which you want to create
@@ -93,6 +99,12 @@ namespace Model
      * request.</p>
      */
     inline const DomainEntry& GetDomainEntry() const{ return m_domainEntry; }
+
+    /**
+     * <p>An array of key-value pairs containing information about the domain entry
+     * request.</p>
+     */
+    inline bool DomainEntryHasBeenSet() const { return m_domainEntryHasBeenSet; }
 
     /**
      * <p>An array of key-value pairs containing information about the domain entry

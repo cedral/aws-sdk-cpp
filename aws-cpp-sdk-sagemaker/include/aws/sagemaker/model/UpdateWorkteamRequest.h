@@ -18,6 +18,7 @@
 #include <aws/sagemaker/SageMakerRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/sagemaker/model/NotificationConfiguration.h>
 #include <aws/sagemaker/model/MemberDefinition.h>
 #include <utility>
 
@@ -34,7 +35,7 @@ namespace Model
   {
   public:
     UpdateWorkteamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +51,11 @@ namespace Model
      * <p>The name of the work team to update.</p>
      */
     inline const Aws::String& GetWorkteamName() const{ return m_workteamName; }
+
+    /**
+     * <p>The name of the work team to update.</p>
+     */
+    inline bool WorkteamNameHasBeenSet() const { return m_workteamNameHasBeenSet; }
 
     /**
      * <p>The name of the work team to update.</p>
@@ -87,6 +93,12 @@ namespace Model
      * team members.</p>
      */
     inline const Aws::Vector<MemberDefinition>& GetMemberDefinitions() const{ return m_memberDefinitions; }
+
+    /**
+     * <p>A list of <code>MemberDefinition</code> objects that contain the updated work
+     * team members.</p>
+     */
+    inline bool MemberDefinitionsHasBeenSet() const { return m_memberDefinitionsHasBeenSet; }
 
     /**
      * <p>A list of <code>MemberDefinition</code> objects that contain the updated work
@@ -133,6 +145,11 @@ namespace Model
     /**
      * <p>An updated description for the work team.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>An updated description for the work team.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -160,6 +177,37 @@ namespace Model
      */
     inline UpdateWorkteamRequest& WithDescription(const char* value) { SetDescription(value); return *this;}
 
+
+    /**
+     * <p>Configures SNS topic notifications for available or expiring work items</p>
+     */
+    inline const NotificationConfiguration& GetNotificationConfiguration() const{ return m_notificationConfiguration; }
+
+    /**
+     * <p>Configures SNS topic notifications for available or expiring work items</p>
+     */
+    inline bool NotificationConfigurationHasBeenSet() const { return m_notificationConfigurationHasBeenSet; }
+
+    /**
+     * <p>Configures SNS topic notifications for available or expiring work items</p>
+     */
+    inline void SetNotificationConfiguration(const NotificationConfiguration& value) { m_notificationConfigurationHasBeenSet = true; m_notificationConfiguration = value; }
+
+    /**
+     * <p>Configures SNS topic notifications for available or expiring work items</p>
+     */
+    inline void SetNotificationConfiguration(NotificationConfiguration&& value) { m_notificationConfigurationHasBeenSet = true; m_notificationConfiguration = std::move(value); }
+
+    /**
+     * <p>Configures SNS topic notifications for available or expiring work items</p>
+     */
+    inline UpdateWorkteamRequest& WithNotificationConfiguration(const NotificationConfiguration& value) { SetNotificationConfiguration(value); return *this;}
+
+    /**
+     * <p>Configures SNS topic notifications for available or expiring work items</p>
+     */
+    inline UpdateWorkteamRequest& WithNotificationConfiguration(NotificationConfiguration&& value) { SetNotificationConfiguration(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_workteamName;
@@ -170,6 +218,9 @@ namespace Model
 
     Aws::String m_description;
     bool m_descriptionHasBeenSet;
+
+    NotificationConfiguration m_notificationConfiguration;
+    bool m_notificationConfigurationHasBeenSet;
   };
 
 } // namespace Model

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeServiceErrorsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * returns descriptions of the errors associated with the specified stack.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>The stack ID. If you use this parameter, <code>DescribeServiceErrors</code>
+     * returns descriptions of the errors associated with the specified stack.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>The stack ID. If you use this parameter, <code>DescribeServiceErrors</code>
@@ -100,6 +106,13 @@ namespace Model
      * <code>DescribeServiceErrors</code> returns descriptions of the errors associated
      * with the specified instance.</p>
      */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
+
+    /**
+     * <p>The instance ID. If you use this parameter,
+     * <code>DescribeServiceErrors</code> returns descriptions of the errors associated
+     * with the specified instance.</p>
+     */
     inline void SetInstanceId(const Aws::String& value) { m_instanceIdHasBeenSet = true; m_instanceId = value; }
 
     /**
@@ -144,6 +157,13 @@ namespace Model
      * Otherwise, it returns a description of every error.</p>
      */
     inline const Aws::Vector<Aws::String>& GetServiceErrorIds() const{ return m_serviceErrorIds; }
+
+    /**
+     * <p>An array of service error IDs. If you use this parameter,
+     * <code>DescribeServiceErrors</code> returns descriptions of the specified errors.
+     * Otherwise, it returns a description of every error.</p>
+     */
+    inline bool ServiceErrorIdsHasBeenSet() const { return m_serviceErrorIdsHasBeenSet; }
 
     /**
      * <p>An array of service error IDs. If you use this parameter,

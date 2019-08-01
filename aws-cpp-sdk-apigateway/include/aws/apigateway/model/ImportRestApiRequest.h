@@ -42,7 +42,7 @@ namespace Model
   {
   public:
     ImportRestApiRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,13 @@ namespace Model
      * The default value is <code>false</code>.</p>
      */
     inline bool GetFailOnWarnings() const{ return m_failOnWarnings; }
+
+    /**
+     * <p>A query parameter to indicate whether to rollback the API creation
+     * (<code>true</code>) or not (<code>false</code>) when a warning is encountered.
+     * The default value is <code>false</code>.</p>
+     */
+    inline bool FailOnWarningsHasBeenSet() const { return m_failOnWarningsHasBeenSet; }
 
     /**
      * <p>A query parameter to indicate whether to rollback the API creation
@@ -83,9 +90,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -105,9 +112,31 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
+     * example, the AWS CLI command to exclude documentation from the imported API
+     * is:</p> <pre><code>aws apigateway import-rest-api --parameters
+     * ignore=documentation --body
+     * 'file:///path/to/imported-api-body.json'</code></pre> <p>The AWS CLI command to
+     * set the regional endpoint on the imported API is:</p> <pre><code>aws apigateway
+     * import-rest-api --parameters endpointConfigurationTypes=REGIONAL --body
+     * 'file:///path/to/imported-api-body.json'</code></pre>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
+
+    /**
+     * <p>A key-value map of context-specific query string parameters specifying the
+     * behavior of different API importing operations. The following shows
+     * operation-specific parameters and their supported values.</p> <p> To exclude
+     * <a>DocumentationParts</a> from the import, set <code>parameters</code> as
+     * <code>ignore=documentation</code>.</p> <p> To configure the endpoint type, set
+     * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
+     * <code>endpointConfigurationTypes=REGIONAL</code>, or
+     * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -127,9 +156,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -149,9 +178,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -171,9 +200,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -193,9 +222,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -215,9 +244,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -237,9 +266,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -259,9 +288,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -281,9 +310,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -303,9 +332,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body
@@ -325,9 +354,9 @@ namespace Model
      * <code>parameters</code> as <code>endpointConfigurationTypes=EDGE</code>,
      * <code>endpointConfigurationTypes=REGIONAL</code>, or
      * <code>endpointConfigurationTypes=PRIVATE</code>. The default endpoint type is
-     * <code>EDGE</code>.</p> <p> To handle imported <code>basePath</code>, set
-     * <code>parameters</code> as <code>basePath=ignore</code>,
-     * <code>basePath=prepend</code> or <code>basePath=split</code>.</p> <p>For
+     * <code>EDGE</code>.</p> <p> To handle imported <code>basepath</code>, set
+     * <code>parameters</code> as <code>basepath=ignore</code>,
+     * <code>basepath=prepend</code> or <code>basepath=split</code>.</p> <p>For
      * example, the AWS CLI command to exclude documentation from the imported API
      * is:</p> <pre><code>aws apigateway import-rest-api --parameters
      * ignore=documentation --body

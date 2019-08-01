@@ -36,7 +36,7 @@ namespace Model
 
   /**
    * <p> This data type is used as a response element in the
-   * <a>DescribeDBSubnetGroups</a> action. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeDBSubnetGroups</code> action. </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/Subnet">AWS API
    * Reference</a></p>
    */
@@ -55,6 +55,11 @@ namespace Model
      * <p>Specifies the identifier of the subnet.</p>
      */
     inline const Aws::String& GetSubnetIdentifier() const{ return m_subnetIdentifier; }
+
+    /**
+     * <p>Specifies the identifier of the subnet.</p>
+     */
+    inline bool SubnetIdentifierHasBeenSet() const { return m_subnetIdentifierHasBeenSet; }
 
     /**
      * <p>Specifies the identifier of the subnet.</p>
@@ -91,6 +96,9 @@ namespace Model
     inline const AvailabilityZone& GetSubnetAvailabilityZone() const{ return m_subnetAvailabilityZone; }
 
     
+    inline bool SubnetAvailabilityZoneHasBeenSet() const { return m_subnetAvailabilityZoneHasBeenSet; }
+
+    
     inline void SetSubnetAvailabilityZone(const AvailabilityZone& value) { m_subnetAvailabilityZoneHasBeenSet = true; m_subnetAvailabilityZone = value; }
 
     
@@ -107,6 +115,11 @@ namespace Model
      * <p>Specifies the status of the subnet.</p>
      */
     inline const Aws::String& GetSubnetStatus() const{ return m_subnetStatus; }
+
+    /**
+     * <p>Specifies the status of the subnet.</p>
+     */
+    inline bool SubnetStatusHasBeenSet() const { return m_subnetStatusHasBeenSet; }
 
     /**
      * <p>Specifies the status of the subnet.</p>

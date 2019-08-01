@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateImageBuilderStreamingURLRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the image builder.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the image builder.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the image builder.</p>
@@ -85,6 +90,12 @@ namespace Model
      * between 1 and 604800 seconds. The default is 3600 seconds.</p>
      */
     inline long long GetValidity() const{ return m_validity; }
+
+    /**
+     * <p>The time that the streaming URL will be valid, in seconds. Specify a value
+     * between 1 and 604800 seconds. The default is 3600 seconds.</p>
+     */
+    inline bool ValidityHasBeenSet() const { return m_validityHasBeenSet; }
 
     /**
      * <p>The time that the streaming URL will be valid, in seconds. Specify a value

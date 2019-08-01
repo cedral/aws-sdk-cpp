@@ -61,6 +61,11 @@ namespace Model
     /**
      * <p>The logical name of the resource specified in the template.</p>
      */
+    inline bool LogicalResourceIdHasBeenSet() const { return m_logicalResourceIdHasBeenSet; }
+
+    /**
+     * <p>The logical name of the resource specified in the template.</p>
+     */
     inline void SetLogicalResourceId(const Aws::String& value) { m_logicalResourceIdHasBeenSet = true; m_logicalResourceId = value; }
 
     /**
@@ -94,6 +99,12 @@ namespace Model
      * the resource.</p>
      */
     inline const Aws::String& GetPhysicalResourceId() const{ return m_physicalResourceId; }
+
+    /**
+     * <p>The name or unique identifier that corresponds to a physical instance ID of
+     * the resource.</p>
+     */
+    inline bool PhysicalResourceIdHasBeenSet() const { return m_physicalResourceIdHasBeenSet; }
 
     /**
      * <p>The name or unique identifier that corresponds to a physical instance ID of
@@ -134,49 +145,56 @@ namespace Model
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline const Aws::String& GetResourceType() const{ return m_resourceType; }
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
+
+    /**
+     * <p>Type of resource. (For more information, go to <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline void SetResourceType(const Aws::String& value) { m_resourceTypeHasBeenSet = true; m_resourceType = value; }
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline void SetResourceType(Aws::String&& value) { m_resourceTypeHasBeenSet = true; m_resourceType = std::move(value); }
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline void SetResourceType(const char* value) { m_resourceTypeHasBeenSet = true; m_resourceType.assign(value); }
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline StackResourceSummary& WithResourceType(const Aws::String& value) { SetResourceType(value); return *this;}
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline StackResourceSummary& WithResourceType(Aws::String&& value) { SetResourceType(std::move(value)); return *this;}
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline StackResourceSummary& WithResourceType(const char* value) { SetResourceType(value); return *this;}
@@ -186,6 +204,11 @@ namespace Model
      * <p>Time the status was updated.</p>
      */
     inline const Aws::Utils::DateTime& GetLastUpdatedTimestamp() const{ return m_lastUpdatedTimestamp; }
+
+    /**
+     * <p>Time the status was updated.</p>
+     */
+    inline bool LastUpdatedTimestampHasBeenSet() const { return m_lastUpdatedTimestampHasBeenSet; }
 
     /**
      * <p>Time the status was updated.</p>
@@ -216,6 +239,11 @@ namespace Model
     /**
      * <p>Current status of the resource.</p>
      */
+    inline bool ResourceStatusHasBeenSet() const { return m_resourceStatusHasBeenSet; }
+
+    /**
+     * <p>Current status of the resource.</p>
+     */
     inline void SetResourceStatus(const ResourceStatus& value) { m_resourceStatusHasBeenSet = true; m_resourceStatus = value; }
 
     /**
@@ -238,6 +266,11 @@ namespace Model
      * <p>Success/failure message associated with the resource.</p>
      */
     inline const Aws::String& GetResourceStatusReason() const{ return m_resourceStatusReason; }
+
+    /**
+     * <p>Success/failure message associated with the resource.</p>
+     */
+    inline bool ResourceStatusReasonHasBeenSet() const { return m_resourceStatusReasonHasBeenSet; }
 
     /**
      * <p>Success/failure message associated with the resource.</p>
@@ -279,6 +312,16 @@ namespace Model
      * Unregulated Configuration Changes to Stacks and Resources</a>.</p>
      */
     inline const StackResourceDriftInformationSummary& GetDriftInformation() const{ return m_driftInformation; }
+
+    /**
+     * <p>Information about whether the resource's actual configuration differs, or has
+     * <i>drifted</i>, from its expected configuration, as defined in the stack
+     * template and any values specified as template parameters. For more information,
+     * see <a
+     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
+     * Unregulated Configuration Changes to Stacks and Resources</a>.</p>
+     */
+    inline bool DriftInformationHasBeenSet() const { return m_driftInformationHasBeenSet; }
 
     /**
      * <p>Information about whether the resource's actual configuration differs, or has

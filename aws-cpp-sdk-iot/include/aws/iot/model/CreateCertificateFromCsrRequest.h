@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     CreateCertificateFromCsrRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>The certificate signing request (CSR).</p>
      */
     inline const Aws::String& GetCertificateSigningRequest() const{ return m_certificateSigningRequest; }
+
+    /**
+     * <p>The certificate signing request (CSR).</p>
+     */
+    inline bool CertificateSigningRequestHasBeenSet() const { return m_certificateSigningRequestHasBeenSet; }
 
     /**
      * <p>The certificate signing request (CSR).</p>
@@ -92,6 +97,11 @@ namespace Model
      * <p>Specifies whether the certificate is active.</p>
      */
     inline bool GetSetAsActive() const{ return m_setAsActive; }
+
+    /**
+     * <p>Specifies whether the certificate is active.</p>
+     */
+    inline bool SetAsActiveHasBeenSet() const { return m_setAsActiveHasBeenSet; }
 
     /**
      * <p>Specifies whether the certificate is active.</p>

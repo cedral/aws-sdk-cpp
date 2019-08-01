@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteCacheClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * case sensitive.</p>
      */
     inline const Aws::String& GetCacheClusterId() const{ return m_cacheClusterId; }
+
+    /**
+     * <p>The cluster identifier for the cluster to be deleted. This parameter is not
+     * case sensitive.</p>
+     */
+    inline bool CacheClusterIdHasBeenSet() const { return m_cacheClusterIdHasBeenSet; }
 
     /**
      * <p>The cluster identifier for the cluster to be deleted. This parameter is not
@@ -99,6 +105,13 @@ namespace Model
      * the cluster immediately afterward.</p>
      */
     inline const Aws::String& GetFinalSnapshotIdentifier() const{ return m_finalSnapshotIdentifier; }
+
+    /**
+     * <p>The user-supplied name of a final cluster snapshot. This is the unique name
+     * that identifies the snapshot. ElastiCache creates the snapshot, and then deletes
+     * the cluster immediately afterward.</p>
+     */
+    inline bool FinalSnapshotIdentifierHasBeenSet() const { return m_finalSnapshotIdentifierHasBeenSet; }
 
     /**
      * <p>The user-supplied name of a final cluster snapshot. This is the unique name

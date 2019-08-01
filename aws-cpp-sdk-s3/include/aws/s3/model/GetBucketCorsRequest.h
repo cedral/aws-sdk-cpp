@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     GetBucketCorsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p/>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p/>
@@ -87,6 +92,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }

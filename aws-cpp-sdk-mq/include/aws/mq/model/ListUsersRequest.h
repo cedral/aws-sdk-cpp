@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListUsersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * The unique ID that Amazon MQ generates for the broker.
      */
     inline const Aws::String& GetBrokerId() const{ return m_brokerId; }
+
+    /**
+     * The unique ID that Amazon MQ generates for the broker.
+     */
+    inline bool BrokerIdHasBeenSet() const { return m_brokerIdHasBeenSet; }
 
     /**
      * The unique ID that Amazon MQ generates for the broker.
@@ -94,6 +99,12 @@ namespace Model
      * The maximum number of ActiveMQ users that can be returned per page (20 by
      * default). This value must be an integer from 5 to 100.
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * The maximum number of ActiveMQ users that can be returned per page (20 by
+     * default). This value must be an integer from 5 to 100.
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -108,6 +119,12 @@ namespace Model
      * request the first page, leave nextToken empty.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * The token that specifies the next page of results Amazon MQ should return. To
+     * request the first page, leave nextToken empty.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * The token that specifies the next page of results Amazon MQ should return. To

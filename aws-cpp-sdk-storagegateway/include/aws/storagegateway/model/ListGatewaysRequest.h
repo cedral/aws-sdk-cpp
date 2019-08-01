@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListGatewaysRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * list of gateways.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>An opaque string that indicates the position at which to begin the returned
+     * list of gateways.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>An opaque string that indicates the position at which to begin the returned
@@ -97,6 +103,12 @@ namespace Model
      * number of items.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>Specifies that the list of gateways returned be limited to the specified
+     * number of items.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>Specifies that the list of gateways returned be limited to the specified

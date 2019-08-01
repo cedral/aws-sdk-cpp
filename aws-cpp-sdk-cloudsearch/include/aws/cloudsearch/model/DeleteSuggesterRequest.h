@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DeleteSuggesterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,9 @@ namespace Model
 
     
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     
     inline void SetDomainName(const Aws::String& value) { m_domainNameHasBeenSet = true; m_domainName = value; }
@@ -77,6 +80,11 @@ namespace Model
      * <p>Specifies the name of the suggester you want to delete.</p>
      */
     inline const Aws::String& GetSuggesterName() const{ return m_suggesterName; }
+
+    /**
+     * <p>Specifies the name of the suggester you want to delete.</p>
+     */
+    inline bool SuggesterNameHasBeenSet() const { return m_suggesterNameHasBeenSet; }
 
     /**
      * <p>Specifies the name of the suggester you want to delete.</p>

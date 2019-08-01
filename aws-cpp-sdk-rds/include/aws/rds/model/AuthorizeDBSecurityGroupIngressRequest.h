@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     AuthorizeDBSecurityGroupIngressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the DB security group to add authorization to.</p>
      */
     inline const Aws::String& GetDBSecurityGroupName() const{ return m_dBSecurityGroupName; }
+
+    /**
+     * <p>The name of the DB security group to add authorization to.</p>
+     */
+    inline bool DBSecurityGroupNameHasBeenSet() const { return m_dBSecurityGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB security group to add authorization to.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The IP range to authorize.</p>
      */
+    inline bool CIDRIPHasBeenSet() const { return m_cIDRIPHasBeenSet; }
+
+    /**
+     * <p>The IP range to authorize.</p>
+     */
     inline void SetCIDRIP(const Aws::String& value) { m_cIDRIPHasBeenSet = true; m_cIDRIP = value; }
 
     /**
@@ -129,6 +139,15 @@ namespace Model
      * provided. </p>
      */
     inline const Aws::String& GetEC2SecurityGroupName() const{ return m_eC2SecurityGroupName; }
+
+    /**
+     * <p> Name of the EC2 security group to authorize. For VPC DB security groups,
+     * <code>EC2SecurityGroupId</code> must be provided. Otherwise,
+     * <code>EC2SecurityGroupOwnerId</code> and either
+     * <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be
+     * provided. </p>
+     */
+    inline bool EC2SecurityGroupNameHasBeenSet() const { return m_eC2SecurityGroupNameHasBeenSet; }
 
     /**
      * <p> Name of the EC2 security group to authorize. For VPC DB security groups,
@@ -201,6 +220,15 @@ namespace Model
      * <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be
      * provided. </p>
      */
+    inline bool EC2SecurityGroupIdHasBeenSet() const { return m_eC2SecurityGroupIdHasBeenSet; }
+
+    /**
+     * <p> Id of the EC2 security group to authorize. For VPC DB security groups,
+     * <code>EC2SecurityGroupId</code> must be provided. Otherwise,
+     * <code>EC2SecurityGroupOwnerId</code> and either
+     * <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be
+     * provided. </p>
+     */
     inline void SetEC2SecurityGroupId(const Aws::String& value) { m_eC2SecurityGroupIdHasBeenSet = true; m_eC2SecurityGroupId = value; }
 
     /**
@@ -258,6 +286,16 @@ namespace Model
      * provided. </p>
      */
     inline const Aws::String& GetEC2SecurityGroupOwnerId() const{ return m_eC2SecurityGroupOwnerId; }
+
+    /**
+     * <p> AWS account number of the owner of the EC2 security group specified in the
+     * <code>EC2SecurityGroupName</code> parameter. The AWS Access Key ID is not an
+     * acceptable value. For VPC DB security groups, <code>EC2SecurityGroupId</code>
+     * must be provided. Otherwise, <code>EC2SecurityGroupOwnerId</code> and either
+     * <code>EC2SecurityGroupName</code> or <code>EC2SecurityGroupId</code> must be
+     * provided. </p>
+     */
+    inline bool EC2SecurityGroupOwnerIdHasBeenSet() const { return m_eC2SecurityGroupOwnerIdHasBeenSet; }
 
     /**
      * <p> AWS account number of the owner of the EC2 security group specified in the

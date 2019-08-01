@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListActiveViolationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the thing whose active violations are listed.</p>
      */
     inline const Aws::String& GetThingName() const{ return m_thingName; }
+
+    /**
+     * <p>The name of the thing whose active violations are listed.</p>
+     */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
 
     /**
      * <p>The name of the thing whose active violations are listed.</p>
@@ -89,6 +94,12 @@ namespace Model
      * listed.</p>
      */
     inline const Aws::String& GetSecurityProfileName() const{ return m_securityProfileName; }
+
+    /**
+     * <p>The name of the Device Defender security profile for which violations are
+     * listed.</p>
+     */
+    inline bool SecurityProfileNameHasBeenSet() const { return m_securityProfileNameHasBeenSet; }
 
     /**
      * <p>The name of the Device Defender security profile for which violations are
@@ -135,6 +146,11 @@ namespace Model
     /**
      * <p>The token for the next set of results.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token for the next set of results.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -167,6 +183,11 @@ namespace Model
      * <p>The maximum number of results to return at one time.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return at one time.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return at one time.</p>

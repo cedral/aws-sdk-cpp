@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteRunRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) for the run you wish to delete.</p>
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the run you wish to delete.</p>
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) for the run you wish to delete.</p>

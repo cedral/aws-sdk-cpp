@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreateUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,37 +47,66 @@ namespace Model
 
 
     /**
-     * <p>The email address of the user.</p>
+     * <p>The email address of the user.</p> <note> <p>Users' email addresses are
+     * case-sensitive. During login, if they specify an email address that doesn't use
+     * the same capitalization as the email address specified when their user pool
+     * account was created, a "user does not exist" error message displays.</p> </note>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
 
     /**
-     * <p>The email address of the user.</p>
+     * <p>The email address of the user.</p> <note> <p>Users' email addresses are
+     * case-sensitive. During login, if they specify an email address that doesn't use
+     * the same capitalization as the email address specified when their user pool
+     * account was created, a "user does not exist" error message displays.</p> </note>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
+
+    /**
+     * <p>The email address of the user.</p> <note> <p>Users' email addresses are
+     * case-sensitive. During login, if they specify an email address that doesn't use
+     * the same capitalization as the email address specified when their user pool
+     * account was created, a "user does not exist" error message displays.</p> </note>
      */
     inline void SetUserName(const Aws::String& value) { m_userNameHasBeenSet = true; m_userName = value; }
 
     /**
-     * <p>The email address of the user.</p>
+     * <p>The email address of the user.</p> <note> <p>Users' email addresses are
+     * case-sensitive. During login, if they specify an email address that doesn't use
+     * the same capitalization as the email address specified when their user pool
+     * account was created, a "user does not exist" error message displays.</p> </note>
      */
     inline void SetUserName(Aws::String&& value) { m_userNameHasBeenSet = true; m_userName = std::move(value); }
 
     /**
-     * <p>The email address of the user.</p>
+     * <p>The email address of the user.</p> <note> <p>Users' email addresses are
+     * case-sensitive. During login, if they specify an email address that doesn't use
+     * the same capitalization as the email address specified when their user pool
+     * account was created, a "user does not exist" error message displays.</p> </note>
      */
     inline void SetUserName(const char* value) { m_userNameHasBeenSet = true; m_userName.assign(value); }
 
     /**
-     * <p>The email address of the user.</p>
+     * <p>The email address of the user.</p> <note> <p>Users' email addresses are
+     * case-sensitive. During login, if they specify an email address that doesn't use
+     * the same capitalization as the email address specified when their user pool
+     * account was created, a "user does not exist" error message displays.</p> </note>
      */
     inline CreateUserRequest& WithUserName(const Aws::String& value) { SetUserName(value); return *this;}
 
     /**
-     * <p>The email address of the user.</p>
+     * <p>The email address of the user.</p> <note> <p>Users' email addresses are
+     * case-sensitive. During login, if they specify an email address that doesn't use
+     * the same capitalization as the email address specified when their user pool
+     * account was created, a "user does not exist" error message displays.</p> </note>
      */
     inline CreateUserRequest& WithUserName(Aws::String&& value) { SetUserName(std::move(value)); return *this;}
 
     /**
-     * <p>The email address of the user.</p>
+     * <p>The email address of the user.</p> <note> <p>Users' email addresses are
+     * case-sensitive. During login, if they specify an email address that doesn't use
+     * the same capitalization as the email address specified when their user pool
+     * account was created, a "user does not exist" error message displays.</p> </note>
      */
     inline CreateUserRequest& WithUserName(const char* value) { SetUserName(value); return *this;}
 
@@ -91,6 +120,16 @@ namespace Model
      * within 7 days, you must send them a new welcome email.</p> </note>
      */
     inline const MessageAction& GetMessageAction() const{ return m_messageAction; }
+
+    /**
+     * <p>The action to take for the welcome email that is sent to a user after the
+     * user is created in the user pool. If you specify SUPPRESS, no email is sent. If
+     * you specify RESEND, do not specify the first name or last name of the user. If
+     * the value is null, the email is sent. </p> <note> <p>The temporary password in
+     * the welcome email is valid for only 7 days. If users don’t set their passwords
+     * within 7 days, you must send them a new welcome email.</p> </note>
+     */
+    inline bool MessageActionHasBeenSet() const { return m_messageActionHasBeenSet; }
 
     /**
      * <p>The action to take for the welcome email that is sent to a user after the
@@ -141,6 +180,11 @@ namespace Model
     /**
      * <p>The first name, or given name, of the user.</p>
      */
+    inline bool FirstNameHasBeenSet() const { return m_firstNameHasBeenSet; }
+
+    /**
+     * <p>The first name, or given name, of the user.</p>
+     */
     inline void SetFirstName(const Aws::String& value) { m_firstNameHasBeenSet = true; m_firstName = value; }
 
     /**
@@ -177,6 +221,11 @@ namespace Model
     /**
      * <p>The last name, or surname, of the user.</p>
      */
+    inline bool LastNameHasBeenSet() const { return m_lastNameHasBeenSet; }
+
+    /**
+     * <p>The last name, or surname, of the user.</p>
+     */
     inline void SetLastName(const Aws::String& value) { m_lastNameHasBeenSet = true; m_lastName = value; }
 
     /**
@@ -209,6 +258,11 @@ namespace Model
      * <p>The authentication type for the user. You must specify USERPOOL. </p>
      */
     inline const AuthenticationType& GetAuthenticationType() const{ return m_authenticationType; }
+
+    /**
+     * <p>The authentication type for the user. You must specify USERPOOL. </p>
+     */
+    inline bool AuthenticationTypeHasBeenSet() const { return m_authenticationTypeHasBeenSet; }
 
     /**
      * <p>The authentication type for the user. You must specify USERPOOL. </p>

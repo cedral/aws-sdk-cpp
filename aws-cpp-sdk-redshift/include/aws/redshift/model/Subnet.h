@@ -58,6 +58,11 @@ namespace Model
     /**
      * <p>The identifier of the subnet.</p>
      */
+    inline bool SubnetIdentifierHasBeenSet() const { return m_subnetIdentifierHasBeenSet; }
+
+    /**
+     * <p>The identifier of the subnet.</p>
+     */
     inline void SetSubnetIdentifier(const Aws::String& value) { m_subnetIdentifierHasBeenSet = true; m_subnetIdentifier = value; }
 
     /**
@@ -86,19 +91,34 @@ namespace Model
     inline Subnet& WithSubnetIdentifier(const char* value) { SetSubnetIdentifier(value); return *this;}
 
 
-    
+    /**
+     * <p/>
+     */
     inline const AvailabilityZone& GetSubnetAvailabilityZone() const{ return m_subnetAvailabilityZone; }
 
-    
+    /**
+     * <p/>
+     */
+    inline bool SubnetAvailabilityZoneHasBeenSet() const { return m_subnetAvailabilityZoneHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetSubnetAvailabilityZone(const AvailabilityZone& value) { m_subnetAvailabilityZoneHasBeenSet = true; m_subnetAvailabilityZone = value; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetSubnetAvailabilityZone(AvailabilityZone&& value) { m_subnetAvailabilityZoneHasBeenSet = true; m_subnetAvailabilityZone = std::move(value); }
 
-    
+    /**
+     * <p/>
+     */
     inline Subnet& WithSubnetAvailabilityZone(const AvailabilityZone& value) { SetSubnetAvailabilityZone(value); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline Subnet& WithSubnetAvailabilityZone(AvailabilityZone&& value) { SetSubnetAvailabilityZone(std::move(value)); return *this;}
 
 
@@ -106,6 +126,11 @@ namespace Model
      * <p>The status of the subnet.</p>
      */
     inline const Aws::String& GetSubnetStatus() const{ return m_subnetStatus; }
+
+    /**
+     * <p>The status of the subnet.</p>
+     */
+    inline bool SubnetStatusHasBeenSet() const { return m_subnetStatusHasBeenSet; }
 
     /**
      * <p>The status of the subnet.</p>

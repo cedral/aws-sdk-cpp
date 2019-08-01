@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListComplianceItemsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * of results.</p>
      */
     inline const Aws::Vector<ComplianceStringFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>One or more compliance filters. Use a filter to return a more specific list
+     * of results.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>One or more compliance filters. Use a filter to return a more specific list
@@ -94,6 +100,12 @@ namespace Model
      * you can only specify one resource ID.</p>
      */
     inline const Aws::Vector<Aws::String>& GetResourceIds() const{ return m_resourceIds; }
+
+    /**
+     * <p>The ID for the resources from which to get compliance information. Currently,
+     * you can only specify one resource ID.</p>
+     */
+    inline bool ResourceIdsHasBeenSet() const { return m_resourceIdsHasBeenSet; }
 
     /**
      * <p>The ID for the resources from which to get compliance information. Currently,
@@ -148,6 +160,12 @@ namespace Model
      * <p>The type of resource from which to get compliance information. Currently, the
      * only supported resource type is <code>ManagedInstance</code>.</p>
      */
+    inline bool ResourceTypesHasBeenSet() const { return m_resourceTypesHasBeenSet; }
+
+    /**
+     * <p>The type of resource from which to get compliance information. Currently, the
+     * only supported resource type is <code>ManagedInstance</code>.</p>
+     */
     inline void SetResourceTypes(const Aws::Vector<Aws::String>& value) { m_resourceTypesHasBeenSet = true; m_resourceTypes = value; }
 
     /**
@@ -197,6 +215,12 @@ namespace Model
      * <p>A token to start the list. Use this token to get the next set of results.
      * </p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>A token to start the list. Use this token to get the next set of results.
+     * </p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -236,6 +260,13 @@ namespace Model
      * results.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of items to return for this call. The call also returns a
+     * token that you can specify in a subsequent call to get the next set of
+     * results.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return for this call. The call also returns a

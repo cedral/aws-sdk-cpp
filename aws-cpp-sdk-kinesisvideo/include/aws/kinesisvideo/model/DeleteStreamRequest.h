@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>
      */
     inline const Aws::String& GetStreamARN() const{ return m_streamARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>
+     */
+    inline bool StreamARNHasBeenSet() const { return m_streamARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the stream that you want to delete. </p>
@@ -86,6 +91,15 @@ namespace Model
      * stream.</p>
      */
     inline const Aws::String& GetCurrentVersion() const{ return m_currentVersion; }
+
+    /**
+     * <p>Optional: The version of the stream that you want to delete. </p> <p>Specify
+     * the version as a safeguard to ensure that your are deleting the correct stream.
+     * To get the stream version, use the <code>DescribeStream</code> API.</p> <p>If
+     * not specified, only the <code>CreationTime</code> is checked before deleting the
+     * stream.</p>
+     */
+    inline bool CurrentVersionHasBeenSet() const { return m_currentVersionHasBeenSet; }
 
     /**
      * <p>Optional: The version of the stream that you want to delete. </p> <p>Specify

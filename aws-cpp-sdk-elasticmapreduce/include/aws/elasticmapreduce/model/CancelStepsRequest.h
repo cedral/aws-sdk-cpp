@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CancelStepsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * <a>RunJobFlow</a> and <a>ListClusters</a> to get ClusterIDs. </p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>The <code>ClusterID</code> for which specified steps will be canceled. Use
+     * <a>RunJobFlow</a> and <a>ListClusters</a> to get ClusterIDs. </p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>The <code>ClusterID</code> for which specified steps will be canceled. Use
@@ -97,6 +103,12 @@ namespace Model
      * and their states for the specified cluster.</p>
      */
     inline const Aws::Vector<Aws::String>& GetStepIds() const{ return m_stepIds; }
+
+    /**
+     * <p>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps
+     * and their states for the specified cluster.</p>
+     */
+    inline bool StepIdsHasBeenSet() const { return m_stepIdsHasBeenSet; }
 
     /**
      * <p>The list of <code>StepIDs</code> to cancel. Use <a>ListSteps</a> to get steps

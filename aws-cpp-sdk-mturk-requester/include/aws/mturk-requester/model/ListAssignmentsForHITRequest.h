@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListAssignmentsForHITRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the HIT.</p>
      */
     inline const Aws::String& GetHITId() const{ return m_hITId; }
+
+    /**
+     * <p>The ID of the HIT.</p>
+     */
+    inline bool HITIdHasBeenSet() const { return m_hITIdHasBeenSet; }
 
     /**
      * <p>The ID of the HIT.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>Pagination token</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>Pagination token</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -122,6 +132,9 @@ namespace Model
     inline int GetMaxResults() const{ return m_maxResults; }
 
     
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     
@@ -132,6 +145,11 @@ namespace Model
      * <p>The status of the assignments to return: Submitted | Approved | Rejected</p>
      */
     inline const Aws::Vector<AssignmentStatus>& GetAssignmentStatuses() const{ return m_assignmentStatuses; }
+
+    /**
+     * <p>The status of the assignments to return: Submitted | Approved | Rejected</p>
+     */
+    inline bool AssignmentStatusesHasBeenSet() const { return m_assignmentStatusesHasBeenSet; }
 
     /**
      * <p>The status of the assignments to return: Submitted | Approved | Rejected</p>

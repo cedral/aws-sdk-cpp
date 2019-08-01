@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     AcknowledgeJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * receipt.</p>
      */
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    /**
+     * <p>The unique system-generated ID of the job for which you want to confirm
+     * receipt.</p>
+     */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     /**
      * <p>The unique system-generated ID of the job for which you want to confirm
@@ -97,6 +103,13 @@ namespace Model
      * response of the <a>PollForJobs</a> request that returned this job.</p>
      */
     inline const Aws::String& GetNonce() const{ return m_nonce; }
+
+    /**
+     * <p>A system-generated random number that AWS CodePipeline uses to ensure that
+     * the job is being worked on by only one job worker. Get this number from the
+     * response of the <a>PollForJobs</a> request that returned this job.</p>
+     */
+    inline bool NonceHasBeenSet() const { return m_nonceHasBeenSet; }
 
     /**
      * <p>A system-generated random number that AWS CodePipeline uses to ensure that

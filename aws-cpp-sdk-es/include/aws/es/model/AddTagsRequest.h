@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     AddTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
      */
     inline const Aws::String& GetARN() const{ return m_aRN; }
+
+    /**
+     * <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
+     */
+    inline bool ARNHasBeenSet() const { return m_aRNHasBeenSet; }
 
     /**
      * <p> Specify the <code>ARN</code> for which you want to add the tags.</p>
@@ -90,6 +95,12 @@ namespace Model
      * </p>
      */
     inline const Aws::Vector<Tag>& GetTagList() const{ return m_tagList; }
+
+    /**
+     * <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain.
+     * </p>
+     */
+    inline bool TagListHasBeenSet() const { return m_tagListHasBeenSet; }
 
     /**
      * <p> List of <code>Tag</code> that need to be added for the Elasticsearch domain.

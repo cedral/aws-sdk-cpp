@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetMediaRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,13 @@ namespace Model
      * <code>streamARN</code>.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>The Kinesis video stream name from where you want to get the media content.
+     * If you don't specify the <code>streamName</code>, you must specify the
+     * <code>streamARN</code>.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>The Kinesis video stream name from where you want to get the media content.
@@ -105,6 +112,13 @@ namespace Model
      * don't specify the <code>streamARN</code>, you must specify the
      * <code>streamName</code>.</p>
      */
+    inline bool StreamARNHasBeenSet() const { return m_streamARNHasBeenSet; }
+
+    /**
+     * <p>The ARN of the stream from where you want to get the media content. If you
+     * don't specify the <code>streamARN</code>, you must specify the
+     * <code>streamName</code>.</p>
+     */
     inline void SetStreamARN(const Aws::String& value) { m_streamARNHasBeenSet = true; m_streamARN = value; }
 
     /**
@@ -147,6 +161,11 @@ namespace Model
      * <p>Identifies the starting chunk to get from the specified stream. </p>
      */
     inline const StartSelector& GetStartSelector() const{ return m_startSelector; }
+
+    /**
+     * <p>Identifies the starting chunk to get from the specified stream. </p>
+     */
+    inline bool StartSelectorHasBeenSet() const { return m_startSelectorHasBeenSet; }
 
     /**
      * <p>Identifies the starting chunk to get from the specified stream. </p>

@@ -35,10 +35,11 @@ namespace Model
 
   /**
    * <p>This data type is used as a response element in the following actions:</p>
-   * <ul> <li> <p> <a>ModifyDBInstance</a> </p> </li> <li> <p>
-   * <a>RebootDBInstance</a> </p> </li> <li> <p>
-   * <a>RestoreDBInstanceFromDBSnapshot</a> </p> </li> <li> <p>
-   * <a>RestoreDBInstanceToPointInTime</a> </p> </li> </ul><p><h3>See Also:</h3>   <a
+   * <ul> <li> <p> <code>ModifyDBInstance</code> </p> </li> <li> <p>
+   * <code>RebootDBInstance</code> </p> </li> <li> <p>
+   * <code>RestoreDBInstanceFromDBSnapshot</code> </p> </li> <li> <p>
+   * <code>RestoreDBInstanceToPointInTime</code> </p> </li> </ul><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBSecurityGroupMembership">AWS
    * API Reference</a></p>
    */
@@ -57,6 +58,11 @@ namespace Model
      * <p>The name of the DB security group.</p>
      */
     inline const Aws::String& GetDBSecurityGroupName() const{ return m_dBSecurityGroupName; }
+
+    /**
+     * <p>The name of the DB security group.</p>
+     */
+    inline bool DBSecurityGroupNameHasBeenSet() const { return m_dBSecurityGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB security group.</p>
@@ -93,6 +99,11 @@ namespace Model
      * <p>The status of the DB security group.</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the DB security group.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the DB security group.</p>

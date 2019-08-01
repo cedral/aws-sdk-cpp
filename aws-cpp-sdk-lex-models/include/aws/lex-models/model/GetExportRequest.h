@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     GetExportRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the bot to export.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the bot to export.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the bot to export.</p>
@@ -94,6 +99,11 @@ namespace Model
     /**
      * <p>The version of the bot to export.</p>
      */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
+
+    /**
+     * <p>The version of the bot to export.</p>
+     */
     inline void SetVersion(const Aws::String& value) { m_versionHasBeenSet = true; m_version = value; }
 
     /**
@@ -130,6 +140,11 @@ namespace Model
     /**
      * <p>The type of resource to export. </p>
      */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
+
+    /**
+     * <p>The type of resource to export. </p>
+     */
     inline void SetResourceType(const ResourceType& value) { m_resourceTypeHasBeenSet = true; m_resourceType = value; }
 
     /**
@@ -152,6 +167,11 @@ namespace Model
      * <p>The format of the exported data.</p>
      */
     inline const ExportType& GetExportType() const{ return m_exportType; }
+
+    /**
+     * <p>The format of the exported data.</p>
+     */
+    inline bool ExportTypeHasBeenSet() const { return m_exportTypeHasBeenSet; }
 
     /**
      * <p>The format of the exported data.</p>

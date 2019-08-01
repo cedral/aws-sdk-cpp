@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateBackupPlanRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>Uniquely identifies a backup plan.</p>
      */
     inline const Aws::String& GetBackupPlanId() const{ return m_backupPlanId; }
+
+    /**
+     * <p>Uniquely identifies a backup plan.</p>
+     */
+    inline bool BackupPlanIdHasBeenSet() const { return m_backupPlanIdHasBeenSet; }
 
     /**
      * <p>Uniquely identifies a backup plan.</p>
@@ -84,6 +89,12 @@ namespace Model
      * and one or more sets of <code>Rules</code>.</p>
      */
     inline const BackupPlanInput& GetBackupPlan() const{ return m_backupPlan; }
+
+    /**
+     * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code>
+     * and one or more sets of <code>Rules</code>.</p>
+     */
+    inline bool BackupPlanHasBeenSet() const { return m_backupPlanHasBeenSet; }
 
     /**
      * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code>

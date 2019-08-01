@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RebootNodeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the DAX cluster containing the node to be rebooted.</p>
      */
     inline const Aws::String& GetClusterName() const{ return m_clusterName; }
+
+    /**
+     * <p>The name of the DAX cluster containing the node to be rebooted.</p>
+     */
+    inline bool ClusterNameHasBeenSet() const { return m_clusterNameHasBeenSet; }
 
     /**
      * <p>The name of the DAX cluster containing the node to be rebooted.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The system-assigned ID of the node to be rebooted.</p>
      */
     inline const Aws::String& GetNodeId() const{ return m_nodeId; }
+
+    /**
+     * <p>The system-assigned ID of the node to be rebooted.</p>
+     */
+    inline bool NodeIdHasBeenSet() const { return m_nodeIdHasBeenSet; }
 
     /**
      * <p>The system-assigned ID of the node to be rebooted.</p>

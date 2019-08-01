@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AttachPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * where both objects reside. For more information, see <a>arns</a>.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+     * where both objects reside. For more information, see <a>arns</a>.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>The reference that is associated with the policy object.</p>
      */
+    inline bool PolicyReferenceHasBeenSet() const { return m_policyReferenceHasBeenSet; }
+
+    /**
+     * <p>The reference that is associated with the policy object.</p>
+     */
     inline void SetPolicyReference(const ObjectReference& value) { m_policyReferenceHasBeenSet = true; m_policyReference = value; }
 
     /**
@@ -119,6 +130,12 @@ namespace Model
      * attached.</p>
      */
     inline const ObjectReference& GetObjectReference() const{ return m_objectReference; }
+
+    /**
+     * <p>The reference that identifies the object to which the policy will be
+     * attached.</p>
+     */
+    inline bool ObjectReferenceHasBeenSet() const { return m_objectReferenceHasBeenSet; }
 
     /**
      * <p>The reference that identifies the object to which the policy will be

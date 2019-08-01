@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDeploymentTargetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p> The unique ID of a deployment. </p>
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * <p> The unique ID of a deployment. </p>
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * <p> The unique ID of a deployment. </p>
@@ -84,6 +89,11 @@ namespace Model
      * <p> The unique ID of a deployment target. </p>
      */
     inline const Aws::String& GetTargetId() const{ return m_targetId; }
+
+    /**
+     * <p> The unique ID of a deployment target. </p>
+     */
+    inline bool TargetIdHasBeenSet() const { return m_targetIdHasBeenSet; }
 
     /**
      * <p> The unique ID of a deployment target. </p>

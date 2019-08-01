@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteConfigurationTemplateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the application to delete the configuration template from.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application to delete the configuration template from.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application to delete the configuration template from.</p>
@@ -89,6 +94,11 @@ namespace Model
      * <p>The name of the configuration template to delete.</p>
      */
     inline const Aws::String& GetTemplateName() const{ return m_templateName; }
+
+    /**
+     * <p>The name of the configuration template to delete.</p>
+     */
+    inline bool TemplateNameHasBeenSet() const { return m_templateNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration template to delete.</p>

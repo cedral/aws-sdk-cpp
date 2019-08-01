@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     AcceptReservedInstancesExchangeQuoteRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -66,6 +66,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -82,6 +90,12 @@ namespace Model
      * Convertible Reserved Instance of the same or higher value.</p>
      */
     inline const Aws::Vector<Aws::String>& GetReservedInstanceIds() const{ return m_reservedInstanceIds; }
+
+    /**
+     * <p>The IDs of the Convertible Reserved Instances to exchange for another
+     * Convertible Reserved Instance of the same or higher value.</p>
+     */
+    inline bool ReservedInstanceIdsHasBeenSet() const { return m_reservedInstanceIdsHasBeenSet; }
 
     /**
      * <p>The IDs of the Convertible Reserved Instances to exchange for another
@@ -131,6 +145,12 @@ namespace Model
      * your current Convertible Reserved Instances.</p>
      */
     inline const Aws::Vector<TargetConfigurationRequest>& GetTargetConfigurations() const{ return m_targetConfigurations; }
+
+    /**
+     * <p>The configuration of the target Convertible Reserved Instance to exchange for
+     * your current Convertible Reserved Instances.</p>
+     */
+    inline bool TargetConfigurationsHasBeenSet() const { return m_targetConfigurationsHasBeenSet; }
 
     /**
      * <p>The configuration of the target Convertible Reserved Instance to exchange for

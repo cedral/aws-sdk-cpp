@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeChannelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the channel whose information is retrieved.</p>
      */
     inline const Aws::String& GetChannelName() const{ return m_channelName; }
+
+    /**
+     * <p>The name of the channel whose information is retrieved.</p>
+     */
+    inline bool ChannelNameHasBeenSet() const { return m_channelNameHasBeenSet; }
 
     /**
      * <p>The name of the channel whose information is retrieved.</p>
@@ -89,6 +94,12 @@ namespace Model
      * the response.</p>
      */
     inline bool GetIncludeStatistics() const{ return m_includeStatistics; }
+
+    /**
+     * <p>If true, additional statistical information about the channel is included in
+     * the response.</p>
+     */
+    inline bool IncludeStatisticsHasBeenSet() const { return m_includeStatisticsHasBeenSet; }
 
     /**
      * <p>If true, additional statistical information about the channel is included in

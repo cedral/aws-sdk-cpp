@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     ListGeoLocationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -63,6 +63,18 @@ namespace Model
      * countries or countries with their subdivisions.</p>
      */
     inline const Aws::String& GetStartContinentCode() const{ return m_startContinentCode; }
+
+    /**
+     * <p>The code for the continent with which you want to start listing locations
+     * that Amazon Route 53 supports for geolocation. If Route 53 has already returned
+     * a page or more of results, if <code>IsTruncated</code> is true, and if
+     * <code>NextContinentCode</code> from the previous response has a value, enter
+     * that value in <code>startcontinentcode</code> to return the next page of
+     * results.</p> <p>Include <code>startcontinentcode</code> only if you want to list
+     * continents. Don't include <code>startcontinentcode</code> when you're listing
+     * countries or countries with their subdivisions.</p>
+     */
+    inline bool StartContinentCodeHasBeenSet() const { return m_startContinentCodeHasBeenSet; }
 
     /**
      * <p>The code for the continent with which you want to start listing locations
@@ -159,6 +171,18 @@ namespace Model
      * <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
      * alpha-2</a>.</p>
      */
+    inline bool StartCountryCodeHasBeenSet() const { return m_startCountryCodeHasBeenSet; }
+
+    /**
+     * <p>The code for the country with which you want to start listing locations that
+     * Amazon Route 53 supports for geolocation. If Route 53 has already returned a
+     * page or more of results, if <code>IsTruncated</code> is <code>true</code>, and
+     * if <code>NextCountryCode</code> from the previous response has a value, enter
+     * that value in <code>startcountrycode</code> to return the next page of
+     * results.</p> <p>Route 53 uses the two-letter country codes that are specified in
+     * <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO standard 3166-1
+     * alpha-2</a>.</p>
+     */
     inline void SetStartCountryCode(const Aws::String& value) { m_startCountryCodeHasBeenSet = true; m_startCountryCode = value; }
 
     /**
@@ -244,6 +268,18 @@ namespace Model
      * results.</p> <p>To list subdivisions of a country, you must include both
      * <code>startcountrycode</code> and <code>startsubdivisioncode</code>.</p>
      */
+    inline bool StartSubdivisionCodeHasBeenSet() const { return m_startSubdivisionCodeHasBeenSet; }
+
+    /**
+     * <p>The code for the subdivision (for example, state or province) with which you
+     * want to start listing locations that Amazon Route 53 supports for geolocation.
+     * If Route 53 has already returned a page or more of results, if
+     * <code>IsTruncated</code> is <code>true</code>, and if
+     * <code>NextSubdivisionCode</code> from the previous response has a value, enter
+     * that value in <code>startsubdivisioncode</code> to return the next page of
+     * results.</p> <p>To list subdivisions of a country, you must include both
+     * <code>startcountrycode</code> and <code>startsubdivisioncode</code>.</p>
+     */
     inline void SetStartSubdivisionCode(const Aws::String& value) { m_startSubdivisionCodeHasBeenSet = true; m_startSubdivisionCode = value; }
 
     /**
@@ -314,6 +350,14 @@ namespace Model
      * response is <code>true</code>.</p>
      */
     inline const Aws::String& GetMaxItems() const{ return m_maxItems; }
+
+    /**
+     * <p>(Optional) The maximum number of geolocations to be included in the response
+     * body for this request. If more than <code>maxitems</code> geolocations remain to
+     * be listed, then the value of the <code>IsTruncated</code> element in the
+     * response is <code>true</code>.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
 
     /**
      * <p>(Optional) The maximum number of geolocations to be included in the response

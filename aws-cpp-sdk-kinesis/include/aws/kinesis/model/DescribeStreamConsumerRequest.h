@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeStreamConsumerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,14 @@ namespace Model
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline const Aws::String& GetStreamARN() const{ return m_streamARN; }
+
+    /**
+     * <p>The ARN of the Kinesis data stream that the consumer is registered with. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon
+     * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+     */
+    inline bool StreamARNHasBeenSet() const { return m_streamARNHasBeenSet; }
 
     /**
      * <p>The ARN of the Kinesis data stream that the consumer is registered with. For
@@ -109,6 +117,11 @@ namespace Model
     /**
      * <p>The name that you gave to the consumer.</p>
      */
+    inline bool ConsumerNameHasBeenSet() const { return m_consumerNameHasBeenSet; }
+
+    /**
+     * <p>The name that you gave to the consumer.</p>
+     */
     inline void SetConsumerName(const Aws::String& value) { m_consumerNameHasBeenSet = true; m_consumerName = value; }
 
     /**
@@ -142,6 +155,12 @@ namespace Model
      * consumer.</p>
      */
     inline const Aws::String& GetConsumerARN() const{ return m_consumerARN; }
+
+    /**
+     * <p>The ARN returned by Kinesis Data Streams when you registered the
+     * consumer.</p>
+     */
+    inline bool ConsumerARNHasBeenSet() const { return m_consumerARNHasBeenSet; }
 
     /**
      * <p>The ARN returned by Kinesis Data Streams when you registered the

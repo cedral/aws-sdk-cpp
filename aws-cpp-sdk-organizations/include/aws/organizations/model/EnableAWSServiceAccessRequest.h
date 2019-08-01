@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     EnableAWSServiceAccessRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * as <code> <i>service-abbreviation</i>.amazonaws.com</code>.</p>
      */
     inline const Aws::String& GetServicePrincipal() const{ return m_servicePrincipal; }
+
+    /**
+     * <p>The service principal name of the AWS service for which you want to enable
+     * integration with your organization. This is typically in the form of a URL, such
+     * as <code> <i>service-abbreviation</i>.amazonaws.com</code>.</p>
+     */
+    inline bool ServicePrincipalHasBeenSet() const { return m_servicePrincipalHasBeenSet; }
 
     /**
      * <p>The service principal name of the AWS service for which you want to enable

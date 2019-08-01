@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     BatchGetTriggersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * <code>ListTriggers</code> operation.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTriggerNames() const{ return m_triggerNames; }
+
+    /**
+     * <p>A list of trigger names, which may be the names returned from the
+     * <code>ListTriggers</code> operation.</p>
+     */
+    inline bool TriggerNamesHasBeenSet() const { return m_triggerNamesHasBeenSet; }
 
     /**
      * <p>A list of trigger names, which may be the names returned from the

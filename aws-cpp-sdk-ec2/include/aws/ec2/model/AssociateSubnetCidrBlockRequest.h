@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateSubnetCidrBlockRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * length.</p>
      */
     inline const Aws::String& GetIpv6CidrBlock() const{ return m_ipv6CidrBlock; }
+
+    /**
+     * <p>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
+     * length.</p>
+     */
+    inline bool Ipv6CidrBlockHasBeenSet() const { return m_ipv6CidrBlockHasBeenSet; }
 
     /**
      * <p>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
@@ -93,6 +99,11 @@ namespace Model
      * <p>The ID of your subnet.</p>
      */
     inline const Aws::String& GetSubnetId() const{ return m_subnetId; }
+
+    /**
+     * <p>The ID of your subnet.</p>
+     */
+    inline bool SubnetIdHasBeenSet() const { return m_subnetIdHasBeenSet; }
 
     /**
      * <p>The ID of your subnet.</p>

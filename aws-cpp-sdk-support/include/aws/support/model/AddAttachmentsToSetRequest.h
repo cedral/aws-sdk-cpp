@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     AddAttachmentsToSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,14 @@ namespace Model
      * are added to the specified set, if it exists.</p>
      */
     inline const Aws::String& GetAttachmentSetId() const{ return m_attachmentSetId; }
+
+    /**
+     * <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not
+     * specified, a new attachment set is created, and the ID of the set is returned in
+     * the response. If an <code>attachmentSetId</code> is specified, the attachments
+     * are added to the specified set, if it exists.</p>
+     */
+    inline bool AttachmentSetIdHasBeenSet() const { return m_attachmentSetIdHasBeenSet; }
 
     /**
      * <p>The ID of the attachment set. If an <code>attachmentSetId</code> is not
@@ -111,6 +119,12 @@ namespace Model
      * set, and the size limit is 5 MB per attachment.</p>
      */
     inline const Aws::Vector<Attachment>& GetAttachments() const{ return m_attachments; }
+
+    /**
+     * <p>One or more attachments to add to the set. The limit is 3 attachments per
+     * set, and the size limit is 5 MB per attachment.</p>
+     */
+    inline bool AttachmentsHasBeenSet() const { return m_attachmentsHasBeenSet; }
 
     /**
      * <p>One or more attachments to add to the set. The limit is 3 attachments per

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteVirtualMFADeviceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,16 @@ namespace Model
      * =,.@:/-</p>
      */
     inline const Aws::String& GetSerialNumber() const{ return m_serialNumber; }
+
+    /**
+     * <p>The serial number that uniquely identifies the MFA device. For virtual MFA
+     * devices, the serial number is the same as the ARN.</p> <p>This parameter allows
+     * (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a
+     * string of characters consisting of upper and lowercase alphanumeric characters
+     * with no spaces. You can also include any of the following characters:
+     * =,.@:/-</p>
+     */
+    inline bool SerialNumberHasBeenSet() const { return m_serialNumberHasBeenSet; }
 
     /**
      * <p>The serial number that uniquely identifies the MFA device. For virtual MFA

@@ -22,6 +22,10 @@
 
 namespace Aws
 {
+namespace Http
+{
+    class URI;
+} //namespace Http
 namespace PinpointEmail
 {
 namespace Model
@@ -37,7 +41,7 @@ namespace Model
   {
   public:
     GetBlacklistReportsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,7 +50,7 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
+    void AddQueryStringParameters(Aws::Http::URI& uri) const override;
 
 
     /**
@@ -55,6 +59,13 @@ namespace Model
      * Amazon Pinpoint or Amazon SES.</p>
      */
     inline const Aws::Vector<Aws::String>& GetBlacklistItemNames() const{ return m_blacklistItemNames; }
+
+    /**
+     * <p>A list of IP addresses that you want to retrieve blacklist information about.
+     * You can only specify the dedicated IP addresses that you use to send email using
+     * Amazon Pinpoint or Amazon SES.</p>
+     */
+    inline bool BlacklistItemNamesHasBeenSet() const { return m_blacklistItemNamesHasBeenSet; }
 
     /**
      * <p>A list of IP addresses that you want to retrieve blacklist information about.

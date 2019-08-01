@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateThingTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the thing type.</p>
      */
     inline const Aws::String& GetThingTypeName() const{ return m_thingTypeName; }
+
+    /**
+     * <p>The name of the thing type.</p>
+     */
+    inline bool ThingTypeNameHasBeenSet() const { return m_thingTypeNameHasBeenSet; }
 
     /**
      * <p>The name of the thing type.</p>
@@ -96,6 +101,13 @@ namespace Model
      * about the new thing type including a description, and a list of searchable thing
      * attribute names.</p>
      */
+    inline bool ThingTypePropertiesHasBeenSet() const { return m_thingTypePropertiesHasBeenSet; }
+
+    /**
+     * <p>The ThingTypeProperties for the thing type to create. It contains information
+     * about the new thing type including a description, and a list of searchable thing
+     * attribute names.</p>
+     */
     inline void SetThingTypeProperties(const ThingTypeProperties& value) { m_thingTypePropertiesHasBeenSet = true; m_thingTypeProperties = value; }
 
     /**
@@ -124,6 +136,11 @@ namespace Model
      * <p>Metadata which can be used to manage the thing type.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Metadata which can be used to manage the thing type.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Metadata which can be used to manage the thing type.</p>

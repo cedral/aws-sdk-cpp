@@ -31,6 +31,8 @@ namespace Aws
       {
 
         static const int VersionUpdate_HASH = HashingUtils::HashString("VersionUpdate");
+        static const int EndpointAccessUpdate_HASH = HashingUtils::HashString("EndpointAccessUpdate");
+        static const int LoggingUpdate_HASH = HashingUtils::HashString("LoggingUpdate");
 
 
         UpdateType GetUpdateTypeForName(const Aws::String& name)
@@ -39,6 +41,14 @@ namespace Aws
           if (hashCode == VersionUpdate_HASH)
           {
             return UpdateType::VersionUpdate;
+          }
+          else if (hashCode == EndpointAccessUpdate_HASH)
+          {
+            return UpdateType::EndpointAccessUpdate;
+          }
+          else if (hashCode == LoggingUpdate_HASH)
+          {
+            return UpdateType::LoggingUpdate;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -56,6 +66,10 @@ namespace Aws
           {
           case UpdateType::VersionUpdate:
             return "VersionUpdate";
+          case UpdateType::EndpointAccessUpdate:
+            return "EndpointAccessUpdate";
+          case UpdateType::LoggingUpdate:
+            return "LoggingUpdate";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

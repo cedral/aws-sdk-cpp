@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeStackEventsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,15 @@ namespace Model
      * is no default value.</p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>The name or the unique stack ID that is associated with the stack, which are
+     * not always interchangeable:</p> <ul> <li> <p>Running stacks: You can specify
+     * either the stack's name or its unique stack ID.</p> </li> <li> <p>Deleted
+     * stacks: You must specify the unique stack ID.</p> </li> </ul> <p>Default: There
+     * is no default value.</p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>The name or the unique stack ID that is associated with the stack, which are
@@ -119,6 +128,12 @@ namespace Model
      * retrieve.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A string that identifies the next page of events that you want to
+     * retrieve.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A string that identifies the next page of events that you want to

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ReleaseHostsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The IDs of the Dedicated Hosts to release.</p>
      */
     inline const Aws::Vector<Aws::String>& GetHostIds() const{ return m_hostIds; }
+
+    /**
+     * <p>The IDs of the Dedicated Hosts to release.</p>
+     */
+    inline bool HostIdsHasBeenSet() const { return m_hostIdsHasBeenSet; }
 
     /**
      * <p>The IDs of the Dedicated Hosts to release.</p>

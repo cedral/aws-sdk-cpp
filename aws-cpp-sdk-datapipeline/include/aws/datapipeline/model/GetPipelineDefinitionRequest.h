@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetPipelineDefinitionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The ID of the pipeline.</p>
      */
     inline const Aws::String& GetPipelineId() const{ return m_pipelineId; }
+
+    /**
+     * <p>The ID of the pipeline.</p>
+     */
+    inline bool PipelineIdHasBeenSet() const { return m_pipelineIdHasBeenSet; }
 
     /**
      * <p>The ID of the pipeline.</p>
@@ -90,6 +95,13 @@ namespace Model
      * or <code>active</code> to use the last definition that was activated.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The version of the pipeline definition to retrieve. Set this parameter to
+     * <code>latest</code> (default) to use the last definition saved to the pipeline
+     * or <code>active</code> to use the last definition that was activated.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The version of the pipeline definition to retrieve. Set this parameter to

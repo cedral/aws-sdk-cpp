@@ -28,15 +28,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ModifyDBSubnetGroupMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API ModifyDBSubnetGroupRequest : public NeptuneRequest
   {
   public:
     ModifyDBSubnetGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,7 +49,7 @@ namespace Model
 
     /**
      * <p>The name for the DB subnet group. This value is stored as a lowercase string.
-     * You can't modify the default subnet group. </p> <p>Constraints: Must match the
+     * You can't modify the default subnet group.</p> <p>Constraints: Must match the
      * name of an existing DBSubnetGroup. Must not be default.</p> <p>Example:
      * <code>mySubnetgroup</code> </p>
      */
@@ -60,7 +57,15 @@ namespace Model
 
     /**
      * <p>The name for the DB subnet group. This value is stored as a lowercase string.
-     * You can't modify the default subnet group. </p> <p>Constraints: Must match the
+     * You can't modify the default subnet group.</p> <p>Constraints: Must match the
+     * name of an existing DBSubnetGroup. Must not be default.</p> <p>Example:
+     * <code>mySubnetgroup</code> </p>
+     */
+    inline bool DBSubnetGroupNameHasBeenSet() const { return m_dBSubnetGroupNameHasBeenSet; }
+
+    /**
+     * <p>The name for the DB subnet group. This value is stored as a lowercase string.
+     * You can't modify the default subnet group.</p> <p>Constraints: Must match the
      * name of an existing DBSubnetGroup. Must not be default.</p> <p>Example:
      * <code>mySubnetgroup</code> </p>
      */
@@ -68,7 +73,7 @@ namespace Model
 
     /**
      * <p>The name for the DB subnet group. This value is stored as a lowercase string.
-     * You can't modify the default subnet group. </p> <p>Constraints: Must match the
+     * You can't modify the default subnet group.</p> <p>Constraints: Must match the
      * name of an existing DBSubnetGroup. Must not be default.</p> <p>Example:
      * <code>mySubnetgroup</code> </p>
      */
@@ -76,7 +81,7 @@ namespace Model
 
     /**
      * <p>The name for the DB subnet group. This value is stored as a lowercase string.
-     * You can't modify the default subnet group. </p> <p>Constraints: Must match the
+     * You can't modify the default subnet group.</p> <p>Constraints: Must match the
      * name of an existing DBSubnetGroup. Must not be default.</p> <p>Example:
      * <code>mySubnetgroup</code> </p>
      */
@@ -84,7 +89,7 @@ namespace Model
 
     /**
      * <p>The name for the DB subnet group. This value is stored as a lowercase string.
-     * You can't modify the default subnet group. </p> <p>Constraints: Must match the
+     * You can't modify the default subnet group.</p> <p>Constraints: Must match the
      * name of an existing DBSubnetGroup. Must not be default.</p> <p>Example:
      * <code>mySubnetgroup</code> </p>
      */
@@ -92,7 +97,7 @@ namespace Model
 
     /**
      * <p>The name for the DB subnet group. This value is stored as a lowercase string.
-     * You can't modify the default subnet group. </p> <p>Constraints: Must match the
+     * You can't modify the default subnet group.</p> <p>Constraints: Must match the
      * name of an existing DBSubnetGroup. Must not be default.</p> <p>Example:
      * <code>mySubnetgroup</code> </p>
      */
@@ -100,7 +105,7 @@ namespace Model
 
     /**
      * <p>The name for the DB subnet group. This value is stored as a lowercase string.
-     * You can't modify the default subnet group. </p> <p>Constraints: Must match the
+     * You can't modify the default subnet group.</p> <p>Constraints: Must match the
      * name of an existing DBSubnetGroup. Must not be default.</p> <p>Example:
      * <code>mySubnetgroup</code> </p>
      */
@@ -111,6 +116,11 @@ namespace Model
      * <p>The description for the DB subnet group.</p>
      */
     inline const Aws::String& GetDBSubnetGroupDescription() const{ return m_dBSubnetGroupDescription; }
+
+    /**
+     * <p>The description for the DB subnet group.</p>
+     */
+    inline bool DBSubnetGroupDescriptionHasBeenSet() const { return m_dBSubnetGroupDescriptionHasBeenSet; }
 
     /**
      * <p>The description for the DB subnet group.</p>
@@ -147,6 +157,11 @@ namespace Model
      * <p>The EC2 subnet IDs for the DB subnet group.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSubnetIds() const{ return m_subnetIds; }
+
+    /**
+     * <p>The EC2 subnet IDs for the DB subnet group.</p>
+     */
+    inline bool SubnetIdsHasBeenSet() const { return m_subnetIdsHasBeenSet; }
 
     /**
      * <p>The EC2 subnet IDs for the DB subnet group.</p>

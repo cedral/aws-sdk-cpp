@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AttachLoadBalancerTlsCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * certificate.</p>
      */
     inline const Aws::String& GetLoadBalancerName() const{ return m_loadBalancerName; }
+
+    /**
+     * <p>The name of the load balancer to which you want to associate the SSL/TLS
+     * certificate.</p>
+     */
+    inline bool LoadBalancerNameHasBeenSet() const { return m_loadBalancerNameHasBeenSet; }
 
     /**
      * <p>The name of the load balancer to which you want to associate the SSL/TLS
@@ -91,6 +97,11 @@ namespace Model
      * <p>The name of your SSL/TLS certificate.</p>
      */
     inline const Aws::String& GetCertificateName() const{ return m_certificateName; }
+
+    /**
+     * <p>The name of your SSL/TLS certificate.</p>
+     */
+    inline bool CertificateNameHasBeenSet() const { return m_certificateNameHasBeenSet; }
 
     /**
      * <p>The name of your SSL/TLS certificate.</p>

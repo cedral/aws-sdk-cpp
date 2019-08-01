@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     UpdateDomainNameRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>[Required] The name of the <a>DomainName</a> resource to be changed.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>[Required] The name of the <a>DomainName</a> resource to be changed.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>[Required] The name of the <a>DomainName</a> resource to be changed.</p>
@@ -89,6 +94,12 @@ namespace Model
      * the order specified in this list.</p>
      */
     inline const Aws::Vector<PatchOperation>& GetPatchOperations() const{ return m_patchOperations; }
+
+    /**
+     * <p>A list of update operations to be applied to the specified resource and in
+     * the order specified in this list.</p>
+     */
+    inline bool PatchOperationsHasBeenSet() const { return m_patchOperationsHasBeenSet; }
 
     /**
      * <p>A list of update operations to be applied to the specified resource and in

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the DAX resource to which the tags belong.</p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
+
+    /**
+     * <p>The name of the DAX resource to which the tags belong.</p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
 
     /**
      * <p>The name of the DAX resource to which the tags belong.</p>
@@ -86,6 +91,13 @@ namespace Model
      * response includes only results beyond the token.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>An optional token returned from a prior request. Use this token for
+     * pagination of results from this action. If this parameter is specified, the
+     * response includes only results beyond the token.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>An optional token returned from a prior request. Use this token for

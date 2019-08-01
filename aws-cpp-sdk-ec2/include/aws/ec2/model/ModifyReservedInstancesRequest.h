@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ModifyReservedInstancesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>The IDs of the Reserved Instances to modify.</p>
      */
     inline const Aws::Vector<Aws::String>& GetReservedInstancesIds() const{ return m_reservedInstancesIds; }
+
+    /**
+     * <p>The IDs of the Reserved Instances to modify.</p>
+     */
+    inline bool ReservedInstancesIdsHasBeenSet() const { return m_reservedInstancesIdsHasBeenSet; }
 
     /**
      * <p>The IDs of the Reserved Instances to modify.</p>
@@ -100,6 +105,14 @@ namespace Model
      * Idempotency</a>.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>A unique, case-sensitive token you provide to ensure idempotency of your
+     * modification request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     * Idempotency</a>.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>A unique, case-sensitive token you provide to ensure idempotency of your
@@ -154,6 +167,11 @@ namespace Model
      * <p>The configuration settings for the Reserved Instances to modify.</p>
      */
     inline const Aws::Vector<ReservedInstancesConfiguration>& GetTargetConfigurations() const{ return m_targetConfigurations; }
+
+    /**
+     * <p>The configuration settings for the Reserved Instances to modify.</p>
+     */
+    inline bool TargetConfigurationsHasBeenSet() const { return m_targetConfigurationsHasBeenSet; }
 
     /**
      * <p>The configuration settings for the Reserved Instances to modify.</p>

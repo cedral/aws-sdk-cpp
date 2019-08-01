@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateCloudFormationStackRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,14 @@ namespace Model
      * array.</p>
      */
     inline const Aws::Vector<InstanceEntry>& GetInstances() const{ return m_instances; }
+
+    /**
+     * <p>An array of parameters that will be used to create the new Amazon EC2
+     * instance. You can only pass one instance entry at a time in this array. You will
+     * get an invalid parameter error if you pass more than one instance entry in this
+     * array.</p>
+     */
+    inline bool InstancesHasBeenSet() const { return m_instancesHasBeenSet; }
 
     /**
      * <p>An array of parameters that will be used to create the new Amazon EC2

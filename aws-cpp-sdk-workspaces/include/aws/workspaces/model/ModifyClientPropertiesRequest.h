@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ModifyClientPropertiesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The resource identifiers, in the form of directory IDs.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The resource identifiers, in the form of directory IDs.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The resource identifiers, in the form of directory IDs.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>Information about the Amazon WorkSpaces client.</p>
      */
     inline const ClientProperties& GetClientProperties() const{ return m_clientProperties; }
+
+    /**
+     * <p>Information about the Amazon WorkSpaces client.</p>
+     */
+    inline bool ClientPropertiesHasBeenSet() const { return m_clientPropertiesHasBeenSet; }
 
     /**
      * <p>Information about the Amazon WorkSpaces client.</p>

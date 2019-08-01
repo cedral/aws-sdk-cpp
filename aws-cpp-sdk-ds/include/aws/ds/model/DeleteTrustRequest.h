@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DeleteTrustRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The Trust ID of the trust relationship to be deleted.</p>
      */
     inline const Aws::String& GetTrustId() const{ return m_trustId; }
+
+    /**
+     * <p>The Trust ID of the trust relationship to be deleted.</p>
+     */
+    inline bool TrustIdHasBeenSet() const { return m_trustIdHasBeenSet; }
 
     /**
      * <p>The Trust ID of the trust relationship to be deleted.</p>
@@ -89,6 +94,11 @@ namespace Model
      * <p>Delete a conditional forwarder as part of a DeleteTrustRequest.</p>
      */
     inline bool GetDeleteAssociatedConditionalForwarder() const{ return m_deleteAssociatedConditionalForwarder; }
+
+    /**
+     * <p>Delete a conditional forwarder as part of a DeleteTrustRequest.</p>
+     */
+    inline bool DeleteAssociatedConditionalForwarderHasBeenSet() const { return m_deleteAssociatedConditionalForwarderHasBeenSet; }
 
     /**
      * <p>Delete a conditional forwarder as part of a DeleteTrustRequest.</p>

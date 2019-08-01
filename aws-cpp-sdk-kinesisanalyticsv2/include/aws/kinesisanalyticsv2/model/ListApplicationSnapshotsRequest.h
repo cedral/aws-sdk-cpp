@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListApplicationSnapshotsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of an existing application.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of an existing application.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of an existing application.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The maximum number of application snapshots to list.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of application snapshots to list.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -103,6 +113,14 @@ namespace Model
      * where the output should continue from. </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Use this parameter if you receive a <code>NextToken</code> response in a
+     * previous request that indicates that there is more output available. Set it to
+     * the value of the previous call's <code>NextToken</code> response to indicate
+     * where the output should continue from. </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Use this parameter if you receive a <code>NextToken</code> response in a

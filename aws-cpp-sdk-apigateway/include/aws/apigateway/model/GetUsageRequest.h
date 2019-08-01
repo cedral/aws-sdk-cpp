@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     GetUsageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>[Required] The Id of the usage plan associated with the usage data.</p>
      */
     inline const Aws::String& GetUsagePlanId() const{ return m_usagePlanId; }
+
+    /**
+     * <p>[Required] The Id of the usage plan associated with the usage data.</p>
+     */
+    inline bool UsagePlanIdHasBeenSet() const { return m_usagePlanIdHasBeenSet; }
 
     /**
      * <p>[Required] The Id of the usage plan associated with the usage data.</p>
@@ -96,6 +101,11 @@ namespace Model
     /**
      * <p>The Id of the API key associated with the resultant usage data.</p>
      */
+    inline bool KeyIdHasBeenSet() const { return m_keyIdHasBeenSet; }
+
+    /**
+     * <p>The Id of the API key associated with the resultant usage data.</p>
+     */
     inline void SetKeyId(const Aws::String& value) { m_keyIdHasBeenSet = true; m_keyId = value; }
 
     /**
@@ -128,6 +138,11 @@ namespace Model
      * <p>[Required] The starting date (e.g., 2016-01-01) of the usage data.</p>
      */
     inline const Aws::String& GetStartDate() const{ return m_startDate; }
+
+    /**
+     * <p>[Required] The starting date (e.g., 2016-01-01) of the usage data.</p>
+     */
+    inline bool StartDateHasBeenSet() const { return m_startDateHasBeenSet; }
 
     /**
      * <p>[Required] The starting date (e.g., 2016-01-01) of the usage data.</p>
@@ -168,6 +183,11 @@ namespace Model
     /**
      * <p>[Required] The ending date (e.g., 2016-12-31) of the usage data.</p>
      */
+    inline bool EndDateHasBeenSet() const { return m_endDateHasBeenSet; }
+
+    /**
+     * <p>[Required] The ending date (e.g., 2016-12-31) of the usage data.</p>
+     */
     inline void SetEndDate(const Aws::String& value) { m_endDateHasBeenSet = true; m_endDate = value; }
 
     /**
@@ -200,6 +220,11 @@ namespace Model
      * <p>The current pagination position in the paged result set.</p>
      */
     inline const Aws::String& GetPosition() const{ return m_position; }
+
+    /**
+     * <p>The current pagination position in the paged result set.</p>
+     */
+    inline bool PositionHasBeenSet() const { return m_positionHasBeenSet; }
 
     /**
      * <p>The current pagination position in the paged result set.</p>
@@ -237,6 +262,12 @@ namespace Model
      * the maximum value is 500.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of returned results per page. The default value is 25 and
+     * the maximum value is 500.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of returned results per page. The default value is 25 and

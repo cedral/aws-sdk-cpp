@@ -59,6 +59,11 @@ namespace Model
     /**
      * <p>The unique ID name of the instance of the stack.</p>
      */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
+
+    /**
+     * <p>The unique ID name of the instance of the stack.</p>
+     */
     inline void SetStackId(const Aws::String& value) { m_stackIdHasBeenSet = true; m_stackId = value; }
 
     /**
@@ -91,6 +96,11 @@ namespace Model
      * <p>The unique ID of this event.</p>
      */
     inline const Aws::String& GetEventId() const{ return m_eventId; }
+
+    /**
+     * <p>The unique ID of this event.</p>
+     */
+    inline bool EventIdHasBeenSet() const { return m_eventIdHasBeenSet; }
 
     /**
      * <p>The unique ID of this event.</p>
@@ -131,6 +141,11 @@ namespace Model
     /**
      * <p>The name associated with a stack.</p>
      */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
+
+    /**
+     * <p>The name associated with a stack.</p>
+     */
     inline void SetStackName(const Aws::String& value) { m_stackNameHasBeenSet = true; m_stackName = value; }
 
     /**
@@ -163,6 +178,11 @@ namespace Model
      * <p>The logical name of the resource specified in the template.</p>
      */
     inline const Aws::String& GetLogicalResourceId() const{ return m_logicalResourceId; }
+
+    /**
+     * <p>The logical name of the resource specified in the template.</p>
+     */
+    inline bool LogicalResourceIdHasBeenSet() const { return m_logicalResourceIdHasBeenSet; }
 
     /**
      * <p>The logical name of the resource specified in the template.</p>
@@ -205,6 +225,12 @@ namespace Model
      * <p>The name or unique identifier associated with the physical instance of the
      * resource.</p>
      */
+    inline bool PhysicalResourceIdHasBeenSet() const { return m_physicalResourceIdHasBeenSet; }
+
+    /**
+     * <p>The name or unique identifier associated with the physical instance of the
+     * resource.</p>
+     */
     inline void SetPhysicalResourceId(const Aws::String& value) { m_physicalResourceIdHasBeenSet = true; m_physicalResourceId = value; }
 
     /**
@@ -240,49 +266,56 @@ namespace Model
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline const Aws::String& GetResourceType() const{ return m_resourceType; }
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
+
+    /**
+     * <p>Type of resource. (For more information, go to <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline void SetResourceType(const Aws::String& value) { m_resourceTypeHasBeenSet = true; m_resourceType = value; }
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline void SetResourceType(Aws::String&& value) { m_resourceTypeHasBeenSet = true; m_resourceType = std::move(value); }
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline void SetResourceType(const char* value) { m_resourceTypeHasBeenSet = true; m_resourceType.assign(value); }
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline StackEvent& WithResourceType(const Aws::String& value) { SetResourceType(value); return *this;}
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline StackEvent& WithResourceType(Aws::String&& value) { SetResourceType(std::move(value)); return *this;}
 
     /**
      * <p>Type of resource. (For more information, go to <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">
      * AWS Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
      */
     inline StackEvent& WithResourceType(const char* value) { SetResourceType(value); return *this;}
@@ -292,6 +325,11 @@ namespace Model
      * <p>Time the status was updated.</p>
      */
     inline const Aws::Utils::DateTime& GetTimestamp() const{ return m_timestamp; }
+
+    /**
+     * <p>Time the status was updated.</p>
+     */
+    inline bool TimestampHasBeenSet() const { return m_timestampHasBeenSet; }
 
     /**
      * <p>Time the status was updated.</p>
@@ -322,6 +360,11 @@ namespace Model
     /**
      * <p>Current status of the resource.</p>
      */
+    inline bool ResourceStatusHasBeenSet() const { return m_resourceStatusHasBeenSet; }
+
+    /**
+     * <p>Current status of the resource.</p>
+     */
     inline void SetResourceStatus(const ResourceStatus& value) { m_resourceStatusHasBeenSet = true; m_resourceStatus = value; }
 
     /**
@@ -344,6 +387,11 @@ namespace Model
      * <p>Success/failure message associated with the resource.</p>
      */
     inline const Aws::String& GetResourceStatusReason() const{ return m_resourceStatusReason; }
+
+    /**
+     * <p>Success/failure message associated with the resource.</p>
+     */
+    inline bool ResourceStatusReasonHasBeenSet() const { return m_resourceStatusReasonHasBeenSet; }
 
     /**
      * <p>Success/failure message associated with the resource.</p>
@@ -380,6 +428,11 @@ namespace Model
      * <p>BLOB of the properties used to create the resource.</p>
      */
     inline const Aws::String& GetResourceProperties() const{ return m_resourceProperties; }
+
+    /**
+     * <p>BLOB of the properties used to create the resource.</p>
+     */
+    inline bool ResourcePropertiesHasBeenSet() const { return m_resourcePropertiesHasBeenSet; }
 
     /**
      * <p>BLOB of the properties used to create the resource.</p>
@@ -427,6 +480,22 @@ namespace Model
      * <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>. </p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>The token passed to the operation that generated this event.</p> <p>All
+     * events triggered by a given stack operation are assigned the same client request
+     * token, which you can use to track operations. For example, if you execute a
+     * <code>CreateStack</code> operation with the token <code>token1</code>, then all
+     * the <code>StackEvents</code> generated by that operation will have
+     * <code>ClientRequestToken</code> set as <code>token1</code>.</p> <p>In the
+     * console, stack operations display the client request token on the Events tab.
+     * Stack operations that are initiated from the console use the token format
+     * <i>Console-StackOperation-ID</i>, which helps you easily identify the stack
+     * operation . For example, if you create a stack using the console, each stack
+     * event would be assigned the same token in the following format:
+     * <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>. </p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>The token passed to the operation that generated this event.</p> <p>All

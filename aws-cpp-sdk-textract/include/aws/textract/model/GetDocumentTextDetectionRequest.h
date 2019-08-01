@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDocumentTextDetectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * returned from <code>StartDocumentTextDetection</code>.</p>
      */
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    /**
+     * <p>A unique identifier for the text detection job. The <code>JobId</code> is
+     * returned from <code>StartDocumentTextDetection</code>.</p>
+     */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     /**
      * <p>A unique identifier for the text detection job. The <code>JobId</code> is
@@ -99,6 +105,13 @@ namespace Model
      * you can specify is 1,000. If you specify a value greater than 1,000, a maximum
      * of 1,000 results is returned. The default value is 1,000.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to return per paginated call. The largest value
+     * you can specify is 1,000. If you specify a value greater than 1,000, a maximum
+     * of 1,000 results is returned. The default value is 1,000.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -115,6 +128,13 @@ namespace Model
      * use this pagination token to retrieve the next set of blocks.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If the previous response was incomplete (because there are more blocks to
+     * retrieve), Amazon Textract returns a pagination token in the response. You can
+     * use this pagination token to retrieve the next set of blocks.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If the previous response was incomplete (because there are more blocks to

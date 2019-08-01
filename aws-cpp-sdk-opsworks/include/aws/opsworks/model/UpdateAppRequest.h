@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     UpdateAppRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>The app ID.</p>
      */
     inline const Aws::String& GetAppId() const{ return m_appId; }
+
+    /**
+     * <p>The app ID.</p>
+     */
+    inline bool AppIdHasBeenSet() const { return m_appIdHasBeenSet; }
 
     /**
      * <p>The app ID.</p>
@@ -96,6 +101,11 @@ namespace Model
     /**
      * <p>The app name.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The app name.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -128,6 +138,11 @@ namespace Model
      * <p>A description of the app.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description of the app.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description of the app.</p>
@@ -168,6 +183,11 @@ namespace Model
     /**
      * <p>The app's data sources.</p>
      */
+    inline bool DataSourcesHasBeenSet() const { return m_dataSourcesHasBeenSet; }
+
+    /**
+     * <p>The app's data sources.</p>
+     */
     inline void SetDataSources(const Aws::Vector<DataSource>& value) { m_dataSourcesHasBeenSet = true; m_dataSources = value; }
 
     /**
@@ -204,6 +224,11 @@ namespace Model
     /**
      * <p>The app type.</p>
      */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
+
+    /**
+     * <p>The app type.</p>
+     */
     inline void SetType(const AppType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
@@ -226,6 +251,11 @@ namespace Model
      * <p>A <code>Source</code> object that specifies the app repository.</p>
      */
     inline const Source& GetAppSource() const{ return m_appSource; }
+
+    /**
+     * <p>A <code>Source</code> object that specifies the app repository.</p>
+     */
+    inline bool AppSourceHasBeenSet() const { return m_appSourceHasBeenSet; }
 
     /**
      * <p>A <code>Source</code> object that specifies the app repository.</p>
@@ -253,6 +283,12 @@ namespace Model
      * For example: <code>'www.example.com, example.com'</code> </p>
      */
     inline const Aws::Vector<Aws::String>& GetDomains() const{ return m_domains; }
+
+    /**
+     * <p>The app's virtual host settings, with multiple domains separated by commas.
+     * For example: <code>'www.example.com, example.com'</code> </p>
+     */
+    inline bool DomainsHasBeenSet() const { return m_domainsHasBeenSet; }
 
     /**
      * <p>The app's virtual host settings, with multiple domains separated by commas.
@@ -305,6 +341,11 @@ namespace Model
     /**
      * <p>Whether SSL is enabled for the app.</p>
      */
+    inline bool EnableSslHasBeenSet() const { return m_enableSslHasBeenSet; }
+
+    /**
+     * <p>Whether SSL is enabled for the app.</p>
+     */
     inline void SetEnableSsl(bool value) { m_enableSslHasBeenSet = true; m_enableSsl = value; }
 
     /**
@@ -317,6 +358,11 @@ namespace Model
      * <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
      */
     inline const SslConfiguration& GetSslConfiguration() const{ return m_sslConfiguration; }
+
+    /**
+     * <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
+     */
+    inline bool SslConfigurationHasBeenSet() const { return m_sslConfigurationHasBeenSet; }
 
     /**
      * <p>An <code>SslConfiguration</code> object with the SSL configuration.</p>
@@ -344,6 +390,12 @@ namespace Model
      * attributes.</p>
      */
     inline const Aws::Map<AppAttributesKeys, Aws::String>& GetAttributes() const{ return m_attributes; }
+
+    /**
+     * <p>One or more user-defined key/value pairs to be added to the stack
+     * attributes.</p>
+     */
+    inline bool AttributesHasBeenSet() const { return m_attributesHasBeenSet; }
 
     /**
      * <p>One or more user-defined key/value pairs to be added to the stack
@@ -411,15 +463,14 @@ namespace Model
      * variables to be associated with the app. After you deploy the app, these
      * variables are defined on the associated app server instances.For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
      * Environment Variables</a>.</p> <p>There is no specific limit on the number of
      * environment variables. However, the size of the associated data structure -
      * which includes the variables' names, values, and protected flag values - cannot
-     * exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use
-     * cases. Exceeding it will cause an exception with the message, "Environment: is
-     * too large (maximum is 10KB)."</p> <note> <p>This parameter is supported only by
-     * Chef 11.10 stacks. If you have specified one or more environment variables, you
-     * cannot modify the stack's Chef version.</p> </note>
+     * exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding
+     * it will cause an exception with the message, "Environment: is too large (maximum
+     * is 20 KB)."</p> <note> <p>If you have specified one or more environment
+     * variables, you cannot modify the stack's Chef version.</p> </note>
      */
     inline const Aws::Vector<EnvironmentVariable>& GetEnvironment() const{ return m_environment; }
 
@@ -428,15 +479,30 @@ namespace Model
      * variables to be associated with the app. After you deploy the app, these
      * variables are defined on the associated app server instances.For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
      * Environment Variables</a>.</p> <p>There is no specific limit on the number of
      * environment variables. However, the size of the associated data structure -
      * which includes the variables' names, values, and protected flag values - cannot
-     * exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use
-     * cases. Exceeding it will cause an exception with the message, "Environment: is
-     * too large (maximum is 10KB)."</p> <note> <p>This parameter is supported only by
-     * Chef 11.10 stacks. If you have specified one or more environment variables, you
-     * cannot modify the stack's Chef version.</p> </note>
+     * exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding
+     * it will cause an exception with the message, "Environment: is too large (maximum
+     * is 20 KB)."</p> <note> <p>If you have specified one or more environment
+     * variables, you cannot modify the stack's Chef version.</p> </note>
+     */
+    inline bool EnvironmentHasBeenSet() const { return m_environmentHasBeenSet; }
+
+    /**
+     * <p>An array of <code>EnvironmentVariable</code> objects that specify environment
+     * variables to be associated with the app. After you deploy the app, these
+     * variables are defined on the associated app server instances.For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
+     * Environment Variables</a>.</p> <p>There is no specific limit on the number of
+     * environment variables. However, the size of the associated data structure -
+     * which includes the variables' names, values, and protected flag values - cannot
+     * exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding
+     * it will cause an exception with the message, "Environment: is too large (maximum
+     * is 20 KB)."</p> <note> <p>If you have specified one or more environment
+     * variables, you cannot modify the stack's Chef version.</p> </note>
      */
     inline void SetEnvironment(const Aws::Vector<EnvironmentVariable>& value) { m_environmentHasBeenSet = true; m_environment = value; }
 
@@ -445,15 +511,14 @@ namespace Model
      * variables to be associated with the app. After you deploy the app, these
      * variables are defined on the associated app server instances.For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
      * Environment Variables</a>.</p> <p>There is no specific limit on the number of
      * environment variables. However, the size of the associated data structure -
      * which includes the variables' names, values, and protected flag values - cannot
-     * exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use
-     * cases. Exceeding it will cause an exception with the message, "Environment: is
-     * too large (maximum is 10KB)."</p> <note> <p>This parameter is supported only by
-     * Chef 11.10 stacks. If you have specified one or more environment variables, you
-     * cannot modify the stack's Chef version.</p> </note>
+     * exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding
+     * it will cause an exception with the message, "Environment: is too large (maximum
+     * is 20 KB)."</p> <note> <p>If you have specified one or more environment
+     * variables, you cannot modify the stack's Chef version.</p> </note>
      */
     inline void SetEnvironment(Aws::Vector<EnvironmentVariable>&& value) { m_environmentHasBeenSet = true; m_environment = std::move(value); }
 
@@ -462,15 +527,14 @@ namespace Model
      * variables to be associated with the app. After you deploy the app, these
      * variables are defined on the associated app server instances.For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
      * Environment Variables</a>.</p> <p>There is no specific limit on the number of
      * environment variables. However, the size of the associated data structure -
      * which includes the variables' names, values, and protected flag values - cannot
-     * exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use
-     * cases. Exceeding it will cause an exception with the message, "Environment: is
-     * too large (maximum is 10KB)."</p> <note> <p>This parameter is supported only by
-     * Chef 11.10 stacks. If you have specified one or more environment variables, you
-     * cannot modify the stack's Chef version.</p> </note>
+     * exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding
+     * it will cause an exception with the message, "Environment: is too large (maximum
+     * is 20 KB)."</p> <note> <p>If you have specified one or more environment
+     * variables, you cannot modify the stack's Chef version.</p> </note>
      */
     inline UpdateAppRequest& WithEnvironment(const Aws::Vector<EnvironmentVariable>& value) { SetEnvironment(value); return *this;}
 
@@ -479,15 +543,14 @@ namespace Model
      * variables to be associated with the app. After you deploy the app, these
      * variables are defined on the associated app server instances.For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
      * Environment Variables</a>.</p> <p>There is no specific limit on the number of
      * environment variables. However, the size of the associated data structure -
      * which includes the variables' names, values, and protected flag values - cannot
-     * exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use
-     * cases. Exceeding it will cause an exception with the message, "Environment: is
-     * too large (maximum is 10KB)."</p> <note> <p>This parameter is supported only by
-     * Chef 11.10 stacks. If you have specified one or more environment variables, you
-     * cannot modify the stack's Chef version.</p> </note>
+     * exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding
+     * it will cause an exception with the message, "Environment: is too large (maximum
+     * is 20 KB)."</p> <note> <p>If you have specified one or more environment
+     * variables, you cannot modify the stack's Chef version.</p> </note>
      */
     inline UpdateAppRequest& WithEnvironment(Aws::Vector<EnvironmentVariable>&& value) { SetEnvironment(std::move(value)); return *this;}
 
@@ -496,15 +559,14 @@ namespace Model
      * variables to be associated with the app. After you deploy the app, these
      * variables are defined on the associated app server instances.For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
      * Environment Variables</a>.</p> <p>There is no specific limit on the number of
      * environment variables. However, the size of the associated data structure -
      * which includes the variables' names, values, and protected flag values - cannot
-     * exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use
-     * cases. Exceeding it will cause an exception with the message, "Environment: is
-     * too large (maximum is 10KB)."</p> <note> <p>This parameter is supported only by
-     * Chef 11.10 stacks. If you have specified one or more environment variables, you
-     * cannot modify the stack's Chef version.</p> </note>
+     * exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding
+     * it will cause an exception with the message, "Environment: is too large (maximum
+     * is 20 KB)."</p> <note> <p>If you have specified one or more environment
+     * variables, you cannot modify the stack's Chef version.</p> </note>
      */
     inline UpdateAppRequest& AddEnvironment(const EnvironmentVariable& value) { m_environmentHasBeenSet = true; m_environment.push_back(value); return *this; }
 
@@ -513,15 +575,14 @@ namespace Model
      * variables to be associated with the app. After you deploy the app, these
      * variables are defined on the associated app server instances.For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment">
      * Environment Variables</a>.</p> <p>There is no specific limit on the number of
      * environment variables. However, the size of the associated data structure -
      * which includes the variables' names, values, and protected flag values - cannot
-     * exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use
-     * cases. Exceeding it will cause an exception with the message, "Environment: is
-     * too large (maximum is 10KB)."</p> <note> <p>This parameter is supported only by
-     * Chef 11.10 stacks. If you have specified one or more environment variables, you
-     * cannot modify the stack's Chef version.</p> </note>
+     * exceed 20 KB. This limit should accommodate most if not all use cases. Exceeding
+     * it will cause an exception with the message, "Environment: is too large (maximum
+     * is 20 KB)."</p> <note> <p>If you have specified one or more environment
+     * variables, you cannot modify the stack's Chef version.</p> </note>
      */
     inline UpdateAppRequest& AddEnvironment(EnvironmentVariable&& value) { m_environmentHasBeenSet = true; m_environment.push_back(std::move(value)); return *this; }
 

@@ -40,7 +40,7 @@ namespace Model
    * total provisioned throughput consumed, along with statistics for the table and
    * any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    * returned if the request asked for it. For more information, see <a
-   * href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
+   * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned
    * Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ConsumedCapacity">AWS
@@ -59,6 +59,11 @@ namespace Model
      * <p>The name of the table that was affected by the operation.</p>
      */
     inline const Aws::String& GetTableName() const{ return m_tableName; }
+
+    /**
+     * <p>The name of the table that was affected by the operation.</p>
+     */
+    inline bool TableNameHasBeenSet() const { return m_tableNameHasBeenSet; }
 
     /**
      * <p>The name of the table that was affected by the operation.</p>
@@ -99,6 +104,11 @@ namespace Model
     /**
      * <p>The total number of capacity units consumed by the operation.</p>
      */
+    inline bool CapacityUnitsHasBeenSet() const { return m_capacityUnitsHasBeenSet; }
+
+    /**
+     * <p>The total number of capacity units consumed by the operation.</p>
+     */
     inline void SetCapacityUnits(double value) { m_capacityUnitsHasBeenSet = true; m_capacityUnits = value; }
 
     /**
@@ -111,6 +121,11 @@ namespace Model
      * <p>The total number of read capacity units consumed by the operation.</p>
      */
     inline double GetReadCapacityUnits() const{ return m_readCapacityUnits; }
+
+    /**
+     * <p>The total number of read capacity units consumed by the operation.</p>
+     */
+    inline bool ReadCapacityUnitsHasBeenSet() const { return m_readCapacityUnitsHasBeenSet; }
 
     /**
      * <p>The total number of read capacity units consumed by the operation.</p>
@@ -131,6 +146,11 @@ namespace Model
     /**
      * <p>The total number of write capacity units consumed by the operation.</p>
      */
+    inline bool WriteCapacityUnitsHasBeenSet() const { return m_writeCapacityUnitsHasBeenSet; }
+
+    /**
+     * <p>The total number of write capacity units consumed by the operation.</p>
+     */
     inline void SetWriteCapacityUnits(double value) { m_writeCapacityUnitsHasBeenSet = true; m_writeCapacityUnits = value; }
 
     /**
@@ -143,6 +163,11 @@ namespace Model
      * <p>The amount of throughput consumed on the table affected by the operation.</p>
      */
     inline const Capacity& GetTable() const{ return m_table; }
+
+    /**
+     * <p>The amount of throughput consumed on the table affected by the operation.</p>
+     */
+    inline bool TableHasBeenSet() const { return m_tableHasBeenSet; }
 
     /**
      * <p>The amount of throughput consumed on the table affected by the operation.</p>
@@ -170,6 +195,12 @@ namespace Model
      * operation.</p>
      */
     inline const Aws::Map<Aws::String, Capacity>& GetLocalSecondaryIndexes() const{ return m_localSecondaryIndexes; }
+
+    /**
+     * <p>The amount of throughput consumed on each local index affected by the
+     * operation.</p>
+     */
+    inline bool LocalSecondaryIndexesHasBeenSet() const { return m_localSecondaryIndexesHasBeenSet; }
 
     /**
      * <p>The amount of throughput consumed on each local index affected by the
@@ -237,6 +268,12 @@ namespace Model
      * operation.</p>
      */
     inline const Aws::Map<Aws::String, Capacity>& GetGlobalSecondaryIndexes() const{ return m_globalSecondaryIndexes; }
+
+    /**
+     * <p>The amount of throughput consumed on each global index affected by the
+     * operation.</p>
+     */
+    inline bool GlobalSecondaryIndexesHasBeenSet() const { return m_globalSecondaryIndexesHasBeenSet; }
 
     /**
      * <p>The amount of throughput consumed on each global index affected by the

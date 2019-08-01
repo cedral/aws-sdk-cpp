@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AssociateTargetsWithJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>A list of thing group ARNs that define the targets of the job.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTargets() const{ return m_targets; }
+
+    /**
+     * <p>A list of thing group ARNs that define the targets of the job.</p>
+     */
+    inline bool TargetsHasBeenSet() const { return m_targetsHasBeenSet; }
 
     /**
      * <p>A list of thing group ARNs that define the targets of the job.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The unique identifier you assigned to this job when it was created.</p>
      */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
+
+    /**
+     * <p>The unique identifier you assigned to this job when it was created.</p>
+     */
     inline void SetJobId(const Aws::String& value) { m_jobIdHasBeenSet = true; m_jobId = value; }
 
     /**
@@ -125,6 +135,12 @@ namespace Model
      * targets.</p>
      */
     inline const Aws::String& GetComment() const{ return m_comment; }
+
+    /**
+     * <p>An optional comment string describing why the job was associated with the
+     * targets.</p>
+     */
+    inline bool CommentHasBeenSet() const { return m_commentHasBeenSet; }
 
     /**
      * <p>An optional comment string describing why the job was associated with the

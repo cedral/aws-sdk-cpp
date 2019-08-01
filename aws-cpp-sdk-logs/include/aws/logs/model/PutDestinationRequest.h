@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutDestinationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>A name for the destination.</p>
      */
     inline const Aws::String& GetDestinationName() const{ return m_destinationName; }
+
+    /**
+     * <p>A name for the destination.</p>
+     */
+    inline bool DestinationNameHasBeenSet() const { return m_destinationNameHasBeenSet; }
 
     /**
      * <p>A name for the destination.</p>
@@ -85,6 +90,12 @@ namespace Model
      * events.</p>
      */
     inline const Aws::String& GetTargetArn() const{ return m_targetArn; }
+
+    /**
+     * <p>The ARN of an Amazon Kinesis stream to which to deliver matching log
+     * events.</p>
+     */
+    inline bool TargetArnHasBeenSet() const { return m_targetArnHasBeenSet; }
 
     /**
      * <p>The ARN of an Amazon Kinesis stream to which to deliver matching log
@@ -128,6 +139,12 @@ namespace Model
      * Amazon Kinesis PutRecord operation on the destination stream.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The ARN of an IAM role that grants CloudWatch Logs permissions to call the
+     * Amazon Kinesis PutRecord operation on the destination stream.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The ARN of an IAM role that grants CloudWatch Logs permissions to call the

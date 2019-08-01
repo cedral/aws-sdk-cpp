@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StopTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * assumed.</p>
      */
     inline const Aws::String& GetCluster() const{ return m_cluster; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
+     * the task to stop. If you do not specify a cluster, the default cluster is
+     * assumed.</p>
+     */
+    inline bool ClusterHasBeenSet() const { return m_clusterHasBeenSet; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
@@ -95,37 +102,42 @@ namespace Model
 
 
     /**
-     * <p>The task ID or full ARN entry of the task to stop.</p>
+     * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
      */
     inline const Aws::String& GetTask() const{ return m_task; }
 
     /**
-     * <p>The task ID or full ARN entry of the task to stop.</p>
+     * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
+     */
+    inline bool TaskHasBeenSet() const { return m_taskHasBeenSet; }
+
+    /**
+     * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
      */
     inline void SetTask(const Aws::String& value) { m_taskHasBeenSet = true; m_task = value; }
 
     /**
-     * <p>The task ID or full ARN entry of the task to stop.</p>
+     * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
      */
     inline void SetTask(Aws::String&& value) { m_taskHasBeenSet = true; m_task = std::move(value); }
 
     /**
-     * <p>The task ID or full ARN entry of the task to stop.</p>
+     * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
      */
     inline void SetTask(const char* value) { m_taskHasBeenSet = true; m_task.assign(value); }
 
     /**
-     * <p>The task ID or full ARN entry of the task to stop.</p>
+     * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
      */
     inline StopTaskRequest& WithTask(const Aws::String& value) { SetTask(value); return *this;}
 
     /**
-     * <p>The task ID or full ARN entry of the task to stop.</p>
+     * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
      */
     inline StopTaskRequest& WithTask(Aws::String&& value) { SetTask(std::move(value)); return *this;}
 
     /**
-     * <p>The task ID or full ARN entry of the task to stop.</p>
+     * <p>The task ID or full Amazon Resource Name (ARN) of the task to stop.</p>
      */
     inline StopTaskRequest& WithTask(const char* value) { SetTask(value); return *this;}
 
@@ -138,6 +150,15 @@ namespace Model
      * allowed in this message.</p>
      */
     inline const Aws::String& GetReason() const{ return m_reason; }
+
+    /**
+     * <p>An optional message specified when a task is stopped. For example, if you are
+     * using a custom scheduler, you can use this parameter to specify the reason for
+     * stopping the task here, and the message appears in subsequent
+     * <a>DescribeTasks</a> API operations on this task. Up to 255 characters are
+     * allowed in this message.</p>
+     */
+    inline bool ReasonHasBeenSet() const { return m_reasonHasBeenSet; }
 
     /**
      * <p>An optional message specified when a task is stopped. For example, if you are

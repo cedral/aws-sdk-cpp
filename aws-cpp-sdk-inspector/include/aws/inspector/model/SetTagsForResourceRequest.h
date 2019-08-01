@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     SetTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ARN of the assessment template that you want to set tags to.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The ARN of the assessment template that you want to set tags to.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The ARN of the assessment template that you want to set tags to.</p>
@@ -87,6 +92,12 @@ namespace Model
      * template.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A collection of key and value pairs that you want to set to the assessment
+     * template.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A collection of key and value pairs that you want to set to the assessment

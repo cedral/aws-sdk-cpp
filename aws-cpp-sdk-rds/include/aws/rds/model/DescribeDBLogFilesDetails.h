@@ -35,7 +35,7 @@ namespace Model
 
   /**
    * <p>This data type is used as a response element to
-   * <a>DescribeDBLogFiles</a>.</p><p><h3>See Also:</h3>   <a
+   * <code>DescribeDBLogFiles</code>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBLogFilesDetails">AWS
    * API Reference</a></p>
    */
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the log file for the specified DB instance.</p>
      */
     inline const Aws::String& GetLogFileName() const{ return m_logFileName; }
+
+    /**
+     * <p>The name of the log file for the specified DB instance.</p>
+     */
+    inline bool LogFileNameHasBeenSet() const { return m_logFileNameHasBeenSet; }
 
     /**
      * <p>The name of the log file for the specified DB instance.</p>
@@ -94,6 +99,11 @@ namespace Model
     /**
      * <p>A POSIX timestamp when the last log entry was written.</p>
      */
+    inline bool LastWrittenHasBeenSet() const { return m_lastWrittenHasBeenSet; }
+
+    /**
+     * <p>A POSIX timestamp when the last log entry was written.</p>
+     */
     inline void SetLastWritten(long long value) { m_lastWrittenHasBeenSet = true; m_lastWritten = value; }
 
     /**
@@ -106,6 +116,11 @@ namespace Model
      * <p>The size, in bytes, of the log file for the specified DB instance.</p>
      */
     inline long long GetSize() const{ return m_size; }
+
+    /**
+     * <p>The size, in bytes, of the log file for the specified DB instance.</p>
+     */
+    inline bool SizeHasBeenSet() const { return m_sizeHasBeenSet; }
 
     /**
      * <p>The size, in bytes, of the log file for the specified DB instance.</p>

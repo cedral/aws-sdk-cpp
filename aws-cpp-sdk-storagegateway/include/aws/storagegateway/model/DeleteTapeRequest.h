@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteTapeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * list of gateways for your account and region.</p>
      */
     inline const Aws::String& GetGatewayARN() const{ return m_gatewayARN; }
+
+    /**
+     * <p>The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to
+     * delete is associated with. Use the <a>ListGateways</a> operation to return a
+     * list of gateways for your account and region.</p>
+     */
+    inline bool GatewayARNHasBeenSet() const { return m_gatewayARNHasBeenSet; }
 
     /**
      * <p>The unique Amazon Resource Name (ARN) of the gateway that the virtual tape to
@@ -101,6 +108,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the virtual tape to delete.</p>
      */
     inline const Aws::String& GetTapeARN() const{ return m_tapeARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the virtual tape to delete.</p>
+     */
+    inline bool TapeARNHasBeenSet() const { return m_tapeARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the virtual tape to delete.</p>

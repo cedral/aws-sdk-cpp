@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetRegexMatchSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * by <a>ListRegexMatchSets</a>.</p>
      */
     inline const Aws::String& GetRegexMatchSetId() const{ return m_regexMatchSetId; }
+
+    /**
+     * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to
+     * get. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and
+     * by <a>ListRegexMatchSets</a>.</p>
+     */
+    inline bool RegexMatchSetIdHasBeenSet() const { return m_regexMatchSetIdHasBeenSet; }
 
     /**
      * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,14 @@ namespace Model
      * refer to the deleted job.</p>
      */
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    /**
+     * <p>The ID of the job to be deleted.</p> <p>After a job deletion is completed,
+     * you may reuse this jobId when you create a new job. However, this is not
+     * recommended, and you must ensure that your devices are not using the jobId to
+     * refer to the deleted job.</p>
+     */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     /**
      * <p>The ID of the job to be deleted.</p> <p>After a job deletion is completed,
@@ -115,6 +123,17 @@ namespace Model
      * is able to recover to a valid state.</p> </note>
      */
     inline bool GetForce() const{ return m_force; }
+
+    /**
+     * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise,
+     * you can only delete a job which is in a terminal state ("COMPLETED" or
+     * "CANCELED") or an exception will occur. The default is false.</p> <note>
+     * <p>Deleting a job which is "IN_PROGRESS", will cause a device which is executing
+     * the job to be unable to access job information or update the job execution
+     * status. Use caution and ensure that each device executing a job which is deleted
+     * is able to recover to a valid state.</p> </note>
+     */
+    inline bool ForceHasBeenSet() const { return m_forceHasBeenSet; }
 
     /**
      * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise,

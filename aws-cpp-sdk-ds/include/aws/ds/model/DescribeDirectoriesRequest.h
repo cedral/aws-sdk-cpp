@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeDirectoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,14 @@ namespace Model
      * <code>InvalidParameterException</code> being thrown.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDirectoryIds() const{ return m_directoryIds; }
+
+    /**
+     * <p>A list of identifiers of the directories for which to obtain the information.
+     * If this member is null, all directories that belong to the current account are
+     * returned.</p> <p>An empty list results in an
+     * <code>InvalidParameterException</code> being thrown.</p>
+     */
+    inline bool DirectoryIdsHasBeenSet() const { return m_directoryIdsHasBeenSet; }
 
     /**
      * <p>A list of identifiers of the directories for which to obtain the information.
@@ -124,6 +132,12 @@ namespace Model
      * <p>The <code>DescribeDirectoriesResult.NextToken</code> value from a previous
      * call to <a>DescribeDirectories</a>. Pass null if this is the first call.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The <code>DescribeDirectoriesResult.NextToken</code> value from a previous
+     * call to <a>DescribeDirectories</a>. Pass null if this is the first call.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -162,6 +176,12 @@ namespace Model
      * number of items is specified by the limitations of the operation.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of items to return. If this value is zero, the maximum
+     * number of items is specified by the limitations of the operation.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return. If this value is zero, the maximum

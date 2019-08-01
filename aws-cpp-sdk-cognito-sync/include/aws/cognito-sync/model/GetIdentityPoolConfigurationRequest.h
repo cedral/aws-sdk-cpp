@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetIdentityPoolConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * is the ID of the pool for which to return a configuration.</p>
      */
     inline const Aws::String& GetIdentityPoolId() const{ return m_identityPoolId; }
+
+    /**
+     * <p>A name-spaced GUID (for example,
+     * us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This
+     * is the ID of the pool for which to return a configuration.</p>
+     */
+    inline bool IdentityPoolIdHasBeenSet() const { return m_identityPoolIdHasBeenSet; }
 
     /**
      * <p>A name-spaced GUID (for example,

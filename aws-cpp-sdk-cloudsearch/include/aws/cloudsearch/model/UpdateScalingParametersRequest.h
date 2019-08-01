@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     UpdateScalingParametersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,9 @@ namespace Model
 
     
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     
     inline void SetDomainName(const Aws::String& value) { m_domainNameHasBeenSet = true; m_domainName = value; }
@@ -77,6 +80,9 @@ namespace Model
 
     
     inline const ScalingParameters& GetScalingParameters() const{ return m_scalingParameters; }
+
+    
+    inline bool ScalingParametersHasBeenSet() const { return m_scalingParametersHasBeenSet; }
 
     
     inline void SetScalingParameters(const ScalingParameters& value) { m_scalingParametersHasBeenSet = true; m_scalingParameters = value; }

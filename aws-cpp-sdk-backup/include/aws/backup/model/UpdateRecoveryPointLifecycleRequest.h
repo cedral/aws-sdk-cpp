@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateRecoveryPointLifecycleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,14 @@ namespace Model
      * and hyphens.</p>
      */
     inline const Aws::String& GetBackupVaultName() const{ return m_backupVaultName; }
+
+    /**
+     * <p>The name of a logical container where backups are stored. Backup vaults are
+     * identified by names that are unique to the account used to create them and the
+     * AWS Region where they are created. They consist of lowercase letters, numbers,
+     * and hyphens.</p>
+     */
+    inline bool BackupVaultNameHasBeenSet() const { return m_backupVaultNameHasBeenSet; }
 
     /**
      * <p>The name of a logical container where backups are stored. Backup vaults are
@@ -112,6 +120,13 @@ namespace Model
      * example,
      * <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
      */
+    inline bool RecoveryPointArnHasBeenSet() const { return m_recoveryPointArnHasBeenSet; }
+
+    /**
+     * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for
+     * example,
+     * <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+     */
     inline void SetRecoveryPointArn(const Aws::String& value) { m_recoveryPointArnHasBeenSet = true; m_recoveryPointArn = value; }
 
     /**
@@ -160,6 +175,17 @@ namespace Model
      * setting cannot be changed after a backup has been transitioned to cold. </p>
      */
     inline const Lifecycle& GetLifecycle() const{ return m_lifecycle; }
+
+    /**
+     * <p>The lifecycle defines when a protected resource is transitioned to cold
+     * storage and when it expires. AWS Backup transitions and expires backups
+     * automatically according to the lifecycle that you define. </p> <p>Backups
+     * transitioned to cold storage must be stored in cold storage for a minimum of 90
+     * days. Therefore, the “expire after days” setting must be 90 days greater than
+     * the “transition to cold after days” setting. The “transition to cold after days”
+     * setting cannot be changed after a backup has been transitioned to cold. </p>
+     */
+    inline bool LifecycleHasBeenSet() const { return m_lifecycleHasBeenSet; }
 
     /**
      * <p>The lifecycle defines when a protected resource is transitioned to cold

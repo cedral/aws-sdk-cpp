@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateServiceActionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The self-service action name.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The self-service action name.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The self-service action name.</p>
@@ -94,6 +99,12 @@ namespace Model
      * <p>The service action definition type. For example,
      * <code>SSM_AUTOMATION</code>.</p>
      */
+    inline bool DefinitionTypeHasBeenSet() const { return m_definitionTypeHasBeenSet; }
+
+    /**
+     * <p>The service action definition type. For example,
+     * <code>SSM_AUTOMATION</code>.</p>
+     */
     inline void SetDefinitionType(const ServiceActionDefinitionType& value) { m_definitionTypeHasBeenSet = true; m_definitionType = value; }
 
     /**
@@ -129,6 +140,21 @@ namespace Model
      * <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code>.</p> </dd> </dl>
      */
     inline const Aws::Map<ServiceActionDefinitionKey, Aws::String>& GetDefinition() const{ return m_definition; }
+
+    /**
+     * <p>The self-service action definition. Can be one of the following:</p> <dl>
+     * <dt>Name</dt> <dd> <p>The name of the AWS Systems Manager Document. For example,
+     * <code>AWS-RestartEC2Instance</code>.</p> </dd> <dt>Version</dt> <dd> <p>The AWS
+     * Systems Manager automation document version. For example, <code>"Version":
+     * "1"</code> </p> </dd> <dt>AssumeRole</dt> <dd> <p>The Amazon Resource Name (ARN)
+     * of the role that performs the self-service actions on your behalf. For example,
+     * <code>"AssumeRole": "arn:aws:iam::12345678910:role/ActionRole"</code>.</p> <p>To
+     * reuse the provisioned product launch role, set to <code>"AssumeRole":
+     * "LAUNCH_ROLE"</code>.</p> </dd> <dt>Parameters</dt> <dd> <p>The list of
+     * parameters in JSON format.</p> <p>For example:
+     * <code>[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]</code>.</p> </dd> </dl>
+     */
+    inline bool DefinitionHasBeenSet() const { return m_definitionHasBeenSet; }
 
     /**
      * <p>The self-service action definition. Can be one of the following:</p> <dl>
@@ -289,6 +315,11 @@ namespace Model
     /**
      * <p>The self-service action description.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The self-service action description.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -323,6 +354,13 @@ namespace Model
      * Chinese</p> </li> </ul>
      */
     inline const Aws::String& GetAcceptLanguage() const{ return m_acceptLanguage; }
+
+    /**
+     * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
+     * </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> -
+     * Chinese</p> </li> </ul>
+     */
+    inline bool AcceptLanguageHasBeenSet() const { return m_acceptLanguageHasBeenSet; }
 
     /**
      * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
@@ -373,6 +411,13 @@ namespace Model
      * each repeated request.</p>
      */
     inline const Aws::String& GetIdempotencyToken() const{ return m_idempotencyToken; }
+
+    /**
+     * <p>A unique identifier that you provide to ensure idempotency. If multiple
+     * requests differ only by the idempotency token, the same response is returned for
+     * each repeated request.</p>
+     */
+    inline bool IdempotencyTokenHasBeenSet() const { return m_idempotencyTokenHasBeenSet; }
 
     /**
      * <p>A unique identifier that you provide to ensure idempotency. If multiple

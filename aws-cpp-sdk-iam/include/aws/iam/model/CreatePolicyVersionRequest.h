@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreatePolicyVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,7 +49,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a
      * new version.</p> <p>For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
      * Reference</i>.</p>
      */
@@ -58,7 +58,16 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a
      * new version.</p> <p>For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
+     * Reference</i>.</p>
+     */
+    inline bool PolicyArnHasBeenSet() const { return m_policyArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a
+     * new version.</p> <p>For more information about ARNs, see <a
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
      * Reference</i>.</p>
      */
@@ -67,7 +76,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a
      * new version.</p> <p>For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
      * Reference</i>.</p>
      */
@@ -76,7 +85,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a
      * new version.</p> <p>For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
      * Reference</i>.</p>
      */
@@ -85,7 +94,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a
      * new version.</p> <p>For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
      * Reference</i>.</p>
      */
@@ -94,7 +103,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a
      * new version.</p> <p>For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
      * Reference</i>.</p>
      */
@@ -103,7 +112,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a
      * new version.</p> <p>For more information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
      * Reference</i>.</p>
      */
@@ -112,7 +121,10 @@ namespace Model
 
     /**
      * <p>The JSON policy document that you want to use as the content for this new
-     * version of the policy.</p> <p>The <a
+     * version of the policy.</p> <p>You must provide policies in JSON format in IAM.
+     * However, for AWS CloudFormation templates formatted in YAML, you can provide the
+     * policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+     * to JSON format before submitting it to IAM.</p> <p>The <a
      * href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
      * parameter is a string of characters consisting of the following:</p> <ul> <li>
      * <p>Any printable ASCII character ranging from the space character (\u0020)
@@ -125,7 +137,26 @@ namespace Model
 
     /**
      * <p>The JSON policy document that you want to use as the content for this new
-     * version of the policy.</p> <p>The <a
+     * version of the policy.</p> <p>You must provide policies in JSON format in IAM.
+     * However, for AWS CloudFormation templates formatted in YAML, you can provide the
+     * policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+     * to JSON format before submitting it to IAM.</p> <p>The <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
+     * parameter is a string of characters consisting of the following:</p> <ul> <li>
+     * <p>Any printable ASCII character ranging from the space character (\u0020)
+     * through the end of the ASCII character range</p> </li> <li> <p>The printable
+     * characters in the Basic Latin and Latin-1 Supplement character set (through
+     * \u00FF)</p> </li> <li> <p>The special characters tab (\u0009), line feed
+     * (\u000A), and carriage return (\u000D)</p> </li> </ul>
+     */
+    inline bool PolicyDocumentHasBeenSet() const { return m_policyDocumentHasBeenSet; }
+
+    /**
+     * <p>The JSON policy document that you want to use as the content for this new
+     * version of the policy.</p> <p>You must provide policies in JSON format in IAM.
+     * However, for AWS CloudFormation templates formatted in YAML, you can provide the
+     * policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+     * to JSON format before submitting it to IAM.</p> <p>The <a
      * href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
      * parameter is a string of characters consisting of the following:</p> <ul> <li>
      * <p>Any printable ASCII character ranging from the space character (\u0020)
@@ -138,7 +169,10 @@ namespace Model
 
     /**
      * <p>The JSON policy document that you want to use as the content for this new
-     * version of the policy.</p> <p>The <a
+     * version of the policy.</p> <p>You must provide policies in JSON format in IAM.
+     * However, for AWS CloudFormation templates formatted in YAML, you can provide the
+     * policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+     * to JSON format before submitting it to IAM.</p> <p>The <a
      * href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
      * parameter is a string of characters consisting of the following:</p> <ul> <li>
      * <p>Any printable ASCII character ranging from the space character (\u0020)
@@ -151,7 +185,10 @@ namespace Model
 
     /**
      * <p>The JSON policy document that you want to use as the content for this new
-     * version of the policy.</p> <p>The <a
+     * version of the policy.</p> <p>You must provide policies in JSON format in IAM.
+     * However, for AWS CloudFormation templates formatted in YAML, you can provide the
+     * policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+     * to JSON format before submitting it to IAM.</p> <p>The <a
      * href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
      * parameter is a string of characters consisting of the following:</p> <ul> <li>
      * <p>Any printable ASCII character ranging from the space character (\u0020)
@@ -164,7 +201,10 @@ namespace Model
 
     /**
      * <p>The JSON policy document that you want to use as the content for this new
-     * version of the policy.</p> <p>The <a
+     * version of the policy.</p> <p>You must provide policies in JSON format in IAM.
+     * However, for AWS CloudFormation templates formatted in YAML, you can provide the
+     * policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+     * to JSON format before submitting it to IAM.</p> <p>The <a
      * href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
      * parameter is a string of characters consisting of the following:</p> <ul> <li>
      * <p>Any printable ASCII character ranging from the space character (\u0020)
@@ -177,7 +217,10 @@ namespace Model
 
     /**
      * <p>The JSON policy document that you want to use as the content for this new
-     * version of the policy.</p> <p>The <a
+     * version of the policy.</p> <p>You must provide policies in JSON format in IAM.
+     * However, for AWS CloudFormation templates formatted in YAML, you can provide the
+     * policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+     * to JSON format before submitting it to IAM.</p> <p>The <a
      * href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
      * parameter is a string of characters consisting of the following:</p> <ul> <li>
      * <p>Any printable ASCII character ranging from the space character (\u0020)
@@ -190,7 +233,10 @@ namespace Model
 
     /**
      * <p>The JSON policy document that you want to use as the content for this new
-     * version of the policy.</p> <p>The <a
+     * version of the policy.</p> <p>You must provide policies in JSON format in IAM.
+     * However, for AWS CloudFormation templates formatted in YAML, you can provide the
+     * policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy
+     * to JSON format before submitting it to IAM.</p> <p>The <a
      * href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
      * parameter is a string of characters consisting of the following:</p> <ul> <li>
      * <p>Any printable ASCII character ranging from the space character (\u0020)
@@ -208,7 +254,7 @@ namespace Model
      * operative version. That is, it becomes the version that is in effect for the IAM
      * users, groups, and roles that the policy is attached to.</p> <p>For more
      * information about managed policy versions, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
      * for Managed Policies</a> in the <i>IAM User Guide</i>.</p>
      */
     inline bool GetSetAsDefault() const{ return m_setAsDefault; }
@@ -219,7 +265,18 @@ namespace Model
      * operative version. That is, it becomes the version that is in effect for the IAM
      * users, groups, and roles that the policy is attached to.</p> <p>For more
      * information about managed policy versions, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+     * for Managed Policies</a> in the <i>IAM User Guide</i>.</p>
+     */
+    inline bool SetAsDefaultHasBeenSet() const { return m_setAsDefaultHasBeenSet; }
+
+    /**
+     * <p>Specifies whether to set this version as the policy's default version.</p>
+     * <p>When this parameter is <code>true</code>, the new policy version becomes the
+     * operative version. That is, it becomes the version that is in effect for the IAM
+     * users, groups, and roles that the policy is attached to.</p> <p>For more
+     * information about managed policy versions, see <a
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
      * for Managed Policies</a> in the <i>IAM User Guide</i>.</p>
      */
     inline void SetSetAsDefault(bool value) { m_setAsDefaultHasBeenSet = true; m_setAsDefault = value; }
@@ -230,7 +287,7 @@ namespace Model
      * operative version. That is, it becomes the version that is in effect for the IAM
      * users, groups, and roles that the policy is attached to.</p> <p>For more
      * information about managed policy versions, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
      * for Managed Policies</a> in the <i>IAM User Guide</i>.</p>
      */
     inline CreatePolicyVersionRequest& WithSetAsDefault(bool value) { SetSetAsDefault(value); return *this;}

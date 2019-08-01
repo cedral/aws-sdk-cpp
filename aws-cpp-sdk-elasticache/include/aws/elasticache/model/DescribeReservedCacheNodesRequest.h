@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeReservedCacheNodesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * only the reservation that matches the specified reservation ID.</p>
      */
     inline const Aws::String& GetReservedCacheNodeId() const{ return m_reservedCacheNodeId; }
+
+    /**
+     * <p>The reserved cache node identifier filter value. Use this parameter to show
+     * only the reservation that matches the specified reservation ID.</p>
+     */
+    inline bool ReservedCacheNodeIdHasBeenSet() const { return m_reservedCacheNodeIdHasBeenSet; }
 
     /**
      * <p>The reserved cache node identifier filter value. Use this parameter to show
@@ -103,6 +109,12 @@ namespace Model
      * <p>The offering identifier filter value. Use this parameter to show only
      * purchased reservations matching the specified offering identifier.</p>
      */
+    inline bool ReservedCacheNodesOfferingIdHasBeenSet() const { return m_reservedCacheNodesOfferingIdHasBeenSet; }
+
+    /**
+     * <p>The offering identifier filter value. Use this parameter to show only
+     * purchased reservations matching the specified offering identifier.</p>
+     */
     inline void SetReservedCacheNodesOfferingId(const Aws::String& value) { m_reservedCacheNodesOfferingIdHasBeenSet = true; m_reservedCacheNodesOfferingId = value; }
 
     /**
@@ -142,42 +154,43 @@ namespace Model
      * types are supported by ElastiCache. Generally speaking, the current generation
      * types provide more memory and computational power at lower cost when compared to
      * their equivalent previous generation counterparts.</p> <ul> <li> <p>General
-     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>T2 node types:</b>
-     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
-     * <code>cache.t2.medium</code> </p> <p> <b>M3 node types:</b>
-     * <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> <p> <b>M4 node
-     * types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+     * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+     * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+     * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+     * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> </li> <li> <p>Previous generation: (not
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+     * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
      * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> </li> </ul> </li>
-     * <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+     * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+     * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
      * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
-     * </p> <p> <b>R3 node types:</b> <code>cache.r3.large</code>,
-     * <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-     * <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> </p> <p> <b>R4 node
-     * types;</b> <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+     * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+     * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+     * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+     * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+     * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
      * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
      * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
      * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
      * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-     * <code>cache.m2.4xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Notes:</b>
-     * </p> <ul> <li> <p>All T2 instances are created in an Amazon Virtual Private
-     * Cloud (Amazon VPC).</p> </li> <li> <p>Redis (cluster mode disabled): Redis
-     * backup/restore is not supported on T1 and T2 instances. </p> </li> <li> <p>Redis
-     * (cluster mode enabled): Backup/restore is not supported on T1 instances.</p>
-     * </li> <li> <p>Redis Append-only files (AOF) functionality is not supported for
-     * T1 or T2 instances.</p> </li> </ul> <p>For a complete listing of node types and
-     * specifications, see:</p> <ul> <li> <p> <a
-     * href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product
-     * Features and Details</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Memcached</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Redis</a> </p> </li> </ul>
+     * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+     * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+     * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+     * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+     * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+     * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+     * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+     * with automatic failover is not supported on T1 instances.</p> </li> <li>
+     * <p>Redis configuration variables <code>appendonly</code> and
+     * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+     * later.</p> </li> </ul>
      */
     inline const Aws::String& GetCacheNodeType() const{ return m_cacheNodeType; }
 
@@ -187,42 +200,89 @@ namespace Model
      * types are supported by ElastiCache. Generally speaking, the current generation
      * types provide more memory and computational power at lower cost when compared to
      * their equivalent previous generation counterparts.</p> <ul> <li> <p>General
-     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>T2 node types:</b>
-     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
-     * <code>cache.t2.medium</code> </p> <p> <b>M3 node types:</b>
-     * <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> <p> <b>M4 node
-     * types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+     * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+     * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+     * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+     * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> </li> <li> <p>Previous generation: (not
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+     * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
      * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> </li> </ul> </li>
-     * <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+     * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+     * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
      * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
-     * </p> <p> <b>R3 node types:</b> <code>cache.r3.large</code>,
-     * <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-     * <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> </p> <p> <b>R4 node
-     * types;</b> <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+     * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+     * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+     * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+     * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+     * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
      * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
      * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
      * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
      * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-     * <code>cache.m2.4xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Notes:</b>
-     * </p> <ul> <li> <p>All T2 instances are created in an Amazon Virtual Private
-     * Cloud (Amazon VPC).</p> </li> <li> <p>Redis (cluster mode disabled): Redis
-     * backup/restore is not supported on T1 and T2 instances. </p> </li> <li> <p>Redis
-     * (cluster mode enabled): Backup/restore is not supported on T1 instances.</p>
-     * </li> <li> <p>Redis Append-only files (AOF) functionality is not supported for
-     * T1 or T2 instances.</p> </li> </ul> <p>For a complete listing of node types and
-     * specifications, see:</p> <ul> <li> <p> <a
-     * href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product
-     * Features and Details</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Memcached</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Redis</a> </p> </li> </ul>
+     * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+     * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+     * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+     * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+     * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+     * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+     * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+     * with automatic failover is not supported on T1 instances.</p> </li> <li>
+     * <p>Redis configuration variables <code>appendonly</code> and
+     * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+     * later.</p> </li> </ul>
+     */
+    inline bool CacheNodeTypeHasBeenSet() const { return m_cacheNodeTypeHasBeenSet; }
+
+    /**
+     * <p>The cache node type filter value. Use this parameter to show only those
+     * reservations matching the specified cache node type.</p> <p>The following node
+     * types are supported by ElastiCache. Generally speaking, the current generation
+     * types provide more memory and computational power at lower cost when compared to
+     * their equivalent previous generation counterparts.</p> <ul> <li> <p>General
+     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+     * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+     * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+     * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+     * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+     * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+     * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
+     * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
+     * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
+     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+     * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+     * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+     * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
+     * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
+     * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+     * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+     * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+     * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+     * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+     * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
+     * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
+     * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
+     * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
+     * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+     * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+     * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+     * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+     * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+     * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+     * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+     * with automatic failover is not supported on T1 instances.</p> </li> <li>
+     * <p>Redis configuration variables <code>appendonly</code> and
+     * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+     * later.</p> </li> </ul>
      */
     inline void SetCacheNodeType(const Aws::String& value) { m_cacheNodeTypeHasBeenSet = true; m_cacheNodeType = value; }
 
@@ -232,42 +292,43 @@ namespace Model
      * types are supported by ElastiCache. Generally speaking, the current generation
      * types provide more memory and computational power at lower cost when compared to
      * their equivalent previous generation counterparts.</p> <ul> <li> <p>General
-     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>T2 node types:</b>
-     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
-     * <code>cache.t2.medium</code> </p> <p> <b>M3 node types:</b>
-     * <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> <p> <b>M4 node
-     * types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+     * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+     * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+     * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+     * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> </li> <li> <p>Previous generation: (not
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+     * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
      * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> </li> </ul> </li>
-     * <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+     * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+     * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
      * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
-     * </p> <p> <b>R3 node types:</b> <code>cache.r3.large</code>,
-     * <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-     * <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> </p> <p> <b>R4 node
-     * types;</b> <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+     * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+     * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+     * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+     * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+     * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
      * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
      * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
      * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
      * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-     * <code>cache.m2.4xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Notes:</b>
-     * </p> <ul> <li> <p>All T2 instances are created in an Amazon Virtual Private
-     * Cloud (Amazon VPC).</p> </li> <li> <p>Redis (cluster mode disabled): Redis
-     * backup/restore is not supported on T1 and T2 instances. </p> </li> <li> <p>Redis
-     * (cluster mode enabled): Backup/restore is not supported on T1 instances.</p>
-     * </li> <li> <p>Redis Append-only files (AOF) functionality is not supported for
-     * T1 or T2 instances.</p> </li> </ul> <p>For a complete listing of node types and
-     * specifications, see:</p> <ul> <li> <p> <a
-     * href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product
-     * Features and Details</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Memcached</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Redis</a> </p> </li> </ul>
+     * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+     * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+     * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+     * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+     * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+     * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+     * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+     * with automatic failover is not supported on T1 instances.</p> </li> <li>
+     * <p>Redis configuration variables <code>appendonly</code> and
+     * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+     * later.</p> </li> </ul>
      */
     inline void SetCacheNodeType(Aws::String&& value) { m_cacheNodeTypeHasBeenSet = true; m_cacheNodeType = std::move(value); }
 
@@ -277,42 +338,43 @@ namespace Model
      * types are supported by ElastiCache. Generally speaking, the current generation
      * types provide more memory and computational power at lower cost when compared to
      * their equivalent previous generation counterparts.</p> <ul> <li> <p>General
-     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>T2 node types:</b>
-     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
-     * <code>cache.t2.medium</code> </p> <p> <b>M3 node types:</b>
-     * <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> <p> <b>M4 node
-     * types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+     * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+     * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+     * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+     * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> </li> <li> <p>Previous generation: (not
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+     * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
      * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> </li> </ul> </li>
-     * <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+     * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+     * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
      * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
-     * </p> <p> <b>R3 node types:</b> <code>cache.r3.large</code>,
-     * <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-     * <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> </p> <p> <b>R4 node
-     * types;</b> <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+     * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+     * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+     * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+     * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+     * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
      * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
      * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
      * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
      * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-     * <code>cache.m2.4xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Notes:</b>
-     * </p> <ul> <li> <p>All T2 instances are created in an Amazon Virtual Private
-     * Cloud (Amazon VPC).</p> </li> <li> <p>Redis (cluster mode disabled): Redis
-     * backup/restore is not supported on T1 and T2 instances. </p> </li> <li> <p>Redis
-     * (cluster mode enabled): Backup/restore is not supported on T1 instances.</p>
-     * </li> <li> <p>Redis Append-only files (AOF) functionality is not supported for
-     * T1 or T2 instances.</p> </li> </ul> <p>For a complete listing of node types and
-     * specifications, see:</p> <ul> <li> <p> <a
-     * href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product
-     * Features and Details</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Memcached</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Redis</a> </p> </li> </ul>
+     * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+     * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+     * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+     * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+     * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+     * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+     * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+     * with automatic failover is not supported on T1 instances.</p> </li> <li>
+     * <p>Redis configuration variables <code>appendonly</code> and
+     * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+     * later.</p> </li> </ul>
      */
     inline void SetCacheNodeType(const char* value) { m_cacheNodeTypeHasBeenSet = true; m_cacheNodeType.assign(value); }
 
@@ -322,42 +384,43 @@ namespace Model
      * types are supported by ElastiCache. Generally speaking, the current generation
      * types provide more memory and computational power at lower cost when compared to
      * their equivalent previous generation counterparts.</p> <ul> <li> <p>General
-     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>T2 node types:</b>
-     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
-     * <code>cache.t2.medium</code> </p> <p> <b>M3 node types:</b>
-     * <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> <p> <b>M4 node
-     * types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+     * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+     * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+     * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+     * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> </li> <li> <p>Previous generation: (not
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+     * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
      * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> </li> </ul> </li>
-     * <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+     * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+     * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
      * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
-     * </p> <p> <b>R3 node types:</b> <code>cache.r3.large</code>,
-     * <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-     * <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> </p> <p> <b>R4 node
-     * types;</b> <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+     * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+     * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+     * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+     * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+     * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
      * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
      * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
      * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
      * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-     * <code>cache.m2.4xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Notes:</b>
-     * </p> <ul> <li> <p>All T2 instances are created in an Amazon Virtual Private
-     * Cloud (Amazon VPC).</p> </li> <li> <p>Redis (cluster mode disabled): Redis
-     * backup/restore is not supported on T1 and T2 instances. </p> </li> <li> <p>Redis
-     * (cluster mode enabled): Backup/restore is not supported on T1 instances.</p>
-     * </li> <li> <p>Redis Append-only files (AOF) functionality is not supported for
-     * T1 or T2 instances.</p> </li> </ul> <p>For a complete listing of node types and
-     * specifications, see:</p> <ul> <li> <p> <a
-     * href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product
-     * Features and Details</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Memcached</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Redis</a> </p> </li> </ul>
+     * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+     * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+     * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+     * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+     * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+     * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+     * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+     * with automatic failover is not supported on T1 instances.</p> </li> <li>
+     * <p>Redis configuration variables <code>appendonly</code> and
+     * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+     * later.</p> </li> </ul>
      */
     inline DescribeReservedCacheNodesRequest& WithCacheNodeType(const Aws::String& value) { SetCacheNodeType(value); return *this;}
 
@@ -367,42 +430,43 @@ namespace Model
      * types are supported by ElastiCache. Generally speaking, the current generation
      * types provide more memory and computational power at lower cost when compared to
      * their equivalent previous generation counterparts.</p> <ul> <li> <p>General
-     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>T2 node types:</b>
-     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
-     * <code>cache.t2.medium</code> </p> <p> <b>M3 node types:</b>
-     * <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> <p> <b>M4 node
-     * types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+     * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+     * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+     * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+     * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> </li> <li> <p>Previous generation: (not
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+     * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
      * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> </li> </ul> </li>
-     * <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+     * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+     * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
      * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
-     * </p> <p> <b>R3 node types:</b> <code>cache.r3.large</code>,
-     * <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-     * <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> </p> <p> <b>R4 node
-     * types;</b> <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+     * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+     * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+     * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+     * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+     * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
      * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
      * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
      * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
      * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-     * <code>cache.m2.4xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Notes:</b>
-     * </p> <ul> <li> <p>All T2 instances are created in an Amazon Virtual Private
-     * Cloud (Amazon VPC).</p> </li> <li> <p>Redis (cluster mode disabled): Redis
-     * backup/restore is not supported on T1 and T2 instances. </p> </li> <li> <p>Redis
-     * (cluster mode enabled): Backup/restore is not supported on T1 instances.</p>
-     * </li> <li> <p>Redis Append-only files (AOF) functionality is not supported for
-     * T1 or T2 instances.</p> </li> </ul> <p>For a complete listing of node types and
-     * specifications, see:</p> <ul> <li> <p> <a
-     * href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product
-     * Features and Details</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Memcached</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Redis</a> </p> </li> </ul>
+     * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+     * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+     * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+     * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+     * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+     * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+     * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+     * with automatic failover is not supported on T1 instances.</p> </li> <li>
+     * <p>Redis configuration variables <code>appendonly</code> and
+     * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+     * later.</p> </li> </ul>
      */
     inline DescribeReservedCacheNodesRequest& WithCacheNodeType(Aws::String&& value) { SetCacheNodeType(std::move(value)); return *this;}
 
@@ -412,42 +476,43 @@ namespace Model
      * types are supported by ElastiCache. Generally speaking, the current generation
      * types provide more memory and computational power at lower cost when compared to
      * their equivalent previous generation counterparts.</p> <ul> <li> <p>General
-     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>T2 node types:</b>
-     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
-     * <code>cache.t2.medium</code> </p> <p> <b>M3 node types:</b>
-     * <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
-     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> <p> <b>M4 node
-     * types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+     * purpose:</p> <ul> <li> <p>Current generation: </p> <p> <b>M5 node types:</b>
+     * <code>cache.m5.large</code>, <code>cache.m5.xlarge</code>,
+     * <code>cache.m5.2xlarge</code>, <code>cache.m5.4xlarge</code>,
+     * <code>cache.m5.12xlarge</code>, <code>cache.m5.24xlarge</code> </p> <p> <b>M4
+     * node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> </li> <li> <p>Previous generation: (not
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
+     * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
      * <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
-     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> </li> </ul> </li>
-     * <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
+     * <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> </p> <p> <b>M3 node
+     * types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+     * <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> </p> </li> </ul>
+     * </li> <li> <p>Compute optimized:</p> <ul> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>C1 node types:</b> <code>cache.c1.xlarge</code> </p>
      * </li> </ul> </li> <li> <p>Memory optimized:</p> <ul> <li> <p>Current generation:
-     * </p> <p> <b>R3 node types:</b> <code>cache.r3.large</code>,
-     * <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-     * <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> </p> <p> <b>R4 node
-     * types;</b> <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
+     * </p> <p> <b>R5 node types:</b> <code>cache.r5.large</code>,
+     * <code>cache.r5.xlarge</code>, <code>cache.r5.2xlarge</code>,
+     * <code>cache.r5.4xlarge</code>, <code>cache.r5.12xlarge</code>,
+     * <code>cache.r5.24xlarge</code> </p> <p> <b>R4 node types:</b>
+     * <code>cache.r4.large</code>, <code>cache.r4.xlarge</code>,
      * <code>cache.r4.2xlarge</code>, <code>cache.r4.4xlarge</code>,
      * <code>cache.r4.8xlarge</code>, <code>cache.r4.16xlarge</code> </p> </li> <li>
      * <p>Previous generation: (not recommended)</p> <p> <b>M2 node types:</b>
      * <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
-     * <code>cache.m2.4xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Notes:</b>
-     * </p> <ul> <li> <p>All T2 instances are created in an Amazon Virtual Private
-     * Cloud (Amazon VPC).</p> </li> <li> <p>Redis (cluster mode disabled): Redis
-     * backup/restore is not supported on T1 and T2 instances. </p> </li> <li> <p>Redis
-     * (cluster mode enabled): Backup/restore is not supported on T1 instances.</p>
-     * </li> <li> <p>Redis Append-only files (AOF) functionality is not supported for
-     * T1 or T2 instances.</p> </li> </ul> <p>For a complete listing of node types and
-     * specifications, see:</p> <ul> <li> <p> <a
-     * href="http://aws.amazon.com/elasticache/details">Amazon ElastiCache Product
-     * Features and Details</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/ParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Memcached</a> </p> </li> <li> <p> <a
-     * href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
-     * Node Type-Specific Parameters for Redis</a> </p> </li> </ul>
+     * <code>cache.m2.4xlarge</code> </p> <p> <b>R3 node types:</b>
+     * <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+     * <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>,
+     * <code>cache.r3.8xlarge</code> </p> </li> </ul> </li> </ul> <p> <b>Additional
+     * node type info</b> </p> <ul> <li> <p>All current generation instance types are
+     * created in Amazon VPC by default.</p> </li> <li> <p>Redis append-only files
+     * (AOF) are not supported for T1 or T2 instances.</p> </li> <li> <p>Redis Multi-AZ
+     * with automatic failover is not supported on T1 instances.</p> </li> <li>
+     * <p>Redis configuration variables <code>appendonly</code> and
+     * <code>appendfsync</code> are not supported on Redis version 2.8.22 and
+     * later.</p> </li> </ul>
      */
     inline DescribeReservedCacheNodesRequest& WithCacheNodeType(const char* value) { SetCacheNodeType(value); return *this;}
 
@@ -458,6 +523,13 @@ namespace Model
      * 31536000 | 94608000</code> </p>
      */
     inline const Aws::String& GetDuration() const{ return m_duration; }
+
+    /**
+     * <p>The duration filter value, specified in years or seconds. Use this parameter
+     * to show only reservations for this duration.</p> <p>Valid Values: <code>1 | 3 |
+     * 31536000 | 94608000</code> </p>
+     */
+    inline bool DurationHasBeenSet() const { return m_durationHasBeenSet; }
 
     /**
      * <p>The duration filter value, specified in years or seconds. Use this parameter
@@ -512,6 +584,12 @@ namespace Model
      * <p>The product description filter value. Use this parameter to show only those
      * reservations matching the specified product description.</p>
      */
+    inline bool ProductDescriptionHasBeenSet() const { return m_productDescriptionHasBeenSet; }
+
+    /**
+     * <p>The product description filter value. Use this parameter to show only those
+     * reservations matching the specified product description.</p>
+     */
     inline void SetProductDescription(const Aws::String& value) { m_productDescriptionHasBeenSet = true; m_productDescription = value; }
 
     /**
@@ -551,6 +629,13 @@ namespace Model
      * <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code> </p>
      */
     inline const Aws::String& GetOfferingType() const{ return m_offeringType; }
+
+    /**
+     * <p>The offering type filter value. Use this parameter to show only the available
+     * offerings matching the specified offering type.</p> <p>Valid values:
+     * <code>"Light Utilization"|"Medium Utilization"|"Heavy Utilization"</code> </p>
+     */
+    inline bool OfferingTypeHasBeenSet() const { return m_offeringTypeHasBeenSet; }
 
     /**
      * <p>The offering type filter value. Use this parameter to show only the available
@@ -609,6 +694,14 @@ namespace Model
      * the response so that the remaining results can be retrieved.</p> <p>Default:
      * 100</p> <p>Constraints: minimum 20; maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a marker is included in
+     * the response so that the remaining results can be retrieved.</p> <p>Default:
+     * 100</p> <p>Constraints: minimum 20; maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -627,6 +720,14 @@ namespace Model
      * <code>MaxRecords</code>.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>An optional marker returned from a prior request. Use this marker for
+     * pagination of results from this operation. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>An optional marker returned from a prior request. Use this marker for

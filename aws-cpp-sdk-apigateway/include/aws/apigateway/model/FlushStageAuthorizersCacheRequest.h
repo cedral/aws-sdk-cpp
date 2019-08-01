@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     FlushStageAuthorizersCacheRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>The string identifier of the associated <a>RestApi</a>.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The name of the stage to flush.</p>
      */
     inline const Aws::String& GetStageName() const{ return m_stageName; }
+
+    /**
+     * <p>The name of the stage to flush.</p>
+     */
+    inline bool StageNameHasBeenSet() const { return m_stageNameHasBeenSet; }
 
     /**
      * <p>The name of the stage to flush.</p>

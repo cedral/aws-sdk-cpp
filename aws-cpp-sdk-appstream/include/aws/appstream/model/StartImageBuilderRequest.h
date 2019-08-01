@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StartImageBuilderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the image builder.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the image builder.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the image builder.</p>
@@ -85,6 +90,12 @@ namespace Model
      * the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
      */
     inline const Aws::String& GetAppstreamAgentVersion() const{ return m_appstreamAgentVersion; }
+
+    /**
+     * <p>The version of the AppStream 2.0 agent to use for this image builder. To use
+     * the latest version of the AppStream 2.0 agent, specify [LATEST]. </p>
+     */
+    inline bool AppstreamAgentVersionHasBeenSet() const { return m_appstreamAgentVersionHasBeenSet; }
 
     /**
      * <p>The version of the AppStream 2.0 agent to use for this image builder. To use

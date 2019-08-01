@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateRoleAliasRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * without having to update the device.</p>
      */
     inline const Aws::String& GetRoleAlias() const{ return m_roleAlias; }
+
+    /**
+     * <p>The role alias that points to a role ARN. This allows you to change the role
+     * without having to update the device.</p>
+     */
+    inline bool RoleAliasHasBeenSet() const { return m_roleAliasHasBeenSet; }
 
     /**
      * <p>The role alias that points to a role ARN. This allows you to change the role
@@ -93,6 +99,11 @@ namespace Model
     /**
      * <p>The role ARN.</p>
      */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
+
+    /**
+     * <p>The role ARN.</p>
+     */
     inline void SetRoleArn(const Aws::String& value) { m_roleArnHasBeenSet = true; m_roleArn = value; }
 
     /**
@@ -125,6 +136,11 @@ namespace Model
      * <p>How long (in seconds) the credentials will be valid.</p>
      */
     inline int GetCredentialDurationSeconds() const{ return m_credentialDurationSeconds; }
+
+    /**
+     * <p>How long (in seconds) the credentials will be valid.</p>
+     */
+    inline bool CredentialDurationSecondsHasBeenSet() const { return m_credentialDurationSecondsHasBeenSet; }
 
     /**
      * <p>How long (in seconds) the credentials will be valid.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetDocumentVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * administrative API actions, as in accessing the API using AWS credentials.</p>
      */
     inline const Aws::String& GetAuthenticationToken() const{ return m_authenticationToken; }
+
+    /**
+     * <p>Amazon WorkDocs authentication token. Do not set this field when using
+     * administrative API actions, as in accessing the API using AWS credentials.</p>
+     */
+    inline bool AuthenticationTokenHasBeenSet() const { return m_authenticationTokenHasBeenSet; }
 
     /**
      * <p>Amazon WorkDocs authentication token. Do not set this field when using
@@ -101,6 +107,11 @@ namespace Model
     /**
      * <p>The ID of the document.</p>
      */
+    inline bool DocumentIdHasBeenSet() const { return m_documentIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the document.</p>
+     */
     inline void SetDocumentId(const Aws::String& value) { m_documentIdHasBeenSet = true; m_documentId = value; }
 
     /**
@@ -133,6 +144,11 @@ namespace Model
      * <p>The version ID of the document.</p>
      */
     inline const Aws::String& GetVersionId() const{ return m_versionId; }
+
+    /**
+     * <p>The version ID of the document.</p>
+     */
+    inline bool VersionIdHasBeenSet() const { return m_versionIdHasBeenSet; }
 
     /**
      * <p>The version ID of the document.</p>
@@ -175,6 +191,12 @@ namespace Model
      * <p>A comma-separated list of values. Specify "SOURCE" to include a URL for the
      * source document.</p>
      */
+    inline bool FieldsHasBeenSet() const { return m_fieldsHasBeenSet; }
+
+    /**
+     * <p>A comma-separated list of values. Specify "SOURCE" to include a URL for the
+     * source document.</p>
+     */
     inline void SetFields(const Aws::String& value) { m_fieldsHasBeenSet = true; m_fields = value; }
 
     /**
@@ -212,6 +234,11 @@ namespace Model
      * <p>Set this to TRUE to include custom metadata in the response.</p>
      */
     inline bool GetIncludeCustomMetadata() const{ return m_includeCustomMetadata; }
+
+    /**
+     * <p>Set this to TRUE to include custom metadata in the response.</p>
+     */
+    inline bool IncludeCustomMetadataHasBeenSet() const { return m_includeCustomMetadataHasBeenSet; }
 
     /**
      * <p>Set this to TRUE to include custom metadata in the response.</p>

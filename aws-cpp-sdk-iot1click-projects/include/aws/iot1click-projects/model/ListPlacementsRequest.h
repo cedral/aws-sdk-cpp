@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListPlacementsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The project containing the placements to be listed.</p>
      */
     inline const Aws::String& GetProjectName() const{ return m_projectName; }
+
+    /**
+     * <p>The project containing the placements to be listed.</p>
+     */
+    inline bool ProjectNameHasBeenSet() const { return m_projectNameHasBeenSet; }
 
     /**
      * <p>The project containing the placements to be listed.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The token to retrieve the next set of results.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token to retrieve the next set of results.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -125,6 +135,12 @@ namespace Model
      * value of 100 is used.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return per request. If not set, a default
+     * value of 100 is used.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return per request. If not set, a default

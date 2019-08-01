@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListThingGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The token to retrieve the next set of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token to retrieve the next set of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token to retrieve the next set of results.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The maximum number of results to return at one time.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to return at one time.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -105,6 +115,12 @@ namespace Model
      * group.</p>
      */
     inline const Aws::String& GetParentGroup() const{ return m_parentGroup; }
+
+    /**
+     * <p>A filter that limits the results to those with the specified parent
+     * group.</p>
+     */
+    inline bool ParentGroupHasBeenSet() const { return m_parentGroupHasBeenSet; }
 
     /**
      * <p>A filter that limits the results to those with the specified parent
@@ -151,6 +167,11 @@ namespace Model
     /**
      * <p>A filter that limits the results to those with the specified name prefix.</p>
      */
+    inline bool NamePrefixFilterHasBeenSet() const { return m_namePrefixFilterHasBeenSet; }
+
+    /**
+     * <p>A filter that limits the results to those with the specified name prefix.</p>
+     */
     inline void SetNamePrefixFilter(const Aws::String& value) { m_namePrefixFilterHasBeenSet = true; m_namePrefixFilter = value; }
 
     /**
@@ -183,6 +204,11 @@ namespace Model
      * <p>If true, return child groups as well.</p>
      */
     inline bool GetRecursive() const{ return m_recursive; }
+
+    /**
+     * <p>If true, return child groups as well.</p>
+     */
+    inline bool RecursiveHasBeenSet() const { return m_recursiveHasBeenSet; }
 
     /**
      * <p>If true, return child groups as well.</p>

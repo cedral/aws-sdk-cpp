@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     GetEntitlementsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,13 @@ namespace Model
      * created.</p>
      */
     inline const Aws::String& GetProductCode() const{ return m_productCode; }
+
+    /**
+     * <p>Product code is used to uniquely identify a product in AWS Marketplace. The
+     * product code will be provided by AWS Marketplace when the product listing is
+     * created.</p>
+     */
+    inline bool ProductCodeHasBeenSet() const { return m_productCodeHasBeenSet; }
 
     /**
      * <p>Product code is used to uniquely identify a product in AWS Marketplace. The
@@ -108,6 +115,14 @@ namespace Model
      * <i>intersected</i> for each filter key.</p>
      */
     inline const Aws::Map<GetEntitlementFilterName, Aws::Vector<Aws::String>>& GetFilter() const{ return m_filter; }
+
+    /**
+     * <p>Filter is used to return entitlements for a specific customer or for a
+     * specific dimension. Filters are described as keys mapped to a lists of values.
+     * Filtered requests are <i>unioned</i> for each value in the value list, and then
+     * <i>intersected</i> for each filter key.</p>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
      * <p>Filter is used to return entitlements for a specific customer or for a
@@ -184,6 +199,12 @@ namespace Model
      * <p>For paginated calls to GetEntitlements, pass the NextToken from the previous
      * GetEntitlementsResult.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>For paginated calls to GetEntitlements, pass the NextToken from the previous
+     * GetEntitlementsResult.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -223,6 +244,13 @@ namespace Model
      * GetEntitlements.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of items to retrieve from the GetEntitlements operation.
+     * For pagination, use the NextToken field in subsequent calls to
+     * GetEntitlements.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to retrieve from the GetEntitlements operation.

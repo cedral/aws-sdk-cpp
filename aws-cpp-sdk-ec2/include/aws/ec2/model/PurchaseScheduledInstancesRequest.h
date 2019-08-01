@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     PurchaseScheduledInstancesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -60,6 +60,14 @@ namespace Model
      * Idempotency</a>.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that ensures the idempotency of the
+     * request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     * Idempotency</a>.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>Unique, case-sensitive identifier that ensures the idempotency of the
@@ -124,6 +132,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -136,37 +152,42 @@ namespace Model
 
 
     /**
-     * <p>One or more purchase requests.</p>
+     * <p>The purchase requests.</p>
      */
     inline const Aws::Vector<PurchaseRequest>& GetPurchaseRequests() const{ return m_purchaseRequests; }
 
     /**
-     * <p>One or more purchase requests.</p>
+     * <p>The purchase requests.</p>
+     */
+    inline bool PurchaseRequestsHasBeenSet() const { return m_purchaseRequestsHasBeenSet; }
+
+    /**
+     * <p>The purchase requests.</p>
      */
     inline void SetPurchaseRequests(const Aws::Vector<PurchaseRequest>& value) { m_purchaseRequestsHasBeenSet = true; m_purchaseRequests = value; }
 
     /**
-     * <p>One or more purchase requests.</p>
+     * <p>The purchase requests.</p>
      */
     inline void SetPurchaseRequests(Aws::Vector<PurchaseRequest>&& value) { m_purchaseRequestsHasBeenSet = true; m_purchaseRequests = std::move(value); }
 
     /**
-     * <p>One or more purchase requests.</p>
+     * <p>The purchase requests.</p>
      */
     inline PurchaseScheduledInstancesRequest& WithPurchaseRequests(const Aws::Vector<PurchaseRequest>& value) { SetPurchaseRequests(value); return *this;}
 
     /**
-     * <p>One or more purchase requests.</p>
+     * <p>The purchase requests.</p>
      */
     inline PurchaseScheduledInstancesRequest& WithPurchaseRequests(Aws::Vector<PurchaseRequest>&& value) { SetPurchaseRequests(std::move(value)); return *this;}
 
     /**
-     * <p>One or more purchase requests.</p>
+     * <p>The purchase requests.</p>
      */
     inline PurchaseScheduledInstancesRequest& AddPurchaseRequests(const PurchaseRequest& value) { m_purchaseRequestsHasBeenSet = true; m_purchaseRequests.push_back(value); return *this; }
 
     /**
-     * <p>One or more purchase requests.</p>
+     * <p>The purchase requests.</p>
      */
     inline PurchaseScheduledInstancesRequest& AddPurchaseRequests(PurchaseRequest&& value) { m_purchaseRequestsHasBeenSet = true; m_purchaseRequests.push_back(std::move(value)); return *this; }
 

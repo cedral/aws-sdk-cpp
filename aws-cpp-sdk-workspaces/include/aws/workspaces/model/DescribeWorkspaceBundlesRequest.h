@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeWorkspaceBundlesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * other filter.</p>
      */
     inline const Aws::Vector<Aws::String>& GetBundleIds() const{ return m_bundleIds; }
+
+    /**
+     * <p>The identifiers of the bundles. You cannot combine this parameter with any
+     * other filter.</p>
+     */
+    inline bool BundleIdsHasBeenSet() const { return m_bundleIdsHasBeenSet; }
 
     /**
      * <p>The identifiers of the bundles. You cannot combine this parameter with any
@@ -106,6 +112,13 @@ namespace Model
      * filter.</p> <p>Specify <code>AMAZON</code> to describe the bundles provided by
      * AWS or null to describe the bundles that belong to your account.</p>
      */
+    inline bool OwnerHasBeenSet() const { return m_ownerHasBeenSet; }
+
+    /**
+     * <p>The owner of the bundles. You cannot combine this parameter with any other
+     * filter.</p> <p>Specify <code>AMAZON</code> to describe the bundles provided by
+     * AWS or null to describe the bundles that belong to your account.</p>
+     */
     inline void SetOwner(const Aws::String& value) { m_ownerHasBeenSet = true; m_owner = value; }
 
     /**
@@ -149,6 +162,12 @@ namespace Model
      * previous call.)</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next set of results. (You received this token from a
+     * previous call.)</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next set of results. (You received this token from a

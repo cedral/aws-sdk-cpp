@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CountPendingActivityTasksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the domain that contains the task list.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The name of the domain that contains the task list.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The name of the domain that contains the task list.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The name of the task list.</p>
      */
     inline const TaskList& GetTaskList() const{ return m_taskList; }
+
+    /**
+     * <p>The name of the task list.</p>
+     */
+    inline bool TaskListHasBeenSet() const { return m_taskListHasBeenSet; }
 
     /**
      * <p>The name of the task list.</p>

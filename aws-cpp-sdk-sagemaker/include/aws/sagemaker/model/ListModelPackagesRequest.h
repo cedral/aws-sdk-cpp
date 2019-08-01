@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListModelPackagesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * (timestamp).</p>
      */
     inline const Aws::Utils::DateTime& GetCreationTimeAfter() const{ return m_creationTimeAfter; }
+
+    /**
+     * <p>A filter that returns only model packages created after the specified time
+     * (timestamp).</p>
+     */
+    inline bool CreationTimeAfterHasBeenSet() const { return m_creationTimeAfterHasBeenSet; }
 
     /**
      * <p>A filter that returns only model packages created after the specified time
@@ -88,6 +94,12 @@ namespace Model
      * <p>A filter that returns only model packages created before the specified time
      * (timestamp).</p>
      */
+    inline bool CreationTimeBeforeHasBeenSet() const { return m_creationTimeBeforeHasBeenSet; }
+
+    /**
+     * <p>A filter that returns only model packages created before the specified time
+     * (timestamp).</p>
+     */
     inline void SetCreationTimeBefore(const Aws::Utils::DateTime& value) { m_creationTimeBeforeHasBeenSet = true; m_creationTimeBefore = value; }
 
     /**
@@ -117,6 +129,11 @@ namespace Model
     /**
      * <p>The maximum number of model packages to return in the response.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of model packages to return in the response.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -130,6 +147,12 @@ namespace Model
      * whose name contains the specified string.</p>
      */
     inline const Aws::String& GetNameContains() const{ return m_nameContains; }
+
+    /**
+     * <p>A string in the model package name. This filter returns only model packages
+     * whose name contains the specified string.</p>
+     */
+    inline bool NameContainsHasBeenSet() const { return m_nameContainsHasBeenSet; }
 
     /**
      * <p>A string in the model package name. This filter returns only model packages
@@ -174,6 +197,13 @@ namespace Model
      * set of model packages, use the token in the next request.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If the response to a previous <code>ListModelPackages</code> request was
+     * truncated, the response includes a <code>NextToken</code>. To retrieve the next
+     * set of model packages, use the token in the next request.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If the response to a previous <code>ListModelPackages</code> request was
@@ -228,6 +258,12 @@ namespace Model
      * <p>The parameter by which to sort the results. The default is
      * <code>CreationTime</code>.</p>
      */
+    inline bool SortByHasBeenSet() const { return m_sortByHasBeenSet; }
+
+    /**
+     * <p>The parameter by which to sort the results. The default is
+     * <code>CreationTime</code>.</p>
+     */
     inline void SetSortBy(const ModelPackageSortBy& value) { m_sortByHasBeenSet = true; m_sortBy = value; }
 
     /**
@@ -253,6 +289,11 @@ namespace Model
      * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
      */
     inline const SortOrder& GetSortOrder() const{ return m_sortOrder; }
+
+    /**
+     * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+     */
+    inline bool SortOrderHasBeenSet() const { return m_sortOrderHasBeenSet; }
 
     /**
      * <p>The sort order for the results. The default is <code>Ascending</code>.</p>

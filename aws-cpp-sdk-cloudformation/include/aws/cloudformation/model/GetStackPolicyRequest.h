@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     GetStackPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * you want to get.</p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>The name or unique stack ID that is associated with the stack whose policy
+     * you want to get.</p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>The name or unique stack ID that is associated with the stack whose policy

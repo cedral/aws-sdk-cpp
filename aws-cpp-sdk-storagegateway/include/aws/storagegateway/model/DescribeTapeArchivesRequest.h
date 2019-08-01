@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeTapeArchivesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * virtual tapes you want to describe.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTapeARNs() const{ return m_tapeARNs; }
+
+    /**
+     * <p>Specifies one or more unique Amazon Resource Names (ARNs) that represent the
+     * virtual tapes you want to describe.</p>
+     */
+    inline bool TapeARNsHasBeenSet() const { return m_tapeARNsHasBeenSet; }
 
     /**
      * <p>Specifies one or more unique Amazon Resource Names (ARNs) that represent the
@@ -107,6 +113,12 @@ namespace Model
      * <p>An opaque string that indicates the position at which to begin describing
      * virtual tapes.</p>
      */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>An opaque string that indicates the position at which to begin describing
+     * virtual tapes.</p>
+     */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
@@ -145,6 +157,12 @@ namespace Model
      * specified number.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>Specifies that the number of virtual tapes descried be limited to the
+     * specified number.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>Specifies that the number of virtual tapes descried be limited to the

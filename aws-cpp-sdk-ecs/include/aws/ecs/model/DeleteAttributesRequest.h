@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DeleteAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * default cluster is assumed.</p>
      */
     inline const Aws::String& GetCluster() const{ return m_cluster; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of the cluster that
+     * contains the resource to delete attributes. If you do not specify a cluster, the
+     * default cluster is assumed.</p>
+     */
+    inline bool ClusterHasBeenSet() const { return m_clusterHasBeenSet; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that
@@ -103,6 +110,14 @@ namespace Model
      * short form, you must also specify the target type.</p>
      */
     inline const Aws::Vector<Attribute>& GetAttributes() const{ return m_attributes; }
+
+    /**
+     * <p>The attributes to delete from your resource. You can specify up to 10
+     * attributes per request. For custom attributes, specify the attribute name and
+     * target ID, but do not specify the value. If you specify the target ID using the
+     * short form, you must also specify the target type.</p>
+     */
+    inline bool AttributesHasBeenSet() const { return m_attributesHasBeenSet; }
 
     /**
      * <p>The attributes to delete from your resource. You can specify up to 10

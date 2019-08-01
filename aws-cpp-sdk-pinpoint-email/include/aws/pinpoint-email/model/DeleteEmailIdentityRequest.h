@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     DeleteEmailIdentityRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,14 +47,18 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>The identity (that is, the email address or domain) that you want to delete
      * from your Amazon Pinpoint account.</p>
      */
     inline const Aws::String& GetEmailIdentity() const{ return m_emailIdentity; }
+
+    /**
+     * <p>The identity (that is, the email address or domain) that you want to delete
+     * from your Amazon Pinpoint account.</p>
+     */
+    inline bool EmailIdentityHasBeenSet() const { return m_emailIdentityHasBeenSet; }
 
     /**
      * <p>The identity (that is, the email address or domain) that you want to delete

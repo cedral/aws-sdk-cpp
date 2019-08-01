@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateIdentityProviderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The user pool ID.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The identity provider name.</p>
      */
+    inline bool ProviderNameHasBeenSet() const { return m_providerNameHasBeenSet; }
+
+    /**
+     * <p>The identity provider name.</p>
+     */
     inline void SetProviderName(const Aws::String& value) { m_providerNameHasBeenSet = true; m_providerName = value; }
 
     /**
@@ -127,6 +137,11 @@ namespace Model
     /**
      * <p>The identity provider type.</p>
      */
+    inline bool ProviderTypeHasBeenSet() const { return m_providerTypeHasBeenSet; }
+
+    /**
+     * <p>The identity provider type.</p>
+     */
     inline void SetProviderType(const IdentityProviderTypeType& value) { m_providerTypeHasBeenSet = true; m_providerType = value; }
 
     /**
@@ -150,6 +165,12 @@ namespace Model
      * <code>MetadataFile</code>.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetProviderDetails() const{ return m_providerDetails; }
+
+    /**
+     * <p>The identity provider details, such as <code>MetadataURL</code> and
+     * <code>MetadataFile</code>.</p>
+     */
+    inline bool ProviderDetailsHasBeenSet() const { return m_providerDetailsHasBeenSet; }
 
     /**
      * <p>The identity provider details, such as <code>MetadataURL</code> and
@@ -228,6 +249,12 @@ namespace Model
      * <p>A mapping of identity provider attributes to standard and custom user pool
      * attributes.</p>
      */
+    inline bool AttributeMappingHasBeenSet() const { return m_attributeMappingHasBeenSet; }
+
+    /**
+     * <p>A mapping of identity provider attributes to standard and custom user pool
+     * attributes.</p>
+     */
     inline void SetAttributeMapping(const Aws::Map<Aws::String, Aws::String>& value) { m_attributeMappingHasBeenSet = true; m_attributeMapping = value; }
 
     /**
@@ -295,6 +322,11 @@ namespace Model
      * <p>A list of identity provider identifiers.</p>
      */
     inline const Aws::Vector<Aws::String>& GetIdpIdentifiers() const{ return m_idpIdentifiers; }
+
+    /**
+     * <p>A list of identity provider identifiers.</p>
+     */
+    inline bool IdpIdentifiersHasBeenSet() const { return m_idpIdentifiersHasBeenSet; }
 
     /**
      * <p>A list of identity provider identifiers.</p>

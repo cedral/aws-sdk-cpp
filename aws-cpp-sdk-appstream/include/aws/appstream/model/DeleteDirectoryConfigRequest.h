@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteDirectoryConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the directory configuration.</p>
      */
     inline const Aws::String& GetDirectoryName() const{ return m_directoryName; }
+
+    /**
+     * <p>The name of the directory configuration.</p>
+     */
+    inline bool DirectoryNameHasBeenSet() const { return m_directoryNameHasBeenSet; }
 
     /**
      * <p>The name of the directory configuration.</p>

@@ -29,6 +29,7 @@
 #include <aws/medialive/model/DeleteInputResult.h>
 #include <aws/medialive/model/DeleteInputSecurityGroupResult.h>
 #include <aws/medialive/model/DeleteReservationResult.h>
+#include <aws/medialive/model/DeleteScheduleResult.h>
 #include <aws/medialive/model/DescribeChannelResult.h>
 #include <aws/medialive/model/DescribeInputResult.h>
 #include <aws/medialive/model/DescribeInputSecurityGroupResult.h>
@@ -45,8 +46,10 @@
 #include <aws/medialive/model/StartChannelResult.h>
 #include <aws/medialive/model/StopChannelResult.h>
 #include <aws/medialive/model/UpdateChannelResult.h>
+#include <aws/medialive/model/UpdateChannelClassResult.h>
 #include <aws/medialive/model/UpdateInputResult.h>
 #include <aws/medialive/model/UpdateInputSecurityGroupResult.h>
+#include <aws/medialive/model/UpdateReservationResult.h>
 #include <aws/core/NoResult.h>
 #include <aws/core/client/AsyncCallerContext.h>
 #include <aws/core/http/HttpTypes.h>
@@ -65,7 +68,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -97,6 +99,7 @@ namespace Model
         class DeleteInputRequest;
         class DeleteInputSecurityGroupRequest;
         class DeleteReservationRequest;
+        class DeleteScheduleRequest;
         class DeleteTagsRequest;
         class DescribeChannelRequest;
         class DescribeInputRequest;
@@ -114,8 +117,10 @@ namespace Model
         class StartChannelRequest;
         class StopChannelRequest;
         class UpdateChannelRequest;
+        class UpdateChannelClassRequest;
         class UpdateInputRequest;
         class UpdateInputSecurityGroupRequest;
+        class UpdateReservationRequest;
 
         typedef Aws::Utils::Outcome<BatchUpdateScheduleResult, Aws::Client::AWSError<MediaLiveErrors>> BatchUpdateScheduleOutcome;
         typedef Aws::Utils::Outcome<CreateChannelResult, Aws::Client::AWSError<MediaLiveErrors>> CreateChannelOutcome;
@@ -126,6 +131,7 @@ namespace Model
         typedef Aws::Utils::Outcome<DeleteInputResult, Aws::Client::AWSError<MediaLiveErrors>> DeleteInputOutcome;
         typedef Aws::Utils::Outcome<DeleteInputSecurityGroupResult, Aws::Client::AWSError<MediaLiveErrors>> DeleteInputSecurityGroupOutcome;
         typedef Aws::Utils::Outcome<DeleteReservationResult, Aws::Client::AWSError<MediaLiveErrors>> DeleteReservationOutcome;
+        typedef Aws::Utils::Outcome<DeleteScheduleResult, Aws::Client::AWSError<MediaLiveErrors>> DeleteScheduleOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<MediaLiveErrors>> DeleteTagsOutcome;
         typedef Aws::Utils::Outcome<DescribeChannelResult, Aws::Client::AWSError<MediaLiveErrors>> DescribeChannelOutcome;
         typedef Aws::Utils::Outcome<DescribeInputResult, Aws::Client::AWSError<MediaLiveErrors>> DescribeInputOutcome;
@@ -143,8 +149,10 @@ namespace Model
         typedef Aws::Utils::Outcome<StartChannelResult, Aws::Client::AWSError<MediaLiveErrors>> StartChannelOutcome;
         typedef Aws::Utils::Outcome<StopChannelResult, Aws::Client::AWSError<MediaLiveErrors>> StopChannelOutcome;
         typedef Aws::Utils::Outcome<UpdateChannelResult, Aws::Client::AWSError<MediaLiveErrors>> UpdateChannelOutcome;
+        typedef Aws::Utils::Outcome<UpdateChannelClassResult, Aws::Client::AWSError<MediaLiveErrors>> UpdateChannelClassOutcome;
         typedef Aws::Utils::Outcome<UpdateInputResult, Aws::Client::AWSError<MediaLiveErrors>> UpdateInputOutcome;
         typedef Aws::Utils::Outcome<UpdateInputSecurityGroupResult, Aws::Client::AWSError<MediaLiveErrors>> UpdateInputSecurityGroupOutcome;
+        typedef Aws::Utils::Outcome<UpdateReservationResult, Aws::Client::AWSError<MediaLiveErrors>> UpdateReservationOutcome;
 
         typedef std::future<BatchUpdateScheduleOutcome> BatchUpdateScheduleOutcomeCallable;
         typedef std::future<CreateChannelOutcome> CreateChannelOutcomeCallable;
@@ -155,6 +163,7 @@ namespace Model
         typedef std::future<DeleteInputOutcome> DeleteInputOutcomeCallable;
         typedef std::future<DeleteInputSecurityGroupOutcome> DeleteInputSecurityGroupOutcomeCallable;
         typedef std::future<DeleteReservationOutcome> DeleteReservationOutcomeCallable;
+        typedef std::future<DeleteScheduleOutcome> DeleteScheduleOutcomeCallable;
         typedef std::future<DeleteTagsOutcome> DeleteTagsOutcomeCallable;
         typedef std::future<DescribeChannelOutcome> DescribeChannelOutcomeCallable;
         typedef std::future<DescribeInputOutcome> DescribeInputOutcomeCallable;
@@ -172,8 +181,10 @@ namespace Model
         typedef std::future<StartChannelOutcome> StartChannelOutcomeCallable;
         typedef std::future<StopChannelOutcome> StopChannelOutcomeCallable;
         typedef std::future<UpdateChannelOutcome> UpdateChannelOutcomeCallable;
+        typedef std::future<UpdateChannelClassOutcome> UpdateChannelClassOutcomeCallable;
         typedef std::future<UpdateInputOutcome> UpdateInputOutcomeCallable;
         typedef std::future<UpdateInputSecurityGroupOutcome> UpdateInputSecurityGroupOutcomeCallable;
+        typedef std::future<UpdateReservationOutcome> UpdateReservationOutcomeCallable;
 } // namespace Model
 
   class MediaLiveClient;
@@ -187,6 +198,7 @@ namespace Model
     typedef std::function<void(const MediaLiveClient*, const Model::DeleteInputRequest&, const Model::DeleteInputOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteInputResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::DeleteInputSecurityGroupRequest&, const Model::DeleteInputSecurityGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteInputSecurityGroupResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::DeleteReservationRequest&, const Model::DeleteReservationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteReservationResponseReceivedHandler;
+    typedef std::function<void(const MediaLiveClient*, const Model::DeleteScheduleRequest&, const Model::DeleteScheduleOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteScheduleResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::DeleteTagsRequest&, const Model::DeleteTagsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteTagsResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::DescribeChannelRequest&, const Model::DescribeChannelOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeChannelResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::DescribeInputRequest&, const Model::DescribeInputOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeInputResponseReceivedHandler;
@@ -204,8 +216,10 @@ namespace Model
     typedef std::function<void(const MediaLiveClient*, const Model::StartChannelRequest&, const Model::StartChannelOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartChannelResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::StopChannelRequest&, const Model::StopChannelOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopChannelResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::UpdateChannelRequest&, const Model::UpdateChannelOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateChannelResponseReceivedHandler;
+    typedef std::function<void(const MediaLiveClient*, const Model::UpdateChannelClassRequest&, const Model::UpdateChannelClassOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateChannelClassResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::UpdateInputRequest&, const Model::UpdateInputOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateInputResponseReceivedHandler;
     typedef std::function<void(const MediaLiveClient*, const Model::UpdateInputSecurityGroupRequest&, const Model::UpdateInputSecurityGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateInputSecurityGroupResponseReceivedHandler;
+    typedef std::function<void(const MediaLiveClient*, const Model::UpdateReservationRequest&, const Model::UpdateReservationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateReservationResponseReceivedHandler;
 
   /**
    * API for AWS Elemental MediaLive
@@ -466,6 +480,31 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void DeleteReservationAsync(const Model::DeleteReservationRequest& request, const DeleteReservationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * Delete all schedule actions on a channel.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteSchedule">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DeleteScheduleOutcome DeleteSchedule(const Model::DeleteScheduleRequest& request) const;
+
+        /**
+         * Delete all schedule actions on a channel.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteSchedule">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DeleteScheduleOutcomeCallable DeleteScheduleCallable(const Model::DeleteScheduleRequest& request) const;
+
+        /**
+         * Delete all schedule actions on a channel.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/DeleteSchedule">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DeleteScheduleAsync(const Model::DeleteScheduleRequest& request, const DeleteScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * Removes tags for a resource<p><h3>See Also:</h3>   <a
@@ -899,6 +938,31 @@ namespace Model
         virtual void UpdateChannelAsync(const Model::UpdateChannelRequest& request, const UpdateChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * Changes the class of the channel.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateChannelClass">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UpdateChannelClassOutcome UpdateChannelClass(const Model::UpdateChannelClassRequest& request) const;
+
+        /**
+         * Changes the class of the channel.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateChannelClass">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UpdateChannelClassOutcomeCallable UpdateChannelClassCallable(const Model::UpdateChannelClassRequest& request) const;
+
+        /**
+         * Changes the class of the channel.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateChannelClass">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UpdateChannelClassAsync(const Model::UpdateChannelClassRequest& request, const UpdateChannelClassResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * Updates an input.<p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateInput">AWS
          * API Reference</a></p>
@@ -948,11 +1012,35 @@ namespace Model
          */
         virtual void UpdateInputSecurityGroupAsync(const Model::UpdateInputSecurityGroupRequest& request, const UpdateInputSecurityGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+        /**
+         * Update reservation.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateReservation">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UpdateReservationOutcome UpdateReservation(const Model::UpdateReservationRequest& request) const;
+
+        /**
+         * Update reservation.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateReservation">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UpdateReservationOutcomeCallable UpdateReservationCallable(const Model::UpdateReservationRequest& request) const;
+
+        /**
+         * Update reservation.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateReservation">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UpdateReservationAsync(const Model::UpdateReservationRequest& request, const UpdateReservationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void BatchUpdateScheduleAsyncHelper(const Model::BatchUpdateScheduleRequest& request, const BatchUpdateScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateChannelAsyncHelper(const Model::CreateChannelRequest& request, const CreateChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateInputAsyncHelper(const Model::CreateInputRequest& request, const CreateInputResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -962,6 +1050,7 @@ namespace Model
         void DeleteInputAsyncHelper(const Model::DeleteInputRequest& request, const DeleteInputResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteInputSecurityGroupAsyncHelper(const Model::DeleteInputSecurityGroupRequest& request, const DeleteInputSecurityGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteReservationAsyncHelper(const Model::DeleteReservationRequest& request, const DeleteReservationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DeleteScheduleAsyncHelper(const Model::DeleteScheduleRequest& request, const DeleteScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteTagsAsyncHelper(const Model::DeleteTagsRequest& request, const DeleteTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeChannelAsyncHelper(const Model::DescribeChannelRequest& request, const DescribeChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeInputAsyncHelper(const Model::DescribeInputRequest& request, const DescribeInputResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -979,8 +1068,10 @@ namespace Model
         void StartChannelAsyncHelper(const Model::StartChannelRequest& request, const StartChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopChannelAsyncHelper(const Model::StopChannelRequest& request, const StopChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateChannelAsyncHelper(const Model::UpdateChannelRequest& request, const UpdateChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UpdateChannelClassAsyncHelper(const Model::UpdateChannelClassRequest& request, const UpdateChannelClassResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateInputAsyncHelper(const Model::UpdateInputRequest& request, const UpdateInputResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateInputSecurityGroupAsyncHelper(const Model::UpdateInputSecurityGroupRequest& request, const UpdateInputSecurityGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UpdateReservationAsyncHelper(const Model::UpdateReservationRequest& request, const UpdateReservationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
 
       Aws::String m_uri;
       Aws::String m_configScheme;

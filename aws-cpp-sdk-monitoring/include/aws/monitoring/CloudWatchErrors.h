@@ -56,11 +56,13 @@ enum class CloudWatchErrors
   UNKNOWN = 100,
   ///////////////////////////////////////////////////////////////////////////////////////////
 
-  DASHBOARD_INVALID_INPUT= static_cast<int>(Aws::Client::CoreErrors::SERVICE_EXTENSION_START_RANGE) + 1,
+  CONCURRENT_MODIFICATION= static_cast<int>(Aws::Client::CoreErrors::SERVICE_EXTENSION_START_RANGE) + 1,
+  DASHBOARD_INVALID_INPUT,
   DASHBOARD_NOT_FOUND,
   INTERNAL_SERVICE_FAULT,
   INVALID_FORMAT_FAULT,
   INVALID_NEXT_TOKEN,
+  LIMIT_EXCEEDED,
   LIMIT_EXCEEDED_FAULT,
   MISSING_REQUIRED_PARAMETER
 };

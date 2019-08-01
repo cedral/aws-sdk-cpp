@@ -19,6 +19,8 @@
 #include <aws/core/utils/DateTime.h>
 #include <aws/cloudfront/model/ActiveTrustedSigners.h>
 #include <aws/cloudfront/model/DistributionConfig.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/cloudfront/model/AliasICPRecordal.h>
 #include <utility>
 
 namespace Aws
@@ -36,8 +38,10 @@ namespace Model
 {
 
   /**
-   * <p>The distribution's information.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/Distribution">AWS
+   * <p>A distribution tells CloudFront where you want content to be delivered from,
+   * and the details about how to track and manage content delivery.</p><p><h3>See
+   * Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/Distribution">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API Distribution
@@ -55,6 +59,12 @@ namespace Model
      * <code>EDFDVBD632BHDS5</code>. </p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The identifier for the distribution. For example:
+     * <code>EDFDVBD632BHDS5</code>. </p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The identifier for the distribution. For example:
@@ -99,6 +109,13 @@ namespace Model
      * where <code>123456789012</code> is your AWS account ID.</p>
      */
     inline const Aws::String& GetARN() const{ return m_aRN; }
+
+    /**
+     * <p>The ARN (Amazon Resource Name) for the distribution. For example:
+     * <code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>,
+     * where <code>123456789012</code> is your AWS account ID.</p>
+     */
+    inline bool ARNHasBeenSet() const { return m_aRNHasBeenSet; }
 
     /**
      * <p>The ARN (Amazon Resource Name) for the distribution. For example:
@@ -155,6 +172,13 @@ namespace Model
      * the status is <code>Deployed</code>, the distribution's information is fully
      * propagated to all CloudFront edge locations. </p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>This response element indicates the current status of the distribution. When
+     * the status is <code>Deployed</code>, the distribution's information is fully
+     * propagated to all CloudFront edge locations. </p>
+     */
     inline void SetStatus(const Aws::String& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -201,6 +225,11 @@ namespace Model
     /**
      * <p>The date and time the distribution was last modified. </p>
      */
+    inline bool LastModifiedTimeHasBeenSet() const { return m_lastModifiedTimeHasBeenSet; }
+
+    /**
+     * <p>The date and time the distribution was last modified. </p>
+     */
     inline void SetLastModifiedTime(const Aws::Utils::DateTime& value) { m_lastModifiedTimeHasBeenSet = true; m_lastModifiedTime = value; }
 
     /**
@@ -227,6 +256,11 @@ namespace Model
     /**
      * <p>The number of invalidation batches currently in progress. </p>
      */
+    inline bool InProgressInvalidationBatchesHasBeenSet() const { return m_inProgressInvalidationBatchesHasBeenSet; }
+
+    /**
+     * <p>The number of invalidation batches currently in progress. </p>
+     */
     inline void SetInProgressInvalidationBatches(int value) { m_inProgressInvalidationBatchesHasBeenSet = true; m_inProgressInvalidationBatches = value; }
 
     /**
@@ -240,6 +274,12 @@ namespace Model
      * <code>d111111abcdef8.cloudfront.net</code>. </p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>The domain name corresponding to the distribution, for example,
+     * <code>d111111abcdef8.cloudfront.net</code>. </p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>The domain name corresponding to the distribution, for example,
@@ -290,6 +330,19 @@ namespace Model
      * signed URLs.</p>
      */
     inline const ActiveTrustedSigners& GetActiveTrustedSigners() const{ return m_activeTrustedSigners; }
+
+    /**
+     * <p>CloudFront automatically adds this element to the response only if you've set
+     * up the distribution to serve private content with signed URLs. The element lists
+     * the key pair IDs that CloudFront is aware of for each trusted signer. The
+     * <code>Signer</code> child element lists the AWS account number of the trusted
+     * signer (or an empty <code>Self</code> element if the signer is you). The
+     * <code>Signer</code> element also includes the IDs of any active key pairs
+     * associated with the trusted signer's AWS account. If no <code>KeyPairId</code>
+     * element appears for a <code>Signer</code>, that signer can't create working
+     * signed URLs.</p>
+     */
+    inline bool ActiveTrustedSignersHasBeenSet() const { return m_activeTrustedSignersHasBeenSet; }
 
     /**
      * <p>CloudFront automatically adds this element to the response only if you've set
@@ -356,6 +409,13 @@ namespace Model
      * <code>GET</code> request to the <code>/<i>CloudFront API
      * version</i>/distribution ID/config</code> resource.</p>
      */
+    inline bool DistributionConfigHasBeenSet() const { return m_distributionConfigHasBeenSet; }
+
+    /**
+     * <p>The current configuration information for the distribution. Send a
+     * <code>GET</code> request to the <code>/<i>CloudFront API
+     * version</i>/distribution ID/config</code> resource.</p>
+     */
     inline void SetDistributionConfig(const DistributionConfig& value) { m_distributionConfigHasBeenSet = true; m_distributionConfig = value; }
 
     /**
@@ -378,6 +438,103 @@ namespace Model
      * version</i>/distribution ID/config</code> resource.</p>
      */
     inline Distribution& WithDistributionConfig(DistributionConfig&& value) { SetDistributionConfig(std::move(value)); return *this;}
+
+
+    /**
+     * <p>AWS services in China customers must file for an Internet Content Provider
+     * (ICP) recordal if they want to serve content publicly on an alternate domain
+     * name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal
+     * provides the ICP recordal status for CNAMEs associated with distributions.</p>
+     * <p>For more information about ICP recordals, see <a
+     * href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+     * Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in
+     * China</i>.</p>
+     */
+    inline const Aws::Vector<AliasICPRecordal>& GetAliasICPRecordals() const{ return m_aliasICPRecordals; }
+
+    /**
+     * <p>AWS services in China customers must file for an Internet Content Provider
+     * (ICP) recordal if they want to serve content publicly on an alternate domain
+     * name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal
+     * provides the ICP recordal status for CNAMEs associated with distributions.</p>
+     * <p>For more information about ICP recordals, see <a
+     * href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+     * Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in
+     * China</i>.</p>
+     */
+    inline bool AliasICPRecordalsHasBeenSet() const { return m_aliasICPRecordalsHasBeenSet; }
+
+    /**
+     * <p>AWS services in China customers must file for an Internet Content Provider
+     * (ICP) recordal if they want to serve content publicly on an alternate domain
+     * name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal
+     * provides the ICP recordal status for CNAMEs associated with distributions.</p>
+     * <p>For more information about ICP recordals, see <a
+     * href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+     * Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in
+     * China</i>.</p>
+     */
+    inline void SetAliasICPRecordals(const Aws::Vector<AliasICPRecordal>& value) { m_aliasICPRecordalsHasBeenSet = true; m_aliasICPRecordals = value; }
+
+    /**
+     * <p>AWS services in China customers must file for an Internet Content Provider
+     * (ICP) recordal if they want to serve content publicly on an alternate domain
+     * name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal
+     * provides the ICP recordal status for CNAMEs associated with distributions.</p>
+     * <p>For more information about ICP recordals, see <a
+     * href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+     * Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in
+     * China</i>.</p>
+     */
+    inline void SetAliasICPRecordals(Aws::Vector<AliasICPRecordal>&& value) { m_aliasICPRecordalsHasBeenSet = true; m_aliasICPRecordals = std::move(value); }
+
+    /**
+     * <p>AWS services in China customers must file for an Internet Content Provider
+     * (ICP) recordal if they want to serve content publicly on an alternate domain
+     * name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal
+     * provides the ICP recordal status for CNAMEs associated with distributions.</p>
+     * <p>For more information about ICP recordals, see <a
+     * href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+     * Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in
+     * China</i>.</p>
+     */
+    inline Distribution& WithAliasICPRecordals(const Aws::Vector<AliasICPRecordal>& value) { SetAliasICPRecordals(value); return *this;}
+
+    /**
+     * <p>AWS services in China customers must file for an Internet Content Provider
+     * (ICP) recordal if they want to serve content publicly on an alternate domain
+     * name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal
+     * provides the ICP recordal status for CNAMEs associated with distributions.</p>
+     * <p>For more information about ICP recordals, see <a
+     * href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+     * Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in
+     * China</i>.</p>
+     */
+    inline Distribution& WithAliasICPRecordals(Aws::Vector<AliasICPRecordal>&& value) { SetAliasICPRecordals(std::move(value)); return *this;}
+
+    /**
+     * <p>AWS services in China customers must file for an Internet Content Provider
+     * (ICP) recordal if they want to serve content publicly on an alternate domain
+     * name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal
+     * provides the ICP recordal status for CNAMEs associated with distributions.</p>
+     * <p>For more information about ICP recordals, see <a
+     * href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+     * Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in
+     * China</i>.</p>
+     */
+    inline Distribution& AddAliasICPRecordals(const AliasICPRecordal& value) { m_aliasICPRecordalsHasBeenSet = true; m_aliasICPRecordals.push_back(value); return *this; }
+
+    /**
+     * <p>AWS services in China customers must file for an Internet Content Provider
+     * (ICP) recordal if they want to serve content publicly on an alternate domain
+     * name, also known as a CNAME, that they've added to CloudFront. AliasICPRecordal
+     * provides the ICP recordal status for CNAMEs associated with distributions.</p>
+     * <p>For more information about ICP recordals, see <a
+     * href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html">
+     * Signup, Accounts, and Credentials</a> in <i>Getting Started with AWS services in
+     * China</i>.</p>
+     */
+    inline Distribution& AddAliasICPRecordals(AliasICPRecordal&& value) { m_aliasICPRecordalsHasBeenSet = true; m_aliasICPRecordals.push_back(std::move(value)); return *this; }
 
   private:
 
@@ -404,6 +561,9 @@ namespace Model
 
     DistributionConfig m_distributionConfig;
     bool m_distributionConfigHasBeenSet;
+
+    Aws::Vector<AliasICPRecordal> m_aliasICPRecordals;
+    bool m_aliasICPRecordalsHasBeenSet;
   };
 
 } // namespace Model

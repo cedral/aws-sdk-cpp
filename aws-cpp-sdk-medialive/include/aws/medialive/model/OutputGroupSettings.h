@@ -40,7 +40,7 @@ namespace Model
 {
 
   /**
-   * Placeholder documentation for OutputGroupSettings<p><h3>See Also:</h3>   <a
+   * Output Group Settings<p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/OutputGroupSettings">AWS
    * API Reference</a></p>
    */
@@ -55,6 +55,9 @@ namespace Model
 
     
     inline const ArchiveGroupSettings& GetArchiveGroupSettings() const{ return m_archiveGroupSettings; }
+
+    
+    inline bool ArchiveGroupSettingsHasBeenSet() const { return m_archiveGroupSettingsHasBeenSet; }
 
     
     inline void SetArchiveGroupSettings(const ArchiveGroupSettings& value) { m_archiveGroupSettingsHasBeenSet = true; m_archiveGroupSettings = value; }
@@ -73,6 +76,9 @@ namespace Model
     inline const FrameCaptureGroupSettings& GetFrameCaptureGroupSettings() const{ return m_frameCaptureGroupSettings; }
 
     
+    inline bool FrameCaptureGroupSettingsHasBeenSet() const { return m_frameCaptureGroupSettingsHasBeenSet; }
+
+    
     inline void SetFrameCaptureGroupSettings(const FrameCaptureGroupSettings& value) { m_frameCaptureGroupSettingsHasBeenSet = true; m_frameCaptureGroupSettings = value; }
 
     
@@ -87,6 +93,9 @@ namespace Model
 
     
     inline const HlsGroupSettings& GetHlsGroupSettings() const{ return m_hlsGroupSettings; }
+
+    
+    inline bool HlsGroupSettingsHasBeenSet() const { return m_hlsGroupSettingsHasBeenSet; }
 
     
     inline void SetHlsGroupSettings(const HlsGroupSettings& value) { m_hlsGroupSettingsHasBeenSet = true; m_hlsGroupSettings = value; }
@@ -105,6 +114,9 @@ namespace Model
     inline const MediaPackageGroupSettings& GetMediaPackageGroupSettings() const{ return m_mediaPackageGroupSettings; }
 
     
+    inline bool MediaPackageGroupSettingsHasBeenSet() const { return m_mediaPackageGroupSettingsHasBeenSet; }
+
+    
     inline void SetMediaPackageGroupSettings(const MediaPackageGroupSettings& value) { m_mediaPackageGroupSettingsHasBeenSet = true; m_mediaPackageGroupSettings = value; }
 
     
@@ -119,6 +131,9 @@ namespace Model
 
     
     inline const MsSmoothGroupSettings& GetMsSmoothGroupSettings() const{ return m_msSmoothGroupSettings; }
+
+    
+    inline bool MsSmoothGroupSettingsHasBeenSet() const { return m_msSmoothGroupSettingsHasBeenSet; }
 
     
     inline void SetMsSmoothGroupSettings(const MsSmoothGroupSettings& value) { m_msSmoothGroupSettingsHasBeenSet = true; m_msSmoothGroupSettings = value; }
@@ -137,6 +152,9 @@ namespace Model
     inline const RtmpGroupSettings& GetRtmpGroupSettings() const{ return m_rtmpGroupSettings; }
 
     
+    inline bool RtmpGroupSettingsHasBeenSet() const { return m_rtmpGroupSettingsHasBeenSet; }
+
+    
     inline void SetRtmpGroupSettings(const RtmpGroupSettings& value) { m_rtmpGroupSettingsHasBeenSet = true; m_rtmpGroupSettings = value; }
 
     
@@ -151,6 +169,9 @@ namespace Model
 
     
     inline const UdpGroupSettings& GetUdpGroupSettings() const{ return m_udpGroupSettings; }
+
+    
+    inline bool UdpGroupSettingsHasBeenSet() const { return m_udpGroupSettingsHasBeenSet; }
 
     
     inline void SetUdpGroupSettings(const UdpGroupSettings& value) { m_udpGroupSettingsHasBeenSet = true; m_udpGroupSettings = value; }

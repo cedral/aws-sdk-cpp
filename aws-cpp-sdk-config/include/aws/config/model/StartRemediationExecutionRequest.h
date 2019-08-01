@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     StartRemediationExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * execution for.</p>
      */
     inline const Aws::String& GetConfigRuleName() const{ return m_configRuleName; }
+
+    /**
+     * <p>The list of names of AWS Config rules that you want to run remediation
+     * execution for.</p>
+     */
+    inline bool ConfigRuleNameHasBeenSet() const { return m_configRuleNameHasBeenSet; }
 
     /**
      * <p>The list of names of AWS Config rules that you want to run remediation
@@ -94,6 +100,12 @@ namespace Model
      * element in the list consists of the resource type and resource ID. </p>
      */
     inline const Aws::Vector<ResourceKey>& GetResourceKeys() const{ return m_resourceKeys; }
+
+    /**
+     * <p>A list of resource keys to be processed with the current request. Each
+     * element in the list consists of the resource type and resource ID. </p>
+     */
+    inline bool ResourceKeysHasBeenSet() const { return m_resourceKeysHasBeenSet; }
 
     /**
      * <p>A list of resource keys to be processed with the current request. Each

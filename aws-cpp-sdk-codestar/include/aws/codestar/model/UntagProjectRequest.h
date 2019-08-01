@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UntagProjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ID of the project to remove tags from.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID of the project to remove tags from.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID of the project to remove tags from.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The tags to remove from the project.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags to remove from the project.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags to remove from the project.</p>

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     SetTopicAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The ARN of the topic to modify.</p>
      */
     inline const Aws::String& GetTopicArn() const{ return m_topicArn; }
+
+    /**
+     * <p>The ARN of the topic to modify.</p>
+     */
+    inline bool TopicArnHasBeenSet() const { return m_topicArnHasBeenSet; }
 
     /**
      * <p>The ARN of the topic to modify.</p>
@@ -94,7 +99,15 @@ namespace Model
      * <code>DisplayName</code> – The display name to use for a topic with SMS
      * subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines
      * who can access your topic. By default, only the topic owner can publish or
-     * subscribe to the topic.</p> </li> </ul>
+     * subscribe to the topic.</p> </li> </ul> <p>The following attribute applies only
+     * to <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+     * <ul> <li> <p> <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer
+     * master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+     * Terms</a>. For more examples, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+     * in the <i>AWS Key Management Service API Reference</i>. </p> </li> </ul>
      */
     inline const Aws::String& GetAttributeName() const{ return m_attributeName; }
 
@@ -107,7 +120,36 @@ namespace Model
      * <code>DisplayName</code> – The display name to use for a topic with SMS
      * subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines
      * who can access your topic. By default, only the topic owner can publish or
-     * subscribe to the topic.</p> </li> </ul>
+     * subscribe to the topic.</p> </li> </ul> <p>The following attribute applies only
+     * to <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+     * <ul> <li> <p> <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer
+     * master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+     * Terms</a>. For more examples, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+     * in the <i>AWS Key Management Service API Reference</i>. </p> </li> </ul>
+     */
+    inline bool AttributeNameHasBeenSet() const { return m_attributeNameHasBeenSet; }
+
+    /**
+     * <p>A map of attributes with their corresponding values.</p> <p>The following
+     * lists the names, descriptions, and values of the special request parameters that
+     * the <code>SetTopicAttributes</code> action uses:</p> <ul> <li> <p>
+     * <code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries
+     * failed deliveries to HTTP/S endpoints.</p> </li> <li> <p>
+     * <code>DisplayName</code> – The display name to use for a topic with SMS
+     * subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines
+     * who can access your topic. By default, only the topic owner can publish or
+     * subscribe to the topic.</p> </li> </ul> <p>The following attribute applies only
+     * to <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+     * <ul> <li> <p> <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer
+     * master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+     * Terms</a>. For more examples, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+     * in the <i>AWS Key Management Service API Reference</i>. </p> </li> </ul>
      */
     inline void SetAttributeName(const Aws::String& value) { m_attributeNameHasBeenSet = true; m_attributeName = value; }
 
@@ -120,7 +162,15 @@ namespace Model
      * <code>DisplayName</code> – The display name to use for a topic with SMS
      * subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines
      * who can access your topic. By default, only the topic owner can publish or
-     * subscribe to the topic.</p> </li> </ul>
+     * subscribe to the topic.</p> </li> </ul> <p>The following attribute applies only
+     * to <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+     * <ul> <li> <p> <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer
+     * master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+     * Terms</a>. For more examples, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+     * in the <i>AWS Key Management Service API Reference</i>. </p> </li> </ul>
      */
     inline void SetAttributeName(Aws::String&& value) { m_attributeNameHasBeenSet = true; m_attributeName = std::move(value); }
 
@@ -133,7 +183,15 @@ namespace Model
      * <code>DisplayName</code> – The display name to use for a topic with SMS
      * subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines
      * who can access your topic. By default, only the topic owner can publish or
-     * subscribe to the topic.</p> </li> </ul>
+     * subscribe to the topic.</p> </li> </ul> <p>The following attribute applies only
+     * to <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+     * <ul> <li> <p> <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer
+     * master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+     * Terms</a>. For more examples, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+     * in the <i>AWS Key Management Service API Reference</i>. </p> </li> </ul>
      */
     inline void SetAttributeName(const char* value) { m_attributeNameHasBeenSet = true; m_attributeName.assign(value); }
 
@@ -146,7 +204,15 @@ namespace Model
      * <code>DisplayName</code> – The display name to use for a topic with SMS
      * subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines
      * who can access your topic. By default, only the topic owner can publish or
-     * subscribe to the topic.</p> </li> </ul>
+     * subscribe to the topic.</p> </li> </ul> <p>The following attribute applies only
+     * to <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+     * <ul> <li> <p> <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer
+     * master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+     * Terms</a>. For more examples, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+     * in the <i>AWS Key Management Service API Reference</i>. </p> </li> </ul>
      */
     inline SetTopicAttributesRequest& WithAttributeName(const Aws::String& value) { SetAttributeName(value); return *this;}
 
@@ -159,7 +225,15 @@ namespace Model
      * <code>DisplayName</code> – The display name to use for a topic with SMS
      * subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines
      * who can access your topic. By default, only the topic owner can publish or
-     * subscribe to the topic.</p> </li> </ul>
+     * subscribe to the topic.</p> </li> </ul> <p>The following attribute applies only
+     * to <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+     * <ul> <li> <p> <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer
+     * master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+     * Terms</a>. For more examples, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+     * in the <i>AWS Key Management Service API Reference</i>. </p> </li> </ul>
      */
     inline SetTopicAttributesRequest& WithAttributeName(Aws::String&& value) { SetAttributeName(std::move(value)); return *this;}
 
@@ -172,7 +246,15 @@ namespace Model
      * <code>DisplayName</code> – The display name to use for a topic with SMS
      * subscriptions.</p> </li> <li> <p> <code>Policy</code> – The policy that defines
      * who can access your topic. By default, only the topic owner can publish or
-     * subscribe to the topic.</p> </li> </ul>
+     * subscribe to the topic.</p> </li> </ul> <p>The following attribute applies only
+     * to <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p>
+     * <ul> <li> <p> <code>KmsMasterKeyId</code> - The ID of an AWS-managed customer
+     * master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key
+     * Terms</a>. For more examples, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a>
+     * in the <i>AWS Key Management Service API Reference</i>. </p> </li> </ul>
      */
     inline SetTopicAttributesRequest& WithAttributeName(const char* value) { SetAttributeName(value); return *this;}
 
@@ -181,6 +263,11 @@ namespace Model
      * <p>The new value for the attribute.</p>
      */
     inline const Aws::String& GetAttributeValue() const{ return m_attributeValue; }
+
+    /**
+     * <p>The new value for the attribute.</p>
+     */
+    inline bool AttributeValueHasBeenSet() const { return m_attributeValueHasBeenSet; }
 
     /**
      * <p>The new value for the attribute.</p>

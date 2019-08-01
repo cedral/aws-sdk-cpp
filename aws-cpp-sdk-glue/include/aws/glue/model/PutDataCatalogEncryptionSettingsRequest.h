@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutDataCatalogEncryptionSettingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * none is provided, the AWS account ID is used by default.</p>
      */
     inline const Aws::String& GetCatalogId() const{ return m_catalogId; }
+
+    /**
+     * <p>The ID of the Data Catalog for which to set the security configuration. If
+     * none is provided, the AWS account ID is used by default.</p>
+     */
+    inline bool CatalogIdHasBeenSet() const { return m_catalogIdHasBeenSet; }
 
     /**
      * <p>The ID of the Data Catalog for which to set the security configuration. If
@@ -92,6 +98,11 @@ namespace Model
      * <p>The security configuration to set.</p>
      */
     inline const DataCatalogEncryptionSettings& GetDataCatalogEncryptionSettings() const{ return m_dataCatalogEncryptionSettings; }
+
+    /**
+     * <p>The security configuration to set.</p>
+     */
+    inline bool DataCatalogEncryptionSettingsHasBeenSet() const { return m_dataCatalogEncryptionSettingsHasBeenSet; }
 
     /**
      * <p>The security configuration to set.</p>

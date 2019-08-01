@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ListTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,12 @@ namespace Model
      * Amazon Resource Name (ARN).</p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
+
+    /**
+     * <p>The Amazon DocumentDB resource with tags to be listed. This value is an
+     * Amazon Resource Name (ARN).</p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
 
     /**
      * <p>The Amazon DocumentDB resource with tags to be listed. This value is an
@@ -99,6 +105,11 @@ namespace Model
      * <p>This parameter is not currently supported.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>This parameter is not currently supported.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>This parameter is not currently supported.</p>

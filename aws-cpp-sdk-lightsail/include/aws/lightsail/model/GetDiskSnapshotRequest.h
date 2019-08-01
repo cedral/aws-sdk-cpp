@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDiskSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
      */
     inline const Aws::String& GetDiskSnapshotName() const{ return m_diskSnapshotName; }
+
+    /**
+     * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
+     */
+    inline bool DiskSnapshotNameHasBeenSet() const { return m_diskSnapshotNameHasBeenSet; }
 
     /**
      * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>

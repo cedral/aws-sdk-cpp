@@ -35,8 +35,13 @@ namespace Model
 {
 
   /**
-   * <p>Provides application summary information, including the application Amazon
-   * Resource Name (ARN), name, and status.</p><p><h3>See Also:</h3>   <a
+   * <note> <p>This documentation is for version 1 of the Amazon Kinesis Data
+   * Analytics API, which only supports SQL applications. Version 2 of the API
+   * supports SQL and Java applications. For more information about version 2, see <a
+   * href="/kinesisanalytics/latest/apiv2/Welcome.html">Amazon Kinesis Data Analytics
+   * API V2 Documentation</a>.</p> </note> <p>Provides application summary
+   * information, including the application Amazon Resource Name (ARN), name, and
+   * status.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/ApplicationSummary">AWS
    * API Reference</a></p>
    */
@@ -53,6 +58,11 @@ namespace Model
      * <p>Name of the application.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>Name of the application.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>Name of the application.</p>
@@ -93,6 +103,11 @@ namespace Model
     /**
      * <p>ARN of the application.</p>
      */
+    inline bool ApplicationARNHasBeenSet() const { return m_applicationARNHasBeenSet; }
+
+    /**
+     * <p>ARN of the application.</p>
+     */
     inline void SetApplicationARN(const Aws::String& value) { m_applicationARNHasBeenSet = true; m_applicationARN = value; }
 
     /**
@@ -125,6 +140,11 @@ namespace Model
      * <p>Status of the application.</p>
      */
     inline const ApplicationStatus& GetApplicationStatus() const{ return m_applicationStatus; }
+
+    /**
+     * <p>Status of the application.</p>
+     */
+    inline bool ApplicationStatusHasBeenSet() const { return m_applicationStatusHasBeenSet; }
 
     /**
      * <p>Status of the application.</p>

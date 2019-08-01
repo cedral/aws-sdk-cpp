@@ -55,6 +55,11 @@ namespace Model
     /**
      * <p>A stack ID.</p>
      */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
+
+    /**
+     * <p>A stack ID.</p>
+     */
     inline void SetStackId(const Aws::String& value) { m_stackIdHasBeenSet = true; m_stackId = value; }
 
     /**
@@ -86,7 +91,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management
      * (IAM) role. For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline const Aws::String& GetIamUserArn() const{ return m_iamUserArn; }
@@ -94,7 +99,15 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management
      * (IAM) role. For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * Identifiers</a>.</p>
+     */
+    inline bool IamUserArnHasBeenSet() const { return m_iamUserArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management
+     * (IAM) role. For more information about IAM ARNs, see <a
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline void SetIamUserArn(const Aws::String& value) { m_iamUserArnHasBeenSet = true; m_iamUserArn = value; }
@@ -102,7 +115,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management
      * (IAM) role. For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline void SetIamUserArn(Aws::String&& value) { m_iamUserArnHasBeenSet = true; m_iamUserArn = std::move(value); }
@@ -110,7 +123,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management
      * (IAM) role. For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline void SetIamUserArn(const char* value) { m_iamUserArnHasBeenSet = true; m_iamUserArn.assign(value); }
@@ -118,7 +131,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management
      * (IAM) role. For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline Permission& WithIamUserArn(const Aws::String& value) { SetIamUserArn(value); return *this;}
@@ -126,7 +139,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management
      * (IAM) role. For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline Permission& WithIamUserArn(Aws::String&& value) { SetIamUserArn(std::move(value)); return *this;}
@@ -134,7 +147,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for an AWS Identity and Access Management
      * (IAM) role. For more information about IAM ARNs, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">Using
      * Identifiers</a>.</p>
      */
     inline Permission& WithIamUserArn(const char* value) { SetIamUserArn(value); return *this;}
@@ -144,6 +157,11 @@ namespace Model
      * <p>Whether the user can use SSH.</p>
      */
     inline bool GetAllowSsh() const{ return m_allowSsh; }
+
+    /**
+     * <p>Whether the user can use SSH.</p>
+     */
+    inline bool AllowSshHasBeenSet() const { return m_allowSshHasBeenSet; }
 
     /**
      * <p>Whether the user can use SSH.</p>
@@ -164,6 +182,11 @@ namespace Model
     /**
      * <p>Whether the user can use <b>sudo</b>.</p>
      */
+    inline bool AllowSudoHasBeenSet() const { return m_allowSudoHasBeenSet; }
+
+    /**
+     * <p>Whether the user can use <b>sudo</b>.</p>
+     */
     inline void SetAllowSudo(bool value) { m_allowSudoHasBeenSet = true; m_allowSudo = value; }
 
     /**
@@ -178,7 +201,7 @@ namespace Model
      * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
      * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
      * permissions associated with these levels, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a> </p>
      */
     inline const Aws::String& GetLevel() const{ return m_level; }
@@ -189,7 +212,18 @@ namespace Model
      * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
      * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
      * permissions associated with these levels, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+     * User Permissions</a> </p>
+     */
+    inline bool LevelHasBeenSet() const { return m_levelHasBeenSet; }
+
+    /**
+     * <p>The user's permission level, which must be the following:</p> <ul> <li> <p>
+     * <code>deny</code> </p> </li> <li> <p> <code>show</code> </p> </li> <li> <p>
+     * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
+     * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
+     * permissions associated with these levels, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a> </p>
      */
     inline void SetLevel(const Aws::String& value) { m_levelHasBeenSet = true; m_level = value; }
@@ -200,7 +234,7 @@ namespace Model
      * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
      * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
      * permissions associated with these levels, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a> </p>
      */
     inline void SetLevel(Aws::String&& value) { m_levelHasBeenSet = true; m_level = std::move(value); }
@@ -211,7 +245,7 @@ namespace Model
      * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
      * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
      * permissions associated with these levels, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a> </p>
      */
     inline void SetLevel(const char* value) { m_levelHasBeenSet = true; m_level.assign(value); }
@@ -222,7 +256,7 @@ namespace Model
      * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
      * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
      * permissions associated with these levels, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a> </p>
      */
     inline Permission& WithLevel(const Aws::String& value) { SetLevel(value); return *this;}
@@ -233,7 +267,7 @@ namespace Model
      * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
      * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
      * permissions associated with these levels, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a> </p>
      */
     inline Permission& WithLevel(Aws::String&& value) { SetLevel(std::move(value)); return *this;}
@@ -244,7 +278,7 @@ namespace Model
      * <code>deploy</code> </p> </li> <li> <p> <code>manage</code> </p> </li> <li> <p>
      * <code>iam_only</code> </p> </li> </ul> <p>For more information on the
      * permissions associated with these levels, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
      * User Permissions</a> </p>
      */
     inline Permission& WithLevel(const char* value) { SetLevel(value); return *this;}

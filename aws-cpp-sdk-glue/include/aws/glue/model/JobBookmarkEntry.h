@@ -34,7 +34,7 @@ namespace Model
 {
 
   /**
-   * <p>Defines a point which a job can resume processing.</p><p><h3>See Also:</h3>  
+   * <p>Defines a point that a job can resume processing.</p><p><h3>See Also:</h3>  
    * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/JobBookmarkEntry">AWS
    * API Reference</a></p>
@@ -49,53 +49,63 @@ namespace Model
 
 
     /**
-     * <p>Name of the job in question.</p>
+     * <p>The name of the job in question.</p>
      */
     inline const Aws::String& GetJobName() const{ return m_jobName; }
 
     /**
-     * <p>Name of the job in question.</p>
+     * <p>The name of the job in question.</p>
+     */
+    inline bool JobNameHasBeenSet() const { return m_jobNameHasBeenSet; }
+
+    /**
+     * <p>The name of the job in question.</p>
      */
     inline void SetJobName(const Aws::String& value) { m_jobNameHasBeenSet = true; m_jobName = value; }
 
     /**
-     * <p>Name of the job in question.</p>
+     * <p>The name of the job in question.</p>
      */
     inline void SetJobName(Aws::String&& value) { m_jobNameHasBeenSet = true; m_jobName = std::move(value); }
 
     /**
-     * <p>Name of the job in question.</p>
+     * <p>The name of the job in question.</p>
      */
     inline void SetJobName(const char* value) { m_jobNameHasBeenSet = true; m_jobName.assign(value); }
 
     /**
-     * <p>Name of the job in question.</p>
+     * <p>The name of the job in question.</p>
      */
     inline JobBookmarkEntry& WithJobName(const Aws::String& value) { SetJobName(value); return *this;}
 
     /**
-     * <p>Name of the job in question.</p>
+     * <p>The name of the job in question.</p>
      */
     inline JobBookmarkEntry& WithJobName(Aws::String&& value) { SetJobName(std::move(value)); return *this;}
 
     /**
-     * <p>Name of the job in question.</p>
+     * <p>The name of the job in question.</p>
      */
     inline JobBookmarkEntry& WithJobName(const char* value) { SetJobName(value); return *this;}
 
 
     /**
-     * <p>Version of the job.</p>
+     * <p>The version of the job.</p>
      */
     inline int GetVersion() const{ return m_version; }
 
     /**
-     * <p>Version of the job.</p>
+     * <p>The version of the job.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
+
+    /**
+     * <p>The version of the job.</p>
      */
     inline void SetVersion(int value) { m_versionHasBeenSet = true; m_version = value; }
 
     /**
-     * <p>Version of the job.</p>
+     * <p>The version of the job.</p>
      */
     inline JobBookmarkEntry& WithVersion(int value) { SetVersion(value); return *this;}
 
@@ -104,6 +114,11 @@ namespace Model
      * <p>The run ID number.</p>
      */
     inline int GetRun() const{ return m_run; }
+
+    /**
+     * <p>The run ID number.</p>
+     */
+    inline bool RunHasBeenSet() const { return m_runHasBeenSet; }
 
     /**
      * <p>The run ID number.</p>
@@ -124,6 +139,11 @@ namespace Model
     /**
      * <p>The attempt ID number.</p>
      */
+    inline bool AttemptHasBeenSet() const { return m_attemptHasBeenSet; }
+
+    /**
+     * <p>The attempt ID number.</p>
+     */
     inline void SetAttempt(int value) { m_attemptHasBeenSet = true; m_attempt = value; }
 
     /**
@@ -133,9 +153,96 @@ namespace Model
 
 
     /**
+     * <p>The unique run identifier associated with the previous job run..</p>
+     */
+    inline const Aws::String& GetPreviousRunId() const{ return m_previousRunId; }
+
+    /**
+     * <p>The unique run identifier associated with the previous job run..</p>
+     */
+    inline bool PreviousRunIdHasBeenSet() const { return m_previousRunIdHasBeenSet; }
+
+    /**
+     * <p>The unique run identifier associated with the previous job run..</p>
+     */
+    inline void SetPreviousRunId(const Aws::String& value) { m_previousRunIdHasBeenSet = true; m_previousRunId = value; }
+
+    /**
+     * <p>The unique run identifier associated with the previous job run..</p>
+     */
+    inline void SetPreviousRunId(Aws::String&& value) { m_previousRunIdHasBeenSet = true; m_previousRunId = std::move(value); }
+
+    /**
+     * <p>The unique run identifier associated with the previous job run..</p>
+     */
+    inline void SetPreviousRunId(const char* value) { m_previousRunIdHasBeenSet = true; m_previousRunId.assign(value); }
+
+    /**
+     * <p>The unique run identifier associated with the previous job run..</p>
+     */
+    inline JobBookmarkEntry& WithPreviousRunId(const Aws::String& value) { SetPreviousRunId(value); return *this;}
+
+    /**
+     * <p>The unique run identifier associated with the previous job run..</p>
+     */
+    inline JobBookmarkEntry& WithPreviousRunId(Aws::String&& value) { SetPreviousRunId(std::move(value)); return *this;}
+
+    /**
+     * <p>The unique run identifier associated with the previous job run..</p>
+     */
+    inline JobBookmarkEntry& WithPreviousRunId(const char* value) { SetPreviousRunId(value); return *this;}
+
+
+    /**
+     * <p>The unique run identifier associated with this job run.</p>
+     */
+    inline const Aws::String& GetRunId() const{ return m_runId; }
+
+    /**
+     * <p>The unique run identifier associated with this job run.</p>
+     */
+    inline bool RunIdHasBeenSet() const { return m_runIdHasBeenSet; }
+
+    /**
+     * <p>The unique run identifier associated with this job run.</p>
+     */
+    inline void SetRunId(const Aws::String& value) { m_runIdHasBeenSet = true; m_runId = value; }
+
+    /**
+     * <p>The unique run identifier associated with this job run.</p>
+     */
+    inline void SetRunId(Aws::String&& value) { m_runIdHasBeenSet = true; m_runId = std::move(value); }
+
+    /**
+     * <p>The unique run identifier associated with this job run.</p>
+     */
+    inline void SetRunId(const char* value) { m_runIdHasBeenSet = true; m_runId.assign(value); }
+
+    /**
+     * <p>The unique run identifier associated with this job run.</p>
+     */
+    inline JobBookmarkEntry& WithRunId(const Aws::String& value) { SetRunId(value); return *this;}
+
+    /**
+     * <p>The unique run identifier associated with this job run.</p>
+     */
+    inline JobBookmarkEntry& WithRunId(Aws::String&& value) { SetRunId(std::move(value)); return *this;}
+
+    /**
+     * <p>The unique run identifier associated with this job run.</p>
+     */
+    inline JobBookmarkEntry& WithRunId(const char* value) { SetRunId(value); return *this;}
+
+
+    /**
      * <p>The bookmark itself.</p>
      */
     inline const Aws::String& GetJobBookmark() const{ return m_jobBookmark; }
+
+    /**
+     * <p>The bookmark itself.</p>
+     */
+    inline bool JobBookmarkHasBeenSet() const { return m_jobBookmarkHasBeenSet; }
 
     /**
      * <p>The bookmark itself.</p>
@@ -180,6 +287,12 @@ namespace Model
 
     int m_attempt;
     bool m_attemptHasBeenSet;
+
+    Aws::String m_previousRunId;
+    bool m_previousRunIdHasBeenSet;
+
+    Aws::String m_runId;
+    bool m_runIdHasBeenSet;
 
     Aws::String m_jobBookmark;
     bool m_jobBookmarkHasBeenSet;

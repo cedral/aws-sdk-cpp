@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteNetworkInterfacePermissionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The ID of the network interface permission.</p>
      */
     inline const Aws::String& GetNetworkInterfacePermissionId() const{ return m_networkInterfacePermissionId; }
+
+    /**
+     * <p>The ID of the network interface permission.</p>
+     */
+    inline bool NetworkInterfacePermissionIdHasBeenSet() const { return m_networkInterfacePermissionIdHasBeenSet; }
 
     /**
      * <p>The ID of the network interface permission.</p>
@@ -96,6 +101,12 @@ namespace Model
      * <p>Specify <code>true</code> to remove the permission even if the network
      * interface is attached to an instance.</p>
      */
+    inline bool ForceHasBeenSet() const { return m_forceHasBeenSet; }
+
+    /**
+     * <p>Specify <code>true</code> to remove the permission even if the network
+     * interface is attached to an instance.</p>
+     */
     inline void SetForce(bool value) { m_forceHasBeenSet = true; m_force = value; }
 
     /**
@@ -112,6 +123,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

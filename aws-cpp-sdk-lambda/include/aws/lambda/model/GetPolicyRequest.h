@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -61,6 +61,20 @@ namespace Model
      * limited to 64 characters in length.</p>
      */
     inline const Aws::String& GetFunctionName() const{ return m_functionName; }
+
+    /**
+     * <p>The name of the Lambda function, version, or alias.</p> <p class="title">
+     * <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> -
+     * <code>my-function</code> (name-only), <code>my-function:v1</code> (with
+     * alias).</p> </li> <li> <p> <b>Function ARN</b> -
+     * <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+     * </li> <li> <p> <b>Partial ARN</b> -
+     * <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can
+     * append a version number or alias to any of the formats. The length constraint
+     * applies only to the full ARN. If you specify only the function name, it is
+     * limited to 64 characters in length.</p>
+     */
+    inline bool FunctionNameHasBeenSet() const { return m_functionNameHasBeenSet; }
 
     /**
      * <p>The name of the Lambda function, version, or alias.</p> <p class="title">
@@ -151,6 +165,11 @@ namespace Model
      * <p>Specify a version or alias to get the policy for that resource.</p>
      */
     inline const Aws::String& GetQualifier() const{ return m_qualifier; }
+
+    /**
+     * <p>Specify a version or alias to get the policy for that resource.</p>
+     */
+    inline bool QualifierHasBeenSet() const { return m_qualifierHasBeenSet; }
 
     /**
      * <p>Specify a version or alias to get the policy for that resource.</p>

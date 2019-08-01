@@ -55,7 +55,9 @@ namespace Model
      * <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li>
      * <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li>
      * <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li>
-     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> </ul>
+     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li>
+     * <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li>
+     * <p>MEMCACHED_REFLECTION</p> </li> </ul>
      */
     inline const Aws::String& GetVectorType() const{ return m_vectorType; }
 
@@ -67,7 +69,23 @@ namespace Model
      * <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li>
      * <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li>
      * <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li>
-     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> </ul>
+     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li>
+     * <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li>
+     * <p>MEMCACHED_REFLECTION</p> </li> </ul>
+     */
+    inline bool VectorTypeHasBeenSet() const { return m_vectorTypeHasBeenSet; }
+
+    /**
+     * <p>The attack type. Valid values:</p> <ul> <li> <p>UDP_TRAFFIC</p> </li> <li>
+     * <p>UDP_FRAGMENT</p> </li> <li> <p>GENERIC_UDP_REFLECTION</p> </li> <li>
+     * <p>DNS_REFLECTION</p> </li> <li> <p>NTP_REFLECTION</p> </li> <li>
+     * <p>CHARGEN_REFLECTION</p> </li> <li> <p>SSDP_REFLECTION</p> </li> <li>
+     * <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li>
+     * <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li>
+     * <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li>
+     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li>
+     * <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li>
+     * <p>MEMCACHED_REFLECTION</p> </li> </ul>
      */
     inline void SetVectorType(const Aws::String& value) { m_vectorTypeHasBeenSet = true; m_vectorType = value; }
 
@@ -79,7 +97,9 @@ namespace Model
      * <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li>
      * <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li>
      * <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li>
-     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> </ul>
+     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li>
+     * <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li>
+     * <p>MEMCACHED_REFLECTION</p> </li> </ul>
      */
     inline void SetVectorType(Aws::String&& value) { m_vectorTypeHasBeenSet = true; m_vectorType = std::move(value); }
 
@@ -91,7 +111,9 @@ namespace Model
      * <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li>
      * <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li>
      * <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li>
-     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> </ul>
+     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li>
+     * <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li>
+     * <p>MEMCACHED_REFLECTION</p> </li> </ul>
      */
     inline void SetVectorType(const char* value) { m_vectorTypeHasBeenSet = true; m_vectorType.assign(value); }
 
@@ -103,7 +125,9 @@ namespace Model
      * <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li>
      * <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li>
      * <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li>
-     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> </ul>
+     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li>
+     * <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li>
+     * <p>MEMCACHED_REFLECTION</p> </li> </ul>
      */
     inline AttackVectorDescription& WithVectorType(const Aws::String& value) { SetVectorType(value); return *this;}
 
@@ -115,7 +139,9 @@ namespace Model
      * <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li>
      * <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li>
      * <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li>
-     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> </ul>
+     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li>
+     * <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li>
+     * <p>MEMCACHED_REFLECTION</p> </li> </ul>
      */
     inline AttackVectorDescription& WithVectorType(Aws::String&& value) { SetVectorType(std::move(value)); return *this;}
 
@@ -127,7 +153,9 @@ namespace Model
      * <p>PORT_MAPPER</p> </li> <li> <p>RIP_REFLECTION</p> </li> <li>
      * <p>SNMP_REFLECTION</p> </li> <li> <p>MSSQL_REFLECTION</p> </li> <li>
      * <p>NET_BIOS_REFLECTION</p> </li> <li> <p>SYN_FLOOD</p> </li> <li>
-     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> </ul>
+     * <p>ACK_FLOOD</p> </li> <li> <p>REQUEST_FLOOD</p> </li> <li>
+     * <p>HTTP_REFLECTION</p> </li> <li> <p>UDS_REFLECTION</p> </li> <li>
+     * <p>MEMCACHED_REFLECTION</p> </li> </ul>
      */
     inline AttackVectorDescription& WithVectorType(const char* value) { SetVectorType(value); return *this;}
 

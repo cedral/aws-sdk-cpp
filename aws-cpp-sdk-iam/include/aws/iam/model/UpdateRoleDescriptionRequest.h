@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateRoleDescriptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the role that you want to modify.</p>
      */
     inline const Aws::String& GetRoleName() const{ return m_roleName; }
+
+    /**
+     * <p>The name of the role that you want to modify.</p>
+     */
+    inline bool RoleNameHasBeenSet() const { return m_roleNameHasBeenSet; }
 
     /**
      * <p>The name of the role that you want to modify.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The new description that you want to apply to the specified role.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The new description that you want to apply to the specified role.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The new description that you want to apply to the specified role.</p>

@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     UpdateChapCredentialsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,13 @@ namespace Model
      * specified VolumeARN.</p>
      */
     inline const Aws::String& GetTargetARN() const{ return m_targetARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
+     * <a>DescribeStorediSCSIVolumes</a> operation to return the TargetARN for
+     * specified VolumeARN.</p>
+     */
+    inline bool TargetARNHasBeenSet() const { return m_targetARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
@@ -114,6 +121,13 @@ namespace Model
      * provide to participate in mutual CHAP with the target.</p> <note> <p>The secret
      * key must be between 12 and 16 bytes when encoded in UTF-8.</p> </note>
      */
+    inline bool SecretToAuthenticateInitiatorHasBeenSet() const { return m_secretToAuthenticateInitiatorHasBeenSet; }
+
+    /**
+     * <p>The secret key that the initiator (for example, the Windows client) must
+     * provide to participate in mutual CHAP with the target.</p> <note> <p>The secret
+     * key must be between 12 and 16 bytes when encoded in UTF-8.</p> </note>
+     */
     inline void SetSecretToAuthenticateInitiator(const Aws::String& value) { m_secretToAuthenticateInitiatorHasBeenSet = true; m_secretToAuthenticateInitiator = value; }
 
     /**
@@ -160,6 +174,11 @@ namespace Model
     /**
      * <p>The iSCSI initiator that connects to the target.</p>
      */
+    inline bool InitiatorNameHasBeenSet() const { return m_initiatorNameHasBeenSet; }
+
+    /**
+     * <p>The iSCSI initiator that connects to the target.</p>
+     */
     inline void SetInitiatorName(const Aws::String& value) { m_initiatorNameHasBeenSet = true; m_initiatorName = value; }
 
     /**
@@ -195,6 +214,14 @@ namespace Model
      * 16 bytes when encoded in UTF-8.</p> </note>
      */
     inline const Aws::String& GetSecretToAuthenticateTarget() const{ return m_secretToAuthenticateTarget; }
+
+    /**
+     * <p>The secret key that the target must provide to participate in mutual CHAP
+     * with the initiator (e.g. Windows client).</p> <p>Byte constraints: Minimum bytes
+     * of 12. Maximum bytes of 16.</p> <note> <p>The secret key must be between 12 and
+     * 16 bytes when encoded in UTF-8.</p> </note>
+     */
+    inline bool SecretToAuthenticateTargetHasBeenSet() const { return m_secretToAuthenticateTargetHasBeenSet; }
 
     /**
      * <p>The secret key that the target must provide to participate in mutual CHAP

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListAssociationVersionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The association ID for which you want to view all versions.</p>
      */
     inline const Aws::String& GetAssociationId() const{ return m_associationId; }
+
+    /**
+     * <p>The association ID for which you want to view all versions.</p>
+     */
+    inline bool AssociationIdHasBeenSet() const { return m_associationIdHasBeenSet; }
 
     /**
      * <p>The association ID for which you want to view all versions.</p>
@@ -92,6 +97,13 @@ namespace Model
      * token that you can specify in a subsequent call to get the next set of
      * results.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of items to return for this call. The call also returns a
+     * token that you can specify in a subsequent call to get the next set of
+     * results.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -107,6 +119,12 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A token to start the list. Use this token to get the next set of results.
+     * </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A token to start the list. Use this token to get the next set of results.

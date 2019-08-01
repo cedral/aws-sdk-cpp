@@ -49,9 +49,14 @@ JobRun::JobRun() :
     m_timeoutHasBeenSet(false),
     m_maxCapacity(0.0),
     m_maxCapacityHasBeenSet(false),
-    m_notificationPropertyHasBeenSet(false),
+    m_workerType(WorkerType::NOT_SET),
+    m_workerTypeHasBeenSet(false),
+    m_numberOfWorkers(0),
+    m_numberOfWorkersHasBeenSet(false),
     m_securityConfigurationHasBeenSet(false),
-    m_logGroupNameHasBeenSet(false)
+    m_logGroupNameHasBeenSet(false),
+    m_notificationPropertyHasBeenSet(false),
+    m_glueVersionHasBeenSet(false)
 {
 }
 
@@ -76,9 +81,14 @@ JobRun::JobRun(JsonView jsonValue) :
     m_timeoutHasBeenSet(false),
     m_maxCapacity(0.0),
     m_maxCapacityHasBeenSet(false),
-    m_notificationPropertyHasBeenSet(false),
+    m_workerType(WorkerType::NOT_SET),
+    m_workerTypeHasBeenSet(false),
+    m_numberOfWorkers(0),
+    m_numberOfWorkersHasBeenSet(false),
     m_securityConfigurationHasBeenSet(false),
-    m_logGroupNameHasBeenSet(false)
+    m_logGroupNameHasBeenSet(false),
+    m_notificationPropertyHasBeenSet(false),
+    m_glueVersionHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -196,11 +206,18 @@ JobRun& JobRun::operator =(JsonView jsonValue)
     m_maxCapacityHasBeenSet = true;
   }
 
-  if(jsonValue.ValueExists("NotificationProperty"))
+  if(jsonValue.ValueExists("WorkerType"))
   {
-    m_notificationProperty = jsonValue.GetObject("NotificationProperty");
+    m_workerType = WorkerTypeMapper::GetWorkerTypeForName(jsonValue.GetString("WorkerType"));
 
-    m_notificationPropertyHasBeenSet = true;
+    m_workerTypeHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("NumberOfWorkers"))
+  {
+    m_numberOfWorkers = jsonValue.GetInteger("NumberOfWorkers");
+
+    m_numberOfWorkersHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("SecurityConfiguration"))
@@ -215,6 +232,20 @@ JobRun& JobRun::operator =(JsonView jsonValue)
     m_logGroupName = jsonValue.GetString("LogGroupName");
 
     m_logGroupNameHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("NotificationProperty"))
+  {
+    m_notificationProperty = jsonValue.GetObject("NotificationProperty");
+
+    m_notificationPropertyHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("GlueVersion"))
+  {
+    m_glueVersion = jsonValue.GetString("GlueVersion");
+
+    m_glueVersionHasBeenSet = true;
   }
 
   return *this;
@@ -320,9 +351,14 @@ JsonValue JobRun::Jsonize() const
 
   }
 
-  if(m_notificationPropertyHasBeenSet)
+  if(m_workerTypeHasBeenSet)
   {
-   payload.WithObject("NotificationProperty", m_notificationProperty.Jsonize());
+   payload.WithString("WorkerType", WorkerTypeMapper::GetNameForWorkerType(m_workerType));
+  }
+
+  if(m_numberOfWorkersHasBeenSet)
+  {
+   payload.WithInteger("NumberOfWorkers", m_numberOfWorkers);
 
   }
 
@@ -335,6 +371,18 @@ JsonValue JobRun::Jsonize() const
   if(m_logGroupNameHasBeenSet)
   {
    payload.WithString("LogGroupName", m_logGroupName);
+
+  }
+
+  if(m_notificationPropertyHasBeenSet)
+  {
+   payload.WithObject("NotificationProperty", m_notificationProperty.Jsonize());
+
+  }
+
+  if(m_glueVersionHasBeenSet)
+  {
+   payload.WithString("GlueVersion", m_glueVersion);
 
   }
 

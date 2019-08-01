@@ -51,37 +51,58 @@ namespace Model
 
 
     /**
-     * <p>The Availability Zone of the instance.</p>
+     * <p>The Availability Zone of the instance.</p> <p>If not specified, an
+     * Availability Zone will be automatically chosen for you based on the load
+     * balancing criteria for the Region.</p>
      */
     inline const Aws::String& GetAvailabilityZone() const{ return m_availabilityZone; }
 
     /**
-     * <p>The Availability Zone of the instance.</p>
+     * <p>The Availability Zone of the instance.</p> <p>If not specified, an
+     * Availability Zone will be automatically chosen for you based on the load
+     * balancing criteria for the Region.</p>
+     */
+    inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
+
+    /**
+     * <p>The Availability Zone of the instance.</p> <p>If not specified, an
+     * Availability Zone will be automatically chosen for you based on the load
+     * balancing criteria for the Region.</p>
      */
     inline void SetAvailabilityZone(const Aws::String& value) { m_availabilityZoneHasBeenSet = true; m_availabilityZone = value; }
 
     /**
-     * <p>The Availability Zone of the instance.</p>
+     * <p>The Availability Zone of the instance.</p> <p>If not specified, an
+     * Availability Zone will be automatically chosen for you based on the load
+     * balancing criteria for the Region.</p>
      */
     inline void SetAvailabilityZone(Aws::String&& value) { m_availabilityZoneHasBeenSet = true; m_availabilityZone = std::move(value); }
 
     /**
-     * <p>The Availability Zone of the instance.</p>
+     * <p>The Availability Zone of the instance.</p> <p>If not specified, an
+     * Availability Zone will be automatically chosen for you based on the load
+     * balancing criteria for the Region.</p>
      */
     inline void SetAvailabilityZone(const char* value) { m_availabilityZoneHasBeenSet = true; m_availabilityZone.assign(value); }
 
     /**
-     * <p>The Availability Zone of the instance.</p>
+     * <p>The Availability Zone of the instance.</p> <p>If not specified, an
+     * Availability Zone will be automatically chosen for you based on the load
+     * balancing criteria for the Region.</p>
      */
     inline Placement& WithAvailabilityZone(const Aws::String& value) { SetAvailabilityZone(value); return *this;}
 
     /**
-     * <p>The Availability Zone of the instance.</p>
+     * <p>The Availability Zone of the instance.</p> <p>If not specified, an
+     * Availability Zone will be automatically chosen for you based on the load
+     * balancing criteria for the Region.</p>
      */
     inline Placement& WithAvailabilityZone(Aws::String&& value) { SetAvailabilityZone(std::move(value)); return *this;}
 
     /**
-     * <p>The Availability Zone of the instance.</p>
+     * <p>The Availability Zone of the instance.</p> <p>If not specified, an
+     * Availability Zone will be automatically chosen for you based on the load
+     * balancing criteria for the Region.</p>
      */
     inline Placement& WithAvailabilityZone(const char* value) { SetAvailabilityZone(value); return *this;}
 
@@ -91,6 +112,12 @@ namespace Model
      * is not supported for the <a>ImportInstance</a> command.</p>
      */
     inline const Aws::String& GetAffinity() const{ return m_affinity; }
+
+    /**
+     * <p>The affinity setting for the instance on the Dedicated Host. This parameter
+     * is not supported for the <a>ImportInstance</a> command.</p>
+     */
+    inline bool AffinityHasBeenSet() const { return m_affinityHasBeenSet; }
 
     /**
      * <p>The affinity setting for the instance on the Dedicated Host. This parameter
@@ -137,6 +164,11 @@ namespace Model
     /**
      * <p>The name of the placement group the instance is in.</p>
      */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
+
+    /**
+     * <p>The name of the placement group the instance is in.</p>
+     */
     inline void SetGroupName(const Aws::String& value) { m_groupNameHasBeenSet = true; m_groupName = value; }
 
     /**
@@ -175,6 +207,12 @@ namespace Model
      * <p>The number of the partition the instance is in. Valid only if the placement
      * group strategy is set to <code>partition</code>.</p>
      */
+    inline bool PartitionNumberHasBeenSet() const { return m_partitionNumberHasBeenSet; }
+
+    /**
+     * <p>The number of the partition the instance is in. Valid only if the placement
+     * group strategy is set to <code>partition</code>.</p>
+     */
     inline void SetPartitionNumber(int value) { m_partitionNumberHasBeenSet = true; m_partitionNumber = value; }
 
     /**
@@ -189,6 +227,12 @@ namespace Model
      * not supported for the <a>ImportInstance</a> command.</p>
      */
     inline const Aws::String& GetHostId() const{ return m_hostId; }
+
+    /**
+     * <p>The ID of the Dedicated Host on which the instance resides. This parameter is
+     * not supported for the <a>ImportInstance</a> command.</p>
+     */
+    inline bool HostIdHasBeenSet() const { return m_hostIdHasBeenSet; }
 
     /**
      * <p>The ID of the Dedicated Host on which the instance resides. This parameter is
@@ -241,6 +285,14 @@ namespace Model
      * hardware. The <code>host</code> tenancy is not supported for the
      * <a>ImportInstance</a> command.</p>
      */
+    inline bool TenancyHasBeenSet() const { return m_tenancyHasBeenSet; }
+
+    /**
+     * <p>The tenancy of the instance (if the instance is running in a VPC). An
+     * instance with a tenancy of <code>dedicated</code> runs on single-tenant
+     * hardware. The <code>host</code> tenancy is not supported for the
+     * <a>ImportInstance</a> command.</p>
+     */
     inline void SetTenancy(const Tenancy& value) { m_tenancyHasBeenSet = true; m_tenancy = value; }
 
     /**
@@ -272,6 +324,11 @@ namespace Model
      * <p>Reserved for future use.</p>
      */
     inline const Aws::String& GetSpreadDomain() const{ return m_spreadDomain; }
+
+    /**
+     * <p>Reserved for future use.</p>
+     */
+    inline bool SpreadDomainHasBeenSet() const { return m_spreadDomainHasBeenSet; }
 
     /**
      * <p>Reserved for future use.</p>

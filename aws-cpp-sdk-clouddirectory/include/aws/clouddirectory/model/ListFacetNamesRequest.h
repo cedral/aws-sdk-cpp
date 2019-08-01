@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListFacetNamesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) to retrieve facet names from.</p>
      */
     inline const Aws::String& GetSchemaArn() const{ return m_schemaArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) to retrieve facet names from.</p>
+     */
+    inline bool SchemaArnHasBeenSet() const { return m_schemaArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) to retrieve facet names from.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The pagination token.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The pagination token.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The maximum number of results to retrieve.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to retrieve.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to retrieve.</p>

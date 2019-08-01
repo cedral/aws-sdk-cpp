@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     UpdateApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * error. </p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application to update. If no such application is found,
+     * <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code>
+     * error. </p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application to update. If no such application is found,
@@ -104,6 +111,12 @@ namespace Model
      * Elastic Beanstalk does not update the description.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A new description for the application.</p> <p>Default: If not specified, AWS
+     * Elastic Beanstalk does not update the description.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A new description for the application.</p> <p>Default: If not specified, AWS

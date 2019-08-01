@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     UpdateUserAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,13 @@ namespace Model
      * name.</p>
      */
     inline const Aws::Vector<AttributeType>& GetUserAttributes() const{ return m_userAttributes; }
+
+    /**
+     * <p>An array of name-value pairs representing user attributes.</p> <p>For custom
+     * attributes, you must prepend the <code>custom:</code> prefix to the attribute
+     * name.</p>
+     */
+    inline bool UserAttributesHasBeenSet() const { return m_userAttributesHasBeenSet; }
 
     /**
      * <p>An array of name-value pairs representing user attributes.</p> <p>For custom
@@ -104,6 +111,11 @@ namespace Model
      * <p>The access token for the request to update user attributes.</p>
      */
     inline const Aws::String& GetAccessToken() const{ return m_accessToken; }
+
+    /**
+     * <p>The access token for the request to update user attributes.</p>
+     */
+    inline bool AccessTokenHasBeenSet() const { return m_accessTokenHasBeenSet; }
 
     /**
      * <p>The access token for the request to update user attributes.</p>

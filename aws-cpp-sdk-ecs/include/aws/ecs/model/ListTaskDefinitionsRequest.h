@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListTaskDefinitionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * that family.</p>
      */
     inline const Aws::String& GetFamilyPrefix() const{ return m_familyPrefix; }
+
+    /**
+     * <p>The full family name with which to filter the
+     * <code>ListTaskDefinitions</code> results. Specifying a <code>familyPrefix</code>
+     * limits the listed task definitions to task definition revisions that belong to
+     * that family.</p>
+     */
+    inline bool FamilyPrefixHasBeenSet() const { return m_familyPrefixHasBeenSet; }
 
     /**
      * <p>The full family name with which to filter the
@@ -123,6 +131,17 @@ namespace Model
      * output, be sure to keep the <code>status</code> value constant in each
      * subsequent request.</p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>The task definition status with which to filter the
+     * <code>ListTaskDefinitions</code> results. By default, only <code>ACTIVE</code>
+     * task definitions are listed. By setting this parameter to <code>INACTIVE</code>,
+     * you can view task definitions that are <code>INACTIVE</code> as long as an
+     * active task or service still references them. If you paginate the resulting
+     * output, be sure to keep the <code>status</code> value constant in each
+     * subsequent request.</p>
+     */
     inline void SetStatus(const TaskDefinitionStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -177,6 +196,16 @@ namespace Model
      * parameter to <code>DESC</code> reverses the sort order on family name and
      * revision so that the newest task definitions in a family are listed first.</p>
      */
+    inline bool SortHasBeenSet() const { return m_sortHasBeenSet; }
+
+    /**
+     * <p>The order in which to sort the results. Valid values are <code>ASC</code> and
+     * <code>DESC</code>. By default (<code>ASC</code>), task definitions are listed
+     * lexicographically by family name and in ascending numerical order by revision so
+     * that the newest task definitions in a family are listed last. Setting this
+     * parameter to <code>DESC</code> reverses the sort order on family name and
+     * revision so that the newest task definitions in a family are listed first.</p>
+     */
     inline void SetSort(const SortOrder& value) { m_sortHasBeenSet = true; m_sort = value; }
 
     /**
@@ -220,6 +249,17 @@ namespace Model
      * purposes.</p> </note>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The <code>nextToken</code> value returned from a previous paginated
+     * <code>ListTaskDefinitions</code> request where <code>maxResults</code> was used
+     * and the results exceeded the value of that parameter. Pagination continues from
+     * the end of the previous results that returned the <code>nextToken</code>
+     * value.</p> <note> <p>This token should be treated as an opaque identifier that
+     * is only used to retrieve the next items in a list and not for other programmatic
+     * purposes.</p> </note>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -300,6 +340,19 @@ namespace Model
      * results and a <code>nextToken</code> value if applicable.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of task definition results returned by
+     * <code>ListTaskDefinitions</code> in paginated output. When this parameter is
+     * used, <code>ListTaskDefinitions</code> only returns <code>maxResults</code>
+     * results in a single page along with a <code>nextToken</code> response element.
+     * The remaining results of the initial request can be seen by sending another
+     * <code>ListTaskDefinitions</code> request with the returned
+     * <code>nextToken</code> value. This value can be between 1 and 100. If this
+     * parameter is not used, then <code>ListTaskDefinitions</code> returns up to 100
+     * results and a <code>nextToken</code> value if applicable.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of task definition results returned by

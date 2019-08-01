@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeInstancesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * descriptions of the instances associated with the specified stack.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>A stack ID. If you use this parameter, <code>DescribeInstances</code> returns
+     * descriptions of the instances associated with the specified stack.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>A stack ID. If you use this parameter, <code>DescribeInstances</code> returns
@@ -98,6 +104,12 @@ namespace Model
      * <p>A layer ID. If you use this parameter, <code>DescribeInstances</code> returns
      * descriptions of the instances associated with the specified layer.</p>
      */
+    inline bool LayerIdHasBeenSet() const { return m_layerIdHasBeenSet; }
+
+    /**
+     * <p>A layer ID. If you use this parameter, <code>DescribeInstances</code> returns
+     * descriptions of the instances associated with the specified layer.</p>
+     */
     inline void SetLayerId(const Aws::String& value) { m_layerIdHasBeenSet = true; m_layerId = value; }
 
     /**
@@ -137,6 +149,13 @@ namespace Model
      * Otherwise, it returns a description of every instance.</p>
      */
     inline const Aws::Vector<Aws::String>& GetInstanceIds() const{ return m_instanceIds; }
+
+    /**
+     * <p>An array of instance IDs to be described. If you use this parameter,
+     * <code>DescribeInstances</code> returns a description of the specified instances.
+     * Otherwise, it returns a description of every instance.</p>
+     */
+    inline bool InstanceIdsHasBeenSet() const { return m_instanceIdsHasBeenSet; }
 
     /**
      * <p>An array of instance IDs to be described. If you use this parameter,

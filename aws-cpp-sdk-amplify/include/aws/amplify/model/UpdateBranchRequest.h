@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     UpdateBranchRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p> Unique Id for an Amplify App. </p>
      */
     inline const Aws::String& GetAppId() const{ return m_appId; }
+
+    /**
+     * <p> Unique Id for an Amplify App. </p>
+     */
+    inline bool AppIdHasBeenSet() const { return m_appIdHasBeenSet; }
 
     /**
      * <p> Unique Id for an Amplify App. </p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p> Name for the branch. </p>
      */
+    inline bool BranchNameHasBeenSet() const { return m_branchNameHasBeenSet; }
+
+    /**
+     * <p> Name for the branch. </p>
+     */
     inline void SetBranchName(const Aws::String& value) { m_branchNameHasBeenSet = true; m_branchName = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
      * <p> Description for the branch. </p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p> Description for the branch. </p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p> Description for the branch. </p>
@@ -163,6 +178,11 @@ namespace Model
     /**
      * <p> Framework for the branch. </p>
      */
+    inline bool FrameworkHasBeenSet() const { return m_frameworkHasBeenSet; }
+
+    /**
+     * <p> Framework for the branch. </p>
+     */
     inline void SetFramework(const Aws::String& value) { m_frameworkHasBeenSet = true; m_framework = value; }
 
     /**
@@ -199,6 +219,11 @@ namespace Model
     /**
      * <p> Stage for the branch. </p>
      */
+    inline bool StageHasBeenSet() const { return m_stageHasBeenSet; }
+
+    /**
+     * <p> Stage for the branch. </p>
+     */
     inline void SetStage(const Stage& value) { m_stageHasBeenSet = true; m_stage = value; }
 
     /**
@@ -225,6 +250,11 @@ namespace Model
     /**
      * <p> Enables notifications for the branch. </p>
      */
+    inline bool EnableNotificationHasBeenSet() const { return m_enableNotificationHasBeenSet; }
+
+    /**
+     * <p> Enables notifications for the branch. </p>
+     */
     inline void SetEnableNotification(bool value) { m_enableNotificationHasBeenSet = true; m_enableNotification = value; }
 
     /**
@@ -241,6 +271,11 @@ namespace Model
     /**
      * <p> Enables auto building for the branch. </p>
      */
+    inline bool EnableAutoBuildHasBeenSet() const { return m_enableAutoBuildHasBeenSet; }
+
+    /**
+     * <p> Enables auto building for the branch. </p>
+     */
     inline void SetEnableAutoBuild(bool value) { m_enableAutoBuildHasBeenSet = true; m_enableAutoBuild = value; }
 
     /**
@@ -253,6 +288,11 @@ namespace Model
      * <p> Environment Variables for the branch. </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetEnvironmentVariables() const{ return m_environmentVariables; }
+
+    /**
+     * <p> Environment Variables for the branch. </p>
+     */
+    inline bool EnvironmentVariablesHasBeenSet() const { return m_environmentVariablesHasBeenSet; }
 
     /**
      * <p> Environment Variables for the branch. </p>
@@ -318,6 +358,11 @@ namespace Model
     /**
      * <p> Basic Authorization credentials for the branch. </p>
      */
+    inline bool BasicAuthCredentialsHasBeenSet() const { return m_basicAuthCredentialsHasBeenSet; }
+
+    /**
+     * <p> Basic Authorization credentials for the branch. </p>
+     */
     inline void SetBasicAuthCredentials(const Aws::String& value) { m_basicAuthCredentialsHasBeenSet = true; m_basicAuthCredentials = value; }
 
     /**
@@ -354,6 +399,11 @@ namespace Model
     /**
      * <p> Enables Basic Auth for the branch. </p>
      */
+    inline bool EnableBasicAuthHasBeenSet() const { return m_enableBasicAuthHasBeenSet; }
+
+    /**
+     * <p> Enables Basic Auth for the branch. </p>
+     */
     inline void SetEnableBasicAuth(bool value) { m_enableBasicAuthHasBeenSet = true; m_enableBasicAuth = value; }
 
     /**
@@ -366,6 +416,11 @@ namespace Model
      * <p> BuildSpec for the branch. </p>
      */
     inline const Aws::String& GetBuildSpec() const{ return m_buildSpec; }
+
+    /**
+     * <p> BuildSpec for the branch. </p>
+     */
+    inline bool BuildSpecHasBeenSet() const { return m_buildSpecHasBeenSet; }
 
     /**
      * <p> BuildSpec for the branch. </p>
@@ -406,6 +461,11 @@ namespace Model
     /**
      * <p> The content TTL for the website in seconds. </p>
      */
+    inline bool TtlHasBeenSet() const { return m_ttlHasBeenSet; }
+
+    /**
+     * <p> The content TTL for the website in seconds. </p>
+     */
     inline void SetTtl(const Aws::String& value) { m_ttlHasBeenSet = true; m_ttl = value; }
 
     /**
@@ -432,6 +492,47 @@ namespace Model
      * <p> The content TTL for the website in seconds. </p>
      */
     inline UpdateBranchRequest& WithTtl(const char* value) { SetTtl(value); return *this;}
+
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline const Aws::String& GetDisplayName() const{ return m_displayName; }
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline bool DisplayNameHasBeenSet() const { return m_displayNameHasBeenSet; }
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline void SetDisplayName(const Aws::String& value) { m_displayNameHasBeenSet = true; m_displayName = value; }
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline void SetDisplayName(Aws::String&& value) { m_displayNameHasBeenSet = true; m_displayName = std::move(value); }
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline void SetDisplayName(const char* value) { m_displayNameHasBeenSet = true; m_displayName.assign(value); }
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline UpdateBranchRequest& WithDisplayName(const Aws::String& value) { SetDisplayName(value); return *this;}
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline UpdateBranchRequest& WithDisplayName(Aws::String&& value) { SetDisplayName(std::move(value)); return *this;}
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline UpdateBranchRequest& WithDisplayName(const char* value) { SetDisplayName(value); return *this;}
 
   private:
 
@@ -470,6 +571,9 @@ namespace Model
 
     Aws::String m_ttl;
     bool m_ttlHasBeenSet;
+
+    Aws::String m_displayName;
+    bool m_displayNameHasBeenSet;
   };
 
 } // namespace Model

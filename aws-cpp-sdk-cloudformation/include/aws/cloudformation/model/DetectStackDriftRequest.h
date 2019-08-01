@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DetectStackDriftRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the stack for which you want to detect drift. </p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>The name of the stack for which you want to detect drift. </p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>The name of the stack for which you want to detect drift. </p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The logical names of any resources you want to use as filters.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLogicalResourceIds() const{ return m_logicalResourceIds; }
+
+    /**
+     * <p>The logical names of any resources you want to use as filters.</p>
+     */
+    inline bool LogicalResourceIdsHasBeenSet() const { return m_logicalResourceIdsHasBeenSet; }
 
     /**
      * <p>The logical names of any resources you want to use as filters.</p>

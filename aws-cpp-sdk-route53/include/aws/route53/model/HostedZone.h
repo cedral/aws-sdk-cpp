@@ -60,6 +60,12 @@ namespace Model
      * <p>The ID that Amazon Route 53 assigned to the hosted zone when you created
      * it.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The ID that Amazon Route 53 assigned to the hosted zone when you created
+     * it.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -98,7 +104,8 @@ namespace Model
      * have registered with your DNS registrar.</p> <p>For information about how to
      * specify characters other than <code>a-z</code>, <code>0-9</code>, and
      * <code>-</code> (hyphen) and how to specify internationalized domain names, see
-     * <a>CreateHostedZone</a>.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
@@ -107,7 +114,18 @@ namespace Model
      * have registered with your DNS registrar.</p> <p>For information about how to
      * specify characters other than <code>a-z</code>, <code>0-9</code>, and
      * <code>-</code> (hyphen) and how to specify internationalized domain names, see
-     * <a>CreateHostedZone</a>.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the domain. For public hosted zones, this is the name that you
+     * have registered with your DNS registrar.</p> <p>For information about how to
+     * specify characters other than <code>a-z</code>, <code>0-9</code>, and
+     * <code>-</code> (hyphen) and how to specify internationalized domain names, see
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
@@ -116,7 +134,8 @@ namespace Model
      * have registered with your DNS registrar.</p> <p>For information about how to
      * specify characters other than <code>a-z</code>, <code>0-9</code>, and
      * <code>-</code> (hyphen) and how to specify internationalized domain names, see
-     * <a>CreateHostedZone</a>.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
@@ -125,7 +144,8 @@ namespace Model
      * have registered with your DNS registrar.</p> <p>For information about how to
      * specify characters other than <code>a-z</code>, <code>0-9</code>, and
      * <code>-</code> (hyphen) and how to specify internationalized domain names, see
-     * <a>CreateHostedZone</a>.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
@@ -134,7 +154,8 @@ namespace Model
      * have registered with your DNS registrar.</p> <p>For information about how to
      * specify characters other than <code>a-z</code>, <code>0-9</code>, and
      * <code>-</code> (hyphen) and how to specify internationalized domain names, see
-     * <a>CreateHostedZone</a>.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>.</p>
      */
     inline HostedZone& WithName(const Aws::String& value) { SetName(value); return *this;}
 
@@ -143,7 +164,8 @@ namespace Model
      * have registered with your DNS registrar.</p> <p>For information about how to
      * specify characters other than <code>a-z</code>, <code>0-9</code>, and
      * <code>-</code> (hyphen) and how to specify internationalized domain names, see
-     * <a>CreateHostedZone</a>.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>.</p>
      */
     inline HostedZone& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
@@ -152,7 +174,8 @@ namespace Model
      * have registered with your DNS registrar.</p> <p>For information about how to
      * specify characters other than <code>a-z</code>, <code>0-9</code>, and
      * <code>-</code> (hyphen) and how to specify internationalized domain names, see
-     * <a>CreateHostedZone</a>.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHostedZone.html">CreateHostedZone</a>.</p>
      */
     inline HostedZone& WithName(const char* value) { SetName(value); return *this;}
 
@@ -162,6 +185,12 @@ namespace Model
      * created the hosted zone.</p>
      */
     inline const Aws::String& GetCallerReference() const{ return m_callerReference; }
+
+    /**
+     * <p>The value that you specified for <code>CallerReference</code> when you
+     * created the hosted zone.</p>
+     */
+    inline bool CallerReferenceHasBeenSet() const { return m_callerReferenceHasBeenSet; }
 
     /**
      * <p>The value that you specified for <code>CallerReference</code> when you
@@ -216,6 +245,15 @@ namespace Model
      * request, the <code>Config</code> and <code>Comment</code> elements don't appear
      * in the response.</p>
      */
+    inline bool ConfigHasBeenSet() const { return m_configHasBeenSet; }
+
+    /**
+     * <p>A complex type that includes the <code>Comment</code> and
+     * <code>PrivateZone</code> elements. If you omitted the
+     * <code>HostedZoneConfig</code> and <code>Comment</code> elements from the
+     * request, the <code>Config</code> and <code>Comment</code> elements don't appear
+     * in the response.</p>
+     */
     inline void SetConfig(const HostedZoneConfig& value) { m_configHasBeenSet = true; m_config = value; }
 
     /**
@@ -254,6 +292,11 @@ namespace Model
     /**
      * <p>The number of resource record sets in the hosted zone.</p>
      */
+    inline bool ResourceRecordSetCountHasBeenSet() const { return m_resourceRecordSetCountHasBeenSet; }
+
+    /**
+     * <p>The number of resource record sets in the hosted zone.</p>
+     */
     inline void SetResourceRecordSetCount(long long value) { m_resourceRecordSetCountHasBeenSet = true; m_resourceRecordSetCount = value; }
 
     /**
@@ -268,6 +311,13 @@ namespace Model
      * edit or delete it using Route 53. </p>
      */
     inline const LinkedService& GetLinkedService() const{ return m_linkedService; }
+
+    /**
+     * <p>If the hosted zone was created by another service, the service that created
+     * the hosted zone. When a hosted zone is created by another service, you can't
+     * edit or delete it using Route 53. </p>
+     */
+    inline bool LinkedServiceHasBeenSet() const { return m_linkedServiceHasBeenSet; }
 
     /**
      * <p>If the hosted zone was created by another service, the service that created

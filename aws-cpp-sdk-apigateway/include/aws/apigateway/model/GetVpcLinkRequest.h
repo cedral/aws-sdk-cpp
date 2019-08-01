@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetVpcLinkRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * <a>Integration</a> to reference this <a>VpcLink</a>.</p>
      */
     inline const Aws::String& GetVpcLinkId() const{ return m_vpcLinkId; }
+
+    /**
+     * <p>[Required] The identifier of the <a>VpcLink</a>. It is used in an
+     * <a>Integration</a> to reference this <a>VpcLink</a>.</p>
+     */
+    inline bool VpcLinkIdHasBeenSet() const { return m_vpcLinkIdHasBeenSet; }
 
     /**
      * <p>[Required] The identifier of the <a>VpcLink</a>. It is used in an

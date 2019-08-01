@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DescribeTrustedAdvisorChecksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * parameters must be passed explicitly for operations that take them.</p>
      */
     inline const Aws::String& GetLanguage() const{ return m_language; }
+
+    /**
+     * <p>The ISO 639-1 code for the language in which AWS provides support. AWS
+     * Support currently supports English ("en") and Japanese ("ja"). Language
+     * parameters must be passed explicitly for operations that take them.</p>
+     */
+    inline bool LanguageHasBeenSet() const { return m_languageHasBeenSet; }
 
     /**
      * <p>The ISO 639-1 code for the language in which AWS provides support. AWS

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     StartSchemaCreationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The API ID.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The API ID.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The API ID.</p>
@@ -83,6 +88,11 @@ namespace Model
      * <p>The schema definition, in GraphQL schema language format.</p>
      */
     inline const Aws::Utils::ByteBuffer& GetDefinition() const{ return m_definition; }
+
+    /**
+     * <p>The schema definition, in GraphQL schema language format.</p>
+     */
+    inline bool DefinitionHasBeenSet() const { return m_definitionHasBeenSet; }
 
     /**
      * <p>The schema definition, in GraphQL schema language format.</p>

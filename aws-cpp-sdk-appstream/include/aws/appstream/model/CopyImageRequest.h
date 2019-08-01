@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CopyImageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the image to copy.</p>
      */
     inline const Aws::String& GetSourceImageName() const{ return m_sourceImageName; }
+
+    /**
+     * <p>The name of the image to copy.</p>
+     */
+    inline bool SourceImageNameHasBeenSet() const { return m_sourceImageNameHasBeenSet; }
 
     /**
      * <p>The name of the image to copy.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The name that the image will have when it is copied to the destination.</p>
      */
+    inline bool DestinationImageNameHasBeenSet() const { return m_destinationImageNameHasBeenSet; }
+
+    /**
+     * <p>The name that the image will have when it is copied to the destination.</p>
+     */
     inline void SetDestinationImageName(const Aws::String& value) { m_destinationImageNameHasBeenSet = true; m_destinationImageName = value; }
 
     /**
@@ -121,6 +131,12 @@ namespace Model
      * required, even if you are copying an image within the same region.</p>
      */
     inline const Aws::String& GetDestinationRegion() const{ return m_destinationRegion; }
+
+    /**
+     * <p>The destination region to which the image will be copied. This parameter is
+     * required, even if you are copying an image within the same region.</p>
+     */
+    inline bool DestinationRegionHasBeenSet() const { return m_destinationRegionHasBeenSet; }
 
     /**
      * <p>The destination region to which the image will be copied. This parameter is
@@ -164,6 +180,12 @@ namespace Model
      * destination.</p>
      */
     inline const Aws::String& GetDestinationImageDescription() const{ return m_destinationImageDescription; }
+
+    /**
+     * <p>The description that the image will have when it is copied to the
+     * destination.</p>
+     */
+    inline bool DestinationImageDescriptionHasBeenSet() const { return m_destinationImageDescriptionHasBeenSet; }
 
     /**
      * <p>The description that the image will have when it is copied to the

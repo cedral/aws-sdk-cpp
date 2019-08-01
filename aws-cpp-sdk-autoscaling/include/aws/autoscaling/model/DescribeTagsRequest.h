@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * 1000.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>One or more filters to scope the tags to return. The maximum number of
+     * filters per filter type (for example, <code>auto-scaling-group</code>) is
+     * 1000.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>One or more filters to scope the tags to return. The maximum number of
@@ -108,6 +115,12 @@ namespace Model
      * <p>The token for the next set of items to return. (You received this token from
      * a previous call.)</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -146,6 +159,12 @@ namespace Model
      * <code>50</code> and the maximum value is <code>100</code>.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
+
+    /**
+     * <p>The maximum number of items to return with this call. The default value is
+     * <code>50</code> and the maximum value is <code>100</code>.</p>
+     */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return with this call. The default value is

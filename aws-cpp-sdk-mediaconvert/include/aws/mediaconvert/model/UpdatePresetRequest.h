@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdatePresetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * The new category for the preset, if you are changing it.
      */
     inline const Aws::String& GetCategory() const{ return m_category; }
+
+    /**
+     * The new category for the preset, if you are changing it.
+     */
+    inline bool CategoryHasBeenSet() const { return m_categoryHasBeenSet; }
 
     /**
      * The new category for the preset, if you are changing it.
@@ -87,6 +92,11 @@ namespace Model
     /**
      * The new description for the preset, if you are changing it.
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * The new description for the preset, if you are changing it.
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
     /**
      * The name of the preset you are modifying.
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * The name of the preset you are modifying.
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -151,19 +166,34 @@ namespace Model
     inline UpdatePresetRequest& WithName(const char* value) { SetName(value); return *this;}
 
 
-    
+    /**
+     * Settings for preset
+     */
     inline const PresetSettings& GetSettings() const{ return m_settings; }
 
-    
+    /**
+     * Settings for preset
+     */
+    inline bool SettingsHasBeenSet() const { return m_settingsHasBeenSet; }
+
+    /**
+     * Settings for preset
+     */
     inline void SetSettings(const PresetSettings& value) { m_settingsHasBeenSet = true; m_settings = value; }
 
-    
+    /**
+     * Settings for preset
+     */
     inline void SetSettings(PresetSettings&& value) { m_settingsHasBeenSet = true; m_settings = std::move(value); }
 
-    
+    /**
+     * Settings for preset
+     */
     inline UpdatePresetRequest& WithSettings(const PresetSettings& value) { SetSettings(value); return *this;}
 
-    
+    /**
+     * Settings for preset
+     */
     inline UpdatePresetRequest& WithSettings(PresetSettings&& value) { SetSettings(std::move(value)); return *this;}
 
   private:

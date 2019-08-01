@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListAttachedIndicesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ARN of the directory.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The ARN of the directory.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The ARN of the directory.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>A reference to the object that has indices attached.</p>
      */
+    inline bool TargetReferenceHasBeenSet() const { return m_targetReferenceHasBeenSet; }
+
+    /**
+     * <p>A reference to the object that has indices attached.</p>
+     */
     inline void SetTargetReference(const ObjectReference& value) { m_targetReferenceHasBeenSet = true; m_targetReference = value; }
 
     /**
@@ -112,6 +122,11 @@ namespace Model
      * <p>The pagination token.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The pagination token.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The pagination token.</p>
@@ -152,6 +167,11 @@ namespace Model
     /**
      * <p>The maximum number of results to retrieve.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to retrieve.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -164,6 +184,11 @@ namespace Model
      * <p>The consistency level to use for this operation.</p>
      */
     inline const ConsistencyLevel& GetConsistencyLevel() const{ return m_consistencyLevel; }
+
+    /**
+     * <p>The consistency level to use for this operation.</p>
+     */
+    inline bool ConsistencyLevelHasBeenSet() const { return m_consistencyLevelHasBeenSet; }
 
     /**
      * <p>The consistency level to use for this operation.</p>

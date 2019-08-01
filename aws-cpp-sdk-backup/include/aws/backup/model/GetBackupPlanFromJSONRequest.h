@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetBackupPlanFromJSONRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>A customer-supplied backup plan document in JSON format.</p>
      */
     inline const Aws::String& GetBackupPlanTemplateJson() const{ return m_backupPlanTemplateJson; }
+
+    /**
+     * <p>A customer-supplied backup plan document in JSON format.</p>
+     */
+    inline bool BackupPlanTemplateJsonHasBeenSet() const { return m_backupPlanTemplateJsonHasBeenSet; }
 
     /**
      * <p>A customer-supplied backup plan document in JSON format.</p>

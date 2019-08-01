@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/greengrass/Greengrass_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
 
 namespace Aws
@@ -51,6 +52,11 @@ namespace Model
      * The ARN of the definition.
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * The ARN of the definition.
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * The ARN of the definition.
@@ -91,6 +97,11 @@ namespace Model
     /**
      * The time, in milliseconds since the epoch, when the definition was created.
      */
+    inline bool CreationTimestampHasBeenSet() const { return m_creationTimestampHasBeenSet; }
+
+    /**
+     * The time, in milliseconds since the epoch, when the definition was created.
+     */
     inline void SetCreationTimestamp(const Aws::String& value) { m_creationTimestampHasBeenSet = true; m_creationTimestamp = value; }
 
     /**
@@ -123,6 +134,11 @@ namespace Model
      * The ID of the definition.
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * The ID of the definition.
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * The ID of the definition.
@@ -163,6 +179,11 @@ namespace Model
     /**
      * The time, in milliseconds since the epoch, when the definition was last updated.
      */
+    inline bool LastUpdatedTimestampHasBeenSet() const { return m_lastUpdatedTimestampHasBeenSet; }
+
+    /**
+     * The time, in milliseconds since the epoch, when the definition was last updated.
+     */
     inline void SetLastUpdatedTimestamp(const Aws::String& value) { m_lastUpdatedTimestampHasBeenSet = true; m_lastUpdatedTimestamp = value; }
 
     /**
@@ -192,73 +213,83 @@ namespace Model
 
 
     /**
-     * The latest version of the definition.
+     * The ID of the latest version associated with the definition.
      */
     inline const Aws::String& GetLatestVersion() const{ return m_latestVersion; }
 
     /**
-     * The latest version of the definition.
+     * The ID of the latest version associated with the definition.
+     */
+    inline bool LatestVersionHasBeenSet() const { return m_latestVersionHasBeenSet; }
+
+    /**
+     * The ID of the latest version associated with the definition.
      */
     inline void SetLatestVersion(const Aws::String& value) { m_latestVersionHasBeenSet = true; m_latestVersion = value; }
 
     /**
-     * The latest version of the definition.
+     * The ID of the latest version associated with the definition.
      */
     inline void SetLatestVersion(Aws::String&& value) { m_latestVersionHasBeenSet = true; m_latestVersion = std::move(value); }
 
     /**
-     * The latest version of the definition.
+     * The ID of the latest version associated with the definition.
      */
     inline void SetLatestVersion(const char* value) { m_latestVersionHasBeenSet = true; m_latestVersion.assign(value); }
 
     /**
-     * The latest version of the definition.
+     * The ID of the latest version associated with the definition.
      */
     inline DefinitionInformation& WithLatestVersion(const Aws::String& value) { SetLatestVersion(value); return *this;}
 
     /**
-     * The latest version of the definition.
+     * The ID of the latest version associated with the definition.
      */
     inline DefinitionInformation& WithLatestVersion(Aws::String&& value) { SetLatestVersion(std::move(value)); return *this;}
 
     /**
-     * The latest version of the definition.
+     * The ID of the latest version associated with the definition.
      */
     inline DefinitionInformation& WithLatestVersion(const char* value) { SetLatestVersion(value); return *this;}
 
 
     /**
-     * The ARN of the latest version of the definition.
+     * The ARN of the latest version associated with the definition.
      */
     inline const Aws::String& GetLatestVersionArn() const{ return m_latestVersionArn; }
 
     /**
-     * The ARN of the latest version of the definition.
+     * The ARN of the latest version associated with the definition.
+     */
+    inline bool LatestVersionArnHasBeenSet() const { return m_latestVersionArnHasBeenSet; }
+
+    /**
+     * The ARN of the latest version associated with the definition.
      */
     inline void SetLatestVersionArn(const Aws::String& value) { m_latestVersionArnHasBeenSet = true; m_latestVersionArn = value; }
 
     /**
-     * The ARN of the latest version of the definition.
+     * The ARN of the latest version associated with the definition.
      */
     inline void SetLatestVersionArn(Aws::String&& value) { m_latestVersionArnHasBeenSet = true; m_latestVersionArn = std::move(value); }
 
     /**
-     * The ARN of the latest version of the definition.
+     * The ARN of the latest version associated with the definition.
      */
     inline void SetLatestVersionArn(const char* value) { m_latestVersionArnHasBeenSet = true; m_latestVersionArn.assign(value); }
 
     /**
-     * The ARN of the latest version of the definition.
+     * The ARN of the latest version associated with the definition.
      */
     inline DefinitionInformation& WithLatestVersionArn(const Aws::String& value) { SetLatestVersionArn(value); return *this;}
 
     /**
-     * The ARN of the latest version of the definition.
+     * The ARN of the latest version associated with the definition.
      */
     inline DefinitionInformation& WithLatestVersionArn(Aws::String&& value) { SetLatestVersionArn(std::move(value)); return *this;}
 
     /**
-     * The ARN of the latest version of the definition.
+     * The ARN of the latest version associated with the definition.
      */
     inline DefinitionInformation& WithLatestVersionArn(const char* value) { SetLatestVersionArn(value); return *this;}
 
@@ -267,6 +298,11 @@ namespace Model
      * The name of the definition.
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * The name of the definition.
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * The name of the definition.
@@ -298,6 +334,72 @@ namespace Model
      */
     inline DefinitionInformation& WithName(const char* value) { SetName(value); return *this;}
 
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline DefinitionInformation& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     Aws::String m_arn;
@@ -320,6 +422,9 @@ namespace Model
 
     Aws::String m_name;
     bool m_nameHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

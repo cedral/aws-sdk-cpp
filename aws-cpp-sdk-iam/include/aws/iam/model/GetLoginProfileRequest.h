@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetLoginProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,15 @@ namespace Model
      * following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the user whose login profile you want to retrieve.</p> <p>This
+     * parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters consisting of upper and lowercase
+     * alphanumeric characters with no spaces. You can also include any of the
+     * following characters: _+=,.@-</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the user whose login profile you want to retrieve.</p> <p>This

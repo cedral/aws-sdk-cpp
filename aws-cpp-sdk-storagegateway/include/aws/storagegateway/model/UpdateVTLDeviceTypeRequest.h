@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateVTLDeviceTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>
      */
     inline const Aws::String& GetVTLDeviceARN() const{ return m_vTLDeviceARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>
+     */
+    inline bool VTLDeviceARNHasBeenSet() const { return m_vTLDeviceARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>
@@ -85,6 +90,12 @@ namespace Model
      * "STK-L700", "AWS-Gateway-VTL"</p>
      */
     inline const Aws::String& GetDeviceType() const{ return m_deviceType; }
+
+    /**
+     * <p>The type of medium changer you want to select.</p> <p> Valid Values:
+     * "STK-L700", "AWS-Gateway-VTL"</p>
+     */
+    inline bool DeviceTypeHasBeenSet() const { return m_deviceTypeHasBeenSet; }
 
     /**
      * <p>The type of medium changer you want to select.</p> <p> Valid Values:

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     InvokeDeviceMethodRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The unique identifier of the device.</p>
      */
     inline const Aws::String& GetDeviceId() const{ return m_deviceId; }
+
+    /**
+     * <p>The unique identifier of the device.</p>
+     */
+    inline bool DeviceIdHasBeenSet() const { return m_deviceIdHasBeenSet; }
 
     /**
      * <p>The unique identifier of the device.</p>
@@ -87,6 +92,11 @@ namespace Model
     /**
      * <p>The device method to invoke.</p>
      */
+    inline bool DeviceMethodHasBeenSet() const { return m_deviceMethodHasBeenSet; }
+
+    /**
+     * <p>The device method to invoke.</p>
+     */
     inline void SetDeviceMethod(const DeviceMethod& value) { m_deviceMethodHasBeenSet = true; m_deviceMethod = value; }
 
     /**
@@ -109,6 +119,11 @@ namespace Model
      * <p>A JSON encoded string containing the device method request parameters.</p>
      */
     inline const Aws::String& GetDeviceMethodParameters() const{ return m_deviceMethodParameters; }
+
+    /**
+     * <p>A JSON encoded string containing the device method request parameters.</p>
+     */
+    inline bool DeviceMethodParametersHasBeenSet() const { return m_deviceMethodParametersHasBeenSet; }
 
     /**
      * <p>A JSON encoded string containing the device method request parameters.</p>

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateWorkGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The specified workgroup that will be updated.</p>
      */
     inline const Aws::String& GetWorkGroup() const{ return m_workGroup; }
+
+    /**
+     * <p>The specified workgroup that will be updated.</p>
+     */
+    inline bool WorkGroupHasBeenSet() const { return m_workGroupHasBeenSet; }
 
     /**
      * <p>The specified workgroup that will be updated.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>The workgroup description.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The workgroup description.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -126,6 +136,11 @@ namespace Model
     /**
      * <p>The workgroup configuration that will be updated for the given workgroup.</p>
      */
+    inline bool ConfigurationUpdatesHasBeenSet() const { return m_configurationUpdatesHasBeenSet; }
+
+    /**
+     * <p>The workgroup configuration that will be updated for the given workgroup.</p>
+     */
     inline void SetConfigurationUpdates(const WorkGroupConfigurationUpdates& value) { m_configurationUpdatesHasBeenSet = true; m_configurationUpdates = value; }
 
     /**
@@ -148,6 +163,11 @@ namespace Model
      * <p>The workgroup state that will be updated for the given workgroup.</p>
      */
     inline const WorkGroupState& GetState() const{ return m_state; }
+
+    /**
+     * <p>The workgroup state that will be updated for the given workgroup.</p>
+     */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
 
     /**
      * <p>The workgroup state that will be updated for the given workgroup.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the file system whose tags you want to delete (String).</p>
      */
     inline const Aws::String& GetFileSystemId() const{ return m_fileSystemId; }
+
+    /**
+     * <p>The ID of the file system whose tags you want to delete (String).</p>
+     */
+    inline bool FileSystemIdHasBeenSet() const { return m_fileSystemIdHasBeenSet; }
 
     /**
      * <p>The ID of the file system whose tags you want to delete (String).</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>A list of tag keys to delete.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeys() const{ return m_tagKeys; }
+
+    /**
+     * <p>A list of tag keys to delete.</p>
+     */
+    inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }
 
     /**
      * <p>A list of tag keys to delete.</p>

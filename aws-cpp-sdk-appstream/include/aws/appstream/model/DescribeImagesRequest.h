@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeImagesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The names of the public or private images to describe.</p>
      */
     inline const Aws::Vector<Aws::String>& GetNames() const{ return m_names; }
+
+    /**
+     * <p>The names of the public or private images to describe.</p>
+     */
+    inline bool NamesHasBeenSet() const { return m_namesHasBeenSet; }
 
     /**
      * <p>The names of the public or private images to describe.</p>
@@ -95,6 +100,11 @@ namespace Model
     /**
      * <p>The ARNs of the public, private, and shared images to describe.</p>
      */
+    inline bool ArnsHasBeenSet() const { return m_arnsHasBeenSet; }
+
+    /**
+     * <p>The ARNs of the public, private, and shared images to describe.</p>
+     */
     inline void SetArns(const Aws::Vector<Aws::String>& value) { m_arnsHasBeenSet = true; m_arns = value; }
 
     /**
@@ -136,6 +146,11 @@ namespace Model
     /**
      * <p>The type of image (public, private, or shared) to describe. </p>
      */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
+
+    /**
+     * <p>The type of image (public, private, or shared) to describe. </p>
+     */
     inline void SetType(const VisibilityType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
@@ -159,6 +174,12 @@ namespace Model
      * operation. If this value is null, it retrieves the first page.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The pagination token to use to retrieve the next page of results for this
+     * operation. If this value is null, it retrieves the first page.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The pagination token to use to retrieve the next page of results for this
@@ -201,6 +222,11 @@ namespace Model
      * <p>The maximum size of each page of results.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum size of each page of results.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum size of each page of results.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteDBInstanceAutomatedBackupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * is unique to an AWS Region.</p>
      */
     inline const Aws::String& GetDbiResourceId() const{ return m_dbiResourceId; }
+
+    /**
+     * <p>The identifier for the source DB instance, which can't be changed and which
+     * is unique to an AWS Region.</p>
+     */
+    inline bool DbiResourceIdHasBeenSet() const { return m_dbiResourceIdHasBeenSet; }
 
     /**
      * <p>The identifier for the source DB instance, which can't be changed and which

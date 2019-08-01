@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeAssociationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the Systems Manager document.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the Systems Manager document.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the Systems Manager document.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The instance ID.</p>
      */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
+
+    /**
+     * <p>The instance ID.</p>
+     */
     inline void SetInstanceId(const Aws::String& value) { m_instanceIdHasBeenSet = true; m_instanceId = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The association ID for which you want information.</p>
      */
     inline const Aws::String& GetAssociationId() const{ return m_associationId; }
+
+    /**
+     * <p>The association ID for which you want information.</p>
+     */
+    inline bool AssociationIdHasBeenSet() const { return m_associationIdHasBeenSet; }
 
     /**
      * <p>The association ID for which you want information.</p>
@@ -160,6 +175,15 @@ namespace Model
      * <a>ListAssociationVersions</a>. </p>
      */
     inline const Aws::String& GetAssociationVersion() const{ return m_associationVersion; }
+
+    /**
+     * <p>Specify the association version to retrieve. To view the latest version,
+     * either specify <code>$LATEST</code> for this parameter, or omit this parameter.
+     * To view a list of all associations for an instance, use <a>ListAssociations</a>.
+     * To get a list of versions for a specific association, use
+     * <a>ListAssociationVersions</a>. </p>
+     */
+    inline bool AssociationVersionHasBeenSet() const { return m_associationVersionHasBeenSet; }
 
     /**
      * <p>Specify the association version to retrieve. To view the latest version,

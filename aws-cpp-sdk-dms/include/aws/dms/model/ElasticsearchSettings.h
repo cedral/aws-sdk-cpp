@@ -55,6 +55,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) used by service to access the IAM role.</p>
      */
+    inline bool ServiceAccessRoleArnHasBeenSet() const { return m_serviceAccessRoleArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) used by service to access the IAM role.</p>
+     */
     inline void SetServiceAccessRoleArn(const Aws::String& value) { m_serviceAccessRoleArnHasBeenSet = true; m_serviceAccessRoleArn = value; }
 
     /**
@@ -84,37 +89,42 @@ namespace Model
 
 
     /**
-     * <p>The endpoint for the ElasticSearch cluster.</p>
+     * <p>The endpoint for the Elasticsearch cluster.</p>
      */
     inline const Aws::String& GetEndpointUri() const{ return m_endpointUri; }
 
     /**
-     * <p>The endpoint for the ElasticSearch cluster.</p>
+     * <p>The endpoint for the Elasticsearch cluster.</p>
+     */
+    inline bool EndpointUriHasBeenSet() const { return m_endpointUriHasBeenSet; }
+
+    /**
+     * <p>The endpoint for the Elasticsearch cluster.</p>
      */
     inline void SetEndpointUri(const Aws::String& value) { m_endpointUriHasBeenSet = true; m_endpointUri = value; }
 
     /**
-     * <p>The endpoint for the ElasticSearch cluster.</p>
+     * <p>The endpoint for the Elasticsearch cluster.</p>
      */
     inline void SetEndpointUri(Aws::String&& value) { m_endpointUriHasBeenSet = true; m_endpointUri = std::move(value); }
 
     /**
-     * <p>The endpoint for the ElasticSearch cluster.</p>
+     * <p>The endpoint for the Elasticsearch cluster.</p>
      */
     inline void SetEndpointUri(const char* value) { m_endpointUriHasBeenSet = true; m_endpointUri.assign(value); }
 
     /**
-     * <p>The endpoint for the ElasticSearch cluster.</p>
+     * <p>The endpoint for the Elasticsearch cluster.</p>
      */
     inline ElasticsearchSettings& WithEndpointUri(const Aws::String& value) { SetEndpointUri(value); return *this;}
 
     /**
-     * <p>The endpoint for the ElasticSearch cluster.</p>
+     * <p>The endpoint for the Elasticsearch cluster.</p>
      */
     inline ElasticsearchSettings& WithEndpointUri(Aws::String&& value) { SetEndpointUri(std::move(value)); return *this;}
 
     /**
-     * <p>The endpoint for the ElasticSearch cluster.</p>
+     * <p>The endpoint for the Elasticsearch cluster.</p>
      */
     inline ElasticsearchSettings& WithEndpointUri(const char* value) { SetEndpointUri(value); return *this;}
 
@@ -124,6 +134,12 @@ namespace Model
      * load operation stops. </p>
      */
     inline int GetFullLoadErrorPercentage() const{ return m_fullLoadErrorPercentage; }
+
+    /**
+     * <p>The maximum percentage of records that can fail to be written before a full
+     * load operation stops. </p>
+     */
+    inline bool FullLoadErrorPercentageHasBeenSet() const { return m_fullLoadErrorPercentageHasBeenSet; }
 
     /**
      * <p>The maximum percentage of records that can fail to be written before a full
@@ -143,6 +159,12 @@ namespace Model
      * Elasticsearch cluster.</p>
      */
     inline int GetErrorRetryDuration() const{ return m_errorRetryDuration; }
+
+    /**
+     * <p>The maximum number of seconds that DMS retries failed API requests to the
+     * Elasticsearch cluster.</p>
+     */
+    inline bool ErrorRetryDurationHasBeenSet() const { return m_errorRetryDurationHasBeenSet; }
 
     /**
      * <p>The maximum number of seconds that DMS retries failed API requests to the

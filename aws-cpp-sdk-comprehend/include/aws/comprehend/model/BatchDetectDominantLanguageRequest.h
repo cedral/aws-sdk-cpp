@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     BatchDetectDominantLanguageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTextList() const{ return m_textList; }
+
+    /**
+     * <p>A list containing the text of the input documents. The list can contain a
+     * maximum of 25 documents. Each document should contain at least 20 characters and
+     * must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>
+     */
+    inline bool TextListHasBeenSet() const { return m_textListHasBeenSet; }
 
     /**
      * <p>A list containing the text of the input documents. The list can contain a

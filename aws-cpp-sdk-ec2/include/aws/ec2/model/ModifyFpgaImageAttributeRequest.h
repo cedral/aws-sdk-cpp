@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ModifyFpgaImageAttributeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -64,6 +64,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -79,6 +87,11 @@ namespace Model
      * <p>The ID of the AFI.</p>
      */
     inline const Aws::String& GetFpgaImageId() const{ return m_fpgaImageId; }
+
+    /**
+     * <p>The ID of the AFI.</p>
+     */
+    inline bool FpgaImageIdHasBeenSet() const { return m_fpgaImageIdHasBeenSet; }
 
     /**
      * <p>The ID of the AFI.</p>
@@ -119,6 +132,11 @@ namespace Model
     /**
      * <p>The name of the attribute.</p>
      */
+    inline bool AttributeHasBeenSet() const { return m_attributeHasBeenSet; }
+
+    /**
+     * <p>The name of the attribute.</p>
+     */
     inline void SetAttribute(const FpgaImageAttributeName& value) { m_attributeHasBeenSet = true; m_attribute = value; }
 
     /**
@@ -145,6 +163,11 @@ namespace Model
     /**
      * <p>The operation type.</p>
      */
+    inline bool OperationTypeHasBeenSet() const { return m_operationTypeHasBeenSet; }
+
+    /**
+     * <p>The operation type.</p>
+     */
     inline void SetOperationType(const OperationType& value) { m_operationTypeHasBeenSet = true; m_operationType = value; }
 
     /**
@@ -164,155 +187,174 @@ namespace Model
 
 
     /**
-     * <p>One or more AWS account IDs. This parameter is valid only when modifying the
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline const Aws::Vector<Aws::String>& GetUserIds() const{ return m_userIds; }
 
     /**
-     * <p>One or more AWS account IDs. This parameter is valid only when modifying the
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
+     * <code>loadPermission</code> attribute.</p>
+     */
+    inline bool UserIdsHasBeenSet() const { return m_userIdsHasBeenSet; }
+
+    /**
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline void SetUserIds(const Aws::Vector<Aws::String>& value) { m_userIdsHasBeenSet = true; m_userIds = value; }
 
     /**
-     * <p>One or more AWS account IDs. This parameter is valid only when modifying the
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline void SetUserIds(Aws::Vector<Aws::String>&& value) { m_userIdsHasBeenSet = true; m_userIds = std::move(value); }
 
     /**
-     * <p>One or more AWS account IDs. This parameter is valid only when modifying the
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& WithUserIds(const Aws::Vector<Aws::String>& value) { SetUserIds(value); return *this;}
 
     /**
-     * <p>One or more AWS account IDs. This parameter is valid only when modifying the
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& WithUserIds(Aws::Vector<Aws::String>&& value) { SetUserIds(std::move(value)); return *this;}
 
     /**
-     * <p>One or more AWS account IDs. This parameter is valid only when modifying the
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddUserIds(const Aws::String& value) { m_userIdsHasBeenSet = true; m_userIds.push_back(value); return *this; }
 
     /**
-     * <p>One or more AWS account IDs. This parameter is valid only when modifying the
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddUserIds(Aws::String&& value) { m_userIdsHasBeenSet = true; m_userIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more AWS account IDs. This parameter is valid only when modifying the
+     * <p>The AWS account IDs. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddUserIds(const char* value) { m_userIdsHasBeenSet = true; m_userIds.push_back(value); return *this; }
 
 
     /**
-     * <p>One or more user groups. This parameter is valid only when modifying the
+     * <p>The user groups. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline const Aws::Vector<Aws::String>& GetUserGroups() const{ return m_userGroups; }
 
     /**
-     * <p>One or more user groups. This parameter is valid only when modifying the
+     * <p>The user groups. This parameter is valid only when modifying the
+     * <code>loadPermission</code> attribute.</p>
+     */
+    inline bool UserGroupsHasBeenSet() const { return m_userGroupsHasBeenSet; }
+
+    /**
+     * <p>The user groups. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline void SetUserGroups(const Aws::Vector<Aws::String>& value) { m_userGroupsHasBeenSet = true; m_userGroups = value; }
 
     /**
-     * <p>One or more user groups. This parameter is valid only when modifying the
+     * <p>The user groups. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline void SetUserGroups(Aws::Vector<Aws::String>&& value) { m_userGroupsHasBeenSet = true; m_userGroups = std::move(value); }
 
     /**
-     * <p>One or more user groups. This parameter is valid only when modifying the
+     * <p>The user groups. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& WithUserGroups(const Aws::Vector<Aws::String>& value) { SetUserGroups(value); return *this;}
 
     /**
-     * <p>One or more user groups. This parameter is valid only when modifying the
+     * <p>The user groups. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& WithUserGroups(Aws::Vector<Aws::String>&& value) { SetUserGroups(std::move(value)); return *this;}
 
     /**
-     * <p>One or more user groups. This parameter is valid only when modifying the
+     * <p>The user groups. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddUserGroups(const Aws::String& value) { m_userGroupsHasBeenSet = true; m_userGroups.push_back(value); return *this; }
 
     /**
-     * <p>One or more user groups. This parameter is valid only when modifying the
+     * <p>The user groups. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddUserGroups(Aws::String&& value) { m_userGroupsHasBeenSet = true; m_userGroups.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more user groups. This parameter is valid only when modifying the
+     * <p>The user groups. This parameter is valid only when modifying the
      * <code>loadPermission</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddUserGroups(const char* value) { m_userGroupsHasBeenSet = true; m_userGroups.push_back(value); return *this; }
 
 
     /**
-     * <p>One or more product codes. After you add a product code to an AFI, it can't
-     * be removed. This parameter is valid only when modifying the
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
      * <code>productCodes</code> attribute.</p>
      */
     inline const Aws::Vector<Aws::String>& GetProductCodes() const{ return m_productCodes; }
 
     /**
-     * <p>One or more product codes. After you add a product code to an AFI, it can't
-     * be removed. This parameter is valid only when modifying the
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
+     * <code>productCodes</code> attribute.</p>
+     */
+    inline bool ProductCodesHasBeenSet() const { return m_productCodesHasBeenSet; }
+
+    /**
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
      * <code>productCodes</code> attribute.</p>
      */
     inline void SetProductCodes(const Aws::Vector<Aws::String>& value) { m_productCodesHasBeenSet = true; m_productCodes = value; }
 
     /**
-     * <p>One or more product codes. After you add a product code to an AFI, it can't
-     * be removed. This parameter is valid only when modifying the
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
      * <code>productCodes</code> attribute.</p>
      */
     inline void SetProductCodes(Aws::Vector<Aws::String>&& value) { m_productCodesHasBeenSet = true; m_productCodes = std::move(value); }
 
     /**
-     * <p>One or more product codes. After you add a product code to an AFI, it can't
-     * be removed. This parameter is valid only when modifying the
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
      * <code>productCodes</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& WithProductCodes(const Aws::Vector<Aws::String>& value) { SetProductCodes(value); return *this;}
 
     /**
-     * <p>One or more product codes. After you add a product code to an AFI, it can't
-     * be removed. This parameter is valid only when modifying the
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
      * <code>productCodes</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& WithProductCodes(Aws::Vector<Aws::String>&& value) { SetProductCodes(std::move(value)); return *this;}
 
     /**
-     * <p>One or more product codes. After you add a product code to an AFI, it can't
-     * be removed. This parameter is valid only when modifying the
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
      * <code>productCodes</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddProductCodes(const Aws::String& value) { m_productCodesHasBeenSet = true; m_productCodes.push_back(value); return *this; }
 
     /**
-     * <p>One or more product codes. After you add a product code to an AFI, it can't
-     * be removed. This parameter is valid only when modifying the
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
      * <code>productCodes</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddProductCodes(Aws::String&& value) { m_productCodesHasBeenSet = true; m_productCodes.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more product codes. After you add a product code to an AFI, it can't
-     * be removed. This parameter is valid only when modifying the
+     * <p>The product codes. After you add a product code to an AFI, it can't be
+     * removed. This parameter is valid only when modifying the
      * <code>productCodes</code> attribute.</p>
      */
     inline ModifyFpgaImageAttributeRequest& AddProductCodes(const char* value) { m_productCodesHasBeenSet = true; m_productCodes.push_back(value); return *this; }
@@ -322,6 +364,11 @@ namespace Model
      * <p>The load permission for the AFI.</p>
      */
     inline const LoadPermissionModifications& GetLoadPermission() const{ return m_loadPermission; }
+
+    /**
+     * <p>The load permission for the AFI.</p>
+     */
+    inline bool LoadPermissionHasBeenSet() const { return m_loadPermissionHasBeenSet; }
 
     /**
      * <p>The load permission for the AFI.</p>
@@ -348,6 +395,11 @@ namespace Model
      * <p>A description for the AFI.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description for the AFI.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description for the AFI.</p>
@@ -384,6 +436,11 @@ namespace Model
      * <p>A name for the AFI.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>A name for the AFI.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>A name for the AFI.</p>

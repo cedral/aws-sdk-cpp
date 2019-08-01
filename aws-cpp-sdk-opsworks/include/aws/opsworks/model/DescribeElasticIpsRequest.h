@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeElasticIpsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * addresses associated with the specified instance.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The instance ID. If you include this parameter,
+     * <code>DescribeElasticIps</code> returns a description of the Elastic IP
+     * addresses associated with the specified instance.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The instance ID. If you include this parameter,
@@ -107,6 +114,13 @@ namespace Model
      * returns a description of the Elastic IP addresses that are registered with the
      * specified stack.</p>
      */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
+
+    /**
+     * <p>A stack ID. If you include this parameter, <code>DescribeElasticIps</code>
+     * returns a description of the Elastic IP addresses that are registered with the
+     * specified stack.</p>
+     */
     inline void SetStackId(const Aws::String& value) { m_stackIdHasBeenSet = true; m_stackId = value; }
 
     /**
@@ -152,6 +166,14 @@ namespace Model
      * Elastic IP address.</p>
      */
     inline const Aws::Vector<Aws::String>& GetIps() const{ return m_ips; }
+
+    /**
+     * <p>An array of Elastic IP addresses to be described. If you include this
+     * parameter, <code>DescribeElasticIps</code> returns a description of the
+     * specified Elastic IP addresses. Otherwise, it returns a description of every
+     * Elastic IP address.</p>
+     */
+    inline bool IpsHasBeenSet() const { return m_ipsHasBeenSet; }
 
     /**
      * <p>An array of Elastic IP addresses to be described. If you include this

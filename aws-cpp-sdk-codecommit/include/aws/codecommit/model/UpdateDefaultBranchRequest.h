@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateDefaultBranchRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the repository to set or change the default branch for.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository to set or change the default branch for.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository to set or change the default branch for.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The name of the branch to set as the default.</p>
      */
     inline const Aws::String& GetDefaultBranchName() const{ return m_defaultBranchName; }
+
+    /**
+     * <p>The name of the branch to set as the default.</p>
+     */
+    inline bool DefaultBranchNameHasBeenSet() const { return m_defaultBranchNameHasBeenSet; }
 
     /**
      * <p>The name of the branch to set as the default.</p>

@@ -40,8 +40,11 @@ DocumentClassifierProperties::DocumentClassifierProperties() :
     m_trainingStartTimeHasBeenSet(false),
     m_trainingEndTimeHasBeenSet(false),
     m_inputDataConfigHasBeenSet(false),
+    m_outputDataConfigHasBeenSet(false),
     m_classifierMetadataHasBeenSet(false),
-    m_dataAccessRoleArnHasBeenSet(false)
+    m_dataAccessRoleArnHasBeenSet(false),
+    m_volumeKmsKeyIdHasBeenSet(false),
+    m_vpcConfigHasBeenSet(false)
 {
 }
 
@@ -57,8 +60,11 @@ DocumentClassifierProperties::DocumentClassifierProperties(JsonView jsonValue) :
     m_trainingStartTimeHasBeenSet(false),
     m_trainingEndTimeHasBeenSet(false),
     m_inputDataConfigHasBeenSet(false),
+    m_outputDataConfigHasBeenSet(false),
     m_classifierMetadataHasBeenSet(false),
-    m_dataAccessRoleArnHasBeenSet(false)
+    m_dataAccessRoleArnHasBeenSet(false),
+    m_volumeKmsKeyIdHasBeenSet(false),
+    m_vpcConfigHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -128,6 +134,13 @@ DocumentClassifierProperties& DocumentClassifierProperties::operator =(JsonView 
     m_inputDataConfigHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("OutputDataConfig"))
+  {
+    m_outputDataConfig = jsonValue.GetObject("OutputDataConfig");
+
+    m_outputDataConfigHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("ClassifierMetadata"))
   {
     m_classifierMetadata = jsonValue.GetObject("ClassifierMetadata");
@@ -140,6 +153,20 @@ DocumentClassifierProperties& DocumentClassifierProperties::operator =(JsonView 
     m_dataAccessRoleArn = jsonValue.GetString("DataAccessRoleArn");
 
     m_dataAccessRoleArnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("VolumeKmsKeyId"))
+  {
+    m_volumeKmsKeyId = jsonValue.GetString("VolumeKmsKeyId");
+
+    m_volumeKmsKeyIdHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("VpcConfig"))
+  {
+    m_vpcConfig = jsonValue.GetObject("VpcConfig");
+
+    m_vpcConfigHasBeenSet = true;
   }
 
   return *this;
@@ -197,6 +224,12 @@ JsonValue DocumentClassifierProperties::Jsonize() const
 
   }
 
+  if(m_outputDataConfigHasBeenSet)
+  {
+   payload.WithObject("OutputDataConfig", m_outputDataConfig.Jsonize());
+
+  }
+
   if(m_classifierMetadataHasBeenSet)
   {
    payload.WithObject("ClassifierMetadata", m_classifierMetadata.Jsonize());
@@ -206,6 +239,18 @@ JsonValue DocumentClassifierProperties::Jsonize() const
   if(m_dataAccessRoleArnHasBeenSet)
   {
    payload.WithString("DataAccessRoleArn", m_dataAccessRoleArn);
+
+  }
+
+  if(m_volumeKmsKeyIdHasBeenSet)
+  {
+   payload.WithString("VolumeKmsKeyId", m_volumeKmsKeyId);
+
+  }
+
+  if(m_vpcConfigHasBeenSet)
+  {
+   payload.WithObject("VpcConfig", m_vpcConfig.Jsonize());
 
   }
 

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeServicesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,49 +49,64 @@ namespace Model
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline const Aws::String& GetCluster() const{ return m_cluster; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
+     */
+    inline bool ClusterHasBeenSet() const { return m_clusterHasBeenSet; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
+     * service to describe. If you do not specify a cluster, the default cluster is
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(const Aws::String& value) { m_clusterHasBeenSet = true; m_cluster = value; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(Aws::String&& value) { m_clusterHasBeenSet = true; m_cluster = std::move(value); }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline void SetCluster(const char* value) { m_clusterHasBeenSet = true; m_cluster.assign(value); }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeServicesRequest& WithCluster(const Aws::String& value) { SetCluster(value); return *this;}
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeServicesRequest& WithCluster(Aws::String&& value) { SetCluster(std::move(value)); return *this;}
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN)the cluster that hosts the
      * service to describe. If you do not specify a cluster, the default cluster is
-     * assumed.</p>
+     * assumed. This parameter is required if the service or services you are
+     * describing were launched in any cluster other than the default cluster.</p>
      */
     inline DescribeServicesRequest& WithCluster(const char* value) { SetCluster(value); return *this;}
 
@@ -101,6 +116,12 @@ namespace Model
      * in a single operation.</p>
      */
     inline const Aws::Vector<Aws::String>& GetServices() const{ return m_services; }
+
+    /**
+     * <p>A list of services to describe. You may specify up to 10 services to describe
+     * in a single operation.</p>
+     */
+    inline bool ServicesHasBeenSet() const { return m_servicesHasBeenSet; }
 
     /**
      * <p>A list of services to describe. You may specify up to 10 services to describe
@@ -151,6 +172,13 @@ namespace Model
      * field is omitted, tags are not included in the response.</p>
      */
     inline const Aws::Vector<ServiceField>& GetInclude() const{ return m_include; }
+
+    /**
+     * <p>Specifies whether you want to see the resource tags for the service. If
+     * <code>TAGS</code> is specified, the tags are included in the response. If this
+     * field is omitted, tags are not included in the response.</p>
+     */
+    inline bool IncludeHasBeenSet() const { return m_includeHasBeenSet; }
 
     /**
      * <p>Specifies whether you want to see the resource tags for the service. If

@@ -60,31 +60,31 @@ Grantee& Grantee::operator =(const XmlNode& xmlNode)
     XmlNode displayNameNode = resultNode.FirstChild("DisplayName");
     if(!displayNameNode.IsNull())
     {
-      m_displayName = StringUtils::Trim(displayNameNode.GetText().c_str());
+      m_displayName = displayNameNode.GetText();
       m_displayNameHasBeenSet = true;
     }
     XmlNode emailAddressNode = resultNode.FirstChild("EmailAddress");
     if(!emailAddressNode.IsNull())
     {
-      m_emailAddress = StringUtils::Trim(emailAddressNode.GetText().c_str());
+      m_emailAddress = emailAddressNode.GetText();
       m_emailAddressHasBeenSet = true;
     }
     XmlNode iDNode = resultNode.FirstChild("ID");
     if(!iDNode.IsNull())
     {
-      m_iD = StringUtils::Trim(iDNode.GetText().c_str());
+      m_iD = iDNode.GetText();
       m_iDHasBeenSet = true;
     }
-    XmlNode typeNode = resultNode.FirstChild("xsi:type");
-    if(!typeNode.IsNull())
+    auto type = resultNode.GetAttributeValue("xsi:type");
+    if(!type.empty())
     {
-      m_type = TypeMapper::GetTypeForName(StringUtils::Trim(typeNode.GetText().c_str()).c_str());
+      m_type = TypeMapper::GetTypeForName(StringUtils::Trim(type.c_str()).c_str());
       m_typeHasBeenSet = true;
     }
     XmlNode uRINode = resultNode.FirstChild("URI");
     if(!uRINode.IsNull())
     {
-      m_uRI = StringUtils::Trim(uRINode.GetText().c_str());
+      m_uRI = uRINode.GetText();
       m_uRIHasBeenSet = true;
     }
   }
@@ -95,6 +95,7 @@ Grantee& Grantee::operator =(const XmlNode& xmlNode)
 void Grantee::AddToNode(XmlNode& parentNode) const
 {
   Aws::StringStream ss;
+  parentNode.SetAttributeValue("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
   if(m_displayNameHasBeenSet)
   {
    XmlNode displayNameNode = parentNode.CreateChildElement("DisplayName");
@@ -115,8 +116,7 @@ void Grantee::AddToNode(XmlNode& parentNode) const
 
   if(m_typeHasBeenSet)
   {
-   XmlNode typeNode = parentNode.CreateChildElement("xsi:type");
-   typeNode.SetText(TypeMapper::GetNameForType(m_type));
+   parentNode.SetAttributeValue("xsi:type", TypeMapper::GetNameForType(m_type));
   }
 
   if(m_uRIHasBeenSet)

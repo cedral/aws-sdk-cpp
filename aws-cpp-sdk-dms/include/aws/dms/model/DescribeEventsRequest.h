@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     DescribeEventsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,82 +52,79 @@ namespace Model
 
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens. It cannot end with a
-     * hyphen or contain two consecutive hyphens. </p>
+     * <p> The identifier of an event source.</p>
      */
     inline const Aws::String& GetSourceIdentifier() const{ return m_sourceIdentifier; }
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens. It cannot end with a
-     * hyphen or contain two consecutive hyphens. </p>
+     * <p> The identifier of an event source.</p>
+     */
+    inline bool SourceIdentifierHasBeenSet() const { return m_sourceIdentifierHasBeenSet; }
+
+    /**
+     * <p> The identifier of an event source.</p>
      */
     inline void SetSourceIdentifier(const Aws::String& value) { m_sourceIdentifierHasBeenSet = true; m_sourceIdentifier = value; }
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens. It cannot end with a
-     * hyphen or contain two consecutive hyphens. </p>
+     * <p> The identifier of an event source.</p>
      */
     inline void SetSourceIdentifier(Aws::String&& value) { m_sourceIdentifierHasBeenSet = true; m_sourceIdentifier = std::move(value); }
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens. It cannot end with a
-     * hyphen or contain two consecutive hyphens. </p>
+     * <p> The identifier of an event source.</p>
      */
     inline void SetSourceIdentifier(const char* value) { m_sourceIdentifierHasBeenSet = true; m_sourceIdentifier.assign(value); }
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens. It cannot end with a
-     * hyphen or contain two consecutive hyphens. </p>
+     * <p> The identifier of an event source.</p>
      */
     inline DescribeEventsRequest& WithSourceIdentifier(const Aws::String& value) { SetSourceIdentifier(value); return *this;}
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens. It cannot end with a
-     * hyphen or contain two consecutive hyphens. </p>
+     * <p> The identifier of an event source.</p>
      */
     inline DescribeEventsRequest& WithSourceIdentifier(Aws::String&& value) { SetSourceIdentifier(std::move(value)); return *this;}
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens. It cannot end with a
-     * hyphen or contain two consecutive hyphens. </p>
+     * <p> The identifier of an event source.</p>
      */
     inline DescribeEventsRequest& WithSourceIdentifier(const char* value) { SetSourceIdentifier(value); return *this;}
 
 
     /**
      * <p>The type of AWS DMS resource that generates events.</p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline const SourceType& GetSourceType() const{ return m_sourceType; }
 
     /**
      * <p>The type of AWS DMS resource that generates events.</p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
+     */
+    inline bool SourceTypeHasBeenSet() const { return m_sourceTypeHasBeenSet; }
+
+    /**
+     * <p>The type of AWS DMS resource that generates events.</p> <p>Valid values:
+     * replication-instance | replication-task</p>
      */
     inline void SetSourceType(const SourceType& value) { m_sourceTypeHasBeenSet = true; m_sourceType = value; }
 
     /**
      * <p>The type of AWS DMS resource that generates events.</p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline void SetSourceType(SourceType&& value) { m_sourceTypeHasBeenSet = true; m_sourceType = std::move(value); }
 
     /**
      * <p>The type of AWS DMS resource that generates events.</p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline DescribeEventsRequest& WithSourceType(const SourceType& value) { SetSourceType(value); return *this;}
 
     /**
      * <p>The type of AWS DMS resource that generates events.</p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline DescribeEventsRequest& WithSourceType(SourceType&& value) { SetSourceType(std::move(value)); return *this;}
 
@@ -136,6 +133,11 @@ namespace Model
      * <p>The start time for the events to be listed.</p>
      */
     inline const Aws::Utils::DateTime& GetStartTime() const{ return m_startTime; }
+
+    /**
+     * <p>The start time for the events to be listed.</p>
+     */
+    inline bool StartTimeHasBeenSet() const { return m_startTimeHasBeenSet; }
 
     /**
      * <p>The start time for the events to be listed.</p>
@@ -166,6 +168,11 @@ namespace Model
     /**
      * <p>The end time for the events to be listed.</p>
      */
+    inline bool EndTimeHasBeenSet() const { return m_endTimeHasBeenSet; }
+
+    /**
+     * <p>The end time for the events to be listed.</p>
+     */
     inline void SetEndTime(const Aws::Utils::DateTime& value) { m_endTimeHasBeenSet = true; m_endTime = value; }
 
     /**
@@ -192,6 +199,11 @@ namespace Model
     /**
      * <p>The duration of the events to be listed.</p>
      */
+    inline bool DurationHasBeenSet() const { return m_durationHasBeenSet; }
+
+    /**
+     * <p>The duration of the events to be listed.</p>
+     */
     inline void SetDuration(int value) { m_durationHasBeenSet = true; m_duration = value; }
 
     /**
@@ -201,50 +213,47 @@ namespace Model
 
 
     /**
-     * <p>A list of event categories for a source type that you want to subscribe
-     * to.</p>
+     * <p>A list of event categories for the source type that you've chosen.</p>
      */
     inline const Aws::Vector<Aws::String>& GetEventCategories() const{ return m_eventCategories; }
 
     /**
-     * <p>A list of event categories for a source type that you want to subscribe
-     * to.</p>
+     * <p>A list of event categories for the source type that you've chosen.</p>
+     */
+    inline bool EventCategoriesHasBeenSet() const { return m_eventCategoriesHasBeenSet; }
+
+    /**
+     * <p>A list of event categories for the source type that you've chosen.</p>
      */
     inline void SetEventCategories(const Aws::Vector<Aws::String>& value) { m_eventCategoriesHasBeenSet = true; m_eventCategories = value; }
 
     /**
-     * <p>A list of event categories for a source type that you want to subscribe
-     * to.</p>
+     * <p>A list of event categories for the source type that you've chosen.</p>
      */
     inline void SetEventCategories(Aws::Vector<Aws::String>&& value) { m_eventCategoriesHasBeenSet = true; m_eventCategories = std::move(value); }
 
     /**
-     * <p>A list of event categories for a source type that you want to subscribe
-     * to.</p>
+     * <p>A list of event categories for the source type that you've chosen.</p>
      */
     inline DescribeEventsRequest& WithEventCategories(const Aws::Vector<Aws::String>& value) { SetEventCategories(value); return *this;}
 
     /**
-     * <p>A list of event categories for a source type that you want to subscribe
-     * to.</p>
+     * <p>A list of event categories for the source type that you've chosen.</p>
      */
     inline DescribeEventsRequest& WithEventCategories(Aws::Vector<Aws::String>&& value) { SetEventCategories(std::move(value)); return *this;}
 
     /**
-     * <p>A list of event categories for a source type that you want to subscribe
-     * to.</p>
+     * <p>A list of event categories for the source type that you've chosen.</p>
      */
     inline DescribeEventsRequest& AddEventCategories(const Aws::String& value) { m_eventCategoriesHasBeenSet = true; m_eventCategories.push_back(value); return *this; }
 
     /**
-     * <p>A list of event categories for a source type that you want to subscribe
-     * to.</p>
+     * <p>A list of event categories for the source type that you've chosen.</p>
      */
     inline DescribeEventsRequest& AddEventCategories(Aws::String&& value) { m_eventCategoriesHasBeenSet = true; m_eventCategories.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>A list of event categories for a source type that you want to subscribe
-     * to.</p>
+     * <p>A list of event categories for the source type that you've chosen.</p>
      */
     inline DescribeEventsRequest& AddEventCategories(const char* value) { m_eventCategoriesHasBeenSet = true; m_eventCategories.push_back(value); return *this; }
 
@@ -253,6 +262,11 @@ namespace Model
      * <p>Filters applied to the action.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>Filters applied to the action.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>Filters applied to the action.</p>
@@ -299,6 +313,14 @@ namespace Model
      * called a marker is included in the response so that the remaining results can be
      * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p> The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -316,6 +338,13 @@ namespace Model
      * to the value specified by <code>MaxRecords</code>. </p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p> An optional pagination token provided by a previous request. If this
+     * parameter is specified, the response includes only records beyond the marker, up
+     * to the value specified by <code>MaxRecords</code>. </p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p> An optional pagination token provided by a previous request. If this

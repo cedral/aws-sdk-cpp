@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateRateBasedRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * by <a>ListRateBasedRules</a>.</p>
      */
     inline const Aws::String& GetRuleId() const{ return m_ruleId; }
+
+    /**
+     * <p>The <code>RuleId</code> of the <code>RateBasedRule</code> that you want to
+     * update. <code>RuleId</code> is returned by <code>CreateRateBasedRule</code> and
+     * by <a>ListRateBasedRules</a>.</p>
+     */
+    inline bool RuleIdHasBeenSet() const { return m_ruleIdHasBeenSet; }
 
     /**
      * <p>The <code>RuleId</code> of the <code>RateBasedRule</code> that you want to
@@ -104,6 +111,11 @@ namespace Model
     /**
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
      */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
+
+    /**
+     * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+     */
     inline void SetChangeToken(const Aws::String& value) { m_changeTokenHasBeenSet = true; m_changeToken = value; }
 
     /**
@@ -137,6 +149,12 @@ namespace Model
      * delete from a <a>RateBasedRule</a>. </p>
      */
     inline const Aws::Vector<RuleUpdate>& GetUpdates() const{ return m_updates; }
+
+    /**
+     * <p>An array of <code>RuleUpdate</code> objects that you want to insert into or
+     * delete from a <a>RateBasedRule</a>. </p>
+     */
+    inline bool UpdatesHasBeenSet() const { return m_updatesHasBeenSet; }
 
     /**
      * <p>An array of <code>RuleUpdate</code> objects that you want to insert into or
@@ -183,6 +201,15 @@ namespace Model
      * specified for this rule.</p>
      */
     inline long long GetRateLimit() const{ return m_rateLimit; }
+
+    /**
+     * <p>The maximum number of requests, which have an identical value in the field
+     * specified by the <code>RateKey</code>, allowed in a five-minute period. If the
+     * number of requests exceeds the <code>RateLimit</code> and the other predicates
+     * specified in the rule are also met, AWS WAF triggers the action that is
+     * specified for this rule.</p>
+     */
+    inline bool RateLimitHasBeenSet() const { return m_rateLimitHasBeenSet; }
 
     /**
      * <p>The maximum number of requests, which have an identical value in the field

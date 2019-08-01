@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/directconnect/model/HasLogicalRedundancy.h>
 #include <aws/directconnect/model/Connection.h>
+#include <aws/directconnect/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -54,43 +55,49 @@ namespace Model
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline const Aws::String& GetConnectionsBandwidth() const{ return m_connectionsBandwidth; }
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
+     */
+    inline bool ConnectionsBandwidthHasBeenSet() const { return m_connectionsBandwidthHasBeenSet; }
+
+    /**
+     * <p>The individual bandwidth of the physical connections bundled by the LAG. The
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline void SetConnectionsBandwidth(const Aws::String& value) { m_connectionsBandwidthHasBeenSet = true; m_connectionsBandwidth = value; }
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline void SetConnectionsBandwidth(Aws::String&& value) { m_connectionsBandwidthHasBeenSet = true; m_connectionsBandwidth = std::move(value); }
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline void SetConnectionsBandwidth(const char* value) { m_connectionsBandwidthHasBeenSet = true; m_connectionsBandwidth.assign(value); }
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline Lag& WithConnectionsBandwidth(const Aws::String& value) { SetConnectionsBandwidth(value); return *this;}
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline Lag& WithConnectionsBandwidth(Aws::String&& value) { SetConnectionsBandwidth(std::move(value)); return *this;}
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline Lag& WithConnectionsBandwidth(const char* value) { SetConnectionsBandwidth(value); return *this;}
 
@@ -100,6 +107,12 @@ namespace Model
      * 10.</p>
      */
     inline int GetNumberOfConnections() const{ return m_numberOfConnections; }
+
+    /**
+     * <p>The number of physical connections bundled by the LAG, up to a maximum of
+     * 10.</p>
+     */
+    inline bool NumberOfConnectionsHasBeenSet() const { return m_numberOfConnectionsHasBeenSet; }
 
     /**
      * <p>The number of physical connections bundled by the LAG, up to a maximum of
@@ -118,6 +131,11 @@ namespace Model
      * <p>The ID of the LAG.</p>
      */
     inline const Aws::String& GetLagId() const{ return m_lagId; }
+
+    /**
+     * <p>The ID of the LAG.</p>
+     */
+    inline bool LagIdHasBeenSet() const { return m_lagIdHasBeenSet; }
 
     /**
      * <p>The ID of the LAG.</p>
@@ -158,6 +176,11 @@ namespace Model
     /**
      * <p>The ID of the AWS account that owns the LAG.</p>
      */
+    inline bool OwnerAccountHasBeenSet() const { return m_ownerAccountHasBeenSet; }
+
+    /**
+     * <p>The ID of the AWS account that owns the LAG.</p>
+     */
     inline void SetOwnerAccount(const Aws::String& value) { m_ownerAccountHasBeenSet = true; m_ownerAccount = value; }
 
     /**
@@ -190,6 +213,11 @@ namespace Model
      * <p>The name of the LAG.</p>
      */
     inline const Aws::String& GetLagName() const{ return m_lagName; }
+
+    /**
+     * <p>The name of the LAG.</p>
+     */
+    inline bool LagNameHasBeenSet() const { return m_lagNameHasBeenSet; }
 
     /**
      * <p>The name of the LAG.</p>
@@ -235,6 +263,20 @@ namespace Model
      * </li> </ul>
      */
     inline const LagState& GetLagState() const{ return m_lagState; }
+
+    /**
+     * <p>The state of the LAG. The following are the possible values:</p> <ul> <li>
+     * <p> <code>requested</code>: The initial state of a LAG. The LAG stays in the
+     * requested state until the Letter of Authorization (LOA) is available.</p> </li>
+     * <li> <p> <code>pending</code>: The LAG has been approved and is being
+     * initialized.</p> </li> <li> <p> <code>available</code>: The network link is
+     * established and the LAG is ready for use.</p> </li> <li> <p> <code>down</code>:
+     * The network link is down.</p> </li> <li> <p> <code>deleting</code>: The LAG is
+     * being deleted.</p> </li> <li> <p> <code>deleted</code>: The LAG is deleted.</p>
+     * </li> <li> <p> <code>unknown</code>: The state of the LAG is not available.</p>
+     * </li> </ul>
+     */
+    inline bool LagStateHasBeenSet() const { return m_lagStateHasBeenSet; }
 
     /**
      * <p>The state of the LAG. The following are the possible values:</p> <ul> <li>
@@ -301,6 +343,11 @@ namespace Model
     /**
      * <p>The location of the LAG.</p>
      */
+    inline bool LocationHasBeenSet() const { return m_locationHasBeenSet; }
+
+    /**
+     * <p>The location of the LAG.</p>
+     */
     inline void SetLocation(const Aws::String& value) { m_locationHasBeenSet = true; m_location = value; }
 
     /**
@@ -333,6 +380,11 @@ namespace Model
      * <p>The AWS Region where the connection is located.</p>
      */
     inline const Aws::String& GetRegion() const{ return m_region; }
+
+    /**
+     * <p>The AWS Region where the connection is located.</p>
+     */
+    inline bool RegionHasBeenSet() const { return m_regionHasBeenSet; }
 
     /**
      * <p>The AWS Region where the connection is located.</p>
@@ -375,6 +427,12 @@ namespace Model
      * <p>The minimum number of physical connections that must be operational for the
      * LAG itself to be operational.</p>
      */
+    inline bool MinimumLinksHasBeenSet() const { return m_minimumLinksHasBeenSet; }
+
+    /**
+     * <p>The minimum number of physical connections that must be operational for the
+     * LAG itself to be operational.</p>
+     */
     inline void SetMinimumLinks(int value) { m_minimumLinksHasBeenSet = true; m_minimumLinks = value; }
 
     /**
@@ -385,73 +443,83 @@ namespace Model
 
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline const Aws::String& GetAwsDevice() const{ return m_awsDevice; }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
+     */
+    inline bool AwsDeviceHasBeenSet() const { return m_awsDeviceHasBeenSet; }
+
+    /**
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDevice(const Aws::String& value) { m_awsDeviceHasBeenSet = true; m_awsDevice = value; }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDevice(Aws::String&& value) { m_awsDeviceHasBeenSet = true; m_awsDevice = std::move(value); }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDevice(const char* value) { m_awsDeviceHasBeenSet = true; m_awsDevice.assign(value); }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline Lag& WithAwsDevice(const Aws::String& value) { SetAwsDevice(value); return *this;}
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline Lag& WithAwsDevice(Aws::String&& value) { SetAwsDevice(std::move(value)); return *this;}
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline Lag& WithAwsDevice(const char* value) { SetAwsDevice(value); return *this;}
 
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline const Aws::String& GetAwsDeviceV2() const{ return m_awsDeviceV2; }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
+     */
+    inline bool AwsDeviceV2HasBeenSet() const { return m_awsDeviceV2HasBeenSet; }
+
+    /**
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDeviceV2(const Aws::String& value) { m_awsDeviceV2HasBeenSet = true; m_awsDeviceV2 = value; }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDeviceV2(Aws::String&& value) { m_awsDeviceV2HasBeenSet = true; m_awsDeviceV2 = std::move(value); }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDeviceV2(const char* value) { m_awsDeviceV2HasBeenSet = true; m_awsDeviceV2.assign(value); }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline Lag& WithAwsDeviceV2(const Aws::String& value) { SetAwsDeviceV2(value); return *this;}
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline Lag& WithAwsDeviceV2(Aws::String&& value) { SetAwsDeviceV2(std::move(value)); return *this;}
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline Lag& WithAwsDeviceV2(const char* value) { SetAwsDeviceV2(value); return *this;}
 
@@ -460,6 +528,11 @@ namespace Model
      * <p>The connections bundled by the LAG.</p>
      */
     inline const Aws::Vector<Connection>& GetConnections() const{ return m_connections; }
+
+    /**
+     * <p>The connections bundled by the LAG.</p>
+     */
+    inline bool ConnectionsHasBeenSet() const { return m_connectionsHasBeenSet; }
 
     /**
      * <p>The connections bundled by the LAG.</p>
@@ -500,6 +573,11 @@ namespace Model
     /**
      * <p>Indicates whether the LAG can host other connections.</p>
      */
+    inline bool AllowsHostedConnectionsHasBeenSet() const { return m_allowsHostedConnectionsHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the LAG can host other connections.</p>
+     */
     inline void SetAllowsHostedConnections(bool value) { m_allowsHostedConnectionsHasBeenSet = true; m_allowsHostedConnections = value; }
 
     /**
@@ -512,6 +590,11 @@ namespace Model
      * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
      */
     inline bool GetJumboFrameCapable() const{ return m_jumboFrameCapable; }
+
+    /**
+     * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+     */
+    inline bool JumboFrameCapableHasBeenSet() const { return m_jumboFrameCapableHasBeenSet; }
 
     /**
      * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
@@ -529,6 +612,12 @@ namespace Model
      * family (IPv4/IPv6).</p>
      */
     inline const HasLogicalRedundancy& GetHasLogicalRedundancy() const{ return m_hasLogicalRedundancy; }
+
+    /**
+     * <p>Indicates whether the LAG supports a secondary BGP peer in the same address
+     * family (IPv4/IPv6).</p>
+     */
+    inline bool HasLogicalRedundancyHasBeenSet() const { return m_hasLogicalRedundancyHasBeenSet; }
 
     /**
      * <p>Indicates whether the LAG supports a secondary BGP peer in the same address
@@ -553,6 +642,47 @@ namespace Model
      * family (IPv4/IPv6).</p>
      */
     inline Lag& WithHasLogicalRedundancy(HasLogicalRedundancy&& value) { SetHasLogicalRedundancy(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline Lag& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline Lag& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline Lag& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline Lag& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
   private:
 
@@ -600,6 +730,9 @@ namespace Model
 
     HasLogicalRedundancy m_hasLogicalRedundancy;
     bool m_hasLogicalRedundancyHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

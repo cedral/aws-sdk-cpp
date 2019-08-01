@@ -63,6 +63,11 @@ namespace Model
     /**
      * <p>The name of the bucket where the restore results will be placed.</p>
      */
+    inline bool BucketNameHasBeenSet() const { return m_bucketNameHasBeenSet; }
+
+    /**
+     * <p>The name of the bucket where the restore results will be placed.</p>
+     */
     inline void SetBucketName(const Aws::String& value) { m_bucketNameHasBeenSet = true; m_bucketName = value; }
 
     /**
@@ -99,6 +104,11 @@ namespace Model
     /**
      * <p>The prefix that is prepended to the restore results for this request.</p>
      */
+    inline bool PrefixHasBeenSet() const { return m_prefixHasBeenSet; }
+
+    /**
+     * <p>The prefix that is prepended to the restore results for this request.</p>
+     */
     inline void SetPrefix(const Aws::String& value) { m_prefixHasBeenSet = true; m_prefix = value; }
 
     /**
@@ -127,19 +137,34 @@ namespace Model
     inline S3Location& WithPrefix(const char* value) { SetPrefix(value); return *this;}
 
 
-    
+    /**
+     * <p/>
+     */
     inline const Encryption& GetEncryption() const{ return m_encryption; }
 
-    
+    /**
+     * <p/>
+     */
+    inline bool EncryptionHasBeenSet() const { return m_encryptionHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetEncryption(const Encryption& value) { m_encryptionHasBeenSet = true; m_encryption = value; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetEncryption(Encryption&& value) { m_encryptionHasBeenSet = true; m_encryption = std::move(value); }
 
-    
+    /**
+     * <p/>
+     */
     inline S3Location& WithEncryption(const Encryption& value) { SetEncryption(value); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline S3Location& WithEncryption(Encryption&& value) { SetEncryption(std::move(value)); return *this;}
 
 
@@ -147,6 +172,11 @@ namespace Model
      * <p>The canned ACL to apply to the restore results.</p>
      */
     inline const ObjectCannedACL& GetCannedACL() const{ return m_cannedACL; }
+
+    /**
+     * <p>The canned ACL to apply to the restore results.</p>
+     */
+    inline bool CannedACLHasBeenSet() const { return m_cannedACLHasBeenSet; }
 
     /**
      * <p>The canned ACL to apply to the restore results.</p>
@@ -173,6 +203,11 @@ namespace Model
      * <p>A list of grants that control access to the staged results.</p>
      */
     inline const Aws::Vector<Grant>& GetAccessControlList() const{ return m_accessControlList; }
+
+    /**
+     * <p>A list of grants that control access to the staged results.</p>
+     */
+    inline bool AccessControlListHasBeenSet() const { return m_accessControlListHasBeenSet; }
 
     /**
      * <p>A list of grants that control access to the staged results.</p>
@@ -213,6 +248,11 @@ namespace Model
     /**
      * <p>The tag-set that is applied to the restore results.</p>
      */
+    inline bool TaggingHasBeenSet() const { return m_taggingHasBeenSet; }
+
+    /**
+     * <p>The tag-set that is applied to the restore results.</p>
+     */
     inline void SetTagging(const Tagging& value) { m_taggingHasBeenSet = true; m_tagging = value; }
 
     /**
@@ -235,6 +275,11 @@ namespace Model
      * <p>A list of metadata to store with the restore results in S3.</p>
      */
     inline const Aws::Vector<MetadataEntry>& GetUserMetadata() const{ return m_userMetadata; }
+
+    /**
+     * <p>A list of metadata to store with the restore results in S3.</p>
+     */
+    inline bool UserMetadataHasBeenSet() const { return m_userMetadataHasBeenSet; }
 
     /**
      * <p>A list of metadata to store with the restore results in S3.</p>
@@ -271,6 +316,11 @@ namespace Model
      * <p>The class of storage used to store the restore results.</p>
      */
     inline const StorageClass& GetStorageClass() const{ return m_storageClass; }
+
+    /**
+     * <p>The class of storage used to store the restore results.</p>
+     */
+    inline bool StorageClassHasBeenSet() const { return m_storageClassHasBeenSet; }
 
     /**
      * <p>The class of storage used to store the restore results.</p>

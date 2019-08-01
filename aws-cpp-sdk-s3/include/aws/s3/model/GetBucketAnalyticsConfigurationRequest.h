@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     GetBucketAnalyticsConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * retrieved.</p>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p>The name of the bucket from which an analytics configuration is
+     * retrieved.</p>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p>The name of the bucket from which an analytics configuration is
@@ -93,43 +99,51 @@ namespace Model
 
 
     /**
-     * <p>The identifier used to represent an analytics configuration.</p>
+     * <p>The ID that identifies the analytics configuration.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
 
     /**
-     * <p>The identifier used to represent an analytics configuration.</p>
+     * <p>The ID that identifies the analytics configuration.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The ID that identifies the analytics configuration.</p>
      */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
-     * <p>The identifier used to represent an analytics configuration.</p>
+     * <p>The ID that identifies the analytics configuration.</p>
      */
     inline void SetId(Aws::String&& value) { m_idHasBeenSet = true; m_id = std::move(value); }
 
     /**
-     * <p>The identifier used to represent an analytics configuration.</p>
+     * <p>The ID that identifies the analytics configuration.</p>
      */
     inline void SetId(const char* value) { m_idHasBeenSet = true; m_id.assign(value); }
 
     /**
-     * <p>The identifier used to represent an analytics configuration.</p>
+     * <p>The ID that identifies the analytics configuration.</p>
      */
     inline GetBucketAnalyticsConfigurationRequest& WithId(const Aws::String& value) { SetId(value); return *this;}
 
     /**
-     * <p>The identifier used to represent an analytics configuration.</p>
+     * <p>The ID that identifies the analytics configuration.</p>
      */
     inline GetBucketAnalyticsConfigurationRequest& WithId(Aws::String&& value) { SetId(std::move(value)); return *this;}
 
     /**
-     * <p>The identifier used to represent an analytics configuration.</p>
+     * <p>The ID that identifies the analytics configuration.</p>
      */
     inline GetBucketAnalyticsConfigurationRequest& WithId(const char* value) { SetId(value); return *this;}
 
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }

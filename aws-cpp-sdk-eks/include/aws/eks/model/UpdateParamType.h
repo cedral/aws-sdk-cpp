@@ -27,7 +27,10 @@ namespace Model
   {
     NOT_SET,
     Version,
-    PlatformVersion
+    PlatformVersion,
+    EndpointPrivateAccess,
+    EndpointPublicAccess,
+    ClusterLogging
   };
 
 namespace UpdateParamTypeMapper

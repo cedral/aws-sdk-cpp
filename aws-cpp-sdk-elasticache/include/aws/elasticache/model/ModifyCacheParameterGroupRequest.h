@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ModifyCacheParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>The name of the cache parameter group to modify.</p>
      */
     inline const Aws::String& GetCacheParameterGroupName() const{ return m_cacheParameterGroupName; }
+
+    /**
+     * <p>The name of the cache parameter group to modify.</p>
+     */
+    inline bool CacheParameterGroupNameHasBeenSet() const { return m_cacheParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the cache parameter group to modify.</p>
@@ -94,6 +99,13 @@ namespace Model
      * A maximum of 20 parameters may be modified per request.</p>
      */
     inline const Aws::Vector<ParameterNameValue>& GetParameterNameValues() const{ return m_parameterNameValues; }
+
+    /**
+     * <p>An array of parameter names and values for the parameter update. You must
+     * supply at least one parameter name and value; subsequent arguments are optional.
+     * A maximum of 20 parameters may be modified per request.</p>
+     */
+    inline bool ParameterNameValuesHasBeenSet() const { return m_parameterNameValuesHasBeenSet; }
 
     /**
      * <p>An array of parameter names and values for the parameter update. You must

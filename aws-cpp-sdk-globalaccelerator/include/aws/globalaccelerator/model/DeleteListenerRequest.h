@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteListenerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the listener.</p>
      */
     inline const Aws::String& GetListenerArn() const{ return m_listenerArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the listener.</p>
+     */
+    inline bool ListenerArnHasBeenSet() const { return m_listenerArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the listener.</p>

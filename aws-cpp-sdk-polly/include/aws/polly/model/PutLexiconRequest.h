@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutLexiconRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,13 @@ namespace Model
      * to 20 characters long. </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>Name of the lexicon. The name must follow the regular express format
+     * [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up
+     * to 20 characters long. </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>Name of the lexicon. The name must follow the regular express format
@@ -96,6 +103,11 @@ namespace Model
      * <p>Content of the PLS lexicon as string data.</p>
      */
     inline const Aws::String& GetContent() const{ return m_content; }
+
+    /**
+     * <p>Content of the PLS lexicon as string data.</p>
+     */
+    inline bool ContentHasBeenSet() const { return m_contentHasBeenSet; }
 
     /**
      * <p>Content of the PLS lexicon as string data.</p>

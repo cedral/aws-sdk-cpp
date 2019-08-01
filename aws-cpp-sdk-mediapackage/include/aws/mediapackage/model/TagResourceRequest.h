@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,6 +45,9 @@ namespace Model
 
     
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     
     inline void SetResourceArn(const Aws::String& value) { m_resourceArnHasBeenSet = true; m_resourceArn = value; }
@@ -67,6 +70,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     
     inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetGroupPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,15 @@ namespace Model
      * _+=,.@-</p>
      */
     inline const Aws::String& GetGroupName() const{ return m_groupName; }
+
+    /**
+     * <p>The name of the group the policy is associated with.</p> <p>This parameter
+     * allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+     * a string of characters consisting of upper and lowercase alphanumeric characters
+     * with no spaces. You can also include any of the following characters:
+     * _+=,.@-</p>
+     */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
 
     /**
      * <p>The name of the group the policy is associated with.</p> <p>This parameter
@@ -117,6 +126,14 @@ namespace Model
      * spaces. You can also include any of the following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetPolicyName() const{ return m_policyName; }
+
+    /**
+     * <p>The name of the policy document to get.</p> <p>This parameter allows (through
+     * its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * characters consisting of upper and lowercase alphanumeric characters with no
+     * spaces. You can also include any of the following characters: _+=,.@-</p>
+     */
+    inline bool PolicyNameHasBeenSet() const { return m_policyNameHasBeenSet; }
 
     /**
      * <p>The name of the policy document to get.</p> <p>This parameter allows (through

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListCertificatesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>Filter the certificate list by status value.</p>
      */
     inline const Aws::Vector<CertificateStatus>& GetCertificateStatuses() const{ return m_certificateStatuses; }
+
+    /**
+     * <p>Filter the certificate list by status value.</p>
+     */
+    inline bool CertificateStatusesHasBeenSet() const { return m_certificateStatusesHasBeenSet; }
 
     /**
      * <p>Filter the certificate list by status value.</p>
@@ -93,6 +98,12 @@ namespace Model
      * <p>Filter the certificate list. For more information, see the <a>Filters</a>
      * structure.</p>
      */
+    inline bool IncludesHasBeenSet() const { return m_includesHasBeenSet; }
+
+    /**
+     * <p>Filter the certificate list. For more information, see the <a>Filters</a>
+     * structure.</p>
+     */
     inline void SetIncludes(const Filters& value) { m_includesHasBeenSet = true; m_includes = value; }
 
     /**
@@ -120,6 +131,13 @@ namespace Model
      * of <code>NextToken</code> from the response you just received.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Use this parameter only when paginating results and only in a subsequent
+     * request after you receive a response with truncated results. Set it to the value
+     * of <code>NextToken</code> from the response you just received.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Use this parameter only when paginating results and only in a subsequent
@@ -172,6 +190,15 @@ namespace Model
      * items.</p>
      */
     inline int GetMaxItems() const{ return m_maxItems; }
+
+    /**
+     * <p>Use this parameter when paginating results to specify the maximum number of
+     * items to return in the response. If additional items exist beyond the number you
+     * specify, the <code>NextToken</code> element is sent in the response. Use this
+     * <code>NextToken</code> value in a subsequent request to retrieve additional
+     * items.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
 
     /**
      * <p>Use this parameter when paginating results to specify the maximum number of

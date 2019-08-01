@@ -37,10 +37,10 @@ namespace Model
 
   /**
    * <p> This data type is used as a request parameter in the
-   * <a>ModifyDBParameterGroup</a> and <a>ResetDBParameterGroup</a> actions. </p>
-   * <p>This data type is used as a response element in the
-   * <a>DescribeEngineDefaultParameters</a> and <a>DescribeDBParameters</a>
-   * actions.</p><p><h3>See Also:</h3>   <a
+   * <code>ModifyDBParameterGroup</code> and <code>ResetDBParameterGroup</code>
+   * actions. </p> <p>This data type is used as a response element in the
+   * <code>DescribeEngineDefaultParameters</code> and
+   * <code>DescribeDBParameters</code> actions.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/Parameter">AWS API
    * Reference</a></p>
    */
@@ -59,6 +59,11 @@ namespace Model
      * <p>Specifies the name of the parameter.</p>
      */
     inline const Aws::String& GetParameterName() const{ return m_parameterName; }
+
+    /**
+     * <p>Specifies the name of the parameter.</p>
+     */
+    inline bool ParameterNameHasBeenSet() const { return m_parameterNameHasBeenSet; }
 
     /**
      * <p>Specifies the name of the parameter.</p>
@@ -99,6 +104,11 @@ namespace Model
     /**
      * <p>Specifies the value of the parameter.</p>
      */
+    inline bool ParameterValueHasBeenSet() const { return m_parameterValueHasBeenSet; }
+
+    /**
+     * <p>Specifies the value of the parameter.</p>
+     */
     inline void SetParameterValue(const Aws::String& value) { m_parameterValueHasBeenSet = true; m_parameterValue = value; }
 
     /**
@@ -131,6 +141,11 @@ namespace Model
      * <p>Provides a description of the parameter.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>Provides a description of the parameter.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>Provides a description of the parameter.</p>
@@ -171,6 +186,11 @@ namespace Model
     /**
      * <p>Indicates the source of the parameter value.</p>
      */
+    inline bool SourceHasBeenSet() const { return m_sourceHasBeenSet; }
+
+    /**
+     * <p>Indicates the source of the parameter value.</p>
+     */
     inline void SetSource(const Aws::String& value) { m_sourceHasBeenSet = true; m_source = value; }
 
     /**
@@ -203,6 +223,11 @@ namespace Model
      * <p>Specifies the engine specific parameters type.</p>
      */
     inline const Aws::String& GetApplyType() const{ return m_applyType; }
+
+    /**
+     * <p>Specifies the engine specific parameters type.</p>
+     */
+    inline bool ApplyTypeHasBeenSet() const { return m_applyTypeHasBeenSet; }
 
     /**
      * <p>Specifies the engine specific parameters type.</p>
@@ -243,6 +268,11 @@ namespace Model
     /**
      * <p>Specifies the valid data type for the parameter.</p>
      */
+    inline bool DataTypeHasBeenSet() const { return m_dataTypeHasBeenSet; }
+
+    /**
+     * <p>Specifies the valid data type for the parameter.</p>
+     */
     inline void SetDataType(const Aws::String& value) { m_dataTypeHasBeenSet = true; m_dataType = value; }
 
     /**
@@ -275,6 +305,11 @@ namespace Model
      * <p>Specifies the valid range of values for the parameter.</p>
      */
     inline const Aws::String& GetAllowedValues() const{ return m_allowedValues; }
+
+    /**
+     * <p>Specifies the valid range of values for the parameter.</p>
+     */
+    inline bool AllowedValuesHasBeenSet() const { return m_allowedValuesHasBeenSet; }
 
     /**
      * <p>Specifies the valid range of values for the parameter.</p>
@@ -319,6 +354,13 @@ namespace Model
      * parameter can be modified. Some parameters have security or operational
      * implications that prevent them from being changed. </p>
      */
+    inline bool IsModifiableHasBeenSet() const { return m_isModifiableHasBeenSet; }
+
+    /**
+     * <p> Indicates whether (<code>true</code>) or not (<code>false</code>) the
+     * parameter can be modified. Some parameters have security or operational
+     * implications that prevent them from being changed. </p>
+     */
     inline void SetIsModifiable(bool value) { m_isModifiableHasBeenSet = true; m_isModifiable = value; }
 
     /**
@@ -333,6 +375,11 @@ namespace Model
      * <p>The earliest engine version to which the parameter can apply.</p>
      */
     inline const Aws::String& GetMinimumEngineVersion() const{ return m_minimumEngineVersion; }
+
+    /**
+     * <p>The earliest engine version to which the parameter can apply.</p>
+     */
+    inline bool MinimumEngineVersionHasBeenSet() const { return m_minimumEngineVersionHasBeenSet; }
 
     /**
      * <p>The earliest engine version to which the parameter can apply.</p>
@@ -373,6 +420,11 @@ namespace Model
     /**
      * <p>Indicates when to apply parameter updates.</p>
      */
+    inline bool ApplyMethodHasBeenSet() const { return m_applyMethodHasBeenSet; }
+
+    /**
+     * <p>Indicates when to apply parameter updates.</p>
+     */
     inline void SetApplyMethod(const ApplyMethod& value) { m_applyMethodHasBeenSet = true; m_applyMethod = value; }
 
     /**
@@ -395,6 +447,11 @@ namespace Model
      * <p>The valid DB engine modes.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSupportedEngineModes() const{ return m_supportedEngineModes; }
+
+    /**
+     * <p>The valid DB engine modes.</p>
+     */
+    inline bool SupportedEngineModesHasBeenSet() const { return m_supportedEngineModesHasBeenSet; }
 
     /**
      * <p>The valid DB engine modes.</p>

@@ -33,7 +33,7 @@ namespace Model
    * Amazon Kinesis Firehose, describes an AWS service in which Amazon SES publishes
    * the email sending events associated with a configuration set. For information
    * about using configuration sets, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSetEventDestinationRequest">AWS
    * API Reference</a></p>
@@ -42,7 +42,7 @@ namespace Model
   {
   public:
     CreateConfigurationSetEventDestinationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -61,6 +61,12 @@ namespace Model
      * associated with.</p>
      */
     inline const Aws::String& GetConfigurationSetName() const{ return m_configurationSetName; }
+
+    /**
+     * <p>The name of the configuration set that the event destination should be
+     * associated with.</p>
+     */
+    inline bool ConfigurationSetNameHasBeenSet() const { return m_configurationSetNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration set that the event destination should be
@@ -104,6 +110,12 @@ namespace Model
      * will be published to.</p>
      */
     inline const EventDestination& GetEventDestination() const{ return m_eventDestination; }
+
+    /**
+     * <p>An object that describes the AWS service that email sending event information
+     * will be published to.</p>
+     */
+    inline bool EventDestinationHasBeenSet() const { return m_eventDestinationHasBeenSet; }
 
     /**
      * <p>An object that describes the AWS service that email sending event information

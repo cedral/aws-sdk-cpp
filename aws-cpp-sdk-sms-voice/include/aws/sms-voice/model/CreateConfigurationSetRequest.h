@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateConfigurationSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * The name that you want to give the configuration set.
      */
     inline const Aws::String& GetConfigurationSetName() const{ return m_configurationSetName; }
+
+    /**
+     * The name that you want to give the configuration set.
+     */
+    inline bool ConfigurationSetNameHasBeenSet() const { return m_configurationSetNameHasBeenSet; }
 
     /**
      * The name that you want to give the configuration set.

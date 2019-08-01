@@ -59,6 +59,12 @@ namespace Model
      * <p>The ID provided in the <code>ScheduleLambdaFunction</code> decision that
      * failed. </p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The ID provided in the <code>ScheduleLambdaFunction</code> decision that
+     * failed. </p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -100,6 +106,11 @@ namespace Model
     /**
      * <p>The name of the Lambda function.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the Lambda function.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -134,7 +145,7 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because it lacked sufficient permissions. For details and example IAM
      * policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
      * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
      * Guide</i>.</p> </note>
      */
@@ -146,7 +157,19 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because it lacked sufficient permissions. For details and example IAM
      * policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+     * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
+     * Guide</i>.</p> </note>
+     */
+    inline bool CauseHasBeenSet() const { return m_causeHasBeenSet; }
+
+    /**
+     * <p>The cause of the failure. To help diagnose issues, use this information to
+     * trace back the chain of events leading up to this event.</p> <note> <p>If
+     * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
+     * failed because it lacked sufficient permissions. For details and example IAM
+     * policies, see <a
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
      * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
      * Guide</i>.</p> </note>
      */
@@ -158,7 +181,7 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because it lacked sufficient permissions. For details and example IAM
      * policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
      * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
      * Guide</i>.</p> </note>
      */
@@ -170,7 +193,7 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because it lacked sufficient permissions. For details and example IAM
      * policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
      * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
      * Guide</i>.</p> </note>
      */
@@ -182,7 +205,7 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because it lacked sufficient permissions. For details and example IAM
      * policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
      * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
      * Guide</i>.</p> </note>
      */
@@ -196,6 +219,14 @@ namespace Model
      * event.</p>
      */
     inline long long GetDecisionTaskCompletedEventId() const{ return m_decisionTaskCompletedEventId; }
+
+    /**
+     * <p>The ID of the <code>LambdaFunctionCompleted</code> event corresponding to the
+     * decision that resulted in scheduling this Lambda task. To help diagnose issues,
+     * use this information to trace back the chain of events leading up to this
+     * event.</p>
+     */
+    inline bool DecisionTaskCompletedEventIdHasBeenSet() const { return m_decisionTaskCompletedEventIdHasBeenSet; }
 
     /**
      * <p>The ID of the <code>LambdaFunctionCompleted</code> event corresponding to the

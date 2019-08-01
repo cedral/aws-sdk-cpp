@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateConditionalForwarderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * forwarder.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The directory ID of the AWS directory for which to update the conditional
+     * forwarder.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The directory ID of the AWS directory for which to update the conditional
@@ -101,6 +107,12 @@ namespace Model
      * <p>The fully qualified domain name (FQDN) of the remote domain with which you
      * will set up a trust relationship.</p>
      */
+    inline bool RemoteDomainNameHasBeenSet() const { return m_remoteDomainNameHasBeenSet; }
+
+    /**
+     * <p>The fully qualified domain name (FQDN) of the remote domain with which you
+     * will set up a trust relationship.</p>
+     */
     inline void SetRemoteDomainName(const Aws::String& value) { m_remoteDomainNameHasBeenSet = true; m_remoteDomainName = value; }
 
     /**
@@ -139,6 +151,12 @@ namespace Model
      * conditional forwarder.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDnsIpAddrs() const{ return m_dnsIpAddrs; }
+
+    /**
+     * <p>The updated IP addresses of the remote DNS server associated with the
+     * conditional forwarder.</p>
+     */
+    inline bool DnsIpAddrsHasBeenSet() const { return m_dnsIpAddrsHasBeenSet; }
 
     /**
      * <p>The updated IP addresses of the remote DNS server associated with the

@@ -59,6 +59,12 @@ namespace Model
      * <p>Name of the column created in the in-application input stream or reference
      * table.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>Name of the column created in the in-application input stream or reference
+     * table.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -93,44 +99,66 @@ namespace Model
 
 
     /**
-     * <p>Reference to the data element in the streaming input of the reference data
-     * source.</p>
+     * <p>Reference to the data element in the streaming input or the reference data
+     * source. This element is required if the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a>
+     * is <code>JSON</code>.</p>
      */
     inline const Aws::String& GetMapping() const{ return m_mapping; }
 
     /**
-     * <p>Reference to the data element in the streaming input of the reference data
-     * source.</p>
+     * <p>Reference to the data element in the streaming input or the reference data
+     * source. This element is required if the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a>
+     * is <code>JSON</code>.</p>
+     */
+    inline bool MappingHasBeenSet() const { return m_mappingHasBeenSet; }
+
+    /**
+     * <p>Reference to the data element in the streaming input or the reference data
+     * source. This element is required if the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a>
+     * is <code>JSON</code>.</p>
      */
     inline void SetMapping(const Aws::String& value) { m_mappingHasBeenSet = true; m_mapping = value; }
 
     /**
-     * <p>Reference to the data element in the streaming input of the reference data
-     * source.</p>
+     * <p>Reference to the data element in the streaming input or the reference data
+     * source. This element is required if the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a>
+     * is <code>JSON</code>.</p>
      */
     inline void SetMapping(Aws::String&& value) { m_mappingHasBeenSet = true; m_mapping = std::move(value); }
 
     /**
-     * <p>Reference to the data element in the streaming input of the reference data
-     * source.</p>
+     * <p>Reference to the data element in the streaming input or the reference data
+     * source. This element is required if the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a>
+     * is <code>JSON</code>.</p>
      */
     inline void SetMapping(const char* value) { m_mappingHasBeenSet = true; m_mapping.assign(value); }
 
     /**
-     * <p>Reference to the data element in the streaming input of the reference data
-     * source.</p>
+     * <p>Reference to the data element in the streaming input or the reference data
+     * source. This element is required if the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a>
+     * is <code>JSON</code>.</p>
      */
     inline RecordColumn& WithMapping(const Aws::String& value) { SetMapping(value); return *this;}
 
     /**
-     * <p>Reference to the data element in the streaming input of the reference data
-     * source.</p>
+     * <p>Reference to the data element in the streaming input or the reference data
+     * source. This element is required if the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a>
+     * is <code>JSON</code>.</p>
      */
     inline RecordColumn& WithMapping(Aws::String&& value) { SetMapping(std::move(value)); return *this;}
 
     /**
-     * <p>Reference to the data element in the streaming input of the reference data
-     * source.</p>
+     * <p>Reference to the data element in the streaming input or the reference data
+     * source. This element is required if the <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_RecordFormat.html#analytics-Type-RecordFormat-RecordFormatTypel">RecordFormatType</a>
+     * is <code>JSON</code>.</p>
      */
     inline RecordColumn& WithMapping(const char* value) { SetMapping(value); return *this;}
 
@@ -140,6 +168,12 @@ namespace Model
      * table.</p>
      */
     inline const Aws::String& GetSqlType() const{ return m_sqlType; }
+
+    /**
+     * <p>Type of column created in the in-application input stream or reference
+     * table.</p>
+     */
+    inline bool SqlTypeHasBeenSet() const { return m_sqlTypeHasBeenSet; }
 
     /**
      * <p>Type of column created in the in-application input stream or reference

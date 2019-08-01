@@ -63,6 +63,13 @@ namespace Model
      * attached to instances that support Amazon EBS encryption. If you are creating a
      * volume from a snapshot, you can't specify an encryption value.</p>
      */
+    inline bool EncryptedHasBeenSet() const { return m_encryptedHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the EBS volume is encrypted. Encrypted volumes can only be
+     * attached to instances that support Amazon EBS encryption. If you are creating a
+     * volume from a snapshot, you can't specify an encryption value.</p>
+     */
     inline void SetEncrypted(bool value) { m_encryptedHasBeenSet = true; m_encrypted = value; }
 
     /**
@@ -81,6 +88,11 @@ namespace Model
     /**
      * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
      */
+    inline bool DeleteOnTerminationHasBeenSet() const { return m_deleteOnTerminationHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+     */
     inline void SetDeleteOnTermination(bool value) { m_deleteOnTerminationHasBeenSet = true; m_deleteOnTermination = value; }
 
     /**
@@ -95,7 +107,9 @@ namespace Model
      * gp2, this represents the baseline performance of the volume and the rate at
      * which the volume accumulates I/O credits for bursting. For more information
      * about General Purpose SSD baseline performance, I/O credits, and bursting, see
-     * Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * <p>Condition: This parameter is required for requests to create io1 volumes; it
      * is not used in requests to create gp2, st1, sc1, or standard volumes.</p>
      */
@@ -107,7 +121,23 @@ namespace Model
      * gp2, this represents the baseline performance of the volume and the rate at
      * which the volume accumulates I/O credits for bursting. For more information
      * about General Purpose SSD baseline performance, I/O credits, and bursting, see
-     * Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>Condition: This parameter is required for requests to create io1 volumes; it
+     * is not used in requests to create gp2, st1, sc1, or standard volumes.</p>
+     */
+    inline bool IopsHasBeenSet() const { return m_iopsHasBeenSet; }
+
+    /**
+     * <p>The number of I/O operations per second (IOPS) that the volume supports. For
+     * io1, this represents the number of IOPS that are provisioned for the volume. For
+     * gp2, this represents the baseline performance of the volume and the rate at
+     * which the volume accumulates I/O credits for bursting. For more information
+     * about General Purpose SSD baseline performance, I/O credits, and bursting, see
+     * <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * <p>Condition: This parameter is required for requests to create io1 volumes; it
      * is not used in requests to create gp2, st1, sc1, or standard volumes.</p>
      */
@@ -119,7 +149,9 @@ namespace Model
      * gp2, this represents the baseline performance of the volume and the rate at
      * which the volume accumulates I/O credits for bursting. For more information
      * about General Purpose SSD baseline performance, I/O credits, and bursting, see
-     * Amazon EBS Volume Types in the Amazon Elastic Compute Cloud User Guide.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+     * EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * <p>Condition: This parameter is required for requests to create io1 volumes; it
      * is not used in requests to create gp2, st1, sc1, or standard volumes.</p>
      */
@@ -131,6 +163,12 @@ namespace Model
      * encryption.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
+
+    /**
+     * <p>The ARN of the AWS Key Management Service (AWS KMS) CMK used for
+     * encryption.</p>
+     */
+    inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
 
     /**
      * <p>The ARN of the AWS Key Management Service (AWS KMS) CMK used for
@@ -177,6 +215,11 @@ namespace Model
     /**
      * <p>The ID of the snapshot.</p>
      */
+    inline bool SnapshotIdHasBeenSet() const { return m_snapshotIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the snapshot.</p>
+     */
     inline void SetSnapshotId(const Aws::String& value) { m_snapshotIdHasBeenSet = true; m_snapshotId = value; }
 
     /**
@@ -217,6 +260,13 @@ namespace Model
      * from a snapshot and don't specify a volume size, the default is the snapshot
      * size.</p>
      */
+    inline bool VolumeSizeHasBeenSet() const { return m_volumeSizeHasBeenSet; }
+
+    /**
+     * <p>The size of the volume, in GiB.</p> <p>Default: If you're creating the volume
+     * from a snapshot and don't specify a volume size, the default is the snapshot
+     * size.</p>
+     */
     inline void SetVolumeSize(int value) { m_volumeSizeHasBeenSet = true; m_volumeSize = value; }
 
     /**
@@ -231,6 +281,11 @@ namespace Model
      * <p>The volume type.</p>
      */
     inline const VolumeType& GetVolumeType() const{ return m_volumeType; }
+
+    /**
+     * <p>The volume type.</p>
+     */
+    inline bool VolumeTypeHasBeenSet() const { return m_volumeTypeHasBeenSet; }
 
     /**
      * <p>The volume type.</p>

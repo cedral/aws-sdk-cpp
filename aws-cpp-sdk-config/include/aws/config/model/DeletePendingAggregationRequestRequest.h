@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeletePendingAggregationRequestRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The 12-digit account ID of the account requesting to aggregate data.</p>
      */
     inline const Aws::String& GetRequesterAccountId() const{ return m_requesterAccountId; }
+
+    /**
+     * <p>The 12-digit account ID of the account requesting to aggregate data.</p>
+     */
+    inline bool RequesterAccountIdHasBeenSet() const { return m_requesterAccountIdHasBeenSet; }
 
     /**
      * <p>The 12-digit account ID of the account requesting to aggregate data.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The region requesting to aggregate data.</p>
      */
     inline const Aws::String& GetRequesterAwsRegion() const{ return m_requesterAwsRegion; }
+
+    /**
+     * <p>The region requesting to aggregate data.</p>
+     */
+    inline bool RequesterAwsRegionHasBeenSet() const { return m_requesterAwsRegionHasBeenSet; }
 
     /**
      * <p>The region requesting to aggregate data.</p>

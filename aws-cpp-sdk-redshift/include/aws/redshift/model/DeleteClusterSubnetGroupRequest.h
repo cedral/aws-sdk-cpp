@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteClusterSubnetGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the cluster subnet group name to be deleted.</p>
      */
     inline const Aws::String& GetClusterSubnetGroupName() const{ return m_clusterSubnetGroupName; }
+
+    /**
+     * <p>The name of the cluster subnet group name to be deleted.</p>
+     */
+    inline bool ClusterSubnetGroupNameHasBeenSet() const { return m_clusterSubnetGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the cluster subnet group name to be deleted.</p>

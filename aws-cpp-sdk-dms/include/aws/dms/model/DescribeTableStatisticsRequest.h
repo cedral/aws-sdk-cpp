@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeTableStatisticsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the replication task.</p>
      */
     inline const Aws::String& GetReplicationTaskArn() const{ return m_replicationTaskArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the replication task.</p>
+     */
+    inline bool ReplicationTaskArnHasBeenSet() const { return m_replicationTaskArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the replication task.</p>
@@ -99,6 +104,14 @@ namespace Model
      * called a marker is included in the response so that the remaining results can be
      * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 500.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p> The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 500.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -116,6 +129,13 @@ namespace Model
      * to the value specified by <code>MaxRecords</code>. </p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p> An optional pagination token provided by a previous request. If this
+     * parameter is specified, the response includes only records beyond the marker, up
+     * to the value specified by <code>MaxRecords</code>. </p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p> An optional pagination token provided by a previous request. If this
@@ -166,6 +186,13 @@ namespace Model
      * creates an AND condition where each record matches all specified filters.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>Filters applied to the describe table statistics action.</p> <p>Valid filter
+     * names: schema-name | table-name | table-state</p> <p>A combination of filters
+     * creates an AND condition where each record matches all specified filters.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>Filters applied to the describe table statistics action.</p> <p>Valid filter

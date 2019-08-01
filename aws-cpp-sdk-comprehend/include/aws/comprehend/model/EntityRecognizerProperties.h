@@ -21,6 +21,7 @@
 #include <aws/core/utils/DateTime.h>
 #include <aws/comprehend/model/EntityRecognizerInputDataConfig.h>
 #include <aws/comprehend/model/EntityRecognizerMetadata.h>
+#include <aws/comprehend/model/VpcConfig.h>
 #include <utility>
 
 namespace Aws
@@ -57,6 +58,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
      */
     inline const Aws::String& GetEntityRecognizerArn() const{ return m_entityRecognizerArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
+     */
+    inline bool EntityRecognizerArnHasBeenSet() const { return m_entityRecognizerArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>
@@ -99,6 +105,12 @@ namespace Model
      * <p> The language of the input documents. All documents must be in the same
      * language. Only English ("en") is currently supported.</p>
      */
+    inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
+
+    /**
+     * <p> The language of the input documents. All documents must be in the same
+     * language. Only English ("en") is currently supported.</p>
+     */
     inline void SetLanguageCode(const LanguageCode& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
 
     /**
@@ -128,6 +140,11 @@ namespace Model
     /**
      * <p>Provides the status of the entity recognizer.</p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>Provides the status of the entity recognizer.</p>
+     */
     inline void SetStatus(const ModelStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -150,6 +167,11 @@ namespace Model
      * <p> A description of the status of the recognizer.</p>
      */
     inline const Aws::String& GetMessage() const{ return m_message; }
+
+    /**
+     * <p> A description of the status of the recognizer.</p>
+     */
+    inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
 
     /**
      * <p> A description of the status of the recognizer.</p>
@@ -190,6 +212,11 @@ namespace Model
     /**
      * <p>The time that the recognizer was submitted for processing.</p>
      */
+    inline bool SubmitTimeHasBeenSet() const { return m_submitTimeHasBeenSet; }
+
+    /**
+     * <p>The time that the recognizer was submitted for processing.</p>
+     */
     inline void SetSubmitTime(const Aws::Utils::DateTime& value) { m_submitTimeHasBeenSet = true; m_submitTime = value; }
 
     /**
@@ -212,6 +239,11 @@ namespace Model
      * <p>The time that the recognizer creation completed.</p>
      */
     inline const Aws::Utils::DateTime& GetEndTime() const{ return m_endTime; }
+
+    /**
+     * <p>The time that the recognizer creation completed.</p>
+     */
+    inline bool EndTimeHasBeenSet() const { return m_endTimeHasBeenSet; }
 
     /**
      * <p>The time that the recognizer creation completed.</p>
@@ -242,6 +274,11 @@ namespace Model
     /**
      * <p>The time that training of the entity recognizer started.</p>
      */
+    inline bool TrainingStartTimeHasBeenSet() const { return m_trainingStartTimeHasBeenSet; }
+
+    /**
+     * <p>The time that training of the entity recognizer started.</p>
+     */
     inline void SetTrainingStartTime(const Aws::Utils::DateTime& value) { m_trainingStartTimeHasBeenSet = true; m_trainingStartTime = value; }
 
     /**
@@ -264,6 +301,11 @@ namespace Model
      * <p>The time that training of the entity recognizer was completed.</p>
      */
     inline const Aws::Utils::DateTime& GetTrainingEndTime() const{ return m_trainingEndTime; }
+
+    /**
+     * <p>The time that training of the entity recognizer was completed.</p>
+     */
+    inline bool TrainingEndTimeHasBeenSet() const { return m_trainingEndTimeHasBeenSet; }
 
     /**
      * <p>The time that training of the entity recognizer was completed.</p>
@@ -294,6 +336,11 @@ namespace Model
     /**
      * <p>The input data properties of an entity recognizer.</p>
      */
+    inline bool InputDataConfigHasBeenSet() const { return m_inputDataConfigHasBeenSet; }
+
+    /**
+     * <p>The input data properties of an entity recognizer.</p>
+     */
     inline void SetInputDataConfig(const EntityRecognizerInputDataConfig& value) { m_inputDataConfigHasBeenSet = true; m_inputDataConfig = value; }
 
     /**
@@ -316,6 +363,11 @@ namespace Model
      * <p> Provides information about an entity recognizer.</p>
      */
     inline const EntityRecognizerMetadata& GetRecognizerMetadata() const{ return m_recognizerMetadata; }
+
+    /**
+     * <p> Provides information about an entity recognizer.</p>
+     */
+    inline bool RecognizerMetadataHasBeenSet() const { return m_recognizerMetadataHasBeenSet; }
 
     /**
      * <p> Provides information about an entity recognizer.</p>
@@ -343,6 +395,12 @@ namespace Model
      * that grants Amazon Comprehend read access to your input data.</p>
      */
     inline const Aws::String& GetDataAccessRoleArn() const{ return m_dataAccessRoleArn; }
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role
+     * that grants Amazon Comprehend read access to your input data.</p>
+     */
+    inline bool DataAccessRoleArnHasBeenSet() const { return m_dataAccessRoleArnHasBeenSet; }
 
     /**
      * <p> The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM) role
@@ -380,6 +438,158 @@ namespace Model
      */
     inline EntityRecognizerProperties& WithDataAccessRoleArn(const char* value) { SetDataAccessRoleArn(value); return *this;}
 
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline const Aws::String& GetVolumeKmsKeyId() const{ return m_volumeKmsKeyId; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline bool VolumeKmsKeyIdHasBeenSet() const { return m_volumeKmsKeyIdHasBeenSet; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(const Aws::String& value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId = value; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(Aws::String&& value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId = std::move(value); }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(const char* value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId.assign(value); }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline EntityRecognizerProperties& WithVolumeKmsKeyId(const Aws::String& value) { SetVolumeKmsKeyId(value); return *this;}
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline EntityRecognizerProperties& WithVolumeKmsKeyId(Aws::String&& value) { SetVolumeKmsKeyId(std::move(value)); return *this;}
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline EntityRecognizerProperties& WithVolumeKmsKeyId(const char* value) { SetVolumeKmsKeyId(value); return *this;}
+
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your custom entity recognizer. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline const VpcConfig& GetVpcConfig() const{ return m_vpcConfig; }
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your custom entity recognizer. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline bool VpcConfigHasBeenSet() const { return m_vpcConfigHasBeenSet; }
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your custom entity recognizer. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline void SetVpcConfig(const VpcConfig& value) { m_vpcConfigHasBeenSet = true; m_vpcConfig = value; }
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your custom entity recognizer. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline void SetVpcConfig(VpcConfig&& value) { m_vpcConfigHasBeenSet = true; m_vpcConfig = std::move(value); }
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your custom entity recognizer. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline EntityRecognizerProperties& WithVpcConfig(const VpcConfig& value) { SetVpcConfig(value); return *this;}
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your custom entity recognizer. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline EntityRecognizerProperties& WithVpcConfig(VpcConfig&& value) { SetVpcConfig(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_entityRecognizerArn;
@@ -414,6 +624,12 @@ namespace Model
 
     Aws::String m_dataAccessRoleArn;
     bool m_dataAccessRoleArnHasBeenSet;
+
+    Aws::String m_volumeKmsKeyId;
+    bool m_volumeKmsKeyIdHasBeenSet;
+
+    VpcConfig m_vpcConfig;
+    bool m_vpcConfigHasBeenSet;
   };
 
 } // namespace Model

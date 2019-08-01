@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateDBClusterParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,13 @@ namespace Model
      * </li> </ul> <note> <p>This value is stored as a lowercase string.</p> </note>
      */
     inline const Aws::String& GetDBClusterParameterGroupName() const{ return m_dBClusterParameterGroupName; }
+
+    /**
+     * <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li>
+     * <p>Must match the name of an existing <code>DBClusterParameterGroup</code>.</p>
+     * </li> </ul> <note> <p>This value is stored as a lowercase string.</p> </note>
+     */
+    inline bool DBClusterParameterGroupNameHasBeenSet() const { return m_dBClusterParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li>
@@ -110,6 +117,11 @@ namespace Model
     /**
      * <p>The DB cluster parameter group family name.</p>
      */
+    inline bool DBParameterGroupFamilyHasBeenSet() const { return m_dBParameterGroupFamilyHasBeenSet; }
+
+    /**
+     * <p>The DB cluster parameter group family name.</p>
+     */
     inline void SetDBParameterGroupFamily(const Aws::String& value) { m_dBParameterGroupFamilyHasBeenSet = true; m_dBParameterGroupFamily = value; }
 
     /**
@@ -146,6 +158,11 @@ namespace Model
     /**
      * <p>The description for the DB cluster parameter group.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description for the DB cluster parameter group.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -178,6 +195,11 @@ namespace Model
      * <p>The tags to be assigned to the DB cluster parameter group.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags to be assigned to the DB cluster parameter group.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags to be assigned to the DB cluster parameter group.</p>

@@ -33,6 +33,8 @@ namespace Aws
         static const int serviceLongArnFormat_HASH = HashingUtils::HashString("serviceLongArnFormat");
         static const int taskLongArnFormat_HASH = HashingUtils::HashString("taskLongArnFormat");
         static const int containerInstanceLongArnFormat_HASH = HashingUtils::HashString("containerInstanceLongArnFormat");
+        static const int awsvpcTrunking_HASH = HashingUtils::HashString("awsvpcTrunking");
+        static const int containerInsights_HASH = HashingUtils::HashString("containerInsights");
 
 
         SettingName GetSettingNameForName(const Aws::String& name)
@@ -49,6 +51,14 @@ namespace Aws
           else if (hashCode == containerInstanceLongArnFormat_HASH)
           {
             return SettingName::containerInstanceLongArnFormat;
+          }
+          else if (hashCode == awsvpcTrunking_HASH)
+          {
+            return SettingName::awsvpcTrunking;
+          }
+          else if (hashCode == containerInsights_HASH)
+          {
+            return SettingName::containerInsights;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -70,6 +80,10 @@ namespace Aws
             return "taskLongArnFormat";
           case SettingName::containerInstanceLongArnFormat:
             return "containerInstanceLongArnFormat";
+          case SettingName::awsvpcTrunking:
+            return "awsvpcTrunking";
+          case SettingName::containerInsights:
+            return "containerInsights";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

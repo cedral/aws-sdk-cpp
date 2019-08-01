@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DetachThingPrincipalRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the thing.</p>
      */
     inline const Aws::String& GetThingName() const{ return m_thingName; }
+
+    /**
+     * <p>The name of the thing.</p>
+     */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
 
     /**
      * <p>The name of the thing.</p>
@@ -90,6 +95,13 @@ namespace Model
      * Amazon Cognito identity.</p>
      */
     inline const Aws::String& GetPrincipal() const{ return m_principal; }
+
+    /**
+     * <p>If the principal is a certificate, this value must be ARN of the certificate.
+     * If the principal is an Amazon Cognito identity, this value must be the ID of the
+     * Amazon Cognito identity.</p>
+     */
+    inline bool PrincipalHasBeenSet() const { return m_principalHasBeenSet; }
 
     /**
      * <p>If the principal is a certificate, this value must be ARN of the certificate.

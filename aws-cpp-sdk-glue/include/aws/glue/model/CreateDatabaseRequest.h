@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateDatabaseRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * supplied, the AWS account ID is used by default.</p>
      */
     inline const Aws::String& GetCatalogId() const{ return m_catalogId; }
+
+    /**
+     * <p>The ID of the Data Catalog in which to create the database. If none is
+     * supplied, the AWS account ID is used by default.</p>
+     */
+    inline bool CatalogIdHasBeenSet() const { return m_catalogIdHasBeenSet; }
 
     /**
      * <p>The ID of the Data Catalog in which to create the database. If none is
@@ -93,6 +99,12 @@ namespace Model
      * in the catalog.</p>
      */
     inline const DatabaseInput& GetDatabaseInput() const{ return m_databaseInput; }
+
+    /**
+     * <p>A <code>DatabaseInput</code> object defining the metadata database to create
+     * in the catalog.</p>
+     */
+    inline bool DatabaseInputHasBeenSet() const { return m_databaseInputHasBeenSet; }
 
     /**
      * <p>A <code>DatabaseInput</code> object defining the metadata database to create

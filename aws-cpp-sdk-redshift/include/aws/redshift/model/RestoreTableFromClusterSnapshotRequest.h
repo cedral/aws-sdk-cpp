@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     RestoreTableFromClusterSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The identifier of the Amazon Redshift cluster to restore the table to.</p>
      */
     inline const Aws::String& GetClusterIdentifier() const{ return m_clusterIdentifier; }
+
+    /**
+     * <p>The identifier of the Amazon Redshift cluster to restore the table to.</p>
+     */
+    inline bool ClusterIdentifierHasBeenSet() const { return m_clusterIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier of the Amazon Redshift cluster to restore the table to.</p>
@@ -91,6 +96,13 @@ namespace Model
      * <code>ClusterIdentifier</code> parameter.</p>
      */
     inline const Aws::String& GetSnapshotIdentifier() const{ return m_snapshotIdentifier; }
+
+    /**
+     * <p>The identifier of the snapshot to restore the table from. This snapshot must
+     * have been created from the Amazon Redshift cluster specified by the
+     * <code>ClusterIdentifier</code> parameter.</p>
+     */
+    inline bool SnapshotIdentifierHasBeenSet() const { return m_snapshotIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier of the snapshot to restore the table from. This snapshot must
@@ -143,6 +155,11 @@ namespace Model
     /**
      * <p>The name of the source database that contains the table to restore from.</p>
      */
+    inline bool SourceDatabaseNameHasBeenSet() const { return m_sourceDatabaseNameHasBeenSet; }
+
+    /**
+     * <p>The name of the source database that contains the table to restore from.</p>
+     */
     inline void SetSourceDatabaseName(const Aws::String& value) { m_sourceDatabaseNameHasBeenSet = true; m_sourceDatabaseName = value; }
 
     /**
@@ -177,6 +194,13 @@ namespace Model
      * <code>public</code>.</p>
      */
     inline const Aws::String& GetSourceSchemaName() const{ return m_sourceSchemaName; }
+
+    /**
+     * <p>The name of the source schema that contains the table to restore from. If you
+     * do not specify a <code>SourceSchemaName</code> value, the default is
+     * <code>public</code>.</p>
+     */
+    inline bool SourceSchemaNameHasBeenSet() const { return m_sourceSchemaNameHasBeenSet; }
 
     /**
      * <p>The name of the source schema that contains the table to restore from. If you
@@ -229,6 +253,11 @@ namespace Model
     /**
      * <p>The name of the source table to restore from.</p>
      */
+    inline bool SourceTableNameHasBeenSet() const { return m_sourceTableNameHasBeenSet; }
+
+    /**
+     * <p>The name of the source table to restore from.</p>
+     */
     inline void SetSourceTableName(const Aws::String& value) { m_sourceTableNameHasBeenSet = true; m_sourceTableName = value; }
 
     /**
@@ -261,6 +290,11 @@ namespace Model
      * <p>The name of the database to restore the table to.</p>
      */
     inline const Aws::String& GetTargetDatabaseName() const{ return m_targetDatabaseName; }
+
+    /**
+     * <p>The name of the database to restore the table to.</p>
+     */
+    inline bool TargetDatabaseNameHasBeenSet() const { return m_targetDatabaseNameHasBeenSet; }
 
     /**
      * <p>The name of the database to restore the table to.</p>
@@ -301,6 +335,11 @@ namespace Model
     /**
      * <p>The name of the schema to restore the table to.</p>
      */
+    inline bool TargetSchemaNameHasBeenSet() const { return m_targetSchemaNameHasBeenSet; }
+
+    /**
+     * <p>The name of the schema to restore the table to.</p>
+     */
     inline void SetTargetSchemaName(const Aws::String& value) { m_targetSchemaNameHasBeenSet = true; m_targetSchemaName = value; }
 
     /**
@@ -333,6 +372,11 @@ namespace Model
      * <p>The name of the table to create as a result of the current request.</p>
      */
     inline const Aws::String& GetNewTableName() const{ return m_newTableName; }
+
+    /**
+     * <p>The name of the table to create as a result of the current request.</p>
+     */
+    inline bool NewTableNameHasBeenSet() const { return m_newTableNameHasBeenSet; }
 
     /**
      * <p>The name of the table to create as a result of the current request.</p>

@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     GetStagesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -92,6 +97,11 @@ namespace Model
      * <p>The stages' deployment identifiers.</p>
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * <p>The stages' deployment identifiers.</p>
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * <p>The stages' deployment identifiers.</p>

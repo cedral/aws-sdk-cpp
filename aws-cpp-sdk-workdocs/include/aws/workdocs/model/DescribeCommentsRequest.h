@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeCommentsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * administrative API actions, as in accessing the API using AWS credentials.</p>
      */
     inline const Aws::String& GetAuthenticationToken() const{ return m_authenticationToken; }
+
+    /**
+     * <p>Amazon WorkDocs authentication token. Do not set this field when using
+     * administrative API actions, as in accessing the API using AWS credentials.</p>
+     */
+    inline bool AuthenticationTokenHasBeenSet() const { return m_authenticationTokenHasBeenSet; }
 
     /**
      * <p>Amazon WorkDocs authentication token. Do not set this field when using
@@ -101,6 +107,11 @@ namespace Model
     /**
      * <p>The ID of the document.</p>
      */
+    inline bool DocumentIdHasBeenSet() const { return m_documentIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the document.</p>
+     */
     inline void SetDocumentId(const Aws::String& value) { m_documentIdHasBeenSet = true; m_documentId = value; }
 
     /**
@@ -133,6 +144,11 @@ namespace Model
      * <p>The ID of the document version.</p>
      */
     inline const Aws::String& GetVersionId() const{ return m_versionId; }
+
+    /**
+     * <p>The ID of the document version.</p>
+     */
+    inline bool VersionIdHasBeenSet() const { return m_versionIdHasBeenSet; }
 
     /**
      * <p>The ID of the document version.</p>
@@ -173,6 +189,11 @@ namespace Model
     /**
      * <p>The maximum number of items to return.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of items to return.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -186,6 +207,12 @@ namespace Model
      * previous call.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>The marker for the next set of results. This marker was received from a
+     * previous call.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>The marker for the next set of results. This marker was received from a

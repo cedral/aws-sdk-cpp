@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateServiceActionWithProvisioningArtifactRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
      */
     inline const Aws::String& GetProductId() const{ return m_productId; }
+
+    /**
+     * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
+     */
+    inline bool ProductIdHasBeenSet() const { return m_productIdHasBeenSet; }
 
     /**
      * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
@@ -85,6 +90,12 @@ namespace Model
      * <code>pa-4abcdjnxjj6ne</code>.</p>
      */
     inline const Aws::String& GetProvisioningArtifactId() const{ return m_provisioningArtifactId; }
+
+    /**
+     * <p>The identifier of the provisioning artifact. For example,
+     * <code>pa-4abcdjnxjj6ne</code>.</p>
+     */
+    inline bool ProvisioningArtifactIdHasBeenSet() const { return m_provisioningArtifactIdHasBeenSet; }
 
     /**
      * <p>The identifier of the provisioning artifact. For example,
@@ -133,6 +144,12 @@ namespace Model
      * <p>The self-service action identifier. For example,
      * <code>act-fs7abcd89wxyz</code>.</p>
      */
+    inline bool ServiceActionIdHasBeenSet() const { return m_serviceActionIdHasBeenSet; }
+
+    /**
+     * <p>The self-service action identifier. For example,
+     * <code>act-fs7abcd89wxyz</code>.</p>
+     */
     inline void SetServiceActionId(const Aws::String& value) { m_serviceActionIdHasBeenSet = true; m_serviceActionId = value; }
 
     /**
@@ -172,6 +189,13 @@ namespace Model
      * Chinese</p> </li> </ul>
      */
     inline const Aws::String& GetAcceptLanguage() const{ return m_acceptLanguage; }
+
+    /**
+     * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
+     * </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> -
+     * Chinese</p> </li> </ul>
+     */
+    inline bool AcceptLanguageHasBeenSet() const { return m_acceptLanguageHasBeenSet; }
 
     /**
      * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>

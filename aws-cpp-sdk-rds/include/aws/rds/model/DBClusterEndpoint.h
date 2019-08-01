@@ -38,12 +38,12 @@ namespace Model
   /**
    * <p>This data type represents the information you need to connect to an Amazon
    * Aurora DB cluster. This data type is used as a response element in the following
-   * actions:</p> <ul> <li> <p> <a>CreateDBClusterEndpoint</a> </p> </li> <li> <p>
-   * <a>DescribeDBClusterEndpoints</a> </p> </li> <li> <p>
-   * <a>ModifyDBClusterEndpoint</a> </p> </li> <li> <p>
-   * <a>DeleteDBClusterEndpoint</a> </p> </li> </ul> <p>For the data structure that
-   * represents Amazon RDS DB instance endpoints, see <a>Endpoint</a>.</p><p><h3>See
-   * Also:</h3>   <a
+   * actions:</p> <ul> <li> <p> <code>CreateDBClusterEndpoint</code> </p> </li> <li>
+   * <p> <code>DescribeDBClusterEndpoints</code> </p> </li> <li> <p>
+   * <code>ModifyDBClusterEndpoint</code> </p> </li> <li> <p>
+   * <code>DeleteDBClusterEndpoint</code> </p> </li> </ul> <p>For the data structure
+   * that represents Amazon RDS DB instance endpoints, see
+   * <code>Endpoint</code>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBClusterEndpoint">AWS
    * API Reference</a></p>
    */
@@ -63,6 +63,12 @@ namespace Model
      * lowercase string.</p>
      */
     inline const Aws::String& GetDBClusterEndpointIdentifier() const{ return m_dBClusterEndpointIdentifier; }
+
+    /**
+     * <p>The identifier associated with the endpoint. This parameter is stored as a
+     * lowercase string.</p>
+     */
+    inline bool DBClusterEndpointIdentifierHasBeenSet() const { return m_dBClusterEndpointIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier associated with the endpoint. This parameter is stored as a
@@ -111,6 +117,12 @@ namespace Model
      * <p>The DB cluster identifier of the DB cluster associated with the endpoint.
      * This parameter is stored as a lowercase string.</p>
      */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
+
+    /**
+     * <p>The DB cluster identifier of the DB cluster associated with the endpoint.
+     * This parameter is stored as a lowercase string.</p>
+     */
     inline void SetDBClusterIdentifier(const Aws::String& value) { m_dBClusterIdentifierHasBeenSet = true; m_dBClusterIdentifier = value; }
 
     /**
@@ -149,6 +161,12 @@ namespace Model
      * the whole life of the endpoint.</p>
      */
     inline const Aws::String& GetDBClusterEndpointResourceIdentifier() const{ return m_dBClusterEndpointResourceIdentifier; }
+
+    /**
+     * <p>A unique system-generated identifier for an endpoint. It remains the same for
+     * the whole life of the endpoint.</p>
+     */
+    inline bool DBClusterEndpointResourceIdentifierHasBeenSet() const { return m_dBClusterEndpointResourceIdentifierHasBeenSet; }
 
     /**
      * <p>A unique system-generated identifier for an endpoint. It remains the same for
@@ -195,6 +213,11 @@ namespace Model
     /**
      * <p>The DNS address of the endpoint.</p>
      */
+    inline bool EndpointHasBeenSet() const { return m_endpointHasBeenSet; }
+
+    /**
+     * <p>The DNS address of the endpoint.</p>
+     */
     inline void SetEndpoint(const Aws::String& value) { m_endpointHasBeenSet = true; m_endpoint = value; }
 
     /**
@@ -228,6 +251,12 @@ namespace Model
      * <code>available</code>, <code>deleting</code>, <code>modifying</code>.</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The current status of the endpoint. One of: <code>creating</code>,
+     * <code>available</code>, <code>deleting</code>, <code>modifying</code>.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The current status of the endpoint. One of: <code>creating</code>,
@@ -276,6 +305,12 @@ namespace Model
      * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>,
      * <code>CUSTOM</code>.</p>
      */
+    inline bool EndpointTypeHasBeenSet() const { return m_endpointTypeHasBeenSet; }
+
+    /**
+     * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>,
+     * <code>CUSTOM</code>.</p>
+     */
     inline void SetEndpointType(const Aws::String& value) { m_endpointTypeHasBeenSet = true; m_endpointType = value; }
 
     /**
@@ -319,6 +354,12 @@ namespace Model
      * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
      * <code>ANY</code>.</p>
      */
+    inline bool CustomEndpointTypeHasBeenSet() const { return m_customEndpointTypeHasBeenSet; }
+
+    /**
+     * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
+     * <code>ANY</code>.</p>
+     */
     inline void SetCustomEndpointType(const Aws::String& value) { m_customEndpointTypeHasBeenSet = true; m_customEndpointType = value; }
 
     /**
@@ -357,6 +398,12 @@ namespace Model
      * group.</p>
      */
     inline const Aws::Vector<Aws::String>& GetStaticMembers() const{ return m_staticMembers; }
+
+    /**
+     * <p>List of DB instance identifiers that are part of the custom endpoint
+     * group.</p>
+     */
+    inline bool StaticMembersHasBeenSet() const { return m_staticMembersHasBeenSet; }
 
     /**
      * <p>List of DB instance identifiers that are part of the custom endpoint
@@ -407,6 +454,13 @@ namespace Model
      * Only relevant if the list of static members is empty.</p>
      */
     inline const Aws::Vector<Aws::String>& GetExcludedMembers() const{ return m_excludedMembers; }
+
+    /**
+     * <p>List of DB instance identifiers that aren't part of the custom endpoint
+     * group. All other eligible instances are reachable through the custom endpoint.
+     * Only relevant if the list of static members is empty.</p>
+     */
+    inline bool ExcludedMembersHasBeenSet() const { return m_excludedMembersHasBeenSet; }
 
     /**
      * <p>List of DB instance identifiers that aren't part of the custom endpoint
@@ -466,6 +520,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
      */
+    inline bool DBClusterEndpointArnHasBeenSet() const { return m_dBClusterEndpointArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
+     */
     inline void SetDBClusterEndpointArn(const Aws::String& value) { m_dBClusterEndpointArnHasBeenSet = true; m_dBClusterEndpointArn = value; }
 
     /**
@@ -496,6 +555,9 @@ namespace Model
 
     
     inline const ResponseMetadata& GetResponseMetadata() const{ return m_responseMetadata; }
+
+    
+    inline bool ResponseMetadataHasBeenSet() const { return m_responseMetadataHasBeenSet; }
 
     
     inline void SetResponseMetadata(const ResponseMetadata& value) { m_responseMetadataHasBeenSet = true; m_responseMetadata = value; }

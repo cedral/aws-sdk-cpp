@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CheckDomainTransferabilityRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,14 @@ namespace Model
      * supported.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>The name of the domain that you want to transfer to Amazon Route 53.</p>
+     * <p>Constraints: The domain name can contain only the letters a through z, the
+     * numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
+     * supported.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>The name of the domain that you want to transfer to Amazon Route 53.</p>
@@ -111,6 +119,13 @@ namespace Model
      * for the domain.</p>
      */
     inline const Aws::String& GetAuthCode() const{ return m_authCode; }
+
+    /**
+     * <p>If the registrar for the top-level domain (TLD) requires an authorization
+     * code to transfer the domain, the code that you got from the current registrar
+     * for the domain.</p>
+     */
+    inline bool AuthCodeHasBeenSet() const { return m_authCodeHasBeenSet; }
 
     /**
      * <p>If the registrar for the top-level domain (TLD) requires an authorization

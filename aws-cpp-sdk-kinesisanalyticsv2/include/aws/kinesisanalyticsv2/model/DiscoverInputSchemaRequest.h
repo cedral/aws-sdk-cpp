@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DiscoverInputSchemaRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the streaming source.</p>
      */
     inline const Aws::String& GetResourceARN() const{ return m_resourceARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the streaming source.</p>
+     */
+    inline bool ResourceARNHasBeenSet() const { return m_resourceARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the streaming source.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The ARN of the role that is used to access the streaming source.</p>
      */
     inline const Aws::String& GetServiceExecutionRole() const{ return m_serviceExecutionRole; }
+
+    /**
+     * <p>The ARN of the role that is used to access the streaming source.</p>
+     */
+    inline bool ServiceExecutionRoleHasBeenSet() const { return m_serviceExecutionRoleHasBeenSet; }
 
     /**
      * <p>The ARN of the role that is used to access the streaming source.</p>
@@ -129,6 +139,12 @@ namespace Model
      * <p>The point at which you want Kinesis Data Analytics to start reading records
      * from the specified streaming source discovery purposes.</p>
      */
+    inline bool InputStartingPositionConfigurationHasBeenSet() const { return m_inputStartingPositionConfigurationHasBeenSet; }
+
+    /**
+     * <p>The point at which you want Kinesis Data Analytics to start reading records
+     * from the specified streaming source discovery purposes.</p>
+     */
     inline void SetInputStartingPositionConfiguration(const InputStartingPositionConfiguration& value) { m_inputStartingPositionConfigurationHasBeenSet = true; m_inputStartingPositionConfiguration = value; }
 
     /**
@@ -160,6 +176,12 @@ namespace Model
      * <p>Specify this parameter to discover a schema from data in an Amazon S3
      * object.</p>
      */
+    inline bool S3ConfigurationHasBeenSet() const { return m_s3ConfigurationHasBeenSet; }
+
+    /**
+     * <p>Specify this parameter to discover a schema from data in an Amazon S3
+     * object.</p>
+     */
     inline void SetS3Configuration(const S3Configuration& value) { m_s3ConfigurationHasBeenSet = true; m_s3Configuration = value; }
 
     /**
@@ -186,6 +208,12 @@ namespace Model
      * before discovering the schema of the records.</p>
      */
     inline const InputProcessingConfiguration& GetInputProcessingConfiguration() const{ return m_inputProcessingConfiguration; }
+
+    /**
+     * <p>The <a>InputProcessingConfiguration</a> to use to preprocess the records
+     * before discovering the schema of the records.</p>
+     */
+    inline bool InputProcessingConfigurationHasBeenSet() const { return m_inputProcessingConfigurationHasBeenSet; }
 
     /**
      * <p>The <a>InputProcessingConfiguration</a> to use to preprocess the records

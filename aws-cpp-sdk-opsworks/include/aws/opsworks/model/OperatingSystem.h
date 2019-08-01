@@ -52,86 +52,98 @@ namespace Model
 
     /**
      * <p>The name of the operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
      * <p>The name of the operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the operating system, such as <code>Amazon Linux
+     * 2018.03</code>.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
      * <p>The name of the operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
     /**
      * <p>The name of the operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
     /**
      * <p>The name of the operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline OperatingSystem& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
      * <p>The name of the operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline OperatingSystem& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
     /**
      * <p>The name of the operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline OperatingSystem& WithName(const char* value) { SetName(value); return *this;}
 
 
     /**
      * <p>The ID of a supported operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
 
     /**
      * <p>The ID of a supported operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The ID of a supported operating system, such as <code>Amazon Linux
+     * 2018.03</code>.</p>
      */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
      * <p>The ID of a supported operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline void SetId(Aws::String&& value) { m_idHasBeenSet = true; m_id = std::move(value); }
 
     /**
      * <p>The ID of a supported operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline void SetId(const char* value) { m_idHasBeenSet = true; m_id.assign(value); }
 
     /**
      * <p>The ID of a supported operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline OperatingSystem& WithId(const Aws::String& value) { SetId(value); return *this;}
 
     /**
      * <p>The ID of a supported operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline OperatingSystem& WithId(Aws::String&& value) { SetId(std::move(value)); return *this;}
 
     /**
      * <p>The ID of a supported operating system, such as <code>Amazon Linux
-     * 2017.09</code>.</p>
+     * 2018.03</code>.</p>
      */
     inline OperatingSystem& WithId(const char* value) { SetId(value); return *this;}
 
@@ -141,6 +153,12 @@ namespace Model
      * <code>Windows</code>.</p>
      */
     inline const Aws::String& GetType() const{ return m_type; }
+
+    /**
+     * <p>The type of a supported operating system, either <code>Linux</code> or
+     * <code>Windows</code>.</p>
+     */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
 
     /**
      * <p>The type of a supported operating system, either <code>Linux</code> or
@@ -189,6 +207,12 @@ namespace Model
      * <p>Supported configuration manager name and versions for an AWS OpsWorks Stacks
      * operating system.</p>
      */
+    inline bool ConfigurationManagersHasBeenSet() const { return m_configurationManagersHasBeenSet; }
+
+    /**
+     * <p>Supported configuration manager name and versions for an AWS OpsWorks Stacks
+     * operating system.</p>
+     */
     inline void SetConfigurationManagers(const Aws::Vector<OperatingSystemConfigurationManager>& value) { m_configurationManagersHasBeenSet = true; m_configurationManagers = value; }
 
     /**
@@ -226,6 +250,11 @@ namespace Model
      * <p>A short name for the operating system manufacturer.</p>
      */
     inline const Aws::String& GetReportedName() const{ return m_reportedName; }
+
+    /**
+     * <p>A short name for the operating system manufacturer.</p>
+     */
+    inline bool ReportedNameHasBeenSet() const { return m_reportedNameHasBeenSet; }
 
     /**
      * <p>A short name for the operating system manufacturer.</p>
@@ -268,6 +297,12 @@ namespace Model
      * <p>The version of the operating system, including the release and edition, if
      * applicable.</p>
      */
+    inline bool ReportedVersionHasBeenSet() const { return m_reportedVersionHasBeenSet; }
+
+    /**
+     * <p>The version of the operating system, including the release and edition, if
+     * applicable.</p>
+     */
     inline void SetReportedVersion(const Aws::String& value) { m_reportedVersionHasBeenSet = true; m_reportedVersion = value; }
 
     /**
@@ -305,6 +340,11 @@ namespace Model
      * <p>Indicates that an operating system is not supported for new instances.</p>
      */
     inline bool GetSupported() const{ return m_supported; }
+
+    /**
+     * <p>Indicates that an operating system is not supported for new instances.</p>
+     */
+    inline bool SupportedHasBeenSet() const { return m_supportedHasBeenSet; }
 
     /**
      * <p>Indicates that an operating system is not supported for new instances.</p>

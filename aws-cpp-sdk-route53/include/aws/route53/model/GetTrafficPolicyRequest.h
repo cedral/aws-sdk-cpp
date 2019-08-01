@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetTrafficPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the traffic policy that you want to get information about.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID of the traffic policy that you want to get information about.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID of the traffic policy that you want to get information about.</p>
@@ -87,6 +92,12 @@ namespace Model
      * about.</p>
      */
     inline int GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The version number of the traffic policy that you want to get information
+     * about.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The version number of the traffic policy that you want to get information

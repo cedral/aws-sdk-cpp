@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListResourceDefinitionVersionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * The maximum number of results to be returned per request.
      */
     inline const Aws::String& GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * The maximum number of results to be returned per request.
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * The maximum number of results to be returned per request.
@@ -94,6 +99,12 @@ namespace Model
      * The token for the next set of results, or ''null'' if there are no additional
      * results.
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * The token for the next set of results, or ''null'' if there are no additional
+     * results.
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -131,6 +142,11 @@ namespace Model
      * The ID of the resource definition.
      */
     inline const Aws::String& GetResourceDefinitionId() const{ return m_resourceDefinitionId; }
+
+    /**
+     * The ID of the resource definition.
+     */
+    inline bool ResourceDefinitionIdHasBeenSet() const { return m_resourceDefinitionIdHasBeenSet; }
 
     /**
      * The ID of the resource definition.

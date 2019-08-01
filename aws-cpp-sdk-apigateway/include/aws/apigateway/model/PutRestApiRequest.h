@@ -43,7 +43,7 @@ namespace Model
   {
   public:
     PutRestApiRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,11 @@ namespace Model
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -99,6 +104,12 @@ namespace Model
      * <p>The <code>mode</code> query parameter to specify the update mode. Valid
      * values are "merge" and "overwrite". By default, the update mode is "merge".</p>
      */
+    inline bool ModeHasBeenSet() const { return m_modeHasBeenSet; }
+
+    /**
+     * <p>The <code>mode</code> query parameter to specify the update mode. Valid
+     * values are "merge" and "overwrite". By default, the update mode is "merge".</p>
+     */
     inline void SetMode(const PutMode& value) { m_modeHasBeenSet = true; m_mode = value; }
 
     /**
@@ -132,6 +143,13 @@ namespace Model
      * (<code>true</code>) or not (<code>false</code>) when a warning is encountered.
      * The default value is <code>false</code>.</p>
      */
+    inline bool FailOnWarningsHasBeenSet() const { return m_failOnWarningsHasBeenSet; }
+
+    /**
+     * <p>A query parameter to indicate whether to rollback the API update
+     * (<code>true</code>) or not (<code>false</code>) when a warning is encountered.
+     * The default value is <code>false</code>.</p>
+     */
     inline void SetFailOnWarnings(bool value) { m_failOnWarningsHasBeenSet = true; m_failOnWarnings = value; }
 
     /**
@@ -150,6 +168,15 @@ namespace Model
      * ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>Custom header parameters as part of the request. For example, to exclude
+     * <a>DocumentationParts</a> from an imported API, set
+     * <code>ignore=documentation</code> as a <code>parameters</code> value, as in the
+     * AWS CLI command of <code>aws apigateway import-rest-api --parameters
+     * ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>Custom header parameters as part of the request. For example, to exclude

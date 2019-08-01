@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <code>/home/<i>username</i> </code>.</p>
      */
     inline const Aws::String& GetHomeDirectory() const{ return m_homeDirectory; }
+
+    /**
+     * <p>The HomeDirectory parameter specifies the landing directory (folder) for a
+     * user when they log in to the server using their client. An example would be:
+     * <code>/home/<i>username</i> </code>.</p>
+     */
+    inline bool HomeDirectoryHasBeenSet() const { return m_homeDirectoryHasBeenSet; }
 
     /**
      * <p>The HomeDirectory parameter specifies the landing directory (folder) for a
@@ -103,6 +110,16 @@ namespace Model
      * <code>${Transfer:HomeBucket}</code>.</p>
      */
     inline const Aws::String& GetPolicy() const{ return m_policy; }
+
+    /**
+     * <p>Allows you to supply a scope-down policy for your user so you can use the
+     * same AWS Identity and Access Management (IAM) role across multiple users. The
+     * policy scopes down users access to portions of your Amazon S3 bucket. Variables
+     * you can use inside this policy include <code>${Transfer:UserName}</code>,
+     * <code>${Transfer:HomeDirectory}</code>, and
+     * <code>${Transfer:HomeBucket}</code>.</p>
+     */
+    inline bool PolicyHasBeenSet() const { return m_policyHasBeenSet; }
 
     /**
      * <p>Allows you to supply a scope-down policy for your user so you can use the
@@ -166,72 +183,82 @@ namespace Model
 
 
     /**
-     * <p>The IAM role that controls your user’s access to your Amazon S3 bucket. The
+     * <p>The IAM role that controls your user's access to your Amazon S3 bucket. The
      * policies attached to this role will determine the level of access you want to
      * provide your users when transferring files into and out of your Amazon S3 bucket
      * or buckets. The IAM role should also contain a trust relationship that allows
      * the Secure File Transfer Protocol (SFTP) server to access your resources when
-     * servicing your SFTP user’s transfer requests.</p>
+     * servicing your SFTP user's transfer requests.</p>
      */
     inline const Aws::String& GetRole() const{ return m_role; }
 
     /**
-     * <p>The IAM role that controls your user’s access to your Amazon S3 bucket. The
+     * <p>The IAM role that controls your user's access to your Amazon S3 bucket. The
      * policies attached to this role will determine the level of access you want to
      * provide your users when transferring files into and out of your Amazon S3 bucket
      * or buckets. The IAM role should also contain a trust relationship that allows
      * the Secure File Transfer Protocol (SFTP) server to access your resources when
-     * servicing your SFTP user’s transfer requests.</p>
+     * servicing your SFTP user's transfer requests.</p>
+     */
+    inline bool RoleHasBeenSet() const { return m_roleHasBeenSet; }
+
+    /**
+     * <p>The IAM role that controls your user's access to your Amazon S3 bucket. The
+     * policies attached to this role will determine the level of access you want to
+     * provide your users when transferring files into and out of your Amazon S3 bucket
+     * or buckets. The IAM role should also contain a trust relationship that allows
+     * the Secure File Transfer Protocol (SFTP) server to access your resources when
+     * servicing your SFTP user's transfer requests.</p>
      */
     inline void SetRole(const Aws::String& value) { m_roleHasBeenSet = true; m_role = value; }
 
     /**
-     * <p>The IAM role that controls your user’s access to your Amazon S3 bucket. The
+     * <p>The IAM role that controls your user's access to your Amazon S3 bucket. The
      * policies attached to this role will determine the level of access you want to
      * provide your users when transferring files into and out of your Amazon S3 bucket
      * or buckets. The IAM role should also contain a trust relationship that allows
      * the Secure File Transfer Protocol (SFTP) server to access your resources when
-     * servicing your SFTP user’s transfer requests.</p>
+     * servicing your SFTP user's transfer requests.</p>
      */
     inline void SetRole(Aws::String&& value) { m_roleHasBeenSet = true; m_role = std::move(value); }
 
     /**
-     * <p>The IAM role that controls your user’s access to your Amazon S3 bucket. The
+     * <p>The IAM role that controls your user's access to your Amazon S3 bucket. The
      * policies attached to this role will determine the level of access you want to
      * provide your users when transferring files into and out of your Amazon S3 bucket
      * or buckets. The IAM role should also contain a trust relationship that allows
      * the Secure File Transfer Protocol (SFTP) server to access your resources when
-     * servicing your SFTP user’s transfer requests.</p>
+     * servicing your SFTP user's transfer requests.</p>
      */
     inline void SetRole(const char* value) { m_roleHasBeenSet = true; m_role.assign(value); }
 
     /**
-     * <p>The IAM role that controls your user’s access to your Amazon S3 bucket. The
+     * <p>The IAM role that controls your user's access to your Amazon S3 bucket. The
      * policies attached to this role will determine the level of access you want to
      * provide your users when transferring files into and out of your Amazon S3 bucket
      * or buckets. The IAM role should also contain a trust relationship that allows
      * the Secure File Transfer Protocol (SFTP) server to access your resources when
-     * servicing your SFTP user’s transfer requests.</p>
+     * servicing your SFTP user's transfer requests.</p>
      */
     inline UpdateUserRequest& WithRole(const Aws::String& value) { SetRole(value); return *this;}
 
     /**
-     * <p>The IAM role that controls your user’s access to your Amazon S3 bucket. The
+     * <p>The IAM role that controls your user's access to your Amazon S3 bucket. The
      * policies attached to this role will determine the level of access you want to
      * provide your users when transferring files into and out of your Amazon S3 bucket
      * or buckets. The IAM role should also contain a trust relationship that allows
      * the Secure File Transfer Protocol (SFTP) server to access your resources when
-     * servicing your SFTP user’s transfer requests.</p>
+     * servicing your SFTP user's transfer requests.</p>
      */
     inline UpdateUserRequest& WithRole(Aws::String&& value) { SetRole(std::move(value)); return *this;}
 
     /**
-     * <p>The IAM role that controls your user’s access to your Amazon S3 bucket. The
+     * <p>The IAM role that controls your user's access to your Amazon S3 bucket. The
      * policies attached to this role will determine the level of access you want to
      * provide your users when transferring files into and out of your Amazon S3 bucket
      * or buckets. The IAM role should also contain a trust relationship that allows
      * the Secure File Transfer Protocol (SFTP) server to access your resources when
-     * servicing your SFTP user’s transfer requests.</p>
+     * servicing your SFTP user's transfer requests.</p>
      */
     inline UpdateUserRequest& WithRole(const char* value) { SetRole(value); return *this;}
 
@@ -241,6 +268,12 @@ namespace Model
      * account is assigned to.</p>
      */
     inline const Aws::String& GetServerId() const{ return m_serverId; }
+
+    /**
+     * <p>A system-assigned unique identifier for an SFTP server instance that the user
+     * account is assigned to.</p>
+     */
+    inline bool ServerIdHasBeenSet() const { return m_serverIdHasBeenSet; }
 
     /**
      * <p>A system-assigned unique identifier for an SFTP server instance that the user
@@ -282,49 +315,72 @@ namespace Model
     /**
      * <p>A unique string that identifies a user and is associated with a server as
      * specified by the ServerId. This is the string that will be used by your user
-     * when they log in to your SFTP server.</p>
+     * when they log in to your SFTP server. This user name is a minimum of 3 and a
+     * maximum of 32 characters long. The following are valid characters: a-z, A-Z,
+     * 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
 
     /**
      * <p>A unique string that identifies a user and is associated with a server as
      * specified by the ServerId. This is the string that will be used by your user
-     * when they log in to your SFTP server.</p>
+     * when they log in to your SFTP server. This user name is a minimum of 3 and a
+     * maximum of 32 characters long. The following are valid characters: a-z, A-Z,
+     * 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
+
+    /**
+     * <p>A unique string that identifies a user and is associated with a server as
+     * specified by the ServerId. This is the string that will be used by your user
+     * when they log in to your SFTP server. This user name is a minimum of 3 and a
+     * maximum of 32 characters long. The following are valid characters: a-z, A-Z,
+     * 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
      */
     inline void SetUserName(const Aws::String& value) { m_userNameHasBeenSet = true; m_userName = value; }
 
     /**
      * <p>A unique string that identifies a user and is associated with a server as
      * specified by the ServerId. This is the string that will be used by your user
-     * when they log in to your SFTP server.</p>
+     * when they log in to your SFTP server. This user name is a minimum of 3 and a
+     * maximum of 32 characters long. The following are valid characters: a-z, A-Z,
+     * 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
      */
     inline void SetUserName(Aws::String&& value) { m_userNameHasBeenSet = true; m_userName = std::move(value); }
 
     /**
      * <p>A unique string that identifies a user and is associated with a server as
      * specified by the ServerId. This is the string that will be used by your user
-     * when they log in to your SFTP server.</p>
+     * when they log in to your SFTP server. This user name is a minimum of 3 and a
+     * maximum of 32 characters long. The following are valid characters: a-z, A-Z,
+     * 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
      */
     inline void SetUserName(const char* value) { m_userNameHasBeenSet = true; m_userName.assign(value); }
 
     /**
      * <p>A unique string that identifies a user and is associated with a server as
      * specified by the ServerId. This is the string that will be used by your user
-     * when they log in to your SFTP server.</p>
+     * when they log in to your SFTP server. This user name is a minimum of 3 and a
+     * maximum of 32 characters long. The following are valid characters: a-z, A-Z,
+     * 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
      */
     inline UpdateUserRequest& WithUserName(const Aws::String& value) { SetUserName(value); return *this;}
 
     /**
      * <p>A unique string that identifies a user and is associated with a server as
      * specified by the ServerId. This is the string that will be used by your user
-     * when they log in to your SFTP server.</p>
+     * when they log in to your SFTP server. This user name is a minimum of 3 and a
+     * maximum of 32 characters long. The following are valid characters: a-z, A-Z,
+     * 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
      */
     inline UpdateUserRequest& WithUserName(Aws::String&& value) { SetUserName(std::move(value)); return *this;}
 
     /**
      * <p>A unique string that identifies a user and is associated with a server as
      * specified by the ServerId. This is the string that will be used by your user
-     * when they log in to your SFTP server.</p>
+     * when they log in to your SFTP server. This user name is a minimum of 3 and a
+     * maximum of 32 characters long. The following are valid characters: a-z, A-Z,
+     * 0-9, underscore, and hyphen. The user name can't start with a hyphen.</p>
      */
     inline UpdateUserRequest& WithUserName(const char* value) { SetUserName(value); return *this;}
 

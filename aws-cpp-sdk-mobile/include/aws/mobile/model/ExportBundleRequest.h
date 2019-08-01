@@ -42,7 +42,7 @@ namespace Model
   {
   public:
     ExportBundleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,11 @@ namespace Model
      * <p> Unique bundle identifier. </p>
      */
     inline const Aws::String& GetBundleId() const{ return m_bundleId; }
+
+    /**
+     * <p> Unique bundle identifier. </p>
+     */
+    inline bool BundleIdHasBeenSet() const { return m_bundleIdHasBeenSet; }
 
     /**
      * <p> Unique bundle identifier. </p>
@@ -98,6 +103,11 @@ namespace Model
     /**
      * <p> Unique project identifier. </p>
      */
+    inline bool ProjectIdHasBeenSet() const { return m_projectIdHasBeenSet; }
+
+    /**
+     * <p> Unique project identifier. </p>
+     */
     inline void SetProjectId(const Aws::String& value) { m_projectIdHasBeenSet = true; m_projectId = value; }
 
     /**
@@ -130,6 +140,11 @@ namespace Model
      * <p> Developer desktop or target application platform. </p>
      */
     inline const Platform& GetPlatform() const{ return m_platform; }
+
+    /**
+     * <p> Developer desktop or target application platform. </p>
+     */
+    inline bool PlatformHasBeenSet() const { return m_platformHasBeenSet; }
 
     /**
      * <p> Developer desktop or target application platform. </p>

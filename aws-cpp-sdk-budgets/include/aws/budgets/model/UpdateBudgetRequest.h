@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateBudgetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * to update.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The <code>accountId</code> that is associated with the budget that you want
+     * to update.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The <code>accountId</code> that is associated with the budget that you want
@@ -95,6 +101,11 @@ namespace Model
      * <p>The budget that you want to update your budget to.</p>
      */
     inline const Budget& GetNewBudget() const{ return m_newBudget; }
+
+    /**
+     * <p>The budget that you want to update your budget to.</p>
+     */
+    inline bool NewBudgetHasBeenSet() const { return m_newBudgetHasBeenSet; }
 
     /**
      * <p>The budget that you want to update your budget to.</p>

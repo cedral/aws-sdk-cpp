@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutEventsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * associated with the event, and so on.</p>
      */
     inline const Aws::Vector<PutEventsRequestEntry>& GetEntries() const{ return m_entries; }
+
+    /**
+     * <p>The entry that defines an event in your system. You can specify several
+     * parameters for the entry such as the source and type of the event, resources
+     * associated with the event, and so on.</p>
+     */
+    inline bool EntriesHasBeenSet() const { return m_entriesHasBeenSet; }
 
     /**
      * <p>The entry that defines an event in your system. You can specify several

@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/iotanalytics/IoTAnalytics_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/iotanalytics/model/ChannelStorageSummary.h>
 #include <aws/iotanalytics/model/ChannelStatus.h>
 #include <aws/core/utils/DateTime.h>
 #include <utility>
@@ -57,6 +58,11 @@ namespace Model
     /**
      * <p>The name of the channel.</p>
      */
+    inline bool ChannelNameHasBeenSet() const { return m_channelNameHasBeenSet; }
+
+    /**
+     * <p>The name of the channel.</p>
+     */
     inline void SetChannelName(const Aws::String& value) { m_channelNameHasBeenSet = true; m_channelName = value; }
 
     /**
@@ -86,9 +92,45 @@ namespace Model
 
 
     /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline const ChannelStorageSummary& GetChannelStorage() const{ return m_channelStorage; }
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline bool ChannelStorageHasBeenSet() const { return m_channelStorageHasBeenSet; }
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline void SetChannelStorage(const ChannelStorageSummary& value) { m_channelStorageHasBeenSet = true; m_channelStorage = value; }
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline void SetChannelStorage(ChannelStorageSummary&& value) { m_channelStorageHasBeenSet = true; m_channelStorage = std::move(value); }
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline ChannelSummary& WithChannelStorage(const ChannelStorageSummary& value) { SetChannelStorage(value); return *this;}
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline ChannelSummary& WithChannelStorage(ChannelStorageSummary&& value) { SetChannelStorage(std::move(value)); return *this;}
+
+
+    /**
      * <p>The status of the channel.</p>
      */
     inline const ChannelStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the channel.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the channel.</p>
@@ -119,6 +161,11 @@ namespace Model
     /**
      * <p>When the channel was created.</p>
      */
+    inline bool CreationTimeHasBeenSet() const { return m_creationTimeHasBeenSet; }
+
+    /**
+     * <p>When the channel was created.</p>
+     */
     inline void SetCreationTime(const Aws::Utils::DateTime& value) { m_creationTimeHasBeenSet = true; m_creationTime = value; }
 
     /**
@@ -145,6 +192,11 @@ namespace Model
     /**
      * <p>The last time the channel was updated.</p>
      */
+    inline bool LastUpdateTimeHasBeenSet() const { return m_lastUpdateTimeHasBeenSet; }
+
+    /**
+     * <p>The last time the channel was updated.</p>
+     */
     inline void SetLastUpdateTime(const Aws::Utils::DateTime& value) { m_lastUpdateTimeHasBeenSet = true; m_lastUpdateTime = value; }
 
     /**
@@ -166,6 +218,9 @@ namespace Model
 
     Aws::String m_channelName;
     bool m_channelNameHasBeenSet;
+
+    ChannelStorageSummary m_channelStorage;
+    bool m_channelStorageHasBeenSet;
 
     ChannelStatus m_status;
     bool m_statusHasBeenSet;

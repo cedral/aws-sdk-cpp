@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RemoveAutoScalingPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * scaling policy is applied is within this cluster.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>Specifies the ID of a cluster. The instance group to which the automatic
+     * scaling policy is applied is within this cluster.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>Specifies the ID of a cluster. The instance group to which the automatic
@@ -92,6 +98,12 @@ namespace Model
      * applied.</p>
      */
     inline const Aws::String& GetInstanceGroupId() const{ return m_instanceGroupId; }
+
+    /**
+     * <p>Specifies the ID of the instance group to which the scaling policy is
+     * applied.</p>
+     */
+    inline bool InstanceGroupIdHasBeenSet() const { return m_instanceGroupIdHasBeenSet; }
 
     /**
      * <p>Specifies the ID of the instance group to which the scaling policy is

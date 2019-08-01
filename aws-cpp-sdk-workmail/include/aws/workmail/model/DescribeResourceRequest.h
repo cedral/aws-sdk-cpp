@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * described.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The identifier associated with the organization for which the resource is
+     * described.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The identifier associated with the organization for which the resource is
@@ -91,6 +97,11 @@ namespace Model
      * <p>The identifier of the resource to be described.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The identifier of the resource to be described.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The identifier of the resource to be described.</p>

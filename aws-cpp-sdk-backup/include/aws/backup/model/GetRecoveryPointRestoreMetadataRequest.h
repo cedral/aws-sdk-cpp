@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetRecoveryPointRestoreMetadataRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,14 @@ namespace Model
      * and hyphens.</p>
      */
     inline const Aws::String& GetBackupVaultName() const{ return m_backupVaultName; }
+
+    /**
+     * <p>The name of a logical container where backups are stored. Backup vaults are
+     * identified by names that are unique to the account used to create them and the
+     * AWS Region where they are created. They consist of lowercase letters, numbers,
+     * and hyphens.</p>
+     */
+    inline bool BackupVaultNameHasBeenSet() const { return m_backupVaultNameHasBeenSet; }
 
     /**
      * <p>The name of a logical container where backups are stored. Backup vaults are
@@ -105,6 +113,13 @@ namespace Model
      * <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
      */
     inline const Aws::String& GetRecoveryPointArn() const{ return m_recoveryPointArn; }
+
+    /**
+     * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for
+     * example,
+     * <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+     */
+    inline bool RecoveryPointArnHasBeenSet() const { return m_recoveryPointArnHasBeenSet; }
 
     /**
      * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for

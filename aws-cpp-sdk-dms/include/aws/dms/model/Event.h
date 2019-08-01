@@ -51,89 +51,79 @@ namespace Model
 
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens; it cannot end with a
-     * hyphen or contain two consecutive hyphens. </p> <p>Constraints:replication
-     * instance, endpoint, migration task</p>
+     * <p> The identifier of an event source.</p>
      */
     inline const Aws::String& GetSourceIdentifier() const{ return m_sourceIdentifier; }
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens; it cannot end with a
-     * hyphen or contain two consecutive hyphens. </p> <p>Constraints:replication
-     * instance, endpoint, migration task</p>
+     * <p> The identifier of an event source.</p>
+     */
+    inline bool SourceIdentifierHasBeenSet() const { return m_sourceIdentifierHasBeenSet; }
+
+    /**
+     * <p> The identifier of an event source.</p>
      */
     inline void SetSourceIdentifier(const Aws::String& value) { m_sourceIdentifierHasBeenSet = true; m_sourceIdentifier = value; }
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens; it cannot end with a
-     * hyphen or contain two consecutive hyphens. </p> <p>Constraints:replication
-     * instance, endpoint, migration task</p>
+     * <p> The identifier of an event source.</p>
      */
     inline void SetSourceIdentifier(Aws::String&& value) { m_sourceIdentifierHasBeenSet = true; m_sourceIdentifier = std::move(value); }
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens; it cannot end with a
-     * hyphen or contain two consecutive hyphens. </p> <p>Constraints:replication
-     * instance, endpoint, migration task</p>
+     * <p> The identifier of an event source.</p>
      */
     inline void SetSourceIdentifier(const char* value) { m_sourceIdentifierHasBeenSet = true; m_sourceIdentifier.assign(value); }
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens; it cannot end with a
-     * hyphen or contain two consecutive hyphens. </p> <p>Constraints:replication
-     * instance, endpoint, migration task</p>
+     * <p> The identifier of an event source.</p>
      */
     inline Event& WithSourceIdentifier(const Aws::String& value) { SetSourceIdentifier(value); return *this;}
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens; it cannot end with a
-     * hyphen or contain two consecutive hyphens. </p> <p>Constraints:replication
-     * instance, endpoint, migration task</p>
+     * <p> The identifier of an event source.</p>
      */
     inline Event& WithSourceIdentifier(Aws::String&& value) { SetSourceIdentifier(std::move(value)); return *this;}
 
     /**
-     * <p> The identifier of the event source. An identifier must begin with a letter
-     * and must contain only ASCII letters, digits, and hyphens; it cannot end with a
-     * hyphen or contain two consecutive hyphens. </p> <p>Constraints:replication
-     * instance, endpoint, migration task</p>
+     * <p> The identifier of an event source.</p>
      */
     inline Event& WithSourceIdentifier(const char* value) { SetSourceIdentifier(value); return *this;}
 
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | endpoint | migration-task</p>
+     * replication-instance | endpoint | replication-task</p>
      */
     inline const SourceType& GetSourceType() const{ return m_sourceType; }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | endpoint | migration-task</p>
+     * replication-instance | endpoint | replication-task</p>
+     */
+    inline bool SourceTypeHasBeenSet() const { return m_sourceTypeHasBeenSet; }
+
+    /**
+     * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
+     * replication-instance | endpoint | replication-task</p>
      */
     inline void SetSourceType(const SourceType& value) { m_sourceTypeHasBeenSet = true; m_sourceType = value; }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | endpoint | migration-task</p>
+     * replication-instance | endpoint | replication-task</p>
      */
     inline void SetSourceType(SourceType&& value) { m_sourceTypeHasBeenSet = true; m_sourceType = std::move(value); }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | endpoint | migration-task</p>
+     * replication-instance | endpoint | replication-task</p>
      */
     inline Event& WithSourceType(const SourceType& value) { SetSourceType(value); return *this;}
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | endpoint | migration-task</p>
+     * replication-instance | endpoint | replication-task</p>
      */
     inline Event& WithSourceType(SourceType&& value) { SetSourceType(std::move(value)); return *this;}
 
@@ -142,6 +132,11 @@ namespace Model
      * <p>The event message.</p>
      */
     inline const Aws::String& GetMessage() const{ return m_message; }
+
+    /**
+     * <p>The event message.</p>
+     */
+    inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
 
     /**
      * <p>The event message.</p>
@@ -178,6 +173,11 @@ namespace Model
      * <p>The event categories available for the specified source type.</p>
      */
     inline const Aws::Vector<Aws::String>& GetEventCategories() const{ return m_eventCategories; }
+
+    /**
+     * <p>The event categories available for the specified source type.</p>
+     */
+    inline bool EventCategoriesHasBeenSet() const { return m_eventCategoriesHasBeenSet; }
 
     /**
      * <p>The event categories available for the specified source type.</p>
@@ -219,6 +219,11 @@ namespace Model
      * <p>The date of the event.</p>
      */
     inline const Aws::Utils::DateTime& GetDate() const{ return m_date; }
+
+    /**
+     * <p>The date of the event.</p>
+     */
+    inline bool DateHasBeenSet() const { return m_dateHasBeenSet; }
 
     /**
      * <p>The date of the event.</p>

@@ -56,6 +56,11 @@ namespace Model
     /**
      * <p>The key of the map filter.</p>
      */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
+
+    /**
+     * <p>The key of the map filter.</p>
+     */
     inline void SetKey(const Aws::String& value) { m_keyHasBeenSet = true; m_key = value; }
 
     /**
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The value for the key in the map filter.</p>
      */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
+
+    /**
+     * <p>The value for the key in the map filter.</p>
+     */
     inline void SetValue(const Aws::String& value) { m_valueHasBeenSet = true; m_value = value; }
 
     /**
@@ -121,32 +131,38 @@ namespace Model
 
 
     /**
-     * <p>Represents the condition to be applied to a key value when querying for
-     * findings with a map filter.</p>
+     * <p>The condition to apply to a key value when querying for findings with a map
+     * filter.</p>
      */
     inline const MapFilterComparison& GetComparison() const{ return m_comparison; }
 
     /**
-     * <p>Represents the condition to be applied to a key value when querying for
-     * findings with a map filter.</p>
+     * <p>The condition to apply to a key value when querying for findings with a map
+     * filter.</p>
+     */
+    inline bool ComparisonHasBeenSet() const { return m_comparisonHasBeenSet; }
+
+    /**
+     * <p>The condition to apply to a key value when querying for findings with a map
+     * filter.</p>
      */
     inline void SetComparison(const MapFilterComparison& value) { m_comparisonHasBeenSet = true; m_comparison = value; }
 
     /**
-     * <p>Represents the condition to be applied to a key value when querying for
-     * findings with a map filter.</p>
+     * <p>The condition to apply to a key value when querying for findings with a map
+     * filter.</p>
      */
     inline void SetComparison(MapFilterComparison&& value) { m_comparisonHasBeenSet = true; m_comparison = std::move(value); }
 
     /**
-     * <p>Represents the condition to be applied to a key value when querying for
-     * findings with a map filter.</p>
+     * <p>The condition to apply to a key value when querying for findings with a map
+     * filter.</p>
      */
     inline MapFilter& WithComparison(const MapFilterComparison& value) { SetComparison(value); return *this;}
 
     /**
-     * <p>Represents the condition to be applied to a key value when querying for
-     * findings with a map filter.</p>
+     * <p>The condition to apply to a key value when querying for findings with a map
+     * filter.</p>
      */
     inline MapFilter& WithComparison(MapFilterComparison&& value) { SetComparison(std::move(value)); return *this;}
 

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListChangeSetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * list change sets.</p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>The name or the Amazon Resource Name (ARN) of the stack for which you want to
+     * list change sets.</p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>The name or the Amazon Resource Name (ARN) of the stack for which you want to
@@ -97,6 +103,12 @@ namespace Model
      * identifies the next page of change sets that you want to retrieve.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A string (provided by the <a>ListChangeSets</a> response output) that
+     * identifies the next page of change sets that you want to retrieve.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A string (provided by the <a>ListChangeSets</a> response output) that

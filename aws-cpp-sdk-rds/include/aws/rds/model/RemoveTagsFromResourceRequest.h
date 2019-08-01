@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     RemoveTagsFromResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,14 @@ namespace Model
      * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
+
+    /**
+     * <p>The Amazon RDS resource that the tags are removed from. This value is an
+     * Amazon Resource Name (ARN). For information about creating an ARN, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide.</i> </p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
 
     /**
      * <p>The Amazon RDS resource that the tags are removed from. This value is an
@@ -111,6 +119,11 @@ namespace Model
      * <p>The tag key (name) of the tag to be removed.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeys() const{ return m_tagKeys; }
+
+    /**
+     * <p>The tag key (name) of the tag to be removed.</p>
+     */
+    inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }
 
     /**
      * <p>The tag key (name) of the tag to be removed.</p>

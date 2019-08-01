@@ -42,7 +42,7 @@ namespace Model
   {
   public:
     ImportDocumentationPartsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -102,6 +107,14 @@ namespace Model
      * (<code>MERGE</code>) the new definition into the existing one. The default value
      * is <code>MERGE</code>.</p>
      */
+    inline bool ModeHasBeenSet() const { return m_modeHasBeenSet; }
+
+    /**
+     * <p>A query parameter to indicate whether to overwrite (<code>OVERWRITE</code>)
+     * any existing <a>DocumentationParts</a> definition or to merge
+     * (<code>MERGE</code>) the new definition into the existing one. The default value
+     * is <code>MERGE</code>.</p>
+     */
     inline void SetMode(const PutMode& value) { m_modeHasBeenSet = true; m_mode = value; }
 
     /**
@@ -135,6 +148,13 @@ namespace Model
      * encountered. The default value is <code>false</code>.</p>
      */
     inline bool GetFailOnWarnings() const{ return m_failOnWarnings; }
+
+    /**
+     * <p>A query parameter to specify whether to rollback the documentation
+     * importation (<code>true</code>) or not (<code>false</code>) when a warning is
+     * encountered. The default value is <code>false</code>.</p>
+     */
+    inline bool FailOnWarningsHasBeenSet() const { return m_failOnWarningsHasBeenSet; }
 
     /**
      * <p>A query parameter to specify whether to rollback the documentation

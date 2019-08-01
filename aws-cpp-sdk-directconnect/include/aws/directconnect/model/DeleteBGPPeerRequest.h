@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteBGPPeerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the virtual interface.</p>
      */
     inline const Aws::String& GetVirtualInterfaceId() const{ return m_virtualInterfaceId; }
+
+    /**
+     * <p>The ID of the virtual interface.</p>
+     */
+    inline bool VirtualInterfaceIdHasBeenSet() const { return m_virtualInterfaceIdHasBeenSet; }
 
     /**
      * <p>The ID of the virtual interface.</p>
@@ -90,6 +95,12 @@ namespace Model
      * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP)
      * configuration.</p>
      */
+    inline bool AsnHasBeenSet() const { return m_asnHasBeenSet; }
+
+    /**
+     * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP)
+     * configuration.</p>
+     */
     inline void SetAsn(int value) { m_asnHasBeenSet = true; m_asn = value; }
 
     /**
@@ -103,6 +114,11 @@ namespace Model
      * <p>The IP address assigned to the customer interface.</p>
      */
     inline const Aws::String& GetCustomerAddress() const{ return m_customerAddress; }
+
+    /**
+     * <p>The IP address assigned to the customer interface.</p>
+     */
+    inline bool CustomerAddressHasBeenSet() const { return m_customerAddressHasBeenSet; }
 
     /**
      * <p>The IP address assigned to the customer interface.</p>
@@ -139,6 +155,11 @@ namespace Model
      * <p>The ID of the BGP peer.</p>
      */
     inline const Aws::String& GetBgpPeerId() const{ return m_bgpPeerId; }
+
+    /**
+     * <p>The ID of the BGP peer.</p>
+     */
+    inline bool BgpPeerIdHasBeenSet() const { return m_bgpPeerIdHasBeenSet; }
 
     /**
      * <p>The ID of the BGP peer.</p>

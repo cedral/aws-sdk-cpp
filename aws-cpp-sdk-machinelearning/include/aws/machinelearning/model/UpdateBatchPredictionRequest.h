@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateBatchPredictionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID assigned to the <code>BatchPrediction</code> during creation.</p>
      */
     inline const Aws::String& GetBatchPredictionId() const{ return m_batchPredictionId; }
+
+    /**
+     * <p>The ID assigned to the <code>BatchPrediction</code> during creation.</p>
+     */
+    inline bool BatchPredictionIdHasBeenSet() const { return m_batchPredictionIdHasBeenSet; }
 
     /**
      * <p>The ID assigned to the <code>BatchPrediction</code> during creation.</p>
@@ -85,6 +90,12 @@ namespace Model
      * <code>BatchPrediction</code>.</p>
      */
     inline const Aws::String& GetBatchPredictionName() const{ return m_batchPredictionName; }
+
+    /**
+     * <p>A new user-supplied name or description of the
+     * <code>BatchPrediction</code>.</p>
+     */
+    inline bool BatchPredictionNameHasBeenSet() const { return m_batchPredictionNameHasBeenSet; }
 
     /**
      * <p>A new user-supplied name or description of the

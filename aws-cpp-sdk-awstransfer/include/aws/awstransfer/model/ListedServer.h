@@ -17,6 +17,7 @@
 #include <aws/awstransfer/Transfer_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/awstransfer/model/IdentityProviderType.h>
+#include <aws/awstransfer/model/EndpointType.h>
 #include <aws/awstransfer/model/State.h>
 #include <utility>
 
@@ -54,6 +55,11 @@ namespace Model
      * <p>The unique Amazon Resource Name (ARN) for the server to be listed.</p>
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * <p>The unique Amazon Resource Name (ARN) for the server to be listed.</p>
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * <p>The unique Amazon Resource Name (ARN) for the server to be listed.</p>
@@ -100,6 +106,14 @@ namespace Model
      * combinations, or your own custom authentication method. Valid values include
      * <code>SERVICE_MANAGED</code> or <code>API_GATEWAY</code>.</p>
      */
+    inline bool IdentityProviderTypeHasBeenSet() const { return m_identityProviderTypeHasBeenSet; }
+
+    /**
+     * <p>The authentication method used to validate a user for the server that was
+     * specified. listed. This can include Secure Shell (SSH), user name and password
+     * combinations, or your own custom authentication method. Valid values include
+     * <code>SERVICE_MANAGED</code> or <code>API_GATEWAY</code>.</p>
+     */
     inline void SetIdentityProviderType(const IdentityProviderType& value) { m_identityProviderTypeHasBeenSet = true; m_identityProviderType = value; }
 
     /**
@@ -128,10 +142,59 @@ namespace Model
 
 
     /**
+     * <p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline const EndpointType& GetEndpointType() const{ return m_endpointType; }
+
+    /**
+     * <p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline bool EndpointTypeHasBeenSet() const { return m_endpointTypeHasBeenSet; }
+
+    /**
+     * <p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline void SetEndpointType(const EndpointType& value) { m_endpointTypeHasBeenSet = true; m_endpointType = value; }
+
+    /**
+     * <p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline void SetEndpointType(EndpointType&& value) { m_endpointTypeHasBeenSet = true; m_endpointType = std::move(value); }
+
+    /**
+     * <p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline ListedServer& WithEndpointType(const EndpointType& value) { SetEndpointType(value); return *this;}
+
+    /**
+     * <p>The type of VPC endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline ListedServer& WithEndpointType(EndpointType&& value) { SetEndpointType(std::move(value)); return *this;}
+
+
+    /**
      * <p>The AWS Identity and Access Management entity that allows the server to turn
      * on Amazon CloudWatch logging.</p>
      */
     inline const Aws::String& GetLoggingRole() const{ return m_loggingRole; }
+
+    /**
+     * <p>The AWS Identity and Access Management entity that allows the server to turn
+     * on Amazon CloudWatch logging.</p>
+     */
+    inline bool LoggingRoleHasBeenSet() const { return m_loggingRoleHasBeenSet; }
 
     /**
      * <p>The AWS Identity and Access Management entity that allows the server to turn
@@ -175,6 +238,12 @@ namespace Model
      * were listed.</p>
      */
     inline const Aws::String& GetServerId() const{ return m_serverId; }
+
+    /**
+     * <p>This value is the unique system assigned identifier for the SFTP servers that
+     * were listed.</p>
+     */
+    inline bool ServerIdHasBeenSet() const { return m_serverIdHasBeenSet; }
 
     /**
      * <p>This value is the unique system assigned identifier for the SFTP servers that
@@ -235,6 +304,18 @@ namespace Model
      * respond, or not fully offline. The values of <code>START_FAILED</code> or
      * <code>STOP_FAILED</code> can indicate an error condition.</p>
      */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
+
+    /**
+     * <p>This property describes the condition of the SFTP server for the server that
+     * was described. A value of <code>ONLINE</code>&gt; indicates that the server can
+     * accept jobs and transfer files. A <code>State</code> value of
+     * <code>OFFLINE</code> means that the server cannot perform file transfer
+     * operations.</p> <p>The states of <code>STARTING</code> and <code>STOPPING</code>
+     * indicated that the server is in an intermediate state, either not fully able to
+     * respond, or not fully offline. The values of <code>START_FAILED</code> or
+     * <code>STOP_FAILED</code> can indicate an error condition.</p>
+     */
     inline void SetState(const State& value) { m_stateHasBeenSet = true; m_state = value; }
 
     /**
@@ -284,6 +365,12 @@ namespace Model
      * <p>This property is a numeric value that indicates the number of users that are
      * assigned to the SFTP server you specified with the <code>ServerId</code>.</p>
      */
+    inline bool UserCountHasBeenSet() const { return m_userCountHasBeenSet; }
+
+    /**
+     * <p>This property is a numeric value that indicates the number of users that are
+     * assigned to the SFTP server you specified with the <code>ServerId</code>.</p>
+     */
     inline void SetUserCount(int value) { m_userCountHasBeenSet = true; m_userCount = value; }
 
     /**
@@ -299,6 +386,9 @@ namespace Model
 
     IdentityProviderType m_identityProviderType;
     bool m_identityProviderTypeHasBeenSet;
+
+    EndpointType m_endpointType;
+    bool m_endpointTypeHasBeenSet;
 
     Aws::String m_loggingRole;
     bool m_loggingRoleHasBeenSet;

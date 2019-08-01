@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteModelPackageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * characters are a-z, A-Z, 0-9, and - (hyphen).</p>
      */
     inline const Aws::String& GetModelPackageName() const{ return m_modelPackageName; }
+
+    /**
+     * <p>The name of the model package. The name must have 1 to 63 characters. Valid
+     * characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+     */
+    inline bool ModelPackageNameHasBeenSet() const { return m_modelPackageNameHasBeenSet; }
 
     /**
      * <p>The name of the model package. The name must have 1 to 63 characters. Valid

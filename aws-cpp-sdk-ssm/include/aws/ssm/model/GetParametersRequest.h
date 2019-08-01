@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetParametersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Names of the parameters for which you want to query information.</p>
      */
     inline const Aws::Vector<Aws::String>& GetNames() const{ return m_names; }
+
+    /**
+     * <p>Names of the parameters for which you want to query information.</p>
+     */
+    inline bool NamesHasBeenSet() const { return m_namesHasBeenSet; }
 
     /**
      * <p>Names of the parameters for which you want to query information.</p>
@@ -92,6 +97,13 @@ namespace Model
      * types.</p>
      */
     inline bool GetWithDecryption() const{ return m_withDecryption; }
+
+    /**
+     * <p>Return decrypted secure string value. Return decrypted values for secure
+     * string parameters. This flag is ignored for String and StringList parameter
+     * types.</p>
+     */
+    inline bool WithDecryptionHasBeenSet() const { return m_withDecryptionHasBeenSet; }
 
     /**
      * <p>Return decrypted secure string value. Return decrypted values for secure

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListResourcesForWebACLRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * resources.</p>
      */
     inline const Aws::String& GetWebACLId() const{ return m_webACLId; }
+
+    /**
+     * <p>The unique identifier (ID) of the web ACL for which to list the associated
+     * resources.</p>
+     */
+    inline bool WebACLIdHasBeenSet() const { return m_webACLIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) of the web ACL for which to list the associated
@@ -93,6 +99,12 @@ namespace Model
      * API Gateway.</p>
      */
     inline const ResourceType& GetResourceType() const{ return m_resourceType; }
+
+    /**
+     * <p>The type of resource to list, either an application load balancer or Amazon
+     * API Gateway.</p>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
 
     /**
      * <p>The type of resource to list, either an application load balancer or Amazon

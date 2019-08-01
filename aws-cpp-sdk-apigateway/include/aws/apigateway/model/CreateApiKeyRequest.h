@@ -18,6 +18,7 @@
 #include <aws/apigateway/APIGatewayRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/apigateway/model/StageKey.h>
 #include <utility>
 
@@ -37,7 +38,7 @@ namespace Model
   {
   public:
     CreateApiKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +52,11 @@ namespace Model
      * <p>The name of the <a>ApiKey</a>.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the <a>ApiKey</a>.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the <a>ApiKey</a>.</p>
@@ -91,6 +97,11 @@ namespace Model
     /**
      * <p>The description of the <a>ApiKey</a>.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the <a>ApiKey</a>.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -127,6 +138,11 @@ namespace Model
     /**
      * <p>Specifies whether the <a>ApiKey</a> can be used by callers.</p>
      */
+    inline bool EnabledHasBeenSet() const { return m_enabledHasBeenSet; }
+
+    /**
+     * <p>Specifies whether the <a>ApiKey</a> can be used by callers.</p>
+     */
     inline void SetEnabled(bool value) { m_enabledHasBeenSet = true; m_enabled = value; }
 
     /**
@@ -145,6 +161,12 @@ namespace Model
      * <p>Specifies whether (<code>true</code>) or not (<code>false</code>) the key
      * identifier is distinct from the created API key value.</p>
      */
+    inline bool GenerateDistinctIdHasBeenSet() const { return m_generateDistinctIdHasBeenSet; }
+
+    /**
+     * <p>Specifies whether (<code>true</code>) or not (<code>false</code>) the key
+     * identifier is distinct from the created API key value.</p>
+     */
     inline void SetGenerateDistinctId(bool value) { m_generateDistinctIdHasBeenSet = true; m_generateDistinctId = value; }
 
     /**
@@ -158,6 +180,11 @@ namespace Model
      * <p>Specifies a value of the API key.</p>
      */
     inline const Aws::String& GetValue() const{ return m_value; }
+
+    /**
+     * <p>Specifies a value of the API key.</p>
+     */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
 
     /**
      * <p>Specifies a value of the API key.</p>
@@ -195,6 +222,12 @@ namespace Model
      * key.</p>
      */
     inline const Aws::Vector<StageKey>& GetStageKeys() const{ return m_stageKeys; }
+
+    /**
+     * <p>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
+     * key.</p>
+     */
+    inline bool StageKeysHasBeenSet() const { return m_stageKeysHasBeenSet; }
 
     /**
      * <p>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API
@@ -243,6 +276,12 @@ namespace Model
      * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS
      * Marketplace.</p>
      */
+    inline bool CustomerIdHasBeenSet() const { return m_customerIdHasBeenSet; }
+
+    /**
+     * <p>An AWS Marketplace customer identifier , when integrating with the AWS SaaS
+     * Marketplace.</p>
+     */
     inline void SetCustomerId(const Aws::String& value) { m_customerIdHasBeenSet = true; m_customerId = value; }
 
     /**
@@ -275,6 +314,98 @@ namespace Model
      */
     inline CreateApiKeyRequest& WithCustomerId(const char* value) { SetCustomerId(value); return *this;}
 
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateApiKeyRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     Aws::String m_name;
@@ -297,6 +428,9 @@ namespace Model
 
     Aws::String m_customerId;
     bool m_customerIdHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

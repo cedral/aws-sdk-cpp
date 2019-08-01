@@ -60,6 +60,11 @@ namespace Model
     /**
      * <p> ARN for a branch, part of an Amplify App. </p>
      */
+    inline bool BranchArnHasBeenSet() const { return m_branchArnHasBeenSet; }
+
+    /**
+     * <p> ARN for a branch, part of an Amplify App. </p>
+     */
     inline void SetBranchArn(const Aws::String& value) { m_branchArnHasBeenSet = true; m_branchArn = value; }
 
     /**
@@ -92,6 +97,11 @@ namespace Model
      * <p> Name for a branch, part of an Amplify App. </p>
      */
     inline const Aws::String& GetBranchName() const{ return m_branchName; }
+
+    /**
+     * <p> Name for a branch, part of an Amplify App. </p>
+     */
+    inline bool BranchNameHasBeenSet() const { return m_branchNameHasBeenSet; }
 
     /**
      * <p> Name for a branch, part of an Amplify App. </p>
@@ -132,6 +142,11 @@ namespace Model
     /**
      * <p> Description for a branch, part of an Amplify App. </p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p> Description for a branch, part of an Amplify App. </p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -164,6 +179,11 @@ namespace Model
      * <p> Tag for branch for Amplify App. </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p> Tag for branch for Amplify App. </p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p> Tag for branch for Amplify App. </p>
@@ -229,6 +249,11 @@ namespace Model
     /**
      * <p> Stage for a branch, part of an Amplify App. </p>
      */
+    inline bool StageHasBeenSet() const { return m_stageHasBeenSet; }
+
+    /**
+     * <p> Stage for a branch, part of an Amplify App. </p>
+     */
     inline void SetStage(const Stage& value) { m_stageHasBeenSet = true; m_stage = value; }
 
     /**
@@ -248,37 +273,42 @@ namespace Model
 
 
     /**
-     * <p> Display name for a branch, part of an Amplify App. </p>
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
      */
     inline const Aws::String& GetDisplayName() const{ return m_displayName; }
 
     /**
-     * <p> Display name for a branch, part of an Amplify App. </p>
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
+     */
+    inline bool DisplayNameHasBeenSet() const { return m_displayNameHasBeenSet; }
+
+    /**
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
      */
     inline void SetDisplayName(const Aws::String& value) { m_displayNameHasBeenSet = true; m_displayName = value; }
 
     /**
-     * <p> Display name for a branch, part of an Amplify App. </p>
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
      */
     inline void SetDisplayName(Aws::String&& value) { m_displayNameHasBeenSet = true; m_displayName = std::move(value); }
 
     /**
-     * <p> Display name for a branch, part of an Amplify App. </p>
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
      */
     inline void SetDisplayName(const char* value) { m_displayNameHasBeenSet = true; m_displayName.assign(value); }
 
     /**
-     * <p> Display name for a branch, part of an Amplify App. </p>
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
      */
     inline Branch& WithDisplayName(const Aws::String& value) { SetDisplayName(value); return *this;}
 
     /**
-     * <p> Display name for a branch, part of an Amplify App. </p>
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
      */
     inline Branch& WithDisplayName(Aws::String&& value) { SetDisplayName(std::move(value)); return *this;}
 
     /**
-     * <p> Display name for a branch, part of an Amplify App. </p>
+     * <p> Display name for a branch, will use as the default domain prefix. </p>
      */
     inline Branch& WithDisplayName(const char* value) { SetDisplayName(value); return *this;}
 
@@ -287,6 +317,11 @@ namespace Model
      * <p> Enables notifications for a branch, part of an Amplify App. </p>
      */
     inline bool GetEnableNotification() const{ return m_enableNotification; }
+
+    /**
+     * <p> Enables notifications for a branch, part of an Amplify App. </p>
+     */
+    inline bool EnableNotificationHasBeenSet() const { return m_enableNotificationHasBeenSet; }
 
     /**
      * <p> Enables notifications for a branch, part of an Amplify App. </p>
@@ -303,6 +338,11 @@ namespace Model
      * <p> Creation date and time for a branch, part of an Amplify App. </p>
      */
     inline const Aws::Utils::DateTime& GetCreateTime() const{ return m_createTime; }
+
+    /**
+     * <p> Creation date and time for a branch, part of an Amplify App. </p>
+     */
+    inline bool CreateTimeHasBeenSet() const { return m_createTimeHasBeenSet; }
 
     /**
      * <p> Creation date and time for a branch, part of an Amplify App. </p>
@@ -333,6 +373,11 @@ namespace Model
     /**
      * <p> Last updated date and time for a branch, part of an Amplify App. </p>
      */
+    inline bool UpdateTimeHasBeenSet() const { return m_updateTimeHasBeenSet; }
+
+    /**
+     * <p> Last updated date and time for a branch, part of an Amplify App. </p>
+     */
     inline void SetUpdateTime(const Aws::Utils::DateTime& value) { m_updateTimeHasBeenSet = true; m_updateTime = value; }
 
     /**
@@ -355,6 +400,11 @@ namespace Model
      * <p> Environment Variables specific to a branch, part of an Amplify App. </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetEnvironmentVariables() const{ return m_environmentVariables; }
+
+    /**
+     * <p> Environment Variables specific to a branch, part of an Amplify App. </p>
+     */
+    inline bool EnvironmentVariablesHasBeenSet() const { return m_environmentVariablesHasBeenSet; }
 
     /**
      * <p> Environment Variables specific to a branch, part of an Amplify App. </p>
@@ -420,6 +470,11 @@ namespace Model
     /**
      * <p> Enables auto-building on push for a branch, part of an Amplify App. </p>
      */
+    inline bool EnableAutoBuildHasBeenSet() const { return m_enableAutoBuildHasBeenSet; }
+
+    /**
+     * <p> Enables auto-building on push for a branch, part of an Amplify App. </p>
+     */
     inline void SetEnableAutoBuild(bool value) { m_enableAutoBuildHasBeenSet = true; m_enableAutoBuild = value; }
 
     /**
@@ -432,6 +487,11 @@ namespace Model
      * <p> Custom domains for a branch, part of an Amplify App. </p>
      */
     inline const Aws::Vector<Aws::String>& GetCustomDomains() const{ return m_customDomains; }
+
+    /**
+     * <p> Custom domains for a branch, part of an Amplify App. </p>
+     */
+    inline bool CustomDomainsHasBeenSet() const { return m_customDomainsHasBeenSet; }
 
     /**
      * <p> Custom domains for a branch, part of an Amplify App. </p>
@@ -477,6 +537,11 @@ namespace Model
     /**
      * <p> Framework for a branch, part of an Amplify App. </p>
      */
+    inline bool FrameworkHasBeenSet() const { return m_frameworkHasBeenSet; }
+
+    /**
+     * <p> Framework for a branch, part of an Amplify App. </p>
+     */
     inline void SetFramework(const Aws::String& value) { m_frameworkHasBeenSet = true; m_framework = value; }
 
     /**
@@ -509,6 +574,11 @@ namespace Model
      * <p> Id of the active job for a branch, part of an Amplify App. </p>
      */
     inline const Aws::String& GetActiveJobId() const{ return m_activeJobId; }
+
+    /**
+     * <p> Id of the active job for a branch, part of an Amplify App. </p>
+     */
+    inline bool ActiveJobIdHasBeenSet() const { return m_activeJobIdHasBeenSet; }
 
     /**
      * <p> Id of the active job for a branch, part of an Amplify App. </p>
@@ -549,6 +619,11 @@ namespace Model
     /**
      * <p> Total number of Jobs part of an Amplify App. </p>
      */
+    inline bool TotalNumberOfJobsHasBeenSet() const { return m_totalNumberOfJobsHasBeenSet; }
+
+    /**
+     * <p> Total number of Jobs part of an Amplify App. </p>
+     */
     inline void SetTotalNumberOfJobs(const Aws::String& value) { m_totalNumberOfJobsHasBeenSet = true; m_totalNumberOfJobs = value; }
 
     /**
@@ -585,6 +660,11 @@ namespace Model
     /**
      * <p> Enables Basic Authorization for a branch, part of an Amplify App. </p>
      */
+    inline bool EnableBasicAuthHasBeenSet() const { return m_enableBasicAuthHasBeenSet; }
+
+    /**
+     * <p> Enables Basic Authorization for a branch, part of an Amplify App. </p>
+     */
     inline void SetEnableBasicAuth(bool value) { m_enableBasicAuthHasBeenSet = true; m_enableBasicAuth = value; }
 
     /**
@@ -594,37 +674,42 @@ namespace Model
 
 
     /**
-     * <p> Thumbnail Url for the branch. </p>
+     * <p> Thumbnail URL for the branch. </p>
      */
     inline const Aws::String& GetThumbnailUrl() const{ return m_thumbnailUrl; }
 
     /**
-     * <p> Thumbnail Url for the branch. </p>
+     * <p> Thumbnail URL for the branch. </p>
+     */
+    inline bool ThumbnailUrlHasBeenSet() const { return m_thumbnailUrlHasBeenSet; }
+
+    /**
+     * <p> Thumbnail URL for the branch. </p>
      */
     inline void SetThumbnailUrl(const Aws::String& value) { m_thumbnailUrlHasBeenSet = true; m_thumbnailUrl = value; }
 
     /**
-     * <p> Thumbnail Url for the branch. </p>
+     * <p> Thumbnail URL for the branch. </p>
      */
     inline void SetThumbnailUrl(Aws::String&& value) { m_thumbnailUrlHasBeenSet = true; m_thumbnailUrl = std::move(value); }
 
     /**
-     * <p> Thumbnail Url for the branch. </p>
+     * <p> Thumbnail URL for the branch. </p>
      */
     inline void SetThumbnailUrl(const char* value) { m_thumbnailUrlHasBeenSet = true; m_thumbnailUrl.assign(value); }
 
     /**
-     * <p> Thumbnail Url for the branch. </p>
+     * <p> Thumbnail URL for the branch. </p>
      */
     inline Branch& WithThumbnailUrl(const Aws::String& value) { SetThumbnailUrl(value); return *this;}
 
     /**
-     * <p> Thumbnail Url for the branch. </p>
+     * <p> Thumbnail URL for the branch. </p>
      */
     inline Branch& WithThumbnailUrl(Aws::String&& value) { SetThumbnailUrl(std::move(value)); return *this;}
 
     /**
-     * <p> Thumbnail Url for the branch. </p>
+     * <p> Thumbnail URL for the branch. </p>
      */
     inline Branch& WithThumbnailUrl(const char* value) { SetThumbnailUrl(value); return *this;}
 
@@ -633,6 +718,11 @@ namespace Model
      * <p> Basic Authorization credentials for a branch, part of an Amplify App. </p>
      */
     inline const Aws::String& GetBasicAuthCredentials() const{ return m_basicAuthCredentials; }
+
+    /**
+     * <p> Basic Authorization credentials for a branch, part of an Amplify App. </p>
+     */
+    inline bool BasicAuthCredentialsHasBeenSet() const { return m_basicAuthCredentialsHasBeenSet; }
 
     /**
      * <p> Basic Authorization credentials for a branch, part of an Amplify App. </p>
@@ -673,6 +763,11 @@ namespace Model
     /**
      * <p> BuildSpec content for branch for Amplify App. </p>
      */
+    inline bool BuildSpecHasBeenSet() const { return m_buildSpecHasBeenSet; }
+
+    /**
+     * <p> BuildSpec content for branch for Amplify App. </p>
+     */
     inline void SetBuildSpec(const Aws::String& value) { m_buildSpecHasBeenSet = true; m_buildSpec = value; }
 
     /**
@@ -709,6 +804,11 @@ namespace Model
     /**
      * <p> The content TTL for the website in seconds. </p>
      */
+    inline bool TtlHasBeenSet() const { return m_ttlHasBeenSet; }
+
+    /**
+     * <p> The content TTL for the website in seconds. </p>
+     */
     inline void SetTtl(const Aws::String& value) { m_ttlHasBeenSet = true; m_ttl = value; }
 
     /**
@@ -735,6 +835,52 @@ namespace Model
      * <p> The content TTL for the website in seconds. </p>
      */
     inline Branch& WithTtl(const char* value) { SetTtl(value); return *this;}
+
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline const Aws::Vector<Aws::String>& GetAssociatedResources() const{ return m_associatedResources; }
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline bool AssociatedResourcesHasBeenSet() const { return m_associatedResourcesHasBeenSet; }
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline void SetAssociatedResources(const Aws::Vector<Aws::String>& value) { m_associatedResourcesHasBeenSet = true; m_associatedResources = value; }
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline void SetAssociatedResources(Aws::Vector<Aws::String>&& value) { m_associatedResourcesHasBeenSet = true; m_associatedResources = std::move(value); }
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline Branch& WithAssociatedResources(const Aws::Vector<Aws::String>& value) { SetAssociatedResources(value); return *this;}
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline Branch& WithAssociatedResources(Aws::Vector<Aws::String>&& value) { SetAssociatedResources(std::move(value)); return *this;}
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline Branch& AddAssociatedResources(const Aws::String& value) { m_associatedResourcesHasBeenSet = true; m_associatedResources.push_back(value); return *this; }
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline Branch& AddAssociatedResources(Aws::String&& value) { m_associatedResourcesHasBeenSet = true; m_associatedResources.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p> List of custom resources that are linked to this branch. </p>
+     */
+    inline Branch& AddAssociatedResources(const char* value) { m_associatedResourcesHasBeenSet = true; m_associatedResources.push_back(value); return *this; }
 
   private:
 
@@ -797,6 +943,9 @@ namespace Model
 
     Aws::String m_ttl;
     bool m_ttlHasBeenSet;
+
+    Aws::Vector<Aws::String> m_associatedResources;
+    bool m_associatedResourcesHasBeenSet;
   };
 
 } // namespace Model

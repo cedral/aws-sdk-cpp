@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListStepsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The identifier of the cluster for which to list the steps.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>The identifier of the cluster for which to list the steps.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>The identifier of the cluster for which to list the steps.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The filter to limit the step list based on certain states.</p>
      */
+    inline bool StepStatesHasBeenSet() const { return m_stepStatesHasBeenSet; }
+
+    /**
+     * <p>The filter to limit the step list based on certain states.</p>
+     */
     inline void SetStepStates(const Aws::Vector<StepState>& value) { m_stepStatesHasBeenSet = true; m_stepStates = value; }
 
     /**
@@ -125,6 +135,11 @@ namespace Model
      * <p>The filter to limit the step list based on the identifier of the steps.</p>
      */
     inline const Aws::Vector<Aws::String>& GetStepIds() const{ return m_stepIds; }
+
+    /**
+     * <p>The filter to limit the step list based on the identifier of the steps.</p>
+     */
+    inline bool StepIdsHasBeenSet() const { return m_stepIdsHasBeenSet; }
 
     /**
      * <p>The filter to limit the step list based on the identifier of the steps.</p>
@@ -166,6 +181,11 @@ namespace Model
      * <p>The pagination token that indicates the next set of results to retrieve.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>The pagination token that indicates the next set of results to retrieve.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>The pagination token that indicates the next set of results to retrieve.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetOnPremisesInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p> The name of the on-premises instance about which to get information. </p>
      */
     inline const Aws::String& GetInstanceName() const{ return m_instanceName; }
+
+    /**
+     * <p> The name of the on-premises instance about which to get information. </p>
+     */
+    inline bool InstanceNameHasBeenSet() const { return m_instanceNameHasBeenSet; }
 
     /**
      * <p> The name of the on-premises instance about which to get information. </p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * description.</p>
      */
     inline const Aws::String& GetGroupName() const{ return m_groupName; }
+
+    /**
+     * <p>The name of the resource group for which you want to update its
+     * description.</p>
+     */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
 
     /**
      * <p>The name of the resource group for which you want to update its
@@ -91,6 +97,13 @@ namespace Model
      * spaces.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The description of the resource group. Descriptions can have a maximum of 511
+     * characters, including letters, numbers, hyphens, underscores, punctuation, and
+     * spaces.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The description of the resource group. Descriptions can have a maximum of 511

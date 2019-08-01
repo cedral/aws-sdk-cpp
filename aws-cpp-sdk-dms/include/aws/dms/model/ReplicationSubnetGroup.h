@@ -57,6 +57,11 @@ namespace Model
     /**
      * <p>The identifier of the replication instance subnet group.</p>
      */
+    inline bool ReplicationSubnetGroupIdentifierHasBeenSet() const { return m_replicationSubnetGroupIdentifierHasBeenSet; }
+
+    /**
+     * <p>The identifier of the replication instance subnet group.</p>
+     */
     inline void SetReplicationSubnetGroupIdentifier(const Aws::String& value) { m_replicationSubnetGroupIdentifierHasBeenSet = true; m_replicationSubnetGroupIdentifier = value; }
 
     /**
@@ -86,37 +91,42 @@ namespace Model
 
 
     /**
-     * <p>The description of the replication subnet group.</p>
+     * <p>A description for the replication subnet group.</p>
      */
     inline const Aws::String& GetReplicationSubnetGroupDescription() const{ return m_replicationSubnetGroupDescription; }
 
     /**
-     * <p>The description of the replication subnet group.</p>
+     * <p>A description for the replication subnet group.</p>
+     */
+    inline bool ReplicationSubnetGroupDescriptionHasBeenSet() const { return m_replicationSubnetGroupDescriptionHasBeenSet; }
+
+    /**
+     * <p>A description for the replication subnet group.</p>
      */
     inline void SetReplicationSubnetGroupDescription(const Aws::String& value) { m_replicationSubnetGroupDescriptionHasBeenSet = true; m_replicationSubnetGroupDescription = value; }
 
     /**
-     * <p>The description of the replication subnet group.</p>
+     * <p>A description for the replication subnet group.</p>
      */
     inline void SetReplicationSubnetGroupDescription(Aws::String&& value) { m_replicationSubnetGroupDescriptionHasBeenSet = true; m_replicationSubnetGroupDescription = std::move(value); }
 
     /**
-     * <p>The description of the replication subnet group.</p>
+     * <p>A description for the replication subnet group.</p>
      */
     inline void SetReplicationSubnetGroupDescription(const char* value) { m_replicationSubnetGroupDescriptionHasBeenSet = true; m_replicationSubnetGroupDescription.assign(value); }
 
     /**
-     * <p>The description of the replication subnet group.</p>
+     * <p>A description for the replication subnet group.</p>
      */
     inline ReplicationSubnetGroup& WithReplicationSubnetGroupDescription(const Aws::String& value) { SetReplicationSubnetGroupDescription(value); return *this;}
 
     /**
-     * <p>The description of the replication subnet group.</p>
+     * <p>A description for the replication subnet group.</p>
      */
     inline ReplicationSubnetGroup& WithReplicationSubnetGroupDescription(Aws::String&& value) { SetReplicationSubnetGroupDescription(std::move(value)); return *this;}
 
     /**
-     * <p>The description of the replication subnet group.</p>
+     * <p>A description for the replication subnet group.</p>
      */
     inline ReplicationSubnetGroup& WithReplicationSubnetGroupDescription(const char* value) { SetReplicationSubnetGroupDescription(value); return *this;}
 
@@ -125,6 +135,11 @@ namespace Model
      * <p>The ID of the VPC.</p>
      */
     inline const Aws::String& GetVpcId() const{ return m_vpcId; }
+
+    /**
+     * <p>The ID of the VPC.</p>
+     */
+    inline bool VpcIdHasBeenSet() const { return m_vpcIdHasBeenSet; }
 
     /**
      * <p>The ID of the VPC.</p>
@@ -165,6 +180,11 @@ namespace Model
     /**
      * <p>The status of the subnet group.</p>
      */
+    inline bool SubnetGroupStatusHasBeenSet() const { return m_subnetGroupStatusHasBeenSet; }
+
+    /**
+     * <p>The status of the subnet group.</p>
+     */
     inline void SetSubnetGroupStatus(const Aws::String& value) { m_subnetGroupStatusHasBeenSet = true; m_subnetGroupStatus = value; }
 
     /**
@@ -197,6 +217,11 @@ namespace Model
      * <p>The subnets that are in the subnet group.</p>
      */
     inline const Aws::Vector<Subnet>& GetSubnets() const{ return m_subnets; }
+
+    /**
+     * <p>The subnets that are in the subnet group.</p>
+     */
+    inline bool SubnetsHasBeenSet() const { return m_subnetsHasBeenSet; }
 
     /**
      * <p>The subnets that are in the subnet group.</p>

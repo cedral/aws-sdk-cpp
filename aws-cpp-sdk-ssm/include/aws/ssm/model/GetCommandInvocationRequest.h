@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetCommandInvocationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>(Required) The parent command ID of the invocation plugin.</p>
      */
     inline const Aws::String& GetCommandId() const{ return m_commandId; }
+
+    /**
+     * <p>(Required) The parent command ID of the invocation plugin.</p>
+     */
+    inline bool CommandIdHasBeenSet() const { return m_commandIdHasBeenSet; }
 
     /**
      * <p>(Required) The parent command ID of the invocation plugin.</p>
@@ -86,6 +91,13 @@ namespace Model
      * that is configured for Systems Manager.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>(Required) The ID of the managed instance targeted by the command. A managed
+     * instance can be an Amazon EC2 instance or an instance in your hybrid environment
+     * that is configured for Systems Manager.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>(Required) The ID of the managed instance targeted by the command. A managed
@@ -136,6 +148,13 @@ namespace Model
      * be returned.</p>
      */
     inline const Aws::String& GetPluginName() const{ return m_pluginName; }
+
+    /**
+     * <p>(Optional) The name of the plugin for which you want detailed results. If the
+     * document contains only one plugin, the name can be omitted and the details will
+     * be returned.</p>
+     */
+    inline bool PluginNameHasBeenSet() const { return m_pluginNameHasBeenSet; }
 
     /**
      * <p>(Optional) The name of the plugin for which you want detailed results. If the

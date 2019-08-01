@@ -21,6 +21,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/directconnect/model/RouteFilterPrefix.h>
 #include <aws/directconnect/model/BGPPeer.h>
+#include <aws/directconnect/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -56,6 +57,11 @@ namespace Model
      * <p>The ID of the AWS account that owns the virtual interface.</p>
      */
     inline const Aws::String& GetOwnerAccount() const{ return m_ownerAccount; }
+
+    /**
+     * <p>The ID of the AWS account that owns the virtual interface.</p>
+     */
+    inline bool OwnerAccountHasBeenSet() const { return m_ownerAccountHasBeenSet; }
 
     /**
      * <p>The ID of the AWS account that owns the virtual interface.</p>
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>The ID of the virtual interface.</p>
      */
+    inline bool VirtualInterfaceIdHasBeenSet() const { return m_virtualInterfaceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the virtual interface.</p>
+     */
     inline void SetVirtualInterfaceId(const Aws::String& value) { m_virtualInterfaceIdHasBeenSet = true; m_virtualInterfaceId = value; }
 
     /**
@@ -128,6 +139,11 @@ namespace Model
      * <p>The location of the connection.</p>
      */
     inline const Aws::String& GetLocation() const{ return m_location; }
+
+    /**
+     * <p>The location of the connection.</p>
+     */
+    inline bool LocationHasBeenSet() const { return m_locationHasBeenSet; }
 
     /**
      * <p>The location of the connection.</p>
@@ -168,6 +184,11 @@ namespace Model
     /**
      * <p>The ID of the connection.</p>
      */
+    inline bool ConnectionIdHasBeenSet() const { return m_connectionIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the connection.</p>
+     */
     inline void SetConnectionId(const Aws::String& value) { m_connectionIdHasBeenSet = true; m_connectionId = value; }
 
     /**
@@ -201,6 +222,12 @@ namespace Model
      * and <code>public</code>.</p>
      */
     inline const Aws::String& GetVirtualInterfaceType() const{ return m_virtualInterfaceType; }
+
+    /**
+     * <p>The type of virtual interface. The possible values are <code>private</code>
+     * and <code>public</code>.</p>
+     */
+    inline bool VirtualInterfaceTypeHasBeenSet() const { return m_virtualInterfaceTypeHasBeenSet; }
 
     /**
      * <p>The type of virtual interface. The possible values are <code>private</code>
@@ -247,6 +274,11 @@ namespace Model
     /**
      * <p>The name of the virtual interface assigned by the customer network.</p>
      */
+    inline bool VirtualInterfaceNameHasBeenSet() const { return m_virtualInterfaceNameHasBeenSet; }
+
+    /**
+     * <p>The name of the virtual interface assigned by the customer network.</p>
+     */
     inline void SetVirtualInterfaceName(const Aws::String& value) { m_virtualInterfaceNameHasBeenSet = true; m_virtualInterfaceName = value; }
 
     /**
@@ -283,6 +315,11 @@ namespace Model
     /**
      * <p>The ID of the VLAN.</p>
      */
+    inline bool VlanHasBeenSet() const { return m_vlanHasBeenSet; }
+
+    /**
+     * <p>The ID of the VLAN.</p>
+     */
     inline void SetVlan(int value) { m_vlanHasBeenSet = true; m_vlan = value; }
 
     /**
@@ -296,6 +333,12 @@ namespace Model
      * configuration.</p>
      */
     inline int GetAsn() const{ return m_asn; }
+
+    /**
+     * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP)
+     * configuration.</p>
+     */
+    inline bool AsnHasBeenSet() const { return m_asnHasBeenSet; }
 
     /**
      * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP)
@@ -318,6 +361,11 @@ namespace Model
     /**
      * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
      */
+    inline bool AmazonSideAsnHasBeenSet() const { return m_amazonSideAsnHasBeenSet; }
+
+    /**
+     * <p>The autonomous system number (ASN) for the Amazon side of the connection.</p>
+     */
     inline void SetAmazonSideAsn(long long value) { m_amazonSideAsnHasBeenSet = true; m_amazonSideAsn = value; }
 
     /**
@@ -327,37 +375,50 @@ namespace Model
 
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline const Aws::String& GetAuthKey() const{ return m_authKey; }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
+     */
+    inline bool AuthKeyHasBeenSet() const { return m_authKeyHasBeenSet; }
+
+    /**
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(const Aws::String& value) { m_authKeyHasBeenSet = true; m_authKey = value; }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(Aws::String&& value) { m_authKeyHasBeenSet = true; m_authKey = std::move(value); }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(const char* value) { m_authKeyHasBeenSet = true; m_authKey.assign(value); }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline VirtualInterface& WithAuthKey(const Aws::String& value) { SetAuthKey(value); return *this;}
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline VirtualInterface& WithAuthKey(Aws::String&& value) { SetAuthKey(std::move(value)); return *this;}
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline VirtualInterface& WithAuthKey(const char* value) { SetAuthKey(value); return *this;}
 
@@ -366,6 +427,11 @@ namespace Model
      * <p>The IP address assigned to the Amazon interface.</p>
      */
     inline const Aws::String& GetAmazonAddress() const{ return m_amazonAddress; }
+
+    /**
+     * <p>The IP address assigned to the Amazon interface.</p>
+     */
+    inline bool AmazonAddressHasBeenSet() const { return m_amazonAddressHasBeenSet; }
 
     /**
      * <p>The IP address assigned to the Amazon interface.</p>
@@ -406,6 +472,11 @@ namespace Model
     /**
      * <p>The IP address assigned to the customer interface.</p>
      */
+    inline bool CustomerAddressHasBeenSet() const { return m_customerAddressHasBeenSet; }
+
+    /**
+     * <p>The IP address assigned to the customer interface.</p>
+     */
     inline void SetCustomerAddress(const Aws::String& value) { m_customerAddressHasBeenSet = true; m_customerAddress = value; }
 
     /**
@@ -438,6 +509,11 @@ namespace Model
      * <p>The address family for the BGP peer.</p>
      */
     inline const AddressFamily& GetAddressFamily() const{ return m_addressFamily; }
+
+    /**
+     * <p>The address family for the BGP peer.</p>
+     */
+    inline bool AddressFamilyHasBeenSet() const { return m_addressFamilyHasBeenSet; }
 
     /**
      * <p>The address family for the BGP peer.</p>
@@ -485,6 +561,32 @@ namespace Model
      * </li> </ul>
      */
     inline const VirtualInterfaceState& GetVirtualInterfaceState() const{ return m_virtualInterfaceState; }
+
+    /**
+     * <p>The state of the virtual interface. The following are the possible
+     * values:</p> <ul> <li> <p> <code>confirming</code>: The creation of the virtual
+     * interface is pending confirmation from the virtual interface owner. If the owner
+     * of the virtual interface is different from the owner of the connection on which
+     * it is provisioned, then the virtual interface will remain in this state until it
+     * is confirmed by the virtual interface owner.</p> </li> <li> <p>
+     * <code>verifying</code>: This state only applies to public virtual interfaces.
+     * Each public virtual interface needs validation before the virtual interface can
+     * be created.</p> </li> <li> <p> <code>pending</code>: A virtual interface is in
+     * this state from the time that it is created until the virtual interface is ready
+     * to forward traffic.</p> </li> <li> <p> <code>available</code>: A virtual
+     * interface that is able to forward traffic.</p> </li> <li> <p> <code>down</code>:
+     * A virtual interface that is BGP down.</p> </li> <li> <p> <code>deleting</code>:
+     * A virtual interface is in this state immediately after calling
+     * <a>DeleteVirtualInterface</a> until it can no longer forward traffic.</p> </li>
+     * <li> <p> <code>deleted</code>: A virtual interface that cannot forward
+     * traffic.</p> </li> <li> <p> <code>rejected</code>: The virtual interface owner
+     * has declined creation of the virtual interface. If a virtual interface in the
+     * <code>Confirming</code> state is deleted by the virtual interface owner, the
+     * virtual interface enters the <code>Rejected</code> state.</p> </li> <li> <p>
+     * <code>unknown</code>: The state of the virtual interface is not available.</p>
+     * </li> </ul>
+     */
+    inline bool VirtualInterfaceStateHasBeenSet() const { return m_virtualInterfaceStateHasBeenSet; }
 
     /**
      * <p>The state of the virtual interface. The following are the possible
@@ -599,6 +701,11 @@ namespace Model
     /**
      * <p>The customer router configuration.</p>
      */
+    inline bool CustomerRouterConfigHasBeenSet() const { return m_customerRouterConfigHasBeenSet; }
+
+    /**
+     * <p>The customer router configuration.</p>
+     */
     inline void SetCustomerRouterConfig(const Aws::String& value) { m_customerRouterConfigHasBeenSet = true; m_customerRouterConfig = value; }
 
     /**
@@ -637,6 +744,12 @@ namespace Model
      * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500
      * and 9001. The default value is 1500.</p>
      */
+    inline bool MtuHasBeenSet() const { return m_mtuHasBeenSet; }
+
+    /**
+     * <p>The maximum transmission unit (MTU), in bytes. The supported values are 1500
+     * and 9001. The default value is 1500.</p>
+     */
     inline void SetMtu(int value) { m_mtuHasBeenSet = true; m_mtu = value; }
 
     /**
@@ -654,6 +767,11 @@ namespace Model
     /**
      * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
      */
+    inline bool JumboFrameCapableHasBeenSet() const { return m_jumboFrameCapableHasBeenSet; }
+
+    /**
+     * <p>Indicates whether jumbo frames (9001 MTU) are supported.</p>
+     */
     inline void SetJumboFrameCapable(bool value) { m_jumboFrameCapableHasBeenSet = true; m_jumboFrameCapable = value; }
 
     /**
@@ -667,6 +785,12 @@ namespace Model
      * interfaces.</p>
      */
     inline const Aws::String& GetVirtualGatewayId() const{ return m_virtualGatewayId; }
+
+    /**
+     * <p>The ID of the virtual private gateway. Applies only to private virtual
+     * interfaces.</p>
+     */
+    inline bool VirtualGatewayIdHasBeenSet() const { return m_virtualGatewayIdHasBeenSet; }
 
     /**
      * <p>The ID of the virtual private gateway. Applies only to private virtual
@@ -713,6 +837,11 @@ namespace Model
     /**
      * <p>The ID of the Direct Connect gateway.</p>
      */
+    inline bool DirectConnectGatewayIdHasBeenSet() const { return m_directConnectGatewayIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the Direct Connect gateway.</p>
+     */
     inline void SetDirectConnectGatewayId(const Aws::String& value) { m_directConnectGatewayIdHasBeenSet = true; m_directConnectGatewayId = value; }
 
     /**
@@ -746,6 +875,12 @@ namespace Model
      * public virtual interfaces.</p>
      */
     inline const Aws::Vector<RouteFilterPrefix>& GetRouteFilterPrefixes() const{ return m_routeFilterPrefixes; }
+
+    /**
+     * <p>The routes to be advertised to the AWS network in this Region. Applies to
+     * public virtual interfaces.</p>
+     */
+    inline bool RouteFilterPrefixesHasBeenSet() const { return m_routeFilterPrefixesHasBeenSet; }
 
     /**
      * <p>The routes to be advertised to the AWS network in this Region. Applies to
@@ -792,6 +927,11 @@ namespace Model
     /**
      * <p>The BGP peers configured on this virtual interface.</p>
      */
+    inline bool BgpPeersHasBeenSet() const { return m_bgpPeersHasBeenSet; }
+
+    /**
+     * <p>The BGP peers configured on this virtual interface.</p>
+     */
     inline void SetBgpPeers(const Aws::Vector<BGPPeer>& value) { m_bgpPeersHasBeenSet = true; m_bgpPeers = value; }
 
     /**
@@ -824,6 +964,11 @@ namespace Model
      * <p>The AWS Region where the virtual interface is located.</p>
      */
     inline const Aws::String& GetRegion() const{ return m_region; }
+
+    /**
+     * <p>The AWS Region where the virtual interface is located.</p>
+     */
+    inline bool RegionHasBeenSet() const { return m_regionHasBeenSet; }
 
     /**
      * <p>The AWS Region where the virtual interface is located.</p>
@@ -864,6 +1009,11 @@ namespace Model
     /**
      * <p>The Direct Connect endpoint on which the virtual interface terminates.</p>
      */
+    inline bool AwsDeviceV2HasBeenSet() const { return m_awsDeviceV2HasBeenSet; }
+
+    /**
+     * <p>The Direct Connect endpoint on which the virtual interface terminates.</p>
+     */
     inline void SetAwsDeviceV2(const Aws::String& value) { m_awsDeviceV2HasBeenSet = true; m_awsDeviceV2 = value; }
 
     /**
@@ -890,6 +1040,47 @@ namespace Model
      * <p>The Direct Connect endpoint on which the virtual interface terminates.</p>
      */
     inline VirtualInterface& WithAwsDeviceV2(const char* value) { SetAwsDeviceV2(value); return *this;}
+
+
+    /**
+     * <p>Any tags assigned to the virtual interface.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to the virtual interface.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>Any tags assigned to the virtual interface.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>Any tags assigned to the virtual interface.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>Any tags assigned to the virtual interface.</p>
+     */
+    inline VirtualInterface& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Any tags assigned to the virtual interface.</p>
+     */
+    inline VirtualInterface& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Any tags assigned to the virtual interface.</p>
+     */
+    inline VirtualInterface& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Any tags assigned to the virtual interface.</p>
+     */
+    inline VirtualInterface& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
   private:
 
@@ -961,6 +1152,9 @@ namespace Model
 
     Aws::String m_awsDeviceV2;
     bool m_awsDeviceV2HasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

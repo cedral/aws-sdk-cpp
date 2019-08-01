@@ -54,7 +54,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -241,7 +240,7 @@ namespace Model
          * environment, AWS Batch manages the capacity and instance types of the compute
          * resources within the environment. This is based on the compute resource
          * specification that you define or the <a
-         * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
+         * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
          * template</a> that you specify when you create the compute environment. You can
          * choose to use Amazon EC2 On-Demand Instances or Spot Instances in your managed
          * compute environment. You can optionally set a maximum price so that Spot
@@ -252,13 +251,13 @@ namespace Model
          * compute resource configuration options, such as using a custom AMI, but you must
          * ensure that your AMI meets the Amazon ECS container instance AMI specification.
          * For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
+         * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
          * Instance AMIs</a> in the <i>Amazon Elastic Container Service Developer
          * Guide</i>. After you have created your unmanaged compute environment, you can
          * use the <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS
          * cluster that is associated with it. Then, manually launch your container
          * instances into that Amazon ECS cluster. For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
+         * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
          * an Amazon ECS Container Instance</a> in the <i>Amazon Elastic Container Service
          * Developer Guide</i>.</p> <note> <p>AWS Batch does not upgrade the AMIs in a
          * compute environment after it is created (for example, when a newer version of
@@ -281,7 +280,7 @@ namespace Model
          * environment, AWS Batch manages the capacity and instance types of the compute
          * resources within the environment. This is based on the compute resource
          * specification that you define or the <a
-         * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
+         * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
          * template</a> that you specify when you create the compute environment. You can
          * choose to use Amazon EC2 On-Demand Instances or Spot Instances in your managed
          * compute environment. You can optionally set a maximum price so that Spot
@@ -292,13 +291,13 @@ namespace Model
          * compute resource configuration options, such as using a custom AMI, but you must
          * ensure that your AMI meets the Amazon ECS container instance AMI specification.
          * For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
+         * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
          * Instance AMIs</a> in the <i>Amazon Elastic Container Service Developer
          * Guide</i>. After you have created your unmanaged compute environment, you can
          * use the <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS
          * cluster that is associated with it. Then, manually launch your container
          * instances into that Amazon ECS cluster. For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
+         * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
          * an Amazon ECS Container Instance</a> in the <i>Amazon Elastic Container Service
          * Developer Guide</i>.</p> <note> <p>AWS Batch does not upgrade the AMIs in a
          * compute environment after it is created (for example, when a newer version of
@@ -323,7 +322,7 @@ namespace Model
          * environment, AWS Batch manages the capacity and instance types of the compute
          * resources within the environment. This is based on the compute resource
          * specification that you define or the <a
-         * href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
+         * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
          * template</a> that you specify when you create the compute environment. You can
          * choose to use Amazon EC2 On-Demand Instances or Spot Instances in your managed
          * compute environment. You can optionally set a maximum price so that Spot
@@ -334,13 +333,13 @@ namespace Model
          * compute resource configuration options, such as using a custom AMI, but you must
          * ensure that your AMI meets the Amazon ECS container instance AMI specification.
          * For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
+         * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
          * Instance AMIs</a> in the <i>Amazon Elastic Container Service Developer
          * Guide</i>. After you have created your unmanaged compute environment, you can
          * use the <a>DescribeComputeEnvironments</a> operation to find the Amazon ECS
          * cluster that is associated with it. Then, manually launch your container
          * instances into that Amazon ECS cluster. For more information, see <a
-         * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
+         * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
          * an Amazon ECS Container Instance</a> in the <i>Amazon Elastic Container Service
          * Developer Guide</i>.</p> <note> <p>AWS Batch does not upgrade the AMIs in a
          * compute environment after it is created (for example, when a newer version of
@@ -805,11 +804,10 @@ namespace Model
          */
         virtual void UpdateJobQueueAsync(const Model::UpdateJobQueueRequest& request, const UpdateJobQueueResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void CancelJobAsyncHelper(const Model::CancelJobRequest& request, const CancelJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateComputeEnvironmentAsyncHelper(const Model::CreateComputeEnvironmentRequest& request, const CreateComputeEnvironmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateJobQueueAsyncHelper(const Model::CreateJobQueueRequest& request, const CreateJobQueueResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

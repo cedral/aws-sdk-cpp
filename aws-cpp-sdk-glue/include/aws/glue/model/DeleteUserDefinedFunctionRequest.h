@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteUserDefinedFunctionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * none is supplied, the AWS account ID is used by default.</p>
      */
     inline const Aws::String& GetCatalogId() const{ return m_catalogId; }
+
+    /**
+     * <p>The ID of the Data Catalog where the function to be deleted is located. If
+     * none is supplied, the AWS account ID is used by default.</p>
+     */
+    inline bool CatalogIdHasBeenSet() const { return m_catalogIdHasBeenSet; }
 
     /**
      * <p>The ID of the Data Catalog where the function to be deleted is located. If
@@ -95,6 +101,11 @@ namespace Model
     /**
      * <p>The name of the catalog database where the function is located.</p>
      */
+    inline bool DatabaseNameHasBeenSet() const { return m_databaseNameHasBeenSet; }
+
+    /**
+     * <p>The name of the catalog database where the function is located.</p>
+     */
     inline void SetDatabaseName(const Aws::String& value) { m_databaseNameHasBeenSet = true; m_databaseName = value; }
 
     /**
@@ -127,6 +138,11 @@ namespace Model
      * <p>The name of the function definition to be deleted.</p>
      */
     inline const Aws::String& GetFunctionName() const{ return m_functionName; }
+
+    /**
+     * <p>The name of the function definition to be deleted.</p>
+     */
+    inline bool FunctionNameHasBeenSet() const { return m_functionNameHasBeenSet; }
 
     /**
      * <p>The name of the function definition to be deleted.</p>

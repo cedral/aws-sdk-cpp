@@ -18,6 +18,8 @@
 #include <aws/apigateway/APIGatewayRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/apigateway/model/EndpointConfiguration.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
+#include <aws/apigateway/model/SecurityPolicy.h>
 #include <utility>
 
 namespace Aws
@@ -36,7 +38,7 @@ namespace Model
   {
   public:
     CreateDomainNameRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +52,11 @@ namespace Model
      * <p>[Required] The name of the <a>DomainName</a> resource.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>[Required] The name of the <a>DomainName</a> resource.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>[Required] The name of the <a>DomainName</a> resource.</p>
@@ -87,6 +94,12 @@ namespace Model
      * endpoint for this domain name.</p>
      */
     inline const Aws::String& GetCertificateName() const{ return m_certificateName; }
+
+    /**
+     * <p>The user-friendly name of the certificate that will be used by edge-optimized
+     * endpoint for this domain name.</p>
+     */
+    inline bool CertificateNameHasBeenSet() const { return m_certificateNameHasBeenSet; }
 
     /**
      * <p>The user-friendly name of the certificate that will be used by edge-optimized
@@ -131,6 +144,13 @@ namespace Model
      * authority.</p>
      */
     inline const Aws::String& GetCertificateBody() const{ return m_certificateBody; }
+
+    /**
+     * <p>[Deprecated] The body of the server certificate that will be used by
+     * edge-optimized endpoint for this domain name provided by your certificate
+     * authority.</p>
+     */
+    inline bool CertificateBodyHasBeenSet() const { return m_certificateBodyHasBeenSet; }
 
     /**
      * <p>[Deprecated] The body of the server certificate that will be used by
@@ -185,6 +205,12 @@ namespace Model
      * <p>[Deprecated] Your edge-optimized endpoint's domain name certificate's private
      * key.</p>
      */
+    inline bool CertificatePrivateKeyHasBeenSet() const { return m_certificatePrivateKeyHasBeenSet; }
+
+    /**
+     * <p>[Deprecated] Your edge-optimized endpoint's domain name certificate's private
+     * key.</p>
+     */
     inline void SetCertificatePrivateKey(const Aws::String& value) { m_certificatePrivateKeyHasBeenSet = true; m_certificatePrivateKey = value; }
 
     /**
@@ -228,6 +254,17 @@ namespace Model
      * are not in the chain of trust path.</p>
      */
     inline const Aws::String& GetCertificateChain() const{ return m_certificateChain; }
+
+    /**
+     * <p>[Deprecated] The intermediate certificates and optionally the root
+     * certificate, one after the other without any blank lines, used by an
+     * edge-optimized endpoint for this domain name. If you include the root
+     * certificate, your certificate chain must start with intermediate certificates
+     * and end with the root certificate. Use the intermediate certificates that were
+     * provided by your certificate authority. Do not include any intermediaries that
+     * are not in the chain of trust path.</p>
+     */
+    inline bool CertificateChainHasBeenSet() const { return m_certificateChainHasBeenSet; }
 
     /**
      * <p>[Deprecated] The intermediate certificates and optionally the root
@@ -308,6 +345,13 @@ namespace Model
      * edge-optimized endpoint for this domain name. AWS Certificate Manager is the
      * only supported source.</p>
      */
+    inline bool CertificateArnHasBeenSet() const { return m_certificateArnHasBeenSet; }
+
+    /**
+     * <p>The reference to an AWS-managed certificate that will be used by
+     * edge-optimized endpoint for this domain name. AWS Certificate Manager is the
+     * only supported source.</p>
+     */
     inline void SetCertificateArn(const Aws::String& value) { m_certificateArnHasBeenSet = true; m_certificateArn = value; }
 
     /**
@@ -356,6 +400,12 @@ namespace Model
      * <p>The user-friendly name of the certificate that will be used by regional
      * endpoint for this domain name.</p>
      */
+    inline bool RegionalCertificateNameHasBeenSet() const { return m_regionalCertificateNameHasBeenSet; }
+
+    /**
+     * <p>The user-friendly name of the certificate that will be used by regional
+     * endpoint for this domain name.</p>
+     */
     inline void SetRegionalCertificateName(const Aws::String& value) { m_regionalCertificateNameHasBeenSet = true; m_regionalCertificateName = value; }
 
     /**
@@ -395,6 +445,13 @@ namespace Model
      * source.</p>
      */
     inline const Aws::String& GetRegionalCertificateArn() const{ return m_regionalCertificateArn; }
+
+    /**
+     * <p>The reference to an AWS-managed certificate that will be used by regional
+     * endpoint for this domain name. AWS Certificate Manager is the only supported
+     * source.</p>
+     */
+    inline bool RegionalCertificateArnHasBeenSet() const { return m_regionalCertificateArnHasBeenSet; }
 
     /**
      * <p>The reference to an AWS-managed certificate that will be used by regional
@@ -449,6 +506,12 @@ namespace Model
      * <p>The endpoint configuration of this <a>DomainName</a> showing the endpoint
      * types of the domain name. </p>
      */
+    inline bool EndpointConfigurationHasBeenSet() const { return m_endpointConfigurationHasBeenSet; }
+
+    /**
+     * <p>The endpoint configuration of this <a>DomainName</a> showing the endpoint
+     * types of the domain name. </p>
+     */
     inline void SetEndpointConfiguration(const EndpointConfiguration& value) { m_endpointConfigurationHasBeenSet = true; m_endpointConfiguration = value; }
 
     /**
@@ -468,6 +531,141 @@ namespace Model
      * types of the domain name. </p>
      */
     inline CreateDomainNameRequest& WithEndpointConfiguration(EndpointConfiguration&& value) { SetEndpointConfiguration(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with <code>aws:</code>.
+     * The tag value can be up to 256 characters.</p>
+     */
+    inline CreateDomainNameRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline const SecurityPolicy& GetSecurityPolicy() const{ return m_securityPolicy; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline bool SecurityPolicyHasBeenSet() const { return m_securityPolicyHasBeenSet; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline void SetSecurityPolicy(const SecurityPolicy& value) { m_securityPolicyHasBeenSet = true; m_securityPolicy = value; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline void SetSecurityPolicy(SecurityPolicy&& value) { m_securityPolicyHasBeenSet = true; m_securityPolicy = std::move(value); }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline CreateDomainNameRequest& WithSecurityPolicy(const SecurityPolicy& value) { SetSecurityPolicy(value); return *this;}
+
+    /**
+     * <p>The Transport Layer Security (TLS) version + cipher suite for this
+     * <a>DomainName</a>. The valid values are <code>TLS_1_0</code> and
+     * <code>TLS_1_2</code>.</p>
+     */
+    inline CreateDomainNameRequest& WithSecurityPolicy(SecurityPolicy&& value) { SetSecurityPolicy(std::move(value)); return *this;}
 
   private:
 
@@ -497,6 +695,12 @@ namespace Model
 
     EndpointConfiguration m_endpointConfiguration;
     bool m_endpointConfigurationHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
+
+    SecurityPolicy m_securityPolicy;
+    bool m_securityPolicyHasBeenSet;
   };
 
 } // namespace Model

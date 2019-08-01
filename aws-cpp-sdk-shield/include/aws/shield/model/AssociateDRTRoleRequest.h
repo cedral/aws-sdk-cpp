@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateDRTRoleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,17 @@ namespace Model
      * and Detaching IAM Policies</a>.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the role the DRT will use to access your
+     * AWS account.</p> <p>Prior to making the <code>AssociateDRTRole</code> request,
+     * you must attach the <a
+     * href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a>
+     * managed policy to this role. For more information see <a href="
+     * https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching
+     * and Detaching IAM Policies</a>.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the role the DRT will use to access your

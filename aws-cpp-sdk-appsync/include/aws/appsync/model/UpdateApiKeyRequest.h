@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateApiKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The ID for the GraphQL API.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The ID for the GraphQL API.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The ID for the GraphQL API.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The API key ID.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The API key ID.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>A description of the purpose of the API key.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description of the purpose of the API key.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description of the purpose of the API key.</p>
@@ -155,6 +170,12 @@ namespace Model
      * represented as seconds since the epoch. For more information, see .</p>
      */
     inline long long GetExpires() const{ return m_expires; }
+
+    /**
+     * <p>The time from update time after which the API key expires. The date is
+     * represented as seconds since the epoch. For more information, see .</p>
+     */
+    inline bool ExpiresHasBeenSet() const { return m_expiresHasBeenSet; }
 
     /**
      * <p>The time from update time after which the API key expires. The date is

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     TestInvokeAuthorizerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The custom authorizer name.</p>
      */
     inline const Aws::String& GetAuthorizerName() const{ return m_authorizerName; }
+
+    /**
+     * <p>The custom authorizer name.</p>
+     */
+    inline bool AuthorizerNameHasBeenSet() const { return m_authorizerNameHasBeenSet; }
 
     /**
      * <p>The custom authorizer name.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The token returned by your custom authentication service.</p>
      */
+    inline bool TokenHasBeenSet() const { return m_tokenHasBeenSet; }
+
+    /**
+     * <p>The token returned by your custom authentication service.</p>
+     */
     inline void SetToken(const Aws::String& value) { m_tokenHasBeenSet = true; m_token = value; }
 
     /**
@@ -119,6 +129,12 @@ namespace Model
      * private key.</p>
      */
     inline const Aws::String& GetTokenSignature() const{ return m_tokenSignature; }
+
+    /**
+     * <p>The signature made with the token and your custom authentication service's
+     * private key.</p>
+     */
+    inline bool TokenSignatureHasBeenSet() const { return m_tokenSignatureHasBeenSet; }
 
     /**
      * <p>The signature made with the token and your custom authentication service's

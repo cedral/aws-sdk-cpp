@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeDeploymentsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * description of the commands associated with the specified stack.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>The stack ID. If you include this parameter, the command returns a
+     * description of the commands associated with the specified stack.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>The stack ID. If you include this parameter, the command returns a
@@ -98,6 +104,12 @@ namespace Model
      * <p>The app ID. If you include this parameter, the command returns a description
      * of the commands associated with the specified app.</p>
      */
+    inline bool AppIdHasBeenSet() const { return m_appIdHasBeenSet; }
+
+    /**
+     * <p>The app ID. If you include this parameter, the command returns a description
+     * of the commands associated with the specified app.</p>
+     */
     inline void SetAppId(const Aws::String& value) { m_appIdHasBeenSet = true; m_appId = value; }
 
     /**
@@ -137,6 +149,13 @@ namespace Model
      * returns a description of every deployment.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDeploymentIds() const{ return m_deploymentIds; }
+
+    /**
+     * <p>An array of deployment IDs to be described. If you include this parameter,
+     * the command returns a description of the specified deployments. Otherwise, it
+     * returns a description of every deployment.</p>
+     */
+    inline bool DeploymentIdsHasBeenSet() const { return m_deploymentIdsHasBeenSet; }
 
     /**
      * <p>An array of deployment IDs to be described. If you include this parameter,

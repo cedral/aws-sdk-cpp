@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeNFSFileSharesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * described. </p>
      */
     inline const Aws::Vector<Aws::String>& GetFileShareARNList() const{ return m_fileShareARNList; }
+
+    /**
+     * <p>An array containing the Amazon Resource Name (ARN) of each file share to be
+     * described. </p>
+     */
+    inline bool FileShareARNListHasBeenSet() const { return m_fileShareARNListHasBeenSet; }
 
     /**
      * <p>An array containing the Amazon Resource Name (ARN) of each file share to be

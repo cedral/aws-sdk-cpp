@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteDBClusterSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * state.</p>
      */
     inline const Aws::String& GetDBClusterSnapshotIdentifier() const{ return m_dBClusterSnapshotIdentifier; }
+
+    /**
+     * <p>The identifier of the DB cluster snapshot to delete.</p> <p>Constraints: Must
+     * be the name of an existing DB cluster snapshot in the <code>available</code>
+     * state.</p>
+     */
+    inline bool DBClusterSnapshotIdentifierHasBeenSet() const { return m_dBClusterSnapshotIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier of the DB cluster snapshot to delete.</p> <p>Constraints: Must

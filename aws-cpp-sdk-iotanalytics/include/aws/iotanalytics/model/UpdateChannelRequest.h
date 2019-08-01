@@ -17,6 +17,7 @@
 #include <aws/iotanalytics/IoTAnalytics_EXPORTS.h>
 #include <aws/iotanalytics/IoTAnalyticsRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/iotanalytics/model/ChannelStorage.h>
 #include <aws/iotanalytics/model/RetentionPeriod.h>
 #include <utility>
 
@@ -33,7 +34,7 @@ namespace Model
   {
   public:
     UpdateChannelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +48,11 @@ namespace Model
      * <p>The name of the channel to be updated.</p>
      */
     inline const Aws::String& GetChannelName() const{ return m_channelName; }
+
+    /**
+     * <p>The name of the channel to be updated.</p>
+     */
+    inline bool ChannelNameHasBeenSet() const { return m_channelNameHasBeenSet; }
 
     /**
      * <p>The name of the channel to be updated.</p>
@@ -80,9 +86,45 @@ namespace Model
 
 
     /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline const ChannelStorage& GetChannelStorage() const{ return m_channelStorage; }
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline bool ChannelStorageHasBeenSet() const { return m_channelStorageHasBeenSet; }
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline void SetChannelStorage(const ChannelStorage& value) { m_channelStorageHasBeenSet = true; m_channelStorage = value; }
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline void SetChannelStorage(ChannelStorage&& value) { m_channelStorageHasBeenSet = true; m_channelStorage = std::move(value); }
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline UpdateChannelRequest& WithChannelStorage(const ChannelStorage& value) { SetChannelStorage(value); return *this;}
+
+    /**
+     * <p>Where channel data is stored.</p>
+     */
+    inline UpdateChannelRequest& WithChannelStorage(ChannelStorage&& value) { SetChannelStorage(std::move(value)); return *this;}
+
+
+    /**
      * <p>How long, in days, message data is kept for the channel.</p>
      */
     inline const RetentionPeriod& GetRetentionPeriod() const{ return m_retentionPeriod; }
+
+    /**
+     * <p>How long, in days, message data is kept for the channel.</p>
+     */
+    inline bool RetentionPeriodHasBeenSet() const { return m_retentionPeriodHasBeenSet; }
 
     /**
      * <p>How long, in days, message data is kept for the channel.</p>
@@ -108,6 +150,9 @@ namespace Model
 
     Aws::String m_channelName;
     bool m_channelNameHasBeenSet;
+
+    ChannelStorage m_channelStorage;
+    bool m_channelStorageHasBeenSet;
 
     RetentionPeriod m_retentionPeriod;
     bool m_retentionPeriodHasBeenSet;

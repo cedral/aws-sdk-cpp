@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeListenerCertificatesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The Amazon Resource Names (ARN) of the listener.</p>
      */
     inline const Aws::String& GetListenerArn() const{ return m_listenerArn; }
+
+    /**
+     * <p>The Amazon Resource Names (ARN) of the listener.</p>
+     */
+    inline bool ListenerArnHasBeenSet() const { return m_listenerArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Names (ARN) of the listener.</p>
@@ -92,6 +97,12 @@ namespace Model
      * <p>The marker for the next set of results. (You received this marker from a
      * previous call.)</p>
      */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>The marker for the next set of results. (You received this marker from a
+     * previous call.)</p>
+     */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
@@ -129,6 +140,11 @@ namespace Model
      * <p>The maximum number of results to return with this call.</p>
      */
     inline int GetPageSize() const{ return m_pageSize; }
+
+    /**
+     * <p>The maximum number of results to return with this call.</p>
+     */
+    inline bool PageSizeHasBeenSet() const { return m_pageSizeHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return with this call.</p>

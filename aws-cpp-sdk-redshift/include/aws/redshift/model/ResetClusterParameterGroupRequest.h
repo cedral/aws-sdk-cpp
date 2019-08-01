@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ResetClusterParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The name of the cluster parameter group to be reset.</p>
      */
     inline const Aws::String& GetParameterGroupName() const{ return m_parameterGroupName; }
+
+    /**
+     * <p>The name of the cluster parameter group to be reset.</p>
+     */
+    inline bool ParameterGroupNameHasBeenSet() const { return m_parameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the cluster parameter group to be reset.</p>
@@ -97,6 +102,12 @@ namespace Model
      * <p>If <code>true</code>, all parameters in the specified parameter group will be
      * reset to their default values. </p> <p>Default: <code>true</code> </p>
      */
+    inline bool ResetAllParametersHasBeenSet() const { return m_resetAllParametersHasBeenSet; }
+
+    /**
+     * <p>If <code>true</code>, all parameters in the specified parameter group will be
+     * reset to their default values. </p> <p>Default: <code>true</code> </p>
+     */
     inline void SetResetAllParameters(bool value) { m_resetAllParametersHasBeenSet = true; m_resetAllParameters = value; }
 
     /**
@@ -112,6 +123,13 @@ namespace Model
      * <p>Constraints: A maximum of 20 parameters can be reset in a single request.</p>
      */
     inline const Aws::Vector<Parameter>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>An array of names of parameters to be reset. If <i>ResetAllParameters</i>
+     * option is not used, then at least one parameter name must be supplied. </p>
+     * <p>Constraints: A maximum of 20 parameters can be reset in a single request.</p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>An array of names of parameters to be reset. If <i>ResetAllParameters</i>

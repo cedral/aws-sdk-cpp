@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ReloadTablesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the replication task. </p>
      */
     inline const Aws::String& GetReplicationTaskArn() const{ return m_replicationTaskArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the replication task. </p>
+     */
+    inline bool ReplicationTaskArnHasBeenSet() const { return m_replicationTaskArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the replication task. </p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The name and schema of the table to be reloaded. </p>
      */
+    inline bool TablesToReloadHasBeenSet() const { return m_tablesToReloadHasBeenSet; }
+
+    /**
+     * <p>The name and schema of the table to be reloaded. </p>
+     */
     inline void SetTablesToReload(const Aws::Vector<TableToReload>& value) { m_tablesToReloadHasBeenSet = true; m_tablesToReload = value; }
 
     /**
@@ -127,6 +137,15 @@ namespace Model
      * is data-reload.</p>
      */
     inline const ReloadOptionValue& GetReloadOption() const{ return m_reloadOption; }
+
+    /**
+     * <p>Options for reload. Specify <code>data-reload</code> to reload the data and
+     * re-validate it if validation is enabled. Specify <code>validate-only</code> to
+     * re-validate the table. This option applies only when validation is enabled for
+     * the task. </p> <p>Valid values: data-reload, validate-only</p> <p>Default value
+     * is data-reload.</p>
+     */
+    inline bool ReloadOptionHasBeenSet() const { return m_reloadOptionHasBeenSet; }
 
     /**
      * <p>Options for reload. Specify <code>data-reload</code> to reload the data and

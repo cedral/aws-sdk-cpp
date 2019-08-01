@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeVpcEndpointServiceConfigurationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -62,6 +62,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -77,6 +85,11 @@ namespace Model
      * <p>The IDs of one or more services.</p>
      */
     inline const Aws::Vector<Aws::String>& GetServiceIds() const{ return m_serviceIds; }
+
+    /**
+     * <p>The IDs of one or more services.</p>
+     */
+    inline bool ServiceIdsHasBeenSet() const { return m_serviceIdsHasBeenSet; }
 
     /**
      * <p>The IDs of one or more services.</p>
@@ -119,7 +132,15 @@ namespace Model
      * of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the
      * service.</p> </li> <li> <p> <code>service-state</code> - The state of the
      * service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> |
-     * <code>Deleted</code> | <code>Failed</code>). </p> </li> </ul>
+     * <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
+     * the resource. Use the tag key in the filter name and the tag value as the filter
+     * value. For example, to find all resources that have a tag with the key
+     * <code>Owner</code> and the value <code>TeamA</code>, specify
+     * <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter
+     * value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to
+     * the resource. Use this filter to find all resources assigned a tag with a
+     * specific key, regardless of the tag value.</p> </li> </ul>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
@@ -128,7 +149,32 @@ namespace Model
      * of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the
      * service.</p> </li> <li> <p> <code>service-state</code> - The state of the
      * service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> |
-     * <code>Deleted</code> | <code>Failed</code>). </p> </li> </ul>
+     * <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
+     * the resource. Use the tag key in the filter name and the tag value as the filter
+     * value. For example, to find all resources that have a tag with the key
+     * <code>Owner</code> and the value <code>TeamA</code>, specify
+     * <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter
+     * value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to
+     * the resource. Use this filter to find all resources assigned a tag with a
+     * specific key, regardless of the tag value.</p> </li> </ul>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the
+     * service.</p> </li> <li> <p> <code>service-state</code> - The state of the
+     * service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> |
+     * <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
+     * the resource. Use the tag key in the filter name and the tag value as the filter
+     * value. For example, to find all resources that have a tag with the key
+     * <code>Owner</code> and the value <code>TeamA</code>, specify
+     * <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter
+     * value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to
+     * the resource. Use this filter to find all resources assigned a tag with a
+     * specific key, regardless of the tag value.</p> </li> </ul>
      */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
@@ -137,7 +183,15 @@ namespace Model
      * of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the
      * service.</p> </li> <li> <p> <code>service-state</code> - The state of the
      * service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> |
-     * <code>Deleted</code> | <code>Failed</code>). </p> </li> </ul>
+     * <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
+     * the resource. Use the tag key in the filter name and the tag value as the filter
+     * value. For example, to find all resources that have a tag with the key
+     * <code>Owner</code> and the value <code>TeamA</code>, specify
+     * <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter
+     * value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to
+     * the resource. Use this filter to find all resources assigned a tag with a
+     * specific key, regardless of the tag value.</p> </li> </ul>
      */
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
@@ -146,7 +200,15 @@ namespace Model
      * of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the
      * service.</p> </li> <li> <p> <code>service-state</code> - The state of the
      * service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> |
-     * <code>Deleted</code> | <code>Failed</code>). </p> </li> </ul>
+     * <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
+     * the resource. Use the tag key in the filter name and the tag value as the filter
+     * value. For example, to find all resources that have a tag with the key
+     * <code>Owner</code> and the value <code>TeamA</code>, specify
+     * <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter
+     * value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to
+     * the resource. Use this filter to find all resources assigned a tag with a
+     * specific key, regardless of the tag value.</p> </li> </ul>
      */
     inline DescribeVpcEndpointServiceConfigurationsRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
@@ -155,7 +217,15 @@ namespace Model
      * of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the
      * service.</p> </li> <li> <p> <code>service-state</code> - The state of the
      * service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> |
-     * <code>Deleted</code> | <code>Failed</code>). </p> </li> </ul>
+     * <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
+     * the resource. Use the tag key in the filter name and the tag value as the filter
+     * value. For example, to find all resources that have a tag with the key
+     * <code>Owner</code> and the value <code>TeamA</code>, specify
+     * <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter
+     * value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to
+     * the resource. Use this filter to find all resources assigned a tag with a
+     * specific key, regardless of the tag value.</p> </li> </ul>
      */
     inline DescribeVpcEndpointServiceConfigurationsRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
@@ -164,7 +234,15 @@ namespace Model
      * of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the
      * service.</p> </li> <li> <p> <code>service-state</code> - The state of the
      * service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> |
-     * <code>Deleted</code> | <code>Failed</code>). </p> </li> </ul>
+     * <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
+     * the resource. Use the tag key in the filter name and the tag value as the filter
+     * value. For example, to find all resources that have a tag with the key
+     * <code>Owner</code> and the value <code>TeamA</code>, specify
+     * <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter
+     * value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to
+     * the resource. Use this filter to find all resources assigned a tag with a
+     * specific key, regardless of the tag value.</p> </li> </ul>
      */
     inline DescribeVpcEndpointServiceConfigurationsRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
@@ -173,7 +251,15 @@ namespace Model
      * of the service.</p> </li> <li> <p> <code>service-id</code> - The ID of the
      * service.</p> </li> <li> <p> <code>service-state</code> - The state of the
      * service (<code>Pending</code> | <code>Available</code> | <code>Deleting</code> |
-     * <code>Deleted</code> | <code>Failed</code>). </p> </li> </ul>
+     * <code>Deleted</code> | <code>Failed</code>). </p> </li> <li> <p>
+     * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
+     * the resource. Use the tag key in the filter name and the tag value as the filter
+     * value. For example, to find all resources that have a tag with the key
+     * <code>Owner</code> and the value <code>TeamA</code>, specify
+     * <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter
+     * value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to
+     * the resource. Use this filter to find all resources assigned a tag with a
+     * specific key, regardless of the tag value.</p> </li> </ul>
      */
     inline DescribeVpcEndpointServiceConfigurationsRequest& AddFilters(Filter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
 
@@ -186,6 +272,15 @@ namespace Model
      * results are returned.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return for the request in a single page. The
+     * remaining results of the initial request can be seen by sending another request
+     * with the returned <code>NextToken</code> value. This value can be between 5 and
+     * 1000; if <code>MaxResults</code> is given a value larger than 1000, only 1000
+     * results are returned.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return for the request in a single page. The
@@ -210,6 +305,11 @@ namespace Model
      * <p>The token to retrieve the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token to retrieve the next page of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token to retrieve the next page of results.</p>

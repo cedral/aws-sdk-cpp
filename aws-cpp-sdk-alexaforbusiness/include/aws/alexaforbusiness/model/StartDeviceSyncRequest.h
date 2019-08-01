@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     StartDeviceSyncRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * Required.</p>
      */
     inline const Aws::String& GetRoomArn() const{ return m_roomArn; }
+
+    /**
+     * <p>The ARN of the room with which the device to sync is associated.
+     * Required.</p>
+     */
+    inline bool RoomArnHasBeenSet() const { return m_roomArnHasBeenSet; }
 
     /**
      * <p>The ARN of the room with which the device to sync is associated.
@@ -97,6 +103,11 @@ namespace Model
     /**
      * <p>The ARN of the device to sync. Required.</p>
      */
+    inline bool DeviceArnHasBeenSet() const { return m_deviceArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the device to sync. Required.</p>
+     */
     inline void SetDeviceArn(const Aws::String& value) { m_deviceArnHasBeenSet = true; m_deviceArn = value; }
 
     /**
@@ -129,6 +140,11 @@ namespace Model
      * <p>Request structure to start the device sync. Required.</p>
      */
     inline const Aws::Vector<Feature>& GetFeatures() const{ return m_features; }
+
+    /**
+     * <p>Request structure to start the device sync. Required.</p>
+     */
+    inline bool FeaturesHasBeenSet() const { return m_featuresHasBeenSet; }
 
     /**
      * <p>Request structure to start the device sync. Required.</p>

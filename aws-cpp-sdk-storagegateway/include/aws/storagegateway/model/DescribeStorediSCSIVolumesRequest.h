@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeStorediSCSIVolumesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
      */
     inline const Aws::Vector<Aws::String>& GetVolumeARNs() const{ return m_volumeARNs; }
+
+    /**
+     * <p>An array of strings where each string represents the Amazon Resource Name
+     * (ARN) of a stored volume. All of the specified stored volumes must from the same
+     * gateway. Use <a>ListVolumes</a> to get volume ARNs for a gateway.</p>
+     */
+    inline bool VolumeARNsHasBeenSet() const { return m_volumeARNsHasBeenSet; }
 
     /**
      * <p>An array of strings where each string represents the Amazon Resource Name

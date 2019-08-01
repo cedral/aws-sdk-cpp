@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the parameter group.</p>
      */
     inline const Aws::String& GetParameterGroupName() const{ return m_parameterGroupName; }
+
+    /**
+     * <p>The name of the parameter group.</p>
+     */
+    inline bool ParameterGroupNameHasBeenSet() const { return m_parameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the parameter group.</p>
@@ -87,6 +92,12 @@ namespace Model
      * the array represents a single parameter.</p>
      */
     inline const Aws::Vector<ParameterNameValue>& GetParameterNameValues() const{ return m_parameterNameValues; }
+
+    /**
+     * <p>An array of name-value pairs for the parameters in the group. Each element in
+     * the array represents a single parameter.</p>
+     */
+    inline bool ParameterNameValuesHasBeenSet() const { return m_parameterNameValuesHasBeenSet; }
 
     /**
      * <p>An array of name-value pairs for the parameters in the group. Each element in

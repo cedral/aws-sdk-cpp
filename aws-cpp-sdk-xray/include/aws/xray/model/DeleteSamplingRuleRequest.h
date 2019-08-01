@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteSamplingRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * both.</p>
      */
     inline const Aws::String& GetRuleName() const{ return m_ruleName; }
+
+    /**
+     * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not
+     * both.</p>
+     */
+    inline bool RuleNameHasBeenSet() const { return m_ruleNameHasBeenSet; }
 
     /**
      * <p>The name of the sampling rule. Specify a rule by either name or ARN, but not
@@ -90,6 +96,12 @@ namespace Model
      * both.</p>
      */
     inline const Aws::String& GetRuleARN() const{ return m_ruleARN; }
+
+    /**
+     * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not
+     * both.</p>
+     */
+    inline bool RuleARNHasBeenSet() const { return m_ruleARNHasBeenSet; }
 
     /**
      * <p>The ARN of the sampling rule. Specify a rule by either name or ARN, but not

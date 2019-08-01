@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DisassociateDeviceFromPlacementRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the project that contains the placement.</p>
      */
     inline const Aws::String& GetProjectName() const{ return m_projectName; }
+
+    /**
+     * <p>The name of the project that contains the placement.</p>
+     */
+    inline bool ProjectNameHasBeenSet() const { return m_projectNameHasBeenSet; }
 
     /**
      * <p>The name of the project that contains the placement.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The name of the placement that the device should be removed from.</p>
      */
+    inline bool PlacementNameHasBeenSet() const { return m_placementNameHasBeenSet; }
+
+    /**
+     * <p>The name of the placement that the device should be removed from.</p>
+     */
     inline void SetPlacementName(const Aws::String& value) { m_placementNameHasBeenSet = true; m_placementName = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The device ID that should be removed from the placement.</p>
      */
     inline const Aws::String& GetDeviceTemplateName() const{ return m_deviceTemplateName; }
+
+    /**
+     * <p>The device ID that should be removed from the placement.</p>
+     */
+    inline bool DeviceTemplateNameHasBeenSet() const { return m_deviceTemplateNameHasBeenSet; }
 
     /**
      * <p>The device ID that should be removed from the placement.</p>

@@ -19,6 +19,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/apigateway/model/ThrottleSettings.h>
 #include <aws/apigateway/model/QuotaSettings.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/apigateway/model/ApiStage.h>
 #include <utility>
 
@@ -65,6 +66,11 @@ namespace Model
     /**
      * <p>The identifier of a <a>UsagePlan</a> resource.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The identifier of a <a>UsagePlan</a> resource.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -97,6 +103,11 @@ namespace Model
      * <p>The name of a usage plan.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of a usage plan.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of a usage plan.</p>
@@ -137,6 +148,11 @@ namespace Model
     /**
      * <p>The description of a usage plan.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description of a usage plan.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -169,6 +185,11 @@ namespace Model
      * <p>The associated API stages of a usage plan.</p>
      */
     inline const Aws::Vector<ApiStage>& GetApiStages() const{ return m_apiStages; }
+
+    /**
+     * <p>The associated API stages of a usage plan.</p>
+     */
+    inline bool ApiStagesHasBeenSet() const { return m_apiStagesHasBeenSet; }
 
     /**
      * <p>The associated API stages of a usage plan.</p>
@@ -209,6 +230,11 @@ namespace Model
     /**
      * <p>The request throttle limits of a usage plan.</p>
      */
+    inline bool ThrottleHasBeenSet() const { return m_throttleHasBeenSet; }
+
+    /**
+     * <p>The request throttle limits of a usage plan.</p>
+     */
     inline void SetThrottle(const ThrottleSettings& value) { m_throttleHasBeenSet = true; m_throttle = value; }
 
     /**
@@ -231,6 +257,11 @@ namespace Model
      * <p>The maximum number of permitted requests per a given unit time interval.</p>
      */
     inline const QuotaSettings& GetQuota() const{ return m_quota; }
+
+    /**
+     * <p>The maximum number of permitted requests per a given unit time interval.</p>
+     */
+    inline bool QuotaHasBeenSet() const { return m_quotaHasBeenSet; }
 
     /**
      * <p>The maximum number of permitted requests per a given unit time interval.</p>
@@ -258,6 +289,12 @@ namespace Model
      * SaaS product on AWS Marketplace.</p>
      */
     inline const Aws::String& GetProductCode() const{ return m_productCode; }
+
+    /**
+     * <p>The AWS Markeplace product identifier to associate with the usage plan as a
+     * SaaS product on AWS Marketplace.</p>
+     */
+    inline bool ProductCodeHasBeenSet() const { return m_productCodeHasBeenSet; }
 
     /**
      * <p>The AWS Markeplace product identifier to associate with the usage plan as a
@@ -295,6 +332,85 @@ namespace Model
      */
     inline UsagePlan& WithProductCode(const char* value) { SetProductCode(value); return *this;}
 
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline UsagePlan& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     Aws::String m_id;
@@ -317,6 +433,9 @@ namespace Model
 
     Aws::String m_productCode;
     bool m_productCodeHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

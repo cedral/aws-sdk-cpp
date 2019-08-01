@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeregisterRdsDbInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The Amazon RDS instance's ARN.</p>
      */
     inline const Aws::String& GetRdsDbInstanceArn() const{ return m_rdsDbInstanceArn; }
+
+    /**
+     * <p>The Amazon RDS instance's ARN.</p>
+     */
+    inline bool RdsDbInstanceArnHasBeenSet() const { return m_rdsDbInstanceArnHasBeenSet; }
 
     /**
      * <p>The Amazon RDS instance's ARN.</p>

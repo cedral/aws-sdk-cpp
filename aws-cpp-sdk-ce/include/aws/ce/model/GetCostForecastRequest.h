@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     GetCostForecastRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The period of time that you want the forecast to cover.</p>
      */
     inline const DateInterval& GetTimePeriod() const{ return m_timePeriod; }
+
+    /**
+     * <p>The period of time that you want the forecast to cover.</p>
+     */
+    inline bool TimePeriodHasBeenSet() const { return m_timePeriodHasBeenSet; }
 
     /**
      * <p>The period of time that you want the forecast to cover.</p>
@@ -79,9 +84,9 @@ namespace Model
      * href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
      * does the "blended" annotation appear on some line items in my bill?</a>. </p>
      * <p>Valid values for a <code>GetCostForecast</code> call are the following:</p>
-     * <ul> <li> <p>AmortizedCost</p> </li> <li> <p>BlendedCost</p> </li> <li>
-     * <p>NetAmortizedCost</p> </li> <li> <p>NetUnblendedCost</p> </li> <li>
-     * <p>UnblendedCost</p> </li> </ul>
+     * <ul> <li> <p>AMORTIZED_COST</p> </li> <li> <p>BLENDED_COST</p> </li> <li>
+     * <p>NET_AMORTIZED_COST</p> </li> <li> <p>NET_UNBLENDED_COST</p> </li> <li>
+     * <p>UNBLENDED_COST</p> </li> </ul>
      */
     inline const Metric& GetMetric() const{ return m_metric; }
 
@@ -91,9 +96,21 @@ namespace Model
      * href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
      * does the "blended" annotation appear on some line items in my bill?</a>. </p>
      * <p>Valid values for a <code>GetCostForecast</code> call are the following:</p>
-     * <ul> <li> <p>AmortizedCost</p> </li> <li> <p>BlendedCost</p> </li> <li>
-     * <p>NetAmortizedCost</p> </li> <li> <p>NetUnblendedCost</p> </li> <li>
-     * <p>UnblendedCost</p> </li> </ul>
+     * <ul> <li> <p>AMORTIZED_COST</p> </li> <li> <p>BLENDED_COST</p> </li> <li>
+     * <p>NET_AMORTIZED_COST</p> </li> <li> <p>NET_UNBLENDED_COST</p> </li> <li>
+     * <p>UNBLENDED_COST</p> </li> </ul>
+     */
+    inline bool MetricHasBeenSet() const { return m_metricHasBeenSet; }
+
+    /**
+     * <p>Which metric Cost Explorer uses to create your forecast. For more information
+     * about blended and unblended rates, see <a
+     * href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
+     * does the "blended" annotation appear on some line items in my bill?</a>. </p>
+     * <p>Valid values for a <code>GetCostForecast</code> call are the following:</p>
+     * <ul> <li> <p>AMORTIZED_COST</p> </li> <li> <p>BLENDED_COST</p> </li> <li>
+     * <p>NET_AMORTIZED_COST</p> </li> <li> <p>NET_UNBLENDED_COST</p> </li> <li>
+     * <p>UNBLENDED_COST</p> </li> </ul>
      */
     inline void SetMetric(const Metric& value) { m_metricHasBeenSet = true; m_metric = value; }
 
@@ -103,9 +120,9 @@ namespace Model
      * href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
      * does the "blended" annotation appear on some line items in my bill?</a>. </p>
      * <p>Valid values for a <code>GetCostForecast</code> call are the following:</p>
-     * <ul> <li> <p>AmortizedCost</p> </li> <li> <p>BlendedCost</p> </li> <li>
-     * <p>NetAmortizedCost</p> </li> <li> <p>NetUnblendedCost</p> </li> <li>
-     * <p>UnblendedCost</p> </li> </ul>
+     * <ul> <li> <p>AMORTIZED_COST</p> </li> <li> <p>BLENDED_COST</p> </li> <li>
+     * <p>NET_AMORTIZED_COST</p> </li> <li> <p>NET_UNBLENDED_COST</p> </li> <li>
+     * <p>UNBLENDED_COST</p> </li> </ul>
      */
     inline void SetMetric(Metric&& value) { m_metricHasBeenSet = true; m_metric = std::move(value); }
 
@@ -115,9 +132,9 @@ namespace Model
      * href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
      * does the "blended" annotation appear on some line items in my bill?</a>. </p>
      * <p>Valid values for a <code>GetCostForecast</code> call are the following:</p>
-     * <ul> <li> <p>AmortizedCost</p> </li> <li> <p>BlendedCost</p> </li> <li>
-     * <p>NetAmortizedCost</p> </li> <li> <p>NetUnblendedCost</p> </li> <li>
-     * <p>UnblendedCost</p> </li> </ul>
+     * <ul> <li> <p>AMORTIZED_COST</p> </li> <li> <p>BLENDED_COST</p> </li> <li>
+     * <p>NET_AMORTIZED_COST</p> </li> <li> <p>NET_UNBLENDED_COST</p> </li> <li>
+     * <p>UNBLENDED_COST</p> </li> </ul>
      */
     inline GetCostForecastRequest& WithMetric(const Metric& value) { SetMetric(value); return *this;}
 
@@ -127,9 +144,9 @@ namespace Model
      * href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
      * does the "blended" annotation appear on some line items in my bill?</a>. </p>
      * <p>Valid values for a <code>GetCostForecast</code> call are the following:</p>
-     * <ul> <li> <p>AmortizedCost</p> </li> <li> <p>BlendedCost</p> </li> <li>
-     * <p>NetAmortizedCost</p> </li> <li> <p>NetUnblendedCost</p> </li> <li>
-     * <p>UnblendedCost</p> </li> </ul>
+     * <ul> <li> <p>AMORTIZED_COST</p> </li> <li> <p>BLENDED_COST</p> </li> <li>
+     * <p>NET_AMORTIZED_COST</p> </li> <li> <p>NET_UNBLENDED_COST</p> </li> <li>
+     * <p>UNBLENDED_COST</p> </li> </ul>
      */
     inline GetCostForecastRequest& WithMetric(Metric&& value) { SetMetric(std::move(value)); return *this;}
 
@@ -141,6 +158,14 @@ namespace Model
      * and <code>MONTHLY</code> granularities.</p>
      */
     inline const Granularity& GetGranularity() const{ return m_granularity; }
+
+    /**
+     * <p>How granular you want the forecast to be. You can get 3 months of
+     * <code>DAILY</code> forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
+     * <p>The <code>GetCostForecast</code> operation supports only <code>DAILY</code>
+     * and <code>MONTHLY</code> granularities.</p>
+     */
+    inline bool GranularityHasBeenSet() const { return m_granularityHasBeenSet; }
 
     /**
      * <p>How granular you want the forecast to be. You can get 3 months of
@@ -185,6 +210,12 @@ namespace Model
      * <p>The filters that you want to use to filter your forecast. Cost Explorer API
      * supports all of the Cost Explorer filters.</p>
      */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
+
+    /**
+     * <p>The filters that you want to use to filter your forecast. Cost Explorer API
+     * supports all of the Cost Explorer filters.</p>
+     */
     inline void SetFilter(const Expression& value) { m_filterHasBeenSet = true; m_filter = value; }
 
     /**
@@ -214,6 +245,15 @@ namespace Model
      * in wider prediction intervals.</p>
      */
     inline int GetPredictionIntervalLevel() const{ return m_predictionIntervalLevel; }
+
+    /**
+     * <p>Cost Explorer always returns the mean forecast as a single point. You can
+     * request a prediction interval around the mean by specifying a confidence level.
+     * The higher the confidence level, the more confident Cost Explorer is about the
+     * actual value falling in the prediction interval. Higher confidence levels result
+     * in wider prediction intervals.</p>
+     */
+    inline bool PredictionIntervalLevelHasBeenSet() const { return m_predictionIntervalLevelHasBeenSet; }
 
     /**
      * <p>Cost Explorer always returns the mean forecast as a single point. You can

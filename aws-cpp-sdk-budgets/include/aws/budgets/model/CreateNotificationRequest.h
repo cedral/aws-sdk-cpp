@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateNotificationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * to create a notification for.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The <code>accountId</code> that is associated with the budget that you want
+     * to create a notification for.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The <code>accountId</code> that is associated with the budget that you want
@@ -103,6 +109,12 @@ namespace Model
      * <p>The name of the budget that you want AWS to notify you about. Budget names
      * must be unique within an account.</p>
      */
+    inline bool BudgetNameHasBeenSet() const { return m_budgetNameHasBeenSet; }
+
+    /**
+     * <p>The name of the budget that you want AWS to notify you about. Budget names
+     * must be unique within an account.</p>
+     */
     inline void SetBudgetName(const Aws::String& value) { m_budgetNameHasBeenSet = true; m_budgetName = value; }
 
     /**
@@ -144,6 +156,11 @@ namespace Model
     /**
      * <p>The notification that you want to create.</p>
      */
+    inline bool NotificationHasBeenSet() const { return m_notificationHasBeenSet; }
+
+    /**
+     * <p>The notification that you want to create.</p>
+     */
     inline void SetNotification(const Notification& value) { m_notificationHasBeenSet = true; m_notification = value; }
 
     /**
@@ -167,6 +184,12 @@ namespace Model
      * notification can have one SNS subscriber and up to 10 email subscribers.</p>
      */
     inline const Aws::Vector<Subscriber>& GetSubscribers() const{ return m_subscribers; }
+
+    /**
+     * <p>A list of subscribers that you want to associate with the notification. Each
+     * notification can have one SNS subscriber and up to 10 email subscribers.</p>
+     */
+    inline bool SubscribersHasBeenSet() const { return m_subscribersHasBeenSet; }
 
     /**
      * <p>A list of subscribers that you want to associate with the notification. Each

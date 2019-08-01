@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListSentimentDetectionJobsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * filter at a time.</p>
      */
     inline const SentimentDetectionJobFilter& GetFilter() const{ return m_filter; }
+
+    /**
+     * <p>Filters the jobs that are returned. You can filter jobs on their name,
+     * status, or the date and time that they were submitted. You can only set one
+     * filter at a time.</p>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
      * <p>Filters the jobs that are returned. You can filter jobs on their name,
@@ -89,6 +96,11 @@ namespace Model
     /**
      * <p>Identifies the next page of results to return.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>Identifies the next page of results to return.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -121,6 +133,11 @@ namespace Model
      * <p>The maximum number of results to return in each page. The default is 100.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return in each page. The default is 100.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return in each page. The default is 100.</p>

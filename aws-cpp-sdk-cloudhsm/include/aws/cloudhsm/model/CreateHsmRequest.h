@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateHsmRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The identifier of the subnet in your VPC in which to place the HSM.</p>
      */
     inline const Aws::String& GetSubnetId() const{ return m_subnetId; }
+
+    /**
+     * <p>The identifier of the subnet in your VPC in which to place the HSM.</p>
+     */
+    inline bool SubnetIdHasBeenSet() const { return m_subnetIdHasBeenSet; }
 
     /**
      * <p>The identifier of the subnet in your VPC in which to place the HSM.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The SSH public key to install on the HSM.</p>
      */
+    inline bool SshKeyHasBeenSet() const { return m_sshKeyHasBeenSet; }
+
+    /**
+     * <p>The SSH public key to install on the HSM.</p>
+     */
     inline void SetSshKey(const Aws::String& value) { m_sshKeyHasBeenSet = true; m_sshKey = value; }
 
     /**
@@ -127,6 +137,13 @@ namespace Model
      * subnet.</p>
      */
     inline const Aws::String& GetEniIp() const{ return m_eniIp; }
+
+    /**
+     * <p>The IP address to assign to the HSM's ENI.</p> <p>If an IP address is not
+     * specified, an IP address will be randomly chosen from the CIDR range of the
+     * subnet.</p>
+     */
+    inline bool EniIpHasBeenSet() const { return m_eniIpHasBeenSet; }
 
     /**
      * <p>The IP address to assign to the HSM's ENI.</p> <p>If an IP address is not
@@ -181,6 +198,12 @@ namespace Model
      * <p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI
      * on your behalf.</p>
      */
+    inline bool IamRoleArnHasBeenSet() const { return m_iamRoleArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of an IAM role to enable the AWS CloudHSM service to allocate an ENI
+     * on your behalf.</p>
+     */
     inline void SetIamRoleArn(const Aws::String& value) { m_iamRoleArnHasBeenSet = true; m_iamRoleArn = value; }
 
     /**
@@ -222,6 +245,11 @@ namespace Model
     /**
      * <p>The external ID from <code>IamRoleArn</code>, if present.</p>
      */
+    inline bool ExternalIdHasBeenSet() const { return m_externalIdHasBeenSet; }
+
+    /**
+     * <p>The external ID from <code>IamRoleArn</code>, if present.</p>
+     */
     inline void SetExternalId(const Aws::String& value) { m_externalIdHasBeenSet = true; m_externalId = value; }
 
     /**
@@ -254,6 +282,9 @@ namespace Model
     inline const SubscriptionType& GetSubscriptionType() const{ return m_subscriptionType; }
 
     
+    inline bool SubscriptionTypeHasBeenSet() const { return m_subscriptionTypeHasBeenSet; }
+
+    
     inline void SetSubscriptionType(const SubscriptionType& value) { m_subscriptionTypeHasBeenSet = true; m_subscriptionType = value; }
 
     
@@ -271,6 +302,12 @@ namespace Model
      * operation with the same token will be ignored.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>A user-defined token to ensure idempotence. Subsequent calls to this
+     * operation with the same token will be ignored.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>A user-defined token to ensure idempotence. Subsequent calls to this
@@ -314,6 +351,12 @@ namespace Model
      * only supports one syslog monitoring server.</p>
      */
     inline const Aws::String& GetSyslogIp() const{ return m_syslogIp; }
+
+    /**
+     * <p>The IP address for the syslog monitoring server. The AWS CloudHSM service
+     * only supports one syslog monitoring server.</p>
+     */
+    inline bool SyslogIpHasBeenSet() const { return m_syslogIpHasBeenSet; }
 
     /**
      * <p>The IP address for the syslog monitoring server. The AWS CloudHSM service

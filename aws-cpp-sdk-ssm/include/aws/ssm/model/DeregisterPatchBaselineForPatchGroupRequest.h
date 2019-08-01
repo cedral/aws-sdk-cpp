@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeregisterPatchBaselineForPatchGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the patch baseline to deregister the patch group from.</p>
      */
     inline const Aws::String& GetBaselineId() const{ return m_baselineId; }
+
+    /**
+     * <p>The ID of the patch baseline to deregister the patch group from.</p>
+     */
+    inline bool BaselineIdHasBeenSet() const { return m_baselineIdHasBeenSet; }
 
     /**
      * <p>The ID of the patch baseline to deregister the patch group from.</p>
@@ -85,6 +90,12 @@ namespace Model
      * baseline.</p>
      */
     inline const Aws::String& GetPatchGroup() const{ return m_patchGroup; }
+
+    /**
+     * <p>The name of the patch group that should be deregistered from the patch
+     * baseline.</p>
+     */
+    inline bool PatchGroupHasBeenSet() const { return m_patchGroupHasBeenSet; }
 
     /**
      * <p>The name of the patch group that should be deregistered from the patch

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeUpdateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the Amazon EKS cluster to update.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the Amazon EKS cluster to update.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the Amazon EKS cluster to update.</p>
@@ -82,6 +87,11 @@ namespace Model
      * <p>The ID of the update to describe.</p>
      */
     inline const Aws::String& GetUpdateId() const{ return m_updateId; }
+
+    /**
+     * <p>The ID of the update to describe.</p>
+     */
+    inline bool UpdateIdHasBeenSet() const { return m_updateIdHasBeenSet; }
 
     /**
      * <p>The ID of the update to describe.</p>

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UntagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * server, user, or role.</p>
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * <p>This is the value of the resource that will have the tag removed. An Amazon
+     * Resource Name (ARN) is an identifier for a specific AWS resource, such as a
+     * server, user, or role.</p>
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * <p>This is the value of the resource that will have the tag removed. An Amazon
@@ -101,6 +108,13 @@ namespace Model
      * purpose.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeys() const{ return m_tagKeys; }
+
+    /**
+     * <p>TagKeys are key-value pairs assigned to ARNs that can be used to group and
+     * search for resources by type. This metadata can be attached to resources for any
+     * purpose.</p>
+     */
+    inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }
 
     /**
      * <p>TagKeys are key-value pairs assigned to ARNs that can be used to group and

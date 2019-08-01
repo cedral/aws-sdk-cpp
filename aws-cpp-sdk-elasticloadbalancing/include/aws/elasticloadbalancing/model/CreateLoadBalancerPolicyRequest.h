@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateLoadBalancerPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>The name of the load balancer.</p>
      */
     inline const Aws::String& GetLoadBalancerName() const{ return m_loadBalancerName; }
+
+    /**
+     * <p>The name of the load balancer.</p>
+     */
+    inline bool LoadBalancerNameHasBeenSet() const { return m_loadBalancerNameHasBeenSet; }
 
     /**
      * <p>The name of the load balancer.</p>
@@ -93,6 +98,12 @@ namespace Model
      * within the set of policies for this load balancer.</p>
      */
     inline const Aws::String& GetPolicyName() const{ return m_policyName; }
+
+    /**
+     * <p>The name of the load balancer policy to be created. This name must be unique
+     * within the set of policies for this load balancer.</p>
+     */
+    inline bool PolicyNameHasBeenSet() const { return m_policyNameHasBeenSet; }
 
     /**
      * <p>The name of the load balancer policy to be created. This name must be unique
@@ -141,6 +152,12 @@ namespace Model
      * <p>The name of the base policy type. To get the list of policy types, use
      * <a>DescribeLoadBalancerPolicyTypes</a>.</p>
      */
+    inline bool PolicyTypeNameHasBeenSet() const { return m_policyTypeNameHasBeenSet; }
+
+    /**
+     * <p>The name of the base policy type. To get the list of policy types, use
+     * <a>DescribeLoadBalancerPolicyTypes</a>.</p>
+     */
     inline void SetPolicyTypeName(const Aws::String& value) { m_policyTypeNameHasBeenSet = true; m_policyTypeName = value; }
 
     /**
@@ -178,6 +195,11 @@ namespace Model
      * <p>The policy attributes.</p>
      */
     inline const Aws::Vector<PolicyAttribute>& GetPolicyAttributes() const{ return m_policyAttributes; }
+
+    /**
+     * <p>The policy attributes.</p>
+     */
+    inline bool PolicyAttributesHasBeenSet() const { return m_policyAttributesHasBeenSet; }
 
     /**
      * <p>The policy attributes.</p>

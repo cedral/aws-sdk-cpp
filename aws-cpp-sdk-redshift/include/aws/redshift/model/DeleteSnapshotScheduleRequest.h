@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteSnapshotScheduleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>A unique identifier of the snapshot schedule to delete.</p>
      */
     inline const Aws::String& GetScheduleIdentifier() const{ return m_scheduleIdentifier; }
+
+    /**
+     * <p>A unique identifier of the snapshot schedule to delete.</p>
+     */
+    inline bool ScheduleIdentifierHasBeenSet() const { return m_scheduleIdentifierHasBeenSet; }
 
     /**
      * <p>A unique identifier of the snapshot schedule to delete.</p>

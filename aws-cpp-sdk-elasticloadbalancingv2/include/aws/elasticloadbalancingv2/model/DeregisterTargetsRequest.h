@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DeregisterTargetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the target group.</p>
      */
     inline const Aws::String& GetTargetGroupArn() const{ return m_targetGroupArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the target group.</p>
+     */
+    inline bool TargetGroupArnHasBeenSet() const { return m_targetGroupArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the target group.</p>
@@ -89,6 +94,12 @@ namespace Model
      * you must specify both the target ID and the port when you deregister it.</p>
      */
     inline const Aws::Vector<TargetDescription>& GetTargets() const{ return m_targets; }
+
+    /**
+     * <p>The targets. If you specified a port override when you registered a target,
+     * you must specify both the target ID and the port when you deregister it.</p>
+     */
+    inline bool TargetsHasBeenSet() const { return m_targetsHasBeenSet; }
 
     /**
      * <p>The targets. If you specified a port override when you registered a target,

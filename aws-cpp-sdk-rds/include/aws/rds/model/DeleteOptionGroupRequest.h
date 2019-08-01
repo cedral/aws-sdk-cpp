@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteOptionGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * default option groups.</p> </note>
      */
     inline const Aws::String& GetOptionGroupName() const{ return m_optionGroupName; }
+
+    /**
+     * <p>The name of the option group to be deleted.</p> <note> <p>You can't delete
+     * default option groups.</p> </note>
+     */
+    inline bool OptionGroupNameHasBeenSet() const { return m_optionGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the option group to be deleted.</p> <note> <p>You can't delete

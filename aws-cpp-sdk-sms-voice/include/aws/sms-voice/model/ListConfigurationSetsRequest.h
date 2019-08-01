@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListConfigurationSetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * the list of results.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * A token returned from a previous call to the API that indicates the position in
+     * the list of results.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * A token returned from a previous call to the API that indicates the position in
@@ -95,6 +101,11 @@ namespace Model
      * Used to specify the number of items that should be returned in the response.
      */
     inline const Aws::String& GetPageSize() const{ return m_pageSize; }
+
+    /**
+     * Used to specify the number of items that should be returned in the response.
+     */
+    inline bool PageSizeHasBeenSet() const { return m_pageSizeHasBeenSet; }
 
     /**
      * Used to specify the number of items that should be returned in the response.

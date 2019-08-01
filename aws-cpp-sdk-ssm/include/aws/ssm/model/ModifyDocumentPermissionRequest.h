@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ModifyDocumentPermissionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the document that you want to share.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the document that you want to share.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the document that you want to share.</p>
@@ -92,6 +97,12 @@ namespace Model
      * <p>The permission type for the document. The permission type can be
      * <i>Share</i>.</p>
      */
+    inline bool PermissionTypeHasBeenSet() const { return m_permissionTypeHasBeenSet; }
+
+    /**
+     * <p>The permission type for the document. The permission type can be
+     * <i>Share</i>.</p>
+     */
     inline void SetPermissionType(const DocumentPermissionType& value) { m_permissionTypeHasBeenSet = true; m_permissionType = value; }
 
     /**
@@ -118,6 +129,12 @@ namespace Model
      * IDs can either be a group of account IDs or <i>All</i>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAccountIdsToAdd() const{ return m_accountIdsToAdd; }
+
+    /**
+     * <p>The AWS user accounts that should have access to the document. The account
+     * IDs can either be a group of account IDs or <i>All</i>.</p>
+     */
+    inline bool AccountIdsToAddHasBeenSet() const { return m_accountIdsToAddHasBeenSet; }
 
     /**
      * <p>The AWS user accounts that should have access to the document. The account
@@ -169,6 +186,14 @@ namespace Model
      * to add and the same ID to remove, the system removes access to the document.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAccountIdsToRemove() const{ return m_accountIdsToRemove; }
+
+    /**
+     * <p>The AWS user accounts that should no longer have access to the document. The
+     * AWS user account can either be a group of account IDs or <i>All</i>. This action
+     * has a higher priority than <i>AccountIdsToAdd</i>. If you specify an account ID
+     * to add and the same ID to remove, the system removes access to the document.</p>
+     */
+    inline bool AccountIdsToRemoveHasBeenSet() const { return m_accountIdsToRemoveHasBeenSet; }
 
     /**
      * <p>The AWS user accounts that should no longer have access to the document. The

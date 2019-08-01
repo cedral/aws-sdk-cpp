@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteImagePermissionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the private image.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the private image.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the private image.</p>
@@ -85,6 +90,12 @@ namespace Model
      * permissions.</p>
      */
     inline const Aws::String& GetSharedAccountId() const{ return m_sharedAccountId; }
+
+    /**
+     * <p>The 12-digit identifier of the AWS account for which to delete image
+     * permissions.</p>
+     */
+    inline bool SharedAccountIdHasBeenSet() const { return m_sharedAccountIdHasBeenSet; }
 
     /**
      * <p>The 12-digit identifier of the AWS account for which to delete image

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateSkillGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the skill group to update. </p>
      */
     inline const Aws::String& GetSkillGroupArn() const{ return m_skillGroupArn; }
+
+    /**
+     * <p>The ARN of the skill group to update. </p>
+     */
+    inline bool SkillGroupArnHasBeenSet() const { return m_skillGroupArnHasBeenSet; }
 
     /**
      * <p>The ARN of the skill group to update. </p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The updated name for the skill group.</p>
      */
+    inline bool SkillGroupNameHasBeenSet() const { return m_skillGroupNameHasBeenSet; }
+
+    /**
+     * <p>The updated name for the skill group.</p>
+     */
     inline void SetSkillGroupName(const Aws::String& value) { m_skillGroupNameHasBeenSet = true; m_skillGroupName = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The updated description for the skill group.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The updated description for the skill group.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The updated description for the skill group.</p>

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListDeliveryStreamsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The maximum number of delivery streams to list. The default value is 10.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of delivery streams to list. The default value is 10.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of delivery streams to list. The default value is 10.</p>
@@ -70,6 +75,16 @@ namespace Model
      * types are returned.</p>
      */
     inline const DeliveryStreamType& GetDeliveryStreamType() const{ return m_deliveryStreamType; }
+
+    /**
+     * <p>The delivery stream type. This can be one of the following values:</p> <ul>
+     * <li> <p> <code>DirectPut</code>: Provider applications access the delivery
+     * stream directly.</p> </li> <li> <p> <code>KinesisStreamAsSource</code>: The
+     * delivery stream uses a Kinesis data stream as a source.</p> </li> </ul> <p>This
+     * parameter is optional. If this parameter is omitted, delivery streams of all
+     * types are returned.</p>
+     */
+    inline bool DeliveryStreamTypeHasBeenSet() const { return m_deliveryStreamTypeHasBeenSet; }
 
     /**
      * <p>The delivery stream type. This can be one of the following values:</p> <ul>
@@ -119,6 +134,14 @@ namespace Model
      * <code>ExclusiveStartDeliveryStreamName</code>.</p>
      */
     inline const Aws::String& GetExclusiveStartDeliveryStreamName() const{ return m_exclusiveStartDeliveryStreamName; }
+
+    /**
+     * <p>The list of delivery streams returned by this call to
+     * <code>ListDeliveryStreams</code> will start with the delivery stream whose name
+     * comes alphabetically immediately after the name you specify in
+     * <code>ExclusiveStartDeliveryStreamName</code>.</p>
+     */
+    inline bool ExclusiveStartDeliveryStreamNameHasBeenSet() const { return m_exclusiveStartDeliveryStreamNameHasBeenSet; }
 
     /**
      * <p>The list of delivery streams returned by this call to

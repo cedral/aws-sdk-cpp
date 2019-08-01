@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the application.</p>
      */
     inline const Aws::String& GetApplicationId() const{ return m_applicationId; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the application.</p>
+     */
+    inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the application.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The semantic version of the application to get.</p>
      */
     inline const Aws::String& GetSemanticVersion() const{ return m_semanticVersion; }
+
+    /**
+     * <p>The semantic version of the application to get.</p>
+     */
+    inline bool SemanticVersionHasBeenSet() const { return m_semanticVersionHasBeenSet; }
 
     /**
      * <p>The semantic version of the application to get.</p>

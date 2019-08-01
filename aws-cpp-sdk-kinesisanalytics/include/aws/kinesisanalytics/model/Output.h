@@ -43,7 +43,7 @@ namespace Model
    * data to be written. The destination can be an Amazon Kinesis stream or an Amazon
    * Kinesis Firehose delivery stream. </p> <p/> <p>For limits on how many
    * destinations an application can write and other limitations, see <a
-   * href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.
+   * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/limits.html">Limits</a>.
    * </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/Output">AWS
    * API Reference</a></p>
@@ -61,6 +61,11 @@ namespace Model
      * <p>Name of the in-application stream.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>Name of the in-application stream.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>Name of the in-application stream.</p>
@@ -101,6 +106,11 @@ namespace Model
     /**
      * <p>Identifies an Amazon Kinesis stream as the destination.</p>
      */
+    inline bool KinesisStreamsOutputHasBeenSet() const { return m_kinesisStreamsOutputHasBeenSet; }
+
+    /**
+     * <p>Identifies an Amazon Kinesis stream as the destination.</p>
+     */
     inline void SetKinesisStreamsOutput(const KinesisStreamsOutput& value) { m_kinesisStreamsOutputHasBeenSet = true; m_kinesisStreamsOutput = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
      * <p>Identifies an Amazon Kinesis Firehose delivery stream as the destination.</p>
      */
     inline const KinesisFirehoseOutput& GetKinesisFirehoseOutput() const{ return m_kinesisFirehoseOutput; }
+
+    /**
+     * <p>Identifies an Amazon Kinesis Firehose delivery stream as the destination.</p>
+     */
+    inline bool KinesisFirehoseOutputHasBeenSet() const { return m_kinesisFirehoseOutputHasBeenSet; }
 
     /**
      * <p>Identifies an Amazon Kinesis Firehose delivery stream as the destination.</p>
@@ -153,6 +168,11 @@ namespace Model
     /**
      * <p>Identifies an AWS Lambda function as the destination.</p>
      */
+    inline bool LambdaOutputHasBeenSet() const { return m_lambdaOutputHasBeenSet; }
+
+    /**
+     * <p>Identifies an AWS Lambda function as the destination.</p>
+     */
     inline void SetLambdaOutput(const LambdaOutput& value) { m_lambdaOutputHasBeenSet = true; m_lambdaOutput = value; }
 
     /**
@@ -174,7 +194,7 @@ namespace Model
     /**
      * <p>Describes the data format when records are written to the destination. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
      * Application Output</a>.</p>
      */
     inline const DestinationSchema& GetDestinationSchema() const{ return m_destinationSchema; }
@@ -182,7 +202,15 @@ namespace Model
     /**
      * <p>Describes the data format when records are written to the destination. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
+     * Application Output</a>.</p>
+     */
+    inline bool DestinationSchemaHasBeenSet() const { return m_destinationSchemaHasBeenSet; }
+
+    /**
+     * <p>Describes the data format when records are written to the destination. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
      * Application Output</a>.</p>
      */
     inline void SetDestinationSchema(const DestinationSchema& value) { m_destinationSchemaHasBeenSet = true; m_destinationSchema = value; }
@@ -190,7 +218,7 @@ namespace Model
     /**
      * <p>Describes the data format when records are written to the destination. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
      * Application Output</a>.</p>
      */
     inline void SetDestinationSchema(DestinationSchema&& value) { m_destinationSchemaHasBeenSet = true; m_destinationSchema = std::move(value); }
@@ -198,7 +226,7 @@ namespace Model
     /**
      * <p>Describes the data format when records are written to the destination. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
      * Application Output</a>.</p>
      */
     inline Output& WithDestinationSchema(const DestinationSchema& value) { SetDestinationSchema(value); return *this;}
@@ -206,7 +234,7 @@ namespace Model
     /**
      * <p>Describes the data format when records are written to the destination. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
+     * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html">Configuring
      * Application Output</a>.</p>
      */
     inline Output& WithDestinationSchema(DestinationSchema&& value) { SetDestinationSchema(std::move(value)); return *this;}

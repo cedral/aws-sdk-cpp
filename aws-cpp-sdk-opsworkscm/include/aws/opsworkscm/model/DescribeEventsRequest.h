@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeEventsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the server for which you want to view events.</p>
      */
     inline const Aws::String& GetServerName() const{ return m_serverName; }
+
+    /**
+     * <p>The name of the server for which you want to view events.</p>
+     */
+    inline bool ServerNameHasBeenSet() const { return m_serverNameHasBeenSet; }
 
     /**
      * <p>The name of the server for which you want to view events.</p>
@@ -92,6 +97,19 @@ namespace Model
      * occur. </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>NextToken is a string that is returned in some command responses. It
+     * indicates that not all entries have been returned, and that you must run at
+     * least one more request to get remaining items. To get remaining results, call
+     * <code>DescribeEvents</code> again, and assign the token from the previous
+     * results as the value of the <code>nextToken</code> parameter. If there are no
+     * more results, the response object's <code>nextToken</code> parameter value is
+     * <code>null</code>. Setting a <code>nextToken</code> value that was not returned
+     * in your previous results causes an <code>InvalidNextTokenException</code> to
+     * occur. </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>NextToken is a string that is returned in some command responses. It
@@ -180,6 +198,15 @@ namespace Model
      * the next set of results. </p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>To receive a paginated response, use this parameter to specify the maximum
+     * number of results to be returned with a single call. If the number of available
+     * results exceeds this maximum, the response includes a <code>NextToken</code>
+     * value that you can assign to the <code>NextToken</code> request parameter to get
+     * the next set of results. </p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>To receive a paginated response, use this parameter to specify the maximum

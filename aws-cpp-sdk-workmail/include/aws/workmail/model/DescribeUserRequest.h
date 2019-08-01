@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The identifier for the organization under which the user exists.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The identifier for the organization under which the user exists.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The identifier for the organization under which the user exists.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The identifier for the user to be described.</p>
      */
     inline const Aws::String& GetUserId() const{ return m_userId; }
+
+    /**
+     * <p>The identifier for the user to be described.</p>
+     */
+    inline bool UserIdHasBeenSet() const { return m_userIdHasBeenSet; }
 
     /**
      * <p>The identifier for the user to be described.</p>

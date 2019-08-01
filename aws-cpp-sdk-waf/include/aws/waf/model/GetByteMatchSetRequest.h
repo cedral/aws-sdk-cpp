@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetByteMatchSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <a>ListByteMatchSets</a>.</p>
      */
     inline const Aws::String& GetByteMatchSetId() const{ return m_byteMatchSetId; }
+
+    /**
+     * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to
+     * get. <code>ByteMatchSetId</code> is returned by <a>CreateByteMatchSet</a> and by
+     * <a>ListByteMatchSets</a>.</p>
+     */
+    inline bool ByteMatchSetIdHasBeenSet() const { return m_byteMatchSetIdHasBeenSet; }
 
     /**
      * <p>The <code>ByteMatchSetId</code> of the <a>ByteMatchSet</a> that you want to

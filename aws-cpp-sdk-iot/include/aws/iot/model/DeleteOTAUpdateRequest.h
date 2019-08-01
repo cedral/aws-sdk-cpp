@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteOTAUpdateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The OTA update ID to delete.</p>
      */
     inline const Aws::String& GetOtaUpdateId() const{ return m_otaUpdateId; }
+
+    /**
+     * <p>The OTA update ID to delete.</p>
+     */
+    inline bool OtaUpdateIdHasBeenSet() const { return m_otaUpdateIdHasBeenSet; }
 
     /**
      * <p>The OTA update ID to delete.</p>
@@ -94,6 +99,12 @@ namespace Model
      * <p>Specifies if the stream associated with an OTA update should be deleted when
      * the OTA update is deleted.</p>
      */
+    inline bool DeleteStreamHasBeenSet() const { return m_deleteStreamHasBeenSet; }
+
+    /**
+     * <p>Specifies if the stream associated with an OTA update should be deleted when
+     * the OTA update is deleted.</p>
+     */
     inline void SetDeleteStream(bool value) { m_deleteStreamHasBeenSet = true; m_deleteStream = value; }
 
     /**
@@ -108,6 +119,12 @@ namespace Model
      * with the OTA update is deleted.</p>
      */
     inline bool GetForceDeleteAWSJob() const{ return m_forceDeleteAWSJob; }
+
+    /**
+     * <p>Specifies if the AWS Job associated with the OTA update should be deleted
+     * with the OTA update is deleted.</p>
+     */
+    inline bool ForceDeleteAWSJobHasBeenSet() const { return m_forceDeleteAWSJobHasBeenSet; }
 
     /**
      * <p>Specifies if the AWS Job associated with the OTA update should be deleted

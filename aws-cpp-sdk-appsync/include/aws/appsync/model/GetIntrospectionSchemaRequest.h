@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     GetIntrospectionSchemaRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The API ID.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The API ID.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The API ID.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The schema format: SDL or JSON.</p>
      */
+    inline bool FormatHasBeenSet() const { return m_formatHasBeenSet; }
+
+    /**
+     * <p>The schema format: SDL or JSON.</p>
+     */
     inline void SetFormat(const OutputType& value) { m_formatHasBeenSet = true; m_format = value; }
 
     /**
@@ -110,6 +120,31 @@ namespace Model
      */
     inline GetIntrospectionSchemaRequest& WithFormat(OutputType&& value) { SetFormat(std::move(value)); return *this;}
 
+
+    /**
+     * <p>A flag that specifies whether the schema introspection should contain
+     * directives.</p>
+     */
+    inline bool GetIncludeDirectives() const{ return m_includeDirectives; }
+
+    /**
+     * <p>A flag that specifies whether the schema introspection should contain
+     * directives.</p>
+     */
+    inline bool IncludeDirectivesHasBeenSet() const { return m_includeDirectivesHasBeenSet; }
+
+    /**
+     * <p>A flag that specifies whether the schema introspection should contain
+     * directives.</p>
+     */
+    inline void SetIncludeDirectives(bool value) { m_includeDirectivesHasBeenSet = true; m_includeDirectives = value; }
+
+    /**
+     * <p>A flag that specifies whether the schema introspection should contain
+     * directives.</p>
+     */
+    inline GetIntrospectionSchemaRequest& WithIncludeDirectives(bool value) { SetIncludeDirectives(value); return *this;}
+
   private:
 
     Aws::String m_apiId;
@@ -117,6 +152,9 @@ namespace Model
 
     OutputType m_format;
     bool m_formatHasBeenSet;
+
+    bool m_includeDirectives;
+    bool m_includeDirectivesHasBeenSet;
   };
 
 } // namespace Model

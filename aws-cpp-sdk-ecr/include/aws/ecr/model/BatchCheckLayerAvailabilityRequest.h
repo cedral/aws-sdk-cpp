@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     BatchCheckLayerAvailabilityRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * assumed.</p>
      */
     inline const Aws::String& GetRegistryId() const{ return m_registryId; }
+
+    /**
+     * <p>The AWS account ID associated with the registry that contains the image
+     * layers to check. If you do not specify a registry, the default registry is
+     * assumed.</p>
+     */
+    inline bool RegistryIdHasBeenSet() const { return m_registryIdHasBeenSet; }
 
     /**
      * <p>The AWS account ID associated with the registry that contains the image
@@ -105,6 +112,12 @@ namespace Model
      * <p>The name of the repository that is associated with the image layers to
      * check.</p>
      */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
+
+    /**
+     * <p>The name of the repository that is associated with the image layers to
+     * check.</p>
+     */
     inline void SetRepositoryName(const Aws::String& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = value; }
 
     /**
@@ -142,6 +155,11 @@ namespace Model
      * <p>The digests of the image layers to check.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLayerDigests() const{ return m_layerDigests; }
+
+    /**
+     * <p>The digests of the image layers to check.</p>
+     */
+    inline bool LayerDigestsHasBeenSet() const { return m_layerDigestsHasBeenSet; }
 
     /**
      * <p>The digests of the image layers to check.</p>

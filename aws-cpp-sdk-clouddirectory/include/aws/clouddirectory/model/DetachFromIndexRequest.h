@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DetachFromIndexRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * in.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the directory the index and object exist
+     * in.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the directory the index and object exist
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>A reference to the index object.</p>
      */
+    inline bool IndexReferenceHasBeenSet() const { return m_indexReferenceHasBeenSet; }
+
+    /**
+     * <p>A reference to the index object.</p>
+     */
     inline void SetIndexReference(const ObjectReference& value) { m_indexReferenceHasBeenSet = true; m_indexReference = value; }
 
     /**
@@ -118,6 +129,11 @@ namespace Model
      * <p>A reference to the object being detached from the index.</p>
      */
     inline const ObjectReference& GetTargetReference() const{ return m_targetReference; }
+
+    /**
+     * <p>A reference to the object being detached from the index.</p>
+     */
+    inline bool TargetReferenceHasBeenSet() const { return m_targetReferenceHasBeenSet; }
 
     /**
      * <p>A reference to the object being detached from the index.</p>

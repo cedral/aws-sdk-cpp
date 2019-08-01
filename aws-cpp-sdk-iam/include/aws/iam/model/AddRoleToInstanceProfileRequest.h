@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AddRoleToInstanceProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,15 @@ namespace Model
      * _+=,.@-</p>
      */
     inline const Aws::String& GetInstanceProfileName() const{ return m_instanceProfileName; }
+
+    /**
+     * <p>The name of the instance profile to update.</p> <p>This parameter allows
+     * (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a
+     * string of characters consisting of upper and lowercase alphanumeric characters
+     * with no spaces. You can also include any of the following characters:
+     * _+=,.@-</p>
+     */
+    inline bool InstanceProfileNameHasBeenSet() const { return m_instanceProfileNameHasBeenSet; }
 
     /**
      * <p>The name of the instance profile to update.</p> <p>This parameter allows
@@ -117,6 +126,14 @@ namespace Model
      * can also include any of the following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetRoleName() const{ return m_roleName; }
+
+    /**
+     * <p>The name of the role to add.</p> <p>This parameter allows (through its <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters
+     * consisting of upper and lowercase alphanumeric characters with no spaces. You
+     * can also include any of the following characters: _+=,.@-</p>
+     */
+    inline bool RoleNameHasBeenSet() const { return m_roleNameHasBeenSet; }
 
     /**
      * <p>The name of the role to add.</p> <p>This parameter allows (through its <a

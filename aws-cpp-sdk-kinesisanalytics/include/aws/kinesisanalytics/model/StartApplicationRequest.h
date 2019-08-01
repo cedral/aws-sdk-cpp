@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     StartApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>Name of the application.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>Name of the application.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>Name of the application.</p>
@@ -92,6 +97,14 @@ namespace Model
      * Kinesis Analytics to start reading.</p>
      */
     inline const Aws::Vector<InputConfiguration>& GetInputConfigurations() const{ return m_inputConfigurations; }
+
+    /**
+     * <p>Identifies the specific input, by ID, that the application starts consuming.
+     * Amazon Kinesis Analytics starts reading the streaming source associated with the
+     * input. You can also specify where in the streaming source you want Amazon
+     * Kinesis Analytics to start reading.</p>
+     */
+    inline bool InputConfigurationsHasBeenSet() const { return m_inputConfigurationsHasBeenSet; }
 
     /**
      * <p>Identifies the specific input, by ID, that the application starts consuming.

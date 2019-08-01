@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DeprecateActivityTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the domain in which the activity type is registered.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The name of the domain in which the activity type is registered.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The name of the domain in which the activity type is registered.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The activity type to deprecate.</p>
      */
     inline const ActivityType& GetActivityType() const{ return m_activityType; }
+
+    /**
+     * <p>The activity type to deprecate.</p>
+     */
+    inline bool ActivityTypeHasBeenSet() const { return m_activityTypeHasBeenSet; }
 
     /**
      * <p>The activity type to deprecate.</p>

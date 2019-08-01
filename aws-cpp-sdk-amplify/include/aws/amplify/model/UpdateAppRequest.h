@@ -20,6 +20,7 @@
 #include <aws/amplify/model/Platform.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/amplify/model/AutoBranchCreationConfig.h>
 #include <aws/amplify/model/CustomRule.h>
 #include <utility>
 
@@ -39,7 +40,7 @@ namespace Model
   {
   public:
     UpdateAppRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +54,11 @@ namespace Model
      * <p> Unique Id for an Amplify App. </p>
      */
     inline const Aws::String& GetAppId() const{ return m_appId; }
+
+    /**
+     * <p> Unique Id for an Amplify App. </p>
+     */
+    inline bool AppIdHasBeenSet() const { return m_appIdHasBeenSet; }
 
     /**
      * <p> Unique Id for an Amplify App. </p>
@@ -93,6 +99,11 @@ namespace Model
     /**
      * <p> Name for an Amplify App. </p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p> Name for an Amplify App. </p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -125,6 +136,11 @@ namespace Model
      * <p> Description for an Amplify App. </p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p> Description for an Amplify App. </p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p> Description for an Amplify App. </p>
@@ -165,6 +181,11 @@ namespace Model
     /**
      * <p> Platform for an Amplify App. </p>
      */
+    inline bool PlatformHasBeenSet() const { return m_platformHasBeenSet; }
+
+    /**
+     * <p> Platform for an Amplify App. </p>
+     */
     inline void SetPlatform(const Platform& value) { m_platformHasBeenSet = true; m_platform = value; }
 
     /**
@@ -187,6 +208,11 @@ namespace Model
      * <p> IAM service role for an Amplify App. </p>
      */
     inline const Aws::String& GetIamServiceRoleArn() const{ return m_iamServiceRoleArn; }
+
+    /**
+     * <p> IAM service role for an Amplify App. </p>
+     */
+    inline bool IamServiceRoleArnHasBeenSet() const { return m_iamServiceRoleArnHasBeenSet; }
 
     /**
      * <p> IAM service role for an Amplify App. </p>
@@ -223,6 +249,11 @@ namespace Model
      * <p> Environment Variables for an Amplify App. </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetEnvironmentVariables() const{ return m_environmentVariables; }
+
+    /**
+     * <p> Environment Variables for an Amplify App. </p>
+     */
+    inline bool EnvironmentVariablesHasBeenSet() const { return m_environmentVariablesHasBeenSet; }
 
     /**
      * <p> Environment Variables for an Amplify App. </p>
@@ -288,6 +319,11 @@ namespace Model
     /**
      * <p> Enables branch auto-building for an Amplify App. </p>
      */
+    inline bool EnableBranchAutoBuildHasBeenSet() const { return m_enableBranchAutoBuildHasBeenSet; }
+
+    /**
+     * <p> Enables branch auto-building for an Amplify App. </p>
+     */
     inline void SetEnableBranchAutoBuild(bool value) { m_enableBranchAutoBuildHasBeenSet = true; m_enableBranchAutoBuild = value; }
 
     /**
@@ -304,6 +340,11 @@ namespace Model
     /**
      * <p> Enables Basic Authorization for an Amplify App. </p>
      */
+    inline bool EnableBasicAuthHasBeenSet() const { return m_enableBasicAuthHasBeenSet; }
+
+    /**
+     * <p> Enables Basic Authorization for an Amplify App. </p>
+     */
     inline void SetEnableBasicAuth(bool value) { m_enableBasicAuthHasBeenSet = true; m_enableBasicAuth = value; }
 
     /**
@@ -316,6 +357,11 @@ namespace Model
      * <p> Basic Authorization credentials for an Amplify App. </p>
      */
     inline const Aws::String& GetBasicAuthCredentials() const{ return m_basicAuthCredentials; }
+
+    /**
+     * <p> Basic Authorization credentials for an Amplify App. </p>
+     */
+    inline bool BasicAuthCredentialsHasBeenSet() const { return m_basicAuthCredentialsHasBeenSet; }
 
     /**
      * <p> Basic Authorization credentials for an Amplify App. </p>
@@ -356,6 +402,11 @@ namespace Model
     /**
      * <p> Custom redirect / rewrite rules for an Amplify App. </p>
      */
+    inline bool CustomRulesHasBeenSet() const { return m_customRulesHasBeenSet; }
+
+    /**
+     * <p> Custom redirect / rewrite rules for an Amplify App. </p>
+     */
     inline void SetCustomRules(const Aws::Vector<CustomRule>& value) { m_customRulesHasBeenSet = true; m_customRules = value; }
 
     /**
@@ -392,6 +443,11 @@ namespace Model
     /**
      * <p> BuildSpec for an Amplify App. </p>
      */
+    inline bool BuildSpecHasBeenSet() const { return m_buildSpecHasBeenSet; }
+
+    /**
+     * <p> BuildSpec for an Amplify App. </p>
+     */
     inline void SetBuildSpec(const Aws::String& value) { m_buildSpecHasBeenSet = true; m_buildSpec = value; }
 
     /**
@@ -418,6 +474,104 @@ namespace Model
      * <p> BuildSpec for an Amplify App. </p>
      */
     inline UpdateAppRequest& WithBuildSpec(const char* value) { SetBuildSpec(value); return *this;}
+
+
+    /**
+     * <p> Enables automated branch creation for the Amplify App. </p>
+     */
+    inline bool GetEnableAutoBranchCreation() const{ return m_enableAutoBranchCreation; }
+
+    /**
+     * <p> Enables automated branch creation for the Amplify App. </p>
+     */
+    inline bool EnableAutoBranchCreationHasBeenSet() const { return m_enableAutoBranchCreationHasBeenSet; }
+
+    /**
+     * <p> Enables automated branch creation for the Amplify App. </p>
+     */
+    inline void SetEnableAutoBranchCreation(bool value) { m_enableAutoBranchCreationHasBeenSet = true; m_enableAutoBranchCreation = value; }
+
+    /**
+     * <p> Enables automated branch creation for the Amplify App. </p>
+     */
+    inline UpdateAppRequest& WithEnableAutoBranchCreation(bool value) { SetEnableAutoBranchCreation(value); return *this;}
+
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline const Aws::Vector<Aws::String>& GetAutoBranchCreationPatterns() const{ return m_autoBranchCreationPatterns; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline bool AutoBranchCreationPatternsHasBeenSet() const { return m_autoBranchCreationPatternsHasBeenSet; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline void SetAutoBranchCreationPatterns(const Aws::Vector<Aws::String>& value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns = value; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline void SetAutoBranchCreationPatterns(Aws::Vector<Aws::String>&& value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns = std::move(value); }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline UpdateAppRequest& WithAutoBranchCreationPatterns(const Aws::Vector<Aws::String>& value) { SetAutoBranchCreationPatterns(value); return *this;}
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline UpdateAppRequest& WithAutoBranchCreationPatterns(Aws::Vector<Aws::String>&& value) { SetAutoBranchCreationPatterns(std::move(value)); return *this;}
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline UpdateAppRequest& AddAutoBranchCreationPatterns(const Aws::String& value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns.push_back(value); return *this; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline UpdateAppRequest& AddAutoBranchCreationPatterns(Aws::String&& value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline UpdateAppRequest& AddAutoBranchCreationPatterns(const char* value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns.push_back(value); return *this; }
+
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline const AutoBranchCreationConfig& GetAutoBranchCreationConfig() const{ return m_autoBranchCreationConfig; }
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline bool AutoBranchCreationConfigHasBeenSet() const { return m_autoBranchCreationConfigHasBeenSet; }
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline void SetAutoBranchCreationConfig(const AutoBranchCreationConfig& value) { m_autoBranchCreationConfigHasBeenSet = true; m_autoBranchCreationConfig = value; }
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline void SetAutoBranchCreationConfig(AutoBranchCreationConfig&& value) { m_autoBranchCreationConfigHasBeenSet = true; m_autoBranchCreationConfig = std::move(value); }
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline UpdateAppRequest& WithAutoBranchCreationConfig(const AutoBranchCreationConfig& value) { SetAutoBranchCreationConfig(value); return *this;}
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline UpdateAppRequest& WithAutoBranchCreationConfig(AutoBranchCreationConfig&& value) { SetAutoBranchCreationConfig(std::move(value)); return *this;}
 
   private:
 
@@ -453,6 +607,15 @@ namespace Model
 
     Aws::String m_buildSpec;
     bool m_buildSpecHasBeenSet;
+
+    bool m_enableAutoBranchCreation;
+    bool m_enableAutoBranchCreationHasBeenSet;
+
+    Aws::Vector<Aws::String> m_autoBranchCreationPatterns;
+    bool m_autoBranchCreationPatternsHasBeenSet;
+
+    AutoBranchCreationConfig m_autoBranchCreationConfig;
+    bool m_autoBranchCreationConfigHasBeenSet;
   };
 
 } // namespace Model

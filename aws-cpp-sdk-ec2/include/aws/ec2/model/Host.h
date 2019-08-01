@@ -23,6 +23,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/ec2/model/AllocationState.h>
 #include <aws/core/utils/DateTime.h>
+#include <aws/ec2/model/HostRecovery.h>
 #include <aws/ec2/model/HostInstance.h>
 #include <aws/ec2/model/Tag.h>
 #include <utility>
@@ -65,6 +66,11 @@ namespace Model
     /**
      * <p>Whether auto-placement is on or off.</p>
      */
+    inline bool AutoPlacementHasBeenSet() const { return m_autoPlacementHasBeenSet; }
+
+    /**
+     * <p>Whether auto-placement is on or off.</p>
+     */
     inline void SetAutoPlacement(const AutoPlacement& value) { m_autoPlacementHasBeenSet = true; m_autoPlacement = value; }
 
     /**
@@ -87,6 +93,11 @@ namespace Model
      * <p>The Availability Zone of the Dedicated Host.</p>
      */
     inline const Aws::String& GetAvailabilityZone() const{ return m_availabilityZone; }
+
+    /**
+     * <p>The Availability Zone of the Dedicated Host.</p>
+     */
+    inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
 
     /**
      * <p>The Availability Zone of the Dedicated Host.</p>
@@ -127,6 +138,11 @@ namespace Model
     /**
      * <p>The number of new instances that can be launched onto the Dedicated Host.</p>
      */
+    inline bool AvailableCapacityHasBeenSet() const { return m_availableCapacityHasBeenSet; }
+
+    /**
+     * <p>The number of new instances that can be launched onto the Dedicated Host.</p>
+     */
     inline void SetAvailableCapacity(const AvailableCapacity& value) { m_availableCapacityHasBeenSet = true; m_availableCapacity = value; }
 
     /**
@@ -146,65 +162,66 @@ namespace Model
 
 
     /**
-     * <p>Unique, case-sensitive identifier that you provide to ensure idempotency of
-     * the request. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-     * </p>
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
 
     /**
-     * <p>Unique, case-sensitive identifier that you provide to ensure idempotency of
-     * the request. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-     * </p>
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(const Aws::String& value) { m_clientTokenHasBeenSet = true; m_clientToken = value; }
 
     /**
-     * <p>Unique, case-sensitive identifier that you provide to ensure idempotency of
-     * the request. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-     * </p>
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(Aws::String&& value) { m_clientTokenHasBeenSet = true; m_clientToken = std::move(value); }
 
     /**
-     * <p>Unique, case-sensitive identifier that you provide to ensure idempotency of
-     * the request. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-     * </p>
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(const char* value) { m_clientTokenHasBeenSet = true; m_clientToken.assign(value); }
 
     /**
-     * <p>Unique, case-sensitive identifier that you provide to ensure idempotency of
-     * the request. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-     * </p>
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
      */
     inline Host& WithClientToken(const Aws::String& value) { SetClientToken(value); return *this;}
 
     /**
-     * <p>Unique, case-sensitive identifier that you provide to ensure idempotency of
-     * the request. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-     * </p>
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
      */
     inline Host& WithClientToken(Aws::String&& value) { SetClientToken(std::move(value)); return *this;}
 
     /**
-     * <p>Unique, case-sensitive identifier that you provide to ensure idempotency of
-     * the request. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-     * to Ensure Idempotency</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-     * </p>
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
      */
     inline Host& WithClientToken(const char* value) { SetClientToken(value); return *this;}
 
@@ -213,6 +230,11 @@ namespace Model
      * <p>The ID of the Dedicated Host.</p>
      */
     inline const Aws::String& GetHostId() const{ return m_hostId; }
+
+    /**
+     * <p>The ID of the Dedicated Host.</p>
+     */
+    inline bool HostIdHasBeenSet() const { return m_hostIdHasBeenSet; }
 
     /**
      * <p>The ID of the Dedicated Host.</p>
@@ -253,6 +275,11 @@ namespace Model
     /**
      * <p>The hardware specifications of the Dedicated Host.</p>
      */
+    inline bool HostPropertiesHasBeenSet() const { return m_hostPropertiesHasBeenSet; }
+
+    /**
+     * <p>The hardware specifications of the Dedicated Host.</p>
+     */
     inline void SetHostProperties(const HostProperties& value) { m_hostPropertiesHasBeenSet = true; m_hostProperties = value; }
 
     /**
@@ -276,6 +303,12 @@ namespace Model
      * response if the Dedicated Host doesn't have an associated reservation.</p>
      */
     inline const Aws::String& GetHostReservationId() const{ return m_hostReservationId; }
+
+    /**
+     * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code>
+     * response if the Dedicated Host doesn't have an associated reservation.</p>
+     */
+    inline bool HostReservationIdHasBeenSet() const { return m_hostReservationIdHasBeenSet; }
 
     /**
      * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code>
@@ -324,6 +357,12 @@ namespace Model
      * <p>The IDs and instance type that are currently running on the Dedicated
      * Host.</p>
      */
+    inline bool InstancesHasBeenSet() const { return m_instancesHasBeenSet; }
+
+    /**
+     * <p>The IDs and instance type that are currently running on the Dedicated
+     * Host.</p>
+     */
     inline void SetInstances(const Aws::Vector<HostInstance>& value) { m_instancesHasBeenSet = true; m_instances = value; }
 
     /**
@@ -365,6 +404,11 @@ namespace Model
     /**
      * <p>The Dedicated Host's state.</p>
      */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
+
+    /**
+     * <p>The Dedicated Host's state.</p>
+     */
     inline void SetState(const AllocationState& value) { m_stateHasBeenSet = true; m_state = value; }
 
     /**
@@ -387,6 +431,11 @@ namespace Model
      * <p>The time that the Dedicated Host was allocated.</p>
      */
     inline const Aws::Utils::DateTime& GetAllocationTime() const{ return m_allocationTime; }
+
+    /**
+     * <p>The time that the Dedicated Host was allocated.</p>
+     */
+    inline bool AllocationTimeHasBeenSet() const { return m_allocationTimeHasBeenSet; }
 
     /**
      * <p>The time that the Dedicated Host was allocated.</p>
@@ -417,6 +466,11 @@ namespace Model
     /**
      * <p>The time that the Dedicated Host was released.</p>
      */
+    inline bool ReleaseTimeHasBeenSet() const { return m_releaseTimeHasBeenSet; }
+
+    /**
+     * <p>The time that the Dedicated Host was released.</p>
+     */
     inline void SetReleaseTime(const Aws::Utils::DateTime& value) { m_releaseTimeHasBeenSet = true; m_releaseTime = value; }
 
     /**
@@ -439,6 +493,11 @@ namespace Model
      * <p>Any tags assigned to the Dedicated Host.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to the Dedicated Host.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Any tags assigned to the Dedicated Host.</p>
@@ -469,6 +528,43 @@ namespace Model
      * <p>Any tags assigned to the Dedicated Host.</p>
      */
     inline Host& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>Indicates whether host recovery is enabled or disabled for the Dedicated
+     * Host.</p>
+     */
+    inline const HostRecovery& GetHostRecovery() const{ return m_hostRecovery; }
+
+    /**
+     * <p>Indicates whether host recovery is enabled or disabled for the Dedicated
+     * Host.</p>
+     */
+    inline bool HostRecoveryHasBeenSet() const { return m_hostRecoveryHasBeenSet; }
+
+    /**
+     * <p>Indicates whether host recovery is enabled or disabled for the Dedicated
+     * Host.</p>
+     */
+    inline void SetHostRecovery(const HostRecovery& value) { m_hostRecoveryHasBeenSet = true; m_hostRecovery = value; }
+
+    /**
+     * <p>Indicates whether host recovery is enabled or disabled for the Dedicated
+     * Host.</p>
+     */
+    inline void SetHostRecovery(HostRecovery&& value) { m_hostRecoveryHasBeenSet = true; m_hostRecovery = std::move(value); }
+
+    /**
+     * <p>Indicates whether host recovery is enabled or disabled for the Dedicated
+     * Host.</p>
+     */
+    inline Host& WithHostRecovery(const HostRecovery& value) { SetHostRecovery(value); return *this;}
+
+    /**
+     * <p>Indicates whether host recovery is enabled or disabled for the Dedicated
+     * Host.</p>
+     */
+    inline Host& WithHostRecovery(HostRecovery&& value) { SetHostRecovery(std::move(value)); return *this;}
 
   private:
 
@@ -507,6 +603,9 @@ namespace Model
 
     Aws::Vector<Tag> m_tags;
     bool m_tagsHasBeenSet;
+
+    HostRecovery m_hostRecovery;
+    bool m_hostRecoveryHasBeenSet;
   };
 
 } // namespace Model

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetBundlesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * <p>A Boolean value that indicates whether to include inactive bundle results in
      * your request.</p>
      */
+    inline bool IncludeInactiveHasBeenSet() const { return m_includeInactiveHasBeenSet; }
+
+    /**
+     * <p>A Boolean value that indicates whether to include inactive bundle results in
+     * your request.</p>
+     */
     inline void SetIncludeInactive(bool value) { m_includeInactiveHasBeenSet = true; m_includeInactive = value; }
 
     /**
@@ -68,6 +74,12 @@ namespace Model
      * request.</p>
      */
     inline const Aws::String& GetPageToken() const{ return m_pageToken; }
+
+    /**
+     * <p>A token used for advancing to the next page of results from your get bundles
+     * request.</p>
+     */
+    inline bool PageTokenHasBeenSet() const { return m_pageTokenHasBeenSet; }
 
     /**
      * <p>A token used for advancing to the next page of results from your get bundles

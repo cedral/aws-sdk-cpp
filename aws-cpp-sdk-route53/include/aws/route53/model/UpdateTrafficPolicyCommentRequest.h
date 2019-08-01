@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateTrafficPolicyCommentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * the comment for.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The value of <code>Id</code> for the traffic policy that you want to update
+     * the comment for.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The value of <code>Id</code> for the traffic policy that you want to update
@@ -99,6 +105,12 @@ namespace Model
      * <p>The value of <code>Version</code> for the traffic policy that you want to
      * update the comment for.</p>
      */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
+
+    /**
+     * <p>The value of <code>Version</code> for the traffic policy that you want to
+     * update the comment for.</p>
+     */
     inline void SetVersion(int value) { m_versionHasBeenSet = true; m_version = value; }
 
     /**
@@ -112,6 +124,11 @@ namespace Model
      * <p>The new comment for the specified traffic policy and version.</p>
      */
     inline const Aws::String& GetComment() const{ return m_comment; }
+
+    /**
+     * <p>The new comment for the specified traffic policy and version.</p>
+     */
+    inline bool CommentHasBeenSet() const { return m_commentHasBeenSet; }
 
     /**
      * <p>The new comment for the specified traffic policy and version.</p>

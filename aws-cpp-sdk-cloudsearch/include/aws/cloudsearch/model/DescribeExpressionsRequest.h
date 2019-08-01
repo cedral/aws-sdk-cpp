@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     DescribeExpressionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +59,11 @@ namespace Model
      * <p>The name of the domain you want to describe.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>The name of the domain you want to describe.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>The name of the domain you want to describe.</p>
@@ -96,6 +101,12 @@ namespace Model
      * expressions. If not specified, all expressions are shown.</p>
      */
     inline const Aws::Vector<Aws::String>& GetExpressionNames() const{ return m_expressionNames; }
+
+    /**
+     * <p>Limits the <code><a>DescribeExpressions</a></code> response to the specified
+     * expressions. If not specified, all expressions are shown.</p>
+     */
+    inline bool ExpressionNamesHasBeenSet() const { return m_expressionNamesHasBeenSet; }
 
     /**
      * <p>Limits the <code><a>DescribeExpressions</a></code> response to the specified
@@ -145,6 +156,12 @@ namespace Model
      * any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
      */
     inline bool GetDeployed() const{ return m_deployed; }
+
+    /**
+     * <p>Whether to display the deployed configuration (<code>true</code>) or include
+     * any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+     */
+    inline bool DeployedHasBeenSet() const { return m_deployedHasBeenSet; }
 
     /**
      * <p>Whether to display the deployed configuration (<code>true</code>) or include

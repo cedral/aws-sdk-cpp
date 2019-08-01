@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeOptionGroupOptionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * described.</p>
      */
     inline const Aws::String& GetEngineName() const{ return m_engineName; }
+
+    /**
+     * <p>A required parameter. Options available for the given engine name are
+     * described.</p>
+     */
+    inline bool EngineNameHasBeenSet() const { return m_engineNameHasBeenSet; }
 
     /**
      * <p>A required parameter. Options available for the given engine name are
@@ -104,6 +110,12 @@ namespace Model
      * <p>If specified, filters the results to include only options for the specified
      * major engine version.</p>
      */
+    inline bool MajorEngineVersionHasBeenSet() const { return m_majorEngineVersionHasBeenSet; }
+
+    /**
+     * <p>If specified, filters the results to include only options for the specified
+     * major engine version.</p>
+     */
     inline void SetMajorEngineVersion(const Aws::String& value) { m_majorEngineVersionHasBeenSet = true; m_majorEngineVersion = value; }
 
     /**
@@ -141,6 +153,11 @@ namespace Model
      * <p>This parameter is not currently supported.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>This parameter is not currently supported.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>This parameter is not currently supported.</p>
@@ -187,6 +204,14 @@ namespace Model
      * called a marker is included in the response so that the remaining results can be
      * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p> The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -204,6 +229,13 @@ namespace Model
      * to the value specified by <code>MaxRecords</code>.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>An optional pagination token provided by a previous request. If this
+     * parameter is specified, the response includes only records beyond the marker, up
+     * to the value specified by <code>MaxRecords</code>.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>An optional pagination token provided by a previous request. If this

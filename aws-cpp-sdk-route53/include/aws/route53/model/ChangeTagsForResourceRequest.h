@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ChangeTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * hosted zones is <code>hostedzone</code>.</p> </li> </ul>
      */
     inline const TagResourceType& GetResourceType() const{ return m_resourceType; }
+
+    /**
+     * <p>The type of the resource.</p> <ul> <li> <p>The resource type for health
+     * checks is <code>healthcheck</code>.</p> </li> <li> <p>The resource type for
+     * hosted zones is <code>hostedzone</code>.</p> </li> </ul>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
 
     /**
      * <p>The type of the resource.</p> <ul> <li> <p>The resource type for health
@@ -89,6 +96,11 @@ namespace Model
      * <p>The ID of the resource for which you want to add, change, or delete tags.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The ID of the resource for which you want to add, change, or delete tags.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The ID of the resource for which you want to add, change, or delete tags.</p>
@@ -128,6 +140,14 @@ namespace Model
      * check or a hosted zone.</p>
      */
     inline const Aws::Vector<Tag>& GetAddTags() const{ return m_addTags; }
+
+    /**
+     * <p>A complex type that contains a list of the tags that you want to add to the
+     * specified health check or hosted zone and/or the tags that you want to edit
+     * <code>Value</code> for.</p> <p>You can add a maximum of 10 tags to a health
+     * check or a hosted zone.</p>
+     */
+    inline bool AddTagsHasBeenSet() const { return m_addTagsHasBeenSet; }
 
     /**
      * <p>A complex type that contains a list of the tags that you want to add to the
@@ -183,6 +203,12 @@ namespace Model
      * the specified health check or hosted zone. You can specify up to 10 keys.</p>
      */
     inline const Aws::Vector<Aws::String>& GetRemoveTagKeys() const{ return m_removeTagKeys; }
+
+    /**
+     * <p>A complex type that contains a list of the tags that you want to delete from
+     * the specified health check or hosted zone. You can specify up to 10 keys.</p>
+     */
+    inline bool RemoveTagKeysHasBeenSet() const { return m_removeTagKeysHasBeenSet; }
 
     /**
      * <p>A complex type that contains a list of the tags that you want to delete from

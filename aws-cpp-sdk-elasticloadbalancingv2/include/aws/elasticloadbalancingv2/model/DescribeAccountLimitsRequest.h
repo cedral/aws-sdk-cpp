@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeAccountLimitsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * previous call.)</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>The marker for the next set of results. (You received this marker from a
+     * previous call.)</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>The marker for the next set of results. (You received this marker from a
@@ -93,6 +99,11 @@ namespace Model
      * <p>The maximum number of results to return with this call.</p>
      */
     inline int GetPageSize() const{ return m_pageSize; }
+
+    /**
+     * <p>The maximum number of results to return with this call.</p>
+     */
+    inline bool PageSizeHasBeenSet() const { return m_pageSizeHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return with this call.</p>

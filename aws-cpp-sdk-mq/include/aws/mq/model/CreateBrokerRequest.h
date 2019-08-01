@@ -19,6 +19,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/mq/model/ConfigurationId.h>
 #include <aws/mq/model/DeploymentMode.h>
+#include <aws/mq/model/EncryptionOptions.h>
 #include <aws/mq/model/EngineType.h>
 #include <aws/mq/model/Logs.h>
 #include <aws/mq/model/WeeklyStartTime.h>
@@ -44,7 +45,7 @@ namespace Model
   {
   public:
     CreateBrokerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -60,6 +61,13 @@ namespace Model
      * maintenance window of the broker or after a manual broker reboot.
      */
     inline bool GetAutoMinorVersionUpgrade() const{ return m_autoMinorVersionUpgrade; }
+
+    /**
+     * Required. Enables automatic upgrades to new minor versions for brokers, as
+     * Apache releases the versions. The automatic upgrades occur during the
+     * maintenance window of the broker or after a manual broker reboot.
+     */
+    inline bool AutoMinorVersionUpgradeHasBeenSet() const { return m_autoMinorVersionUpgradeHasBeenSet; }
 
     /**
      * Required. Enables automatic upgrades to new minor versions for brokers, as
@@ -83,6 +91,14 @@ namespace Model
      * special characters.
      */
     inline const Aws::String& GetBrokerName() const{ return m_brokerName; }
+
+    /**
+     * Required. The name of the broker. This value must be unique in your AWS account,
+     * 1-50 characters long, must contain only letters, numbers, dashes, and
+     * underscores, and must not contain whitespaces, brackets, wildcard characters, or
+     * special characters.
+     */
+    inline bool BrokerNameHasBeenSet() const { return m_brokerNameHasBeenSet; }
 
     /**
      * Required. The name of the broker. This value must be unique in your AWS account,
@@ -141,6 +157,11 @@ namespace Model
     /**
      * A list of information about the configuration.
      */
+    inline bool ConfigurationHasBeenSet() const { return m_configurationHasBeenSet; }
+
+    /**
+     * A list of information about the configuration.
+     */
     inline void SetConfiguration(const ConfigurationId& value) { m_configurationHasBeenSet = true; m_configuration = value; }
 
     /**
@@ -166,6 +187,14 @@ namespace Model
      * creatorRequestId if your application doesn't require idempotency.
      */
     inline const Aws::String& GetCreatorRequestId() const{ return m_creatorRequestId; }
+
+    /**
+     * The unique ID that the requester receives for the created broker. Amazon MQ
+     * passes your ID with the API action. Note: We recommend using a Universally
+     * Unique Identifier (UUID) for the creatorRequestId. You may omit the
+     * creatorRequestId if your application doesn't require idempotency.
+     */
+    inline bool CreatorRequestIdHasBeenSet() const { return m_creatorRequestIdHasBeenSet; }
 
     /**
      * The unique ID that the requester receives for the created broker. Amazon MQ
@@ -224,6 +253,11 @@ namespace Model
     /**
      * Required. The deployment mode of the broker.
      */
+    inline bool DeploymentModeHasBeenSet() const { return m_deploymentModeHasBeenSet; }
+
+    /**
+     * Required. The deployment mode of the broker.
+     */
     inline void SetDeploymentMode(const DeploymentMode& value) { m_deploymentModeHasBeenSet = true; m_deploymentMode = value; }
 
     /**
@@ -243,10 +277,47 @@ namespace Model
 
 
     /**
+     * Encryption options for the broker.
+     */
+    inline const EncryptionOptions& GetEncryptionOptions() const{ return m_encryptionOptions; }
+
+    /**
+     * Encryption options for the broker.
+     */
+    inline bool EncryptionOptionsHasBeenSet() const { return m_encryptionOptionsHasBeenSet; }
+
+    /**
+     * Encryption options for the broker.
+     */
+    inline void SetEncryptionOptions(const EncryptionOptions& value) { m_encryptionOptionsHasBeenSet = true; m_encryptionOptions = value; }
+
+    /**
+     * Encryption options for the broker.
+     */
+    inline void SetEncryptionOptions(EncryptionOptions&& value) { m_encryptionOptionsHasBeenSet = true; m_encryptionOptions = std::move(value); }
+
+    /**
+     * Encryption options for the broker.
+     */
+    inline CreateBrokerRequest& WithEncryptionOptions(const EncryptionOptions& value) { SetEncryptionOptions(value); return *this;}
+
+    /**
+     * Encryption options for the broker.
+     */
+    inline CreateBrokerRequest& WithEncryptionOptions(EncryptionOptions&& value) { SetEncryptionOptions(std::move(value)); return *this;}
+
+
+    /**
      * Required. The type of broker engine. Note: Currently, Amazon MQ supports only
      * ACTIVEMQ.
      */
     inline const EngineType& GetEngineType() const{ return m_engineType; }
+
+    /**
+     * Required. The type of broker engine. Note: Currently, Amazon MQ supports only
+     * ACTIVEMQ.
+     */
+    inline bool EngineTypeHasBeenSet() const { return m_engineTypeHasBeenSet; }
 
     /**
      * Required. The type of broker engine. Note: Currently, Amazon MQ supports only
@@ -279,6 +350,13 @@ namespace Model
      * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
+
+    /**
+     * Required. The version of the broker engine. For a list of supported engine
+     * versions, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     */
+    inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
      * Required. The version of the broker engine. For a list of supported engine
@@ -331,6 +409,11 @@ namespace Model
     /**
      * Required. The broker's instance type.
      */
+    inline bool HostInstanceTypeHasBeenSet() const { return m_hostInstanceTypeHasBeenSet; }
+
+    /**
+     * Required. The broker's instance type.
+     */
     inline void SetHostInstanceType(const Aws::String& value) { m_hostInstanceTypeHasBeenSet = true; m_hostInstanceType = value; }
 
     /**
@@ -367,6 +450,11 @@ namespace Model
     /**
      * Enables Amazon CloudWatch logging for brokers.
      */
+    inline bool LogsHasBeenSet() const { return m_logsHasBeenSet; }
+
+    /**
+     * Enables Amazon CloudWatch logging for brokers.
+     */
     inline void SetLogs(const Logs& value) { m_logsHasBeenSet = true; m_logs = value; }
 
     /**
@@ -389,6 +477,11 @@ namespace Model
      * The parameters that determine the WeeklyStartTime.
      */
     inline const WeeklyStartTime& GetMaintenanceWindowStartTime() const{ return m_maintenanceWindowStartTime; }
+
+    /**
+     * The parameters that determine the WeeklyStartTime.
+     */
+    inline bool MaintenanceWindowStartTimeHasBeenSet() const { return m_maintenanceWindowStartTimeHasBeenSet; }
 
     /**
      * The parameters that determine the WeeklyStartTime.
@@ -421,6 +514,12 @@ namespace Model
      * Required. Enables connections from applications outside of the VPC that hosts
      * the broker's subnets.
      */
+    inline bool PubliclyAccessibleHasBeenSet() const { return m_publiclyAccessibleHasBeenSet; }
+
+    /**
+     * Required. Enables connections from applications outside of the VPC that hosts
+     * the broker's subnets.
+     */
     inline void SetPubliclyAccessible(bool value) { m_publiclyAccessibleHasBeenSet = true; m_publiclyAccessible = value; }
 
     /**
@@ -435,6 +534,12 @@ namespace Model
      * brokers.
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
+
+    /**
+     * The list of rules (1 minimum, 125 maximum) that authorize connections to
+     * brokers.
+     */
+    inline bool SecurityGroupsHasBeenSet() const { return m_securityGroupsHasBeenSet; }
 
     /**
      * The list of rules (1 minimum, 125 maximum) that authorize connections to
@@ -486,6 +591,14 @@ namespace Model
      * ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
      */
     inline const Aws::Vector<Aws::String>& GetSubnetIds() const{ return m_subnetIds; }
+
+    /**
+     * The list of groups (2 maximum) that define which subnets and IP ranges the
+     * broker can use from different Availability Zones. A SINGLE_INSTANCE deployment
+     * requires one subnet (for example, the default subnet). An
+     * ACTIVE_STANDBY_MULTI_AZ deployment requires two subnets.
+     */
+    inline bool SubnetIdsHasBeenSet() const { return m_subnetIdsHasBeenSet; }
 
     /**
      * The list of groups (2 maximum) that define which subnets and IP ranges the
@@ -548,6 +661,11 @@ namespace Model
      * Create tags when creating the broker.
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * Create tags when creating the broker.
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * Create tags when creating the broker.
@@ -619,6 +737,14 @@ namespace Model
      * periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters
      * long.
      */
+    inline bool UsersHasBeenSet() const { return m_usersHasBeenSet; }
+
+    /**
+     * Required. The list of ActiveMQ users (persons or applications) who can access
+     * queues and topics. This value can contain only alphanumeric characters, dashes,
+     * periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters
+     * long.
+     */
     inline void SetUsers(const Aws::Vector<User>& value) { m_usersHasBeenSet = true; m_users = value; }
 
     /**
@@ -677,6 +803,9 @@ namespace Model
 
     DeploymentMode m_deploymentMode;
     bool m_deploymentModeHasBeenSet;
+
+    EncryptionOptions m_encryptionOptions;
+    bool m_encryptionOptionsHasBeenSet;
 
     EngineType m_engineType;
     bool m_engineTypeHasBeenSet;

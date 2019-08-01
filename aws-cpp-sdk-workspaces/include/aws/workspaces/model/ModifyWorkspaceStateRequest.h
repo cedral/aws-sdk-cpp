@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ModifyWorkspaceStateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The identifier of the WorkSpace.</p>
      */
     inline const Aws::String& GetWorkspaceId() const{ return m_workspaceId; }
+
+    /**
+     * <p>The identifier of the WorkSpace.</p>
+     */
+    inline bool WorkspaceIdHasBeenSet() const { return m_workspaceIdHasBeenSet; }
 
     /**
      * <p>The identifier of the WorkSpace.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The WorkSpace state.</p>
      */
     inline const TargetWorkspaceState& GetWorkspaceState() const{ return m_workspaceState; }
+
+    /**
+     * <p>The WorkSpace state.</p>
+     */
+    inline bool WorkspaceStateHasBeenSet() const { return m_workspaceStateHasBeenSet; }
 
     /**
      * <p>The WorkSpace state.</p>

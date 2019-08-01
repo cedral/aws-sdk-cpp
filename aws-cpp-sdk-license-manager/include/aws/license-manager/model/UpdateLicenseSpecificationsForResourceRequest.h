@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateLicenseSpecificationsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>ARN for an AWS server resource.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>ARN for an AWS server resource.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>ARN for an AWS server resource.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>License configuration ARNs to be added to a resource.</p>
      */
+    inline bool AddLicenseSpecificationsHasBeenSet() const { return m_addLicenseSpecificationsHasBeenSet; }
+
+    /**
+     * <p>License configuration ARNs to be added to a resource.</p>
+     */
     inline void SetAddLicenseSpecifications(const Aws::Vector<LicenseSpecification>& value) { m_addLicenseSpecificationsHasBeenSet = true; m_addLicenseSpecifications = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
      * <p>License configuration ARNs to be removed from a resource.</p>
      */
     inline const Aws::Vector<LicenseSpecification>& GetRemoveLicenseSpecifications() const{ return m_removeLicenseSpecifications; }
+
+    /**
+     * <p>License configuration ARNs to be removed from a resource.</p>
+     */
+    inline bool RemoveLicenseSpecificationsHasBeenSet() const { return m_removeLicenseSpecificationsHasBeenSet; }
 
     /**
      * <p>License configuration ARNs to be removed from a resource.</p>

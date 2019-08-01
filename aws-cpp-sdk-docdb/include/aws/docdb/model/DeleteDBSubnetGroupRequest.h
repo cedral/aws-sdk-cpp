@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteDBSubnetGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,14 @@ namespace Model
      * <p>Example: <code>mySubnetgroup</code> </p>
      */
     inline const Aws::String& GetDBSubnetGroupName() const{ return m_dBSubnetGroupName; }
+
+    /**
+     * <p>The name of the database subnet group to delete.</p> <note> <p>You can't
+     * delete the default subnet group.</p> </note> <p>Constraints:</p> <p>Must match
+     * the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p>
+     * <p>Example: <code>mySubnetgroup</code> </p>
+     */
+    inline bool DBSubnetGroupNameHasBeenSet() const { return m_dBSubnetGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the database subnet group to delete.</p> <note> <p>You can't

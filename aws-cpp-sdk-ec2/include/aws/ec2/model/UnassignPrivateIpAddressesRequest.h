@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     UnassignPrivateIpAddressesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The ID of the network interface.</p>
      */
     inline const Aws::String& GetNetworkInterfaceId() const{ return m_networkInterfaceId; }
+
+    /**
+     * <p>The ID of the network interface.</p>
+     */
+    inline bool NetworkInterfaceIdHasBeenSet() const { return m_networkInterfaceIdHasBeenSet; }
 
     /**
      * <p>The ID of the network interface.</p>
@@ -93,6 +98,13 @@ namespace Model
      * address.</p>
      */
     inline const Aws::Vector<Aws::String>& GetPrivateIpAddresses() const{ return m_privateIpAddresses; }
+
+    /**
+     * <p>The secondary private IP addresses to unassign from the network interface.
+     * You can specify this option multiple times to unassign more than one IP
+     * address.</p>
+     */
+    inline bool PrivateIpAddressesHasBeenSet() const { return m_privateIpAddressesHasBeenSet; }
 
     /**
      * <p>The secondary private IP addresses to unassign from the network interface.

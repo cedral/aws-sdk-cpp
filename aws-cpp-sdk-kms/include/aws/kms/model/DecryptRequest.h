@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DecryptRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>Ciphertext to be decrypted. The blob includes metadata.</p>
      */
     inline const Aws::Utils::ByteBuffer& GetCiphertextBlob() const{ return m_ciphertextBlob; }
+
+    /**
+     * <p>Ciphertext to be decrypted. The blob includes metadata.</p>
+     */
+    inline bool CiphertextBlobHasBeenSet() const { return m_ciphertextBlobHasBeenSet; }
 
     /**
      * <p>Ciphertext to be decrypted. The blob includes metadata.</p>
@@ -77,7 +82,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetEncryptionContext() const{ return m_encryptionContext; }
@@ -86,7 +91,16 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+     * Context</a>.</p>
+     */
+    inline bool EncryptionContextHasBeenSet() const { return m_encryptionContextHasBeenSet; }
+
+    /**
+     * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
+     * it must be specified here or the decryption operation will fail. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline void SetEncryptionContext(const Aws::Map<Aws::String, Aws::String>& value) { m_encryptionContextHasBeenSet = true; m_encryptionContext = value; }
@@ -95,7 +109,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline void SetEncryptionContext(Aws::Map<Aws::String, Aws::String>&& value) { m_encryptionContextHasBeenSet = true; m_encryptionContext = std::move(value); }
@@ -104,7 +118,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& WithEncryptionContext(const Aws::Map<Aws::String, Aws::String>& value) { SetEncryptionContext(value); return *this;}
@@ -113,7 +127,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& WithEncryptionContext(Aws::Map<Aws::String, Aws::String>&& value) { SetEncryptionContext(std::move(value)); return *this;}
@@ -122,7 +136,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& AddEncryptionContext(const Aws::String& key, const Aws::String& value) { m_encryptionContextHasBeenSet = true; m_encryptionContext.emplace(key, value); return *this; }
@@ -131,7 +145,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& AddEncryptionContext(Aws::String&& key, const Aws::String& value) { m_encryptionContextHasBeenSet = true; m_encryptionContext.emplace(std::move(key), value); return *this; }
@@ -140,7 +154,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& AddEncryptionContext(const Aws::String& key, Aws::String&& value) { m_encryptionContextHasBeenSet = true; m_encryptionContext.emplace(key, std::move(value)); return *this; }
@@ -149,7 +163,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& AddEncryptionContext(Aws::String&& key, Aws::String&& value) { m_encryptionContextHasBeenSet = true; m_encryptionContext.emplace(std::move(key), std::move(value)); return *this; }
@@ -158,7 +172,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& AddEncryptionContext(const char* key, Aws::String&& value) { m_encryptionContextHasBeenSet = true; m_encryptionContext.emplace(key, std::move(value)); return *this; }
@@ -167,7 +181,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& AddEncryptionContext(Aws::String&& key, const char* value) { m_encryptionContextHasBeenSet = true; m_encryptionContext.emplace(std::move(key), value); return *this; }
@@ -176,7 +190,7 @@ namespace Model
      * <p>The encryption context. If this was specified in the <a>Encrypt</a> function,
      * it must be specified here or the decryption operation will fail. For more
      * information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html">Encryption
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
      * Context</a>.</p>
      */
     inline DecryptRequest& AddEncryptionContext(const char* key, const char* value) { m_encryptionContextHasBeenSet = true; m_encryptionContext.emplace(key, value); return *this; }
@@ -184,56 +198,63 @@ namespace Model
 
     /**
      * <p>A list of grant tokens.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
      * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetGrantTokens() const{ return m_grantTokens; }
 
     /**
      * <p>A list of grant tokens.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+     */
+    inline bool GrantTokensHasBeenSet() const { return m_grantTokensHasBeenSet; }
+
+    /**
+     * <p>A list of grant tokens.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
      * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     inline void SetGrantTokens(const Aws::Vector<Aws::String>& value) { m_grantTokensHasBeenSet = true; m_grantTokens = value; }
 
     /**
      * <p>A list of grant tokens.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
      * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     inline void SetGrantTokens(Aws::Vector<Aws::String>&& value) { m_grantTokensHasBeenSet = true; m_grantTokens = std::move(value); }
 
     /**
      * <p>A list of grant tokens.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
      * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     inline DecryptRequest& WithGrantTokens(const Aws::Vector<Aws::String>& value) { SetGrantTokens(value); return *this;}
 
     /**
      * <p>A list of grant tokens.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
      * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     inline DecryptRequest& WithGrantTokens(Aws::Vector<Aws::String>&& value) { SetGrantTokens(std::move(value)); return *this;}
 
     /**
      * <p>A list of grant tokens.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
      * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     inline DecryptRequest& AddGrantTokens(const Aws::String& value) { m_grantTokensHasBeenSet = true; m_grantTokens.push_back(value); return *this; }
 
     /**
      * <p>A list of grant tokens.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
      * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     inline DecryptRequest& AddGrantTokens(Aws::String&& value) { m_grantTokensHasBeenSet = true; m_grantTokens.push_back(std::move(value)); return *this; }
 
     /**
      * <p>A list of grant tokens.</p> <p>For more information, see <a
-     * href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token">Grant
      * Tokens</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
      */
     inline DecryptRequest& AddGrantTokens(const char* value) { m_grantTokensHasBeenSet = true; m_grantTokens.push_back(value); return *this; }

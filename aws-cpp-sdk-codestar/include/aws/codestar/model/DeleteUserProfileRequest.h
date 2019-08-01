@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteUserProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>
      */
     inline const Aws::String& GetUserArn() const{ return m_userArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>
+     */
+    inline bool UserArnHasBeenSet() const { return m_userArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.</p>

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     RemoveFacetFromObjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ARN of the directory in which the object resides.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The ARN of the directory in which the object resides.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The ARN of the directory in which the object resides.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>The facet to remove. See <a>SchemaFacet</a> for details.</p>
      */
+    inline bool SchemaFacetHasBeenSet() const { return m_schemaFacetHasBeenSet; }
+
+    /**
+     * <p>The facet to remove. See <a>SchemaFacet</a> for details.</p>
+     */
     inline void SetSchemaFacet(const SchemaFacet& value) { m_schemaFacetHasBeenSet = true; m_schemaFacet = value; }
 
     /**
@@ -112,6 +122,11 @@ namespace Model
      * <p>A reference to the object to remove the facet from.</p>
      */
     inline const ObjectReference& GetObjectReference() const{ return m_objectReference; }
+
+    /**
+     * <p>A reference to the object to remove the facet from.</p>
+     */
+    inline bool ObjectReferenceHasBeenSet() const { return m_objectReferenceHasBeenSet; }
 
     /**
      * <p>A reference to the object to remove the facet from.</p>

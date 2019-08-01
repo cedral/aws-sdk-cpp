@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteChangeSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * delete.</p>
      */
     inline const Aws::String& GetChangeSetName() const{ return m_changeSetName; }
+
+    /**
+     * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
+     * delete.</p>
+     */
+    inline bool ChangeSetNameHasBeenSet() const { return m_changeSetNameHasBeenSet; }
 
     /**
      * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
@@ -98,6 +104,12 @@ namespace Model
      * or ID (ARN) that is associated with it.</p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>If you specified the name of a change set to delete, specify the stack name
+     * or ID (ARN) that is associated with it.</p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>If you specified the name of a change set to delete, specify the stack name

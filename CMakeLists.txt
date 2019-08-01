@@ -26,6 +26,10 @@ endif()
 if(POLICY CMP0056)
     cmake_policy(SET CMP0056 NEW)
 endif()
+if(POLICY CMP0057)
+    cmake_policy(SET CMP0057 NEW) # support IN_LIST
+endif()
+
 
 # 3.0 or higher is strongly suggested; build settings (target_compile_options/etc...) sometimes do not get propagated properly under certain conditions prior to this version
 # Making this a hard requirement is potentially disruptive to existing customers who aren't affected by the bad behavior though, so just warn for now
@@ -39,7 +43,7 @@ get_filename_component(AWS_NATIVE_SDK_ROOT "${CMAKE_CURRENT_SOURCE_DIR}" ABSOLUT
 find_package(Git)
 
 # Cmake invocation variables:
-#   CUSTOM_MEMORY_MANAGEMENT - if set to 1, generates the sdk project files with custom memory management enabled, otherwise disables it
+#   CUSTOM_MEMORY_MANAGEMENT - if set to ON, generates the sdk project files with custom memory management enabled, otherwise disables it
 #   BUILD_ONLY - only build project identified by this variable, a semi-colon delimited list, if this is set we will build only the projects listed. Core will always be built as will its unit tests.
 #                    Also if a high level client is specified then we will build its dependencies as well. If a project has tests, the tests will be built.
 #   REGENERATE_CLIENTS - all clients being built on this run will be regenerated from the api definitions, this option involves some setup of python, java 8, jdk 1.8, and maven
@@ -54,7 +58,6 @@ option(ENABLE_UNITY_BUILD "If enabled, the SDK will be built using a single unif
 option(MINIMIZE_SIZE "If enabled, the SDK will be built via a unity aggregation process that results in smaller static libraries; additionally, release binaries will favor size optimizations over speed" OFF)
 option(BUILD_SHARED_LIBS "If enabled, all aws sdk libraries will be build as shared objects; otherwise all Aws libraries will be built as static objects" ON)
 option(FORCE_SHARED_CRT "If enabled, will unconditionally link the standard libraries in dynamically, otherwise the standard library will be linked in based on the BUILD_SHARED_LIBS setting" ON)
-option(DISABLE_ANDROID_STANDALONE_BUILD "If enabled, the android build will not attempt to generate a standalone toolchain and instead rely on externally passed cmake parameters to specify the complete build environment.  The included toolchain file is still used." OFF)
 option(SIMPLE_INSTALL "If enabled, removes all the additional indirection (platform/cpu/config) in the bin and lib directories on the install step" ON)
 option(NO_HTTP_CLIENT "If enabled, no platform-default http client will be included in the library.  For the library to be used you will need to provide your own platform-specific implementation" OFF)
 option(NO_ENCRYPTION "If enabled, no platform-default encryption will be included in the library.  For the library to be used you will need to provide your own platform-specific implementations" OFF)
@@ -69,10 +72,14 @@ option(FORCE_CURL "Forces usage of the Curl client rather than the default OS-sp
 option(ENABLE_ADDRESS_SANITIZER "Flags to enable/disable Address Sanitizer for gcc or clang" OFF)
 option(BYPASS_DEFAULT_PROXY "Bypass the machine's default proxy settings when using IXmlHttpRequest2" ON)
 option(BUILD_DEPS "Build third-party dependencies" ON)
-
+option(ENABLE_CURL_LOGGING "If enabled, Curl's internal log will be piped to SDK's logger" OFF)
 
 set(BUILD_ONLY "" CACHE STRING "A semi-colon delimited list of the projects to build")
 set(CPP_STANDARD "11" CACHE STRING "Flag to upgrade the C++ standard used. The default is 11. The minimum is 11.")
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
 
 # backwards compatibility with old command line params
 if("${STATIC_LINKING}" STREQUAL "1")
@@ -106,6 +113,11 @@ endif()
 
 include(initialize_project_version)
 
+if (BUILD_SHARED_LIBS OR FORCE_SHARED_CRT)
+    set(STATIC_CRT OFF)
+else()
+    set(STATIC_CRT ON)
+endif()
 
 # build third-party targets
 if (BUILD_DEPS)
@@ -121,21 +133,25 @@ if (BUILD_DEPS)
             set(AWS_DEPS_INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/.deps/install CACHE STRING "A string describes the path where 3rd-party dependencies will be or have been installed")
         endif()
     endif()
+    if (NOT CMAKE_GENERATOR_PLATFORM STREQUAL "")
+        set(GEN_PLATFORM_ARG "-A${CMAKE_GENERATOR_PLATFORM}")
+    endif()
     file(MAKE_DIRECTORY ${AWS_DEPS_BUILD_DIR})
     if(TARGET_ARCH STREQUAL "ANDROID")
         execute_process(
             COMMAND ${CMAKE_COMMAND} -G ${CMAKE_GENERATOR}
             -DTARGET_ARCH=${TARGET_ARCH}
             -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+            -DCMAKE_ANDROID_NDK_TOOLCHAIN_VERSION=${CMAKE_ANDROID_NDK_TOOLCHAIN_VERSION}
             -DANDROID_NATIVE_API_LEVEL=${ANDROID_NATIVE_API_LEVEL}
             -DANDROID_ABI=${ANDROID_ABI}
-            -DANDROID_TOOLCHAIN_NAME=${ANDROID_TOOLCHAIN_NAME}
-            -DANDROID_STANDALONE_TOOLCHAIN=${ANDROID_STANDALONE_TOOLCHAIN}
+            -DANDROID_TOOLCHAIN=${ANDROID_TOOLCHAIN}
             -DANDROID_STL=${ANDROID_STL}
             -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
             -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS}
             -DCMAKE_INSTALL_PREFIX=${AWS_DEPS_INSTALL_DIR}
             -DGIT_EXECUTABLE=${GIT_EXECUTABLE}
+            ${GEN_PLATFORM_ARG}
             ${CMAKE_CURRENT_SOURCE_DIR}/third-party
             WORKING_DIRECTORY ${AWS_DEPS_BUILD_DIR}
             RESULT_VARIABLE BUILD_3P_EXIT_CODE)
@@ -153,6 +169,7 @@ if (BUILD_DEPS)
             -DCMAKE_SYSTEM_NAME=${CMAKE_SYSTEM_NAME}
             -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
             -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=${CMAKE_CURRENT_BINARY_DIR}/bin
+            ${GEN_PLATFORM_ARG}
             ${CMAKE_CURRENT_SOURCE_DIR}/third-party
             WORKING_DIRECTORY ${AWS_DEPS_BUILD_DIR}
             RESULT_VARIABLE BUILD_3P_EXIT_CODE)
@@ -163,8 +180,10 @@ if (BUILD_DEPS)
             -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
             -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
             -DBUILD_SHARED_LIBS=${BUILD_SHARED_LIBS}
+            -DSTATIC_CRT=${STATIC_CRT}
             -DCMAKE_INSTALL_PREFIX=${AWS_DEPS_INSTALL_DIR}
             -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=${CMAKE_CURRENT_BINARY_DIR}/bin
+            ${GEN_PLATFORM_ARG}
             ${CMAKE_CURRENT_SOURCE_DIR}/third-party
             WORKING_DIRECTORY ${AWS_DEPS_BUILD_DIR}
             RESULT_VARIABLE BUILD_3P_EXIT_CODE)

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateStreamingURLRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the stack.</p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>The name of the stack.</p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>The name of the stack.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The name of the fleet.</p>
      */
+    inline bool FleetNameHasBeenSet() const { return m_fleetNameHasBeenSet; }
+
+    /**
+     * <p>The name of the fleet.</p>
+     */
     inline void SetFleetName(const Aws::String& value) { m_fleetNameHasBeenSet = true; m_fleetName = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The identifier of the user.</p>
      */
     inline const Aws::String& GetUserId() const{ return m_userId; }
+
+    /**
+     * <p>The identifier of the user.</p>
+     */
+    inline bool UserIdHasBeenSet() const { return m_userIdHasBeenSet; }
 
     /**
      * <p>The identifier of the user.</p>
@@ -157,6 +172,12 @@ namespace Model
      * name that you specified as <b>Name</b> in the Image Assistant.</p>
      */
     inline const Aws::String& GetApplicationId() const{ return m_applicationId; }
+
+    /**
+     * <p>The name of the application to launch after the session starts. This is the
+     * name that you specified as <b>Name</b> in the Image Assistant.</p>
+     */
+    inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
 
     /**
      * <p>The name of the application to launch after the session starts. This is the
@@ -205,6 +226,12 @@ namespace Model
      * <p>The time that the streaming URL will be valid, in seconds. Specify a value
      * between 1 and 604800 seconds. The default is 60 seconds.</p>
      */
+    inline bool ValidityHasBeenSet() const { return m_validityHasBeenSet; }
+
+    /**
+     * <p>The time that the streaming URL will be valid, in seconds. Specify a value
+     * between 1 and 604800 seconds. The default is 60 seconds.</p>
+     */
     inline void SetValidity(long long value) { m_validityHasBeenSet = true; m_validity = value; }
 
     /**
@@ -220,6 +247,13 @@ namespace Model
      * Context</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
      */
     inline const Aws::String& GetSessionContext() const{ return m_sessionContext; }
+
+    /**
+     * <p>The session context. For more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session
+     * Context</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     */
+    inline bool SessionContextHasBeenSet() const { return m_sessionContextHasBeenSet; }
 
     /**
      * <p>The session context. For more information, see <a

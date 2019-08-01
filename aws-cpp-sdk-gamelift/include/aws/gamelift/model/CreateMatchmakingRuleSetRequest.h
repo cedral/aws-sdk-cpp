@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateMatchmakingRuleSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * different from the optional "name" field in the rule set body.) </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>Unique identifier for a matchmaking rule set. A matchmaking configuration
+     * identifies the rule set it uses by this name value. (Note: The rule set name is
+     * different from the optional "name" field in the rule set body.) </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>Unique identifier for a matchmaking rule set. A matchmaking configuration
@@ -98,51 +105,50 @@ namespace Model
 
 
     /**
-     * <p>Collection of matchmaking rules, formatted as a JSON string. Note that
-     * comments are not allowed in JSON, but most elements support a description
-     * field.</p>
+     * <p>Collection of matchmaking rules, formatted as a JSON string. Comments are not
+     * allowed in JSON, but most elements support a description field.</p>
      */
     inline const Aws::String& GetRuleSetBody() const{ return m_ruleSetBody; }
 
     /**
-     * <p>Collection of matchmaking rules, formatted as a JSON string. Note that
-     * comments are not allowed in JSON, but most elements support a description
-     * field.</p>
+     * <p>Collection of matchmaking rules, formatted as a JSON string. Comments are not
+     * allowed in JSON, but most elements support a description field.</p>
+     */
+    inline bool RuleSetBodyHasBeenSet() const { return m_ruleSetBodyHasBeenSet; }
+
+    /**
+     * <p>Collection of matchmaking rules, formatted as a JSON string. Comments are not
+     * allowed in JSON, but most elements support a description field.</p>
      */
     inline void SetRuleSetBody(const Aws::String& value) { m_ruleSetBodyHasBeenSet = true; m_ruleSetBody = value; }
 
     /**
-     * <p>Collection of matchmaking rules, formatted as a JSON string. Note that
-     * comments are not allowed in JSON, but most elements support a description
-     * field.</p>
+     * <p>Collection of matchmaking rules, formatted as a JSON string. Comments are not
+     * allowed in JSON, but most elements support a description field.</p>
      */
     inline void SetRuleSetBody(Aws::String&& value) { m_ruleSetBodyHasBeenSet = true; m_ruleSetBody = std::move(value); }
 
     /**
-     * <p>Collection of matchmaking rules, formatted as a JSON string. Note that
-     * comments are not allowed in JSON, but most elements support a description
-     * field.</p>
+     * <p>Collection of matchmaking rules, formatted as a JSON string. Comments are not
+     * allowed in JSON, but most elements support a description field.</p>
      */
     inline void SetRuleSetBody(const char* value) { m_ruleSetBodyHasBeenSet = true; m_ruleSetBody.assign(value); }
 
     /**
-     * <p>Collection of matchmaking rules, formatted as a JSON string. Note that
-     * comments are not allowed in JSON, but most elements support a description
-     * field.</p>
+     * <p>Collection of matchmaking rules, formatted as a JSON string. Comments are not
+     * allowed in JSON, but most elements support a description field.</p>
      */
     inline CreateMatchmakingRuleSetRequest& WithRuleSetBody(const Aws::String& value) { SetRuleSetBody(value); return *this;}
 
     /**
-     * <p>Collection of matchmaking rules, formatted as a JSON string. Note that
-     * comments are not allowed in JSON, but most elements support a description
-     * field.</p>
+     * <p>Collection of matchmaking rules, formatted as a JSON string. Comments are not
+     * allowed in JSON, but most elements support a description field.</p>
      */
     inline CreateMatchmakingRuleSetRequest& WithRuleSetBody(Aws::String&& value) { SetRuleSetBody(std::move(value)); return *this;}
 
     /**
-     * <p>Collection of matchmaking rules, formatted as a JSON string. Note that
-     * comments are not allowed in JSON, but most elements support a description
-     * field.</p>
+     * <p>Collection of matchmaking rules, formatted as a JSON string. Comments are not
+     * allowed in JSON, but most elements support a description field.</p>
      */
     inline CreateMatchmakingRuleSetRequest& WithRuleSetBody(const char* value) { SetRuleSetBody(value); return *this;}
 

@@ -18,6 +18,8 @@
 #include <aws/appmesh/AppMeshRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/appmesh/model/VirtualServiceSpec.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/appmesh/model/TagRef.h>
 #include <utility>
 #include <aws/core/utils/UUID.h>
 
@@ -37,7 +39,7 @@ namespace Model
   {
   public:
     CreateVirtualServiceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +56,14 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
      * allowed.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the
+request. Up to 36 letters, numbers, hyphens, and underscores are
+     * allowed.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
@@ -105,37 +115,42 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
 
 
     /**
-     * <p>The name of the service mesh in which to create the virtual service.</p>
+     * <p>The name of the service mesh to create the virtual service in.</p>
      */
     inline const Aws::String& GetMeshName() const{ return m_meshName; }
 
     /**
-     * <p>The name of the service mesh in which to create the virtual service.</p>
+     * <p>The name of the service mesh to create the virtual service in.</p>
+     */
+    inline bool MeshNameHasBeenSet() const { return m_meshNameHasBeenSet; }
+
+    /**
+     * <p>The name of the service mesh to create the virtual service in.</p>
      */
     inline void SetMeshName(const Aws::String& value) { m_meshNameHasBeenSet = true; m_meshName = value; }
 
     /**
-     * <p>The name of the service mesh in which to create the virtual service.</p>
+     * <p>The name of the service mesh to create the virtual service in.</p>
      */
     inline void SetMeshName(Aws::String&& value) { m_meshNameHasBeenSet = true; m_meshName = std::move(value); }
 
     /**
-     * <p>The name of the service mesh in which to create the virtual service.</p>
+     * <p>The name of the service mesh to create the virtual service in.</p>
      */
     inline void SetMeshName(const char* value) { m_meshNameHasBeenSet = true; m_meshName.assign(value); }
 
     /**
-     * <p>The name of the service mesh in which to create the virtual service.</p>
+     * <p>The name of the service mesh to create the virtual service in.</p>
      */
     inline CreateVirtualServiceRequest& WithMeshName(const Aws::String& value) { SetMeshName(value); return *this;}
 
     /**
-     * <p>The name of the service mesh in which to create the virtual service.</p>
+     * <p>The name of the service mesh to create the virtual service in.</p>
      */
     inline CreateVirtualServiceRequest& WithMeshName(Aws::String&& value) { SetMeshName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the service mesh in which to create the virtual service.</p>
+     * <p>The name of the service mesh to create the virtual service in.</p>
      */
     inline CreateVirtualServiceRequest& WithMeshName(const char* value) { SetMeshName(value); return *this;}
 
@@ -144,6 +159,11 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
      * <p>The virtual service specification to apply.</p>
      */
     inline const VirtualServiceSpec& GetSpec() const{ return m_spec; }
+
+    /**
+     * <p>The virtual service specification to apply.</p>
+     */
+    inline bool SpecHasBeenSet() const { return m_specHasBeenSet; }
 
     /**
      * <p>The virtual service specification to apply.</p>
@@ -167,9 +187,111 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
 
 
     /**
+     * <p>Optional metadata that you can apply to the virtual service to assist with
+  
+     * categorization and organization. Each tag consists of a key and an optional
+     * value, both of
+         which you define. Tag keys can have a maximum character
+     * length of 128 characters, and tag values can have
+            a maximum length
+     * of 256 characters.</p>
+     */
+    inline const Aws::Vector<TagRef>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Optional metadata that you can apply to the virtual service to assist with
+  
+     * categorization and organization. Each tag consists of a key and an optional
+     * value, both of
+         which you define. Tag keys can have a maximum character
+     * length of 128 characters, and tag values can have
+            a maximum length
+     * of 256 characters.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>Optional metadata that you can apply to the virtual service to assist with
+  
+     * categorization and organization. Each tag consists of a key and an optional
+     * value, both of
+         which you define. Tag keys can have a maximum character
+     * length of 128 characters, and tag values can have
+            a maximum length
+     * of 256 characters.</p>
+     */
+    inline void SetTags(const Aws::Vector<TagRef>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>Optional metadata that you can apply to the virtual service to assist with
+  
+     * categorization and organization. Each tag consists of a key and an optional
+     * value, both of
+         which you define. Tag keys can have a maximum character
+     * length of 128 characters, and tag values can have
+            a maximum length
+     * of 256 characters.</p>
+     */
+    inline void SetTags(Aws::Vector<TagRef>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>Optional metadata that you can apply to the virtual service to assist with
+  
+     * categorization and organization. Each tag consists of a key and an optional
+     * value, both of
+         which you define. Tag keys can have a maximum character
+     * length of 128 characters, and tag values can have
+            a maximum length
+     * of 256 characters.</p>
+     */
+    inline CreateVirtualServiceRequest& WithTags(const Aws::Vector<TagRef>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Optional metadata that you can apply to the virtual service to assist with
+  
+     * categorization and organization. Each tag consists of a key and an optional
+     * value, both of
+         which you define. Tag keys can have a maximum character
+     * length of 128 characters, and tag values can have
+            a maximum length
+     * of 256 characters.</p>
+     */
+    inline CreateVirtualServiceRequest& WithTags(Aws::Vector<TagRef>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Optional metadata that you can apply to the virtual service to assist with
+  
+     * categorization and organization. Each tag consists of a key and an optional
+     * value, both of
+         which you define. Tag keys can have a maximum character
+     * length of 128 characters, and tag values can have
+            a maximum length
+     * of 256 characters.</p>
+     */
+    inline CreateVirtualServiceRequest& AddTags(const TagRef& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Optional metadata that you can apply to the virtual service to assist with
+  
+     * categorization and organization. Each tag consists of a key and an optional
+     * value, both of
+         which you define. Tag keys can have a maximum character
+     * length of 128 characters, and tag values can have
+            a maximum length
+     * of 256 characters.</p>
+     */
+    inline CreateVirtualServiceRequest& AddTags(TagRef&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
+
+    /**
      * <p>The name to use for the virtual service.</p>
      */
     inline const Aws::String& GetVirtualServiceName() const{ return m_virtualServiceName; }
+
+    /**
+     * <p>The name to use for the virtual service.</p>
+     */
+    inline bool VirtualServiceNameHasBeenSet() const { return m_virtualServiceNameHasBeenSet; }
 
     /**
      * <p>The name to use for the virtual service.</p>
@@ -211,6 +333,9 @@ request. Up to 36 letters, numbers, hyphens, and underscores are
 
     VirtualServiceSpec m_spec;
     bool m_specHasBeenSet;
+
+    Aws::Vector<TagRef> m_tags;
+    bool m_tagsHasBeenSet;
 
     Aws::String m_virtualServiceName;
     bool m_virtualServiceNameHasBeenSet;

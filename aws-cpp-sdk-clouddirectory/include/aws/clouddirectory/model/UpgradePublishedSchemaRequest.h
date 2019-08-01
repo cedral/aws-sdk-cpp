@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpgradePublishedSchemaRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The ARN of the development schema with the changes used for the upgrade.</p>
      */
     inline const Aws::String& GetDevelopmentSchemaArn() const{ return m_developmentSchemaArn; }
+
+    /**
+     * <p>The ARN of the development schema with the changes used for the upgrade.</p>
+     */
+    inline bool DevelopmentSchemaArnHasBeenSet() const { return m_developmentSchemaArnHasBeenSet; }
 
     /**
      * <p>The ARN of the development schema with the changes used for the upgrade.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The ARN of the published schema to be upgraded.</p>
      */
+    inline bool PublishedSchemaArnHasBeenSet() const { return m_publishedSchemaArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the published schema to be upgraded.</p>
+     */
     inline void SetPublishedSchemaArn(const Aws::String& value) { m_publishedSchemaArnHasBeenSet = true; m_publishedSchemaArn = value; }
 
     /**
@@ -119,6 +129,12 @@ namespace Model
      * This parameter is NOT optional.</p>
      */
     inline const Aws::String& GetMinorVersion() const{ return m_minorVersion; }
+
+    /**
+     * <p>Identifies the minor version of the published schema that will be created.
+     * This parameter is NOT optional.</p>
+     */
+    inline bool MinorVersionHasBeenSet() const { return m_minorVersionHasBeenSet; }
 
     /**
      * <p>Identifies the minor version of the published schema that will be created.
@@ -164,6 +180,14 @@ namespace Model
      * succeed. This parameter is optional and defaults to false.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Used for testing whether the Development schema provided is backwards
+     * compatible, or not, with the publish schema provided by the user to be upgraded.
+     * If schema compatibility fails, an exception would be thrown else the call would
+     * succeed. This parameter is optional and defaults to false.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Used for testing whether the Development schema provided is backwards

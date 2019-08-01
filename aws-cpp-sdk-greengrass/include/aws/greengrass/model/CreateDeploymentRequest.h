@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateDeploymentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * A client token used to correlate requests and responses.
      */
     inline const Aws::String& GetAmznClientToken() const{ return m_amznClientToken; }
+
+    /**
+     * A client token used to correlate requests and responses.
+     */
+    inline bool AmznClientTokenHasBeenSet() const { return m_amznClientTokenHasBeenSet; }
 
     /**
      * A client token used to correlate requests and responses.
@@ -85,6 +90,11 @@ namespace Model
      * The ID of the deployment if you wish to redeploy a previous deployment.
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * The ID of the deployment if you wish to redeploy a previous deployment.
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * The ID of the deployment if you wish to redeploy a previous deployment.
@@ -127,6 +137,12 @@ namespace Model
      * The type of deployment. When used for ''CreateDeployment'', only
      * ''NewDeployment'' and ''Redeployment'' are valid.
      */
+    inline bool DeploymentTypeHasBeenSet() const { return m_deploymentTypeHasBeenSet; }
+
+    /**
+     * The type of deployment. When used for ''CreateDeployment'', only
+     * ''NewDeployment'' and ''Redeployment'' are valid.
+     */
     inline void SetDeploymentType(const DeploymentType& value) { m_deploymentTypeHasBeenSet = true; m_deploymentType = value; }
 
     /**
@@ -152,6 +168,11 @@ namespace Model
      * The ID of the Greengrass group.
      */
     inline const Aws::String& GetGroupId() const{ return m_groupId; }
+
+    /**
+     * The ID of the Greengrass group.
+     */
+    inline bool GroupIdHasBeenSet() const { return m_groupIdHasBeenSet; }
 
     /**
      * The ID of the Greengrass group.
@@ -188,6 +209,11 @@ namespace Model
      * The ID of the group version to be deployed.
      */
     inline const Aws::String& GetGroupVersionId() const{ return m_groupVersionId; }
+
+    /**
+     * The ID of the group version to be deployed.
+     */
+    inline bool GroupVersionIdHasBeenSet() const { return m_groupVersionIdHasBeenSet; }
 
     /**
      * The ID of the group version to be deployed.

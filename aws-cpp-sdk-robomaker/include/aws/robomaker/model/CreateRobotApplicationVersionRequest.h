@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateRobotApplicationVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The application information for the robot application.</p>
      */
     inline const Aws::String& GetApplication() const{ return m_application; }
+
+    /**
+     * <p>The application information for the robot application.</p>
+     */
+    inline bool ApplicationHasBeenSet() const { return m_applicationHasBeenSet; }
 
     /**
      * <p>The application information for the robot application.</p>
@@ -83,6 +88,12 @@ namespace Model
      * it matches the latest revision ID, a new version will be created.</p>
      */
     inline const Aws::String& GetCurrentRevisionId() const{ return m_currentRevisionId; }
+
+    /**
+     * <p>The current revision id for the robot application. If you provide a value and
+     * it matches the latest revision ID, a new version will be created.</p>
+     */
+    inline bool CurrentRevisionIdHasBeenSet() const { return m_currentRevisionIdHasBeenSet; }
 
     /**
      * <p>The current revision id for the robot application. If you provide a value and

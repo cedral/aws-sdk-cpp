@@ -39,7 +39,7 @@ namespace Model
    * notification to Amazon Simple Notification Service (Amazon SNS).</p> <p>For
    * information about sending a bounce message in response to a received email, see
    * the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-bounce.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-bounce.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/BounceAction">AWS
    * API Reference</a></p>
@@ -60,7 +60,7 @@ namespace Model
      * bounce action is taken. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline const Aws::String& GetTopicArn() const{ return m_topicArn; }
@@ -70,7 +70,17 @@ namespace Model
      * bounce action is taken. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * Developer Guide</a>.</p>
+     */
+    inline bool TopicArnHasBeenSet() const { return m_topicArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the
+     * bounce action is taken. An example of an Amazon SNS topic ARN is
+     * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
+     * about Amazon SNS topics, see the <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline void SetTopicArn(const Aws::String& value) { m_topicArnHasBeenSet = true; m_topicArn = value; }
@@ -80,7 +90,7 @@ namespace Model
      * bounce action is taken. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline void SetTopicArn(Aws::String&& value) { m_topicArnHasBeenSet = true; m_topicArn = std::move(value); }
@@ -90,7 +100,7 @@ namespace Model
      * bounce action is taken. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline void SetTopicArn(const char* value) { m_topicArnHasBeenSet = true; m_topicArn.assign(value); }
@@ -100,7 +110,7 @@ namespace Model
      * bounce action is taken. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline BounceAction& WithTopicArn(const Aws::String& value) { SetTopicArn(value); return *this;}
@@ -110,7 +120,7 @@ namespace Model
      * bounce action is taken. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline BounceAction& WithTopicArn(Aws::String&& value) { SetTopicArn(std::move(value)); return *this;}
@@ -120,7 +130,7 @@ namespace Model
      * bounce action is taken. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline BounceAction& WithTopicArn(const char* value) { SetTopicArn(value); return *this;}
@@ -131,6 +141,12 @@ namespace Model
      * href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p>
      */
     inline const Aws::String& GetSmtpReplyCode() const{ return m_smtpReplyCode; }
+
+    /**
+     * <p>The SMTP reply code, as defined by <a
+     * href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p>
+     */
+    inline bool SmtpReplyCodeHasBeenSet() const { return m_smtpReplyCodeHasBeenSet; }
 
     /**
      * <p>The SMTP reply code, as defined by <a
@@ -179,6 +195,12 @@ namespace Model
      * <p>The SMTP enhanced status code, as defined by <a
      * href="https://tools.ietf.org/html/rfc3463">RFC 3463</a>.</p>
      */
+    inline bool StatusCodeHasBeenSet() const { return m_statusCodeHasBeenSet; }
+
+    /**
+     * <p>The SMTP enhanced status code, as defined by <a
+     * href="https://tools.ietf.org/html/rfc3463">RFC 3463</a>.</p>
+     */
     inline void SetStatusCode(const Aws::String& value) { m_statusCodeHasBeenSet = true; m_statusCode = value; }
 
     /**
@@ -220,6 +242,11 @@ namespace Model
     /**
      * <p>Human-readable text to include in the bounce message.</p>
      */
+    inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
+
+    /**
+     * <p>Human-readable text to include in the bounce message.</p>
+     */
     inline void SetMessage(const Aws::String& value) { m_messageHasBeenSet = true; m_message = value; }
 
     /**
@@ -253,6 +280,12 @@ namespace Model
      * from which the bounce message will be sent.</p>
      */
     inline const Aws::String& GetSender() const{ return m_sender; }
+
+    /**
+     * <p>The email address of the sender of the bounced email. This is the address
+     * from which the bounce message will be sent.</p>
+     */
+    inline bool SenderHasBeenSet() const { return m_senderHasBeenSet; }
 
     /**
      * <p>The email address of the sender of the bounced email. This is the address

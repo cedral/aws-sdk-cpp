@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutAccountSendingAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -42,8 +42,6 @@ namespace Model
     inline virtual const char* GetServiceRequestName() const override { return "PutAccountSendingAttributes"; }
 
     Aws::String SerializePayload() const override;
-
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
 
 
     /**
@@ -54,6 +52,15 @@ namespace Model
      * send email.</p> </note>
      */
     inline bool GetSendingEnabled() const{ return m_sendingEnabled; }
+
+    /**
+     * <p>Enables or disables your account's ability to send email. Set to
+     * <code>true</code> to enable email sending, or set to <code>false</code> to
+     * disable email sending.</p> <note> <p>If AWS paused your account's ability to
+     * send email, you can't use this operation to resume your account's ability to
+     * send email.</p> </note>
+     */
+    inline bool SendingEnabledHasBeenSet() const { return m_sendingEnabledHasBeenSet; }
 
     /**
      * <p>Enables or disables your account's ability to send email. Set to

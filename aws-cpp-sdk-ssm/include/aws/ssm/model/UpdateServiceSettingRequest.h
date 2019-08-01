@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateServiceSettingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The ID of the service setting to update.</p>
      */
     inline const Aws::String& GetSettingId() const{ return m_settingId; }
+
+    /**
+     * <p>The ID of the service setting to update.</p>
+     */
+    inline bool SettingIdHasBeenSet() const { return m_settingIdHasBeenSet; }
 
     /**
      * <p>The ID of the service setting to update.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The new value to specify for the service setting.</p>
      */
     inline const Aws::String& GetSettingValue() const{ return m_settingValue; }
+
+    /**
+     * <p>The new value to specify for the service setting.</p>
+     */
+    inline bool SettingValueHasBeenSet() const { return m_settingValueHasBeenSet; }
 
     /**
      * <p>The new value to specify for the service setting.</p>

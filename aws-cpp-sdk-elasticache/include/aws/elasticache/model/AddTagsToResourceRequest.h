@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     AddTagsToResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,7 +59,7 @@ namespace Model
      * <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
      * ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more
      * information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
@@ -71,7 +71,19 @@ namespace Model
      * <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
      * ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more
      * information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource to which the tags are to be
+     * added, for example
+     * <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code> or
+     * <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
+     * ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more
+     * information about ARNs, see <a
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline void SetResourceName(const Aws::String& value) { m_resourceNameHasBeenSet = true; m_resourceName = value; }
@@ -83,7 +95,7 @@ namespace Model
      * <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
      * ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more
      * information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline void SetResourceName(Aws::String&& value) { m_resourceNameHasBeenSet = true; m_resourceName = std::move(value); }
@@ -95,7 +107,7 @@ namespace Model
      * <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
      * ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more
      * information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline void SetResourceName(const char* value) { m_resourceNameHasBeenSet = true; m_resourceName.assign(value); }
@@ -107,7 +119,7 @@ namespace Model
      * <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
      * ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more
      * information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline AddTagsToResourceRequest& WithResourceName(const Aws::String& value) { SetResourceName(value); return *this;}
@@ -119,7 +131,7 @@ namespace Model
      * <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
      * ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more
      * information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline AddTagsToResourceRequest& WithResourceName(Aws::String&& value) { SetResourceName(std::move(value)); return *this;}
@@ -131,7 +143,7 @@ namespace Model
      * <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.
      * ElastiCache resources are <i>cluster</i> and <i>snapshot</i>.</p> <p>For more
      * information about ARNs, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
      * Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
      */
     inline AddTagsToResourceRequest& WithResourceName(const char* value) { SetResourceName(value); return *this;}
@@ -142,6 +154,12 @@ namespace Model
      * key-value pair. A tag key must be accompanied by a tag value.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A list of cost allocation tags to be added to this resource. A tag is a
+     * key-value pair. A tag key must be accompanied by a tag value.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A list of cost allocation tags to be added to this resource. A tag is a

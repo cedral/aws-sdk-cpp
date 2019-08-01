@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ModifyReplicationSubnetGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the replication instance subnet group.</p>
      */
     inline const Aws::String& GetReplicationSubnetGroupIdentifier() const{ return m_replicationSubnetGroupIdentifier; }
+
+    /**
+     * <p>The name of the replication instance subnet group.</p>
+     */
+    inline bool ReplicationSubnetGroupIdentifierHasBeenSet() const { return m_replicationSubnetGroupIdentifierHasBeenSet; }
 
     /**
      * <p>The name of the replication instance subnet group.</p>
@@ -85,37 +90,42 @@ namespace Model
 
 
     /**
-     * <p>The description of the replication instance subnet group.</p>
+     * <p>A description for the replication instance subnet group.</p>
      */
     inline const Aws::String& GetReplicationSubnetGroupDescription() const{ return m_replicationSubnetGroupDescription; }
 
     /**
-     * <p>The description of the replication instance subnet group.</p>
+     * <p>A description for the replication instance subnet group.</p>
+     */
+    inline bool ReplicationSubnetGroupDescriptionHasBeenSet() const { return m_replicationSubnetGroupDescriptionHasBeenSet; }
+
+    /**
+     * <p>A description for the replication instance subnet group.</p>
      */
     inline void SetReplicationSubnetGroupDescription(const Aws::String& value) { m_replicationSubnetGroupDescriptionHasBeenSet = true; m_replicationSubnetGroupDescription = value; }
 
     /**
-     * <p>The description of the replication instance subnet group.</p>
+     * <p>A description for the replication instance subnet group.</p>
      */
     inline void SetReplicationSubnetGroupDescription(Aws::String&& value) { m_replicationSubnetGroupDescriptionHasBeenSet = true; m_replicationSubnetGroupDescription = std::move(value); }
 
     /**
-     * <p>The description of the replication instance subnet group.</p>
+     * <p>A description for the replication instance subnet group.</p>
      */
     inline void SetReplicationSubnetGroupDescription(const char* value) { m_replicationSubnetGroupDescriptionHasBeenSet = true; m_replicationSubnetGroupDescription.assign(value); }
 
     /**
-     * <p>The description of the replication instance subnet group.</p>
+     * <p>A description for the replication instance subnet group.</p>
      */
     inline ModifyReplicationSubnetGroupRequest& WithReplicationSubnetGroupDescription(const Aws::String& value) { SetReplicationSubnetGroupDescription(value); return *this;}
 
     /**
-     * <p>The description of the replication instance subnet group.</p>
+     * <p>A description for the replication instance subnet group.</p>
      */
     inline ModifyReplicationSubnetGroupRequest& WithReplicationSubnetGroupDescription(Aws::String&& value) { SetReplicationSubnetGroupDescription(std::move(value)); return *this;}
 
     /**
-     * <p>The description of the replication instance subnet group.</p>
+     * <p>A description for the replication instance subnet group.</p>
      */
     inline ModifyReplicationSubnetGroupRequest& WithReplicationSubnetGroupDescription(const char* value) { SetReplicationSubnetGroupDescription(value); return *this;}
 
@@ -124,6 +134,11 @@ namespace Model
      * <p>A list of subnet IDs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSubnetIds() const{ return m_subnetIds; }
+
+    /**
+     * <p>A list of subnet IDs.</p>
+     */
+    inline bool SubnetIdsHasBeenSet() const { return m_subnetIdsHasBeenSet; }
 
     /**
      * <p>A list of subnet IDs.</p>

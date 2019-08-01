@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ListThingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The token to retrieve the next set of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token to retrieve the next set of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token to retrieve the next set of results.</p>
@@ -95,6 +100,11 @@ namespace Model
     /**
      * <p>The maximum number of results to return in this operation.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to return in this operation.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -107,6 +117,11 @@ namespace Model
      * <p>The attribute name used to search for things.</p>
      */
     inline const Aws::String& GetAttributeName() const{ return m_attributeName; }
+
+    /**
+     * <p>The attribute name used to search for things.</p>
+     */
+    inline bool AttributeNameHasBeenSet() const { return m_attributeNameHasBeenSet; }
 
     /**
      * <p>The attribute name used to search for things.</p>
@@ -147,6 +162,11 @@ namespace Model
     /**
      * <p>The attribute value used to search for things.</p>
      */
+    inline bool AttributeValueHasBeenSet() const { return m_attributeValueHasBeenSet; }
+
+    /**
+     * <p>The attribute value used to search for things.</p>
+     */
     inline void SetAttributeValue(const Aws::String& value) { m_attributeValueHasBeenSet = true; m_attributeValue = value; }
 
     /**
@@ -179,6 +199,11 @@ namespace Model
      * <p>The name of the thing type used to search for things.</p>
      */
     inline const Aws::String& GetThingTypeName() const{ return m_thingTypeName; }
+
+    /**
+     * <p>The name of the thing type used to search for things.</p>
+     */
+    inline bool ThingTypeNameHasBeenSet() const { return m_thingTypeNameHasBeenSet; }
 
     /**
      * <p>The name of the thing type used to search for things.</p>

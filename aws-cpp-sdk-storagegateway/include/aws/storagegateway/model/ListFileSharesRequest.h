@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListFileSharesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * listed.</p>
      */
     inline const Aws::String& GetGatewayARN() const{ return m_gatewayARN; }
+
+    /**
+     * <p>The Amazon resource Name (ARN) of the gateway whose file shares you want to
+     * list. If this field is not present, all file shares under your account are
+     * listed.</p>
+     */
+    inline bool GatewayARNHasBeenSet() const { return m_gatewayARNHasBeenSet; }
 
     /**
      * <p>The Amazon resource Name (ARN) of the gateway whose file shares you want to
@@ -107,6 +114,12 @@ namespace Model
      * <p>The maximum number of file shares to return in the response. The value must
      * be an integer with a value greater than zero. Optional.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of file shares to return in the response. The value must
+     * be an integer with a value greater than zero. Optional.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -122,6 +135,13 @@ namespace Model
      * previous call to ListFileShares. Optional.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>Opaque pagination token returned from a previous ListFileShares operation. If
+     * present, <code>Marker</code> specifies where to continue the list from after a
+     * previous call to ListFileShares. Optional.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>Opaque pagination token returned from a previous ListFileShares operation. If

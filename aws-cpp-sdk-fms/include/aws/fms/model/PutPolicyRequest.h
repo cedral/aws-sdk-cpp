@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The details of the AWS Firewall Manager policy to be created.</p>
      */
     inline const Policy& GetPolicy() const{ return m_policy; }
+
+    /**
+     * <p>The details of the AWS Firewall Manager policy to be created.</p>
+     */
+    inline bool PolicyHasBeenSet() const { return m_policyHasBeenSet; }
 
     /**
      * <p>The details of the AWS Firewall Manager policy to be created.</p>

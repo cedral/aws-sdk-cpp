@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteBranchRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the repository that contains the branch to be deleted.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository that contains the branch to be deleted.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository that contains the branch to be deleted.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The name of the branch to delete.</p>
      */
     inline const Aws::String& GetBranchName() const{ return m_branchName; }
+
+    /**
+     * <p>The name of the branch to delete.</p>
+     */
+    inline bool BranchNameHasBeenSet() const { return m_branchNameHasBeenSet; }
 
     /**
      * <p>The name of the branch to delete.</p>

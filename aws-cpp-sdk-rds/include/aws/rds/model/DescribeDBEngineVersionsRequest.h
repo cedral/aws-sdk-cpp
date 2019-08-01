@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeDBEngineVersionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The database engine to return.</p>
      */
     inline const Aws::String& GetEngine() const{ return m_engine; }
+
+    /**
+     * <p>The database engine to return.</p>
+     */
+    inline bool EngineHasBeenSet() const { return m_engineHasBeenSet; }
 
     /**
      * <p>The database engine to return.</p>
@@ -89,6 +94,12 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
+
+    /**
+     * <p>The database engine version to return.</p> <p>Example: <code>5.1.49</code>
+     * </p>
+     */
+    inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
      * <p>The database engine version to return.</p> <p>Example: <code>5.1.49</code>
@@ -133,6 +144,13 @@ namespace Model
      * DBParameterGroupFamily.</p> </li> </ul>
      */
     inline const Aws::String& GetDBParameterGroupFamily() const{ return m_dBParameterGroupFamily; }
+
+    /**
+     * <p>The name of a specific DB parameter group family to return details for.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match an existing
+     * DBParameterGroupFamily.</p> </li> </ul>
+     */
+    inline bool DBParameterGroupFamilyHasBeenSet() const { return m_dBParameterGroupFamilyHasBeenSet; }
 
     /**
      * <p>The name of a specific DB parameter group family to return details for.</p>
@@ -185,6 +203,11 @@ namespace Model
     /**
      * <p>This parameter is not currently supported.</p>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>This parameter is not currently supported.</p>
+     */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -227,6 +250,14 @@ namespace Model
      * is included in the response so that the following results can be retrieved. </p>
      * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p> The maximum number of records to include in the response. If more than the
+     * <code>MaxRecords</code> value is available, a pagination token called a marker
+     * is included in the response so that the following results can be retrieved. </p>
+     * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -244,6 +275,13 @@ namespace Model
      * to the value specified by <code>MaxRecords</code>. </p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p> An optional pagination token provided by a previous request. If this
+     * parameter is specified, the response includes only records beyond the marker, up
+     * to the value specified by <code>MaxRecords</code>. </p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p> An optional pagination token provided by a previous request. If this
@@ -289,69 +327,131 @@ namespace Model
 
 
     /**
-     * <p>Indicates that only the default version of the specified engine or engine and
-     * major version combination is returned.</p>
+     * <p>A value that indicates whether only the default version of the specified
+     * engine or engine and major version combination is returned.</p>
      */
     inline bool GetDefaultOnly() const{ return m_defaultOnly; }
 
     /**
-     * <p>Indicates that only the default version of the specified engine or engine and
-     * major version combination is returned.</p>
+     * <p>A value that indicates whether only the default version of the specified
+     * engine or engine and major version combination is returned.</p>
+     */
+    inline bool DefaultOnlyHasBeenSet() const { return m_defaultOnlyHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether only the default version of the specified
+     * engine or engine and major version combination is returned.</p>
      */
     inline void SetDefaultOnly(bool value) { m_defaultOnlyHasBeenSet = true; m_defaultOnly = value; }
 
     /**
-     * <p>Indicates that only the default version of the specified engine or engine and
-     * major version combination is returned.</p>
+     * <p>A value that indicates whether only the default version of the specified
+     * engine or engine and major version combination is returned.</p>
      */
     inline DescribeDBEngineVersionsRequest& WithDefaultOnly(bool value) { SetDefaultOnly(value); return *this;}
 
 
     /**
-     * <p>If this parameter is specified and the requested engine supports the
-     * <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the
-     * response includes a list of supported character sets for each engine version.
-     * </p>
+     * <p>A value that indicates whether to list the supported character sets for each
+     * engine version.</p> <p>If this parameter is enabled and the requested engine
+     * supports the <code>CharacterSetName</code> parameter for
+     * <code>CreateDBInstance</code>, the response includes a list of supported
+     * character sets for each engine version. </p>
      */
     inline bool GetListSupportedCharacterSets() const{ return m_listSupportedCharacterSets; }
 
     /**
-     * <p>If this parameter is specified and the requested engine supports the
-     * <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the
-     * response includes a list of supported character sets for each engine version.
-     * </p>
+     * <p>A value that indicates whether to list the supported character sets for each
+     * engine version.</p> <p>If this parameter is enabled and the requested engine
+     * supports the <code>CharacterSetName</code> parameter for
+     * <code>CreateDBInstance</code>, the response includes a list of supported
+     * character sets for each engine version. </p>
+     */
+    inline bool ListSupportedCharacterSetsHasBeenSet() const { return m_listSupportedCharacterSetsHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether to list the supported character sets for each
+     * engine version.</p> <p>If this parameter is enabled and the requested engine
+     * supports the <code>CharacterSetName</code> parameter for
+     * <code>CreateDBInstance</code>, the response includes a list of supported
+     * character sets for each engine version. </p>
      */
     inline void SetListSupportedCharacterSets(bool value) { m_listSupportedCharacterSetsHasBeenSet = true; m_listSupportedCharacterSets = value; }
 
     /**
-     * <p>If this parameter is specified and the requested engine supports the
-     * <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the
-     * response includes a list of supported character sets for each engine version.
-     * </p>
+     * <p>A value that indicates whether to list the supported character sets for each
+     * engine version.</p> <p>If this parameter is enabled and the requested engine
+     * supports the <code>CharacterSetName</code> parameter for
+     * <code>CreateDBInstance</code>, the response includes a list of supported
+     * character sets for each engine version. </p>
      */
     inline DescribeDBEngineVersionsRequest& WithListSupportedCharacterSets(bool value) { SetListSupportedCharacterSets(value); return *this;}
 
 
     /**
-     * <p>If this parameter is specified and the requested engine supports the
-     * <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response
-     * includes a list of supported time zones for each engine version. </p>
+     * <p>A value that indicates whether to list the supported time zones for each
+     * engine version.</p> <p>If this parameter is enabled and the requested engine
+     * supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>,
+     * the response includes a list of supported time zones for each engine version.
+     * </p>
      */
     inline bool GetListSupportedTimezones() const{ return m_listSupportedTimezones; }
 
     /**
-     * <p>If this parameter is specified and the requested engine supports the
-     * <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response
-     * includes a list of supported time zones for each engine version. </p>
+     * <p>A value that indicates whether to list the supported time zones for each
+     * engine version.</p> <p>If this parameter is enabled and the requested engine
+     * supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>,
+     * the response includes a list of supported time zones for each engine version.
+     * </p>
+     */
+    inline bool ListSupportedTimezonesHasBeenSet() const { return m_listSupportedTimezonesHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether to list the supported time zones for each
+     * engine version.</p> <p>If this parameter is enabled and the requested engine
+     * supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>,
+     * the response includes a list of supported time zones for each engine version.
+     * </p>
      */
     inline void SetListSupportedTimezones(bool value) { m_listSupportedTimezonesHasBeenSet = true; m_listSupportedTimezones = value; }
 
     /**
-     * <p>If this parameter is specified and the requested engine supports the
-     * <code>TimeZone</code> parameter for <code>CreateDBInstance</code>, the response
-     * includes a list of supported time zones for each engine version. </p>
+     * <p>A value that indicates whether to list the supported time zones for each
+     * engine version.</p> <p>If this parameter is enabled and the requested engine
+     * supports the <code>TimeZone</code> parameter for <code>CreateDBInstance</code>,
+     * the response includes a list of supported time zones for each engine version.
+     * </p>
      */
     inline DescribeDBEngineVersionsRequest& WithListSupportedTimezones(bool value) { SetListSupportedTimezones(value); return *this;}
+
+
+    /**
+     * <p>A value that indicates whether to include engine versions that aren't
+     * available in the list. The default is to list only available engine
+     * versions.</p>
+     */
+    inline bool GetIncludeAll() const{ return m_includeAll; }
+
+    /**
+     * <p>A value that indicates whether to include engine versions that aren't
+     * available in the list. The default is to list only available engine
+     * versions.</p>
+     */
+    inline bool IncludeAllHasBeenSet() const { return m_includeAllHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether to include engine versions that aren't
+     * available in the list. The default is to list only available engine
+     * versions.</p>
+     */
+    inline void SetIncludeAll(bool value) { m_includeAllHasBeenSet = true; m_includeAll = value; }
+
+    /**
+     * <p>A value that indicates whether to include engine versions that aren't
+     * available in the list. The default is to list only available engine
+     * versions.</p>
+     */
+    inline DescribeDBEngineVersionsRequest& WithIncludeAll(bool value) { SetIncludeAll(value); return *this;}
 
   private:
 
@@ -381,6 +481,9 @@ namespace Model
 
     bool m_listSupportedTimezones;
     bool m_listSupportedTimezonesHasBeenSet;
+
+    bool m_includeAll;
+    bool m_includeAllHasBeenSet;
   };
 
 } // namespace Model

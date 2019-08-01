@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     ImportApiKeysRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * Currently, only the <code>csv</code> format is supported.</p>
      */
     inline const ApiKeysFormat& GetFormat() const{ return m_format; }
+
+    /**
+     * <p>A query parameter to specify the input format to imported API keys.
+     * Currently, only the <code>csv</code> format is supported.</p>
+     */
+    inline bool FormatHasBeenSet() const { return m_formatHasBeenSet; }
 
     /**
      * <p>A query parameter to specify the input format to imported API keys.
@@ -87,6 +93,12 @@ namespace Model
      * (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
      */
     inline bool GetFailOnWarnings() const{ return m_failOnWarnings; }
+
+    /**
+     * <p>A query parameter to indicate whether to rollback <a>ApiKey</a> importation
+     * (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
+     */
+    inline bool FailOnWarningsHasBeenSet() const { return m_failOnWarningsHasBeenSet; }
 
     /**
      * <p>A query parameter to indicate whether to rollback <a>ApiKey</a> importation

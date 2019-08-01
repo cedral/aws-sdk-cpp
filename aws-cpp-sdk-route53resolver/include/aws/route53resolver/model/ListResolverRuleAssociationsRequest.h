@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListResolverRuleAssociationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * associations. </p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of rule associations that you want to return in the
+     * response to a <code>ListResolverRuleAssociations</code> request. If you don't
+     * specify a value for <code>MaxResults</code>, Resolver returns up to 100 rule
+     * associations. </p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of rule associations that you want to return in the
@@ -79,6 +87,15 @@ namespace Model
      * <code>NextToken</code> from the previous response. </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>For the first <code>ListResolverRuleAssociation</code> request, omit this
+     * value.</p> <p>If you have more than <code>MaxResults</code> rule associations,
+     * you can submit another <code>ListResolverRuleAssociation</code> request to get
+     * the next group of rule associations. In the next request, specify the value of
+     * <code>NextToken</code> from the previous response. </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>For the first <code>ListResolverRuleAssociation</code> request, omit this
@@ -143,6 +160,15 @@ namespace Model
      * for <code>Filters</code>, if any, as in the previous request.</p> </note>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>An optional specification to return a subset of resolver rules, such as
+     * resolver rules that are associated with the same VPC ID.</p> <note> <p>If you
+     * submit a second or subsequent <code>ListResolverRuleAssociations</code> request
+     * and specify the <code>NextToken</code> parameter, you must use the same values
+     * for <code>Filters</code>, if any, as in the previous request.</p> </note>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>An optional specification to return a subset of resolver rules, such as

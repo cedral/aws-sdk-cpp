@@ -107,6 +107,7 @@ void DLMClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 CreateLifecyclePolicyOutcome DLMClient::CreateLifecyclePolicy(const CreateLifecyclePolicyRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -144,6 +145,11 @@ void DLMClient::CreateLifecyclePolicyAsyncHelper(const CreateLifecyclePolicyRequ
 
 DeleteLifecyclePolicyOutcome DLMClient::DeleteLifecyclePolicy(const DeleteLifecyclePolicyRequest& request) const
 {
+  if (!request.PolicyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteLifecyclePolicy", "Required field: PolicyId, is not set");
+    return DeleteLifecyclePolicyOutcome(Aws::Client::AWSError<DLMErrors>(DLMErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PolicyId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/policies/";
@@ -216,6 +222,11 @@ void DLMClient::GetLifecyclePoliciesAsyncHelper(const GetLifecyclePoliciesReques
 
 GetLifecyclePolicyOutcome DLMClient::GetLifecyclePolicy(const GetLifecyclePolicyRequest& request) const
 {
+  if (!request.PolicyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetLifecyclePolicy", "Required field: PolicyId, is not set");
+    return GetLifecyclePolicyOutcome(Aws::Client::AWSError<DLMErrors>(DLMErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PolicyId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/policies/";
@@ -253,6 +264,11 @@ void DLMClient::GetLifecyclePolicyAsyncHelper(const GetLifecyclePolicyRequest& r
 
 UpdateLifecyclePolicyOutcome DLMClient::UpdateLifecyclePolicy(const UpdateLifecyclePolicyRequest& request) const
 {
+  if (!request.PolicyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateLifecyclePolicy", "Required field: PolicyId, is not set");
+    return UpdateLifecyclePolicyOutcome(Aws::Client::AWSError<DLMErrors>(DLMErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PolicyId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/policies/";

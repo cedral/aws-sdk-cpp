@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DetachStaticIpRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the static IP to detach from the instance.</p>
      */
     inline const Aws::String& GetStaticIpName() const{ return m_staticIpName; }
+
+    /**
+     * <p>The name of the static IP to detach from the instance.</p>
+     */
+    inline bool StaticIpNameHasBeenSet() const { return m_staticIpNameHasBeenSet; }
 
     /**
      * <p>The name of the static IP to detach from the instance.</p>

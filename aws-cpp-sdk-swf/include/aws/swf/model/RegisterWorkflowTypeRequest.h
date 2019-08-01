@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     RegisterWorkflowTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the domain in which to register the workflow type.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The name of the domain in which to register the workflow type.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The name of the domain in which to register the workflow type.</p>
@@ -87,7 +92,7 @@ namespace Model
      * end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
@@ -96,7 +101,16 @@ namespace Model
      * end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the workflow type.</p> <p>The specified string must not start or
+     * end with whitespace. It must not contain a <code>:</code> (colon),
+     * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
+     * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
@@ -105,7 +119,7 @@ namespace Model
      * end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
@@ -114,7 +128,7 @@ namespace Model
      * end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
@@ -123,7 +137,7 @@ namespace Model
      * end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithName(const Aws::String& value) { SetName(value); return *this;}
 
@@ -132,7 +146,7 @@ namespace Model
      * end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
@@ -141,7 +155,7 @@ namespace Model
      * end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithName(const char* value) { SetName(value); return *this;}
 
@@ -154,7 +168,7 @@ namespace Model
      * start or end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
 
@@ -166,7 +180,19 @@ namespace Model
      * start or end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
+
+    /**
+     * <p>The version of the workflow type.</p> <note> <p>The workflow type consists of
+     * the name and version, the combination of which must be unique within the domain.
+     * To get a list of all currently registered workflow types, use the
+     * <a>ListWorkflowTypes</a> action.</p> </note> <p>The specified string must not
+     * start or end with whitespace. It must not contain a <code>:</code> (colon),
+     * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
+     * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline void SetVersion(const Aws::String& value) { m_versionHasBeenSet = true; m_version = value; }
 
@@ -178,7 +204,7 @@ namespace Model
      * start or end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline void SetVersion(Aws::String&& value) { m_versionHasBeenSet = true; m_version = std::move(value); }
 
@@ -190,7 +216,7 @@ namespace Model
      * start or end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline void SetVersion(const char* value) { m_versionHasBeenSet = true; m_version.assign(value); }
 
@@ -202,7 +228,7 @@ namespace Model
      * start or end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithVersion(const Aws::String& value) { SetVersion(value); return *this;}
 
@@ -214,7 +240,7 @@ namespace Model
      * start or end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithVersion(Aws::String&& value) { SetVersion(std::move(value)); return *this;}
 
@@ -226,7 +252,7 @@ namespace Model
      * start or end with whitespace. It must not contain a <code>:</code> (colon),
      * <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters
      * (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must not
-     * contain the literal string <code>arn</code>.</p>
+     * <i>be</i> the literal string <code>arn</code>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithVersion(const char* value) { SetVersion(value); return *this;}
 
@@ -235,6 +261,11 @@ namespace Model
      * <p>Textual description of the workflow type.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>Textual description of the workflow type.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>Textual description of the workflow type.</p>
@@ -276,6 +307,16 @@ namespace Model
      * can use <code>NONE</code> to specify unlimited duration.</p>
      */
     inline const Aws::String& GetDefaultTaskStartToCloseTimeout() const{ return m_defaultTaskStartToCloseTimeout; }
+
+    /**
+     * <p>If set, specifies the default maximum duration of decision tasks for this
+     * workflow type. This default can be overridden when starting a workflow execution
+     * using the <a>StartWorkflowExecution</a> action or the
+     * <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p> <p>The duration is
+     * specified in seconds, an integer greater than or equal to <code>0</code>. You
+     * can use <code>NONE</code> to specify unlimited duration.</p>
+     */
+    inline bool DefaultTaskStartToCloseTimeoutHasBeenSet() const { return m_defaultTaskStartToCloseTimeoutHasBeenSet; }
 
     /**
      * <p>If set, specifies the default maximum duration of decision tasks for this
@@ -350,6 +391,19 @@ namespace Model
      * causes the workflow execution to time out.</p>
      */
     inline const Aws::String& GetDefaultExecutionStartToCloseTimeout() const{ return m_defaultExecutionStartToCloseTimeout; }
+
+    /**
+     * <p>If set, specifies the default maximum duration for executions of this
+     * workflow type. You can override this default when starting an execution through
+     * the <a>StartWorkflowExecution</a> Action or
+     * <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p> <p>The duration is
+     * specified in seconds; an integer greater than or equal to 0. Unlike some of the
+     * other timeout parameters in Amazon SWF, you cannot specify a value of "NONE" for
+     * <code>defaultExecutionStartToCloseTimeout</code>; there is a one-year max limit
+     * on the time that a workflow execution can run. Exceeding this limit always
+     * causes the workflow execution to time out.</p>
+     */
+    inline bool DefaultExecutionStartToCloseTimeoutHasBeenSet() const { return m_defaultExecutionStartToCloseTimeoutHasBeenSet; }
 
     /**
      * <p>If set, specifies the default maximum duration for executions of this
@@ -446,6 +500,15 @@ namespace Model
      * <a>StartWorkflowExecution</a> Action or <code>StartChildWorkflowExecution</code>
      * <a>Decision</a>.</p>
      */
+    inline bool DefaultTaskListHasBeenSet() const { return m_defaultTaskListHasBeenSet; }
+
+    /**
+     * <p>If set, specifies the default task list to use for scheduling decision tasks
+     * for executions of this workflow type. This default is used only if a task list
+     * isn't provided when starting the execution through the
+     * <a>StartWorkflowExecution</a> Action or <code>StartChildWorkflowExecution</code>
+     * <a>Decision</a>.</p>
+     */
     inline void SetDefaultTaskList(const TaskList& value) { m_defaultTaskListHasBeenSet = true; m_defaultTaskList = value; }
 
     /**
@@ -482,7 +545,7 @@ namespace Model
      * <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code>
      * (2147483647). Higher numbers indicate higher priority.</p> <p>For more
      * information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline const Aws::String& GetDefaultTaskPriority() const{ return m_defaultTaskPriority; }
@@ -493,7 +556,18 @@ namespace Model
      * <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code>
      * (2147483647). Higher numbers indicate higher priority.</p> <p>For more
      * information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+     */
+    inline bool DefaultTaskPriorityHasBeenSet() const { return m_defaultTaskPriorityHasBeenSet; }
+
+    /**
+     * <p>The default task priority to assign to the workflow type. If not assigned,
+     * then <code>0</code> is used. Valid values are integers that range from Java's
+     * <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code>
+     * (2147483647). Higher numbers indicate higher priority.</p> <p>For more
+     * information about setting task priority, see <a
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline void SetDefaultTaskPriority(const Aws::String& value) { m_defaultTaskPriorityHasBeenSet = true; m_defaultTaskPriority = value; }
@@ -504,7 +578,7 @@ namespace Model
      * <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code>
      * (2147483647). Higher numbers indicate higher priority.</p> <p>For more
      * information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline void SetDefaultTaskPriority(Aws::String&& value) { m_defaultTaskPriorityHasBeenSet = true; m_defaultTaskPriority = std::move(value); }
@@ -515,7 +589,7 @@ namespace Model
      * <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code>
      * (2147483647). Higher numbers indicate higher priority.</p> <p>For more
      * information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline void SetDefaultTaskPriority(const char* value) { m_defaultTaskPriorityHasBeenSet = true; m_defaultTaskPriority.assign(value); }
@@ -526,7 +600,7 @@ namespace Model
      * <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code>
      * (2147483647). Higher numbers indicate higher priority.</p> <p>For more
      * information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithDefaultTaskPriority(const Aws::String& value) { SetDefaultTaskPriority(value); return *this;}
@@ -537,7 +611,7 @@ namespace Model
      * <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code>
      * (2147483647). Higher numbers indicate higher priority.</p> <p>For more
      * information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithDefaultTaskPriority(Aws::String&& value) { SetDefaultTaskPriority(std::move(value)); return *this;}
@@ -548,7 +622,7 @@ namespace Model
      * <code>Integer.MIN_VALUE</code> (-2147483648) to <code>Integer.MAX_VALUE</code>
      * (2147483647). Higher numbers indicate higher priority.</p> <p>For more
      * information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline RegisterWorkflowTypeRequest& WithDefaultTaskPriority(const char* value) { SetDefaultTaskPriority(value); return *this;}
@@ -570,6 +644,23 @@ namespace Model
      * The child executions continue to run.</p> </li> </ul>
      */
     inline const ChildPolicy& GetDefaultChildPolicy() const{ return m_defaultChildPolicy; }
+
+    /**
+     * <p>If set, specifies the default policy to use for the child workflow executions
+     * when a workflow execution of this type is terminated, by calling the
+     * <a>TerminateWorkflowExecution</a> action explicitly or due to an expired
+     * timeout. This default can be overridden when starting a workflow execution using
+     * the <a>StartWorkflowExecution</a> action or the
+     * <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p> <p>The supported
+     * child policies are:</p> <ul> <li> <p> <code>TERMINATE</code> – The child
+     * executions are terminated.</p> </li> <li> <p> <code>REQUEST_CANCEL</code> – A
+     * request to cancel is attempted for each child execution by recording a
+     * <code>WorkflowExecutionCancelRequested</code> event in its history. It is up to
+     * the decider to take appropriate actions when it receives an execution history
+     * with this event.</p> </li> <li> <p> <code>ABANDON</code> – No action is taken.
+     * The child executions continue to run.</p> </li> </ul>
+     */
+    inline bool DefaultChildPolicyHasBeenSet() const { return m_defaultChildPolicyHasBeenSet; }
 
     /**
      * <p>If set, specifies the default policy to use for the child workflow executions
@@ -645,7 +736,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when you start this workflow type, the default Lambda role
      * is attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline const Aws::String& GetDefaultLambdaRole() const{ return m_defaultLambdaRole; }
@@ -655,7 +746,17 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when you start this workflow type, the default Lambda role
      * is attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
+     */
+    inline bool DefaultLambdaRoleHasBeenSet() const { return m_defaultLambdaRoleHasBeenSet; }
+
+    /**
+     * <p>The default IAM role attached to this workflow type.</p> <note> <p>Executions
+     * of this workflow type need IAM roles to invoke Lambda functions. If you don't
+     * specify an IAM role when you start this workflow type, the default Lambda role
+     * is attached to the execution. For more information, see <a
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline void SetDefaultLambdaRole(const Aws::String& value) { m_defaultLambdaRoleHasBeenSet = true; m_defaultLambdaRole = value; }
@@ -665,7 +766,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when you start this workflow type, the default Lambda role
      * is attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline void SetDefaultLambdaRole(Aws::String&& value) { m_defaultLambdaRoleHasBeenSet = true; m_defaultLambdaRole = std::move(value); }
@@ -675,7 +776,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when you start this workflow type, the default Lambda role
      * is attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline void SetDefaultLambdaRole(const char* value) { m_defaultLambdaRoleHasBeenSet = true; m_defaultLambdaRole.assign(value); }
@@ -685,7 +786,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when you start this workflow type, the default Lambda role
      * is attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline RegisterWorkflowTypeRequest& WithDefaultLambdaRole(const Aws::String& value) { SetDefaultLambdaRole(value); return *this;}
@@ -695,7 +796,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when you start this workflow type, the default Lambda role
      * is attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline RegisterWorkflowTypeRequest& WithDefaultLambdaRole(Aws::String&& value) { SetDefaultLambdaRole(std::move(value)); return *this;}
@@ -705,7 +806,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when you start this workflow type, the default Lambda role
      * is attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline RegisterWorkflowTypeRequest& WithDefaultLambdaRole(const char* value) { SetDefaultLambdaRole(value); return *this;}

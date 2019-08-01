@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListAllowedNodeTypeModificationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +59,16 @@ namespace Model
      * </important>
      */
     inline const Aws::String& GetCacheClusterId() const{ return m_cacheClusterId; }
+
+    /**
+     * <p>The name of the cluster you want to scale up to a larger node instanced type.
+     * ElastiCache uses the cluster id to identify the current node type of this
+     * cluster and from that to create a list of node types you can scale up to.</p>
+     * <important> <p>You must provide a value for either the
+     * <code>CacheClusterId</code> or the <code>ReplicationGroupId</code>.</p>
+     * </important>
+     */
+    inline bool CacheClusterIdHasBeenSet() const { return m_cacheClusterIdHasBeenSet; }
 
     /**
      * <p>The name of the cluster you want to scale up to a larger node instanced type.
@@ -130,6 +140,16 @@ namespace Model
      * <code>ReplicationGroupId</code>.</p> </important>
      */
     inline const Aws::String& GetReplicationGroupId() const{ return m_replicationGroupId; }
+
+    /**
+     * <p>The name of the replication group want to scale up to a larger node type.
+     * ElastiCache uses the replication group id to identify the current node type
+     * being used by this replication group, and from that to create a list of node
+     * types you can scale up to.</p> <important> <p>You must provide a value for
+     * either the <code>CacheClusterId</code> or the
+     * <code>ReplicationGroupId</code>.</p> </important>
+     */
+    inline bool ReplicationGroupIdHasBeenSet() const { return m_replicationGroupIdHasBeenSet; }
 
     /**
      * <p>The name of the replication group want to scale up to a larger node type.

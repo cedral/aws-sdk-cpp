@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListDevicesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The access tokens for the request to list devices.</p>
      */
     inline const Aws::String& GetAccessToken() const{ return m_accessToken; }
+
+    /**
+     * <p>The access tokens for the request to list devices.</p>
+     */
+    inline bool AccessTokenHasBeenSet() const { return m_accessTokenHasBeenSet; }
 
     /**
      * <p>The access tokens for the request to list devices.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The limit of the device request.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The limit of the device request.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -103,6 +113,11 @@ namespace Model
      * <p>The pagination token for the list request.</p>
      */
     inline const Aws::String& GetPaginationToken() const{ return m_paginationToken; }
+
+    /**
+     * <p>The pagination token for the list request.</p>
+     */
+    inline bool PaginationTokenHasBeenSet() const { return m_paginationTokenHasBeenSet; }
 
     /**
      * <p>The pagination token for the list request.</p>

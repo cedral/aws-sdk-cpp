@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SubscribeToEventRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * you want to receive SNS notifications.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The ARN of the assessment template that is used during the event for which
+     * you want to receive SNS notifications.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The ARN of the assessment template that is used during the event for which
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>The event for which you want to receive SNS notifications.</p>
      */
+    inline bool EventHasBeenSet() const { return m_eventHasBeenSet; }
+
+    /**
+     * <p>The event for which you want to receive SNS notifications.</p>
+     */
     inline void SetEvent(const InspectorEvent& value) { m_eventHasBeenSet = true; m_event = value; }
 
     /**
@@ -118,6 +129,11 @@ namespace Model
      * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
      */
     inline const Aws::String& GetTopicArn() const{ return m_topicArn; }
+
+    /**
+     * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>
+     */
+    inline bool TopicArnHasBeenSet() const { return m_topicArnHasBeenSet; }
 
     /**
      * <p>The ARN of the SNS topic to which the SNS notifications are sent.</p>

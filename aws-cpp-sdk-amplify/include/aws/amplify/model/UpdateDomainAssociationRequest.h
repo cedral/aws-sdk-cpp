@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     UpdateDomainAssociationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p> Unique Id for an Amplify App. </p>
      */
     inline const Aws::String& GetAppId() const{ return m_appId; }
+
+    /**
+     * <p> Unique Id for an Amplify App. </p>
+     */
+    inline bool AppIdHasBeenSet() const { return m_appIdHasBeenSet; }
 
     /**
      * <p> Unique Id for an Amplify App. </p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p> Name of the domain. </p>
      */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
+
+    /**
+     * <p> Name of the domain. </p>
+     */
     inline void SetDomainName(const Aws::String& value) { m_domainNameHasBeenSet = true; m_domainName = value; }
 
     /**
@@ -128,6 +138,11 @@ namespace Model
     /**
      * <p> Enables automated creation of Subdomains for branches. </p>
      */
+    inline bool EnableAutoSubDomainHasBeenSet() const { return m_enableAutoSubDomainHasBeenSet; }
+
+    /**
+     * <p> Enables automated creation of Subdomains for branches. </p>
+     */
     inline void SetEnableAutoSubDomain(bool value) { m_enableAutoSubDomainHasBeenSet = true; m_enableAutoSubDomain = value; }
 
     /**
@@ -140,6 +155,11 @@ namespace Model
      * <p> Setting structure for the Subdomain. </p>
      */
     inline const Aws::Vector<SubDomainSetting>& GetSubDomainSettings() const{ return m_subDomainSettings; }
+
+    /**
+     * <p> Setting structure for the Subdomain. </p>
+     */
+    inline bool SubDomainSettingsHasBeenSet() const { return m_subDomainSettingsHasBeenSet; }
 
     /**
      * <p> Setting structure for the Subdomain. </p>

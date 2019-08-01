@@ -26,7 +26,9 @@ namespace Model
   enum class UpdateType
   {
     NOT_SET,
-    VersionUpdate
+    VersionUpdate,
+    EndpointAccessUpdate,
+    LoggingUpdate
   };
 
 namespace UpdateTypeMapper

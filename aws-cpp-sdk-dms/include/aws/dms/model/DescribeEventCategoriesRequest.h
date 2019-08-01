@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeEventCategoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,43 +51,49 @@ namespace Model
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline const Aws::String& GetSourceType() const{ return m_sourceType; }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
+     */
+    inline bool SourceTypeHasBeenSet() const { return m_sourceTypeHasBeenSet; }
+
+    /**
+     * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
+     * replication-instance | replication-task</p>
      */
     inline void SetSourceType(const Aws::String& value) { m_sourceTypeHasBeenSet = true; m_sourceType = value; }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline void SetSourceType(Aws::String&& value) { m_sourceTypeHasBeenSet = true; m_sourceType = std::move(value); }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline void SetSourceType(const char* value) { m_sourceTypeHasBeenSet = true; m_sourceType.assign(value); }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline DescribeEventCategoriesRequest& WithSourceType(const Aws::String& value) { SetSourceType(value); return *this;}
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline DescribeEventCategoriesRequest& WithSourceType(Aws::String&& value) { SetSourceType(std::move(value)); return *this;}
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | migration-task</p>
+     * replication-instance | replication-task</p>
      */
     inline DescribeEventCategoriesRequest& WithSourceType(const char* value) { SetSourceType(value); return *this;}
 
@@ -96,6 +102,11 @@ namespace Model
      * <p>Filters applied to the action.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>Filters applied to the action.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>Filters applied to the action.</p>

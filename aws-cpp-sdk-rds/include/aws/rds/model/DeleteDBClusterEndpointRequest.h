@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteDBClusterEndpointRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * as a lowercase string.</p>
      */
     inline const Aws::String& GetDBClusterEndpointIdentifier() const{ return m_dBClusterEndpointIdentifier; }
+
+    /**
+     * <p>The identifier associated with the custom endpoint. This parameter is stored
+     * as a lowercase string.</p>
+     */
+    inline bool DBClusterEndpointIdentifierHasBeenSet() const { return m_dBClusterEndpointIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier associated with the custom endpoint. This parameter is stored

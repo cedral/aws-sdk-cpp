@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,12 @@ namespace Model
      * the type of the tagged resource.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on
+     * the type of the tagged resource.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on
@@ -91,6 +97,12 @@ namespace Model
      * your own metadata to the resources you create. </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Key-value pairs that are used to help organize your resources. You can assign
+     * your own metadata to the resources you create. </p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Key-value pairs that are used to help organize your resources. You can assign

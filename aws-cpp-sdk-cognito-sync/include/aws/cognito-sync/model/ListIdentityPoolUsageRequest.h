@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ListIdentityPoolUsageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * A pagination token for obtaining the next page of results.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * A pagination token for obtaining the next page of results.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * A pagination token for obtaining the next page of results.
@@ -91,6 +96,11 @@ namespace Model
      * The maximum number of results to be returned.
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * The maximum number of results to be returned.
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * The maximum number of results to be returned.

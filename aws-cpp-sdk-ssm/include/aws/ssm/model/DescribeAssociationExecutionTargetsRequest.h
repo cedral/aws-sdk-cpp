@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeAssociationExecutionTargetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * details.</p>
      */
     inline const Aws::String& GetAssociationId() const{ return m_associationId; }
+
+    /**
+     * <p>The association ID that includes the execution for which you want to view
+     * details.</p>
+     */
+    inline bool AssociationIdHasBeenSet() const { return m_associationIdHasBeenSet; }
 
     /**
      * <p>The association ID that includes the execution for which you want to view
@@ -97,6 +103,11 @@ namespace Model
     /**
      * <p>The execution ID for which you want to view details.</p>
      */
+    inline bool ExecutionIdHasBeenSet() const { return m_executionIdHasBeenSet; }
+
+    /**
+     * <p>The execution ID for which you want to view details.</p>
+     */
     inline void SetExecutionId(const Aws::String& value) { m_executionIdHasBeenSet = true; m_executionId = value; }
 
     /**
@@ -131,6 +142,13 @@ namespace Model
      * (EQUAL)</p>
      */
     inline const Aws::Vector<AssociationExecutionTargetsFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>Filters for the request. You can specify the following filters and
+     * values.</p> <p>Status (EQUAL)</p> <p>ResourceId (EQUAL)</p> <p>ResourceType
+     * (EQUAL)</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>Filters for the request. You can specify the following filters and
@@ -187,6 +205,13 @@ namespace Model
      * token that you can specify in a subsequent call to get the next set of
      * results.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of items to return for this call. The call also returns a
+     * token that you can specify in a subsequent call to get the next set of
+     * results.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -202,6 +227,12 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A token to start the list. Use this token to get the next set of results.
+     * </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A token to start the list. Use this token to get the next set of results.

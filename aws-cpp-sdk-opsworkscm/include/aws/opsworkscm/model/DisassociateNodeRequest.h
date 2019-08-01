@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DisassociateNodeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the server from which to disassociate the node. </p>
      */
     inline const Aws::String& GetServerName() const{ return m_serverName; }
+
+    /**
+     * <p>The name of the server from which to disassociate the node. </p>
+     */
+    inline bool ServerNameHasBeenSet() const { return m_serverNameHasBeenSet; }
 
     /**
      * <p>The name of the server from which to disassociate the node. </p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The name of the client node. </p>
      */
     inline const Aws::String& GetNodeName() const{ return m_nodeName; }
+
+    /**
+     * <p>The name of the client node. </p>
+     */
+    inline bool NodeNameHasBeenSet() const { return m_nodeNameHasBeenSet; }
 
     /**
      * <p>The name of the client node. </p>
@@ -127,6 +137,16 @@ namespace Model
      * exist. </p> </li> </ul>
      */
     inline const Aws::Vector<EngineAttribute>& GetEngineAttributes() const{ return m_engineAttributes; }
+
+    /**
+     * <p>Engine attributes that are used for disassociating the node. No attributes
+     * are required for Puppet. </p> <p class="title"> <b>Attributes required in a
+     * DisassociateNode request for Chef</b> </p> <ul> <li> <p>
+     * <code>CHEF_ORGANIZATION</code>: The Chef organization with which the node was
+     * associated. By default only one organization named <code>default</code> can
+     * exist. </p> </li> </ul>
+     */
+    inline bool EngineAttributesHasBeenSet() const { return m_engineAttributesHasBeenSet; }
 
     /**
      * <p>Engine attributes that are used for disassociating the node. No attributes

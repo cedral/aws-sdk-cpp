@@ -69,6 +69,11 @@ namespace Model
     /**
      * <p>The architecture of the image.</p>
      */
+    inline bool ArchitectureHasBeenSet() const { return m_architectureHasBeenSet; }
+
+    /**
+     * <p>The architecture of the image.</p>
+     */
     inline void SetArchitecture(const ArchitectureValues& value) { m_architectureHasBeenSet = true; m_architecture = value; }
 
     /**
@@ -91,6 +96,11 @@ namespace Model
      * <p>The date and time the image was created.</p>
      */
     inline const Aws::String& GetCreationDate() const{ return m_creationDate; }
+
+    /**
+     * <p>The date and time the image was created.</p>
+     */
+    inline bool CreationDateHasBeenSet() const { return m_creationDateHasBeenSet; }
 
     /**
      * <p>The date and time the image was created.</p>
@@ -131,6 +141,11 @@ namespace Model
     /**
      * <p>The ID of the AMI.</p>
      */
+    inline bool ImageIdHasBeenSet() const { return m_imageIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the AMI.</p>
+     */
     inline void SetImageId(const Aws::String& value) { m_imageIdHasBeenSet = true; m_imageId = value; }
 
     /**
@@ -163,6 +178,11 @@ namespace Model
      * <p>The location of the AMI.</p>
      */
     inline const Aws::String& GetImageLocation() const{ return m_imageLocation; }
+
+    /**
+     * <p>The location of the AMI.</p>
+     */
+    inline bool ImageLocationHasBeenSet() const { return m_imageLocationHasBeenSet; }
 
     /**
      * <p>The location of the AMI.</p>
@@ -203,6 +223,11 @@ namespace Model
     /**
      * <p>The type of image.</p>
      */
+    inline bool ImageTypeHasBeenSet() const { return m_imageTypeHasBeenSet; }
+
+    /**
+     * <p>The type of image.</p>
+     */
     inline void SetImageType(const ImageTypeValues& value) { m_imageTypeHasBeenSet = true; m_imageType = value; }
 
     /**
@@ -233,6 +258,13 @@ namespace Model
      * <code>true</code> if this image has public launch permissions or
      * <code>false</code> if it has only implicit and explicit launch permissions.</p>
      */
+    inline bool PublicHasBeenSet() const { return m_publicHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the image has public launch permissions. The value is
+     * <code>true</code> if this image has public launch permissions or
+     * <code>false</code> if it has only implicit and explicit launch permissions.</p>
+     */
     inline void SetPublic(bool value) { m_publicHasBeenSet = true; m_public = value; }
 
     /**
@@ -248,6 +280,12 @@ namespace Model
      * images.</p>
      */
     inline const Aws::String& GetKernelId() const{ return m_kernelId; }
+
+    /**
+     * <p>The kernel associated with the image, if any. Only applicable for machine
+     * images.</p>
+     */
+    inline bool KernelIdHasBeenSet() const { return m_kernelIdHasBeenSet; }
 
     /**
      * <p>The kernel associated with the image, if any. Only applicable for machine
@@ -294,6 +332,11 @@ namespace Model
     /**
      * <p>The AWS account ID of the image owner.</p>
      */
+    inline bool OwnerIdHasBeenSet() const { return m_ownerIdHasBeenSet; }
+
+    /**
+     * <p>The AWS account ID of the image owner.</p>
+     */
     inline void SetOwnerId(const Aws::String& value) { m_ownerIdHasBeenSet = true; m_ownerId = value; }
 
     /**
@@ -323,27 +366,38 @@ namespace Model
 
 
     /**
-     * <p>The value is <code>Windows</code> for Windows AMIs; otherwise blank.</p>
+     * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is
+     * blank.</p>
      */
     inline const PlatformValues& GetPlatform() const{ return m_platform; }
 
     /**
-     * <p>The value is <code>Windows</code> for Windows AMIs; otherwise blank.</p>
+     * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is
+     * blank.</p>
+     */
+    inline bool PlatformHasBeenSet() const { return m_platformHasBeenSet; }
+
+    /**
+     * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is
+     * blank.</p>
      */
     inline void SetPlatform(const PlatformValues& value) { m_platformHasBeenSet = true; m_platform = value; }
 
     /**
-     * <p>The value is <code>Windows</code> for Windows AMIs; otherwise blank.</p>
+     * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is
+     * blank.</p>
      */
     inline void SetPlatform(PlatformValues&& value) { m_platformHasBeenSet = true; m_platform = std::move(value); }
 
     /**
-     * <p>The value is <code>Windows</code> for Windows AMIs; otherwise blank.</p>
+     * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is
+     * blank.</p>
      */
     inline Image& WithPlatform(const PlatformValues& value) { SetPlatform(value); return *this;}
 
     /**
-     * <p>The value is <code>Windows</code> for Windows AMIs; otherwise blank.</p>
+     * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is
+     * blank.</p>
      */
     inline Image& WithPlatform(PlatformValues&& value) { SetPlatform(std::move(value)); return *this;}
 
@@ -352,6 +406,11 @@ namespace Model
      * <p>Any product codes associated with the AMI.</p>
      */
     inline const Aws::Vector<ProductCode>& GetProductCodes() const{ return m_productCodes; }
+
+    /**
+     * <p>Any product codes associated with the AMI.</p>
+     */
+    inline bool ProductCodesHasBeenSet() const { return m_productCodesHasBeenSet; }
 
     /**
      * <p>Any product codes associated with the AMI.</p>
@@ -389,6 +448,12 @@ namespace Model
      * images.</p>
      */
     inline const Aws::String& GetRamdiskId() const{ return m_ramdiskId; }
+
+    /**
+     * <p>The RAM disk associated with the image, if any. Only applicable for machine
+     * images.</p>
+     */
+    inline bool RamdiskIdHasBeenSet() const { return m_ramdiskIdHasBeenSet; }
 
     /**
      * <p>The RAM disk associated with the image, if any. Only applicable for machine
@@ -437,6 +502,12 @@ namespace Model
      * <p>The current state of the AMI. If the state is <code>available</code>, the
      * image is successfully registered and can be used to launch an instance.</p>
      */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
+
+    /**
+     * <p>The current state of the AMI. If the state is <code>available</code>, the
+     * image is successfully registered and can be used to launch an instance.</p>
+     */
     inline void SetState(const ImageState& value) { m_stateHasBeenSet = true; m_state = value; }
 
     /**
@@ -462,6 +533,11 @@ namespace Model
      * <p>Any block device mapping entries.</p>
      */
     inline const Aws::Vector<BlockDeviceMapping>& GetBlockDeviceMappings() const{ return m_blockDeviceMappings; }
+
+    /**
+     * <p>Any block device mapping entries.</p>
+     */
+    inline bool BlockDeviceMappingsHasBeenSet() const { return m_blockDeviceMappingsHasBeenSet; }
 
     /**
      * <p>Any block device mapping entries.</p>
@@ -502,6 +578,11 @@ namespace Model
     /**
      * <p>The description of the AMI that was provided during image creation.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the AMI that was provided during image creation.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -538,6 +619,11 @@ namespace Model
     /**
      * <p>Specifies whether enhanced networking with ENA is enabled.</p>
      */
+    inline bool EnaSupportHasBeenSet() const { return m_enaSupportHasBeenSet; }
+
+    /**
+     * <p>Specifies whether enhanced networking with ENA is enabled.</p>
+     */
     inline void SetEnaSupport(bool value) { m_enaSupportHasBeenSet = true; m_enaSupport = value; }
 
     /**
@@ -550,6 +636,11 @@ namespace Model
      * <p>The hypervisor type of the image.</p>
      */
     inline const HypervisorType& GetHypervisor() const{ return m_hypervisor; }
+
+    /**
+     * <p>The hypervisor type of the image.</p>
+     */
+    inline bool HypervisorHasBeenSet() const { return m_hypervisorHasBeenSet; }
 
     /**
      * <p>The hypervisor type of the image.</p>
@@ -577,6 +668,12 @@ namespace Model
      * or the AWS account ID of the AMI owner.</p>
      */
     inline const Aws::String& GetImageOwnerAlias() const{ return m_imageOwnerAlias; }
+
+    /**
+     * <p>The AWS account alias (for example, <code>amazon</code>, <code>self</code>)
+     * or the AWS account ID of the AMI owner.</p>
+     */
+    inline bool ImageOwnerAliasHasBeenSet() const { return m_imageOwnerAliasHasBeenSet; }
 
     /**
      * <p>The AWS account alias (for example, <code>amazon</code>, <code>self</code>)
@@ -623,6 +720,11 @@ namespace Model
     /**
      * <p>The name of the AMI that was provided during image creation.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the AMI that was provided during image creation.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -656,6 +758,12 @@ namespace Model
      * <code>/dev/sda1</code>).</p>
      */
     inline const Aws::String& GetRootDeviceName() const{ return m_rootDeviceName; }
+
+    /**
+     * <p>The device name of the root device volume (for example,
+     * <code>/dev/sda1</code>).</p>
+     */
+    inline bool RootDeviceNameHasBeenSet() const { return m_rootDeviceNameHasBeenSet; }
 
     /**
      * <p>The device name of the root device volume (for example,
@@ -704,6 +812,12 @@ namespace Model
      * <p>The type of root device used by the AMI. The AMI can use an EBS volume or an
      * instance store volume.</p>
      */
+    inline bool RootDeviceTypeHasBeenSet() const { return m_rootDeviceTypeHasBeenSet; }
+
+    /**
+     * <p>The type of root device used by the AMI. The AMI can use an EBS volume or an
+     * instance store volume.</p>
+     */
     inline void SetRootDeviceType(const DeviceType& value) { m_rootDeviceTypeHasBeenSet = true; m_rootDeviceType = value; }
 
     /**
@@ -730,6 +844,12 @@ namespace Model
      * interface is enabled.</p>
      */
     inline const Aws::String& GetSriovNetSupport() const{ return m_sriovNetSupport; }
+
+    /**
+     * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function
+     * interface is enabled.</p>
+     */
+    inline bool SriovNetSupportHasBeenSet() const { return m_sriovNetSupportHasBeenSet; }
 
     /**
      * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function
@@ -776,6 +896,11 @@ namespace Model
     /**
      * <p>The reason for the state change.</p>
      */
+    inline bool StateReasonHasBeenSet() const { return m_stateReasonHasBeenSet; }
+
+    /**
+     * <p>The reason for the state change.</p>
+     */
     inline void SetStateReason(const StateReason& value) { m_stateReasonHasBeenSet = true; m_stateReason = value; }
 
     /**
@@ -798,6 +923,11 @@ namespace Model
      * <p>Any tags assigned to the image.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to the image.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Any tags assigned to the image.</p>
@@ -834,6 +964,11 @@ namespace Model
      * <p>The type of virtualization of the AMI.</p>
      */
     inline const VirtualizationType& GetVirtualizationType() const{ return m_virtualizationType; }
+
+    /**
+     * <p>The type of virtualization of the AMI.</p>
+     */
+    inline bool VirtualizationTypeHasBeenSet() const { return m_virtualizationTypeHasBeenSet; }
 
     /**
      * <p>The type of virtualization of the AMI.</p>

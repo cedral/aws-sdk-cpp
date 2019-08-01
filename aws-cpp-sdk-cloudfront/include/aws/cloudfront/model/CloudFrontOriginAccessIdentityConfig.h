@@ -36,7 +36,7 @@ namespace Model
    * <p>Origin access identity configuration. Send a <code>GET</code> request to the
    * <code>/<i>CloudFront API version</i>/CloudFront/identity ID/config</code>
    * resource. </p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/CloudFrontOriginAccessIdentityConfig">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/CloudFrontOriginAccessIdentityConfig">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API CloudFrontOriginAccessIdentityConfig
@@ -65,6 +65,23 @@ namespace Model
      * <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
      */
     inline const Aws::String& GetCallerReference() const{ return m_callerReference; }
+
+    /**
+     * <p>A unique value (for example, a date-time stamp) that ensures that the request
+     * can't be replayed.</p> <p>If the value of <code>CallerReference</code> is new
+     * (regardless of the content of the
+     * <code>CloudFrontOriginAccessIdentityConfig</code> object), a new origin access
+     * identity is created.</p> <p>If the <code>CallerReference</code> is a value
+     * already sent in a previous identity request, and the content of the
+     * <code>CloudFrontOriginAccessIdentityConfig</code> is identical to the original
+     * request (ignoring white space), the response includes the same information
+     * returned to the original request. </p> <p>If the <code>CallerReference</code> is
+     * a value you already sent in a previous request to create an identity, but the
+     * content of the <code>CloudFrontOriginAccessIdentityConfig</code> is different
+     * from the original request, CloudFront returns a
+     * <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
+     */
+    inline bool CallerReferenceHasBeenSet() const { return m_callerReferenceHasBeenSet; }
 
     /**
      * <p>A unique value (for example, a date-time stamp) that ensures that the request
@@ -173,6 +190,11 @@ namespace Model
      * <p>Any comments you want to include about the origin access identity. </p>
      */
     inline const Aws::String& GetComment() const{ return m_comment; }
+
+    /**
+     * <p>Any comments you want to include about the origin access identity. </p>
+     */
+    inline bool CommentHasBeenSet() const { return m_commentHasBeenSet; }
 
     /**
      * <p>Any comments you want to include about the origin access identity. </p>

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateConfigurationSetTrackingOptionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * associated with.</p>
      */
     inline const Aws::String& GetConfigurationSetName() const{ return m_configurationSetName; }
+
+    /**
+     * <p>The name of the configuration set that the tracking options should be
+     * associated with.</p>
+     */
+    inline bool ConfigurationSetNameHasBeenSet() const { return m_configurationSetNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration set that the tracking options should be
@@ -96,6 +102,9 @@ namespace Model
 
     
     inline const TrackingOptions& GetTrackingOptions() const{ return m_trackingOptions; }
+
+    
+    inline bool TrackingOptionsHasBeenSet() const { return m_trackingOptionsHasBeenSet; }
 
     
     inline void SetTrackingOptions(const TrackingOptions& value) { m_trackingOptionsHasBeenSet = true; m_trackingOptions = value; }

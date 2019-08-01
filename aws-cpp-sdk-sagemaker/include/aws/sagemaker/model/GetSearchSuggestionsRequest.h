@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetSearchSuggestionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * <code>Resource</code> value is <code>TrainingJob</code>.</p>
      */
     inline const ResourceType& GetResource() const{ return m_resource; }
+
+    /**
+     * <p>The name of the Amazon SageMaker resource to Search for. The only valid
+     * <code>Resource</code> value is <code>TrainingJob</code>.</p>
+     */
+    inline bool ResourceHasBeenSet() const { return m_resourceHasBeenSet; }
 
     /**
      * <p>The name of the Amazon SageMaker resource to Search for. The only valid
@@ -80,6 +86,11 @@ namespace Model
      * <p>Limits the property names that are included in the response.</p>
      */
     inline const SuggestionQuery& GetSuggestionQuery() const{ return m_suggestionQuery; }
+
+    /**
+     * <p>Limits the property names that are included in the response.</p>
+     */
+    inline bool SuggestionQueryHasBeenSet() const { return m_suggestionQueryHasBeenSet; }
 
     /**
      * <p>Limits the property names that are included in the response.</p>

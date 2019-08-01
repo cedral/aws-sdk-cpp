@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListBuildsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,14 @@ namespace Model
      * by build ID.</p> </li> </ul>
      */
     inline const SortOrderType& GetSortOrder() const{ return m_sortOrder; }
+
+    /**
+     * <p>The order to list build IDs. Valid values include:</p> <ul> <li> <p>
+     * <code>ASCENDING</code>: List the build IDs in ascending order by build ID.</p>
+     * </li> <li> <p> <code>DESCENDING</code>: List the build IDs in descending order
+     * by build ID.</p> </li> </ul>
+     */
+    inline bool SortOrderHasBeenSet() const { return m_sortOrderHasBeenSet; }
 
     /**
      * <p>The order to list build IDs. Valid values include:</p> <ul> <li> <p>
@@ -95,6 +103,16 @@ namespace Model
      * until no more next tokens are returned.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>During a previous call, if there are more than 100 items in the list, only
+     * the first 100 items are returned, along with a unique string called a <i>next
+     * token</i>. To get the next batch of items in the list, call this operation
+     * again, adding the next token to the call. To get all of the items in the list,
+     * keep calling this operation with each subsequent next token that is returned,
+     * until no more next tokens are returned.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>During a previous call, if there are more than 100 items in the list, only

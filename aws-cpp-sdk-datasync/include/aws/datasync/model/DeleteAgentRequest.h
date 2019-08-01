@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteAgentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * and AWS Region.</p>
      */
     inline const Aws::String& GetAgentArn() const{ return m_agentArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the agent to delete. Use the
+     * <code>ListAgents</code> operation to return a list of agents for your account
+     * and AWS Region.</p>
+     */
+    inline bool AgentArnHasBeenSet() const { return m_agentArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the agent to delete. Use the

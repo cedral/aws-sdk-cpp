@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     StopAutomationExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The execution ID of the Automation to stop.</p>
      */
     inline const Aws::String& GetAutomationExecutionId() const{ return m_automationExecutionId; }
+
+    /**
+     * <p>The execution ID of the Automation to stop.</p>
+     */
+    inline bool AutomationExecutionIdHasBeenSet() const { return m_automationExecutionIdHasBeenSet; }
 
     /**
      * <p>The execution ID of the Automation to stop.</p>
@@ -86,6 +91,12 @@ namespace Model
      * Complete. The default type is Cancel.</p>
      */
     inline const StopType& GetType() const{ return m_type; }
+
+    /**
+     * <p>The stop request type. Valid types include the following: Cancel and
+     * Complete. The default type is Cancel.</p>
+     */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
 
     /**
      * <p>The stop request type. Valid types include the following: Cancel and

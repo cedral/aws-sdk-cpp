@@ -37,7 +37,7 @@ namespace Model
    * <p>Metadata that you assign to your AWS resources. Tags enable you to categorize
    * your resources in different ways, for example, by purpose, owner, or
    * environment. In Systems Manager, you can apply tags to documents, managed
-   * instances, Maintenance Windows, Parameter Store parameters, and patch
+   * instances, maintenance windows, Parameter Store parameters, and patch
    * baselines.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/Tag">AWS API
    * Reference</a></p>
@@ -55,6 +55,11 @@ namespace Model
      * <p>The name of the tag.</p>
      */
     inline const Aws::String& GetKey() const{ return m_key; }
+
+    /**
+     * <p>The name of the tag.</p>
+     */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
 
     /**
      * <p>The name of the tag.</p>
@@ -91,6 +96,11 @@ namespace Model
      * <p>The value of the tag.</p>
      */
     inline const Aws::String& GetValue() const{ return m_value; }
+
+    /**
+     * <p>The value of the tag.</p>
+     */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
 
     /**
      * <p>The value of the tag.</p>

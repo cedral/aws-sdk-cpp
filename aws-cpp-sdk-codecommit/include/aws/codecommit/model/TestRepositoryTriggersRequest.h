@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     TestRepositoryTriggersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the repository in which to test the triggers.</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name of the repository in which to test the triggers.</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the repository in which to test the triggers.</p>
@@ -90,6 +95,11 @@ namespace Model
      * <p>The list of triggers to test.</p>
      */
     inline const Aws::Vector<RepositoryTrigger>& GetTriggers() const{ return m_triggers; }
+
+    /**
+     * <p>The list of triggers to test.</p>
+     */
+    inline bool TriggersHasBeenSet() const { return m_triggersHasBeenSet; }
 
     /**
      * <p>The list of triggers to test.</p>

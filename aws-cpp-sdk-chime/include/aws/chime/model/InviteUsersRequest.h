@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     InviteUsersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The Amazon Chime account ID.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The Amazon Chime account ID.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The Amazon Chime account ID.</p>
@@ -83,6 +88,11 @@ namespace Model
      * <p>The user email addresses to which to send the invite.</p>
      */
     inline const Aws::Vector<Aws::String>& GetUserEmailList() const{ return m_userEmailList; }
+
+    /**
+     * <p>The user email addresses to which to send the invite.</p>
+     */
+    inline bool UserEmailListHasBeenSet() const { return m_userEmailListHasBeenSet; }
 
     /**
      * <p>The user email addresses to which to send the invite.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DisassociateQualificationFromWorkerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the Worker who possesses the Qualification to be revoked.</p>
      */
     inline const Aws::String& GetWorkerId() const{ return m_workerId; }
+
+    /**
+     * <p>The ID of the Worker who possesses the Qualification to be revoked.</p>
+     */
+    inline bool WorkerIdHasBeenSet() const { return m_workerIdHasBeenSet; }
 
     /**
      * <p>The ID of the Worker who possesses the Qualification to be revoked.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The ID of the Qualification type of the Qualification to be revoked.</p>
      */
+    inline bool QualificationTypeIdHasBeenSet() const { return m_qualificationTypeIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the Qualification type of the Qualification to be revoked.</p>
+     */
     inline void SetQualificationTypeId(const Aws::String& value) { m_qualificationTypeIdHasBeenSet = true; m_qualificationTypeId = value; }
 
     /**
@@ -121,6 +131,12 @@ namespace Model
      * had the Qualification sees this message.</p>
      */
     inline const Aws::String& GetReason() const{ return m_reason; }
+
+    /**
+     * <p>A text message that explains why the Qualification was revoked. The user who
+     * had the Qualification sees this message.</p>
+     */
+    inline bool ReasonHasBeenSet() const { return m_reasonHasBeenSet; }
 
     /**
      * <p>A text message that explains why the Qualification was revoked. The user who

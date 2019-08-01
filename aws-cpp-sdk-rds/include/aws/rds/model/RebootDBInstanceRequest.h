@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     RebootDBInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * existing DBInstance.</p> </li> </ul>
      */
     inline const Aws::String& GetDBInstanceIdentifier() const{ return m_dBInstanceIdentifier; }
+
+    /**
+     * <p>The DB instance identifier. This parameter is stored as a lowercase
+     * string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an
+     * existing DBInstance.</p> </li> </ul>
+     */
+    inline bool DBInstanceIdentifierHasBeenSet() const { return m_dBInstanceIdentifierHasBeenSet; }
 
     /**
      * <p>The DB instance identifier. This parameter is stored as a lowercase
@@ -100,23 +107,30 @@ namespace Model
 
 
     /**
-     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.
-     * </p> <p>Constraint: You can't specify <code>true</code> if the instance is not
-     * configured for MultiAZ.</p>
+     * <p> A value that indicates whether the reboot is conducted through a Multi-AZ
+     * failover. </p> <p>Constraint: You can't enable force failover if the instance is
+     * not configured for Multi-AZ.</p>
      */
     inline bool GetForceFailover() const{ return m_forceFailover; }
 
     /**
-     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.
-     * </p> <p>Constraint: You can't specify <code>true</code> if the instance is not
-     * configured for MultiAZ.</p>
+     * <p> A value that indicates whether the reboot is conducted through a Multi-AZ
+     * failover. </p> <p>Constraint: You can't enable force failover if the instance is
+     * not configured for Multi-AZ.</p>
+     */
+    inline bool ForceFailoverHasBeenSet() const { return m_forceFailoverHasBeenSet; }
+
+    /**
+     * <p> A value that indicates whether the reboot is conducted through a Multi-AZ
+     * failover. </p> <p>Constraint: You can't enable force failover if the instance is
+     * not configured for Multi-AZ.</p>
      */
     inline void SetForceFailover(bool value) { m_forceFailoverHasBeenSet = true; m_forceFailover = value; }
 
     /**
-     * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.
-     * </p> <p>Constraint: You can't specify <code>true</code> if the instance is not
-     * configured for MultiAZ.</p>
+     * <p> A value that indicates whether the reboot is conducted through a Multi-AZ
+     * failover. </p> <p>Constraint: You can't enable force failover if the instance is
+     * not configured for Multi-AZ.</p>
      */
     inline RebootDBInstanceRequest& WithForceFailover(bool value) { SetForceFailover(value); return *this;}
 

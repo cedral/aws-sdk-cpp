@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutAppReplicationConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>ID of the application tassociated with the replication configuration.</p>
      */
     inline const Aws::String& GetAppId() const{ return m_appId; }
+
+    /**
+     * <p>ID of the application tassociated with the replication configuration.</p>
+     */
+    inline bool AppIdHasBeenSet() const { return m_appIdHasBeenSet; }
 
     /**
      * <p>ID of the application tassociated with the replication configuration.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>Replication configurations for server groups in the application.</p>
      */
     inline const Aws::Vector<ServerGroupReplicationConfiguration>& GetServerGroupReplicationConfigurations() const{ return m_serverGroupReplicationConfigurations; }
+
+    /**
+     * <p>Replication configurations for server groups in the application.</p>
+     */
+    inline bool ServerGroupReplicationConfigurationsHasBeenSet() const { return m_serverGroupReplicationConfigurationsHasBeenSet; }
 
     /**
      * <p>Replication configurations for server groups in the application.</p>

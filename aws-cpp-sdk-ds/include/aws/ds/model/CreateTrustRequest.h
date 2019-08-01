@@ -45,7 +45,7 @@ namespace Model
   {
   public:
     CreateTrustRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -62,6 +62,12 @@ namespace Model
      * establish the trust relationship.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The Directory ID of the AWS Managed Microsoft AD directory for which to
+     * establish the trust relationship.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The Directory ID of the AWS Managed Microsoft AD directory for which to
@@ -110,6 +116,12 @@ namespace Model
      * <p>The Fully Qualified Domain Name (FQDN) of the external domain for which to
      * create the trust relationship.</p>
      */
+    inline bool RemoteDomainNameHasBeenSet() const { return m_remoteDomainNameHasBeenSet; }
+
+    /**
+     * <p>The Fully Qualified Domain Name (FQDN) of the external domain for which to
+     * create the trust relationship.</p>
+     */
     inline void SetRemoteDomainName(const Aws::String& value) { m_remoteDomainNameHasBeenSet = true; m_remoteDomainName = value; }
 
     /**
@@ -148,6 +160,12 @@ namespace Model
      * the trust relationship on the external domain.</p>
      */
     inline const Aws::String& GetTrustPassword() const{ return m_trustPassword; }
+
+    /**
+     * <p>The trust password. The must be the same password that was used when creating
+     * the trust relationship on the external domain.</p>
+     */
+    inline bool TrustPasswordHasBeenSet() const { return m_trustPasswordHasBeenSet; }
 
     /**
      * <p>The trust password. The must be the same password that was used when creating
@@ -194,6 +212,11 @@ namespace Model
     /**
      * <p>The direction of the trust relationship.</p>
      */
+    inline bool TrustDirectionHasBeenSet() const { return m_trustDirectionHasBeenSet; }
+
+    /**
+     * <p>The direction of the trust relationship.</p>
+     */
     inline void SetTrustDirection(const TrustDirection& value) { m_trustDirectionHasBeenSet = true; m_trustDirection = value; }
 
     /**
@@ -216,6 +239,11 @@ namespace Model
      * <p>The trust relationship type. <code>Forest</code> is the default.</p>
      */
     inline const TrustType& GetTrustType() const{ return m_trustType; }
+
+    /**
+     * <p>The trust relationship type. <code>Forest</code> is the default.</p>
+     */
+    inline bool TrustTypeHasBeenSet() const { return m_trustTypeHasBeenSet; }
 
     /**
      * <p>The trust relationship type. <code>Forest</code> is the default.</p>
@@ -243,6 +271,12 @@ namespace Model
      * RemoteDomainName.</p>
      */
     inline const Aws::Vector<Aws::String>& GetConditionalForwarderIpAddrs() const{ return m_conditionalForwarderIpAddrs; }
+
+    /**
+     * <p>The IP addresses of the remote DNS server associated with
+     * RemoteDomainName.</p>
+     */
+    inline bool ConditionalForwarderIpAddrsHasBeenSet() const { return m_conditionalForwarderIpAddrsHasBeenSet; }
 
     /**
      * <p>The IP addresses of the remote DNS server associated with
@@ -291,6 +325,11 @@ namespace Model
      * <p>Optional parameter to enable selective authentication for the trust.</p>
      */
     inline const SelectiveAuth& GetSelectiveAuth() const{ return m_selectiveAuth; }
+
+    /**
+     * <p>Optional parameter to enable selective authentication for the trust.</p>
+     */
+    inline bool SelectiveAuthHasBeenSet() const { return m_selectiveAuthHasBeenSet; }
 
     /**
      * <p>Optional parameter to enable selective authentication for the trust.</p>

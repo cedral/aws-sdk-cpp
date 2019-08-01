@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>
      */
     inline const Aws::String& GetPolicyId() const{ return m_policyId; }
+
+    /**
+     * <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>
+     */
+    inline bool PolicyIdHasBeenSet() const { return m_policyIdHasBeenSet; }
 
     /**
      * <p>The ID of the AWS Firewall Manager policy that you want the details for.</p>

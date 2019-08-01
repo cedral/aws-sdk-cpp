@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ClaimDevicesByClaimCodeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * manufacturer.</p>
      */
     inline const Aws::String& GetClaimCode() const{ return m_claimCode; }
+
+    /**
+     * <p>The claim code, starting with "C-", as provided by the device
+     * manufacturer.</p>
+     */
+    inline bool ClaimCodeHasBeenSet() const { return m_claimCodeHasBeenSet; }
 
     /**
      * <p>The claim code, starting with "C-", as provided by the device

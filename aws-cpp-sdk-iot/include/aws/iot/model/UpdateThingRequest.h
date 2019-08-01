@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateThingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the thing to update.</p>
      */
     inline const Aws::String& GetThingName() const{ return m_thingName; }
+
+    /**
+     * <p>The name of the thing to update.</p>
+     */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
 
     /**
      * <p>The name of the thing to update.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The name of the thing type.</p>
      */
     inline const Aws::String& GetThingTypeName() const{ return m_thingTypeName; }
+
+    /**
+     * <p>The name of the thing type.</p>
+     */
+    inline bool ThingTypeNameHasBeenSet() const { return m_thingTypeNameHasBeenSet; }
 
     /**
      * <p>The name of the thing type.</p>
@@ -130,6 +140,13 @@ namespace Model
      * example:</p> <p> <code>{\"attributes\":{\"name1\":\"value2\"}}</code> </p>
      * <p>This data is used to add new attributes or update existing attributes.</p>
      */
+    inline bool AttributePayloadHasBeenSet() const { return m_attributePayloadHasBeenSet; }
+
+    /**
+     * <p>A list of thing attributes, a JSON string containing name-value pairs. For
+     * example:</p> <p> <code>{\"attributes\":{\"name1\":\"value2\"}}</code> </p>
+     * <p>This data is used to add new attributes or update existing attributes.</p>
+     */
     inline void SetAttributePayload(const AttributePayload& value) { m_attributePayloadHasBeenSet = true; m_attributePayload = value; }
 
     /**
@@ -168,6 +185,14 @@ namespace Model
      * request, the <code>UpdateThing</code> request is rejected with a
      * <code>VersionConflictException</code>.</p>
      */
+    inline bool ExpectedVersionHasBeenSet() const { return m_expectedVersionHasBeenSet; }
+
+    /**
+     * <p>The expected version of the thing record in the registry. If the version of
+     * the record in the registry does not match the expected version specified in the
+     * request, the <code>UpdateThing</code> request is rejected with a
+     * <code>VersionConflictException</code>.</p>
+     */
     inline void SetExpectedVersion(long long value) { m_expectedVersionHasBeenSet = true; m_expectedVersion = value; }
 
     /**
@@ -184,6 +209,12 @@ namespace Model
      * removed.</p>
      */
     inline bool GetRemoveThingType() const{ return m_removeThingType; }
+
+    /**
+     * <p>Remove a thing type association. If <b>true</b>, the association is
+     * removed.</p>
+     */
+    inline bool RemoveThingTypeHasBeenSet() const { return m_removeThingTypeHasBeenSet; }
 
     /**
      * <p>Remove a thing type association. If <b>true</b>, the association is

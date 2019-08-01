@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The case-sensitive name of the group.</p>
      */
     inline const Aws::String& GetGroupName() const{ return m_groupName; }
+
+    /**
+     * <p>The case-sensitive name of the group.</p>
+     */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
 
     /**
      * <p>The case-sensitive name of the group.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The ARN that was generated upon creation.</p>
      */
+    inline bool GroupARNHasBeenSet() const { return m_groupARNHasBeenSet; }
+
+    /**
+     * <p>The ARN that was generated upon creation.</p>
+     */
     inline void SetGroupARN(const Aws::String& value) { m_groupARNHasBeenSet = true; m_groupARN = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The updated filter expression defining criteria by which to group traces.</p>
      */
     inline const Aws::String& GetFilterExpression() const{ return m_filterExpression; }
+
+    /**
+     * <p>The updated filter expression defining criteria by which to group traces.</p>
+     */
+    inline bool FilterExpressionHasBeenSet() const { return m_filterExpressionHasBeenSet; }
 
     /**
      * <p>The updated filter expression defining criteria by which to group traces.</p>

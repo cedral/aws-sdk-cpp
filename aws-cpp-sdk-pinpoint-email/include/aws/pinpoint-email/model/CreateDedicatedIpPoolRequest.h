@@ -17,6 +17,8 @@
 #include <aws/pinpoint-email/PinpointEmail_EXPORTS.h>
 #include <aws/pinpoint-email/PinpointEmailRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/pinpoint-email/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -35,7 +37,7 @@ namespace Model
   {
   public:
     CreateDedicatedIpPoolRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -44,13 +46,16 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>The name of the dedicated IP pool.</p>
      */
     inline const Aws::String& GetPoolName() const{ return m_poolName; }
+
+    /**
+     * <p>The name of the dedicated IP pool.</p>
+     */
+    inline bool PoolNameHasBeenSet() const { return m_poolNameHasBeenSet; }
 
     /**
      * <p>The name of the dedicated IP pool.</p>
@@ -82,10 +87,62 @@ namespace Model
      */
     inline CreateDedicatedIpPoolRequest& WithPoolName(const char* value) { SetPoolName(value); return *this;}
 
+
+    /**
+     * <p>An object that defines the tags (keys and values) that you want to associate
+     * with the pool.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>An object that defines the tags (keys and values) that you want to associate
+     * with the pool.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>An object that defines the tags (keys and values) that you want to associate
+     * with the pool.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>An object that defines the tags (keys and values) that you want to associate
+     * with the pool.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>An object that defines the tags (keys and values) that you want to associate
+     * with the pool.</p>
+     */
+    inline CreateDedicatedIpPoolRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>An object that defines the tags (keys and values) that you want to associate
+     * with the pool.</p>
+     */
+    inline CreateDedicatedIpPoolRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>An object that defines the tags (keys and values) that you want to associate
+     * with the pool.</p>
+     */
+    inline CreateDedicatedIpPoolRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>An object that defines the tags (keys and values) that you want to associate
+     * with the pool.</p>
+     */
+    inline CreateDedicatedIpPoolRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_poolName;
     bool m_poolNameHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

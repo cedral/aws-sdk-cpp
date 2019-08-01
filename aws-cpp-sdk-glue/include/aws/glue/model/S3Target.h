@@ -35,7 +35,8 @@ namespace Model
 {
 
   /**
-   * <p>Specifies a data store in Amazon S3.</p><p><h3>See Also:</h3>   <a
+   * <p>Specifies a data store in Amazon Simple Storage Service (Amazon
+   * S3).</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/S3Target">AWS API
    * Reference</a></p>
    */
@@ -52,6 +53,11 @@ namespace Model
      * <p>The path to the Amazon S3 target.</p>
      */
     inline const Aws::String& GetPath() const{ return m_path; }
+
+    /**
+     * <p>The path to the Amazon S3 target.</p>
+     */
+    inline bool PathHasBeenSet() const { return m_pathHasBeenSet; }
 
     /**
      * <p>The path to the Amazon S3 target.</p>
@@ -90,6 +96,13 @@ namespace Model
      * Tables with a Crawler</a>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetExclusions() const{ return m_exclusions; }
+
+    /**
+     * <p>A list of glob patterns used to exclude from the crawl. For more information,
+     * see <a href="http://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog
+     * Tables with a Crawler</a>.</p>
+     */
+    inline bool ExclusionsHasBeenSet() const { return m_exclusionsHasBeenSet; }
 
     /**
      * <p>A list of glob patterns used to exclude from the crawl. For more information,

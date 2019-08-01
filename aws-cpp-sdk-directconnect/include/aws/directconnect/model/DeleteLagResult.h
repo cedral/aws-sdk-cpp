@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/directconnect/model/HasLogicalRedundancy.h>
 #include <aws/directconnect/model/Connection.h>
+#include <aws/directconnect/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -54,43 +55,43 @@ namespace Model
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline const Aws::String& GetConnectionsBandwidth() const{ return m_connectionsBandwidth; }
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline void SetConnectionsBandwidth(const Aws::String& value) { m_connectionsBandwidth = value; }
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline void SetConnectionsBandwidth(Aws::String&& value) { m_connectionsBandwidth = std::move(value); }
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline void SetConnectionsBandwidth(const char* value) { m_connectionsBandwidth.assign(value); }
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline DeleteLagResult& WithConnectionsBandwidth(const Aws::String& value) { SetConnectionsBandwidth(value); return *this;}
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline DeleteLagResult& WithConnectionsBandwidth(Aws::String&& value) { SetConnectionsBandwidth(std::move(value)); return *this;}
 
     /**
      * <p>The individual bandwidth of the physical connections bundled by the LAG. The
-     * possible values are 1Gbps and 10Gbps.</p>
+     * possible values are 1Gbps and 10Gbps. </p>
      */
     inline DeleteLagResult& WithConnectionsBandwidth(const char* value) { SetConnectionsBandwidth(value); return *this;}
 
@@ -385,73 +386,73 @@ namespace Model
 
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline const Aws::String& GetAwsDevice() const{ return m_awsDevice; }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDevice(const Aws::String& value) { m_awsDevice = value; }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDevice(Aws::String&& value) { m_awsDevice = std::move(value); }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDevice(const char* value) { m_awsDevice.assign(value); }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline DeleteLagResult& WithAwsDevice(const Aws::String& value) { SetAwsDevice(value); return *this;}
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline DeleteLagResult& WithAwsDevice(Aws::String&& value) { SetAwsDevice(std::move(value)); return *this;}
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline DeleteLagResult& WithAwsDevice(const char* value) { SetAwsDevice(value); return *this;}
 
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline const Aws::String& GetAwsDeviceV2() const{ return m_awsDeviceV2; }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDeviceV2(const Aws::String& value) { m_awsDeviceV2 = value; }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDeviceV2(Aws::String&& value) { m_awsDeviceV2 = std::move(value); }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline void SetAwsDeviceV2(const char* value) { m_awsDeviceV2.assign(value); }
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline DeleteLagResult& WithAwsDeviceV2(const Aws::String& value) { SetAwsDeviceV2(value); return *this;}
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline DeleteLagResult& WithAwsDeviceV2(Aws::String&& value) { SetAwsDeviceV2(std::move(value)); return *this;}
 
     /**
-     * <p>The Direct Connect endpoint that hosts the LAG.</p>
+     * <p>The AWS Direct Connect endpoint that hosts the LAG.</p>
      */
     inline DeleteLagResult& WithAwsDeviceV2(const char* value) { SetAwsDeviceV2(value); return *this;}
 
@@ -554,6 +555,42 @@ namespace Model
      */
     inline DeleteLagResult& WithHasLogicalRedundancy(HasLogicalRedundancy&& value) { SetHasLogicalRedundancy(std::move(value)); return *this;}
 
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tags = value; }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tags = std::move(value); }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline DeleteLagResult& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline DeleteLagResult& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline DeleteLagResult& AddTags(const Tag& value) { m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Any tags assigned to link aggregation group (LAG).</p>
+     */
+    inline DeleteLagResult& AddTags(Tag&& value) { m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_connectionsBandwidth;
@@ -585,6 +622,8 @@ namespace Model
     bool m_jumboFrameCapable;
 
     HasLogicalRedundancy m_hasLogicalRedundancy;
+
+    Aws::Vector<Tag> m_tags;
   };
 
 } // namespace Model

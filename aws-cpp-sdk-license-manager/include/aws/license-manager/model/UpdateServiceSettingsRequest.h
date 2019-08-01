@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateServiceSettingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>ARN of the Amazon S3 bucket where License Manager information is stored.</p>
      */
     inline const Aws::String& GetS3BucketArn() const{ return m_s3BucketArn; }
+
+    /**
+     * <p>ARN of the Amazon S3 bucket where License Manager information is stored.</p>
+     */
+    inline bool S3BucketArnHasBeenSet() const { return m_s3BucketArnHasBeenSet; }
 
     /**
      * <p>ARN of the Amazon S3 bucket where License Manager information is stored.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>ARN of the Amazon SNS topic used for License Manager alerts.</p>
      */
     inline const Aws::String& GetSnsTopicArn() const{ return m_snsTopicArn; }
+
+    /**
+     * <p>ARN of the Amazon SNS topic used for License Manager alerts.</p>
+     */
+    inline bool SnsTopicArnHasBeenSet() const { return m_snsTopicArnHasBeenSet; }
 
     /**
      * <p>ARN of the Amazon SNS topic used for License Manager alerts.</p>
@@ -127,6 +137,12 @@ namespace Model
      * <p>Integrates AWS Organizations with License Manager for cross-account
      * discovery.</p>
      */
+    inline bool OrganizationConfigurationHasBeenSet() const { return m_organizationConfigurationHasBeenSet; }
+
+    /**
+     * <p>Integrates AWS Organizations with License Manager for cross-account
+     * discovery.</p>
+     */
     inline void SetOrganizationConfiguration(const OrganizationConfiguration& value) { m_organizationConfigurationHasBeenSet = true; m_organizationConfiguration = value; }
 
     /**
@@ -152,6 +168,11 @@ namespace Model
      * <p>Activates cross-account discovery.</p>
      */
     inline bool GetEnableCrossAccountsDiscovery() const{ return m_enableCrossAccountsDiscovery; }
+
+    /**
+     * <p>Activates cross-account discovery.</p>
+     */
+    inline bool EnableCrossAccountsDiscoveryHasBeenSet() const { return m_enableCrossAccountsDiscoveryHasBeenSet; }
 
     /**
      * <p>Activates cross-account discovery.</p>

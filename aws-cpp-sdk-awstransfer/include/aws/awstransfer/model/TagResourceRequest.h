@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * user, or role.</p>
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * <p>An Amazon Resource Name (ARN) for a specific AWS resource, such as a server,
+     * user, or role.</p>
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * <p>An Amazon Resource Name (ARN) for a specific AWS resource, such as a server,
@@ -95,6 +101,13 @@ namespace Model
      * purpose.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Key-value pairs assigned to ARNs that you can use to group and search for
+     * resources by type. You can attach this metadata to user accounts for any
+     * purpose.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Key-value pairs assigned to ARNs that you can use to group and search for

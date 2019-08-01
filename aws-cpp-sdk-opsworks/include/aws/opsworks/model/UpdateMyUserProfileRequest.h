@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateMyUserProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The user's SSH public key.</p>
      */
     inline const Aws::String& GetSshPublicKey() const{ return m_sshPublicKey; }
+
+    /**
+     * <p>The user's SSH public key.</p>
+     */
+    inline bool SshPublicKeyHasBeenSet() const { return m_sshPublicKeyHasBeenSet; }
 
     /**
      * <p>The user's SSH public key.</p>

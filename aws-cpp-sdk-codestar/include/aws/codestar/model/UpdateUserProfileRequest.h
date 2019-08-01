@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateUserProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * CodeStar.</p>
      */
     inline const Aws::String& GetUserArn() const{ return m_userArn; }
+
+    /**
+     * <p>The name that will be displayed as the friendly name for the user in AWS
+     * CodeStar.</p>
+     */
+    inline bool UserArnHasBeenSet() const { return m_userArnHasBeenSet; }
 
     /**
      * <p>The name that will be displayed as the friendly name for the user in AWS
@@ -97,6 +103,12 @@ namespace Model
      * <p>The name that is displayed as the friendly name for the user in AWS
      * CodeStar.</p>
      */
+    inline bool DisplayNameHasBeenSet() const { return m_displayNameHasBeenSet; }
+
+    /**
+     * <p>The name that is displayed as the friendly name for the user in AWS
+     * CodeStar.</p>
+     */
     inline void SetDisplayName(const Aws::String& value) { m_displayNameHasBeenSet = true; m_displayName = value; }
 
     /**
@@ -135,6 +147,12 @@ namespace Model
      * CodeStar.</p>
      */
     inline const Aws::String& GetEmailAddress() const{ return m_emailAddress; }
+
+    /**
+     * <p>The email address that is displayed as part of the user's profile in AWS
+     * CodeStar.</p>
+     */
+    inline bool EmailAddressHasBeenSet() const { return m_emailAddressHasBeenSet; }
 
     /**
      * <p>The email address that is displayed as part of the user's profile in AWS
@@ -179,6 +197,13 @@ namespace Model
      * be used along with the user's private key for SSH access.</p>
      */
     inline const Aws::String& GetSshPublicKey() const{ return m_sshPublicKey; }
+
+    /**
+     * <p>The SSH public key associated with the user in AWS CodeStar. If a project
+     * owner allows the user remote access to project resources, this public key will
+     * be used along with the user's private key for SSH access.</p>
+     */
+    inline bool SshPublicKeyHasBeenSet() const { return m_sshPublicKeyHasBeenSet; }
 
     /**
      * <p>The SSH public key associated with the user in AWS CodeStar. If a project

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteIntegrationResponseRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The API identifier.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The API identifier.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The API identifier.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The integration ID.</p>
      */
+    inline bool IntegrationIdHasBeenSet() const { return m_integrationIdHasBeenSet; }
+
+    /**
+     * <p>The integration ID.</p>
+     */
     inline void SetIntegrationId(const Aws::String& value) { m_integrationIdHasBeenSet = true; m_integrationId = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The integration response ID.</p>
      */
     inline const Aws::String& GetIntegrationResponseId() const{ return m_integrationResponseId; }
+
+    /**
+     * <p>The integration response ID.</p>
+     */
+    inline bool IntegrationResponseIdHasBeenSet() const { return m_integrationResponseIdHasBeenSet; }
 
     /**
      * <p>The integration response ID.</p>

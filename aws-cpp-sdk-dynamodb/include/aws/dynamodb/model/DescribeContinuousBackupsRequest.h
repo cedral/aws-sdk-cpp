@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeContinuousBackupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * backups and point in time recovery settings.</p>
      */
     inline const Aws::String& GetTableName() const{ return m_tableName; }
+
+    /**
+     * <p>Name of the table for which the customer wants to check the continuous
+     * backups and point in time recovery settings.</p>
+     */
+    inline bool TableNameHasBeenSet() const { return m_tableNameHasBeenSet; }
 
     /**
      * <p>Name of the table for which the customer wants to check the continuous

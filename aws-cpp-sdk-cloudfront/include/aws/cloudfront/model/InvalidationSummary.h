@@ -35,7 +35,7 @@ namespace Model
 
   /**
    * <p>A summary of an invalidation request.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/InvalidationSummary">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/InvalidationSummary">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API InvalidationSummary
@@ -52,6 +52,11 @@ namespace Model
      * <p>The unique ID for an invalidation request.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The unique ID for an invalidation request.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The unique ID for an invalidation request.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The time that an invalidation request was created.</p>
      */
+    inline bool CreateTimeHasBeenSet() const { return m_createTimeHasBeenSet; }
+
+    /**
+     * <p>The time that an invalidation request was created.</p>
+     */
     inline void SetCreateTime(const Aws::Utils::DateTime& value) { m_createTimeHasBeenSet = true; m_createTime = value; }
 
     /**
@@ -114,6 +124,11 @@ namespace Model
      * <p>The status of an invalidation request.</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of an invalidation request.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of an invalidation request.</p>

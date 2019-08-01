@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutAutoScalingPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * scaling policy is applied is within this cluster.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>Specifies the ID of a cluster. The instance group to which the automatic
+     * scaling policy is applied is within this cluster.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>Specifies the ID of a cluster. The instance group to which the automatic
@@ -98,6 +104,12 @@ namespace Model
      * <p>Specifies the ID of the instance group to which the automatic scaling policy
      * is applied.</p>
      */
+    inline bool InstanceGroupIdHasBeenSet() const { return m_instanceGroupIdHasBeenSet; }
+
+    /**
+     * <p>Specifies the ID of the instance group to which the automatic scaling policy
+     * is applied.</p>
+     */
     inline void SetInstanceGroupId(const Aws::String& value) { m_instanceGroupIdHasBeenSet = true; m_instanceGroupId = value; }
 
     /**
@@ -135,6 +147,11 @@ namespace Model
      * <p>Specifies the definition of the automatic scaling policy.</p>
      */
     inline const AutoScalingPolicy& GetAutoScalingPolicy() const{ return m_autoScalingPolicy; }
+
+    /**
+     * <p>Specifies the definition of the automatic scaling policy.</p>
+     */
+    inline bool AutoScalingPolicyHasBeenSet() const { return m_autoScalingPolicyHasBeenSet; }
 
     /**
      * <p>Specifies the definition of the automatic scaling policy.</p>

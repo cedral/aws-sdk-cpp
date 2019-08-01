@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/CreateDBClusterSnapshotMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API CreateDBClusterSnapshotRequest : public NeptuneRequest
   {
   public:
     CreateDBClusterSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +56,15 @@ namespace Model
      * hyphens.</p> </li> </ul> <p>Example: <code>my-cluster1-snapshot1</code> </p>
      */
     inline const Aws::String& GetDBClusterSnapshotIdentifier() const{ return m_dBClusterSnapshotIdentifier; }
+
+    /**
+     * <p>The identifier of the DB cluster snapshot. This parameter is stored as a
+     * lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63
+     * letters, numbers, or hyphens.</p> </li> <li> <p>First character must be a
+     * letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive
+     * hyphens.</p> </li> </ul> <p>Example: <code>my-cluster1-snapshot1</code> </p>
+     */
+    inline bool DBClusterSnapshotIdentifierHasBeenSet() const { return m_dBClusterSnapshotIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier of the DB cluster snapshot. This parameter is stored as a
@@ -129,6 +135,14 @@ namespace Model
      * identifier of an existing DBCluster.</p> </li> </ul> <p>Example:
      * <code>my-cluster1</code> </p>
      */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
+
+    /**
+     * <p>The identifier of the DB cluster to create a snapshot for. This parameter is
+     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * identifier of an existing DBCluster.</p> </li> </ul> <p>Example:
+     * <code>my-cluster1</code> </p>
+     */
     inline void SetDBClusterIdentifier(const Aws::String& value) { m_dBClusterIdentifierHasBeenSet = true; m_dBClusterIdentifier = value; }
 
     /**
@@ -176,6 +190,11 @@ namespace Model
      * <p>The tags to be assigned to the DB cluster snapshot.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags to be assigned to the DB cluster snapshot.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags to be assigned to the DB cluster snapshot.</p>

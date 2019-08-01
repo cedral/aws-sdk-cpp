@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateDBClusterEndpointRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * This parameter is stored as a lowercase string.</p>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
+
+    /**
+     * <p>The DB cluster identifier of the DB cluster associated with the endpoint.
+     * This parameter is stored as a lowercase string.</p>
+     */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
      * <p>The DB cluster identifier of the DB cluster associated with the endpoint.
@@ -100,6 +106,12 @@ namespace Model
      * <p>The identifier to use for the new endpoint. This parameter is stored as a
      * lowercase string.</p>
      */
+    inline bool DBClusterEndpointIdentifierHasBeenSet() const { return m_dBClusterEndpointIdentifierHasBeenSet; }
+
+    /**
+     * <p>The identifier to use for the new endpoint. This parameter is stored as a
+     * lowercase string.</p>
+     */
     inline void SetDBClusterEndpointIdentifier(const Aws::String& value) { m_dBClusterEndpointIdentifierHasBeenSet = true; m_dBClusterEndpointIdentifier = value; }
 
     /**
@@ -141,6 +153,11 @@ namespace Model
     /**
      * <p>The type of the endpoint. One of: <code>READER</code>, <code>ANY</code>. </p>
      */
+    inline bool EndpointTypeHasBeenSet() const { return m_endpointTypeHasBeenSet; }
+
+    /**
+     * <p>The type of the endpoint. One of: <code>READER</code>, <code>ANY</code>. </p>
+     */
     inline void SetEndpointType(const Aws::String& value) { m_endpointTypeHasBeenSet = true; m_endpointType = value; }
 
     /**
@@ -174,6 +191,12 @@ namespace Model
      * group.</p>
      */
     inline const Aws::Vector<Aws::String>& GetStaticMembers() const{ return m_staticMembers; }
+
+    /**
+     * <p>List of DB instance identifiers that are part of the custom endpoint
+     * group.</p>
+     */
+    inline bool StaticMembersHasBeenSet() const { return m_staticMembersHasBeenSet; }
 
     /**
      * <p>List of DB instance identifiers that are part of the custom endpoint
@@ -224,6 +247,13 @@ namespace Model
      * Only relevant if the list of static members is empty.</p>
      */
     inline const Aws::Vector<Aws::String>& GetExcludedMembers() const{ return m_excludedMembers; }
+
+    /**
+     * <p>List of DB instance identifiers that aren't part of the custom endpoint
+     * group. All other eligible instances are reachable through the custom endpoint.
+     * Only relevant if the list of static members is empty.</p>
+     */
+    inline bool ExcludedMembersHasBeenSet() const { return m_excludedMembersHasBeenSet; }
 
     /**
      * <p>List of DB instance identifiers that aren't part of the custom endpoint

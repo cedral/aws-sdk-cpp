@@ -27,12 +27,15 @@ namespace Model
 {
 
   /**
+   * <p/><p><h3>See Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/DeleteUserByPrincipalIdRequest">AWS
+   * API Reference</a></p>
    */
   class AWS_QUICKSIGHT_API DeleteUserByPrincipalIdRequest : public QuickSightRequest
   {
   public:
     DeleteUserByPrincipalIdRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +49,11 @@ namespace Model
      * <p>The principal ID of the user.</p>
      */
     inline const Aws::String& GetPrincipalId() const{ return m_principalId; }
+
+    /**
+     * <p>The principal ID of the user.</p>
+     */
+    inline bool PrincipalIdHasBeenSet() const { return m_principalIdHasBeenSet; }
 
     /**
      * <p>The principal ID of the user.</p>
@@ -88,6 +96,12 @@ namespace Model
      * <p>The ID for the AWS account that the user is in. Currently, you use the ID for
      * the AWS account that contains your Amazon QuickSight account.</p>
      */
+    inline bool AwsAccountIdHasBeenSet() const { return m_awsAccountIdHasBeenSet; }
+
+    /**
+     * <p>The ID for the AWS account that the user is in. Currently, you use the ID for
+     * the AWS account that contains your Amazon QuickSight account.</p>
+     */
     inline void SetAwsAccountId(const Aws::String& value) { m_awsAccountIdHasBeenSet = true; m_awsAccountId = value; }
 
     /**
@@ -125,6 +139,11 @@ namespace Model
      * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
      */
     inline const Aws::String& GetNamespace() const{ return m_namespace; }
+
+    /**
+     * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+     */
+    inline bool NamespaceHasBeenSet() const { return m_namespaceHasBeenSet; }
 
     /**
      * <p>The namespace. Currently, you should set this to <code>default</code>.</p>

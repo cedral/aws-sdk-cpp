@@ -34,8 +34,8 @@ namespace Model
 {
 
   /**
-   * <p>Describes the credentials for the service account used by the streaming
-   * instance to connect to the directory.</p><p><h3>See Also:</h3>   <a
+   * <p>Describes the credentials for the service account used by the fleet or image
+   * builder to connect to the directory.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/appstream-2016-12-01/ServiceAccountCredentials">AWS
    * API Reference</a></p>
    */
@@ -55,6 +55,14 @@ namespace Model
      * units specified.</p>
      */
     inline const Aws::String& GetAccountName() const{ return m_accountName; }
+
+    /**
+     * <p>The user name of the account. This account must have the following
+     * privileges: create computer objects, join computers to the domain, and
+     * change/reset the password on descendant computer objects for the organizational
+     * units specified.</p>
+     */
+    inline bool AccountNameHasBeenSet() const { return m_accountNameHasBeenSet; }
 
     /**
      * <p>The user name of the account. This account must have the following
@@ -109,6 +117,11 @@ namespace Model
      * <p>The password for the account.</p>
      */
     inline const Aws::String& GetAccountPassword() const{ return m_accountPassword; }
+
+    /**
+     * <p>The password for the account.</p>
+     */
+    inline bool AccountPasswordHasBeenSet() const { return m_accountPasswordHasBeenSet; }
 
     /**
      * <p>The password for the account.</p>

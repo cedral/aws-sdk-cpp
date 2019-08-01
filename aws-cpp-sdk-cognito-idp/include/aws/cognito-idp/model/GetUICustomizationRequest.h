@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetUICustomizationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The user pool ID for the user pool.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The client ID for the client app.</p>
      */
     inline const Aws::String& GetClientId() const{ return m_clientId; }
+
+    /**
+     * <p>The client ID for the client app.</p>
+     */
+    inline bool ClientIdHasBeenSet() const { return m_clientIdHasBeenSet; }
 
     /**
      * <p>The client ID for the client app.</p>

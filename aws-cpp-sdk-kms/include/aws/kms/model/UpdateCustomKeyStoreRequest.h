@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateCustomKeyStoreRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <a>DescribeCustomKeyStores</a> operation.</p>
      */
     inline const Aws::String& GetCustomKeyStoreId() const{ return m_customKeyStoreId; }
+
+    /**
+     * <p>Identifies the custom key store that you want to update. Enter the ID of the
+     * custom key store. To find the ID of a custom key store, use the
+     * <a>DescribeCustomKeyStores</a> operation.</p>
+     */
+    inline bool CustomKeyStoreIdHasBeenSet() const { return m_customKeyStoreIdHasBeenSet; }
 
     /**
      * <p>Identifies the custom key store that you want to update. Enter the ID of the
@@ -104,6 +111,12 @@ namespace Model
      * <p>Changes the friendly name of the custom key store to the value that you
      * specify. The custom key store name must be unique in the AWS account.</p>
      */
+    inline bool NewCustomKeyStoreNameHasBeenSet() const { return m_newCustomKeyStoreNameHasBeenSet; }
+
+    /**
+     * <p>Changes the friendly name of the custom key store to the value that you
+     * specify. The custom key store name must be unique in the AWS account.</p>
+     */
     inline void SetNewCustomKeyStoreName(const Aws::String& value) { m_newCustomKeyStoreNameHasBeenSet = true; m_newCustomKeyStoreName = value; }
 
     /**
@@ -145,6 +158,15 @@ namespace Model
      * CloudHSM cluster.</p>
      */
     inline const Aws::String& GetKeyStorePassword() const{ return m_keyStorePassword; }
+
+    /**
+     * <p>Enter the current password of the <code>kmsuser</code> crypto user (CU) in
+     * the AWS CloudHSM cluster that is associated with the custom key store.</p>
+     * <p>This parameter tells AWS KMS the current password of the <code>kmsuser</code>
+     * crypto user (CU). It does not set or change the password of any users in the AWS
+     * CloudHSM cluster.</p>
+     */
+    inline bool KeyStorePasswordHasBeenSet() const { return m_keyStorePasswordHasBeenSet; }
 
     /**
      * <p>Enter the current password of the <code>kmsuser</code> crypto user (CU) in
@@ -204,11 +226,14 @@ namespace Model
     /**
      * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
      * <p>Enter the cluster ID of the cluster that you used to create the custom key
-     * store or a cluster that shares a backup history with the original cluster. You
-     * cannot use this parameter to associate a custom key store with a different
-     * cluster.</p> <p>Clusters that share a backup history have the same cluster
-     * certificate. To view the cluster certificate of a cluster, use the <a
-     * href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+     * store or a cluster that shares a backup history and has the same cluster
+     * certificate as the original cluster. You cannot use this parameter to associate
+     * a custom key store with an unrelated cluster. In addition, the replacement
+     * cluster must <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
+     * the requirements</a> for a cluster associated with a custom key store. To view
+     * the cluster certificate of a cluster, use the <a
+     * href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
      * operation.</p>
      */
     inline const Aws::String& GetCloudHsmClusterId() const{ return m_cloudHsmClusterId; }
@@ -216,11 +241,29 @@ namespace Model
     /**
      * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
      * <p>Enter the cluster ID of the cluster that you used to create the custom key
-     * store or a cluster that shares a backup history with the original cluster. You
-     * cannot use this parameter to associate a custom key store with a different
-     * cluster.</p> <p>Clusters that share a backup history have the same cluster
-     * certificate. To view the cluster certificate of a cluster, use the <a
-     * href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+     * store or a cluster that shares a backup history and has the same cluster
+     * certificate as the original cluster. You cannot use this parameter to associate
+     * a custom key store with an unrelated cluster. In addition, the replacement
+     * cluster must <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
+     * the requirements</a> for a cluster associated with a custom key store. To view
+     * the cluster certificate of a cluster, use the <a
+     * href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+     * operation.</p>
+     */
+    inline bool CloudHsmClusterIdHasBeenSet() const { return m_cloudHsmClusterIdHasBeenSet; }
+
+    /**
+     * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
+     * <p>Enter the cluster ID of the cluster that you used to create the custom key
+     * store or a cluster that shares a backup history and has the same cluster
+     * certificate as the original cluster. You cannot use this parameter to associate
+     * a custom key store with an unrelated cluster. In addition, the replacement
+     * cluster must <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
+     * the requirements</a> for a cluster associated with a custom key store. To view
+     * the cluster certificate of a cluster, use the <a
+     * href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
      * operation.</p>
      */
     inline void SetCloudHsmClusterId(const Aws::String& value) { m_cloudHsmClusterIdHasBeenSet = true; m_cloudHsmClusterId = value; }
@@ -228,11 +271,14 @@ namespace Model
     /**
      * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
      * <p>Enter the cluster ID of the cluster that you used to create the custom key
-     * store or a cluster that shares a backup history with the original cluster. You
-     * cannot use this parameter to associate a custom key store with a different
-     * cluster.</p> <p>Clusters that share a backup history have the same cluster
-     * certificate. To view the cluster certificate of a cluster, use the <a
-     * href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+     * store or a cluster that shares a backup history and has the same cluster
+     * certificate as the original cluster. You cannot use this parameter to associate
+     * a custom key store with an unrelated cluster. In addition, the replacement
+     * cluster must <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
+     * the requirements</a> for a cluster associated with a custom key store. To view
+     * the cluster certificate of a cluster, use the <a
+     * href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
      * operation.</p>
      */
     inline void SetCloudHsmClusterId(Aws::String&& value) { m_cloudHsmClusterIdHasBeenSet = true; m_cloudHsmClusterId = std::move(value); }
@@ -240,11 +286,14 @@ namespace Model
     /**
      * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
      * <p>Enter the cluster ID of the cluster that you used to create the custom key
-     * store or a cluster that shares a backup history with the original cluster. You
-     * cannot use this parameter to associate a custom key store with a different
-     * cluster.</p> <p>Clusters that share a backup history have the same cluster
-     * certificate. To view the cluster certificate of a cluster, use the <a
-     * href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+     * store or a cluster that shares a backup history and has the same cluster
+     * certificate as the original cluster. You cannot use this parameter to associate
+     * a custom key store with an unrelated cluster. In addition, the replacement
+     * cluster must <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
+     * the requirements</a> for a cluster associated with a custom key store. To view
+     * the cluster certificate of a cluster, use the <a
+     * href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
      * operation.</p>
      */
     inline void SetCloudHsmClusterId(const char* value) { m_cloudHsmClusterIdHasBeenSet = true; m_cloudHsmClusterId.assign(value); }
@@ -252,11 +301,14 @@ namespace Model
     /**
      * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
      * <p>Enter the cluster ID of the cluster that you used to create the custom key
-     * store or a cluster that shares a backup history with the original cluster. You
-     * cannot use this parameter to associate a custom key store with a different
-     * cluster.</p> <p>Clusters that share a backup history have the same cluster
-     * certificate. To view the cluster certificate of a cluster, use the <a
-     * href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+     * store or a cluster that shares a backup history and has the same cluster
+     * certificate as the original cluster. You cannot use this parameter to associate
+     * a custom key store with an unrelated cluster. In addition, the replacement
+     * cluster must <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
+     * the requirements</a> for a cluster associated with a custom key store. To view
+     * the cluster certificate of a cluster, use the <a
+     * href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
      * operation.</p>
      */
     inline UpdateCustomKeyStoreRequest& WithCloudHsmClusterId(const Aws::String& value) { SetCloudHsmClusterId(value); return *this;}
@@ -264,11 +316,14 @@ namespace Model
     /**
      * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
      * <p>Enter the cluster ID of the cluster that you used to create the custom key
-     * store or a cluster that shares a backup history with the original cluster. You
-     * cannot use this parameter to associate a custom key store with a different
-     * cluster.</p> <p>Clusters that share a backup history have the same cluster
-     * certificate. To view the cluster certificate of a cluster, use the <a
-     * href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+     * store or a cluster that shares a backup history and has the same cluster
+     * certificate as the original cluster. You cannot use this parameter to associate
+     * a custom key store with an unrelated cluster. In addition, the replacement
+     * cluster must <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
+     * the requirements</a> for a cluster associated with a custom key store. To view
+     * the cluster certificate of a cluster, use the <a
+     * href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
      * operation.</p>
      */
     inline UpdateCustomKeyStoreRequest& WithCloudHsmClusterId(Aws::String&& value) { SetCloudHsmClusterId(std::move(value)); return *this;}
@@ -276,11 +331,14 @@ namespace Model
     /**
      * <p>Associates the custom key store with a related AWS CloudHSM cluster. </p>
      * <p>Enter the cluster ID of the cluster that you used to create the custom key
-     * store or a cluster that shares a backup history with the original cluster. You
-     * cannot use this parameter to associate a custom key store with a different
-     * cluster.</p> <p>Clusters that share a backup history have the same cluster
-     * certificate. To view the cluster certificate of a cluster, use the <a
-     * href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
+     * store or a cluster that shares a backup history and has the same cluster
+     * certificate as the original cluster. You cannot use this parameter to associate
+     * a custom key store with an unrelated cluster. In addition, the replacement
+     * cluster must <a
+     * href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill
+     * the requirements</a> for a cluster associated with a custom key store. To view
+     * the cluster certificate of a cluster, use the <a
+     * href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a>
      * operation.</p>
      */
     inline UpdateCustomKeyStoreRequest& WithCloudHsmClusterId(const char* value) { SetCloudHsmClusterId(value); return *this;}

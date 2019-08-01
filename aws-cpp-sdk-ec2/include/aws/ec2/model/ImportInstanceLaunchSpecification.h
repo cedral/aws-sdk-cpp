@@ -64,6 +64,11 @@ namespace Model
     /**
      * <p>Reserved.</p>
      */
+    inline bool AdditionalInfoHasBeenSet() const { return m_additionalInfoHasBeenSet; }
+
+    /**
+     * <p>Reserved.</p>
+     */
     inline void SetAdditionalInfo(const Aws::String& value) { m_additionalInfoHasBeenSet = true; m_additionalInfo = value; }
 
     /**
@@ -100,6 +105,11 @@ namespace Model
     /**
      * <p>The architecture of the instance.</p>
      */
+    inline bool ArchitectureHasBeenSet() const { return m_architectureHasBeenSet; }
+
+    /**
+     * <p>The architecture of the instance.</p>
+     */
     inline void SetArchitecture(const ArchitectureValues& value) { m_architectureHasBeenSet = true; m_architecture = value; }
 
     /**
@@ -119,83 +129,93 @@ namespace Model
 
 
     /**
-     * <p>One or more security group IDs.</p>
+     * <p>The security group IDs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetGroupIds() const{ return m_groupIds; }
 
     /**
-     * <p>One or more security group IDs.</p>
+     * <p>The security group IDs.</p>
+     */
+    inline bool GroupIdsHasBeenSet() const { return m_groupIdsHasBeenSet; }
+
+    /**
+     * <p>The security group IDs.</p>
      */
     inline void SetGroupIds(const Aws::Vector<Aws::String>& value) { m_groupIdsHasBeenSet = true; m_groupIds = value; }
 
     /**
-     * <p>One or more security group IDs.</p>
+     * <p>The security group IDs.</p>
      */
     inline void SetGroupIds(Aws::Vector<Aws::String>&& value) { m_groupIdsHasBeenSet = true; m_groupIds = std::move(value); }
 
     /**
-     * <p>One or more security group IDs.</p>
+     * <p>The security group IDs.</p>
      */
     inline ImportInstanceLaunchSpecification& WithGroupIds(const Aws::Vector<Aws::String>& value) { SetGroupIds(value); return *this;}
 
     /**
-     * <p>One or more security group IDs.</p>
+     * <p>The security group IDs.</p>
      */
     inline ImportInstanceLaunchSpecification& WithGroupIds(Aws::Vector<Aws::String>&& value) { SetGroupIds(std::move(value)); return *this;}
 
     /**
-     * <p>One or more security group IDs.</p>
+     * <p>The security group IDs.</p>
      */
     inline ImportInstanceLaunchSpecification& AddGroupIds(const Aws::String& value) { m_groupIdsHasBeenSet = true; m_groupIds.push_back(value); return *this; }
 
     /**
-     * <p>One or more security group IDs.</p>
+     * <p>The security group IDs.</p>
      */
     inline ImportInstanceLaunchSpecification& AddGroupIds(Aws::String&& value) { m_groupIdsHasBeenSet = true; m_groupIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more security group IDs.</p>
+     * <p>The security group IDs.</p>
      */
     inline ImportInstanceLaunchSpecification& AddGroupIds(const char* value) { m_groupIdsHasBeenSet = true; m_groupIds.push_back(value); return *this; }
 
 
     /**
-     * <p>One or more security group names.</p>
+     * <p>The security group names.</p>
      */
     inline const Aws::Vector<Aws::String>& GetGroupNames() const{ return m_groupNames; }
 
     /**
-     * <p>One or more security group names.</p>
+     * <p>The security group names.</p>
+     */
+    inline bool GroupNamesHasBeenSet() const { return m_groupNamesHasBeenSet; }
+
+    /**
+     * <p>The security group names.</p>
      */
     inline void SetGroupNames(const Aws::Vector<Aws::String>& value) { m_groupNamesHasBeenSet = true; m_groupNames = value; }
 
     /**
-     * <p>One or more security group names.</p>
+     * <p>The security group names.</p>
      */
     inline void SetGroupNames(Aws::Vector<Aws::String>&& value) { m_groupNamesHasBeenSet = true; m_groupNames = std::move(value); }
 
     /**
-     * <p>One or more security group names.</p>
+     * <p>The security group names.</p>
      */
     inline ImportInstanceLaunchSpecification& WithGroupNames(const Aws::Vector<Aws::String>& value) { SetGroupNames(value); return *this;}
 
     /**
-     * <p>One or more security group names.</p>
+     * <p>The security group names.</p>
      */
     inline ImportInstanceLaunchSpecification& WithGroupNames(Aws::Vector<Aws::String>&& value) { SetGroupNames(std::move(value)); return *this;}
 
     /**
-     * <p>One or more security group names.</p>
+     * <p>The security group names.</p>
      */
     inline ImportInstanceLaunchSpecification& AddGroupNames(const Aws::String& value) { m_groupNamesHasBeenSet = true; m_groupNames.push_back(value); return *this; }
 
     /**
-     * <p>One or more security group names.</p>
+     * <p>The security group names.</p>
      */
     inline ImportInstanceLaunchSpecification& AddGroupNames(Aws::String&& value) { m_groupNamesHasBeenSet = true; m_groupNames.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more security group names.</p>
+     * <p>The security group names.</p>
      */
     inline ImportInstanceLaunchSpecification& AddGroupNames(const char* value) { m_groupNamesHasBeenSet = true; m_groupNames.push_back(value); return *this; }
 
@@ -205,6 +225,12 @@ namespace Model
      * from the instance (using the operating system command for system shutdown).</p>
      */
     inline const ShutdownBehavior& GetInstanceInitiatedShutdownBehavior() const{ return m_instanceInitiatedShutdownBehavior; }
+
+    /**
+     * <p>Indicates whether an instance stops or terminates when you initiate shutdown
+     * from the instance (using the operating system command for system shutdown).</p>
+     */
+    inline bool InstanceInitiatedShutdownBehaviorHasBeenSet() const { return m_instanceInitiatedShutdownBehaviorHasBeenSet; }
 
     /**
      * <p>Indicates whether an instance stops or terminates when you initiate shutdown
@@ -238,6 +264,14 @@ namespace Model
      * Types</a> in the VM Import/Export User Guide.</p>
      */
     inline const InstanceType& GetInstanceType() const{ return m_instanceType; }
+
+    /**
+     * <p>The instance type. For more information about the instance types that you can
+     * import, see <a
+     * href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-instance-types">Instance
+     * Types</a> in the VM Import/Export User Guide.</p>
+     */
+    inline bool InstanceTypeHasBeenSet() const { return m_instanceTypeHasBeenSet; }
 
     /**
      * <p>The instance type. For more information about the instance types that you can
@@ -280,6 +314,11 @@ namespace Model
     /**
      * <p>Indicates whether monitoring is enabled.</p>
      */
+    inline bool MonitoringHasBeenSet() const { return m_monitoringHasBeenSet; }
+
+    /**
+     * <p>Indicates whether monitoring is enabled.</p>
+     */
     inline void SetMonitoring(bool value) { m_monitoringHasBeenSet = true; m_monitoring = value; }
 
     /**
@@ -292,6 +331,11 @@ namespace Model
      * <p>The placement information for the instance.</p>
      */
     inline const Placement& GetPlacement() const{ return m_placement; }
+
+    /**
+     * <p>The placement information for the instance.</p>
+     */
+    inline bool PlacementHasBeenSet() const { return m_placementHasBeenSet; }
 
     /**
      * <p>The placement information for the instance.</p>
@@ -319,6 +363,12 @@ namespace Model
      * subnet.</p>
      */
     inline const Aws::String& GetPrivateIpAddress() const{ return m_privateIpAddress; }
+
+    /**
+     * <p>[EC2-VPC] An available IP address from the IP address range of the
+     * subnet.</p>
+     */
+    inline bool PrivateIpAddressHasBeenSet() const { return m_privateIpAddressHasBeenSet; }
 
     /**
      * <p>[EC2-VPC] An available IP address from the IP address range of the
@@ -365,6 +415,11 @@ namespace Model
     /**
      * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
      */
+    inline bool SubnetIdHasBeenSet() const { return m_subnetIdHasBeenSet; }
+
+    /**
+     * <p>[EC2-VPC] The ID of the subnet in which to launch the instance.</p>
+     */
     inline void SetSubnetId(const Aws::String& value) { m_subnetIdHasBeenSet = true; m_subnetId = value; }
 
     /**
@@ -397,6 +452,11 @@ namespace Model
      * <p>The Base64-encoded user data to make available to the instance.</p>
      */
     inline const UserData& GetUserData() const{ return m_userData; }
+
+    /**
+     * <p>The Base64-encoded user data to make available to the instance.</p>
+     */
+    inline bool UserDataHasBeenSet() const { return m_userDataHasBeenSet; }
 
     /**
      * <p>The Base64-encoded user data to make available to the instance.</p>

@@ -38,6 +38,8 @@
 #include <aws/mq/model/DeleteTagsRequest.h>
 #include <aws/mq/model/DeleteUserRequest.h>
 #include <aws/mq/model/DescribeBrokerRequest.h>
+#include <aws/mq/model/DescribeBrokerEngineTypesRequest.h>
+#include <aws/mq/model/DescribeBrokerInstanceOptionsRequest.h>
 #include <aws/mq/model/DescribeConfigurationRequest.h>
 #include <aws/mq/model/DescribeConfigurationRevisionRequest.h>
 #include <aws/mq/model/DescribeUserRequest.h>
@@ -122,6 +124,7 @@ void MQClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 CreateBrokerOutcome MQClient::CreateBroker(const CreateBrokerRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -194,6 +197,11 @@ void MQClient::CreateConfigurationAsyncHelper(const CreateConfigurationRequest& 
 
 CreateTagsOutcome MQClient::CreateTags(const CreateTagsRequest& request) const
 {
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateTags", "Required field: ResourceArn, is not set");
+    return CreateTagsOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/tags/";
@@ -230,6 +238,16 @@ void MQClient::CreateTagsAsyncHelper(const CreateTagsRequest& request, const Cre
 
 CreateUserOutcome MQClient::CreateUser(const CreateUserRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateUser", "Required field: BrokerId, is not set");
+    return CreateUserOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
+  if (!request.UsernameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateUser", "Required field: Username, is not set");
+    return CreateUserOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Username]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";
@@ -268,6 +286,11 @@ void MQClient::CreateUserAsyncHelper(const CreateUserRequest& request, const Cre
 
 DeleteBrokerOutcome MQClient::DeleteBroker(const DeleteBrokerRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteBroker", "Required field: BrokerId, is not set");
+    return DeleteBrokerOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";
@@ -304,6 +327,16 @@ void MQClient::DeleteBrokerAsyncHelper(const DeleteBrokerRequest& request, const
 
 DeleteTagsOutcome MQClient::DeleteTags(const DeleteTagsRequest& request) const
 {
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteTags", "Required field: ResourceArn, is not set");
+    return DeleteTagsOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  if (!request.TagKeysHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteTags", "Required field: TagKeys, is not set");
+    return DeleteTagsOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/tags/";
@@ -340,6 +373,16 @@ void MQClient::DeleteTagsAsyncHelper(const DeleteTagsRequest& request, const Del
 
 DeleteUserOutcome MQClient::DeleteUser(const DeleteUserRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteUser", "Required field: BrokerId, is not set");
+    return DeleteUserOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
+  if (!request.UsernameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteUser", "Required field: Username, is not set");
+    return DeleteUserOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Username]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";
@@ -378,6 +421,11 @@ void MQClient::DeleteUserAsyncHelper(const DeleteUserRequest& request, const Del
 
 DescribeBrokerOutcome MQClient::DescribeBroker(const DescribeBrokerRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeBroker", "Required field: BrokerId, is not set");
+    return DescribeBrokerOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";
@@ -412,8 +460,83 @@ void MQClient::DescribeBrokerAsyncHelper(const DescribeBrokerRequest& request, c
   handler(this, request, DescribeBroker(request), context);
 }
 
+DescribeBrokerEngineTypesOutcome MQClient::DescribeBrokerEngineTypes(const DescribeBrokerEngineTypesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/broker-engine-types";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeBrokerEngineTypesOutcome(DescribeBrokerEngineTypesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeBrokerEngineTypesOutcome(outcome.GetError());
+  }
+}
+
+DescribeBrokerEngineTypesOutcomeCallable MQClient::DescribeBrokerEngineTypesCallable(const DescribeBrokerEngineTypesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeBrokerEngineTypesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeBrokerEngineTypes(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void MQClient::DescribeBrokerEngineTypesAsync(const DescribeBrokerEngineTypesRequest& request, const DescribeBrokerEngineTypesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeBrokerEngineTypesAsyncHelper( request, handler, context ); } );
+}
+
+void MQClient::DescribeBrokerEngineTypesAsyncHelper(const DescribeBrokerEngineTypesRequest& request, const DescribeBrokerEngineTypesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeBrokerEngineTypes(request), context);
+}
+
+DescribeBrokerInstanceOptionsOutcome MQClient::DescribeBrokerInstanceOptions(const DescribeBrokerInstanceOptionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/broker-instance-options";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeBrokerInstanceOptionsOutcome(DescribeBrokerInstanceOptionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeBrokerInstanceOptionsOutcome(outcome.GetError());
+  }
+}
+
+DescribeBrokerInstanceOptionsOutcomeCallable MQClient::DescribeBrokerInstanceOptionsCallable(const DescribeBrokerInstanceOptionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeBrokerInstanceOptionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeBrokerInstanceOptions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void MQClient::DescribeBrokerInstanceOptionsAsync(const DescribeBrokerInstanceOptionsRequest& request, const DescribeBrokerInstanceOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeBrokerInstanceOptionsAsyncHelper( request, handler, context ); } );
+}
+
+void MQClient::DescribeBrokerInstanceOptionsAsyncHelper(const DescribeBrokerInstanceOptionsRequest& request, const DescribeBrokerInstanceOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeBrokerInstanceOptions(request), context);
+}
+
 DescribeConfigurationOutcome MQClient::DescribeConfiguration(const DescribeConfigurationRequest& request) const
 {
+  if (!request.ConfigurationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeConfiguration", "Required field: ConfigurationId, is not set");
+    return DescribeConfigurationOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ConfigurationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/configurations/";
@@ -450,6 +573,16 @@ void MQClient::DescribeConfigurationAsyncHelper(const DescribeConfigurationReque
 
 DescribeConfigurationRevisionOutcome MQClient::DescribeConfigurationRevision(const DescribeConfigurationRevisionRequest& request) const
 {
+  if (!request.ConfigurationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeConfigurationRevision", "Required field: ConfigurationId, is not set");
+    return DescribeConfigurationRevisionOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ConfigurationId]", false));
+  }
+  if (!request.ConfigurationRevisionHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeConfigurationRevision", "Required field: ConfigurationRevision, is not set");
+    return DescribeConfigurationRevisionOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ConfigurationRevision]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/configurations/";
@@ -488,6 +621,16 @@ void MQClient::DescribeConfigurationRevisionAsyncHelper(const DescribeConfigurat
 
 DescribeUserOutcome MQClient::DescribeUser(const DescribeUserRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeUser", "Required field: BrokerId, is not set");
+    return DescribeUserOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
+  if (!request.UsernameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeUser", "Required field: Username, is not set");
+    return DescribeUserOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Username]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";
@@ -561,6 +704,11 @@ void MQClient::ListBrokersAsyncHelper(const ListBrokersRequest& request, const L
 
 ListConfigurationRevisionsOutcome MQClient::ListConfigurationRevisions(const ListConfigurationRevisionsRequest& request) const
 {
+  if (!request.ConfigurationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListConfigurationRevisions", "Required field: ConfigurationId, is not set");
+    return ListConfigurationRevisionsOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ConfigurationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/configurations/";
@@ -633,6 +781,11 @@ void MQClient::ListConfigurationsAsyncHelper(const ListConfigurationsRequest& re
 
 ListTagsOutcome MQClient::ListTags(const ListTagsRequest& request) const
 {
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListTags", "Required field: ResourceArn, is not set");
+    return ListTagsOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/tags/";
@@ -669,6 +822,11 @@ void MQClient::ListTagsAsyncHelper(const ListTagsRequest& request, const ListTag
 
 ListUsersOutcome MQClient::ListUsers(const ListUsersRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListUsers", "Required field: BrokerId, is not set");
+    return ListUsersOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";
@@ -706,6 +864,11 @@ void MQClient::ListUsersAsyncHelper(const ListUsersRequest& request, const ListU
 
 RebootBrokerOutcome MQClient::RebootBroker(const RebootBrokerRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("RebootBroker", "Required field: BrokerId, is not set");
+    return RebootBrokerOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";
@@ -743,6 +906,11 @@ void MQClient::RebootBrokerAsyncHelper(const RebootBrokerRequest& request, const
 
 UpdateBrokerOutcome MQClient::UpdateBroker(const UpdateBrokerRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateBroker", "Required field: BrokerId, is not set");
+    return UpdateBrokerOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";
@@ -779,6 +947,11 @@ void MQClient::UpdateBrokerAsyncHelper(const UpdateBrokerRequest& request, const
 
 UpdateConfigurationOutcome MQClient::UpdateConfiguration(const UpdateConfigurationRequest& request) const
 {
+  if (!request.ConfigurationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateConfiguration", "Required field: ConfigurationId, is not set");
+    return UpdateConfigurationOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ConfigurationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/configurations/";
@@ -815,6 +988,16 @@ void MQClient::UpdateConfigurationAsyncHelper(const UpdateConfigurationRequest& 
 
 UpdateUserOutcome MQClient::UpdateUser(const UpdateUserRequest& request) const
 {
+  if (!request.BrokerIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateUser", "Required field: BrokerId, is not set");
+    return UpdateUserOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BrokerId]", false));
+  }
+  if (!request.UsernameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateUser", "Required field: Username, is not set");
+    return UpdateUserOutcome(Aws::Client::AWSError<MQErrors>(MQErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Username]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/brokers/";

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ExportCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,14 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetCertificateArn() const{ return m_certificateArn; }
+
+    /**
+     * <p>An Amazon Resource Name (ARN) of the issued certificate. This must be of the
+     * form:</p> <p>
+     * <code>arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012</code>
+     * </p>
+     */
+    inline bool CertificateArnHasBeenSet() const { return m_certificateArnHasBeenSet; }
 
     /**
      * <p>An Amazon Resource Name (ARN) of the issued certificate. This must be of the
@@ -109,6 +117,14 @@ namespace Model
      * -in encrypted_key.pem -out decrypted_key.pem</code> </p>
      */
     inline const Aws::Utils::CryptoBuffer& GetPassphrase() const{ return m_passphrase; }
+
+    /**
+     * <p>Passphrase to associate with the encrypted exported private key. If you want
+     * to later decrypt the private key, you must have the passphrase. You can use the
+     * following OpenSSL command to decrypt a private key: </p> <p> <code>openssl rsa
+     * -in encrypted_key.pem -out decrypted_key.pem</code> </p>
+     */
+    inline bool PassphraseHasBeenSet() const { return m_passphraseHasBeenSet; }
 
     /**
      * <p>Passphrase to associate with the encrypted exported private key. If you want

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DisassociateTeamMemberRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * member.</p>
      */
     inline const Aws::String& GetProjectId() const{ return m_projectId; }
+
+    /**
+     * <p>The ID of the AWS CodeStar project from which you want to remove a team
+     * member.</p>
+     */
+    inline bool ProjectIdHasBeenSet() const { return m_projectIdHasBeenSet; }
 
     /**
      * <p>The ID of the AWS CodeStar project from which you want to remove a team
@@ -92,6 +98,12 @@ namespace Model
      * remove from the project.</p>
      */
     inline const Aws::String& GetUserArn() const{ return m_userArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM user or group whom you want to
+     * remove from the project.</p>
+     */
+    inline bool UserArnHasBeenSet() const { return m_userArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM user or group whom you want to

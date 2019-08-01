@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the rule.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the rule.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the rule.</p>
@@ -81,6 +86,55 @@ namespace Model
 
 
     /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline const Aws::String& GetEventBusName() const{ return m_eventBusName; }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline bool EventBusNameHasBeenSet() const { return m_eventBusNameHasBeenSet; }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline void SetEventBusName(const Aws::String& value) { m_eventBusNameHasBeenSet = true; m_eventBusName = value; }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline void SetEventBusName(Aws::String&& value) { m_eventBusNameHasBeenSet = true; m_eventBusName = std::move(value); }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline void SetEventBusName(const char* value) { m_eventBusNameHasBeenSet = true; m_eventBusName.assign(value); }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline DeleteRuleRequest& WithEventBusName(const Aws::String& value) { SetEventBusName(value); return *this;}
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline DeleteRuleRequest& WithEventBusName(Aws::String&& value) { SetEventBusName(std::move(value)); return *this;}
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline DeleteRuleRequest& WithEventBusName(const char* value) { SetEventBusName(value); return *this;}
+
+
+    /**
      * <p>If this is a managed rule, created by an AWS service on your behalf, you must
      * specify <code>Force</code> as <code>True</code> to delete the rule. This
      * parameter is ignored for rules that are not managed rules. You can check whether
@@ -89,6 +143,16 @@ namespace Model
      * response.</p>
      */
     inline bool GetForce() const{ return m_force; }
+
+    /**
+     * <p>If this is a managed rule, created by an AWS service on your behalf, you must
+     * specify <code>Force</code> as <code>True</code> to delete the rule. This
+     * parameter is ignored for rules that are not managed rules. You can check whether
+     * a rule is a managed rule by using <code>DescribeRule</code> or
+     * <code>ListRules</code> and checking the <code>ManagedBy</code> field of the
+     * response.</p>
+     */
+    inline bool ForceHasBeenSet() const { return m_forceHasBeenSet; }
 
     /**
      * <p>If this is a managed rule, created by an AWS service on your behalf, you must
@@ -114,6 +178,9 @@ namespace Model
 
     Aws::String m_name;
     bool m_nameHasBeenSet;
+
+    Aws::String m_eventBusName;
+    bool m_eventBusNameHasBeenSet;
 
     bool m_force;
     bool m_forceHasBeenSet;

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     AbortEnvironmentUpdateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * want to cancel.</p>
      */
     inline const Aws::String& GetEnvironmentId() const{ return m_environmentId; }
+
+    /**
+     * <p>This specifies the ID of the environment with the in-progress update that you
+     * want to cancel.</p>
+     */
+    inline bool EnvironmentIdHasBeenSet() const { return m_environmentIdHasBeenSet; }
 
     /**
      * <p>This specifies the ID of the environment with the in-progress update that you
@@ -97,6 +103,12 @@ namespace Model
      * you want to cancel.</p>
      */
     inline const Aws::String& GetEnvironmentName() const{ return m_environmentName; }
+
+    /**
+     * <p>This specifies the name of the environment with the in-progress update that
+     * you want to cancel.</p>
+     */
+    inline bool EnvironmentNameHasBeenSet() const { return m_environmentNameHasBeenSet; }
 
     /**
      * <p>This specifies the name of the environment with the in-progress update that

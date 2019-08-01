@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StopInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the instance (a virtual private server) to stop.</p>
      */
     inline const Aws::String& GetInstanceName() const{ return m_instanceName; }
+
+    /**
+     * <p>The name of the instance (a virtual private server) to stop.</p>
+     */
+    inline bool InstanceNameHasBeenSet() const { return m_instanceNameHasBeenSet; }
 
     /**
      * <p>The name of the instance (a virtual private server) to stop.</p>
@@ -88,6 +93,15 @@ namespace Model
      * normally without adding this parameter to your API request.</p> </important>
      */
     inline bool GetForce() const{ return m_force; }
+
+    /**
+     * <p>When set to <code>True</code>, forces a Lightsail instance that is stuck in a
+     * <code>stopping</code> state to stop.</p> <important> <p>Only use the
+     * <code>force</code> parameter if your instance is stuck in the
+     * <code>stopping</code> state. In any other state, your instance should stop
+     * normally without adding this parameter to your API request.</p> </important>
+     */
+    inline bool ForceHasBeenSet() const { return m_forceHasBeenSet; }
 
     /**
      * <p>When set to <code>True</code>, forces a Lightsail instance that is stuck in a

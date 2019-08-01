@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListListenersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * listener objects.</p>
      */
     inline const Aws::String& GetAcceleratorArn() const{ return m_acceleratorArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list
+     * listener objects.</p>
+     */
+    inline bool AcceleratorArnHasBeenSet() const { return m_acceleratorArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the accelerator for which you want to list
@@ -97,6 +103,12 @@ namespace Model
      * <p>The number of listener objects that you want to return with this call. The
      * default value is 10.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The number of listener objects that you want to return with this call. The
+     * default value is 10.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -111,6 +123,12 @@ namespace Model
      * call.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next set of results. You receive this token from a previous
+     * call.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next set of results. You receive this token from a previous

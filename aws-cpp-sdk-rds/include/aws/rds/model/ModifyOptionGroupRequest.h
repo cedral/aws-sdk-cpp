@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ModifyOptionGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,14 @@ namespace Model
      * is associated with a DB instance</p>
      */
     inline const Aws::String& GetOptionGroupName() const{ return m_optionGroupName; }
+
+    /**
+     * <p>The name of the option group to be modified.</p> <p>Permanent options, such
+     * as the TDE option for Oracle Advanced Security TDE, can't be removed from an
+     * option group, and that option group can't be removed from a DB instance once it
+     * is associated with a DB instance</p>
+     */
+    inline bool OptionGroupNameHasBeenSet() const { return m_optionGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the option group to be modified.</p> <p>Permanent options, such
@@ -118,6 +126,12 @@ namespace Model
      * <p>Options in this list are added to the option group or, if already present,
      * the specified configuration is used to update the existing configuration.</p>
      */
+    inline bool OptionsToIncludeHasBeenSet() const { return m_optionsToIncludeHasBeenSet; }
+
+    /**
+     * <p>Options in this list are added to the option group or, if already present,
+     * the specified configuration is used to update the existing configuration.</p>
+     */
     inline void SetOptionsToInclude(const Aws::Vector<OptionConfiguration>& value) { m_optionsToIncludeHasBeenSet = true; m_optionsToInclude = value; }
 
     /**
@@ -159,6 +173,11 @@ namespace Model
     /**
      * <p>Options in this list are removed from the option group.</p>
      */
+    inline bool OptionsToRemoveHasBeenSet() const { return m_optionsToRemoveHasBeenSet; }
+
+    /**
+     * <p>Options in this list are removed from the option group.</p>
+     */
     inline void SetOptionsToRemove(const Aws::Vector<Aws::String>& value) { m_optionsToRemoveHasBeenSet = true; m_optionsToRemove = value; }
 
     /**
@@ -193,19 +212,25 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether the changes should be applied immediately, or during the
+     * <p>A value that indicates whether to apply the change immediately or during the
      * next maintenance window for each instance associated with the option group.</p>
      */
     inline bool GetApplyImmediately() const{ return m_applyImmediately; }
 
     /**
-     * <p>Indicates whether the changes should be applied immediately, or during the
+     * <p>A value that indicates whether to apply the change immediately or during the
+     * next maintenance window for each instance associated with the option group.</p>
+     */
+    inline bool ApplyImmediatelyHasBeenSet() const { return m_applyImmediatelyHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether to apply the change immediately or during the
      * next maintenance window for each instance associated with the option group.</p>
      */
     inline void SetApplyImmediately(bool value) { m_applyImmediatelyHasBeenSet = true; m_applyImmediately = value; }
 
     /**
-     * <p>Indicates whether the changes should be applied immediately, or during the
+     * <p>A value that indicates whether to apply the change immediately or during the
      * next maintenance window for each instance associated with the option group.</p>
      */
     inline ModifyOptionGroupRequest& WithApplyImmediately(bool value) { SetApplyImmediately(value); return *this;}

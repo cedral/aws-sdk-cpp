@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateExportTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the export task.</p>
      */
     inline const Aws::String& GetTaskName() const{ return m_taskName; }
+
+    /**
+     * <p>The name of the export task.</p>
+     */
+    inline bool TaskNameHasBeenSet() const { return m_taskNameHasBeenSet; }
 
     /**
      * <p>The name of the export task.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The name of the log group.</p>
      */
+    inline bool LogGroupNameHasBeenSet() const { return m_logGroupNameHasBeenSet; }
+
+    /**
+     * <p>The name of the log group.</p>
+     */
     inline void SetLogGroupName(const Aws::String& value) { m_logGroupNameHasBeenSet = true; m_logGroupName = value; }
 
     /**
@@ -121,6 +131,12 @@ namespace Model
      * a value, no prefix filter is applied.</p>
      */
     inline const Aws::String& GetLogStreamNamePrefix() const{ return m_logStreamNamePrefix; }
+
+    /**
+     * <p>Export only log streams that match the provided prefix. If you don't specify
+     * a value, no prefix filter is applied.</p>
+     */
+    inline bool LogStreamNamePrefixHasBeenSet() const { return m_logStreamNamePrefixHasBeenSet; }
 
     /**
      * <p>Export only log streams that match the provided prefix. If you don't specify
@@ -171,6 +187,13 @@ namespace Model
      * milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier
      * than this time are not exported.</p>
      */
+    inline bool FromHasBeenSet() const { return m_fromHasBeenSet; }
+
+    /**
+     * <p>The start time of the range for the request, expressed as the number of
+     * milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier
+     * than this time are not exported.</p>
+     */
     inline void SetFrom(long long value) { m_fromHasBeenSet = true; m_from = value; }
 
     /**
@@ -193,6 +216,13 @@ namespace Model
      * milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than
      * this time are not exported.</p>
      */
+    inline bool ToHasBeenSet() const { return m_toHasBeenSet; }
+
+    /**
+     * <p>The end time of the range for the request, expressed as the number of
+     * milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than
+     * this time are not exported.</p>
+     */
     inline void SetTo(long long value) { m_toHasBeenSet = true; m_to = value; }
 
     /**
@@ -208,6 +238,12 @@ namespace Model
      * same AWS region.</p>
      */
     inline const Aws::String& GetDestination() const{ return m_destination; }
+
+    /**
+     * <p>The name of S3 bucket for the exported log data. The bucket must be in the
+     * same AWS region.</p>
+     */
+    inline bool DestinationHasBeenSet() const { return m_destinationHasBeenSet; }
 
     /**
      * <p>The name of S3 bucket for the exported log data. The bucket must be in the
@@ -251,6 +287,12 @@ namespace Model
      * don't specify a value, the default is <code>exportedlogs</code>.</p>
      */
     inline const Aws::String& GetDestinationPrefix() const{ return m_destinationPrefix; }
+
+    /**
+     * <p>The prefix used as the start of the key for every object exported. If you
+     * don't specify a value, the default is <code>exportedlogs</code>.</p>
+     */
+    inline bool DestinationPrefixHasBeenSet() const { return m_destinationPrefixHasBeenSet; }
 
     /**
      * <p>The prefix used as the start of the key for every object exported. If you

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeQueriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Limits the returned queries to only those for the specified log group.</p>
      */
     inline const Aws::String& GetLogGroupName() const{ return m_logGroupName; }
+
+    /**
+     * <p>Limits the returned queries to only those for the specified log group.</p>
+     */
+    inline bool LogGroupNameHasBeenSet() const { return m_logGroupNameHasBeenSet; }
 
     /**
      * <p>Limits the returned queries to only those for the specified log group.</p>
@@ -93,6 +98,13 @@ namespace Model
      * Valid values are <code>Cancelled</code>, <code>Complete</code>,
      * <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>Limits the returned queries to only those that have the specified status.
+     * Valid values are <code>Cancelled</code>, <code>Complete</code>,
+     * <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
+     */
     inline void SetStatus(const QueryStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -125,6 +137,11 @@ namespace Model
     /**
      * <p>Limits the number of returned queries to the specified number.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>Limits the number of returned queries to the specified number.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -135,6 +152,9 @@ namespace Model
 
     
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }

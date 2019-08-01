@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeImagePermissionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * must be one that you own. </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the private image for which to describe permissions. The image
+     * must be one that you own. </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the private image for which to describe permissions. The image
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>The maximum size of each page of results.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum size of each page of results.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -109,6 +120,12 @@ namespace Model
      * shared.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSharedAwsAccountIds() const{ return m_sharedAwsAccountIds; }
+
+    /**
+     * <p>The 12-digit identifier of one or more AWS accounts with which the image is
+     * shared.</p>
+     */
+    inline bool SharedAwsAccountIdsHasBeenSet() const { return m_sharedAwsAccountIdsHasBeenSet; }
 
     /**
      * <p>The 12-digit identifier of one or more AWS accounts with which the image is
@@ -158,6 +175,12 @@ namespace Model
      * operation. If this value is null, it retrieves the first page.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The pagination token to use to retrieve the next page of results for this
+     * operation. If this value is null, it retrieves the first page.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The pagination token to use to retrieve the next page of results for this

@@ -119,8 +119,14 @@ void CognitoSyncClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 BulkPublishOutcome CognitoSyncClient::BulkPublish(const BulkPublishRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("BulkPublish", "Required field: IdentityPoolId, is not set");
+    return BulkPublishOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -158,6 +164,21 @@ void CognitoSyncClient::BulkPublishAsyncHelper(const BulkPublishRequest& request
 
 DeleteDatasetOutcome CognitoSyncClient::DeleteDataset(const DeleteDatasetRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteDataset", "Required field: IdentityPoolId, is not set");
+    return DeleteDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteDataset", "Required field: IdentityId, is not set");
+    return DeleteDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
+  if (!request.DatasetNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteDataset", "Required field: DatasetName, is not set");
+    return DeleteDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DatasetName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -198,6 +219,21 @@ void CognitoSyncClient::DeleteDatasetAsyncHelper(const DeleteDatasetRequest& req
 
 DescribeDatasetOutcome CognitoSyncClient::DescribeDataset(const DescribeDatasetRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeDataset", "Required field: IdentityPoolId, is not set");
+    return DescribeDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeDataset", "Required field: IdentityId, is not set");
+    return DescribeDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
+  if (!request.DatasetNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeDataset", "Required field: DatasetName, is not set");
+    return DescribeDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DatasetName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -238,6 +274,11 @@ void CognitoSyncClient::DescribeDatasetAsyncHelper(const DescribeDatasetRequest&
 
 DescribeIdentityPoolUsageOutcome CognitoSyncClient::DescribeIdentityPoolUsage(const DescribeIdentityPoolUsageRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeIdentityPoolUsage", "Required field: IdentityPoolId, is not set");
+    return DescribeIdentityPoolUsageOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -274,6 +315,16 @@ void CognitoSyncClient::DescribeIdentityPoolUsageAsyncHelper(const DescribeIdent
 
 DescribeIdentityUsageOutcome CognitoSyncClient::DescribeIdentityUsage(const DescribeIdentityUsageRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeIdentityUsage", "Required field: IdentityPoolId, is not set");
+    return DescribeIdentityUsageOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeIdentityUsage", "Required field: IdentityId, is not set");
+    return DescribeIdentityUsageOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -312,6 +363,11 @@ void CognitoSyncClient::DescribeIdentityUsageAsyncHelper(const DescribeIdentityU
 
 GetBulkPublishDetailsOutcome CognitoSyncClient::GetBulkPublishDetails(const GetBulkPublishDetailsRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetBulkPublishDetails", "Required field: IdentityPoolId, is not set");
+    return GetBulkPublishDetailsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -349,6 +405,11 @@ void CognitoSyncClient::GetBulkPublishDetailsAsyncHelper(const GetBulkPublishDet
 
 GetCognitoEventsOutcome CognitoSyncClient::GetCognitoEvents(const GetCognitoEventsRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetCognitoEvents", "Required field: IdentityPoolId, is not set");
+    return GetCognitoEventsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -386,6 +447,11 @@ void CognitoSyncClient::GetCognitoEventsAsyncHelper(const GetCognitoEventsReques
 
 GetIdentityPoolConfigurationOutcome CognitoSyncClient::GetIdentityPoolConfiguration(const GetIdentityPoolConfigurationRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIdentityPoolConfiguration", "Required field: IdentityPoolId, is not set");
+    return GetIdentityPoolConfigurationOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -423,6 +489,16 @@ void CognitoSyncClient::GetIdentityPoolConfigurationAsyncHelper(const GetIdentit
 
 ListDatasetsOutcome CognitoSyncClient::ListDatasets(const ListDatasetsRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListDatasets", "Required field: IdentityPoolId, is not set");
+    return ListDatasetsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListDatasets", "Required field: IdentityId, is not set");
+    return ListDatasetsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -497,6 +573,21 @@ void CognitoSyncClient::ListIdentityPoolUsageAsyncHelper(const ListIdentityPoolU
 
 ListRecordsOutcome CognitoSyncClient::ListRecords(const ListRecordsRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListRecords", "Required field: IdentityPoolId, is not set");
+    return ListRecordsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListRecords", "Required field: IdentityId, is not set");
+    return ListRecordsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
+  if (!request.DatasetNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListRecords", "Required field: DatasetName, is not set");
+    return ListRecordsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DatasetName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -538,6 +629,16 @@ void CognitoSyncClient::ListRecordsAsyncHelper(const ListRecordsRequest& request
 
 RegisterDeviceOutcome CognitoSyncClient::RegisterDevice(const RegisterDeviceRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("RegisterDevice", "Required field: IdentityPoolId, is not set");
+    return RegisterDeviceOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("RegisterDevice", "Required field: IdentityId, is not set");
+    return RegisterDeviceOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -577,6 +678,11 @@ void CognitoSyncClient::RegisterDeviceAsyncHelper(const RegisterDeviceRequest& r
 
 SetCognitoEventsOutcome CognitoSyncClient::SetCognitoEvents(const SetCognitoEventsRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("SetCognitoEvents", "Required field: IdentityPoolId, is not set");
+    return SetCognitoEventsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -614,6 +720,11 @@ void CognitoSyncClient::SetCognitoEventsAsyncHelper(const SetCognitoEventsReques
 
 SetIdentityPoolConfigurationOutcome CognitoSyncClient::SetIdentityPoolConfiguration(const SetIdentityPoolConfigurationRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("SetIdentityPoolConfiguration", "Required field: IdentityPoolId, is not set");
+    return SetIdentityPoolConfigurationOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -651,6 +762,26 @@ void CognitoSyncClient::SetIdentityPoolConfigurationAsyncHelper(const SetIdentit
 
 SubscribeToDatasetOutcome CognitoSyncClient::SubscribeToDataset(const SubscribeToDatasetRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("SubscribeToDataset", "Required field: IdentityPoolId, is not set");
+    return SubscribeToDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("SubscribeToDataset", "Required field: IdentityId, is not set");
+    return SubscribeToDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
+  if (!request.DatasetNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("SubscribeToDataset", "Required field: DatasetName, is not set");
+    return SubscribeToDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DatasetName]", false));
+  }
+  if (!request.DeviceIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("SubscribeToDataset", "Required field: DeviceId, is not set");
+    return SubscribeToDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DeviceId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -693,6 +824,26 @@ void CognitoSyncClient::SubscribeToDatasetAsyncHelper(const SubscribeToDatasetRe
 
 UnsubscribeFromDatasetOutcome CognitoSyncClient::UnsubscribeFromDataset(const UnsubscribeFromDatasetRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UnsubscribeFromDataset", "Required field: IdentityPoolId, is not set");
+    return UnsubscribeFromDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UnsubscribeFromDataset", "Required field: IdentityId, is not set");
+    return UnsubscribeFromDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
+  if (!request.DatasetNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UnsubscribeFromDataset", "Required field: DatasetName, is not set");
+    return UnsubscribeFromDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DatasetName]", false));
+  }
+  if (!request.DeviceIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UnsubscribeFromDataset", "Required field: DeviceId, is not set");
+    return UnsubscribeFromDatasetOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DeviceId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";
@@ -735,6 +886,21 @@ void CognitoSyncClient::UnsubscribeFromDatasetAsyncHelper(const UnsubscribeFromD
 
 UpdateRecordsOutcome CognitoSyncClient::UpdateRecords(const UpdateRecordsRequest& request) const
 {
+  if (!request.IdentityPoolIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRecords", "Required field: IdentityPoolId, is not set");
+    return UpdateRecordsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityPoolId]", false));
+  }
+  if (!request.IdentityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRecords", "Required field: IdentityId, is not set");
+    return UpdateRecordsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IdentityId]", false));
+  }
+  if (!request.DatasetNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRecords", "Required field: DatasetName, is not set");
+    return UpdateRecordsOutcome(Aws::Client::AWSError<CognitoSyncErrors>(CognitoSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DatasetName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/identitypools/";

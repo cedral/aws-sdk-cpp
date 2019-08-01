@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteApplicationVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the application to which the version belongs.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application to which the version belongs.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application to which the version belongs.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The label of the version to delete.</p>
      */
+    inline bool VersionLabelHasBeenSet() const { return m_versionLabelHasBeenSet; }
+
+    /**
+     * <p>The label of the version to delete.</p>
+     */
     inline void SetVersionLabel(const Aws::String& value) { m_versionLabelHasBeenSet = true; m_versionLabel = value; }
 
     /**
@@ -127,6 +137,13 @@ namespace Model
      * Beanstalk and the source bundle remains in Amazon S3.</p>
      */
     inline bool GetDeleteSourceBundle() const{ return m_deleteSourceBundle; }
+
+    /**
+     * <p>Set to <code>true</code> to delete the source bundle from your storage
+     * bucket. Otherwise, the application version is deleted only from Elastic
+     * Beanstalk and the source bundle remains in Amazon S3.</p>
+     */
+    inline bool DeleteSourceBundleHasBeenSet() const { return m_deleteSourceBundleHasBeenSet; }
 
     /**
      * <p>Set to <code>true</code> to delete the source bundle from your storage

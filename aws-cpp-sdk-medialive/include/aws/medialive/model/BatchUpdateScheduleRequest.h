@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     BatchUpdateScheduleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * Id of the channel whose schedule is being updated.
      */
     inline const Aws::String& GetChannelId() const{ return m_channelId; }
+
+    /**
+     * Id of the channel whose schedule is being updated.
+     */
+    inline bool ChannelIdHasBeenSet() const { return m_channelIdHasBeenSet; }
 
     /**
      * Id of the channel whose schedule is being updated.
@@ -92,6 +97,11 @@ namespace Model
     /**
      * Schedule actions to create in the schedule.
      */
+    inline bool CreatesHasBeenSet() const { return m_createsHasBeenSet; }
+
+    /**
+     * Schedule actions to create in the schedule.
+     */
     inline void SetCreates(const BatchScheduleActionCreateRequest& value) { m_createsHasBeenSet = true; m_creates = value; }
 
     /**
@@ -114,6 +124,11 @@ namespace Model
      * Schedule actions to delete from the schedule.
      */
     inline const BatchScheduleActionDeleteRequest& GetDeletes() const{ return m_deletes; }
+
+    /**
+     * Schedule actions to delete from the schedule.
+     */
+    inline bool DeletesHasBeenSet() const { return m_deletesHasBeenSet; }
 
     /**
      * Schedule actions to delete from the schedule.

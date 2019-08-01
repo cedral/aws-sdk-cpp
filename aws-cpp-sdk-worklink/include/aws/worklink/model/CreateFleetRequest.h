@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateFleetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>A unique name for the fleet.</p>
      */
     inline const Aws::String& GetFleetName() const{ return m_fleetName; }
+
+    /**
+     * <p>A unique name for the fleet.</p>
+     */
+    inline bool FleetNameHasBeenSet() const { return m_fleetNameHasBeenSet; }
 
     /**
      * <p>A unique name for the fleet.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The fleet name to display.</p>
      */
+    inline bool DisplayNameHasBeenSet() const { return m_displayNameHasBeenSet; }
+
+    /**
+     * <p>The fleet name to display.</p>
+     */
     inline void SetDisplayName(const Aws::String& value) { m_displayNameHasBeenSet = true; m_displayName = value; }
 
     /**
@@ -119,6 +129,12 @@ namespace Model
      * closest AWS Region to users, which may be outside of your home Region.</p>
      */
     inline bool GetOptimizeForEndUserLocation() const{ return m_optimizeForEndUserLocation; }
+
+    /**
+     * <p>The option to optimize for better performance by routing traffic through the
+     * closest AWS Region to users, which may be outside of your home Region.</p>
+     */
+    inline bool OptimizeForEndUserLocationHasBeenSet() const { return m_optimizeForEndUserLocationHasBeenSet; }
 
     /**
      * <p>The option to optimize for better performance by routing traffic through the

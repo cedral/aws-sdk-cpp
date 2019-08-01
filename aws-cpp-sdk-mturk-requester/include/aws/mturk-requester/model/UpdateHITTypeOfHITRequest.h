@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateHITTypeOfHITRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The HIT to update.</p>
      */
     inline const Aws::String& GetHITId() const{ return m_hITId; }
+
+    /**
+     * <p>The HIT to update.</p>
+     */
+    inline bool HITIdHasBeenSet() const { return m_hITIdHasBeenSet; }
 
     /**
      * <p>The HIT to update.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The ID of the new HIT type.</p>
      */
     inline const Aws::String& GetHITTypeId() const{ return m_hITTypeId; }
+
+    /**
+     * <p>The ID of the new HIT type.</p>
+     */
+    inline bool HITTypeIdHasBeenSet() const { return m_hITTypeIdHasBeenSet; }
 
     /**
      * <p>The ID of the new HIT type.</p>

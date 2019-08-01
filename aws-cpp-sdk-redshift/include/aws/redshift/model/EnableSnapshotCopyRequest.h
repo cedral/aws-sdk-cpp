@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     EnableSnapshotCopyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * already have cross-region snapshot copy enabled.</p>
      */
     inline const Aws::String& GetClusterIdentifier() const{ return m_clusterIdentifier; }
+
+    /**
+     * <p>The unique identifier of the source cluster to copy snapshots from.</p>
+     * <p>Constraints: Must be the valid name of an existing cluster that does not
+     * already have cross-region snapshot copy enabled.</p>
+     */
+    inline bool ClusterIdentifierHasBeenSet() const { return m_clusterIdentifierHasBeenSet; }
 
     /**
      * <p>The unique identifier of the source cluster to copy snapshots from.</p>
@@ -103,7 +110,7 @@ namespace Model
      * <p>The destination AWS Region that you want to copy snapshots to.</p>
      * <p>Constraints: Must be the name of a valid AWS Region. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
      * and Endpoints</a> in the Amazon Web Services General Reference. </p>
      */
     inline const Aws::String& GetDestinationRegion() const{ return m_destinationRegion; }
@@ -112,7 +119,16 @@ namespace Model
      * <p>The destination AWS Region that you want to copy snapshots to.</p>
      * <p>Constraints: Must be the name of a valid AWS Region. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+     * and Endpoints</a> in the Amazon Web Services General Reference. </p>
+     */
+    inline bool DestinationRegionHasBeenSet() const { return m_destinationRegionHasBeenSet; }
+
+    /**
+     * <p>The destination AWS Region that you want to copy snapshots to.</p>
+     * <p>Constraints: Must be the name of a valid AWS Region. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
      * and Endpoints</a> in the Amazon Web Services General Reference. </p>
      */
     inline void SetDestinationRegion(const Aws::String& value) { m_destinationRegionHasBeenSet = true; m_destinationRegion = value; }
@@ -121,7 +137,7 @@ namespace Model
      * <p>The destination AWS Region that you want to copy snapshots to.</p>
      * <p>Constraints: Must be the name of a valid AWS Region. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
      * and Endpoints</a> in the Amazon Web Services General Reference. </p>
      */
     inline void SetDestinationRegion(Aws::String&& value) { m_destinationRegionHasBeenSet = true; m_destinationRegion = std::move(value); }
@@ -130,7 +146,7 @@ namespace Model
      * <p>The destination AWS Region that you want to copy snapshots to.</p>
      * <p>Constraints: Must be the name of a valid AWS Region. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
      * and Endpoints</a> in the Amazon Web Services General Reference. </p>
      */
     inline void SetDestinationRegion(const char* value) { m_destinationRegionHasBeenSet = true; m_destinationRegion.assign(value); }
@@ -139,7 +155,7 @@ namespace Model
      * <p>The destination AWS Region that you want to copy snapshots to.</p>
      * <p>Constraints: Must be the name of a valid AWS Region. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
      * and Endpoints</a> in the Amazon Web Services General Reference. </p>
      */
     inline EnableSnapshotCopyRequest& WithDestinationRegion(const Aws::String& value) { SetDestinationRegion(value); return *this;}
@@ -148,7 +164,7 @@ namespace Model
      * <p>The destination AWS Region that you want to copy snapshots to.</p>
      * <p>Constraints: Must be the name of a valid AWS Region. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
      * and Endpoints</a> in the Amazon Web Services General Reference. </p>
      */
     inline EnableSnapshotCopyRequest& WithDestinationRegion(Aws::String&& value) { SetDestinationRegion(std::move(value)); return *this;}
@@ -157,7 +173,7 @@ namespace Model
      * <p>The destination AWS Region that you want to copy snapshots to.</p>
      * <p>Constraints: Must be the name of a valid AWS Region. For more information,
      * see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
      * and Endpoints</a> in the Amazon Web Services General Reference. </p>
      */
     inline EnableSnapshotCopyRequest& WithDestinationRegion(const char* value) { SetDestinationRegion(value); return *this;}
@@ -169,6 +185,13 @@ namespace Model
      * <p>Constraints: Must be at least 1 and no more than 35.</p>
      */
     inline int GetRetentionPeriod() const{ return m_retentionPeriod; }
+
+    /**
+     * <p>The number of days to retain automated snapshots in the destination region
+     * after they are copied from the source region.</p> <p>Default: 7.</p>
+     * <p>Constraints: Must be at least 1 and no more than 35.</p>
+     */
+    inline bool RetentionPeriodHasBeenSet() const { return m_retentionPeriodHasBeenSet; }
 
     /**
      * <p>The number of days to retain automated snapshots in the destination region
@@ -190,6 +213,12 @@ namespace Model
      * KMS-encrypted cluster are copied to the destination region.</p>
      */
     inline const Aws::String& GetSnapshotCopyGrantName() const{ return m_snapshotCopyGrantName; }
+
+    /**
+     * <p>The name of the snapshot copy grant to use when snapshots of an AWS
+     * KMS-encrypted cluster are copied to the destination region.</p>
+     */
+    inline bool SnapshotCopyGrantNameHasBeenSet() const { return m_snapshotCopyGrantNameHasBeenSet; }
 
     /**
      * <p>The name of the snapshot copy grant to use when snapshots of an AWS
@@ -235,6 +264,14 @@ namespace Model
      * an integer between 1 and 3,653.</p>
      */
     inline int GetManualSnapshotRetentionPeriod() const{ return m_manualSnapshotRetentionPeriod; }
+
+    /**
+     * <p>The number of days to retain newly copied snapshots in the destination AWS
+     * Region after they are copied from the source AWS Region. If the value is -1, the
+     * manual snapshot is retained indefinitely. </p> <p>The value must be either -1 or
+     * an integer between 1 and 3,653.</p>
+     */
+    inline bool ManualSnapshotRetentionPeriodHasBeenSet() const { return m_manualSnapshotRetentionPeriodHasBeenSet; }
 
     /**
      * <p>The number of days to retain newly copied snapshots in the destination AWS

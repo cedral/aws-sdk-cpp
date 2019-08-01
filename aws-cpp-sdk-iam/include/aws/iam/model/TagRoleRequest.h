@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagRoleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,15 @@ namespace Model
      * following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetRoleName() const{ return m_roleName; }
+
+    /**
+     * <p>The name of the role that you want to add tags to.</p> <p>This parameter
+     * accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters that consist of upper and lowercase
+     * alphanumeric characters with no spaces. You can also include any of the
+     * following characters: _+=,.@-</p>
+     */
+    inline bool RoleNameHasBeenSet() const { return m_roleNameHasBeenSet; }
 
     /**
      * <p>The name of the role that you want to add tags to.</p> <p>This parameter
@@ -117,6 +126,12 @@ namespace Model
      * key name and an associated value. You can specify this with a JSON string.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The list of tags that you want to attach to the role. Each tag consists of a
+     * key name and an associated value. You can specify this with a JSON string.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The list of tags that you want to attach to the role. Each tag consists of a

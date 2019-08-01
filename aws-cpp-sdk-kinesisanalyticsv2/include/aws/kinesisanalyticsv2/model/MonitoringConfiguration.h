@@ -39,7 +39,7 @@ namespace Model
    * <p>Describes configuration parameters for Amazon CloudWatch logging for a
    * Java-based Kinesis Data Analytics application. For more information about
    * CloudWatch logging, see <a
-   * href="https://docs.aws.amazon.com/kinesisanalytics/latest/Java/monitoring-overview.html">Monitoring</a>.</p><p><h3>See
+   * href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalyticsv2-2018-05-23/MonitoringConfiguration">AWS
    * API Reference</a></p>
@@ -58,6 +58,12 @@ namespace Model
      * application.</p>
      */
     inline const ConfigurationType& GetConfigurationType() const{ return m_configurationType; }
+
+    /**
+     * <p>Describes whether to use the default CloudWatch logging configuration for an
+     * application.</p>
+     */
+    inline bool ConfigurationTypeHasBeenSet() const { return m_configurationTypeHasBeenSet; }
 
     /**
      * <p>Describes whether to use the default CloudWatch logging configuration for an
@@ -92,6 +98,11 @@ namespace Model
     /**
      * <p>Describes the granularity of the CloudWatch Logs for an application.</p>
      */
+    inline bool MetricsLevelHasBeenSet() const { return m_metricsLevelHasBeenSet; }
+
+    /**
+     * <p>Describes the granularity of the CloudWatch Logs for an application.</p>
+     */
     inline void SetMetricsLevel(const MetricsLevel& value) { m_metricsLevelHasBeenSet = true; m_metricsLevel = value; }
 
     /**
@@ -114,6 +125,11 @@ namespace Model
      * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
      */
     inline const LogLevel& GetLogLevel() const{ return m_logLevel; }
+
+    /**
+     * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
+     */
+    inline bool LogLevelHasBeenSet() const { return m_logLevelHasBeenSet; }
 
     /**
      * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>

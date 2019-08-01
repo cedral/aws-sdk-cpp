@@ -57,6 +57,11 @@ namespace Model
     /**
      * <p>The association ID.</p>
      */
+    inline bool AssociationIdHasBeenSet() const { return m_associationIdHasBeenSet; }
+
+    /**
+     * <p>The association ID.</p>
+     */
     inline void SetAssociationId(const Aws::String& value) { m_associationIdHasBeenSet = true; m_associationId = value; }
 
     /**
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The association version.</p>
      */
+    inline bool AssociationVersionHasBeenSet() const { return m_associationVersionHasBeenSet; }
+
+    /**
+     * <p>The association version.</p>
+     */
     inline void SetAssociationVersion(const Aws::String& value) { m_associationVersionHasBeenSet = true; m_associationVersion = value; }
 
     /**
@@ -122,51 +132,42 @@ namespace Model
 
 
     /**
-     * <p>The execution ID for the association. If the association does not run at
-     * intervals or according to a schedule, then the ExecutionID is the same as the
-     * AssociationID.</p>
+     * <p>The execution ID for the association.</p>
      */
     inline const Aws::String& GetExecutionId() const{ return m_executionId; }
 
     /**
-     * <p>The execution ID for the association. If the association does not run at
-     * intervals or according to a schedule, then the ExecutionID is the same as the
-     * AssociationID.</p>
+     * <p>The execution ID for the association.</p>
+     */
+    inline bool ExecutionIdHasBeenSet() const { return m_executionIdHasBeenSet; }
+
+    /**
+     * <p>The execution ID for the association.</p>
      */
     inline void SetExecutionId(const Aws::String& value) { m_executionIdHasBeenSet = true; m_executionId = value; }
 
     /**
-     * <p>The execution ID for the association. If the association does not run at
-     * intervals or according to a schedule, then the ExecutionID is the same as the
-     * AssociationID.</p>
+     * <p>The execution ID for the association.</p>
      */
     inline void SetExecutionId(Aws::String&& value) { m_executionIdHasBeenSet = true; m_executionId = std::move(value); }
 
     /**
-     * <p>The execution ID for the association. If the association does not run at
-     * intervals or according to a schedule, then the ExecutionID is the same as the
-     * AssociationID.</p>
+     * <p>The execution ID for the association.</p>
      */
     inline void SetExecutionId(const char* value) { m_executionIdHasBeenSet = true; m_executionId.assign(value); }
 
     /**
-     * <p>The execution ID for the association. If the association does not run at
-     * intervals or according to a schedule, then the ExecutionID is the same as the
-     * AssociationID.</p>
+     * <p>The execution ID for the association.</p>
      */
     inline AssociationExecution& WithExecutionId(const Aws::String& value) { SetExecutionId(value); return *this;}
 
     /**
-     * <p>The execution ID for the association. If the association does not run at
-     * intervals or according to a schedule, then the ExecutionID is the same as the
-     * AssociationID.</p>
+     * <p>The execution ID for the association.</p>
      */
     inline AssociationExecution& WithExecutionId(Aws::String&& value) { SetExecutionId(std::move(value)); return *this;}
 
     /**
-     * <p>The execution ID for the association. If the association does not run at
-     * intervals or according to a schedule, then the ExecutionID is the same as the
-     * AssociationID.</p>
+     * <p>The execution ID for the association.</p>
      */
     inline AssociationExecution& WithExecutionId(const char* value) { SetExecutionId(value); return *this;}
 
@@ -175,6 +176,11 @@ namespace Model
      * <p>The status of the association execution.</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the association execution.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the association execution.</p>
@@ -215,6 +221,11 @@ namespace Model
     /**
      * <p>Detailed status information about the execution.</p>
      */
+    inline bool DetailedStatusHasBeenSet() const { return m_detailedStatusHasBeenSet; }
+
+    /**
+     * <p>Detailed status information about the execution.</p>
+     */
     inline void SetDetailedStatus(const Aws::String& value) { m_detailedStatusHasBeenSet = true; m_detailedStatus = value; }
 
     /**
@@ -251,6 +262,11 @@ namespace Model
     /**
      * <p>The time the execution started.</p>
      */
+    inline bool CreatedTimeHasBeenSet() const { return m_createdTimeHasBeenSet; }
+
+    /**
+     * <p>The time the execution started.</p>
+     */
     inline void SetCreatedTime(const Aws::Utils::DateTime& value) { m_createdTimeHasBeenSet = true; m_createdTime = value; }
 
     /**
@@ -273,6 +289,11 @@ namespace Model
      * <p>The date of the last execution.</p>
      */
     inline const Aws::Utils::DateTime& GetLastExecutionDate() const{ return m_lastExecutionDate; }
+
+    /**
+     * <p>The date of the last execution.</p>
+     */
+    inline bool LastExecutionDateHasBeenSet() const { return m_lastExecutionDateHasBeenSet; }
 
     /**
      * <p>The date of the last execution.</p>
@@ -300,6 +321,12 @@ namespace Model
      * type.</p>
      */
     inline const Aws::String& GetResourceCountByStatus() const{ return m_resourceCountByStatus; }
+
+    /**
+     * <p>An aggregate status of the resources in the execution based on the status
+     * type.</p>
+     */
+    inline bool ResourceCountByStatusHasBeenSet() const { return m_resourceCountByStatusHasBeenSet; }
 
     /**
      * <p>An aggregate status of the resources in the execution based on the status

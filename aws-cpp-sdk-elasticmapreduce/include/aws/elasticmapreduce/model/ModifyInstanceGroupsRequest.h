@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ModifyInstanceGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The ID of the cluster to which the instance group belongs.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>The ID of the cluster to which the instance group belongs.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>The ID of the cluster to which the instance group belongs.</p>
@@ -89,6 +94,11 @@ namespace Model
      * <p>Instance groups to change.</p>
      */
     inline const Aws::Vector<InstanceGroupModifyConfig>& GetInstanceGroups() const{ return m_instanceGroups; }
+
+    /**
+     * <p>Instance groups to change.</p>
+     */
+    inline bool InstanceGroupsHasBeenSet() const { return m_instanceGroupsHasBeenSet; }
 
     /**
      * <p>Instance groups to change.</p>

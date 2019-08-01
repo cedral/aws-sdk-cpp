@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteSnapshotScheduleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The volume which snapshot schedule to delete.</p>
      */
     inline const Aws::String& GetVolumeARN() const{ return m_volumeARN; }
+
+    /**
+     * <p>The volume which snapshot schedule to delete.</p>
+     */
+    inline bool VolumeARNHasBeenSet() const { return m_volumeARNHasBeenSet; }
 
     /**
      * <p>The volume which snapshot schedule to delete.</p>

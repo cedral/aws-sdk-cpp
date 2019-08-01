@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StopDBInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p> The user-supplied instance identifier. </p>
      */
     inline const Aws::String& GetDBInstanceIdentifier() const{ return m_dBInstanceIdentifier; }
+
+    /**
+     * <p> The user-supplied instance identifier. </p>
+     */
+    inline bool DBInstanceIdentifierHasBeenSet() const { return m_dBInstanceIdentifierHasBeenSet; }
 
     /**
      * <p> The user-supplied instance identifier. </p>
@@ -87,6 +92,12 @@ namespace Model
      * before the DB instance is stopped. </p>
      */
     inline const Aws::String& GetDBSnapshotIdentifier() const{ return m_dBSnapshotIdentifier; }
+
+    /**
+     * <p> The user-supplied instance identifier of the DB Snapshot created immediately
+     * before the DB instance is stopped. </p>
+     */
+    inline bool DBSnapshotIdentifierHasBeenSet() const { return m_dBSnapshotIdentifierHasBeenSet; }
 
     /**
      * <p> The user-supplied instance identifier of the DB Snapshot created immediately

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of a room profile.</p>
      */
     inline const Aws::String& GetProfileName() const{ return m_profileName; }
+
+    /**
+     * <p>The name of a room profile.</p>
+     */
+    inline bool ProfileNameHasBeenSet() const { return m_profileNameHasBeenSet; }
 
     /**
      * <p>The name of a room profile.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The time zone used by a room profile.</p>
      */
+    inline bool TimezoneHasBeenSet() const { return m_timezoneHasBeenSet; }
+
+    /**
+     * <p>The time zone used by a room profile.</p>
+     */
     inline void SetTimezone(const Aws::String& value) { m_timezoneHasBeenSet = true; m_timezone = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
      * <p>The valid address for the room.</p>
      */
     inline const Aws::String& GetAddress() const{ return m_address; }
+
+    /**
+     * <p>The valid address for the room.</p>
+     */
+    inline bool AddressHasBeenSet() const { return m_addressHasBeenSet; }
 
     /**
      * <p>The valid address for the room.</p>
@@ -164,6 +179,11 @@ namespace Model
     /**
      * <p>The distance unit to be used by devices in the profile.</p>
      */
+    inline bool DistanceUnitHasBeenSet() const { return m_distanceUnitHasBeenSet; }
+
+    /**
+     * <p>The distance unit to be used by devices in the profile.</p>
+     */
     inline void SetDistanceUnit(const DistanceUnit& value) { m_distanceUnitHasBeenSet = true; m_distanceUnit = value; }
 
     /**
@@ -186,6 +206,11 @@ namespace Model
      * <p>The temperature unit to be used by devices in the profile.</p>
      */
     inline const TemperatureUnit& GetTemperatureUnit() const{ return m_temperatureUnit; }
+
+    /**
+     * <p>The temperature unit to be used by devices in the profile.</p>
+     */
+    inline bool TemperatureUnitHasBeenSet() const { return m_temperatureUnitHasBeenSet; }
 
     /**
      * <p>The temperature unit to be used by devices in the profile.</p>
@@ -216,6 +241,11 @@ namespace Model
     /**
      * <p>A wake word for Alexa, Echo, Amazon, or a computer.</p>
      */
+    inline bool WakeWordHasBeenSet() const { return m_wakeWordHasBeenSet; }
+
+    /**
+     * <p>A wake word for Alexa, Echo, Amazon, or a computer.</p>
+     */
     inline void SetWakeWord(const WakeWord& value) { m_wakeWordHasBeenSet = true; m_wakeWord = value; }
 
     /**
@@ -238,6 +268,11 @@ namespace Model
      * <p>The user-specified token that is used during the creation of a profile.</p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>The user-specified token that is used during the creation of a profile.</p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>The user-specified token that is used during the creation of a profile.</p>
@@ -278,6 +313,11 @@ namespace Model
     /**
      * <p>Whether room profile setup is enabled.</p>
      */
+    inline bool SetupModeDisabledHasBeenSet() const { return m_setupModeDisabledHasBeenSet; }
+
+    /**
+     * <p>Whether room profile setup is enabled.</p>
+     */
     inline void SetSetupModeDisabled(bool value) { m_setupModeDisabledHasBeenSet = true; m_setupModeDisabled = value; }
 
     /**
@@ -294,6 +334,11 @@ namespace Model
     /**
      * <p>The maximum volume limit for a room profile.</p>
      */
+    inline bool MaxVolumeLimitHasBeenSet() const { return m_maxVolumeLimitHasBeenSet; }
+
+    /**
+     * <p>The maximum volume limit for a room profile.</p>
+     */
     inline void SetMaxVolumeLimit(int value) { m_maxVolumeLimitHasBeenSet = true; m_maxVolumeLimit = value; }
 
     /**
@@ -306,6 +351,11 @@ namespace Model
      * <p>Whether PSTN calling is enabled.</p>
      */
     inline bool GetPSTNEnabled() const{ return m_pSTNEnabled; }
+
+    /**
+     * <p>Whether PSTN calling is enabled.</p>
+     */
+    inline bool PSTNEnabledHasBeenSet() const { return m_pSTNEnabledHasBeenSet; }
 
     /**
      * <p>Whether PSTN calling is enabled.</p>

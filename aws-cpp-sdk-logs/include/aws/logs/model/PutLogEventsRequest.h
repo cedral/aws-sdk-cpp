@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutLogEventsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the log group.</p>
      */
     inline const Aws::String& GetLogGroupName() const{ return m_logGroupName; }
+
+    /**
+     * <p>The name of the log group.</p>
+     */
+    inline bool LogGroupNameHasBeenSet() const { return m_logGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the log group.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>The name of the log stream.</p>
      */
+    inline bool LogStreamNameHasBeenSet() const { return m_logStreamNameHasBeenSet; }
+
+    /**
+     * <p>The name of the log stream.</p>
+     */
     inline void SetLogStreamName(const Aws::String& value) { m_logStreamNameHasBeenSet = true; m_logStreamName = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
      * <p>The log events.</p>
      */
     inline const Aws::Vector<InputLogEvent>& GetLogEvents() const{ return m_logEvents; }
+
+    /**
+     * <p>The log events.</p>
+     */
+    inline bool LogEventsHasBeenSet() const { return m_logEventsHasBeenSet; }
 
     /**
      * <p>The log events.</p>
@@ -163,6 +178,16 @@ namespace Model
      * calls may be successful, or one may be rejected.</p>
      */
     inline const Aws::String& GetSequenceToken() const{ return m_sequenceToken; }
+
+    /**
+     * <p>The sequence token obtained from the response of the previous
+     * <code>PutLogEvents</code> call. An upload in a newly created log stream does not
+     * require a sequence token. You can also get the sequence token using
+     * <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a
+     * narrow time period using the same value for <code>sequenceToken</code>, both
+     * calls may be successful, or one may be rejected.</p>
+     */
+    inline bool SequenceTokenHasBeenSet() const { return m_sequenceTokenHasBeenSet; }
 
     /**
      * <p>The sequence token obtained from the response of the previous

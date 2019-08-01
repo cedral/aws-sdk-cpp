@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteSigningCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,15 @@ namespace Model
      * following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the user the signing certificate belongs to.</p> <p>This
+     * parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters consisting of upper and lowercase
+     * alphanumeric characters with no spaces. You can also include any of the
+     * following characters: _+=,.@-</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the user the signing certificate belongs to.</p> <p>This
@@ -117,6 +126,14 @@ namespace Model
      * characters that can be upper- or lower-cased letters or digits.</p>
      */
     inline const Aws::String& GetCertificateId() const{ return m_certificateId; }
+
+    /**
+     * <p>The ID of the signing certificate to delete.</p> <p>The format of this
+     * parameter, as described by its <a
+     * href="http://wikipedia.org/wiki/regex">regex</a> pattern, is a string of
+     * characters that can be upper- or lower-cased letters or digits.</p>
+     */
+    inline bool CertificateIdHasBeenSet() const { return m_certificateIdHasBeenSet; }
 
     /**
      * <p>The ID of the signing certificate to delete.</p> <p>The format of this

@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ListCertificatesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +59,11 @@ namespace Model
     /**
      * <p>The result page size.</p>
      */
+    inline bool PageSizeHasBeenSet() const { return m_pageSizeHasBeenSet; }
+
+    /**
+     * <p>The result page size.</p>
+     */
     inline void SetPageSize(int value) { m_pageSizeHasBeenSet = true; m_pageSize = value; }
 
     /**
@@ -71,6 +76,11 @@ namespace Model
      * <p>The marker for the next set of results.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>The marker for the next set of results.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>The marker for the next set of results.</p>
@@ -108,6 +118,12 @@ namespace Model
      * ascending order, based on the creation date.</p>
      */
     inline bool GetAscendingOrder() const{ return m_ascendingOrder; }
+
+    /**
+     * <p>Specifies the order for results. If True, the results are returned in
+     * ascending order, based on the creation date.</p>
+     */
+    inline bool AscendingOrderHasBeenSet() const { return m_ascendingOrderHasBeenSet; }
 
     /**
      * <p>Specifies the order for results. If True, the results are returned in

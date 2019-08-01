@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateCacheSubnetGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,13 @@ namespace Model
      * characters or hyphens.</p> <p>Example: <code>mysubnetgroup</code> </p>
      */
     inline const Aws::String& GetCacheSubnetGroupName() const{ return m_cacheSubnetGroupName; }
+
+    /**
+     * <p>A name for the cache subnet group. This value is stored as a lowercase
+     * string.</p> <p>Constraints: Must contain no more than 255 alphanumeric
+     * characters or hyphens.</p> <p>Example: <code>mysubnetgroup</code> </p>
+     */
+    inline bool CacheSubnetGroupNameHasBeenSet() const { return m_cacheSubnetGroupNameHasBeenSet; }
 
     /**
      * <p>A name for the cache subnet group. This value is stored as a lowercase
@@ -109,6 +116,11 @@ namespace Model
     /**
      * <p>A description for the cache subnet group.</p>
      */
+    inline bool CacheSubnetGroupDescriptionHasBeenSet() const { return m_cacheSubnetGroupDescriptionHasBeenSet; }
+
+    /**
+     * <p>A description for the cache subnet group.</p>
+     */
     inline void SetCacheSubnetGroupDescription(const Aws::String& value) { m_cacheSubnetGroupDescriptionHasBeenSet = true; m_cacheSubnetGroupDescription = value; }
 
     /**
@@ -141,6 +153,11 @@ namespace Model
      * <p>A list of VPC subnet IDs for the cache subnet group.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSubnetIds() const{ return m_subnetIds; }
+
+    /**
+     * <p>A list of VPC subnet IDs for the cache subnet group.</p>
+     */
+    inline bool SubnetIdsHasBeenSet() const { return m_subnetIdsHasBeenSet; }
 
     /**
      * <p>A list of VPC subnet IDs for the cache subnet group.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The current name of the application you want to change.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The current name of the application you want to change.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The current name of the application you want to change.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The new name to give the application.</p>
      */
     inline const Aws::String& GetNewApplicationName() const{ return m_newApplicationName; }
+
+    /**
+     * <p>The new name to give the application.</p>
+     */
+    inline bool NewApplicationNameHasBeenSet() const { return m_newApplicationNameHasBeenSet; }
 
     /**
      * <p>The new name to give the application.</p>

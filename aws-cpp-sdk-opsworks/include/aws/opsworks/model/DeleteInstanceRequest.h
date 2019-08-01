@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The instance ID.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The instance ID.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The instance ID.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>Whether to delete the instance Elastic IP address.</p>
      */
+    inline bool DeleteElasticIpHasBeenSet() const { return m_deleteElasticIpHasBeenSet; }
+
+    /**
+     * <p>Whether to delete the instance Elastic IP address.</p>
+     */
     inline void SetDeleteElasticIp(bool value) { m_deleteElasticIpHasBeenSet = true; m_deleteElasticIp = value; }
 
     /**
@@ -100,6 +110,11 @@ namespace Model
      * <p>Whether to delete the instance's Amazon EBS volumes.</p>
      */
     inline bool GetDeleteVolumes() const{ return m_deleteVolumes; }
+
+    /**
+     * <p>Whether to delete the instance's Amazon EBS volumes.</p>
+     */
+    inline bool DeleteVolumesHasBeenSet() const { return m_deleteVolumesHasBeenSet; }
 
     /**
      * <p>Whether to delete the instance's Amazon EBS volumes.</p>

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeConfigurationRecordersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>A list of configuration recorder names.</p>
      */
     inline const Aws::Vector<Aws::String>& GetConfigurationRecorderNames() const{ return m_configurationRecorderNames; }
+
+    /**
+     * <p>A list of configuration recorder names.</p>
+     */
+    inline bool ConfigurationRecorderNamesHasBeenSet() const { return m_configurationRecorderNamesHasBeenSet; }
 
     /**
      * <p>A list of configuration recorder names.</p>

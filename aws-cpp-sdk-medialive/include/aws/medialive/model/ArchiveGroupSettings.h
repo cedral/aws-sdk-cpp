@@ -34,7 +34,7 @@ namespace Model
 {
 
   /**
-   * Placeholder documentation for ArchiveGroupSettings<p><h3>See Also:</h3>   <a
+   * Archive Group Settings<p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/ArchiveGroupSettings">AWS
    * API Reference</a></p>
    */
@@ -51,6 +51,11 @@ namespace Model
      * A directory and base filename where archive files should be written.
      */
     inline const OutputLocationRef& GetDestination() const{ return m_destination; }
+
+    /**
+     * A directory and base filename where archive files should be written.
+     */
+    inline bool DestinationHasBeenSet() const { return m_destinationHasBeenSet; }
 
     /**
      * A directory and base filename where archive files should be written.
@@ -78,6 +83,12 @@ namespace Model
      * one.
      */
     inline int GetRolloverInterval() const{ return m_rolloverInterval; }
+
+    /**
+     * Number of seconds to write to archive file before closing and starting a new
+     * one.
+     */
+    inline bool RolloverIntervalHasBeenSet() const { return m_rolloverIntervalHasBeenSet; }
 
     /**
      * Number of seconds to write to archive file before closing and starting a new

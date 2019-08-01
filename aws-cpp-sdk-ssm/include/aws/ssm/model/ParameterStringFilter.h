@@ -36,8 +36,10 @@ namespace Model
 
   /**
    * <p>One or more filters. Use a filter to return a more specific list of
-   * results.</p> <note> <p>The <code>Name</code> field can't be used with the
-   * <a>GetParametersByPath</a> API action.</p> </note><p><h3>See Also:</h3>   <a
+   * results.</p> <note> <p>The <code>Name</code> and <code>Tier</code> filter keys
+   * can't be used with the <a>GetParametersByPath</a> API action. Also, the
+   * <code>Label</code> filter key can't be used with the <a>DescribeParameters</a>
+   * API action.</p> </note><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ParameterStringFilter">AWS
    * API Reference</a></p>
    */
@@ -54,6 +56,11 @@ namespace Model
      * <p>The name of the filter.</p>
      */
     inline const Aws::String& GetKey() const{ return m_key; }
+
+    /**
+     * <p>The name of the filter.</p>
+     */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
 
     /**
      * <p>The name of the filter.</p>
@@ -96,6 +103,12 @@ namespace Model
      * <p>Valid options are Equals and BeginsWith. For Path filter, valid options are
      * Recursive and OneLevel.</p>
      */
+    inline bool OptionHasBeenSet() const { return m_optionHasBeenSet; }
+
+    /**
+     * <p>Valid options are Equals and BeginsWith. For Path filter, valid options are
+     * Recursive and OneLevel.</p>
+     */
     inline void SetOption(const Aws::String& value) { m_optionHasBeenSet = true; m_option = value; }
 
     /**
@@ -133,6 +146,11 @@ namespace Model
      * <p>The value you want to search for.</p>
      */
     inline const Aws::Vector<Aws::String>& GetValues() const{ return m_values; }
+
+    /**
+     * <p>The value you want to search for.</p>
+     */
+    inline bool ValuesHasBeenSet() const { return m_valuesHasBeenSet; }
 
     /**
      * <p>The value you want to search for.</p>

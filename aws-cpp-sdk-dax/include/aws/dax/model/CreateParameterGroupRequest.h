@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * replication group.</p>
      */
     inline const Aws::String& GetParameterGroupName() const{ return m_parameterGroupName; }
+
+    /**
+     * <p>The name of the parameter group to apply to all of the clusters in this
+     * replication group.</p>
+     */
+    inline bool ParameterGroupNameHasBeenSet() const { return m_parameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the parameter group to apply to all of the clusters in this
@@ -91,6 +97,11 @@ namespace Model
      * <p>A description of the parameter group.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description of the parameter group.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description of the parameter group.</p>

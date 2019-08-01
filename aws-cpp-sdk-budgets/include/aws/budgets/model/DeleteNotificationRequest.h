@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteNotificationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * notification you want to delete.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The <code>accountId</code> that is associated with the budget whose
+     * notification you want to delete.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The <code>accountId</code> that is associated with the budget whose
@@ -99,6 +105,11 @@ namespace Model
     /**
      * <p>The name of the budget whose notification you want to delete.</p>
      */
+    inline bool BudgetNameHasBeenSet() const { return m_budgetNameHasBeenSet; }
+
+    /**
+     * <p>The name of the budget whose notification you want to delete.</p>
+     */
     inline void SetBudgetName(const Aws::String& value) { m_budgetNameHasBeenSet = true; m_budgetName = value; }
 
     /**
@@ -131,6 +142,11 @@ namespace Model
      * <p>The notification that you want to delete.</p>
      */
     inline const Notification& GetNotification() const{ return m_notification; }
+
+    /**
+     * <p>The notification that you want to delete.</p>
+     */
+    inline bool NotificationHasBeenSet() const { return m_notificationHasBeenSet; }
 
     /**
      * <p>The notification that you want to delete.</p>

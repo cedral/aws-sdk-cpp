@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateResourceDataSyncRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>A name for the configuration.</p>
      */
     inline const Aws::String& GetSyncName() const{ return m_syncName; }
+
+    /**
+     * <p>A name for the configuration.</p>
+     */
+    inline bool SyncNameHasBeenSet() const { return m_syncNameHasBeenSet; }
 
     /**
      * <p>A name for the configuration.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>Amazon S3 configuration details for the sync.</p>
      */
     inline const ResourceDataSyncS3Destination& GetS3Destination() const{ return m_s3Destination; }
+
+    /**
+     * <p>Amazon S3 configuration details for the sync.</p>
+     */
+    inline bool S3DestinationHasBeenSet() const { return m_s3DestinationHasBeenSet; }
 
     /**
      * <p>Amazon S3 configuration details for the sync.</p>

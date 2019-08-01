@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RebootReplicationInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
      */
     inline const Aws::String& GetReplicationInstanceArn() const{ return m_replicationInstanceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
+     */
+    inline bool ReplicationInstanceArnHasBeenSet() const { return m_replicationInstanceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
@@ -86,6 +91,13 @@ namespace Model
      * can't specify <code>true</code>.)</p>
      */
     inline bool GetForceFailover() const{ return m_forceFailover; }
+
+    /**
+     * <p>If this parameter is <code>true</code>, the reboot is conducted through a
+     * Multi-AZ failover. (If the instance isn't configured for Multi-AZ, then you
+     * can't specify <code>true</code>.)</p>
+     */
+    inline bool ForceFailoverHasBeenSet() const { return m_forceFailoverHasBeenSet; }
 
     /**
      * <p>If this parameter is <code>true</code>, the reboot is conducted through a

@@ -34,7 +34,7 @@ namespace Model
 {
 
   /**
-   * <p>Specifies a DynamoDB table to crawl.</p><p><h3>See Also:</h3>   <a
+   * <p>Specifies an Amazon DynamoDB table to crawl.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DynamoDBTarget">AWS
    * API Reference</a></p>
    */
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the DynamoDB table to crawl.</p>
      */
     inline const Aws::String& GetPath() const{ return m_path; }
+
+    /**
+     * <p>The name of the DynamoDB table to crawl.</p>
+     */
+    inline bool PathHasBeenSet() const { return m_pathHasBeenSet; }
 
     /**
      * <p>The name of the DynamoDB table to crawl.</p>

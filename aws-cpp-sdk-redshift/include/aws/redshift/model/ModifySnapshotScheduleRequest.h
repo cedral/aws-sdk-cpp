@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ModifySnapshotScheduleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>A unique alphanumeric identifier of the schedule to modify.</p>
      */
     inline const Aws::String& GetScheduleIdentifier() const{ return m_scheduleIdentifier; }
+
+    /**
+     * <p>A unique alphanumeric identifier of the schedule to modify.</p>
+     */
+    inline bool ScheduleIdentifierHasBeenSet() const { return m_scheduleIdentifierHasBeenSet; }
 
     /**
      * <p>A unique alphanumeric identifier of the schedule to modify.</p>
@@ -88,6 +93,12 @@ namespace Model
      * schedule expressions, for example, "cron(30 12 *)" or "rate(12 hours)".</p>
      */
     inline const Aws::Vector<Aws::String>& GetScheduleDefinitions() const{ return m_scheduleDefinitions; }
+
+    /**
+     * <p>An updated list of schedule definitions. A schedule definition is made up of
+     * schedule expressions, for example, "cron(30 12 *)" or "rate(12 hours)".</p>
+     */
+    inline bool ScheduleDefinitionsHasBeenSet() const { return m_scheduleDefinitionsHasBeenSet; }
 
     /**
      * <p>An updated list of schedule definitions. A schedule definition is made up of

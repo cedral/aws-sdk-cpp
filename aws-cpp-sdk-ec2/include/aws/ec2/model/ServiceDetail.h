@@ -19,6 +19,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/ec2/model/ServiceTypeDetail.h>
+#include <aws/ec2/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -59,6 +60,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the service.</p>
      */
+    inline bool ServiceNameHasBeenSet() const { return m_serviceNameHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the service.</p>
+     */
     inline void SetServiceName(const Aws::String& value) { m_serviceNameHasBeenSet = true; m_serviceName = value; }
 
     /**
@@ -88,9 +94,55 @@ namespace Model
 
 
     /**
+     * <p>The ID of the endpoint service.</p>
+     */
+    inline const Aws::String& GetServiceId() const{ return m_serviceId; }
+
+    /**
+     * <p>The ID of the endpoint service.</p>
+     */
+    inline bool ServiceIdHasBeenSet() const { return m_serviceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the endpoint service.</p>
+     */
+    inline void SetServiceId(const Aws::String& value) { m_serviceIdHasBeenSet = true; m_serviceId = value; }
+
+    /**
+     * <p>The ID of the endpoint service.</p>
+     */
+    inline void SetServiceId(Aws::String&& value) { m_serviceIdHasBeenSet = true; m_serviceId = std::move(value); }
+
+    /**
+     * <p>The ID of the endpoint service.</p>
+     */
+    inline void SetServiceId(const char* value) { m_serviceIdHasBeenSet = true; m_serviceId.assign(value); }
+
+    /**
+     * <p>The ID of the endpoint service.</p>
+     */
+    inline ServiceDetail& WithServiceId(const Aws::String& value) { SetServiceId(value); return *this;}
+
+    /**
+     * <p>The ID of the endpoint service.</p>
+     */
+    inline ServiceDetail& WithServiceId(Aws::String&& value) { SetServiceId(std::move(value)); return *this;}
+
+    /**
+     * <p>The ID of the endpoint service.</p>
+     */
+    inline ServiceDetail& WithServiceId(const char* value) { SetServiceId(value); return *this;}
+
+
+    /**
      * <p>The type of service.</p>
      */
     inline const Aws::Vector<ServiceTypeDetail>& GetServiceType() const{ return m_serviceType; }
+
+    /**
+     * <p>The type of service.</p>
+     */
+    inline bool ServiceTypeHasBeenSet() const { return m_serviceTypeHasBeenSet; }
 
     /**
      * <p>The type of service.</p>
@@ -127,6 +179,11 @@ namespace Model
      * <p>The Availability Zones in which the service is available.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAvailabilityZones() const{ return m_availabilityZones; }
+
+    /**
+     * <p>The Availability Zones in which the service is available.</p>
+     */
+    inline bool AvailabilityZonesHasBeenSet() const { return m_availabilityZonesHasBeenSet; }
 
     /**
      * <p>The Availability Zones in which the service is available.</p>
@@ -172,6 +229,11 @@ namespace Model
     /**
      * <p>The AWS account ID of the service owner.</p>
      */
+    inline bool OwnerHasBeenSet() const { return m_ownerHasBeenSet; }
+
+    /**
+     * <p>The AWS account ID of the service owner.</p>
+     */
     inline void SetOwner(const Aws::String& value) { m_ownerHasBeenSet = true; m_owner = value; }
 
     /**
@@ -204,6 +266,11 @@ namespace Model
      * <p>The DNS names for the service.</p>
      */
     inline const Aws::Vector<Aws::String>& GetBaseEndpointDnsNames() const{ return m_baseEndpointDnsNames; }
+
+    /**
+     * <p>The DNS names for the service.</p>
+     */
+    inline bool BaseEndpointDnsNamesHasBeenSet() const { return m_baseEndpointDnsNamesHasBeenSet; }
 
     /**
      * <p>The DNS names for the service.</p>
@@ -249,6 +316,11 @@ namespace Model
     /**
      * <p>The private DNS name for the service.</p>
      */
+    inline bool PrivateDnsNameHasBeenSet() const { return m_privateDnsNameHasBeenSet; }
+
+    /**
+     * <p>The private DNS name for the service.</p>
+     */
     inline void SetPrivateDnsName(const Aws::String& value) { m_privateDnsNameHasBeenSet = true; m_privateDnsName = value; }
 
     /**
@@ -285,6 +357,11 @@ namespace Model
     /**
      * <p>Indicates whether the service supports endpoint policies.</p>
      */
+    inline bool VpcEndpointPolicySupportedHasBeenSet() const { return m_vpcEndpointPolicySupportedHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the service supports endpoint policies.</p>
+     */
     inline void SetVpcEndpointPolicySupported(bool value) { m_vpcEndpointPolicySupportedHasBeenSet = true; m_vpcEndpointPolicySupported = value; }
 
     /**
@@ -303,6 +380,12 @@ namespace Model
      * <p>Indicates whether VPC endpoint connection requests to the service must be
      * accepted by the service owner.</p>
      */
+    inline bool AcceptanceRequiredHasBeenSet() const { return m_acceptanceRequiredHasBeenSet; }
+
+    /**
+     * <p>Indicates whether VPC endpoint connection requests to the service must be
+     * accepted by the service owner.</p>
+     */
     inline void SetAcceptanceRequired(bool value) { m_acceptanceRequiredHasBeenSet = true; m_acceptanceRequired = value; }
 
     /**
@@ -311,10 +394,79 @@ namespace Model
      */
     inline ServiceDetail& WithAcceptanceRequired(bool value) { SetAcceptanceRequired(value); return *this;}
 
+
+    /**
+     * <p>Indicates whether the service manages it's VPC endpoints. Management of the
+     * service VPC endpoints using the VPC endpoint API is restricted.</p>
+     */
+    inline bool GetManagesVpcEndpoints() const{ return m_managesVpcEndpoints; }
+
+    /**
+     * <p>Indicates whether the service manages it's VPC endpoints. Management of the
+     * service VPC endpoints using the VPC endpoint API is restricted.</p>
+     */
+    inline bool ManagesVpcEndpointsHasBeenSet() const { return m_managesVpcEndpointsHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the service manages it's VPC endpoints. Management of the
+     * service VPC endpoints using the VPC endpoint API is restricted.</p>
+     */
+    inline void SetManagesVpcEndpoints(bool value) { m_managesVpcEndpointsHasBeenSet = true; m_managesVpcEndpoints = value; }
+
+    /**
+     * <p>Indicates whether the service manages it's VPC endpoints. Management of the
+     * service VPC endpoints using the VPC endpoint API is restricted.</p>
+     */
+    inline ServiceDetail& WithManagesVpcEndpoints(bool value) { SetManagesVpcEndpoints(value); return *this;}
+
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline ServiceDetail& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline ServiceDetail& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline ServiceDetail& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Any tags assigned to the service.</p>
+     */
+    inline ServiceDetail& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_serviceName;
     bool m_serviceNameHasBeenSet;
+
+    Aws::String m_serviceId;
+    bool m_serviceIdHasBeenSet;
 
     Aws::Vector<ServiceTypeDetail> m_serviceType;
     bool m_serviceTypeHasBeenSet;
@@ -336,6 +488,12 @@ namespace Model
 
     bool m_acceptanceRequired;
     bool m_acceptanceRequiredHasBeenSet;
+
+    bool m_managesVpcEndpoints;
+    bool m_managesVpcEndpointsHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

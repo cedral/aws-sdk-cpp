@@ -50,197 +50,41 @@ namespace Model
 
     /**
      * <p>The full Amazon Resource Name (ARN) for the resource.</p>
-         <note>
-   
-     * <p>After you create a virtual node, set this value (either the full ARN or the
- 
-     * truncated resource name, for example,
-     * <code>mesh/default/virtualNode/simpleapp</code>,
-            as the
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task
-     * group's
-            Envoy proxy container in your task definition or pod spec.
-     * This is then mapped to the
-               <code>node.id</code> and
-     * <code>node.cluster</code> Envoy parameters.</p>
-            <p>If you require
-     * your Envoy stats or tracing to use a different name, you can override
-          
-     * the <code>node.cluster</code> value that is set by
-              
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> with the
-              
-     * <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>
-        
-     * </note>
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
 
     /**
      * <p>The full Amazon Resource Name (ARN) for the resource.</p>
-         <note>
-   
-     * <p>After you create a virtual node, set this value (either the full ARN or the
- 
-     * truncated resource name, for example,
-     * <code>mesh/default/virtualNode/simpleapp</code>,
-            as the
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task
-     * group's
-            Envoy proxy container in your task definition or pod spec.
-     * This is then mapped to the
-               <code>node.id</code> and
-     * <code>node.cluster</code> Envoy parameters.</p>
-            <p>If you require
-     * your Envoy stats or tracing to use a different name, you can override
-          
-     * the <code>node.cluster</code> value that is set by
-              
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> with the
-              
-     * <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>
-        
-     * </note>
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * <p>The full Amazon Resource Name (ARN) for the resource.</p>
      */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
      * <p>The full Amazon Resource Name (ARN) for the resource.</p>
-         <note>
-   
-     * <p>After you create a virtual node, set this value (either the full ARN or the
- 
-     * truncated resource name, for example,
-     * <code>mesh/default/virtualNode/simpleapp</code>,
-            as the
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task
-     * group's
-            Envoy proxy container in your task definition or pod spec.
-     * This is then mapped to the
-               <code>node.id</code> and
-     * <code>node.cluster</code> Envoy parameters.</p>
-            <p>If you require
-     * your Envoy stats or tracing to use a different name, you can override
-          
-     * the <code>node.cluster</code> value that is set by
-              
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> with the
-              
-     * <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>
-        
-     * </note>
      */
     inline void SetArn(Aws::String&& value) { m_arnHasBeenSet = true; m_arn = std::move(value); }
 
     /**
      * <p>The full Amazon Resource Name (ARN) for the resource.</p>
-         <note>
-   
-     * <p>After you create a virtual node, set this value (either the full ARN or the
- 
-     * truncated resource name, for example,
-     * <code>mesh/default/virtualNode/simpleapp</code>,
-            as the
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task
-     * group's
-            Envoy proxy container in your task definition or pod spec.
-     * This is then mapped to the
-               <code>node.id</code> and
-     * <code>node.cluster</code> Envoy parameters.</p>
-            <p>If you require
-     * your Envoy stats or tracing to use a different name, you can override
-          
-     * the <code>node.cluster</code> value that is set by
-              
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> with the
-              
-     * <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>
-        
-     * </note>
      */
     inline void SetArn(const char* value) { m_arnHasBeenSet = true; m_arn.assign(value); }
 
     /**
      * <p>The full Amazon Resource Name (ARN) for the resource.</p>
-         <note>
-   
-     * <p>After you create a virtual node, set this value (either the full ARN or the
- 
-     * truncated resource name, for example,
-     * <code>mesh/default/virtualNode/simpleapp</code>,
-            as the
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task
-     * group's
-            Envoy proxy container in your task definition or pod spec.
-     * This is then mapped to the
-               <code>node.id</code> and
-     * <code>node.cluster</code> Envoy parameters.</p>
-            <p>If you require
-     * your Envoy stats or tracing to use a different name, you can override
-          
-     * the <code>node.cluster</code> value that is set by
-              
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> with the
-              
-     * <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>
-        
-     * </note>
      */
     inline ResourceMetadata& WithArn(const Aws::String& value) { SetArn(value); return *this;}
 
     /**
      * <p>The full Amazon Resource Name (ARN) for the resource.</p>
-         <note>
-   
-     * <p>After you create a virtual node, set this value (either the full ARN or the
- 
-     * truncated resource name, for example,
-     * <code>mesh/default/virtualNode/simpleapp</code>,
-            as the
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task
-     * group's
-            Envoy proxy container in your task definition or pod spec.
-     * This is then mapped to the
-               <code>node.id</code> and
-     * <code>node.cluster</code> Envoy parameters.</p>
-            <p>If you require
-     * your Envoy stats or tracing to use a different name, you can override
-          
-     * the <code>node.cluster</code> value that is set by
-              
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> with the
-              
-     * <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>
-        
-     * </note>
      */
     inline ResourceMetadata& WithArn(Aws::String&& value) { SetArn(std::move(value)); return *this;}
 
     /**
      * <p>The full Amazon Resource Name (ARN) for the resource.</p>
-         <note>
-   
-     * <p>After you create a virtual node, set this value (either the full ARN or the
- 
-     * truncated resource name, for example,
-     * <code>mesh/default/virtualNode/simpleapp</code>,
-            as the
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> environment variable for your task
-     * group's
-            Envoy proxy container in your task definition or pod spec.
-     * This is then mapped to the
-               <code>node.id</code> and
-     * <code>node.cluster</code> Envoy parameters.</p>
-            <p>If you require
-     * your Envoy stats or tracing to use a different name, you can override
-          
-     * the <code>node.cluster</code> value that is set by
-              
-     * <code>APPMESH_VIRTUAL_NODE_NAME</code> with the
-              
-     * <code>APPMESH_VIRTUAL_NODE_CLUSTER</code> environment variable.</p>
-        
-     * </note>
      */
     inline ResourceMetadata& WithArn(const char* value) { SetArn(value); return *this;}
 
@@ -249,6 +93,11 @@ namespace Model
      * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
      */
     inline const Aws::Utils::DateTime& GetCreatedAt() const{ return m_createdAt; }
+
+    /**
+     * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+     */
+    inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
 
     /**
      * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
@@ -281,6 +130,12 @@ namespace Model
      * <p>The Unix epoch timestamp in seconds for when the resource was last
      * updated.</p>
      */
+    inline bool LastUpdatedAtHasBeenSet() const { return m_lastUpdatedAtHasBeenSet; }
+
+    /**
+     * <p>The Unix epoch timestamp in seconds for when the resource was last
+     * updated.</p>
+     */
     inline void SetLastUpdatedAt(const Aws::Utils::DateTime& value) { m_lastUpdatedAtHasBeenSet = true; m_lastUpdatedAt = value; }
 
     /**
@@ -306,6 +161,11 @@ namespace Model
      * <p>The unique identifier for the resource.</p>
      */
     inline const Aws::String& GetUid() const{ return m_uid; }
+
+    /**
+     * <p>The unique identifier for the resource.</p>
+     */
+    inline bool UidHasBeenSet() const { return m_uidHasBeenSet; }
 
     /**
      * <p>The unique identifier for the resource.</p>
@@ -344,6 +204,13 @@ namespace Model
          incremented each time that they're updated.</p>
      */
     inline long long GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The version of the resource. Resources are created at version 1, and this
+     * version is
+         incremented each time that they're updated.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The version of the resource. Resources are created at version 1, and this

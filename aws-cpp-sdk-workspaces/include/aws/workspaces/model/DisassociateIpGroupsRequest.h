@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DisassociateIpGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The identifier of the directory.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The identifier of the directory.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The identifier of the directory.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The identifiers of one or more IP access control groups.</p>
      */
     inline const Aws::Vector<Aws::String>& GetGroupIds() const{ return m_groupIds; }
+
+    /**
+     * <p>The identifiers of one or more IP access control groups.</p>
+     */
+    inline bool GroupIdsHasBeenSet() const { return m_groupIdsHasBeenSet; }
 
     /**
      * <p>The identifiers of one or more IP access control groups.</p>

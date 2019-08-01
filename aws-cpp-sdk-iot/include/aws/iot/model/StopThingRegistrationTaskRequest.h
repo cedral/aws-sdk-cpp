@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StopThingRegistrationTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The bulk thing provisioning task ID.</p>
      */
     inline const Aws::String& GetTaskId() const{ return m_taskId; }
+
+    /**
+     * <p>The bulk thing provisioning task ID.</p>
+     */
+    inline bool TaskIdHasBeenSet() const { return m_taskIdHasBeenSet; }
 
     /**
      * <p>The bulk thing provisioning task ID.</p>

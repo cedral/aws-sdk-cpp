@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagResourcesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,16 @@ namespace Model
      * Reference</i>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetResourceARNList() const{ return m_resourceARNList; }
+
+    /**
+     * <p>A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource.
+     * You can specify a minimum of 1 and a maximum of 20 ARNs (resources) to tag. An
+     * ARN can be set to a maximum of 1600 characters. For more information, see <a
+     * href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+     * Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General
+     * Reference</i>.</p>
+     */
+    inline bool ResourceARNListHasBeenSet() const { return m_resourceARNListHasBeenSet; }
 
     /**
      * <p>A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource.
@@ -132,6 +142,12 @@ namespace Model
      * key and a value that you define.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags that you want to add to the specified resources. A tag consists of a
+     * key and a value that you define.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags that you want to add to the specified resources. A tag consists of a

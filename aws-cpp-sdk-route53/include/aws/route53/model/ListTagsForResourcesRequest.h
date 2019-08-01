@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ListTagsForResourcesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * hosted zones is <code>hostedzone</code>.</p> </li> </ul>
      */
     inline const TagResourceType& GetResourceType() const{ return m_resourceType; }
+
+    /**
+     * <p>The type of the resources.</p> <ul> <li> <p>The resource type for health
+     * checks is <code>healthcheck</code>.</p> </li> <li> <p>The resource type for
+     * hosted zones is <code>hostedzone</code>.</p> </li> </ul>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
 
     /**
      * <p>The type of the resources.</p> <ul> <li> <p>The resource type for health
@@ -89,6 +96,12 @@ namespace Model
      * which you want to get a list of tags.</p>
      */
     inline const Aws::Vector<Aws::String>& GetResourceIds() const{ return m_resourceIds; }
+
+    /**
+     * <p>A complex type that contains the ResourceId element for each resource for
+     * which you want to get a list of tags.</p>
+     */
+    inline bool ResourceIdsHasBeenSet() const { return m_resourceIdsHasBeenSet; }
 
     /**
      * <p>A complex type that contains the ResourceId element for each resource for

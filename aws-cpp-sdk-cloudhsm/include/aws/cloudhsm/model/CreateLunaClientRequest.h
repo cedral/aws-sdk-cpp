@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateLunaClientRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The label for the client.</p>
      */
     inline const Aws::String& GetLabel() const{ return m_label; }
+
+    /**
+     * <p>The label for the client.</p>
+     */
+    inline bool LabelHasBeenSet() const { return m_labelHasBeenSet; }
 
     /**
      * <p>The label for the client.</p>
@@ -89,6 +94,12 @@ namespace Model
      * HSMs used by this client.</p>
      */
     inline const Aws::String& GetCertificate() const{ return m_certificate; }
+
+    /**
+     * <p>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the
+     * HSMs used by this client.</p>
+     */
+    inline bool CertificateHasBeenSet() const { return m_certificateHasBeenSet; }
 
     /**
      * <p>The contents of a Base64-Encoded X.509 v3 certificate to be installed on the

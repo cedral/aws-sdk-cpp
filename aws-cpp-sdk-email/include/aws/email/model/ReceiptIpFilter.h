@@ -38,7 +38,7 @@ namespace Model
    * <p>A receipt IP address filter enables you to specify whether to accept or
    * reject mail originating from an IP address or range of IP addresses.</p> <p>For
    * information about setting up IP address filters, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ReceiptIpFilter">AWS
    * API Reference</a></p>
@@ -59,6 +59,12 @@ namespace Model
      * addresses.</p>
      */
     inline const ReceiptFilterPolicy& GetPolicy() const{ return m_policy; }
+
+    /**
+     * <p>Indicates whether to block or allow incoming mail from the specified IP
+     * addresses.</p>
+     */
+    inline bool PolicyHasBeenSet() const { return m_policyHasBeenSet; }
 
     /**
      * <p>Indicates whether to block or allow incoming mail from the specified IP
@@ -93,6 +99,15 @@ namespace Model
      * href="https://tools.ietf.org/html/rfc2317">RFC 2317</a>.</p>
      */
     inline const Aws::String& GetCidr() const{ return m_cidr; }
+
+    /**
+     * <p>A single IP address or a range of IP addresses that you want to block or
+     * allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example
+     * of a single email address is 10.0.0.1. An example of a range of IP addresses is
+     * 10.0.0.1/24. For more information about CIDR notation, see <a
+     * href="https://tools.ietf.org/html/rfc2317">RFC 2317</a>.</p>
+     */
+    inline bool CidrHasBeenSet() const { return m_cidrHasBeenSet; }
 
     /**
      * <p>A single IP address or a range of IP addresses that you want to block or

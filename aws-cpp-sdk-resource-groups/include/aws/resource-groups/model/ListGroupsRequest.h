@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ListGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,15 @@ namespace Model
      * AWS::S3::Bucket.</p> </li> </ul>
      */
     inline const Aws::Vector<GroupFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>Filters, formatted as GroupFilter objects, that you want to apply to a
+     * ListGroups operation.</p> <ul> <li> <p> <code>resource-type</code> - Filter
+     * groups by resource type. Specify up to five resource types in the format
+     * AWS::ServiceCode::ResourceType. For example, AWS::EC2::Instance, or
+     * AWS::S3::Bucket.</p> </li> </ul>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>Filters, formatted as GroupFilter objects, that you want to apply to a
@@ -124,6 +133,12 @@ namespace Model
      * <p>The maximum number of resource group results that are returned by ListGroups
      * in paginated output. By default, this number is 50.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of resource group results that are returned by ListGroups
+     * in paginated output. By default, this number is 50.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -139,6 +154,13 @@ namespace Model
      * parameter, and specify the NextToken value.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The NextToken value that is returned in a paginated <code>ListGroups</code>
+     * request. To get the next page of results, run the call again, add the NextToken
+     * parameter, and specify the NextToken value.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The NextToken value that is returned in a paginated <code>ListGroups</code>

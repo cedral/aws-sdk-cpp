@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDownloadUrlForLayerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * assumed.</p>
      */
     inline const Aws::String& GetRegistryId() const{ return m_registryId; }
+
+    /**
+     * <p>The AWS account ID associated with the registry that contains the image layer
+     * to download. If you do not specify a registry, the default registry is
+     * assumed.</p>
+     */
+    inline bool RegistryIdHasBeenSet() const { return m_registryIdHasBeenSet; }
 
     /**
      * <p>The AWS account ID associated with the registry that contains the image layer
@@ -104,6 +111,12 @@ namespace Model
      * <p>The name of the repository that is associated with the image layer to
      * download.</p>
      */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
+
+    /**
+     * <p>The name of the repository that is associated with the image layer to
+     * download.</p>
+     */
     inline void SetRepositoryName(const Aws::String& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = value; }
 
     /**
@@ -141,6 +154,11 @@ namespace Model
      * <p>The digest of the image layer to download.</p>
      */
     inline const Aws::String& GetLayerDigest() const{ return m_layerDigest; }
+
+    /**
+     * <p>The digest of the image layer to download.</p>
+     */
+    inline bool LayerDigestHasBeenSet() const { return m_layerDigestHasBeenSet; }
 
     /**
      * <p>The digest of the image layer to download.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateLagRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the LAG.</p>
      */
     inline const Aws::String& GetLagId() const{ return m_lagId; }
+
+    /**
+     * <p>The ID of the LAG.</p>
+     */
+    inline bool LagIdHasBeenSet() const { return m_lagIdHasBeenSet; }
 
     /**
      * <p>The ID of the LAG.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The name of the LAG.</p>
      */
+    inline bool LagNameHasBeenSet() const { return m_lagNameHasBeenSet; }
+
+    /**
+     * <p>The name of the LAG.</p>
+     */
     inline void SetLagName(const Aws::String& value) { m_lagNameHasBeenSet = true; m_lagName = value; }
 
     /**
@@ -121,6 +131,12 @@ namespace Model
      * LAG itself to be operational.</p>
      */
     inline int GetMinimumLinks() const{ return m_minimumLinks; }
+
+    /**
+     * <p>The minimum number of physical connections that must be operational for the
+     * LAG itself to be operational.</p>
+     */
+    inline bool MinimumLinksHasBeenSet() const { return m_minimumLinksHasBeenSet; }
 
     /**
      * <p>The minimum number of physical connections that must be operational for the

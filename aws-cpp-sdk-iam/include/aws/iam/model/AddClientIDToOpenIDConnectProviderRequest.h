@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AddClientIDToOpenIDConnectProviderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * using the <a>ListOpenIDConnectProviders</a> operation.</p>
      */
     inline const Aws::String& GetOpenIDConnectProviderArn() const{ return m_openIDConnectProviderArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
+     * resource to add the client ID to. You can get a list of OIDC provider ARNs by
+     * using the <a>ListOpenIDConnectProviders</a> operation.</p>
+     */
+    inline bool OpenIDConnectProviderArnHasBeenSet() const { return m_openIDConnectProviderArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
@@ -101,6 +108,12 @@ namespace Model
      * provider resource.</p>
      */
     inline const Aws::String& GetClientID() const{ return m_clientID; }
+
+    /**
+     * <p>The client ID (also known as audience) to add to the IAM OpenID Connect
+     * provider resource.</p>
+     */
+    inline bool ClientIDHasBeenSet() const { return m_clientIDHasBeenSet; }
 
     /**
      * <p>The client ID (also known as audience) to add to the IAM OpenID Connect

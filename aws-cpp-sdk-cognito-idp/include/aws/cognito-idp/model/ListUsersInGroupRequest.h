@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListUsersInGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The user pool ID for the user pool.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The name of the group.</p>
      */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
+
+    /**
+     * <p>The name of the group.</p>
+     */
     inline void SetGroupName(const Aws::String& value) { m_groupNameHasBeenSet = true; m_groupName = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
     /**
      * <p>The limit of the request to list users.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The limit of the request to list users.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -137,6 +152,12 @@ namespace Model
      * which can be used to return the next set of items in the list.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>An identifier that was returned from the previous call to this operation,
+     * which can be used to return the next set of items in the list.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>An identifier that was returned from the previous call to this operation,

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeMaintenanceWindowExecutionTasksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,43 +47,49 @@ namespace Model
 
 
     /**
-     * <p>The ID of the Maintenance Window execution whose task executions should be
+     * <p>The ID of the maintenance window execution whose task executions should be
      * retrieved.</p>
      */
     inline const Aws::String& GetWindowExecutionId() const{ return m_windowExecutionId; }
 
     /**
-     * <p>The ID of the Maintenance Window execution whose task executions should be
+     * <p>The ID of the maintenance window execution whose task executions should be
+     * retrieved.</p>
+     */
+    inline bool WindowExecutionIdHasBeenSet() const { return m_windowExecutionIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the maintenance window execution whose task executions should be
      * retrieved.</p>
      */
     inline void SetWindowExecutionId(const Aws::String& value) { m_windowExecutionIdHasBeenSet = true; m_windowExecutionId = value; }
 
     /**
-     * <p>The ID of the Maintenance Window execution whose task executions should be
+     * <p>The ID of the maintenance window execution whose task executions should be
      * retrieved.</p>
      */
     inline void SetWindowExecutionId(Aws::String&& value) { m_windowExecutionIdHasBeenSet = true; m_windowExecutionId = std::move(value); }
 
     /**
-     * <p>The ID of the Maintenance Window execution whose task executions should be
+     * <p>The ID of the maintenance window execution whose task executions should be
      * retrieved.</p>
      */
     inline void SetWindowExecutionId(const char* value) { m_windowExecutionIdHasBeenSet = true; m_windowExecutionId.assign(value); }
 
     /**
-     * <p>The ID of the Maintenance Window execution whose task executions should be
+     * <p>The ID of the maintenance window execution whose task executions should be
      * retrieved.</p>
      */
     inline DescribeMaintenanceWindowExecutionTasksRequest& WithWindowExecutionId(const Aws::String& value) { SetWindowExecutionId(value); return *this;}
 
     /**
-     * <p>The ID of the Maintenance Window execution whose task executions should be
+     * <p>The ID of the maintenance window execution whose task executions should be
      * retrieved.</p>
      */
     inline DescribeMaintenanceWindowExecutionTasksRequest& WithWindowExecutionId(Aws::String&& value) { SetWindowExecutionId(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the Maintenance Window execution whose task executions should be
+     * <p>The ID of the maintenance window execution whose task executions should be
      * retrieved.</p>
      */
     inline DescribeMaintenanceWindowExecutionTasksRequest& WithWindowExecutionId(const char* value) { SetWindowExecutionId(value); return *this;}
@@ -95,6 +101,13 @@ namespace Model
      * FAILED, TIMED_OUT, CANCELLING, and CANCELLED. </p>
      */
     inline const Aws::Vector<MaintenanceWindowFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>Optional filters used to scope down the returned tasks. The supported filter
+     * key is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS,
+     * FAILED, TIMED_OUT, CANCELLING, and CANCELLED. </p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>Optional filters used to scope down the returned tasks. The supported filter
@@ -151,6 +164,13 @@ namespace Model
      * token that you can specify in a subsequent call to get the next set of
      * results.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of items to return for this call. The call also returns a
+     * token that you can specify in a subsequent call to get the next set of
+     * results.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -166,6 +186,12 @@ namespace Model
      * a previous call.)</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next set of items to return. (You received this token from

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutLifecyclePolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * to.</p>
      */
     inline const Aws::String& GetContainerName() const{ return m_containerName; }
+
+    /**
+     * <p>The name of the container that you want to assign the object lifecycle policy
+     * to.</p>
+     */
+    inline bool ContainerNameHasBeenSet() const { return m_containerNameHasBeenSet; }
 
     /**
      * <p>The name of the container that you want to assign the object lifecycle policy
@@ -91,6 +97,11 @@ namespace Model
      * <p>The object lifecycle policy to apply to the container.</p>
      */
     inline const Aws::String& GetLifecyclePolicy() const{ return m_lifecyclePolicy; }
+
+    /**
+     * <p>The object lifecycle policy to apply to the container.</p>
+     */
+    inline bool LifecyclePolicyHasBeenSet() const { return m_lifecyclePolicyHasBeenSet; }
 
     /**
      * <p>The object lifecycle policy to apply to the container.</p>

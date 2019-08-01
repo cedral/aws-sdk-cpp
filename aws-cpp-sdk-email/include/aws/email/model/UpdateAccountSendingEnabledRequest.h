@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateAccountSendingEnabledRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * account in the current AWS Region.</p>
      */
     inline bool GetEnabled() const{ return m_enabled; }
+
+    /**
+     * <p>Describes whether email sending is enabled or disabled for your Amazon SES
+     * account in the current AWS Region.</p>
+     */
+    inline bool EnabledHasBeenSet() const { return m_enabledHasBeenSet; }
 
     /**
      * <p>Describes whether email sending is enabled or disabled for your Amazon SES

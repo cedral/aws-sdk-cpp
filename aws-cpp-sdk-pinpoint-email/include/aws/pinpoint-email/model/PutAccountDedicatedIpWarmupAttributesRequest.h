@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutAccountDedicatedIpWarmupAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -42,8 +42,6 @@ namespace Model
     inline virtual const char* GetServiceRequestName() const override { return "PutAccountDedicatedIpWarmupAttributes"; }
 
     Aws::String SerializePayload() const override;
-
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
 
 
     /**
@@ -53,6 +51,14 @@ namespace Model
      * <code>false</code> to disable it.</p>
      */
     inline bool GetAutoWarmupEnabled() const{ return m_autoWarmupEnabled; }
+
+    /**
+     * <p>Enables or disables the automatic warm-up feature for dedicated IP addresses
+     * that are associated with your Amazon Pinpoint account in the current AWS Region.
+     * Set to <code>true</code> to enable the automatic warm-up feature, or set to
+     * <code>false</code> to disable it.</p>
+     */
+    inline bool AutoWarmupEnabledHasBeenSet() const { return m_autoWarmupEnabledHasBeenSet; }
 
     /**
      * <p>Enables or disables the automatic warm-up feature for dedicated IP addresses

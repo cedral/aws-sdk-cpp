@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateSimulationApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the simulation application.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the simulation application.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the simulation application.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The sources of the simulation application.</p>
      */
+    inline bool SourcesHasBeenSet() const { return m_sourcesHasBeenSet; }
+
+    /**
+     * <p>The sources of the simulation application.</p>
+     */
     inline void SetSources(const Aws::Vector<SourceConfig>& value) { m_sourcesHasBeenSet = true; m_sources = value; }
 
     /**
@@ -128,6 +138,11 @@ namespace Model
     /**
      * <p>The simulation software suite used by the simulation application.</p>
      */
+    inline bool SimulationSoftwareSuiteHasBeenSet() const { return m_simulationSoftwareSuiteHasBeenSet; }
+
+    /**
+     * <p>The simulation software suite used by the simulation application.</p>
+     */
     inline void SetSimulationSoftwareSuite(const SimulationSoftwareSuite& value) { m_simulationSoftwareSuiteHasBeenSet = true; m_simulationSoftwareSuite = value; }
 
     /**
@@ -150,6 +165,11 @@ namespace Model
      * <p>The robot software suite of the simulation application.</p>
      */
     inline const RobotSoftwareSuite& GetRobotSoftwareSuite() const{ return m_robotSoftwareSuite; }
+
+    /**
+     * <p>The robot software suite of the simulation application.</p>
+     */
+    inline bool RobotSoftwareSuiteHasBeenSet() const { return m_robotSoftwareSuiteHasBeenSet; }
 
     /**
      * <p>The robot software suite of the simulation application.</p>
@@ -180,6 +200,11 @@ namespace Model
     /**
      * <p>The rendering engine for the simulation application.</p>
      */
+    inline bool RenderingEngineHasBeenSet() const { return m_renderingEngineHasBeenSet; }
+
+    /**
+     * <p>The rendering engine for the simulation application.</p>
+     */
     inline void SetRenderingEngine(const RenderingEngine& value) { m_renderingEngineHasBeenSet = true; m_renderingEngine = value; }
 
     /**
@@ -203,6 +228,12 @@ namespace Model
      * simulation application.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A map that contains tag keys and tag values that are attached to the
+     * simulation application.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A map that contains tag keys and tag values that are attached to the

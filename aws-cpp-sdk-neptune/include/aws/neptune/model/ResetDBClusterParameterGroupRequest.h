@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ResetDBClusterParameterGroupMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API ResetDBClusterParameterGroupRequest : public NeptuneRequest
   {
   public:
     ResetDBClusterParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +52,11 @@ namespace Model
      * <p>The name of the DB cluster parameter group to reset.</p>
      */
     inline const Aws::String& GetDBClusterParameterGroupName() const{ return m_dBClusterParameterGroupName; }
+
+    /**
+     * <p>The name of the DB cluster parameter group to reset.</p>
+     */
+    inline bool DBClusterParameterGroupNameHasBeenSet() const { return m_dBClusterParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB cluster parameter group to reset.</p>
@@ -101,6 +103,14 @@ namespace Model
      * otherwise. You can't use this parameter if there is a list of parameter names
      * specified for the <code>Parameters</code> parameter.</p>
      */
+    inline bool ResetAllParametersHasBeenSet() const { return m_resetAllParametersHasBeenSet; }
+
+    /**
+     * <p>A value that is set to <code>true</code> to reset all parameters in the DB
+     * cluster parameter group to their default values, and <code>false</code>
+     * otherwise. You can't use this parameter if there is a list of parameter names
+     * specified for the <code>Parameters</code> parameter.</p>
+     */
     inline void SetResetAllParameters(bool value) { m_resetAllParametersHasBeenSet = true; m_resetAllParameters = value; }
 
     /**
@@ -118,6 +128,13 @@ namespace Model
      * <code>ResetAllParameters</code> parameter is set to <code>true</code>.</p>
      */
     inline const Aws::Vector<Parameter>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>A list of parameter names in the DB cluster parameter group to reset to the
+     * default values. You can't use this parameter if the
+     * <code>ResetAllParameters</code> parameter is set to <code>true</code>.</p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>A list of parameter names in the DB cluster parameter group to reset to the

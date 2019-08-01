@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     GetResourcesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,13 @@ namespace Model
      * credentials.</p>
      */
     inline const Aws::String& GetAuthenticationToken() const{ return m_authenticationToken; }
+
+    /**
+     * <p>The Amazon WorkDocs authentication token. Do not set this field when using
+     * administrative API actions, as in accessing the API operation using AWS
+     * credentials.</p>
+     */
+    inline bool AuthenticationTokenHasBeenSet() const { return m_authenticationTokenHasBeenSet; }
 
     /**
      * <p>The Amazon WorkDocs authentication token. Do not set this field when using
@@ -111,6 +118,12 @@ namespace Model
      * <p>The user ID for the resource collection. This is a required field for
      * accessing the API operation using IAM credentials.</p>
      */
+    inline bool UserIdHasBeenSet() const { return m_userIdHasBeenSet; }
+
+    /**
+     * <p>The user ID for the resource collection. This is a required field for
+     * accessing the API operation using IAM credentials.</p>
+     */
     inline void SetUserId(const Aws::String& value) { m_userIdHasBeenSet = true; m_userId = value; }
 
     /**
@@ -152,6 +165,11 @@ namespace Model
     /**
      * <p>The collection type.</p>
      */
+    inline bool CollectionTypeHasBeenSet() const { return m_collectionTypeHasBeenSet; }
+
+    /**
+     * <p>The collection type.</p>
+     */
     inline void SetCollectionType(const ResourceCollectionType& value) { m_collectionTypeHasBeenSet = true; m_collectionType = value; }
 
     /**
@@ -178,6 +196,11 @@ namespace Model
     /**
      * <p>The maximum number of resources to return.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of resources to return.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -191,6 +214,12 @@ namespace Model
      * previous call.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>The marker for the next set of results. This marker was received from a
+     * previous call.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>The marker for the next set of results. This marker was received from a

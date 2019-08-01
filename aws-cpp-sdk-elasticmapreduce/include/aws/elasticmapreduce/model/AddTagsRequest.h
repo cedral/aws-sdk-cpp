@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     AddTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * must be a cluster identifier.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The Amazon EMR resource identifier to which tags will be added. This value
+     * must be a cluster identifier.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The Amazon EMR resource identifier to which tags will be added. This value
@@ -100,6 +106,14 @@ namespace Model
      * characters.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A list of tags to associate with a cluster and propagate to EC2 instances.
+     * Tags are user-defined key/value pairs that consist of a required key string with
+     * a maximum of 128 characters, and an optional value string with a maximum of 256
+     * characters.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A list of tags to associate with a cluster and propagate to EC2 instances.

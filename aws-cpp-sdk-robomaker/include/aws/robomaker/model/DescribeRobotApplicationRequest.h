@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeRobotApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the robot application.</p>
      */
     inline const Aws::String& GetApplication() const{ return m_application; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the robot application.</p>
+     */
+    inline bool ApplicationHasBeenSet() const { return m_applicationHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the robot application.</p>
@@ -82,6 +87,11 @@ namespace Model
      * <p>The version of the robot application to describe.</p>
      */
     inline const Aws::String& GetApplicationVersion() const{ return m_applicationVersion; }
+
+    /**
+     * <p>The version of the robot application to describe.</p>
+     */
+    inline bool ApplicationVersionHasBeenSet() const { return m_applicationVersionHasBeenSet; }
 
     /**
      * <p>The version of the robot application to describe.</p>

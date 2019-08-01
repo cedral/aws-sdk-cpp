@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     SendVoiceMessageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * message.
      */
     inline const Aws::String& GetCallerId() const{ return m_callerId; }
+
+    /**
+     * The phone number that appears on recipients' devices when they receive the
+     * message.
+     */
+    inline bool CallerIdHasBeenSet() const { return m_callerIdHasBeenSet; }
 
     /**
      * The phone number that appears on recipients' devices when they receive the
@@ -97,6 +103,11 @@ namespace Model
     /**
      * The name of the configuration set that you want to use to send the message.
      */
+    inline bool ConfigurationSetNameHasBeenSet() const { return m_configurationSetNameHasBeenSet; }
+
+    /**
+     * The name of the configuration set that you want to use to send the message.
+     */
     inline void SetConfigurationSetName(const Aws::String& value) { m_configurationSetNameHasBeenSet = true; m_configurationSetName = value; }
 
     /**
@@ -129,6 +140,9 @@ namespace Model
     inline const VoiceMessageContent& GetContent() const{ return m_content; }
 
     
+    inline bool ContentHasBeenSet() const { return m_contentHasBeenSet; }
+
+    
     inline void SetContent(const VoiceMessageContent& value) { m_contentHasBeenSet = true; m_content = value; }
 
     
@@ -145,6 +159,11 @@ namespace Model
      * The phone number that you want to send the voice message to.
      */
     inline const Aws::String& GetDestinationPhoneNumber() const{ return m_destinationPhoneNumber; }
+
+    /**
+     * The phone number that you want to send the voice message to.
+     */
+    inline bool DestinationPhoneNumberHasBeenSet() const { return m_destinationPhoneNumberHasBeenSet; }
 
     /**
      * The phone number that you want to send the voice message to.
@@ -184,6 +203,14 @@ namespace Model
      * request.
      */
     inline const Aws::String& GetOriginationPhoneNumber() const{ return m_originationPhoneNumber; }
+
+    /**
+     * The phone number that Amazon Pinpoint should use to send the voice message. This
+     * isn't necessarily the phone number that appears on recipients' devices when they
+     * receive the message, because you can specify a CallerId parameter in the
+     * request.
+     */
+    inline bool OriginationPhoneNumberHasBeenSet() const { return m_originationPhoneNumberHasBeenSet; }
 
     /**
      * The phone number that Amazon Pinpoint should use to send the voice message. This

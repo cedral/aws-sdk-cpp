@@ -64,6 +64,13 @@ namespace Model
      * <code>--apply-immediately</code> was specified), or during the next maintenance
      * window.</p>
      */
+    inline bool PrimaryClusterIdHasBeenSet() const { return m_primaryClusterIdHasBeenSet; }
+
+    /**
+     * <p>The primary cluster ID that is applied immediately (if
+     * <code>--apply-immediately</code> was specified), or during the next maintenance
+     * window.</p>
+     */
     inline void SetPrimaryClusterId(const Aws::String& value) { m_primaryClusterIdHasBeenSet = true; m_primaryClusterId = value; }
 
     /**
@@ -106,9 +113,8 @@ namespace Model
      * <p>Indicates the status of Multi-AZ with automatic failover for this Redis
      * replication group.</p> <p>Amazon ElastiCache for Redis does not support Multi-AZ
      * with automatic failover on:</p> <ul> <li> <p>Redis versions earlier than
-     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 and T2 cache node
-     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
-     * </ul>
+     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node types.</p> </li>
+     * <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li> </ul>
      */
     inline const PendingAutomaticFailoverStatus& GetAutomaticFailoverStatus() const{ return m_automaticFailoverStatus; }
 
@@ -116,9 +122,17 @@ namespace Model
      * <p>Indicates the status of Multi-AZ with automatic failover for this Redis
      * replication group.</p> <p>Amazon ElastiCache for Redis does not support Multi-AZ
      * with automatic failover on:</p> <ul> <li> <p>Redis versions earlier than
-     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 and T2 cache node
-     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
-     * </ul>
+     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node types.</p> </li>
+     * <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li> </ul>
+     */
+    inline bool AutomaticFailoverStatusHasBeenSet() const { return m_automaticFailoverStatusHasBeenSet; }
+
+    /**
+     * <p>Indicates the status of Multi-AZ with automatic failover for this Redis
+     * replication group.</p> <p>Amazon ElastiCache for Redis does not support Multi-AZ
+     * with automatic failover on:</p> <ul> <li> <p>Redis versions earlier than
+     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node types.</p> </li>
+     * <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li> </ul>
      */
     inline void SetAutomaticFailoverStatus(const PendingAutomaticFailoverStatus& value) { m_automaticFailoverStatusHasBeenSet = true; m_automaticFailoverStatus = value; }
 
@@ -126,9 +140,8 @@ namespace Model
      * <p>Indicates the status of Multi-AZ with automatic failover for this Redis
      * replication group.</p> <p>Amazon ElastiCache for Redis does not support Multi-AZ
      * with automatic failover on:</p> <ul> <li> <p>Redis versions earlier than
-     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 and T2 cache node
-     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
-     * </ul>
+     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node types.</p> </li>
+     * <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li> </ul>
      */
     inline void SetAutomaticFailoverStatus(PendingAutomaticFailoverStatus&& value) { m_automaticFailoverStatusHasBeenSet = true; m_automaticFailoverStatus = std::move(value); }
 
@@ -136,9 +149,8 @@ namespace Model
      * <p>Indicates the status of Multi-AZ with automatic failover for this Redis
      * replication group.</p> <p>Amazon ElastiCache for Redis does not support Multi-AZ
      * with automatic failover on:</p> <ul> <li> <p>Redis versions earlier than
-     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 and T2 cache node
-     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
-     * </ul>
+     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node types.</p> </li>
+     * <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li> </ul>
      */
     inline ReplicationGroupPendingModifiedValues& WithAutomaticFailoverStatus(const PendingAutomaticFailoverStatus& value) { SetAutomaticFailoverStatus(value); return *this;}
 
@@ -146,9 +158,8 @@ namespace Model
      * <p>Indicates the status of Multi-AZ with automatic failover for this Redis
      * replication group.</p> <p>Amazon ElastiCache for Redis does not support Multi-AZ
      * with automatic failover on:</p> <ul> <li> <p>Redis versions earlier than
-     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 and T2 cache node
-     * types.</p> </li> <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li>
-     * </ul>
+     * 2.8.6.</p> </li> <li> <p>Redis (cluster mode disabled): T1 node types.</p> </li>
+     * <li> <p>Redis (cluster mode enabled): T1 node types.</p> </li> </ul>
      */
     inline ReplicationGroupPendingModifiedValues& WithAutomaticFailoverStatus(PendingAutomaticFailoverStatus&& value) { SetAutomaticFailoverStatus(std::move(value)); return *this;}
 
@@ -157,6 +168,11 @@ namespace Model
      * <p>The status of an online resharding operation.</p>
      */
     inline const ReshardingStatus& GetResharding() const{ return m_resharding; }
+
+    /**
+     * <p>The status of an online resharding operation.</p>
+     */
+    inline bool ReshardingHasBeenSet() const { return m_reshardingHasBeenSet; }
 
     /**
      * <p>The status of an online resharding operation.</p>

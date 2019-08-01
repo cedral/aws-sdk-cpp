@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateServerCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,15 @@ namespace Model
      * following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetServerCertificateName() const{ return m_serverCertificateName; }
+
+    /**
+     * <p>The name of the server certificate that you want to update.</p> <p>This
+     * parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters consisting of upper and lowercase
+     * alphanumeric characters with no spaces. You can also include any of the
+     * following characters: _+=,.@-</p>
+     */
+    inline bool ServerCertificateNameHasBeenSet() const { return m_serverCertificateNameHasBeenSet; }
 
     /**
      * <p>The name of the server certificate that you want to update.</p> <p>This
@@ -120,6 +129,17 @@ namespace Model
      * punctuation characters, digits, and upper and lowercased letters.</p>
      */
     inline const Aws::String& GetNewPath() const{ return m_newPath; }
+
+    /**
+     * <p>The new path for the server certificate. Include this only if you are
+     * updating the server certificate's path.</p> <p>This parameter allows (through
+     * its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of
+     * characters consisting of either a forward slash (/) by itself or a string that
+     * must begin and end with forward slashes. In addition, it can contain any ASCII
+     * character from the ! (\u0021) through the DEL character (\u007F), including most
+     * punctuation characters, digits, and upper and lowercased letters.</p>
+     */
+    inline bool NewPathHasBeenSet() const { return m_newPathHasBeenSet; }
 
     /**
      * <p>The new path for the server certificate. Include this only if you are
@@ -197,6 +217,16 @@ namespace Model
      * can also include any of the following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetNewServerCertificateName() const{ return m_newServerCertificateName; }
+
+    /**
+     * <p>The new name for the server certificate. Include this only if you are
+     * updating the server certificate's name. The name of the certificate cannot
+     * contain any spaces.</p> <p>This parameter allows (through its <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters
+     * consisting of upper and lowercase alphanumeric characters with no spaces. You
+     * can also include any of the following characters: _+=,.@-</p>
+     */
+    inline bool NewServerCertificateNameHasBeenSet() const { return m_newServerCertificateNameHasBeenSet; }
 
     /**
      * <p>The new name for the server certificate. Include this only if you are

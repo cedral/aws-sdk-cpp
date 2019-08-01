@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreatePermissionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,8 +48,8 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can
-     * find the ARN by calling the <a>ListCertificateAuthorities</a> operation. This
-     * must have the following form: </p> <p>
+     * find the ARN by calling the <a>ListCertificateAuthorities</a> action. This must
+     * have the following form: </p> <p>
      * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
      * </code>. </p>
      */
@@ -57,8 +57,17 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can
-     * find the ARN by calling the <a>ListCertificateAuthorities</a> operation. This
-     * must have the following form: </p> <p>
+     * find the ARN by calling the <a>ListCertificateAuthorities</a> action. This must
+     * have the following form: </p> <p>
+     * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
+     * </code>. </p>
+     */
+    inline bool CertificateAuthorityArnHasBeenSet() const { return m_certificateAuthorityArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can
+     * find the ARN by calling the <a>ListCertificateAuthorities</a> action. This must
+     * have the following form: </p> <p>
      * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
      * </code>. </p>
      */
@@ -66,8 +75,8 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can
-     * find the ARN by calling the <a>ListCertificateAuthorities</a> operation. This
-     * must have the following form: </p> <p>
+     * find the ARN by calling the <a>ListCertificateAuthorities</a> action. This must
+     * have the following form: </p> <p>
      * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
      * </code>. </p>
      */
@@ -75,8 +84,8 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can
-     * find the ARN by calling the <a>ListCertificateAuthorities</a> operation. This
-     * must have the following form: </p> <p>
+     * find the ARN by calling the <a>ListCertificateAuthorities</a> action. This must
+     * have the following form: </p> <p>
      * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
      * </code>. </p>
      */
@@ -84,8 +93,8 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can
-     * find the ARN by calling the <a>ListCertificateAuthorities</a> operation. This
-     * must have the following form: </p> <p>
+     * find the ARN by calling the <a>ListCertificateAuthorities</a> action. This must
+     * have the following form: </p> <p>
      * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
      * </code>. </p>
      */
@@ -93,8 +102,8 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can
-     * find the ARN by calling the <a>ListCertificateAuthorities</a> operation. This
-     * must have the following form: </p> <p>
+     * find the ARN by calling the <a>ListCertificateAuthorities</a> action. This must
+     * have the following form: </p> <p>
      * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
      * </code>. </p>
      */
@@ -102,8 +111,8 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the CA that grants the permissions. You can
-     * find the ARN by calling the <a>ListCertificateAuthorities</a> operation. This
-     * must have the following form: </p> <p>
+     * find the ARN by calling the <a>ListCertificateAuthorities</a> action. This must
+     * have the following form: </p> <p>
      * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
      * </code>. </p>
      */
@@ -115,6 +124,12 @@ namespace Model
      * only valid principal is <code>acm.amazonaws.com</code>.</p>
      */
     inline const Aws::String& GetPrincipal() const{ return m_principal; }
+
+    /**
+     * <p>The AWS service or identity that receives the permission. At this time, the
+     * only valid principal is <code>acm.amazonaws.com</code>.</p>
+     */
+    inline bool PrincipalHasBeenSet() const { return m_principalHasBeenSet; }
 
     /**
      * <p>The AWS service or identity that receives the permission. At this time, the
@@ -161,6 +176,11 @@ namespace Model
     /**
      * <p>The ID of the calling account.</p>
      */
+    inline bool SourceAccountHasBeenSet() const { return m_sourceAccountHasBeenSet; }
+
+    /**
+     * <p>The ID of the calling account.</p>
+     */
     inline void SetSourceAccount(const Aws::String& value) { m_sourceAccountHasBeenSet = true; m_sourceAccount = value; }
 
     /**
@@ -195,6 +215,13 @@ namespace Model
      * <code>ListPermissions</code>.</p>
      */
     inline const Aws::Vector<ActionType>& GetActions() const{ return m_actions; }
+
+    /**
+     * <p>The actions that the specified AWS service principal can use. These include
+     * <code>IssueCertificate</code>, <code>GetCertificate</code>, and
+     * <code>ListPermissions</code>.</p>
+     */
+    inline bool ActionsHasBeenSet() const { return m_actionsHasBeenSet; }
 
     /**
      * <p>The actions that the specified AWS service principal can use. These include

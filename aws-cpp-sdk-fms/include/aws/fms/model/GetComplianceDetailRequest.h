@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetComplianceDetailRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <code>ListPolicies</code>.</p>
      */
     inline const Aws::String& GetPolicyId() const{ return m_policyId; }
+
+    /**
+     * <p>The ID of the policy that you want to get the details for.
+     * <code>PolicyId</code> is returned by <code>PutPolicy</code> and by
+     * <code>ListPolicies</code>.</p>
+     */
+    inline bool PolicyIdHasBeenSet() const { return m_policyIdHasBeenSet; }
 
     /**
      * <p>The ID of the policy that you want to get the details for.
@@ -99,6 +106,12 @@ namespace Model
      * for.</p>
      */
     inline const Aws::String& GetMemberAccount() const{ return m_memberAccount; }
+
+    /**
+     * <p>The AWS account that owns the resources that you want to get the details
+     * for.</p>
+     */
+    inline bool MemberAccountHasBeenSet() const { return m_memberAccountHasBeenSet; }
 
     /**
      * <p>The AWS account that owns the resources that you want to get the details

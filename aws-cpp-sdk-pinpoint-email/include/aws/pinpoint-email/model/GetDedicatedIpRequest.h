@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetDedicatedIpRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,8 +45,6 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>The IP address that you want to obtain more information about. The value you
@@ -54,6 +52,13 @@ namespace Model
      * Pinpoint account.</p>
      */
     inline const Aws::String& GetIp() const{ return m_ip; }
+
+    /**
+     * <p>The IP address that you want to obtain more information about. The value you
+     * specify has to be a dedicated IP address that's assocaited with your Amazon
+     * Pinpoint account.</p>
+     */
+    inline bool IpHasBeenSet() const { return m_ipHasBeenSet; }
 
     /**
      * <p>The IP address that you want to obtain more information about. The value you

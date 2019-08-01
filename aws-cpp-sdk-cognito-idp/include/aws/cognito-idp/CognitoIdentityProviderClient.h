@@ -38,6 +38,7 @@
 #include <aws/cognito-idp/model/AdminResetUserPasswordResult.h>
 #include <aws/cognito-idp/model/AdminRespondToAuthChallengeResult.h>
 #include <aws/cognito-idp/model/AdminSetUserMFAPreferenceResult.h>
+#include <aws/cognito-idp/model/AdminSetUserPasswordResult.h>
 #include <aws/cognito-idp/model/AdminSetUserSettingsResult.h>
 #include <aws/cognito-idp/model/AdminUpdateAuthEventFeedbackResult.h>
 #include <aws/cognito-idp/model/AdminUpdateDeviceStatusResult.h>
@@ -80,6 +81,7 @@
 #include <aws/cognito-idp/model/ListGroupsResult.h>
 #include <aws/cognito-idp/model/ListIdentityProvidersResult.h>
 #include <aws/cognito-idp/model/ListResourceServersResult.h>
+#include <aws/cognito-idp/model/ListTagsForResourceResult.h>
 #include <aws/cognito-idp/model/ListUserImportJobsResult.h>
 #include <aws/cognito-idp/model/ListUserPoolClientsResult.h>
 #include <aws/cognito-idp/model/ListUserPoolsResult.h>
@@ -95,6 +97,8 @@
 #include <aws/cognito-idp/model/SignUpResult.h>
 #include <aws/cognito-idp/model/StartUserImportJobResult.h>
 #include <aws/cognito-idp/model/StopUserImportJobResult.h>
+#include <aws/cognito-idp/model/TagResourceResult.h>
+#include <aws/cognito-idp/model/UntagResourceResult.h>
 #include <aws/cognito-idp/model/UpdateAuthEventFeedbackResult.h>
 #include <aws/cognito-idp/model/UpdateDeviceStatusResult.h>
 #include <aws/cognito-idp/model/UpdateGroupResult.h>
@@ -124,7 +128,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -168,6 +171,7 @@ namespace Model
         class AdminResetUserPasswordRequest;
         class AdminRespondToAuthChallengeRequest;
         class AdminSetUserMFAPreferenceRequest;
+        class AdminSetUserPasswordRequest;
         class AdminSetUserSettingsRequest;
         class AdminUpdateAuthEventFeedbackRequest;
         class AdminUpdateDeviceStatusRequest;
@@ -217,6 +221,7 @@ namespace Model
         class ListGroupsRequest;
         class ListIdentityProvidersRequest;
         class ListResourceServersRequest;
+        class ListTagsForResourceRequest;
         class ListUserImportJobsRequest;
         class ListUserPoolClientsRequest;
         class ListUserPoolsRequest;
@@ -232,6 +237,8 @@ namespace Model
         class SignUpRequest;
         class StartUserImportJobRequest;
         class StopUserImportJobRequest;
+        class TagResourceRequest;
+        class UntagResourceRequest;
         class UpdateAuthEventFeedbackRequest;
         class UpdateDeviceStatusRequest;
         class UpdateGroupRequest;
@@ -265,6 +272,7 @@ namespace Model
         typedef Aws::Utils::Outcome<AdminResetUserPasswordResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> AdminResetUserPasswordOutcome;
         typedef Aws::Utils::Outcome<AdminRespondToAuthChallengeResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> AdminRespondToAuthChallengeOutcome;
         typedef Aws::Utils::Outcome<AdminSetUserMFAPreferenceResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> AdminSetUserMFAPreferenceOutcome;
+        typedef Aws::Utils::Outcome<AdminSetUserPasswordResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> AdminSetUserPasswordOutcome;
         typedef Aws::Utils::Outcome<AdminSetUserSettingsResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> AdminSetUserSettingsOutcome;
         typedef Aws::Utils::Outcome<AdminUpdateAuthEventFeedbackResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> AdminUpdateAuthEventFeedbackOutcome;
         typedef Aws::Utils::Outcome<AdminUpdateDeviceStatusResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> AdminUpdateDeviceStatusOutcome;
@@ -314,6 +322,7 @@ namespace Model
         typedef Aws::Utils::Outcome<ListGroupsResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> ListGroupsOutcome;
         typedef Aws::Utils::Outcome<ListIdentityProvidersResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> ListIdentityProvidersOutcome;
         typedef Aws::Utils::Outcome<ListResourceServersResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> ListResourceServersOutcome;
+        typedef Aws::Utils::Outcome<ListTagsForResourceResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> ListTagsForResourceOutcome;
         typedef Aws::Utils::Outcome<ListUserImportJobsResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> ListUserImportJobsOutcome;
         typedef Aws::Utils::Outcome<ListUserPoolClientsResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> ListUserPoolClientsOutcome;
         typedef Aws::Utils::Outcome<ListUserPoolsResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> ListUserPoolsOutcome;
@@ -329,6 +338,8 @@ namespace Model
         typedef Aws::Utils::Outcome<SignUpResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> SignUpOutcome;
         typedef Aws::Utils::Outcome<StartUserImportJobResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> StartUserImportJobOutcome;
         typedef Aws::Utils::Outcome<StopUserImportJobResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> StopUserImportJobOutcome;
+        typedef Aws::Utils::Outcome<TagResourceResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> TagResourceOutcome;
+        typedef Aws::Utils::Outcome<UntagResourceResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> UntagResourceOutcome;
         typedef Aws::Utils::Outcome<UpdateAuthEventFeedbackResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> UpdateAuthEventFeedbackOutcome;
         typedef Aws::Utils::Outcome<UpdateDeviceStatusResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> UpdateDeviceStatusOutcome;
         typedef Aws::Utils::Outcome<UpdateGroupResult, Aws::Client::AWSError<CognitoIdentityProviderErrors>> UpdateGroupOutcome;
@@ -362,6 +373,7 @@ namespace Model
         typedef std::future<AdminResetUserPasswordOutcome> AdminResetUserPasswordOutcomeCallable;
         typedef std::future<AdminRespondToAuthChallengeOutcome> AdminRespondToAuthChallengeOutcomeCallable;
         typedef std::future<AdminSetUserMFAPreferenceOutcome> AdminSetUserMFAPreferenceOutcomeCallable;
+        typedef std::future<AdminSetUserPasswordOutcome> AdminSetUserPasswordOutcomeCallable;
         typedef std::future<AdminSetUserSettingsOutcome> AdminSetUserSettingsOutcomeCallable;
         typedef std::future<AdminUpdateAuthEventFeedbackOutcome> AdminUpdateAuthEventFeedbackOutcomeCallable;
         typedef std::future<AdminUpdateDeviceStatusOutcome> AdminUpdateDeviceStatusOutcomeCallable;
@@ -411,6 +423,7 @@ namespace Model
         typedef std::future<ListGroupsOutcome> ListGroupsOutcomeCallable;
         typedef std::future<ListIdentityProvidersOutcome> ListIdentityProvidersOutcomeCallable;
         typedef std::future<ListResourceServersOutcome> ListResourceServersOutcomeCallable;
+        typedef std::future<ListTagsForResourceOutcome> ListTagsForResourceOutcomeCallable;
         typedef std::future<ListUserImportJobsOutcome> ListUserImportJobsOutcomeCallable;
         typedef std::future<ListUserPoolClientsOutcome> ListUserPoolClientsOutcomeCallable;
         typedef std::future<ListUserPoolsOutcome> ListUserPoolsOutcomeCallable;
@@ -426,6 +439,8 @@ namespace Model
         typedef std::future<SignUpOutcome> SignUpOutcomeCallable;
         typedef std::future<StartUserImportJobOutcome> StartUserImportJobOutcomeCallable;
         typedef std::future<StopUserImportJobOutcome> StopUserImportJobOutcomeCallable;
+        typedef std::future<TagResourceOutcome> TagResourceOutcomeCallable;
+        typedef std::future<UntagResourceOutcome> UntagResourceOutcomeCallable;
         typedef std::future<UpdateAuthEventFeedbackOutcome> UpdateAuthEventFeedbackOutcomeCallable;
         typedef std::future<UpdateDeviceStatusOutcome> UpdateDeviceStatusOutcomeCallable;
         typedef std::future<UpdateGroupOutcome> UpdateGroupOutcomeCallable;
@@ -462,6 +477,7 @@ namespace Model
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::AdminResetUserPasswordRequest&, const Model::AdminResetUserPasswordOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AdminResetUserPasswordResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::AdminRespondToAuthChallengeRequest&, const Model::AdminRespondToAuthChallengeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AdminRespondToAuthChallengeResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::AdminSetUserMFAPreferenceRequest&, const Model::AdminSetUserMFAPreferenceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AdminSetUserMFAPreferenceResponseReceivedHandler;
+    typedef std::function<void(const CognitoIdentityProviderClient*, const Model::AdminSetUserPasswordRequest&, const Model::AdminSetUserPasswordOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AdminSetUserPasswordResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::AdminSetUserSettingsRequest&, const Model::AdminSetUserSettingsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AdminSetUserSettingsResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::AdminUpdateAuthEventFeedbackRequest&, const Model::AdminUpdateAuthEventFeedbackOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AdminUpdateAuthEventFeedbackResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::AdminUpdateDeviceStatusRequest&, const Model::AdminUpdateDeviceStatusOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AdminUpdateDeviceStatusResponseReceivedHandler;
@@ -511,6 +527,7 @@ namespace Model
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::ListGroupsRequest&, const Model::ListGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListGroupsResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::ListIdentityProvidersRequest&, const Model::ListIdentityProvidersOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListIdentityProvidersResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::ListResourceServersRequest&, const Model::ListResourceServersOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListResourceServersResponseReceivedHandler;
+    typedef std::function<void(const CognitoIdentityProviderClient*, const Model::ListTagsForResourceRequest&, const Model::ListTagsForResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListTagsForResourceResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::ListUserImportJobsRequest&, const Model::ListUserImportJobsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListUserImportJobsResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::ListUserPoolClientsRequest&, const Model::ListUserPoolClientsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListUserPoolClientsResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::ListUserPoolsRequest&, const Model::ListUserPoolsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListUserPoolsResponseReceivedHandler;
@@ -526,6 +543,8 @@ namespace Model
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::SignUpRequest&, const Model::SignUpOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > SignUpResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::StartUserImportJobRequest&, const Model::StartUserImportJobOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartUserImportJobResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::StopUserImportJobRequest&, const Model::StopUserImportJobOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopUserImportJobResponseReceivedHandler;
+    typedef std::function<void(const CognitoIdentityProviderClient*, const Model::TagResourceRequest&, const Model::TagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > TagResourceResponseReceivedHandler;
+    typedef std::function<void(const CognitoIdentityProviderClient*, const Model::UntagResourceRequest&, const Model::UntagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UntagResourceResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::UpdateAuthEventFeedbackRequest&, const Model::UpdateAuthEventFeedbackOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateAuthEventFeedbackResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::UpdateDeviceStatusRequest&, const Model::UpdateDeviceStatusOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateDeviceStatusResponseReceivedHandler;
     typedef std::function<void(const CognitoIdentityProviderClient*, const Model::UpdateGroupRequest&, const Model::UpdateGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateGroupResponseReceivedHandler;
@@ -1332,6 +1351,25 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void AdminSetUserMFAPreferenceAsync(const Model::AdminSetUserMFAPreferenceRequest& request, const AdminSetUserMFAPreferenceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * 
+         */
+        virtual Model::AdminSetUserPasswordOutcome AdminSetUserPassword(const Model::AdminSetUserPasswordRequest& request) const;
+
+        /**
+         * 
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::AdminSetUserPasswordOutcomeCallable AdminSetUserPasswordCallable(const Model::AdminSetUserPasswordRequest& request) const;
+
+        /**
+         * 
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void AdminSetUserPasswordAsync(const Model::AdminSetUserPasswordRequest& request, const AdminSetUserPasswordResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Sets all the user settings for a specified user name. Works on any user.</p>
@@ -2694,6 +2732,43 @@ namespace Model
         virtual void ListResourceServersAsync(const Model::ListResourceServersRequest& request, const ListResourceServersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p> <p>A tag
+         * is a label that you can apply to user pools to categorize and manage them in
+         * different ways, such as by purpose, owner, environment, or other criteria.</p>
+         * <p>You can use this action up to 10 times per second, per account.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/ListTagsForResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ListTagsForResourceOutcome ListTagsForResource(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p> <p>A tag
+         * is a label that you can apply to user pools to categorize and manage them in
+         * different ways, such as by purpose, owner, environment, or other criteria.</p>
+         * <p>You can use this action up to 10 times per second, per account.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/ListTagsForResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListTagsForResourceOutcomeCallable ListTagsForResourceCallable(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p> <p>A tag
+         * is a label that you can apply to user pools to categorize and manage them in
+         * different ways, such as by purpose, owner, environment, or other criteria.</p>
+         * <p>You can use this action up to 10 times per second, per account.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/ListTagsForResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListTagsForResourceAsync(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Lists the user import jobs.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/ListUserImportJobs">AWS
          * API Reference</a></p>
@@ -3138,6 +3213,98 @@ namespace Model
         virtual void StopUserImportJobAsync(const Model::StopUserImportJobRequest& request, const StopUserImportJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that
+         * you can use to categorize and manage user pools in different ways, such as by
+         * purpose, owner, environment, or other criteria.</p> <p>Each tag consists of a
+         * key and value, both of which you define. A key is a general category for more
+         * specific values. For example, if you have two versions of a user pool, one for
+         * testing and another for production, you might assign an <code>Environment</code>
+         * tag key to both user pools. The value of this key might be <code>Test</code> for
+         * one user pool and <code>Production</code> for the other.</p> <p>Tags are useful
+         * for cost tracking and access control. You can activate your tags so that they
+         * appear on the Billing and Cost Management console, where you can track the costs
+         * associated with your user pools. In an IAM policy, you can constrain permissions
+         * for user pools based on specific tags or tag values.</p> <p>You can use this
+         * action up to 5 times per second, per account. A user pool can have as many as 50
+         * tags.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/TagResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::TagResourceOutcome TagResource(const Model::TagResourceRequest& request) const;
+
+        /**
+         * <p>Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that
+         * you can use to categorize and manage user pools in different ways, such as by
+         * purpose, owner, environment, or other criteria.</p> <p>Each tag consists of a
+         * key and value, both of which you define. A key is a general category for more
+         * specific values. For example, if you have two versions of a user pool, one for
+         * testing and another for production, you might assign an <code>Environment</code>
+         * tag key to both user pools. The value of this key might be <code>Test</code> for
+         * one user pool and <code>Production</code> for the other.</p> <p>Tags are useful
+         * for cost tracking and access control. You can activate your tags so that they
+         * appear on the Billing and Cost Management console, where you can track the costs
+         * associated with your user pools. In an IAM policy, you can constrain permissions
+         * for user pools based on specific tags or tag values.</p> <p>You can use this
+         * action up to 5 times per second, per account. A user pool can have as many as 50
+         * tags.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/TagResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::TagResourceOutcomeCallable TagResourceCallable(const Model::TagResourceRequest& request) const;
+
+        /**
+         * <p>Assigns a set of tags to an Amazon Cognito user pool. A tag is a label that
+         * you can use to categorize and manage user pools in different ways, such as by
+         * purpose, owner, environment, or other criteria.</p> <p>Each tag consists of a
+         * key and value, both of which you define. A key is a general category for more
+         * specific values. For example, if you have two versions of a user pool, one for
+         * testing and another for production, you might assign an <code>Environment</code>
+         * tag key to both user pools. The value of this key might be <code>Test</code> for
+         * one user pool and <code>Production</code> for the other.</p> <p>Tags are useful
+         * for cost tracking and access control. You can activate your tags so that they
+         * appear on the Billing and Cost Management console, where you can track the costs
+         * associated with your user pools. In an IAM policy, you can constrain permissions
+         * for user pools based on specific tags or tag values.</p> <p>You can use this
+         * action up to 5 times per second, per account. A user pool can have as many as 50
+         * tags.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/TagResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void TagResourceAsync(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Removes the specified tags from an Amazon Cognito user pool. You can use this
+         * action up to 5 times per second, per account</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UntagResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UntagResourceOutcome UntagResource(const Model::UntagResourceRequest& request) const;
+
+        /**
+         * <p>Removes the specified tags from an Amazon Cognito user pool. You can use this
+         * action up to 5 times per second, per account</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UntagResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UntagResourceOutcomeCallable UntagResourceCallable(const Model::UntagResourceRequest& request) const;
+
+        /**
+         * <p>Removes the specified tags from an Amazon Cognito user pool. You can use this
+         * action up to 5 times per second, per account</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UntagResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UntagResourceAsync(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Provides the feedback for an authentication event whether it was from a valid
          * user or not. This feedback is used for improving the risk evaluation decision
          * for the user pool as part of Amazon Cognito advanced security.</p><p><h3>See
@@ -3395,7 +3562,7 @@ namespace Model
          * the AWS Region.</p> <p>After you submit your request, Amazon Cognito requires up
          * to 1 hour to distribute your new certificate to your custom domain.</p> <p>For
          * more information about adding a custom domain to your user pool, see <a
-         * href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
+         * href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
          * Your Own Domain for the Hosted UI</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UpdateUserPoolDomain">AWS
          * API Reference</a></p>
@@ -3421,7 +3588,7 @@ namespace Model
          * the AWS Region.</p> <p>After you submit your request, Amazon Cognito requires up
          * to 1 hour to distribute your new certificate to your custom domain.</p> <p>For
          * more information about adding a custom domain to your user pool, see <a
-         * href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
+         * href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
          * Your Own Domain for the Hosted UI</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UpdateUserPoolDomain">AWS
          * API Reference</a></p>
@@ -3449,7 +3616,7 @@ namespace Model
          * the AWS Region.</p> <p>After you submit your request, Amazon Cognito requires up
          * to 1 hour to distribute your new certificate to your custom domain.</p> <p>For
          * more information about adding a custom domain to your user pool, see <a
-         * href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
+         * href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
          * Your Own Domain for the Hosted UI</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/cognito-idp-2016-04-18/UpdateUserPoolDomain">AWS
          * API Reference</a></p>
@@ -3517,11 +3684,10 @@ namespace Model
          */
         virtual void VerifyUserAttributeAsync(const Model::VerifyUserAttributeRequest& request, const VerifyUserAttributeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void AddCustomAttributesAsyncHelper(const Model::AddCustomAttributesRequest& request, const AddCustomAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AdminAddUserToGroupAsyncHelper(const Model::AdminAddUserToGroupRequest& request, const AdminAddUserToGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AdminConfirmSignUpAsyncHelper(const Model::AdminConfirmSignUpRequest& request, const AdminConfirmSignUpResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -3543,6 +3709,7 @@ namespace Model
         void AdminResetUserPasswordAsyncHelper(const Model::AdminResetUserPasswordRequest& request, const AdminResetUserPasswordResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AdminRespondToAuthChallengeAsyncHelper(const Model::AdminRespondToAuthChallengeRequest& request, const AdminRespondToAuthChallengeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AdminSetUserMFAPreferenceAsyncHelper(const Model::AdminSetUserMFAPreferenceRequest& request, const AdminSetUserMFAPreferenceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void AdminSetUserPasswordAsyncHelper(const Model::AdminSetUserPasswordRequest& request, const AdminSetUserPasswordResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AdminSetUserSettingsAsyncHelper(const Model::AdminSetUserSettingsRequest& request, const AdminSetUserSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AdminUpdateAuthEventFeedbackAsyncHelper(const Model::AdminUpdateAuthEventFeedbackRequest& request, const AdminUpdateAuthEventFeedbackResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AdminUpdateDeviceStatusAsyncHelper(const Model::AdminUpdateDeviceStatusRequest& request, const AdminUpdateDeviceStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -3592,6 +3759,7 @@ namespace Model
         void ListGroupsAsyncHelper(const Model::ListGroupsRequest& request, const ListGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListIdentityProvidersAsyncHelper(const Model::ListIdentityProvidersRequest& request, const ListIdentityProvidersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListResourceServersAsyncHelper(const Model::ListResourceServersRequest& request, const ListResourceServersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListTagsForResourceAsyncHelper(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListUserImportJobsAsyncHelper(const Model::ListUserImportJobsRequest& request, const ListUserImportJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListUserPoolClientsAsyncHelper(const Model::ListUserPoolClientsRequest& request, const ListUserPoolClientsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListUserPoolsAsyncHelper(const Model::ListUserPoolsRequest& request, const ListUserPoolsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -3607,6 +3775,8 @@ namespace Model
         void SignUpAsyncHelper(const Model::SignUpRequest& request, const SignUpResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartUserImportJobAsyncHelper(const Model::StartUserImportJobRequest& request, const StartUserImportJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopUserImportJobAsyncHelper(const Model::StopUserImportJobRequest& request, const StopUserImportJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void TagResourceAsyncHelper(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UntagResourceAsyncHelper(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateAuthEventFeedbackAsyncHelper(const Model::UpdateAuthEventFeedbackRequest& request, const UpdateAuthEventFeedbackResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateDeviceStatusAsyncHelper(const Model::UpdateDeviceStatusRequest& request, const UpdateDeviceStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateGroupAsyncHelper(const Model::UpdateGroupRequest& request, const UpdateGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

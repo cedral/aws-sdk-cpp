@@ -38,8 +38,8 @@ namespace Model
 {
 
   /**
-   * <p>A container for information about a specific replication rule.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Specifies which Amazon S3 objects to replicate and where to store the
+   * replicas.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/ReplicationRule">AWS
    * API Reference</a></p>
    */
@@ -57,6 +57,11 @@ namespace Model
      * <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
      */
     inline const Aws::String& GetID() const{ return m_iD; }
+
+    /**
+     * <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
+     */
+    inline bool IDHasBeenSet() const { return m_iDHasBeenSet; }
 
     /**
      * <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
@@ -97,8 +102,8 @@ namespace Model
      * example:</p> <ul> <li> <p>Same object quality prefix based filter criteria If
      * prefixes you specified in multiple rules overlap </p> </li> <li> <p>Same object
      * qualify tag based filter criteria specified in multiple rules</p> </li> </ul>
-     * <p>For more information, see <a href="
-     * https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
      * Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.</p>
      */
     inline int GetPriority() const{ return m_priority; }
@@ -111,8 +116,22 @@ namespace Model
      * example:</p> <ul> <li> <p>Same object quality prefix based filter criteria If
      * prefixes you specified in multiple rules overlap </p> </li> <li> <p>Same object
      * qualify tag based filter criteria specified in multiple rules</p> </li> </ul>
-     * <p>For more information, see <a href="
-     * https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
+     * Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+     */
+    inline bool PriorityHasBeenSet() const { return m_priorityHasBeenSet; }
+
+    /**
+     * <p>The priority associated with the rule. If you specify multiple rules in a
+     * replication configuration, Amazon S3 prioritizes the rules to prevent conflicts
+     * when filtering. If two or more rules identify the same object based on a
+     * specified filter, the rule with higher priority takes precedence. For
+     * example:</p> <ul> <li> <p>Same object quality prefix based filter criteria If
+     * prefixes you specified in multiple rules overlap </p> </li> <li> <p>Same object
+     * qualify tag based filter criteria specified in multiple rules</p> </li> </ul>
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
      * Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.</p>
      */
     inline void SetPriority(int value) { m_priorityHasBeenSet = true; m_priority = value; }
@@ -125,51 +144,71 @@ namespace Model
      * example:</p> <ul> <li> <p>Same object quality prefix based filter criteria If
      * prefixes you specified in multiple rules overlap </p> </li> <li> <p>Same object
      * qualify tag based filter criteria specified in multiple rules</p> </li> </ul>
-     * <p>For more information, see <a href="
-     * https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
      * Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.</p>
      */
     inline ReplicationRule& WithPriority(int value) { SetPriority(value); return *this;}
 
 
-    
+    /**
+     * <p/>
+     */
     inline const ReplicationRuleFilter& GetFilter() const{ return m_filter; }
 
-    
+    /**
+     * <p/>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetFilter(const ReplicationRuleFilter& value) { m_filterHasBeenSet = true; m_filter = value; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetFilter(ReplicationRuleFilter&& value) { m_filterHasBeenSet = true; m_filter = std::move(value); }
 
-    
+    /**
+     * <p/>
+     */
     inline ReplicationRule& WithFilter(const ReplicationRuleFilter& value) { SetFilter(value); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline ReplicationRule& WithFilter(ReplicationRuleFilter&& value) { SetFilter(std::move(value)); return *this;}
 
 
     /**
-     * <p>If status isn't enabled, the rule is ignored.</p>
+     * <p>Specifies whether the rule is enabled.</p>
      */
     inline const ReplicationRuleStatus& GetStatus() const{ return m_status; }
 
     /**
-     * <p>If status isn't enabled, the rule is ignored.</p>
+     * <p>Specifies whether the rule is enabled.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>Specifies whether the rule is enabled.</p>
      */
     inline void SetStatus(const ReplicationRuleStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
-     * <p>If status isn't enabled, the rule is ignored.</p>
+     * <p>Specifies whether the rule is enabled.</p>
      */
     inline void SetStatus(ReplicationRuleStatus&& value) { m_statusHasBeenSet = true; m_status = std::move(value); }
 
     /**
-     * <p>If status isn't enabled, the rule is ignored.</p>
+     * <p>Specifies whether the rule is enabled.</p>
      */
     inline ReplicationRule& WithStatus(const ReplicationRuleStatus& value) { SetStatus(value); return *this;}
 
     /**
-     * <p>If status isn't enabled, the rule is ignored.</p>
+     * <p>Specifies whether the rule is enabled.</p>
      */
     inline ReplicationRule& WithStatus(ReplicationRuleStatus&& value) { SetStatus(std::move(value)); return *this;}
 
@@ -179,8 +218,7 @@ namespace Model
      * objects that you want to replicate. You can choose to enable or disable the
      * replication of these objects. Currently, Amazon S3 supports only the filter that
      * you can specify for objects created with server-side encryption using an AWS
-     * KMS-Managed Key (SSE-KMS). </p> <p> If you want Amazon S3 to replicate objects
-     * created with server-side encryption using AWS KMS-Managed Keys. </p>
+     * KMS-Managed Key (SSE-KMS).</p>
      */
     inline const SourceSelectionCriteria& GetSourceSelectionCriteria() const{ return m_sourceSelectionCriteria; }
 
@@ -189,8 +227,16 @@ namespace Model
      * objects that you want to replicate. You can choose to enable or disable the
      * replication of these objects. Currently, Amazon S3 supports only the filter that
      * you can specify for objects created with server-side encryption using an AWS
-     * KMS-Managed Key (SSE-KMS). </p> <p> If you want Amazon S3 to replicate objects
-     * created with server-side encryption using AWS KMS-Managed Keys. </p>
+     * KMS-Managed Key (SSE-KMS).</p>
+     */
+    inline bool SourceSelectionCriteriaHasBeenSet() const { return m_sourceSelectionCriteriaHasBeenSet; }
+
+    /**
+     * <p>A container that describes additional filters for identifying the source
+     * objects that you want to replicate. You can choose to enable or disable the
+     * replication of these objects. Currently, Amazon S3 supports only the filter that
+     * you can specify for objects created with server-side encryption using an AWS
+     * KMS-Managed Key (SSE-KMS).</p>
      */
     inline void SetSourceSelectionCriteria(const SourceSelectionCriteria& value) { m_sourceSelectionCriteriaHasBeenSet = true; m_sourceSelectionCriteria = value; }
 
@@ -199,8 +245,7 @@ namespace Model
      * objects that you want to replicate. You can choose to enable or disable the
      * replication of these objects. Currently, Amazon S3 supports only the filter that
      * you can specify for objects created with server-side encryption using an AWS
-     * KMS-Managed Key (SSE-KMS). </p> <p> If you want Amazon S3 to replicate objects
-     * created with server-side encryption using AWS KMS-Managed Keys. </p>
+     * KMS-Managed Key (SSE-KMS).</p>
      */
     inline void SetSourceSelectionCriteria(SourceSelectionCriteria&& value) { m_sourceSelectionCriteriaHasBeenSet = true; m_sourceSelectionCriteria = std::move(value); }
 
@@ -209,8 +254,7 @@ namespace Model
      * objects that you want to replicate. You can choose to enable or disable the
      * replication of these objects. Currently, Amazon S3 supports only the filter that
      * you can specify for objects created with server-side encryption using an AWS
-     * KMS-Managed Key (SSE-KMS). </p> <p> If you want Amazon S3 to replicate objects
-     * created with server-side encryption using AWS KMS-Managed Keys. </p>
+     * KMS-Managed Key (SSE-KMS).</p>
      */
     inline ReplicationRule& WithSourceSelectionCriteria(const SourceSelectionCriteria& value) { SetSourceSelectionCriteria(value); return *this;}
 
@@ -219,8 +263,7 @@ namespace Model
      * objects that you want to replicate. You can choose to enable or disable the
      * replication of these objects. Currently, Amazon S3 supports only the filter that
      * you can specify for objects created with server-side encryption using an AWS
-     * KMS-Managed Key (SSE-KMS). </p> <p> If you want Amazon S3 to replicate objects
-     * created with server-side encryption using AWS KMS-Managed Keys. </p>
+     * KMS-Managed Key (SSE-KMS).</p>
      */
     inline ReplicationRule& WithSourceSelectionCriteria(SourceSelectionCriteria&& value) { SetSourceSelectionCriteria(std::move(value)); return *this;}
 
@@ -229,6 +272,11 @@ namespace Model
      * <p>A container for information about the replication destination.</p>
      */
     inline const Destination& GetDestination() const{ return m_destination; }
+
+    /**
+     * <p>A container for information about the replication destination.</p>
+     */
+    inline bool DestinationHasBeenSet() const { return m_destinationHasBeenSet; }
 
     /**
      * <p>A container for information about the replication destination.</p>
@@ -251,19 +299,34 @@ namespace Model
     inline ReplicationRule& WithDestination(Destination&& value) { SetDestination(std::move(value)); return *this;}
 
 
-    
+    /**
+     * <p/>
+     */
     inline const DeleteMarkerReplication& GetDeleteMarkerReplication() const{ return m_deleteMarkerReplication; }
 
-    
+    /**
+     * <p/>
+     */
+    inline bool DeleteMarkerReplicationHasBeenSet() const { return m_deleteMarkerReplicationHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetDeleteMarkerReplication(const DeleteMarkerReplication& value) { m_deleteMarkerReplicationHasBeenSet = true; m_deleteMarkerReplication = value; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetDeleteMarkerReplication(DeleteMarkerReplication&& value) { m_deleteMarkerReplicationHasBeenSet = true; m_deleteMarkerReplication = std::move(value); }
 
-    
+    /**
+     * <p/>
+     */
     inline ReplicationRule& WithDeleteMarkerReplication(const DeleteMarkerReplication& value) { SetDeleteMarkerReplication(value); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline ReplicationRule& WithDeleteMarkerReplication(DeleteMarkerReplication&& value) { SetDeleteMarkerReplication(std::move(value)); return *this;}
 
   private:

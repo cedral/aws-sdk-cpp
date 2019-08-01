@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     TestRenderTemplateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the template that you want to render.</p>
      */
     inline const Aws::String& GetTemplateName() const{ return m_templateName; }
+
+    /**
+     * <p>The name of the template that you want to render.</p>
+     */
+    inline bool TemplateNameHasBeenSet() const { return m_templateNameHasBeenSet; }
 
     /**
      * <p>The name of the template that you want to render.</p>
@@ -88,6 +93,13 @@ namespace Model
      * correspond to replacement tags in the email template.</p>
      */
     inline const Aws::String& GetTemplateData() const{ return m_templateData; }
+
+    /**
+     * <p>A list of replacement values to apply to the template. This parameter is a
+     * JSON object, typically consisting of key-value pairs in which the keys
+     * correspond to replacement tags in the email template.</p>
+     */
+    inline bool TemplateDataHasBeenSet() const { return m_templateDataHasBeenSet; }
 
     /**
      * <p>A list of replacement values to apply to the template. This parameter is a

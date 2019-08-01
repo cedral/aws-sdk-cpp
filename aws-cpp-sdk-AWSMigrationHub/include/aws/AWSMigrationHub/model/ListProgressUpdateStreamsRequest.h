@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListProgressUpdateStreamsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * using the returned token in <code>NextToken</code>.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If a <code>NextToken</code> was returned by a previous call, there are more
+     * results available. To retrieve the next page of results, make the call again
+     * using the returned token in <code>NextToken</code>.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If a <code>NextToken</code> was returned by a previous call, there are more
@@ -98,6 +105,11 @@ namespace Model
      * <p>Filter to limit the maximum number of results to list per page.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>Filter to limit the maximum number of results to list per page.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>Filter to limit the maximum number of results to list per page.</p>

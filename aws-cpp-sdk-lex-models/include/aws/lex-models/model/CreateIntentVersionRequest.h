@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateIntentVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * case sensitive. </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the intent that you want to create a new version of. The name is
+     * case sensitive. </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the intent that you want to create a new version of. The name is
@@ -94,6 +100,16 @@ namespace Model
      * <code>$LATEST</code> version.</p>
      */
     inline const Aws::String& GetChecksum() const{ return m_checksum; }
+
+    /**
+     * <p>Checksum of the <code>$LATEST</code> version of the intent that should be
+     * used to create the new version. If you specify a checksum and the
+     * <code>$LATEST</code> version of the intent has a different checksum, Amazon Lex
+     * returns a <code>PreconditionFailedException</code> exception and doesn't publish
+     * a new version. If you don't specify a checksum, Amazon Lex publishes the
+     * <code>$LATEST</code> version.</p>
+     */
+    inline bool ChecksumHasBeenSet() const { return m_checksumHasBeenSet; }
 
     /**
      * <p>Checksum of the <code>$LATEST</code> version of the intent that should be

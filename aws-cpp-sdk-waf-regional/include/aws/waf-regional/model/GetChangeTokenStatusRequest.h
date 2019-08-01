@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetChangeTokenStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * previously returned in the <code>GetChangeToken</code> response.</p>
      */
     inline const Aws::String& GetChangeToken() const{ return m_changeToken; }
+
+    /**
+     * <p>The change token for which you want to get the status. This change token was
+     * previously returned in the <code>GetChangeToken</code> response.</p>
+     */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
 
     /**
      * <p>The change token for which you want to get the status. This change token was

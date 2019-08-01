@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeEventTypesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Values to narrow the results returned.</p>
      */
     inline const EventTypeFilter& GetFilter() const{ return m_filter; }
+
+    /**
+     * <p>Values to narrow the results returned.</p>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
      * <p>Values to narrow the results returned.</p>
@@ -76,6 +81,12 @@ namespace Model
      * and the only supported value at this time.</p>
      */
     inline const Aws::String& GetLocale() const{ return m_locale; }
+
+    /**
+     * <p>The locale (language) to return information in. English (en) is the default
+     * and the only supported value at this time.</p>
+     */
+    inline bool LocaleHasBeenSet() const { return m_localeHasBeenSet; }
 
     /**
      * <p>The locale (language) to return information in. English (en) is the default
@@ -122,6 +133,15 @@ namespace Model
      * does not contain a pagination token value.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If the results of a search are large, only a portion of the results are
+     * returned, and a <code>nextToken</code> pagination token is returned in the
+     * response. To retrieve the next batch of results, reissue the search request and
+     * include the returned token. When all results have been returned, the response
+     * does not contain a pagination token value.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If the results of a search are large, only a portion of the results are
@@ -183,6 +203,12 @@ namespace Model
      * inclusive.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of items to return in one batch, between 10 and 100,
+     * inclusive.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return in one batch, between 10 and 100,

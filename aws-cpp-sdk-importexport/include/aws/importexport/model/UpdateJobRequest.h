@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,9 @@ namespace Model
 
     
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     
     inline void SetJobId(const Aws::String& value) { m_jobIdHasBeenSet = true; m_jobId = value; }
@@ -76,6 +79,9 @@ namespace Model
     inline const Aws::String& GetManifest() const{ return m_manifest; }
 
     
+    inline bool ManifestHasBeenSet() const { return m_manifestHasBeenSet; }
+
+    
     inline void SetManifest(const Aws::String& value) { m_manifestHasBeenSet = true; m_manifest = value; }
 
     
@@ -98,6 +104,9 @@ namespace Model
     inline const JobType& GetJobType() const{ return m_jobType; }
 
     
+    inline bool JobTypeHasBeenSet() const { return m_jobTypeHasBeenSet; }
+
+    
     inline void SetJobType(const JobType& value) { m_jobTypeHasBeenSet = true; m_jobType = value; }
 
     
@@ -114,6 +123,9 @@ namespace Model
     inline bool GetValidateOnly() const{ return m_validateOnly; }
 
     
+    inline bool ValidateOnlyHasBeenSet() const { return m_validateOnlyHasBeenSet; }
+
+    
     inline void SetValidateOnly(bool value) { m_validateOnlyHasBeenSet = true; m_validateOnly = value; }
 
     
@@ -122,6 +134,9 @@ namespace Model
 
     
     inline const Aws::String& GetAPIVersion() const{ return m_aPIVersion; }
+
+    
+    inline bool APIVersionHasBeenSet() const { return m_aPIVersionHasBeenSet; }
 
     
     inline void SetAPIVersion(const Aws::String& value) { m_aPIVersionHasBeenSet = true; m_aPIVersion = value; }

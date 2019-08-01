@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     DeleteObjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p/>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p/>
@@ -96,6 +101,11 @@ namespace Model
     /**
      * <p/>
      */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetKey(const Aws::String& value) { m_keyHasBeenSet = true; m_key = value; }
 
     /**
@@ -129,6 +139,12 @@ namespace Model
      * the value that is displayed on your authentication device.</p>
      */
     inline const Aws::String& GetMFA() const{ return m_mFA; }
+
+    /**
+     * <p>The concatenation of the authentication device's serial number, a space, and
+     * the value that is displayed on your authentication device.</p>
+     */
+    inline bool MFAHasBeenSet() const { return m_mFAHasBeenSet; }
 
     /**
      * <p>The concatenation of the authentication device's serial number, a space, and
@@ -175,6 +191,11 @@ namespace Model
     /**
      * <p>VersionId used to reference a specific version of the object.</p>
      */
+    inline bool VersionIdHasBeenSet() const { return m_versionIdHasBeenSet; }
+
+    /**
+     * <p>VersionId used to reference a specific version of the object.</p>
+     */
     inline void SetVersionId(const Aws::String& value) { m_versionIdHasBeenSet = true; m_versionId = value; }
 
     /**
@@ -207,6 +228,9 @@ namespace Model
     inline const RequestPayer& GetRequestPayer() const{ return m_requestPayer; }
 
     
+    inline bool RequestPayerHasBeenSet() const { return m_requestPayerHasBeenSet; }
+
+    
     inline void SetRequestPayer(const RequestPayer& value) { m_requestPayerHasBeenSet = true; m_requestPayer = value; }
 
     
@@ -220,26 +244,35 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions
-     * to process this operation.</p>
+     * <p>Indicates whether Amazon S3 object lock should bypass governance-mode
+     * restrictions to process this operation.</p>
      */
     inline bool GetBypassGovernanceRetention() const{ return m_bypassGovernanceRetention; }
 
     /**
-     * <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions
-     * to process this operation.</p>
+     * <p>Indicates whether Amazon S3 object lock should bypass governance-mode
+     * restrictions to process this operation.</p>
+     */
+    inline bool BypassGovernanceRetentionHasBeenSet() const { return m_bypassGovernanceRetentionHasBeenSet; }
+
+    /**
+     * <p>Indicates whether Amazon S3 object lock should bypass governance-mode
+     * restrictions to process this operation.</p>
      */
     inline void SetBypassGovernanceRetention(bool value) { m_bypassGovernanceRetentionHasBeenSet = true; m_bypassGovernanceRetention = value; }
 
     /**
-     * <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions
-     * to process this operation.</p>
+     * <p>Indicates whether Amazon S3 object lock should bypass governance-mode
+     * restrictions to process this operation.</p>
      */
     inline DeleteObjectRequest& WithBypassGovernanceRetention(bool value) { SetBypassGovernanceRetention(value); return *this;}
 
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }

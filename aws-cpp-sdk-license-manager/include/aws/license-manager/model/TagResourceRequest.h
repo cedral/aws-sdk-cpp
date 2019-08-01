@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>Resource of the ARN to be tagged.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>Resource of the ARN to be tagged.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>Resource of the ARN to be tagged.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>Names of the tags to attach to the resource.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Names of the tags to attach to the resource.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Names of the tags to attach to the resource.</p>

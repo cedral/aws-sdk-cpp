@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ModifyClusterSubnetGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the subnet group to be modified.</p>
      */
     inline const Aws::String& GetClusterSubnetGroupName() const{ return m_clusterSubnetGroupName; }
+
+    /**
+     * <p>The name of the subnet group to be modified.</p>
+     */
+    inline bool ClusterSubnetGroupNameHasBeenSet() const { return m_clusterSubnetGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the subnet group to be modified.</p>
@@ -94,6 +99,11 @@ namespace Model
     /**
      * <p>A text description of the subnet group to be modified.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>A text description of the subnet group to be modified.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -127,6 +137,12 @@ namespace Model
      * single request.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSubnetIds() const{ return m_subnetIds; }
+
+    /**
+     * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
+     * single request.</p>
+     */
+    inline bool SubnetIdsHasBeenSet() const { return m_subnetIdsHasBeenSet; }
 
     /**
      * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a

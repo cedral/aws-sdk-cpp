@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetLoggerDefinitionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * The ID of the logger definition.
      */
     inline const Aws::String& GetLoggerDefinitionId() const{ return m_loggerDefinitionId; }
+
+    /**
+     * The ID of the logger definition.
+     */
+    inline bool LoggerDefinitionIdHasBeenSet() const { return m_loggerDefinitionIdHasBeenSet; }
 
     /**
      * The ID of the logger definition.

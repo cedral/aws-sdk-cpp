@@ -17,6 +17,7 @@
 #include <aws/directconnect/DirectConnect_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/directconnect/model/DirectConnectGatewayAttachmentState.h>
+#include <aws/directconnect/model/DirectConnectGatewayAttachmentType.h>
 #include <utility>
 
 namespace Aws
@@ -57,6 +58,11 @@ namespace Model
     /**
      * <p>The ID of the Direct Connect gateway.</p>
      */
+    inline bool DirectConnectGatewayIdHasBeenSet() const { return m_directConnectGatewayIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the Direct Connect gateway.</p>
+     */
     inline void SetDirectConnectGatewayId(const Aws::String& value) { m_directConnectGatewayIdHasBeenSet = true; m_directConnectGatewayId = value; }
 
     /**
@@ -89,6 +95,11 @@ namespace Model
      * <p>The ID of the virtual interface.</p>
      */
     inline const Aws::String& GetVirtualInterfaceId() const{ return m_virtualInterfaceId; }
+
+    /**
+     * <p>The ID of the virtual interface.</p>
+     */
+    inline bool VirtualInterfaceIdHasBeenSet() const { return m_virtualInterfaceIdHasBeenSet; }
 
     /**
      * <p>The ID of the virtual interface.</p>
@@ -129,6 +140,11 @@ namespace Model
     /**
      * <p>The AWS Region where the virtual interface is located.</p>
      */
+    inline bool VirtualInterfaceRegionHasBeenSet() const { return m_virtualInterfaceRegionHasBeenSet; }
+
+    /**
+     * <p>The AWS Region where the virtual interface is located.</p>
+     */
     inline void SetVirtualInterfaceRegion(const Aws::String& value) { m_virtualInterfaceRegionHasBeenSet = true; m_virtualInterfaceRegion = value; }
 
     /**
@@ -161,6 +177,11 @@ namespace Model
      * <p>The ID of the AWS account that owns the virtual interface.</p>
      */
     inline const Aws::String& GetVirtualInterfaceOwnerAccount() const{ return m_virtualInterfaceOwnerAccount; }
+
+    /**
+     * <p>The ID of the AWS account that owns the virtual interface.</p>
+     */
+    inline bool VirtualInterfaceOwnerAccountHasBeenSet() const { return m_virtualInterfaceOwnerAccountHasBeenSet; }
 
     /**
      * <p>The ID of the AWS account that owns the virtual interface.</p>
@@ -217,6 +238,19 @@ namespace Model
      * Connect gateway. Traffic flow between the Direct Connect gateway and virtual
      * interface is stopped.</p> </li> </ul>
      */
+    inline bool AttachmentStateHasBeenSet() const { return m_attachmentStateHasBeenSet; }
+
+    /**
+     * <p>The state of the attachment. The following are the possible values:</p> <ul>
+     * <li> <p> <code>attaching</code>: The initial state after a virtual interface is
+     * created using the Direct Connect gateway.</p> </li> <li> <p>
+     * <code>attached</code>: The Direct Connect gateway and virtual interface are
+     * attached and ready to pass traffic.</p> </li> <li> <p> <code>detaching</code>:
+     * The initial state after calling <a>DeleteVirtualInterface</a>.</p> </li> <li>
+     * <p> <code>detached</code>: The virtual interface is detached from the Direct
+     * Connect gateway. Traffic flow between the Direct Connect gateway and virtual
+     * interface is stopped.</p> </li> </ul>
+     */
     inline void SetAttachmentState(const DirectConnectGatewayAttachmentState& value) { m_attachmentStateHasBeenSet = true; m_attachmentState = value; }
 
     /**
@@ -260,9 +294,45 @@ namespace Model
 
 
     /**
+     * <p>The interface type.</p>
+     */
+    inline const DirectConnectGatewayAttachmentType& GetAttachmentType() const{ return m_attachmentType; }
+
+    /**
+     * <p>The interface type.</p>
+     */
+    inline bool AttachmentTypeHasBeenSet() const { return m_attachmentTypeHasBeenSet; }
+
+    /**
+     * <p>The interface type.</p>
+     */
+    inline void SetAttachmentType(const DirectConnectGatewayAttachmentType& value) { m_attachmentTypeHasBeenSet = true; m_attachmentType = value; }
+
+    /**
+     * <p>The interface type.</p>
+     */
+    inline void SetAttachmentType(DirectConnectGatewayAttachmentType&& value) { m_attachmentTypeHasBeenSet = true; m_attachmentType = std::move(value); }
+
+    /**
+     * <p>The interface type.</p>
+     */
+    inline DirectConnectGatewayAttachment& WithAttachmentType(const DirectConnectGatewayAttachmentType& value) { SetAttachmentType(value); return *this;}
+
+    /**
+     * <p>The interface type.</p>
+     */
+    inline DirectConnectGatewayAttachment& WithAttachmentType(DirectConnectGatewayAttachmentType&& value) { SetAttachmentType(std::move(value)); return *this;}
+
+
+    /**
      * <p>The error message if the state of an object failed to advance.</p>
      */
     inline const Aws::String& GetStateChangeError() const{ return m_stateChangeError; }
+
+    /**
+     * <p>The error message if the state of an object failed to advance.</p>
+     */
+    inline bool StateChangeErrorHasBeenSet() const { return m_stateChangeErrorHasBeenSet; }
 
     /**
      * <p>The error message if the state of an object failed to advance.</p>
@@ -310,6 +380,9 @@ namespace Model
 
     DirectConnectGatewayAttachmentState m_attachmentState;
     bool m_attachmentStateHasBeenSet;
+
+    DirectConnectGatewayAttachmentType m_attachmentType;
+    bool m_attachmentTypeHasBeenSet;
 
     Aws::String m_stateChangeError;
     bool m_stateChangeErrorHasBeenSet;

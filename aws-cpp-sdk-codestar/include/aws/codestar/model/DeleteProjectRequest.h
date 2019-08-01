@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteProjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the project to be deleted in AWS CodeStar.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID of the project to be deleted in AWS CodeStar.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID of the project to be deleted in AWS CodeStar.</p>
@@ -85,6 +90,12 @@ namespace Model
      * project deletion. This token can be used to repeat the request. </p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>A user- or system-generated token that identifies the entity that requested
+     * project deletion. This token can be used to repeat the request. </p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>A user- or system-generated token that identifies the entity that requested
@@ -130,6 +141,14 @@ namespace Model
      * as well as deleting the project itself. Recommended for most use cases.</p>
      */
     inline bool GetDeleteStack() const{ return m_deleteStack; }
+
+    /**
+     * <p>Whether to send a delete request for the primary stack in AWS CloudFormation
+     * originally used to generate the project and its resources. This option will
+     * delete all AWS resources for the project (except for any buckets in Amazon S3)
+     * as well as deleting the project itself. Recommended for most use cases.</p>
+     */
+    inline bool DeleteStackHasBeenSet() const { return m_deleteStackHasBeenSet; }
 
     /**
      * <p>Whether to send a delete request for the primary stack in AWS CloudFormation

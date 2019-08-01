@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteProgressUpdateStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the ProgressUpdateStream. </p>
      */
     inline const Aws::String& GetProgressUpdateStreamName() const{ return m_progressUpdateStreamName; }
+
+    /**
+     * <p>The name of the ProgressUpdateStream. </p>
+     */
+    inline bool ProgressUpdateStreamNameHasBeenSet() const { return m_progressUpdateStreamNameHasBeenSet; }
 
     /**
      * <p>The name of the ProgressUpdateStream. </p>
@@ -85,6 +90,12 @@ namespace Model
      * to test if the caller has permission to make the call.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Optional boolean flag to indicate whether any effect should take place. Used
+     * to test if the caller has permission to make the call.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Optional boolean flag to indicate whether any effect should take place. Used

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     UpdateConnectivityInfoRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * A list of connectivity info.
      */
     inline const Aws::Vector<ConnectivityInfo>& GetConnectivityInfo() const{ return m_connectivityInfo; }
+
+    /**
+     * A list of connectivity info.
+     */
+    inline bool ConnectivityInfoHasBeenSet() const { return m_connectivityInfoHasBeenSet; }
 
     /**
      * A list of connectivity info.
@@ -87,6 +92,11 @@ namespace Model
      * The thing name.
      */
     inline const Aws::String& GetThingName() const{ return m_thingName; }
+
+    /**
+     * The thing name.
+     */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
 
     /**
      * The thing name.

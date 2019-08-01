@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     GetChangeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * element when you submitted the request.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID of the change batch request. The value that you specify here is the
+     * value that <code>ChangeResourceRecordSets</code> returned in the <code>Id</code>
+     * element when you submitted the request.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID of the change batch request. The value that you specify here is the

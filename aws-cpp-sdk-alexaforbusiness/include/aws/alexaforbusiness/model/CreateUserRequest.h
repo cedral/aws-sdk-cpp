@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ARN for the user.</p>
      */
     inline const Aws::String& GetUserId() const{ return m_userId; }
+
+    /**
+     * <p>The ARN for the user.</p>
+     */
+    inline bool UserIdHasBeenSet() const { return m_userIdHasBeenSet; }
 
     /**
      * <p>The ARN for the user.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The first name for the user.</p>
      */
+    inline bool FirstNameHasBeenSet() const { return m_firstNameHasBeenSet; }
+
+    /**
+     * <p>The first name for the user.</p>
+     */
     inline void SetFirstName(const Aws::String& value) { m_firstNameHasBeenSet = true; m_firstName = value; }
 
     /**
@@ -127,6 +137,11 @@ namespace Model
     /**
      * <p>The last name for the user.</p>
      */
+    inline bool LastNameHasBeenSet() const { return m_lastNameHasBeenSet; }
+
+    /**
+     * <p>The last name for the user.</p>
+     */
     inline void SetLastName(const Aws::String& value) { m_lastNameHasBeenSet = true; m_lastName = value; }
 
     /**
@@ -159,6 +174,11 @@ namespace Model
      * <p>The email address for the user.</p>
      */
     inline const Aws::String& GetEmail() const{ return m_email; }
+
+    /**
+     * <p>The email address for the user.</p>
+     */
+    inline bool EmailHasBeenSet() const { return m_emailHasBeenSet; }
 
     /**
      * <p>The email address for the user.</p>
@@ -201,6 +221,12 @@ namespace Model
      * <p>A unique, user-specified identifier for this request that ensures
      * idempotency. </p>
      */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
+
+    /**
+     * <p>A unique, user-specified identifier for this request that ensures
+     * idempotency. </p>
+     */
     inline void SetClientRequestToken(const Aws::String& value) { m_clientRequestTokenHasBeenSet = true; m_clientRequestToken = value; }
 
     /**
@@ -238,6 +264,11 @@ namespace Model
      * <p>The tags for the user.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags for the user.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags for the user.</p>

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DetachTypedLinkRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * typed link.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the directory where you want to detach the
+     * typed link.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the directory where you want to detach the
@@ -92,6 +98,11 @@ namespace Model
      * <p>Used to accept a typed link specifier as input.</p>
      */
     inline const TypedLinkSpecifier& GetTypedLinkSpecifier() const{ return m_typedLinkSpecifier; }
+
+    /**
+     * <p>Used to accept a typed link specifier as input.</p>
+     */
+    inline bool TypedLinkSpecifierHasBeenSet() const { return m_typedLinkSpecifierHasBeenSet; }
 
     /**
      * <p>Used to accept a typed link specifier as input.</p>

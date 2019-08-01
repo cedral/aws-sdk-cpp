@@ -36,7 +36,7 @@ namespace Model
 
   /**
    * <p>Contains the results of a successful invocation of the
-   * <a>DescribeEventCategories</a> action.</p><p><h3>See Also:</h3>   <a
+   * <code>DescribeEventCategories</code> action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/EventCategoriesMap">AWS
    * API Reference</a></p>
    */
@@ -55,6 +55,11 @@ namespace Model
      * <p>The source type that the returned categories belong to</p>
      */
     inline const Aws::String& GetSourceType() const{ return m_sourceType; }
+
+    /**
+     * <p>The source type that the returned categories belong to</p>
+     */
+    inline bool SourceTypeHasBeenSet() const { return m_sourceTypeHasBeenSet; }
 
     /**
      * <p>The source type that the returned categories belong to</p>
@@ -91,6 +96,11 @@ namespace Model
      * <p>The event categories for the specified source type</p>
      */
     inline const Aws::Vector<Aws::String>& GetEventCategories() const{ return m_eventCategories; }
+
+    /**
+     * <p>The event categories for the specified source type</p>
+     */
+    inline bool EventCategoriesHasBeenSet() const { return m_eventCategoriesHasBeenSet; }
 
     /**
      * <p>The event categories for the specified source type</p>

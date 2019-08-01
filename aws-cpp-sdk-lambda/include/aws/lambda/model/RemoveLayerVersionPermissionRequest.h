@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     RemoveLayerVersionPermissionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
      */
     inline const Aws::String& GetLayerName() const{ return m_layerName; }
+
+    /**
+     * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+     */
+    inline bool LayerNameHasBeenSet() const { return m_layerNameHasBeenSet; }
 
     /**
      * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The version number.</p>
      */
+    inline bool VersionNumberHasBeenSet() const { return m_versionNumberHasBeenSet; }
+
+    /**
+     * <p>The version number.</p>
+     */
     inline void SetVersionNumber(long long value) { m_versionNumberHasBeenSet = true; m_versionNumber = value; }
 
     /**
@@ -104,6 +114,11 @@ namespace Model
      * <p>The identifier that was specified when the statement was added.</p>
      */
     inline const Aws::String& GetStatementId() const{ return m_statementId; }
+
+    /**
+     * <p>The identifier that was specified when the statement was added.</p>
+     */
+    inline bool StatementIdHasBeenSet() const { return m_statementIdHasBeenSet; }
 
     /**
      * <p>The identifier that was specified when the statement was added.</p>
@@ -141,6 +156,12 @@ namespace Model
      * option to avoid modifying a policy that has changed since you last read it.</p>
      */
     inline const Aws::String& GetRevisionId() const{ return m_revisionId; }
+
+    /**
+     * <p>Only update the policy if the revision ID matches the ID specified. Use this
+     * option to avoid modifying a policy that has changed since you last read it.</p>
+     */
+    inline bool RevisionIdHasBeenSet() const { return m_revisionIdHasBeenSet; }
 
     /**
      * <p>Only update the policy if the revision ID matches the ID specified. Use this

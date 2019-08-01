@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     CreateVPCAssociationAuthorizationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * VPC with.</p>
      */
     inline const Aws::String& GetHostedZoneId() const{ return m_hostedZoneId; }
+
+    /**
+     * <p>The ID of the private hosted zone that you want to authorize associating a
+     * VPC with.</p>
+     */
+    inline bool HostedZoneIdHasBeenSet() const { return m_hostedZoneIdHasBeenSet; }
 
     /**
      * <p>The ID of the private hosted zone that you want to authorize associating a
@@ -97,6 +103,12 @@ namespace Model
      * to authorize associating with your hosted zone.</p>
      */
     inline const VPC& GetVPC() const{ return m_vPC; }
+
+    /**
+     * <p>A complex type that contains the VPC ID and region for the VPC that you want
+     * to authorize associating with your hosted zone.</p>
+     */
+    inline bool VPCHasBeenSet() const { return m_vPCHasBeenSet; }
 
     /**
      * <p>A complex type that contains the VPC ID and region for the VPC that you want

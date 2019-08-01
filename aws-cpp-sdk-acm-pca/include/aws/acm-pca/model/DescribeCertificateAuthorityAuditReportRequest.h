@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeCertificateAuthorityAuditReportRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,14 @@ namespace Model
      * </code>. </p>
      */
     inline const Aws::String& GetCertificateAuthorityArn() const{ return m_certificateAuthorityArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the private CA. This must be of the
+     * form:</p> <p>
+     * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
+     * </code>. </p>
+     */
+    inline bool CertificateAuthorityArnHasBeenSet() const { return m_certificateAuthorityArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the private CA. This must be of the
@@ -103,43 +111,49 @@ namespace Model
 
     /**
      * <p>The report ID returned by calling the
-     * <a>CreateCertificateAuthorityAuditReport</a> operation.</p>
+     * <a>CreateCertificateAuthorityAuditReport</a> action.</p>
      */
     inline const Aws::String& GetAuditReportId() const{ return m_auditReportId; }
 
     /**
      * <p>The report ID returned by calling the
-     * <a>CreateCertificateAuthorityAuditReport</a> operation.</p>
+     * <a>CreateCertificateAuthorityAuditReport</a> action.</p>
+     */
+    inline bool AuditReportIdHasBeenSet() const { return m_auditReportIdHasBeenSet; }
+
+    /**
+     * <p>The report ID returned by calling the
+     * <a>CreateCertificateAuthorityAuditReport</a> action.</p>
      */
     inline void SetAuditReportId(const Aws::String& value) { m_auditReportIdHasBeenSet = true; m_auditReportId = value; }
 
     /**
      * <p>The report ID returned by calling the
-     * <a>CreateCertificateAuthorityAuditReport</a> operation.</p>
+     * <a>CreateCertificateAuthorityAuditReport</a> action.</p>
      */
     inline void SetAuditReportId(Aws::String&& value) { m_auditReportIdHasBeenSet = true; m_auditReportId = std::move(value); }
 
     /**
      * <p>The report ID returned by calling the
-     * <a>CreateCertificateAuthorityAuditReport</a> operation.</p>
+     * <a>CreateCertificateAuthorityAuditReport</a> action.</p>
      */
     inline void SetAuditReportId(const char* value) { m_auditReportIdHasBeenSet = true; m_auditReportId.assign(value); }
 
     /**
      * <p>The report ID returned by calling the
-     * <a>CreateCertificateAuthorityAuditReport</a> operation.</p>
+     * <a>CreateCertificateAuthorityAuditReport</a> action.</p>
      */
     inline DescribeCertificateAuthorityAuditReportRequest& WithAuditReportId(const Aws::String& value) { SetAuditReportId(value); return *this;}
 
     /**
      * <p>The report ID returned by calling the
-     * <a>CreateCertificateAuthorityAuditReport</a> operation.</p>
+     * <a>CreateCertificateAuthorityAuditReport</a> action.</p>
      */
     inline DescribeCertificateAuthorityAuditReportRequest& WithAuditReportId(Aws::String&& value) { SetAuditReportId(std::move(value)); return *this;}
 
     /**
      * <p>The report ID returned by calling the
-     * <a>CreateCertificateAuthorityAuditReport</a> operation.</p>
+     * <a>CreateCertificateAuthorityAuditReport</a> action.</p>
      */
     inline DescribeCertificateAuthorityAuditReportRequest& WithAuditReportId(const char* value) { SetAuditReportId(value); return *this;}
 

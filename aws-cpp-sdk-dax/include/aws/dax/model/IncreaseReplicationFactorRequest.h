@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     IncreaseReplicationFactorRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the DAX cluster that will receive additional nodes.</p>
      */
     inline const Aws::String& GetClusterName() const{ return m_clusterName; }
+
+    /**
+     * <p>The name of the DAX cluster that will receive additional nodes.</p>
+     */
+    inline bool ClusterNameHasBeenSet() const { return m_clusterNameHasBeenSet; }
 
     /**
      * <p>The name of the DAX cluster that will receive additional nodes.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The new number of nodes for the DAX cluster.</p>
      */
+    inline bool NewReplicationFactorHasBeenSet() const { return m_newReplicationFactorHasBeenSet; }
+
+    /**
+     * <p>The new number of nodes for the DAX cluster.</p>
+     */
     inline void SetNewReplicationFactor(int value) { m_newReplicationFactorHasBeenSet = true; m_newReplicationFactor = value; }
 
     /**
@@ -103,6 +113,13 @@ namespace Model
      * parameter if you want to distribute the nodes across multiple AZs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAvailabilityZones() const{ return m_availabilityZones; }
+
+    /**
+     * <p>The Availability Zones (AZs) in which the cluster nodes will be created. All
+     * nodes belonging to the cluster are placed in these Availability Zones. Use this
+     * parameter if you want to distribute the nodes across multiple AZs.</p>
+     */
+    inline bool AvailabilityZonesHasBeenSet() const { return m_availabilityZonesHasBeenSet; }
 
     /**
      * <p>The Availability Zones (AZs) in which the cluster nodes will be created. All

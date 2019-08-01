@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     MergeShardsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the stream for the merge.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>The name of the stream for the merge.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>The name of the stream for the merge.</p>
@@ -94,6 +99,12 @@ namespace Model
      * <p>The shard ID of the shard to combine with the adjacent shard for the
      * merge.</p>
      */
+    inline bool ShardToMergeHasBeenSet() const { return m_shardToMergeHasBeenSet; }
+
+    /**
+     * <p>The shard ID of the shard to combine with the adjacent shard for the
+     * merge.</p>
+     */
     inline void SetShardToMerge(const Aws::String& value) { m_shardToMergeHasBeenSet = true; m_shardToMerge = value; }
 
     /**
@@ -131,6 +142,11 @@ namespace Model
      * <p>The shard ID of the adjacent shard for the merge.</p>
      */
     inline const Aws::String& GetAdjacentShardToMerge() const{ return m_adjacentShardToMerge; }
+
+    /**
+     * <p>The shard ID of the adjacent shard for the merge.</p>
+     */
+    inline bool AdjacentShardToMergeHasBeenSet() const { return m_adjacentShardToMergeHasBeenSet; }
 
     /**
      * <p>The shard ID of the adjacent shard for the merge.</p>

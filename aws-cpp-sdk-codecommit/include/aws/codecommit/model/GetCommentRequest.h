@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetCommentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <a>GetCommentsForComparedCommit</a> or <a>GetCommentsForPullRequest</a>.</p>
      */
     inline const Aws::String& GetCommentId() const{ return m_commentId; }
+
+    /**
+     * <p>The unique, system-generated ID of the comment. To get this ID, use
+     * <a>GetCommentsForComparedCommit</a> or <a>GetCommentsForPullRequest</a>.</p>
+     */
+    inline bool CommentIdHasBeenSet() const { return m_commentIdHasBeenSet; }
 
     /**
      * <p>The unique, system-generated ID of the comment. To get this ID, use

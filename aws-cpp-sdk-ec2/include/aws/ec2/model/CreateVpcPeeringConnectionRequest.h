@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateVpcPeeringConnectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -60,6 +60,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -76,6 +84,12 @@ namespace Model
      * account ID</p>
      */
     inline const Aws::String& GetPeerOwnerId() const{ return m_peerOwnerId; }
+
+    /**
+     * <p>The AWS account ID of the owner of the accepter VPC.</p> <p>Default: Your AWS
+     * account ID</p>
+     */
+    inline bool PeerOwnerIdHasBeenSet() const { return m_peerOwnerIdHasBeenSet; }
 
     /**
      * <p>The AWS account ID of the owner of the accepter VPC.</p> <p>Default: Your AWS
@@ -124,6 +138,12 @@ namespace Model
      * <p>The ID of the VPC with which you are creating the VPC peering connection. You
      * must specify this parameter in the request.</p>
      */
+    inline bool PeerVpcIdHasBeenSet() const { return m_peerVpcIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the VPC with which you are creating the VPC peering connection. You
+     * must specify this parameter in the request.</p>
+     */
     inline void SetPeerVpcId(const Aws::String& value) { m_peerVpcIdHasBeenSet = true; m_peerVpcId = value; }
 
     /**
@@ -167,6 +187,12 @@ namespace Model
      * <p>The ID of the requester VPC. You must specify this parameter in the
      * request.</p>
      */
+    inline bool VpcIdHasBeenSet() const { return m_vpcIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the requester VPC. You must specify this parameter in the
+     * request.</p>
+     */
     inline void SetVpcId(const Aws::String& value) { m_vpcIdHasBeenSet = true; m_vpcId = value; }
 
     /**
@@ -201,51 +227,58 @@ namespace Model
 
 
     /**
-     * <p>The region code for the accepter VPC, if the accepter VPC is located in a
-     * region other than the region in which you make the request.</p> <p>Default: The
-     * region in which you make the request.</p>
+     * <p>The Region code for the accepter VPC, if the accepter VPC is located in a
+     * Region other than the Region in which you make the request.</p> <p>Default: The
+     * Region in which you make the request.</p>
      */
     inline const Aws::String& GetPeerRegion() const{ return m_peerRegion; }
 
     /**
-     * <p>The region code for the accepter VPC, if the accepter VPC is located in a
-     * region other than the region in which you make the request.</p> <p>Default: The
-     * region in which you make the request.</p>
+     * <p>The Region code for the accepter VPC, if the accepter VPC is located in a
+     * Region other than the Region in which you make the request.</p> <p>Default: The
+     * Region in which you make the request.</p>
+     */
+    inline bool PeerRegionHasBeenSet() const { return m_peerRegionHasBeenSet; }
+
+    /**
+     * <p>The Region code for the accepter VPC, if the accepter VPC is located in a
+     * Region other than the Region in which you make the request.</p> <p>Default: The
+     * Region in which you make the request.</p>
      */
     inline void SetPeerRegion(const Aws::String& value) { m_peerRegionHasBeenSet = true; m_peerRegion = value; }
 
     /**
-     * <p>The region code for the accepter VPC, if the accepter VPC is located in a
-     * region other than the region in which you make the request.</p> <p>Default: The
-     * region in which you make the request.</p>
+     * <p>The Region code for the accepter VPC, if the accepter VPC is located in a
+     * Region other than the Region in which you make the request.</p> <p>Default: The
+     * Region in which you make the request.</p>
      */
     inline void SetPeerRegion(Aws::String&& value) { m_peerRegionHasBeenSet = true; m_peerRegion = std::move(value); }
 
     /**
-     * <p>The region code for the accepter VPC, if the accepter VPC is located in a
-     * region other than the region in which you make the request.</p> <p>Default: The
-     * region in which you make the request.</p>
+     * <p>The Region code for the accepter VPC, if the accepter VPC is located in a
+     * Region other than the Region in which you make the request.</p> <p>Default: The
+     * Region in which you make the request.</p>
      */
     inline void SetPeerRegion(const char* value) { m_peerRegionHasBeenSet = true; m_peerRegion.assign(value); }
 
     /**
-     * <p>The region code for the accepter VPC, if the accepter VPC is located in a
-     * region other than the region in which you make the request.</p> <p>Default: The
-     * region in which you make the request.</p>
+     * <p>The Region code for the accepter VPC, if the accepter VPC is located in a
+     * Region other than the Region in which you make the request.</p> <p>Default: The
+     * Region in which you make the request.</p>
      */
     inline CreateVpcPeeringConnectionRequest& WithPeerRegion(const Aws::String& value) { SetPeerRegion(value); return *this;}
 
     /**
-     * <p>The region code for the accepter VPC, if the accepter VPC is located in a
-     * region other than the region in which you make the request.</p> <p>Default: The
-     * region in which you make the request.</p>
+     * <p>The Region code for the accepter VPC, if the accepter VPC is located in a
+     * Region other than the Region in which you make the request.</p> <p>Default: The
+     * Region in which you make the request.</p>
      */
     inline CreateVpcPeeringConnectionRequest& WithPeerRegion(Aws::String&& value) { SetPeerRegion(std::move(value)); return *this;}
 
     /**
-     * <p>The region code for the accepter VPC, if the accepter VPC is located in a
-     * region other than the region in which you make the request.</p> <p>Default: The
-     * region in which you make the request.</p>
+     * <p>The Region code for the accepter VPC, if the accepter VPC is located in a
+     * Region other than the Region in which you make the request.</p> <p>Default: The
+     * Region in which you make the request.</p>
      */
     inline CreateVpcPeeringConnectionRequest& WithPeerRegion(const char* value) { SetPeerRegion(value); return *this;}
 

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeIndexRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The index name.</p>
      */
     inline const Aws::String& GetIndexName() const{ return m_indexName; }
+
+    /**
+     * <p>The index name.</p>
+     */
+    inline bool IndexNameHasBeenSet() const { return m_indexNameHasBeenSet; }
 
     /**
      * <p>The index name.</p>

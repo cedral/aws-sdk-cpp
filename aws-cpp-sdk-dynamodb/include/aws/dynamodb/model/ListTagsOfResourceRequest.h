@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsOfResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * Resource Name (ARN).</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon DynamoDB resource with tags to be listed. This value is an Amazon
+     * Resource Name (ARN).</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon DynamoDB resource with tags to be listed. This value is an Amazon
@@ -93,6 +99,13 @@ namespace Model
      * fetches the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>An optional string that, if supplied, must be copied from the output of a
+     * previous call to ListTagOfResource. When provided in this manner, this API
+     * fetches the next page of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>An optional string that, if supplied, must be copied from the output of a

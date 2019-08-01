@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StopServerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>A system-assigned unique identifier for an SFTP server that you stopped.</p>
      */
     inline const Aws::String& GetServerId() const{ return m_serverId; }
+
+    /**
+     * <p>A system-assigned unique identifier for an SFTP server that you stopped.</p>
+     */
+    inline bool ServerIdHasBeenSet() const { return m_serverIdHasBeenSet; }
 
     /**
      * <p>A system-assigned unique identifier for an SFTP server that you stopped.</p>

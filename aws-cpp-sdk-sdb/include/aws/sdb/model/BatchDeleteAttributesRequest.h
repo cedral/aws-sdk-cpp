@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     BatchDeleteAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * The name of the domain in which the attributes are being deleted.
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * The name of the domain in which the attributes are being deleted.
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * The name of the domain in which the attributes are being deleted.
@@ -88,6 +93,11 @@ namespace Model
      * A list of items on which to perform the operation.
      */
     inline const Aws::Vector<DeletableItem>& GetItems() const{ return m_items; }
+
+    /**
+     * A list of items on which to perform the operation.
+     */
+    inline bool ItemsHasBeenSet() const { return m_itemsHasBeenSet; }
 
     /**
      * A list of items on which to perform the operation.

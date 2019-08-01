@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteRelationalDatabaseSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the database snapshot that you are deleting.</p>
      */
     inline const Aws::String& GetRelationalDatabaseSnapshotName() const{ return m_relationalDatabaseSnapshotName; }
+
+    /**
+     * <p>The name of the database snapshot that you are deleting.</p>
+     */
+    inline bool RelationalDatabaseSnapshotNameHasBeenSet() const { return m_relationalDatabaseSnapshotNameHasBeenSet; }
 
     /**
      * <p>The name of the database snapshot that you are deleting.</p>

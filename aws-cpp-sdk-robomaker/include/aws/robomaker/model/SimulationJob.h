@@ -65,6 +65,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
      */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the simulation job.</p>
+     */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
@@ -97,6 +102,11 @@ namespace Model
      * <p>The name of the simulation job.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the simulation job.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the simulation job.</p>
@@ -137,6 +147,11 @@ namespace Model
     /**
      * <p>Status of the simulation job.</p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>Status of the simulation job.</p>
+     */
     inline void SetStatus(const SimulationJobStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -157,9 +172,52 @@ namespace Model
 
     /**
      * <p>The time, in milliseconds since the epoch, when the simulation job was last
+     * started.</p>
+     */
+    inline const Aws::Utils::DateTime& GetLastStartedAt() const{ return m_lastStartedAt; }
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the simulation job was last
+     * started.</p>
+     */
+    inline bool LastStartedAtHasBeenSet() const { return m_lastStartedAtHasBeenSet; }
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the simulation job was last
+     * started.</p>
+     */
+    inline void SetLastStartedAt(const Aws::Utils::DateTime& value) { m_lastStartedAtHasBeenSet = true; m_lastStartedAt = value; }
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the simulation job was last
+     * started.</p>
+     */
+    inline void SetLastStartedAt(Aws::Utils::DateTime&& value) { m_lastStartedAtHasBeenSet = true; m_lastStartedAt = std::move(value); }
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the simulation job was last
+     * started.</p>
+     */
+    inline SimulationJob& WithLastStartedAt(const Aws::Utils::DateTime& value) { SetLastStartedAt(value); return *this;}
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the simulation job was last
+     * started.</p>
+     */
+    inline SimulationJob& WithLastStartedAt(Aws::Utils::DateTime&& value) { SetLastStartedAt(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the simulation job was last
      * updated.</p>
      */
     inline const Aws::Utils::DateTime& GetLastUpdatedAt() const{ return m_lastUpdatedAt; }
+
+    /**
+     * <p>The time, in milliseconds since the epoch, when the simulation job was last
+     * updated.</p>
+     */
+    inline bool LastUpdatedAtHasBeenSet() const { return m_lastUpdatedAtHasBeenSet; }
 
     /**
      * <p>The time, in milliseconds since the epoch, when the simulation job was last
@@ -198,6 +256,13 @@ namespace Model
      * <p>Restart the simulation job in the same host instance.</p> </dd> <dt>Fail</dt>
      * <dd> <p>Stop the simulation job and terminate the instance.</p> </dd> </dl>
      */
+    inline bool FailureBehaviorHasBeenSet() const { return m_failureBehaviorHasBeenSet; }
+
+    /**
+     * <p>The failure behavior the simulation job.</p> <dl> <dt>Continue</dt> <dd>
+     * <p>Restart the simulation job in the same host instance.</p> </dd> <dt>Fail</dt>
+     * <dd> <p>Stop the simulation job and terminate the instance.</p> </dd> </dl>
+     */
     inline void SetFailureBehavior(const FailureBehavior& value) { m_failureBehaviorHasBeenSet = true; m_failureBehavior = value; }
 
     /**
@@ -230,6 +295,11 @@ namespace Model
     /**
      * <p>The failure code of the simulation job if it failed.</p>
      */
+    inline bool FailureCodeHasBeenSet() const { return m_failureCodeHasBeenSet; }
+
+    /**
+     * <p>The failure code of the simulation job if it failed.</p>
+     */
     inline void SetFailureCode(const SimulationJobErrorCode& value) { m_failureCodeHasBeenSet = true; m_failureCode = value; }
 
     /**
@@ -252,6 +322,11 @@ namespace Model
      * <p>The reason why the simulation job failed.</p>
      */
     inline const Aws::String& GetFailureReason() const{ return m_failureReason; }
+
+    /**
+     * <p>The reason why the simulation job failed.</p>
+     */
+    inline bool FailureReasonHasBeenSet() const { return m_failureReasonHasBeenSet; }
 
     /**
      * <p>The reason why the simulation job failed.</p>
@@ -292,6 +367,11 @@ namespace Model
     /**
      * <p>A unique identifier for this <code>SimulationJob</code> request.</p>
      */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
+
+    /**
+     * <p>A unique identifier for this <code>SimulationJob</code> request.</p>
+     */
     inline void SetClientRequestToken(const Aws::String& value) { m_clientRequestTokenHasBeenSet = true; m_clientRequestToken = value; }
 
     /**
@@ -328,6 +408,11 @@ namespace Model
     /**
      * <p>Location for output files generated by the simulation job.</p>
      */
+    inline bool OutputLocationHasBeenSet() const { return m_outputLocationHasBeenSet; }
+
+    /**
+     * <p>Location for output files generated by the simulation job.</p>
+     */
     inline void SetOutputLocation(const OutputLocation& value) { m_outputLocationHasBeenSet = true; m_outputLocation = value; }
 
     /**
@@ -356,6 +441,12 @@ namespace Model
      * <p>The maximum simulation job duration in seconds. The value must be 8 days
      * (691,200 seconds) or less.</p>
      */
+    inline bool MaxJobDurationInSecondsHasBeenSet() const { return m_maxJobDurationInSecondsHasBeenSet; }
+
+    /**
+     * <p>The maximum simulation job duration in seconds. The value must be 8 days
+     * (691,200 seconds) or less.</p>
+     */
     inline void SetMaxJobDurationInSeconds(long long value) { m_maxJobDurationInSecondsHasBeenSet = true; m_maxJobDurationInSeconds = value; }
 
     /**
@@ -373,6 +464,11 @@ namespace Model
     /**
      * <p>The simulation job execution duration in milliseconds.</p>
      */
+    inline bool SimulationTimeMillisHasBeenSet() const { return m_simulationTimeMillisHasBeenSet; }
+
+    /**
+     * <p>The simulation job execution duration in milliseconds.</p>
+     */
     inline void SetSimulationTimeMillis(long long value) { m_simulationTimeMillisHasBeenSet = true; m_simulationTimeMillis = value; }
 
     /**
@@ -384,63 +480,56 @@ namespace Model
     /**
      * <p>The IAM role that allows the simulation instance to call the AWS APIs that
      * are specified in its associated policies on your behalf. This is how credentials
-     * are passed in to your simulation job. See how to <a
-     * href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials">specify
-     * AWS security credentials for your application</a>. </p>
+     * are passed in to your simulation job. </p>
      */
     inline const Aws::String& GetIamRole() const{ return m_iamRole; }
 
     /**
      * <p>The IAM role that allows the simulation instance to call the AWS APIs that
      * are specified in its associated policies on your behalf. This is how credentials
-     * are passed in to your simulation job. See how to <a
-     * href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials">specify
-     * AWS security credentials for your application</a>. </p>
+     * are passed in to your simulation job. </p>
+     */
+    inline bool IamRoleHasBeenSet() const { return m_iamRoleHasBeenSet; }
+
+    /**
+     * <p>The IAM role that allows the simulation instance to call the AWS APIs that
+     * are specified in its associated policies on your behalf. This is how credentials
+     * are passed in to your simulation job. </p>
      */
     inline void SetIamRole(const Aws::String& value) { m_iamRoleHasBeenSet = true; m_iamRole = value; }
 
     /**
      * <p>The IAM role that allows the simulation instance to call the AWS APIs that
      * are specified in its associated policies on your behalf. This is how credentials
-     * are passed in to your simulation job. See how to <a
-     * href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials">specify
-     * AWS security credentials for your application</a>. </p>
+     * are passed in to your simulation job. </p>
      */
     inline void SetIamRole(Aws::String&& value) { m_iamRoleHasBeenSet = true; m_iamRole = std::move(value); }
 
     /**
      * <p>The IAM role that allows the simulation instance to call the AWS APIs that
      * are specified in its associated policies on your behalf. This is how credentials
-     * are passed in to your simulation job. See how to <a
-     * href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials">specify
-     * AWS security credentials for your application</a>. </p>
+     * are passed in to your simulation job. </p>
      */
     inline void SetIamRole(const char* value) { m_iamRoleHasBeenSet = true; m_iamRole.assign(value); }
 
     /**
      * <p>The IAM role that allows the simulation instance to call the AWS APIs that
      * are specified in its associated policies on your behalf. This is how credentials
-     * are passed in to your simulation job. See how to <a
-     * href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials">specify
-     * AWS security credentials for your application</a>. </p>
+     * are passed in to your simulation job. </p>
      */
     inline SimulationJob& WithIamRole(const Aws::String& value) { SetIamRole(value); return *this;}
 
     /**
      * <p>The IAM role that allows the simulation instance to call the AWS APIs that
      * are specified in its associated policies on your behalf. This is how credentials
-     * are passed in to your simulation job. See how to <a
-     * href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials">specify
-     * AWS security credentials for your application</a>. </p>
+     * are passed in to your simulation job. </p>
      */
     inline SimulationJob& WithIamRole(Aws::String&& value) { SetIamRole(std::move(value)); return *this;}
 
     /**
      * <p>The IAM role that allows the simulation instance to call the AWS APIs that
      * are specified in its associated policies on your behalf. This is how credentials
-     * are passed in to your simulation job. See how to <a
-     * href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials">specify
-     * AWS security credentials for your application</a>. </p>
+     * are passed in to your simulation job. </p>
      */
     inline SimulationJob& WithIamRole(const char* value) { SetIamRole(value); return *this;}
 
@@ -449,6 +538,11 @@ namespace Model
      * <p>A list of robot applications.</p>
      */
     inline const Aws::Vector<RobotApplicationConfig>& GetRobotApplications() const{ return m_robotApplications; }
+
+    /**
+     * <p>A list of robot applications.</p>
+     */
+    inline bool RobotApplicationsHasBeenSet() const { return m_robotApplicationsHasBeenSet; }
 
     /**
      * <p>A list of robot applications.</p>
@@ -489,6 +583,11 @@ namespace Model
     /**
      * <p>A list of simulation applications.</p>
      */
+    inline bool SimulationApplicationsHasBeenSet() const { return m_simulationApplicationsHasBeenSet; }
+
+    /**
+     * <p>A list of simulation applications.</p>
+     */
     inline void SetSimulationApplications(const Aws::Vector<SimulationApplicationConfig>& value) { m_simulationApplicationsHasBeenSet = true; m_simulationApplications = value; }
 
     /**
@@ -522,6 +621,12 @@ namespace Model
      * simulation job.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A map that contains tag keys and tag values that are attached to the
+     * simulation job.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A map that contains tag keys and tag values that are attached to the
@@ -598,6 +703,11 @@ namespace Model
     /**
      * <p>VPC configuration information.</p>
      */
+    inline bool VpcConfigHasBeenSet() const { return m_vpcConfigHasBeenSet; }
+
+    /**
+     * <p>VPC configuration information.</p>
+     */
     inline void SetVpcConfig(const VPCConfigResponse& value) { m_vpcConfigHasBeenSet = true; m_vpcConfig = value; }
 
     /**
@@ -625,6 +735,9 @@ namespace Model
 
     SimulationJobStatus m_status;
     bool m_statusHasBeenSet;
+
+    Aws::Utils::DateTime m_lastStartedAt;
+    bool m_lastStartedAtHasBeenSet;
 
     Aws::Utils::DateTime m_lastUpdatedAt;
     bool m_lastUpdatedAtHasBeenSet;

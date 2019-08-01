@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     BatchGetResourceConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * element in the list consists of the resource type and resource ID.</p>
      */
     inline const Aws::Vector<ResourceKey>& GetResourceKeys() const{ return m_resourceKeys; }
+
+    /**
+     * <p>A list of resource keys to be processed with the current request. Each
+     * element in the list consists of the resource type and resource ID.</p>
+     */
+    inline bool ResourceKeysHasBeenSet() const { return m_resourceKeysHasBeenSet; }
 
     /**
      * <p>A list of resource keys to be processed with the current request. Each

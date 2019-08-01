@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteIPSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <a>ListIPSets</a>.</p>
      */
     inline const Aws::String& GetIPSetId() const{ return m_iPSetId; }
+
+    /**
+     * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to delete.
+     * <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by
+     * <a>ListIPSets</a>.</p>
+     */
+    inline bool IPSetIdHasBeenSet() const { return m_iPSetIdHasBeenSet; }
 
     /**
      * <p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to delete.
@@ -98,6 +105,11 @@ namespace Model
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
      */
     inline const Aws::String& GetChangeToken() const{ return m_changeToken; }
+
+    /**
+     * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+     */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
 
     /**
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>

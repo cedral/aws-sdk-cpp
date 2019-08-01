@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DescribeDBSnapshotAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The identifier for the DB snapshot to describe the attributes for.</p>
      */
     inline const Aws::String& GetDBSnapshotIdentifier() const{ return m_dBSnapshotIdentifier; }
+
+    /**
+     * <p>The identifier for the DB snapshot to describe the attributes for.</p>
+     */
+    inline bool DBSnapshotIdentifierHasBeenSet() const { return m_dBSnapshotIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier for the DB snapshot to describe the attributes for.</p>

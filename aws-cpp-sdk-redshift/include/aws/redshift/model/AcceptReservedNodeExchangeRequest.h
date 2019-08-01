@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AcceptReservedNodeExchangeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * exchanged.</p>
      */
     inline const Aws::String& GetReservedNodeId() const{ return m_reservedNodeId; }
+
+    /**
+     * <p>A string representing the node identifier of the DC1 Reserved Node to be
+     * exchanged.</p>
+     */
+    inline bool ReservedNodeIdHasBeenSet() const { return m_reservedNodeIdHasBeenSet; }
 
     /**
      * <p>A string representing the node identifier of the DC1 Reserved Node to be
@@ -95,6 +101,13 @@ namespace Model
      * <a>GetReservedNodeExchangeOfferings</a> </p>
      */
     inline const Aws::String& GetTargetReservedNodeOfferingId() const{ return m_targetReservedNodeOfferingId; }
+
+    /**
+     * <p>The unique identifier of the DC2 Reserved Node offering to be used for the
+     * exchange. You can obtain the value for the parameter by calling
+     * <a>GetReservedNodeExchangeOfferings</a> </p>
+     */
+    inline bool TargetReservedNodeOfferingIdHasBeenSet() const { return m_targetReservedNodeOfferingIdHasBeenSet; }
 
     /**
      * <p>The unique identifier of the DC2 Reserved Node offering to be used for the

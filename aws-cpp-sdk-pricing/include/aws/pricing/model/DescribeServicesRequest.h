@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeServicesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,14 @@ namespace Model
      * leave this blank.</p>
      */
     inline const Aws::String& GetServiceCode() const{ return m_serviceCode; }
+
+    /**
+     * <p>The code for the service whose information you want to retrieve, such as
+     * <code>AmazonEC2</code>. You can use the <code>ServiceCode</code> to filter the
+     * results in a <code>GetProducts</code> call. To retrieve a list of all services,
+     * leave this blank.</p>
+     */
+    inline bool ServiceCodeHasBeenSet() const { return m_serviceCodeHasBeenSet; }
 
     /**
      * <p>The code for the service whose information you want to retrieve, such as
@@ -111,6 +119,12 @@ namespace Model
      * <p>The format version that you want the response to be in.</p> <p>Valid values
      * are: <code>aws_v1</code> </p>
      */
+    inline bool FormatVersionHasBeenSet() const { return m_formatVersionHasBeenSet; }
+
+    /**
+     * <p>The format version that you want the response to be in.</p> <p>Valid values
+     * are: <code>aws_v1</code> </p>
+     */
     inline void SetFormatVersion(const Aws::String& value) { m_formatVersionHasBeenSet = true; m_formatVersion = value; }
 
     /**
@@ -154,6 +168,12 @@ namespace Model
      * <p>The pagination token that indicates the next set of results that you want to
      * retrieve.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The pagination token that indicates the next set of results that you want to
+     * retrieve.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -191,6 +211,11 @@ namespace Model
      * <p>The maximum number of results that you want returned in the response.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results that you want returned in the response.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results that you want returned in the response.</p>

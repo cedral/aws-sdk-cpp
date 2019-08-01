@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteClientVpnRouteRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the Client VPN endpoint from which the route is to be deleted.</p>
      */
     inline const Aws::String& GetClientVpnEndpointId() const{ return m_clientVpnEndpointId; }
+
+    /**
+     * <p>The ID of the Client VPN endpoint from which the route is to be deleted.</p>
+     */
+    inline bool ClientVpnEndpointIdHasBeenSet() const { return m_clientVpnEndpointIdHasBeenSet; }
 
     /**
      * <p>The ID of the Client VPN endpoint from which the route is to be deleted.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>The ID of the target subnet used by the route.</p>
      */
+    inline bool TargetVpcSubnetIdHasBeenSet() const { return m_targetVpcSubnetIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the target subnet used by the route.</p>
+     */
     inline void SetTargetVpcSubnetId(const Aws::String& value) { m_targetVpcSubnetIdHasBeenSet = true; m_targetVpcSubnetId = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
      * <p>The IPv4 address range, in CIDR notation, of the route to be deleted.</p>
      */
     inline const Aws::String& GetDestinationCidrBlock() const{ return m_destinationCidrBlock; }
+
+    /**
+     * <p>The IPv4 address range, in CIDR notation, of the route to be deleted.</p>
+     */
+    inline bool DestinationCidrBlockHasBeenSet() const { return m_destinationCidrBlockHasBeenSet; }
 
     /**
      * <p>The IPv4 address range, in CIDR notation, of the route to be deleted.</p>
@@ -161,6 +176,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

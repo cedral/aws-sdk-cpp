@@ -37,7 +37,7 @@ namespace Model
    * <p>Additional X-headers to include in the Delivery Status Notification (DSN)
    * when an email that Amazon SES receives on your behalf bounces.</p> <p>For
    * information about receiving email through Amazon SES, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ExtensionField">AWS
    * API Reference</a></p>
@@ -59,6 +59,13 @@ namespace Model
      * only.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the header to add. Must be between 1 and 50 characters,
+     * inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes
+     * only.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the header to add. Must be between 1 and 50 characters,
@@ -108,6 +115,12 @@ namespace Model
      * not contain newline characters ("\r" or "\n").</p>
      */
     inline const Aws::String& GetValue() const{ return m_value; }
+
+    /**
+     * <p>The value of the header to add. Must be less than 2048 characters, and must
+     * not contain newline characters ("\r" or "\n").</p>
+     */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
 
     /**
      * <p>The value of the header to add. Must be less than 2048 characters, and must

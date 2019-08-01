@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateAliasRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The identifier of the directory for which to create the alias.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The identifier of the directory for which to create the alias.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The identifier of the directory for which to create the alias.</p>
@@ -90,6 +95,13 @@ namespace Model
      * the alias already exists.</p>
      */
     inline const Aws::String& GetAlias() const{ return m_alias; }
+
+    /**
+     * <p>The requested alias.</p> <p>The alias must be unique amongst all aliases in
+     * AWS. This operation throws an <code>EntityAlreadyExistsException</code> error if
+     * the alias already exists.</p>
+     */
+    inline bool AliasHasBeenSet() const { return m_aliasHasBeenSet; }
 
     /**
      * <p>The requested alias.</p> <p>The alias must be unique amongst all aliases in

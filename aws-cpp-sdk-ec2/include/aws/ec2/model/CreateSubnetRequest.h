@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateSubnetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * select a different zone for each subnet.</p>
      */
     inline const Aws::String& GetAvailabilityZone() const{ return m_availabilityZone; }
+
+    /**
+     * <p>The Availability Zone for the subnet.</p> <p>Default: AWS selects one for
+     * you. If you create more than one subnet in your VPC, we may not necessarily
+     * select a different zone for each subnet.</p>
+     */
+    inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
 
     /**
      * <p>The Availability Zone for the subnet.</p> <p>Default: AWS selects one for
@@ -104,6 +111,11 @@ namespace Model
     /**
      * <p>The AZ ID of the subnet.</p>
      */
+    inline bool AvailabilityZoneIdHasBeenSet() const { return m_availabilityZoneIdHasBeenSet; }
+
+    /**
+     * <p>The AZ ID of the subnet.</p>
+     */
     inline void SetAvailabilityZoneId(const Aws::String& value) { m_availabilityZoneIdHasBeenSet = true; m_availabilityZoneId = value; }
 
     /**
@@ -137,6 +149,12 @@ namespace Model
      * <code>10.0.0.0/24</code>.</p>
      */
     inline const Aws::String& GetCidrBlock() const{ return m_cidrBlock; }
+
+    /**
+     * <p>The IPv4 network range for the subnet, in CIDR notation. For example,
+     * <code>10.0.0.0/24</code>.</p>
+     */
+    inline bool CidrBlockHasBeenSet() const { return m_cidrBlockHasBeenSet; }
 
     /**
      * <p>The IPv4 network range for the subnet, in CIDR notation. For example,
@@ -185,6 +203,12 @@ namespace Model
      * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must
      * use a /64 prefix length.</p>
      */
+    inline bool Ipv6CidrBlockHasBeenSet() const { return m_ipv6CidrBlockHasBeenSet; }
+
+    /**
+     * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must
+     * use a /64 prefix length.</p>
+     */
     inline void SetIpv6CidrBlock(const Aws::String& value) { m_ipv6CidrBlockHasBeenSet = true; m_ipv6CidrBlock = value; }
 
     /**
@@ -226,6 +250,11 @@ namespace Model
     /**
      * <p>The ID of the VPC.</p>
      */
+    inline bool VpcIdHasBeenSet() const { return m_vpcIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the VPC.</p>
+     */
     inline void SetVpcId(const Aws::String& value) { m_vpcIdHasBeenSet = true; m_vpcId = value; }
 
     /**
@@ -261,6 +290,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

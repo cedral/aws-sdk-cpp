@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,12 @@ namespace Model
      * ARN, send a GET request with the resource name.
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the
+     * ARN, send a GET request with the resource name.
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * The Amazon Resource Name (ARN) of the resource that you want to tag. To get the
@@ -91,6 +97,12 @@ namespace Model
      * key-value pair or with only a key.
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * The tags that you want to add to the resource. You can tag resources with a

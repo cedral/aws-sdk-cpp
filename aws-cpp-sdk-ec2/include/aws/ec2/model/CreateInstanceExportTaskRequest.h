@@ -29,16 +29,12 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for CreateInstanceExportTask.</p><p><h3>See
-   * Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInstanceExportTaskRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API CreateInstanceExportTaskRequest : public EC2Request
   {
   public:
     CreateInstanceExportTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +53,12 @@ namespace Model
      * maximum length is 255 bytes.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description for the conversion task or the resource being exported. The
+     * maximum length is 255 bytes.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description for the conversion task or the resource being exported. The
@@ -103,6 +105,11 @@ namespace Model
     /**
      * <p>The format and location for an instance export task.</p>
      */
+    inline bool ExportToS3TaskHasBeenSet() const { return m_exportToS3TaskHasBeenSet; }
+
+    /**
+     * <p>The format and location for an instance export task.</p>
+     */
     inline void SetExportToS3Task(const ExportToS3TaskSpecification& value) { m_exportToS3TaskHasBeenSet = true; m_exportToS3Task = value; }
 
     /**
@@ -125,6 +132,11 @@ namespace Model
      * <p>The ID of the instance.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The ID of the instance.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The ID of the instance.</p>
@@ -161,6 +173,11 @@ namespace Model
      * <p>The target virtualization environment.</p>
      */
     inline const ExportEnvironment& GetTargetEnvironment() const{ return m_targetEnvironment; }
+
+    /**
+     * <p>The target virtualization environment.</p>
+     */
+    inline bool TargetEnvironmentHasBeenSet() const { return m_targetEnvironmentHasBeenSet; }
 
     /**
      * <p>The target virtualization environment.</p>

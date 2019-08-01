@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateModelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The API identifier.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The API identifier.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The API identifier.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The content-type for the model, for example, "application/json".</p>
      */
+    inline bool ContentTypeHasBeenSet() const { return m_contentTypeHasBeenSet; }
+
+    /**
+     * <p>The content-type for the model, for example, "application/json".</p>
+     */
     inline void SetContentType(const Aws::String& value) { m_contentTypeHasBeenSet = true; m_contentType = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The description of the model.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The description of the model.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The description of the model.</p>
@@ -158,6 +173,11 @@ namespace Model
     /**
      * <p>The name of the model. Must be alphanumeric.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the model. Must be alphanumeric.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -192,6 +212,13 @@ namespace Model
  draft 4 model.</p>
      */
     inline const Aws::String& GetSchema() const{ return m_schema; }
+
+    /**
+     * <p>The schema for the model. For application/json models, this should be JSON
+     * schema
+ draft 4 model.</p>
+     */
+    inline bool SchemaHasBeenSet() const { return m_schemaHasBeenSet; }
 
     /**
      * <p>The schema for the model. For application/json models, this should be JSON

@@ -34,7 +34,7 @@ namespace Model
 
   /**
    * <p>An origin in an origin group.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/OriginGroupMember">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/OriginGroupMember">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API OriginGroupMember
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ID for an origin in an origin group.</p>
      */
     inline const Aws::String& GetOriginId() const{ return m_originId; }
+
+    /**
+     * <p>The ID for an origin in an origin group.</p>
+     */
+    inline bool OriginIdHasBeenSet() const { return m_originIdHasBeenSet; }
 
     /**
      * <p>The ID for an origin in an origin group.</p>

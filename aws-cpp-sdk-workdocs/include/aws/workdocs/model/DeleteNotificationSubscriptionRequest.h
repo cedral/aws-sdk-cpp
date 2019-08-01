@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteNotificationSubscriptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The ID of the subscription.</p>
      */
     inline const Aws::String& GetSubscriptionId() const{ return m_subscriptionId; }
+
+    /**
+     * <p>The ID of the subscription.</p>
+     */
+    inline bool SubscriptionIdHasBeenSet() const { return m_subscriptionIdHasBeenSet; }
 
     /**
      * <p>The ID of the subscription.</p>
@@ -82,6 +87,11 @@ namespace Model
      * <p>The ID of the organization.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The ID of the organization.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The ID of the organization.</p>

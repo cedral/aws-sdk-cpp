@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetOperationsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the resource for which you are requesting information.</p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
+
+    /**
+     * <p>The name of the resource for which you are requesting information.</p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
 
     /**
      * <p>The name of the resource for which you are requesting information.</p>
@@ -85,6 +90,12 @@ namespace Model
      * operations for resource request.</p>
      */
     inline const Aws::String& GetPageToken() const{ return m_pageToken; }
+
+    /**
+     * <p>A token used for advancing to the next page of results from your get
+     * operations for resource request.</p>
+     */
+    inline bool PageTokenHasBeenSet() const { return m_pageTokenHasBeenSet; }
 
     /**
      * <p>A token used for advancing to the next page of results from your get

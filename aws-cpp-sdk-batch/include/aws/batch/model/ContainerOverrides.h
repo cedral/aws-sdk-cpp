@@ -18,6 +18,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/batch/model/KeyValuePair.h>
+#include <aws/batch/model/ResourceRequirement.h>
 #include <utility>
 
 namespace Aws
@@ -60,6 +61,12 @@ namespace Model
      * <p>The number of vCPUs to reserve for the container. This value overrides the
      * value set in the job definition.</p>
      */
+    inline bool VcpusHasBeenSet() const { return m_vcpusHasBeenSet; }
+
+    /**
+     * <p>The number of vCPUs to reserve for the container. This value overrides the
+     * value set in the job definition.</p>
+     */
     inline void SetVcpus(int value) { m_vcpusHasBeenSet = true; m_vcpus = value; }
 
     /**
@@ -79,6 +86,12 @@ namespace Model
      * <p>The number of MiB of memory reserved for the job. This value overrides the
      * value set in the job definition.</p>
      */
+    inline bool MemoryHasBeenSet() const { return m_memoryHasBeenSet; }
+
+    /**
+     * <p>The number of MiB of memory reserved for the job. This value overrides the
+     * value set in the job definition.</p>
+     */
     inline void SetMemory(int value) { m_memoryHasBeenSet = true; m_memory = value; }
 
     /**
@@ -93,6 +106,12 @@ namespace Model
      * the Docker image or the job definition.</p>
      */
     inline const Aws::Vector<Aws::String>& GetCommand() const{ return m_command; }
+
+    /**
+     * <p>The command to send to the container that overrides the default command from
+     * the Docker image or the job definition.</p>
+     */
+    inline bool CommandHasBeenSet() const { return m_commandHasBeenSet; }
 
     /**
      * <p>The command to send to the container that overrides the default command from
@@ -147,6 +166,12 @@ namespace Model
      * <p>The instance type to use for a multi-node parallel job. This parameter is not
      * valid for single-node container jobs.</p>
      */
+    inline bool InstanceTypeHasBeenSet() const { return m_instanceTypeHasBeenSet; }
+
+    /**
+     * <p>The instance type to use for a multi-node parallel job. This parameter is not
+     * valid for single-node container jobs.</p>
+     */
     inline void SetInstanceType(const Aws::String& value) { m_instanceTypeHasBeenSet = true; m_instanceType = value; }
 
     /**
@@ -189,6 +214,16 @@ namespace Model
      * are set by the AWS Batch service.</p> </note>
      */
     inline const Aws::Vector<KeyValuePair>& GetEnvironment() const{ return m_environment; }
+
+    /**
+     * <p>The environment variables to send to the container. You can add new
+     * environment variables, which are added to the container at launch, or you can
+     * override the existing environment variables from the Docker image or the job
+     * definition.</p> <note> <p>Environment variables must not start with
+     * <code>AWS_BATCH</code>; this naming convention is reserved for variables that
+     * are set by the AWS Batch service.</p> </note>
+     */
+    inline bool EnvironmentHasBeenSet() const { return m_environmentHasBeenSet; }
 
     /**
      * <p>The environment variables to send to the container. You can add new
@@ -250,6 +285,63 @@ namespace Model
      */
     inline ContainerOverrides& AddEnvironment(KeyValuePair&& value) { m_environmentHasBeenSet = true; m_environment.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>The type and amount of a resource to assign to a container. This value
+     * overrides the value set in the job definition. Currently, the only supported
+     * resource is <code>GPU</code>.</p>
+     */
+    inline const Aws::Vector<ResourceRequirement>& GetResourceRequirements() const{ return m_resourceRequirements; }
+
+    /**
+     * <p>The type and amount of a resource to assign to a container. This value
+     * overrides the value set in the job definition. Currently, the only supported
+     * resource is <code>GPU</code>.</p>
+     */
+    inline bool ResourceRequirementsHasBeenSet() const { return m_resourceRequirementsHasBeenSet; }
+
+    /**
+     * <p>The type and amount of a resource to assign to a container. This value
+     * overrides the value set in the job definition. Currently, the only supported
+     * resource is <code>GPU</code>.</p>
+     */
+    inline void SetResourceRequirements(const Aws::Vector<ResourceRequirement>& value) { m_resourceRequirementsHasBeenSet = true; m_resourceRequirements = value; }
+
+    /**
+     * <p>The type and amount of a resource to assign to a container. This value
+     * overrides the value set in the job definition. Currently, the only supported
+     * resource is <code>GPU</code>.</p>
+     */
+    inline void SetResourceRequirements(Aws::Vector<ResourceRequirement>&& value) { m_resourceRequirementsHasBeenSet = true; m_resourceRequirements = std::move(value); }
+
+    /**
+     * <p>The type and amount of a resource to assign to a container. This value
+     * overrides the value set in the job definition. Currently, the only supported
+     * resource is <code>GPU</code>.</p>
+     */
+    inline ContainerOverrides& WithResourceRequirements(const Aws::Vector<ResourceRequirement>& value) { SetResourceRequirements(value); return *this;}
+
+    /**
+     * <p>The type and amount of a resource to assign to a container. This value
+     * overrides the value set in the job definition. Currently, the only supported
+     * resource is <code>GPU</code>.</p>
+     */
+    inline ContainerOverrides& WithResourceRequirements(Aws::Vector<ResourceRequirement>&& value) { SetResourceRequirements(std::move(value)); return *this;}
+
+    /**
+     * <p>The type and amount of a resource to assign to a container. This value
+     * overrides the value set in the job definition. Currently, the only supported
+     * resource is <code>GPU</code>.</p>
+     */
+    inline ContainerOverrides& AddResourceRequirements(const ResourceRequirement& value) { m_resourceRequirementsHasBeenSet = true; m_resourceRequirements.push_back(value); return *this; }
+
+    /**
+     * <p>The type and amount of a resource to assign to a container. This value
+     * overrides the value set in the job definition. Currently, the only supported
+     * resource is <code>GPU</code>.</p>
+     */
+    inline ContainerOverrides& AddResourceRequirements(ResourceRequirement&& value) { m_resourceRequirementsHasBeenSet = true; m_resourceRequirements.push_back(std::move(value)); return *this; }
+
   private:
 
     int m_vcpus;
@@ -266,6 +358,9 @@ namespace Model
 
     Aws::Vector<KeyValuePair> m_environment;
     bool m_environmentHasBeenSet;
+
+    Aws::Vector<ResourceRequirement> m_resourceRequirements;
+    bool m_resourceRequirementsHasBeenSet;
   };
 
 } // namespace Model

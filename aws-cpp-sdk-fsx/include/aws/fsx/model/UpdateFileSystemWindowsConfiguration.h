@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/fsx/FSx_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/fsx/model/SelfManagedActiveDirectoryConfigurationUpdates.h>
 #include <utility>
 
 namespace Aws
@@ -34,8 +35,10 @@ namespace Model
 {
 
   /**
-   * <p>The configuration object for the Microsoft Windows file system used in the
-   * <code>UpdateFileSystem</code> operation.</p><p><h3>See Also:</h3>   <a
+   * <p>Updates the Microsoft Windows configuration for an existing Amazon FSx for
+   * Windows File Server file system. Amazon FSx overwrites existing properties with
+   * non-null values provided in the request. If you don't specify a non-null value
+   * for a property, that property is not updated.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/fsx-2018-03-01/UpdateFileSystemWindowsConfiguration">AWS
    * API Reference</a></p>
    */
@@ -52,6 +55,11 @@ namespace Model
      * <p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>
      */
     inline const Aws::String& GetWeeklyMaintenanceStartTime() const{ return m_weeklyMaintenanceStartTime; }
+
+    /**
+     * <p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>
+     */
+    inline bool WeeklyMaintenanceStartTimeHasBeenSet() const { return m_weeklyMaintenanceStartTimeHasBeenSet; }
 
     /**
      * <p>The preferred time to perform weekly maintenance, in the UTC time zone.</p>
@@ -88,6 +96,11 @@ namespace Model
      * <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
      */
     inline const Aws::String& GetDailyAutomaticBackupStartTime() const{ return m_dailyAutomaticBackupStartTime; }
+
+    /**
+     * <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
+     */
+    inline bool DailyAutomaticBackupStartTimeHasBeenSet() const { return m_dailyAutomaticBackupStartTimeHasBeenSet; }
 
     /**
      * <p>The preferred time to take daily automatic backups, in the UTC time zone.</p>
@@ -132,6 +145,13 @@ namespace Model
      * automatic backups. You can retain automatic backups for a maximum of 35
      * days.</p>
      */
+    inline bool AutomaticBackupRetentionDaysHasBeenSet() const { return m_automaticBackupRetentionDaysHasBeenSet; }
+
+    /**
+     * <p>The number of days to retain automatic backups. Setting this to 0 disables
+     * automatic backups. You can retain automatic backups for a maximum of 35
+     * days.</p>
+     */
     inline void SetAutomaticBackupRetentionDays(int value) { m_automaticBackupRetentionDaysHasBeenSet = true; m_automaticBackupRetentionDays = value; }
 
     /**
@@ -140,6 +160,43 @@ namespace Model
      * days.</p>
      */
     inline UpdateFileSystemWindowsConfiguration& WithAutomaticBackupRetentionDays(int value) { SetAutomaticBackupRetentionDays(value); return *this;}
+
+
+    /**
+     * <p>The configuration Amazon FSx uses to join the Windows File Server instance to
+     * the self-managed Microsoft AD directory.</p>
+     */
+    inline const SelfManagedActiveDirectoryConfigurationUpdates& GetSelfManagedActiveDirectoryConfiguration() const{ return m_selfManagedActiveDirectoryConfiguration; }
+
+    /**
+     * <p>The configuration Amazon FSx uses to join the Windows File Server instance to
+     * the self-managed Microsoft AD directory.</p>
+     */
+    inline bool SelfManagedActiveDirectoryConfigurationHasBeenSet() const { return m_selfManagedActiveDirectoryConfigurationHasBeenSet; }
+
+    /**
+     * <p>The configuration Amazon FSx uses to join the Windows File Server instance to
+     * the self-managed Microsoft AD directory.</p>
+     */
+    inline void SetSelfManagedActiveDirectoryConfiguration(const SelfManagedActiveDirectoryConfigurationUpdates& value) { m_selfManagedActiveDirectoryConfigurationHasBeenSet = true; m_selfManagedActiveDirectoryConfiguration = value; }
+
+    /**
+     * <p>The configuration Amazon FSx uses to join the Windows File Server instance to
+     * the self-managed Microsoft AD directory.</p>
+     */
+    inline void SetSelfManagedActiveDirectoryConfiguration(SelfManagedActiveDirectoryConfigurationUpdates&& value) { m_selfManagedActiveDirectoryConfigurationHasBeenSet = true; m_selfManagedActiveDirectoryConfiguration = std::move(value); }
+
+    /**
+     * <p>The configuration Amazon FSx uses to join the Windows File Server instance to
+     * the self-managed Microsoft AD directory.</p>
+     */
+    inline UpdateFileSystemWindowsConfiguration& WithSelfManagedActiveDirectoryConfiguration(const SelfManagedActiveDirectoryConfigurationUpdates& value) { SetSelfManagedActiveDirectoryConfiguration(value); return *this;}
+
+    /**
+     * <p>The configuration Amazon FSx uses to join the Windows File Server instance to
+     * the self-managed Microsoft AD directory.</p>
+     */
+    inline UpdateFileSystemWindowsConfiguration& WithSelfManagedActiveDirectoryConfiguration(SelfManagedActiveDirectoryConfigurationUpdates&& value) { SetSelfManagedActiveDirectoryConfiguration(std::move(value)); return *this;}
 
   private:
 
@@ -151,6 +208,9 @@ namespace Model
 
     int m_automaticBackupRetentionDays;
     bool m_automaticBackupRetentionDaysHasBeenSet;
+
+    SelfManagedActiveDirectoryConfigurationUpdates m_selfManagedActiveDirectoryConfiguration;
+    bool m_selfManagedActiveDirectoryConfigurationHasBeenSet;
   };
 
 } // namespace Model

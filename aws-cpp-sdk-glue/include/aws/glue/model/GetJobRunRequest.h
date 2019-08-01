@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetJobRunRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>Name of the job definition being run.</p>
      */
     inline const Aws::String& GetJobName() const{ return m_jobName; }
+
+    /**
+     * <p>Name of the job definition being run.</p>
+     */
+    inline bool JobNameHasBeenSet() const { return m_jobNameHasBeenSet; }
 
     /**
      * <p>Name of the job definition being run.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The ID of the job run.</p>
      */
+    inline bool RunIdHasBeenSet() const { return m_runIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the job run.</p>
+     */
     inline void SetRunId(const Aws::String& value) { m_runIdHasBeenSet = true; m_runId = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>True if a list of predecessor runs should be returned.</p>
      */
     inline bool GetPredecessorsIncluded() const{ return m_predecessorsIncluded; }
+
+    /**
+     * <p>True if a list of predecessor runs should be returned.</p>
+     */
+    inline bool PredecessorsIncludedHasBeenSet() const { return m_predecessorsIncludedHasBeenSet; }
 
     /**
      * <p>True if a list of predecessor runs should be returned.</p>

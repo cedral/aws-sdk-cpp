@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     SearchDevicesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,14 @@ namespace Model
      * <code>MaxResults</code>.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>An optional token returned from a prior request. Use this token for
+     * pagination of results from this action. If this parameter is specified, the
+     * response includes only results beyond the token, up to the value specified by
+     * <code>MaxResults</code>.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>An optional token returned from a prior request. Use this token for
@@ -116,6 +124,13 @@ namespace Model
      * exist than the specified <code>MaxResults</code> value, a token is included in
      * the response so that the remaining results can be retrieved.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to include in the response. If more results
+     * exist than the specified <code>MaxResults</code> value, a token is included in
+     * the response so that the remaining results can be retrieved.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -129,106 +144,129 @@ namespace Model
     /**
      * <p>The filters to use to list a specified set of devices. Supported filter keys
      * are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType,
-     * DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and
-     * OFFLINE).</p>
+     * DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE),
+     * NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
      * <p>The filters to use to list a specified set of devices. Supported filter keys
      * are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType,
-     * DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and
-     * OFFLINE).</p>
+     * DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE),
+     * NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>The filters to use to list a specified set of devices. Supported filter keys
+     * are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType,
+     * DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE),
+     * NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
      */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
      * <p>The filters to use to list a specified set of devices. Supported filter keys
      * are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType,
-     * DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and
-     * OFFLINE).</p>
+     * DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE),
+     * NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
      */
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
      * <p>The filters to use to list a specified set of devices. Supported filter keys
      * are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType,
-     * DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and
-     * OFFLINE).</p>
+     * DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE),
+     * NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
      */
     inline SearchDevicesRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
      * <p>The filters to use to list a specified set of devices. Supported filter keys
      * are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType,
-     * DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and
-     * OFFLINE).</p>
+     * DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE),
+     * NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
      */
     inline SearchDevicesRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
      * <p>The filters to use to list a specified set of devices. Supported filter keys
      * are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType,
-     * DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and
-     * OFFLINE).</p>
+     * DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE),
+     * NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
      */
     inline SearchDevicesRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
      * <p>The filters to use to list a specified set of devices. Supported filter keys
      * are DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType,
-     * DeviceSerialNumber, UnassociatedOnly, and ConnectionStatus (ONLINE and
-     * OFFLINE).</p>
+     * DeviceSerialNumber, UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE),
+     * NetworkProfileName, NetworkProfileArn, Feature, and FailureCode.</p>
      */
     inline SearchDevicesRequest& AddFilters(Filter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
 
 
     /**
      * <p>The sort order to use in listing the specified set of devices. Supported sort
-     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and
-     * ConnectionStatus.</p>
+     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber,
+     * ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and
+     * FailureCode.</p>
      */
     inline const Aws::Vector<Sort>& GetSortCriteria() const{ return m_sortCriteria; }
 
     /**
      * <p>The sort order to use in listing the specified set of devices. Supported sort
-     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and
-     * ConnectionStatus.</p>
+     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber,
+     * ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and
+     * FailureCode.</p>
+     */
+    inline bool SortCriteriaHasBeenSet() const { return m_sortCriteriaHasBeenSet; }
+
+    /**
+     * <p>The sort order to use in listing the specified set of devices. Supported sort
+     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber,
+     * ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and
+     * FailureCode.</p>
      */
     inline void SetSortCriteria(const Aws::Vector<Sort>& value) { m_sortCriteriaHasBeenSet = true; m_sortCriteria = value; }
 
     /**
      * <p>The sort order to use in listing the specified set of devices. Supported sort
-     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and
-     * ConnectionStatus.</p>
+     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber,
+     * ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and
+     * FailureCode.</p>
      */
     inline void SetSortCriteria(Aws::Vector<Sort>&& value) { m_sortCriteriaHasBeenSet = true; m_sortCriteria = std::move(value); }
 
     /**
      * <p>The sort order to use in listing the specified set of devices. Supported sort
-     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and
-     * ConnectionStatus.</p>
+     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber,
+     * ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and
+     * FailureCode.</p>
      */
     inline SearchDevicesRequest& WithSortCriteria(const Aws::Vector<Sort>& value) { SetSortCriteria(value); return *this;}
 
     /**
      * <p>The sort order to use in listing the specified set of devices. Supported sort
-     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and
-     * ConnectionStatus.</p>
+     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber,
+     * ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and
+     * FailureCode.</p>
      */
     inline SearchDevicesRequest& WithSortCriteria(Aws::Vector<Sort>&& value) { SetSortCriteria(std::move(value)); return *this;}
 
     /**
      * <p>The sort order to use in listing the specified set of devices. Supported sort
-     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and
-     * ConnectionStatus.</p>
+     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber,
+     * ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and
+     * FailureCode.</p>
      */
     inline SearchDevicesRequest& AddSortCriteria(const Sort& value) { m_sortCriteriaHasBeenSet = true; m_sortCriteria.push_back(value); return *this; }
 
     /**
      * <p>The sort order to use in listing the specified set of devices. Supported sort
-     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, and
-     * ConnectionStatus.</p>
+     * keys are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber,
+     * ConnectionStatus, NetworkProfileName, NetworkProfileArn, Feature, and
+     * FailureCode.</p>
      */
     inline SearchDevicesRequest& AddSortCriteria(Sort&& value) { m_sortCriteriaHasBeenSet = true; m_sortCriteria.push_back(std::move(value)); return *this; }
 

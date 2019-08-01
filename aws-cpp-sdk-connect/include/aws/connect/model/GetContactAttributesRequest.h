@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetContactAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * attributes.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The instance ID for the instance from which to retrieve contact
+     * attributes.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The instance ID for the instance from which to retrieve contact
@@ -90,6 +96,12 @@ namespace Model
      * attributes to update.</p>
      */
     inline const Aws::String& GetInitialContactId() const{ return m_initialContactId; }
+
+    /**
+     * <p>The ID for the initial contact in Amazon Connect associated with the
+     * attributes to update.</p>
+     */
+    inline bool InitialContactIdHasBeenSet() const { return m_initialContactIdHasBeenSet; }
 
     /**
      * <p>The ID for the initial contact in Amazon Connect associated with the

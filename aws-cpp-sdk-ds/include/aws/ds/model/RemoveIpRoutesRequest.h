@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     RemoveIpRoutesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * addresses.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>Identifier (ID) of the directory from which you want to remove the IP
+     * addresses.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>Identifier (ID) of the directory from which you want to remove the IP
@@ -92,6 +98,11 @@ namespace Model
      * <p>IP address blocks that you want to remove.</p>
      */
     inline const Aws::Vector<Aws::String>& GetCidrIps() const{ return m_cidrIps; }
+
+    /**
+     * <p>IP address blocks that you want to remove.</p>
+     */
+    inline bool CidrIpsHasBeenSet() const { return m_cidrIpsHasBeenSet; }
 
     /**
      * <p>IP address blocks that you want to remove.</p>

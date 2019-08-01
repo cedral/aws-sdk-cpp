@@ -55,6 +55,11 @@ namespace Model
     /**
      * <p>The IP address.</p>
      */
+    inline bool IpHasBeenSet() const { return m_ipHasBeenSet; }
+
+    /**
+     * <p>The IP address.</p>
+     */
     inline void SetIp(const Aws::String& value) { m_ipHasBeenSet = true; m_ip = value; }
 
     /**
@@ -87,6 +92,11 @@ namespace Model
      * <p>The name.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name.</p>
@@ -127,6 +137,11 @@ namespace Model
     /**
      * <p>The domain.</p>
      */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
+
+    /**
+     * <p>The domain.</p>
+     */
     inline void SetDomain(const Aws::String& value) { m_domainHasBeenSet = true; m_domain = value; }
 
     /**
@@ -157,49 +172,56 @@ namespace Model
 
     /**
      * <p>The AWS region. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
      * Endpoints</a>.</p>
      */
     inline const Aws::String& GetRegion() const{ return m_region; }
 
     /**
      * <p>The AWS region. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+     * Endpoints</a>.</p>
+     */
+    inline bool RegionHasBeenSet() const { return m_regionHasBeenSet; }
+
+    /**
+     * <p>The AWS region. For more information, see <a
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
      * Endpoints</a>.</p>
      */
     inline void SetRegion(const Aws::String& value) { m_regionHasBeenSet = true; m_region = value; }
 
     /**
      * <p>The AWS region. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
      * Endpoints</a>.</p>
      */
     inline void SetRegion(Aws::String&& value) { m_regionHasBeenSet = true; m_region = std::move(value); }
 
     /**
      * <p>The AWS region. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
      * Endpoints</a>.</p>
      */
     inline void SetRegion(const char* value) { m_regionHasBeenSet = true; m_region.assign(value); }
 
     /**
      * <p>The AWS region. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
      * Endpoints</a>.</p>
      */
     inline ElasticIp& WithRegion(const Aws::String& value) { SetRegion(value); return *this;}
 
     /**
      * <p>The AWS region. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
      * Endpoints</a>.</p>
      */
     inline ElasticIp& WithRegion(Aws::String&& value) { SetRegion(std::move(value)); return *this;}
 
     /**
      * <p>The AWS region. For more information, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
+     * href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions and
      * Endpoints</a>.</p>
      */
     inline ElasticIp& WithRegion(const char* value) { SetRegion(value); return *this;}
@@ -209,6 +231,11 @@ namespace Model
      * <p>The ID of the instance that the address is attached to.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The ID of the instance that the address is attached to.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The ID of the instance that the address is attached to.</p>

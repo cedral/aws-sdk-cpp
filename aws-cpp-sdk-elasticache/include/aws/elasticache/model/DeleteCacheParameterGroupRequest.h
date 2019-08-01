@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteCacheParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * cache security group must not be associated with any clusters.</p> </note>
      */
     inline const Aws::String& GetCacheParameterGroupName() const{ return m_cacheParameterGroupName; }
+
+    /**
+     * <p>The name of the cache parameter group to delete.</p> <note> <p>The specified
+     * cache security group must not be associated with any clusters.</p> </note>
+     */
+    inline bool CacheParameterGroupNameHasBeenSet() const { return m_cacheParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the cache parameter group to delete.</p> <note> <p>The specified

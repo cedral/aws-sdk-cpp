@@ -31,15 +31,12 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for ImportInstance.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportInstanceRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API ImportInstanceRequest : public EC2Request
   {
   public:
     ImportInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +54,11 @@ namespace Model
      * <p>A description for the instance being imported.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description for the instance being imported.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description for the instance being imported.</p>
@@ -93,6 +95,11 @@ namespace Model
      * <p>The disk image.</p>
      */
     inline const Aws::Vector<DiskImage>& GetDiskImages() const{ return m_diskImages; }
+
+    /**
+     * <p>The disk image.</p>
+     */
+    inline bool DiskImagesHasBeenSet() const { return m_diskImagesHasBeenSet; }
 
     /**
      * <p>The disk image.</p>
@@ -139,6 +146,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -154,6 +169,11 @@ namespace Model
      * <p>The launch specification.</p>
      */
     inline const ImportInstanceLaunchSpecification& GetLaunchSpecification() const{ return m_launchSpecification; }
+
+    /**
+     * <p>The launch specification.</p>
+     */
+    inline bool LaunchSpecificationHasBeenSet() const { return m_launchSpecificationHasBeenSet; }
 
     /**
      * <p>The launch specification.</p>
@@ -180,6 +200,11 @@ namespace Model
      * <p>The instance operating system.</p>
      */
     inline const PlatformValues& GetPlatform() const{ return m_platform; }
+
+    /**
+     * <p>The instance operating system.</p>
+     */
+    inline bool PlatformHasBeenSet() const { return m_platformHasBeenSet; }
 
     /**
      * <p>The instance operating system.</p>

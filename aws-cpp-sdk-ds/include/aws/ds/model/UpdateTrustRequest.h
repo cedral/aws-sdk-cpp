@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateTrustRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Identifier of the trust relationship.</p>
      */
     inline const Aws::String& GetTrustId() const{ return m_trustId; }
+
+    /**
+     * <p>Identifier of the trust relationship.</p>
+     */
+    inline bool TrustIdHasBeenSet() const { return m_trustIdHasBeenSet; }
 
     /**
      * <p>Identifier of the trust relationship.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>Updates selective authentication for the trust.</p>
      */
     inline const SelectiveAuth& GetSelectiveAuth() const{ return m_selectiveAuth; }
+
+    /**
+     * <p>Updates selective authentication for the trust.</p>
+     */
+    inline bool SelectiveAuthHasBeenSet() const { return m_selectiveAuthHasBeenSet; }
 
     /**
      * <p>Updates selective authentication for the trust.</p>

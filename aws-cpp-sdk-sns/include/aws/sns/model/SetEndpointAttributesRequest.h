@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     SetEndpointAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>EndpointArn used for SetEndpointAttributes action.</p>
      */
     inline const Aws::String& GetEndpointArn() const{ return m_endpointArn; }
+
+    /**
+     * <p>EndpointArn used for SetEndpointAttributes action.</p>
+     */
+    inline bool EndpointArnHasBeenSet() const { return m_endpointArnHasBeenSet; }
 
     /**
      * <p>EndpointArn used for SetEndpointAttributes action.</p>
@@ -100,6 +105,21 @@ namespace Model
      * notification service.</p> </li> </ul>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetAttributes() const{ return m_attributes; }
+
+    /**
+     * <p>A map of the endpoint attributes. Attributes in this map include the
+     * following:</p> <ul> <li> <p> <code>CustomUserData</code> – arbitrary user data
+     * to associate with the endpoint. Amazon SNS does not use this data. The data must
+     * be in UTF-8 format and less than 2KB.</p> </li> <li> <p> <code>Enabled</code> –
+     * flag that enables/disables delivery to the endpoint. Amazon SNS will set this to
+     * false when a notification service indicates to Amazon SNS that the endpoint is
+     * invalid. Users can set it back to true, typically after updating Token.</p>
+     * </li> <li> <p> <code>Token</code> – device token, also referred to as a
+     * registration id, for an app and mobile device. This is returned from the
+     * notification service when an app and mobile device are registered with the
+     * notification service.</p> </li> </ul>
+     */
+    inline bool AttributesHasBeenSet() const { return m_attributesHasBeenSet; }
 
     /**
      * <p>A map of the endpoint attributes. Attributes in this map include the

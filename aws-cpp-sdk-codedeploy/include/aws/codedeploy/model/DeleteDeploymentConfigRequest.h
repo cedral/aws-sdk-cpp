@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteDeploymentConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * account.</p>
      */
     inline const Aws::String& GetDeploymentConfigName() const{ return m_deploymentConfigName; }
+
+    /**
+     * <p>The name of a deployment configuration associated with the IAM user or AWS
+     * account.</p>
+     */
+    inline bool DeploymentConfigNameHasBeenSet() const { return m_deploymentConfigNameHasBeenSet; }
 
     /**
      * <p>The name of a deployment configuration associated with the IAM user or AWS

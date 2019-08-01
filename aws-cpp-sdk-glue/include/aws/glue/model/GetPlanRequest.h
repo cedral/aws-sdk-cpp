@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetPlanRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The list of mappings from a source table to target tables.</p>
      */
     inline const Aws::Vector<MappingEntry>& GetMapping() const{ return m_mapping; }
+
+    /**
+     * <p>The list of mappings from a source table to target tables.</p>
+     */
+    inline bool MappingHasBeenSet() const { return m_mappingHasBeenSet; }
 
     /**
      * <p>The list of mappings from a source table to target tables.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The source table.</p>
      */
+    inline bool SourceHasBeenSet() const { return m_sourceHasBeenSet; }
+
+    /**
+     * <p>The source table.</p>
+     */
     inline void SetSource(const CatalogEntry& value) { m_sourceHasBeenSet = true; m_source = value; }
 
     /**
@@ -114,6 +124,11 @@ namespace Model
      * <p>The target tables.</p>
      */
     inline const Aws::Vector<CatalogEntry>& GetSinks() const{ return m_sinks; }
+
+    /**
+     * <p>The target tables.</p>
+     */
+    inline bool SinksHasBeenSet() const { return m_sinksHasBeenSet; }
 
     /**
      * <p>The target tables.</p>
@@ -147,27 +162,32 @@ namespace Model
 
 
     /**
-     * <p>Parameters for the mapping.</p>
+     * <p>The parameters for the mapping.</p>
      */
     inline const Location& GetLocation() const{ return m_location; }
 
     /**
-     * <p>Parameters for the mapping.</p>
+     * <p>The parameters for the mapping.</p>
+     */
+    inline bool LocationHasBeenSet() const { return m_locationHasBeenSet; }
+
+    /**
+     * <p>The parameters for the mapping.</p>
      */
     inline void SetLocation(const Location& value) { m_locationHasBeenSet = true; m_location = value; }
 
     /**
-     * <p>Parameters for the mapping.</p>
+     * <p>The parameters for the mapping.</p>
      */
     inline void SetLocation(Location&& value) { m_locationHasBeenSet = true; m_location = std::move(value); }
 
     /**
-     * <p>Parameters for the mapping.</p>
+     * <p>The parameters for the mapping.</p>
      */
     inline GetPlanRequest& WithLocation(const Location& value) { SetLocation(value); return *this;}
 
     /**
-     * <p>Parameters for the mapping.</p>
+     * <p>The parameters for the mapping.</p>
      */
     inline GetPlanRequest& WithLocation(Location&& value) { SetLocation(std::move(value)); return *this;}
 
@@ -176,6 +196,11 @@ namespace Model
      * <p>The programming language of the code to perform the mapping.</p>
      */
     inline const Language& GetLanguage() const{ return m_language; }
+
+    /**
+     * <p>The programming language of the code to perform the mapping.</p>
+     */
+    inline bool LanguageHasBeenSet() const { return m_languageHasBeenSet; }
 
     /**
      * <p>The programming language of the code to perform the mapping.</p>

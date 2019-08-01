@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreatePublicVirtualInterfaceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ID of the connection.</p>
      */
     inline const Aws::String& GetConnectionId() const{ return m_connectionId; }
+
+    /**
+     * <p>The ID of the connection.</p>
+     */
+    inline bool ConnectionIdHasBeenSet() const { return m_connectionIdHasBeenSet; }
 
     /**
      * <p>The ID of the connection.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>Information about the public virtual interface.</p>
      */
     inline const NewPublicVirtualInterface& GetNewPublicVirtualInterface() const{ return m_newPublicVirtualInterface; }
+
+    /**
+     * <p>Information about the public virtual interface.</p>
+     */
+    inline bool NewPublicVirtualInterfaceHasBeenSet() const { return m_newPublicVirtualInterfaceHasBeenSet; }
 
     /**
      * <p>Information about the public virtual interface.</p>

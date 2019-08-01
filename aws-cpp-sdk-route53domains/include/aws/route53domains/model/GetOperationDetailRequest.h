@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetOperationDetailRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * Route 53 returned the identifier in the response to the original request.</p>
      */
     inline const Aws::String& GetOperationId() const{ return m_operationId; }
+
+    /**
+     * <p>The identifier for the operation for which you want to get the status. Amazon
+     * Route 53 returned the identifier in the response to the original request.</p>
+     */
+    inline bool OperationIdHasBeenSet() const { return m_operationIdHasBeenSet; }
 
     /**
      * <p>The identifier for the operation for which you want to get the status. Amazon

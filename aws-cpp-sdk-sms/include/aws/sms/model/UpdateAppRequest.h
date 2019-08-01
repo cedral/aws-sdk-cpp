@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     UpdateAppRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>ID of the application to update.</p>
      */
     inline const Aws::String& GetAppId() const{ return m_appId; }
+
+    /**
+     * <p>ID of the application to update.</p>
+     */
+    inline bool AppIdHasBeenSet() const { return m_appIdHasBeenSet; }
 
     /**
      * <p>ID of the application to update.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>New name of the application.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>New name of the application.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
      * <p>New description of the application.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>New description of the application.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>New description of the application.</p>
@@ -163,6 +178,11 @@ namespace Model
     /**
      * <p>Name of the service role in the customer's account used by AWS SMS.</p>
      */
+    inline bool RoleNameHasBeenSet() const { return m_roleNameHasBeenSet; }
+
+    /**
+     * <p>Name of the service role in the customer's account used by AWS SMS.</p>
+     */
     inline void SetRoleName(const Aws::String& value) { m_roleNameHasBeenSet = true; m_roleName = value; }
 
     /**
@@ -199,6 +219,11 @@ namespace Model
     /**
      * <p>List of server groups in the application to update.</p>
      */
+    inline bool ServerGroupsHasBeenSet() const { return m_serverGroupsHasBeenSet; }
+
+    /**
+     * <p>List of server groups in the application to update.</p>
+     */
     inline void SetServerGroups(const Aws::Vector<ServerGroup>& value) { m_serverGroupsHasBeenSet = true; m_serverGroups = value; }
 
     /**
@@ -231,6 +256,11 @@ namespace Model
      * <p>List of tags to associate with the application.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>List of tags to associate with the application.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>List of tags to associate with the application.</p>

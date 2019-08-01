@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateDataSourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID assigned to the <code>DataSource</code> during creation.</p>
      */
     inline const Aws::String& GetDataSourceId() const{ return m_dataSourceId; }
+
+    /**
+     * <p>The ID assigned to the <code>DataSource</code> during creation.</p>
+     */
+    inline bool DataSourceIdHasBeenSet() const { return m_dataSourceIdHasBeenSet; }
 
     /**
      * <p>The ID assigned to the <code>DataSource</code> during creation.</p>
@@ -85,6 +90,12 @@ namespace Model
      * will replace the current description. </p>
      */
     inline const Aws::String& GetDataSourceName() const{ return m_dataSourceName; }
+
+    /**
+     * <p>A new user-supplied name or description of the <code>DataSource</code> that
+     * will replace the current description. </p>
+     */
+    inline bool DataSourceNameHasBeenSet() const { return m_dataSourceNameHasBeenSet; }
 
     /**
      * <p>A new user-supplied name or description of the <code>DataSource</code> that

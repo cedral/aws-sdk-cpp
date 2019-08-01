@@ -20,6 +20,7 @@
 #include <aws/core/utils/DateTime.h>
 #include <aws/comprehend/model/InputDataConfig.h>
 #include <aws/comprehend/model/OutputDataConfig.h>
+#include <aws/comprehend/model/VpcConfig.h>
 #include <utility>
 
 namespace Aws
@@ -60,6 +61,11 @@ namespace Model
     /**
      * <p>The identifier assigned to the document classification job.</p>
      */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
+
+    /**
+     * <p>The identifier assigned to the document classification job.</p>
+     */
     inline void SetJobId(const Aws::String& value) { m_jobIdHasBeenSet = true; m_jobId = value; }
 
     /**
@@ -92,6 +98,11 @@ namespace Model
      * <p>The name that you assigned to the document classification job.</p>
      */
     inline const Aws::String& GetJobName() const{ return m_jobName; }
+
+    /**
+     * <p>The name that you assigned to the document classification job.</p>
+     */
+    inline bool JobNameHasBeenSet() const { return m_jobNameHasBeenSet; }
 
     /**
      * <p>The name that you assigned to the document classification job.</p>
@@ -136,6 +147,13 @@ namespace Model
      * <code>FAILED</code>, the <code>Message</code> field shows the reason for the
      * failure.</p>
      */
+    inline bool JobStatusHasBeenSet() const { return m_jobStatusHasBeenSet; }
+
+    /**
+     * <p>The current status of the document classification job. If the status is
+     * <code>FAILED</code>, the <code>Message</code> field shows the reason for the
+     * failure.</p>
+     */
     inline void SetJobStatus(const JobStatus& value) { m_jobStatusHasBeenSet = true; m_jobStatus = value; }
 
     /**
@@ -164,6 +182,11 @@ namespace Model
      * <p>A description of the status of the job.</p>
      */
     inline const Aws::String& GetMessage() const{ return m_message; }
+
+    /**
+     * <p>A description of the status of the job.</p>
+     */
+    inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
 
     /**
      * <p>A description of the status of the job.</p>
@@ -206,6 +229,12 @@ namespace Model
      * <p>The time that the document classification job was submitted for
      * processing.</p>
      */
+    inline bool SubmitTimeHasBeenSet() const { return m_submitTimeHasBeenSet; }
+
+    /**
+     * <p>The time that the document classification job was submitted for
+     * processing.</p>
+     */
     inline void SetSubmitTime(const Aws::Utils::DateTime& value) { m_submitTimeHasBeenSet = true; m_submitTime = value; }
 
     /**
@@ -235,6 +264,11 @@ namespace Model
     /**
      * <p>The time that the document classification job completed.</p>
      */
+    inline bool EndTimeHasBeenSet() const { return m_endTimeHasBeenSet; }
+
+    /**
+     * <p>The time that the document classification job completed.</p>
+     */
     inline void SetEndTime(const Aws::Utils::DateTime& value) { m_endTimeHasBeenSet = true; m_endTime = value; }
 
     /**
@@ -257,6 +291,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
      */
     inline const Aws::String& GetDocumentClassifierArn() const{ return m_documentClassifierArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
+     */
+    inline bool DocumentClassifierArnHasBeenSet() const { return m_documentClassifierArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the document classifier. </p>
@@ -299,6 +338,12 @@ namespace Model
      * <p>The input data configuration that you supplied when you created the document
      * classification job.</p>
      */
+    inline bool InputDataConfigHasBeenSet() const { return m_inputDataConfigHasBeenSet; }
+
+    /**
+     * <p>The input data configuration that you supplied when you created the document
+     * classification job.</p>
+     */
     inline void SetInputDataConfig(const InputDataConfig& value) { m_inputDataConfigHasBeenSet = true; m_inputDataConfig = value; }
 
     /**
@@ -330,6 +375,12 @@ namespace Model
      * <p>The output data configuration that you supplied when you created the document
      * classification job.</p>
      */
+    inline bool OutputDataConfigHasBeenSet() const { return m_outputDataConfigHasBeenSet; }
+
+    /**
+     * <p>The output data configuration that you supplied when you created the document
+     * classification job.</p>
+     */
     inline void SetOutputDataConfig(const OutputDataConfig& value) { m_outputDataConfigHasBeenSet = true; m_outputDataConfig = value; }
 
     /**
@@ -356,6 +407,12 @@ namespace Model
      * (IAM) role that grants Amazon Comprehend read access to your input data.</p>
      */
     inline const Aws::String& GetDataAccessRoleArn() const{ return m_dataAccessRoleArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management
+     * (IAM) role that grants Amazon Comprehend read access to your input data.</p>
+     */
+    inline bool DataAccessRoleArnHasBeenSet() const { return m_dataAccessRoleArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management
@@ -393,6 +450,158 @@ namespace Model
      */
     inline DocumentClassificationJobProperties& WithDataAccessRoleArn(const char* value) { SetDataAccessRoleArn(value); return *this;}
 
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline const Aws::String& GetVolumeKmsKeyId() const{ return m_volumeKmsKeyId; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline bool VolumeKmsKeyIdHasBeenSet() const { return m_volumeKmsKeyIdHasBeenSet; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(const Aws::String& value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId = value; }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(Aws::String&& value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId = std::move(value); }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline void SetVolumeKmsKeyId(const char* value) { m_volumeKmsKeyIdHasBeenSet = true; m_volumeKmsKeyId.assign(value); }
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline DocumentClassificationJobProperties& WithVolumeKmsKeyId(const Aws::String& value) { SetVolumeKmsKeyId(value); return *this;}
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline DocumentClassificationJobProperties& WithVolumeKmsKeyId(Aws::String&& value) { SetVolumeKmsKeyId(std::move(value)); return *this;}
+
+    /**
+     * <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses
+     * to encrypt data on the storage volume attached to the ML compute instance(s)
+     * that process the analysis job. The VolumeKmsKeyId can be either of the following
+     * formats:</p> <ul> <li> <p>KMS Key ID:
+     * <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code> </p> </li> <li> <p>Amazon
+     * Resource Name (ARN) of a KMS Key:
+     * <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+     * </p> </li> </ul>
+     */
+    inline DocumentClassificationJobProperties& WithVolumeKmsKeyId(const char* value) { SetVolumeKmsKeyId(value); return *this;}
+
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your document classification job. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline const VpcConfig& GetVpcConfig() const{ return m_vpcConfig; }
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your document classification job. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline bool VpcConfigHasBeenSet() const { return m_vpcConfigHasBeenSet; }
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your document classification job. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline void SetVpcConfig(const VpcConfig& value) { m_vpcConfigHasBeenSet = true; m_vpcConfig = value; }
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your document classification job. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline void SetVpcConfig(VpcConfig&& value) { m_vpcConfigHasBeenSet = true; m_vpcConfig = std::move(value); }
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your document classification job. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline DocumentClassificationJobProperties& WithVpcConfig(const VpcConfig& value) { SetVpcConfig(value); return *this;}
+
+    /**
+     * <p> Configuration parameters for a private Virtual Private Cloud (VPC)
+     * containing the resources you are using for your document classification job. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
+     * VPC</a>. </p>
+     */
+    inline DocumentClassificationJobProperties& WithVpcConfig(VpcConfig&& value) { SetVpcConfig(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_jobId;
@@ -424,6 +633,12 @@ namespace Model
 
     Aws::String m_dataAccessRoleArn;
     bool m_dataAccessRoleArnHasBeenSet;
+
+    Aws::String m_volumeKmsKeyId;
+    bool m_volumeKmsKeyIdHasBeenSet;
+
+    VpcConfig m_vpcConfig;
+    bool m_vpcConfigHasBeenSet;
   };
 
 } // namespace Model

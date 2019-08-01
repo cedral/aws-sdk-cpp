@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateSoftwareTokenRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The access token.</p>
      */
     inline const Aws::String& GetAccessToken() const{ return m_accessToken; }
+
+    /**
+     * <p>The access token.</p>
+     */
+    inline bool AccessTokenHasBeenSet() const { return m_accessTokenHasBeenSet; }
 
     /**
      * <p>The access token.</p>
@@ -86,6 +91,13 @@ namespace Model
      * process.</p>
      */
     inline const Aws::String& GetSession() const{ return m_session; }
+
+    /**
+     * <p>The session which should be passed both ways in challenge-response calls to
+     * the service. This allows authentication of the user as part of the MFA setup
+     * process.</p>
+     */
+    inline bool SessionHasBeenSet() const { return m_sessionHasBeenSet; }
 
     /**
      * <p>The session which should be passed both ways in challenge-response calls to

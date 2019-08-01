@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateCertificateAuthorityRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * </code> </p>
      */
     inline const Aws::String& GetCertificateAuthorityArn() const{ return m_certificateAuthorityArn; }
+
+    /**
+     * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to
+     * be revoked. This must be of the form:</p> <p>
+     * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
+     * </code> </p>
+     */
+    inline bool CertificateAuthorityArnHasBeenSet() const { return m_certificateAuthorityArnHasBeenSet; }
 
     /**
      * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to
@@ -111,6 +119,11 @@ namespace Model
     /**
      * <p>Revocation information for your private CA.</p>
      */
+    inline bool RevocationConfigurationHasBeenSet() const { return m_revocationConfigurationHasBeenSet; }
+
+    /**
+     * <p>Revocation information for your private CA.</p>
+     */
     inline void SetRevocationConfiguration(const RevocationConfiguration& value) { m_revocationConfigurationHasBeenSet = true; m_revocationConfiguration = value; }
 
     /**
@@ -133,6 +146,11 @@ namespace Model
      * <p>Status of your private CA.</p>
      */
     inline const CertificateAuthorityStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>Status of your private CA.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>Status of your private CA.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateVirtualInterfaceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the virtual interface.</p>
      */
     inline const Aws::String& GetVirtualInterfaceId() const{ return m_virtualInterfaceId; }
+
+    /**
+     * <p>The ID of the virtual interface.</p>
+     */
+    inline bool VirtualInterfaceIdHasBeenSet() const { return m_virtualInterfaceIdHasBeenSet; }
 
     /**
      * <p>The ID of the virtual interface.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The ID of the LAG or connection.</p>
      */
     inline const Aws::String& GetConnectionId() const{ return m_connectionId; }
+
+    /**
+     * <p>The ID of the LAG or connection.</p>
+     */
+    inline bool ConnectionIdHasBeenSet() const { return m_connectionIdHasBeenSet; }
 
     /**
      * <p>The ID of the LAG or connection.</p>

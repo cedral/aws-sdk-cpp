@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ModifyMountTargetSecurityGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the mount target whose security groups you want to modify.</p>
      */
     inline const Aws::String& GetMountTargetId() const{ return m_mountTargetId; }
+
+    /**
+     * <p>The ID of the mount target whose security groups you want to modify.</p>
+     */
+    inline bool MountTargetIdHasBeenSet() const { return m_mountTargetIdHasBeenSet; }
 
     /**
      * <p>The ID of the mount target whose security groups you want to modify.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>An array of up to five VPC security group IDs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
+
+    /**
+     * <p>An array of up to five VPC security group IDs.</p>
+     */
+    inline bool SecurityGroupsHasBeenSet() const { return m_securityGroupsHasBeenSet; }
 
     /**
      * <p>An array of up to five VPC security group IDs.</p>

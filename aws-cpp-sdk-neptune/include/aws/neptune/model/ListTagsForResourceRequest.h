@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ListTagsForResourceMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API ListTagsForResourceRequest : public NeptuneRequest
   {
   public:
     ListTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,7 +51,7 @@ namespace Model
     /**
      * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon
      * Resource Name (ARN). For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
@@ -62,7 +59,15 @@ namespace Model
     /**
      * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon
      * Resource Name (ARN). For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * Constructing an Amazon Resource Name (ARN)</a>.</p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
+
+    /**
+     * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon
+     * Resource Name (ARN). For information about creating an ARN, see <a
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline void SetResourceName(const Aws::String& value) { m_resourceNameHasBeenSet = true; m_resourceName = value; }
@@ -70,7 +75,7 @@ namespace Model
     /**
      * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon
      * Resource Name (ARN). For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline void SetResourceName(Aws::String&& value) { m_resourceNameHasBeenSet = true; m_resourceName = std::move(value); }
@@ -78,7 +83,7 @@ namespace Model
     /**
      * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon
      * Resource Name (ARN). For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline void SetResourceName(const char* value) { m_resourceNameHasBeenSet = true; m_resourceName.assign(value); }
@@ -86,7 +91,7 @@ namespace Model
     /**
      * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon
      * Resource Name (ARN). For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline ListTagsForResourceRequest& WithResourceName(const Aws::String& value) { SetResourceName(value); return *this;}
@@ -94,7 +99,7 @@ namespace Model
     /**
      * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon
      * Resource Name (ARN). For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline ListTagsForResourceRequest& WithResourceName(Aws::String&& value) { SetResourceName(std::move(value)); return *this;}
@@ -102,7 +107,7 @@ namespace Model
     /**
      * <p>The Amazon Neptune resource with tags to be listed. This value is an Amazon
      * Resource Name (ARN). For information about creating an ARN, see <a
-     * href="http://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
+     * href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing">
      * Constructing an Amazon Resource Name (ARN)</a>.</p>
      */
     inline ListTagsForResourceRequest& WithResourceName(const char* value) { SetResourceName(value); return *this;}
@@ -112,6 +117,11 @@ namespace Model
      * <p>This parameter is not currently supported.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>This parameter is not currently supported.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>This parameter is not currently supported.</p>

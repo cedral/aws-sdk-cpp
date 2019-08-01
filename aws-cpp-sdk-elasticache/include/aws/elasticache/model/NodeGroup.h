@@ -57,56 +57,72 @@ namespace Model
     /**
      * <p>The identifier for the node group (shard). A Redis (cluster mode disabled)
      * replication group contains only 1 node group; therefore, the node group ID is
-     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 15 node
-     * groups numbered 0001 to 0015. </p>
+     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node
+     * groups numbered 0001 to 0090. Optionally, the user can provide the id for a node
+     * group. </p>
      */
     inline const Aws::String& GetNodeGroupId() const{ return m_nodeGroupId; }
 
     /**
      * <p>The identifier for the node group (shard). A Redis (cluster mode disabled)
      * replication group contains only 1 node group; therefore, the node group ID is
-     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 15 node
-     * groups numbered 0001 to 0015. </p>
+     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node
+     * groups numbered 0001 to 0090. Optionally, the user can provide the id for a node
+     * group. </p>
+     */
+    inline bool NodeGroupIdHasBeenSet() const { return m_nodeGroupIdHasBeenSet; }
+
+    /**
+     * <p>The identifier for the node group (shard). A Redis (cluster mode disabled)
+     * replication group contains only 1 node group; therefore, the node group ID is
+     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node
+     * groups numbered 0001 to 0090. Optionally, the user can provide the id for a node
+     * group. </p>
      */
     inline void SetNodeGroupId(const Aws::String& value) { m_nodeGroupIdHasBeenSet = true; m_nodeGroupId = value; }
 
     /**
      * <p>The identifier for the node group (shard). A Redis (cluster mode disabled)
      * replication group contains only 1 node group; therefore, the node group ID is
-     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 15 node
-     * groups numbered 0001 to 0015. </p>
+     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node
+     * groups numbered 0001 to 0090. Optionally, the user can provide the id for a node
+     * group. </p>
      */
     inline void SetNodeGroupId(Aws::String&& value) { m_nodeGroupIdHasBeenSet = true; m_nodeGroupId = std::move(value); }
 
     /**
      * <p>The identifier for the node group (shard). A Redis (cluster mode disabled)
      * replication group contains only 1 node group; therefore, the node group ID is
-     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 15 node
-     * groups numbered 0001 to 0015. </p>
+     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node
+     * groups numbered 0001 to 0090. Optionally, the user can provide the id for a node
+     * group. </p>
      */
     inline void SetNodeGroupId(const char* value) { m_nodeGroupIdHasBeenSet = true; m_nodeGroupId.assign(value); }
 
     /**
      * <p>The identifier for the node group (shard). A Redis (cluster mode disabled)
      * replication group contains only 1 node group; therefore, the node group ID is
-     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 15 node
-     * groups numbered 0001 to 0015. </p>
+     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node
+     * groups numbered 0001 to 0090. Optionally, the user can provide the id for a node
+     * group. </p>
      */
     inline NodeGroup& WithNodeGroupId(const Aws::String& value) { SetNodeGroupId(value); return *this;}
 
     /**
      * <p>The identifier for the node group (shard). A Redis (cluster mode disabled)
      * replication group contains only 1 node group; therefore, the node group ID is
-     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 15 node
-     * groups numbered 0001 to 0015. </p>
+     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node
+     * groups numbered 0001 to 0090. Optionally, the user can provide the id for a node
+     * group. </p>
      */
     inline NodeGroup& WithNodeGroupId(Aws::String&& value) { SetNodeGroupId(std::move(value)); return *this;}
 
     /**
      * <p>The identifier for the node group (shard). A Redis (cluster mode disabled)
      * replication group contains only 1 node group; therefore, the node group ID is
-     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 15 node
-     * groups numbered 0001 to 0015. </p>
+     * 0001. A Redis (cluster mode enabled) replication group contains 1 to 90 node
+     * groups numbered 0001 to 0090. Optionally, the user can provide the id for a node
+     * group. </p>
      */
     inline NodeGroup& WithNodeGroupId(const char* value) { SetNodeGroupId(value); return *this;}
 
@@ -116,6 +132,12 @@ namespace Model
      * <code>available</code>, etc.</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The current state of this replication group - <code>creating</code>,
+     * <code>available</code>, etc.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The current state of this replication group - <code>creating</code>,
@@ -162,6 +184,11 @@ namespace Model
     /**
      * <p>The endpoint of the primary node in this node group (shard).</p>
      */
+    inline bool PrimaryEndpointHasBeenSet() const { return m_primaryEndpointHasBeenSet; }
+
+    /**
+     * <p>The endpoint of the primary node in this node group (shard).</p>
+     */
     inline void SetPrimaryEndpoint(const Endpoint& value) { m_primaryEndpointHasBeenSet = true; m_primaryEndpoint = value; }
 
     /**
@@ -181,9 +208,45 @@ namespace Model
 
 
     /**
+     * <p>The endpoint of the replica nodes in this node group (shard).</p>
+     */
+    inline const Endpoint& GetReaderEndpoint() const{ return m_readerEndpoint; }
+
+    /**
+     * <p>The endpoint of the replica nodes in this node group (shard).</p>
+     */
+    inline bool ReaderEndpointHasBeenSet() const { return m_readerEndpointHasBeenSet; }
+
+    /**
+     * <p>The endpoint of the replica nodes in this node group (shard).</p>
+     */
+    inline void SetReaderEndpoint(const Endpoint& value) { m_readerEndpointHasBeenSet = true; m_readerEndpoint = value; }
+
+    /**
+     * <p>The endpoint of the replica nodes in this node group (shard).</p>
+     */
+    inline void SetReaderEndpoint(Endpoint&& value) { m_readerEndpointHasBeenSet = true; m_readerEndpoint = std::move(value); }
+
+    /**
+     * <p>The endpoint of the replica nodes in this node group (shard).</p>
+     */
+    inline NodeGroup& WithReaderEndpoint(const Endpoint& value) { SetReaderEndpoint(value); return *this;}
+
+    /**
+     * <p>The endpoint of the replica nodes in this node group (shard).</p>
+     */
+    inline NodeGroup& WithReaderEndpoint(Endpoint&& value) { SetReaderEndpoint(std::move(value)); return *this;}
+
+
+    /**
      * <p>The keyspace for this node group (shard).</p>
      */
     inline const Aws::String& GetSlots() const{ return m_slots; }
+
+    /**
+     * <p>The keyspace for this node group (shard).</p>
+     */
+    inline bool SlotsHasBeenSet() const { return m_slotsHasBeenSet; }
 
     /**
      * <p>The keyspace for this node group (shard).</p>
@@ -221,6 +284,12 @@ namespace Model
      * (shard).</p>
      */
     inline const Aws::Vector<NodeGroupMember>& GetNodeGroupMembers() const{ return m_nodeGroupMembers; }
+
+    /**
+     * <p>A list containing information about individual nodes within the node group
+     * (shard).</p>
+     */
+    inline bool NodeGroupMembersHasBeenSet() const { return m_nodeGroupMembersHasBeenSet; }
 
     /**
      * <p>A list containing information about individual nodes within the node group
@@ -268,6 +337,9 @@ namespace Model
 
     Endpoint m_primaryEndpoint;
     bool m_primaryEndpointHasBeenSet;
+
+    Endpoint m_readerEndpoint;
+    bool m_readerEndpointHasBeenSet;
 
     Aws::String m_slots;
     bool m_slotsHasBeenSet;

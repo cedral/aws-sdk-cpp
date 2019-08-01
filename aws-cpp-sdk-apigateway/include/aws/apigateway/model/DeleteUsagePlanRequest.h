@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteUsagePlanRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>[Required] The Id of the to-be-deleted usage plan.</p>
      */
     inline const Aws::String& GetUsagePlanId() const{ return m_usagePlanId; }
+
+    /**
+     * <p>[Required] The Id of the to-be-deleted usage plan.</p>
+     */
+    inline bool UsagePlanIdHasBeenSet() const { return m_usagePlanIdHasBeenSet; }
 
     /**
      * <p>[Required] The Id of the to-be-deleted usage plan.</p>

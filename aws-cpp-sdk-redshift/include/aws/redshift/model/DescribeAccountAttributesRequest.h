@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeAccountAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>A list of attribute names.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAttributeNames() const{ return m_attributeNames; }
+
+    /**
+     * <p>A list of attribute names.</p>
+     */
+    inline bool AttributeNamesHasBeenSet() const { return m_attributeNamesHasBeenSet; }
 
     /**
      * <p>A list of attribute names.</p>

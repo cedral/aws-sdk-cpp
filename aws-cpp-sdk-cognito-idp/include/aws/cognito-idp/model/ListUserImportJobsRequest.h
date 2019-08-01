@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListUserImportJobsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * into.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool that the users are being imported
+     * into.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool that the users are being imported
@@ -99,6 +105,11 @@ namespace Model
     /**
      * <p>The maximum number of import jobs you want the request to return.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of import jobs you want the request to return.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -113,6 +124,13 @@ namespace Model
      * import jobs in the list.</p>
      */
     inline const Aws::String& GetPaginationToken() const{ return m_paginationToken; }
+
+    /**
+     * <p>An identifier that was returned from the previous call to
+     * <code>ListUserImportJobs</code>, which can be used to return the next set of
+     * import jobs in the list.</p>
+     */
+    inline bool PaginationTokenHasBeenSet() const { return m_paginationTokenHasBeenSet; }
 
     /**
      * <p>An identifier that was returned from the previous call to

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDiskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the disk (e.g., <code>my-disk</code>).</p>
      */
     inline const Aws::String& GetDiskName() const{ return m_diskName; }
+
+    /**
+     * <p>The name of the disk (e.g., <code>my-disk</code>).</p>
+     */
+    inline bool DiskNameHasBeenSet() const { return m_diskNameHasBeenSet; }
 
     /**
      * <p>The name of the disk (e.g., <code>my-disk</code>).</p>

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateBillingGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name you wish to give to the billing group.</p>
      */
     inline const Aws::String& GetBillingGroupName() const{ return m_billingGroupName; }
+
+    /**
+     * <p>The name you wish to give to the billing group.</p>
+     */
+    inline bool BillingGroupNameHasBeenSet() const { return m_billingGroupNameHasBeenSet; }
 
     /**
      * <p>The name you wish to give to the billing group.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The properties of the billing group.</p>
      */
+    inline bool BillingGroupPropertiesHasBeenSet() const { return m_billingGroupPropertiesHasBeenSet; }
+
+    /**
+     * <p>The properties of the billing group.</p>
+     */
     inline void SetBillingGroupProperties(const BillingGroupProperties& value) { m_billingGroupPropertiesHasBeenSet = true; m_billingGroupProperties = value; }
 
     /**
@@ -111,6 +121,11 @@ namespace Model
      * <p>Metadata which can be used to manage the billing group.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Metadata which can be used to manage the billing group.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Metadata which can be used to manage the billing group.</p>

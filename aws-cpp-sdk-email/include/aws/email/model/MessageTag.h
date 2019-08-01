@@ -38,7 +38,7 @@ namespace Model
    * <code>SendEmail</code> or <code>SendRawEmail</code> to apply to an email.</p>
    * <p>Message tags, which you use with configuration sets, enable you to publish
    * email sending events. For information about using configuration sets, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/MessageTag">AWS
    * API Reference</a></p>
@@ -60,6 +60,13 @@ namespace Model
      * (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the tag. The name must:</p> <ul> <li> <p>This value can only
+     * contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes
+     * (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the tag. The name must:</p> <ul> <li> <p>This value can only
@@ -110,6 +117,13 @@ namespace Model
      * (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>
      */
     inline const Aws::String& GetValue() const{ return m_value; }
+
+    /**
+     * <p>The value of the tag. The value must:</p> <ul> <li> <p>This value can only
+     * contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes
+     * (-).</p> </li> <li> <p>Contain less than 256 characters.</p> </li> </ul>
+     */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
 
     /**
      * <p>The value of the tag. The value must:</p> <ul> <li> <p>This value can only

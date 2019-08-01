@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the group.</p>
      */
     inline const Aws::String& GetGroupName() const{ return m_groupName; }
+
+    /**
+     * <p>The name of the group.</p>
+     */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
 
     /**
      * <p>The name of the group.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The user pool ID for the user pool.</p>
      */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
+
+    /**
+     * <p>The user pool ID for the user pool.</p>
+     */
     inline void SetUserPoolId(const Aws::String& value) { m_userPoolIdHasBeenSet = true; m_userPoolId = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>A string containing the new description of the group.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A string containing the new description of the group.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A string containing the new description of the group.</p>
@@ -158,6 +173,13 @@ namespace Model
      * token.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The new role ARN for the group. This is used for setting the
+     * <code>cognito:roles</code> and <code>cognito:preferred_role</code> claims in the
+     * token.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The new role ARN for the group. This is used for setting the
@@ -207,6 +229,12 @@ namespace Model
      * parameter, see .</p>
      */
     inline int GetPrecedence() const{ return m_precedence; }
+
+    /**
+     * <p>The new precedence value for the group. For more information about this
+     * parameter, see .</p>
+     */
+    inline bool PrecedenceHasBeenSet() const { return m_precedenceHasBeenSet; }
 
     /**
      * <p>The new precedence value for the group. For more information about this

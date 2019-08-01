@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RegisterEcsClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The cluster's ARN.</p>
      */
     inline const Aws::String& GetEcsClusterArn() const{ return m_ecsClusterArn; }
+
+    /**
+     * <p>The cluster's ARN.</p>
+     */
+    inline bool EcsClusterArnHasBeenSet() const { return m_ecsClusterArnHasBeenSet; }
 
     /**
      * <p>The cluster's ARN.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The stack ID.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>The stack ID.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>The stack ID.</p>

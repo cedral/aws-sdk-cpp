@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateHsmRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <a>DescribeClusters</a>.</p>
      */
     inline const Aws::String& GetClusterId() const{ return m_clusterId; }
+
+    /**
+     * <p>The identifier (ID) of the HSM's cluster. To find the cluster ID, use
+     * <a>DescribeClusters</a>.</p>
+     */
+    inline bool ClusterIdHasBeenSet() const { return m_clusterIdHasBeenSet; }
 
     /**
      * <p>The identifier (ID) of the HSM's cluster. To find the cluster ID, use
@@ -97,6 +103,12 @@ namespace Model
      * <p>The Availability Zone where you are creating the HSM. To find the cluster's
      * Availability Zones, use <a>DescribeClusters</a>.</p>
      */
+    inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
+
+    /**
+     * <p>The Availability Zone where you are creating the HSM. To find the cluster's
+     * Availability Zones, use <a>DescribeClusters</a>.</p>
+     */
     inline void SetAvailabilityZone(const Aws::String& value) { m_availabilityZoneHasBeenSet = true; m_availabilityZone = value; }
 
     /**
@@ -137,6 +149,14 @@ namespace Model
      * subnet.</p>
      */
     inline const Aws::String& GetIpAddress() const{ return m_ipAddress; }
+
+    /**
+     * <p>The HSM's IP address. If you specify an IP address, use an available address
+     * from the subnet that maps to the Availability Zone where you are creating the
+     * HSM. If you don't specify an IP address, one is chosen for you from that
+     * subnet.</p>
+     */
+    inline bool IpAddressHasBeenSet() const { return m_ipAddressHasBeenSet; }
 
     /**
      * <p>The HSM's IP address. If you specify an IP address, use an available address

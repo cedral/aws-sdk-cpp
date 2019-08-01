@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTargetsByRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the rule.</p>
      */
     inline const Aws::String& GetRule() const{ return m_rule; }
+
+    /**
+     * <p>The name of the rule.</p>
+     */
+    inline bool RuleHasBeenSet() const { return m_ruleHasBeenSet; }
 
     /**
      * <p>The name of the rule.</p>
@@ -81,10 +86,65 @@ namespace Model
 
 
     /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline const Aws::String& GetEventBusName() const{ return m_eventBusName; }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline bool EventBusNameHasBeenSet() const { return m_eventBusNameHasBeenSet; }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline void SetEventBusName(const Aws::String& value) { m_eventBusNameHasBeenSet = true; m_eventBusName = value; }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline void SetEventBusName(Aws::String&& value) { m_eventBusNameHasBeenSet = true; m_eventBusName = std::move(value); }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline void SetEventBusName(const char* value) { m_eventBusNameHasBeenSet = true; m_eventBusName.assign(value); }
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline ListTargetsByRuleRequest& WithEventBusName(const Aws::String& value) { SetEventBusName(value); return *this;}
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline ListTargetsByRuleRequest& WithEventBusName(Aws::String&& value) { SetEventBusName(std::move(value)); return *this;}
+
+    /**
+     * <p>The event bus associated with the rule. If you omit this, the default event
+     * bus is used.</p>
+     */
+    inline ListTargetsByRuleRequest& WithEventBusName(const char* value) { SetEventBusName(value); return *this;}
+
+
+    /**
      * <p>The token returned by a previous call to retrieve the next set of
      * results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token returned by a previous call to retrieve the next set of
+     * results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token returned by a previous call to retrieve the next set of
@@ -131,6 +191,11 @@ namespace Model
     /**
      * <p>The maximum number of results to return.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to return.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -142,6 +207,9 @@ namespace Model
 
     Aws::String m_rule;
     bool m_ruleHasBeenSet;
+
+    Aws::String m_eventBusName;
+    bool m_eventBusNameHasBeenSet;
 
     Aws::String m_nextToken;
     bool m_nextTokenHasBeenSet;

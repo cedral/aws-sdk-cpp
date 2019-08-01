@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DisassociateS3ResourcesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * from being monitored by Amazon Macie. </p>
      */
     inline const Aws::String& GetMemberAccountId() const{ return m_memberAccountId; }
+
+    /**
+     * <p>The ID of the Amazon Macie member account whose resources you want to remove
+     * from being monitored by Amazon Macie. </p>
+     */
+    inline bool MemberAccountIdHasBeenSet() const { return m_memberAccountIdHasBeenSet; }
 
     /**
      * <p>The ID of the Amazon Macie member account whose resources you want to remove
@@ -94,6 +100,12 @@ namespace Model
      * monitored and classified by Amazon Macie. </p>
      */
     inline const Aws::Vector<S3Resource>& GetAssociatedS3Resources() const{ return m_associatedS3Resources; }
+
+    /**
+     * <p>The S3 resources (buckets or prefixes) that you want to remove from being
+     * monitored and classified by Amazon Macie. </p>
+     */
+    inline bool AssociatedS3ResourcesHasBeenSet() const { return m_associatedS3ResourcesHasBeenSet; }
 
     /**
      * <p>The S3 resources (buckets or prefixes) that you want to remove from being

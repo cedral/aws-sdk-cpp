@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StopExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the execution to stop.</p>
      */
     inline const Aws::String& GetExecutionArn() const{ return m_executionArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the execution to stop.</p>
+     */
+    inline bool ExecutionArnHasBeenSet() const { return m_executionArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the execution to stop.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The error code of the failure.</p>
      */
+    inline bool ErrorHasBeenSet() const { return m_errorHasBeenSet; }
+
+    /**
+     * <p>The error code of the failure.</p>
+     */
     inline void SetError(const Aws::String& value) { m_errorHasBeenSet = true; m_error = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>A more detailed explanation of the cause of the failure.</p>
      */
     inline const Aws::String& GetCause() const{ return m_cause; }
+
+    /**
+     * <p>A more detailed explanation of the cause of the failure.</p>
+     */
+    inline bool CauseHasBeenSet() const { return m_causeHasBeenSet; }
 
     /**
      * <p>A more detailed explanation of the cause of the failure.</p>

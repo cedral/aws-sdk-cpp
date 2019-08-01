@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     RemoveTagsFromResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * from.</p>
      */
     inline const Aws::String& GetResourceARN() const{ return m_resourceARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource you want to remove the tags
+     * from.</p>
+     */
+    inline bool ResourceARNHasBeenSet() const { return m_resourceARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the resource you want to remove the tags
@@ -96,6 +102,12 @@ namespace Model
      * composed of a key/value pair.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeys() const{ return m_tagKeys; }
+
+    /**
+     * <p>The keys of the tags you want to remove from the specified resource. A tag is
+     * composed of a key/value pair.</p>
+     */
+    inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }
 
     /**
      * <p>The keys of the tags you want to remove from the specified resource. A tag is

@@ -17,6 +17,7 @@
 #include <aws/servicecatalog/ServiceCatalog_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/DateTime.h>
+#include <aws/servicecatalog/model/ProvisioningArtifactGuidance.h>
 #include <utility>
 
 namespace Aws
@@ -57,6 +58,11 @@ namespace Model
     /**
      * <p>The identifier of the provisioning artifact.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The identifier of the provisioning artifact.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -89,6 +95,11 @@ namespace Model
      * <p>The name of the provisioning artifact.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the provisioning artifact.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the provisioning artifact.</p>
@@ -129,6 +140,11 @@ namespace Model
     /**
      * <p>The description of the provisioning artifact.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the provisioning artifact.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -165,6 +181,11 @@ namespace Model
     /**
      * <p>The UTC time stamp of the creation time.</p>
      */
+    inline bool CreatedTimeHasBeenSet() const { return m_createdTimeHasBeenSet; }
+
+    /**
+     * <p>The UTC time stamp of the creation time.</p>
+     */
     inline void SetCreatedTime(const Aws::Utils::DateTime& value) { m_createdTimeHasBeenSet = true; m_createdTime = value; }
 
     /**
@@ -182,6 +203,43 @@ namespace Model
      */
     inline ProvisioningArtifact& WithCreatedTime(Aws::Utils::DateTime&& value) { SetCreatedTime(std::move(value)); return *this;}
 
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p>
+     */
+    inline const ProvisioningArtifactGuidance& GetGuidance() const{ return m_guidance; }
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p>
+     */
+    inline bool GuidanceHasBeenSet() const { return m_guidanceHasBeenSet; }
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p>
+     */
+    inline void SetGuidance(const ProvisioningArtifactGuidance& value) { m_guidanceHasBeenSet = true; m_guidance = value; }
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p>
+     */
+    inline void SetGuidance(ProvisioningArtifactGuidance&& value) { m_guidanceHasBeenSet = true; m_guidance = std::move(value); }
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p>
+     */
+    inline ProvisioningArtifact& WithGuidance(const ProvisioningArtifactGuidance& value) { SetGuidance(value); return *this;}
+
+    /**
+     * <p>Information set by the administrator to provide guidance to end users about
+     * which provisioning artifacts to use.</p>
+     */
+    inline ProvisioningArtifact& WithGuidance(ProvisioningArtifactGuidance&& value) { SetGuidance(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_id;
@@ -195,6 +253,9 @@ namespace Model
 
     Aws::Utils::DateTime m_createdTime;
     bool m_createdTimeHasBeenSet;
+
+    ProvisioningArtifactGuidance m_guidance;
+    bool m_guidanceHasBeenSet;
   };
 
 } // namespace Model

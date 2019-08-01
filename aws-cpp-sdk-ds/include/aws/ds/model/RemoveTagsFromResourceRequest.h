@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     RemoveTagsFromResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Identifier (ID) of the directory from which to remove the tag.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>Identifier (ID) of the directory from which to remove the tag.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>Identifier (ID) of the directory from which to remove the tag.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The tag key (name) of the tag to be removed.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeys() const{ return m_tagKeys; }
+
+    /**
+     * <p>The tag key (name) of the tag to be removed.</p>
+     */
+    inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }
 
     /**
      * <p>The tag key (name) of the tag to be removed.</p>

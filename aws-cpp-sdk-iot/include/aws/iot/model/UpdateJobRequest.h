@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the job to be updated.</p>
      */
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    /**
+     * <p>The ID of the job to be updated.</p>
+     */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     /**
      * <p>The ID of the job to be updated.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>A short text description of the job.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>A short text description of the job.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -126,6 +136,11 @@ namespace Model
     /**
      * <p>Configuration information for pre-signed S3 URLs.</p>
      */
+    inline bool PresignedUrlConfigHasBeenSet() const { return m_presignedUrlConfigHasBeenSet; }
+
+    /**
+     * <p>Configuration information for pre-signed S3 URLs.</p>
+     */
     inline void SetPresignedUrlConfig(const PresignedUrlConfig& value) { m_presignedUrlConfigHasBeenSet = true; m_presignedUrlConfig = value; }
 
     /**
@@ -148,6 +163,11 @@ namespace Model
      * <p>Allows you to create a staged rollout of the job.</p>
      */
     inline const JobExecutionsRolloutConfig& GetJobExecutionsRolloutConfig() const{ return m_jobExecutionsRolloutConfig; }
+
+    /**
+     * <p>Allows you to create a staged rollout of the job.</p>
+     */
+    inline bool JobExecutionsRolloutConfigHasBeenSet() const { return m_jobExecutionsRolloutConfigHasBeenSet; }
 
     /**
      * <p>Allows you to create a staged rollout of the job.</p>
@@ -178,6 +198,11 @@ namespace Model
     /**
      * <p>Allows you to create criteria to abort a job.</p>
      */
+    inline bool AbortConfigHasBeenSet() const { return m_abortConfigHasBeenSet; }
+
+    /**
+     * <p>Allows you to create criteria to abort a job.</p>
+     */
     inline void SetAbortConfig(const AbortConfig& value) { m_abortConfigHasBeenSet = true; m_abortConfig = value; }
 
     /**
@@ -204,6 +229,15 @@ namespace Model
      * <code>TIMED_OUT</code>. </p>
      */
     inline const TimeoutConfig& GetTimeoutConfig() const{ return m_timeoutConfig; }
+
+    /**
+     * <p>Specifies the amount of time each device has to finish its execution of the
+     * job. The timer is started when the job execution status is set to
+     * <code>IN_PROGRESS</code>. If the job execution status is not set to another
+     * terminal state before the time expires, it will be automatically set to
+     * <code>TIMED_OUT</code>. </p>
+     */
+    inline bool TimeoutConfigHasBeenSet() const { return m_timeoutConfigHasBeenSet; }
 
     /**
      * <p>Specifies the amount of time each device has to finish its execution of the

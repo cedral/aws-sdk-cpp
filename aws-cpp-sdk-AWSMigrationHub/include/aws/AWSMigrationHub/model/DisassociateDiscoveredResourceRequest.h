@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DisassociateDiscoveredResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the ProgressUpdateStream.</p>
      */
     inline const Aws::String& GetProgressUpdateStream() const{ return m_progressUpdateStream; }
+
+    /**
+     * <p>The name of the ProgressUpdateStream.</p>
+     */
+    inline bool ProgressUpdateStreamHasBeenSet() const { return m_progressUpdateStreamHasBeenSet; }
 
     /**
      * <p>The name of the ProgressUpdateStream.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The identifier given to the MigrationTask.</p>
      */
+    inline bool MigrationTaskNameHasBeenSet() const { return m_migrationTaskNameHasBeenSet; }
+
+    /**
+     * <p>The identifier given to the MigrationTask.</p>
+     */
     inline void SetMigrationTaskName(const Aws::String& value) { m_migrationTaskNameHasBeenSet = true; m_migrationTaskName = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>ConfigurationId of the ADS resource to be disassociated.</p>
      */
     inline const Aws::String& GetConfigurationId() const{ return m_configurationId; }
+
+    /**
+     * <p>ConfigurationId of the ADS resource to be disassociated.</p>
+     */
+    inline bool ConfigurationIdHasBeenSet() const { return m_configurationIdHasBeenSet; }
 
     /**
      * <p>ConfigurationId of the ADS resource to be disassociated.</p>
@@ -157,6 +172,12 @@ namespace Model
      * to test if the caller has permission to make the call.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Optional boolean flag to indicate whether any effect should take place. Used
+     * to test if the caller has permission to make the call.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Optional boolean flag to indicate whether any effect should take place. Used

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutDashboardRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * a-z, 0-9, "-", and "_". This parameter is required.</p>
      */
     inline const Aws::String& GetDashboardName() const{ return m_dashboardName; }
+
+    /**
+     * <p>The name of the dashboard. If a dashboard with this name already exists, this
+     * call modifies that dashboard, replacing its current contents. Otherwise, a new
+     * dashboard is created. The maximum length is 255, and valid characters are A-Z,
+     * a-z, 0-9, "-", and "_". This parameter is required.</p>
+     */
+    inline bool DashboardNameHasBeenSet() const { return m_dashboardNameHasBeenSet; }
 
     /**
      * <p>The name of the dashboard. If a dashboard with this name already exists, this
@@ -110,6 +118,14 @@ namespace Model
      * <a>CloudWatch-Dashboard-Body-Structure</a>.</p>
      */
     inline const Aws::String& GetDashboardBody() const{ return m_dashboardBody; }
+
+    /**
+     * <p>The detailed information about the dashboard in JSON format, including the
+     * widgets to include and their location on the dashboard. This parameter is
+     * required.</p> <p>For more information about the syntax, see
+     * <a>CloudWatch-Dashboard-Body-Structure</a>.</p>
+     */
+    inline bool DashboardBodyHasBeenSet() const { return m_dashboardBodyHasBeenSet; }
 
     /**
      * <p>The detailed information about the dashboard in JSON format, including the

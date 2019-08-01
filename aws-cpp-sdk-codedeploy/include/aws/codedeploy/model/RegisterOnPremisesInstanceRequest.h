@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     RegisterOnPremisesInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the on-premises instance to register.</p>
      */
     inline const Aws::String& GetInstanceName() const{ return m_instanceName; }
+
+    /**
+     * <p>The name of the on-premises instance to register.</p>
+     */
+    inline bool InstanceNameHasBeenSet() const { return m_instanceNameHasBeenSet; }
 
     /**
      * <p>The name of the on-premises instance to register.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The ARN of the IAM session to associate with the on-premises instance.</p>
      */
+    inline bool IamSessionArnHasBeenSet() const { return m_iamSessionArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the IAM session to associate with the on-premises instance.</p>
+     */
     inline void SetIamSessionArn(const Aws::String& value) { m_iamSessionArnHasBeenSet = true; m_iamSessionArn = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
      * <p>The ARN of the IAM user to associate with the on-premises instance.</p>
      */
     inline const Aws::String& GetIamUserArn() const{ return m_iamUserArn; }
+
+    /**
+     * <p>The ARN of the IAM user to associate with the on-premises instance.</p>
+     */
+    inline bool IamUserArnHasBeenSet() const { return m_iamUserArnHasBeenSet; }
 
     /**
      * <p>The ARN of the IAM user to associate with the on-premises instance.</p>

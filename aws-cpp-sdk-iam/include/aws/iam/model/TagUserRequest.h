@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,15 @@ namespace Model
      * following characters: =,.@-</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the user that you want to add tags to.</p> <p>This parameter
+     * accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters that consist of upper and lowercase
+     * alphanumeric characters with no spaces. You can also include any of the
+     * following characters: =,.@-</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the user that you want to add tags to.</p> <p>This parameter
@@ -117,6 +126,12 @@ namespace Model
      * key name and an associated value.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The list of tags that you want to attach to the user. Each tag consists of a
+     * key name and an associated value.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The list of tags that you want to attach to the user. Each tag consists of a

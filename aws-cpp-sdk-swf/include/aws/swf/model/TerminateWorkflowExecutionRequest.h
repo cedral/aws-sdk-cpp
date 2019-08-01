@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     TerminateWorkflowExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The domain of the workflow execution to terminate.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The domain of the workflow execution to terminate.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The domain of the workflow execution to terminate.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The workflowId of the workflow execution to terminate.</p>
      */
+    inline bool WorkflowIdHasBeenSet() const { return m_workflowIdHasBeenSet; }
+
+    /**
+     * <p>The workflowId of the workflow execution to terminate.</p>
+     */
     inline void SetWorkflowId(const Aws::String& value) { m_workflowIdHasBeenSet = true; m_workflowId = value; }
 
     /**
@@ -121,6 +131,11 @@ namespace Model
      * <p>The runId of the workflow execution to terminate.</p>
      */
     inline const Aws::String& GetRunId() const{ return m_runId; }
+
+    /**
+     * <p>The runId of the workflow execution to terminate.</p>
+     */
+    inline bool RunIdHasBeenSet() const { return m_runIdHasBeenSet; }
 
     /**
      * <p>The runId of the workflow execution to terminate.</p>
@@ -161,6 +176,11 @@ namespace Model
     /**
      * <p> A descriptive reason for terminating the workflow execution.</p>
      */
+    inline bool ReasonHasBeenSet() const { return m_reasonHasBeenSet; }
+
+    /**
+     * <p> A descriptive reason for terminating the workflow execution.</p>
+     */
     inline void SetReason(const Aws::String& value) { m_reasonHasBeenSet = true; m_reason = value; }
 
     /**
@@ -193,6 +213,11 @@ namespace Model
      * <p> Details for terminating the workflow execution.</p>
      */
     inline const Aws::String& GetDetails() const{ return m_details; }
+
+    /**
+     * <p> Details for terminating the workflow execution.</p>
+     */
+    inline bool DetailsHasBeenSet() const { return m_detailsHasBeenSet; }
 
     /**
      * <p> Details for terminating the workflow execution.</p>
@@ -242,6 +267,24 @@ namespace Model
      * specified at registration time then a fault is returned.</p> </note>
      */
     inline const ChildPolicy& GetChildPolicy() const{ return m_childPolicy; }
+
+    /**
+     * <p>If set, specifies the policy to use for the child workflow executions of the
+     * workflow execution being terminated. This policy overrides the child policy
+     * specified for the workflow execution at registration time or when starting the
+     * execution.</p> <p>The supported child policies are:</p> <ul> <li> <p>
+     * <code>TERMINATE</code> – The child executions are terminated.</p> </li> <li> <p>
+     * <code>REQUEST_CANCEL</code> – A request to cancel is attempted for each child
+     * execution by recording a <code>WorkflowExecutionCancelRequested</code> event in
+     * its history. It is up to the decider to take appropriate actions when it
+     * receives an execution history with this event.</p> </li> <li> <p>
+     * <code>ABANDON</code> – No action is taken. The child executions continue to
+     * run.</p> </li> </ul> <note> <p>A child policy for this workflow execution must
+     * be specified either as a default for the workflow type or through this
+     * parameter. If neither this parameter is set nor a default child policy was
+     * specified at registration time then a fault is returned.</p> </note>
+     */
+    inline bool ChildPolicyHasBeenSet() const { return m_childPolicyHasBeenSet; }
 
     /**
      * <p>If set, specifies the policy to use for the child workflow executions of the

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DisassociateConfigurationItemsFromApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Configuration ID of an application from which each item is disassociated.</p>
      */
     inline const Aws::String& GetApplicationConfigurationId() const{ return m_applicationConfigurationId; }
+
+    /**
+     * <p>Configuration ID of an application from which each item is disassociated.</p>
+     */
+    inline bool ApplicationConfigurationIdHasBeenSet() const { return m_applicationConfigurationIdHasBeenSet; }
 
     /**
      * <p>Configuration ID of an application from which each item is disassociated.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>Configuration ID of each item to be disassociated from an application.</p>
      */
     inline const Aws::Vector<Aws::String>& GetConfigurationIds() const{ return m_configurationIds; }
+
+    /**
+     * <p>Configuration ID of each item to be disassociated from an application.</p>
+     */
+    inline bool ConfigurationIdsHasBeenSet() const { return m_configurationIdsHasBeenSet; }
 
     /**
      * <p>Configuration ID of each item to be disassociated from an application.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeResourceServerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The user pool ID for the user pool that hosts the resource server.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool that hosts the resource server.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool that hosts the resource server.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The identifier for the resource server</p>
      */
     inline const Aws::String& GetIdentifier() const{ return m_identifier; }
+
+    /**
+     * <p>The identifier for the resource server</p>
+     */
+    inline bool IdentifierHasBeenSet() const { return m_identifierHasBeenSet; }
 
     /**
      * <p>The identifier for the resource server</p>

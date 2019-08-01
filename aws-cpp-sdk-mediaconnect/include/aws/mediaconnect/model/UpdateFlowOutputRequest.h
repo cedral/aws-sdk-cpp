@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/mediaconnect/MediaConnect_EXPORTS.h>
 #include <aws/mediaconnect/MediaConnectRequest.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/mediaconnect/model/UpdateEncryption.h>
 #include <aws/mediaconnect/model/Protocol.h>
@@ -37,7 +38,7 @@ namespace Model
   {
   public:
     UpdateFlowOutputRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,10 +49,80 @@ namespace Model
 
 
     /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline const Aws::Vector<Aws::String>& GetCidrAllowList() const{ return m_cidrAllowList; }
+
+    /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline bool CidrAllowListHasBeenSet() const { return m_cidrAllowListHasBeenSet; }
+
+    /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline void SetCidrAllowList(const Aws::Vector<Aws::String>& value) { m_cidrAllowListHasBeenSet = true; m_cidrAllowList = value; }
+
+    /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline void SetCidrAllowList(Aws::Vector<Aws::String>&& value) { m_cidrAllowListHasBeenSet = true; m_cidrAllowList = std::move(value); }
+
+    /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline UpdateFlowOutputRequest& WithCidrAllowList(const Aws::Vector<Aws::String>& value) { SetCidrAllowList(value); return *this;}
+
+    /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline UpdateFlowOutputRequest& WithCidrAllowList(Aws::Vector<Aws::String>&& value) { SetCidrAllowList(std::move(value)); return *this;}
+
+    /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline UpdateFlowOutputRequest& AddCidrAllowList(const Aws::String& value) { m_cidrAllowListHasBeenSet = true; m_cidrAllowList.push_back(value); return *this; }
+
+    /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline UpdateFlowOutputRequest& AddCidrAllowList(Aws::String&& value) { m_cidrAllowListHasBeenSet = true; m_cidrAllowList.push_back(std::move(value)); return *this; }
+
+    /**
+     * The range of IP addresses that should be allowed to initiate output requests to
+     * this flow. These IP addresses should be in the form of a Classless Inter-Domain
+     * Routing (CIDR) block; for example, 10.0.0.0/16.
+     */
+    inline UpdateFlowOutputRequest& AddCidrAllowList(const char* value) { m_cidrAllowListHasBeenSet = true; m_cidrAllowList.push_back(value); return *this; }
+
+
+    /**
      * A description of the output. This description appears only on the AWS Elemental
      * MediaConnect console and will not be seen by the end user.
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * A description of the output. This description appears only on the AWS Elemental
+     * MediaConnect console and will not be seen by the end user.
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * A description of the output. This description appears only on the AWS Elemental
@@ -98,6 +169,11 @@ namespace Model
     /**
      * The IP address where you want to send the output.
      */
+    inline bool DestinationHasBeenSet() const { return m_destinationHasBeenSet; }
+
+    /**
+     * The IP address where you want to send the output.
+     */
     inline void SetDestination(const Aws::String& value) { m_destinationHasBeenSet = true; m_destination = value; }
 
     /**
@@ -136,6 +212,12 @@ namespace Model
      * The type of key used for the encryption. If no keyType is provided, the service
      * will use the default setting (static-key).
      */
+    inline bool EncryptionHasBeenSet() const { return m_encryptionHasBeenSet; }
+
+    /**
+     * The type of key used for the encryption. If no keyType is provided, the service
+     * will use the default setting (static-key).
+     */
     inline void SetEncryption(const UpdateEncryption& value) { m_encryptionHasBeenSet = true; m_encryption = value; }
 
     /**
@@ -161,6 +243,11 @@ namespace Model
      * The flow that is associated with the output that you want to update.
      */
     inline const Aws::String& GetFlowArn() const{ return m_flowArn; }
+
+    /**
+     * The flow that is associated with the output that you want to update.
+     */
+    inline bool FlowArnHasBeenSet() const { return m_flowArnHasBeenSet; }
 
     /**
      * The flow that is associated with the output that you want to update.
@@ -201,6 +288,11 @@ namespace Model
     /**
      * The maximum latency in milliseconds for Zixi-based streams.
      */
+    inline bool MaxLatencyHasBeenSet() const { return m_maxLatencyHasBeenSet; }
+
+    /**
+     * The maximum latency in milliseconds for Zixi-based streams.
+     */
     inline void SetMaxLatency(int value) { m_maxLatencyHasBeenSet = true; m_maxLatency = value; }
 
     /**
@@ -213,6 +305,11 @@ namespace Model
      * The ARN of the output that you want to update.
      */
     inline const Aws::String& GetOutputArn() const{ return m_outputArn; }
+
+    /**
+     * The ARN of the output that you want to update.
+     */
+    inline bool OutputArnHasBeenSet() const { return m_outputArnHasBeenSet; }
 
     /**
      * The ARN of the output that you want to update.
@@ -253,6 +350,11 @@ namespace Model
     /**
      * The port to use when content is distributed to this output.
      */
+    inline bool PortHasBeenSet() const { return m_portHasBeenSet; }
+
+    /**
+     * The port to use when content is distributed to this output.
+     */
     inline void SetPort(int value) { m_portHasBeenSet = true; m_port = value; }
 
     /**
@@ -265,6 +367,11 @@ namespace Model
      * The protocol to use for the output.
      */
     inline const Protocol& GetProtocol() const{ return m_protocol; }
+
+    /**
+     * The protocol to use for the output.
+     */
+    inline bool ProtocolHasBeenSet() const { return m_protocolHasBeenSet; }
 
     /**
      * The protocol to use for the output.
@@ -288,9 +395,55 @@ namespace Model
 
 
     /**
+     * The remote ID for the Zixi-pull stream.
+     */
+    inline const Aws::String& GetRemoteId() const{ return m_remoteId; }
+
+    /**
+     * The remote ID for the Zixi-pull stream.
+     */
+    inline bool RemoteIdHasBeenSet() const { return m_remoteIdHasBeenSet; }
+
+    /**
+     * The remote ID for the Zixi-pull stream.
+     */
+    inline void SetRemoteId(const Aws::String& value) { m_remoteIdHasBeenSet = true; m_remoteId = value; }
+
+    /**
+     * The remote ID for the Zixi-pull stream.
+     */
+    inline void SetRemoteId(Aws::String&& value) { m_remoteIdHasBeenSet = true; m_remoteId = std::move(value); }
+
+    /**
+     * The remote ID for the Zixi-pull stream.
+     */
+    inline void SetRemoteId(const char* value) { m_remoteIdHasBeenSet = true; m_remoteId.assign(value); }
+
+    /**
+     * The remote ID for the Zixi-pull stream.
+     */
+    inline UpdateFlowOutputRequest& WithRemoteId(const Aws::String& value) { SetRemoteId(value); return *this;}
+
+    /**
+     * The remote ID for the Zixi-pull stream.
+     */
+    inline UpdateFlowOutputRequest& WithRemoteId(Aws::String&& value) { SetRemoteId(std::move(value)); return *this;}
+
+    /**
+     * The remote ID for the Zixi-pull stream.
+     */
+    inline UpdateFlowOutputRequest& WithRemoteId(const char* value) { SetRemoteId(value); return *this;}
+
+
+    /**
      * The smoothing latency in milliseconds for RTP and RTP-FEC streams.
      */
     inline int GetSmoothingLatency() const{ return m_smoothingLatency; }
+
+    /**
+     * The smoothing latency in milliseconds for RTP and RTP-FEC streams.
+     */
+    inline bool SmoothingLatencyHasBeenSet() const { return m_smoothingLatencyHasBeenSet; }
 
     /**
      * The smoothing latency in milliseconds for RTP and RTP-FEC streams.
@@ -308,6 +461,12 @@ namespace Model
      * only to Zixi-based streams.
      */
     inline const Aws::String& GetStreamId() const{ return m_streamId; }
+
+    /**
+     * The stream ID that you want to use for this transport. This parameter applies
+     * only to Zixi-based streams.
+     */
+    inline bool StreamIdHasBeenSet() const { return m_streamIdHasBeenSet; }
 
     /**
      * The stream ID that you want to use for this transport. This parameter applies
@@ -347,6 +506,9 @@ namespace Model
 
   private:
 
+    Aws::Vector<Aws::String> m_cidrAllowList;
+    bool m_cidrAllowListHasBeenSet;
+
     Aws::String m_description;
     bool m_descriptionHasBeenSet;
 
@@ -370,6 +532,9 @@ namespace Model
 
     Protocol m_protocol;
     bool m_protocolHasBeenSet;
+
+    Aws::String m_remoteId;
+    bool m_remoteIdHasBeenSet;
 
     int m_smoothingLatency;
     bool m_smoothingLatencyHasBeenSet;

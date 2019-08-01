@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     GetBasePathMappingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>[Required] The domain name of a <a>BasePathMapping</a> resource.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>[Required] The domain name of a <a>BasePathMapping</a> resource.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>[Required] The domain name of a <a>BasePathMapping</a> resource.</p>
@@ -96,6 +101,11 @@ namespace Model
     /**
      * <p>The current pagination position in the paged result set.</p>
      */
+    inline bool PositionHasBeenSet() const { return m_positionHasBeenSet; }
+
+    /**
+     * <p>The current pagination position in the paged result set.</p>
+     */
     inline void SetPosition(const Aws::String& value) { m_positionHasBeenSet = true; m_position = value; }
 
     /**
@@ -129,6 +139,12 @@ namespace Model
      * the maximum value is 500.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of returned results per page. The default value is 25 and
+     * the maximum value is 500.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of returned results per page. The default value is 25 and

@@ -39,6 +39,7 @@
 #include <aws/workmail/model/DescribeUserResult.h>
 #include <aws/workmail/model/DisassociateDelegateFromResourceResult.h>
 #include <aws/workmail/model/DisassociateMemberFromGroupResult.h>
+#include <aws/workmail/model/GetMailboxDetailsResult.h>
 #include <aws/workmail/model/ListAliasesResult.h>
 #include <aws/workmail/model/ListGroupMembersResult.h>
 #include <aws/workmail/model/ListGroupsResult.h>
@@ -50,6 +51,7 @@
 #include <aws/workmail/model/PutMailboxPermissionsResult.h>
 #include <aws/workmail/model/RegisterToWorkMailResult.h>
 #include <aws/workmail/model/ResetPasswordResult.h>
+#include <aws/workmail/model/UpdateMailboxQuotaResult.h>
 #include <aws/workmail/model/UpdatePrimaryEmailAddressResult.h>
 #include <aws/workmail/model/UpdateResourceResult.h>
 #include <aws/core/client/AsyncCallerContext.h>
@@ -69,7 +71,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -110,6 +111,7 @@ namespace Model
         class DescribeUserRequest;
         class DisassociateDelegateFromResourceRequest;
         class DisassociateMemberFromGroupRequest;
+        class GetMailboxDetailsRequest;
         class ListAliasesRequest;
         class ListGroupMembersRequest;
         class ListGroupsRequest;
@@ -121,6 +123,7 @@ namespace Model
         class PutMailboxPermissionsRequest;
         class RegisterToWorkMailRequest;
         class ResetPasswordRequest;
+        class UpdateMailboxQuotaRequest;
         class UpdatePrimaryEmailAddressRequest;
         class UpdateResourceRequest;
 
@@ -142,6 +145,7 @@ namespace Model
         typedef Aws::Utils::Outcome<DescribeUserResult, Aws::Client::AWSError<WorkMailErrors>> DescribeUserOutcome;
         typedef Aws::Utils::Outcome<DisassociateDelegateFromResourceResult, Aws::Client::AWSError<WorkMailErrors>> DisassociateDelegateFromResourceOutcome;
         typedef Aws::Utils::Outcome<DisassociateMemberFromGroupResult, Aws::Client::AWSError<WorkMailErrors>> DisassociateMemberFromGroupOutcome;
+        typedef Aws::Utils::Outcome<GetMailboxDetailsResult, Aws::Client::AWSError<WorkMailErrors>> GetMailboxDetailsOutcome;
         typedef Aws::Utils::Outcome<ListAliasesResult, Aws::Client::AWSError<WorkMailErrors>> ListAliasesOutcome;
         typedef Aws::Utils::Outcome<ListGroupMembersResult, Aws::Client::AWSError<WorkMailErrors>> ListGroupMembersOutcome;
         typedef Aws::Utils::Outcome<ListGroupsResult, Aws::Client::AWSError<WorkMailErrors>> ListGroupsOutcome;
@@ -153,6 +157,7 @@ namespace Model
         typedef Aws::Utils::Outcome<PutMailboxPermissionsResult, Aws::Client::AWSError<WorkMailErrors>> PutMailboxPermissionsOutcome;
         typedef Aws::Utils::Outcome<RegisterToWorkMailResult, Aws::Client::AWSError<WorkMailErrors>> RegisterToWorkMailOutcome;
         typedef Aws::Utils::Outcome<ResetPasswordResult, Aws::Client::AWSError<WorkMailErrors>> ResetPasswordOutcome;
+        typedef Aws::Utils::Outcome<UpdateMailboxQuotaResult, Aws::Client::AWSError<WorkMailErrors>> UpdateMailboxQuotaOutcome;
         typedef Aws::Utils::Outcome<UpdatePrimaryEmailAddressResult, Aws::Client::AWSError<WorkMailErrors>> UpdatePrimaryEmailAddressOutcome;
         typedef Aws::Utils::Outcome<UpdateResourceResult, Aws::Client::AWSError<WorkMailErrors>> UpdateResourceOutcome;
 
@@ -174,6 +179,7 @@ namespace Model
         typedef std::future<DescribeUserOutcome> DescribeUserOutcomeCallable;
         typedef std::future<DisassociateDelegateFromResourceOutcome> DisassociateDelegateFromResourceOutcomeCallable;
         typedef std::future<DisassociateMemberFromGroupOutcome> DisassociateMemberFromGroupOutcomeCallable;
+        typedef std::future<GetMailboxDetailsOutcome> GetMailboxDetailsOutcomeCallable;
         typedef std::future<ListAliasesOutcome> ListAliasesOutcomeCallable;
         typedef std::future<ListGroupMembersOutcome> ListGroupMembersOutcomeCallable;
         typedef std::future<ListGroupsOutcome> ListGroupsOutcomeCallable;
@@ -185,6 +191,7 @@ namespace Model
         typedef std::future<PutMailboxPermissionsOutcome> PutMailboxPermissionsOutcomeCallable;
         typedef std::future<RegisterToWorkMailOutcome> RegisterToWorkMailOutcomeCallable;
         typedef std::future<ResetPasswordOutcome> ResetPasswordOutcomeCallable;
+        typedef std::future<UpdateMailboxQuotaOutcome> UpdateMailboxQuotaOutcomeCallable;
         typedef std::future<UpdatePrimaryEmailAddressOutcome> UpdatePrimaryEmailAddressOutcomeCallable;
         typedef std::future<UpdateResourceOutcome> UpdateResourceOutcomeCallable;
 } // namespace Model
@@ -209,6 +216,7 @@ namespace Model
     typedef std::function<void(const WorkMailClient*, const Model::DescribeUserRequest&, const Model::DescribeUserOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeUserResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::DisassociateDelegateFromResourceRequest&, const Model::DisassociateDelegateFromResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DisassociateDelegateFromResourceResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::DisassociateMemberFromGroupRequest&, const Model::DisassociateMemberFromGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DisassociateMemberFromGroupResponseReceivedHandler;
+    typedef std::function<void(const WorkMailClient*, const Model::GetMailboxDetailsRequest&, const Model::GetMailboxDetailsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetMailboxDetailsResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::ListAliasesRequest&, const Model::ListAliasesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListAliasesResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::ListGroupMembersRequest&, const Model::ListGroupMembersOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListGroupMembersResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::ListGroupsRequest&, const Model::ListGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListGroupsResponseReceivedHandler;
@@ -220,29 +228,30 @@ namespace Model
     typedef std::function<void(const WorkMailClient*, const Model::PutMailboxPermissionsRequest&, const Model::PutMailboxPermissionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutMailboxPermissionsResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::RegisterToWorkMailRequest&, const Model::RegisterToWorkMailOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RegisterToWorkMailResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::ResetPasswordRequest&, const Model::ResetPasswordOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ResetPasswordResponseReceivedHandler;
+    typedef std::function<void(const WorkMailClient*, const Model::UpdateMailboxQuotaRequest&, const Model::UpdateMailboxQuotaOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateMailboxQuotaResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::UpdatePrimaryEmailAddressRequest&, const Model::UpdatePrimaryEmailAddressOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdatePrimaryEmailAddressResponseReceivedHandler;
     typedef std::function<void(const WorkMailClient*, const Model::UpdateResourceRequest&, const Model::UpdateResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateResourceResponseReceivedHandler;
 
   /**
    * <p>Amazon WorkMail is a secure, managed business email and calendaring service
    * with support for existing desktop and mobile email clients. You can access your
-   * email, contacts, and calendars using Microsoft Outlook, your browser, or their
-   * native iOS and Android email applications. You can integrate Amazon WorkMail
-   * with your existing corporate directory and control both the keys that encrypt
-   * your data and the location in which your data is stored.</p> <p>The Amazon
-   * WorkMail API is designed for the following scenarios:</p> <ul> <li> <p>Listing
-   * and describing organizations</p> </li> </ul> <ul> <li> <p>Managing users</p>
-   * </li> </ul> <ul> <li> <p>Managing groups</p> </li> </ul> <ul> <li> <p>Managing
-   * resources</p> </li> </ul> <p>All Amazon WorkMail API actions are
-   * Amazon-authenticated and certificate-signed. They not only require the use of
-   * the AWS SDK, but also allow for the exclusive use of IAM users and roles to help
-   * facilitate access, trust, and permission policies. By creating a role and
-   * allowing an IAM user to access the Amazon WorkMail site, the IAM user gains full
-   * administrative visibility into the entire Amazon WorkMail organization (or as
-   * set in the IAM policy). This includes, but is not limited to, the ability to
-   * create, update, and delete users, groups, and resources. This allows developers
-   * to perform the scenarios listed above, as well as give users the ability to
-   * grant access on a selective basis using the IAM model.</p>
+   * email, contacts, and calendars using Microsoft Outlook, your browser, or other
+   * native iOS and Android email applications. You can integrate WorkMail with your
+   * existing corporate directory and control both the keys that encrypt your data
+   * and the location in which your data is stored.</p> <p>The WorkMail API is
+   * designed for the following scenarios:</p> <ul> <li> <p>Listing and describing
+   * organizations</p> </li> </ul> <ul> <li> <p>Managing users</p> </li> </ul> <ul>
+   * <li> <p>Managing groups</p> </li> </ul> <ul> <li> <p>Managing resources</p>
+   * </li> </ul> <p>All WorkMail API operations are Amazon-authenticated and
+   * certificate-signed. They not only require the use of the AWS SDK, but also allow
+   * for the exclusive use of AWS Identity and Access Management users and roles to
+   * help facilitate access, trust, and permission policies. By creating a role and
+   * allowing an IAM user to access the WorkMail site, the IAM user gains full
+   * administrative visibility into the entire WorkMail organization (or as set in
+   * the IAM policy). This includes, but is not limited to, the ability to create,
+   * update, and delete users, groups, and resources. This allows developers to
+   * perform the scenarios listed above, as well as give users the ability to grant
+   * access on a selective basis using the IAM model.</p>
    */
   class AWS_WORKMAIL_API WorkMailClient : public Aws::Client::AWSJsonClient
   {
@@ -270,20 +279,20 @@ namespace Model
 
         virtual ~WorkMailClient();
 
-        inline virtual const char* GetServiceClientName() const override { return "workmail"; }
+        inline virtual const char* GetServiceClientName() const override { return "WorkMail"; }
 
 
         /**
-         * <p>Adds a member to the resource's set of delegates.</p><p><h3>See Also:</h3>  
-         * <a
+         * <p>Adds a member (user or group) to the resource's set of
+         * delegates.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateDelegateToResource">AWS
          * API Reference</a></p>
          */
         virtual Model::AssociateDelegateToResourceOutcome AssociateDelegateToResource(const Model::AssociateDelegateToResourceRequest& request) const;
 
         /**
-         * <p>Adds a member to the resource's set of delegates.</p><p><h3>See Also:</h3>  
-         * <a
+         * <p>Adds a member (user or group) to the resource's set of
+         * delegates.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateDelegateToResource">AWS
          * API Reference</a></p>
          *
@@ -292,8 +301,8 @@ namespace Model
         virtual Model::AssociateDelegateToResourceOutcomeCallable AssociateDelegateToResourceCallable(const Model::AssociateDelegateToResourceRequest& request) const;
 
         /**
-         * <p>Adds a member to the resource's set of delegates.</p><p><h3>See Also:</h3>  
-         * <a
+         * <p>Adds a member (user or group) to the resource's set of
+         * delegates.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateDelegateToResource">AWS
          * API Reference</a></p>
          *
@@ -302,14 +311,16 @@ namespace Model
         virtual void AssociateDelegateToResourceAsync(const Model::AssociateDelegateToResourceRequest& request, const AssociateDelegateToResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Adds a member to the group's set.</p><p><h3>See Also:</h3>   <a
+         * <p>Adds a member (user or group) to the group's set.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateMemberToGroup">AWS
          * API Reference</a></p>
          */
         virtual Model::AssociateMemberToGroupOutcome AssociateMemberToGroup(const Model::AssociateMemberToGroupRequest& request) const;
 
         /**
-         * <p>Adds a member to the group's set.</p><p><h3>See Also:</h3>   <a
+         * <p>Adds a member (user or group) to the group's set.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateMemberToGroup">AWS
          * API Reference</a></p>
          *
@@ -318,7 +329,8 @@ namespace Model
         virtual Model::AssociateMemberToGroupOutcomeCallable AssociateMemberToGroupCallable(const Model::AssociateMemberToGroupRequest& request) const;
 
         /**
-         * <p>Adds a member to the group's set.</p><p><h3>See Also:</h3>   <a
+         * <p>Adds a member (user or group) to the group's set.</p><p><h3>See Also:</h3>  
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/AssociateMemberToGroup">AWS
          * API Reference</a></p>
          *
@@ -327,16 +339,16 @@ namespace Model
         virtual void AssociateMemberToGroupAsync(const Model::AssociateMemberToGroupRequest& request, const AssociateMemberToGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Adds an alias to the set of a given member of Amazon WorkMail.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Adds an alias to the set of a given member (user or group) of Amazon
+         * WorkMail.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateAlias">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateAliasOutcome CreateAlias(const Model::CreateAliasRequest& request) const;
 
         /**
-         * <p>Adds an alias to the set of a given member of Amazon WorkMail.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Adds an alias to the set of a given member (user or group) of Amazon
+         * WorkMail.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateAlias">AWS
          * API Reference</a></p>
          *
@@ -345,8 +357,8 @@ namespace Model
         virtual Model::CreateAliasOutcomeCallable CreateAliasCallable(const Model::CreateAliasRequest& request) const;
 
         /**
-         * <p>Adds an alias to the set of a given member of Amazon WorkMail.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Adds an alias to the set of a given member (user or group) of Amazon
+         * WorkMail.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateAlias">AWS
          * API Reference</a></p>
          *
@@ -356,7 +368,7 @@ namespace Model
 
         /**
          * <p>Creates a group that can be used in Amazon WorkMail by calling the
-         * RegisterToWorkMail operation.</p><p><h3>See Also:</h3>   <a
+         * <a>RegisterToWorkMail</a> operation.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateGroup">AWS
          * API Reference</a></p>
          */
@@ -364,7 +376,7 @@ namespace Model
 
         /**
          * <p>Creates a group that can be used in Amazon WorkMail by calling the
-         * RegisterToWorkMail operation.</p><p><h3>See Also:</h3>   <a
+         * <a>RegisterToWorkMail</a> operation.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateGroup">AWS
          * API Reference</a></p>
          *
@@ -374,7 +386,7 @@ namespace Model
 
         /**
          * <p>Creates a group that can be used in Amazon WorkMail by calling the
-         * RegisterToWorkMail operation.</p><p><h3>See Also:</h3>   <a
+         * <a>RegisterToWorkMail</a> operation.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateGroup">AWS
          * API Reference</a></p>
          *
@@ -383,16 +395,14 @@ namespace Model
         virtual void CreateGroupAsync(const Model::CreateGroupRequest& request, const CreateGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates a new Amazon WorkMail resource. The available types are equipment and
-         * room.</p><p><h3>See Also:</h3>   <a
+         * <p>Creates a new Amazon WorkMail resource. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateResource">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateResourceOutcome CreateResource(const Model::CreateResourceRequest& request) const;
 
         /**
-         * <p>Creates a new Amazon WorkMail resource. The available types are equipment and
-         * room.</p><p><h3>See Also:</h3>   <a
+         * <p>Creates a new Amazon WorkMail resource. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateResource">AWS
          * API Reference</a></p>
          *
@@ -401,8 +411,7 @@ namespace Model
         virtual Model::CreateResourceOutcomeCallable CreateResourceCallable(const Model::CreateResourceRequest& request) const;
 
         /**
-         * <p>Creates a new Amazon WorkMail resource. The available types are equipment and
-         * room.</p><p><h3>See Also:</h3>   <a
+         * <p>Creates a new Amazon WorkMail resource. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateResource">AWS
          * API Reference</a></p>
          *
@@ -412,7 +421,7 @@ namespace Model
 
         /**
          * <p>Creates a user who can be used in Amazon WorkMail by calling the
-         * RegisterToWorkMail operation.</p><p><h3>See Also:</h3>   <a
+         * <a>RegisterToWorkMail</a> operation.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateUser">AWS
          * API Reference</a></p>
          */
@@ -420,7 +429,7 @@ namespace Model
 
         /**
          * <p>Creates a user who can be used in Amazon WorkMail by calling the
-         * RegisterToWorkMail operation.</p><p><h3>See Also:</h3>   <a
+         * <a>RegisterToWorkMail</a> operation.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateUser">AWS
          * API Reference</a></p>
          *
@@ -430,7 +439,7 @@ namespace Model
 
         /**
          * <p>Creates a user who can be used in Amazon WorkMail by calling the
-         * RegisterToWorkMail operation.</p><p><h3>See Also:</h3>   <a
+         * <a>RegisterToWorkMail</a> operation.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/CreateUser">AWS
          * API Reference</a></p>
          *
@@ -439,16 +448,16 @@ namespace Model
         virtual void CreateUserAsync(const Model::CreateUserRequest& request, const CreateUserResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Remove the alias from a set of aliases for a given user.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Remove one or more specified aliases from a set of aliases for a given
+         * user.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteAlias">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteAliasOutcome DeleteAlias(const Model::DeleteAliasRequest& request) const;
 
         /**
-         * <p>Remove the alias from a set of aliases for a given user.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Remove one or more specified aliases from a set of aliases for a given
+         * user.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteAlias">AWS
          * API Reference</a></p>
          *
@@ -457,8 +466,8 @@ namespace Model
         virtual Model::DeleteAliasOutcomeCallable DeleteAliasCallable(const Model::DeleteAliasRequest& request) const;
 
         /**
-         * <p>Remove the alias from a set of aliases for a given user.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Remove one or more specified aliases from a set of aliases for a given
+         * user.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteAlias">AWS
          * API Reference</a></p>
          *
@@ -492,14 +501,16 @@ namespace Model
         virtual void DeleteGroupAsync(const Model::DeleteGroupRequest& request, const DeleteGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes permissions granted to a user or group.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes permissions granted to a member (user or group).</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteMailboxPermissions">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteMailboxPermissionsOutcome DeleteMailboxPermissions(const Model::DeleteMailboxPermissionsRequest& request) const;
 
         /**
-         * <p>Deletes permissions granted to a user or group.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes permissions granted to a member (user or group).</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteMailboxPermissions">AWS
          * API Reference</a></p>
          *
@@ -508,7 +519,8 @@ namespace Model
         virtual Model::DeleteMailboxPermissionsOutcomeCallable DeleteMailboxPermissionsCallable(const Model::DeleteMailboxPermissionsRequest& request) const;
 
         /**
-         * <p>Deletes permissions granted to a user or group.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes permissions granted to a member (user or group).</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteMailboxPermissions">AWS
          * API Reference</a></p>
          *
@@ -542,18 +554,22 @@ namespace Model
         virtual void DeleteResourceAsync(const Model::DeleteResourceRequest& request, const DeleteResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes a user from Amazon WorkMail and all subsequent systems. The action
-         * can't be undone. The mailbox is kept as-is for a minimum of 30 days, without any
-         * means to restore it. </p><p><h3>See Also:</h3>   <a
+         * <p>Deletes a user from Amazon WorkMail and all subsequent systems. Before you
+         * can delete a user, the user state must be <code>DISABLED</code>. Use the
+         * <a>DescribeUser</a> action to confirm the user state.</p> <p>Deleting a user is
+         * permanent and cannot be undone. WorkMail archives user mailboxes for 30 days
+         * before they are permanently removed.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteUser">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteUserOutcome DeleteUser(const Model::DeleteUserRequest& request) const;
 
         /**
-         * <p>Deletes a user from Amazon WorkMail and all subsequent systems. The action
-         * can't be undone. The mailbox is kept as-is for a minimum of 30 days, without any
-         * means to restore it. </p><p><h3>See Also:</h3>   <a
+         * <p>Deletes a user from Amazon WorkMail and all subsequent systems. Before you
+         * can delete a user, the user state must be <code>DISABLED</code>. Use the
+         * <a>DescribeUser</a> action to confirm the user state.</p> <p>Deleting a user is
+         * permanent and cannot be undone. WorkMail archives user mailboxes for 30 days
+         * before they are permanently removed.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteUser">AWS
          * API Reference</a></p>
          *
@@ -562,9 +578,11 @@ namespace Model
         virtual Model::DeleteUserOutcomeCallable DeleteUserCallable(const Model::DeleteUserRequest& request) const;
 
         /**
-         * <p>Deletes a user from Amazon WorkMail and all subsequent systems. The action
-         * can't be undone. The mailbox is kept as-is for a minimum of 30 days, without any
-         * means to restore it. </p><p><h3>See Also:</h3>   <a
+         * <p>Deletes a user from Amazon WorkMail and all subsequent systems. Before you
+         * can delete a user, the user state must be <code>DISABLED</code>. Use the
+         * <a>DescribeUser</a> action to confirm the user state.</p> <p>Deleting a user is
+         * permanent and cannot be undone. WorkMail archives user mailboxes for 30 days
+         * before they are permanently removed.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeleteUser">AWS
          * API Reference</a></p>
          *
@@ -574,9 +592,9 @@ namespace Model
 
         /**
          * <p>Mark a user, group, or resource as no longer used in Amazon WorkMail. This
-         * action disassociates the mailbox and schedules it for clean-up. Amazon WorkMail
-         * keeps mailboxes for 30 days before they are permanently removed. The
-         * functionality in the console is <i>Disable</i>.</p><p><h3>See Also:</h3>   <a
+         * action disassociates the mailbox and schedules it for clean-up. WorkMail keeps
+         * mailboxes for 30 days before they are permanently removed. The functionality in
+         * the console is <i>Disable</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeregisterFromWorkMail">AWS
          * API Reference</a></p>
          */
@@ -584,9 +602,9 @@ namespace Model
 
         /**
          * <p>Mark a user, group, or resource as no longer used in Amazon WorkMail. This
-         * action disassociates the mailbox and schedules it for clean-up. Amazon WorkMail
-         * keeps mailboxes for 30 days before they are permanently removed. The
-         * functionality in the console is <i>Disable</i>.</p><p><h3>See Also:</h3>   <a
+         * action disassociates the mailbox and schedules it for clean-up. WorkMail keeps
+         * mailboxes for 30 days before they are permanently removed. The functionality in
+         * the console is <i>Disable</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeregisterFromWorkMail">AWS
          * API Reference</a></p>
          *
@@ -596,9 +614,9 @@ namespace Model
 
         /**
          * <p>Mark a user, group, or resource as no longer used in Amazon WorkMail. This
-         * action disassociates the mailbox and schedules it for clean-up. Amazon WorkMail
-         * keeps mailboxes for 30 days before they are permanently removed. The
-         * functionality in the console is <i>Disable</i>.</p><p><h3>See Also:</h3>   <a
+         * action disassociates the mailbox and schedules it for clean-up. WorkMail keeps
+         * mailboxes for 30 days before they are permanently removed. The functionality in
+         * the console is <i>Disable</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/DeregisterFromWorkMail">AWS
          * API Reference</a></p>
          *
@@ -763,6 +781,34 @@ namespace Model
         virtual void DisassociateMemberFromGroupAsync(const Model::DisassociateMemberFromGroupRequest& request, const DisassociateMemberFromGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Requests a user's mailbox details for a specified organization and
+         * user.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/GetMailboxDetails">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::GetMailboxDetailsOutcome GetMailboxDetails(const Model::GetMailboxDetailsRequest& request) const;
+
+        /**
+         * <p>Requests a user's mailbox details for a specified organization and
+         * user.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/GetMailboxDetails">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::GetMailboxDetailsOutcomeCallable GetMailboxDetailsCallable(const Model::GetMailboxDetailsRequest& request) const;
+
+        /**
+         * <p>Requests a user's mailbox details for a specified organization and
+         * user.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/GetMailboxDetails">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void GetMailboxDetailsAsync(const Model::GetMailboxDetailsRequest& request, const GetMailboxDetailsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Creates a paginated call to list the aliases associated with a given
          * entity.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListAliases">AWS
@@ -791,14 +837,16 @@ namespace Model
         virtual void ListAliasesAsync(const Model::ListAliasesRequest& request, const ListAliasesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Returns an overview of the members of a group.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns an overview of the members of a group. Users and groups can be
+         * members of a group.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListGroupMembers">AWS
          * API Reference</a></p>
          */
         virtual Model::ListGroupMembersOutcome ListGroupMembers(const Model::ListGroupMembersRequest& request) const;
 
         /**
-         * <p>Returns an overview of the members of a group.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns an overview of the members of a group. Users and groups can be
+         * members of a group.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListGroupMembers">AWS
          * API Reference</a></p>
          *
@@ -807,7 +855,8 @@ namespace Model
         virtual Model::ListGroupMembersOutcomeCallable ListGroupMembersCallable(const Model::ListGroupMembersRequest& request) const;
 
         /**
-         * <p>Returns an overview of the members of a group.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns an overview of the members of a group. Users and groups can be
+         * members of a group.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListGroupMembers">AWS
          * API Reference</a></p>
          *
@@ -841,16 +890,16 @@ namespace Model
         virtual void ListGroupsAsync(const Model::ListGroupsRequest& request, const ListGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Lists the mailbox permissions associated with a mailbox.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the mailbox permissions associated with a user, group, or resource
+         * mailbox.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListMailboxPermissions">AWS
          * API Reference</a></p>
          */
         virtual Model::ListMailboxPermissionsOutcome ListMailboxPermissions(const Model::ListMailboxPermissionsRequest& request) const;
 
         /**
-         * <p>Lists the mailbox permissions associated with a mailbox.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the mailbox permissions associated with a user, group, or resource
+         * mailbox.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListMailboxPermissions">AWS
          * API Reference</a></p>
          *
@@ -859,8 +908,8 @@ namespace Model
         virtual Model::ListMailboxPermissionsOutcomeCallable ListMailboxPermissionsCallable(const Model::ListMailboxPermissionsRequest& request) const;
 
         /**
-         * <p>Lists the mailbox permissions associated with a mailbox.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Lists the mailbox permissions associated with a user, group, or resource
+         * mailbox.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/ListMailboxPermissions">AWS
          * API Reference</a></p>
          *
@@ -981,16 +1030,16 @@ namespace Model
         virtual void ListUsersAsync(const Model::ListUsersRequest& request, const ListUsersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Sets permissions for a user or group. This replaces any pre-existing
-         * permissions set for the entity.</p><p><h3>See Also:</h3>   <a
+         * <p>Sets permissions for a user, group, or resource. This replaces any
+         * pre-existing permissions.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/PutMailboxPermissions">AWS
          * API Reference</a></p>
          */
         virtual Model::PutMailboxPermissionsOutcome PutMailboxPermissions(const Model::PutMailboxPermissionsRequest& request) const;
 
         /**
-         * <p>Sets permissions for a user or group. This replaces any pre-existing
-         * permissions set for the entity.</p><p><h3>See Also:</h3>   <a
+         * <p>Sets permissions for a user, group, or resource. This replaces any
+         * pre-existing permissions.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/PutMailboxPermissions">AWS
          * API Reference</a></p>
          *
@@ -999,8 +1048,8 @@ namespace Model
         virtual Model::PutMailboxPermissionsOutcomeCallable PutMailboxPermissionsCallable(const Model::PutMailboxPermissionsRequest& request) const;
 
         /**
-         * <p>Sets permissions for a user or group. This replaces any pre-existing
-         * permissions set for the entity.</p><p><h3>See Also:</h3>   <a
+         * <p>Sets permissions for a user, group, or resource. This replaces any
+         * pre-existing permissions.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/PutMailboxPermissions">AWS
          * API Reference</a></p>
          *
@@ -1009,30 +1058,32 @@ namespace Model
         virtual void PutMailboxPermissionsAsync(const Model::PutMailboxPermissionsRequest& request, const PutMailboxPermissionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Registers an existing and disabled user, group, or resource/entity for Amazon
+         * <p>Registers an existing and disabled user, group, or resource for Amazon
          * WorkMail use by associating a mailbox and calendaring capabilities. It performs
-         * no change if the entity is enabled and fails if the entity is deleted. This
-         * operation results in the accumulation of costs. For more information, see <a
-         * href="http://aws.amazon.com/workmail/pricing">Pricing</a>. The equivalent
-         * console functionality for this operation is <i>Enable</i>. Users can either be
-         * created by calling the CreateUser API or they can be synchronized from your
-         * directory. For more information, see DeregisterFromWorkMail.</p><p><h3>See
-         * Also:</h3>   <a
+         * no change if the user, group, or resource is enabled and fails if the user,
+         * group, or resource is deleted. This operation results in the accumulation of
+         * costs. For more information, see <a
+         * href="https://aws.amazon.com//workmail/pricing">Pricing</a>. The equivalent
+         * console functionality for this operation is <i>Enable</i>. </p> <p>Users can
+         * either be created by calling the <a>CreateUser</a> API operation or they can be
+         * synchronized from your directory. For more information, see
+         * <a>DeregisterFromWorkMail</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/RegisterToWorkMail">AWS
          * API Reference</a></p>
          */
         virtual Model::RegisterToWorkMailOutcome RegisterToWorkMail(const Model::RegisterToWorkMailRequest& request) const;
 
         /**
-         * <p>Registers an existing and disabled user, group, or resource/entity for Amazon
+         * <p>Registers an existing and disabled user, group, or resource for Amazon
          * WorkMail use by associating a mailbox and calendaring capabilities. It performs
-         * no change if the entity is enabled and fails if the entity is deleted. This
-         * operation results in the accumulation of costs. For more information, see <a
-         * href="http://aws.amazon.com/workmail/pricing">Pricing</a>. The equivalent
-         * console functionality for this operation is <i>Enable</i>. Users can either be
-         * created by calling the CreateUser API or they can be synchronized from your
-         * directory. For more information, see DeregisterFromWorkMail.</p><p><h3>See
-         * Also:</h3>   <a
+         * no change if the user, group, or resource is enabled and fails if the user,
+         * group, or resource is deleted. This operation results in the accumulation of
+         * costs. For more information, see <a
+         * href="https://aws.amazon.com//workmail/pricing">Pricing</a>. The equivalent
+         * console functionality for this operation is <i>Enable</i>. </p> <p>Users can
+         * either be created by calling the <a>CreateUser</a> API operation or they can be
+         * synchronized from your directory. For more information, see
+         * <a>DeregisterFromWorkMail</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/RegisterToWorkMail">AWS
          * API Reference</a></p>
          *
@@ -1041,15 +1092,16 @@ namespace Model
         virtual Model::RegisterToWorkMailOutcomeCallable RegisterToWorkMailCallable(const Model::RegisterToWorkMailRequest& request) const;
 
         /**
-         * <p>Registers an existing and disabled user, group, or resource/entity for Amazon
+         * <p>Registers an existing and disabled user, group, or resource for Amazon
          * WorkMail use by associating a mailbox and calendaring capabilities. It performs
-         * no change if the entity is enabled and fails if the entity is deleted. This
-         * operation results in the accumulation of costs. For more information, see <a
-         * href="http://aws.amazon.com/workmail/pricing">Pricing</a>. The equivalent
-         * console functionality for this operation is <i>Enable</i>. Users can either be
-         * created by calling the CreateUser API or they can be synchronized from your
-         * directory. For more information, see DeregisterFromWorkMail.</p><p><h3>See
-         * Also:</h3>   <a
+         * no change if the user, group, or resource is enabled and fails if the user,
+         * group, or resource is deleted. This operation results in the accumulation of
+         * costs. For more information, see <a
+         * href="https://aws.amazon.com//workmail/pricing">Pricing</a>. The equivalent
+         * console functionality for this operation is <i>Enable</i>. </p> <p>Users can
+         * either be created by calling the <a>CreateUser</a> API operation or they can be
+         * synchronized from your directory. For more information, see
+         * <a>DeregisterFromWorkMail</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/RegisterToWorkMail">AWS
          * API Reference</a></p>
          *
@@ -1086,9 +1138,37 @@ namespace Model
         virtual void ResetPasswordAsync(const Model::ResetPasswordRequest& request, const ResetPasswordResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Updates the primary email for an entity. The current email is moved into the
-         * list of aliases (or swapped between an existing alias and the current primary
-         * email) and the email provided in the input is promoted as the
+         * <p>Updates a user's current mailbox quota for a specified organization and
+         * user.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdateMailboxQuota">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UpdateMailboxQuotaOutcome UpdateMailboxQuota(const Model::UpdateMailboxQuotaRequest& request) const;
+
+        /**
+         * <p>Updates a user's current mailbox quota for a specified organization and
+         * user.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdateMailboxQuota">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UpdateMailboxQuotaOutcomeCallable UpdateMailboxQuotaCallable(const Model::UpdateMailboxQuotaRequest& request) const;
+
+        /**
+         * <p>Updates a user's current mailbox quota for a specified organization and
+         * user.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdateMailboxQuota">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UpdateMailboxQuotaAsync(const Model::UpdateMailboxQuotaRequest& request, const UpdateMailboxQuotaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Updates the primary email for a user, group, or resource. The current email
+         * is moved into the list of aliases (or swapped between an existing alias and the
+         * current primary email), and the email provided in the input is promoted as the
          * primary.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdatePrimaryEmailAddress">AWS
          * API Reference</a></p>
@@ -1096,9 +1176,9 @@ namespace Model
         virtual Model::UpdatePrimaryEmailAddressOutcome UpdatePrimaryEmailAddress(const Model::UpdatePrimaryEmailAddressRequest& request) const;
 
         /**
-         * <p>Updates the primary email for an entity. The current email is moved into the
-         * list of aliases (or swapped between an existing alias and the current primary
-         * email) and the email provided in the input is promoted as the
+         * <p>Updates the primary email for a user, group, or resource. The current email
+         * is moved into the list of aliases (or swapped between an existing alias and the
+         * current primary email), and the email provided in the input is promoted as the
          * primary.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdatePrimaryEmailAddress">AWS
          * API Reference</a></p>
@@ -1108,9 +1188,9 @@ namespace Model
         virtual Model::UpdatePrimaryEmailAddressOutcomeCallable UpdatePrimaryEmailAddressCallable(const Model::UpdatePrimaryEmailAddressRequest& request) const;
 
         /**
-         * <p>Updates the primary email for an entity. The current email is moved into the
-         * list of aliases (or swapped between an existing alias and the current primary
-         * email) and the email provided in the input is promoted as the
+         * <p>Updates the primary email for a user, group, or resource. The current email
+         * is moved into the list of aliases (or swapped between an existing alias and the
+         * current primary email), and the email provided in the input is promoted as the
          * primary.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdatePrimaryEmailAddress">AWS
          * API Reference</a></p>
@@ -1120,20 +1200,20 @@ namespace Model
         virtual void UpdatePrimaryEmailAddressAsync(const Model::UpdatePrimaryEmailAddressRequest& request, const UpdatePrimaryEmailAddressResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Updates data for the resource. It must be preceded by a describe call in
-         * order to have the latest information. The dataset in the request should be the
-         * one expected when performing another describe call.</p><p><h3>See Also:</h3>  
-         * <a
+         * <p>Updates data for the resource. To have the latest information, it must be
+         * preceded by a <a>DescribeResource</a> call. The dataset in the request should be
+         * the one expected when performing another <code>DescribeResource</code>
+         * call.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdateResource">AWS
          * API Reference</a></p>
          */
         virtual Model::UpdateResourceOutcome UpdateResource(const Model::UpdateResourceRequest& request) const;
 
         /**
-         * <p>Updates data for the resource. It must be preceded by a describe call in
-         * order to have the latest information. The dataset in the request should be the
-         * one expected when performing another describe call.</p><p><h3>See Also:</h3>  
-         * <a
+         * <p>Updates data for the resource. To have the latest information, it must be
+         * preceded by a <a>DescribeResource</a> call. The dataset in the request should be
+         * the one expected when performing another <code>DescribeResource</code>
+         * call.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdateResource">AWS
          * API Reference</a></p>
          *
@@ -1142,10 +1222,10 @@ namespace Model
         virtual Model::UpdateResourceOutcomeCallable UpdateResourceCallable(const Model::UpdateResourceRequest& request) const;
 
         /**
-         * <p>Updates data for the resource. It must be preceded by a describe call in
-         * order to have the latest information. The dataset in the request should be the
-         * one expected when performing another describe call.</p><p><h3>See Also:</h3>  
-         * <a
+         * <p>Updates data for the resource. To have the latest information, it must be
+         * preceded by a <a>DescribeResource</a> call. The dataset in the request should be
+         * the one expected when performing another <code>DescribeResource</code>
+         * call.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/workmail-2017-10-01/UpdateResource">AWS
          * API Reference</a></p>
          *
@@ -1153,11 +1233,10 @@ namespace Model
          */
         virtual void UpdateResourceAsync(const Model::UpdateResourceRequest& request, const UpdateResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void AssociateDelegateToResourceAsyncHelper(const Model::AssociateDelegateToResourceRequest& request, const AssociateDelegateToResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AssociateMemberToGroupAsyncHelper(const Model::AssociateMemberToGroupRequest& request, const AssociateMemberToGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateAliasAsyncHelper(const Model::CreateAliasRequest& request, const CreateAliasResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -1176,6 +1255,7 @@ namespace Model
         void DescribeUserAsyncHelper(const Model::DescribeUserRequest& request, const DescribeUserResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DisassociateDelegateFromResourceAsyncHelper(const Model::DisassociateDelegateFromResourceRequest& request, const DisassociateDelegateFromResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DisassociateMemberFromGroupAsyncHelper(const Model::DisassociateMemberFromGroupRequest& request, const DisassociateMemberFromGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void GetMailboxDetailsAsyncHelper(const Model::GetMailboxDetailsRequest& request, const GetMailboxDetailsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListAliasesAsyncHelper(const Model::ListAliasesRequest& request, const ListAliasesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListGroupMembersAsyncHelper(const Model::ListGroupMembersRequest& request, const ListGroupMembersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListGroupsAsyncHelper(const Model::ListGroupsRequest& request, const ListGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -1187,6 +1267,7 @@ namespace Model
         void PutMailboxPermissionsAsyncHelper(const Model::PutMailboxPermissionsRequest& request, const PutMailboxPermissionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RegisterToWorkMailAsyncHelper(const Model::RegisterToWorkMailRequest& request, const RegisterToWorkMailResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ResetPasswordAsyncHelper(const Model::ResetPasswordRequest& request, const ResetPasswordResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UpdateMailboxQuotaAsyncHelper(const Model::UpdateMailboxQuotaRequest& request, const UpdateMailboxQuotaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdatePrimaryEmailAddressAsyncHelper(const Model::UpdatePrimaryEmailAddressRequest& request, const UpdatePrimaryEmailAddressResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateResourceAsyncHelper(const Model::UpdateResourceRequest& request, const UpdateResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
 

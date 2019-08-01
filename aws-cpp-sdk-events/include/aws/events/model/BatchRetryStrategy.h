@@ -32,7 +32,7 @@ namespace Model
 {
 
   /**
-   * <p>The retry strategy to use for failed jobs, if the target is an AWS Batch job.
+   * <p>The retry strategy to use for failed jobs if the target is an AWS Batch job.
    * If you specify a retry strategy here, it overrides the retry strategy defined in
    * the job definition.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/BatchRetryStrategy">AWS
@@ -52,6 +52,12 @@ namespace Model
      * 1–10.</p>
      */
     inline int GetAttempts() const{ return m_attempts; }
+
+    /**
+     * <p>The number of times to attempt to retry, if the job fails. Valid values are
+     * 1–10.</p>
+     */
+    inline bool AttemptsHasBeenSet() const { return m_attemptsHasBeenSet; }
 
     /**
      * <p>The number of times to attempt to retry, if the job fails. Valid values are

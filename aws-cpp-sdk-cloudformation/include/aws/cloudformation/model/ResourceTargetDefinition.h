@@ -65,6 +65,13 @@ namespace Model
      * change in the resource attribute's <code>Metadata</code>,
      * <code>Properties</code>, or <code>Tags</code>.</p>
      */
+    inline bool AttributeHasBeenSet() const { return m_attributeHasBeenSet; }
+
+    /**
+     * <p>Indicates which resource attribute is triggering this update, such as a
+     * change in the resource attribute's <code>Metadata</code>,
+     * <code>Properties</code>, or <code>Tags</code>.</p>
+     */
     inline void SetAttribute(const ResourceAttribute& value) { m_attributeHasBeenSet = true; m_attribute = value; }
 
     /**
@@ -94,6 +101,12 @@ namespace Model
      * the property. For all other attributes, the value is null.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>If the <code>Attribute</code> value is <code>Properties</code>, the name of
+     * the property. For all other attributes, the value is null.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>If the <code>Attribute</code> value is <code>Properties</code>, the name of
@@ -138,7 +151,7 @@ namespace Model
      * can be <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>.
      * To determine the conditions for a <code>Conditionally</code> recreation, see the
      * update behavior for that <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
      * in the AWS CloudFormation User Guide.</p>
      */
     inline const RequiresRecreation& GetRequiresRecreation() const{ return m_requiresRecreation; }
@@ -149,7 +162,18 @@ namespace Model
      * can be <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>.
      * To determine the conditions for a <code>Conditionally</code> recreation, see the
      * update behavior for that <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
+     * in the AWS CloudFormation User Guide.</p>
+     */
+    inline bool RequiresRecreationHasBeenSet() const { return m_requiresRecreationHasBeenSet; }
+
+    /**
+     * <p>If the <code>Attribute</code> value is <code>Properties</code>, indicates
+     * whether a change to this property causes the resource to be recreated. The value
+     * can be <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>.
+     * To determine the conditions for a <code>Conditionally</code> recreation, see the
+     * update behavior for that <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
      * in the AWS CloudFormation User Guide.</p>
      */
     inline void SetRequiresRecreation(const RequiresRecreation& value) { m_requiresRecreationHasBeenSet = true; m_requiresRecreation = value; }
@@ -160,7 +184,7 @@ namespace Model
      * can be <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>.
      * To determine the conditions for a <code>Conditionally</code> recreation, see the
      * update behavior for that <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
      * in the AWS CloudFormation User Guide.</p>
      */
     inline void SetRequiresRecreation(RequiresRecreation&& value) { m_requiresRecreationHasBeenSet = true; m_requiresRecreation = std::move(value); }
@@ -171,7 +195,7 @@ namespace Model
      * can be <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>.
      * To determine the conditions for a <code>Conditionally</code> recreation, see the
      * update behavior for that <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
      * in the AWS CloudFormation User Guide.</p>
      */
     inline ResourceTargetDefinition& WithRequiresRecreation(const RequiresRecreation& value) { SetRequiresRecreation(value); return *this;}
@@ -182,7 +206,7 @@ namespace Model
      * can be <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>.
      * To determine the conditions for a <code>Conditionally</code> recreation, see the
      * update behavior for that <a
-     * href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a>
      * in the AWS CloudFormation User Guide.</p>
      */
     inline ResourceTargetDefinition& WithRequiresRecreation(RequiresRecreation&& value) { SetRequiresRecreation(std::move(value)); return *this;}

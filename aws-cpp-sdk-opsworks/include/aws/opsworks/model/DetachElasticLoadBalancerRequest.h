@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DetachElasticLoadBalancerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The Elastic Load Balancing instance's name.</p>
      */
     inline const Aws::String& GetElasticLoadBalancerName() const{ return m_elasticLoadBalancerName; }
+
+    /**
+     * <p>The Elastic Load Balancing instance's name.</p>
+     */
+    inline bool ElasticLoadBalancerNameHasBeenSet() const { return m_elasticLoadBalancerNameHasBeenSet; }
 
     /**
      * <p>The Elastic Load Balancing instance's name.</p>
@@ -85,6 +90,12 @@ namespace Model
      * to.</p>
      */
     inline const Aws::String& GetLayerId() const{ return m_layerId; }
+
+    /**
+     * <p>The ID of the layer that the Elastic Load Balancing instance is attached
+     * to.</p>
+     */
+    inline bool LayerIdHasBeenSet() const { return m_layerIdHasBeenSet; }
 
     /**
      * <p>The ID of the layer that the Elastic Load Balancing instance is attached

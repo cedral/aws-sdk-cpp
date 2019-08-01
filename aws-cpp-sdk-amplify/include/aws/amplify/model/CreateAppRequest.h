@@ -20,6 +20,7 @@
 #include <aws/amplify/model/Platform.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/amplify/model/AutoBranchCreationConfig.h>
 #include <aws/amplify/model/CustomRule.h>
 #include <utility>
 
@@ -40,7 +41,7 @@ namespace Model
   {
   public:
     CreateAppRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +55,11 @@ namespace Model
      * <p> Name for the Amplify App </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p> Name for the Amplify App </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p> Name for the Amplify App </p>
@@ -94,6 +100,11 @@ namespace Model
     /**
      * <p> Description for an Amplify App </p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p> Description for an Amplify App </p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -126,6 +137,11 @@ namespace Model
      * <p> Repository for an Amplify App </p>
      */
     inline const Aws::String& GetRepository() const{ return m_repository; }
+
+    /**
+     * <p> Repository for an Amplify App </p>
+     */
+    inline bool RepositoryHasBeenSet() const { return m_repositoryHasBeenSet; }
 
     /**
      * <p> Repository for an Amplify App </p>
@@ -166,6 +182,11 @@ namespace Model
     /**
      * <p> Platform / framework for an Amplify App </p>
      */
+    inline bool PlatformHasBeenSet() const { return m_platformHasBeenSet; }
+
+    /**
+     * <p> Platform / framework for an Amplify App </p>
+     */
     inline void SetPlatform(const Platform& value) { m_platformHasBeenSet = true; m_platform = value; }
 
     /**
@@ -188,6 +209,11 @@ namespace Model
      * <p> AWS IAM service role for an Amplify App </p>
      */
     inline const Aws::String& GetIamServiceRoleArn() const{ return m_iamServiceRoleArn; }
+
+    /**
+     * <p> AWS IAM service role for an Amplify App </p>
+     */
+    inline bool IamServiceRoleArnHasBeenSet() const { return m_iamServiceRoleArnHasBeenSet; }
 
     /**
      * <p> AWS IAM service role for an Amplify App </p>
@@ -230,6 +256,12 @@ namespace Model
      * <p> OAuth token for 3rd party source control system for an Amplify App, used to
      * create webhook and read-only deploy key. OAuth token is not stored. </p>
      */
+    inline bool OauthTokenHasBeenSet() const { return m_oauthTokenHasBeenSet; }
+
+    /**
+     * <p> OAuth token for 3rd party source control system for an Amplify App, used to
+     * create webhook and read-only deploy key. OAuth token is not stored. </p>
+     */
     inline void SetOauthToken(const Aws::String& value) { m_oauthTokenHasBeenSet = true; m_oauthToken = value; }
 
     /**
@@ -264,9 +296,63 @@ namespace Model
 
 
     /**
+     * <p> Personal Access token for 3rd party source control system for an Amplify
+     * App, used to create webhook and read-only deploy key. Token is not stored. </p>
+     */
+    inline const Aws::String& GetAccessToken() const{ return m_accessToken; }
+
+    /**
+     * <p> Personal Access token for 3rd party source control system for an Amplify
+     * App, used to create webhook and read-only deploy key. Token is not stored. </p>
+     */
+    inline bool AccessTokenHasBeenSet() const { return m_accessTokenHasBeenSet; }
+
+    /**
+     * <p> Personal Access token for 3rd party source control system for an Amplify
+     * App, used to create webhook and read-only deploy key. Token is not stored. </p>
+     */
+    inline void SetAccessToken(const Aws::String& value) { m_accessTokenHasBeenSet = true; m_accessToken = value; }
+
+    /**
+     * <p> Personal Access token for 3rd party source control system for an Amplify
+     * App, used to create webhook and read-only deploy key. Token is not stored. </p>
+     */
+    inline void SetAccessToken(Aws::String&& value) { m_accessTokenHasBeenSet = true; m_accessToken = std::move(value); }
+
+    /**
+     * <p> Personal Access token for 3rd party source control system for an Amplify
+     * App, used to create webhook and read-only deploy key. Token is not stored. </p>
+     */
+    inline void SetAccessToken(const char* value) { m_accessTokenHasBeenSet = true; m_accessToken.assign(value); }
+
+    /**
+     * <p> Personal Access token for 3rd party source control system for an Amplify
+     * App, used to create webhook and read-only deploy key. Token is not stored. </p>
+     */
+    inline CreateAppRequest& WithAccessToken(const Aws::String& value) { SetAccessToken(value); return *this;}
+
+    /**
+     * <p> Personal Access token for 3rd party source control system for an Amplify
+     * App, used to create webhook and read-only deploy key. Token is not stored. </p>
+     */
+    inline CreateAppRequest& WithAccessToken(Aws::String&& value) { SetAccessToken(std::move(value)); return *this;}
+
+    /**
+     * <p> Personal Access token for 3rd party source control system for an Amplify
+     * App, used to create webhook and read-only deploy key. Token is not stored. </p>
+     */
+    inline CreateAppRequest& WithAccessToken(const char* value) { SetAccessToken(value); return *this;}
+
+
+    /**
      * <p> Environment variables map for an Amplify App. </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetEnvironmentVariables() const{ return m_environmentVariables; }
+
+    /**
+     * <p> Environment variables map for an Amplify App. </p>
+     */
+    inline bool EnvironmentVariablesHasBeenSet() const { return m_environmentVariablesHasBeenSet; }
 
     /**
      * <p> Environment variables map for an Amplify App. </p>
@@ -332,6 +418,11 @@ namespace Model
     /**
      * <p> Enable the auto building of branches for an Amplify App. </p>
      */
+    inline bool EnableBranchAutoBuildHasBeenSet() const { return m_enableBranchAutoBuildHasBeenSet; }
+
+    /**
+     * <p> Enable the auto building of branches for an Amplify App. </p>
+     */
     inline void SetEnableBranchAutoBuild(bool value) { m_enableBranchAutoBuildHasBeenSet = true; m_enableBranchAutoBuild = value; }
 
     /**
@@ -350,6 +441,12 @@ namespace Model
      * <p> Enable Basic Authorization for an Amplify App, this will apply to all
      * branches part of this App. </p>
      */
+    inline bool EnableBasicAuthHasBeenSet() const { return m_enableBasicAuthHasBeenSet; }
+
+    /**
+     * <p> Enable Basic Authorization for an Amplify App, this will apply to all
+     * branches part of this App. </p>
+     */
     inline void SetEnableBasicAuth(bool value) { m_enableBasicAuthHasBeenSet = true; m_enableBasicAuth = value; }
 
     /**
@@ -363,6 +460,11 @@ namespace Model
      * <p> Credentials for Basic Authorization for an Amplify App. </p>
      */
     inline const Aws::String& GetBasicAuthCredentials() const{ return m_basicAuthCredentials; }
+
+    /**
+     * <p> Credentials for Basic Authorization for an Amplify App. </p>
+     */
+    inline bool BasicAuthCredentialsHasBeenSet() const { return m_basicAuthCredentialsHasBeenSet; }
 
     /**
      * <p> Credentials for Basic Authorization for an Amplify App. </p>
@@ -403,6 +505,11 @@ namespace Model
     /**
      * <p> Custom rewrite / redirect rules for an Amplify App. </p>
      */
+    inline bool CustomRulesHasBeenSet() const { return m_customRulesHasBeenSet; }
+
+    /**
+     * <p> Custom rewrite / redirect rules for an Amplify App. </p>
+     */
     inline void SetCustomRules(const Aws::Vector<CustomRule>& value) { m_customRulesHasBeenSet = true; m_customRules = value; }
 
     /**
@@ -435,6 +542,11 @@ namespace Model
      * <p> Tag for an Amplify App </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p> Tag for an Amplify App </p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p> Tag for an Amplify App </p>
@@ -500,6 +612,11 @@ namespace Model
     /**
      * <p> BuildSpec for an Amplify App </p>
      */
+    inline bool BuildSpecHasBeenSet() const { return m_buildSpecHasBeenSet; }
+
+    /**
+     * <p> BuildSpec for an Amplify App </p>
+     */
     inline void SetBuildSpec(const Aws::String& value) { m_buildSpecHasBeenSet = true; m_buildSpec = value; }
 
     /**
@@ -527,6 +644,104 @@ namespace Model
      */
     inline CreateAppRequest& WithBuildSpec(const char* value) { SetBuildSpec(value); return *this;}
 
+
+    /**
+     * <p> Enables automated branch creation for the Amplify App. </p>
+     */
+    inline bool GetEnableAutoBranchCreation() const{ return m_enableAutoBranchCreation; }
+
+    /**
+     * <p> Enables automated branch creation for the Amplify App. </p>
+     */
+    inline bool EnableAutoBranchCreationHasBeenSet() const { return m_enableAutoBranchCreationHasBeenSet; }
+
+    /**
+     * <p> Enables automated branch creation for the Amplify App. </p>
+     */
+    inline void SetEnableAutoBranchCreation(bool value) { m_enableAutoBranchCreationHasBeenSet = true; m_enableAutoBranchCreation = value; }
+
+    /**
+     * <p> Enables automated branch creation for the Amplify App. </p>
+     */
+    inline CreateAppRequest& WithEnableAutoBranchCreation(bool value) { SetEnableAutoBranchCreation(value); return *this;}
+
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline const Aws::Vector<Aws::String>& GetAutoBranchCreationPatterns() const{ return m_autoBranchCreationPatterns; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline bool AutoBranchCreationPatternsHasBeenSet() const { return m_autoBranchCreationPatternsHasBeenSet; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline void SetAutoBranchCreationPatterns(const Aws::Vector<Aws::String>& value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns = value; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline void SetAutoBranchCreationPatterns(Aws::Vector<Aws::String>&& value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns = std::move(value); }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline CreateAppRequest& WithAutoBranchCreationPatterns(const Aws::Vector<Aws::String>& value) { SetAutoBranchCreationPatterns(value); return *this;}
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline CreateAppRequest& WithAutoBranchCreationPatterns(Aws::Vector<Aws::String>&& value) { SetAutoBranchCreationPatterns(std::move(value)); return *this;}
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline CreateAppRequest& AddAutoBranchCreationPatterns(const Aws::String& value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns.push_back(value); return *this; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline CreateAppRequest& AddAutoBranchCreationPatterns(Aws::String&& value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p> Automated branch creation glob patterns for the Amplify App. </p>
+     */
+    inline CreateAppRequest& AddAutoBranchCreationPatterns(const char* value) { m_autoBranchCreationPatternsHasBeenSet = true; m_autoBranchCreationPatterns.push_back(value); return *this; }
+
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline const AutoBranchCreationConfig& GetAutoBranchCreationConfig() const{ return m_autoBranchCreationConfig; }
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline bool AutoBranchCreationConfigHasBeenSet() const { return m_autoBranchCreationConfigHasBeenSet; }
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline void SetAutoBranchCreationConfig(const AutoBranchCreationConfig& value) { m_autoBranchCreationConfigHasBeenSet = true; m_autoBranchCreationConfig = value; }
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline void SetAutoBranchCreationConfig(AutoBranchCreationConfig&& value) { m_autoBranchCreationConfigHasBeenSet = true; m_autoBranchCreationConfig = std::move(value); }
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline CreateAppRequest& WithAutoBranchCreationConfig(const AutoBranchCreationConfig& value) { SetAutoBranchCreationConfig(value); return *this;}
+
+    /**
+     * <p> Automated branch creation config for the Amplify App. </p>
+     */
+    inline CreateAppRequest& WithAutoBranchCreationConfig(AutoBranchCreationConfig&& value) { SetAutoBranchCreationConfig(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_name;
@@ -546,6 +761,9 @@ namespace Model
 
     Aws::String m_oauthToken;
     bool m_oauthTokenHasBeenSet;
+
+    Aws::String m_accessToken;
+    bool m_accessTokenHasBeenSet;
 
     Aws::Map<Aws::String, Aws::String> m_environmentVariables;
     bool m_environmentVariablesHasBeenSet;
@@ -567,6 +785,15 @@ namespace Model
 
     Aws::String m_buildSpec;
     bool m_buildSpecHasBeenSet;
+
+    bool m_enableAutoBranchCreation;
+    bool m_enableAutoBranchCreationHasBeenSet;
+
+    Aws::Vector<Aws::String> m_autoBranchCreationPatterns;
+    bool m_autoBranchCreationPatternsHasBeenSet;
+
+    AutoBranchCreationConfig m_autoBranchCreationConfig;
+    bool m_autoBranchCreationConfigHasBeenSet;
   };
 
 } // namespace Model

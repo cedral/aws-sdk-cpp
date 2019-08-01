@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateSecurityConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the security configuration.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the security configuration.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the security configuration.</p>
@@ -83,7 +88,7 @@ namespace Model
     /**
      * <p>The security configuration details in JSON format. For JSON parameters and
      * examples, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+     * href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
      * Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
      * Management Guide</i>.</p>
      */
@@ -92,7 +97,16 @@ namespace Model
     /**
      * <p>The security configuration details in JSON format. For JSON parameters and
      * examples, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+     * href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+     * Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
+     * Management Guide</i>.</p>
+     */
+    inline bool SecurityConfigurationHasBeenSet() const { return m_securityConfigurationHasBeenSet; }
+
+    /**
+     * <p>The security configuration details in JSON format. For JSON parameters and
+     * examples, see <a
+     * href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
      * Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
      * Management Guide</i>.</p>
      */
@@ -101,7 +115,7 @@ namespace Model
     /**
      * <p>The security configuration details in JSON format. For JSON parameters and
      * examples, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+     * href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
      * Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
      * Management Guide</i>.</p>
      */
@@ -110,7 +124,7 @@ namespace Model
     /**
      * <p>The security configuration details in JSON format. For JSON parameters and
      * examples, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+     * href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
      * Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
      * Management Guide</i>.</p>
      */
@@ -119,7 +133,7 @@ namespace Model
     /**
      * <p>The security configuration details in JSON format. For JSON parameters and
      * examples, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+     * href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
      * Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
      * Management Guide</i>.</p>
      */
@@ -128,7 +142,7 @@ namespace Model
     /**
      * <p>The security configuration details in JSON format. For JSON parameters and
      * examples, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+     * href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
      * Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
      * Management Guide</i>.</p>
      */
@@ -137,7 +151,7 @@ namespace Model
     /**
      * <p>The security configuration details in JSON format. For JSON parameters and
      * examples, see <a
-     * href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+     * href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
      * Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR
      * Management Guide</i>.</p>
      */

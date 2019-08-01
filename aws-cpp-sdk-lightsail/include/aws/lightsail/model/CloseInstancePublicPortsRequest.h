@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CloseInstancePublicPortsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Information about the public port you are trying to close.</p>
      */
     inline const PortInfo& GetPortInfo() const{ return m_portInfo; }
+
+    /**
+     * <p>Information about the public port you are trying to close.</p>
+     */
+    inline bool PortInfoHasBeenSet() const { return m_portInfoHasBeenSet; }
 
     /**
      * <p>Information about the public port you are trying to close.</p>
@@ -76,6 +81,12 @@ namespace Model
      * ports.</p>
      */
     inline const Aws::String& GetInstanceName() const{ return m_instanceName; }
+
+    /**
+     * <p>The name of the instance on which you're attempting to close the public
+     * ports.</p>
+     */
+    inline bool InstanceNameHasBeenSet() const { return m_instanceNameHasBeenSet; }
 
     /**
      * <p>The name of the instance on which you're attempting to close the public

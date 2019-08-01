@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     PutEmailIdentityDkimAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,13 +45,16 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>The email identity that you want to change the DKIM settings for.</p>
      */
     inline const Aws::String& GetEmailIdentity() const{ return m_emailIdentity; }
+
+    /**
+     * <p>The email identity that you want to change the DKIM settings for.</p>
+     */
+    inline bool EmailIdentityHasBeenSet() const { return m_emailIdentityHasBeenSet; }
 
     /**
      * <p>The email identity that you want to change the DKIM settings for.</p>
@@ -92,6 +95,15 @@ namespace Model
      * DKIM-signed.</p>
      */
     inline bool GetSigningEnabled() const{ return m_signingEnabled; }
+
+    /**
+     * <p>Sets the DKIM signing configuration for the identity.</p> <p>When you set
+     * this value <code>true</code>, then the messages that Amazon Pinpoint sends from
+     * the identity are DKIM-signed. When you set this value to <code>false</code>,
+     * then the messages that Amazon Pinpoint sends from the identity aren't
+     * DKIM-signed.</p>
+     */
+    inline bool SigningEnabledHasBeenSet() const { return m_signingEnabledHasBeenSet; }
 
     /**
      * <p>Sets the DKIM signing configuration for the identity.</p> <p>When you set

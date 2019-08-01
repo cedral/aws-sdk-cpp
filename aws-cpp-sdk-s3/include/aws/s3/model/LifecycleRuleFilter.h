@@ -59,6 +59,11 @@ namespace Model
     /**
      * <p>Prefix identifying one or more objects to which the rule applies.</p>
      */
+    inline bool PrefixHasBeenSet() const { return m_prefixHasBeenSet; }
+
+    /**
+     * <p>Prefix identifying one or more objects to which the rule applies.</p>
+     */
     inline void SetPrefix(const Aws::String& value) { m_prefixHasBeenSet = true; m_prefix = value; }
 
     /**
@@ -97,6 +102,12 @@ namespace Model
      * <p>This tag must exist in the object's tag set in order for the rule to
      * apply.</p>
      */
+    inline bool TagHasBeenSet() const { return m_tagHasBeenSet; }
+
+    /**
+     * <p>This tag must exist in the object's tag set in order for the rule to
+     * apply.</p>
+     */
     inline void SetTag(const Tag& value) { m_tagHasBeenSet = true; m_tag = value; }
 
     /**
@@ -118,19 +129,34 @@ namespace Model
     inline LifecycleRuleFilter& WithTag(Tag&& value) { SetTag(std::move(value)); return *this;}
 
 
-    
+    /**
+     * <p/>
+     */
     inline const LifecycleRuleAndOperator& GetAnd() const{ return m_and; }
 
-    
+    /**
+     * <p/>
+     */
+    inline bool AndHasBeenSet() const { return m_andHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetAnd(const LifecycleRuleAndOperator& value) { m_andHasBeenSet = true; m_and = value; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetAnd(LifecycleRuleAndOperator&& value) { m_andHasBeenSet = true; m_and = std::move(value); }
 
-    
+    /**
+     * <p/>
+     */
     inline LifecycleRuleFilter& WithAnd(const LifecycleRuleAndOperator& value) { SetAnd(value); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline LifecycleRuleFilter& WithAnd(LifecycleRuleAndOperator&& value) { SetAnd(std::move(value)); return *this;}
 
   private:

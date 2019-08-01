@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetServiceLinkedRoleDeletionStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * <code>task/aws-service-role/&lt;service-principal-name&gt;/&lt;role-name&gt;/&lt;task-uuid&gt;</code>.</p>
      */
     inline const Aws::String& GetDeletionTaskId() const{ return m_deletionTaskId; }
+
+    /**
+     * <p>The deletion task identifier. This identifier is returned by the
+     * <a>DeleteServiceLinkedRole</a> operation in the format
+     * <code>task/aws-service-role/&lt;service-principal-name&gt;/&lt;role-name&gt;/&lt;task-uuid&gt;</code>.</p>
+     */
+    inline bool DeletionTaskIdHasBeenSet() const { return m_deletionTaskIdHasBeenSet; }
 
     /**
      * <p>The deletion task identifier. This identifier is returned by the

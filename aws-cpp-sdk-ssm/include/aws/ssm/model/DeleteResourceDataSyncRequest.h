@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteResourceDataSyncRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the configuration to delete.</p>
      */
     inline const Aws::String& GetSyncName() const{ return m_syncName; }
+
+    /**
+     * <p>The name of the configuration to delete.</p>
+     */
+    inline bool SyncNameHasBeenSet() const { return m_syncNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration to delete.</p>

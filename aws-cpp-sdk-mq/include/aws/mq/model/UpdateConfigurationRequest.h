@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     UpdateConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * The unique ID that Amazon MQ generates for the configuration.
      */
     inline const Aws::String& GetConfigurationId() const{ return m_configurationId; }
+
+    /**
+     * The unique ID that Amazon MQ generates for the configuration.
+     */
+    inline bool ConfigurationIdHasBeenSet() const { return m_configurationIdHasBeenSet; }
 
     /**
      * The unique ID that Amazon MQ generates for the configuration.
@@ -89,6 +94,11 @@ namespace Model
     /**
      * Required. The base64-encoded XML configuration.
      */
+    inline bool DataHasBeenSet() const { return m_dataHasBeenSet; }
+
+    /**
+     * Required. The base64-encoded XML configuration.
+     */
     inline void SetData(const Aws::String& value) { m_dataHasBeenSet = true; m_data = value; }
 
     /**
@@ -121,6 +131,11 @@ namespace Model
      * The description of the configuration.
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * The description of the configuration.
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * The description of the configuration.

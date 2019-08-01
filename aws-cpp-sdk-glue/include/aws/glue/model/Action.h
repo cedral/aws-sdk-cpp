@@ -57,6 +57,11 @@ namespace Model
     /**
      * <p>The name of a job to be executed.</p>
      */
+    inline bool JobNameHasBeenSet() const { return m_jobNameHasBeenSet; }
+
+    /**
+     * <p>The name of a job to be executed.</p>
+     */
     inline void SetJobName(const Aws::String& value) { m_jobNameHasBeenSet = true; m_jobName = value; }
 
     /**
@@ -91,10 +96,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetArguments() const{ return m_arguments; }
@@ -105,10 +110,24 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
+     */
+    inline bool ArgumentsHasBeenSet() const { return m_argumentsHasBeenSet; }
+
+    /**
+     * <p>The job arguments used when this trigger fires. For this job run, they
+     * replace the default arguments set in the job definition itself.</p> <p>You can
+     * specify arguments here that your own job-execution script consumes, as well as
+     * arguments that AWS Glue itself consumes.</p> <p>For information about how to
+     * specify and consume your own Job arguments, see the <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
+     * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline void SetArguments(const Aws::Map<Aws::String, Aws::String>& value) { m_argumentsHasBeenSet = true; m_arguments = value; }
@@ -119,10 +138,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline void SetArguments(Aws::Map<Aws::String, Aws::String>&& value) { m_argumentsHasBeenSet = true; m_arguments = std::move(value); }
@@ -133,10 +152,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& WithArguments(const Aws::Map<Aws::String, Aws::String>& value) { SetArguments(value); return *this;}
@@ -147,10 +166,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& WithArguments(Aws::Map<Aws::String, Aws::String>&& value) { SetArguments(std::move(value)); return *this;}
@@ -161,10 +180,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& AddArguments(const Aws::String& key, const Aws::String& value) { m_argumentsHasBeenSet = true; m_arguments.emplace(key, value); return *this; }
@@ -175,10 +194,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& AddArguments(Aws::String&& key, const Aws::String& value) { m_argumentsHasBeenSet = true; m_arguments.emplace(std::move(key), value); return *this; }
@@ -189,10 +208,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& AddArguments(const Aws::String& key, Aws::String&& value) { m_argumentsHasBeenSet = true; m_arguments.emplace(key, std::move(value)); return *this; }
@@ -203,10 +222,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& AddArguments(Aws::String&& key, Aws::String&& value) { m_argumentsHasBeenSet = true; m_arguments.emplace(std::move(key), std::move(value)); return *this; }
@@ -217,10 +236,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& AddArguments(const char* key, Aws::String&& value) { m_argumentsHasBeenSet = true; m_arguments.emplace(key, std::move(value)); return *this; }
@@ -231,10 +250,10 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& AddArguments(Aws::String&& key, const char* value) { m_argumentsHasBeenSet = true; m_arguments.emplace(std::move(key), value); return *this; }
@@ -245,44 +264,106 @@ namespace Model
      * specify arguments here that your own job-execution script consumes, as well as
      * arguments that AWS Glue itself consumes.</p> <p>For information about how to
      * specify and consume your own Job arguments, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
      * AWS Glue APIs in Python</a> topic in the developer guide.</p> <p>For information
      * about the key-value pairs that AWS Glue consumes to set up your job, see the <a
-     * href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
+     * href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
      * Parameters Used by AWS Glue</a> topic in the developer guide.</p>
      */
     inline Action& AddArguments(const char* key, const char* value) { m_argumentsHasBeenSet = true; m_arguments.emplace(key, value); return *this; }
 
 
     /**
-     * <p>The JobRun timeout in minutes. This is the maximum time that a job run can
-     * consume resources before it is terminated and enters <code>TIMEOUT</code>
-     * status. The default is 2,880 minutes (48 hours). This overrides the timeout
-     * value set in the parent job.</p>
+     * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a
+     * job run can consume resources before it is terminated and enters
+     * <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This
+     * overrides the timeout value set in the parent job.</p>
      */
     inline int GetTimeout() const{ return m_timeout; }
 
     /**
-     * <p>The JobRun timeout in minutes. This is the maximum time that a job run can
-     * consume resources before it is terminated and enters <code>TIMEOUT</code>
-     * status. The default is 2,880 minutes (48 hours). This overrides the timeout
-     * value set in the parent job.</p>
+     * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a
+     * job run can consume resources before it is terminated and enters
+     * <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This
+     * overrides the timeout value set in the parent job.</p>
+     */
+    inline bool TimeoutHasBeenSet() const { return m_timeoutHasBeenSet; }
+
+    /**
+     * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a
+     * job run can consume resources before it is terminated and enters
+     * <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This
+     * overrides the timeout value set in the parent job.</p>
      */
     inline void SetTimeout(int value) { m_timeoutHasBeenSet = true; m_timeout = value; }
 
     /**
-     * <p>The JobRun timeout in minutes. This is the maximum time that a job run can
-     * consume resources before it is terminated and enters <code>TIMEOUT</code>
-     * status. The default is 2,880 minutes (48 hours). This overrides the timeout
-     * value set in the parent job.</p>
+     * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a
+     * job run can consume resources before it is terminated and enters
+     * <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours). This
+     * overrides the timeout value set in the parent job.</p>
      */
     inline Action& WithTimeout(int value) { SetTimeout(value); return *this;}
+
+
+    /**
+     * <p>The name of the <code>SecurityConfiguration</code> structure to be used with
+     * this action.</p>
+     */
+    inline const Aws::String& GetSecurityConfiguration() const{ return m_securityConfiguration; }
+
+    /**
+     * <p>The name of the <code>SecurityConfiguration</code> structure to be used with
+     * this action.</p>
+     */
+    inline bool SecurityConfigurationHasBeenSet() const { return m_securityConfigurationHasBeenSet; }
+
+    /**
+     * <p>The name of the <code>SecurityConfiguration</code> structure to be used with
+     * this action.</p>
+     */
+    inline void SetSecurityConfiguration(const Aws::String& value) { m_securityConfigurationHasBeenSet = true; m_securityConfiguration = value; }
+
+    /**
+     * <p>The name of the <code>SecurityConfiguration</code> structure to be used with
+     * this action.</p>
+     */
+    inline void SetSecurityConfiguration(Aws::String&& value) { m_securityConfigurationHasBeenSet = true; m_securityConfiguration = std::move(value); }
+
+    /**
+     * <p>The name of the <code>SecurityConfiguration</code> structure to be used with
+     * this action.</p>
+     */
+    inline void SetSecurityConfiguration(const char* value) { m_securityConfigurationHasBeenSet = true; m_securityConfiguration.assign(value); }
+
+    /**
+     * <p>The name of the <code>SecurityConfiguration</code> structure to be used with
+     * this action.</p>
+     */
+    inline Action& WithSecurityConfiguration(const Aws::String& value) { SetSecurityConfiguration(value); return *this;}
+
+    /**
+     * <p>The name of the <code>SecurityConfiguration</code> structure to be used with
+     * this action.</p>
+     */
+    inline Action& WithSecurityConfiguration(Aws::String&& value) { SetSecurityConfiguration(std::move(value)); return *this;}
+
+    /**
+     * <p>The name of the <code>SecurityConfiguration</code> structure to be used with
+     * this action.</p>
+     */
+    inline Action& WithSecurityConfiguration(const char* value) { SetSecurityConfiguration(value); return *this;}
 
 
     /**
      * <p>Specifies configuration properties of a job run notification.</p>
      */
     inline const NotificationProperty& GetNotificationProperty() const{ return m_notificationProperty; }
+
+    /**
+     * <p>Specifies configuration properties of a job run notification.</p>
+     */
+    inline bool NotificationPropertyHasBeenSet() const { return m_notificationPropertyHasBeenSet; }
 
     /**
      * <p>Specifies configuration properties of a job run notification.</p>
@@ -306,46 +387,44 @@ namespace Model
 
 
     /**
-     * <p>The name of the SecurityConfiguration structure to be used with this
-     * action.</p>
+     * <p>The name of the crawler to be used with this action.</p>
      */
-    inline const Aws::String& GetSecurityConfiguration() const{ return m_securityConfiguration; }
+    inline const Aws::String& GetCrawlerName() const{ return m_crawlerName; }
 
     /**
-     * <p>The name of the SecurityConfiguration structure to be used with this
-     * action.</p>
+     * <p>The name of the crawler to be used with this action.</p>
      */
-    inline void SetSecurityConfiguration(const Aws::String& value) { m_securityConfigurationHasBeenSet = true; m_securityConfiguration = value; }
+    inline bool CrawlerNameHasBeenSet() const { return m_crawlerNameHasBeenSet; }
 
     /**
-     * <p>The name of the SecurityConfiguration structure to be used with this
-     * action.</p>
+     * <p>The name of the crawler to be used with this action.</p>
      */
-    inline void SetSecurityConfiguration(Aws::String&& value) { m_securityConfigurationHasBeenSet = true; m_securityConfiguration = std::move(value); }
+    inline void SetCrawlerName(const Aws::String& value) { m_crawlerNameHasBeenSet = true; m_crawlerName = value; }
 
     /**
-     * <p>The name of the SecurityConfiguration structure to be used with this
-     * action.</p>
+     * <p>The name of the crawler to be used with this action.</p>
      */
-    inline void SetSecurityConfiguration(const char* value) { m_securityConfigurationHasBeenSet = true; m_securityConfiguration.assign(value); }
+    inline void SetCrawlerName(Aws::String&& value) { m_crawlerNameHasBeenSet = true; m_crawlerName = std::move(value); }
 
     /**
-     * <p>The name of the SecurityConfiguration structure to be used with this
-     * action.</p>
+     * <p>The name of the crawler to be used with this action.</p>
      */
-    inline Action& WithSecurityConfiguration(const Aws::String& value) { SetSecurityConfiguration(value); return *this;}
+    inline void SetCrawlerName(const char* value) { m_crawlerNameHasBeenSet = true; m_crawlerName.assign(value); }
 
     /**
-     * <p>The name of the SecurityConfiguration structure to be used with this
-     * action.</p>
+     * <p>The name of the crawler to be used with this action.</p>
      */
-    inline Action& WithSecurityConfiguration(Aws::String&& value) { SetSecurityConfiguration(std::move(value)); return *this;}
+    inline Action& WithCrawlerName(const Aws::String& value) { SetCrawlerName(value); return *this;}
 
     /**
-     * <p>The name of the SecurityConfiguration structure to be used with this
-     * action.</p>
+     * <p>The name of the crawler to be used with this action.</p>
      */
-    inline Action& WithSecurityConfiguration(const char* value) { SetSecurityConfiguration(value); return *this;}
+    inline Action& WithCrawlerName(Aws::String&& value) { SetCrawlerName(std::move(value)); return *this;}
+
+    /**
+     * <p>The name of the crawler to be used with this action.</p>
+     */
+    inline Action& WithCrawlerName(const char* value) { SetCrawlerName(value); return *this;}
 
   private:
 
@@ -358,11 +437,14 @@ namespace Model
     int m_timeout;
     bool m_timeoutHasBeenSet;
 
+    Aws::String m_securityConfiguration;
+    bool m_securityConfigurationHasBeenSet;
+
     NotificationProperty m_notificationProperty;
     bool m_notificationPropertyHasBeenSet;
 
-    Aws::String m_securityConfiguration;
-    bool m_securityConfigurationHasBeenSet;
+    Aws::String m_crawlerName;
+    bool m_crawlerNameHasBeenSet;
   };
 
 } // namespace Model

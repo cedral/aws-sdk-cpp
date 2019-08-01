@@ -87,13 +87,17 @@ if(USE_WINDOWS_DLL_SEMANTICS AND BUILD_SHARED_LIBS)
 endif()
 
 if(PLATFORM_ANDROID AND BUILD_SHARED_LIBS)
-    add_library(${PROJECT_NAME} ${LIBTYPE} ${AWS_CPP_SDK_CORE_TESTS_SRC})
+    add_library(${PROJECT_NAME} ${AWS_CPP_SDK_CORE_TESTS_SRC})
 else()
     add_executable(${PROJECT_NAME} ${AWS_CPP_SDK_CORE_TESTS_SRC})
 endif()
 
 set_compiler_flags(${PROJECT_NAME})
 set_compiler_warnings(${PROJECT_NAME})
+
+if (NO_HTTP_CLIENT)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE "NO_HTTP_CLIENT")
+endif()
 
 target_link_libraries(${PROJECT_NAME} ${PROJECT_LIBS})
 
@@ -102,7 +106,8 @@ add_custom_command(TARGET aws-cpp-sdk-core-tests PRE_BUILD
                    ${CMAKE_CURRENT_SOURCE_DIR}/resources ${CMAKE_CURRENT_BINARY_DIR})
 
 if (AUTORUN_UNIT_TESTS)
-    ADD_CUSTOM_COMMAND( TARGET ${PROJECT_NAME} POST_BUILD COMMAND $<TARGET_FILE:${PROJECT_NAME}>)
+    ADD_CUSTOM_COMMAND( TARGET ${PROJECT_NAME} POST_BUILD COMMAND $<TARGET_FILE:${PROJECT_NAME}>
+        ARGS "--gtest_shuffle" "--gtest_repeat=3")
 endif()
 
 if(NOT CMAKE_CROSSCOMPILING)

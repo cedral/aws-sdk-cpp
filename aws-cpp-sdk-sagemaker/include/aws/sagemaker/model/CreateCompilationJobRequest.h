@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateCompilationJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * Region and within your AWS account. </p>
      */
     inline const Aws::String& GetCompilationJobName() const{ return m_compilationJobName; }
+
+    /**
+     * <p>A name for the model compilation job. The name must be unique within the AWS
+     * Region and within your AWS account. </p>
+     */
+    inline bool CompilationJobNameHasBeenSet() const { return m_compilationJobNameHasBeenSet; }
 
     /**
      * <p>A name for the model compilation job. The name must be unique within the AWS
@@ -91,12 +97,12 @@ namespace Model
 
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an IIAMAM role that enables Amazon
-     * SageMaker to perform tasks on your behalf. </p> <p>During model compilation,
-     * Amazon SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from
-     * an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li>
-     * <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics
-     * to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
+     * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+     * to perform tasks on your behalf. </p> <p>During model compilation, Amazon
+     * SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from an S3
+     * bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li>
+     * <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to
+     * Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
      * tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this
      * API must have the <code>iam:PassRole</code> permission. For more information,
      * see <a
@@ -106,12 +112,27 @@ namespace Model
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an IIAMAM role that enables Amazon
-     * SageMaker to perform tasks on your behalf. </p> <p>During model compilation,
-     * Amazon SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from
-     * an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li>
-     * <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics
-     * to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
+     * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+     * to perform tasks on your behalf. </p> <p>During model compilation, Amazon
+     * SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from an S3
+     * bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li>
+     * <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to
+     * Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
+     * tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this
+     * API must have the <code>iam:PassRole</code> permission. For more information,
+     * see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
+     * SageMaker Roles.</a> </p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+     * to perform tasks on your behalf. </p> <p>During model compilation, Amazon
+     * SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from an S3
+     * bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li>
+     * <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to
+     * Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
      * tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this
      * API must have the <code>iam:PassRole</code> permission. For more information,
      * see <a
@@ -121,12 +142,12 @@ namespace Model
     inline void SetRoleArn(const Aws::String& value) { m_roleArnHasBeenSet = true; m_roleArn = value; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an IIAMAM role that enables Amazon
-     * SageMaker to perform tasks on your behalf. </p> <p>During model compilation,
-     * Amazon SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from
-     * an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li>
-     * <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics
-     * to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
+     * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+     * to perform tasks on your behalf. </p> <p>During model compilation, Amazon
+     * SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from an S3
+     * bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li>
+     * <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to
+     * Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
      * tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this
      * API must have the <code>iam:PassRole</code> permission. For more information,
      * see <a
@@ -136,12 +157,12 @@ namespace Model
     inline void SetRoleArn(Aws::String&& value) { m_roleArnHasBeenSet = true; m_roleArn = std::move(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an IIAMAM role that enables Amazon
-     * SageMaker to perform tasks on your behalf. </p> <p>During model compilation,
-     * Amazon SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from
-     * an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li>
-     * <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics
-     * to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
+     * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+     * to perform tasks on your behalf. </p> <p>During model compilation, Amazon
+     * SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from an S3
+     * bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li>
+     * <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to
+     * Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
      * tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this
      * API must have the <code>iam:PassRole</code> permission. For more information,
      * see <a
@@ -151,12 +172,12 @@ namespace Model
     inline void SetRoleArn(const char* value) { m_roleArnHasBeenSet = true; m_roleArn.assign(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an IIAMAM role that enables Amazon
-     * SageMaker to perform tasks on your behalf. </p> <p>During model compilation,
-     * Amazon SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from
-     * an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li>
-     * <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics
-     * to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
+     * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+     * to perform tasks on your behalf. </p> <p>During model compilation, Amazon
+     * SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from an S3
+     * bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li>
+     * <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to
+     * Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
      * tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this
      * API must have the <code>iam:PassRole</code> permission. For more information,
      * see <a
@@ -166,12 +187,12 @@ namespace Model
     inline CreateCompilationJobRequest& WithRoleArn(const Aws::String& value) { SetRoleArn(value); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an IIAMAM role that enables Amazon
-     * SageMaker to perform tasks on your behalf. </p> <p>During model compilation,
-     * Amazon SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from
-     * an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li>
-     * <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics
-     * to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
+     * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+     * to perform tasks on your behalf. </p> <p>During model compilation, Amazon
+     * SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from an S3
+     * bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li>
+     * <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to
+     * Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
      * tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this
      * API must have the <code>iam:PassRole</code> permission. For more information,
      * see <a
@@ -181,12 +202,12 @@ namespace Model
     inline CreateCompilationJobRequest& WithRoleArn(Aws::String&& value) { SetRoleArn(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an IIAMAM role that enables Amazon
-     * SageMaker to perform tasks on your behalf. </p> <p>During model compilation,
-     * Amazon SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from
-     * an S3 bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li>
-     * <li> <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics
-     * to Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
+     * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker
+     * to perform tasks on your behalf. </p> <p>During model compilation, Amazon
+     * SageMaker needs your permission to:</p> <ul> <li> <p>Read input data from an S3
+     * bucket</p> </li> <li> <p>Write model artifacts to an S3 bucket</p> </li> <li>
+     * <p>Write logs to Amazon CloudWatch Logs</p> </li> <li> <p>Publish metrics to
+     * Amazon CloudWatch</p> </li> </ul> <p>You grant permissions for all of these
      * tasks to an IAM role. To pass this role to Amazon SageMaker, the caller of this
      * API must have the <code>iam:PassRole</code> permission. For more information,
      * see <a
@@ -202,6 +223,13 @@ namespace Model
      * trained.</p>
      */
     inline const InputConfig& GetInputConfig() const{ return m_inputConfig; }
+
+    /**
+     * <p>Provides information about the location of input model artifacts, the name
+     * and shape of the expected data inputs, and the framework in which the model was
+     * trained.</p>
+     */
+    inline bool InputConfigHasBeenSet() const { return m_inputConfigHasBeenSet; }
 
     /**
      * <p>Provides information about the location of input model artifacts, the name
@@ -242,6 +270,12 @@ namespace Model
      * <p>Provides information about the output location for the compiled model and the
      * target device the model runs on.</p>
      */
+    inline bool OutputConfigHasBeenSet() const { return m_outputConfigHasBeenSet; }
+
+    /**
+     * <p>Provides information about the output location for the compiled model and the
+     * target device the model runs on.</p>
+     */
     inline void SetOutputConfig(const OutputConfig& value) { m_outputConfigHasBeenSet = true; m_outputConfig = value; }
 
     /**
@@ -264,27 +298,44 @@ namespace Model
 
 
     /**
-     * <p>The duration allowed for model compilation.</p>
+     * <p>Specifies a limit to how long a model compilation job can run. When the job
+     * reaches the time limit, Amazon SageMaker ends the compilation job. Use this API
+     * to cap model training costs.</p>
      */
     inline const StoppingCondition& GetStoppingCondition() const{ return m_stoppingCondition; }
 
     /**
-     * <p>The duration allowed for model compilation.</p>
+     * <p>Specifies a limit to how long a model compilation job can run. When the job
+     * reaches the time limit, Amazon SageMaker ends the compilation job. Use this API
+     * to cap model training costs.</p>
+     */
+    inline bool StoppingConditionHasBeenSet() const { return m_stoppingConditionHasBeenSet; }
+
+    /**
+     * <p>Specifies a limit to how long a model compilation job can run. When the job
+     * reaches the time limit, Amazon SageMaker ends the compilation job. Use this API
+     * to cap model training costs.</p>
      */
     inline void SetStoppingCondition(const StoppingCondition& value) { m_stoppingConditionHasBeenSet = true; m_stoppingCondition = value; }
 
     /**
-     * <p>The duration allowed for model compilation.</p>
+     * <p>Specifies a limit to how long a model compilation job can run. When the job
+     * reaches the time limit, Amazon SageMaker ends the compilation job. Use this API
+     * to cap model training costs.</p>
      */
     inline void SetStoppingCondition(StoppingCondition&& value) { m_stoppingConditionHasBeenSet = true; m_stoppingCondition = std::move(value); }
 
     /**
-     * <p>The duration allowed for model compilation.</p>
+     * <p>Specifies a limit to how long a model compilation job can run. When the job
+     * reaches the time limit, Amazon SageMaker ends the compilation job. Use this API
+     * to cap model training costs.</p>
      */
     inline CreateCompilationJobRequest& WithStoppingCondition(const StoppingCondition& value) { SetStoppingCondition(value); return *this;}
 
     /**
-     * <p>The duration allowed for model compilation.</p>
+     * <p>Specifies a limit to how long a model compilation job can run. When the job
+     * reaches the time limit, Amazon SageMaker ends the compilation job. Use this API
+     * to cap model training costs.</p>
      */
     inline CreateCompilationJobRequest& WithStoppingCondition(StoppingCondition&& value) { SetStoppingCondition(std::move(value)); return *this;}
 

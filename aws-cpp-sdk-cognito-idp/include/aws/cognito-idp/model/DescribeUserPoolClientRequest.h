@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeUserPoolClientRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The user pool ID for the user pool you want to describe.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool you want to describe.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool you want to describe.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The app client ID of the app associated with the user pool.</p>
      */
     inline const Aws::String& GetClientId() const{ return m_clientId; }
+
+    /**
+     * <p>The app client ID of the app associated with the user pool.</p>
+     */
+    inline bool ClientIdHasBeenSet() const { return m_clientIdHasBeenSet; }
 
     /**
      * <p>The app client ID of the app associated with the user pool.</p>

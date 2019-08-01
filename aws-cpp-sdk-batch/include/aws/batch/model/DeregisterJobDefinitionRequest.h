@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeregisterJobDefinitionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * Name (ARN) of the job definition to deregister. </p>
      */
     inline const Aws::String& GetJobDefinition() const{ return m_jobDefinition; }
+
+    /**
+     * <p>The name and revision (<code>name:revision</code>) or full Amazon Resource
+     * Name (ARN) of the job definition to deregister. </p>
+     */
+    inline bool JobDefinitionHasBeenSet() const { return m_jobDefinitionHasBeenSet; }
 
     /**
      * <p>The name and revision (<code>name:revision</code>) or full Amazon Resource

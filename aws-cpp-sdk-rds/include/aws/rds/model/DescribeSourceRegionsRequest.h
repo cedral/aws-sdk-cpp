@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeSourceRegionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,13 @@ namespace Model
      * </ul>
      */
     inline const Aws::String& GetRegionName() const{ return m_regionName; }
+
+    /**
+     * <p>The source AWS Region name. For example, <code>us-east-1</code>.</p>
+     * <p>Constraints:</p> <ul> <li> <p>Must specify a valid AWS Region name.</p> </li>
+     * </ul>
+     */
+    inline bool RegionNameHasBeenSet() const { return m_regionNameHasBeenSet; }
 
     /**
      * <p>The source AWS Region name. For example, <code>us-east-1</code>.</p>
@@ -115,6 +122,14 @@ namespace Model
      * called a marker is included in the response so that the remaining results can be
      * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -128,7 +143,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -136,7 +151,15 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -144,7 +167,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -152,7 +175,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -160,7 +183,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -168,7 +191,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -176,7 +199,7 @@ namespace Model
 
     /**
      * <p>An optional pagination token provided by a previous
-     * <a>DescribeSourceRegions</a> request. If this parameter is specified, the
+     * <code>DescribeSourceRegions</code> request. If this parameter is specified, the
      * response includes only records beyond the marker, up to the value specified by
      * <code>MaxRecords</code>.</p>
      */
@@ -187,6 +210,11 @@ namespace Model
      * <p>This parameter is not currently supported.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>This parameter is not currently supported.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>This parameter is not currently supported.</p>

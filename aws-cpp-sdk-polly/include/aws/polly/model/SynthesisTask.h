@@ -15,6 +15,7 @@
 
 #pragma once
 #include <aws/polly/Polly_EXPORTS.h>
+#include <aws/polly/model/Engine.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/polly/model/TaskStatus.h>
 #include <aws/core/utils/DateTime.h>
@@ -57,9 +58,57 @@ namespace Model
 
 
     /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline const Engine& GetEngine() const{ return m_engine; }
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline bool EngineHasBeenSet() const { return m_engineHasBeenSet; }
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline void SetEngine(const Engine& value) { m_engineHasBeenSet = true; m_engine = value; }
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline void SetEngine(Engine&& value) { m_engineHasBeenSet = true; m_engine = std::move(value); }
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline SynthesisTask& WithEngine(const Engine& value) { SetEngine(value); return *this;}
+
+    /**
+     * <p>Specifies the engine (<code>standard</code> or <code>neural</code>) for
+     * Amazon Polly to use when processing input text for speech synthesis. Using a
+     * voice that is not supported for the engine selected will result in an error.</p>
+     */
+    inline SynthesisTask& WithEngine(Engine&& value) { SetEngine(std::move(value)); return *this;}
+
+
+    /**
      * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
      */
     inline const Aws::String& GetTaskId() const{ return m_taskId; }
+
+    /**
+     * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
+     */
+    inline bool TaskIdHasBeenSet() const { return m_taskIdHasBeenSet; }
 
     /**
      * <p>The Amazon Polly generated identifier for a speech synthesis task.</p>
@@ -100,6 +149,11 @@ namespace Model
     /**
      * <p>Current status of the individual speech synthesis task.</p>
      */
+    inline bool TaskStatusHasBeenSet() const { return m_taskStatusHasBeenSet; }
+
+    /**
+     * <p>Current status of the individual speech synthesis task.</p>
+     */
     inline void SetTaskStatus(const TaskStatus& value) { m_taskStatusHasBeenSet = true; m_taskStatus = value; }
 
     /**
@@ -123,6 +177,12 @@ namespace Model
      * errors if the task has failed.</p>
      */
     inline const Aws::String& GetTaskStatusReason() const{ return m_taskStatusReason; }
+
+    /**
+     * <p>Reason for the current status of a specific speech synthesis task, including
+     * errors if the task has failed.</p>
+     */
+    inline bool TaskStatusReasonHasBeenSet() const { return m_taskStatusReasonHasBeenSet; }
 
     /**
      * <p>Reason for the current status of a specific speech synthesis task, including
@@ -169,6 +229,11 @@ namespace Model
     /**
      * <p>Pathway for the output speech file.</p>
      */
+    inline bool OutputUriHasBeenSet() const { return m_outputUriHasBeenSet; }
+
+    /**
+     * <p>Pathway for the output speech file.</p>
+     */
     inline void SetOutputUri(const Aws::String& value) { m_outputUriHasBeenSet = true; m_outputUri = value; }
 
     /**
@@ -205,6 +270,11 @@ namespace Model
     /**
      * <p>Timestamp for the time the synthesis task was started.</p>
      */
+    inline bool CreationTimeHasBeenSet() const { return m_creationTimeHasBeenSet; }
+
+    /**
+     * <p>Timestamp for the time the synthesis task was started.</p>
+     */
     inline void SetCreationTime(const Aws::Utils::DateTime& value) { m_creationTimeHasBeenSet = true; m_creationTime = value; }
 
     /**
@@ -231,6 +301,11 @@ namespace Model
     /**
      * <p>Number of billable characters synthesized.</p>
      */
+    inline bool RequestCharactersHasBeenSet() const { return m_requestCharactersHasBeenSet; }
+
+    /**
+     * <p>Number of billable characters synthesized.</p>
+     */
     inline void SetRequestCharacters(int value) { m_requestCharactersHasBeenSet = true; m_requestCharacters = value; }
 
     /**
@@ -244,6 +319,12 @@ namespace Model
      * speech synthesis task.</p>
      */
     inline const Aws::String& GetSnsTopicArn() const{ return m_snsTopicArn; }
+
+    /**
+     * <p>ARN for the SNS topic optionally used for providing status notification for a
+     * speech synthesis task.</p>
+     */
+    inline bool SnsTopicArnHasBeenSet() const { return m_snsTopicArnHasBeenSet; }
 
     /**
      * <p>ARN for the SNS topic optionally used for providing status notification for a
@@ -288,6 +369,13 @@ namespace Model
      * the same as the language of the voice. </p>
      */
     inline const Aws::Vector<Aws::String>& GetLexiconNames() const{ return m_lexiconNames; }
+
+    /**
+     * <p>List of one or more pronunciation lexicon names you want the service to apply
+     * during synthesis. Lexicons are applied only if the language of the lexicon is
+     * the same as the language of the voice. </p>
+     */
+    inline bool LexiconNamesHasBeenSet() const { return m_lexiconNamesHasBeenSet; }
 
     /**
      * <p>List of one or more pronunciation lexicon names you want the service to apply
@@ -349,6 +437,12 @@ namespace Model
      * <p>The format in which the returned output will be encoded. For audio stream,
      * this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
      */
+    inline bool OutputFormatHasBeenSet() const { return m_outputFormatHasBeenSet; }
+
+    /**
+     * <p>The format in which the returned output will be encoded. For audio stream,
+     * this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
+     */
     inline void SetOutputFormat(const OutputFormat& value) { m_outputFormatHasBeenSet = true; m_outputFormat = value; }
 
     /**
@@ -372,7 +466,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -380,7 +475,17 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
+     * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
+     * </p>
+     */
+    inline bool SampleRateHasBeenSet() const { return m_sampleRateHasBeenSet; }
+
+    /**
+     * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -388,7 +493,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -396,7 +502,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -404,7 +511,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -412,7 +520,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -420,7 +529,8 @@ namespace Model
 
     /**
      * <p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and
-     * ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+     * ogg_vorbis are "8000", "16000", "22050", and "24000". The default value for
+     * standard voices is "22050". The default value for neural voices is "24000".</p>
      * <p>Valid values for pcm are "8000" and "16000" The default value is "16000".
      * </p>
      */
@@ -431,6 +541,11 @@ namespace Model
      * <p>The type of speech marks returned for the input text.</p>
      */
     inline const Aws::Vector<SpeechMarkType>& GetSpeechMarkTypes() const{ return m_speechMarkTypes; }
+
+    /**
+     * <p>The type of speech marks returned for the input text.</p>
+     */
+    inline bool SpeechMarkTypesHasBeenSet() const { return m_speechMarkTypesHasBeenSet; }
 
     /**
      * <p>The type of speech marks returned for the input text.</p>
@@ -473,6 +588,12 @@ namespace Model
      * <p>Specifies whether the input text is plain text or SSML. The default value is
      * plain text. </p>
      */
+    inline bool TextTypeHasBeenSet() const { return m_textTypeHasBeenSet; }
+
+    /**
+     * <p>Specifies whether the input text is plain text or SSML. The default value is
+     * plain text. </p>
+     */
     inline void SetTextType(const TextType& value) { m_textTypeHasBeenSet = true; m_textType = value; }
 
     /**
@@ -498,6 +619,11 @@ namespace Model
      * <p>Voice ID to use for the synthesis. </p>
      */
     inline const VoiceId& GetVoiceId() const{ return m_voiceId; }
+
+    /**
+     * <p>Voice ID to use for the synthesis. </p>
+     */
+    inline bool VoiceIdHasBeenSet() const { return m_voiceIdHasBeenSet; }
 
     /**
      * <p>Voice ID to use for the synthesis. </p>
@@ -531,6 +657,18 @@ namespace Model
      * language code is specified, Aditi will use Indian English rather than Hindi.</p>
      */
     inline const LanguageCode& GetLanguageCode() const{ return m_languageCode; }
+
+    /**
+     * <p>Optional language code for a synthesis task. This is only necessary if using
+     * a bilingual voice, such as Aditi, which can be used for either Indian English
+     * (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language
+     * code is specified, Amazon Polly will use the default language of the bilingual
+     * voice. The default language for any voice is the one returned by the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a>
+     * operation for the <code>LanguageCode</code> parameter. For example, if no
+     * language code is specified, Aditi will use Indian English rather than Hindi.</p>
+     */
+    inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
 
     /**
      * <p>Optional language code for a synthesis task. This is only necessary if using
@@ -581,6 +719,9 @@ namespace Model
     inline SynthesisTask& WithLanguageCode(LanguageCode&& value) { SetLanguageCode(std::move(value)); return *this;}
 
   private:
+
+    Engine m_engine;
+    bool m_engineHasBeenSet;
 
     Aws::String m_taskId;
     bool m_taskIdHasBeenSet;

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteConfigurationSetEventDestinationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,14 +45,18 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>The name of the configuration set that contains the event destination that
      * you want to delete.</p>
      */
     inline const Aws::String& GetConfigurationSetName() const{ return m_configurationSetName; }
+
+    /**
+     * <p>The name of the configuration set that contains the event destination that
+     * you want to delete.</p>
+     */
+    inline bool ConfigurationSetNameHasBeenSet() const { return m_configurationSetNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration set that contains the event destination that
@@ -95,6 +99,11 @@ namespace Model
      * <p>The name of the event destination that you want to delete.</p>
      */
     inline const Aws::String& GetEventDestinationName() const{ return m_eventDestinationName; }
+
+    /**
+     * <p>The name of the event destination that you want to delete.</p>
+     */
+    inline bool EventDestinationNameHasBeenSet() const { return m_eventDestinationNameHasBeenSet; }
 
     /**
      * <p>The name of the event destination that you want to delete.</p>

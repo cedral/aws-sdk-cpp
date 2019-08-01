@@ -103,8 +103,14 @@ void MobileAnalyticsClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 PutEventsOutcome MobileAnalyticsClient::PutEvents(const PutEventsRequest& request) const
 {
+  if (!request.ClientContextHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("PutEvents", "Required field: ClientContext, is not set");
+    return PutEventsOutcome(Aws::Client::AWSError<MobileAnalyticsErrors>(MobileAnalyticsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ClientContext]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/2014-06-05/events";

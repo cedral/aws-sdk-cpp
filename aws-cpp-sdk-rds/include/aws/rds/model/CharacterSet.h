@@ -35,7 +35,7 @@ namespace Model
 
   /**
    * <p> This data type is used as a response element in the action
-   * <a>DescribeDBEngineVersions</a>. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeDBEngineVersions</code>. </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CharacterSet">AWS
    * API Reference</a></p>
    */
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the character set.</p>
      */
     inline const Aws::String& GetCharacterSetName() const{ return m_characterSetName; }
+
+    /**
+     * <p>The name of the character set.</p>
+     */
+    inline bool CharacterSetNameHasBeenSet() const { return m_characterSetNameHasBeenSet; }
 
     /**
      * <p>The name of the character set.</p>
@@ -90,6 +95,11 @@ namespace Model
      * <p>The description of the character set.</p>
      */
     inline const Aws::String& GetCharacterSetDescription() const{ return m_characterSetDescription; }
+
+    /**
+     * <p>The description of the character set.</p>
+     */
+    inline bool CharacterSetDescriptionHasBeenSet() const { return m_characterSetDescriptionHasBeenSet; }
 
     /**
      * <p>The description of the character set.</p>

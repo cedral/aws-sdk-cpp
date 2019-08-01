@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribePortfolioShareStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * CreatePortfolioShare or by DeletePortfolioShare.</p>
      */
     inline const Aws::String& GetPortfolioShareToken() const{ return m_portfolioShareToken; }
+
+    /**
+     * <p>The token for the portfolio share operation. This token is returned either by
+     * CreatePortfolioShare or by DeletePortfolioShare.</p>
+     */
+    inline bool PortfolioShareTokenHasBeenSet() const { return m_portfolioShareTokenHasBeenSet; }
 
     /**
      * <p>The token for the portfolio share operation. This token is returned either by

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetEffectivePoliciesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The principal.</p>
      */
     inline const Aws::String& GetPrincipal() const{ return m_principal; }
+
+    /**
+     * <p>The principal.</p>
+     */
+    inline bool PrincipalHasBeenSet() const { return m_principalHasBeenSet; }
 
     /**
      * <p>The principal.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The Cognito identity pool ID.</p>
      */
+    inline bool CognitoIdentityPoolIdHasBeenSet() const { return m_cognitoIdentityPoolIdHasBeenSet; }
+
+    /**
+     * <p>The Cognito identity pool ID.</p>
+     */
     inline void SetCognitoIdentityPoolId(const Aws::String& value) { m_cognitoIdentityPoolIdHasBeenSet = true; m_cognitoIdentityPoolId = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
      * <p>The thing name.</p>
      */
     inline const Aws::String& GetThingName() const{ return m_thingName; }
+
+    /**
+     * <p>The thing name.</p>
+     */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
 
     /**
      * <p>The thing name.</p>

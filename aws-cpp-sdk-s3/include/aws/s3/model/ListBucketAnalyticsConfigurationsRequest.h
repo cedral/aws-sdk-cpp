@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListBucketAnalyticsConfigurationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the bucket from which analytics configurations are retrieved.</p>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p>The name of the bucket from which analytics configurations are retrieved.</p>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p>The name of the bucket from which analytics configurations are retrieved.</p>
@@ -95,6 +100,12 @@ namespace Model
      * <p>The ContinuationToken that represents a placeholder from where this request
      * should begin.</p>
      */
+    inline bool ContinuationTokenHasBeenSet() const { return m_continuationTokenHasBeenSet; }
+
+    /**
+     * <p>The ContinuationToken that represents a placeholder from where this request
+     * should begin.</p>
+     */
     inline void SetContinuationToken(const Aws::String& value) { m_continuationTokenHasBeenSet = true; m_continuationToken = value; }
 
     /**
@@ -130,6 +141,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }

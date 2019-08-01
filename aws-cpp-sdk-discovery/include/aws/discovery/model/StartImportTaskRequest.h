@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     StartImportTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,16 @@ namespace Model
      * token.</p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>Optional. A unique token that you can provide to prevent the same import
+     * request from occurring more than once. If you don't provide a token, a token is
+     * automatically generated.</p> <p>Sending more than one
+     * <code>StartImportTask</code> request with the same client request token will
+     * return information about the original import task with that client request
+     * token.</p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>Optional. A unique token that you can provide to prevent the same import
@@ -130,6 +140,14 @@ namespace Model
      * servers that were included in this import task. We recommend that you use a
      * meaningful name for each import task.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>A descriptive name for this request. You can use this name to filter future
+     * requests related to this import task, such as identifying applications and
+     * servers that were included in this import task. We recommend that you use a
+     * meaningful name for each import task.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -179,6 +197,13 @@ namespace Model
      * <code>s3://BucketName/ImportFileName.CSV</code> </p> </note>
      */
     inline const Aws::String& GetImportUrl() const{ return m_importUrl; }
+
+    /**
+     * <p>The URL for your import file that you've uploaded to Amazon S3.</p> <note>
+     * <p>If you're using the AWS CLI, this URL is structured as follows:
+     * <code>s3://BucketName/ImportFileName.CSV</code> </p> </note>
+     */
+    inline bool ImportUrlHasBeenSet() const { return m_importUrlHasBeenSet; }
 
     /**
      * <p>The URL for your import file that you've uploaded to Amazon S3.</p> <note>

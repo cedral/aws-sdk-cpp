@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetUserAttributeVerificationCodeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * verification code.</p>
      */
     inline const Aws::String& GetAccessToken() const{ return m_accessToken; }
+
+    /**
+     * <p>The access token returned by the server response to get the user attribute
+     * verification code.</p>
+     */
+    inline bool AccessTokenHasBeenSet() const { return m_accessTokenHasBeenSet; }
 
     /**
      * <p>The access token returned by the server response to get the user attribute
@@ -96,6 +102,12 @@ namespace Model
      * verification code.</p>
      */
     inline const Aws::String& GetAttributeName() const{ return m_attributeName; }
+
+    /**
+     * <p>The attribute name returned by the server response to get the user attribute
+     * verification code.</p>
+     */
+    inline bool AttributeNameHasBeenSet() const { return m_attributeNameHasBeenSet; }
 
     /**
      * <p>The attribute name returned by the server response to get the user attribute

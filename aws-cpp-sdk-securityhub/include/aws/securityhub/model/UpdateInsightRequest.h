@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateInsightRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The ARN of the insight that you want to update.</p>
      */
     inline const Aws::String& GetInsightArn() const{ return m_insightArn; }
+
+    /**
+     * <p>The ARN of the insight that you want to update.</p>
+     */
+    inline bool InsightArnHasBeenSet() const { return m_insightArnHasBeenSet; }
 
     /**
      * <p>The ARN of the insight that you want to update.</p>
@@ -87,6 +92,11 @@ namespace Model
     /**
      * <p>The updated name for the insight.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The updated name for the insight.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
     /**
      * <p>The updated filters that define this insight.</p>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>The updated filters that define this insight.</p>
+     */
     inline void SetFilters(const AwsSecurityFindingFilters& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -142,37 +157,42 @@ namespace Model
 
 
     /**
-     * <p>The updated GroupBy attribute that defines this insight.</p>
+     * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
      */
     inline const Aws::String& GetGroupByAttribute() const{ return m_groupByAttribute; }
 
     /**
-     * <p>The updated GroupBy attribute that defines this insight.</p>
+     * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
+     */
+    inline bool GroupByAttributeHasBeenSet() const { return m_groupByAttributeHasBeenSet; }
+
+    /**
+     * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
      */
     inline void SetGroupByAttribute(const Aws::String& value) { m_groupByAttributeHasBeenSet = true; m_groupByAttribute = value; }
 
     /**
-     * <p>The updated GroupBy attribute that defines this insight.</p>
+     * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
      */
     inline void SetGroupByAttribute(Aws::String&& value) { m_groupByAttributeHasBeenSet = true; m_groupByAttribute = std::move(value); }
 
     /**
-     * <p>The updated GroupBy attribute that defines this insight.</p>
+     * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
      */
     inline void SetGroupByAttribute(const char* value) { m_groupByAttributeHasBeenSet = true; m_groupByAttribute.assign(value); }
 
     /**
-     * <p>The updated GroupBy attribute that defines this insight.</p>
+     * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
      */
     inline UpdateInsightRequest& WithGroupByAttribute(const Aws::String& value) { SetGroupByAttribute(value); return *this;}
 
     /**
-     * <p>The updated GroupBy attribute that defines this insight.</p>
+     * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
      */
     inline UpdateInsightRequest& WithGroupByAttribute(Aws::String&& value) { SetGroupByAttribute(std::move(value)); return *this;}
 
     /**
-     * <p>The updated GroupBy attribute that defines this insight.</p>
+     * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
      */
     inline UpdateInsightRequest& WithGroupByAttribute(const char* value) { SetGroupByAttribute(value); return *this;}
 

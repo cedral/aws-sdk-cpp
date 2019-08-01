@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateEvaluationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID assigned to the <code>Evaluation</code> during creation.</p>
      */
     inline const Aws::String& GetEvaluationId() const{ return m_evaluationId; }
+
+    /**
+     * <p>The ID assigned to the <code>Evaluation</code> during creation.</p>
+     */
+    inline bool EvaluationIdHasBeenSet() const { return m_evaluationIdHasBeenSet; }
 
     /**
      * <p>The ID assigned to the <code>Evaluation</code> during creation.</p>
@@ -85,6 +90,12 @@ namespace Model
      * will replace the current content. </p>
      */
     inline const Aws::String& GetEvaluationName() const{ return m_evaluationName; }
+
+    /**
+     * <p>A new user-supplied name or description of the <code>Evaluation</code> that
+     * will replace the current content. </p>
+     */
+    inline bool EvaluationNameHasBeenSet() const { return m_evaluationNameHasBeenSet; }
 
     /**
      * <p>A new user-supplied name or description of the <code>Evaluation</code> that

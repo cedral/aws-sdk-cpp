@@ -35,7 +35,8 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
+   * <p>Information about the action which automatically creates the data set's
+   * contents.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/iotanalytics-2017-11-27/DatasetActionSummary">AWS
    * API Reference</a></p>
    */
@@ -53,6 +54,12 @@ namespace Model
      * contents.</p>
      */
     inline const Aws::String& GetActionName() const{ return m_actionName; }
+
+    /**
+     * <p>The name of the action which automatically creates the data set's
+     * contents.</p>
+     */
+    inline bool ActionNameHasBeenSet() const { return m_actionNameHasBeenSet; }
 
     /**
      * <p>The name of the action which automatically creates the data set's
@@ -96,6 +103,12 @@ namespace Model
      * created.</p>
      */
     inline const DatasetActionType& GetActionType() const{ return m_actionType; }
+
+    /**
+     * <p>The type of action by which the data set's contents are automatically
+     * created.</p>
+     */
+    inline bool ActionTypeHasBeenSet() const { return m_actionTypeHasBeenSet; }
 
     /**
      * <p>The type of action by which the data set's contents are automatically

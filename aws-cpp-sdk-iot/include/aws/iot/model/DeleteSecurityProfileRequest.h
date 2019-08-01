@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteSecurityProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the security profile to be deleted.</p>
      */
     inline const Aws::String& GetSecurityProfileName() const{ return m_securityProfileName; }
+
+    /**
+     * <p>The name of the security profile to be deleted.</p>
+     */
+    inline bool SecurityProfileNameHasBeenSet() const { return m_securityProfileNameHasBeenSet; }
 
     /**
      * <p>The name of the security profile to be deleted.</p>
@@ -91,6 +96,14 @@ namespace Model
      * thrown.</p>
      */
     inline long long GetExpectedVersion() const{ return m_expectedVersion; }
+
+    /**
+     * <p>The expected version of the security profile. A new version is generated
+     * whenever the security profile is updated. If you specify a value that is
+     * different than the actual version, a <code>VersionConflictException</code> is
+     * thrown.</p>
+     */
+    inline bool ExpectedVersionHasBeenSet() const { return m_expectedVersionHasBeenSet; }
 
     /**
      * <p>The expected version of the security profile. A new version is generated

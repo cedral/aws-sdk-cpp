@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ChangeResourceRecordSetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * want to change.</p>
      */
     inline const Aws::String& GetHostedZoneId() const{ return m_hostedZoneId; }
+
+    /**
+     * <p>The ID of the hosted zone that contains the resource record sets that you
+     * want to change.</p>
+     */
+    inline bool HostedZoneIdHasBeenSet() const { return m_hostedZoneIdHasBeenSet; }
 
     /**
      * <p>The ID of the hosted zone that contains the resource record sets that you
@@ -95,6 +101,12 @@ namespace Model
      * element.</p>
      */
     inline const ChangeBatch& GetChangeBatch() const{ return m_changeBatch; }
+
+    /**
+     * <p>A complex type that contains an optional comment and the <code>Changes</code>
+     * element.</p>
+     */
+    inline bool ChangeBatchHasBeenSet() const { return m_changeBatchHasBeenSet; }
 
     /**
      * <p>A complex type that contains an optional comment and the <code>Changes</code>

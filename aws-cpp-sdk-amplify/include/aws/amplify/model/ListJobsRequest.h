@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ListJobsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p> Unique Id for an Amplify App. </p>
      */
     inline const Aws::String& GetAppId() const{ return m_appId; }
+
+    /**
+     * <p> Unique Id for an Amplify App. </p>
+     */
+    inline bool AppIdHasBeenSet() const { return m_appIdHasBeenSet; }
 
     /**
      * <p> Unique Id for an Amplify App. </p>
@@ -95,6 +100,11 @@ namespace Model
     /**
      * <p> Name for a branch. </p>
      */
+    inline bool BranchNameHasBeenSet() const { return m_branchNameHasBeenSet; }
+
+    /**
+     * <p> Name for a branch. </p>
+     */
     inline void SetBranchName(const Aws::String& value) { m_branchNameHasBeenSet = true; m_branchName = value; }
 
     /**
@@ -129,6 +139,13 @@ namespace Model
      * to list more steps. </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p> Pagination token. Set to null to start listing steps from start. If a
+     * non-null pagination token is returned in a result, then pass its value in here
+     * to list more steps. </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p> Pagination token. Set to null to start listing steps from start. If a
@@ -177,6 +194,11 @@ namespace Model
      * <p> Maximum number of records to list in a single response. </p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p> Maximum number of records to list in a single response. </p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p> Maximum number of records to list in a single response. </p>

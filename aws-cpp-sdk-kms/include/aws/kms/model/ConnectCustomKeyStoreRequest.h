@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ConnectCustomKeyStoreRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * operation.</p>
      */
     inline const Aws::String& GetCustomKeyStoreId() const{ return m_customKeyStoreId; }
+
+    /**
+     * <p>Enter the key store ID of the custom key store that you want to connect. To
+     * find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a>
+     * operation.</p>
+     */
+    inline bool CustomKeyStoreIdHasBeenSet() const { return m_customKeyStoreIdHasBeenSet; }
 
     /**
      * <p>Enter the key store ID of the custom key store that you want to connect. To

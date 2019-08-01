@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteHapgRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The ARN of the high-availability partition group to delete.</p>
      */
     inline const Aws::String& GetHapgArn() const{ return m_hapgArn; }
+
+    /**
+     * <p>The ARN of the high-availability partition group to delete.</p>
+     */
+    inline bool HapgArnHasBeenSet() const { return m_hapgArnHasBeenSet; }
 
     /**
      * <p>The ARN of the high-availability partition group to delete.</p>

@@ -83,6 +83,15 @@ namespace Model
      * Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      * </important>
      */
+    inline bool KernelIdHasBeenSet() const { return m_kernelIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the kernel.</p> <important> <p>We recommend that you use PV-GRUB
+     * instead of kernels and RAM disks. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User
+     * Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * </important>
+     */
     inline void SetKernelId(const Aws::String& value) { m_kernelIdHasBeenSet = true; m_kernelId = value; }
 
     /**
@@ -147,6 +156,15 @@ namespace Model
      * optimization isn't available with all instance types. Additional usage charges
      * apply when using an EBS-optimized instance.</p>
      */
+    inline bool EbsOptimizedHasBeenSet() const { return m_ebsOptimizedHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This
+     * optimization provides dedicated throughput to Amazon EBS and an optimized
+     * configuration stack to provide optimal Amazon EBS I/O performance. This
+     * optimization isn't available with all instance types. Additional usage charges
+     * apply when using an EBS-optimized instance.</p>
+     */
     inline void SetEbsOptimized(bool value) { m_ebsOptimizedHasBeenSet = true; m_ebsOptimized = value; }
 
     /**
@@ -163,6 +181,11 @@ namespace Model
      * <p>The IAM instance profile.</p>
      */
     inline const LaunchTemplateIamInstanceProfileSpecificationRequest& GetIamInstanceProfile() const{ return m_iamInstanceProfile; }
+
+    /**
+     * <p>The IAM instance profile.</p>
+     */
+    inline bool IamInstanceProfileHasBeenSet() const { return m_iamInstanceProfileHasBeenSet; }
 
     /**
      * <p>The IAM instance profile.</p>
@@ -194,6 +217,16 @@ namespace Model
      * action.</p> </important>
      */
     inline const Aws::Vector<LaunchTemplateBlockDeviceMappingRequest>& GetBlockDeviceMappings() const{ return m_blockDeviceMappings; }
+
+    /**
+     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
+     * an encryption value as arguments for block-device mapping results in an error.
+     * This is because only blank volumes can be encrypted on start, and these are not
+     * created from a snapshot. If a snapshot is the basis for the volume, it contains
+     * data by definition and its encryption status cannot be changed using this
+     * action.</p> </important>
+     */
+    inline bool BlockDeviceMappingsHasBeenSet() const { return m_blockDeviceMappingsHasBeenSet; }
 
     /**
      * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
@@ -257,73 +290,91 @@ namespace Model
 
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>One or more network interfaces. If you specify a network interface, you must
+     * specify any security groups and subnets as part of the network interface.</p>
      */
     inline const Aws::Vector<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>& GetNetworkInterfaces() const{ return m_networkInterfaces; }
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>One or more network interfaces. If you specify a network interface, you must
+     * specify any security groups and subnets as part of the network interface.</p>
+     */
+    inline bool NetworkInterfacesHasBeenSet() const { return m_networkInterfacesHasBeenSet; }
+
+    /**
+     * <p>One or more network interfaces. If you specify a network interface, you must
+     * specify any security groups and subnets as part of the network interface.</p>
      */
     inline void SetNetworkInterfaces(const Aws::Vector<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces = value; }
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>One or more network interfaces. If you specify a network interface, you must
+     * specify any security groups and subnets as part of the network interface.</p>
      */
     inline void SetNetworkInterfaces(Aws::Vector<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>&& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces = std::move(value); }
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>One or more network interfaces. If you specify a network interface, you must
+     * specify any security groups and subnets as part of the network interface.</p>
      */
     inline RequestLaunchTemplateData& WithNetworkInterfaces(const Aws::Vector<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>& value) { SetNetworkInterfaces(value); return *this;}
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>One or more network interfaces. If you specify a network interface, you must
+     * specify any security groups and subnets as part of the network interface.</p>
      */
     inline RequestLaunchTemplateData& WithNetworkInterfaces(Aws::Vector<LaunchTemplateInstanceNetworkInterfaceSpecificationRequest>&& value) { SetNetworkInterfaces(std::move(value)); return *this;}
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>One or more network interfaces. If you specify a network interface, you must
+     * specify any security groups and subnets as part of the network interface.</p>
      */
     inline RequestLaunchTemplateData& AddNetworkInterfaces(const LaunchTemplateInstanceNetworkInterfaceSpecificationRequest& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces.push_back(value); return *this; }
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>One or more network interfaces. If you specify a network interface, you must
+     * specify any security groups and subnets as part of the network interface.</p>
      */
     inline RequestLaunchTemplateData& AddNetworkInterfaces(LaunchTemplateInstanceNetworkInterfaceSpecificationRequest&& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces.push_back(std::move(value)); return *this; }
 
 
     /**
-     * <p>The ID of the AMI, which you can get by using <a>DescribeImages</a>.</p>
+     * <p>The ID of the AMI.</p>
      */
     inline const Aws::String& GetImageId() const{ return m_imageId; }
 
     /**
-     * <p>The ID of the AMI, which you can get by using <a>DescribeImages</a>.</p>
+     * <p>The ID of the AMI.</p>
+     */
+    inline bool ImageIdHasBeenSet() const { return m_imageIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the AMI.</p>
      */
     inline void SetImageId(const Aws::String& value) { m_imageIdHasBeenSet = true; m_imageId = value; }
 
     /**
-     * <p>The ID of the AMI, which you can get by using <a>DescribeImages</a>.</p>
+     * <p>The ID of the AMI.</p>
      */
     inline void SetImageId(Aws::String&& value) { m_imageIdHasBeenSet = true; m_imageId = std::move(value); }
 
     /**
-     * <p>The ID of the AMI, which you can get by using <a>DescribeImages</a>.</p>
+     * <p>The ID of the AMI.</p>
      */
     inline void SetImageId(const char* value) { m_imageIdHasBeenSet = true; m_imageId.assign(value); }
 
     /**
-     * <p>The ID of the AMI, which you can get by using <a>DescribeImages</a>.</p>
+     * <p>The ID of the AMI.</p>
      */
     inline RequestLaunchTemplateData& WithImageId(const Aws::String& value) { SetImageId(value); return *this;}
 
     /**
-     * <p>The ID of the AMI, which you can get by using <a>DescribeImages</a>.</p>
+     * <p>The ID of the AMI.</p>
      */
     inline RequestLaunchTemplateData& WithImageId(Aws::String&& value) { SetImageId(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the AMI, which you can get by using <a>DescribeImages</a>.</p>
+     * <p>The ID of the AMI.</p>
      */
     inline RequestLaunchTemplateData& WithImageId(const char* value) { SetImageId(value); return *this;}
 
@@ -334,6 +385,13 @@ namespace Model
      * Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline const InstanceType& GetInstanceType() const{ return m_instanceType; }
+
+    /**
+     * <p>The instance type. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
+     * Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline bool InstanceTypeHasBeenSet() const { return m_instanceTypeHasBeenSet; }
 
     /**
      * <p>The instance type. For more information, see <a
@@ -365,58 +423,90 @@ namespace Model
 
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline const Aws::String& GetKeyName() const{ return m_keyName; }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
+     */
+    inline bool KeyNameHasBeenSet() const { return m_keyNameHasBeenSet; }
+
+    /**
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline void SetKeyName(const Aws::String& value) { m_keyNameHasBeenSet = true; m_keyName = value; }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline void SetKeyName(Aws::String&& value) { m_keyNameHasBeenSet = true; m_keyName = std::move(value); }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline void SetKeyName(const char* value) { m_keyNameHasBeenSet = true; m_keyName.assign(value); }
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline RequestLaunchTemplateData& WithKeyName(const Aws::String& value) { SetKeyName(value); return *this;}
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline RequestLaunchTemplateData& WithKeyName(Aws::String&& value) { SetKeyName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the key pair. You can create a key pair using
-     * <a>CreateKeyPair</a> or <a>ImportKeyPair</a>.</p> <important> <p>If you do not
-     * specify a key pair, you can't connect to the instance unless you choose an AMI
-     * that is configured to allow users another way to log in.</p> </important>
+     * <p>The name of the key pair. You can create a key pair using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateKeyPair.html">CreateKeyPair</a>
+     * or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportKeyPair.html">ImportKeyPair</a>.</p>
+     * <important> <p>If you do not specify a key pair, you can't connect to the
+     * instance unless you choose an AMI that is configured to allow users another way
+     * to log in.</p> </important>
      */
     inline RequestLaunchTemplateData& WithKeyName(const char* value) { SetKeyName(value); return *this;}
 
@@ -425,6 +515,11 @@ namespace Model
      * <p>The monitoring for the instance.</p>
      */
     inline const LaunchTemplatesMonitoringRequest& GetMonitoring() const{ return m_monitoring; }
+
+    /**
+     * <p>The monitoring for the instance.</p>
+     */
+    inline bool MonitoringHasBeenSet() const { return m_monitoringHasBeenSet; }
 
     /**
      * <p>The monitoring for the instance.</p>
@@ -455,6 +550,11 @@ namespace Model
     /**
      * <p>The placement for the instance.</p>
      */
+    inline bool PlacementHasBeenSet() const { return m_placementHasBeenSet; }
+
+    /**
+     * <p>The placement for the instance.</p>
+     */
     inline void SetPlacement(const LaunchTemplatePlacementRequest& value) { m_placementHasBeenSet = true; m_placement = value; }
 
     /**
@@ -481,6 +581,15 @@ namespace Model
      * </important>
      */
     inline const Aws::String& GetRamDiskId() const{ return m_ramDiskId; }
+
+    /**
+     * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
+     * instead of kernels and RAM disks. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">User
+     * Provided Kernels</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * </important>
+     */
+    inline bool RamDiskIdHasBeenSet() const { return m_ramDiskIdHasBeenSet; }
 
     /**
      * <p>The ID of the RAM disk.</p> <important> <p>We recommend that you use PV-GRUB
@@ -538,23 +647,46 @@ namespace Model
 
 
     /**
-     * <p>If set to <code>true</code>, you can't terminate the instance using the
-     * Amazon EC2 console, CLI, or API. To change this attribute to <code>false</code>
-     * after launch, use <a>ModifyInstanceAttribute</a>.</p>
+     * <p>If you set this parameter to <code>true</code>, you can't terminate the
+     * instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To
+     * change this attribute after launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+     * Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+     * <code>terminate</code>, you can terminate the instance by running the shutdown
+     * command from the instance.</p>
      */
     inline bool GetDisableApiTermination() const{ return m_disableApiTermination; }
 
     /**
-     * <p>If set to <code>true</code>, you can't terminate the instance using the
-     * Amazon EC2 console, CLI, or API. To change this attribute to <code>false</code>
-     * after launch, use <a>ModifyInstanceAttribute</a>.</p>
+     * <p>If you set this parameter to <code>true</code>, you can't terminate the
+     * instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To
+     * change this attribute after launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+     * Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+     * <code>terminate</code>, you can terminate the instance by running the shutdown
+     * command from the instance.</p>
+     */
+    inline bool DisableApiTerminationHasBeenSet() const { return m_disableApiTerminationHasBeenSet; }
+
+    /**
+     * <p>If you set this parameter to <code>true</code>, you can't terminate the
+     * instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To
+     * change this attribute after launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+     * Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+     * <code>terminate</code>, you can terminate the instance by running the shutdown
+     * command from the instance.</p>
      */
     inline void SetDisableApiTermination(bool value) { m_disableApiTerminationHasBeenSet = true; m_disableApiTermination = value; }
 
     /**
-     * <p>If set to <code>true</code>, you can't terminate the instance using the
-     * Amazon EC2 console, CLI, or API. To change this attribute to <code>false</code>
-     * after launch, use <a>ModifyInstanceAttribute</a>.</p>
+     * <p>If you set this parameter to <code>true</code>, you can't terminate the
+     * instance using the Amazon EC2 console, CLI, or API; otherwise, you can. To
+     * change this attribute after launch, use <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceAttribute.html">ModifyInstanceAttribute</a>.
+     * Alternatively, if you set <code>InstanceInitiatedShutdownBehavior</code> to
+     * <code>terminate</code>, you can terminate the instance by running the shutdown
+     * command from the instance.</p>
      */
     inline RequestLaunchTemplateData& WithDisableApiTermination(bool value) { SetDisableApiTermination(value); return *this;}
 
@@ -565,6 +697,13 @@ namespace Model
      * <p>Default: <code>stop</code> </p>
      */
     inline const ShutdownBehavior& GetInstanceInitiatedShutdownBehavior() const{ return m_instanceInitiatedShutdownBehavior; }
+
+    /**
+     * <p>Indicates whether an instance stops or terminates when you initiate shutdown
+     * from the instance (using the operating system command for system shutdown).</p>
+     * <p>Default: <code>stop</code> </p>
+     */
+    inline bool InstanceInitiatedShutdownBehaviorHasBeenSet() const { return m_instanceInitiatedShutdownBehaviorHasBeenSet; }
 
     /**
      * <p>Indicates whether an instance stops or terminates when you initiate shutdown
@@ -604,6 +743,16 @@ namespace Model
      * User Data</a> (Windows).</p>
      */
     inline const Aws::String& GetUserData() const{ return m_userData; }
+
+    /**
+     * <p>The Base64-encoded user data to make available to the instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Running
+     * Commands on Your Linux Instance at Launch</a> (Linux) and <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html#instancedata-add-user-data">Adding
+     * User Data</a> (Windows).</p>
+     */
+    inline bool UserDataHasBeenSet() const { return m_userDataHasBeenSet; }
 
     /**
      * <p>The Base64-encoded user data to make available to the instance. For more
@@ -670,7 +819,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline const Aws::Vector<LaunchTemplateTagSpecificationRequest>& GetTagSpecifications() const{ return m_tagSpecifications; }
 
@@ -678,7 +828,17 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+     */
+    inline bool TagSpecificationsHasBeenSet() const { return m_tagSpecificationsHasBeenSet; }
+
+    /**
+     * <p>The tags to apply to the resources during launch. You can only tag instances
+     * and volumes on launch. The specified tags are applied to all instances or
+     * volumes that are created during launch. To tag a resource after it has been
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline void SetTagSpecifications(const Aws::Vector<LaunchTemplateTagSpecificationRequest>& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = value; }
 
@@ -686,7 +846,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline void SetTagSpecifications(Aws::Vector<LaunchTemplateTagSpecificationRequest>&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = std::move(value); }
 
@@ -694,7 +855,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline RequestLaunchTemplateData& WithTagSpecifications(const Aws::Vector<LaunchTemplateTagSpecificationRequest>& value) { SetTagSpecifications(value); return *this;}
 
@@ -702,7 +864,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline RequestLaunchTemplateData& WithTagSpecifications(Aws::Vector<LaunchTemplateTagSpecificationRequest>&& value) { SetTagSpecifications(std::move(value)); return *this;}
 
@@ -710,7 +873,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline RequestLaunchTemplateData& AddTagSpecifications(const LaunchTemplateTagSpecificationRequest& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(value); return *this; }
 
@@ -718,7 +882,8 @@ namespace Model
      * <p>The tags to apply to the resources during launch. You can only tag instances
      * and volumes on launch. The specified tags are applied to all instances or
      * volumes that are created during launch. To tag a resource after it has been
-     * created, see <a>CreateTags</a>.</p>
+     * created, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
      */
     inline RequestLaunchTemplateData& AddTagSpecifications(LaunchTemplateTagSpecificationRequest&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
 
@@ -727,6 +892,11 @@ namespace Model
      * <p>An elastic GPU to associate with the instance.</p>
      */
     inline const Aws::Vector<ElasticGpuSpecification>& GetElasticGpuSpecifications() const{ return m_elasticGpuSpecifications; }
+
+    /**
+     * <p>An elastic GPU to associate with the instance.</p>
+     */
+    inline bool ElasticGpuSpecificationsHasBeenSet() const { return m_elasticGpuSpecificationsHasBeenSet; }
 
     /**
      * <p>An elastic GPU to associate with the instance.</p>
@@ -767,6 +937,11 @@ namespace Model
     /**
      * <p> The elastic inference accelerator for the instance. </p>
      */
+    inline bool ElasticInferenceAcceleratorsHasBeenSet() const { return m_elasticInferenceAcceleratorsHasBeenSet; }
+
+    /**
+     * <p> The elastic inference accelerator for the instance. </p>
+     */
     inline void SetElasticInferenceAccelerators(const Aws::Vector<LaunchTemplateElasticInferenceAccelerator>& value) { m_elasticInferenceAcceleratorsHasBeenSet = true; m_elasticInferenceAccelerators = value; }
 
     /**
@@ -796,58 +971,74 @@ namespace Model
 
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>. You cannot specify both a security group ID and
-     * security name in the same request.</p>
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroupIds() const{ return m_securityGroupIds; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>. You cannot specify both a security group ID and
-     * security name in the same request.</p>
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
+     */
+    inline bool SecurityGroupIdsHasBeenSet() const { return m_securityGroupIdsHasBeenSet; }
+
+    /**
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
      */
     inline void SetSecurityGroupIds(const Aws::Vector<Aws::String>& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = value; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>. You cannot specify both a security group ID and
-     * security name in the same request.</p>
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
      */
     inline void SetSecurityGroupIds(Aws::Vector<Aws::String>&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = std::move(value); }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>. You cannot specify both a security group ID and
-     * security name in the same request.</p>
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
      */
     inline RequestLaunchTemplateData& WithSecurityGroupIds(const Aws::Vector<Aws::String>& value) { SetSecurityGroupIds(value); return *this;}
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>. You cannot specify both a security group ID and
-     * security name in the same request.</p>
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
      */
     inline RequestLaunchTemplateData& WithSecurityGroupIds(Aws::Vector<Aws::String>&& value) { SetSecurityGroupIds(std::move(value)); return *this;}
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>. You cannot specify both a security group ID and
-     * security name in the same request.</p>
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
      */
     inline RequestLaunchTemplateData& AddSecurityGroupIds(const Aws::String& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>. You cannot specify both a security group ID and
-     * security name in the same request.</p>
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
      */
     inline RequestLaunchTemplateData& AddSecurityGroupIds(Aws::String&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more security group IDs. You can create a security group using
-     * <a>CreateSecurityGroup</a>. You cannot specify both a security group ID and
-     * security name in the same request.</p>
+     * <p>One or more security group IDs. You can create a security group using <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.
+     * You cannot specify both a security group ID and security name in the same
+     * request.</p>
      */
     inline RequestLaunchTemplateData& AddSecurityGroupIds(const char* value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
 
@@ -858,6 +1049,13 @@ namespace Model
      * group ID and security name in the same request.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
+
+    /**
+     * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
+     * VPC, you must use security group IDs instead. You cannot specify both a security
+     * group ID and security name in the same request.</p>
+     */
+    inline bool SecurityGroupsHasBeenSet() const { return m_securityGroupsHasBeenSet; }
 
     /**
      * <p>[EC2-Classic, default VPC] One or more security group names. For a nondefault
@@ -917,6 +1115,11 @@ namespace Model
     /**
      * <p>The market (purchasing) option for the instances.</p>
      */
+    inline bool InstanceMarketOptionsHasBeenSet() const { return m_instanceMarketOptionsHasBeenSet; }
+
+    /**
+     * <p>The market (purchasing) option for the instances.</p>
+     */
     inline void SetInstanceMarketOptions(const LaunchTemplateInstanceMarketOptionsRequest& value) { m_instanceMarketOptionsHasBeenSet = true; m_instanceMarketOptions = value; }
 
     /**
@@ -940,6 +1143,12 @@ namespace Model
      * only.</p>
      */
     inline const CreditSpecificationRequest& GetCreditSpecification() const{ return m_creditSpecification; }
+
+    /**
+     * <p>The credit option for CPU usage of the instance. Valid for T2 or T3 instances
+     * only.</p>
+     */
+    inline bool CreditSpecificationHasBeenSet() const { return m_creditSpecificationHasBeenSet; }
 
     /**
      * <p>The credit option for CPU usage of the instance. Valid for T2 or T3 instances
@@ -972,6 +1181,13 @@ namespace Model
      * CPU Options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline const LaunchTemplateCpuOptionsRequest& GetCpuOptions() const{ return m_cpuOptions; }
+
+    /**
+     * <p>The CPU options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing
+     * CPU Options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline bool CpuOptionsHasBeenSet() const { return m_cpuOptionsHasBeenSet; }
 
     /**
      * <p>The CPU options for the instance. For more information, see <a
@@ -1016,6 +1232,14 @@ namespace Model
      * <code>open</code>, which enables it to run in any open Capacity Reservation that
      * has matching attributes (instance type, platform, Availability Zone).</p>
      */
+    inline bool CapacityReservationSpecificationHasBeenSet() const { return m_capacityReservationSpecificationHasBeenSet; }
+
+    /**
+     * <p>The Capacity Reservation targeting option. If you do not specify this
+     * parameter, the instance's Capacity Reservation preference defaults to
+     * <code>open</code>, which enables it to run in any open Capacity Reservation that
+     * has matching attributes (instance type, platform, Availability Zone).</p>
+     */
     inline void SetCapacityReservationSpecification(const LaunchTemplateCapacityReservationSpecificationRequest& value) { m_capacityReservationSpecificationHasBeenSet = true; m_capacityReservationSpecification = value; }
 
     /**
@@ -1044,6 +1268,47 @@ namespace Model
 
 
     /**
+     * <p>The license configurations.</p>
+     */
+    inline const Aws::Vector<LaunchTemplateLicenseConfigurationRequest>& GetLicenseSpecifications() const{ return m_licenseSpecifications; }
+
+    /**
+     * <p>The license configurations.</p>
+     */
+    inline bool LicenseSpecificationsHasBeenSet() const { return m_licenseSpecificationsHasBeenSet; }
+
+    /**
+     * <p>The license configurations.</p>
+     */
+    inline void SetLicenseSpecifications(const Aws::Vector<LaunchTemplateLicenseConfigurationRequest>& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications = value; }
+
+    /**
+     * <p>The license configurations.</p>
+     */
+    inline void SetLicenseSpecifications(Aws::Vector<LaunchTemplateLicenseConfigurationRequest>&& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications = std::move(value); }
+
+    /**
+     * <p>The license configurations.</p>
+     */
+    inline RequestLaunchTemplateData& WithLicenseSpecifications(const Aws::Vector<LaunchTemplateLicenseConfigurationRequest>& value) { SetLicenseSpecifications(value); return *this;}
+
+    /**
+     * <p>The license configurations.</p>
+     */
+    inline RequestLaunchTemplateData& WithLicenseSpecifications(Aws::Vector<LaunchTemplateLicenseConfigurationRequest>&& value) { SetLicenseSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The license configurations.</p>
+     */
+    inline RequestLaunchTemplateData& AddLicenseSpecifications(const LaunchTemplateLicenseConfigurationRequest& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The license configurations.</p>
+     */
+    inline RequestLaunchTemplateData& AddLicenseSpecifications(LaunchTemplateLicenseConfigurationRequest&& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications.push_back(std::move(value)); return *this; }
+
+
+    /**
      * <p>Indicates whether an instance is enabled for hibernation. This parameter is
      * valid only if the instance meets the <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
@@ -1053,6 +1318,17 @@ namespace Model
      * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline const LaunchTemplateHibernationOptionsRequest& GetHibernationOptions() const{ return m_hibernationOptions; }
+
+    /**
+     * <p>Indicates whether an instance is enabled for hibernation. This parameter is
+     * valid only if the instance meets the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
+     * prerequisites</a>. Hibernation is currently supported only for Amazon Linux. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+     * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
+    inline bool HibernationOptionsHasBeenSet() const { return m_hibernationOptionsHasBeenSet; }
 
     /**
      * <p>Indicates whether an instance is enabled for hibernation. This parameter is
@@ -1097,42 +1373,6 @@ namespace Model
      * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline RequestLaunchTemplateData& WithHibernationOptions(LaunchTemplateHibernationOptionsRequest&& value) { SetHibernationOptions(std::move(value)); return *this;}
-
-
-    /**
-     * <p>The license configurations.</p>
-     */
-    inline const Aws::Vector<LaunchTemplateLicenseConfigurationRequest>& GetLicenseSpecifications() const{ return m_licenseSpecifications; }
-
-    /**
-     * <p>The license configurations.</p>
-     */
-    inline void SetLicenseSpecifications(const Aws::Vector<LaunchTemplateLicenseConfigurationRequest>& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications = value; }
-
-    /**
-     * <p>The license configurations.</p>
-     */
-    inline void SetLicenseSpecifications(Aws::Vector<LaunchTemplateLicenseConfigurationRequest>&& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications = std::move(value); }
-
-    /**
-     * <p>The license configurations.</p>
-     */
-    inline RequestLaunchTemplateData& WithLicenseSpecifications(const Aws::Vector<LaunchTemplateLicenseConfigurationRequest>& value) { SetLicenseSpecifications(value); return *this;}
-
-    /**
-     * <p>The license configurations.</p>
-     */
-    inline RequestLaunchTemplateData& WithLicenseSpecifications(Aws::Vector<LaunchTemplateLicenseConfigurationRequest>&& value) { SetLicenseSpecifications(std::move(value)); return *this;}
-
-    /**
-     * <p>The license configurations.</p>
-     */
-    inline RequestLaunchTemplateData& AddLicenseSpecifications(const LaunchTemplateLicenseConfigurationRequest& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications.push_back(value); return *this; }
-
-    /**
-     * <p>The license configurations.</p>
-     */
-    inline RequestLaunchTemplateData& AddLicenseSpecifications(LaunchTemplateLicenseConfigurationRequest&& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications.push_back(std::move(value)); return *this; }
 
   private:
 
@@ -1205,11 +1445,11 @@ namespace Model
     LaunchTemplateCapacityReservationSpecificationRequest m_capacityReservationSpecification;
     bool m_capacityReservationSpecificationHasBeenSet;
 
-    LaunchTemplateHibernationOptionsRequest m_hibernationOptions;
-    bool m_hibernationOptionsHasBeenSet;
-
     Aws::Vector<LaunchTemplateLicenseConfigurationRequest> m_licenseSpecifications;
     bool m_licenseSpecificationsHasBeenSet;
+
+    LaunchTemplateHibernationOptionsRequest m_hibernationOptions;
+    bool m_hibernationOptionsHasBeenSet;
   };
 
 } // namespace Model

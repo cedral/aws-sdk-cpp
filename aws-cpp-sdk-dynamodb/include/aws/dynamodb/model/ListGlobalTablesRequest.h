@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListGlobalTablesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The first global table name that this operation will evaluate.</p>
      */
     inline const Aws::String& GetExclusiveStartGlobalTableName() const{ return m_exclusiveStartGlobalTableName; }
+
+    /**
+     * <p>The first global table name that this operation will evaluate.</p>
+     */
+    inline bool ExclusiveStartGlobalTableNameHasBeenSet() const { return m_exclusiveStartGlobalTableNameHasBeenSet; }
 
     /**
      * <p>The first global table name that this operation will evaluate.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The maximum number of table names to return.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of table names to return.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -97,37 +107,42 @@ namespace Model
 
 
     /**
-     * <p>Lists the global tables in a specific region.</p>
+     * <p>Lists the global tables in a specific Region.</p>
      */
     inline const Aws::String& GetRegionName() const{ return m_regionName; }
 
     /**
-     * <p>Lists the global tables in a specific region.</p>
+     * <p>Lists the global tables in a specific Region.</p>
+     */
+    inline bool RegionNameHasBeenSet() const { return m_regionNameHasBeenSet; }
+
+    /**
+     * <p>Lists the global tables in a specific Region.</p>
      */
     inline void SetRegionName(const Aws::String& value) { m_regionNameHasBeenSet = true; m_regionName = value; }
 
     /**
-     * <p>Lists the global tables in a specific region.</p>
+     * <p>Lists the global tables in a specific Region.</p>
      */
     inline void SetRegionName(Aws::String&& value) { m_regionNameHasBeenSet = true; m_regionName = std::move(value); }
 
     /**
-     * <p>Lists the global tables in a specific region.</p>
+     * <p>Lists the global tables in a specific Region.</p>
      */
     inline void SetRegionName(const char* value) { m_regionNameHasBeenSet = true; m_regionName.assign(value); }
 
     /**
-     * <p>Lists the global tables in a specific region.</p>
+     * <p>Lists the global tables in a specific Region.</p>
      */
     inline ListGlobalTablesRequest& WithRegionName(const Aws::String& value) { SetRegionName(value); return *this;}
 
     /**
-     * <p>Lists the global tables in a specific region.</p>
+     * <p>Lists the global tables in a specific Region.</p>
      */
     inline ListGlobalTablesRequest& WithRegionName(Aws::String&& value) { SetRegionName(std::move(value)); return *this;}
 
     /**
-     * <p>Lists the global tables in a specific region.</p>
+     * <p>Lists the global tables in a specific Region.</p>
      */
     inline ListGlobalTablesRequest& WithRegionName(const char* value) { SetRegionName(value); return *this;}
 

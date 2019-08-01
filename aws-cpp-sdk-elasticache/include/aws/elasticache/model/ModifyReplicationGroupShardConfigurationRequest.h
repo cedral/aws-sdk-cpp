@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ModifyReplicationGroupShardConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,12 @@ namespace Model
      * which the shards are to be configured.</p>
      */
     inline const Aws::String& GetReplicationGroupId() const{ return m_replicationGroupId; }
+
+    /**
+     * <p>The name of the Redis (cluster mode enabled) cluster (replication group) on
+     * which the shards are to be configured.</p>
+     */
+    inline bool ReplicationGroupIdHasBeenSet() const { return m_replicationGroupIdHasBeenSet; }
 
     /**
      * <p>The name of the Redis (cluster mode enabled) cluster (replication group) on
@@ -106,6 +112,12 @@ namespace Model
      * <p>The number of node groups (shards) that results from the modification of the
      * shard configuration.</p>
      */
+    inline bool NodeGroupCountHasBeenSet() const { return m_nodeGroupCountHasBeenSet; }
+
+    /**
+     * <p>The number of node groups (shards) that results from the modification of the
+     * shard configuration.</p>
+     */
     inline void SetNodeGroupCount(int value) { m_nodeGroupCountHasBeenSet = true; m_nodeGroupCount = value; }
 
     /**
@@ -121,6 +133,13 @@ namespace Model
      * <p>Value: true</p>
      */
     inline bool GetApplyImmediately() const{ return m_applyImmediately; }
+
+    /**
+     * <p>Indicates that the shard reconfiguration process begins immediately. At
+     * present, the only permitted value for this parameter is <code>true</code>.</p>
+     * <p>Value: true</p>
+     */
+    inline bool ApplyImmediatelyHasBeenSet() const { return m_applyImmediatelyHasBeenSet; }
 
     /**
      * <p>Indicates that the shard reconfiguration process begins immediately. At
@@ -147,6 +166,17 @@ namespace Model
      * current number of node groups (shards).</p>
      */
     inline const Aws::Vector<ReshardingConfiguration>& GetReshardingConfiguration() const{ return m_reshardingConfiguration; }
+
+    /**
+     * <p>Specifies the preferred availability zones for each node group in the
+     * cluster. If the value of <code>NodeGroupCount</code> is greater than the current
+     * number of node groups (shards), you can use this parameter to specify the
+     * preferred availability zones of the cluster's shards. If you omit this parameter
+     * ElastiCache selects availability zones for you.</p> <p>You can specify this
+     * parameter only if the value of <code>NodeGroupCount</code> is greater than the
+     * current number of node groups (shards).</p>
+     */
+    inline bool ReshardingConfigurationHasBeenSet() const { return m_reshardingConfigurationHasBeenSet; }
 
     /**
      * <p>Specifies the preferred availability zones for each node group in the
@@ -217,162 +247,182 @@ namespace Model
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups listed by <code>NodeGroupsToRemove</code> from the
-     * cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
      */
     inline const Aws::Vector<Aws::String>& GetNodeGroupsToRemove() const{ return m_nodeGroupsToRemove; }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups listed by <code>NodeGroupsToRemove</code> from the
-     * cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
+     */
+    inline bool NodeGroupsToRemoveHasBeenSet() const { return m_nodeGroupsToRemoveHasBeenSet; }
+
+    /**
+     * <p>If the value of <code>NodeGroupCount</code> is less than the current number
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
      */
     inline void SetNodeGroupsToRemove(const Aws::Vector<Aws::String>& value) { m_nodeGroupsToRemoveHasBeenSet = true; m_nodeGroupsToRemove = value; }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups listed by <code>NodeGroupsToRemove</code> from the
-     * cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
      */
     inline void SetNodeGroupsToRemove(Aws::Vector<Aws::String>&& value) { m_nodeGroupsToRemoveHasBeenSet = true; m_nodeGroupsToRemove = std::move(value); }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups listed by <code>NodeGroupsToRemove</code> from the
-     * cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& WithNodeGroupsToRemove(const Aws::Vector<Aws::String>& value) { SetNodeGroupsToRemove(value); return *this;}
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups listed by <code>NodeGroupsToRemove</code> from the
-     * cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& WithNodeGroupsToRemove(Aws::Vector<Aws::String>&& value) { SetNodeGroupsToRemove(std::move(value)); return *this;}
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups listed by <code>NodeGroupsToRemove</code> from the
-     * cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& AddNodeGroupsToRemove(const Aws::String& value) { m_nodeGroupsToRemoveHasBeenSet = true; m_nodeGroupsToRemove.push_back(value); return *this; }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups listed by <code>NodeGroupsToRemove</code> from the
-     * cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& AddNodeGroupsToRemove(Aws::String&& value) { m_nodeGroupsToRemoveHasBeenSet = true; m_nodeGroupsToRemove.push_back(std::move(value)); return *this; }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups listed by <code>NodeGroupsToRemove</code> from the
-     * cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRemove</code> is
+     * a list of <code>NodeGroupId</code>s to remove from the cluster.</p>
+     * <p>ElastiCache for Redis will attempt to remove all node groups listed by
+     * <code>NodeGroupsToRemove</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& AddNodeGroupsToRemove(const char* value) { m_nodeGroupsToRemoveHasBeenSet = true; m_nodeGroupsToRemove.push_back(value); return *this; }
 
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups except those listed by <code>NodeGroupsToRetain</code>
-     * from the cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
      */
     inline const Aws::Vector<Aws::String>& GetNodeGroupsToRetain() const{ return m_nodeGroupsToRetain; }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups except those listed by <code>NodeGroupsToRetain</code>
-     * from the cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
+     */
+    inline bool NodeGroupsToRetainHasBeenSet() const { return m_nodeGroupsToRetainHasBeenSet; }
+
+    /**
+     * <p>If the value of <code>NodeGroupCount</code> is less than the current number
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
      */
     inline void SetNodeGroupsToRetain(const Aws::Vector<Aws::String>& value) { m_nodeGroupsToRetainHasBeenSet = true; m_nodeGroupsToRetain = value; }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups except those listed by <code>NodeGroupsToRetain</code>
-     * from the cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
      */
     inline void SetNodeGroupsToRetain(Aws::Vector<Aws::String>&& value) { m_nodeGroupsToRetainHasBeenSet = true; m_nodeGroupsToRetain = std::move(value); }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups except those listed by <code>NodeGroupsToRetain</code>
-     * from the cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& WithNodeGroupsToRetain(const Aws::Vector<Aws::String>& value) { SetNodeGroupsToRetain(value); return *this;}
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups except those listed by <code>NodeGroupsToRetain</code>
-     * from the cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& WithNodeGroupsToRetain(Aws::Vector<Aws::String>&& value) { SetNodeGroupsToRetain(std::move(value)); return *this;}
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups except those listed by <code>NodeGroupsToRetain</code>
-     * from the cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& AddNodeGroupsToRetain(const Aws::String& value) { m_nodeGroupsToRetainHasBeenSet = true; m_nodeGroupsToRetain.push_back(value); return *this; }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups except those listed by <code>NodeGroupsToRetain</code>
-     * from the cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& AddNodeGroupsToRetain(Aws::String&& value) { m_nodeGroupsToRetainHasBeenSet = true; m_nodeGroupsToRetain.push_back(std::move(value)); return *this; }
 
     /**
      * <p>If the value of <code>NodeGroupCount</code> is less than the current number
-     * of node groups (shards), the <code>NodeGroupsToRemove</code> or
-     * <code>NodeGroupsToRetain</code> is a required list of node group ids to remove
-     * from or retain in the cluster.</p> <p>ElastiCache for Redis will attempt to
-     * remove all node groups except those listed by <code>NodeGroupsToRetain</code>
-     * from the cluster.</p>
+     * of node groups (shards), then either <code>NodeGroupsToRemove</code> or
+     * <code>NodeGroupsToRetain</code> is required. <code>NodeGroupsToRetain</code> is
+     * a list of <code>NodeGroupId</code>s to retain in the cluster.</p> <p>ElastiCache
+     * for Redis will attempt to remove all node groups except those listed by
+     * <code>NodeGroupsToRetain</code> from the cluster.</p>
      */
     inline ModifyReplicationGroupShardConfigurationRequest& AddNodeGroupsToRetain(const char* value) { m_nodeGroupsToRetainHasBeenSet = true; m_nodeGroupsToRetain.push_back(value); return *this; }
 

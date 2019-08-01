@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateSegmentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -44,79 +44,100 @@ namespace Model
 
 
     /**
-     * The unique ID of your Amazon Pinpoint application.
+     * <p>The unique identifier for the application. This identifier is displayed as
+     * the <b>Project ID</b> on the Amazon Pinpoint console.</p>
      */
     inline const Aws::String& GetApplicationId() const{ return m_applicationId; }
 
     /**
-     * The unique ID of your Amazon Pinpoint application.
+     * <p>The unique identifier for the application. This identifier is displayed as
+     * the <b>Project ID</b> on the Amazon Pinpoint console.</p>
+     */
+    inline bool ApplicationIdHasBeenSet() const { return m_applicationIdHasBeenSet; }
+
+    /**
+     * <p>The unique identifier for the application. This identifier is displayed as
+     * the <b>Project ID</b> on the Amazon Pinpoint console.</p>
      */
     inline void SetApplicationId(const Aws::String& value) { m_applicationIdHasBeenSet = true; m_applicationId = value; }
 
     /**
-     * The unique ID of your Amazon Pinpoint application.
+     * <p>The unique identifier for the application. This identifier is displayed as
+     * the <b>Project ID</b> on the Amazon Pinpoint console.</p>
      */
     inline void SetApplicationId(Aws::String&& value) { m_applicationIdHasBeenSet = true; m_applicationId = std::move(value); }
 
     /**
-     * The unique ID of your Amazon Pinpoint application.
+     * <p>The unique identifier for the application. This identifier is displayed as
+     * the <b>Project ID</b> on the Amazon Pinpoint console.</p>
      */
     inline void SetApplicationId(const char* value) { m_applicationIdHasBeenSet = true; m_applicationId.assign(value); }
 
     /**
-     * The unique ID of your Amazon Pinpoint application.
+     * <p>The unique identifier for the application. This identifier is displayed as
+     * the <b>Project ID</b> on the Amazon Pinpoint console.</p>
      */
     inline UpdateSegmentRequest& WithApplicationId(const Aws::String& value) { SetApplicationId(value); return *this;}
 
     /**
-     * The unique ID of your Amazon Pinpoint application.
+     * <p>The unique identifier for the application. This identifier is displayed as
+     * the <b>Project ID</b> on the Amazon Pinpoint console.</p>
      */
     inline UpdateSegmentRequest& WithApplicationId(Aws::String&& value) { SetApplicationId(std::move(value)); return *this;}
 
     /**
-     * The unique ID of your Amazon Pinpoint application.
+     * <p>The unique identifier for the application. This identifier is displayed as
+     * the <b>Project ID</b> on the Amazon Pinpoint console.</p>
      */
     inline UpdateSegmentRequest& WithApplicationId(const char* value) { SetApplicationId(value); return *this;}
 
 
     /**
-     * The unique ID of the segment.
+     * <p>The unique identifier for the segment.</p>
      */
     inline const Aws::String& GetSegmentId() const{ return m_segmentId; }
 
     /**
-     * The unique ID of the segment.
+     * <p>The unique identifier for the segment.</p>
+     */
+    inline bool SegmentIdHasBeenSet() const { return m_segmentIdHasBeenSet; }
+
+    /**
+     * <p>The unique identifier for the segment.</p>
      */
     inline void SetSegmentId(const Aws::String& value) { m_segmentIdHasBeenSet = true; m_segmentId = value; }
 
     /**
-     * The unique ID of the segment.
+     * <p>The unique identifier for the segment.</p>
      */
     inline void SetSegmentId(Aws::String&& value) { m_segmentIdHasBeenSet = true; m_segmentId = std::move(value); }
 
     /**
-     * The unique ID of the segment.
+     * <p>The unique identifier for the segment.</p>
      */
     inline void SetSegmentId(const char* value) { m_segmentIdHasBeenSet = true; m_segmentId.assign(value); }
 
     /**
-     * The unique ID of the segment.
+     * <p>The unique identifier for the segment.</p>
      */
     inline UpdateSegmentRequest& WithSegmentId(const Aws::String& value) { SetSegmentId(value); return *this;}
 
     /**
-     * The unique ID of the segment.
+     * <p>The unique identifier for the segment.</p>
      */
     inline UpdateSegmentRequest& WithSegmentId(Aws::String&& value) { SetSegmentId(std::move(value)); return *this;}
 
     /**
-     * The unique ID of the segment.
+     * <p>The unique identifier for the segment.</p>
      */
     inline UpdateSegmentRequest& WithSegmentId(const char* value) { SetSegmentId(value); return *this;}
 
 
     
     inline const WriteSegmentRequest& GetWriteSegmentRequest() const{ return m_writeSegmentRequest; }
+
+    
+    inline bool WriteSegmentRequestHasBeenSet() const { return m_writeSegmentRequestHasBeenSet; }
 
     
     inline void SetWriteSegmentRequest(const WriteSegmentRequest& value) { m_writeSegmentRequestHasBeenSet = true; m_writeSegmentRequest = value; }

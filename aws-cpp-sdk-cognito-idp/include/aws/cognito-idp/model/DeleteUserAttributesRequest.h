@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DeleteUserAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * prefix to the attribute name.</p>
      */
     inline const Aws::Vector<Aws::String>& GetUserAttributeNames() const{ return m_userAttributeNames; }
+
+    /**
+     * <p>An array of strings representing the user attribute names you wish to
+     * delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code>
+     * prefix to the attribute name.</p>
+     */
+    inline bool UserAttributeNamesHasBeenSet() const { return m_userAttributeNamesHasBeenSet; }
 
     /**
      * <p>An array of strings representing the user attribute names you wish to
@@ -110,6 +117,11 @@ namespace Model
      * <p>The access token used in the request to delete user attributes.</p>
      */
     inline const Aws::String& GetAccessToken() const{ return m_accessToken; }
+
+    /**
+     * <p>The access token used in the request to delete user attributes.</p>
+     */
+    inline bool AccessTokenHasBeenSet() const { return m_accessTokenHasBeenSet; }
 
     /**
      * <p>The access token used in the request to delete user attributes.</p>

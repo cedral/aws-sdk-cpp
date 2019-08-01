@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DescribeEventCategoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * cluster-parameter-group, and cluster-security-group.</p>
      */
     inline const Aws::String& GetSourceType() const{ return m_sourceType; }
+
+    /**
+     * <p>The source type, such as cluster or parameter group, to which the described
+     * event categories apply.</p> <p>Valid values: cluster, cluster-snapshot,
+     * cluster-parameter-group, and cluster-security-group.</p>
+     */
+    inline bool SourceTypeHasBeenSet() const { return m_sourceTypeHasBeenSet; }
 
     /**
      * <p>The source type, such as cluster or parameter group, to which the described

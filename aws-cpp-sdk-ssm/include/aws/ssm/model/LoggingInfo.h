@@ -39,7 +39,7 @@ namespace Model
    * to contain logs, instead use the <code>OutputS3BucketName</code> and
    * <code>OutputS3KeyPrefix</code> options in the
    * <code>TaskInvocationParameters</code> structure. For information about how
-   * Systems Manager handles these options for the supported Maintenance Window task
+   * Systems Manager handles these options for the supported maintenance window task
    * types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
    * </note><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/LoggingInfo">AWS API
@@ -58,6 +58,11 @@ namespace Model
      * <p>The name of an Amazon S3 bucket where execution logs are stored .</p>
      */
     inline const Aws::String& GetS3BucketName() const{ return m_s3BucketName; }
+
+    /**
+     * <p>The name of an Amazon S3 bucket where execution logs are stored .</p>
+     */
+    inline bool S3BucketNameHasBeenSet() const { return m_s3BucketNameHasBeenSet; }
 
     /**
      * <p>The name of an Amazon S3 bucket where execution logs are stored .</p>
@@ -98,6 +103,11 @@ namespace Model
     /**
      * <p>(Optional) The Amazon S3 bucket subfolder. </p>
      */
+    inline bool S3KeyPrefixHasBeenSet() const { return m_s3KeyPrefixHasBeenSet; }
+
+    /**
+     * <p>(Optional) The Amazon S3 bucket subfolder. </p>
+     */
     inline void SetS3KeyPrefix(const Aws::String& value) { m_s3KeyPrefixHasBeenSet = true; m_s3KeyPrefix = value; }
 
     /**
@@ -130,6 +140,11 @@ namespace Model
      * <p>The region where the Amazon S3 bucket is located.</p>
      */
     inline const Aws::String& GetS3Region() const{ return m_s3Region; }
+
+    /**
+     * <p>The region where the Amazon S3 bucket is located.</p>
+     */
+    inline bool S3RegionHasBeenSet() const { return m_s3RegionHasBeenSet; }
 
     /**
      * <p>The region where the Amazon S3 bucket is located.</p>

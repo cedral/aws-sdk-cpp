@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateResourceServerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The user pool ID for the user pool.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>The identifier for the resource server.</p>
      */
+    inline bool IdentifierHasBeenSet() const { return m_identifierHasBeenSet; }
+
+    /**
+     * <p>The identifier for the resource server.</p>
+     */
     inline void SetIdentifier(const Aws::String& value) { m_identifierHasBeenSet = true; m_identifier = value; }
 
     /**
@@ -126,6 +136,11 @@ namespace Model
     /**
      * <p>The name of the resource server.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the resource server.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -158,6 +173,11 @@ namespace Model
      * <p>The scope values to be set for the resource server.</p>
      */
     inline const Aws::Vector<ResourceServerScopeType>& GetScopes() const{ return m_scopes; }
+
+    /**
+     * <p>The scope values to be set for the resource server.</p>
+     */
+    inline bool ScopesHasBeenSet() const { return m_scopesHasBeenSet; }
 
     /**
      * <p>The scope values to be set for the resource server.</p>

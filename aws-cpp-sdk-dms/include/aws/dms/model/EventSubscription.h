@@ -58,6 +58,12 @@ namespace Model
      * <p>The AWS customer account associated with the AWS DMS event notification
      * subscription.</p>
      */
+    inline bool CustomerAwsIdHasBeenSet() const { return m_customerAwsIdHasBeenSet; }
+
+    /**
+     * <p>The AWS customer account associated with the AWS DMS event notification
+     * subscription.</p>
+     */
     inline void SetCustomerAwsId(const Aws::String& value) { m_customerAwsIdHasBeenSet = true; m_customerAwsId = value; }
 
     /**
@@ -99,6 +105,11 @@ namespace Model
     /**
      * <p>The AWS DMS event notification subscription Id.</p>
      */
+    inline bool CustSubscriptionIdHasBeenSet() const { return m_custSubscriptionIdHasBeenSet; }
+
+    /**
+     * <p>The AWS DMS event notification subscription Id.</p>
+     */
     inline void SetCustSubscriptionId(const Aws::String& value) { m_custSubscriptionIdHasBeenSet = true; m_custSubscriptionId = value; }
 
     /**
@@ -131,6 +142,11 @@ namespace Model
      * <p>The topic ARN of the AWS DMS event notification subscription.</p>
      */
     inline const Aws::String& GetSnsTopicArn() const{ return m_snsTopicArn; }
+
+    /**
+     * <p>The topic ARN of the AWS DMS event notification subscription.</p>
+     */
+    inline bool SnsTopicArnHasBeenSet() const { return m_snsTopicArnHasBeenSet; }
 
     /**
      * <p>The topic ARN of the AWS DMS event notification subscription.</p>
@@ -172,6 +188,16 @@ namespace Model
      * after the subscription was created.</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the AWS DMS event notification subscription.</p>
+     * <p>Constraints:</p> <p>Can be one of the following: creating | modifying |
+     * deleting | active | no-permission | topic-not-exist</p> <p>The status
+     * "no-permission" indicates that AWS DMS no longer has permission to post to the
+     * SNS topic. The status "topic-not-exist" indicates that the topic was deleted
+     * after the subscription was created.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the AWS DMS event notification subscription.</p>
@@ -242,6 +268,11 @@ namespace Model
     /**
      * <p>The time the RDS event notification subscription was created.</p>
      */
+    inline bool SubscriptionCreationTimeHasBeenSet() const { return m_subscriptionCreationTimeHasBeenSet; }
+
+    /**
+     * <p>The time the RDS event notification subscription was created.</p>
+     */
     inline void SetSubscriptionCreationTime(const Aws::String& value) { m_subscriptionCreationTimeHasBeenSet = true; m_subscriptionCreationTime = value; }
 
     /**
@@ -272,43 +303,57 @@ namespace Model
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | replication-server | security-group | migration-task</p>
+     * replication-instance | replication-server | security-group |
+     * replication-task</p>
      */
     inline const Aws::String& GetSourceType() const{ return m_sourceType; }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | replication-server | security-group | migration-task</p>
+     * replication-instance | replication-server | security-group |
+     * replication-task</p>
+     */
+    inline bool SourceTypeHasBeenSet() const { return m_sourceTypeHasBeenSet; }
+
+    /**
+     * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
+     * replication-instance | replication-server | security-group |
+     * replication-task</p>
      */
     inline void SetSourceType(const Aws::String& value) { m_sourceTypeHasBeenSet = true; m_sourceType = value; }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | replication-server | security-group | migration-task</p>
+     * replication-instance | replication-server | security-group |
+     * replication-task</p>
      */
     inline void SetSourceType(Aws::String&& value) { m_sourceTypeHasBeenSet = true; m_sourceType = std::move(value); }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | replication-server | security-group | migration-task</p>
+     * replication-instance | replication-server | security-group |
+     * replication-task</p>
      */
     inline void SetSourceType(const char* value) { m_sourceTypeHasBeenSet = true; m_sourceType.assign(value); }
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | replication-server | security-group | migration-task</p>
+     * replication-instance | replication-server | security-group |
+     * replication-task</p>
      */
     inline EventSubscription& WithSourceType(const Aws::String& value) { SetSourceType(value); return *this;}
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | replication-server | security-group | migration-task</p>
+     * replication-instance | replication-server | security-group |
+     * replication-task</p>
      */
     inline EventSubscription& WithSourceType(Aws::String&& value) { SetSourceType(std::move(value)); return *this;}
 
     /**
      * <p> The type of AWS DMS resource that generates events. </p> <p>Valid values:
-     * replication-instance | replication-server | security-group | migration-task</p>
+     * replication-instance | replication-server | security-group |
+     * replication-task</p>
      */
     inline EventSubscription& WithSourceType(const char* value) { SetSourceType(value); return *this;}
 
@@ -317,6 +362,11 @@ namespace Model
      * <p>A list of source Ids for the event subscription.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSourceIdsList() const{ return m_sourceIdsList; }
+
+    /**
+     * <p>A list of source Ids for the event subscription.</p>
+     */
+    inline bool SourceIdsListHasBeenSet() const { return m_sourceIdsListHasBeenSet; }
 
     /**
      * <p>A list of source Ids for the event subscription.</p>
@@ -362,6 +412,11 @@ namespace Model
     /**
      * <p>A lists of event categories.</p>
      */
+    inline bool EventCategoriesListHasBeenSet() const { return m_eventCategoriesListHasBeenSet; }
+
+    /**
+     * <p>A lists of event categories.</p>
+     */
     inline void SetEventCategoriesList(const Aws::Vector<Aws::String>& value) { m_eventCategoriesListHasBeenSet = true; m_eventCategoriesList = value; }
 
     /**
@@ -399,6 +454,11 @@ namespace Model
      * <p>Boolean value that indicates if the event subscription is enabled.</p>
      */
     inline bool GetEnabled() const{ return m_enabled; }
+
+    /**
+     * <p>Boolean value that indicates if the event subscription is enabled.</p>
+     */
+    inline bool EnabledHasBeenSet() const { return m_enabledHasBeenSet; }
 
     /**
      * <p>Boolean value that indicates if the event subscription is enabled.</p>

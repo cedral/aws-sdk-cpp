@@ -40,7 +40,7 @@ namespace Model
    * <p>Message-related information to include in the Delivery Status Notification
    * (DSN) when an email that Amazon SES receives on your behalf bounces.</p> <p>For
    * information about receiving email through Amazon SES, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/MessageDsn">AWS
    * API Reference</a></p>
@@ -63,6 +63,14 @@ namespace Model
      * inbound-smtp.[region].amazonaws.com</code>.</p>
      */
     inline const Aws::String& GetReportingMta() const{ return m_reportingMta; }
+
+    /**
+     * <p>The reporting MTA that attempted to deliver the message, formatted as
+     * specified in <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>
+     * (<code>mta-name-type; mta-name</code>). The default value is <code>dns;
+     * inbound-smtp.[region].amazonaws.com</code>.</p>
+     */
+    inline bool ReportingMtaHasBeenSet() const { return m_reportingMtaHasBeenSet; }
 
     /**
      * <p>The reporting MTA that attempted to deliver the message, formatted as
@@ -123,6 +131,12 @@ namespace Model
      * <p>When the message was received by the reporting mail transfer agent (MTA), in
      * <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
      */
+    inline bool ArrivalDateHasBeenSet() const { return m_arrivalDateHasBeenSet; }
+
+    /**
+     * <p>When the message was received by the reporting mail transfer agent (MTA), in
+     * <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
+     */
     inline void SetArrivalDate(const Aws::Utils::DateTime& value) { m_arrivalDateHasBeenSet = true; m_arrivalDate = value; }
 
     /**
@@ -148,6 +162,11 @@ namespace Model
      * <p>Additional X-headers to include in the DSN.</p>
      */
     inline const Aws::Vector<ExtensionField>& GetExtensionFields() const{ return m_extensionFields; }
+
+    /**
+     * <p>Additional X-headers to include in the DSN.</p>
+     */
+    inline bool ExtensionFieldsHasBeenSet() const { return m_extensionFieldsHasBeenSet; }
 
     /**
      * <p>Additional X-headers to include in the DSN.</p>

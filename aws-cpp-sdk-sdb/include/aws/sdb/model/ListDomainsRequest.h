@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListDomainsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * The maximum number of domain names you want returned. The range is 1 to 100. The
      * default setting is 100.
      */
+    inline bool MaxNumberOfDomainsHasBeenSet() const { return m_maxNumberOfDomainsHasBeenSet; }
+
+    /**
+     * The maximum number of domain names you want returned. The range is 1 to 100. The
+     * default setting is 100.
+     */
     inline void SetMaxNumberOfDomains(int value) { m_maxNumberOfDomainsHasBeenSet = true; m_maxNumberOfDomains = value; }
 
     /**
@@ -69,6 +75,11 @@ namespace Model
      * A string informing Amazon SimpleDB where to start the next list of domain names.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * A string informing Amazon SimpleDB where to start the next list of domain names.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * A string informing Amazon SimpleDB where to start the next list of domain names.

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeFlowLogsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without
@@ -86,6 +94,20 @@ namespace Model
      * (<code>ACCEPT</code> | <code>REJECT</code> | <code>ALL</code>).</p> </li> </ul>
      */
     inline const Aws::Vector<Filter>& GetFilter() const{ return m_filter; }
+
+    /**
+     * <p>One or more filters.</p> <ul> <li> <p> <code>deliver-log-status</code> - The
+     * status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p>
+     * </li> <li> <p> <code>log-destination-type</code> - The type of destination to
+     * which the flow log publishes data. Possible destination types include
+     * <code>cloud-watch-logs</code> and <code>S3</code>.</p> </li> <li> <p>
+     * <code>flow-log-id</code> - The ID of the flow log.</p> </li> <li> <p>
+     * <code>log-group-name</code> - The name of the log group.</p> </li> <li> <p>
+     * <code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p>
+     * </li> <li> <p> <code>traffic-type</code> - The type of traffic
+     * (<code>ACCEPT</code> | <code>REJECT</code> | <code>ALL</code>).</p> </li> </ul>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
      * <p>One or more filters.</p> <ul> <li> <p> <code>deliver-log-status</code> - The
@@ -173,42 +195,56 @@ namespace Model
 
 
     /**
-     * <p>One or more flow log IDs.</p>
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetFlowLogIds() const{ return m_flowLogIds; }
 
     /**
-     * <p>One or more flow log IDs.</p>
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
+     */
+    inline bool FlowLogIdsHasBeenSet() const { return m_flowLogIdsHasBeenSet; }
+
+    /**
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
      */
     inline void SetFlowLogIds(const Aws::Vector<Aws::String>& value) { m_flowLogIdsHasBeenSet = true; m_flowLogIds = value; }
 
     /**
-     * <p>One or more flow log IDs.</p>
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
      */
     inline void SetFlowLogIds(Aws::Vector<Aws::String>&& value) { m_flowLogIdsHasBeenSet = true; m_flowLogIds = std::move(value); }
 
     /**
-     * <p>One or more flow log IDs.</p>
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
      */
     inline DescribeFlowLogsRequest& WithFlowLogIds(const Aws::Vector<Aws::String>& value) { SetFlowLogIds(value); return *this;}
 
     /**
-     * <p>One or more flow log IDs.</p>
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
      */
     inline DescribeFlowLogsRequest& WithFlowLogIds(Aws::Vector<Aws::String>&& value) { SetFlowLogIds(std::move(value)); return *this;}
 
     /**
-     * <p>One or more flow log IDs.</p>
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
      */
     inline DescribeFlowLogsRequest& AddFlowLogIds(const Aws::String& value) { m_flowLogIdsHasBeenSet = true; m_flowLogIds.push_back(value); return *this; }
 
     /**
-     * <p>One or more flow log IDs.</p>
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
      */
     inline DescribeFlowLogsRequest& AddFlowLogIds(Aws::String&& value) { m_flowLogIdsHasBeenSet = true; m_flowLogIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more flow log IDs.</p>
+     * <p>One or more flow log IDs.</p> <p>Constraint: Maximum of 1000 flow log
+     * IDs.</p>
      */
     inline DescribeFlowLogsRequest& AddFlowLogIds(const char* value) { m_flowLogIdsHasBeenSet = true; m_flowLogIds.push_back(value); return *this; }
 
@@ -219,6 +255,13 @@ namespace Model
      * value.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return with a single call. To retrieve the
+     * remaining results, make another call with the returned <code>nextToken</code>
+     * value.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return with a single call. To retrieve the
@@ -239,6 +282,11 @@ namespace Model
      * <p>The token for the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next page of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next page of results.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateContactWithAddressBookRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the contact to associate with an address book.</p>
      */
     inline const Aws::String& GetContactArn() const{ return m_contactArn; }
+
+    /**
+     * <p>The ARN of the contact to associate with an address book.</p>
+     */
+    inline bool ContactArnHasBeenSet() const { return m_contactArnHasBeenSet; }
 
     /**
      * <p>The ARN of the contact to associate with an address book.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The ARN of the address book with which to associate the contact.</p>
      */
     inline const Aws::String& GetAddressBookArn() const{ return m_addressBookArn; }
+
+    /**
+     * <p>The ARN of the address book with which to associate the contact.</p>
+     */
+    inline bool AddressBookArnHasBeenSet() const { return m_addressBookArnHasBeenSet; }
 
     /**
      * <p>The ARN of the address book with which to associate the contact.</p>

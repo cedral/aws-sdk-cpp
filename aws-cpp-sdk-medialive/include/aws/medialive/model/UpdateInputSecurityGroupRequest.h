@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     UpdateInputSecurityGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * The id of the Input Security Group to update.
      */
     inline const Aws::String& GetInputSecurityGroupId() const{ return m_inputSecurityGroupId; }
+
+    /**
+     * The id of the Input Security Group to update.
+     */
+    inline bool InputSecurityGroupIdHasBeenSet() const { return m_inputSecurityGroupIdHasBeenSet; }
 
     /**
      * The id of the Input Security Group to update.
@@ -89,6 +94,11 @@ namespace Model
      * A collection of key-value pairs.
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * A collection of key-value pairs.
@@ -150,6 +160,11 @@ namespace Model
      * List of IPv4 CIDR addresses to whitelist
      */
     inline const Aws::Vector<InputWhitelistRuleCidr>& GetWhitelistRules() const{ return m_whitelistRules; }
+
+    /**
+     * List of IPv4 CIDR addresses to whitelist
+     */
+    inline bool WhitelistRulesHasBeenSet() const { return m_whitelistRulesHasBeenSet; }
 
     /**
      * List of IPv4 CIDR addresses to whitelist

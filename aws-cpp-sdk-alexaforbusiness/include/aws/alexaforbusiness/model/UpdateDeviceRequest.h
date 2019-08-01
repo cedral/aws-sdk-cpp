@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateDeviceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the device to update. Required.</p>
      */
     inline const Aws::String& GetDeviceArn() const{ return m_deviceArn; }
+
+    /**
+     * <p>The ARN of the device to update. Required.</p>
+     */
+    inline bool DeviceArnHasBeenSet() const { return m_deviceArnHasBeenSet; }
 
     /**
      * <p>The ARN of the device to update. Required.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The updated device name. Required.</p>
      */
     inline const Aws::String& GetDeviceName() const{ return m_deviceName; }
+
+    /**
+     * <p>The updated device name. Required.</p>
+     */
+    inline bool DeviceNameHasBeenSet() const { return m_deviceNameHasBeenSet; }
 
     /**
      * <p>The updated device name. Required.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListTargetsForPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The policy name.</p>
      */
     inline const Aws::String& GetPolicyName() const{ return m_policyName; }
+
+    /**
+     * <p>The policy name.</p>
+     */
+    inline bool PolicyNameHasBeenSet() const { return m_policyNameHasBeenSet; }
 
     /**
      * <p>The policy name.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>A marker used to get the next set of results.</p>
      */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>A marker used to get the next set of results.</p>
+     */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
      * <p>The maximum number of results to return at one time.</p>
      */
     inline int GetPageSize() const{ return m_pageSize; }
+
+    /**
+     * <p>The maximum number of results to return at one time.</p>
+     */
+    inline bool PageSizeHasBeenSet() const { return m_pageSizeHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return at one time.</p>

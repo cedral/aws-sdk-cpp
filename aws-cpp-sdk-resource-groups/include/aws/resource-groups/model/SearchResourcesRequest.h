@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SearchResourcesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,12 @@ namespace Model
      * group definition.</p>
      */
     inline const ResourceQuery& GetResourceQuery() const{ return m_resourceQuery; }
+
+    /**
+     * <p>The search query, using the same formats that are supported for resource
+     * group definition.</p>
+     */
+    inline bool ResourceQueryHasBeenSet() const { return m_resourceQueryHasBeenSet; }
 
     /**
      * <p>The search query, using the same formats that are supported for resource
@@ -86,6 +92,13 @@ namespace Model
      * <code>SearchResources</code> in paginated output. By default, this number is
      * 50.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of group member ARNs returned by
+     * <code>SearchResources</code> in paginated output. By default, this number is
+     * 50.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -102,6 +115,13 @@ namespace Model
      * call again, add the NextToken parameter, and specify the NextToken value.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The NextToken value that is returned in a paginated
+     * <code>SearchResources</code> request. To get the next page of results, run the
+     * call again, add the NextToken parameter, and specify the NextToken value.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The NextToken value that is returned in a paginated

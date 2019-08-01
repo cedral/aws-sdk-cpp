@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateUserDefinedFunctionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * none is supplied, the AWS account ID is used by default.</p>
      */
     inline const Aws::String& GetCatalogId() const{ return m_catalogId; }
+
+    /**
+     * <p>The ID of the Data Catalog where the function to be updated is located. If
+     * none is supplied, the AWS account ID is used by default.</p>
+     */
+    inline bool CatalogIdHasBeenSet() const { return m_catalogIdHasBeenSet; }
 
     /**
      * <p>The ID of the Data Catalog where the function to be updated is located. If
@@ -98,6 +104,12 @@ namespace Model
      * <p>The name of the catalog database where the function to be updated is
      * located.</p>
      */
+    inline bool DatabaseNameHasBeenSet() const { return m_databaseNameHasBeenSet; }
+
+    /**
+     * <p>The name of the catalog database where the function to be updated is
+     * located.</p>
+     */
     inline void SetDatabaseName(const Aws::String& value) { m_databaseNameHasBeenSet = true; m_databaseName = value; }
 
     /**
@@ -139,6 +151,11 @@ namespace Model
     /**
      * <p>The name of the function.</p>
      */
+    inline bool FunctionNameHasBeenSet() const { return m_functionNameHasBeenSet; }
+
+    /**
+     * <p>The name of the function.</p>
+     */
     inline void SetFunctionName(const Aws::String& value) { m_functionNameHasBeenSet = true; m_functionName = value; }
 
     /**
@@ -172,6 +189,12 @@ namespace Model
      * Catalog.</p>
      */
     inline const UserDefinedFunctionInput& GetFunctionInput() const{ return m_functionInput; }
+
+    /**
+     * <p>A <code>FunctionInput</code> object that re-defines the function in the Data
+     * Catalog.</p>
+     */
+    inline bool FunctionInputHasBeenSet() const { return m_functionInputHasBeenSet; }
 
     /**
      * <p>A <code>FunctionInput</code> object that re-defines the function in the Data

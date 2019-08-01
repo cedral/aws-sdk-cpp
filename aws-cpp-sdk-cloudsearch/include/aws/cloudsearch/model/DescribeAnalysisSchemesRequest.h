@@ -42,7 +42,7 @@ namespace Model
   {
   public:
     DescribeAnalysisSchemesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -60,6 +60,11 @@ namespace Model
      * <p>The name of the domain you want to describe.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>The name of the domain you want to describe.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>The name of the domain you want to describe.</p>
@@ -96,6 +101,11 @@ namespace Model
      * <p>The analysis schemes you want to describe.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAnalysisSchemeNames() const{ return m_analysisSchemeNames; }
+
+    /**
+     * <p>The analysis schemes you want to describe.</p>
+     */
+    inline bool AnalysisSchemeNamesHasBeenSet() const { return m_analysisSchemeNamesHasBeenSet; }
 
     /**
      * <p>The analysis schemes you want to describe.</p>
@@ -138,6 +148,12 @@ namespace Model
      * any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
      */
     inline bool GetDeployed() const{ return m_deployed; }
+
+    /**
+     * <p>Whether to display the deployed configuration (<code>true</code>) or include
+     * any pending changes (<code>false</code>). Defaults to <code>false</code>.</p>
+     */
+    inline bool DeployedHasBeenSet() const { return m_deployedHasBeenSet; }
 
     /**
      * <p>Whether to display the deployed configuration (<code>true</code>) or include

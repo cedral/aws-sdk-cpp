@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     RemoveTagsFromOnPremisesInstancesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The tag key-value pairs to remove from the on-premises instances.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tag key-value pairs to remove from the on-premises instances.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tag key-value pairs to remove from the on-premises instances.</p>
@@ -90,6 +95,11 @@ namespace Model
      * <p>The names of the on-premises instances from which to remove tags.</p>
      */
     inline const Aws::Vector<Aws::String>& GetInstanceNames() const{ return m_instanceNames; }
+
+    /**
+     * <p>The names of the on-premises instances from which to remove tags.</p>
+     */
+    inline bool InstanceNamesHasBeenSet() const { return m_instanceNamesHasBeenSet; }
 
     /**
      * <p>The names of the on-premises instances from which to remove tags.</p>

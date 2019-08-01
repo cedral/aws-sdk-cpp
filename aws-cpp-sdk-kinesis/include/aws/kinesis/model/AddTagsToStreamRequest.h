@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     AddTagsToStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the stream.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>The name of the stream.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>The name of the stream.</p>
@@ -89,6 +94,11 @@ namespace Model
      * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A set of up to 10 key-value pairs to use to create the tags.</p>

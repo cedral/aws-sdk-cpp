@@ -17,6 +17,8 @@
 #include <aws/medialive/MediaLive_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/medialive/model/InputClass.h>
+#include <aws/medialive/model/InputSourceType.h>
 #include <aws/medialive/model/InputState.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/medialive/model/InputType.h>
@@ -62,6 +64,11 @@ namespace Model
     /**
      * The Unique ARN of the input (generated, immutable).
      */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * The Unique ARN of the input (generated, immutable).
+     */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
@@ -95,6 +102,12 @@ namespace Model
      * only be attached to one channel).
      */
     inline const Aws::Vector<Aws::String>& GetAttachedChannels() const{ return m_attachedChannels; }
+
+    /**
+     * A list of channel IDs that that input is attached to (currently an input can
+     * only be attached to one channel).
+     */
+    inline bool AttachedChannelsHasBeenSet() const { return m_attachedChannelsHasBeenSet; }
 
     /**
      * A list of channel IDs that that input is attached to (currently an input can
@@ -147,6 +160,11 @@ namespace Model
     /**
      * A list of the destinations of the input (PUSH-type).
      */
+    inline bool DestinationsHasBeenSet() const { return m_destinationsHasBeenSet; }
+
+    /**
+     * A list of the destinations of the input (PUSH-type).
+     */
     inline void SetDestinations(const Aws::Vector<InputDestination>& value) { m_destinationsHasBeenSet = true; m_destinations = value; }
 
     /**
@@ -183,6 +201,11 @@ namespace Model
     /**
      * The generated ID of the input (unique for user account, immutable).
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * The generated ID of the input (unique for user account, immutable).
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -212,9 +235,148 @@ namespace Model
 
 
     /**
+     * STANDARD - MediaLive expects two sources to be connected to this input. If the
+     * channel is also STANDARD, both sources will be ingested. If the channel is
+     * SINGLE_PIPELINE, only the first source will be ingested; the second source will
+     * always be ignored, even if the first source fails.
+SINGLE_PIPELINE - You can
+     * connect only one source to this input. If the ChannelClass is also 
+     * SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this
+     * value is not valid because the channel requires two sources in the input.
+
+     */
+    inline const InputClass& GetInputClass() const{ return m_inputClass; }
+
+    /**
+     * STANDARD - MediaLive expects two sources to be connected to this input. If the
+     * channel is also STANDARD, both sources will be ingested. If the channel is
+     * SINGLE_PIPELINE, only the first source will be ingested; the second source will
+     * always be ignored, even if the first source fails.
+SINGLE_PIPELINE - You can
+     * connect only one source to this input. If the ChannelClass is also 
+     * SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this
+     * value is not valid because the channel requires two sources in the input.
+
+     */
+    inline bool InputClassHasBeenSet() const { return m_inputClassHasBeenSet; }
+
+    /**
+     * STANDARD - MediaLive expects two sources to be connected to this input. If the
+     * channel is also STANDARD, both sources will be ingested. If the channel is
+     * SINGLE_PIPELINE, only the first source will be ingested; the second source will
+     * always be ignored, even if the first source fails.
+SINGLE_PIPELINE - You can
+     * connect only one source to this input. If the ChannelClass is also 
+     * SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this
+     * value is not valid because the channel requires two sources in the input.
+
+     */
+    inline void SetInputClass(const InputClass& value) { m_inputClassHasBeenSet = true; m_inputClass = value; }
+
+    /**
+     * STANDARD - MediaLive expects two sources to be connected to this input. If the
+     * channel is also STANDARD, both sources will be ingested. If the channel is
+     * SINGLE_PIPELINE, only the first source will be ingested; the second source will
+     * always be ignored, even if the first source fails.
+SINGLE_PIPELINE - You can
+     * connect only one source to this input. If the ChannelClass is also 
+     * SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this
+     * value is not valid because the channel requires two sources in the input.
+
+     */
+    inline void SetInputClass(InputClass&& value) { m_inputClassHasBeenSet = true; m_inputClass = std::move(value); }
+
+    /**
+     * STANDARD - MediaLive expects two sources to be connected to this input. If the
+     * channel is also STANDARD, both sources will be ingested. If the channel is
+     * SINGLE_PIPELINE, only the first source will be ingested; the second source will
+     * always be ignored, even if the first source fails.
+SINGLE_PIPELINE - You can
+     * connect only one source to this input. If the ChannelClass is also 
+     * SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this
+     * value is not valid because the channel requires two sources in the input.
+
+     */
+    inline Input& WithInputClass(const InputClass& value) { SetInputClass(value); return *this;}
+
+    /**
+     * STANDARD - MediaLive expects two sources to be connected to this input. If the
+     * channel is also STANDARD, both sources will be ingested. If the channel is
+     * SINGLE_PIPELINE, only the first source will be ingested; the second source will
+     * always be ignored, even if the first source fails.
+SINGLE_PIPELINE - You can
+     * connect only one source to this input. If the ChannelClass is also 
+     * SINGLE_PIPELINE, this value is valid. If the ChannelClass is STANDARD, this
+     * value is not valid because the channel requires two sources in the input.
+
+     */
+    inline Input& WithInputClass(InputClass&& value) { SetInputClass(std::move(value)); return *this;}
+
+
+    /**
+     * Certain pull input sources can be dynamic, meaning that they can have their
+     * URL's dynamically changes
+during input switch actions. Presently, this
+     * functionality only works with MP4_FILE inputs.
+
+     */
+    inline const InputSourceType& GetInputSourceType() const{ return m_inputSourceType; }
+
+    /**
+     * Certain pull input sources can be dynamic, meaning that they can have their
+     * URL's dynamically changes
+during input switch actions. Presently, this
+     * functionality only works with MP4_FILE inputs.
+
+     */
+    inline bool InputSourceTypeHasBeenSet() const { return m_inputSourceTypeHasBeenSet; }
+
+    /**
+     * Certain pull input sources can be dynamic, meaning that they can have their
+     * URL's dynamically changes
+during input switch actions. Presently, this
+     * functionality only works with MP4_FILE inputs.
+
+     */
+    inline void SetInputSourceType(const InputSourceType& value) { m_inputSourceTypeHasBeenSet = true; m_inputSourceType = value; }
+
+    /**
+     * Certain pull input sources can be dynamic, meaning that they can have their
+     * URL's dynamically changes
+during input switch actions. Presently, this
+     * functionality only works with MP4_FILE inputs.
+
+     */
+    inline void SetInputSourceType(InputSourceType&& value) { m_inputSourceTypeHasBeenSet = true; m_inputSourceType = std::move(value); }
+
+    /**
+     * Certain pull input sources can be dynamic, meaning that they can have their
+     * URL's dynamically changes
+during input switch actions. Presently, this
+     * functionality only works with MP4_FILE inputs.
+
+     */
+    inline Input& WithInputSourceType(const InputSourceType& value) { SetInputSourceType(value); return *this;}
+
+    /**
+     * Certain pull input sources can be dynamic, meaning that they can have their
+     * URL's dynamically changes
+during input switch actions. Presently, this
+     * functionality only works with MP4_FILE inputs.
+
+     */
+    inline Input& WithInputSourceType(InputSourceType&& value) { SetInputSourceType(std::move(value)); return *this;}
+
+
+    /**
      * A list of MediaConnect Flows for this input.
      */
     inline const Aws::Vector<MediaConnectFlow>& GetMediaConnectFlows() const{ return m_mediaConnectFlows; }
+
+    /**
+     * A list of MediaConnect Flows for this input.
+     */
+    inline bool MediaConnectFlowsHasBeenSet() const { return m_mediaConnectFlowsHasBeenSet; }
 
     /**
      * A list of MediaConnect Flows for this input.
@@ -255,6 +417,11 @@ namespace Model
     /**
      * The user-assigned name (This is a mutable value).
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * The user-assigned name (This is a mutable value).
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -288,6 +455,12 @@ namespace Model
      * creation.
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * The Amazon Resource Name (ARN) of the role this input assumes during and after
+     * creation.
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * The Amazon Resource Name (ARN) of the role this input assumes during and after
@@ -334,6 +507,11 @@ namespace Model
     /**
      * A list of IDs for all the Input Security Groups attached to the input.
      */
+    inline bool SecurityGroupsHasBeenSet() const { return m_securityGroupsHasBeenSet; }
+
+    /**
+     * A list of IDs for all the Input Security Groups attached to the input.
+     */
     inline void SetSecurityGroups(const Aws::Vector<Aws::String>& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = value; }
 
     /**
@@ -375,6 +553,11 @@ namespace Model
     /**
      * A list of the sources of the input (PULL-type).
      */
+    inline bool SourcesHasBeenSet() const { return m_sourcesHasBeenSet; }
+
+    /**
+     * A list of the sources of the input (PULL-type).
+     */
     inline void SetSources(const Aws::Vector<InputSource>& value) { m_sourcesHasBeenSet = true; m_sources = value; }
 
     /**
@@ -407,6 +590,9 @@ namespace Model
     inline const InputState& GetState() const{ return m_state; }
 
     
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
+
+    
     inline void SetState(const InputState& value) { m_stateHasBeenSet = true; m_state = value; }
 
     
@@ -423,6 +609,11 @@ namespace Model
      * A collection of key-value pairs.
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * A collection of key-value pairs.
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * A collection of key-value pairs.
@@ -484,6 +675,9 @@ namespace Model
     inline const InputType& GetType() const{ return m_type; }
 
     
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
+
+    
     inline void SetType(const InputType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     
@@ -508,6 +702,12 @@ namespace Model
 
     Aws::String m_id;
     bool m_idHasBeenSet;
+
+    InputClass m_inputClass;
+    bool m_inputClassHasBeenSet;
+
+    InputSourceType m_inputSourceType;
+    bool m_inputSourceTypeHasBeenSet;
 
     Aws::Vector<MediaConnectFlow> m_mediaConnectFlows;
     bool m_mediaConnectFlowsHasBeenSet;

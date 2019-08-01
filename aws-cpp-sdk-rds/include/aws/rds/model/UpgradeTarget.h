@@ -58,6 +58,11 @@ namespace Model
     /**
      * <p>The name of the upgrade target database engine.</p>
      */
+    inline bool EngineHasBeenSet() const { return m_engineHasBeenSet; }
+
+    /**
+     * <p>The name of the upgrade target database engine.</p>
+     */
     inline void SetEngine(const Aws::String& value) { m_engineHasBeenSet = true; m_engine = value; }
 
     /**
@@ -90,6 +95,11 @@ namespace Model
      * <p>The version number of the upgrade target database engine.</p>
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
+
+    /**
+     * <p>The version number of the upgrade target database engine.</p>
+     */
+    inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
      * <p>The version number of the upgrade target database engine.</p>
@@ -130,6 +140,11 @@ namespace Model
     /**
      * <p>The version of the database engine that a DB instance can be upgraded to.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The version of the database engine that a DB instance can be upgraded to.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -160,19 +175,25 @@ namespace Model
 
     /**
      * <p>A value that indicates whether the target version is applied to any source DB
-     * instances that have AutoMinorVersionUpgrade set to true.</p>
+     * instances that have <code>AutoMinorVersionUpgrade</code> set to true.</p>
      */
     inline bool GetAutoUpgrade() const{ return m_autoUpgrade; }
 
     /**
      * <p>A value that indicates whether the target version is applied to any source DB
-     * instances that have AutoMinorVersionUpgrade set to true.</p>
+     * instances that have <code>AutoMinorVersionUpgrade</code> set to true.</p>
+     */
+    inline bool AutoUpgradeHasBeenSet() const { return m_autoUpgradeHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether the target version is applied to any source DB
+     * instances that have <code>AutoMinorVersionUpgrade</code> set to true.</p>
      */
     inline void SetAutoUpgrade(bool value) { m_autoUpgradeHasBeenSet = true; m_autoUpgrade = value; }
 
     /**
      * <p>A value that indicates whether the target version is applied to any source DB
-     * instances that have AutoMinorVersionUpgrade set to true.</p>
+     * instances that have <code>AutoMinorVersionUpgrade</code> set to true.</p>
      */
     inline UpgradeTarget& WithAutoUpgrade(bool value) { SetAutoUpgrade(value); return *this;}
 
@@ -182,6 +203,12 @@ namespace Model
      * version.</p>
      */
     inline bool GetIsMajorVersionUpgrade() const{ return m_isMajorVersionUpgrade; }
+
+    /**
+     * <p>A value that indicates whether a database engine is upgraded to a major
+     * version.</p>
+     */
+    inline bool IsMajorVersionUpgradeHasBeenSet() const { return m_isMajorVersionUpgradeHasBeenSet; }
 
     /**
      * <p>A value that indicates whether a database engine is upgraded to a major

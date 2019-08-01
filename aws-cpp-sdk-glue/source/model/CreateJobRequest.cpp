@@ -37,9 +37,14 @@ CreateJobRequest::CreateJobRequest() :
     m_timeoutHasBeenSet(false),
     m_maxCapacity(0.0),
     m_maxCapacityHasBeenSet(false),
-    m_notificationPropertyHasBeenSet(false),
     m_securityConfigurationHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_notificationPropertyHasBeenSet(false),
+    m_glueVersionHasBeenSet(false),
+    m_numberOfWorkers(0),
+    m_numberOfWorkersHasBeenSet(false),
+    m_workerType(WorkerType::NOT_SET),
+    m_workerTypeHasBeenSet(false)
 {
 }
 
@@ -118,12 +123,6 @@ Aws::String CreateJobRequest::SerializePayload() const
 
   }
 
-  if(m_notificationPropertyHasBeenSet)
-  {
-   payload.WithObject("NotificationProperty", m_notificationProperty.Jsonize());
-
-  }
-
   if(m_securityConfigurationHasBeenSet)
   {
    payload.WithString("SecurityConfiguration", m_securityConfiguration);
@@ -139,6 +138,29 @@ Aws::String CreateJobRequest::SerializePayload() const
    }
    payload.WithObject("Tags", std::move(tagsJsonMap));
 
+  }
+
+  if(m_notificationPropertyHasBeenSet)
+  {
+   payload.WithObject("NotificationProperty", m_notificationProperty.Jsonize());
+
+  }
+
+  if(m_glueVersionHasBeenSet)
+  {
+   payload.WithString("GlueVersion", m_glueVersion);
+
+  }
+
+  if(m_numberOfWorkersHasBeenSet)
+  {
+   payload.WithInteger("NumberOfWorkers", m_numberOfWorkers);
+
+  }
+
+  if(m_workerTypeHasBeenSet)
+  {
+   payload.WithString("WorkerType", WorkerTypeMapper::GetNameForWorkerType(m_workerType));
   }
 
   return payload.View().WriteReadable();

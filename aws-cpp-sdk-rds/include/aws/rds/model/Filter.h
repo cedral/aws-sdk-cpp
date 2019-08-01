@@ -40,11 +40,12 @@ namespace Model
    * resources by specific criteria, such as IDs. The filters supported by a describe
    * operation are documented with the describe operation.</p> <note> <p>Currently,
    * wildcards are not supported in filters.</p> </note> <p>The following actions can
-   * be filtered:</p> <ul> <li> <p> <a>DescribeDBClusterBacktracks</a> </p> </li>
-   * <li> <p> <a>DescribeDBClusterEndpoints</a> </p> </li> <li> <p>
-   * <a>DescribeDBClusters</a> </p> </li> <li> <p> <a>DescribeDBInstances</a> </p>
-   * </li> <li> <p> <a>DescribePendingMaintenanceActions</a> </p> </li>
-   * </ul><p><h3>See Also:</h3>   <a
+   * be filtered:</p> <ul> <li> <p> <code>DescribeDBClusterBacktracks</code> </p>
+   * </li> <li> <p> <code>DescribeDBClusterEndpoints</code> </p> </li> <li> <p>
+   * <code>DescribeDBClusters</code> </p> </li> <li> <p>
+   * <code>DescribeDBInstances</code> </p> </li> <li> <p>
+   * <code>DescribePendingMaintenanceActions</code> </p> </li> </ul><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/Filter">AWS API
    * Reference</a></p>
    */
@@ -63,6 +64,11 @@ namespace Model
      * <p>The name of the filter. Filter names are case-sensitive.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the filter. Filter names are case-sensitive.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the filter. Filter names are case-sensitive.</p>
@@ -99,6 +105,11 @@ namespace Model
      * <p>One or more filter values. Filter values are case-sensitive.</p>
      */
     inline const Aws::Vector<Aws::String>& GetValues() const{ return m_values; }
+
+    /**
+     * <p>One or more filter values. Filter values are case-sensitive.</p>
+     */
+    inline bool ValuesHasBeenSet() const { return m_valuesHasBeenSet; }
 
     /**
      * <p>One or more filter values. Filter values are case-sensitive.</p>

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeWorkflowTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the domain in which this workflow type is registered.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The name of the domain in which this workflow type is registered.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The name of the domain in which this workflow type is registered.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The workflow type to describe.</p>
      */
     inline const WorkflowType& GetWorkflowType() const{ return m_workflowType; }
+
+    /**
+     * <p>The workflow type to describe.</p>
+     */
+    inline bool WorkflowTypeHasBeenSet() const { return m_workflowTypeHasBeenSet; }
 
     /**
      * <p>The workflow type to describe.</p>

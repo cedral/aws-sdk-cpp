@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetTagValuesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * that string for this value to request an additional page of data.</p>
      */
     inline const Aws::String& GetPaginationToken() const{ return m_paginationToken; }
+
+    /**
+     * <p>A string that indicates that additional data is available. Leave this value
+     * empty for your initial request. If the response includes a PaginationToken, use
+     * that string for this value to request an additional page of data.</p>
+     */
+    inline bool PaginationTokenHasBeenSet() const { return m_paginationTokenHasBeenSet; }
 
     /**
      * <p>A string that indicates that additional data is available. Leave this value
@@ -99,6 +106,12 @@ namespace Model
      * region for the AWS account.</p>
      */
     inline const Aws::String& GetKey() const{ return m_key; }
+
+    /**
+     * <p>The key for which you want to list all existing values in the specified
+     * region for the AWS account.</p>
+     */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
 
     /**
      * <p>The key for which you want to list all existing values in the specified

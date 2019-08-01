@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     AssociateS3ResourcesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * associate with Macie. </p>
      */
     inline const Aws::String& GetMemberAccountId() const{ return m_memberAccountId; }
+
+    /**
+     * <p>The ID of the Amazon Macie member account whose resources you want to
+     * associate with Macie. </p>
+     */
+    inline bool MemberAccountIdHasBeenSet() const { return m_memberAccountIdHasBeenSet; }
 
     /**
      * <p>The ID of the Amazon Macie member account whose resources you want to
@@ -94,6 +100,12 @@ namespace Model
      * and data classification. </p>
      */
     inline const Aws::Vector<S3ResourceClassification>& GetS3Resources() const{ return m_s3Resources; }
+
+    /**
+     * <p>The S3 resources that you want to associate with Amazon Macie for monitoring
+     * and data classification. </p>
+     */
+    inline bool S3ResourcesHasBeenSet() const { return m_s3ResourcesHasBeenSet; }
 
     /**
      * <p>The S3 resources that you want to associate with Amazon Macie for monitoring

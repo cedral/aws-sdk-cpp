@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetDataEndpointRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,12 @@ namespace Model
      * specify either this parameter or a <code>StreamARN</code> in the request.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>The name of the stream that you want to get the endpoint for. You must
+     * specify either this parameter or a <code>StreamARN</code> in the request.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>The name of the stream that you want to get the endpoint for. You must
@@ -98,6 +104,13 @@ namespace Model
      * endpoint for. You must specify either this parameter or a
      * <code>StreamName</code> in the request. </p>
      */
+    inline bool StreamARNHasBeenSet() const { return m_streamARNHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the stream that you want to get the
+     * endpoint for. You must specify either this parameter or a
+     * <code>StreamName</code> in the request. </p>
+     */
     inline void SetStreamARN(const Aws::String& value) { m_streamARNHasBeenSet = true; m_streamARN = value; }
 
     /**
@@ -140,6 +153,11 @@ namespace Model
      * <p>The name of the API action for which to get an endpoint.</p>
      */
     inline const APIName& GetAPIName() const{ return m_aPIName; }
+
+    /**
+     * <p>The name of the API action for which to get an endpoint.</p>
+     */
+    inline bool APINameHasBeenSet() const { return m_aPINameHasBeenSet; }
 
     /**
      * <p>The name of the API action for which to get an endpoint.</p>

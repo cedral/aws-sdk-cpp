@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     AddTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * of null.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value pairs to use to create tags. If you specify a key without
+     * specifying a value, Amazon ML creates a tag with the specified key and a value
+     * of null.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The key-value pairs to use to create tags. If you specify a key without
@@ -105,6 +112,11 @@ namespace Model
     /**
      * <p>The ID of the ML object to tag. For example, <code>exampleModelId</code>.</p>
      */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the ML object to tag. For example, <code>exampleModelId</code>.</p>
+     */
     inline void SetResourceId(const Aws::String& value) { m_resourceIdHasBeenSet = true; m_resourceId = value; }
 
     /**
@@ -137,6 +149,11 @@ namespace Model
      * <p>The type of the ML object to tag. </p>
      */
     inline const TaggableResourceType& GetResourceType() const{ return m_resourceType; }
+
+    /**
+     * <p>The type of the ML object to tag. </p>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
 
     /**
      * <p>The type of the ML object to tag. </p>

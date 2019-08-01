@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DeleteV2LoggingLevelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * <code>THING_Group</code>.</p>
      */
     inline const LogTargetType& GetTargetType() const{ return m_targetType; }
+
+    /**
+     * <p>The type of resource for which you are configuring logging. Must be
+     * <code>THING_Group</code>.</p>
+     */
+    inline bool TargetTypeHasBeenSet() const { return m_targetTypeHasBeenSet; }
 
     /**
      * <p>The type of resource for which you are configuring logging. Must be
@@ -84,6 +90,11 @@ namespace Model
      * <p>The name of the resource for which you are configuring logging.</p>
      */
     inline const Aws::String& GetTargetName() const{ return m_targetName; }
+
+    /**
+     * <p>The name of the resource for which you are configuring logging.</p>
+     */
+    inline bool TargetNameHasBeenSet() const { return m_targetNameHasBeenSet; }
 
     /**
      * <p>The name of the resource for which you are configuring logging.</p>

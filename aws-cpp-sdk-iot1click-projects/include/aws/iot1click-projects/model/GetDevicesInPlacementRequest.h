@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetDevicesInPlacementRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the project containing the placement.</p>
      */
     inline const Aws::String& GetProjectName() const{ return m_projectName; }
+
+    /**
+     * <p>The name of the project containing the placement.</p>
+     */
+    inline bool ProjectNameHasBeenSet() const { return m_projectNameHasBeenSet; }
 
     /**
      * <p>The name of the project containing the placement.</p>
@@ -82,6 +87,11 @@ namespace Model
      * <p>The name of the placement to get the devices from.</p>
      */
     inline const Aws::String& GetPlacementName() const{ return m_placementName; }
+
+    /**
+     * <p>The name of the placement to get the devices from.</p>
+     */
+    inline bool PlacementNameHasBeenSet() const { return m_placementNameHasBeenSet; }
 
     /**
      * <p>The name of the placement to get the devices from.</p>

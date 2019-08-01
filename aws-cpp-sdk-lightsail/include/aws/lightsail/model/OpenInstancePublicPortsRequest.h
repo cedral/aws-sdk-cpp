@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     OpenInstancePublicPortsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * mappings.</p>
      */
     inline const PortInfo& GetPortInfo() const{ return m_portInfo; }
+
+    /**
+     * <p>An array of key-value pairs containing information about the port
+     * mappings.</p>
+     */
+    inline bool PortInfoHasBeenSet() const { return m_portInfoHasBeenSet; }
 
     /**
      * <p>An array of key-value pairs containing information about the port
@@ -80,6 +86,11 @@ namespace Model
      * <p>The name of the instance for which you want to open the public ports.</p>
      */
     inline const Aws::String& GetInstanceName() const{ return m_instanceName; }
+
+    /**
+     * <p>The name of the instance for which you want to open the public ports.</p>
+     */
+    inline bool InstanceNameHasBeenSet() const { return m_instanceNameHasBeenSet; }
 
     /**
      * <p>The name of the instance for which you want to open the public ports.</p>

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     RegisterThingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,13 @@ namespace Model
      * Provisioning</a> for more information.</p>
      */
     inline const Aws::String& GetTemplateBody() const{ return m_templateBody; }
+
+    /**
+     * <p>The provisioning template. See <a
+     * href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
+     * Provisioning</a> for more information.</p>
+     */
+    inline bool TemplateBodyHasBeenSet() const { return m_templateBodyHasBeenSet; }
 
     /**
      * <p>The provisioning template. See <a
@@ -99,6 +106,13 @@ namespace Model
      * Provisioning</a> for more information.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>The parameters for provisioning a thing. See <a
+     * href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic
+     * Provisioning</a> for more information.</p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>The parameters for provisioning a thing. See <a

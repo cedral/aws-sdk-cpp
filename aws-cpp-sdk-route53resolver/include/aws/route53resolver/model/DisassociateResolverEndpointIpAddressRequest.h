@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DisassociateResolverEndpointIpAddressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * from.</p>
      */
     inline const Aws::String& GetResolverEndpointId() const{ return m_resolverEndpointId; }
+
+    /**
+     * <p>The ID of the resolver endpoint that you want to disassociate an IP address
+     * from.</p>
+     */
+    inline bool ResolverEndpointIdHasBeenSet() const { return m_resolverEndpointIdHasBeenSet; }
 
     /**
      * <p>The ID of the resolver endpoint that you want to disassociate an IP address
@@ -92,6 +98,11 @@ namespace Model
      * <p>The IPv4 address that you want to remove from a resolver endpoint.</p>
      */
     inline const IpAddressUpdate& GetIpAddress() const{ return m_ipAddress; }
+
+    /**
+     * <p>The IPv4 address that you want to remove from a resolver endpoint.</p>
+     */
+    inline bool IpAddressHasBeenSet() const { return m_ipAddressHasBeenSet; }
 
     /**
      * <p>The IPv4 address that you want to remove from a resolver endpoint.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateContainerAgentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * cluster is assumed.</p>
      */
     inline const Aws::String& GetCluster() const{ return m_cluster; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of the cluster that your
+     * container instance is running on. If you do not specify a cluster, the default
+     * cluster is assumed.</p>
+     */
+    inline bool ClusterHasBeenSet() const { return m_clusterHasBeenSet; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that your
@@ -99,6 +106,12 @@ namespace Model
      * which you would like to update the Amazon ECS container agent.</p>
      */
     inline const Aws::String& GetContainerInstance() const{ return m_containerInstance; }
+
+    /**
+     * <p>The container instance ID or full ARN entries for the container instance on
+     * which you would like to update the Amazon ECS container agent.</p>
+     */
+    inline bool ContainerInstanceHasBeenSet() const { return m_containerInstanceHasBeenSet; }
 
     /**
      * <p>The container instance ID or full ARN entries for the container instance on

@@ -95,6 +95,7 @@
 #include <aws/greengrass/model/ListResourceDefinitionsResult.h>
 #include <aws/greengrass/model/ListSubscriptionDefinitionVersionsResult.h>
 #include <aws/greengrass/model/ListSubscriptionDefinitionsResult.h>
+#include <aws/greengrass/model/ListTagsForResourceResult.h>
 #include <aws/greengrass/model/ResetDeploymentsResult.h>
 #include <aws/greengrass/model/StartBulkDeploymentResult.h>
 #include <aws/greengrass/model/StopBulkDeploymentResult.h>
@@ -108,6 +109,7 @@
 #include <aws/greengrass/model/UpdateLoggerDefinitionResult.h>
 #include <aws/greengrass/model/UpdateResourceDefinitionResult.h>
 #include <aws/greengrass/model/UpdateSubscriptionDefinitionResult.h>
+#include <aws/core/NoResult.h>
 #include <aws/core/client/AsyncCallerContext.h>
 #include <aws/core/http/HttpTypes.h>
 #include <future>
@@ -125,7 +127,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -222,9 +223,12 @@ namespace Model
         class ListResourceDefinitionsRequest;
         class ListSubscriptionDefinitionVersionsRequest;
         class ListSubscriptionDefinitionsRequest;
+        class ListTagsForResourceRequest;
         class ResetDeploymentsRequest;
         class StartBulkDeploymentRequest;
         class StopBulkDeploymentRequest;
+        class TagResourceRequest;
+        class UntagResourceRequest;
         class UpdateConnectivityInfoRequest;
         class UpdateConnectorDefinitionRequest;
         class UpdateCoreDefinitionRequest;
@@ -310,9 +314,12 @@ namespace Model
         typedef Aws::Utils::Outcome<ListResourceDefinitionsResult, Aws::Client::AWSError<GreengrassErrors>> ListResourceDefinitionsOutcome;
         typedef Aws::Utils::Outcome<ListSubscriptionDefinitionVersionsResult, Aws::Client::AWSError<GreengrassErrors>> ListSubscriptionDefinitionVersionsOutcome;
         typedef Aws::Utils::Outcome<ListSubscriptionDefinitionsResult, Aws::Client::AWSError<GreengrassErrors>> ListSubscriptionDefinitionsOutcome;
+        typedef Aws::Utils::Outcome<ListTagsForResourceResult, Aws::Client::AWSError<GreengrassErrors>> ListTagsForResourceOutcome;
         typedef Aws::Utils::Outcome<ResetDeploymentsResult, Aws::Client::AWSError<GreengrassErrors>> ResetDeploymentsOutcome;
         typedef Aws::Utils::Outcome<StartBulkDeploymentResult, Aws::Client::AWSError<GreengrassErrors>> StartBulkDeploymentOutcome;
         typedef Aws::Utils::Outcome<StopBulkDeploymentResult, Aws::Client::AWSError<GreengrassErrors>> StopBulkDeploymentOutcome;
+        typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<GreengrassErrors>> TagResourceOutcome;
+        typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<GreengrassErrors>> UntagResourceOutcome;
         typedef Aws::Utils::Outcome<UpdateConnectivityInfoResult, Aws::Client::AWSError<GreengrassErrors>> UpdateConnectivityInfoOutcome;
         typedef Aws::Utils::Outcome<UpdateConnectorDefinitionResult, Aws::Client::AWSError<GreengrassErrors>> UpdateConnectorDefinitionOutcome;
         typedef Aws::Utils::Outcome<UpdateCoreDefinitionResult, Aws::Client::AWSError<GreengrassErrors>> UpdateCoreDefinitionOutcome;
@@ -398,9 +405,12 @@ namespace Model
         typedef std::future<ListResourceDefinitionsOutcome> ListResourceDefinitionsOutcomeCallable;
         typedef std::future<ListSubscriptionDefinitionVersionsOutcome> ListSubscriptionDefinitionVersionsOutcomeCallable;
         typedef std::future<ListSubscriptionDefinitionsOutcome> ListSubscriptionDefinitionsOutcomeCallable;
+        typedef std::future<ListTagsForResourceOutcome> ListTagsForResourceOutcomeCallable;
         typedef std::future<ResetDeploymentsOutcome> ResetDeploymentsOutcomeCallable;
         typedef std::future<StartBulkDeploymentOutcome> StartBulkDeploymentOutcomeCallable;
         typedef std::future<StopBulkDeploymentOutcome> StopBulkDeploymentOutcomeCallable;
+        typedef std::future<TagResourceOutcome> TagResourceOutcomeCallable;
+        typedef std::future<UntagResourceOutcome> UntagResourceOutcomeCallable;
         typedef std::future<UpdateConnectivityInfoOutcome> UpdateConnectivityInfoOutcomeCallable;
         typedef std::future<UpdateConnectorDefinitionOutcome> UpdateConnectorDefinitionOutcomeCallable;
         typedef std::future<UpdateCoreDefinitionOutcome> UpdateCoreDefinitionOutcomeCallable;
@@ -489,9 +499,12 @@ namespace Model
     typedef std::function<void(const GreengrassClient*, const Model::ListResourceDefinitionsRequest&, const Model::ListResourceDefinitionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListResourceDefinitionsResponseReceivedHandler;
     typedef std::function<void(const GreengrassClient*, const Model::ListSubscriptionDefinitionVersionsRequest&, const Model::ListSubscriptionDefinitionVersionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListSubscriptionDefinitionVersionsResponseReceivedHandler;
     typedef std::function<void(const GreengrassClient*, const Model::ListSubscriptionDefinitionsRequest&, const Model::ListSubscriptionDefinitionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListSubscriptionDefinitionsResponseReceivedHandler;
+    typedef std::function<void(const GreengrassClient*, const Model::ListTagsForResourceRequest&, const Model::ListTagsForResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListTagsForResourceResponseReceivedHandler;
     typedef std::function<void(const GreengrassClient*, const Model::ResetDeploymentsRequest&, const Model::ResetDeploymentsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ResetDeploymentsResponseReceivedHandler;
     typedef std::function<void(const GreengrassClient*, const Model::StartBulkDeploymentRequest&, const Model::StartBulkDeploymentOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartBulkDeploymentResponseReceivedHandler;
     typedef std::function<void(const GreengrassClient*, const Model::StopBulkDeploymentRequest&, const Model::StopBulkDeploymentOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopBulkDeploymentResponseReceivedHandler;
+    typedef std::function<void(const GreengrassClient*, const Model::TagResourceRequest&, const Model::TagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > TagResourceResponseReceivedHandler;
+    typedef std::function<void(const GreengrassClient*, const Model::UntagResourceRequest&, const Model::UntagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UntagResourceResponseReceivedHandler;
     typedef std::function<void(const GreengrassClient*, const Model::UpdateConnectivityInfoRequest&, const Model::UpdateConnectivityInfoOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateConnectivityInfoResponseReceivedHandler;
     typedef std::function<void(const GreengrassClient*, const Model::UpdateConnectorDefinitionRequest&, const Model::UpdateConnectorDefinitionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateConnectorDefinitionResponseReceivedHandler;
     typedef std::function<void(const GreengrassClient*, const Model::UpdateCoreDefinitionRequest&, const Model::UpdateCoreDefinitionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateCoreDefinitionResponseReceivedHandler;
@@ -2577,6 +2590,31 @@ namespace Model
         virtual void ListSubscriptionDefinitionsAsync(const Model::ListSubscriptionDefinitionsRequest& request, const ListSubscriptionDefinitionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * Retrieves a list of resource tags for a resource arn.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/ListTagsForResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ListTagsForResourceOutcome ListTagsForResource(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * Retrieves a list of resource tags for a resource arn.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/ListTagsForResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListTagsForResourceOutcomeCallable ListTagsForResourceCallable(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * Retrieves a list of resource tags for a resource arn.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/ListTagsForResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListTagsForResourceAsync(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * Resets a group's deployments.<p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/ResetDeployments">AWS
          * API Reference</a></p>
@@ -2677,6 +2715,62 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void StopBulkDeploymentAsync(const Model::StopBulkDeploymentRequest& request, const StopBulkDeploymentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * Add resource tags to a Greengrass Resource. Valid resources are Group,
+         * Connector, Core, Device, Function, Logger, Subscription, and Resource
+         * Defintions, and also BulkDeploymentIds.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/TagResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::TagResourceOutcome TagResource(const Model::TagResourceRequest& request) const;
+
+        /**
+         * Add resource tags to a Greengrass Resource. Valid resources are Group,
+         * Connector, Core, Device, Function, Logger, Subscription, and Resource
+         * Defintions, and also BulkDeploymentIds.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/TagResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::TagResourceOutcomeCallable TagResourceCallable(const Model::TagResourceRequest& request) const;
+
+        /**
+         * Add resource tags to a Greengrass Resource. Valid resources are Group,
+         * Connector, Core, Device, Function, Logger, Subscription, and Resource
+         * Defintions, and also BulkDeploymentIds.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/TagResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void TagResourceAsync(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * Remove resource tags from a Greengrass Resource.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/UntagResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UntagResourceOutcome UntagResource(const Model::UntagResourceRequest& request) const;
+
+        /**
+         * Remove resource tags from a Greengrass Resource.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/UntagResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UntagResourceOutcomeCallable UntagResourceCallable(const Model::UntagResourceRequest& request) const;
+
+        /**
+         * Remove resource tags from a Greengrass Resource.<p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/greengrass-2017-06-07/UntagResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UntagResourceAsync(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * Updates the connectivity information for the core. Any devices that belong to
@@ -2934,11 +3028,10 @@ namespace Model
          */
         virtual void UpdateSubscriptionDefinitionAsync(const Model::UpdateSubscriptionDefinitionRequest& request, const UpdateSubscriptionDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void AssociateRoleToGroupAsyncHelper(const Model::AssociateRoleToGroupRequest& request, const AssociateRoleToGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AssociateServiceRoleToAccountAsyncHelper(const Model::AssociateServiceRoleToAccountRequest& request, const AssociateServiceRoleToAccountResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateConnectorDefinitionAsyncHelper(const Model::CreateConnectorDefinitionRequest& request, const CreateConnectorDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -3013,9 +3106,12 @@ namespace Model
         void ListResourceDefinitionsAsyncHelper(const Model::ListResourceDefinitionsRequest& request, const ListResourceDefinitionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListSubscriptionDefinitionVersionsAsyncHelper(const Model::ListSubscriptionDefinitionVersionsRequest& request, const ListSubscriptionDefinitionVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListSubscriptionDefinitionsAsyncHelper(const Model::ListSubscriptionDefinitionsRequest& request, const ListSubscriptionDefinitionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListTagsForResourceAsyncHelper(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ResetDeploymentsAsyncHelper(const Model::ResetDeploymentsRequest& request, const ResetDeploymentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartBulkDeploymentAsyncHelper(const Model::StartBulkDeploymentRequest& request, const StartBulkDeploymentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopBulkDeploymentAsyncHelper(const Model::StopBulkDeploymentRequest& request, const StopBulkDeploymentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void TagResourceAsyncHelper(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UntagResourceAsyncHelper(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateConnectivityInfoAsyncHelper(const Model::UpdateConnectivityInfoRequest& request, const UpdateConnectivityInfoResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateConnectorDefinitionAsyncHelper(const Model::UpdateConnectorDefinitionRequest& request, const UpdateConnectorDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateCoreDefinitionAsyncHelper(const Model::UpdateCoreDefinitionRequest& request, const UpdateCoreDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

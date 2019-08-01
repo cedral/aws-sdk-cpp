@@ -28,8 +28,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a StartPipelineExecution action.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Represents the input of a <code>StartPipelineExecution</code>
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/StartPipelineExecutionInput">AWS
    * API Reference</a></p>
    */
@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     StartPipelineExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the pipeline to start.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the pipeline to start.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the pipeline to start.</p>
@@ -90,6 +95,12 @@ namespace Model
      * request.</p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>The system-generated unique ID used to identify a unique execution
+     * request.</p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>The system-generated unique ID used to identify a unique execution

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     SignalWorkflowExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the domain containing the workflow execution to signal.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The name of the domain containing the workflow execution to signal.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The name of the domain containing the workflow execution to signal.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The workflowId of the workflow execution to signal.</p>
      */
+    inline bool WorkflowIdHasBeenSet() const { return m_workflowIdHasBeenSet; }
+
+    /**
+     * <p>The workflowId of the workflow execution to signal.</p>
+     */
     inline void SetWorkflowId(const Aws::String& value) { m_workflowIdHasBeenSet = true; m_workflowId = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The runId of the workflow execution to signal.</p>
      */
     inline const Aws::String& GetRunId() const{ return m_runId; }
+
+    /**
+     * <p>The runId of the workflow execution to signal.</p>
+     */
+    inline bool RunIdHasBeenSet() const { return m_runIdHasBeenSet; }
 
     /**
      * <p>The runId of the workflow execution to signal.</p>
@@ -157,6 +172,12 @@ namespace Model
      * workflow.</p>
      */
     inline const Aws::String& GetSignalName() const{ return m_signalName; }
+
+    /**
+     * <p>The name of the signal. This name must be meaningful to the target
+     * workflow.</p>
+     */
+    inline bool SignalNameHasBeenSet() const { return m_signalNameHasBeenSet; }
 
     /**
      * <p>The name of the signal. This name must be meaningful to the target
@@ -200,6 +221,12 @@ namespace Model
      * target workflow execution's history.</p>
      */
     inline const Aws::String& GetInput() const{ return m_input; }
+
+    /**
+     * <p>Data to attach to the <code>WorkflowExecutionSignaled</code> event in the
+     * target workflow execution's history.</p>
+     */
+    inline bool InputHasBeenSet() const { return m_inputHasBeenSet; }
 
     /**
      * <p>Data to attach to the <code>WorkflowExecutionSignaled</code> event in the

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteSimulationApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The application information for the simulation application to delete.</p>
      */
     inline const Aws::String& GetApplication() const{ return m_application; }
+
+    /**
+     * <p>The application information for the simulation application to delete.</p>
+     */
+    inline bool ApplicationHasBeenSet() const { return m_applicationHasBeenSet; }
 
     /**
      * <p>The application information for the simulation application to delete.</p>
@@ -82,6 +87,11 @@ namespace Model
      * <p>The version of the simulation application to delete.</p>
      */
     inline const Aws::String& GetApplicationVersion() const{ return m_applicationVersion; }
+
+    /**
+     * <p>The version of the simulation application to delete.</p>
+     */
+    inline bool ApplicationVersionHasBeenSet() const { return m_applicationVersionHasBeenSet; }
 
     /**
      * <p>The version of the simulation application to delete.</p>

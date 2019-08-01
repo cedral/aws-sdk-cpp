@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutRetentionPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the log group.</p>
      */
     inline const Aws::String& GetLogGroupName() const{ return m_logGroupName; }
+
+    /**
+     * <p>The name of the log group.</p>
+     */
+    inline bool LogGroupNameHasBeenSet() const { return m_logGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the log group.</p>
@@ -82,6 +87,9 @@ namespace Model
 
     
     inline int GetRetentionInDays() const{ return m_retentionInDays; }
+
+    
+    inline bool RetentionInDaysHasBeenSet() const { return m_retentionInDaysHasBeenSet; }
 
     
     inline void SetRetentionInDays(int value) { m_retentionInDaysHasBeenSet = true; m_retentionInDays = value; }

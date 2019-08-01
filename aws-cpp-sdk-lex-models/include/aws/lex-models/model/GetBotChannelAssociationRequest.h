@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetBotChannelAssociationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * sensitive. </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the association between the bot and the channel. The name is case
+     * sensitive. </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the association between the bot and the channel. The name is case
@@ -93,6 +99,11 @@ namespace Model
     /**
      * <p>The name of the Amazon Lex bot.</p>
      */
+    inline bool BotNameHasBeenSet() const { return m_botNameHasBeenSet; }
+
+    /**
+     * <p>The name of the Amazon Lex bot.</p>
+     */
     inline void SetBotName(const Aws::String& value) { m_botNameHasBeenSet = true; m_botName = value; }
 
     /**
@@ -126,6 +137,12 @@ namespace Model
      * association is being made.</p>
      */
     inline const Aws::String& GetBotAlias() const{ return m_botAlias; }
+
+    /**
+     * <p>An alias pointing to the specific version of the Amazon Lex bot to which this
+     * association is being made.</p>
+     */
+    inline bool BotAliasHasBeenSet() const { return m_botAliasHasBeenSet; }
 
     /**
      * <p>An alias pointing to the specific version of the Amazon Lex bot to which this

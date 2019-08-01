@@ -59,6 +59,11 @@ namespace Model
     /**
      * <p>The name of the availability zone.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the availability zone.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -87,25 +92,44 @@ namespace Model
     inline AvailabilityZone& WithName(const char* value) { SetName(value); return *this;}
 
 
-    
+    /**
+     * <p/>
+     */
     inline const Aws::Vector<SupportedPlatform>& GetSupportedPlatforms() const{ return m_supportedPlatforms; }
 
-    
+    /**
+     * <p/>
+     */
+    inline bool SupportedPlatformsHasBeenSet() const { return m_supportedPlatformsHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetSupportedPlatforms(const Aws::Vector<SupportedPlatform>& value) { m_supportedPlatformsHasBeenSet = true; m_supportedPlatforms = value; }
 
-    
+    /**
+     * <p/>
+     */
     inline void SetSupportedPlatforms(Aws::Vector<SupportedPlatform>&& value) { m_supportedPlatformsHasBeenSet = true; m_supportedPlatforms = std::move(value); }
 
-    
+    /**
+     * <p/>
+     */
     inline AvailabilityZone& WithSupportedPlatforms(const Aws::Vector<SupportedPlatform>& value) { SetSupportedPlatforms(value); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline AvailabilityZone& WithSupportedPlatforms(Aws::Vector<SupportedPlatform>&& value) { SetSupportedPlatforms(std::move(value)); return *this;}
 
-    
+    /**
+     * <p/>
+     */
     inline AvailabilityZone& AddSupportedPlatforms(const SupportedPlatform& value) { m_supportedPlatformsHasBeenSet = true; m_supportedPlatforms.push_back(value); return *this; }
 
-    
+    /**
+     * <p/>
+     */
     inline AvailabilityZone& AddSupportedPlatforms(SupportedPlatform&& value) { m_supportedPlatformsHasBeenSet = true; m_supportedPlatforms.push_back(std::move(value)); return *this; }
 
   private:

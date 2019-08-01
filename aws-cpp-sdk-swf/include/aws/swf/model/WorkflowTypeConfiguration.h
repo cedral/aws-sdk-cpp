@@ -75,6 +75,20 @@ namespace Model
      * specified in seconds, an integer greater than or equal to <code>0</code>. You
      * can use <code>NONE</code> to specify unlimited duration.</p>
      */
+    inline bool DefaultTaskStartToCloseTimeoutHasBeenSet() const { return m_defaultTaskStartToCloseTimeoutHasBeenSet; }
+
+    /**
+     * <p> The default maximum duration, specified when registering the workflow type,
+     * that a decision task for executions of this workflow type might take before
+     * returning completion or failure. If the task doesn'tdo close in the specified
+     * time then the task is automatically timed out and rescheduled. If the decider
+     * eventually reports a completion or failure, it is ignored. This default can be
+     * overridden when starting a workflow execution using the
+     * <a>StartWorkflowExecution</a> action or the
+     * <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p> <p>The duration is
+     * specified in seconds, an integer greater than or equal to <code>0</code>. You
+     * can use <code>NONE</code> to specify unlimited duration.</p>
+     */
     inline void SetDefaultTaskStartToCloseTimeout(const Aws::String& value) { m_defaultTaskStartToCloseTimeoutHasBeenSet = true; m_defaultTaskStartToCloseTimeout = value; }
 
     /**
@@ -166,6 +180,16 @@ namespace Model
      * duration is specified in seconds, an integer greater than or equal to
      * <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
      */
+    inline bool DefaultExecutionStartToCloseTimeoutHasBeenSet() const { return m_defaultExecutionStartToCloseTimeoutHasBeenSet; }
+
+    /**
+     * <p> The default maximum duration, specified when registering the workflow type,
+     * for executions of this workflow type. This default can be overridden when
+     * starting a workflow execution using the <a>StartWorkflowExecution</a> action or
+     * the <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p> <p>The
+     * duration is specified in seconds, an integer greater than or equal to
+     * <code>0</code>. You can use <code>NONE</code> to specify unlimited duration.</p>
+     */
     inline void SetDefaultExecutionStartToCloseTimeout(const Aws::String& value) { m_defaultExecutionStartToCloseTimeoutHasBeenSet = true; m_defaultExecutionStartToCloseTimeout = value; }
 
     /**
@@ -235,6 +259,15 @@ namespace Model
      * <a>StartWorkflowExecution</a> action or the
      * <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p>
      */
+    inline bool DefaultTaskListHasBeenSet() const { return m_defaultTaskListHasBeenSet; }
+
+    /**
+     * <p> The default task list, specified when registering the workflow type, for
+     * decisions tasks scheduled for workflow executions of this type. This default can
+     * be overridden when starting a workflow execution using the
+     * <a>StartWorkflowExecution</a> action or the
+     * <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p>
+     */
     inline void SetDefaultTaskList(const TaskList& value) { m_defaultTaskListHasBeenSet = true; m_defaultTaskList = value; }
 
     /**
@@ -273,7 +306,7 @@ namespace Model
      * integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to
      * <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher
      * priority.</p> <p>For more information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline const Aws::String& GetDefaultTaskPriority() const{ return m_defaultTaskPriority; }
@@ -286,7 +319,20 @@ namespace Model
      * integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to
      * <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher
      * priority.</p> <p>For more information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
+     */
+    inline bool DefaultTaskPriorityHasBeenSet() const { return m_defaultTaskPriorityHasBeenSet; }
+
+    /**
+     * <p> The default task priority, specified when registering the workflow type, for
+     * all decision tasks of this workflow type. This default can be overridden when
+     * starting a workflow execution using the <a>StartWorkflowExecution</a> action or
+     * the <code>StartChildWorkflowExecution</code> decision.</p> <p>Valid values are
+     * integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to
+     * <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher
+     * priority.</p> <p>For more information about setting task priority, see <a
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline void SetDefaultTaskPriority(const Aws::String& value) { m_defaultTaskPriorityHasBeenSet = true; m_defaultTaskPriority = value; }
@@ -299,7 +345,7 @@ namespace Model
      * integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to
      * <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher
      * priority.</p> <p>For more information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline void SetDefaultTaskPriority(Aws::String&& value) { m_defaultTaskPriorityHasBeenSet = true; m_defaultTaskPriority = std::move(value); }
@@ -312,7 +358,7 @@ namespace Model
      * integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to
      * <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher
      * priority.</p> <p>For more information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline void SetDefaultTaskPriority(const char* value) { m_defaultTaskPriorityHasBeenSet = true; m_defaultTaskPriority.assign(value); }
@@ -325,7 +371,7 @@ namespace Model
      * integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to
      * <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher
      * priority.</p> <p>For more information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline WorkflowTypeConfiguration& WithDefaultTaskPriority(const Aws::String& value) { SetDefaultTaskPriority(value); return *this;}
@@ -338,7 +384,7 @@ namespace Model
      * integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to
      * <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher
      * priority.</p> <p>For more information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline WorkflowTypeConfiguration& WithDefaultTaskPriority(Aws::String&& value) { SetDefaultTaskPriority(std::move(value)); return *this;}
@@ -351,7 +397,7 @@ namespace Model
      * integers that range from Java's <code>Integer.MIN_VALUE</code> (-2147483648) to
      * <code>Integer.MAX_VALUE</code> (2147483647). Higher numbers indicate higher
      * priority.</p> <p>For more information about setting task priority, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html">Setting
      * Task Priority</a> in the <i>Amazon SWF Developer Guide</i>.</p>
      */
     inline WorkflowTypeConfiguration& WithDefaultTaskPriority(const char* value) { SetDefaultTaskPriority(value); return *this;}
@@ -373,6 +419,23 @@ namespace Model
      * The child executions continue to run.</p> </li> </ul>
      */
     inline const ChildPolicy& GetDefaultChildPolicy() const{ return m_defaultChildPolicy; }
+
+    /**
+     * <p> The default policy to use for the child workflow executions when a workflow
+     * execution of this type is terminated, by calling the
+     * <a>TerminateWorkflowExecution</a> action explicitly or due to an expired
+     * timeout. This default can be overridden when starting a workflow execution using
+     * the <a>StartWorkflowExecution</a> action or the
+     * <code>StartChildWorkflowExecution</code> <a>Decision</a>.</p> <p>The supported
+     * child policies are:</p> <ul> <li> <p> <code>TERMINATE</code> – The child
+     * executions are terminated.</p> </li> <li> <p> <code>REQUEST_CANCEL</code> – A
+     * request to cancel is attempted for each child execution by recording a
+     * <code>WorkflowExecutionCancelRequested</code> event in its history. It is up to
+     * the decider to take appropriate actions when it receives an execution history
+     * with this event.</p> </li> <li> <p> <code>ABANDON</code> – No action is taken.
+     * The child executions continue to run.</p> </li> </ul>
+     */
+    inline bool DefaultChildPolicyHasBeenSet() const { return m_defaultChildPolicyHasBeenSet; }
 
     /**
      * <p> The default policy to use for the child workflow executions when a workflow
@@ -448,7 +511,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when starting this workflow type, the default Lambda role is
      * attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline const Aws::String& GetDefaultLambdaRole() const{ return m_defaultLambdaRole; }
@@ -458,7 +521,17 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when starting this workflow type, the default Lambda role is
      * attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
+     */
+    inline bool DefaultLambdaRoleHasBeenSet() const { return m_defaultLambdaRoleHasBeenSet; }
+
+    /**
+     * <p>The default IAM role attached to this workflow type.</p> <note> <p>Executions
+     * of this workflow type need IAM roles to invoke Lambda functions. If you don't
+     * specify an IAM role when starting this workflow type, the default Lambda role is
+     * attached to the execution. For more information, see <a
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline void SetDefaultLambdaRole(const Aws::String& value) { m_defaultLambdaRoleHasBeenSet = true; m_defaultLambdaRole = value; }
@@ -468,7 +541,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when starting this workflow type, the default Lambda role is
      * attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline void SetDefaultLambdaRole(Aws::String&& value) { m_defaultLambdaRoleHasBeenSet = true; m_defaultLambdaRole = std::move(value); }
@@ -478,7 +551,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when starting this workflow type, the default Lambda role is
      * attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline void SetDefaultLambdaRole(const char* value) { m_defaultLambdaRoleHasBeenSet = true; m_defaultLambdaRole.assign(value); }
@@ -488,7 +561,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when starting this workflow type, the default Lambda role is
      * attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline WorkflowTypeConfiguration& WithDefaultLambdaRole(const Aws::String& value) { SetDefaultLambdaRole(value); return *this;}
@@ -498,7 +571,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when starting this workflow type, the default Lambda role is
      * attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline WorkflowTypeConfiguration& WithDefaultLambdaRole(Aws::String&& value) { SetDefaultLambdaRole(std::move(value)); return *this;}
@@ -508,7 +581,7 @@ namespace Model
      * of this workflow type need IAM roles to invoke Lambda functions. If you don't
      * specify an IAM role when starting this workflow type, the default Lambda role is
      * attached to the execution. For more information, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html</a>
      * in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline WorkflowTypeConfiguration& WithDefaultLambdaRole(const char* value) { SetDefaultLambdaRole(value); return *this;}

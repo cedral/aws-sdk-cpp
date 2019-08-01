@@ -35,9 +35,9 @@ namespace Model
 
   /**
    * <p> This data type is used as a response element in the
-   * <a>DescribeReservedDBInstances</a> and
-   * <a>DescribeReservedDBInstancesOfferings</a> actions. </p><p><h3>See Also:</h3>  
-   * <a
+   * <code>DescribeReservedDBInstances</code> and
+   * <code>DescribeReservedDBInstancesOfferings</code> actions. </p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RecurringCharge">AWS
    * API Reference</a></p>
    */
@@ -60,6 +60,11 @@ namespace Model
     /**
      * <p>The amount of the recurring charge.</p>
      */
+    inline bool RecurringChargeAmountHasBeenSet() const { return m_recurringChargeAmountHasBeenSet; }
+
+    /**
+     * <p>The amount of the recurring charge.</p>
+     */
     inline void SetRecurringChargeAmount(double value) { m_recurringChargeAmountHasBeenSet = true; m_recurringChargeAmount = value; }
 
     /**
@@ -72,6 +77,11 @@ namespace Model
      * <p>The frequency of the recurring charge.</p>
      */
     inline const Aws::String& GetRecurringChargeFrequency() const{ return m_recurringChargeFrequency; }
+
+    /**
+     * <p>The frequency of the recurring charge.</p>
+     */
+    inline bool RecurringChargeFrequencyHasBeenSet() const { return m_recurringChargeFrequencyHasBeenSet; }
 
     /**
      * <p>The frequency of the recurring charge.</p>

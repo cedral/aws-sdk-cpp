@@ -39,7 +39,10 @@ OrderableReplicationInstance::OrderableReplicationInstance() :
     m_defaultAllocatedStorage(0),
     m_defaultAllocatedStorageHasBeenSet(false),
     m_includedAllocatedStorage(0),
-    m_includedAllocatedStorageHasBeenSet(false)
+    m_includedAllocatedStorageHasBeenSet(false),
+    m_availabilityZonesHasBeenSet(false),
+    m_releaseStatus(ReleaseStatusValues::NOT_SET),
+    m_releaseStatusHasBeenSet(false)
 {
 }
 
@@ -54,7 +57,10 @@ OrderableReplicationInstance::OrderableReplicationInstance(JsonView jsonValue) :
     m_defaultAllocatedStorage(0),
     m_defaultAllocatedStorageHasBeenSet(false),
     m_includedAllocatedStorage(0),
-    m_includedAllocatedStorageHasBeenSet(false)
+    m_includedAllocatedStorageHasBeenSet(false),
+    m_availabilityZonesHasBeenSet(false),
+    m_releaseStatus(ReleaseStatusValues::NOT_SET),
+    m_releaseStatusHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -110,6 +116,23 @@ OrderableReplicationInstance& OrderableReplicationInstance::operator =(JsonView 
     m_includedAllocatedStorageHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("AvailabilityZones"))
+  {
+    Array<JsonView> availabilityZonesJsonList = jsonValue.GetArray("AvailabilityZones");
+    for(unsigned availabilityZonesIndex = 0; availabilityZonesIndex < availabilityZonesJsonList.GetLength(); ++availabilityZonesIndex)
+    {
+      m_availabilityZones.push_back(availabilityZonesJsonList[availabilityZonesIndex].AsString());
+    }
+    m_availabilityZonesHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("ReleaseStatus"))
+  {
+    m_releaseStatus = ReleaseStatusValuesMapper::GetReleaseStatusValuesForName(jsonValue.GetString("ReleaseStatus"));
+
+    m_releaseStatusHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -157,6 +180,22 @@ JsonValue OrderableReplicationInstance::Jsonize() const
   {
    payload.WithInteger("IncludedAllocatedStorage", m_includedAllocatedStorage);
 
+  }
+
+  if(m_availabilityZonesHasBeenSet)
+  {
+   Array<JsonValue> availabilityZonesJsonList(m_availabilityZones.size());
+   for(unsigned availabilityZonesIndex = 0; availabilityZonesIndex < availabilityZonesJsonList.GetLength(); ++availabilityZonesIndex)
+   {
+     availabilityZonesJsonList[availabilityZonesIndex].AsString(m_availabilityZones[availabilityZonesIndex]);
+   }
+   payload.WithArray("AvailabilityZones", std::move(availabilityZonesJsonList));
+
+  }
+
+  if(m_releaseStatusHasBeenSet)
+  {
+   payload.WithString("ReleaseStatus", ReleaseStatusValuesMapper::GetNameForReleaseStatusValues(m_releaseStatus));
   }
 
   return payload;

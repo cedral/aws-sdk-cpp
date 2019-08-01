@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeDestinationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * applied.</p>
      */
     inline const Aws::String& GetDestinationNamePrefix() const{ return m_destinationNamePrefix; }
+
+    /**
+     * <p>The prefix to match. If you don't specify a value, no prefix filter is
+     * applied.</p>
+     */
+    inline bool DestinationNamePrefixHasBeenSet() const { return m_destinationNamePrefixHasBeenSet; }
 
     /**
      * <p>The prefix to match. If you don't specify a value, no prefix filter is
@@ -97,6 +103,12 @@ namespace Model
      * <p>The token for the next set of items to return. (You received this token from
      * a previous call.)</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -135,6 +147,12 @@ namespace Model
      * default is up to 50 items.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of items returned. If you don't specify a value, the
+     * default is up to 50 items.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of items returned. If you don't specify a value, the

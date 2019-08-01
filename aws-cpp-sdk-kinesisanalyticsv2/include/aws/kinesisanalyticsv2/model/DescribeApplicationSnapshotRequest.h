@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeApplicationSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of an existing application.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of an existing application.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of an existing application.</p>
@@ -85,6 +90,12 @@ namespace Model
      * .</p>
      */
     inline const Aws::String& GetSnapshotName() const{ return m_snapshotName; }
+
+    /**
+     * <p>The identifier of an application snapshot. You can retrieve this value using
+     * .</p>
+     */
+    inline bool SnapshotNameHasBeenSet() const { return m_snapshotNameHasBeenSet; }
 
     /**
      * <p>The identifier of an application snapshot. You can retrieve this value using

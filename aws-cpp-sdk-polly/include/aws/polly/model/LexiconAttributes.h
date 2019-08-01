@@ -38,7 +38,7 @@ namespace Model
   /**
    * <p>Contains metadata describing the lexicon such as the number of lexemes,
    * language code, and so on. For more information, see <a
-   * href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
+   * href="https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing
    * Lexicons</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/polly-2016-06-10/LexiconAttributes">AWS
    * API Reference</a></p>
@@ -57,6 +57,12 @@ namespace Model
      * <code>x-sampa</code>.</p>
      */
     inline const Aws::String& GetAlphabet() const{ return m_alphabet; }
+
+    /**
+     * <p>Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and
+     * <code>x-sampa</code>.</p>
+     */
+    inline bool AlphabetHasBeenSet() const { return m_alphabetHasBeenSet; }
 
     /**
      * <p>Phonetic alphabet used in the lexicon. Valid values are <code>ipa</code> and
@@ -107,6 +113,13 @@ namespace Model
      * such as "en" would be applied to all English languages (en-GB, en-US, en-AUS,
      * en-WLS, and so on.</p>
      */
+    inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
+
+    /**
+     * <p>Language code that the lexicon applies to. A lexicon with a language code
+     * such as "en" would be applied to all English languages (en-GB, en-US, en-AUS,
+     * en-WLS, and so on.</p>
+     */
     inline void SetLanguageCode(const LanguageCode& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
 
     /**
@@ -139,6 +152,11 @@ namespace Model
     /**
      * <p>Date lexicon was last modified (a timestamp value).</p>
      */
+    inline bool LastModifiedHasBeenSet() const { return m_lastModifiedHasBeenSet; }
+
+    /**
+     * <p>Date lexicon was last modified (a timestamp value).</p>
+     */
     inline void SetLastModified(const Aws::Utils::DateTime& value) { m_lastModifiedHasBeenSet = true; m_lastModified = value; }
 
     /**
@@ -161,6 +179,11 @@ namespace Model
      * <p>Amazon Resource Name (ARN) of the lexicon.</p>
      */
     inline const Aws::String& GetLexiconArn() const{ return m_lexiconArn; }
+
+    /**
+     * <p>Amazon Resource Name (ARN) of the lexicon.</p>
+     */
+    inline bool LexiconArnHasBeenSet() const { return m_lexiconArnHasBeenSet; }
 
     /**
      * <p>Amazon Resource Name (ARN) of the lexicon.</p>
@@ -201,6 +224,11 @@ namespace Model
     /**
      * <p>Number of lexemes in the lexicon.</p>
      */
+    inline bool LexemesCountHasBeenSet() const { return m_lexemesCountHasBeenSet; }
+
+    /**
+     * <p>Number of lexemes in the lexicon.</p>
+     */
     inline void SetLexemesCount(int value) { m_lexemesCountHasBeenSet = true; m_lexemesCount = value; }
 
     /**
@@ -213,6 +241,11 @@ namespace Model
      * <p>Total size of the lexicon, in characters.</p>
      */
     inline int GetSize() const{ return m_size; }
+
+    /**
+     * <p>Total size of the lexicon, in characters.</p>
+     */
+    inline bool SizeHasBeenSet() const { return m_sizeHasBeenSet; }
 
     /**
      * <p>Total size of the lexicon, in characters.</p>

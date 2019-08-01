@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteGlobalClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p> The cluster identifier of the global database cluster being deleted. </p>
      */
     inline const Aws::String& GetGlobalClusterIdentifier() const{ return m_globalClusterIdentifier; }
+
+    /**
+     * <p> The cluster identifier of the global database cluster being deleted. </p>
+     */
+    inline bool GlobalClusterIdentifierHasBeenSet() const { return m_globalClusterIdentifierHasBeenSet; }
 
     /**
      * <p> The cluster identifier of the global database cluster being deleted. </p>

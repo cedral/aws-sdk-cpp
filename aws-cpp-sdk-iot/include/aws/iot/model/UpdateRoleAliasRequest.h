@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateRoleAliasRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The role alias to update.</p>
      */
     inline const Aws::String& GetRoleAlias() const{ return m_roleAlias; }
+
+    /**
+     * <p>The role alias to update.</p>
+     */
+    inline bool RoleAliasHasBeenSet() const { return m_roleAliasHasBeenSet; }
 
     /**
      * <p>The role alias to update.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The role ARN.</p>
      */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
+
+    /**
+     * <p>The role ARN.</p>
+     */
     inline void SetRoleArn(const Aws::String& value) { m_roleArnHasBeenSet = true; m_roleArn = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The number of seconds the credential will be valid.</p>
      */
     inline int GetCredentialDurationSeconds() const{ return m_credentialDurationSeconds; }
+
+    /**
+     * <p>The number of seconds the credential will be valid.</p>
+     */
+    inline bool CredentialDurationSecondsHasBeenSet() const { return m_credentialDurationSecondsHasBeenSet; }
 
     /**
      * <p>The number of seconds the credential will be valid.</p>

@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     UpdateTagsForDomainRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The domain for which you want to add or update tags.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>The domain for which you want to add or update tags.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>The domain for which you want to add or update tags.</p>
@@ -91,6 +96,12 @@ namespace Model
      * specify a key that already exists, the corresponding value will be replaced.</p>
      */
     inline const Aws::Vector<Tag>& GetTagsToUpdate() const{ return m_tagsToUpdate; }
+
+    /**
+     * <p>A list of the tag keys and values that you want to add or update. If you
+     * specify a key that already exists, the corresponding value will be replaced.</p>
+     */
+    inline bool TagsToUpdateHasBeenSet() const { return m_tagsToUpdateHasBeenSet; }
 
     /**
      * <p>A list of the tag keys and values that you want to add or update. If you

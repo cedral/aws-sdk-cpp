@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeConfigurationSettingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The application for the environment or configuration template.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The application for the environment or configuration template.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The application for the environment or configuration template.</p>
@@ -95,6 +100,16 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetTemplateName() const{ return m_templateName; }
+
+    /**
+     * <p>The name of the configuration template to describe.</p> <p> Conditional: You
+     * must specify either this parameter or an EnvironmentName, but not both. If you
+     * specify both, AWS Elastic Beanstalk returns an
+     * <code>InvalidParameterCombination</code> error. If you do not specify either,
+     * AWS Elastic Beanstalk returns a <code>MissingRequiredParameter</code> error.
+     * </p>
+     */
+    inline bool TemplateNameHasBeenSet() const { return m_templateNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration template to describe.</p> <p> Conditional: You
@@ -165,6 +180,15 @@ namespace Model
      * <code>MissingRequiredParameter</code> error. </p>
      */
     inline const Aws::String& GetEnvironmentName() const{ return m_environmentName; }
+
+    /**
+     * <p>The name of the environment to describe.</p> <p> Condition: You must specify
+     * either this or a TemplateName, but not both. If you specify both, AWS Elastic
+     * Beanstalk returns an <code>InvalidParameterCombination</code> error. If you do
+     * not specify either, AWS Elastic Beanstalk returns
+     * <code>MissingRequiredParameter</code> error. </p>
+     */
+    inline bool EnvironmentNameHasBeenSet() const { return m_environmentNameHasBeenSet; }
 
     /**
      * <p>The name of the environment to describe.</p> <p> Condition: You must specify

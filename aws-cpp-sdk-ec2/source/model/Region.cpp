@@ -32,13 +32,15 @@ namespace Model
 
 Region::Region() : 
     m_endpointHasBeenSet(false),
-    m_regionNameHasBeenSet(false)
+    m_regionNameHasBeenSet(false),
+    m_optInStatusHasBeenSet(false)
 {
 }
 
 Region::Region(const XmlNode& xmlNode) : 
     m_endpointHasBeenSet(false),
-    m_regionNameHasBeenSet(false)
+    m_regionNameHasBeenSet(false),
+    m_optInStatusHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -52,14 +54,20 @@ Region& Region::operator =(const XmlNode& xmlNode)
     XmlNode endpointNode = resultNode.FirstChild("regionEndpoint");
     if(!endpointNode.IsNull())
     {
-      m_endpoint = StringUtils::Trim(endpointNode.GetText().c_str());
+      m_endpoint = endpointNode.GetText();
       m_endpointHasBeenSet = true;
     }
     XmlNode regionNameNode = resultNode.FirstChild("regionName");
     if(!regionNameNode.IsNull())
     {
-      m_regionName = StringUtils::Trim(regionNameNode.GetText().c_str());
+      m_regionName = regionNameNode.GetText();
       m_regionNameHasBeenSet = true;
+    }
+    XmlNode optInStatusNode = resultNode.FirstChild("optInStatus");
+    if(!optInStatusNode.IsNull())
+    {
+      m_optInStatus = optInStatusNode.GetText();
+      m_optInStatusHasBeenSet = true;
     }
   }
 
@@ -78,6 +86,11 @@ void Region::OutputToStream(Aws::OStream& oStream, const char* location, unsigne
       oStream << location << index << locationValue << ".RegionName=" << StringUtils::URLEncode(m_regionName.c_str()) << "&";
   }
 
+  if(m_optInStatusHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".OptInStatus=" << StringUtils::URLEncode(m_optInStatus.c_str()) << "&";
+  }
+
 }
 
 void Region::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -89,6 +102,10 @@ void Region::OutputToStream(Aws::OStream& oStream, const char* location) const
   if(m_regionNameHasBeenSet)
   {
       oStream << location << ".RegionName=" << StringUtils::URLEncode(m_regionName.c_str()) << "&";
+  }
+  if(m_optInStatusHasBeenSet)
+  {
+      oStream << location << ".OptInStatus=" << StringUtils::URLEncode(m_optInStatus.c_str()) << "&";
   }
 }
 

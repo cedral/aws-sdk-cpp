@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteRouteRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the service mesh to delete the route in.</p>
      */
     inline const Aws::String& GetMeshName() const{ return m_meshName; }
+
+    /**
+     * <p>The name of the service mesh to delete the route in.</p>
+     */
+    inline bool MeshNameHasBeenSet() const { return m_meshNameHasBeenSet; }
 
     /**
      * <p>The name of the service mesh to delete the route in.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The name of the route to delete.</p>
      */
+    inline bool RouteNameHasBeenSet() const { return m_routeNameHasBeenSet; }
+
+    /**
+     * <p>The name of the route to delete.</p>
+     */
     inline void SetRouteName(const Aws::String& value) { m_routeNameHasBeenSet = true; m_routeName = value; }
 
     /**
@@ -121,6 +131,11 @@ namespace Model
      * <p>The name of the virtual router to delete the route in.</p>
      */
     inline const Aws::String& GetVirtualRouterName() const{ return m_virtualRouterName; }
+
+    /**
+     * <p>The name of the virtual router to delete the route in.</p>
+     */
+    inline bool VirtualRouterNameHasBeenSet() const { return m_virtualRouterNameHasBeenSet; }
 
     /**
      * <p>The name of the virtual router to delete the route in.</p>

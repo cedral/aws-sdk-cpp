@@ -46,7 +46,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -658,10 +657,10 @@ namespace Model
          * <p>Renews an eligable ACM certificate. At this time, only exported private
          * certificates can be renewed with this operation. In order to renew your ACM PCA
          * certificates with ACM, you must first <a
-         * href="acm-pca/latest/userguide/PcaPermissions.html">grant the ACM service
-         * principal permission to do so</a>. For more information, see <a
-         * href="acm/latest/userguide/manuel-renewal.html">Testing Managed Renewal</a> in
-         * the ACM User Guide.</p><p><h3>See Also:</h3>   <a
+         * href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant
+         * the ACM service principal permission to do so</a>. For more information, see <a
+         * href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing
+         * Managed Renewal</a> in the ACM User Guide.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RenewCertificate">AWS
          * API Reference</a></p>
          */
@@ -671,10 +670,10 @@ namespace Model
          * <p>Renews an eligable ACM certificate. At this time, only exported private
          * certificates can be renewed with this operation. In order to renew your ACM PCA
          * certificates with ACM, you must first <a
-         * href="acm-pca/latest/userguide/PcaPermissions.html">grant the ACM service
-         * principal permission to do so</a>. For more information, see <a
-         * href="acm/latest/userguide/manuel-renewal.html">Testing Managed Renewal</a> in
-         * the ACM User Guide.</p><p><h3>See Also:</h3>   <a
+         * href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant
+         * the ACM service principal permission to do so</a>. For more information, see <a
+         * href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing
+         * Managed Renewal</a> in the ACM User Guide.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RenewCertificate">AWS
          * API Reference</a></p>
          *
@@ -686,10 +685,10 @@ namespace Model
          * <p>Renews an eligable ACM certificate. At this time, only exported private
          * certificates can be renewed with this operation. In order to renew your ACM PCA
          * certificates with ACM, you must first <a
-         * href="acm-pca/latest/userguide/PcaPermissions.html">grant the ACM service
-         * principal permission to do so</a>. For more information, see <a
-         * href="acm/latest/userguide/manuel-renewal.html">Testing Managed Renewal</a> in
-         * the ACM User Guide.</p><p><h3>See Also:</h3>   <a
+         * href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html">grant
+         * the ACM service principal permission to do so</a>. For more information, see <a
+         * href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing
+         * Managed Renewal</a> in the ACM User Guide.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RenewCertificate">AWS
          * API Reference</a></p>
          *
@@ -856,11 +855,10 @@ namespace Model
          */
         virtual void UpdateCertificateOptionsAsync(const Model::UpdateCertificateOptionsRequest& request, const UpdateCertificateOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void AddTagsToCertificateAsyncHelper(const Model::AddTagsToCertificateRequest& request, const AddTagsToCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteCertificateAsyncHelper(const Model::DeleteCertificateRequest& request, const DeleteCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeCertificateAsyncHelper(const Model::DescribeCertificateRequest& request, const DescribeCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateMemberToGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The organization under which the group exists.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The organization under which the group exists.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The organization under which the group exists.</p>
@@ -81,73 +86,83 @@ namespace Model
 
 
     /**
-     * <p>The group for which the member is associated.</p>
+     * <p>The group to which the member (user or group) is associated.</p>
      */
     inline const Aws::String& GetGroupId() const{ return m_groupId; }
 
     /**
-     * <p>The group for which the member is associated.</p>
+     * <p>The group to which the member (user or group) is associated.</p>
+     */
+    inline bool GroupIdHasBeenSet() const { return m_groupIdHasBeenSet; }
+
+    /**
+     * <p>The group to which the member (user or group) is associated.</p>
      */
     inline void SetGroupId(const Aws::String& value) { m_groupIdHasBeenSet = true; m_groupId = value; }
 
     /**
-     * <p>The group for which the member is associated.</p>
+     * <p>The group to which the member (user or group) is associated.</p>
      */
     inline void SetGroupId(Aws::String&& value) { m_groupIdHasBeenSet = true; m_groupId = std::move(value); }
 
     /**
-     * <p>The group for which the member is associated.</p>
+     * <p>The group to which the member (user or group) is associated.</p>
      */
     inline void SetGroupId(const char* value) { m_groupIdHasBeenSet = true; m_groupId.assign(value); }
 
     /**
-     * <p>The group for which the member is associated.</p>
+     * <p>The group to which the member (user or group) is associated.</p>
      */
     inline AssociateMemberToGroupRequest& WithGroupId(const Aws::String& value) { SetGroupId(value); return *this;}
 
     /**
-     * <p>The group for which the member is associated.</p>
+     * <p>The group to which the member (user or group) is associated.</p>
      */
     inline AssociateMemberToGroupRequest& WithGroupId(Aws::String&& value) { SetGroupId(std::move(value)); return *this;}
 
     /**
-     * <p>The group for which the member is associated.</p>
+     * <p>The group to which the member (user or group) is associated.</p>
      */
     inline AssociateMemberToGroupRequest& WithGroupId(const char* value) { SetGroupId(value); return *this;}
 
 
     /**
-     * <p>The member to associate to the group.</p>
+     * <p>The member (user or group) to associate to the group.</p>
      */
     inline const Aws::String& GetMemberId() const{ return m_memberId; }
 
     /**
-     * <p>The member to associate to the group.</p>
+     * <p>The member (user or group) to associate to the group.</p>
+     */
+    inline bool MemberIdHasBeenSet() const { return m_memberIdHasBeenSet; }
+
+    /**
+     * <p>The member (user or group) to associate to the group.</p>
      */
     inline void SetMemberId(const Aws::String& value) { m_memberIdHasBeenSet = true; m_memberId = value; }
 
     /**
-     * <p>The member to associate to the group.</p>
+     * <p>The member (user or group) to associate to the group.</p>
      */
     inline void SetMemberId(Aws::String&& value) { m_memberIdHasBeenSet = true; m_memberId = std::move(value); }
 
     /**
-     * <p>The member to associate to the group.</p>
+     * <p>The member (user or group) to associate to the group.</p>
      */
     inline void SetMemberId(const char* value) { m_memberIdHasBeenSet = true; m_memberId.assign(value); }
 
     /**
-     * <p>The member to associate to the group.</p>
+     * <p>The member (user or group) to associate to the group.</p>
      */
     inline AssociateMemberToGroupRequest& WithMemberId(const Aws::String& value) { SetMemberId(value); return *this;}
 
     /**
-     * <p>The member to associate to the group.</p>
+     * <p>The member (user or group) to associate to the group.</p>
      */
     inline AssociateMemberToGroupRequest& WithMemberId(Aws::String&& value) { SetMemberId(std::move(value)); return *this;}
 
     /**
-     * <p>The member to associate to the group.</p>
+     * <p>The member (user or group) to associate to the group.</p>
      */
     inline AssociateMemberToGroupRequest& WithMemberId(const char* value) { SetMemberId(value); return *this;}
 

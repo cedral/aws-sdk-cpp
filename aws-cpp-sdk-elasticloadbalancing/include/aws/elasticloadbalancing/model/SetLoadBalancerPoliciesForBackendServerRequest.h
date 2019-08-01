@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     SetLoadBalancerPoliciesForBackendServerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The name of the load balancer.</p>
      */
     inline const Aws::String& GetLoadBalancerName() const{ return m_loadBalancerName; }
+
+    /**
+     * <p>The name of the load balancer.</p>
+     */
+    inline bool LoadBalancerNameHasBeenSet() const { return m_loadBalancerNameHasBeenSet; }
 
     /**
      * <p>The name of the load balancer.</p>
@@ -95,6 +100,11 @@ namespace Model
     /**
      * <p>The port number associated with the EC2 instance.</p>
      */
+    inline bool InstancePortHasBeenSet() const { return m_instancePortHasBeenSet; }
+
+    /**
+     * <p>The port number associated with the EC2 instance.</p>
+     */
     inline void SetInstancePort(int value) { m_instancePortHasBeenSet = true; m_instancePort = value; }
 
     /**
@@ -108,6 +118,12 @@ namespace Model
      * removed from the EC2 instance.</p>
      */
     inline const Aws::Vector<Aws::String>& GetPolicyNames() const{ return m_policyNames; }
+
+    /**
+     * <p>The names of the policies. If the list is empty, then all current polices are
+     * removed from the EC2 instance.</p>
+     */
+    inline bool PolicyNamesHasBeenSet() const { return m_policyNamesHasBeenSet; }
 
     /**
      * <p>The names of the policies. If the list is empty, then all current polices are

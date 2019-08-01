@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateRegexMatchSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * and by <a>ListRegexMatchSets</a>.</p>
      */
     inline const Aws::String& GetRegexMatchSetId() const{ return m_regexMatchSetId; }
+
+    /**
+     * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to
+     * update. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a>
+     * and by <a>ListRegexMatchSets</a>.</p>
+     */
+    inline bool RegexMatchSetIdHasBeenSet() const { return m_regexMatchSetIdHasBeenSet; }
 
     /**
      * <p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to
@@ -108,6 +115,13 @@ namespace Model
      * into or delete from a <a>RegexMatchSet</a>. For more information, see
      * <a>RegexMatchTuple</a>.</p>
      */
+    inline bool UpdatesHasBeenSet() const { return m_updatesHasBeenSet; }
+
+    /**
+     * <p>An array of <code>RegexMatchSetUpdate</code> objects that you want to insert
+     * into or delete from a <a>RegexMatchSet</a>. For more information, see
+     * <a>RegexMatchTuple</a>.</p>
+     */
     inline void SetUpdates(const Aws::Vector<RegexMatchSetUpdate>& value) { m_updatesHasBeenSet = true; m_updates = value; }
 
     /**
@@ -150,6 +164,11 @@ namespace Model
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
      */
     inline const Aws::String& GetChangeToken() const{ return m_changeToken; }
+
+    /**
+     * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+     */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
 
     /**
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>

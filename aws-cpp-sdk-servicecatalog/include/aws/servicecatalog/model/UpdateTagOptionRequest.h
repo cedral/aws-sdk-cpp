@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateTagOptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The TagOption identifier.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The TagOption identifier.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The TagOption identifier.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The updated value.</p>
      */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
+
+    /**
+     * <p>The updated value.</p>
+     */
     inline void SetValue(const Aws::String& value) { m_valueHasBeenSet = true; m_value = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The updated active state.</p>
      */
     inline bool GetActive() const{ return m_active; }
+
+    /**
+     * <p>The updated active state.</p>
+     */
+    inline bool ActiveHasBeenSet() const { return m_activeHasBeenSet; }
 
     /**
      * <p>The updated active state.</p>

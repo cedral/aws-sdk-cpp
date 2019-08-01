@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateAdminAccountRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,16 @@ namespace Model
      * the AWS Accounts in Your Organization</a>.</p>
      */
     inline const Aws::String& GetAdminAccount() const{ return m_adminAccount; }
+
+    /**
+     * <p>The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall
+     * Manager administrator account. This can be an AWS Organizations master account
+     * or a member account. For more information about AWS Organizations and master
+     * accounts, see <a
+     * href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html">Managing
+     * the AWS Accounts in Your Organization</a>.</p>
+     */
+    inline bool AdminAccountHasBeenSet() const { return m_adminAccountHasBeenSet; }
 
     /**
      * <p>The AWS account ID to associate with AWS Firewall Manager as the AWS Firewall

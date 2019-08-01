@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DetectDominantLanguageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
      */
     inline const Aws::String& GetText() const{ return m_text; }
+
+    /**
+     * <p>A UTF-8 text string. Each string should contain at least 20 characters and
+     * must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+     */
+    inline bool TextHasBeenSet() const { return m_textHasBeenSet; }
 
     /**
      * <p>A UTF-8 text string. Each string should contain at least 20 characters and

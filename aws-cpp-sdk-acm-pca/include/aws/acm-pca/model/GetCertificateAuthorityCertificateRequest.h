@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetCertificateAuthorityCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,14 @@ namespace Model
      * </code>. </p>
      */
     inline const Aws::String& GetCertificateAuthorityArn() const{ return m_certificateAuthorityArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of your private CA. This is of the form:</p>
+     * <p>
+     * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
+     * </code>. </p>
+     */
+    inline bool CertificateAuthorityArnHasBeenSet() const { return m_certificateAuthorityArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of your private CA. This is of the form:</p>

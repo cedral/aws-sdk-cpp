@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateDeviceDefinitionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * The ID of the device definition.
      */
     inline const Aws::String& GetDeviceDefinitionId() const{ return m_deviceDefinitionId; }
+
+    /**
+     * The ID of the device definition.
+     */
+    inline bool DeviceDefinitionIdHasBeenSet() const { return m_deviceDefinitionIdHasBeenSet; }
 
     /**
      * The ID of the device definition.
@@ -82,6 +87,11 @@ namespace Model
      * The name of the definition.
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * The name of the definition.
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * The name of the definition.

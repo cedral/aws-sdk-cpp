@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     AddSourceIdentifierToSubscriptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * identifier to.</p>
      */
     inline const Aws::String& GetSubscriptionName() const{ return m_subscriptionName; }
+
+    /**
+     * <p>The name of the RDS event notification subscription you want to add a source
+     * identifier to.</p>
+     */
+    inline bool SubscriptionNameHasBeenSet() const { return m_subscriptionNameHasBeenSet; }
 
     /**
      * <p>The name of the RDS event notification subscription you want to add a source
@@ -103,6 +109,18 @@ namespace Model
      * supplied.</p> </li> </ul>
      */
     inline const Aws::String& GetSourceIdentifier() const{ return m_sourceIdentifier; }
+
+    /**
+     * <p>The identifier of the event source to be added.</p> <p>Constraints:</p> <ul>
+     * <li> <p>If the source type is a DB instance, then a
+     * <code>DBInstanceIdentifier</code> must be supplied.</p> </li> <li> <p>If the
+     * source type is a DB security group, a <code>DBSecurityGroupName</code> must be
+     * supplied.</p> </li> <li> <p>If the source type is a DB parameter group, a
+     * <code>DBParameterGroupName</code> must be supplied.</p> </li> <li> <p>If the
+     * source type is a DB snapshot, a <code>DBSnapshotIdentifier</code> must be
+     * supplied.</p> </li> </ul>
+     */
+    inline bool SourceIdentifierHasBeenSet() const { return m_sourceIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier of the event source to be added.</p> <p>Constraints:</p> <ul>

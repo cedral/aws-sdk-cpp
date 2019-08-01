@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListWorkersWithQualificationTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ID of the Qualification type of the Qualifications to return.</p>
      */
     inline const Aws::String& GetQualificationTypeId() const{ return m_qualificationTypeId; }
+
+    /**
+     * <p>The ID of the Qualification type of the Qualifications to return.</p>
+     */
+    inline bool QualificationTypeIdHasBeenSet() const { return m_qualificationTypeIdHasBeenSet; }
 
     /**
      * <p>The ID of the Qualification type of the Qualifications to return.</p>
@@ -91,6 +96,12 @@ namespace Model
      * <p> The status of the Qualifications to return. Can be <code>Granted |
      * Revoked</code>. </p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p> The status of the Qualifications to return. Can be <code>Granted |
+     * Revoked</code>. </p>
+     */
     inline void SetStatus(const QualificationStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -116,6 +127,11 @@ namespace Model
      * <p>Pagination Token</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Pagination Token</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Pagination Token</p>
@@ -152,6 +168,11 @@ namespace Model
      * <p> Limit the number of results returned. </p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p> Limit the number of results returned. </p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p> Limit the number of results returned. </p>

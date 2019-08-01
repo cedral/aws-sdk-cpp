@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     SelectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * The expression used to query the domain.
      */
     inline const Aws::String& GetSelectExpression() const{ return m_selectExpression; }
+
+    /**
+     * The expression used to query the domain.
+     */
+    inline bool SelectExpressionHasBeenSet() const { return m_selectExpressionHasBeenSet; }
 
     /**
      * The expression used to query the domain.
@@ -87,6 +92,12 @@ namespace Model
      * <code>ItemNames</code>.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * A string informing Amazon SimpleDB where to start the next list of
+     * <code>ItemNames</code>.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * A string informing Amazon SimpleDB where to start the next list of
@@ -132,6 +143,14 @@ namespace Model
      * the client may not see data that was written immediately before your read.
      */
     inline bool GetConsistentRead() const{ return m_consistentRead; }
+
+    /**
+     * Determines whether or not strong consistency should be enforced when data is
+     * read from SimpleDB. If <code>true</code>, any data previously written to
+     * SimpleDB will be returned. Otherwise, results will be consistent eventually, and
+     * the client may not see data that was written immediately before your read.
+     */
+    inline bool ConsistentReadHasBeenSet() const { return m_consistentReadHasBeenSet; }
 
     /**
      * Determines whether or not strong consistency should be enforced when data is

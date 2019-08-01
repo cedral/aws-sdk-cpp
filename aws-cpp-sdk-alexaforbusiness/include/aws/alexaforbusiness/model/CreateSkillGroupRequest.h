@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateSkillGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name for the skill group.</p>
      */
     inline const Aws::String& GetSkillGroupName() const{ return m_skillGroupName; }
+
+    /**
+     * <p>The name for the skill group.</p>
+     */
+    inline bool SkillGroupNameHasBeenSet() const { return m_skillGroupNameHasBeenSet; }
 
     /**
      * <p>The name for the skill group.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The description for the skill group.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description for the skill group.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -122,6 +132,12 @@ namespace Model
      * idempotency. </p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>A unique, user-specified identifier for this request that ensures
+     * idempotency. </p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>A unique, user-specified identifier for this request that ensures

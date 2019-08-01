@@ -34,10 +34,7 @@ namespace Model
 {
 
   /**
-   * <p>This data type is used as a response element in the following actions:</p>
-   * <ul> <li> <p> <a>CreateDBInstance</a> </p> </li> <li> <p>
-   * <a>DescribeDBInstances</a> </p> </li> <li> <p> <a>DeleteDBInstance</a> </p>
-   * </li> </ul><p><h3>See Also:</h3>   <a
+   * <p>Specifies a connection endpoint.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/Endpoint">AWS
    * API Reference</a></p>
    */
@@ -56,6 +53,11 @@ namespace Model
      * <p>Specifies the DNS address of the DB instance.</p>
      */
     inline const Aws::String& GetAddress() const{ return m_address; }
+
+    /**
+     * <p>Specifies the DNS address of the DB instance.</p>
+     */
+    inline bool AddressHasBeenSet() const { return m_addressHasBeenSet; }
 
     /**
      * <p>Specifies the DNS address of the DB instance.</p>
@@ -96,6 +98,11 @@ namespace Model
     /**
      * <p>Specifies the port that the database engine is listening on.</p>
      */
+    inline bool PortHasBeenSet() const { return m_portHasBeenSet; }
+
+    /**
+     * <p>Specifies the port that the database engine is listening on.</p>
+     */
     inline void SetPort(int value) { m_portHasBeenSet = true; m_port = value; }
 
     /**
@@ -109,6 +116,12 @@ namespace Model
      * zone.</p>
      */
     inline const Aws::String& GetHostedZoneId() const{ return m_hostedZoneId; }
+
+    /**
+     * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted
+     * zone.</p>
+     */
+    inline bool HostedZoneIdHasBeenSet() const { return m_hostedZoneIdHasBeenSet; }
 
     /**
      * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted

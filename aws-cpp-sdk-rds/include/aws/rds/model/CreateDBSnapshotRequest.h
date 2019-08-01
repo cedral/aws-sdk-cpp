@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateDBSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +59,15 @@ namespace Model
      * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
      */
     inline const Aws::String& GetDBSnapshotIdentifier() const{ return m_dBSnapshotIdentifier; }
+
+    /**
+     * <p>The identifier for the DB snapshot.</p> <p>Constraints:</p> <ul> <li>
+     * <p>Can't be null, empty, or blank</p> </li> <li> <p>Must contain from 1 to 255
+     * letters, numbers, or hyphens</p> </li> <li> <p>First character must be a
+     * letter</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive
+     * hyphens</p> </li> </ul> <p>Example: <code>my-snapshot-id</code> </p>
+     */
+    inline bool DBSnapshotIdentifierHasBeenSet() const { return m_dBSnapshotIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier for the DB snapshot.</p> <p>Constraints:</p> <ul> <li>
@@ -127,6 +136,13 @@ namespace Model
      * of.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an
      * existing DBInstance.</p> </li> </ul>
      */
+    inline bool DBInstanceIdentifierHasBeenSet() const { return m_dBInstanceIdentifierHasBeenSet; }
+
+    /**
+     * <p>The identifier of the DB instance that you want to create the snapshot
+     * of.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an
+     * existing DBInstance.</p> </li> </ul>
+     */
     inline void SetDBInstanceIdentifier(const Aws::String& value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier = value; }
 
     /**
@@ -167,6 +183,9 @@ namespace Model
 
     
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }

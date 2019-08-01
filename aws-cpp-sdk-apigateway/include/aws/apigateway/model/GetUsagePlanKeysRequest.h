@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     GetUsagePlanKeysRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,13 @@ namespace Model
      * plan customer.</p>
      */
     inline const Aws::String& GetUsagePlanId() const{ return m_usagePlanId; }
+
+    /**
+     * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage
+     * plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a
+     * plan customer.</p>
+     */
+    inline bool UsagePlanIdHasBeenSet() const { return m_usagePlanIdHasBeenSet; }
 
     /**
      * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage
@@ -110,6 +117,11 @@ namespace Model
     /**
      * <p>The current pagination position in the paged result set.</p>
      */
+    inline bool PositionHasBeenSet() const { return m_positionHasBeenSet; }
+
+    /**
+     * <p>The current pagination position in the paged result set.</p>
+     */
     inline void SetPosition(const Aws::String& value) { m_positionHasBeenSet = true; m_position = value; }
 
     /**
@@ -148,6 +160,12 @@ namespace Model
      * <p>The maximum number of returned results per page. The default value is 25 and
      * the maximum value is 500.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of returned results per page. The default value is 25 and
+     * the maximum value is 500.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -162,6 +180,12 @@ namespace Model
      * keys.</p>
      */
     inline const Aws::String& GetNameQuery() const{ return m_nameQuery; }
+
+    /**
+     * <p>A query parameter specifying the name of the to-be-returned usage plan
+     * keys.</p>
+     */
+    inline bool NameQueryHasBeenSet() const { return m_nameQueryHasBeenSet; }
 
     /**
      * <p>A query parameter specifying the name of the to-be-returned usage plan

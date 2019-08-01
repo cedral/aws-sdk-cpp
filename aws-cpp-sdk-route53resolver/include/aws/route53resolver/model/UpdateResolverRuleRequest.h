@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateResolverRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ID of the resolver rule that you want to update.</p>
      */
     inline const Aws::String& GetResolverRuleId() const{ return m_resolverRuleId; }
+
+    /**
+     * <p>The ID of the resolver rule that you want to update.</p>
+     */
+    inline bool ResolverRuleIdHasBeenSet() const { return m_resolverRuleIdHasBeenSet; }
 
     /**
      * <p>The ID of the resolver rule that you want to update.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The new settings for the resolver rule.</p>
      */
     inline const ResolverRuleConfig& GetConfig() const{ return m_config; }
+
+    /**
+     * <p>The new settings for the resolver rule.</p>
+     */
+    inline bool ConfigHasBeenSet() const { return m_configHasBeenSet; }
 
     /**
      * <p>The new settings for the resolver rule.</p>

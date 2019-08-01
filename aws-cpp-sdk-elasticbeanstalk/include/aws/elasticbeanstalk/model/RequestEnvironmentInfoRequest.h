@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     RequestEnvironmentInfoRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +59,15 @@ namespace Model
      * Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
      */
     inline const Aws::String& GetEnvironmentId() const{ return m_environmentId; }
+
+    /**
+     * <p>The ID of the environment of the requested data.</p> <p>If no such
+     * environment is found, <code>RequestEnvironmentInfo</code> returns an
+     * <code>InvalidParameterValue</code> error. </p> <p>Condition: You must specify
+     * either this or an EnvironmentName, or both. If you do not specify either, AWS
+     * Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
+     */
+    inline bool EnvironmentIdHasBeenSet() const { return m_environmentIdHasBeenSet; }
 
     /**
      * <p>The ID of the environment of the requested data.</p> <p>If no such
@@ -131,6 +140,15 @@ namespace Model
      * either this or an EnvironmentId, or both. If you do not specify either, AWS
      * Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
      */
+    inline bool EnvironmentNameHasBeenSet() const { return m_environmentNameHasBeenSet; }
+
+    /**
+     * <p>The name of the environment of the requested data.</p> <p>If no such
+     * environment is found, <code>RequestEnvironmentInfo</code> returns an
+     * <code>InvalidParameterValue</code> error. </p> <p>Condition: You must specify
+     * either this or an EnvironmentId, or both. If you do not specify either, AWS
+     * Elastic Beanstalk returns <code>MissingRequiredParameter</code> error. </p>
+     */
     inline void SetEnvironmentName(const Aws::String& value) { m_environmentNameHasBeenSet = true; m_environmentName = value; }
 
     /**
@@ -183,6 +201,11 @@ namespace Model
      * <p>The type of information to request.</p>
      */
     inline const EnvironmentInfoType& GetInfoType() const{ return m_infoType; }
+
+    /**
+     * <p>The type of information to request.</p>
+     */
+    inline bool InfoTypeHasBeenSet() const { return m_infoTypeHasBeenSet; }
 
     /**
      * <p>The type of information to request.</p>

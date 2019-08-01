@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * The unique ID that Amazon MQ generates for the configuration.
      */
     inline const Aws::String& GetConfigurationId() const{ return m_configurationId; }
+
+    /**
+     * The unique ID that Amazon MQ generates for the configuration.
+     */
+    inline bool ConfigurationIdHasBeenSet() const { return m_configurationIdHasBeenSet; }
 
     /**
      * The unique ID that Amazon MQ generates for the configuration.

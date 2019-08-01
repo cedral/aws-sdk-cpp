@@ -37,11 +37,11 @@ namespace Model
 
   /**
    * <p>Contains the results of a successful call to the
-   * <a>DescribeDBClusterSnapshotAttributes</a> API action.</p> <p>Manual DB cluster
-   * snapshot attributes are used to authorize other AWS accounts to copy or restore
-   * a manual DB cluster snapshot. For more information, see the
-   * <a>ModifyDBClusterSnapshotAttribute</a> API action.</p><p><h3>See Also:</h3>  
-   * <a
+   * <code>DescribeDBClusterSnapshotAttributes</code> API action.</p> <p>Manual DB
+   * cluster snapshot attributes are used to authorize other AWS accounts to copy or
+   * restore a manual DB cluster snapshot. For more information, see the
+   * <code>ModifyDBClusterSnapshotAttribute</code> API action.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBClusterSnapshotAttributesResult">AWS
    * API Reference</a></p>
    */
@@ -61,6 +61,12 @@ namespace Model
      * to.</p>
      */
     inline const Aws::String& GetDBClusterSnapshotIdentifier() const{ return m_dBClusterSnapshotIdentifier; }
+
+    /**
+     * <p>The identifier of the manual DB cluster snapshot that the attributes apply
+     * to.</p>
+     */
+    inline bool DBClusterSnapshotIdentifierHasBeenSet() const { return m_dBClusterSnapshotIdentifierHasBeenSet; }
 
     /**
      * <p>The identifier of the manual DB cluster snapshot that the attributes apply
@@ -103,6 +109,11 @@ namespace Model
      * <p>The list of attributes and values for the manual DB cluster snapshot.</p>
      */
     inline const Aws::Vector<DBClusterSnapshotAttribute>& GetDBClusterSnapshotAttributes() const{ return m_dBClusterSnapshotAttributes; }
+
+    /**
+     * <p>The list of attributes and values for the manual DB cluster snapshot.</p>
+     */
+    inline bool DBClusterSnapshotAttributesHasBeenSet() const { return m_dBClusterSnapshotAttributesHasBeenSet; }
 
     /**
      * <p>The list of attributes and values for the manual DB cluster snapshot.</p>

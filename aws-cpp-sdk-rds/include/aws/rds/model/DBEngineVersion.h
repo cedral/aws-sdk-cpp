@@ -39,7 +39,7 @@ namespace Model
 
   /**
    * <p> This data type is used as a response element in the action
-   * <a>DescribeDBEngineVersions</a>. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeDBEngineVersions</code>. </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DBEngineVersion">AWS
    * API Reference</a></p>
    */
@@ -58,6 +58,11 @@ namespace Model
      * <p>The name of the database engine.</p>
      */
     inline const Aws::String& GetEngine() const{ return m_engine; }
+
+    /**
+     * <p>The name of the database engine.</p>
+     */
+    inline bool EngineHasBeenSet() const { return m_engineHasBeenSet; }
 
     /**
      * <p>The name of the database engine.</p>
@@ -98,6 +103,11 @@ namespace Model
     /**
      * <p>The version number of the database engine.</p>
      */
+    inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
+
+    /**
+     * <p>The version number of the database engine.</p>
+     */
     inline void SetEngineVersion(const Aws::String& value) { m_engineVersionHasBeenSet = true; m_engineVersion = value; }
 
     /**
@@ -130,6 +140,11 @@ namespace Model
      * <p>The name of the DB parameter group family for the database engine.</p>
      */
     inline const Aws::String& GetDBParameterGroupFamily() const{ return m_dBParameterGroupFamily; }
+
+    /**
+     * <p>The name of the DB parameter group family for the database engine.</p>
+     */
+    inline bool DBParameterGroupFamilyHasBeenSet() const { return m_dBParameterGroupFamilyHasBeenSet; }
 
     /**
      * <p>The name of the DB parameter group family for the database engine.</p>
@@ -170,6 +185,11 @@ namespace Model
     /**
      * <p>The description of the database engine.</p>
      */
+    inline bool DBEngineDescriptionHasBeenSet() const { return m_dBEngineDescriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the database engine.</p>
+     */
     inline void SetDBEngineDescription(const Aws::String& value) { m_dBEngineDescriptionHasBeenSet = true; m_dBEngineDescription = value; }
 
     /**
@@ -202,6 +222,11 @@ namespace Model
      * <p>The description of the database engine version.</p>
      */
     inline const Aws::String& GetDBEngineVersionDescription() const{ return m_dBEngineVersionDescription; }
+
+    /**
+     * <p>The description of the database engine version.</p>
+     */
+    inline bool DBEngineVersionDescriptionHasBeenSet() const { return m_dBEngineVersionDescriptionHasBeenSet; }
 
     /**
      * <p>The description of the database engine version.</p>
@@ -246,6 +271,13 @@ namespace Model
      * <code>CharacterSetName</code> parameter of the CreateDBInstance API is not
      * specified. </p>
      */
+    inline bool DefaultCharacterSetHasBeenSet() const { return m_defaultCharacterSetHasBeenSet; }
+
+    /**
+     * <p> The default character set for new instances of this engine version, if the
+     * <code>CharacterSetName</code> parameter of the CreateDBInstance API is not
+     * specified. </p>
+     */
     inline void SetDefaultCharacterSet(const CharacterSet& value) { m_defaultCharacterSetHasBeenSet = true; m_defaultCharacterSet = value; }
 
     /**
@@ -276,6 +308,13 @@ namespace Model
      * action. </p>
      */
     inline const Aws::Vector<CharacterSet>& GetSupportedCharacterSets() const{ return m_supportedCharacterSets; }
+
+    /**
+     * <p> A list of the character sets supported by this engine for the
+     * <code>CharacterSetName</code> parameter of the <code>CreateDBInstance</code>
+     * action. </p>
+     */
+    inline bool SupportedCharacterSetsHasBeenSet() const { return m_supportedCharacterSetsHasBeenSet; }
 
     /**
      * <p> A list of the character sets supported by this engine for the
@@ -330,6 +369,12 @@ namespace Model
      * <p>A list of engine versions that this database engine version can be upgraded
      * to.</p>
      */
+    inline bool ValidUpgradeTargetHasBeenSet() const { return m_validUpgradeTargetHasBeenSet; }
+
+    /**
+     * <p>A list of engine versions that this database engine version can be upgraded
+     * to.</p>
+     */
     inline void SetValidUpgradeTarget(const Aws::Vector<UpgradeTarget>& value) { m_validUpgradeTargetHasBeenSet = true; m_validUpgradeTarget = value; }
 
     /**
@@ -369,6 +414,13 @@ namespace Model
      * </p>
      */
     inline const Aws::Vector<Timezone>& GetSupportedTimezones() const{ return m_supportedTimezones; }
+
+    /**
+     * <p>A list of the time zones supported by this engine for the
+     * <code>Timezone</code> parameter of the <code>CreateDBInstance</code> action.
+     * </p>
+     */
+    inline bool SupportedTimezonesHasBeenSet() const { return m_supportedTimezonesHasBeenSet; }
 
     /**
      * <p>A list of the time zones supported by this engine for the
@@ -423,6 +475,12 @@ namespace Model
      * <p>The types of logs that the database engine has available for export to
      * CloudWatch Logs.</p>
      */
+    inline bool ExportableLogTypesHasBeenSet() const { return m_exportableLogTypesHasBeenSet; }
+
+    /**
+     * <p>The types of logs that the database engine has available for export to
+     * CloudWatch Logs.</p>
+     */
     inline void SetExportableLogTypes(const Aws::Vector<Aws::String>& value) { m_exportableLogTypesHasBeenSet = true; m_exportableLogTypes = value; }
 
     /**
@@ -472,6 +530,12 @@ namespace Model
      * <p>A value that indicates whether the engine version supports exporting the log
      * types specified by ExportableLogTypes to CloudWatch Logs.</p>
      */
+    inline bool SupportsLogExportsToCloudwatchLogsHasBeenSet() const { return m_supportsLogExportsToCloudwatchLogsHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether the engine version supports exporting the log
+     * types specified by ExportableLogTypes to CloudWatch Logs.</p>
+     */
     inline void SetSupportsLogExportsToCloudwatchLogs(bool value) { m_supportsLogExportsToCloudwatchLogsHasBeenSet = true; m_supportsLogExportsToCloudwatchLogs = value; }
 
     /**
@@ -482,17 +546,22 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether the database engine version supports read replicas.</p>
+     * <p>Indicates whether the database engine version supports Read Replicas.</p>
      */
     inline bool GetSupportsReadReplica() const{ return m_supportsReadReplica; }
 
     /**
-     * <p>Indicates whether the database engine version supports read replicas.</p>
+     * <p>Indicates whether the database engine version supports Read Replicas.</p>
+     */
+    inline bool SupportsReadReplicaHasBeenSet() const { return m_supportsReadReplicaHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the database engine version supports Read Replicas.</p>
      */
     inline void SetSupportsReadReplica(bool value) { m_supportsReadReplicaHasBeenSet = true; m_supportsReadReplica = value; }
 
     /**
-     * <p>Indicates whether the database engine version supports read replicas.</p>
+     * <p>Indicates whether the database engine version supports Read Replicas.</p>
      */
     inline DBEngineVersion& WithSupportsReadReplica(bool value) { SetSupportsReadReplica(value); return *this;}
 
@@ -501,6 +570,11 @@ namespace Model
      * <p>A list of the supported DB engine modes.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSupportedEngineModes() const{ return m_supportedEngineModes; }
+
+    /**
+     * <p>A list of the supported DB engine modes.</p>
+     */
+    inline bool SupportedEngineModesHasBeenSet() const { return m_supportedEngineModesHasBeenSet; }
 
     /**
      * <p>A list of the supported DB engine modes.</p>
@@ -548,6 +622,12 @@ namespace Model
      * <p> A list of features supported by the DB engine. Supported feature names
      * include the following. </p> <ul> <li> <p>s3Import</p> </li> </ul>
      */
+    inline bool SupportedFeatureNamesHasBeenSet() const { return m_supportedFeatureNamesHasBeenSet; }
+
+    /**
+     * <p> A list of features supported by the DB engine. Supported feature names
+     * include the following. </p> <ul> <li> <p>s3Import</p> </li> </ul>
+     */
     inline void SetSupportedFeatureNames(const Aws::Vector<Aws::String>& value) { m_supportedFeatureNamesHasBeenSet = true; m_supportedFeatureNames = value; }
 
     /**
@@ -585,6 +665,55 @@ namespace Model
      * include the following. </p> <ul> <li> <p>s3Import</p> </li> </ul>
      */
     inline DBEngineVersion& AddSupportedFeatureNames(const char* value) { m_supportedFeatureNamesHasBeenSet = true; m_supportedFeatureNames.push_back(value); return *this; }
+
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline void SetStatus(const Aws::String& value) { m_statusHasBeenSet = true; m_status = value; }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline void SetStatus(Aws::String&& value) { m_statusHasBeenSet = true; m_status = std::move(value); }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline void SetStatus(const char* value) { m_statusHasBeenSet = true; m_status.assign(value); }
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline DBEngineVersion& WithStatus(const Aws::String& value) { SetStatus(value); return *this;}
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline DBEngineVersion& WithStatus(Aws::String&& value) { SetStatus(std::move(value)); return *this;}
+
+    /**
+     * <p>The status of the DB engine version, either <code>available</code> or
+     * <code>deprecated</code>.</p>
+     */
+    inline DBEngineVersion& WithStatus(const char* value) { SetStatus(value); return *this;}
 
   private:
 
@@ -629,6 +758,9 @@ namespace Model
 
     Aws::Vector<Aws::String> m_supportedFeatureNames;
     bool m_supportedFeatureNamesHasBeenSet;
+
+    Aws::String m_status;
+    bool m_statusHasBeenSet;
   };
 
 } // namespace Model

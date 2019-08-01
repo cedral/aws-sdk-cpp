@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListPlatformVersionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * supplied values.</p>
      */
     inline const Aws::Vector<PlatformFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>List only the platforms where the platform member value relates to one of the
+     * supplied values.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>List only the platforms where the platform member value relates to one of the
@@ -99,6 +105,11 @@ namespace Model
     /**
      * <p>The maximum number of platform values returned in one call.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of platform values returned in one call.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -113,6 +124,13 @@ namespace Model
      * call.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The starting index into the remaining list of platforms. Use the
+     * <code>NextToken</code> value from a previous <code>ListPlatformVersion</code>
+     * call.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The starting index into the remaining list of platforms. Use the

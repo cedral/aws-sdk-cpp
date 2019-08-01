@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     BatchMeterUsageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * UsageRecords at a time.</p>
      */
     inline const Aws::Vector<UsageRecord>& GetUsageRecords() const{ return m_usageRecords; }
+
+    /**
+     * <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25
+     * UsageRecords at a time.</p>
+     */
+    inline bool UsageRecordsHasBeenSet() const { return m_usageRecordsHasBeenSet; }
 
     /**
      * <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25
@@ -99,6 +105,13 @@ namespace Model
      * product.</p>
      */
     inline const Aws::String& GetProductCode() const{ return m_productCode; }
+
+    /**
+     * <p>Product code is used to uniquely identify a product in AWS Marketplace. The
+     * product code should be the same as the one used during the publishing of a new
+     * product.</p>
+     */
+    inline bool ProductCodeHasBeenSet() const { return m_productCodeHasBeenSet; }
 
     /**
      * <p>Product code is used to uniquely identify a product in AWS Marketplace. The

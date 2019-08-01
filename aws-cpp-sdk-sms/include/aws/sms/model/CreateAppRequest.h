@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateAppRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>Name of the new application.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>Name of the new application.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>Name of the new application.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>Description of the new application</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>Description of the new application</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
      * <p>Name of service role in customer's account to be used by AWS SMS.</p>
      */
     inline const Aws::String& GetRoleName() const{ return m_roleName; }
+
+    /**
+     * <p>Name of service role in customer's account to be used by AWS SMS.</p>
+     */
+    inline bool RoleNameHasBeenSet() const { return m_roleNameHasBeenSet; }
 
     /**
      * <p>Name of service role in customer's account to be used by AWS SMS.</p>
@@ -160,6 +175,12 @@ namespace Model
      * application creation.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>A unique, case-sensitive identifier you provide to ensure idempotency of
+     * application creation.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>A unique, case-sensitive identifier you provide to ensure idempotency of
@@ -206,6 +227,11 @@ namespace Model
     /**
      * <p>List of server groups to include in the application.</p>
      */
+    inline bool ServerGroupsHasBeenSet() const { return m_serverGroupsHasBeenSet; }
+
+    /**
+     * <p>List of server groups to include in the application.</p>
+     */
     inline void SetServerGroups(const Aws::Vector<ServerGroup>& value) { m_serverGroupsHasBeenSet = true; m_serverGroups = value; }
 
     /**
@@ -238,6 +264,11 @@ namespace Model
      * <p>List of tags to be associated with the application.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>List of tags to be associated with the application.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>List of tags to be associated with the application.</p>

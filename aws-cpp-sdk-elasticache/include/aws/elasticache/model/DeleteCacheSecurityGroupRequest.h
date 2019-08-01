@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteCacheSecurityGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * delete the default security group.</p> </note>
      */
     inline const Aws::String& GetCacheSecurityGroupName() const{ return m_cacheSecurityGroupName; }
+
+    /**
+     * <p>The name of the cache security group to delete.</p> <note> <p>You cannot
+     * delete the default security group.</p> </note>
+     */
+    inline bool CacheSecurityGroupNameHasBeenSet() const { return m_cacheSecurityGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the cache security group to delete.</p> <note> <p>You cannot

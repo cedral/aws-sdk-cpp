@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * tags.</p>
      */
     inline const Aws::String& GetResourceARN() const{ return m_resourceARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource for which you want to list
+     * tags.</p>
+     */
+    inline bool ResourceARNHasBeenSet() const { return m_resourceARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the resource for which you want to list
@@ -100,6 +106,12 @@ namespace Model
      * <p>An opaque string that indicates the position at which to begin returning the
      * list of tags.</p>
      */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>An opaque string that indicates the position at which to begin returning the
+     * list of tags.</p>
+     */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
@@ -138,6 +150,12 @@ namespace Model
      * of items.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>Specifies that the list of tags returned be limited to the specified number
+     * of items.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>Specifies that the list of tags returned be limited to the specified number

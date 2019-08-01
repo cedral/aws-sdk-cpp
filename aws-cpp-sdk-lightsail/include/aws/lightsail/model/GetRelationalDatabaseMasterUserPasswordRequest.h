@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetRelationalDatabaseMasterUserPasswordRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of your database for which to get the master user password.</p>
      */
     inline const Aws::String& GetRelationalDatabaseName() const{ return m_relationalDatabaseName; }
+
+    /**
+     * <p>The name of your database for which to get the master user password.</p>
+     */
+    inline bool RelationalDatabaseNameHasBeenSet() const { return m_relationalDatabaseNameHasBeenSet; }
 
     /**
      * <p>The name of your database for which to get the master user password.</p>
@@ -90,6 +95,16 @@ namespace Model
      * available.</p> <p>Default: <code>CURRENT</code> </p>
      */
     inline const RelationalDatabasePasswordVersion& GetPasswordVersion() const{ return m_passwordVersion; }
+
+    /**
+     * <p>The password version to return.</p> <p>Specifying <code>CURRENT</code> or
+     * <code>PREVIOUS</code> returns the current or previous passwords respectively.
+     * Specifying <code>PENDING</code> returns the newest version of the password that
+     * will rotate to <code>CURRENT</code>. After the <code>PENDING</code> password
+     * rotates to <code>CURRENT</code>, the <code>PENDING</code> password is no longer
+     * available.</p> <p>Default: <code>CURRENT</code> </p>
+     */
+    inline bool PasswordVersionHasBeenSet() const { return m_passwordVersionHasBeenSet; }
 
     /**
      * <p>The password version to return.</p> <p>Specifying <code>CURRENT</code> or

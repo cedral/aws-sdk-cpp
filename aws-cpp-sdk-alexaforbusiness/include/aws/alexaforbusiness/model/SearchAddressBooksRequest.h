@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     SearchAddressBooksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * filter key is AddressBookName.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>The filters to use to list a specified set of address books. The supported
+     * filter key is AddressBookName.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>The filters to use to list a specified set of address books. The supported
@@ -100,6 +106,12 @@ namespace Model
      * <p>The sort order to use in listing the specified set of address books. The
      * supported sort key is AddressBookName.</p>
      */
+    inline bool SortCriteriaHasBeenSet() const { return m_sortCriteriaHasBeenSet; }
+
+    /**
+     * <p>The sort order to use in listing the specified set of address books. The
+     * supported sort key is AddressBookName.</p>
+     */
     inline void SetSortCriteria(const Aws::Vector<Sort>& value) { m_sortCriteriaHasBeenSet = true; m_sortCriteria = value; }
 
     /**
@@ -140,6 +152,14 @@ namespace Model
      * MaxResults.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>An optional token returned from a prior request. Use this token for
+     * pagination of results from this action. If this parameter is specified, the
+     * response only includes results beyond the token, up to the value specified by
+     * MaxResults.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>An optional token returned from a prior request. Use this token for
@@ -196,6 +216,13 @@ namespace Model
      * so that the remaining results can be retrieved.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to include in the response. If more results
+     * exist than the specified MaxResults value, a token is included in the response
+     * so that the remaining results can be retrieved.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to include in the response. If more results

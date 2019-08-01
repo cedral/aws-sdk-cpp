@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CompleteLayerUploadRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * you do not specify a registry, the default registry is assumed.</p>
      */
     inline const Aws::String& GetRegistryId() const{ return m_registryId; }
+
+    /**
+     * <p>The AWS account ID associated with the registry to which to upload layers. If
+     * you do not specify a registry, the default registry is assumed.</p>
+     */
+    inline bool RegistryIdHasBeenSet() const { return m_registryIdHasBeenSet; }
 
     /**
      * <p>The AWS account ID associated with the registry to which to upload layers. If
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>The name of the repository to associate with the image layer.</p>
      */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
+
+    /**
+     * <p>The name of the repository to associate with the image layer.</p>
+     */
     inline void SetRepositoryName(const Aws::String& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = value; }
 
     /**
@@ -129,6 +140,12 @@ namespace Model
      * associate with the image layer.</p>
      */
     inline const Aws::String& GetUploadId() const{ return m_uploadId; }
+
+    /**
+     * <p>The upload ID from a previous <a>InitiateLayerUpload</a> operation to
+     * associate with the image layer.</p>
+     */
+    inline bool UploadIdHasBeenSet() const { return m_uploadIdHasBeenSet; }
 
     /**
      * <p>The upload ID from a previous <a>InitiateLayerUpload</a> operation to
@@ -171,6 +188,11 @@ namespace Model
      * <p>The <code>sha256</code> digest of the image layer.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLayerDigests() const{ return m_layerDigests; }
+
+    /**
+     * <p>The <code>sha256</code> digest of the image layer.</p>
+     */
+    inline bool LayerDigestsHasBeenSet() const { return m_layerDigestsHasBeenSet; }
 
     /**
      * <p>The <code>sha256</code> digest of the image layer.</p>

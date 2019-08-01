@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * </p>
      */
     inline const Aws::Vector<TagFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>You can filter the list using a <i>key</i>-<i>value</i> format. You can
+     * separate these items by using logical operators. Allowed filters include
+     * <code>tagKey</code>, <code>tagValue</code>, and <code>configurationId</code>.
+     * </p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>You can filter the list using a <i>key</i>-<i>value</i> format. You can
@@ -113,6 +121,12 @@ namespace Model
      * <p>The total number of items to return in a single page of output. The maximum
      * value is 100.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The total number of items to return in a single page of output. The maximum
+     * value is 100.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -126,6 +140,11 @@ namespace Model
      * <p>A token to start the list. Use this token to get the next set of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A token to start the list. Use this token to get the next set of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A token to start the list. Use this token to get the next set of results.</p>

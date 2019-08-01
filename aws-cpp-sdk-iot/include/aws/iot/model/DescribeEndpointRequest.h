@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     DescribeEndpointRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -61,6 +61,17 @@ namespace Model
      * endpoint.</p> </li> </ul>
      */
     inline const Aws::String& GetEndpointType() const{ return m_endpointType; }
+
+    /**
+     * <p>The endpoint type. Valid endpoint types include:</p> <ul> <li> <p>
+     * <code>iot:Data</code> - Returns a VeriSign signed data endpoint.</p> </li> </ul>
+     * <ul> <li> <p> <code>iot:Data-ATS</code> - Returns an ATS signed data
+     * endpoint.</p> </li> </ul> <ul> <li> <p> <code>iot:CredentialProvider</code> -
+     * Returns an AWS IoT credentials provider API endpoint.</p> </li> </ul> <ul> <li>
+     * <p> <code>iot:Jobs</code> - Returns an AWS IoT device management Jobs API
+     * endpoint.</p> </li> </ul>
+     */
+    inline bool EndpointTypeHasBeenSet() const { return m_endpointTypeHasBeenSet; }
 
     /**
      * <p>The endpoint type. Valid endpoint types include:</p> <ul> <li> <p>

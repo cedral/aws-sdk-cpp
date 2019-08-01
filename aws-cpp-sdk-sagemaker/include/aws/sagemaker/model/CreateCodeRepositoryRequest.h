@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateCodeRepositoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * characters are a-z, A-Z, 0-9, and - (hyphen).</p>
      */
     inline const Aws::String& GetCodeRepositoryName() const{ return m_codeRepositoryName; }
+
+    /**
+     * <p>The name of the Git repository. The name must have 1 to 63 characters. Valid
+     * characters are a-z, A-Z, 0-9, and - (hyphen).</p>
+     */
+    inline bool CodeRepositoryNameHasBeenSet() const { return m_codeRepositoryNameHasBeenSet; }
 
     /**
      * <p>The name of the Git repository. The name must have 1 to 63 characters. Valid
@@ -94,6 +100,13 @@ namespace Model
      * repository.</p>
      */
     inline const GitConfig& GetGitConfig() const{ return m_gitConfig; }
+
+    /**
+     * <p>Specifies details about the repository, including the URL where the
+     * repository is located, the default branch, and credentials to use to access the
+     * repository.</p>
+     */
+    inline bool GitConfigHasBeenSet() const { return m_gitConfigHasBeenSet; }
 
     /**
      * <p>Specifies details about the repository, including the URL where the

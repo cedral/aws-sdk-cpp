@@ -59,37 +59,42 @@ namespace Model
 
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline const Aws::Vector<ScheduledInstancesBlockDeviceMapping>& GetBlockDeviceMappings() const{ return m_blockDeviceMappings; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
+     */
+    inline bool BlockDeviceMappingsHasBeenSet() const { return m_blockDeviceMappingsHasBeenSet; }
+
+    /**
+     * <p>The block device mapping entries.</p>
      */
     inline void SetBlockDeviceMappings(const Aws::Vector<ScheduledInstancesBlockDeviceMapping>& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = value; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline void SetBlockDeviceMappings(Aws::Vector<ScheduledInstancesBlockDeviceMapping>&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = std::move(value); }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline ScheduledInstancesLaunchSpecification& WithBlockDeviceMappings(const Aws::Vector<ScheduledInstancesBlockDeviceMapping>& value) { SetBlockDeviceMappings(value); return *this;}
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline ScheduledInstancesLaunchSpecification& WithBlockDeviceMappings(Aws::Vector<ScheduledInstancesBlockDeviceMapping>&& value) { SetBlockDeviceMappings(std::move(value)); return *this;}
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline ScheduledInstancesLaunchSpecification& AddBlockDeviceMappings(const ScheduledInstancesBlockDeviceMapping& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(value); return *this; }
 
     /**
-     * <p>One or more block device mapping entries.</p>
+     * <p>The block device mapping entries.</p>
      */
     inline ScheduledInstancesLaunchSpecification& AddBlockDeviceMappings(ScheduledInstancesBlockDeviceMapping&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(std::move(value)); return *this; }
 
@@ -102,6 +107,15 @@ namespace Model
      * instance.</p> <p>Default: <code>false</code> </p>
      */
     inline bool GetEbsOptimized() const{ return m_ebsOptimized; }
+
+    /**
+     * <p>Indicates whether the instances are optimized for EBS I/O. This optimization
+     * provides dedicated throughput to Amazon EBS and an optimized configuration stack
+     * to provide optimal EBS I/O performance. This optimization isn't available with
+     * all instance types. Additional usage charges apply when using an EBS-optimized
+     * instance.</p> <p>Default: <code>false</code> </p>
+     */
+    inline bool EbsOptimizedHasBeenSet() const { return m_ebsOptimizedHasBeenSet; }
 
     /**
      * <p>Indicates whether the instances are optimized for EBS I/O. This optimization
@@ -130,6 +144,11 @@ namespace Model
     /**
      * <p>The IAM instance profile.</p>
      */
+    inline bool IamInstanceProfileHasBeenSet() const { return m_iamInstanceProfileHasBeenSet; }
+
+    /**
+     * <p>The IAM instance profile.</p>
+     */
     inline void SetIamInstanceProfile(const ScheduledInstancesIamInstanceProfile& value) { m_iamInstanceProfileHasBeenSet = true; m_iamInstanceProfile = value; }
 
     /**
@@ -152,6 +171,11 @@ namespace Model
      * <p>The ID of the Amazon Machine Image (AMI).</p>
      */
     inline const Aws::String& GetImageId() const{ return m_imageId; }
+
+    /**
+     * <p>The ID of the Amazon Machine Image (AMI).</p>
+     */
+    inline bool ImageIdHasBeenSet() const { return m_imageIdHasBeenSet; }
 
     /**
      * <p>The ID of the Amazon Machine Image (AMI).</p>
@@ -192,6 +216,11 @@ namespace Model
     /**
      * <p>The instance type.</p>
      */
+    inline bool InstanceTypeHasBeenSet() const { return m_instanceTypeHasBeenSet; }
+
+    /**
+     * <p>The instance type.</p>
+     */
     inline void SetInstanceType(const Aws::String& value) { m_instanceTypeHasBeenSet = true; m_instanceType = value; }
 
     /**
@@ -224,6 +253,11 @@ namespace Model
      * <p>The ID of the kernel.</p>
      */
     inline const Aws::String& GetKernelId() const{ return m_kernelId; }
+
+    /**
+     * <p>The ID of the kernel.</p>
+     */
+    inline bool KernelIdHasBeenSet() const { return m_kernelIdHasBeenSet; }
 
     /**
      * <p>The ID of the kernel.</p>
@@ -264,6 +298,11 @@ namespace Model
     /**
      * <p>The name of the key pair.</p>
      */
+    inline bool KeyNameHasBeenSet() const { return m_keyNameHasBeenSet; }
+
+    /**
+     * <p>The name of the key pair.</p>
+     */
     inline void SetKeyName(const Aws::String& value) { m_keyNameHasBeenSet = true; m_keyName = value; }
 
     /**
@@ -300,6 +339,11 @@ namespace Model
     /**
      * <p>Enable or disable monitoring for the instances.</p>
      */
+    inline bool MonitoringHasBeenSet() const { return m_monitoringHasBeenSet; }
+
+    /**
+     * <p>Enable or disable monitoring for the instances.</p>
+     */
     inline void SetMonitoring(const ScheduledInstancesMonitoring& value) { m_monitoringHasBeenSet = true; m_monitoring = value; }
 
     /**
@@ -319,37 +363,42 @@ namespace Model
 
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>The network interfaces.</p>
      */
     inline const Aws::Vector<ScheduledInstancesNetworkInterface>& GetNetworkInterfaces() const{ return m_networkInterfaces; }
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>The network interfaces.</p>
+     */
+    inline bool NetworkInterfacesHasBeenSet() const { return m_networkInterfacesHasBeenSet; }
+
+    /**
+     * <p>The network interfaces.</p>
      */
     inline void SetNetworkInterfaces(const Aws::Vector<ScheduledInstancesNetworkInterface>& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces = value; }
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>The network interfaces.</p>
      */
     inline void SetNetworkInterfaces(Aws::Vector<ScheduledInstancesNetworkInterface>&& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces = std::move(value); }
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>The network interfaces.</p>
      */
     inline ScheduledInstancesLaunchSpecification& WithNetworkInterfaces(const Aws::Vector<ScheduledInstancesNetworkInterface>& value) { SetNetworkInterfaces(value); return *this;}
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>The network interfaces.</p>
      */
     inline ScheduledInstancesLaunchSpecification& WithNetworkInterfaces(Aws::Vector<ScheduledInstancesNetworkInterface>&& value) { SetNetworkInterfaces(std::move(value)); return *this;}
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>The network interfaces.</p>
      */
     inline ScheduledInstancesLaunchSpecification& AddNetworkInterfaces(const ScheduledInstancesNetworkInterface& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces.push_back(value); return *this; }
 
     /**
-     * <p>One or more network interfaces.</p>
+     * <p>The network interfaces.</p>
      */
     inline ScheduledInstancesLaunchSpecification& AddNetworkInterfaces(ScheduledInstancesNetworkInterface&& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces.push_back(std::move(value)); return *this; }
 
@@ -358,6 +407,11 @@ namespace Model
      * <p>The placement information.</p>
      */
     inline const ScheduledInstancesPlacement& GetPlacement() const{ return m_placement; }
+
+    /**
+     * <p>The placement information.</p>
+     */
+    inline bool PlacementHasBeenSet() const { return m_placementHasBeenSet; }
 
     /**
      * <p>The placement information.</p>
@@ -384,6 +438,11 @@ namespace Model
      * <p>The ID of the RAM disk.</p>
      */
     inline const Aws::String& GetRamdiskId() const{ return m_ramdiskId; }
+
+    /**
+     * <p>The ID of the RAM disk.</p>
+     */
+    inline bool RamdiskIdHasBeenSet() const { return m_ramdiskIdHasBeenSet; }
 
     /**
      * <p>The ID of the RAM disk.</p>
@@ -417,42 +476,47 @@ namespace Model
 
 
     /**
-     * <p>The IDs of one or more security groups.</p>
+     * <p>The IDs of the security groups.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroupIds() const{ return m_securityGroupIds; }
 
     /**
-     * <p>The IDs of one or more security groups.</p>
+     * <p>The IDs of the security groups.</p>
+     */
+    inline bool SecurityGroupIdsHasBeenSet() const { return m_securityGroupIdsHasBeenSet; }
+
+    /**
+     * <p>The IDs of the security groups.</p>
      */
     inline void SetSecurityGroupIds(const Aws::Vector<Aws::String>& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = value; }
 
     /**
-     * <p>The IDs of one or more security groups.</p>
+     * <p>The IDs of the security groups.</p>
      */
     inline void SetSecurityGroupIds(Aws::Vector<Aws::String>&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = std::move(value); }
 
     /**
-     * <p>The IDs of one or more security groups.</p>
+     * <p>The IDs of the security groups.</p>
      */
     inline ScheduledInstancesLaunchSpecification& WithSecurityGroupIds(const Aws::Vector<Aws::String>& value) { SetSecurityGroupIds(value); return *this;}
 
     /**
-     * <p>The IDs of one or more security groups.</p>
+     * <p>The IDs of the security groups.</p>
      */
     inline ScheduledInstancesLaunchSpecification& WithSecurityGroupIds(Aws::Vector<Aws::String>&& value) { SetSecurityGroupIds(std::move(value)); return *this;}
 
     /**
-     * <p>The IDs of one or more security groups.</p>
+     * <p>The IDs of the security groups.</p>
      */
     inline ScheduledInstancesLaunchSpecification& AddSecurityGroupIds(const Aws::String& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
 
     /**
-     * <p>The IDs of one or more security groups.</p>
+     * <p>The IDs of the security groups.</p>
      */
     inline ScheduledInstancesLaunchSpecification& AddSecurityGroupIds(Aws::String&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>The IDs of one or more security groups.</p>
+     * <p>The IDs of the security groups.</p>
      */
     inline ScheduledInstancesLaunchSpecification& AddSecurityGroupIds(const char* value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
 
@@ -461,6 +525,11 @@ namespace Model
      * <p>The ID of the subnet in which to launch the instances.</p>
      */
     inline const Aws::String& GetSubnetId() const{ return m_subnetId; }
+
+    /**
+     * <p>The ID of the subnet in which to launch the instances.</p>
+     */
+    inline bool SubnetIdHasBeenSet() const { return m_subnetIdHasBeenSet; }
 
     /**
      * <p>The ID of the subnet in which to launch the instances.</p>
@@ -497,6 +566,11 @@ namespace Model
      * <p>The base64-encoded MIME user data.</p>
      */
     inline const Aws::String& GetUserData() const{ return m_userData; }
+
+    /**
+     * <p>The base64-encoded MIME user data.</p>
+     */
+    inline bool UserDataHasBeenSet() const { return m_userDataHasBeenSet; }
 
     /**
      * <p>The base64-encoded MIME user data.</p>

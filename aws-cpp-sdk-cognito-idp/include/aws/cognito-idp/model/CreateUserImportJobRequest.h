@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateUserImportJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The job name for the user import job.</p>
      */
     inline const Aws::String& GetJobName() const{ return m_jobName; }
+
+    /**
+     * <p>The job name for the user import job.</p>
+     */
+    inline bool JobNameHasBeenSet() const { return m_jobNameHasBeenSet; }
 
     /**
      * <p>The job name for the user import job.</p>
@@ -89,6 +94,12 @@ namespace Model
      * into.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool that the users are being imported
+     * into.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool that the users are being imported
@@ -132,6 +143,12 @@ namespace Model
      * job.</p>
      */
     inline const Aws::String& GetCloudWatchLogsRoleArn() const{ return m_cloudWatchLogsRoleArn; }
+
+    /**
+     * <p>The role ARN for the Amazon CloudWatch Logging role for the user import
+     * job.</p>
+     */
+    inline bool CloudWatchLogsRoleArnHasBeenSet() const { return m_cloudWatchLogsRoleArnHasBeenSet; }
 
     /**
      * <p>The role ARN for the Amazon CloudWatch Logging role for the user import

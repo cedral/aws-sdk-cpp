@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RegisterWebhookWithThirdPartyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * supported third party. </p>
      */
     inline const Aws::String& GetWebhookName() const{ return m_webhookName; }
+
+    /**
+     * <p>The name of an existing webhook created with PutWebhook to register with a
+     * supported third party. </p>
+     */
+    inline bool WebhookNameHasBeenSet() const { return m_webhookNameHasBeenSet; }
 
     /**
      * <p>The name of an existing webhook created with PutWebhook to register with a

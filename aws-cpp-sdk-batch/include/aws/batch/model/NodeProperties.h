@@ -57,6 +57,11 @@ namespace Model
     /**
      * <p>The number of nodes associated with a multi-node parallel job.</p>
      */
+    inline bool NumNodesHasBeenSet() const { return m_numNodesHasBeenSet; }
+
+    /**
+     * <p>The number of nodes associated with a multi-node parallel job.</p>
+     */
     inline void SetNumNodes(int value) { m_numNodesHasBeenSet = true; m_numNodes = value; }
 
     /**
@@ -66,17 +71,26 @@ namespace Model
 
 
     /**
-     * <p>Specifies the node index for the main node of a multi-node parallel job.</p>
+     * <p>Specifies the node index for the main node of a multi-node parallel job. This
+     * node index value must be fewer than the number of nodes.</p>
      */
     inline int GetMainNode() const{ return m_mainNode; }
 
     /**
-     * <p>Specifies the node index for the main node of a multi-node parallel job.</p>
+     * <p>Specifies the node index for the main node of a multi-node parallel job. This
+     * node index value must be fewer than the number of nodes.</p>
+     */
+    inline bool MainNodeHasBeenSet() const { return m_mainNodeHasBeenSet; }
+
+    /**
+     * <p>Specifies the node index for the main node of a multi-node parallel job. This
+     * node index value must be fewer than the number of nodes.</p>
      */
     inline void SetMainNode(int value) { m_mainNodeHasBeenSet = true; m_mainNode = value; }
 
     /**
-     * <p>Specifies the node index for the main node of a multi-node parallel job.</p>
+     * <p>Specifies the node index for the main node of a multi-node parallel job. This
+     * node index value must be fewer than the number of nodes.</p>
      */
     inline NodeProperties& WithMainNode(int value) { SetMainNode(value); return *this;}
 
@@ -86,6 +100,12 @@ namespace Model
      * parallel job.</p>
      */
     inline const Aws::Vector<NodeRangeProperty>& GetNodeRangeProperties() const{ return m_nodeRangeProperties; }
+
+    /**
+     * <p>A list of node ranges and their properties associated with a multi-node
+     * parallel job.</p>
+     */
+    inline bool NodeRangePropertiesHasBeenSet() const { return m_nodeRangePropertiesHasBeenSet; }
 
     /**
      * <p>A list of node ranges and their properties associated with a multi-node

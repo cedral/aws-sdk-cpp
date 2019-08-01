@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the application.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application.</p>
@@ -85,6 +90,12 @@ namespace Model
      * including the application's job plan.</p>
      */
     inline bool GetIncludeAdditionalDetails() const{ return m_includeAdditionalDetails; }
+
+    /**
+     * <p>Displays verbose information about a Kinesis Data Analytics application,
+     * including the application's job plan.</p>
+     */
+    inline bool IncludeAdditionalDetailsHasBeenSet() const { return m_includeAdditionalDetailsHasBeenSet; }
 
     /**
      * <p>Displays verbose information about a Kinesis Data Analytics application,

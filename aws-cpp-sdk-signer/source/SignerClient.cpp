@@ -111,8 +111,14 @@ void SignerClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 CancelSigningProfileOutcome SignerClient::CancelSigningProfile(const CancelSigningProfileRequest& request) const
 {
+  if (!request.ProfileNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CancelSigningProfile", "Required field: ProfileName, is not set");
+    return CancelSigningProfileOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/signing-profiles/";
@@ -149,6 +155,11 @@ void SignerClient::CancelSigningProfileAsyncHelper(const CancelSigningProfileReq
 
 DescribeSigningJobOutcome SignerClient::DescribeSigningJob(const DescribeSigningJobRequest& request) const
 {
+  if (!request.JobIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeSigningJob", "Required field: JobId, is not set");
+    return DescribeSigningJobOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JobId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/signing-jobs/";
@@ -185,6 +196,11 @@ void SignerClient::DescribeSigningJobAsyncHelper(const DescribeSigningJobRequest
 
 GetSigningPlatformOutcome SignerClient::GetSigningPlatform(const GetSigningPlatformRequest& request) const
 {
+  if (!request.PlatformIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetSigningPlatform", "Required field: PlatformId, is not set");
+    return GetSigningPlatformOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [PlatformId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/signing-platforms/";
@@ -221,6 +237,11 @@ void SignerClient::GetSigningPlatformAsyncHelper(const GetSigningPlatformRequest
 
 GetSigningProfileOutcome SignerClient::GetSigningProfile(const GetSigningProfileRequest& request) const
 {
+  if (!request.ProfileNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetSigningProfile", "Required field: ProfileName, is not set");
+    return GetSigningProfileOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/signing-profiles/";
@@ -362,6 +383,11 @@ void SignerClient::ListSigningProfilesAsyncHelper(const ListSigningProfilesReque
 
 PutSigningProfileOutcome SignerClient::PutSigningProfile(const PutSigningProfileRequest& request) const
 {
+  if (!request.ProfileNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("PutSigningProfile", "Required field: ProfileName, is not set");
+    return PutSigningProfileOutcome(Aws::Client::AWSError<SignerErrors>(SignerErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ProfileName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/signing-profiles/";

@@ -35,8 +35,8 @@ namespace Model
 
   /**
    * <p>This object enables you to specify a JSON path to extract from the event and
-   * use as the partition key for the Amazon Kinesis data stream, so that you can
-   * control the shard to which the event goes. If you do not include this parameter,
+   * use as the partition key for the Amazon Kinesis data stream so that you can
+   * control the shard that the event goes to. If you don't include this parameter,
    * the default is to use the <code>eventId</code> as the partition
    * key.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/KinesisParameters">AWS
@@ -54,7 +54,7 @@ namespace Model
     /**
      * <p>The JSON path to be extracted from the event and used as the partition key.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
+     * href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
      * Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer
      * Guide</i>.</p>
      */
@@ -63,7 +63,16 @@ namespace Model
     /**
      * <p>The JSON path to be extracted from the event and used as the partition key.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
+     * href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
+     * Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer
+     * Guide</i>.</p>
+     */
+    inline bool PartitionKeyPathHasBeenSet() const { return m_partitionKeyPathHasBeenSet; }
+
+    /**
+     * <p>The JSON path to be extracted from the event and used as the partition key.
+     * For more information, see <a
+     * href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
      * Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer
      * Guide</i>.</p>
      */
@@ -72,7 +81,7 @@ namespace Model
     /**
      * <p>The JSON path to be extracted from the event and used as the partition key.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
+     * href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
      * Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer
      * Guide</i>.</p>
      */
@@ -81,7 +90,7 @@ namespace Model
     /**
      * <p>The JSON path to be extracted from the event and used as the partition key.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
+     * href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
      * Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer
      * Guide</i>.</p>
      */
@@ -90,7 +99,7 @@ namespace Model
     /**
      * <p>The JSON path to be extracted from the event and used as the partition key.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
+     * href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
      * Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer
      * Guide</i>.</p>
      */
@@ -99,7 +108,7 @@ namespace Model
     /**
      * <p>The JSON path to be extracted from the event and used as the partition key.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
+     * href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
      * Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer
      * Guide</i>.</p>
      */
@@ -108,7 +117,7 @@ namespace Model
     /**
      * <p>The JSON path to be extracted from the event and used as the partition key.
      * For more information, see <a
-     * href="http://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
+     * href="https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key">Amazon
      * Kinesis Streams Key Concepts</a> in the <i>Amazon Kinesis Streams Developer
      * Guide</i>.</p>
      */

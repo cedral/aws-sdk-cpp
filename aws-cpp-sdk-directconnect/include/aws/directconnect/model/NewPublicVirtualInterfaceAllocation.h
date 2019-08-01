@@ -19,6 +19,7 @@
 #include <aws/directconnect/model/AddressFamily.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/directconnect/model/RouteFilterPrefix.h>
+#include <aws/directconnect/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -59,6 +60,11 @@ namespace Model
     /**
      * <p>The name of the virtual interface assigned by the customer network.</p>
      */
+    inline bool VirtualInterfaceNameHasBeenSet() const { return m_virtualInterfaceNameHasBeenSet; }
+
+    /**
+     * <p>The name of the virtual interface assigned by the customer network.</p>
+     */
     inline void SetVirtualInterfaceName(const Aws::String& value) { m_virtualInterfaceNameHasBeenSet = true; m_virtualInterfaceName = value; }
 
     /**
@@ -95,6 +101,11 @@ namespace Model
     /**
      * <p>The ID of the VLAN.</p>
      */
+    inline bool VlanHasBeenSet() const { return m_vlanHasBeenSet; }
+
+    /**
+     * <p>The ID of the VLAN.</p>
+     */
     inline void SetVlan(int value) { m_vlanHasBeenSet = true; m_vlan = value; }
 
     /**
@@ -113,6 +124,12 @@ namespace Model
      * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP)
      * configuration.</p>
      */
+    inline bool AsnHasBeenSet() const { return m_asnHasBeenSet; }
+
+    /**
+     * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP)
+     * configuration.</p>
+     */
     inline void SetAsn(int value) { m_asnHasBeenSet = true; m_asn = value; }
 
     /**
@@ -123,37 +140,50 @@ namespace Model
 
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline const Aws::String& GetAuthKey() const{ return m_authKey; }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
+     */
+    inline bool AuthKeyHasBeenSet() const { return m_authKeyHasBeenSet; }
+
+    /**
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(const Aws::String& value) { m_authKeyHasBeenSet = true; m_authKey = value; }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(Aws::String&& value) { m_authKeyHasBeenSet = true; m_authKey = std::move(value); }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(const char* value) { m_authKeyHasBeenSet = true; m_authKey.assign(value); }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline NewPublicVirtualInterfaceAllocation& WithAuthKey(const Aws::String& value) { SetAuthKey(value); return *this;}
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline NewPublicVirtualInterfaceAllocation& WithAuthKey(Aws::String&& value) { SetAuthKey(std::move(value)); return *this;}
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline NewPublicVirtualInterfaceAllocation& WithAuthKey(const char* value) { SetAuthKey(value); return *this;}
 
@@ -162,6 +192,11 @@ namespace Model
      * <p>The IP address assigned to the Amazon interface.</p>
      */
     inline const Aws::String& GetAmazonAddress() const{ return m_amazonAddress; }
+
+    /**
+     * <p>The IP address assigned to the Amazon interface.</p>
+     */
+    inline bool AmazonAddressHasBeenSet() const { return m_amazonAddressHasBeenSet; }
 
     /**
      * <p>The IP address assigned to the Amazon interface.</p>
@@ -202,6 +237,11 @@ namespace Model
     /**
      * <p>The IP address assigned to the customer interface.</p>
      */
+    inline bool CustomerAddressHasBeenSet() const { return m_customerAddressHasBeenSet; }
+
+    /**
+     * <p>The IP address assigned to the customer interface.</p>
+     */
     inline void SetCustomerAddress(const Aws::String& value) { m_customerAddressHasBeenSet = true; m_customerAddress = value; }
 
     /**
@@ -238,6 +278,11 @@ namespace Model
     /**
      * <p>The address family for the BGP peer.</p>
      */
+    inline bool AddressFamilyHasBeenSet() const { return m_addressFamilyHasBeenSet; }
+
+    /**
+     * <p>The address family for the BGP peer.</p>
+     */
     inline void SetAddressFamily(const AddressFamily& value) { m_addressFamilyHasBeenSet = true; m_addressFamily = value; }
 
     /**
@@ -261,6 +306,12 @@ namespace Model
      * public virtual interfaces.</p>
      */
     inline const Aws::Vector<RouteFilterPrefix>& GetRouteFilterPrefixes() const{ return m_routeFilterPrefixes; }
+
+    /**
+     * <p>The routes to be advertised to the AWS network in this Region. Applies to
+     * public virtual interfaces.</p>
+     */
+    inline bool RouteFilterPrefixesHasBeenSet() const { return m_routeFilterPrefixesHasBeenSet; }
 
     /**
      * <p>The routes to be advertised to the AWS network in this Region. Applies to
@@ -298,6 +349,55 @@ namespace Model
      */
     inline NewPublicVirtualInterfaceAllocation& AddRouteFilterPrefixes(RouteFilterPrefix&& value) { m_routeFilterPrefixesHasBeenSet = true; m_routeFilterPrefixes.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>Any tags assigned to the public virtual interface to be provisioned on a
+     * connection.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Any tags assigned to the public virtual interface to be provisioned on a
+     * connection.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>Any tags assigned to the public virtual interface to be provisioned on a
+     * connection.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>Any tags assigned to the public virtual interface to be provisioned on a
+     * connection.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>Any tags assigned to the public virtual interface to be provisioned on a
+     * connection.</p>
+     */
+    inline NewPublicVirtualInterfaceAllocation& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Any tags assigned to the public virtual interface to be provisioned on a
+     * connection.</p>
+     */
+    inline NewPublicVirtualInterfaceAllocation& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Any tags assigned to the public virtual interface to be provisioned on a
+     * connection.</p>
+     */
+    inline NewPublicVirtualInterfaceAllocation& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>Any tags assigned to the public virtual interface to be provisioned on a
+     * connection.</p>
+     */
+    inline NewPublicVirtualInterfaceAllocation& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_virtualInterfaceName;
@@ -323,6 +423,9 @@ namespace Model
 
     Aws::Vector<RouteFilterPrefix> m_routeFilterPrefixes;
     bool m_routeFilterPrefixesHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

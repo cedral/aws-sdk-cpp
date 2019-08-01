@@ -34,7 +34,8 @@ namespace Model
 {
 
   /**
-   * <p> When updating an output configuration using the <a>UpdateApplication</a>
+   * <p> When updating an output configuration using the <a
+   * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html">UpdateApplication</a>
    * operation, provides information about an Amazon Kinesis Firehose delivery stream
    * configured as the destination. </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/KinesisFirehoseOutputUpdate">AWS
@@ -54,6 +55,12 @@ namespace Model
      * write to.</p>
      */
     inline const Aws::String& GetResourceARNUpdate() const{ return m_resourceARNUpdate; }
+
+    /**
+     * <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream to
+     * write to.</p>
+     */
+    inline bool ResourceARNUpdateHasBeenSet() const { return m_resourceARNUpdateHasBeenSet; }
 
     /**
      * <p>Amazon Resource Name (ARN) of the Amazon Kinesis Firehose delivery stream to
@@ -98,6 +105,13 @@ namespace Model
      * role.</p>
      */
     inline const Aws::String& GetRoleARNUpdate() const{ return m_roleARNUpdate; }
+
+    /**
+     * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the
+     * stream on your behalf. You need to grant the necessary permissions to this
+     * role.</p>
+     */
+    inline bool RoleARNUpdateHasBeenSet() const { return m_roleARNUpdateHasBeenSet; }
 
     /**
      * <p>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the

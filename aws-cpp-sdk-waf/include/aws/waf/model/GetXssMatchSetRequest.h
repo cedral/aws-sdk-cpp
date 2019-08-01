@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     GetXssMatchSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * <a>ListXssMatchSets</a>.</p>
      */
     inline const Aws::String& GetXssMatchSetId() const{ return m_xssMatchSetId; }
+
+    /**
+     * <p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to
+     * get. <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by
+     * <a>ListXssMatchSets</a>.</p>
+     */
+    inline bool XssMatchSetIdHasBeenSet() const { return m_xssMatchSetIdHasBeenSet; }
 
     /**
      * <p>The <code>XssMatchSetId</code> of the <a>XssMatchSet</a> that you want to

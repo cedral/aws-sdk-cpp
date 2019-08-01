@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteTrafficPolicyInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * traffic policy instance.</p> </important>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID of the traffic policy instance that you want to delete. </p>
+     * <important> <p>When you delete a traffic policy instance, Amazon Route 53 also
+     * deletes all of the resource record sets that were created when you created the
+     * traffic policy instance.</p> </important>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID of the traffic policy instance that you want to delete. </p>

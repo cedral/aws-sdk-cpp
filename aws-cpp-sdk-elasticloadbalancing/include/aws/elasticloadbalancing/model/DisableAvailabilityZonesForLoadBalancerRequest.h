@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DisableAvailabilityZonesForLoadBalancerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The name of the load balancer.</p>
      */
     inline const Aws::String& GetLoadBalancerName() const{ return m_loadBalancerName; }
+
+    /**
+     * <p>The name of the load balancer.</p>
+     */
+    inline bool LoadBalancerNameHasBeenSet() const { return m_loadBalancerNameHasBeenSet; }
 
     /**
      * <p>The name of the load balancer.</p>
@@ -91,6 +96,11 @@ namespace Model
      * <p>The Availability Zones.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAvailabilityZones() const{ return m_availabilityZones; }
+
+    /**
+     * <p>The Availability Zones.</p>
+     */
+    inline bool AvailabilityZonesHasBeenSet() const { return m_availabilityZonesHasBeenSet; }
 
     /**
      * <p>The Availability Zones.</p>

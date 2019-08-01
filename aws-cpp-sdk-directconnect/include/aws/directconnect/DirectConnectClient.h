@@ -21,31 +21,38 @@
 #include <aws/core/client/AWSClient.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/json/JsonSerializer.h>
+#include <aws/directconnect/model/AcceptDirectConnectGatewayAssociationProposalResult.h>
 #include <aws/directconnect/model/AllocateHostedConnectionResult.h>
 #include <aws/directconnect/model/AllocatePrivateVirtualInterfaceResult.h>
 #include <aws/directconnect/model/AllocatePublicVirtualInterfaceResult.h>
+#include <aws/directconnect/model/AllocateTransitVirtualInterfaceResult.h>
 #include <aws/directconnect/model/AssociateConnectionWithLagResult.h>
 #include <aws/directconnect/model/AssociateHostedConnectionResult.h>
 #include <aws/directconnect/model/AssociateVirtualInterfaceResult.h>
 #include <aws/directconnect/model/ConfirmConnectionResult.h>
 #include <aws/directconnect/model/ConfirmPrivateVirtualInterfaceResult.h>
 #include <aws/directconnect/model/ConfirmPublicVirtualInterfaceResult.h>
+#include <aws/directconnect/model/ConfirmTransitVirtualInterfaceResult.h>
 #include <aws/directconnect/model/CreateBGPPeerResult.h>
 #include <aws/directconnect/model/CreateConnectionResult.h>
 #include <aws/directconnect/model/CreateDirectConnectGatewayResult.h>
 #include <aws/directconnect/model/CreateDirectConnectGatewayAssociationResult.h>
+#include <aws/directconnect/model/CreateDirectConnectGatewayAssociationProposalResult.h>
 #include <aws/directconnect/model/CreateInterconnectResult.h>
 #include <aws/directconnect/model/CreateLagResult.h>
 #include <aws/directconnect/model/CreatePrivateVirtualInterfaceResult.h>
 #include <aws/directconnect/model/CreatePublicVirtualInterfaceResult.h>
+#include <aws/directconnect/model/CreateTransitVirtualInterfaceResult.h>
 #include <aws/directconnect/model/DeleteBGPPeerResult.h>
 #include <aws/directconnect/model/DeleteConnectionResult.h>
 #include <aws/directconnect/model/DeleteDirectConnectGatewayResult.h>
 #include <aws/directconnect/model/DeleteDirectConnectGatewayAssociationResult.h>
+#include <aws/directconnect/model/DeleteDirectConnectGatewayAssociationProposalResult.h>
 #include <aws/directconnect/model/DeleteInterconnectResult.h>
 #include <aws/directconnect/model/DeleteLagResult.h>
 #include <aws/directconnect/model/DeleteVirtualInterfaceResult.h>
 #include <aws/directconnect/model/DescribeConnectionsResult.h>
+#include <aws/directconnect/model/DescribeDirectConnectGatewayAssociationProposalsResult.h>
 #include <aws/directconnect/model/DescribeDirectConnectGatewayAssociationsResult.h>
 #include <aws/directconnect/model/DescribeDirectConnectGatewayAttachmentsResult.h>
 #include <aws/directconnect/model/DescribeDirectConnectGatewaysResult.h>
@@ -60,6 +67,7 @@
 #include <aws/directconnect/model/DisassociateConnectionFromLagResult.h>
 #include <aws/directconnect/model/TagResourceResult.h>
 #include <aws/directconnect/model/UntagResourceResult.h>
+#include <aws/directconnect/model/UpdateDirectConnectGatewayAssociationResult.h>
 #include <aws/directconnect/model/UpdateLagResult.h>
 #include <aws/directconnect/model/UpdateVirtualInterfaceAttributesResult.h>
 #include <aws/core/client/AsyncCallerContext.h>
@@ -79,7 +87,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -102,31 +109,38 @@ namespace DirectConnect
 
 namespace Model
 {
+        class AcceptDirectConnectGatewayAssociationProposalRequest;
         class AllocateHostedConnectionRequest;
         class AllocatePrivateVirtualInterfaceRequest;
         class AllocatePublicVirtualInterfaceRequest;
+        class AllocateTransitVirtualInterfaceRequest;
         class AssociateConnectionWithLagRequest;
         class AssociateHostedConnectionRequest;
         class AssociateVirtualInterfaceRequest;
         class ConfirmConnectionRequest;
         class ConfirmPrivateVirtualInterfaceRequest;
         class ConfirmPublicVirtualInterfaceRequest;
+        class ConfirmTransitVirtualInterfaceRequest;
         class CreateBGPPeerRequest;
         class CreateConnectionRequest;
         class CreateDirectConnectGatewayRequest;
         class CreateDirectConnectGatewayAssociationRequest;
+        class CreateDirectConnectGatewayAssociationProposalRequest;
         class CreateInterconnectRequest;
         class CreateLagRequest;
         class CreatePrivateVirtualInterfaceRequest;
         class CreatePublicVirtualInterfaceRequest;
+        class CreateTransitVirtualInterfaceRequest;
         class DeleteBGPPeerRequest;
         class DeleteConnectionRequest;
         class DeleteDirectConnectGatewayRequest;
         class DeleteDirectConnectGatewayAssociationRequest;
+        class DeleteDirectConnectGatewayAssociationProposalRequest;
         class DeleteInterconnectRequest;
         class DeleteLagRequest;
         class DeleteVirtualInterfaceRequest;
         class DescribeConnectionsRequest;
+        class DescribeDirectConnectGatewayAssociationProposalsRequest;
         class DescribeDirectConnectGatewayAssociationsRequest;
         class DescribeDirectConnectGatewayAttachmentsRequest;
         class DescribeDirectConnectGatewaysRequest;
@@ -139,34 +153,42 @@ namespace Model
         class DisassociateConnectionFromLagRequest;
         class TagResourceRequest;
         class UntagResourceRequest;
+        class UpdateDirectConnectGatewayAssociationRequest;
         class UpdateLagRequest;
         class UpdateVirtualInterfaceAttributesRequest;
 
+        typedef Aws::Utils::Outcome<AcceptDirectConnectGatewayAssociationProposalResult, Aws::Client::AWSError<DirectConnectErrors>> AcceptDirectConnectGatewayAssociationProposalOutcome;
         typedef Aws::Utils::Outcome<AllocateHostedConnectionResult, Aws::Client::AWSError<DirectConnectErrors>> AllocateHostedConnectionOutcome;
         typedef Aws::Utils::Outcome<AllocatePrivateVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> AllocatePrivateVirtualInterfaceOutcome;
         typedef Aws::Utils::Outcome<AllocatePublicVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> AllocatePublicVirtualInterfaceOutcome;
+        typedef Aws::Utils::Outcome<AllocateTransitVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> AllocateTransitVirtualInterfaceOutcome;
         typedef Aws::Utils::Outcome<AssociateConnectionWithLagResult, Aws::Client::AWSError<DirectConnectErrors>> AssociateConnectionWithLagOutcome;
         typedef Aws::Utils::Outcome<AssociateHostedConnectionResult, Aws::Client::AWSError<DirectConnectErrors>> AssociateHostedConnectionOutcome;
         typedef Aws::Utils::Outcome<AssociateVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> AssociateVirtualInterfaceOutcome;
         typedef Aws::Utils::Outcome<ConfirmConnectionResult, Aws::Client::AWSError<DirectConnectErrors>> ConfirmConnectionOutcome;
         typedef Aws::Utils::Outcome<ConfirmPrivateVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> ConfirmPrivateVirtualInterfaceOutcome;
         typedef Aws::Utils::Outcome<ConfirmPublicVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> ConfirmPublicVirtualInterfaceOutcome;
+        typedef Aws::Utils::Outcome<ConfirmTransitVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> ConfirmTransitVirtualInterfaceOutcome;
         typedef Aws::Utils::Outcome<CreateBGPPeerResult, Aws::Client::AWSError<DirectConnectErrors>> CreateBGPPeerOutcome;
         typedef Aws::Utils::Outcome<CreateConnectionResult, Aws::Client::AWSError<DirectConnectErrors>> CreateConnectionOutcome;
         typedef Aws::Utils::Outcome<CreateDirectConnectGatewayResult, Aws::Client::AWSError<DirectConnectErrors>> CreateDirectConnectGatewayOutcome;
         typedef Aws::Utils::Outcome<CreateDirectConnectGatewayAssociationResult, Aws::Client::AWSError<DirectConnectErrors>> CreateDirectConnectGatewayAssociationOutcome;
+        typedef Aws::Utils::Outcome<CreateDirectConnectGatewayAssociationProposalResult, Aws::Client::AWSError<DirectConnectErrors>> CreateDirectConnectGatewayAssociationProposalOutcome;
         typedef Aws::Utils::Outcome<CreateInterconnectResult, Aws::Client::AWSError<DirectConnectErrors>> CreateInterconnectOutcome;
         typedef Aws::Utils::Outcome<CreateLagResult, Aws::Client::AWSError<DirectConnectErrors>> CreateLagOutcome;
         typedef Aws::Utils::Outcome<CreatePrivateVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> CreatePrivateVirtualInterfaceOutcome;
         typedef Aws::Utils::Outcome<CreatePublicVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> CreatePublicVirtualInterfaceOutcome;
+        typedef Aws::Utils::Outcome<CreateTransitVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> CreateTransitVirtualInterfaceOutcome;
         typedef Aws::Utils::Outcome<DeleteBGPPeerResult, Aws::Client::AWSError<DirectConnectErrors>> DeleteBGPPeerOutcome;
         typedef Aws::Utils::Outcome<DeleteConnectionResult, Aws::Client::AWSError<DirectConnectErrors>> DeleteConnectionOutcome;
         typedef Aws::Utils::Outcome<DeleteDirectConnectGatewayResult, Aws::Client::AWSError<DirectConnectErrors>> DeleteDirectConnectGatewayOutcome;
         typedef Aws::Utils::Outcome<DeleteDirectConnectGatewayAssociationResult, Aws::Client::AWSError<DirectConnectErrors>> DeleteDirectConnectGatewayAssociationOutcome;
+        typedef Aws::Utils::Outcome<DeleteDirectConnectGatewayAssociationProposalResult, Aws::Client::AWSError<DirectConnectErrors>> DeleteDirectConnectGatewayAssociationProposalOutcome;
         typedef Aws::Utils::Outcome<DeleteInterconnectResult, Aws::Client::AWSError<DirectConnectErrors>> DeleteInterconnectOutcome;
         typedef Aws::Utils::Outcome<DeleteLagResult, Aws::Client::AWSError<DirectConnectErrors>> DeleteLagOutcome;
         typedef Aws::Utils::Outcome<DeleteVirtualInterfaceResult, Aws::Client::AWSError<DirectConnectErrors>> DeleteVirtualInterfaceOutcome;
         typedef Aws::Utils::Outcome<DescribeConnectionsResult, Aws::Client::AWSError<DirectConnectErrors>> DescribeConnectionsOutcome;
+        typedef Aws::Utils::Outcome<DescribeDirectConnectGatewayAssociationProposalsResult, Aws::Client::AWSError<DirectConnectErrors>> DescribeDirectConnectGatewayAssociationProposalsOutcome;
         typedef Aws::Utils::Outcome<DescribeDirectConnectGatewayAssociationsResult, Aws::Client::AWSError<DirectConnectErrors>> DescribeDirectConnectGatewayAssociationsOutcome;
         typedef Aws::Utils::Outcome<DescribeDirectConnectGatewayAttachmentsResult, Aws::Client::AWSError<DirectConnectErrors>> DescribeDirectConnectGatewayAttachmentsOutcome;
         typedef Aws::Utils::Outcome<DescribeDirectConnectGatewaysResult, Aws::Client::AWSError<DirectConnectErrors>> DescribeDirectConnectGatewaysOutcome;
@@ -181,34 +203,42 @@ namespace Model
         typedef Aws::Utils::Outcome<DisassociateConnectionFromLagResult, Aws::Client::AWSError<DirectConnectErrors>> DisassociateConnectionFromLagOutcome;
         typedef Aws::Utils::Outcome<TagResourceResult, Aws::Client::AWSError<DirectConnectErrors>> TagResourceOutcome;
         typedef Aws::Utils::Outcome<UntagResourceResult, Aws::Client::AWSError<DirectConnectErrors>> UntagResourceOutcome;
+        typedef Aws::Utils::Outcome<UpdateDirectConnectGatewayAssociationResult, Aws::Client::AWSError<DirectConnectErrors>> UpdateDirectConnectGatewayAssociationOutcome;
         typedef Aws::Utils::Outcome<UpdateLagResult, Aws::Client::AWSError<DirectConnectErrors>> UpdateLagOutcome;
         typedef Aws::Utils::Outcome<UpdateVirtualInterfaceAttributesResult, Aws::Client::AWSError<DirectConnectErrors>> UpdateVirtualInterfaceAttributesOutcome;
 
+        typedef std::future<AcceptDirectConnectGatewayAssociationProposalOutcome> AcceptDirectConnectGatewayAssociationProposalOutcomeCallable;
         typedef std::future<AllocateHostedConnectionOutcome> AllocateHostedConnectionOutcomeCallable;
         typedef std::future<AllocatePrivateVirtualInterfaceOutcome> AllocatePrivateVirtualInterfaceOutcomeCallable;
         typedef std::future<AllocatePublicVirtualInterfaceOutcome> AllocatePublicVirtualInterfaceOutcomeCallable;
+        typedef std::future<AllocateTransitVirtualInterfaceOutcome> AllocateTransitVirtualInterfaceOutcomeCallable;
         typedef std::future<AssociateConnectionWithLagOutcome> AssociateConnectionWithLagOutcomeCallable;
         typedef std::future<AssociateHostedConnectionOutcome> AssociateHostedConnectionOutcomeCallable;
         typedef std::future<AssociateVirtualInterfaceOutcome> AssociateVirtualInterfaceOutcomeCallable;
         typedef std::future<ConfirmConnectionOutcome> ConfirmConnectionOutcomeCallable;
         typedef std::future<ConfirmPrivateVirtualInterfaceOutcome> ConfirmPrivateVirtualInterfaceOutcomeCallable;
         typedef std::future<ConfirmPublicVirtualInterfaceOutcome> ConfirmPublicVirtualInterfaceOutcomeCallable;
+        typedef std::future<ConfirmTransitVirtualInterfaceOutcome> ConfirmTransitVirtualInterfaceOutcomeCallable;
         typedef std::future<CreateBGPPeerOutcome> CreateBGPPeerOutcomeCallable;
         typedef std::future<CreateConnectionOutcome> CreateConnectionOutcomeCallable;
         typedef std::future<CreateDirectConnectGatewayOutcome> CreateDirectConnectGatewayOutcomeCallable;
         typedef std::future<CreateDirectConnectGatewayAssociationOutcome> CreateDirectConnectGatewayAssociationOutcomeCallable;
+        typedef std::future<CreateDirectConnectGatewayAssociationProposalOutcome> CreateDirectConnectGatewayAssociationProposalOutcomeCallable;
         typedef std::future<CreateInterconnectOutcome> CreateInterconnectOutcomeCallable;
         typedef std::future<CreateLagOutcome> CreateLagOutcomeCallable;
         typedef std::future<CreatePrivateVirtualInterfaceOutcome> CreatePrivateVirtualInterfaceOutcomeCallable;
         typedef std::future<CreatePublicVirtualInterfaceOutcome> CreatePublicVirtualInterfaceOutcomeCallable;
+        typedef std::future<CreateTransitVirtualInterfaceOutcome> CreateTransitVirtualInterfaceOutcomeCallable;
         typedef std::future<DeleteBGPPeerOutcome> DeleteBGPPeerOutcomeCallable;
         typedef std::future<DeleteConnectionOutcome> DeleteConnectionOutcomeCallable;
         typedef std::future<DeleteDirectConnectGatewayOutcome> DeleteDirectConnectGatewayOutcomeCallable;
         typedef std::future<DeleteDirectConnectGatewayAssociationOutcome> DeleteDirectConnectGatewayAssociationOutcomeCallable;
+        typedef std::future<DeleteDirectConnectGatewayAssociationProposalOutcome> DeleteDirectConnectGatewayAssociationProposalOutcomeCallable;
         typedef std::future<DeleteInterconnectOutcome> DeleteInterconnectOutcomeCallable;
         typedef std::future<DeleteLagOutcome> DeleteLagOutcomeCallable;
         typedef std::future<DeleteVirtualInterfaceOutcome> DeleteVirtualInterfaceOutcomeCallable;
         typedef std::future<DescribeConnectionsOutcome> DescribeConnectionsOutcomeCallable;
+        typedef std::future<DescribeDirectConnectGatewayAssociationProposalsOutcome> DescribeDirectConnectGatewayAssociationProposalsOutcomeCallable;
         typedef std::future<DescribeDirectConnectGatewayAssociationsOutcome> DescribeDirectConnectGatewayAssociationsOutcomeCallable;
         typedef std::future<DescribeDirectConnectGatewayAttachmentsOutcome> DescribeDirectConnectGatewayAttachmentsOutcomeCallable;
         typedef std::future<DescribeDirectConnectGatewaysOutcome> DescribeDirectConnectGatewaysOutcomeCallable;
@@ -223,37 +253,45 @@ namespace Model
         typedef std::future<DisassociateConnectionFromLagOutcome> DisassociateConnectionFromLagOutcomeCallable;
         typedef std::future<TagResourceOutcome> TagResourceOutcomeCallable;
         typedef std::future<UntagResourceOutcome> UntagResourceOutcomeCallable;
+        typedef std::future<UpdateDirectConnectGatewayAssociationOutcome> UpdateDirectConnectGatewayAssociationOutcomeCallable;
         typedef std::future<UpdateLagOutcome> UpdateLagOutcomeCallable;
         typedef std::future<UpdateVirtualInterfaceAttributesOutcome> UpdateVirtualInterfaceAttributesOutcomeCallable;
 } // namespace Model
 
   class DirectConnectClient;
 
+    typedef std::function<void(const DirectConnectClient*, const Model::AcceptDirectConnectGatewayAssociationProposalRequest&, const Model::AcceptDirectConnectGatewayAssociationProposalOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AcceptDirectConnectGatewayAssociationProposalResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::AllocateHostedConnectionRequest&, const Model::AllocateHostedConnectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AllocateHostedConnectionResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::AllocatePrivateVirtualInterfaceRequest&, const Model::AllocatePrivateVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AllocatePrivateVirtualInterfaceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::AllocatePublicVirtualInterfaceRequest&, const Model::AllocatePublicVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AllocatePublicVirtualInterfaceResponseReceivedHandler;
+    typedef std::function<void(const DirectConnectClient*, const Model::AllocateTransitVirtualInterfaceRequest&, const Model::AllocateTransitVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AllocateTransitVirtualInterfaceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::AssociateConnectionWithLagRequest&, const Model::AssociateConnectionWithLagOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AssociateConnectionWithLagResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::AssociateHostedConnectionRequest&, const Model::AssociateHostedConnectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AssociateHostedConnectionResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::AssociateVirtualInterfaceRequest&, const Model::AssociateVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AssociateVirtualInterfaceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::ConfirmConnectionRequest&, const Model::ConfirmConnectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ConfirmConnectionResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::ConfirmPrivateVirtualInterfaceRequest&, const Model::ConfirmPrivateVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ConfirmPrivateVirtualInterfaceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::ConfirmPublicVirtualInterfaceRequest&, const Model::ConfirmPublicVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ConfirmPublicVirtualInterfaceResponseReceivedHandler;
+    typedef std::function<void(const DirectConnectClient*, const Model::ConfirmTransitVirtualInterfaceRequest&, const Model::ConfirmTransitVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ConfirmTransitVirtualInterfaceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::CreateBGPPeerRequest&, const Model::CreateBGPPeerOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateBGPPeerResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::CreateConnectionRequest&, const Model::CreateConnectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateConnectionResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::CreateDirectConnectGatewayRequest&, const Model::CreateDirectConnectGatewayOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDirectConnectGatewayResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::CreateDirectConnectGatewayAssociationRequest&, const Model::CreateDirectConnectGatewayAssociationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDirectConnectGatewayAssociationResponseReceivedHandler;
+    typedef std::function<void(const DirectConnectClient*, const Model::CreateDirectConnectGatewayAssociationProposalRequest&, const Model::CreateDirectConnectGatewayAssociationProposalOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDirectConnectGatewayAssociationProposalResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::CreateInterconnectRequest&, const Model::CreateInterconnectOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateInterconnectResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::CreateLagRequest&, const Model::CreateLagOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateLagResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::CreatePrivateVirtualInterfaceRequest&, const Model::CreatePrivateVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreatePrivateVirtualInterfaceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::CreatePublicVirtualInterfaceRequest&, const Model::CreatePublicVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreatePublicVirtualInterfaceResponseReceivedHandler;
+    typedef std::function<void(const DirectConnectClient*, const Model::CreateTransitVirtualInterfaceRequest&, const Model::CreateTransitVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateTransitVirtualInterfaceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DeleteBGPPeerRequest&, const Model::DeleteBGPPeerOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteBGPPeerResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DeleteConnectionRequest&, const Model::DeleteConnectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteConnectionResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DeleteDirectConnectGatewayRequest&, const Model::DeleteDirectConnectGatewayOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDirectConnectGatewayResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DeleteDirectConnectGatewayAssociationRequest&, const Model::DeleteDirectConnectGatewayAssociationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDirectConnectGatewayAssociationResponseReceivedHandler;
+    typedef std::function<void(const DirectConnectClient*, const Model::DeleteDirectConnectGatewayAssociationProposalRequest&, const Model::DeleteDirectConnectGatewayAssociationProposalOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDirectConnectGatewayAssociationProposalResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DeleteInterconnectRequest&, const Model::DeleteInterconnectOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteInterconnectResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DeleteLagRequest&, const Model::DeleteLagOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteLagResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DeleteVirtualInterfaceRequest&, const Model::DeleteVirtualInterfaceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteVirtualInterfaceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DescribeConnectionsRequest&, const Model::DescribeConnectionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeConnectionsResponseReceivedHandler;
+    typedef std::function<void(const DirectConnectClient*, const Model::DescribeDirectConnectGatewayAssociationProposalsRequest&, const Model::DescribeDirectConnectGatewayAssociationProposalsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDirectConnectGatewayAssociationProposalsResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DescribeDirectConnectGatewayAssociationsRequest&, const Model::DescribeDirectConnectGatewayAssociationsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDirectConnectGatewayAssociationsResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DescribeDirectConnectGatewayAttachmentsRequest&, const Model::DescribeDirectConnectGatewayAttachmentsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDirectConnectGatewayAttachmentsResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::DescribeDirectConnectGatewaysRequest&, const Model::DescribeDirectConnectGatewaysOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDirectConnectGatewaysResponseReceivedHandler;
@@ -268,6 +306,7 @@ namespace Model
     typedef std::function<void(const DirectConnectClient*, const Model::DisassociateConnectionFromLagRequest&, const Model::DisassociateConnectionFromLagOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DisassociateConnectionFromLagResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::TagResourceRequest&, const Model::TagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > TagResourceResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::UntagResourceRequest&, const Model::UntagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UntagResourceResponseReceivedHandler;
+    typedef std::function<void(const DirectConnectClient*, const Model::UpdateDirectConnectGatewayAssociationRequest&, const Model::UpdateDirectConnectGatewayAssociationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateDirectConnectGatewayAssociationResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::UpdateLagRequest&, const Model::UpdateLagOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateLagResponseReceivedHandler;
     typedef std::function<void(const DirectConnectClient*, const Model::UpdateVirtualInterfaceAttributesRequest&, const Model::UpdateVirtualInterfaceAttributesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateVirtualInterfaceAttributesResponseReceivedHandler;
 
@@ -312,11 +351,42 @@ namespace Model
 
 
         /**
+         * <p>Accepts a proposal request to attach a virtual private gateway or transit
+         * gateway to a Direct Connect gateway.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AcceptDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::AcceptDirectConnectGatewayAssociationProposalOutcome AcceptDirectConnectGatewayAssociationProposal(const Model::AcceptDirectConnectGatewayAssociationProposalRequest& request) const;
+
+        /**
+         * <p>Accepts a proposal request to attach a virtual private gateway or transit
+         * gateway to a Direct Connect gateway.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AcceptDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::AcceptDirectConnectGatewayAssociationProposalOutcomeCallable AcceptDirectConnectGatewayAssociationProposalCallable(const Model::AcceptDirectConnectGatewayAssociationProposalRequest& request) const;
+
+        /**
+         * <p>Accepts a proposal request to attach a virtual private gateway or transit
+         * gateway to a Direct Connect gateway.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AcceptDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void AcceptDirectConnectGatewayAssociationProposalAsync(const Model::AcceptDirectConnectGatewayAssociationProposalRequest& request, const AcceptDirectConnectGatewayAssociationProposalResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Creates a hosted connection on the specified interconnect or a link
-         * aggregation group (LAG).</p> <p>Allocates a VLAN number and a specified amount
-         * of bandwidth for use by a hosted connection on the specified interconnect or
-         * LAG.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * aggregation group (LAG) of interconnects.</p> <p>Allocates a VLAN number and a
+         * specified amount of capacity (bandwidth) for use by a hosted connection on the
+         * specified interconnect or LAG of interconnects. AWS polices the hosted
+         * connection for the specified capacity and the AWS Direct Connect Partner must
+         * also police the hosted connection for the specified capacity.</p> <note>
+         * <p>Intended for use by AWS Direct Connect Partners only.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateHostedConnection">AWS
          * API Reference</a></p>
          */
@@ -324,10 +394,13 @@ namespace Model
 
         /**
          * <p>Creates a hosted connection on the specified interconnect or a link
-         * aggregation group (LAG).</p> <p>Allocates a VLAN number and a specified amount
-         * of bandwidth for use by a hosted connection on the specified interconnect or
-         * LAG.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * aggregation group (LAG) of interconnects.</p> <p>Allocates a VLAN number and a
+         * specified amount of capacity (bandwidth) for use by a hosted connection on the
+         * specified interconnect or LAG of interconnects. AWS polices the hosted
+         * connection for the specified capacity and the AWS Direct Connect Partner must
+         * also police the hosted connection for the specified capacity.</p> <note>
+         * <p>Intended for use by AWS Direct Connect Partners only.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateHostedConnection">AWS
          * API Reference</a></p>
          *
@@ -337,10 +410,13 @@ namespace Model
 
         /**
          * <p>Creates a hosted connection on the specified interconnect or a link
-         * aggregation group (LAG).</p> <p>Allocates a VLAN number and a specified amount
-         * of bandwidth for use by a hosted connection on the specified interconnect or
-         * LAG.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p>
-         * </note><p><h3>See Also:</h3>   <a
+         * aggregation group (LAG) of interconnects.</p> <p>Allocates a VLAN number and a
+         * specified amount of capacity (bandwidth) for use by a hosted connection on the
+         * specified interconnect or LAG of interconnects. AWS polices the hosted
+         * connection for the specified capacity and the AWS Direct Connect Partner must
+         * also police the hosted connection for the specified capacity.</p> <note>
+         * <p>Intended for use by AWS Direct Connect Partners only.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateHostedConnection">AWS
          * API Reference</a></p>
          *
@@ -438,6 +514,52 @@ namespace Model
         virtual void AllocatePublicVirtualInterfaceAsync(const Model::AllocatePublicVirtualInterfaceRequest& request, const AllocatePublicVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Provisions a transit virtual interface to be owned by the specified AWS
+         * account. Use this type of interface to connect a transit gateway to your Direct
+         * Connect gateway.</p> <p>The owner of a connection provisions a transit virtual
+         * interface to be owned by the specified AWS account.</p> <p>After you create a
+         * transit virtual interface, it must be confirmed by the owner using
+         * <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the
+         * transit virtual interface is in the <code>requested</code> state and is not
+         * available to handle traffic.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::AllocateTransitVirtualInterfaceOutcome AllocateTransitVirtualInterface(const Model::AllocateTransitVirtualInterfaceRequest& request) const;
+
+        /**
+         * <p>Provisions a transit virtual interface to be owned by the specified AWS
+         * account. Use this type of interface to connect a transit gateway to your Direct
+         * Connect gateway.</p> <p>The owner of a connection provisions a transit virtual
+         * interface to be owned by the specified AWS account.</p> <p>After you create a
+         * transit virtual interface, it must be confirmed by the owner using
+         * <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the
+         * transit virtual interface is in the <code>requested</code> state and is not
+         * available to handle traffic.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::AllocateTransitVirtualInterfaceOutcomeCallable AllocateTransitVirtualInterfaceCallable(const Model::AllocateTransitVirtualInterfaceRequest& request) const;
+
+        /**
+         * <p>Provisions a transit virtual interface to be owned by the specified AWS
+         * account. Use this type of interface to connect a transit gateway to your Direct
+         * Connect gateway.</p> <p>The owner of a connection provisions a transit virtual
+         * interface to be owned by the specified AWS account.</p> <p>After you create a
+         * transit virtual interface, it must be confirmed by the owner using
+         * <a>ConfirmTransitVirtualInterface</a>. Until this step has been completed, the
+         * transit virtual interface is in the <code>requested</code> state and is not
+         * available to handle traffic.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AllocateTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void AllocateTransitVirtualInterfaceAsync(const Model::AllocateTransitVirtualInterfaceRequest& request, const AllocateTransitVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Associates an existing connection with a link aggregation group (LAG). The
          * connection is interrupted and re-established as a member of the LAG
          * (connectivity to AWS is interrupted). The connection must be hosted on the same
@@ -510,7 +632,7 @@ namespace Model
          * an existing hosted connection with a conflicting VLAN number or IP address, the
          * operation fails. This action temporarily interrupts the hosted connection's
          * connectivity to AWS as it is being migrated.</p> <note> <p>Intended for use by
-         * AWS Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * AWS Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AssociateHostedConnection">AWS
          * API Reference</a></p>
          */
@@ -522,7 +644,7 @@ namespace Model
          * an existing hosted connection with a conflicting VLAN number or IP address, the
          * operation fails. This action temporarily interrupts the hosted connection's
          * connectivity to AWS as it is being migrated.</p> <note> <p>Intended for use by
-         * AWS Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * AWS Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AssociateHostedConnection">AWS
          * API Reference</a></p>
          *
@@ -536,7 +658,7 @@ namespace Model
          * an existing hosted connection with a conflicting VLAN number or IP address, the
          * operation fails. This action temporarily interrupts the hosted connection's
          * connectivity to AWS as it is being migrated.</p> <note> <p>Intended for use by
-         * AWS Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * AWS Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/AssociateHostedConnection">AWS
          * API Reference</a></p>
          *
@@ -703,6 +825,40 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void ConfirmPublicVirtualInterfaceAsync(const Model::ConfirmPublicVirtualInterfaceRequest& request, const ConfirmPublicVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Accepts ownership of a transit virtual interface created by another AWS
+         * account.</p> <p> After the owner of the transit virtual interface makes this
+         * call, the specified transit virtual interface is created and made available to
+         * handle traffic.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/ConfirmTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ConfirmTransitVirtualInterfaceOutcome ConfirmTransitVirtualInterface(const Model::ConfirmTransitVirtualInterfaceRequest& request) const;
+
+        /**
+         * <p>Accepts ownership of a transit virtual interface created by another AWS
+         * account.</p> <p> After the owner of the transit virtual interface makes this
+         * call, the specified transit virtual interface is created and made available to
+         * handle traffic.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/ConfirmTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ConfirmTransitVirtualInterfaceOutcomeCallable ConfirmTransitVirtualInterfaceCallable(const Model::ConfirmTransitVirtualInterfaceRequest& request) const;
+
+        /**
+         * <p>Accepts ownership of a transit virtual interface created by another AWS
+         * account.</p> <p> After the owner of the transit virtual interface makes this
+         * call, the specified transit virtual interface is created and made available to
+         * handle traffic.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/ConfirmTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ConfirmTransitVirtualInterfaceAsync(const Model::ConfirmTransitVirtualInterfaceRequest& request, const ConfirmTransitVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Creates a BGP peer on the specified virtual interface.</p> <p>You must create
@@ -889,11 +1045,51 @@ namespace Model
         virtual void CreateDirectConnectGatewayAssociationAsync(const Model::CreateDirectConnectGatewayAssociationRequest& request, const CreateDirectConnectGatewayAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates an interconnect between an AWS Direct Connect partner's network and a
+         * <p>Creates a proposal to associate the specified virtual private gateway or
+         * transit gateway with the specified Direct Connect gateway.</p> <p>You can only
+         * associate a Direct Connect gateway and virtual private gateway or transit
+         * gateway when the account that owns the Direct Connect gateway and the account
+         * that owns the virtual private gateway or transit gateway have the same AWS Payer
+         * ID.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CreateDirectConnectGatewayAssociationProposalOutcome CreateDirectConnectGatewayAssociationProposal(const Model::CreateDirectConnectGatewayAssociationProposalRequest& request) const;
+
+        /**
+         * <p>Creates a proposal to associate the specified virtual private gateway or
+         * transit gateway with the specified Direct Connect gateway.</p> <p>You can only
+         * associate a Direct Connect gateway and virtual private gateway or transit
+         * gateway when the account that owns the Direct Connect gateway and the account
+         * that owns the virtual private gateway or transit gateway have the same AWS Payer
+         * ID.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CreateDirectConnectGatewayAssociationProposalOutcomeCallable CreateDirectConnectGatewayAssociationProposalCallable(const Model::CreateDirectConnectGatewayAssociationProposalRequest& request) const;
+
+        /**
+         * <p>Creates a proposal to associate the specified virtual private gateway or
+         * transit gateway with the specified Direct Connect gateway.</p> <p>You can only
+         * associate a Direct Connect gateway and virtual private gateway or transit
+         * gateway when the account that owns the Direct Connect gateway and the account
+         * that owns the virtual private gateway or transit gateway have the same AWS Payer
+         * ID.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CreateDirectConnectGatewayAssociationProposalAsync(const Model::CreateDirectConnectGatewayAssociationProposalRequest& request, const CreateDirectConnectGatewayAssociationProposalResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Creates an interconnect between an AWS Direct Connect Partner's network and a
          * specific AWS Direct Connect location.</p> <p>An interconnect is a connection
-         * which is capable of hosting other connections. The partner can use an
-         * interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers
-         * who do not have their own connections. Like a standard connection, an
+         * that is capable of hosting other connections. The AWS Direct Connect partner can
+         * use an interconnect to provide AWS Direct Connect hosted connections to
+         * customers through their own network services. Like a standard connection, an
          * interconnect links the partner's network to an AWS Direct Connect location over
          * a standard Ethernet fiber-optic cable. One end is connected to the partner's
          * router, the other to an AWS Direct Connect router.</p> <p>You can automatically
@@ -901,23 +1097,23 @@ namespace Model
          * ID in the request. This ensures that the new interconnect is allocated on the
          * same AWS Direct Connect endpoint that hosts the specified LAG. If there are no
          * available ports on the endpoint, the request fails and no interconnect is
-         * created.</p> <p>For each end customer, the AWS Direct Connect partner provisions
-         * a connection on their interconnect by calling
-         * <a>AllocateConnectionOnInterconnect</a>. The end customer can then connect to
-         * AWS resources by creating a virtual interface on their connection, using the
-         * VLAN assigned to them by the partner.</p> <note> <p>Intended for use by AWS
-         * Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * created.</p> <p>For each end customer, the AWS Direct Connect Partner provisions
+         * a connection on their interconnect by calling <a>AllocateHostedConnection</a>.
+         * The end customer can then connect to AWS resources by creating a virtual
+         * interface on their connection, using the VLAN assigned to them by the AWS Direct
+         * Connect Partner.</p> <note> <p>Intended for use by AWS Direct Connect Partners
+         * only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateInterconnect">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateInterconnectOutcome CreateInterconnect(const Model::CreateInterconnectRequest& request) const;
 
         /**
-         * <p>Creates an interconnect between an AWS Direct Connect partner's network and a
+         * <p>Creates an interconnect between an AWS Direct Connect Partner's network and a
          * specific AWS Direct Connect location.</p> <p>An interconnect is a connection
-         * which is capable of hosting other connections. The partner can use an
-         * interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers
-         * who do not have their own connections. Like a standard connection, an
+         * that is capable of hosting other connections. The AWS Direct Connect partner can
+         * use an interconnect to provide AWS Direct Connect hosted connections to
+         * customers through their own network services. Like a standard connection, an
          * interconnect links the partner's network to an AWS Direct Connect location over
          * a standard Ethernet fiber-optic cable. One end is connected to the partner's
          * router, the other to an AWS Direct Connect router.</p> <p>You can automatically
@@ -925,12 +1121,12 @@ namespace Model
          * ID in the request. This ensures that the new interconnect is allocated on the
          * same AWS Direct Connect endpoint that hosts the specified LAG. If there are no
          * available ports on the endpoint, the request fails and no interconnect is
-         * created.</p> <p>For each end customer, the AWS Direct Connect partner provisions
-         * a connection on their interconnect by calling
-         * <a>AllocateConnectionOnInterconnect</a>. The end customer can then connect to
-         * AWS resources by creating a virtual interface on their connection, using the
-         * VLAN assigned to them by the partner.</p> <note> <p>Intended for use by AWS
-         * Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * created.</p> <p>For each end customer, the AWS Direct Connect Partner provisions
+         * a connection on their interconnect by calling <a>AllocateHostedConnection</a>.
+         * The end customer can then connect to AWS resources by creating a virtual
+         * interface on their connection, using the VLAN assigned to them by the AWS Direct
+         * Connect Partner.</p> <note> <p>Intended for use by AWS Direct Connect Partners
+         * only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateInterconnect">AWS
          * API Reference</a></p>
          *
@@ -939,11 +1135,11 @@ namespace Model
         virtual Model::CreateInterconnectOutcomeCallable CreateInterconnectCallable(const Model::CreateInterconnectRequest& request) const;
 
         /**
-         * <p>Creates an interconnect between an AWS Direct Connect partner's network and a
+         * <p>Creates an interconnect between an AWS Direct Connect Partner's network and a
          * specific AWS Direct Connect location.</p> <p>An interconnect is a connection
-         * which is capable of hosting other connections. The partner can use an
-         * interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers
-         * who do not have their own connections. Like a standard connection, an
+         * that is capable of hosting other connections. The AWS Direct Connect partner can
+         * use an interconnect to provide AWS Direct Connect hosted connections to
+         * customers through their own network services. Like a standard connection, an
          * interconnect links the partner's network to an AWS Direct Connect location over
          * a standard Ethernet fiber-optic cable. One end is connected to the partner's
          * router, the other to an AWS Direct Connect router.</p> <p>You can automatically
@@ -951,12 +1147,12 @@ namespace Model
          * ID in the request. This ensures that the new interconnect is allocated on the
          * same AWS Direct Connect endpoint that hosts the specified LAG. If there are no
          * available ports on the endpoint, the request fails and no interconnect is
-         * created.</p> <p>For each end customer, the AWS Direct Connect partner provisions
-         * a connection on their interconnect by calling
-         * <a>AllocateConnectionOnInterconnect</a>. The end customer can then connect to
-         * AWS resources by creating a virtual interface on their connection, using the
-         * VLAN assigned to them by the partner.</p> <note> <p>Intended for use by AWS
-         * Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * created.</p> <p>For each end customer, the AWS Direct Connect Partner provisions
+         * a connection on their interconnect by calling <a>AllocateHostedConnection</a>.
+         * The end customer can then connect to AWS resources by creating a virtual
+         * interface on their connection, using the VLAN assigned to them by the AWS Direct
+         * Connect Partner.</p> <note> <p>Intended for use by AWS Direct Connect Partners
+         * only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateInterconnect">AWS
          * API Reference</a></p>
          *
@@ -981,7 +1177,7 @@ namespace Model
          * terminates. Any virtual interfaces associated with the connection are
          * automatically disassociated and re-associated with the LAG. The connection ID
          * does not change.</p> <p>If the AWS account used to create a LAG is a registered
-         * AWS Direct Connect partner, the LAG is automatically enabled to host
+         * AWS Direct Connect Partner, the LAG is automatically enabled to host
          * sub-connections. For a LAG owned by a partner, any associated virtual interfaces
          * cannot be directly configured.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateLag">AWS
@@ -1006,7 +1202,7 @@ namespace Model
          * terminates. Any virtual interfaces associated with the connection are
          * automatically disassociated and re-associated with the LAG. The connection ID
          * does not change.</p> <p>If the AWS account used to create a LAG is a registered
-         * AWS Direct Connect partner, the LAG is automatically enabled to host
+         * AWS Direct Connect Partner, the LAG is automatically enabled to host
          * sub-connections. For a LAG owned by a partner, any associated virtual interfaces
          * cannot be directly configured.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateLag">AWS
@@ -1033,7 +1229,7 @@ namespace Model
          * terminates. Any virtual interfaces associated with the connection are
          * automatically disassociated and re-associated with the LAG. The connection ID
          * does not change.</p> <p>If the AWS account used to create a LAG is a registered
-         * AWS Direct Connect partner, the LAG is automatically enabled to host
+         * AWS Direct Connect Partner, the LAG is automatically enabled to host
          * sub-connections. For a LAG owned by a partner, any associated virtual interfaces
          * cannot be directly configured.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateLag">AWS
@@ -1128,6 +1324,55 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void CreatePublicVirtualInterfaceAsync(const Model::CreatePublicVirtualInterfaceRequest& request, const CreatePublicVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Creates a transit virtual interface. A transit virtual interface should be
+         * used to access one or more transit gateways associated with Direct Connect
+         * gateways. A transit virtual interface enables the connection of multiple VPCs
+         * attached to a transit gateway to a Direct Connect gateway.</p> <important> <p>If
+         * you associate your transit gateway with one or more Direct Connect gateways, the
+         * Autonomous System Number (ASN) used by the transit gateway and the Direct
+         * Connect gateway must be different. For example, if you use the default ASN 64512
+         * for both your the transit gateway and Direct Connect gateway, the association
+         * request fails.</p> </important><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CreateTransitVirtualInterfaceOutcome CreateTransitVirtualInterface(const Model::CreateTransitVirtualInterfaceRequest& request) const;
+
+        /**
+         * <p>Creates a transit virtual interface. A transit virtual interface should be
+         * used to access one or more transit gateways associated with Direct Connect
+         * gateways. A transit virtual interface enables the connection of multiple VPCs
+         * attached to a transit gateway to a Direct Connect gateway.</p> <important> <p>If
+         * you associate your transit gateway with one or more Direct Connect gateways, the
+         * Autonomous System Number (ASN) used by the transit gateway and the Direct
+         * Connect gateway must be different. For example, if you use the default ASN 64512
+         * for both your the transit gateway and Direct Connect gateway, the association
+         * request fails.</p> </important><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CreateTransitVirtualInterfaceOutcomeCallable CreateTransitVirtualInterfaceCallable(const Model::CreateTransitVirtualInterfaceRequest& request) const;
+
+        /**
+         * <p>Creates a transit virtual interface. A transit virtual interface should be
+         * used to access one or more transit gateways associated with Direct Connect
+         * gateways. A transit virtual interface enables the connection of multiple VPCs
+         * attached to a transit gateway to a Direct Connect gateway.</p> <important> <p>If
+         * you associate your transit gateway with one or more Direct Connect gateways, the
+         * Autonomous System Number (ASN) used by the transit gateway and the Direct
+         * Connect gateway must be different. For example, if you use the default ASN 64512
+         * for both your the transit gateway and Direct Connect gateway, the association
+         * request fails.</p> </important><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/CreateTransitVirtualInterface">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CreateTransitVirtualInterfaceAsync(const Model::CreateTransitVirtualInterfaceRequest& request, const CreateTransitVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Deletes the specified BGP peer on the specified virtual interface with the
@@ -1257,8 +1502,39 @@ namespace Model
         virtual void DeleteDirectConnectGatewayAssociationAsync(const Model::DeleteDirectConnectGatewayAssociationRequest& request, const DeleteDirectConnectGatewayAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Deletes the association proposal request between the specified Direct Connect
+         * gateway and virtual private gateway or transit gateway.</p><p><h3>See Also:</h3>
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DeleteDirectConnectGatewayAssociationProposalOutcome DeleteDirectConnectGatewayAssociationProposal(const Model::DeleteDirectConnectGatewayAssociationProposalRequest& request) const;
+
+        /**
+         * <p>Deletes the association proposal request between the specified Direct Connect
+         * gateway and virtual private gateway or transit gateway.</p><p><h3>See Also:</h3>
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DeleteDirectConnectGatewayAssociationProposalOutcomeCallable DeleteDirectConnectGatewayAssociationProposalCallable(const Model::DeleteDirectConnectGatewayAssociationProposalRequest& request) const;
+
+        /**
+         * <p>Deletes the association proposal request between the specified Direct Connect
+         * gateway and virtual private gateway or transit gateway.</p><p><h3>See Also:</h3>
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteDirectConnectGatewayAssociationProposal">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DeleteDirectConnectGatewayAssociationProposalAsync(const Model::DeleteDirectConnectGatewayAssociationProposalRequest& request, const DeleteDirectConnectGatewayAssociationProposalResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Deletes the specified interconnect.</p> <note> <p>Intended for use by AWS
-         * Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteInterconnect">AWS
          * API Reference</a></p>
          */
@@ -1266,7 +1542,7 @@ namespace Model
 
         /**
          * <p>Deletes the specified interconnect.</p> <note> <p>Intended for use by AWS
-         * Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteInterconnect">AWS
          * API Reference</a></p>
          *
@@ -1276,7 +1552,7 @@ namespace Model
 
         /**
          * <p>Deletes the specified interconnect.</p> <note> <p>Intended for use by AWS
-         * Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DeleteInterconnect">AWS
          * API Reference</a></p>
          *
@@ -1367,6 +1643,37 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void DescribeConnectionsAsync(const Model::DescribeConnectionsRequest& request, const DescribeConnectionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Describes one or more association proposals for connection between a virtual
+         * private gateway or transit gateway and a Direct Connect gateway. </p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeDirectConnectGatewayAssociationProposals">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeDirectConnectGatewayAssociationProposalsOutcome DescribeDirectConnectGatewayAssociationProposals(const Model::DescribeDirectConnectGatewayAssociationProposalsRequest& request) const;
+
+        /**
+         * <p>Describes one or more association proposals for connection between a virtual
+         * private gateway or transit gateway and a Direct Connect gateway. </p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeDirectConnectGatewayAssociationProposals">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeDirectConnectGatewayAssociationProposalsOutcomeCallable DescribeDirectConnectGatewayAssociationProposalsCallable(const Model::DescribeDirectConnectGatewayAssociationProposalsRequest& request) const;
+
+        /**
+         * <p>Describes one or more association proposals for connection between a virtual
+         * private gateway or transit gateway and a Direct Connect gateway. </p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeDirectConnectGatewayAssociationProposals">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeDirectConnectGatewayAssociationProposalsAsync(const Model::DescribeDirectConnectGatewayAssociationProposalsRequest& request, const DescribeDirectConnectGatewayAssociationProposalsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Lists the associations between your Direct Connect gateways and virtual
@@ -1494,7 +1801,7 @@ namespace Model
         /**
          * <p>Lists the hosted connections that have been provisioned on the specified
          * interconnect or link aggregation group (LAG).</p> <note> <p>Intended for use by
-         * AWS Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * AWS Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeHostedConnections">AWS
          * API Reference</a></p>
          */
@@ -1503,7 +1810,7 @@ namespace Model
         /**
          * <p>Lists the hosted connections that have been provisioned on the specified
          * interconnect or link aggregation group (LAG).</p> <note> <p>Intended for use by
-         * AWS Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * AWS Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeHostedConnections">AWS
          * API Reference</a></p>
          *
@@ -1514,7 +1821,7 @@ namespace Model
         /**
          * <p>Lists the hosted connections that have been provisioned on the specified
          * interconnect or link aggregation group (LAG).</p> <note> <p>Intended for use by
-         * AWS Direct Connect partners only.</p> </note><p><h3>See Also:</h3>   <a
+         * AWS Direct Connect Partners only.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/DescribeHostedConnections">AWS
          * API Reference</a></p>
          *
@@ -1758,7 +2065,7 @@ namespace Model
          * connection is not deleted; to delete the connection, use the
          * <a>DeleteConnection</a> request). If the LAG has associated virtual interfaces
          * or hosted connections, they remain associated with the LAG. A disassociated
-         * connection owned by an AWS Direct Connect partner is automatically converted to
+         * connection owned by an AWS Direct Connect Partner is automatically converted to
          * an interconnect.</p> <p>If disassociating the connection would cause the LAG to
          * fall below its setting for minimum number of operational connections, the
          * request fails, except when it's the last member of the LAG. If all connections
@@ -1775,7 +2082,7 @@ namespace Model
          * connection is not deleted; to delete the connection, use the
          * <a>DeleteConnection</a> request). If the LAG has associated virtual interfaces
          * or hosted connections, they remain associated with the LAG. A disassociated
-         * connection owned by an AWS Direct Connect partner is automatically converted to
+         * connection owned by an AWS Direct Connect Partner is automatically converted to
          * an interconnect.</p> <p>If disassociating the connection would cause the LAG to
          * fall below its setting for minimum number of operational connections, the
          * request fails, except when it's the last member of the LAG. If all connections
@@ -1794,7 +2101,7 @@ namespace Model
          * connection is not deleted; to delete the connection, use the
          * <a>DeleteConnection</a> request). If the LAG has associated virtual interfaces
          * or hosted connections, they remain associated with the LAG. A disassociated
-         * connection owned by an AWS Direct Connect partner is automatically converted to
+         * connection owned by an AWS Direct Connect Partner is automatically converted to
          * an interconnect.</p> <p>If disassociating the connection would cause the LAG to
          * fall below its setting for minimum number of operational connections, the
          * request fails, except when it's the last member of the LAG. If all connections
@@ -1868,6 +2175,37 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void UntagResourceAsync(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Updates the specified attributes of the Direct Connect gateway
+         * association.</p> <p>Add or remove prefixes from the association.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/UpdateDirectConnectGatewayAssociation">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UpdateDirectConnectGatewayAssociationOutcome UpdateDirectConnectGatewayAssociation(const Model::UpdateDirectConnectGatewayAssociationRequest& request) const;
+
+        /**
+         * <p>Updates the specified attributes of the Direct Connect gateway
+         * association.</p> <p>Add or remove prefixes from the association.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/UpdateDirectConnectGatewayAssociation">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UpdateDirectConnectGatewayAssociationOutcomeCallable UpdateDirectConnectGatewayAssociationCallable(const Model::UpdateDirectConnectGatewayAssociationRequest& request) const;
+
+        /**
+         * <p>Updates the specified attributes of the Direct Connect gateway
+         * association.</p> <p>Add or remove prefixes from the association.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/directconnect-2012-10-25/UpdateDirectConnectGatewayAssociation">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UpdateDirectConnectGatewayAssociationAsync(const Model::UpdateDirectConnectGatewayAssociationRequest& request, const UpdateDirectConnectGatewayAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Updates the attributes of the specified link aggregation group (LAG).</p>
@@ -1970,36 +2308,42 @@ namespace Model
          */
         virtual void UpdateVirtualInterfaceAttributesAsync(const Model::UpdateVirtualInterfaceAttributesRequest& request, const UpdateVirtualInterfaceAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
+        void AcceptDirectConnectGatewayAssociationProposalAsyncHelper(const Model::AcceptDirectConnectGatewayAssociationProposalRequest& request, const AcceptDirectConnectGatewayAssociationProposalResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AllocateHostedConnectionAsyncHelper(const Model::AllocateHostedConnectionRequest& request, const AllocateHostedConnectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AllocatePrivateVirtualInterfaceAsyncHelper(const Model::AllocatePrivateVirtualInterfaceRequest& request, const AllocatePrivateVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AllocatePublicVirtualInterfaceAsyncHelper(const Model::AllocatePublicVirtualInterfaceRequest& request, const AllocatePublicVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void AllocateTransitVirtualInterfaceAsyncHelper(const Model::AllocateTransitVirtualInterfaceRequest& request, const AllocateTransitVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AssociateConnectionWithLagAsyncHelper(const Model::AssociateConnectionWithLagRequest& request, const AssociateConnectionWithLagResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AssociateHostedConnectionAsyncHelper(const Model::AssociateHostedConnectionRequest& request, const AssociateHostedConnectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AssociateVirtualInterfaceAsyncHelper(const Model::AssociateVirtualInterfaceRequest& request, const AssociateVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ConfirmConnectionAsyncHelper(const Model::ConfirmConnectionRequest& request, const ConfirmConnectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ConfirmPrivateVirtualInterfaceAsyncHelper(const Model::ConfirmPrivateVirtualInterfaceRequest& request, const ConfirmPrivateVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ConfirmPublicVirtualInterfaceAsyncHelper(const Model::ConfirmPublicVirtualInterfaceRequest& request, const ConfirmPublicVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ConfirmTransitVirtualInterfaceAsyncHelper(const Model::ConfirmTransitVirtualInterfaceRequest& request, const ConfirmTransitVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateBGPPeerAsyncHelper(const Model::CreateBGPPeerRequest& request, const CreateBGPPeerResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateConnectionAsyncHelper(const Model::CreateConnectionRequest& request, const CreateConnectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDirectConnectGatewayAsyncHelper(const Model::CreateDirectConnectGatewayRequest& request, const CreateDirectConnectGatewayResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDirectConnectGatewayAssociationAsyncHelper(const Model::CreateDirectConnectGatewayAssociationRequest& request, const CreateDirectConnectGatewayAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CreateDirectConnectGatewayAssociationProposalAsyncHelper(const Model::CreateDirectConnectGatewayAssociationProposalRequest& request, const CreateDirectConnectGatewayAssociationProposalResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateInterconnectAsyncHelper(const Model::CreateInterconnectRequest& request, const CreateInterconnectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateLagAsyncHelper(const Model::CreateLagRequest& request, const CreateLagResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreatePrivateVirtualInterfaceAsyncHelper(const Model::CreatePrivateVirtualInterfaceRequest& request, const CreatePrivateVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreatePublicVirtualInterfaceAsyncHelper(const Model::CreatePublicVirtualInterfaceRequest& request, const CreatePublicVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CreateTransitVirtualInterfaceAsyncHelper(const Model::CreateTransitVirtualInterfaceRequest& request, const CreateTransitVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteBGPPeerAsyncHelper(const Model::DeleteBGPPeerRequest& request, const DeleteBGPPeerResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteConnectionAsyncHelper(const Model::DeleteConnectionRequest& request, const DeleteConnectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDirectConnectGatewayAsyncHelper(const Model::DeleteDirectConnectGatewayRequest& request, const DeleteDirectConnectGatewayResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDirectConnectGatewayAssociationAsyncHelper(const Model::DeleteDirectConnectGatewayAssociationRequest& request, const DeleteDirectConnectGatewayAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DeleteDirectConnectGatewayAssociationProposalAsyncHelper(const Model::DeleteDirectConnectGatewayAssociationProposalRequest& request, const DeleteDirectConnectGatewayAssociationProposalResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteInterconnectAsyncHelper(const Model::DeleteInterconnectRequest& request, const DeleteInterconnectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteLagAsyncHelper(const Model::DeleteLagRequest& request, const DeleteLagResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteVirtualInterfaceAsyncHelper(const Model::DeleteVirtualInterfaceRequest& request, const DeleteVirtualInterfaceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeConnectionsAsyncHelper(const Model::DescribeConnectionsRequest& request, const DescribeConnectionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeDirectConnectGatewayAssociationProposalsAsyncHelper(const Model::DescribeDirectConnectGatewayAssociationProposalsRequest& request, const DescribeDirectConnectGatewayAssociationProposalsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDirectConnectGatewayAssociationsAsyncHelper(const Model::DescribeDirectConnectGatewayAssociationsRequest& request, const DescribeDirectConnectGatewayAssociationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDirectConnectGatewayAttachmentsAsyncHelper(const Model::DescribeDirectConnectGatewayAttachmentsRequest& request, const DescribeDirectConnectGatewayAttachmentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDirectConnectGatewaysAsyncHelper(const Model::DescribeDirectConnectGatewaysRequest& request, const DescribeDirectConnectGatewaysResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -2014,6 +2358,7 @@ namespace Model
         void DisassociateConnectionFromLagAsyncHelper(const Model::DisassociateConnectionFromLagRequest& request, const DisassociateConnectionFromLagResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void TagResourceAsyncHelper(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UntagResourceAsyncHelper(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UpdateDirectConnectGatewayAssociationAsyncHelper(const Model::UpdateDirectConnectGatewayAssociationRequest& request, const UpdateDirectConnectGatewayAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateLagAsyncHelper(const Model::UpdateLagRequest& request, const UpdateLagResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateVirtualInterfaceAttributesAsyncHelper(const Model::UpdateVirtualInterfaceAttributesRequest& request, const UpdateVirtualInterfaceAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
 

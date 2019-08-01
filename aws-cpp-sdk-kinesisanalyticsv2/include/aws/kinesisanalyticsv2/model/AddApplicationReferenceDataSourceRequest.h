@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AddApplicationReferenceDataSourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of an existing application.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of an existing application.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of an existing application.</p>
@@ -95,6 +100,14 @@ namespace Model
      * application version. If the version specified is not the current version, the
      * <code>ConcurrentModificationException</code> is returned.</p>
      */
+    inline bool CurrentApplicationVersionIdHasBeenSet() const { return m_currentApplicationVersionIdHasBeenSet; }
+
+    /**
+     * <p>The version of the application for which you are adding the reference data
+     * source. You can use the <a>DescribeApplication</a> operation to get the current
+     * application version. If the version specified is not the current version, the
+     * <code>ConcurrentModificationException</code> is returned.</p>
+     */
     inline void SetCurrentApplicationVersionId(long long value) { m_currentApplicationVersionIdHasBeenSet = true; m_currentApplicationVersionId = value; }
 
     /**
@@ -113,6 +126,14 @@ namespace Model
      * resulting in-application table that is created. </p>
      */
     inline const ReferenceDataSource& GetReferenceDataSource() const{ return m_referenceDataSource; }
+
+    /**
+     * <p>The reference data source can be an object in your Amazon S3 bucket. Kinesis
+     * Data Analytics reads the object and copies the data into the in-application
+     * table that is created. You provide an S3 bucket, object key name, and the
+     * resulting in-application table that is created. </p>
+     */
+    inline bool ReferenceDataSourceHasBeenSet() const { return m_referenceDataSourceHasBeenSet; }
 
     /**
      * <p>The reference data source can be an object in your Amazon S3 bucket. Kinesis

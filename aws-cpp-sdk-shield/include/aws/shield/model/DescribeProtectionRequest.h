@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeProtectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,14 @@ namespace Model
      * but not both.</p>
      */
     inline const Aws::String& GetProtectionId() const{ return m_protectionId; }
+
+    /**
+     * <p>The unique identifier (ID) for the <a>Protection</a> object that is
+     * described. When submitting the <code>DescribeProtection</code> request you must
+     * provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>,
+     * but not both.</p>
+     */
+    inline bool ProtectionIdHasBeenSet() const { return m_protectionIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) for the <a>Protection</a> object that is
@@ -108,6 +116,14 @@ namespace Model
      * <code>ProtectionID</code>, but not both.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a>
+     * object that is described. When submitting the <code>DescribeProtection</code>
+     * request you must provide either the <code>ResourceArn</code> or the
+     * <code>ProtectionID</code>, but not both.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a>

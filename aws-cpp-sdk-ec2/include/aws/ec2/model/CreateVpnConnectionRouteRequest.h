@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateVpnConnectionRouteRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The CIDR block associated with the local subnet of the customer network.</p>
      */
     inline const Aws::String& GetDestinationCidrBlock() const{ return m_destinationCidrBlock; }
+
+    /**
+     * <p>The CIDR block associated with the local subnet of the customer network.</p>
+     */
+    inline bool DestinationCidrBlockHasBeenSet() const { return m_destinationCidrBlockHasBeenSet; }
 
     /**
      * <p>The CIDR block associated with the local subnet of the customer network.</p>
@@ -90,6 +95,11 @@ namespace Model
      * <p>The ID of the VPN connection.</p>
      */
     inline const Aws::String& GetVpnConnectionId() const{ return m_vpnConnectionId; }
+
+    /**
+     * <p>The ID of the VPN connection.</p>
+     */
+    inline bool VpnConnectionIdHasBeenSet() const { return m_vpnConnectionIdHasBeenSet; }
 
     /**
      * <p>The ID of the VPN connection.</p>

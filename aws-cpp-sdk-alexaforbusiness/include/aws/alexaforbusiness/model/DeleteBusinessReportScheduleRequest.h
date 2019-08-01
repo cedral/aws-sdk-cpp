@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteBusinessReportScheduleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the business report schedule.</p>
      */
     inline const Aws::String& GetScheduleArn() const{ return m_scheduleArn; }
+
+    /**
+     * <p>The ARN of the business report schedule.</p>
+     */
+    inline bool ScheduleArnHasBeenSet() const { return m_scheduleArnHasBeenSet; }
 
     /**
      * <p>The ARN of the business report schedule.</p>

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeVolumesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * returns descriptions of the volumes associated with the specified instance.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The instance ID. If you use this parameter, <code>DescribeVolumes</code>
+     * returns descriptions of the volumes associated with the specified instance.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The instance ID. If you use this parameter, <code>DescribeVolumes</code>
@@ -93,6 +99,12 @@ namespace Model
      * volumes.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>A stack ID. The action describes the stack's registered Amazon EBS
+     * volumes.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>A stack ID. The action describes the stack's registered Amazon EBS
@@ -143,6 +155,13 @@ namespace Model
      * returns descriptions of the volumes associated with the specified RAID
      * array.</p>
      */
+    inline bool RaidArrayIdHasBeenSet() const { return m_raidArrayIdHasBeenSet; }
+
+    /**
+     * <p>The RAID array ID. If you use this parameter, <code>DescribeVolumes</code>
+     * returns descriptions of the volumes associated with the specified RAID
+     * array.</p>
+     */
     inline void SetRaidArrayId(const Aws::String& value) { m_raidArrayIdHasBeenSet = true; m_raidArrayId = value; }
 
     /**
@@ -187,6 +206,13 @@ namespace Model
      * Otherwise, it returns a description of every volume.</p>
      */
     inline const Aws::Vector<Aws::String>& GetVolumeIds() const{ return m_volumeIds; }
+
+    /**
+     * <p>Am array of volume IDs. If you use this parameter,
+     * <code>DescribeVolumes</code> returns descriptions of the specified volumes.
+     * Otherwise, it returns a description of every volume.</p>
+     */
+    inline bool VolumeIdsHasBeenSet() const { return m_volumeIdsHasBeenSet; }
 
     /**
      * <p>Am array of volume IDs. If you use this parameter,

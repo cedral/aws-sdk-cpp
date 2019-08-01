@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AdminDisableProviderForUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The user pool ID for the user pool.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The user to be disabled.</p>
      */
     inline const ProviderUserIdentifierType& GetUser() const{ return m_user; }
+
+    /**
+     * <p>The user to be disabled.</p>
+     */
+    inline bool UserHasBeenSet() const { return m_userHasBeenSet; }
 
     /**
      * <p>The user to be disabled.</p>

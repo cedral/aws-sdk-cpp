@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateProjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * update.</p>
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the project whose name you wish to
+     * update.</p>
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the project whose name you wish to
@@ -99,6 +105,11 @@ namespace Model
     /**
      * <p>A string representing the new name of the project that you are updating.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>A string representing the new name of the project that you are updating.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -132,6 +143,12 @@ namespace Model
      * out.</p>
      */
     inline int GetDefaultJobTimeoutMinutes() const{ return m_defaultJobTimeoutMinutes; }
+
+    /**
+     * <p>The number of minutes a test run in the project will execute before it times
+     * out.</p>
+     */
+    inline bool DefaultJobTimeoutMinutesHasBeenSet() const { return m_defaultJobTimeoutMinutesHasBeenSet; }
 
     /**
      * <p>The number of minutes a test run in the project will execute before it times

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteApiKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>[Required] The identifier of the <a>ApiKey</a> resource to be deleted.</p>
      */
     inline const Aws::String& GetApiKey() const{ return m_apiKey; }
+
+    /**
+     * <p>[Required] The identifier of the <a>ApiKey</a> resource to be deleted.</p>
+     */
+    inline bool ApiKeyHasBeenSet() const { return m_apiKeyHasBeenSet; }
 
     /**
      * <p>[Required] The identifier of the <a>ApiKey</a> resource to be deleted.</p>

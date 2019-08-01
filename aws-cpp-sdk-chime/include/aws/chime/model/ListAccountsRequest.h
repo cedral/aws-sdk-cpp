@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListAccountsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>Amazon Chime account name prefix with which to filter results.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>Amazon Chime account name prefix with which to filter results.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>Amazon Chime account name prefix with which to filter results.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>User email address with which to filter results.</p>
      */
+    inline bool UserEmailHasBeenSet() const { return m_userEmailHasBeenSet; }
+
+    /**
+     * <p>User email address with which to filter results.</p>
+     */
     inline void SetUserEmail(const Aws::String& value) { m_userEmailHasBeenSet = true; m_userEmail = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
      * <p>The token to use to retrieve the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token to use to retrieve the next page of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token to use to retrieve the next page of results.</p>
@@ -161,6 +176,12 @@ namespace Model
      * 100.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to return in a single call. Defaults to
+     * 100.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to return in a single call. Defaults to

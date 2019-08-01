@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutLoggingConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * the web ACL to monitor.</p>
      */
     inline const LoggingConfiguration& GetLoggingConfiguration() const{ return m_loggingConfiguration; }
+
+    /**
+     * <p>The Amazon Kinesis Data Firehose that contains the inspected traffic
+     * information, the redacted fields details, and the Amazon Resource Name (ARN) of
+     * the web ACL to monitor.</p>
+     */
+    inline bool LoggingConfigurationHasBeenSet() const { return m_loggingConfigurationHasBeenSet; }
 
     /**
      * <p>The Amazon Kinesis Data Firehose that contains the inspected traffic

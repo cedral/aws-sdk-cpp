@@ -58,6 +58,12 @@ namespace Model
      * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP)
      * configuration.</p>
      */
+    inline bool AsnHasBeenSet() const { return m_asnHasBeenSet; }
+
+    /**
+     * <p>The autonomous system (AS) number for Border Gateway Protocol (BGP)
+     * configuration.</p>
+     */
     inline void SetAsn(int value) { m_asnHasBeenSet = true; m_asn = value; }
 
     /**
@@ -68,37 +74,50 @@ namespace Model
 
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline const Aws::String& GetAuthKey() const{ return m_authKey; }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
+     */
+    inline bool AuthKeyHasBeenSet() const { return m_authKeyHasBeenSet; }
+
+    /**
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(const Aws::String& value) { m_authKeyHasBeenSet = true; m_authKey = value; }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(Aws::String&& value) { m_authKeyHasBeenSet = true; m_authKey = std::move(value); }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline void SetAuthKey(const char* value) { m_authKeyHasBeenSet = true; m_authKey.assign(value); }
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline NewBGPPeer& WithAuthKey(const Aws::String& value) { SetAuthKey(value); return *this;}
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline NewBGPPeer& WithAuthKey(Aws::String&& value) { SetAuthKey(std::move(value)); return *this;}
 
     /**
-     * <p>The authentication key for BGP configuration.</p>
+     * <p>The authentication key for BGP configuration. This string has a minimum
+     * length of 6 characters and and a maximun lenth of 80 characters.</p>
      */
     inline NewBGPPeer& WithAuthKey(const char* value) { SetAuthKey(value); return *this;}
 
@@ -107,6 +126,11 @@ namespace Model
      * <p>The address family for the BGP peer.</p>
      */
     inline const AddressFamily& GetAddressFamily() const{ return m_addressFamily; }
+
+    /**
+     * <p>The address family for the BGP peer.</p>
+     */
+    inline bool AddressFamilyHasBeenSet() const { return m_addressFamilyHasBeenSet; }
 
     /**
      * <p>The address family for the BGP peer.</p>
@@ -133,6 +157,11 @@ namespace Model
      * <p>The IP address assigned to the Amazon interface.</p>
      */
     inline const Aws::String& GetAmazonAddress() const{ return m_amazonAddress; }
+
+    /**
+     * <p>The IP address assigned to the Amazon interface.</p>
+     */
+    inline bool AmazonAddressHasBeenSet() const { return m_amazonAddressHasBeenSet; }
 
     /**
      * <p>The IP address assigned to the Amazon interface.</p>
@@ -169,6 +198,11 @@ namespace Model
      * <p>The IP address assigned to the customer interface.</p>
      */
     inline const Aws::String& GetCustomerAddress() const{ return m_customerAddress; }
+
+    /**
+     * <p>The IP address assigned to the customer interface.</p>
+     */
+    inline bool CustomerAddressHasBeenSet() const { return m_customerAddressHasBeenSet; }
 
     /**
      * <p>The IP address assigned to the customer interface.</p>

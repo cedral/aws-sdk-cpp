@@ -17,6 +17,8 @@
 #include <aws/directconnect/DirectConnect_EXPORTS.h>
 #include <aws/directconnect/DirectConnectRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/directconnect/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -32,7 +34,7 @@ namespace Model
   {
   public:
     CreateConnectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +50,11 @@ namespace Model
      * <p>The location of the connection.</p>
      */
     inline const Aws::String& GetLocation() const{ return m_location; }
+
+    /**
+     * <p>The location of the connection.</p>
+     */
+    inline bool LocationHasBeenSet() const { return m_locationHasBeenSet; }
 
     /**
      * <p>The location of the connection.</p>
@@ -88,6 +95,11 @@ namespace Model
     /**
      * <p>The bandwidth of the connection.</p>
      */
+    inline bool BandwidthHasBeenSet() const { return m_bandwidthHasBeenSet; }
+
+    /**
+     * <p>The bandwidth of the connection.</p>
+     */
     inline void SetBandwidth(const Aws::String& value) { m_bandwidthHasBeenSet = true; m_bandwidth = value; }
 
     /**
@@ -120,6 +132,11 @@ namespace Model
      * <p>The name of the connection.</p>
      */
     inline const Aws::String& GetConnectionName() const{ return m_connectionName; }
+
+    /**
+     * <p>The name of the connection.</p>
+     */
+    inline bool ConnectionNameHasBeenSet() const { return m_connectionNameHasBeenSet; }
 
     /**
      * <p>The name of the connection.</p>
@@ -160,6 +177,11 @@ namespace Model
     /**
      * <p>The ID of the LAG.</p>
      */
+    inline bool LagIdHasBeenSet() const { return m_lagIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the LAG.</p>
+     */
     inline void SetLagId(const Aws::String& value) { m_lagIdHasBeenSet = true; m_lagId = value; }
 
     /**
@@ -187,6 +209,47 @@ namespace Model
      */
     inline CreateConnectionRequest& WithLagId(const char* value) { SetLagId(value); return *this;}
 
+
+    /**
+     * <p>The tags to assign to the connection.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags to assign to the connection.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The tags to assign to the connection.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The tags to assign to the connection.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The tags to assign to the connection.</p>
+     */
+    inline CreateConnectionRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The tags to assign to the connection.</p>
+     */
+    inline CreateConnectionRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags to assign to the connection.</p>
+     */
+    inline CreateConnectionRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>The tags to assign to the connection.</p>
+     */
+    inline CreateConnectionRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_location;
@@ -200,6 +263,9 @@ namespace Model
 
     Aws::String m_lagId;
     bool m_lagIdHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

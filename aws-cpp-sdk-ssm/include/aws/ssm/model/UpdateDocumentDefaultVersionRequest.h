@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateDocumentDefaultVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * version.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of a custom document that you want to set as the default
+     * version.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of a custom document that you want to set as the default
@@ -92,6 +98,12 @@ namespace Model
      * version.</p>
      */
     inline const Aws::String& GetDocumentVersion() const{ return m_documentVersion; }
+
+    /**
+     * <p>The version of a custom document that you want to set as the default
+     * version.</p>
+     */
+    inline bool DocumentVersionHasBeenSet() const { return m_documentVersionHasBeenSet; }
 
     /**
      * <p>The version of a custom document that you want to set as the default

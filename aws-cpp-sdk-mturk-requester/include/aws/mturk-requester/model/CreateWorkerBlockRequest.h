@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateWorkerBlockRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the Worker to block.</p>
      */
     inline const Aws::String& GetWorkerId() const{ return m_workerId; }
+
+    /**
+     * <p>The ID of the Worker to block.</p>
+     */
+    inline bool WorkerIdHasBeenSet() const { return m_workerIdHasBeenSet; }
 
     /**
      * <p>The ID of the Worker to block.</p>
@@ -86,6 +91,13 @@ namespace Model
      * message.</p>
      */
     inline const Aws::String& GetReason() const{ return m_reason; }
+
+    /**
+     * <p>A message explaining the reason for blocking the Worker. This parameter
+     * enables you to keep track of your Workers. The Worker does not see this
+     * message.</p>
+     */
+    inline bool ReasonHasBeenSet() const { return m_reasonHasBeenSet; }
 
     /**
      * <p>A message explaining the reason for blocking the Worker. This parameter

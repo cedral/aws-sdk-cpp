@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,15 @@ namespace Model
      * have the same name.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>A name to identify the stream. The stream name is scoped to the AWS account
+     * used by the application that creates the stream. It is also scoped by AWS
+     * Region. That is, two streams in two different AWS accounts can have the same
+     * name. Two streams in the same AWS account but in two different Regions can also
+     * have the same name.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>A name to identify the stream. The stream name is scoped to the AWS account
@@ -118,6 +127,13 @@ namespace Model
      * provisioned throughput.</p> <p>DefaultShardLimit;</p>
      */
     inline int GetShardCount() const{ return m_shardCount; }
+
+    /**
+     * <p>The number of shards that the stream will use. The throughput of the stream
+     * is a function of the number of shards; more shards are required for greater
+     * provisioned throughput.</p> <p>DefaultShardLimit;</p>
+     */
+    inline bool ShardCountHasBeenSet() const { return m_shardCountHasBeenSet; }
 
     /**
      * <p>The number of shards that the stream will use. The throughput of the stream

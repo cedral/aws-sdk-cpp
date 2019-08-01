@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateStageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Settings for logging access in this stage.</p>
      */
     inline const AccessLogSettings& GetAccessLogSettings() const{ return m_accessLogSettings; }
+
+    /**
+     * <p>Settings for logging access in this stage.</p>
+     */
+    inline bool AccessLogSettingsHasBeenSet() const { return m_accessLogSettingsHasBeenSet; }
 
     /**
      * <p>Settings for logging access in this stage.</p>
@@ -75,6 +80,11 @@ namespace Model
      * <p>The API identifier.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The API identifier.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The API identifier.</p>
@@ -115,6 +125,11 @@ namespace Model
     /**
      * <p>The identifier of a client certificate for a Stage.</p>
      */
+    inline bool ClientCertificateIdHasBeenSet() const { return m_clientCertificateIdHasBeenSet; }
+
+    /**
+     * <p>The identifier of a client certificate for a Stage.</p>
+     */
     inline void SetClientCertificateId(const Aws::String& value) { m_clientCertificateIdHasBeenSet = true; m_clientCertificateId = value; }
 
     /**
@@ -151,6 +166,11 @@ namespace Model
     /**
      * <p>The default route settings for the stage.</p>
      */
+    inline bool DefaultRouteSettingsHasBeenSet() const { return m_defaultRouteSettingsHasBeenSet; }
+
+    /**
+     * <p>The default route settings for the stage.</p>
+     */
     inline void SetDefaultRouteSettings(const RouteSettings& value) { m_defaultRouteSettingsHasBeenSet = true; m_defaultRouteSettings = value; }
 
     /**
@@ -173,6 +193,11 @@ namespace Model
      * <p>The deployment identifier of the API stage.</p>
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * <p>The deployment identifier of the API stage.</p>
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * <p>The deployment identifier of the API stage.</p>
@@ -213,6 +238,11 @@ namespace Model
     /**
      * <p>The description for the API stage.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description for the API stage.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -245,6 +275,11 @@ namespace Model
      * <p>Route settings for the stage.</p>
      */
     inline const Aws::Map<Aws::String, RouteSettings>& GetRouteSettings() const{ return m_routeSettings; }
+
+    /**
+     * <p>Route settings for the stage.</p>
+     */
+    inline bool RouteSettingsHasBeenSet() const { return m_routeSettingsHasBeenSet; }
 
     /**
      * <p>Route settings for the stage.</p>
@@ -305,6 +340,11 @@ namespace Model
     /**
      * <p>The name of the stage.</p>
      */
+    inline bool StageNameHasBeenSet() const { return m_stageNameHasBeenSet; }
+
+    /**
+     * <p>The name of the stage.</p>
+     */
     inline void SetStageName(const Aws::String& value) { m_stageNameHasBeenSet = true; m_stageName = value; }
 
     /**
@@ -341,6 +381,15 @@ namespace Model
      * [A-Za-z0-9-._~:/?#&=,]+.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetStageVariables() const{ return m_stageVariables; }
+
+    /**
+     * <p>A map that defines the stage variables for a Stage. Variable names
+ can have
+     * alphanumeric and underscore characters, and the values must match
+
+     * [A-Za-z0-9-._~:/?#&=,]+.</p>
+     */
+    inline bool StageVariablesHasBeenSet() const { return m_stageVariablesHasBeenSet; }
 
     /**
      * <p>A map that defines the stage variables for a Stage. Variable names
@@ -441,6 +490,98 @@ namespace Model
      */
     inline CreateStageRequest& AddStageVariables(const char* key, const char* value) { m_stageVariablesHasBeenSet = true; m_stageVariables.emplace(key, value); return *this; }
 
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The
+     * tag key can be up to 128 characters and must not start with aws:. The tag value
+     * can be up to 256 characters..</p>
+     */
+    inline CreateStageRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     AccessLogSettings m_accessLogSettings;
@@ -469,6 +610,9 @@ namespace Model
 
     Aws::Map<Aws::String, Aws::String> m_stageVariables;
     bool m_stageVariablesHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

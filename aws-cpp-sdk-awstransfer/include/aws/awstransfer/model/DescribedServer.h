@@ -16,6 +16,8 @@
 #pragma once
 #include <aws/awstransfer/Transfer_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/awstransfer/model/EndpointDetails.h>
+#include <aws/awstransfer/model/EndpointType.h>
 #include <aws/awstransfer/model/IdentityProviderDetails.h>
 #include <aws/awstransfer/model/IdentityProviderType.h>
 #include <aws/awstransfer/model/State.h>
@@ -65,6 +67,12 @@ namespace Model
      * <p>Specifies the unique Amazon Resource Name (ARN) for the server to be
      * described.</p>
      */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * <p>Specifies the unique Amazon Resource Name (ARN) for the server to be
+     * described.</p>
+     */
     inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
 
     /**
@@ -99,11 +107,155 @@ namespace Model
 
 
     /**
+     * <p>The virtual private cloud (VPC) endpoint settings that you configured for
+     * your SFTP server.</p>
+     */
+    inline const EndpointDetails& GetEndpointDetails() const{ return m_endpointDetails; }
+
+    /**
+     * <p>The virtual private cloud (VPC) endpoint settings that you configured for
+     * your SFTP server.</p>
+     */
+    inline bool EndpointDetailsHasBeenSet() const { return m_endpointDetailsHasBeenSet; }
+
+    /**
+     * <p>The virtual private cloud (VPC) endpoint settings that you configured for
+     * your SFTP server.</p>
+     */
+    inline void SetEndpointDetails(const EndpointDetails& value) { m_endpointDetailsHasBeenSet = true; m_endpointDetails = value; }
+
+    /**
+     * <p>The virtual private cloud (VPC) endpoint settings that you configured for
+     * your SFTP server.</p>
+     */
+    inline void SetEndpointDetails(EndpointDetails&& value) { m_endpointDetailsHasBeenSet = true; m_endpointDetails = std::move(value); }
+
+    /**
+     * <p>The virtual private cloud (VPC) endpoint settings that you configured for
+     * your SFTP server.</p>
+     */
+    inline DescribedServer& WithEndpointDetails(const EndpointDetails& value) { SetEndpointDetails(value); return *this;}
+
+    /**
+     * <p>The virtual private cloud (VPC) endpoint settings that you configured for
+     * your SFTP server.</p>
+     */
+    inline DescribedServer& WithEndpointDetails(EndpointDetails&& value) { SetEndpointDetails(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The type of endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline const EndpointType& GetEndpointType() const{ return m_endpointType; }
+
+    /**
+     * <p>The type of endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline bool EndpointTypeHasBeenSet() const { return m_endpointTypeHasBeenSet; }
+
+    /**
+     * <p>The type of endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline void SetEndpointType(const EndpointType& value) { m_endpointTypeHasBeenSet = true; m_endpointType = value; }
+
+    /**
+     * <p>The type of endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline void SetEndpointType(EndpointType&& value) { m_endpointTypeHasBeenSet = true; m_endpointType = std::move(value); }
+
+    /**
+     * <p>The type of endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline DescribedServer& WithEndpointType(const EndpointType& value) { SetEndpointType(value); return *this;}
+
+    /**
+     * <p>The type of endpoint that your SFTP server is connected to. If your SFTP
+     * server is connected to a VPC endpoint, your server isn't accessible over the
+     * public internet.</p>
+     */
+    inline DescribedServer& WithEndpointType(EndpointType&& value) { SetEndpointType(std::move(value)); return *this;}
+
+
+    /**
+     * <p>This value contains the Message-Digest Algorithm (MD5) hash of the server's
+     * host key. This value is equivalent to the output of <code>ssh-keygen -l -E md5
+     * -f my-new-server-key</code> command.</p>
+     */
+    inline const Aws::String& GetHostKeyFingerprint() const{ return m_hostKeyFingerprint; }
+
+    /**
+     * <p>This value contains the Message-Digest Algorithm (MD5) hash of the server's
+     * host key. This value is equivalent to the output of <code>ssh-keygen -l -E md5
+     * -f my-new-server-key</code> command.</p>
+     */
+    inline bool HostKeyFingerprintHasBeenSet() const { return m_hostKeyFingerprintHasBeenSet; }
+
+    /**
+     * <p>This value contains the Message-Digest Algorithm (MD5) hash of the server's
+     * host key. This value is equivalent to the output of <code>ssh-keygen -l -E md5
+     * -f my-new-server-key</code> command.</p>
+     */
+    inline void SetHostKeyFingerprint(const Aws::String& value) { m_hostKeyFingerprintHasBeenSet = true; m_hostKeyFingerprint = value; }
+
+    /**
+     * <p>This value contains the Message-Digest Algorithm (MD5) hash of the server's
+     * host key. This value is equivalent to the output of <code>ssh-keygen -l -E md5
+     * -f my-new-server-key</code> command.</p>
+     */
+    inline void SetHostKeyFingerprint(Aws::String&& value) { m_hostKeyFingerprintHasBeenSet = true; m_hostKeyFingerprint = std::move(value); }
+
+    /**
+     * <p>This value contains the Message-Digest Algorithm (MD5) hash of the server's
+     * host key. This value is equivalent to the output of <code>ssh-keygen -l -E md5
+     * -f my-new-server-key</code> command.</p>
+     */
+    inline void SetHostKeyFingerprint(const char* value) { m_hostKeyFingerprintHasBeenSet = true; m_hostKeyFingerprint.assign(value); }
+
+    /**
+     * <p>This value contains the Message-Digest Algorithm (MD5) hash of the server's
+     * host key. This value is equivalent to the output of <code>ssh-keygen -l -E md5
+     * -f my-new-server-key</code> command.</p>
+     */
+    inline DescribedServer& WithHostKeyFingerprint(const Aws::String& value) { SetHostKeyFingerprint(value); return *this;}
+
+    /**
+     * <p>This value contains the Message-Digest Algorithm (MD5) hash of the server's
+     * host key. This value is equivalent to the output of <code>ssh-keygen -l -E md5
+     * -f my-new-server-key</code> command.</p>
+     */
+    inline DescribedServer& WithHostKeyFingerprint(Aws::String&& value) { SetHostKeyFingerprint(std::move(value)); return *this;}
+
+    /**
+     * <p>This value contains the Message-Digest Algorithm (MD5) hash of the server's
+     * host key. This value is equivalent to the output of <code>ssh-keygen -l -E md5
+     * -f my-new-server-key</code> command.</p>
+     */
+    inline DescribedServer& WithHostKeyFingerprint(const char* value) { SetHostKeyFingerprint(value); return *this;}
+
+
+    /**
      * <p>Specifies information to call a customer-supplied authentication API. This
      * field is not populated when the <code>IdentityProviderType</code> of the server
      * is <code>SERVICE_MANAGED</code>&gt;.</p>
      */
     inline const IdentityProviderDetails& GetIdentityProviderDetails() const{ return m_identityProviderDetails; }
+
+    /**
+     * <p>Specifies information to call a customer-supplied authentication API. This
+     * field is not populated when the <code>IdentityProviderType</code> of the server
+     * is <code>SERVICE_MANAGED</code>&gt;.</p>
+     */
+    inline bool IdentityProviderDetailsHasBeenSet() const { return m_identityProviderDetailsHasBeenSet; }
 
     /**
      * <p>Specifies information to call a customer-supplied authentication API. This
@@ -142,6 +294,15 @@ namespace Model
      * endpoint that will be invoked for authenticating your user into the service.</p>
      */
     inline const IdentityProviderType& GetIdentityProviderType() const{ return m_identityProviderType; }
+
+    /**
+     * <p>This property defines the mode of authentication method enabled for this
+     * service. A value of <code>SERVICE_MANAGED</code>, means that you are using this
+     * Server to store and access SFTP user credentials within the service. A value of
+     * <code>API_GATEWAY</code> indicates that you have integrated an API Gateway
+     * endpoint that will be invoked for authenticating your user into the service.</p>
+     */
+    inline bool IdentityProviderTypeHasBeenSet() const { return m_identityProviderTypeHasBeenSet; }
 
     /**
      * <p>This property defines the mode of authentication method enabled for this
@@ -192,6 +353,13 @@ namespace Model
      * allows the server to turn on Amazon CloudWatch logging for Amazon S3 events.
      * When set, user activity can be view in your CloudWatch logs.</p>
      */
+    inline bool LoggingRoleHasBeenSet() const { return m_loggingRoleHasBeenSet; }
+
+    /**
+     * <p>This property is an AWS Identity and Access Management (IAM) entity that
+     * allows the server to turn on Amazon CloudWatch logging for Amazon S3 events.
+     * When set, user activity can be view in your CloudWatch logs.</p>
+     */
     inline void SetLoggingRole(const Aws::String& value) { m_loggingRoleHasBeenSet = true; m_loggingRole = value; }
 
     /**
@@ -235,6 +403,12 @@ namespace Model
      * you instantiate.</p>
      */
     inline const Aws::String& GetServerId() const{ return m_serverId; }
+
+    /**
+     * <p>This property is a unique system assigned identifier for the SFTP server that
+     * you instantiate.</p>
+     */
+    inline bool ServerIdHasBeenSet() const { return m_serverIdHasBeenSet; }
 
     /**
      * <p>This property is a unique system assigned identifier for the SFTP server that
@@ -295,6 +469,18 @@ namespace Model
      * The values of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate
      * an error condition.</p>
      */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
+
+    /**
+     * <p>The condition of the SFTP server for the server that was described. A value
+     * of <code>ONLINE</code> indicates that the server can accept jobs and transfer
+     * files. A <code>State</code> value of <code>OFFLINE</code> means that the server
+     * cannot perform file transfer operations.</p> <p>The states of
+     * <code>STARTING</code> and <code>STOPPING</code> indicated that the server is in
+     * an intermediate state, either not fully able to respond, or not fully offline.
+     * The values of <code>START_FAILED</code> or <code>STOP_FAILED</code> can indicate
+     * an error condition.</p>
+     */
     inline void SetState(const State& value) { m_stateHasBeenSet = true; m_state = value; }
 
     /**
@@ -344,6 +530,12 @@ namespace Model
      * <p>This property contains the key-value pairs that you can use to search for and
      * group servers that were assigned to the server that was described.</p>
      */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>This property contains the key-value pairs that you can use to search for and
+     * group servers that were assigned to the server that was described.</p>
+     */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
@@ -387,6 +579,12 @@ namespace Model
      * <p>The number of users that are assigned to the SFTP server you specified with
      * the <code>ServerId</code>.</p>
      */
+    inline bool UserCountHasBeenSet() const { return m_userCountHasBeenSet; }
+
+    /**
+     * <p>The number of users that are assigned to the SFTP server you specified with
+     * the <code>ServerId</code>.</p>
+     */
     inline void SetUserCount(int value) { m_userCountHasBeenSet = true; m_userCount = value; }
 
     /**
@@ -399,6 +597,15 @@ namespace Model
 
     Aws::String m_arn;
     bool m_arnHasBeenSet;
+
+    EndpointDetails m_endpointDetails;
+    bool m_endpointDetailsHasBeenSet;
+
+    EndpointType m_endpointType;
+    bool m_endpointTypeHasBeenSet;
+
+    Aws::String m_hostKeyFingerprint;
+    bool m_hostKeyFingerprintHasBeenSet;
 
     IdentityProviderDetails m_identityProviderDetails;
     bool m_identityProviderDetailsHasBeenSet;

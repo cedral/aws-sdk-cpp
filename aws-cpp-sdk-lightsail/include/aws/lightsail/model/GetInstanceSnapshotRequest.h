@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetInstanceSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the snapshot for which you are requesting information.</p>
      */
     inline const Aws::String& GetInstanceSnapshotName() const{ return m_instanceSnapshotName; }
+
+    /**
+     * <p>The name of the snapshot for which you are requesting information.</p>
+     */
+    inline bool InstanceSnapshotNameHasBeenSet() const { return m_instanceSnapshotNameHasBeenSet; }
 
     /**
      * <p>The name of the snapshot for which you are requesting information.</p>

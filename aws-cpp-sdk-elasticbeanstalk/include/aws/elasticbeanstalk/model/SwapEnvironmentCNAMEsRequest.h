@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     SwapEnvironmentCNAMEsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,15 @@ namespace Model
      * <code>DestinationEnvironmentId</code>. </p>
      */
     inline const Aws::String& GetSourceEnvironmentId() const{ return m_sourceEnvironmentId; }
+
+    /**
+     * <p>The ID of the source environment.</p> <p> Condition: You must specify at
+     * least the <code>SourceEnvironmentID</code> or the
+     * <code>SourceEnvironmentName</code>. You may also specify both. If you specify
+     * the <code>SourceEnvironmentId</code>, you must specify the
+     * <code>DestinationEnvironmentId</code>. </p>
+     */
+    inline bool SourceEnvironmentIdHasBeenSet() const { return m_sourceEnvironmentIdHasBeenSet; }
 
     /**
      * <p>The ID of the source environment.</p> <p> Condition: You must specify at
@@ -129,6 +138,15 @@ namespace Model
      * the <code>SourceEnvironmentName</code>, you must specify the
      * <code>DestinationEnvironmentName</code>. </p>
      */
+    inline bool SourceEnvironmentNameHasBeenSet() const { return m_sourceEnvironmentNameHasBeenSet; }
+
+    /**
+     * <p>The name of the source environment.</p> <p> Condition: You must specify at
+     * least the <code>SourceEnvironmentID</code> or the
+     * <code>SourceEnvironmentName</code>. You may also specify both. If you specify
+     * the <code>SourceEnvironmentName</code>, you must specify the
+     * <code>DestinationEnvironmentName</code>. </p>
+     */
     inline void SetSourceEnvironmentName(const Aws::String& value) { m_sourceEnvironmentNameHasBeenSet = true; m_sourceEnvironmentName = value; }
 
     /**
@@ -193,6 +211,15 @@ namespace Model
      * specify the <code>SourceEnvironmentId</code> with the
      * <code>DestinationEnvironmentId</code>. </p>
      */
+    inline bool DestinationEnvironmentIdHasBeenSet() const { return m_destinationEnvironmentIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the destination environment.</p> <p> Condition: You must specify at
+     * least the <code>DestinationEnvironmentID</code> or the
+     * <code>DestinationEnvironmentName</code>. You may also specify both. You must
+     * specify the <code>SourceEnvironmentId</code> with the
+     * <code>DestinationEnvironmentId</code>. </p>
+     */
     inline void SetDestinationEnvironmentId(const Aws::String& value) { m_destinationEnvironmentIdHasBeenSet = true; m_destinationEnvironmentId = value; }
 
     /**
@@ -249,6 +276,15 @@ namespace Model
      * <code>DestinationEnvironmentName</code>. </p>
      */
     inline const Aws::String& GetDestinationEnvironmentName() const{ return m_destinationEnvironmentName; }
+
+    /**
+     * <p>The name of the destination environment.</p> <p> Condition: You must specify
+     * at least the <code>DestinationEnvironmentID</code> or the
+     * <code>DestinationEnvironmentName</code>. You may also specify both. You must
+     * specify the <code>SourceEnvironmentName</code> with the
+     * <code>DestinationEnvironmentName</code>. </p>
+     */
+    inline bool DestinationEnvironmentNameHasBeenSet() const { return m_destinationEnvironmentNameHasBeenSet; }
 
     /**
      * <p>The name of the destination environment.</p> <p> Condition: You must specify

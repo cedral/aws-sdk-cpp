@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * The unique ID that Amazon MQ generates for the broker.
      */
     inline const Aws::String& GetBrokerId() const{ return m_brokerId; }
+
+    /**
+     * The unique ID that Amazon MQ generates for the broker.
+     */
+    inline bool BrokerIdHasBeenSet() const { return m_brokerIdHasBeenSet; }
 
     /**
      * The unique ID that Amazon MQ generates for the broker.
@@ -84,6 +89,13 @@ namespace Model
      * be 2-100 characters long.
      */
     inline const Aws::String& GetUsername() const{ return m_username; }
+
+    /**
+     * The username of the ActiveMQ user. This value can contain only alphanumeric
+     * characters, dashes, periods, underscores, and tildes (- . _ ~). This value must
+     * be 2-100 characters long.
+     */
+    inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
 
     /**
      * The username of the ActiveMQ user. This value can contain only alphanumeric

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteCacheSubnetGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * contain no more than 255 alphanumeric characters or hyphens.</p>
      */
     inline const Aws::String& GetCacheSubnetGroupName() const{ return m_cacheSubnetGroupName; }
+
+    /**
+     * <p>The name of the cache subnet group to delete.</p> <p>Constraints: Must
+     * contain no more than 255 alphanumeric characters or hyphens.</p>
+     */
+    inline bool CacheSubnetGroupNameHasBeenSet() const { return m_cacheSubnetGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the cache subnet group to delete.</p> <p>Constraints: Must

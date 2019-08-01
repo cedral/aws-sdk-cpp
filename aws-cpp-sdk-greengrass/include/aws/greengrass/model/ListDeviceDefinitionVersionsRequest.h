@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListDeviceDefinitionVersionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * The ID of the device definition.
      */
     inline const Aws::String& GetDeviceDefinitionId() const{ return m_deviceDefinitionId; }
+
+    /**
+     * The ID of the device definition.
+     */
+    inline bool DeviceDefinitionIdHasBeenSet() const { return m_deviceDefinitionIdHasBeenSet; }
 
     /**
      * The ID of the device definition.
@@ -92,6 +97,11 @@ namespace Model
     /**
      * The maximum number of results to be returned per request.
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * The maximum number of results to be returned per request.
+     */
     inline void SetMaxResults(const Aws::String& value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -125,6 +135,12 @@ namespace Model
      * results.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * The token for the next set of results, or ''null'' if there are no additional
+     * results.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * The token for the next set of results, or ''null'' if there are no additional

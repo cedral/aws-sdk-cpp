@@ -47,7 +47,7 @@ namespace Model
    * attribute's <code>cause</code> parameter is set to
    * <code>OPERATION_NOT_PERMITTED</code>. For details and example IAM policies, see
    * <a
-   * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+   * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
    * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
    * Guide</i>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RequestCancelExternalWorkflowExecutionDecisionAttributes">AWS
@@ -67,6 +67,12 @@ namespace Model
      * cancel.</p>
      */
     inline const Aws::String& GetWorkflowId() const{ return m_workflowId; }
+
+    /**
+     * <p> The <code>workflowId</code> of the external workflow execution to
+     * cancel.</p>
+     */
+    inline bool WorkflowIdHasBeenSet() const { return m_workflowIdHasBeenSet; }
 
     /**
      * <p> The <code>workflowId</code> of the external workflow execution to
@@ -113,6 +119,11 @@ namespace Model
     /**
      * <p>The <code>runId</code> of the external workflow execution to cancel.</p>
      */
+    inline bool RunIdHasBeenSet() const { return m_runIdHasBeenSet; }
+
+    /**
+     * <p>The <code>runId</code> of the external workflow execution to cancel.</p>
+     */
     inline void SetRunId(const Aws::String& value) { m_runIdHasBeenSet = true; m_runId = value; }
 
     /**
@@ -146,6 +157,12 @@ namespace Model
      * workflow tasks.</p>
      */
     inline const Aws::String& GetControl() const{ return m_control; }
+
+    /**
+     * <p>The data attached to the event that can be used by the decider in subsequent
+     * workflow tasks.</p>
+     */
+    inline bool ControlHasBeenSet() const { return m_controlHasBeenSet; }
 
     /**
      * <p>The data attached to the event that can be used by the decider in subsequent

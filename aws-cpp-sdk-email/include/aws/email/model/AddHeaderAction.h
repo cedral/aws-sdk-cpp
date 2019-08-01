@@ -37,7 +37,7 @@ namespace Model
    * <p>When included in a receipt rule, this action adds a header to the received
    * email.</p> <p>For information about adding a header using a receipt rule, see
    * the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/AddHeaderAction">AWS
    * API Reference</a></p>
@@ -59,6 +59,13 @@ namespace Model
      * only.</p>
      */
     inline const Aws::String& GetHeaderName() const{ return m_headerName; }
+
+    /**
+     * <p>The name of the header to add. Must be between 1 and 50 characters,
+     * inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes
+     * only.</p>
+     */
+    inline bool HeaderNameHasBeenSet() const { return m_headerNameHasBeenSet; }
 
     /**
      * <p>The name of the header to add. Must be between 1 and 50 characters,
@@ -108,6 +115,12 @@ namespace Model
      * ("\r" or "\n").</p>
      */
     inline const Aws::String& GetHeaderValue() const{ return m_headerValue; }
+
+    /**
+     * <p>Must be less than 2048 characters, and must not contain newline characters
+     * ("\r" or "\n").</p>
+     */
+    inline bool HeaderValueHasBeenSet() const { return m_headerValueHasBeenSet; }
 
     /**
      * <p>Must be less than 2048 characters, and must not contain newline characters

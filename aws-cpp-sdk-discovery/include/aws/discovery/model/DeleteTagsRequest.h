@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DeleteTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>A list of configuration items with tags that you want to delete.</p>
      */
     inline const Aws::Vector<Aws::String>& GetConfigurationIds() const{ return m_configurationIds; }
+
+    /**
+     * <p>A list of configuration items with tags that you want to delete.</p>
+     */
+    inline bool ConfigurationIdsHasBeenSet() const { return m_configurationIdsHasBeenSet; }
 
     /**
      * <p>A list of configuration items with tags that you want to delete.</p>
@@ -93,6 +98,13 @@ namespace Model
      * example:</p> <p> <code>{"key": "serverType", "value": "webServer"}</code> </p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Tags that you want to delete from one or more configuration items. Specify
+     * the tags that you want to delete in a <i>key</i>-<i>value</i> format. For
+     * example:</p> <p> <code>{"key": "serverType", "value": "webServer"}</code> </p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>Tags that you want to delete from one or more configuration items. Specify

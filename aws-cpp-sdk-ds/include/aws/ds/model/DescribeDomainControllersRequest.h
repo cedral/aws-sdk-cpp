@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeDomainControllersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * information.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>Identifier of the directory for which to retrieve the domain controller
+     * information.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>Identifier of the directory for which to retrieve the domain controller
@@ -93,6 +99,12 @@ namespace Model
      * provided.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDomainControllerIds() const{ return m_domainControllerIds; }
+
+    /**
+     * <p>A list of identifiers for the domain controllers whose information will be
+     * provided.</p>
+     */
+    inline bool DomainControllerIdsHasBeenSet() const { return m_domainControllerIdsHasBeenSet; }
 
     /**
      * <p>A list of identifiers for the domain controllers whose information will be
@@ -147,6 +159,12 @@ namespace Model
      * <p>The <i>DescribeDomainControllers.NextToken</i> value from a previous call to
      * <a>DescribeDomainControllers</a>. Pass null if this is the first call. </p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The <i>DescribeDomainControllers.NextToken</i> value from a previous call to
+     * <a>DescribeDomainControllers</a>. Pass null if this is the first call. </p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -184,6 +202,11 @@ namespace Model
      * <p>The maximum number of items to return.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of items to return.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return.</p>

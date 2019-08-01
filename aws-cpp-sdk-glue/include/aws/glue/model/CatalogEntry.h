@@ -34,8 +34,8 @@ namespace Model
 {
 
   /**
-   * <p>Specifies a table definition in the Data Catalog.</p><p><h3>See Also:</h3>  
-   * <a
+   * <p>Specifies a table definition in the AWS Glue Data Catalog.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CatalogEntry">AWS
    * API Reference</a></p>
    */
@@ -52,6 +52,11 @@ namespace Model
      * <p>The database in which the table metadata resides.</p>
      */
     inline const Aws::String& GetDatabaseName() const{ return m_databaseName; }
+
+    /**
+     * <p>The database in which the table metadata resides.</p>
+     */
+    inline bool DatabaseNameHasBeenSet() const { return m_databaseNameHasBeenSet; }
 
     /**
      * <p>The database in which the table metadata resides.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>The name of the table in question.</p>
      */
     inline const Aws::String& GetTableName() const{ return m_tableName; }
+
+    /**
+     * <p>The name of the table in question.</p>
+     */
+    inline bool TableNameHasBeenSet() const { return m_tableNameHasBeenSet; }
 
     /**
      * <p>The name of the table in question.</p>

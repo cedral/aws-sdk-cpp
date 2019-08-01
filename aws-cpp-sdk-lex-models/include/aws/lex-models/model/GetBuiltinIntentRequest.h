@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetBuiltinIntentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,14 @@ namespace Model
      * Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</p>
      */
     inline const Aws::String& GetSignature() const{ return m_signature; }
+
+    /**
+     * <p>The unique identifier for a built-in intent. To find the signature for an
+     * intent, see <a
+     * href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents">Standard
+     * Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</p>
+     */
+    inline bool SignatureHasBeenSet() const { return m_signatureHasBeenSet; }
 
     /**
      * <p>The unique identifier for a built-in intent. To find the signature for an

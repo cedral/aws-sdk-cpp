@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ModifyGlobalClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * match the identifier of an existing global database cluster.</p> </li> </ul>
      */
     inline const Aws::String& GetGlobalClusterIdentifier() const{ return m_globalClusterIdentifier; }
+
+    /**
+     * <p> The DB cluster identifier for the global cluster being modified. This
+     * parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>Must
+     * match the identifier of an existing global database cluster.</p> </li> </ul>
+     */
+    inline bool GlobalClusterIdentifierHasBeenSet() const { return m_globalClusterIdentifierHasBeenSet; }
 
     /**
      * <p> The DB cluster identifier for the global cluster being modified. This
@@ -105,6 +112,16 @@ namespace Model
      * <p>Example: <code>my-cluster2</code> </p>
      */
     inline const Aws::String& GetNewGlobalClusterIdentifier() const{ return m_newGlobalClusterIdentifier; }
+
+    /**
+     * <p> The new cluster identifier for the global database cluster when modifying a
+     * global database cluster. This value is stored as a lowercase string. </p>
+     * <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or
+     * hyphens</p> </li> <li> <p>The first character must be a letter</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens</p> </li> </ul>
+     * <p>Example: <code>my-cluster2</code> </p>
+     */
+    inline bool NewGlobalClusterIdentifierHasBeenSet() const { return m_newGlobalClusterIdentifierHasBeenSet; }
 
     /**
      * <p> The new cluster identifier for the global database cluster when modifying a
@@ -169,22 +186,29 @@ namespace Model
 
     /**
      * <p> Indicates if the global database cluster has deletion protection enabled.
-     * The global database cluster can't be deleted when this value is set to true.
-     * </p>
+     * The global database cluster can't be deleted when deletion protection is
+     * enabled. </p>
      */
     inline bool GetDeletionProtection() const{ return m_deletionProtection; }
 
     /**
      * <p> Indicates if the global database cluster has deletion protection enabled.
-     * The global database cluster can't be deleted when this value is set to true.
-     * </p>
+     * The global database cluster can't be deleted when deletion protection is
+     * enabled. </p>
+     */
+    inline bool DeletionProtectionHasBeenSet() const { return m_deletionProtectionHasBeenSet; }
+
+    /**
+     * <p> Indicates if the global database cluster has deletion protection enabled.
+     * The global database cluster can't be deleted when deletion protection is
+     * enabled. </p>
      */
     inline void SetDeletionProtection(bool value) { m_deletionProtectionHasBeenSet = true; m_deletionProtection = value; }
 
     /**
      * <p> Indicates if the global database cluster has deletion protection enabled.
-     * The global database cluster can't be deleted when this value is set to true.
-     * </p>
+     * The global database cluster can't be deleted when deletion protection is
+     * enabled. </p>
      */
     inline ModifyGlobalClusterRequest& WithDeletionProtection(bool value) { SetDeletionProtection(value); return *this;}
 

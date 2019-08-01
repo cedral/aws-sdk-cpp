@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutRecordRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the delivery stream.</p>
      */
     inline const Aws::String& GetDeliveryStreamName() const{ return m_deliveryStreamName; }
+
+    /**
+     * <p>The name of the delivery stream.</p>
+     */
+    inline bool DeliveryStreamNameHasBeenSet() const { return m_deliveryStreamNameHasBeenSet; }
 
     /**
      * <p>The name of the delivery stream.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>The record.</p>
      */
     inline const Record& GetRecord() const{ return m_record; }
+
+    /**
+     * <p>The record.</p>
+     */
+    inline bool RecordHasBeenSet() const { return m_recordHasBeenSet; }
 
     /**
      * <p>The record.</p>

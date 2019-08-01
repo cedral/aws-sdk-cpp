@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeInputSecurityGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * The id of the Input Security Group to describe
      */
     inline const Aws::String& GetInputSecurityGroupId() const{ return m_inputSecurityGroupId; }
+
+    /**
+     * The id of the Input Security Group to describe
+     */
+    inline bool InputSecurityGroupIdHasBeenSet() const { return m_inputSecurityGroupIdHasBeenSet; }
 
     /**
      * The id of the Input Security Group to describe

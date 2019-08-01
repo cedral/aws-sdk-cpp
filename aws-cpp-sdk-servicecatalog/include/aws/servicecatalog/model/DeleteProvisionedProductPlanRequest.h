@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteProvisionedProductPlanRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * Chinese</p> </li> </ul>
      */
     inline const Aws::String& GetAcceptLanguage() const{ return m_acceptLanguage; }
+
+    /**
+     * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
+     * </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> -
+     * Chinese</p> </li> </ul>
+     */
+    inline bool AcceptLanguageHasBeenSet() const { return m_acceptLanguageHasBeenSet; }
 
     /**
      * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
@@ -102,6 +109,11 @@ namespace Model
     /**
      * <p>The plan identifier.</p>
      */
+    inline bool PlanIdHasBeenSet() const { return m_planIdHasBeenSet; }
+
+    /**
+     * <p>The plan identifier.</p>
+     */
     inline void SetPlanId(const Aws::String& value) { m_planIdHasBeenSet = true; m_planId = value; }
 
     /**
@@ -135,6 +147,12 @@ namespace Model
      * product even if it cannot delete the underlying resources.</p>
      */
     inline bool GetIgnoreErrors() const{ return m_ignoreErrors; }
+
+    /**
+     * <p>If set to true, AWS Service Catalog stops managing the specified provisioned
+     * product even if it cannot delete the underlying resources.</p>
+     */
+    inline bool IgnoreErrorsHasBeenSet() const { return m_ignoreErrorsHasBeenSet; }
 
     /**
      * <p>If set to true, AWS Service Catalog stops managing the specified provisioned

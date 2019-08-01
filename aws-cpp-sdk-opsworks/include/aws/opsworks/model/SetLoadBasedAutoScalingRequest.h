@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SetLoadBasedAutoScalingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The layer ID.</p>
      */
     inline const Aws::String& GetLayerId() const{ return m_layerId; }
+
+    /**
+     * <p>The layer ID.</p>
+     */
+    inline bool LayerIdHasBeenSet() const { return m_layerIdHasBeenSet; }
 
     /**
      * <p>The layer ID.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>Enables load-based auto scaling for the layer.</p>
      */
+    inline bool EnableHasBeenSet() const { return m_enableHasBeenSet; }
+
+    /**
+     * <p>Enables load-based auto scaling for the layer.</p>
+     */
     inline void SetEnable(bool value) { m_enableHasBeenSet = true; m_enable = value; }
 
     /**
@@ -103,6 +113,13 @@ namespace Model
      * time, AWS OpsWorks Stacks starts a specified number of instances.</p>
      */
     inline const AutoScalingThresholds& GetUpScaling() const{ return m_upScaling; }
+
+    /**
+     * <p>An <code>AutoScalingThresholds</code> object with the upscaling threshold
+     * configuration. If the load exceeds these thresholds for a specified amount of
+     * time, AWS OpsWorks Stacks starts a specified number of instances.</p>
+     */
+    inline bool UpScalingHasBeenSet() const { return m_upScalingHasBeenSet; }
 
     /**
      * <p>An <code>AutoScalingThresholds</code> object with the upscaling threshold
@@ -139,6 +156,13 @@ namespace Model
      * of time, AWS OpsWorks Stacks stops a specified number of instances.</p>
      */
     inline const AutoScalingThresholds& GetDownScaling() const{ return m_downScaling; }
+
+    /**
+     * <p>An <code>AutoScalingThresholds</code> object with the downscaling threshold
+     * configuration. If the load falls below these thresholds for a specified amount
+     * of time, AWS OpsWorks Stacks stops a specified number of instances.</p>
+     */
+    inline bool DownScalingHasBeenSet() const { return m_downScalingHasBeenSet; }
 
     /**
      * <p>An <code>AutoScalingThresholds</code> object with the downscaling threshold

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteResourceShareRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the resource share.</p>
      */
     inline const Aws::String& GetResourceShareArn() const{ return m_resourceShareArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource share.</p>
+     */
+    inline bool ResourceShareArnHasBeenSet() const { return m_resourceShareArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the resource share.</p>
@@ -89,6 +94,12 @@ namespace Model
      * idempotency of the request.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>A unique, case-sensitive identifier that you provide to ensure the
+     * idempotency of the request.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>A unique, case-sensitive identifier that you provide to ensure the

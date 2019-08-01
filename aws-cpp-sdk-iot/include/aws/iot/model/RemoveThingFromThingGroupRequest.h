@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RemoveThingFromThingGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The group name.</p>
      */
     inline const Aws::String& GetThingGroupName() const{ return m_thingGroupName; }
+
+    /**
+     * <p>The group name.</p>
+     */
+    inline bool ThingGroupNameHasBeenSet() const { return m_thingGroupNameHasBeenSet; }
 
     /**
      * <p>The group name.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The group ARN.</p>
      */
+    inline bool ThingGroupArnHasBeenSet() const { return m_thingGroupArnHasBeenSet; }
+
+    /**
+     * <p>The group ARN.</p>
+     */
     inline void SetThingGroupArn(const Aws::String& value) { m_thingGroupArnHasBeenSet = true; m_thingGroupArn = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
     /**
      * <p>The name of the thing to remove from the group.</p>
      */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
+
+    /**
+     * <p>The name of the thing to remove from the group.</p>
+     */
     inline void SetThingName(const Aws::String& value) { m_thingNameHasBeenSet = true; m_thingName = value; }
 
     /**
@@ -154,6 +169,11 @@ namespace Model
      * <p>The ARN of the thing to remove from the group.</p>
      */
     inline const Aws::String& GetThingArn() const{ return m_thingArn; }
+
+    /**
+     * <p>The ARN of the thing to remove from the group.</p>
+     */
+    inline bool ThingArnHasBeenSet() const { return m_thingArnHasBeenSet; }
 
     /**
      * <p>The ARN of the thing to remove from the group.</p>

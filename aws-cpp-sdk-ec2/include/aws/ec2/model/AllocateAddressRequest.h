@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AllocateAddressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * VPC.</p> <p>Default: The address is for use with instances in EC2-Classic.</p>
      */
     inline const DomainType& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>Set to <code>vpc</code> to allocate the address for use with instances in a
+     * VPC.</p> <p>Default: The address is for use with instances in EC2-Classic.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>Set to <code>vpc</code> to allocate the address for use with instances in a
@@ -83,6 +89,12 @@ namespace Model
      * address pool.</p>
      */
     inline const Aws::String& GetAddress() const{ return m_address; }
+
+    /**
+     * <p>[EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
+     * address pool.</p>
+     */
+    inline bool AddressHasBeenSet() const { return m_addressHasBeenSet; }
 
     /**
      * <p>[EC2-VPC] The Elastic IP address to recover or an IPv4 address from an
@@ -127,6 +139,13 @@ namespace Model
      * address pool, use the <code>Address</code> parameter instead.</p>
      */
     inline const Aws::String& GetPublicIpv4Pool() const{ return m_publicIpv4Pool; }
+
+    /**
+     * <p>The ID of an address pool that you own. Use this parameter to let Amazon EC2
+     * select an address from the address pool. To specify a specific address from the
+     * address pool, use the <code>Address</code> parameter instead.</p>
+     */
+    inline bool PublicIpv4PoolHasBeenSet() const { return m_publicIpv4PoolHasBeenSet; }
 
     /**
      * <p>The ID of an address pool that you own. Use this parameter to let Amazon EC2
@@ -178,6 +197,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

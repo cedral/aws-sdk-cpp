@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateApiMappingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The API identifier.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The API identifier.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The API identifier.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * 
      */
+    inline bool ApiMappingKeyHasBeenSet() const { return m_apiMappingKeyHasBeenSet; }
+
+    /**
+     * 
+     */
     inline void SetApiMappingKey(const Aws::String& value) { m_apiMappingKeyHasBeenSet = true; m_apiMappingKey = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
     /**
      * <p>The domain name.</p>
      */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
+
+    /**
+     * <p>The domain name.</p>
+     */
     inline void SetDomainName(const Aws::String& value) { m_domainNameHasBeenSet = true; m_domainName = value; }
 
     /**
@@ -154,6 +169,11 @@ namespace Model
      * <p>The API stage.</p>
      */
     inline const Aws::String& GetStage() const{ return m_stage; }
+
+    /**
+     * <p>The API stage.</p>
+     */
+    inline bool StageHasBeenSet() const { return m_stageHasBeenSet; }
 
     /**
      * <p>The API stage.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteDatastoreRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the data store to delete.</p>
      */
     inline const Aws::String& GetDatastoreName() const{ return m_datastoreName; }
+
+    /**
+     * <p>The name of the data store to delete.</p>
+     */
+    inline bool DatastoreNameHasBeenSet() const { return m_datastoreNameHasBeenSet; }
 
     /**
      * <p>The name of the data store to delete.</p>

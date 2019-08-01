@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateServiceLinkedRoleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,8 +52,8 @@ namespace Model
      * <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are
      * unique and case-sensitive. To find the exact service principal for your
      * service-linked role, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
-     * Services That Work with IAM</a> in the <i>IAM User Guide</i> and look for the
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
+     * Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the
      * services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose
      * the <b>Yes</b> link to view the service-linked role documentation for that
      * service.</p>
@@ -66,8 +66,22 @@ namespace Model
      * <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are
      * unique and case-sensitive. To find the exact service principal for your
      * service-linked role, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
-     * Services That Work with IAM</a> in the <i>IAM User Guide</i> and look for the
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
+     * Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the
+     * services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose
+     * the <b>Yes</b> link to view the service-linked role documentation for that
+     * service.</p>
+     */
+    inline bool AWSServiceNameHasBeenSet() const { return m_aWSServiceNameHasBeenSet; }
+
+    /**
+     * <p>The service principal for the AWS service to which this role is attached. You
+     * use a string similar to a URL but without the http:// in front. For example:
+     * <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are
+     * unique and case-sensitive. To find the exact service principal for your
+     * service-linked role, see <a
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
+     * Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the
      * services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose
      * the <b>Yes</b> link to view the service-linked role documentation for that
      * service.</p>
@@ -80,8 +94,8 @@ namespace Model
      * <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are
      * unique and case-sensitive. To find the exact service principal for your
      * service-linked role, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
-     * Services That Work with IAM</a> in the <i>IAM User Guide</i> and look for the
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
+     * Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the
      * services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose
      * the <b>Yes</b> link to view the service-linked role documentation for that
      * service.</p>
@@ -94,8 +108,8 @@ namespace Model
      * <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are
      * unique and case-sensitive. To find the exact service principal for your
      * service-linked role, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
-     * Services That Work with IAM</a> in the <i>IAM User Guide</i> and look for the
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
+     * Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the
      * services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose
      * the <b>Yes</b> link to view the service-linked role documentation for that
      * service.</p>
@@ -108,8 +122,8 @@ namespace Model
      * <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are
      * unique and case-sensitive. To find the exact service principal for your
      * service-linked role, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
-     * Services That Work with IAM</a> in the <i>IAM User Guide</i> and look for the
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
+     * Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the
      * services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose
      * the <b>Yes</b> link to view the service-linked role documentation for that
      * service.</p>
@@ -122,8 +136,8 @@ namespace Model
      * <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are
      * unique and case-sensitive. To find the exact service principal for your
      * service-linked role, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
-     * Services That Work with IAM</a> in the <i>IAM User Guide</i> and look for the
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
+     * Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the
      * services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose
      * the <b>Yes</b> link to view the service-linked role documentation for that
      * service.</p>
@@ -136,8 +150,8 @@ namespace Model
      * <code>elasticbeanstalk.amazonaws.com</code>. </p> <p>Service principals are
      * unique and case-sensitive. To find the exact service principal for your
      * service-linked role, see <a
-     * href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
-     * Services That Work with IAM</a> in the <i>IAM User Guide</i> and look for the
+     * href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS
+     * Services That Work with IAM</a> in the <i>IAM User Guide</i>. Look for the
      * services that have <b>Yes </b>in the <b>Service-Linked Role</b> column. Choose
      * the <b>Yes</b> link to view the service-linked role documentation for that
      * service.</p>
@@ -149,6 +163,11 @@ namespace Model
      * <p>The description of the role.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The description of the role.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The description of the role.</p>
@@ -192,6 +211,18 @@ namespace Model
      * without the suffix.</p>
      */
     inline const Aws::String& GetCustomSuffix() const{ return m_customSuffix; }
+
+    /**
+     * <p/> <p>A string that you provide, which is combined with the service-provided
+     * prefix to form the complete role name. If you make multiple requests for the
+     * same service, then you must supply a different <code>CustomSuffix</code> for
+     * each request. Otherwise the request fails with a duplicate role name error. For
+     * example, you could add <code>-1</code> or <code>-debug</code> to the suffix.</p>
+     * <p>Some services do not support the <code>CustomSuffix</code> parameter. If you
+     * provide an optional suffix and the operation fails, try the operation again
+     * without the suffix.</p>
+     */
+    inline bool CustomSuffixHasBeenSet() const { return m_customSuffixHasBeenSet; }
 
     /**
      * <p/> <p>A string that you provide, which is combined with the service-provided

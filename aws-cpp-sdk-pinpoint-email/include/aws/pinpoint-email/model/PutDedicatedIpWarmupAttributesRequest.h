@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     PutDedicatedIpWarmupAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,14 +46,18 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>The dedicated IP address that you want to update the warm-up attributes
      * for.</p>
      */
     inline const Aws::String& GetIp() const{ return m_ip; }
+
+    /**
+     * <p>The dedicated IP address that you want to update the warm-up attributes
+     * for.</p>
+     */
+    inline bool IpHasBeenSet() const { return m_ipHasBeenSet; }
 
     /**
      * <p>The dedicated IP address that you want to update the warm-up attributes
@@ -97,6 +101,12 @@ namespace Model
      * address.</p>
      */
     inline int GetWarmupPercentage() const{ return m_warmupPercentage; }
+
+    /**
+     * <p>The warm-up percentage that you want to associate with the dedicated IP
+     * address.</p>
+     */
+    inline bool WarmupPercentageHasBeenSet() const { return m_warmupPercentageHasBeenSet; }
 
     /**
      * <p>The warm-up percentage that you want to associate with the dedicated IP

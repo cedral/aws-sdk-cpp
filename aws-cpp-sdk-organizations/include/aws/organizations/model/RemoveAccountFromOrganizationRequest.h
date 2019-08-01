@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RemoveAccountFromOrganizationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * pattern</a> for an account ID string requires exactly 12 digits.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The unique identifier (ID) of the member account that you want to remove from
+     * the organization.</p> <p>The <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a> for an account ID string requires exactly 12 digits.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) of the member account that you want to remove from

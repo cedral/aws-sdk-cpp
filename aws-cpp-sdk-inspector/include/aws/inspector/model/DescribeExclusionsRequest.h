@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeExclusionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The list of ARNs that specify the exclusions that you want to describe.</p>
      */
     inline const Aws::Vector<Aws::String>& GetExclusionArns() const{ return m_exclusionArns; }
+
+    /**
+     * <p>The list of ARNs that specify the exclusions that you want to describe.</p>
+     */
+    inline bool ExclusionArnsHasBeenSet() const { return m_exclusionArnsHasBeenSet; }
 
     /**
      * <p>The list of ARNs that specify the exclusions that you want to describe.</p>
@@ -92,6 +97,12 @@ namespace Model
      * description, and recommendation.</p>
      */
     inline const Locale& GetLocale() const{ return m_locale; }
+
+    /**
+     * <p>The locale into which you want to translate the exclusion's title,
+     * description, and recommendation.</p>
+     */
+    inline bool LocaleHasBeenSet() const { return m_localeHasBeenSet; }
 
     /**
      * <p>The locale into which you want to translate the exclusion's title,

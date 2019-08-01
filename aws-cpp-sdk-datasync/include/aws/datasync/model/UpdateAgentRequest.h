@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     UpdateAgentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the agent to update.</p>
      */
     inline const Aws::String& GetAgentArn() const{ return m_agentArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the agent to update.</p>
+     */
+    inline bool AgentArnHasBeenSet() const { return m_agentArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the agent to update.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The name that you want to use to configure the agent.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name that you want to use to configure the agent.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name that you want to use to configure the agent.</p>

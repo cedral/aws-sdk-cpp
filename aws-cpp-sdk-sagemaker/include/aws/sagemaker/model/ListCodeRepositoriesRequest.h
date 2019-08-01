@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListCodeRepositoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * specified time.</p>
      */
     inline const Aws::Utils::DateTime& GetCreationTimeAfter() const{ return m_creationTimeAfter; }
+
+    /**
+     * <p>A filter that returns only Git repositories that were created after the
+     * specified time.</p>
+     */
+    inline bool CreationTimeAfterHasBeenSet() const { return m_creationTimeAfterHasBeenSet; }
 
     /**
      * <p>A filter that returns only Git repositories that were created after the
@@ -88,6 +94,12 @@ namespace Model
      * <p>A filter that returns only Git repositories that were created before the
      * specified time.</p>
      */
+    inline bool CreationTimeBeforeHasBeenSet() const { return m_creationTimeBeforeHasBeenSet; }
+
+    /**
+     * <p>A filter that returns only Git repositories that were created before the
+     * specified time.</p>
+     */
     inline void SetCreationTimeBefore(const Aws::Utils::DateTime& value) { m_creationTimeBeforeHasBeenSet = true; m_creationTimeBefore = value; }
 
     /**
@@ -114,6 +126,12 @@ namespace Model
      * specified time.</p>
      */
     inline const Aws::Utils::DateTime& GetLastModifiedTimeAfter() const{ return m_lastModifiedTimeAfter; }
+
+    /**
+     * <p>A filter that returns only Git repositories that were last modified after the
+     * specified time.</p>
+     */
+    inline bool LastModifiedTimeAfterHasBeenSet() const { return m_lastModifiedTimeAfterHasBeenSet; }
 
     /**
      * <p>A filter that returns only Git repositories that were last modified after the
@@ -150,6 +168,12 @@ namespace Model
      * <p>A filter that returns only Git repositories that were last modified before
      * the specified time.</p>
      */
+    inline bool LastModifiedTimeBeforeHasBeenSet() const { return m_lastModifiedTimeBeforeHasBeenSet; }
+
+    /**
+     * <p>A filter that returns only Git repositories that were last modified before
+     * the specified time.</p>
+     */
     inline void SetLastModifiedTimeBefore(const Aws::Utils::DateTime& value) { m_lastModifiedTimeBeforeHasBeenSet = true; m_lastModifiedTimeBefore = value; }
 
     /**
@@ -179,6 +203,11 @@ namespace Model
     /**
      * <p>The maximum number of Git repositories to return in the response.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of Git repositories to return in the response.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -192,6 +221,12 @@ namespace Model
      * whose name contains the specified string.</p>
      */
     inline const Aws::String& GetNameContains() const{ return m_nameContains; }
+
+    /**
+     * <p>A string in the Git repositories name. This filter returns only repositories
+     * whose name contains the specified string.</p>
+     */
+    inline bool NameContainsHasBeenSet() const { return m_nameContainsHasBeenSet; }
 
     /**
      * <p>A string in the Git repositories name. This filter returns only repositories
@@ -236,6 +271,13 @@ namespace Model
      * of Git repositories, use the token in the next request.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was
+     * truncated, the response includes a <code>NextToken</code>. To get the next set
+     * of Git repositories, use the token in the next request.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was
@@ -288,6 +330,11 @@ namespace Model
     /**
      * <p>The field to sort results by. The default is <code>Name</code>.</p>
      */
+    inline bool SortByHasBeenSet() const { return m_sortByHasBeenSet; }
+
+    /**
+     * <p>The field to sort results by. The default is <code>Name</code>.</p>
+     */
     inline void SetSortBy(const CodeRepositorySortBy& value) { m_sortByHasBeenSet = true; m_sortBy = value; }
 
     /**
@@ -310,6 +357,11 @@ namespace Model
      * <p>The sort order for results. The default is <code>Ascending</code>.</p>
      */
     inline const CodeRepositorySortOrder& GetSortOrder() const{ return m_sortOrder; }
+
+    /**
+     * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+     */
+    inline bool SortOrderHasBeenSet() const { return m_sortOrderHasBeenSet; }
 
     /**
      * <p>The sort order for results. The default is <code>Ascending</code>.</p>

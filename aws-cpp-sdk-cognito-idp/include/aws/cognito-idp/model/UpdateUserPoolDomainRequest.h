@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateUserPoolDomainRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,15 @@ namespace Model
      * names.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The domain name for the custom domain that hosts the sign-up and sign-in
+     * pages for your application. For example: <code>auth.example.com</code>. </p>
+     * <p>This string can include only lowercase letters, numbers, and hyphens. Do not
+     * use a hyphen for the first or last character. Use periods to separate subdomain
+     * names.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The domain name for the custom domain that hosts the sign-up and sign-in
@@ -122,6 +131,12 @@ namespace Model
      * <p>The ID of the user pool that is associated with the custom domain that you
      * are updating the certificate for.</p>
      */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the user pool that is associated with the custom domain that you
+     * are updating the certificate for.</p>
+     */
     inline void SetUserPoolId(const Aws::String& value) { m_userPoolIdHasBeenSet = true; m_userPoolId = value; }
 
     /**
@@ -161,6 +176,13 @@ namespace Model
      * is managed by ACM.</p>
      */
     inline const CustomDomainConfigType& GetCustomDomainConfig() const{ return m_customDomainConfig; }
+
+    /**
+     * <p>The configuration for a custom domain that hosts the sign-up and sign-in
+     * pages for your application. Use this object to specify an SSL certificate that
+     * is managed by ACM.</p>
+     */
+    inline bool CustomDomainConfigHasBeenSet() const { return m_customDomainConfigHasBeenSet; }
 
     /**
      * <p>The configuration for a custom domain that hosts the sign-up and sign-in

@@ -28,8 +28,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a RetryStageExecution action.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Represents the input of a <code>RetryStageExecution</code>
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/RetryStageExecutionInput">AWS
    * API Reference</a></p>
    */
@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     RetryStageExecutionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the pipeline that contains the failed stage.</p>
      */
     inline const Aws::String& GetPipelineName() const{ return m_pipelineName; }
+
+    /**
+     * <p>The name of the pipeline that contains the failed stage.</p>
+     */
+    inline bool PipelineNameHasBeenSet() const { return m_pipelineNameHasBeenSet; }
 
     /**
      * <p>The name of the pipeline that contains the failed stage.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The name of the failed stage to be retried.</p>
      */
+    inline bool StageNameHasBeenSet() const { return m_stageNameHasBeenSet; }
+
+    /**
+     * <p>The name of the failed stage to be retried.</p>
+     */
     inline void SetStageName(const Aws::String& value) { m_stageNameHasBeenSet = true; m_stageName = value; }
 
     /**
@@ -127,6 +137,13 @@ namespace Model
      * the failed stage</p>
      */
     inline const Aws::String& GetPipelineExecutionId() const{ return m_pipelineExecutionId; }
+
+    /**
+     * <p>The ID of the pipeline execution in the failed stage to be retried. Use the
+     * <a>GetPipelineState</a> action to retrieve the current pipelineExecutionId of
+     * the failed stage</p>
+     */
+    inline bool PipelineExecutionIdHasBeenSet() const { return m_pipelineExecutionIdHasBeenSet; }
 
     /**
      * <p>The ID of the pipeline execution in the failed stage to be retried. Use the
@@ -176,6 +193,12 @@ namespace Model
      * FAILED_ACTIONS.</p>
      */
     inline const StageRetryMode& GetRetryMode() const{ return m_retryMode; }
+
+    /**
+     * <p>The scope of the retry attempt. Currently, the only supported value is
+     * FAILED_ACTIONS.</p>
+     */
+    inline bool RetryModeHasBeenSet() const { return m_retryModeHasBeenSet; }
 
     /**
      * <p>The scope of the retry attempt. Currently, the only supported value is

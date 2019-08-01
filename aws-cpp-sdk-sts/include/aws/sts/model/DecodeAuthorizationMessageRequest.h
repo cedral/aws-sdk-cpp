@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DecodeAuthorizationMessageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The encoded message that was returned with the response.</p>
      */
     inline const Aws::String& GetEncodedMessage() const{ return m_encodedMessage; }
+
+    /**
+     * <p>The encoded message that was returned with the response.</p>
+     */
+    inline bool EncodedMessageHasBeenSet() const { return m_encodedMessageHasBeenSet; }
 
     /**
      * <p>The encoded message that was returned with the response.</p>

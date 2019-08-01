@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreatePlacementRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The name of the placement to be created.</p>
      */
     inline const Aws::String& GetPlacementName() const{ return m_placementName; }
+
+    /**
+     * <p>The name of the placement to be created.</p>
+     */
+    inline bool PlacementNameHasBeenSet() const { return m_placementNameHasBeenSet; }
 
     /**
      * <p>The name of the placement to be created.</p>
@@ -87,6 +92,11 @@ namespace Model
     /**
      * <p>The name of the project in which to create the placement.</p>
      */
+    inline bool ProjectNameHasBeenSet() const { return m_projectNameHasBeenSet; }
+
+    /**
+     * <p>The name of the project in which to create the placement.</p>
+     */
     inline void SetProjectName(const Aws::String& value) { m_projectNameHasBeenSet = true; m_projectName = value; }
 
     /**
@@ -120,6 +130,12 @@ namespace Model
      * location or function) for the placement.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetAttributes() const{ return m_attributes; }
+
+    /**
+     * <p>Optional user-defined key/value pairs providing contextual data (such as
+     * location or function) for the placement.</p>
+     */
+    inline bool AttributesHasBeenSet() const { return m_attributesHasBeenSet; }
 
     /**
      * <p>Optional user-defined key/value pairs providing contextual data (such as

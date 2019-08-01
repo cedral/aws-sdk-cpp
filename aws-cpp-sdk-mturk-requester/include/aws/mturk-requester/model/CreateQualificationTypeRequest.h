@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateQualificationTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,14 @@ namespace Model
      * types.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p> The name you give to the Qualification type. The type name is used to
+     * represent the Qualification to Workers, and to find the type using a
+     * Qualification type search. It must be unique across all of your Qualification
+     * types.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p> The name you give to the Qualification type. The type name is used to
@@ -114,6 +122,13 @@ namespace Model
      * by commas. The keywords of a type make the type easier to find during a
      * search.</p>
      */
+    inline bool KeywordsHasBeenSet() const { return m_keywordsHasBeenSet; }
+
+    /**
+     * <p>One or more words or phrases that describe the Qualification type, separated
+     * by commas. The keywords of a type make the type easier to find during a
+     * search.</p>
+     */
     inline void SetKeywords(const Aws::String& value) { m_keywordsHasBeenSet = true; m_keywords = value; }
 
     /**
@@ -158,6 +173,13 @@ namespace Model
      * Qualification type.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A long description for the Qualification type. On the Amazon Mechanical Turk
+     * website, the long description is displayed when a Worker examines a
+     * Qualification type.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A long description for the Qualification type. On the Amazon Mechanical Turk
@@ -212,6 +234,12 @@ namespace Model
      * <p>The initial status of the Qualification type.</p> <p>Constraints: Valid
      * values are: Active | Inactive</p>
      */
+    inline bool QualificationTypeStatusHasBeenSet() const { return m_qualificationTypeStatusHasBeenSet; }
+
+    /**
+     * <p>The initial status of the Qualification type.</p> <p>Constraints: Valid
+     * values are: Active | Inactive</p>
+     */
     inline void SetQualificationTypeStatus(const QualificationTypeStatus& value) { m_qualificationTypeStatusHasBeenSet = true; m_qualificationTypeStatus = value; }
 
     /**
@@ -257,6 +285,19 @@ namespace Model
      * Qualification type and then create a new Qualification type with retries
      * disabled.</p>
      */
+    inline bool RetryDelayInSecondsHasBeenSet() const { return m_retryDelayInSecondsHasBeenSet; }
+
+    /**
+     * <p>The number of seconds that a Worker must wait after requesting a
+     * Qualification of the Qualification type before the worker can retry the
+     * Qualification request.</p> <p>Constraints: None. If not specified, retries are
+     * disabled and Workers can request a Qualification of this type only once, even if
+     * the Worker has not been granted the Qualification. It is not possible to disable
+     * retries for a Qualification type after it has been created with retries enabled.
+     * If you want to disable retries, you must delete existing retry-enabled
+     * Qualification type and then create a new Qualification type with retries
+     * disabled.</p>
+     */
     inline void SetRetryDelayInSeconds(long long value) { m_retryDelayInSecondsHasBeenSet = true; m_retryDelayInSeconds = value; }
 
     /**
@@ -283,6 +324,17 @@ namespace Model
      * questions.</p>
      */
     inline const Aws::String& GetTest() const{ return m_test; }
+
+    /**
+     * <p> The questions for the Qualification test a Worker must answer correctly to
+     * obtain a Qualification of this type. If this parameter is specified,
+     * <code>TestDurationInSeconds</code> must also be specified. </p> <p>Constraints:
+     * Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This
+     * parameter cannot be specified if AutoGranted is true.</p> <p>Constraints: None.
+     * If not specified, the Worker may request the Qualification without answering any
+     * questions.</p>
+     */
+    inline bool TestHasBeenSet() const { return m_testHasBeenSet; }
 
     /**
      * <p> The questions for the Qualification test a Worker must answer correctly to
@@ -365,6 +417,14 @@ namespace Model
      * 65535 bytes.</p> <p>Constraints: None. If not specified, you must process
      * Qualification requests manually.</p>
      */
+    inline bool AnswerKeyHasBeenSet() const { return m_answerKeyHasBeenSet; }
+
+    /**
+     * <p>The answers to the Qualification test specified in the Test parameter, in the
+     * form of an AnswerKey data structure.</p> <p>Constraints: Must not be longer than
+     * 65535 bytes.</p> <p>Constraints: None. If not specified, you must process
+     * Qualification requests manually.</p>
+     */
     inline void SetAnswerKey(const Aws::String& value) { m_answerKeyHasBeenSet = true; m_answerKey = value; }
 
     /**
@@ -418,6 +478,12 @@ namespace Model
      * <p>The number of seconds the Worker has to complete the Qualification test,
      * starting from the time the Worker requests the Qualification.</p>
      */
+    inline bool TestDurationInSecondsHasBeenSet() const { return m_testDurationInSecondsHasBeenSet; }
+
+    /**
+     * <p>The number of seconds the Worker has to complete the Qualification test,
+     * starting from the time the Worker requests the Qualification.</p>
+     */
     inline void SetTestDurationInSeconds(long long value) { m_testDurationInSecondsHasBeenSet = true; m_testDurationInSeconds = value; }
 
     /**
@@ -441,6 +507,14 @@ namespace Model
      * <p>Constraints: If the Test parameter is specified, this parameter cannot be
      * true.</p>
      */
+    inline bool AutoGrantedHasBeenSet() const { return m_autoGrantedHasBeenSet; }
+
+    /**
+     * <p>Specifies whether requests for the Qualification type are granted
+     * immediately, without prompting the Worker with a Qualification test.</p>
+     * <p>Constraints: If the Test parameter is specified, this parameter cannot be
+     * true.</p>
+     */
     inline void SetAutoGranted(bool value) { m_autoGrantedHasBeenSet = true; m_autoGranted = value; }
 
     /**
@@ -457,6 +531,12 @@ namespace Model
      * parameter is used only if the AutoGranted parameter is true.</p>
      */
     inline int GetAutoGrantedValue() const{ return m_autoGrantedValue; }
+
+    /**
+     * <p>The Qualification value to use for automatically granted Qualifications. This
+     * parameter is used only if the AutoGranted parameter is true.</p>
+     */
+    inline bool AutoGrantedValueHasBeenSet() const { return m_autoGrantedValueHasBeenSet; }
 
     /**
      * <p>The Qualification value to use for automatically granted Qualifications. This

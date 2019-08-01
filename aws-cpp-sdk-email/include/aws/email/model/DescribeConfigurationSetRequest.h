@@ -32,7 +32,7 @@ namespace Model
    * <p>Represents a request to return the details of a configuration set.
    * Configuration sets enable you to publish email sending events. For information
    * about using configuration sets, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeConfigurationSetRequest">AWS
    * API Reference</a></p>
@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     DescribeConfigurationSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +59,11 @@ namespace Model
      * <p>The name of the configuration set to describe.</p>
      */
     inline const Aws::String& GetConfigurationSetName() const{ return m_configurationSetName; }
+
+    /**
+     * <p>The name of the configuration set to describe.</p>
+     */
+    inline bool ConfigurationSetNameHasBeenSet() const { return m_configurationSetNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration set to describe.</p>
@@ -95,6 +100,11 @@ namespace Model
      * <p>A list of configuration set attributes to return.</p>
      */
     inline const Aws::Vector<ConfigurationSetAttribute>& GetConfigurationSetAttributeNames() const{ return m_configurationSetAttributeNames; }
+
+    /**
+     * <p>A list of configuration set attributes to return.</p>
+     */
+    inline bool ConfigurationSetAttributeNamesHasBeenSet() const { return m_configurationSetAttributeNamesHasBeenSet; }
 
     /**
      * <p>A list of configuration set attributes to return.</p>

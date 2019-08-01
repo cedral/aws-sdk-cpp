@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     ListJobsByStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -59,6 +59,14 @@ namespace Model
      * <code>Canceled</code>, or <code>Error</code>.</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>To get information about all of the jobs associated with the current AWS
+     * account that have a given status, specify the following status:
+     * <code>Submitted</code>, <code>Progressing</code>, <code>Complete</code>,
+     * <code>Canceled</code>, or <code>Error</code>.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>To get information about all of the jobs associated with the current AWS
@@ -121,6 +129,13 @@ namespace Model
      * submitted, enter <code>true</code>. To list jobs in reverse chronological order,
      * enter <code>false</code>. </p>
      */
+    inline bool AscendingHasBeenSet() const { return m_ascendingHasBeenSet; }
+
+    /**
+     * <p> To list jobs in chronological order by the date and time that they were
+     * submitted, enter <code>true</code>. To list jobs in reverse chronological order,
+     * enter <code>false</code>. </p>
+     */
     inline void SetAscending(const Aws::String& value) { m_ascendingHasBeenSet = true; m_ascending = value; }
 
     /**
@@ -165,6 +180,13 @@ namespace Model
      * successive page of results. </p>
      */
     inline const Aws::String& GetPageToken() const{ return m_pageToken; }
+
+    /**
+     * <p> When Elastic Transcoder returns more than one page of results, use
+     * <code>pageToken</code> in subsequent <code>GET</code> requests to get each
+     * successive page of results. </p>
+     */
+    inline bool PageTokenHasBeenSet() const { return m_pageTokenHasBeenSet; }
 
     /**
      * <p> When Elastic Transcoder returns more than one page of results, use

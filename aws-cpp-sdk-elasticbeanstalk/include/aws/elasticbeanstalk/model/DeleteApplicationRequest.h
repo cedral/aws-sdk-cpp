@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the application to delete.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application to delete.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application to delete.</p>
@@ -90,6 +95,12 @@ namespace Model
      * application.</p>
      */
     inline bool GetTerminateEnvByForce() const{ return m_terminateEnvByForce; }
+
+    /**
+     * <p>When set to true, running environments will be terminated before deleting the
+     * application.</p>
+     */
+    inline bool TerminateEnvByForceHasBeenSet() const { return m_terminateEnvByForceHasBeenSet; }
 
     /**
      * <p>When set to true, running environments will be terminated before deleting the

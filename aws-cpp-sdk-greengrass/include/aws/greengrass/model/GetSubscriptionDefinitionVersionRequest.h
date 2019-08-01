@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetSubscriptionDefinitionVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * results.
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * The token for the next set of results, or ''null'' if there are no additional
+     * results.
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * The token for the next set of results, or ''null'' if there are no additional
@@ -99,6 +105,11 @@ namespace Model
     /**
      * The ID of the subscription definition.
      */
+    inline bool SubscriptionDefinitionIdHasBeenSet() const { return m_subscriptionDefinitionIdHasBeenSet; }
+
+    /**
+     * The ID of the subscription definition.
+     */
     inline void SetSubscriptionDefinitionId(const Aws::String& value) { m_subscriptionDefinitionIdHasBeenSet = true; m_subscriptionDefinitionId = value; }
 
     /**
@@ -128,37 +139,82 @@ namespace Model
 
 
     /**
-     * The ID of the subscription definition version.
+     * The ID of the subscription definition version. This value maps to the
+     * ''Version'' property of the corresponding ''VersionInformation'' object, which
+     * is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version
+     * is the last one that was associated with a subscription definition, the value
+     * also maps to the ''LatestVersion'' property of the corresponding
+     * ''DefinitionInformation'' object.
      */
     inline const Aws::String& GetSubscriptionDefinitionVersionId() const{ return m_subscriptionDefinitionVersionId; }
 
     /**
-     * The ID of the subscription definition version.
+     * The ID of the subscription definition version. This value maps to the
+     * ''Version'' property of the corresponding ''VersionInformation'' object, which
+     * is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version
+     * is the last one that was associated with a subscription definition, the value
+     * also maps to the ''LatestVersion'' property of the corresponding
+     * ''DefinitionInformation'' object.
+     */
+    inline bool SubscriptionDefinitionVersionIdHasBeenSet() const { return m_subscriptionDefinitionVersionIdHasBeenSet; }
+
+    /**
+     * The ID of the subscription definition version. This value maps to the
+     * ''Version'' property of the corresponding ''VersionInformation'' object, which
+     * is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version
+     * is the last one that was associated with a subscription definition, the value
+     * also maps to the ''LatestVersion'' property of the corresponding
+     * ''DefinitionInformation'' object.
      */
     inline void SetSubscriptionDefinitionVersionId(const Aws::String& value) { m_subscriptionDefinitionVersionIdHasBeenSet = true; m_subscriptionDefinitionVersionId = value; }
 
     /**
-     * The ID of the subscription definition version.
+     * The ID of the subscription definition version. This value maps to the
+     * ''Version'' property of the corresponding ''VersionInformation'' object, which
+     * is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version
+     * is the last one that was associated with a subscription definition, the value
+     * also maps to the ''LatestVersion'' property of the corresponding
+     * ''DefinitionInformation'' object.
      */
     inline void SetSubscriptionDefinitionVersionId(Aws::String&& value) { m_subscriptionDefinitionVersionIdHasBeenSet = true; m_subscriptionDefinitionVersionId = std::move(value); }
 
     /**
-     * The ID of the subscription definition version.
+     * The ID of the subscription definition version. This value maps to the
+     * ''Version'' property of the corresponding ''VersionInformation'' object, which
+     * is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version
+     * is the last one that was associated with a subscription definition, the value
+     * also maps to the ''LatestVersion'' property of the corresponding
+     * ''DefinitionInformation'' object.
      */
     inline void SetSubscriptionDefinitionVersionId(const char* value) { m_subscriptionDefinitionVersionIdHasBeenSet = true; m_subscriptionDefinitionVersionId.assign(value); }
 
     /**
-     * The ID of the subscription definition version.
+     * The ID of the subscription definition version. This value maps to the
+     * ''Version'' property of the corresponding ''VersionInformation'' object, which
+     * is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version
+     * is the last one that was associated with a subscription definition, the value
+     * also maps to the ''LatestVersion'' property of the corresponding
+     * ''DefinitionInformation'' object.
      */
     inline GetSubscriptionDefinitionVersionRequest& WithSubscriptionDefinitionVersionId(const Aws::String& value) { SetSubscriptionDefinitionVersionId(value); return *this;}
 
     /**
-     * The ID of the subscription definition version.
+     * The ID of the subscription definition version. This value maps to the
+     * ''Version'' property of the corresponding ''VersionInformation'' object, which
+     * is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version
+     * is the last one that was associated with a subscription definition, the value
+     * also maps to the ''LatestVersion'' property of the corresponding
+     * ''DefinitionInformation'' object.
      */
     inline GetSubscriptionDefinitionVersionRequest& WithSubscriptionDefinitionVersionId(Aws::String&& value) { SetSubscriptionDefinitionVersionId(std::move(value)); return *this;}
 
     /**
-     * The ID of the subscription definition version.
+     * The ID of the subscription definition version. This value maps to the
+     * ''Version'' property of the corresponding ''VersionInformation'' object, which
+     * is returned by ''ListSubscriptionDefinitionVersions'' requests. If the version
+     * is the last one that was associated with a subscription definition, the value
+     * also maps to the ''LatestVersion'' property of the corresponding
+     * ''DefinitionInformation'' object.
      */
     inline GetSubscriptionDefinitionVersionRequest& WithSubscriptionDefinitionVersionId(const char* value) { SetSubscriptionDefinitionVersionId(value); return *this;}
 

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetLogRecordRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,15 @@ namespace Model
      * record.</p>
      */
     inline const Aws::String& GetLogRecordPointer() const{ return m_logRecordPointer; }
+
+    /**
+     * <p>The pointer corresponding to the log event record you want to retrieve. You
+     * get this from the response of a <code>GetQueryResults</code> operation. In that
+     * response, the value of the <code>@ptr</code> field for a log event is the value
+     * to use as <code>logRecordPointer</code> to retrieve that complete log event
+     * record.</p>
+     */
+    inline bool LogRecordPointerHasBeenSet() const { return m_logRecordPointerHasBeenSet; }
 
     /**
      * <p>The pointer corresponding to the log event record you want to retrieve. You

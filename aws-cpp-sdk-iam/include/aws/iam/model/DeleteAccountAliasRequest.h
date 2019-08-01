@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteAccountAliasRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * cannot start or finish with a dash, nor can you have two dashes in a row.</p>
      */
     inline const Aws::String& GetAccountAlias() const{ return m_accountAlias; }
+
+    /**
+     * <p>The name of the account alias to delete.</p> <p>This parameter allows
+     * (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a
+     * string of characters consisting of lowercase letters, digits, and dashes. You
+     * cannot start or finish with a dash, nor can you have two dashes in a row.</p>
+     */
+    inline bool AccountAliasHasBeenSet() const { return m_accountAliasHasBeenSet; }
 
     /**
      * <p>The name of the account alias to delete.</p> <p>This parameter allows

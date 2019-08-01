@@ -35,8 +35,7 @@ namespace Model
 {
 
   /**
-   * <p>AWS IAM access key details related to a finding.</p><p><h3>See Also:</h3>  
-   * <a
+   * <p>IAM access key details related to a finding.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/securityhub-2018-10-26/AwsIamAccessKeyDetails">AWS
    * API Reference</a></p>
    */
@@ -53,6 +52,11 @@ namespace Model
      * <p>The user associated with the IAM access key related to a finding.</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The user associated with the IAM access key related to a finding.</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The user associated with the IAM access key related to a finding.</p>
@@ -93,6 +97,11 @@ namespace Model
     /**
      * <p>The status of the IAM access key related to a finding.</p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>The status of the IAM access key related to a finding.</p>
+     */
     inline void SetStatus(const AwsIamAccessKeyStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -115,6 +124,11 @@ namespace Model
      * <p>The creation date/time of the IAM access key related to a finding.</p>
      */
     inline const Aws::String& GetCreatedAt() const{ return m_createdAt; }
+
+    /**
+     * <p>The creation date/time of the IAM access key related to a finding.</p>
+     */
+    inline bool CreatedAtHasBeenSet() const { return m_createdAtHasBeenSet; }
 
     /**
      * <p>The creation date/time of the IAM access key related to a finding.</p>

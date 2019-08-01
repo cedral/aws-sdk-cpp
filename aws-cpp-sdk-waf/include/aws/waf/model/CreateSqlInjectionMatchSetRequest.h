@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateSqlInjectionMatchSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * <code>SqlInjectionMatchSet</code>.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>A friendly name or description for the <a>SqlInjectionMatchSet</a> that
+     * you're creating. You can't change <code>Name</code> after you create the
+     * <code>SqlInjectionMatchSet</code>.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>A friendly name or description for the <a>SqlInjectionMatchSet</a> that
@@ -102,6 +109,11 @@ namespace Model
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
      */
     inline const Aws::String& GetChangeToken() const{ return m_changeToken; }
+
+    /**
+     * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+     */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
 
     /**
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>

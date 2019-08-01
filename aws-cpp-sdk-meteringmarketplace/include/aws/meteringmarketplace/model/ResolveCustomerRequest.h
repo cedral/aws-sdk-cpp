@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ResolveCustomerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * resolved to obtain a CustomerIdentifier and product code.</p>
      */
     inline const Aws::String& GetRegistrationToken() const{ return m_registrationToken; }
+
+    /**
+     * <p>When a buyer visits your website during the registration process, the buyer
+     * submits a registration token through the browser. The registration token is
+     * resolved to obtain a CustomerIdentifier and product code.</p>
+     */
+    inline bool RegistrationTokenHasBeenSet() const { return m_registrationTokenHasBeenSet; }
 
     /**
      * <p>When a buyer visits your website during the registration process, the buyer

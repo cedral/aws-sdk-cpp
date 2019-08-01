@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>Identifier (ID) of the directory for which you want to retrieve tags.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>Identifier (ID) of the directory for which you want to retrieve tags.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>Identifier (ID) of the directory for which you want to retrieve tags.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>Reserved for future use.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>Reserved for future use.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>Reserved for future use.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>Reserved for future use.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>Reserved for future use.</p>

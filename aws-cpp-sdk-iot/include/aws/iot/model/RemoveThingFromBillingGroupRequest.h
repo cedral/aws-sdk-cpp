@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RemoveThingFromBillingGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the billing group.</p>
      */
     inline const Aws::String& GetBillingGroupName() const{ return m_billingGroupName; }
+
+    /**
+     * <p>The name of the billing group.</p>
+     */
+    inline bool BillingGroupNameHasBeenSet() const { return m_billingGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the billing group.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The ARN of the billing group.</p>
      */
+    inline bool BillingGroupArnHasBeenSet() const { return m_billingGroupArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the billing group.</p>
+     */
     inline void SetBillingGroupArn(const Aws::String& value) { m_billingGroupArnHasBeenSet = true; m_billingGroupArn = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
     /**
      * <p>The name of the thing to be removed from the billing group.</p>
      */
+    inline bool ThingNameHasBeenSet() const { return m_thingNameHasBeenSet; }
+
+    /**
+     * <p>The name of the thing to be removed from the billing group.</p>
+     */
     inline void SetThingName(const Aws::String& value) { m_thingNameHasBeenSet = true; m_thingName = value; }
 
     /**
@@ -154,6 +169,11 @@ namespace Model
      * <p>The ARN of the thing to be removed from the billing group.</p>
      */
     inline const Aws::String& GetThingArn() const{ return m_thingArn; }
+
+    /**
+     * <p>The ARN of the thing to be removed from the billing group.</p>
+     */
+    inline bool ThingArnHasBeenSet() const { return m_thingArnHasBeenSet; }
 
     /**
      * <p>The ARN of the thing to be removed from the billing group.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteDocumentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the document.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the document.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the document.</p>
@@ -79,10 +84,114 @@ namespace Model
      */
     inline DeleteDocumentRequest& WithName(const char* value) { SetName(value); return *this;}
 
+
+    /**
+     * <p>The version of the document that you want to delete. If not provided, all
+     * versions of the document are deleted.</p>
+     */
+    inline const Aws::String& GetDocumentVersion() const{ return m_documentVersion; }
+
+    /**
+     * <p>The version of the document that you want to delete. If not provided, all
+     * versions of the document are deleted.</p>
+     */
+    inline bool DocumentVersionHasBeenSet() const { return m_documentVersionHasBeenSet; }
+
+    /**
+     * <p>The version of the document that you want to delete. If not provided, all
+     * versions of the document are deleted.</p>
+     */
+    inline void SetDocumentVersion(const Aws::String& value) { m_documentVersionHasBeenSet = true; m_documentVersion = value; }
+
+    /**
+     * <p>The version of the document that you want to delete. If not provided, all
+     * versions of the document are deleted.</p>
+     */
+    inline void SetDocumentVersion(Aws::String&& value) { m_documentVersionHasBeenSet = true; m_documentVersion = std::move(value); }
+
+    /**
+     * <p>The version of the document that you want to delete. If not provided, all
+     * versions of the document are deleted.</p>
+     */
+    inline void SetDocumentVersion(const char* value) { m_documentVersionHasBeenSet = true; m_documentVersion.assign(value); }
+
+    /**
+     * <p>The version of the document that you want to delete. If not provided, all
+     * versions of the document are deleted.</p>
+     */
+    inline DeleteDocumentRequest& WithDocumentVersion(const Aws::String& value) { SetDocumentVersion(value); return *this;}
+
+    /**
+     * <p>The version of the document that you want to delete. If not provided, all
+     * versions of the document are deleted.</p>
+     */
+    inline DeleteDocumentRequest& WithDocumentVersion(Aws::String&& value) { SetDocumentVersion(std::move(value)); return *this;}
+
+    /**
+     * <p>The version of the document that you want to delete. If not provided, all
+     * versions of the document are deleted.</p>
+     */
+    inline DeleteDocumentRequest& WithDocumentVersion(const char* value) { SetDocumentVersion(value); return *this;}
+
+
+    /**
+     * <p>The version name of the document that you want to delete. If not provided,
+     * all versions of the document are deleted.</p>
+     */
+    inline const Aws::String& GetVersionName() const{ return m_versionName; }
+
+    /**
+     * <p>The version name of the document that you want to delete. If not provided,
+     * all versions of the document are deleted.</p>
+     */
+    inline bool VersionNameHasBeenSet() const { return m_versionNameHasBeenSet; }
+
+    /**
+     * <p>The version name of the document that you want to delete. If not provided,
+     * all versions of the document are deleted.</p>
+     */
+    inline void SetVersionName(const Aws::String& value) { m_versionNameHasBeenSet = true; m_versionName = value; }
+
+    /**
+     * <p>The version name of the document that you want to delete. If not provided,
+     * all versions of the document are deleted.</p>
+     */
+    inline void SetVersionName(Aws::String&& value) { m_versionNameHasBeenSet = true; m_versionName = std::move(value); }
+
+    /**
+     * <p>The version name of the document that you want to delete. If not provided,
+     * all versions of the document are deleted.</p>
+     */
+    inline void SetVersionName(const char* value) { m_versionNameHasBeenSet = true; m_versionName.assign(value); }
+
+    /**
+     * <p>The version name of the document that you want to delete. If not provided,
+     * all versions of the document are deleted.</p>
+     */
+    inline DeleteDocumentRequest& WithVersionName(const Aws::String& value) { SetVersionName(value); return *this;}
+
+    /**
+     * <p>The version name of the document that you want to delete. If not provided,
+     * all versions of the document are deleted.</p>
+     */
+    inline DeleteDocumentRequest& WithVersionName(Aws::String&& value) { SetVersionName(std::move(value)); return *this;}
+
+    /**
+     * <p>The version name of the document that you want to delete. If not provided,
+     * all versions of the document are deleted.</p>
+     */
+    inline DeleteDocumentRequest& WithVersionName(const char* value) { SetVersionName(value); return *this;}
+
   private:
 
     Aws::String m_name;
     bool m_nameHasBeenSet;
+
+    Aws::String m_documentVersion;
+    bool m_documentVersionHasBeenSet;
+
+    Aws::String m_versionName;
+    bool m_versionNameHasBeenSet;
   };
 
 } // namespace Model

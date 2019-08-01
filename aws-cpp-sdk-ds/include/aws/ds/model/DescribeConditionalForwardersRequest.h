@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeConditionalForwardersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * forwarders.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The directory ID for which to get the list of associated conditional
+     * forwarders.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The directory ID for which to get the list of associated conditional
@@ -97,6 +103,13 @@ namespace Model
      * conditional forwarders are returned.</p>
      */
     inline const Aws::Vector<Aws::String>& GetRemoteDomainNames() const{ return m_remoteDomainNames; }
+
+    /**
+     * <p>The fully qualified domain names (FQDN) of the remote domains for which to
+     * get the list of associated conditional forwarders. If this member is null, all
+     * conditional forwarders are returned.</p>
+     */
+    inline bool RemoteDomainNamesHasBeenSet() const { return m_remoteDomainNamesHasBeenSet; }
 
     /**
      * <p>The fully qualified domain names (FQDN) of the remote domains for which to

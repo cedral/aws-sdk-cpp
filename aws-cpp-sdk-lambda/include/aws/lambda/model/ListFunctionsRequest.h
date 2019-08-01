@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListFunctionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * <code>FunctionVersion</code> to <code>ALL</code>.</p>
      */
     inline const Aws::String& GetMasterRegion() const{ return m_masterRegion; }
+
+    /**
+     * <p>For Lambda@Edge functions, the AWS Region of the master function. For
+     * example, <code>us-east-2</code> or <code>ALL</code>. If specified, you must set
+     * <code>FunctionVersion</code> to <code>ALL</code>.</p>
+     */
+    inline bool MasterRegionHasBeenSet() const { return m_masterRegionHasBeenSet; }
 
     /**
      * <p>For Lambda@Edge functions, the AWS Region of the master function. For
@@ -109,6 +116,12 @@ namespace Model
      * <p>Set to <code>ALL</code> to include entries for all published versions of each
      * function.</p>
      */
+    inline bool FunctionVersionHasBeenSet() const { return m_functionVersionHasBeenSet; }
+
+    /**
+     * <p>Set to <code>ALL</code> to include entries for all published versions of each
+     * function.</p>
+     */
     inline void SetFunctionVersion(const FunctionVersion& value) { m_functionVersionHasBeenSet = true; m_functionVersion = value; }
 
     /**
@@ -135,6 +148,12 @@ namespace Model
      * retrieve the next page of results.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>Specify the pagination token that's returned by a previous request to
+     * retrieve the next page of results.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>Specify the pagination token that's returned by a previous request to
@@ -178,6 +197,12 @@ namespace Model
      * response.</p>
      */
     inline int GetMaxItems() const{ return m_maxItems; }
+
+    /**
+     * <p>Specify a value between 1 and 50 to limit the number of functions in the
+     * response.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
 
     /**
      * <p>Specify a value between 1 and 50 to limit the number of functions in the

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * <code>AggregatorAuthorization</code>.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list
+     * the tags. Currently, the supported resources are <code>ConfigRule</code>,
+     * <code>ConfigurationAggregator</code> and
+     * <code>AggregatorAuthorization</code>.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list
@@ -107,6 +115,11 @@ namespace Model
      * <p>An array of tag object.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>An array of tag object.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>An array of tag object.</p>

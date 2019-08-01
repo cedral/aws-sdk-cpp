@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     AddAttributesToFindingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
      */
     inline const Aws::Vector<Aws::String>& GetFindingArns() const{ return m_findingArns; }
+
+    /**
+     * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
+     */
+    inline bool FindingArnsHasBeenSet() const { return m_findingArnsHasBeenSet; }
 
     /**
      * <p>The ARNs that specify the findings that you want to assign attributes to.</p>
@@ -91,6 +96,11 @@ namespace Model
      * <p>The array of attributes that you want to assign to specified findings.</p>
      */
     inline const Aws::Vector<Attribute>& GetAttributes() const{ return m_attributes; }
+
+    /**
+     * <p>The array of attributes that you want to assign to specified findings.</p>
+     */
+    inline bool AttributesHasBeenSet() const { return m_attributesHasBeenSet; }
 
     /**
      * <p>The array of attributes that you want to assign to specified findings.</p>

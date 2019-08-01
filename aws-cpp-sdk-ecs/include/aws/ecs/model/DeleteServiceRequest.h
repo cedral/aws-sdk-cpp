@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteServiceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * assumed.</p>
      */
     inline const Aws::String& GetCluster() const{ return m_cluster; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
+     * the service to delete. If you do not specify a cluster, the default cluster is
+     * assumed.</p>
+     */
+    inline bool ClusterHasBeenSet() const { return m_clusterHasBeenSet; }
 
     /**
      * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts
@@ -102,6 +109,11 @@ namespace Model
     /**
      * <p>The name of the service to delete.</p>
      */
+    inline bool ServiceHasBeenSet() const { return m_serviceHasBeenSet; }
+
+    /**
+     * <p>The name of the service to delete.</p>
+     */
     inline void SetService(const Aws::String& value) { m_serviceHasBeenSet = true; m_service = value; }
 
     /**
@@ -136,6 +148,13 @@ namespace Model
      * using the <code>REPLICA</code> scheduling strategy.</p>
      */
     inline bool GetForce() const{ return m_force; }
+
+    /**
+     * <p>If <code>true</code>, allows you to delete a service even if it has not been
+     * scaled down to zero tasks. It is only necessary to use this if the service is
+     * using the <code>REPLICA</code> scheduling strategy.</p>
+     */
+    inline bool ForceHasBeenSet() const { return m_forceHasBeenSet; }
 
     /**
      * <p>If <code>true</code>, allows you to delete a service even if it has not been

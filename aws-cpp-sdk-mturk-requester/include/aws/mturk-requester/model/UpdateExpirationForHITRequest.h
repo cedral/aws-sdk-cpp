@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateExpirationForHITRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p> The HIT to update. </p>
      */
     inline const Aws::String& GetHITId() const{ return m_hITId; }
+
+    /**
+     * <p> The HIT to update. </p>
+     */
+    inline bool HITIdHasBeenSet() const { return m_hITIdHasBeenSet; }
 
     /**
      * <p> The HIT to update. </p>
@@ -85,6 +90,11 @@ namespace Model
      * <p> The date and time at which you want the HIT to expire </p>
      */
     inline const Aws::Utils::DateTime& GetExpireAt() const{ return m_expireAt; }
+
+    /**
+     * <p> The date and time at which you want the HIT to expire </p>
+     */
+    inline bool ExpireAtHasBeenSet() const { return m_expireAtHasBeenSet; }
 
     /**
      * <p> The date and time at which you want the HIT to expire </p>

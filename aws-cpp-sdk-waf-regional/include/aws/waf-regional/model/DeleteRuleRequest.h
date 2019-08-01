@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <a>ListRules</a>.</p>
      */
     inline const Aws::String& GetRuleId() const{ return m_ruleId; }
+
+    /**
+     * <p>The <code>RuleId</code> of the <a>Rule</a> that you want to delete.
+     * <code>RuleId</code> is returned by <a>CreateRule</a> and by
+     * <a>ListRules</a>.</p>
+     */
+    inline bool RuleIdHasBeenSet() const { return m_ruleIdHasBeenSet; }
 
     /**
      * <p>The <code>RuleId</code> of the <a>Rule</a> that you want to delete.
@@ -98,6 +105,11 @@ namespace Model
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
      */
     inline const Aws::String& GetChangeToken() const{ return m_changeToken; }
+
+    /**
+     * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+     */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
 
     /**
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>

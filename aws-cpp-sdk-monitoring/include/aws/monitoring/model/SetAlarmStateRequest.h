@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SetAlarmStateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * maximum length is 255 characters.</p>
      */
     inline const Aws::String& GetAlarmName() const{ return m_alarmName; }
+
+    /**
+     * <p>The name for the alarm. This name must be unique within the AWS account. The
+     * maximum length is 255 characters.</p>
+     */
+    inline bool AlarmNameHasBeenSet() const { return m_alarmNameHasBeenSet; }
 
     /**
      * <p>The name for the alarm. This name must be unique within the AWS account. The
@@ -98,6 +104,11 @@ namespace Model
     /**
      * <p>The value of the state.</p>
      */
+    inline bool StateValueHasBeenSet() const { return m_stateValueHasBeenSet; }
+
+    /**
+     * <p>The value of the state.</p>
+     */
     inline void SetStateValue(const StateValue& value) { m_stateValueHasBeenSet = true; m_stateValue = value; }
 
     /**
@@ -120,6 +131,11 @@ namespace Model
      * <p>The reason that this alarm is set to this specific state, in text format.</p>
      */
     inline const Aws::String& GetStateReason() const{ return m_stateReason; }
+
+    /**
+     * <p>The reason that this alarm is set to this specific state, in text format.</p>
+     */
+    inline bool StateReasonHasBeenSet() const { return m_stateReasonHasBeenSet; }
 
     /**
      * <p>The reason that this alarm is set to this specific state, in text format.</p>
@@ -156,6 +172,11 @@ namespace Model
      * <p>The reason that this alarm is set to this specific state, in JSON format.</p>
      */
     inline const Aws::String& GetStateReasonData() const{ return m_stateReasonData; }
+
+    /**
+     * <p>The reason that this alarm is set to this specific state, in JSON format.</p>
+     */
+    inline bool StateReasonDataHasBeenSet() const { return m_stateReasonDataHasBeenSet; }
 
     /**
      * <p>The reason that this alarm is set to this specific state, in JSON format.</p>

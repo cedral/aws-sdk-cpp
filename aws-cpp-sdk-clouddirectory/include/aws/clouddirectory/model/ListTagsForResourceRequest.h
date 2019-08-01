@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * directories.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
+     * directories.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for
@@ -95,6 +101,12 @@ namespace Model
      * <p>The pagination token. This is for future use. Currently pagination is not
      * supported for tagging.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The pagination token. This is for future use. Currently pagination is not
+     * supported for tagging.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -134,6 +146,13 @@ namespace Model
      * currently.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The <code>MaxResults</code> parameter sets the maximum number of results
+     * returned in a single page. This is for future use and is not supported
+     * currently.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The <code>MaxResults</code> parameter sets the maximum number of results

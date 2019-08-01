@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     SearchFacesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>ID of the collection the face belongs to.</p>
      */
     inline const Aws::String& GetCollectionId() const{ return m_collectionId; }
+
+    /**
+     * <p>ID of the collection the face belongs to.</p>
+     */
+    inline bool CollectionIdHasBeenSet() const { return m_collectionIdHasBeenSet; }
 
     /**
      * <p>ID of the collection the face belongs to.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>ID of a face to find matches for in the collection.</p>
      */
     inline const Aws::String& GetFaceId() const{ return m_faceId; }
+
+    /**
+     * <p>ID of a face to find matches for in the collection.</p>
+     */
+    inline bool FaceIdHasBeenSet() const { return m_faceIdHasBeenSet; }
 
     /**
      * <p>ID of a face to find matches for in the collection.</p>
@@ -126,6 +136,12 @@ namespace Model
      * <p>Maximum number of faces to return. The operation returns the maximum number
      * of faces with the highest confidence in the match.</p>
      */
+    inline bool MaxFacesHasBeenSet() const { return m_maxFacesHasBeenSet; }
+
+    /**
+     * <p>Maximum number of faces to return. The operation returns the maximum number
+     * of faces with the highest confidence in the match.</p>
+     */
     inline void SetMaxFaces(int value) { m_maxFacesHasBeenSet = true; m_maxFaces = value; }
 
     /**
@@ -141,6 +157,13 @@ namespace Model
      * 70%.</p>
      */
     inline double GetFaceMatchThreshold() const{ return m_faceMatchThreshold; }
+
+    /**
+     * <p>Optional value specifying the minimum confidence in the face match to return.
+     * For example, don't return any matches where confidence in matches is less than
+     * 70%.</p>
+     */
+    inline bool FaceMatchThresholdHasBeenSet() const { return m_faceMatchThresholdHasBeenSet; }
 
     /**
      * <p>Optional value specifying the minimum confidence in the face match to return.

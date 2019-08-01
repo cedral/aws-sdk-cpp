@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ComposeEnvironmentsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The name of the application to which the specified source bundles belong.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application to which the specified source bundles belong.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application to which the specified source bundles belong.</p>
@@ -95,6 +100,15 @@ namespace Model
      * Manifest (env.yaml)</a> for details.</p>
      */
     inline const Aws::String& GetGroupName() const{ return m_groupName; }
+
+    /**
+     * <p>The name of the group to which the target environments belong. Specify a
+     * group name only if the environment name defined in each target environment's
+     * manifest ends with a + (plus) character. See <a
+     * href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment
+     * Manifest (env.yaml)</a> for details.</p>
+     */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
 
     /**
      * <p>The name of the group to which the target environments belong. Specify a
@@ -159,6 +173,15 @@ namespace Model
      * create.</p>
      */
     inline const Aws::Vector<Aws::String>& GetVersionLabels() const{ return m_versionLabels; }
+
+    /**
+     * <p>A list of version labels, specifying one or more application source bundles
+     * that belong to the target application. Each source bundle must include an
+     * environment manifest that specifies the name of the environment and the name of
+     * the solution stack to use, and optionally can specify environment links to
+     * create.</p>
+     */
+    inline bool VersionLabelsHasBeenSet() const { return m_versionLabelsHasBeenSet; }
 
     /**
      * <p>A list of version labels, specifying one or more application source bundles

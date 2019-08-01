@@ -42,7 +42,6 @@ namespace Http
 namespace Utils
 {
   template< typename R, typename E> class Outcome;
-
 namespace Threading
 {
   class Executor;
@@ -111,7 +110,7 @@ namespace Model
    * required to call RegisterUsage, but you can do so if you want to receive usage
    * data in your seller reports. For more information on using the RegisterUsage
    * operation, see <a
-   * href="https://docs.aws.amazon.com/latest/userguide/entitlement-and-metering-for-paid-products.html">Container-Based
+   * href="https://docs.aws.amazon.com/marketplace/latest/userguide/container-based-products.html">Container-Based
    * Products</a>. </p> </li> </ul> <p>BatchMeterUsage API calls are captured by AWS
    * CloudTrail. You can use Cloudtrail to verify that the SaaS metering records that
    * you sent are accurate by searching for records with the eventName of
@@ -372,11 +371,10 @@ namespace Model
          */
         virtual void ResolveCustomerAsync(const Model::ResolveCustomerRequest& request, const ResolveCustomerResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
-      
+
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
-        /**Async helpers**/
         void BatchMeterUsageAsyncHelper(const Model::BatchMeterUsageRequest& request, const BatchMeterUsageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void MeterUsageAsyncHelper(const Model::MeterUsageRequest& request, const MeterUsageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RegisterUsageAsyncHelper(const Model::RegisterUsageRequest& request, const RegisterUsageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

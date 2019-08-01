@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteRegexPatternSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
      */
     inline const Aws::String& GetRegexPatternSetId() const{ return m_regexPatternSetId; }
+
+    /**
+     * <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you
+     * want to delete. <code>RegexPatternSetId</code> is returned by
+     * <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>
+     */
+    inline bool RegexPatternSetIdHasBeenSet() const { return m_regexPatternSetIdHasBeenSet; }
 
     /**
      * <p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you
@@ -98,6 +105,11 @@ namespace Model
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
      */
     inline const Aws::String& GetChangeToken() const{ return m_changeToken; }
+
+    /**
+     * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+     */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
 
     /**
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>

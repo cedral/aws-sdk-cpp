@@ -28,6 +28,7 @@ namespace Model
 
   /**
    * <p>A JSON object containing the following fields:</p> <ul> <li> <p>
+   * <a>UpdateMaintenanceStartTimeInput$DayOfMonth</a> </p> </li> <li> <p>
    * <a>UpdateMaintenanceStartTimeInput$DayOfWeek</a> </p> </li> <li> <p>
    * <a>UpdateMaintenanceStartTimeInput$HourOfDay</a> </p> </li> <li> <p>
    * <a>UpdateMaintenanceStartTimeInput$MinuteOfHour</a> </p> </li> </ul><p><h3>See
@@ -39,7 +40,7 @@ namespace Model
   {
   public:
     UpdateMaintenanceStartTimeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +54,9 @@ namespace Model
 
     
     inline const Aws::String& GetGatewayARN() const{ return m_gatewayARN; }
+
+    
+    inline bool GatewayARNHasBeenSet() const { return m_gatewayARNHasBeenSet; }
 
     
     inline void SetGatewayARN(const Aws::String& value) { m_gatewayARNHasBeenSet = true; m_gatewayARN = value; }
@@ -85,6 +89,13 @@ namespace Model
      * where <i>hh</i> is the hour (00 to 23). The hour of the day is in the time zone
      * of the gateway.</p>
      */
+    inline bool HourOfDayHasBeenSet() const { return m_hourOfDayHasBeenSet; }
+
+    /**
+     * <p>The hour component of the maintenance start time represented as <i>hh</i>,
+     * where <i>hh</i> is the hour (00 to 23). The hour of the day is in the time zone
+     * of the gateway.</p>
+     */
     inline void SetHourOfDay(int value) { m_hourOfDayHasBeenSet = true; m_hourOfDay = value; }
 
     /**
@@ -107,6 +118,13 @@ namespace Model
      * where <i>mm</i> is the minute (00 to 59). The minute of the hour is in the time
      * zone of the gateway.</p>
      */
+    inline bool MinuteOfHourHasBeenSet() const { return m_minuteOfHourHasBeenSet; }
+
+    /**
+     * <p>The minute component of the maintenance start time represented as <i>mm</i>,
+     * where <i>mm</i> is the minute (00 to 59). The minute of the hour is in the time
+     * zone of the gateway.</p>
+     */
     inline void SetMinuteOfHour(int value) { m_minuteOfHourHasBeenSet = true; m_minuteOfHour = value; }
 
     /**
@@ -118,22 +136,61 @@ namespace Model
 
 
     /**
-     * <p>The maintenance start time day of the week represented as an ordinal number
-     * from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
+     * <p>The day of the week component of the maintenance start time week represented
+     * as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
      */
     inline int GetDayOfWeek() const{ return m_dayOfWeek; }
 
     /**
-     * <p>The maintenance start time day of the week represented as an ordinal number
-     * from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
+     * <p>The day of the week component of the maintenance start time week represented
+     * as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
+     */
+    inline bool DayOfWeekHasBeenSet() const { return m_dayOfWeekHasBeenSet; }
+
+    /**
+     * <p>The day of the week component of the maintenance start time week represented
+     * as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
      */
     inline void SetDayOfWeek(int value) { m_dayOfWeekHasBeenSet = true; m_dayOfWeek = value; }
 
     /**
-     * <p>The maintenance start time day of the week represented as an ordinal number
-     * from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
+     * <p>The day of the week component of the maintenance start time week represented
+     * as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</p>
      */
     inline UpdateMaintenanceStartTimeRequest& WithDayOfWeek(int value) { SetDayOfWeek(value); return *this;}
+
+
+    /**
+     * <p>The day of the month component of the maintenance start time represented as
+     * an ordinal number from 1 to 28, where 1 represents the first day of the month
+     * and 28 represents the last day of the month.</p> <note> <p>This value is only
+     * available for tape and volume gateways.</p> </note>
+     */
+    inline int GetDayOfMonth() const{ return m_dayOfMonth; }
+
+    /**
+     * <p>The day of the month component of the maintenance start time represented as
+     * an ordinal number from 1 to 28, where 1 represents the first day of the month
+     * and 28 represents the last day of the month.</p> <note> <p>This value is only
+     * available for tape and volume gateways.</p> </note>
+     */
+    inline bool DayOfMonthHasBeenSet() const { return m_dayOfMonthHasBeenSet; }
+
+    /**
+     * <p>The day of the month component of the maintenance start time represented as
+     * an ordinal number from 1 to 28, where 1 represents the first day of the month
+     * and 28 represents the last day of the month.</p> <note> <p>This value is only
+     * available for tape and volume gateways.</p> </note>
+     */
+    inline void SetDayOfMonth(int value) { m_dayOfMonthHasBeenSet = true; m_dayOfMonth = value; }
+
+    /**
+     * <p>The day of the month component of the maintenance start time represented as
+     * an ordinal number from 1 to 28, where 1 represents the first day of the month
+     * and 28 represents the last day of the month.</p> <note> <p>This value is only
+     * available for tape and volume gateways.</p> </note>
+     */
+    inline UpdateMaintenanceStartTimeRequest& WithDayOfMonth(int value) { SetDayOfMonth(value); return *this;}
 
   private:
 
@@ -148,6 +205,9 @@ namespace Model
 
     int m_dayOfWeek;
     bool m_dayOfWeekHasBeenSet;
+
+    int m_dayOfMonth;
+    bool m_dayOfMonthHasBeenSet;
   };
 
 } // namespace Model

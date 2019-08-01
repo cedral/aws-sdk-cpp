@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DeleteApplicationSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of an existing application.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of an existing application.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of an existing application.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The identifier for the snapshot delete.</p>
      */
+    inline bool SnapshotNameHasBeenSet() const { return m_snapshotNameHasBeenSet; }
+
+    /**
+     * <p>The identifier for the snapshot delete.</p>
+     */
     inline void SetSnapshotName(const Aws::String& value) { m_snapshotNameHasBeenSet = true; m_snapshotName = value; }
 
     /**
@@ -122,6 +132,12 @@ namespace Model
      * retrieve this value using or .</p>
      */
     inline const Aws::Utils::DateTime& GetSnapshotCreationTimestamp() const{ return m_snapshotCreationTimestamp; }
+
+    /**
+     * <p>The creation timestamp of the application snapshot to delete. You can
+     * retrieve this value using or .</p>
+     */
+    inline bool SnapshotCreationTimestampHasBeenSet() const { return m_snapshotCreationTimestampHasBeenSet; }
 
     /**
      * <p>The creation timestamp of the application snapshot to delete. You can

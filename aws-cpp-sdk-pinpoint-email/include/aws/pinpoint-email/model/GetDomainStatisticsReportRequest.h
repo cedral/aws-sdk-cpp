@@ -22,6 +22,10 @@
 
 namespace Aws
 {
+namespace Http
+{
+    class URI;
+} //namespace Http
 namespace PinpointEmail
 {
 namespace Model
@@ -37,7 +41,7 @@ namespace Model
   {
   public:
     GetDomainStatisticsReportRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,13 +50,18 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
+    void AddQueryStringParameters(Aws::Http::URI& uri) const override;
 
 
     /**
      * <p>The domain that you want to obtain deliverability metrics for.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The domain that you want to obtain deliverability metrics for.</p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
      * <p>The domain that you want to obtain deliverability metrics for.</p>
@@ -95,6 +104,12 @@ namespace Model
      * <p>The first day (in Unix time) that you want to obtain domain deliverability
      * metrics for.</p>
      */
+    inline bool StartDateHasBeenSet() const { return m_startDateHasBeenSet; }
+
+    /**
+     * <p>The first day (in Unix time) that you want to obtain domain deliverability
+     * metrics for.</p>
+     */
     inline void SetStartDate(const Aws::Utils::DateTime& value) { m_startDateHasBeenSet = true; m_startDate = value; }
 
     /**
@@ -122,6 +137,13 @@ namespace Model
      * equal to 30 days after the <code>StartDate</code>.</p>
      */
     inline const Aws::Utils::DateTime& GetEndDate() const{ return m_endDate; }
+
+    /**
+     * <p>The last day (in Unix time) that you want to obtain domain deliverability
+     * metrics for. The <code>EndDate</code> that you specify has to be less than or
+     * equal to 30 days after the <code>StartDate</code>.</p>
+     */
+    inline bool EndDateHasBeenSet() const { return m_endDateHasBeenSet; }
 
     /**
      * <p>The last day (in Unix time) that you want to obtain domain deliverability

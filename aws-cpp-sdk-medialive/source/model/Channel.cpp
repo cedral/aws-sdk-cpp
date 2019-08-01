@@ -30,6 +30,8 @@ namespace Model
 
 Channel::Channel() : 
     m_arnHasBeenSet(false),
+    m_channelClass(ChannelClass::NOT_SET),
+    m_channelClassHasBeenSet(false),
     m_destinationsHasBeenSet(false),
     m_egressEndpointsHasBeenSet(false),
     m_encoderSettingsHasBeenSet(false),
@@ -39,6 +41,7 @@ Channel::Channel() :
     m_logLevel(LogLevel::NOT_SET),
     m_logLevelHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_pipelineDetailsHasBeenSet(false),
     m_pipelinesRunningCount(0),
     m_pipelinesRunningCountHasBeenSet(false),
     m_roleArnHasBeenSet(false),
@@ -50,6 +53,8 @@ Channel::Channel() :
 
 Channel::Channel(JsonView jsonValue) : 
     m_arnHasBeenSet(false),
+    m_channelClass(ChannelClass::NOT_SET),
+    m_channelClassHasBeenSet(false),
     m_destinationsHasBeenSet(false),
     m_egressEndpointsHasBeenSet(false),
     m_encoderSettingsHasBeenSet(false),
@@ -59,6 +64,7 @@ Channel::Channel(JsonView jsonValue) :
     m_logLevel(LogLevel::NOT_SET),
     m_logLevelHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_pipelineDetailsHasBeenSet(false),
     m_pipelinesRunningCount(0),
     m_pipelinesRunningCountHasBeenSet(false),
     m_roleArnHasBeenSet(false),
@@ -76,6 +82,13 @@ Channel& Channel::operator =(JsonView jsonValue)
     m_arn = jsonValue.GetString("arn");
 
     m_arnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("channelClass"))
+  {
+    m_channelClass = ChannelClassMapper::GetChannelClassForName(jsonValue.GetString("channelClass"));
+
+    m_channelClassHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("destinations"))
@@ -143,6 +156,16 @@ Channel& Channel::operator =(JsonView jsonValue)
     m_nameHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("pipelineDetails"))
+  {
+    Array<JsonView> pipelineDetailsJsonList = jsonValue.GetArray("pipelineDetails");
+    for(unsigned pipelineDetailsIndex = 0; pipelineDetailsIndex < pipelineDetailsJsonList.GetLength(); ++pipelineDetailsIndex)
+    {
+      m_pipelineDetails.push_back(pipelineDetailsJsonList[pipelineDetailsIndex].AsObject());
+    }
+    m_pipelineDetailsHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("pipelinesRunningCount"))
   {
     m_pipelinesRunningCount = jsonValue.GetInteger("pipelinesRunningCount");
@@ -185,6 +208,11 @@ JsonValue Channel::Jsonize() const
   {
    payload.WithString("arn", m_arn);
 
+  }
+
+  if(m_channelClassHasBeenSet)
+  {
+   payload.WithString("channelClass", ChannelClassMapper::GetNameForChannelClass(m_channelClass));
   }
 
   if(m_destinationsHasBeenSet)
@@ -246,6 +274,17 @@ JsonValue Channel::Jsonize() const
   if(m_nameHasBeenSet)
   {
    payload.WithString("name", m_name);
+
+  }
+
+  if(m_pipelineDetailsHasBeenSet)
+  {
+   Array<JsonValue> pipelineDetailsJsonList(m_pipelineDetails.size());
+   for(unsigned pipelineDetailsIndex = 0; pipelineDetailsIndex < pipelineDetailsJsonList.GetLength(); ++pipelineDetailsIndex)
+   {
+     pipelineDetailsJsonList[pipelineDetailsIndex].AsObject(m_pipelineDetails[pipelineDetailsIndex].Jsonize());
+   }
+   payload.WithArray("pipelineDetails", std::move(pipelineDetailsJsonList));
 
   }
 

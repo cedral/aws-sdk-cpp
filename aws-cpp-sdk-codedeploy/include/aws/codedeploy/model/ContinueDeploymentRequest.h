@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ContinueDeploymentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * rerouting traffic to the replacement environment. </p>
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * <p> The unique ID of a blue/green deployment for which you want to start
+     * rerouting traffic to the replacement environment. </p>
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * <p> The unique ID of a blue/green deployment for which you want to start
@@ -94,6 +100,13 @@ namespace Model
      * traffic is shifted, but the original target is not terminated. </p>
      */
     inline const DeploymentWaitType& GetDeploymentWaitType() const{ return m_deploymentWaitType; }
+
+    /**
+     * <p> The status of the deployment's waiting period. READY_WAIT indicates the
+     * deployment is ready to start shifting traffic. TERMINATION_WAIT indicates the
+     * traffic is shifted, but the original target is not terminated. </p>
+     */
+    inline bool DeploymentWaitTypeHasBeenSet() const { return m_deploymentWaitTypeHasBeenSet; }
 
     /**
      * <p> The status of the deployment's waiting period. READY_WAIT indicates the

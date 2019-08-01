@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     GetApiKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>[Required] The identifier of the <a>ApiKey</a> resource.</p>
      */
     inline const Aws::String& GetApiKey() const{ return m_apiKey; }
+
+    /**
+     * <p>[Required] The identifier of the <a>ApiKey</a> resource.</p>
+     */
+    inline bool ApiKeyHasBeenSet() const { return m_apiKeyHasBeenSet; }
 
     /**
      * <p>[Required] The identifier of the <a>ApiKey</a> resource.</p>
@@ -93,6 +98,12 @@ namespace Model
      * (<code>false</code>) the result contains the key value.</p>
      */
     inline bool GetIncludeValue() const{ return m_includeValue; }
+
+    /**
+     * <p>A boolean flag to specify whether (<code>true</code>) or not
+     * (<code>false</code>) the result contains the key value.</p>
+     */
+    inline bool IncludeValueHasBeenSet() const { return m_includeValueHasBeenSet; }
 
     /**
      * <p>A boolean flag to specify whether (<code>true</code>) or not

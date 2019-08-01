@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     TagQueueRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The URL of the queue.</p>
      */
     inline const Aws::String& GetQueueUrl() const{ return m_queueUrl; }
+
+    /**
+     * <p>The URL of the queue.</p>
+     */
+    inline bool QueueUrlHasBeenSet() const { return m_queueUrlHasBeenSet; }
 
     /**
      * <p>The URL of the queue.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The list of tags to be added to the specified queue.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The list of tags to be added to the specified queue.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The list of tags to be added to the specified queue.</p>

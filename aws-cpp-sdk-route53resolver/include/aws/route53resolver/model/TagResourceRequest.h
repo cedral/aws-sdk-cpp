@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,18 @@ namespace Model
      * </p> </li> </ul>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the resource that you want to add tags to.
+     * To get the ARN for a resource, use the applicable <code>Get</code> or
+     * <code>List</code> command: </p> <ul> <li> <p> <a>GetResolverEndpoint</a> </p>
+     * </li> <li> <p> <a>GetResolverRule</a> </p> </li> <li> <p>
+     * <a>GetResolverRuleAssociation</a> </p> </li> <li> <p>
+     * <a>ListResolverEndpoints</a> </p> </li> <li> <p>
+     * <a>ListResolverRuleAssociations</a> </p> </li> <li> <p> <a>ListResolverRules</a>
+     * </p> </li> </ul>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) for the resource that you want to add tags to.
@@ -135,6 +147,11 @@ namespace Model
      * <p>The tags that you want to add to the specified resource.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags that you want to add to the specified resource.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags that you want to add to the specified resource.</p>

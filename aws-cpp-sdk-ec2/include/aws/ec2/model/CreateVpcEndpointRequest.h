@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateVpcEndpointRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -65,6 +65,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -80,6 +88,11 @@ namespace Model
      * <p>The type of endpoint.</p> <p>Default: Gateway</p>
      */
     inline const VpcEndpointType& GetVpcEndpointType() const{ return m_vpcEndpointType; }
+
+    /**
+     * <p>The type of endpoint.</p> <p>Default: Gateway</p>
+     */
+    inline bool VpcEndpointTypeHasBeenSet() const { return m_vpcEndpointTypeHasBeenSet; }
 
     /**
      * <p>The type of endpoint.</p> <p>Default: Gateway</p>
@@ -106,6 +119,11 @@ namespace Model
      * <p>The ID of the VPC in which the endpoint will be used.</p>
      */
     inline const Aws::String& GetVpcId() const{ return m_vpcId; }
+
+    /**
+     * <p>The ID of the VPC in which the endpoint will be used.</p>
+     */
+    inline bool VpcIdHasBeenSet() const { return m_vpcIdHasBeenSet; }
 
     /**
      * <p>The ID of the VPC in which the endpoint will be used.</p>
@@ -144,6 +162,13 @@ namespace Model
      * provider.</p>
      */
     inline const Aws::String& GetServiceName() const{ return m_serviceName; }
+
+    /**
+     * <p>The service name. To get a list of available services, use the
+     * <a>DescribeVpcEndpointServices</a> request, or get the name from the service
+     * provider.</p>
+     */
+    inline bool ServiceNameHasBeenSet() const { return m_serviceNameHasBeenSet; }
 
     /**
      * <p>The service name. To get a list of available services, use the
@@ -200,6 +225,13 @@ namespace Model
      * policy must be in valid JSON format. If this parameter is not specified, we
      * attach a default policy that allows full access to the service.</p>
      */
+    inline bool PolicyDocumentHasBeenSet() const { return m_policyDocumentHasBeenSet; }
+
+    /**
+     * <p>A policy to attach to the endpoint that controls access to the service. The
+     * policy must be in valid JSON format. If this parameter is not specified, we
+     * attach a default policy that allows full access to the service.</p>
+     */
     inline void SetPolicyDocument(const Aws::String& value) { m_policyDocumentHasBeenSet = true; m_policyDocument = value; }
 
     /**
@@ -246,6 +278,11 @@ namespace Model
     /**
      * <p>(Gateway endpoint) One or more route table IDs.</p>
      */
+    inline bool RouteTableIdsHasBeenSet() const { return m_routeTableIdsHasBeenSet; }
+
+    /**
+     * <p>(Gateway endpoint) One or more route table IDs.</p>
+     */
     inline void SetRouteTableIds(const Aws::Vector<Aws::String>& value) { m_routeTableIdsHasBeenSet = true; m_routeTableIds = value; }
 
     /**
@@ -284,6 +321,12 @@ namespace Model
      * endpoint network interface.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSubnetIds() const{ return m_subnetIds; }
+
+    /**
+     * <p>(Interface endpoint) The ID of one or more subnets in which to create an
+     * endpoint network interface.</p>
+     */
+    inline bool SubnetIdsHasBeenSet() const { return m_subnetIdsHasBeenSet; }
 
     /**
      * <p>(Interface endpoint) The ID of one or more subnets in which to create an
@@ -333,6 +376,12 @@ namespace Model
      * the endpoint network interface.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroupIds() const{ return m_securityGroupIds; }
+
+    /**
+     * <p>(Interface endpoint) The ID of one or more security groups to associate with
+     * the endpoint network interface.</p>
+     */
+    inline bool SecurityGroupIdsHasBeenSet() const { return m_securityGroupIdsHasBeenSet; }
 
     /**
      * <p>(Interface endpoint) The ID of one or more security groups to associate with
@@ -391,6 +440,14 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
+
+    /**
+     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
+     * the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
     inline void SetClientToken(const Aws::String& value) { m_clientTokenHasBeenSet = true; m_clientToken = value; }
 
     /**
@@ -437,7 +494,7 @@ namespace Model
     /**
      * <p>(Interface endpoint) Indicate whether to associate a private hosted zone with
      * the specified VPC. The private hosted zone contains a record set for the default
-     * public DNS name for the service for the region (for example,
+     * public DNS name for the service for the Region (for example,
      * <code>kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
      * addresses of the endpoint network interfaces in the VPC. This enables you to
      * make requests to the default public DNS name for the service instead of the
@@ -445,14 +502,14 @@ namespace Model
      * service.</p> <p>To use a private hosted zone, you must set the following VPC
      * attributes to <code>true</code>: <code>enableDnsHostnames</code> and
      * <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
-     * attributes.</p> <p>Default: <code>false</code> </p>
+     * attributes.</p> <p>Default: <code>true</code> </p>
      */
     inline bool GetPrivateDnsEnabled() const{ return m_privateDnsEnabled; }
 
     /**
      * <p>(Interface endpoint) Indicate whether to associate a private hosted zone with
      * the specified VPC. The private hosted zone contains a record set for the default
-     * public DNS name for the service for the region (for example,
+     * public DNS name for the service for the Region (for example,
      * <code>kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
      * addresses of the endpoint network interfaces in the VPC. This enables you to
      * make requests to the default public DNS name for the service instead of the
@@ -460,14 +517,29 @@ namespace Model
      * service.</p> <p>To use a private hosted zone, you must set the following VPC
      * attributes to <code>true</code>: <code>enableDnsHostnames</code> and
      * <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
-     * attributes.</p> <p>Default: <code>false</code> </p>
+     * attributes.</p> <p>Default: <code>true</code> </p>
+     */
+    inline bool PrivateDnsEnabledHasBeenSet() const { return m_privateDnsEnabledHasBeenSet; }
+
+    /**
+     * <p>(Interface endpoint) Indicate whether to associate a private hosted zone with
+     * the specified VPC. The private hosted zone contains a record set for the default
+     * public DNS name for the service for the Region (for example,
+     * <code>kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
+     * addresses of the endpoint network interfaces in the VPC. This enables you to
+     * make requests to the default public DNS name for the service instead of the
+     * public DNS names that are automatically generated by the VPC endpoint
+     * service.</p> <p>To use a private hosted zone, you must set the following VPC
+     * attributes to <code>true</code>: <code>enableDnsHostnames</code> and
+     * <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
+     * attributes.</p> <p>Default: <code>true</code> </p>
      */
     inline void SetPrivateDnsEnabled(bool value) { m_privateDnsEnabledHasBeenSet = true; m_privateDnsEnabled = value; }
 
     /**
      * <p>(Interface endpoint) Indicate whether to associate a private hosted zone with
      * the specified VPC. The private hosted zone contains a record set for the default
-     * public DNS name for the service for the region (for example,
+     * public DNS name for the service for the Region (for example,
      * <code>kinesis.us-east-1.amazonaws.com</code>) which resolves to the private IP
      * addresses of the endpoint network interfaces in the VPC. This enables you to
      * make requests to the default public DNS name for the service instead of the
@@ -475,7 +547,7 @@ namespace Model
      * service.</p> <p>To use a private hosted zone, you must set the following VPC
      * attributes to <code>true</code>: <code>enableDnsHostnames</code> and
      * <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC
-     * attributes.</p> <p>Default: <code>false</code> </p>
+     * attributes.</p> <p>Default: <code>true</code> </p>
      */
     inline CreateVpcEndpointRequest& WithPrivateDnsEnabled(bool value) { SetPrivateDnsEnabled(value); return *this;}
 

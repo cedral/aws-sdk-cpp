@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetResourceDefinitionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * The ID of the resource definition.
      */
     inline const Aws::String& GetResourceDefinitionId() const{ return m_resourceDefinitionId; }
+
+    /**
+     * The ID of the resource definition.
+     */
+    inline bool ResourceDefinitionIdHasBeenSet() const { return m_resourceDefinitionIdHasBeenSet; }
 
     /**
      * The ID of the resource definition.

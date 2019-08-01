@@ -38,7 +38,7 @@ namespace Model
    * <p>A receipt IP address filter enables you to specify whether to accept or
    * reject mail originating from an IP address or range of IP addresses.</p> <p>For
    * information about setting up IP address filters, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ReceiptFilter">AWS
    * API Reference</a></p>
@@ -61,6 +61,14 @@ namespace Model
      * <li> <p>Contain less than 64 characters.</p> </li> </ul>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the IP address filter. The name must:</p> <ul> <li> <p>This value
+     * can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or
+     * dashes (-).</p> </li> <li> <p>Start and end with a letter or number.</p> </li>
+     * <li> <p>Contain less than 64 characters.</p> </li> </ul>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the IP address filter. The name must:</p> <ul> <li> <p>This value
@@ -116,6 +124,12 @@ namespace Model
      * block or allow incoming mail from them.</p>
      */
     inline const ReceiptIpFilter& GetIpFilter() const{ return m_ipFilter; }
+
+    /**
+     * <p>A structure that provides the IP addresses to block or allow, and whether to
+     * block or allow incoming mail from them.</p>
+     */
+    inline bool IpFilterHasBeenSet() const { return m_ipFilterHasBeenSet; }
 
     /**
      * <p>A structure that provides the IP addresses to block or allow, and whether to

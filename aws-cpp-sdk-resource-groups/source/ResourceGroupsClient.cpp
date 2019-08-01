@@ -114,6 +114,7 @@ void ResourceGroupsClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 CreateGroupOutcome ResourceGroupsClient::CreateGroup(const CreateGroupRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -151,6 +152,11 @@ void ResourceGroupsClient::CreateGroupAsyncHelper(const CreateGroupRequest& requ
 
 DeleteGroupOutcome ResourceGroupsClient::DeleteGroup(const DeleteGroupRequest& request) const
 {
+  if (!request.GroupNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteGroup", "Required field: GroupName, is not set");
+    return DeleteGroupOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GroupName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/groups/";
@@ -187,6 +193,11 @@ void ResourceGroupsClient::DeleteGroupAsyncHelper(const DeleteGroupRequest& requ
 
 GetGroupOutcome ResourceGroupsClient::GetGroup(const GetGroupRequest& request) const
 {
+  if (!request.GroupNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetGroup", "Required field: GroupName, is not set");
+    return GetGroupOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GroupName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/groups/";
@@ -223,6 +234,11 @@ void ResourceGroupsClient::GetGroupAsyncHelper(const GetGroupRequest& request, c
 
 GetGroupQueryOutcome ResourceGroupsClient::GetGroupQuery(const GetGroupQueryRequest& request) const
 {
+  if (!request.GroupNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetGroupQuery", "Required field: GroupName, is not set");
+    return GetGroupQueryOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GroupName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/groups/";
@@ -260,6 +276,11 @@ void ResourceGroupsClient::GetGroupQueryAsyncHelper(const GetGroupQueryRequest& 
 
 GetTagsOutcome ResourceGroupsClient::GetTags(const GetTagsRequest& request) const
 {
+  if (!request.ArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetTags", "Required field: Arn, is not set");
+    return GetTagsOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/resources/";
@@ -297,6 +318,11 @@ void ResourceGroupsClient::GetTagsAsyncHelper(const GetTagsRequest& request, con
 
 ListGroupResourcesOutcome ResourceGroupsClient::ListGroupResources(const ListGroupResourcesRequest& request) const
 {
+  if (!request.GroupNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListGroupResources", "Required field: GroupName, is not set");
+    return ListGroupResourcesOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GroupName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/groups/";
@@ -404,6 +430,11 @@ void ResourceGroupsClient::SearchResourcesAsyncHelper(const SearchResourcesReque
 
 TagOutcome ResourceGroupsClient::Tag(const TagRequest& request) const
 {
+  if (!request.ArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("Tag", "Required field: Arn, is not set");
+    return TagOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/resources/";
@@ -441,6 +472,11 @@ void ResourceGroupsClient::TagAsyncHelper(const TagRequest& request, const TagRe
 
 UntagOutcome ResourceGroupsClient::Untag(const UntagRequest& request) const
 {
+  if (!request.ArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("Untag", "Required field: Arn, is not set");
+    return UntagOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/resources/";
@@ -478,6 +514,11 @@ void ResourceGroupsClient::UntagAsyncHelper(const UntagRequest& request, const U
 
 UpdateGroupOutcome ResourceGroupsClient::UpdateGroup(const UpdateGroupRequest& request) const
 {
+  if (!request.GroupNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateGroup", "Required field: GroupName, is not set");
+    return UpdateGroupOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GroupName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/groups/";
@@ -514,6 +555,11 @@ void ResourceGroupsClient::UpdateGroupAsyncHelper(const UpdateGroupRequest& requ
 
 UpdateGroupQueryOutcome ResourceGroupsClient::UpdateGroupQuery(const UpdateGroupQueryRequest& request) const
 {
+  if (!request.GroupNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateGroupQuery", "Required field: GroupName, is not set");
+    return UpdateGroupQueryOutcome(Aws::Client::AWSError<ResourceGroupsErrors>(ResourceGroupsErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [GroupName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/groups/";

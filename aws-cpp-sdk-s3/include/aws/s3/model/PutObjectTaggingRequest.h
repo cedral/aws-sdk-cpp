@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     PutObjectTaggingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p/>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p/>
@@ -96,6 +101,11 @@ namespace Model
     /**
      * <p/>
      */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetKey(const Aws::String& value) { m_keyHasBeenSet = true; m_key = value; }
 
     /**
@@ -128,6 +138,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::String& GetVersionId() const{ return m_versionId; }
+
+    /**
+     * <p/>
+     */
+    inline bool VersionIdHasBeenSet() const { return m_versionIdHasBeenSet; }
 
     /**
      * <p/>
@@ -168,6 +183,11 @@ namespace Model
     /**
      * <p/>
      */
+    inline bool ContentMD5HasBeenSet() const { return m_contentMD5HasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetContentMD5(const Aws::String& value) { m_contentMD5HasBeenSet = true; m_contentMD5 = value; }
 
     /**
@@ -204,6 +224,11 @@ namespace Model
     /**
      * <p/>
      */
+    inline bool TaggingHasBeenSet() const { return m_taggingHasBeenSet; }
+
+    /**
+     * <p/>
+     */
     inline void SetTagging(const Tagging& value) { m_taggingHasBeenSet = true; m_tagging = value; }
 
     /**
@@ -224,6 +249,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }

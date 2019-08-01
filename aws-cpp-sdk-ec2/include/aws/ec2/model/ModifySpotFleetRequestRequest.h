@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ModifySpotFleetRequestRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,13 @@ namespace Model
      * Spot Fleet.</p>
      */
     inline const ExcessCapacityTerminationPolicy& GetExcessCapacityTerminationPolicy() const{ return m_excessCapacityTerminationPolicy; }
+
+    /**
+     * <p>Indicates whether running Spot Instances should be terminated if the target
+     * capacity of the Spot Fleet request is decreased below the current size of the
+     * Spot Fleet.</p>
+     */
+    inline bool ExcessCapacityTerminationPolicyHasBeenSet() const { return m_excessCapacityTerminationPolicyHasBeenSet; }
 
     /**
      * <p>Indicates whether running Spot Instances should be terminated if the target
@@ -91,6 +98,11 @@ namespace Model
      * <p>The ID of the Spot Fleet request.</p>
      */
     inline const Aws::String& GetSpotFleetRequestId() const{ return m_spotFleetRequestId; }
+
+    /**
+     * <p>The ID of the Spot Fleet request.</p>
+     */
+    inline bool SpotFleetRequestIdHasBeenSet() const { return m_spotFleetRequestIdHasBeenSet; }
 
     /**
      * <p>The ID of the Spot Fleet request.</p>
@@ -131,12 +143,38 @@ namespace Model
     /**
      * <p>The size of the fleet.</p>
      */
+    inline bool TargetCapacityHasBeenSet() const { return m_targetCapacityHasBeenSet; }
+
+    /**
+     * <p>The size of the fleet.</p>
+     */
     inline void SetTargetCapacity(int value) { m_targetCapacityHasBeenSet = true; m_targetCapacity = value; }
 
     /**
      * <p>The size of the fleet.</p>
      */
     inline ModifySpotFleetRequestRequest& WithTargetCapacity(int value) { SetTargetCapacity(value); return *this;}
+
+
+    /**
+     * <p>The number of On-Demand Instances in the fleet.</p>
+     */
+    inline int GetOnDemandTargetCapacity() const{ return m_onDemandTargetCapacity; }
+
+    /**
+     * <p>The number of On-Demand Instances in the fleet.</p>
+     */
+    inline bool OnDemandTargetCapacityHasBeenSet() const { return m_onDemandTargetCapacityHasBeenSet; }
+
+    /**
+     * <p>The number of On-Demand Instances in the fleet.</p>
+     */
+    inline void SetOnDemandTargetCapacity(int value) { m_onDemandTargetCapacityHasBeenSet = true; m_onDemandTargetCapacity = value; }
+
+    /**
+     * <p>The number of On-Demand Instances in the fleet.</p>
+     */
+    inline ModifySpotFleetRequestRequest& WithOnDemandTargetCapacity(int value) { SetOnDemandTargetCapacity(value); return *this;}
 
   private:
 
@@ -148,6 +186,9 @@ namespace Model
 
     int m_targetCapacity;
     bool m_targetCapacityHasBeenSet;
+
+    int m_onDemandTargetCapacity;
+    bool m_onDemandTargetCapacityHasBeenSet;
   };
 
 } // namespace Model

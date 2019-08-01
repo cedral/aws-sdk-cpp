@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeEnvironmentManagedActionHistoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The environment ID of the target environment.</p>
      */
     inline const Aws::String& GetEnvironmentId() const{ return m_environmentId; }
+
+    /**
+     * <p>The environment ID of the target environment.</p>
+     */
+    inline bool EnvironmentIdHasBeenSet() const { return m_environmentIdHasBeenSet; }
 
     /**
      * <p>The environment ID of the target environment.</p>
@@ -94,6 +99,11 @@ namespace Model
     /**
      * <p>The name of the target environment.</p>
      */
+    inline bool EnvironmentNameHasBeenSet() const { return m_environmentNameHasBeenSet; }
+
+    /**
+     * <p>The name of the target environment.</p>
+     */
     inline void SetEnvironmentName(const Aws::String& value) { m_environmentNameHasBeenSet = true; m_environmentName = value; }
 
     /**
@@ -130,6 +140,11 @@ namespace Model
     /**
      * <p>The pagination token returned by a previous request.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The pagination token returned by a previous request.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -162,6 +177,11 @@ namespace Model
      * <p>The maximum number of items to return for a single request.</p>
      */
     inline int GetMaxItems() const{ return m_maxItems; }
+
+    /**
+     * <p>The maximum number of items to return for a single request.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return for a single request.</p>

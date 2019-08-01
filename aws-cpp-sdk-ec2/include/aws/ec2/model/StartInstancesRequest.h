@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     StartInstancesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,42 +48,47 @@ namespace Model
   public:
 
     /**
-     * <p>One or more instance IDs.</p>
+     * <p>The IDs of the instances.</p>
      */
     inline const Aws::Vector<Aws::String>& GetInstanceIds() const{ return m_instanceIds; }
 
     /**
-     * <p>One or more instance IDs.</p>
+     * <p>The IDs of the instances.</p>
+     */
+    inline bool InstanceIdsHasBeenSet() const { return m_instanceIdsHasBeenSet; }
+
+    /**
+     * <p>The IDs of the instances.</p>
      */
     inline void SetInstanceIds(const Aws::Vector<Aws::String>& value) { m_instanceIdsHasBeenSet = true; m_instanceIds = value; }
 
     /**
-     * <p>One or more instance IDs.</p>
+     * <p>The IDs of the instances.</p>
      */
     inline void SetInstanceIds(Aws::Vector<Aws::String>&& value) { m_instanceIdsHasBeenSet = true; m_instanceIds = std::move(value); }
 
     /**
-     * <p>One or more instance IDs.</p>
+     * <p>The IDs of the instances.</p>
      */
     inline StartInstancesRequest& WithInstanceIds(const Aws::Vector<Aws::String>& value) { SetInstanceIds(value); return *this;}
 
     /**
-     * <p>One or more instance IDs.</p>
+     * <p>The IDs of the instances.</p>
      */
     inline StartInstancesRequest& WithInstanceIds(Aws::Vector<Aws::String>&& value) { SetInstanceIds(std::move(value)); return *this;}
 
     /**
-     * <p>One or more instance IDs.</p>
+     * <p>The IDs of the instances.</p>
      */
     inline StartInstancesRequest& AddInstanceIds(const Aws::String& value) { m_instanceIdsHasBeenSet = true; m_instanceIds.push_back(value); return *this; }
 
     /**
-     * <p>One or more instance IDs.</p>
+     * <p>The IDs of the instances.</p>
      */
     inline StartInstancesRequest& AddInstanceIds(Aws::String&& value) { m_instanceIdsHasBeenSet = true; m_instanceIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more instance IDs.</p>
+     * <p>The IDs of the instances.</p>
      */
     inline StartInstancesRequest& AddInstanceIds(const char* value) { m_instanceIdsHasBeenSet = true; m_instanceIds.push_back(value); return *this; }
 
@@ -92,6 +97,11 @@ namespace Model
      * <p>Reserved.</p>
      */
     inline const Aws::String& GetAdditionalInfo() const{ return m_additionalInfo; }
+
+    /**
+     * <p>Reserved.</p>
+     */
+    inline bool AdditionalInfoHasBeenSet() const { return m_additionalInfoHasBeenSet; }
 
     /**
      * <p>Reserved.</p>
@@ -131,6 +141,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

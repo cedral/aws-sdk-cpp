@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The Amazon Chime account ID.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The Amazon Chime account ID.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The Amazon Chime account ID.</p>
@@ -87,6 +92,11 @@ namespace Model
     /**
      * <p>The user ID.</p>
      */
+    inline bool UserIdHasBeenSet() const { return m_userIdHasBeenSet; }
+
+    /**
+     * <p>The user ID.</p>
+     */
     inline void SetUserId(const Aws::String& value) { m_userIdHasBeenSet = true; m_userId = value; }
 
     /**
@@ -120,6 +130,12 @@ namespace Model
      * the Amazon Chime account that the user belongs to.</p>
      */
     inline const License& GetLicenseType() const{ return m_licenseType; }
+
+    /**
+     * <p>The user license type to update. This must be a supported license type for
+     * the Amazon Chime account that the user belongs to.</p>
+     */
+    inline bool LicenseTypeHasBeenSet() const { return m_licenseTypeHasBeenSet; }
 
     /**
      * <p>The user license type to update. This must be a supported license type for

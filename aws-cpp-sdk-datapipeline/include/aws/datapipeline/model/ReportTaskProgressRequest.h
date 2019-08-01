@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ReportTaskProgressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * response for <a>PollForTask</a>.</p>
      */
     inline const Aws::String& GetTaskId() const{ return m_taskId; }
+
+    /**
+     * <p>The ID of the task assigned to the task runner. This value is provided in the
+     * response for <a>PollForTask</a>.</p>
+     */
+    inline bool TaskIdHasBeenSet() const { return m_taskIdHasBeenSet; }
 
     /**
      * <p>The ID of the task assigned to the task runner. This value is provided in the
@@ -97,6 +103,12 @@ namespace Model
      * object.</p>
      */
     inline const Aws::Vector<Field>& GetFields() const{ return m_fields; }
+
+    /**
+     * <p>Key-value pairs that define the properties of the ReportTaskProgressInput
+     * object.</p>
+     */
+    inline bool FieldsHasBeenSet() const { return m_fieldsHasBeenSet; }
 
     /**
      * <p>Key-value pairs that define the properties of the ReportTaskProgressInput

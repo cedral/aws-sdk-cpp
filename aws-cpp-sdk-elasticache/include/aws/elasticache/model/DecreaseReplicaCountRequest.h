@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DecreaseReplicaCountRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * nodes.</p>
      */
     inline const Aws::String& GetReplicationGroupId() const{ return m_replicationGroupId; }
+
+    /**
+     * <p>The id of the replication group from which you want to remove replica
+     * nodes.</p>
+     */
+    inline bool ReplicationGroupIdHasBeenSet() const { return m_replicationGroupIdHasBeenSet; }
 
     /**
      * <p>The id of the replication group from which you want to remove replica
@@ -117,6 +123,20 @@ namespace Model
      * </ul> </li> <li> <p>Redis (cluster mode enabled): 0 (though you will not be able
      * to failover to a replica if your primary node fails)</p> </li> </ul>
      */
+    inline bool NewReplicaCountHasBeenSet() const { return m_newReplicaCountHasBeenSet; }
+
+    /**
+     * <p>The number of read replica nodes you want at the completion of this
+     * operation. For Redis (cluster mode disabled) replication groups, this is the
+     * number of replica nodes in the replication group. For Redis (cluster mode
+     * enabled) replication groups, this is the number of replica nodes in each of the
+     * replication group's node groups.</p> <p>The minimum number of replicas in a
+     * shard or replication group is:</p> <ul> <li> <p>Redis (cluster mode
+     * disabled)</p> <ul> <li> <p>If Multi-AZ with Automatic Failover is enabled: 1</p>
+     * </li> <li> <p>If Multi-AZ with Automatic Failover is not enabled: 0</p> </li>
+     * </ul> </li> <li> <p>Redis (cluster mode enabled): 0 (though you will not be able
+     * to failover to a replica if your primary node fails)</p> </li> </ul>
+     */
     inline void SetNewReplicaCount(int value) { m_newReplicaCountHasBeenSet = true; m_newReplicaCount = value; }
 
     /**
@@ -141,6 +161,14 @@ namespace Model
      * <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
      */
     inline const Aws::Vector<ConfigureShard>& GetReplicaConfiguration() const{ return m_replicaConfiguration; }
+
+    /**
+     * <p>A list of <code>ConfigureShard</code> objects that can be used to configure
+     * each shard in a Redis (cluster mode enabled) replication group. The
+     * <code>ConfigureShard</code> has three members: <code>NewReplicaCount</code>,
+     * <code>NodeGroupId</code>, and <code>PreferredAvailabilityZones</code>.</p>
+     */
+    inline bool ReplicaConfigurationHasBeenSet() const { return m_replicaConfigurationHasBeenSet; }
 
     /**
      * <p>A list of <code>ConfigureShard</code> objects that can be used to configure
@@ -201,6 +229,12 @@ namespace Model
      * <p>A list of the node ids to remove from the replication group or node group
      * (shard).</p>
      */
+    inline bool ReplicasToRemoveHasBeenSet() const { return m_replicasToRemoveHasBeenSet; }
+
+    /**
+     * <p>A list of the node ids to remove from the replication group or node group
+     * (shard).</p>
+     */
     inline void SetReplicasToRemove(const Aws::Vector<Aws::String>& value) { m_replicasToRemoveHasBeenSet = true; m_replicasToRemove = value; }
 
     /**
@@ -242,22 +276,25 @@ namespace Model
 
     /**
      * <p>If <code>True</code>, the number of replica nodes is decreased immediately.
-     * If <code>False</code>, the number of replica nodes is decreased during the next
-     * maintenance window.</p>
+     * <code>ApplyImmediately=False</code> is not currently supported.</p>
      */
     inline bool GetApplyImmediately() const{ return m_applyImmediately; }
 
     /**
      * <p>If <code>True</code>, the number of replica nodes is decreased immediately.
-     * If <code>False</code>, the number of replica nodes is decreased during the next
-     * maintenance window.</p>
+     * <code>ApplyImmediately=False</code> is not currently supported.</p>
+     */
+    inline bool ApplyImmediatelyHasBeenSet() const { return m_applyImmediatelyHasBeenSet; }
+
+    /**
+     * <p>If <code>True</code>, the number of replica nodes is decreased immediately.
+     * <code>ApplyImmediately=False</code> is not currently supported.</p>
      */
     inline void SetApplyImmediately(bool value) { m_applyImmediatelyHasBeenSet = true; m_applyImmediately = value; }
 
     /**
      * <p>If <code>True</code>, the number of replica nodes is decreased immediately.
-     * If <code>False</code>, the number of replica nodes is decreased during the next
-     * maintenance window.</p>
+     * <code>ApplyImmediately=False</code> is not currently supported.</p>
      */
     inline DecreaseReplicaCountRequest& WithApplyImmediately(bool value) { SetApplyImmediately(value); return *this;}
 

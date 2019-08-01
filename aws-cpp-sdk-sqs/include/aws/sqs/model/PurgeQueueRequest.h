@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     PurgeQueueRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * messages.</p> <p>Queue URLs and names are case-sensitive.</p>
      */
     inline const Aws::String& GetQueueUrl() const{ return m_queueUrl; }
+
+    /**
+     * <p>The URL of the queue from which the <code>PurgeQueue</code> action deletes
+     * messages.</p> <p>Queue URLs and names are case-sensitive.</p>
+     */
+    inline bool QueueUrlHasBeenSet() const { return m_queueUrlHasBeenSet; }
 
     /**
      * <p>The URL of the queue from which the <code>PurgeQueue</code> action deletes

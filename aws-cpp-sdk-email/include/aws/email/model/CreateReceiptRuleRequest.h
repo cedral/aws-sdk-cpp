@@ -30,7 +30,7 @@ namespace Model
   /**
    * <p>Represents a request to create a receipt rule. You use receipt rules to
    * receive email with Amazon SES. For more information, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptRuleRequest">AWS
    * API Reference</a></p>
@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     CreateReceiptRuleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,11 @@ namespace Model
      * <p>The name of the rule set that the receipt rule will be added to.</p>
      */
     inline const Aws::String& GetRuleSetName() const{ return m_ruleSetName; }
+
+    /**
+     * <p>The name of the rule set that the receipt rule will be added to.</p>
+     */
+    inline bool RuleSetNameHasBeenSet() const { return m_ruleSetNameHasBeenSet; }
 
     /**
      * <p>The name of the rule set that the receipt rule will be added to.</p>
@@ -95,6 +100,13 @@ namespace Model
      * list.</p>
      */
     inline const Aws::String& GetAfter() const{ return m_after; }
+
+    /**
+     * <p>The name of an existing rule after which the new rule will be placed. If this
+     * parameter is null, the new rule will be inserted at the beginning of the rule
+     * list.</p>
+     */
+    inline bool AfterHasBeenSet() const { return m_afterHasBeenSet; }
 
     /**
      * <p>The name of an existing rule after which the new rule will be placed. If this
@@ -144,6 +156,12 @@ namespace Model
      * recipients, domains, enabled status, scan status, and TLS policy.</p>
      */
     inline const ReceiptRule& GetRule() const{ return m_rule; }
+
+    /**
+     * <p>A data structure that contains the specified rule's name, actions,
+     * recipients, domains, enabled status, scan status, and TLS policy.</p>
+     */
+    inline bool RuleHasBeenSet() const { return m_ruleHasBeenSet; }
 
     /**
      * <p>A data structure that contains the specified rule's name, actions,

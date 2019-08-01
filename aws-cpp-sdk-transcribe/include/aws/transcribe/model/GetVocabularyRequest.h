@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetVocabularyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * case-sensitive.</p>
      */
     inline const Aws::String& GetVocabularyName() const{ return m_vocabularyName; }
+
+    /**
+     * <p>The name of the vocabulary to return information about. The name is
+     * case-sensitive.</p>
+     */
+    inline bool VocabularyNameHasBeenSet() const { return m_vocabularyNameHasBeenSet; }
 
     /**
      * <p>The name of the vocabulary to return information about. The name is

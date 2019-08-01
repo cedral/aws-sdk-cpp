@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateTagOptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The TagOption key.</p>
      */
     inline const Aws::String& GetKey() const{ return m_key; }
+
+    /**
+     * <p>The TagOption key.</p>
+     */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
 
     /**
      * <p>The TagOption key.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The TagOption value.</p>
      */
     inline const Aws::String& GetValue() const{ return m_value; }
+
+    /**
+     * <p>The TagOption value.</p>
+     */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
 
     /**
      * <p>The TagOption value.</p>

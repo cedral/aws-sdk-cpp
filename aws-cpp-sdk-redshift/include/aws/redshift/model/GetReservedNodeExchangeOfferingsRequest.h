@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     GetReservedNodeExchangeOfferingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * exchanged.</p>
      */
     inline const Aws::String& GetReservedNodeId() const{ return m_reservedNodeId; }
+
+    /**
+     * <p>A string representing the node identifier for the DC1 Reserved Node to be
+     * exchanged.</p>
+     */
+    inline bool ReservedNodeIdHasBeenSet() const { return m_reservedNodeIdHasBeenSet; }
 
     /**
      * <p>A string representing the node identifier for the DC1 Reserved Node to be
@@ -102,6 +108,12 @@ namespace Model
      * <p>An integer setting the maximum number of ReservedNodeOfferings to
      * retrieve.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>An integer setting the maximum number of ReservedNodeOfferings to
+     * retrieve.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -116,6 +128,12 @@ namespace Model
      * ReservedNodeOfferings.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>A value that indicates the starting point for the next set of
+     * ReservedNodeOfferings.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>A value that indicates the starting point for the next set of

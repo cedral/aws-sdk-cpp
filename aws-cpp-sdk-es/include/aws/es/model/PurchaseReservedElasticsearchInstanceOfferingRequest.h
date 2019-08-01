@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     PurchaseReservedElasticsearchInstanceOfferingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ID of the reserved Elasticsearch instance offering to purchase.</p>
      */
     inline const Aws::String& GetReservedElasticsearchInstanceOfferingId() const{ return m_reservedElasticsearchInstanceOfferingId; }
+
+    /**
+     * <p>The ID of the reserved Elasticsearch instance offering to purchase.</p>
+     */
+    inline bool ReservedElasticsearchInstanceOfferingIdHasBeenSet() const { return m_reservedElasticsearchInstanceOfferingIdHasBeenSet; }
 
     /**
      * <p>The ID of the reserved Elasticsearch instance offering to purchase.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>A customer-specified identifier to track this reservation.</p>
      */
+    inline bool ReservationNameHasBeenSet() const { return m_reservationNameHasBeenSet; }
+
+    /**
+     * <p>A customer-specified identifier to track this reservation.</p>
+     */
     inline void SetReservationName(const Aws::String& value) { m_reservationNameHasBeenSet = true; m_reservationName = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
      * <p>The number of Elasticsearch instances to reserve.</p>
      */
     inline int GetInstanceCount() const{ return m_instanceCount; }
+
+    /**
+     * <p>The number of Elasticsearch instances to reserve.</p>
+     */
+    inline bool InstanceCountHasBeenSet() const { return m_instanceCountHasBeenSet; }
 
     /**
      * <p>The number of Elasticsearch instances to reserve.</p>

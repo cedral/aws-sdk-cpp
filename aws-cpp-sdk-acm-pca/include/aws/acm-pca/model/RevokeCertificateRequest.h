@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     RevokeCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,14 @@ namespace Model
      * </code> </p>
      */
     inline const Aws::String& GetCertificateAuthorityArn() const{ return m_certificateAuthorityArn; }
+
+    /**
+     * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to
+     * be revoked. This must be of the form:</p> <p>
+     * <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>
+     * </code> </p>
+     */
+    inline bool CertificateAuthorityArnHasBeenSet() const { return m_certificateAuthorityArnHasBeenSet; }
 
     /**
      * <p>Amazon Resource Name (ARN) of the private CA that issued the certificate to
@@ -106,13 +114,13 @@ namespace Model
      * <p>Serial number of the certificate to be revoked. This must be in hexadecimal
      * format. You can retrieve the serial number by calling <a>GetCertificate</a> with
      * the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
-     * private CA. The <b>GetCertificate</b> operation retrieves the certificate in the
+     * private CA. The <b>GetCertificate</b> action retrieves the certificate in the
      * PEM format. You can use the following OpenSSL command to list the certificate in
      * text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509
      * -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial
      * number from the console or use the <a
      * href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
-     * operation in the <i>AWS Certificate Manager API Reference</i>. </p>
+     * action in the <i>AWS Certificate Manager API Reference</i>. </p>
      */
     inline const Aws::String& GetCertificateSerial() const{ return m_certificateSerial; }
 
@@ -120,13 +128,27 @@ namespace Model
      * <p>Serial number of the certificate to be revoked. This must be in hexadecimal
      * format. You can retrieve the serial number by calling <a>GetCertificate</a> with
      * the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
-     * private CA. The <b>GetCertificate</b> operation retrieves the certificate in the
+     * private CA. The <b>GetCertificate</b> action retrieves the certificate in the
      * PEM format. You can use the following OpenSSL command to list the certificate in
      * text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509
      * -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial
      * number from the console or use the <a
      * href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
-     * operation in the <i>AWS Certificate Manager API Reference</i>. </p>
+     * action in the <i>AWS Certificate Manager API Reference</i>. </p>
+     */
+    inline bool CertificateSerialHasBeenSet() const { return m_certificateSerialHasBeenSet; }
+
+    /**
+     * <p>Serial number of the certificate to be revoked. This must be in hexadecimal
+     * format. You can retrieve the serial number by calling <a>GetCertificate</a> with
+     * the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
+     * private CA. The <b>GetCertificate</b> action retrieves the certificate in the
+     * PEM format. You can use the following OpenSSL command to list the certificate in
+     * text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509
+     * -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial
+     * number from the console or use the <a
+     * href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
+     * action in the <i>AWS Certificate Manager API Reference</i>. </p>
      */
     inline void SetCertificateSerial(const Aws::String& value) { m_certificateSerialHasBeenSet = true; m_certificateSerial = value; }
 
@@ -134,13 +156,13 @@ namespace Model
      * <p>Serial number of the certificate to be revoked. This must be in hexadecimal
      * format. You can retrieve the serial number by calling <a>GetCertificate</a> with
      * the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
-     * private CA. The <b>GetCertificate</b> operation retrieves the certificate in the
+     * private CA. The <b>GetCertificate</b> action retrieves the certificate in the
      * PEM format. You can use the following OpenSSL command to list the certificate in
      * text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509
      * -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial
      * number from the console or use the <a
      * href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
-     * operation in the <i>AWS Certificate Manager API Reference</i>. </p>
+     * action in the <i>AWS Certificate Manager API Reference</i>. </p>
      */
     inline void SetCertificateSerial(Aws::String&& value) { m_certificateSerialHasBeenSet = true; m_certificateSerial = std::move(value); }
 
@@ -148,13 +170,13 @@ namespace Model
      * <p>Serial number of the certificate to be revoked. This must be in hexadecimal
      * format. You can retrieve the serial number by calling <a>GetCertificate</a> with
      * the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
-     * private CA. The <b>GetCertificate</b> operation retrieves the certificate in the
+     * private CA. The <b>GetCertificate</b> action retrieves the certificate in the
      * PEM format. You can use the following OpenSSL command to list the certificate in
      * text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509
      * -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial
      * number from the console or use the <a
      * href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
-     * operation in the <i>AWS Certificate Manager API Reference</i>. </p>
+     * action in the <i>AWS Certificate Manager API Reference</i>. </p>
      */
     inline void SetCertificateSerial(const char* value) { m_certificateSerialHasBeenSet = true; m_certificateSerial.assign(value); }
 
@@ -162,13 +184,13 @@ namespace Model
      * <p>Serial number of the certificate to be revoked. This must be in hexadecimal
      * format. You can retrieve the serial number by calling <a>GetCertificate</a> with
      * the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
-     * private CA. The <b>GetCertificate</b> operation retrieves the certificate in the
+     * private CA. The <b>GetCertificate</b> action retrieves the certificate in the
      * PEM format. You can use the following OpenSSL command to list the certificate in
      * text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509
      * -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial
      * number from the console or use the <a
      * href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
-     * operation in the <i>AWS Certificate Manager API Reference</i>. </p>
+     * action in the <i>AWS Certificate Manager API Reference</i>. </p>
      */
     inline RevokeCertificateRequest& WithCertificateSerial(const Aws::String& value) { SetCertificateSerial(value); return *this;}
 
@@ -176,13 +198,13 @@ namespace Model
      * <p>Serial number of the certificate to be revoked. This must be in hexadecimal
      * format. You can retrieve the serial number by calling <a>GetCertificate</a> with
      * the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
-     * private CA. The <b>GetCertificate</b> operation retrieves the certificate in the
+     * private CA. The <b>GetCertificate</b> action retrieves the certificate in the
      * PEM format. You can use the following OpenSSL command to list the certificate in
      * text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509
      * -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial
      * number from the console or use the <a
      * href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
-     * operation in the <i>AWS Certificate Manager API Reference</i>. </p>
+     * action in the <i>AWS Certificate Manager API Reference</i>. </p>
      */
     inline RevokeCertificateRequest& WithCertificateSerial(Aws::String&& value) { SetCertificateSerial(std::move(value)); return *this;}
 
@@ -190,13 +212,13 @@ namespace Model
      * <p>Serial number of the certificate to be revoked. This must be in hexadecimal
      * format. You can retrieve the serial number by calling <a>GetCertificate</a> with
      * the Amazon Resource Name (ARN) of the certificate you want and the ARN of your
-     * private CA. The <b>GetCertificate</b> operation retrieves the certificate in the
+     * private CA. The <b>GetCertificate</b> action retrieves the certificate in the
      * PEM format. You can use the following OpenSSL command to list the certificate in
      * text format and copy the hexadecimal serial number. </p> <p> <code>openssl x509
      * -in <i>file_path</i> -text -noout</code> </p> <p>You can also copy the serial
      * number from the console or use the <a
      * href="https://docs.aws.amazon.com/acm/latest/APIReference/API_DescribeCertificate.html">DescribeCertificate</a>
-     * operation in the <i>AWS Certificate Manager API Reference</i>. </p>
+     * action in the <i>AWS Certificate Manager API Reference</i>. </p>
      */
     inline RevokeCertificateRequest& WithCertificateSerial(const char* value) { SetCertificateSerial(value); return *this;}
 
@@ -205,6 +227,11 @@ namespace Model
      * <p>Specifies why you revoked the certificate.</p>
      */
     inline const RevocationReason& GetRevocationReason() const{ return m_revocationReason; }
+
+    /**
+     * <p>Specifies why you revoked the certificate.</p>
+     */
+    inline bool RevocationReasonHasBeenSet() const { return m_revocationReasonHasBeenSet; }
 
     /**
      * <p>Specifies why you revoked the certificate.</p>

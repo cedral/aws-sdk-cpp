@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateResourceGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * <p>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.</p>
      */
     inline const Aws::Vector<ResourceGroupTag>& GetResourceGroupTags() const{ return m_resourceGroupTags; }
+
+    /**
+     * <p>A collection of keys and an array of possible values,
+     * '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.</p>
+     * <p>For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.</p>
+     */
+    inline bool ResourceGroupTagsHasBeenSet() const { return m_resourceGroupTagsHasBeenSet; }
 
     /**
      * <p>A collection of keys and an array of possible values,

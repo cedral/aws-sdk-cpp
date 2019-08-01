@@ -61,6 +61,13 @@ namespace Model
      * this activity task was scheduled. To help diagnose issues, use this information
      * to trace back the chain of events leading up to this event.</p>
      */
+    inline bool ScheduledEventIdHasBeenSet() const { return m_scheduledEventIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when
+     * this activity task was scheduled. To help diagnose issues, use this information
+     * to trace back the chain of events leading up to this event.</p>
+     */
     inline void SetScheduledEventId(long long value) { m_scheduledEventIdHasBeenSet = true; m_scheduledEventId = value; }
 
     /**
@@ -77,7 +84,7 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because the IAM role attached to the execution lacked sufficient
      * permissions. For details and example IAM policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
      * Tasks</a> in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline const StartLambdaFunctionFailedCause& GetCause() const{ return m_cause; }
@@ -88,7 +95,18 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because the IAM role attached to the execution lacked sufficient
      * permissions. For details and example IAM policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
+     * Tasks</a> in the <i>Amazon SWF Developer Guide</i>.</p> </note>
+     */
+    inline bool CauseHasBeenSet() const { return m_causeHasBeenSet; }
+
+    /**
+     * <p>The cause of the failure. To help diagnose issues, use this information to
+     * trace back the chain of events leading up to this event.</p> <note> <p>If
+     * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
+     * failed because the IAM role attached to the execution lacked sufficient
+     * permissions. For details and example IAM policies, see <a
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
      * Tasks</a> in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline void SetCause(const StartLambdaFunctionFailedCause& value) { m_causeHasBeenSet = true; m_cause = value; }
@@ -99,7 +117,7 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because the IAM role attached to the execution lacked sufficient
      * permissions. For details and example IAM policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
      * Tasks</a> in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline void SetCause(StartLambdaFunctionFailedCause&& value) { m_causeHasBeenSet = true; m_cause = std::move(value); }
@@ -110,7 +128,7 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because the IAM role attached to the execution lacked sufficient
      * permissions. For details and example IAM policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
      * Tasks</a> in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline StartLambdaFunctionFailedEventAttributes& WithCause(const StartLambdaFunctionFailedCause& value) { SetCause(value); return *this;}
@@ -121,7 +139,7 @@ namespace Model
      * <code>cause</code> is set to <code>OPERATION_NOT_PERMITTED</code>, the decision
      * failed because the IAM role attached to the execution lacked sufficient
      * permissions. For details and example IAM policies, see <a
-     * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
+     * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html">Lambda
      * Tasks</a> in the <i>Amazon SWF Developer Guide</i>.</p> </note>
      */
     inline StartLambdaFunctionFailedEventAttributes& WithCause(StartLambdaFunctionFailedCause&& value) { SetCause(std::move(value)); return *this;}
@@ -131,6 +149,11 @@ namespace Model
      * <p>A description that can help diagnose the cause of the fault.</p>
      */
     inline const Aws::String& GetMessage() const{ return m_message; }
+
+    /**
+     * <p>A description that can help diagnose the cause of the fault.</p>
+     */
+    inline bool MessageHasBeenSet() const { return m_messageHasBeenSet; }
 
     /**
      * <p>A description that can help diagnose the cause of the fault.</p>

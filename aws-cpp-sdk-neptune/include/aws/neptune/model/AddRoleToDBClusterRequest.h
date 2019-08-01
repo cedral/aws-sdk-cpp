@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AddRoleToDBClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the DB cluster to associate the IAM role with.</p>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
+
+    /**
+     * <p>The name of the DB cluster to associate the IAM role with.</p>
+     */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
      * <p>The name of the DB cluster to associate the IAM role with.</p>
@@ -88,6 +93,13 @@ namespace Model
      * <code>arn:aws:iam::123456789012:role/NeptuneAccessRole</code>.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the Neptune
+     * DB cluster, for example
+     * <code>arn:aws:iam::123456789012:role/NeptuneAccessRole</code>.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the Neptune

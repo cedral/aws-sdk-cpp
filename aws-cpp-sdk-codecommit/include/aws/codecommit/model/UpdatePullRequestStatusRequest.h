@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdatePullRequestStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * <a>ListPullRequests</a>.</p>
      */
     inline const Aws::String& GetPullRequestId() const{ return m_pullRequestId; }
+
+    /**
+     * <p>The system-generated ID of the pull request. To get this ID, use
+     * <a>ListPullRequests</a>.</p>
+     */
+    inline bool PullRequestIdHasBeenSet() const { return m_pullRequestIdHasBeenSet; }
 
     /**
      * <p>The system-generated ID of the pull request. To get this ID, use
@@ -94,6 +100,13 @@ namespace Model
      * <code>CLOSED</code> or from from <code>CLOSED</code> to <code>CLOSED</code>.</p>
      */
     inline const PullRequestStatusEnum& GetPullRequestStatus() const{ return m_pullRequestStatus; }
+
+    /**
+     * <p>The status of the pull request. The only valid operations are to update the
+     * status from <code>OPEN</code> to <code>OPEN</code>, <code>OPEN</code> to
+     * <code>CLOSED</code> or from from <code>CLOSED</code> to <code>CLOSED</code>.</p>
+     */
+    inline bool PullRequestStatusHasBeenSet() const { return m_pullRequestStatusHasBeenSet; }
 
     /**
      * <p>The status of the pull request. The only valid operations are to update the

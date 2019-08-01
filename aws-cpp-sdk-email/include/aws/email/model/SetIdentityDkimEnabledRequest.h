@@ -29,7 +29,7 @@ namespace Model
   /**
    * <p>Represents a request to enable or disable Amazon SES Easy DKIM signing for an
    * identity. For more information about setting up Easy DKIM, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityDkimEnabledRequest">AWS
    * API Reference</a></p>
@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     SetIdentityDkimEnabledRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,11 @@ namespace Model
      * <p>The identity for which DKIM signing should be enabled or disabled.</p>
      */
     inline const Aws::String& GetIdentity() const{ return m_identity; }
+
+    /**
+     * <p>The identity for which DKIM signing should be enabled or disabled.</p>
+     */
+    inline bool IdentityHasBeenSet() const { return m_identityHasBeenSet; }
 
     /**
      * <p>The identity for which DKIM signing should be enabled or disabled.</p>
@@ -94,6 +99,13 @@ namespace Model
      * to disable it. </p>
      */
     inline bool GetDkimEnabled() const{ return m_dkimEnabled; }
+
+    /**
+     * <p>Sets whether DKIM signing is enabled for an identity. Set to
+     * <code>true</code> to enable DKIM signing for this identity; <code>false</code>
+     * to disable it. </p>
+     */
+    inline bool DkimEnabledHasBeenSet() const { return m_dkimEnabledHasBeenSet; }
 
     /**
      * <p>Sets whether DKIM signing is enabled for an identity. Set to

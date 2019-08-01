@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListSimulationApplicationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The version qualifier of the simulation application.</p>
      */
     inline const Aws::String& GetVersionQualifier() const{ return m_versionQualifier; }
+
+    /**
+     * <p>The version qualifier of the simulation application.</p>
+     */
+    inline bool VersionQualifierHasBeenSet() const { return m_versionQualifierHasBeenSet; }
 
     /**
      * <p>The version qualifier of the simulation application.</p>
@@ -90,6 +95,17 @@ namespace Model
      * for other programmatic purposes.</p> </note>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The <code>nextToken</code> value returned from a previous paginated
+     * <code>ListSimulationApplications</code> request where <code>maxResults</code>
+     * was used and the results exceeded the value of that parameter. Pagination
+     * continues from the end of the previous results that returned the
+     * <code>nextToken</code> value. </p> <note> <p>This token should be treated as an
+     * opaque identifier that is only used to retrieve the next items in a list and not
+     * for other programmatic purposes.</p> </note>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -164,10 +180,11 @@ namespace Model
      * is used, <code>ListSimulationApplications</code> only returns
      * <code>maxResults</code> results in a single page along with a
      * <code>nextToken</code> response element. The remaining results of the initial
-     * request can be seen by sending another <code>ListFleets</code> request with the
-     * returned <code>nextToken</code> value. This value can be between 1 and 100. If
-     * this parameter is not used, then <code>ListSimulationApplications</code> returns
-     * up to 100 results and a <code>nextToken</code> value if applicable. </p>
+     * request can be seen by sending another <code>ListSimulationApplications</code>
+     * request with the returned <code>nextToken</code> value. This value can be
+     * between 1 and 100. If this parameter is not used, then
+     * <code>ListSimulationApplications</code> returns up to 100 results and a
+     * <code>nextToken</code> value if applicable. </p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
 
@@ -177,10 +194,25 @@ namespace Model
      * is used, <code>ListSimulationApplications</code> only returns
      * <code>maxResults</code> results in a single page along with a
      * <code>nextToken</code> response element. The remaining results of the initial
-     * request can be seen by sending another <code>ListFleets</code> request with the
-     * returned <code>nextToken</code> value. This value can be between 1 and 100. If
-     * this parameter is not used, then <code>ListSimulationApplications</code> returns
-     * up to 100 results and a <code>nextToken</code> value if applicable. </p>
+     * request can be seen by sending another <code>ListSimulationApplications</code>
+     * request with the returned <code>nextToken</code> value. This value can be
+     * between 1 and 100. If this parameter is not used, then
+     * <code>ListSimulationApplications</code> returns up to 100 results and a
+     * <code>nextToken</code> value if applicable. </p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of deployment job results returned by
+     * <code>ListSimulationApplications</code> in paginated output. When this parameter
+     * is used, <code>ListSimulationApplications</code> only returns
+     * <code>maxResults</code> results in a single page along with a
+     * <code>nextToken</code> response element. The remaining results of the initial
+     * request can be seen by sending another <code>ListSimulationApplications</code>
+     * request with the returned <code>nextToken</code> value. This value can be
+     * between 1 and 100. If this parameter is not used, then
+     * <code>ListSimulationApplications</code> returns up to 100 results and a
+     * <code>nextToken</code> value if applicable. </p>
      */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
@@ -190,53 +222,68 @@ namespace Model
      * is used, <code>ListSimulationApplications</code> only returns
      * <code>maxResults</code> results in a single page along with a
      * <code>nextToken</code> response element. The remaining results of the initial
-     * request can be seen by sending another <code>ListFleets</code> request with the
-     * returned <code>nextToken</code> value. This value can be between 1 and 100. If
-     * this parameter is not used, then <code>ListSimulationApplications</code> returns
-     * up to 100 results and a <code>nextToken</code> value if applicable. </p>
+     * request can be seen by sending another <code>ListSimulationApplications</code>
+     * request with the returned <code>nextToken</code> value. This value can be
+     * between 1 and 100. If this parameter is not used, then
+     * <code>ListSimulationApplications</code> returns up to 100 results and a
+     * <code>nextToken</code> value if applicable. </p>
      */
     inline ListSimulationApplicationsRequest& WithMaxResults(int value) { SetMaxResults(value); return *this;}
 
 
     /**
-     * <p>Optional list of filters to limit results. The only valid filter name is
-     * <code>name</code>.</p>
+     * <p>Optional list of filters to limit results.</p> <p>The filter name
+     * <code>name</code> is supported. When filtering, you must use the complete value
+     * of the filtered item. You can use up to three filters.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>Optional list of filters to limit results. The only valid filter name is
-     * <code>name</code>.</p>
+     * <p>Optional list of filters to limit results.</p> <p>The filter name
+     * <code>name</code> is supported. When filtering, you must use the complete value
+     * of the filtered item. You can use up to three filters.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>Optional list of filters to limit results.</p> <p>The filter name
+     * <code>name</code> is supported. When filtering, you must use the complete value
+     * of the filtered item. You can use up to three filters.</p>
      */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>Optional list of filters to limit results. The only valid filter name is
-     * <code>name</code>.</p>
+     * <p>Optional list of filters to limit results.</p> <p>The filter name
+     * <code>name</code> is supported. When filtering, you must use the complete value
+     * of the filtered item. You can use up to three filters.</p>
      */
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>Optional list of filters to limit results. The only valid filter name is
-     * <code>name</code>.</p>
+     * <p>Optional list of filters to limit results.</p> <p>The filter name
+     * <code>name</code> is supported. When filtering, you must use the complete value
+     * of the filtered item. You can use up to three filters.</p>
      */
     inline ListSimulationApplicationsRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>Optional list of filters to limit results. The only valid filter name is
-     * <code>name</code>.</p>
+     * <p>Optional list of filters to limit results.</p> <p>The filter name
+     * <code>name</code> is supported. When filtering, you must use the complete value
+     * of the filtered item. You can use up to three filters.</p>
      */
     inline ListSimulationApplicationsRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
-     * <p>Optional list of filters to limit results. The only valid filter name is
-     * <code>name</code>.</p>
+     * <p>Optional list of filters to limit results.</p> <p>The filter name
+     * <code>name</code> is supported. When filtering, you must use the complete value
+     * of the filtered item. You can use up to three filters.</p>
      */
     inline ListSimulationApplicationsRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
-     * <p>Optional list of filters to limit results. The only valid filter name is
-     * <code>name</code>.</p>
+     * <p>Optional list of filters to limit results.</p> <p>The filter name
+     * <code>name</code> is supported. When filtering, you must use the complete value
+     * of the filtered item. You can use up to three filters.</p>
      */
     inline ListSimulationApplicationsRequest& AddFilters(Filter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
 

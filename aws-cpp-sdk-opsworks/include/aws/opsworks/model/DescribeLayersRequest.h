@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeLayersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The stack ID.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>The stack ID.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>The stack ID.</p>
@@ -87,6 +92,13 @@ namespace Model
      * in the specified stack.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLayerIds() const{ return m_layerIds; }
+
+    /**
+     * <p>An array of layer IDs that specify the layers to be described. If you omit
+     * this parameter, <code>DescribeLayers</code> returns a description of every layer
+     * in the specified stack.</p>
+     */
+    inline bool LayerIdsHasBeenSet() const { return m_layerIdsHasBeenSet; }
 
     /**
      * <p>An array of layer IDs that specify the layers to be described. If you omit

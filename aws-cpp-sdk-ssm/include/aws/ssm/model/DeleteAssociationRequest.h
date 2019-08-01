@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteAssociationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the Systems Manager document.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the Systems Manager document.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the Systems Manager document.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The ID of the instance.</p>
      */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the instance.</p>
+     */
     inline void SetInstanceId(const Aws::String& value) { m_instanceIdHasBeenSet = true; m_instanceId = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The association ID that you want to delete.</p>
      */
     inline const Aws::String& GetAssociationId() const{ return m_associationId; }
+
+    /**
+     * <p>The association ID that you want to delete.</p>
+     */
+    inline bool AssociationIdHasBeenSet() const { return m_associationIdHasBeenSet; }
 
     /**
      * <p>The association ID that you want to delete.</p>

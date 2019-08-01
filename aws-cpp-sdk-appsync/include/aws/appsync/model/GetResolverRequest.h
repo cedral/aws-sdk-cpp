@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetResolverRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The API ID.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The API ID.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The API ID.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The resolver type name.</p>
      */
+    inline bool TypeNameHasBeenSet() const { return m_typeNameHasBeenSet; }
+
+    /**
+     * <p>The resolver type name.</p>
+     */
     inline void SetTypeName(const Aws::String& value) { m_typeNameHasBeenSet = true; m_typeName = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The resolver field name.</p>
      */
     inline const Aws::String& GetFieldName() const{ return m_fieldName; }
+
+    /**
+     * <p>The resolver field name.</p>
+     */
+    inline bool FieldNameHasBeenSet() const { return m_fieldNameHasBeenSet; }
 
     /**
      * <p>The resolver field name.</p>

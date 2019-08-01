@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/mediaconvert/MediaConvert_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/mediaconvert/model/HlsAudioOnlyContainer.h>
 #include <aws/mediaconvert/model/HlsAudioTrackType.h>
 #include <aws/mediaconvert/model/HlsIFrameOnlyManifest.h>
 #include <utility>
@@ -57,6 +58,11 @@ namespace Model
     /**
      * Specifies the group to which the audio Rendition belongs.
      */
+    inline bool AudioGroupIdHasBeenSet() const { return m_audioGroupIdHasBeenSet; }
+
+    /**
+     * Specifies the group to which the audio Rendition belongs.
+     */
     inline void SetAudioGroupId(const Aws::String& value) { m_audioGroupIdHasBeenSet = true; m_audioGroupId = value; }
 
     /**
@@ -86,10 +92,71 @@ namespace Model
 
 
     /**
+     * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream
+     * (M2TS) to create a file in an MPEG2-TS container. Keep the default value
+     * Automatic (AUTOMATIC) to create an audio-only file in a raw container.
+     * Regardless of the value that you specify here, if this output has video, the
+     * service will place the output into an MPEG2-TS container.
+     */
+    inline const HlsAudioOnlyContainer& GetAudioOnlyContainer() const{ return m_audioOnlyContainer; }
+
+    /**
+     * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream
+     * (M2TS) to create a file in an MPEG2-TS container. Keep the default value
+     * Automatic (AUTOMATIC) to create an audio-only file in a raw container.
+     * Regardless of the value that you specify here, if this output has video, the
+     * service will place the output into an MPEG2-TS container.
+     */
+    inline bool AudioOnlyContainerHasBeenSet() const { return m_audioOnlyContainerHasBeenSet; }
+
+    /**
+     * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream
+     * (M2TS) to create a file in an MPEG2-TS container. Keep the default value
+     * Automatic (AUTOMATIC) to create an audio-only file in a raw container.
+     * Regardless of the value that you specify here, if this output has video, the
+     * service will place the output into an MPEG2-TS container.
+     */
+    inline void SetAudioOnlyContainer(const HlsAudioOnlyContainer& value) { m_audioOnlyContainerHasBeenSet = true; m_audioOnlyContainer = value; }
+
+    /**
+     * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream
+     * (M2TS) to create a file in an MPEG2-TS container. Keep the default value
+     * Automatic (AUTOMATIC) to create an audio-only file in a raw container.
+     * Regardless of the value that you specify here, if this output has video, the
+     * service will place the output into an MPEG2-TS container.
+     */
+    inline void SetAudioOnlyContainer(HlsAudioOnlyContainer&& value) { m_audioOnlyContainerHasBeenSet = true; m_audioOnlyContainer = std::move(value); }
+
+    /**
+     * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream
+     * (M2TS) to create a file in an MPEG2-TS container. Keep the default value
+     * Automatic (AUTOMATIC) to create an audio-only file in a raw container.
+     * Regardless of the value that you specify here, if this output has video, the
+     * service will place the output into an MPEG2-TS container.
+     */
+    inline HlsSettings& WithAudioOnlyContainer(const HlsAudioOnlyContainer& value) { SetAudioOnlyContainer(value); return *this;}
+
+    /**
+     * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream
+     * (M2TS) to create a file in an MPEG2-TS container. Keep the default value
+     * Automatic (AUTOMATIC) to create an audio-only file in a raw container.
+     * Regardless of the value that you specify here, if this output has video, the
+     * service will place the output into an MPEG2-TS container.
+     */
+    inline HlsSettings& WithAudioOnlyContainer(HlsAudioOnlyContainer&& value) { SetAudioOnlyContainer(std::move(value)); return *this;}
+
+
+    /**
      * List all the audio groups that are used with the video output stream. Input all
      * the audio GROUP-IDs that are associated to the video, separate by ','.
      */
     inline const Aws::String& GetAudioRenditionSets() const{ return m_audioRenditionSets; }
+
+    /**
+     * List all the audio groups that are used with the video output stream. Input all
+     * the audio GROUP-IDs that are associated to the video, separate by ','.
+     */
+    inline bool AudioRenditionSetsHasBeenSet() const { return m_audioRenditionSetsHasBeenSet; }
 
     /**
      * List all the audio groups that are used with the video output stream. Input all
@@ -128,35 +195,131 @@ namespace Model
     inline HlsSettings& WithAudioRenditionSets(const char* value) { SetAudioRenditionSets(value); return *this;}
 
 
-    
+    /**
+     * Four types of audio-only tracks are supported: Audio-Only Variant Stream The
+     * client can play back this audio-only stream instead of video in low-bandwidth
+     * scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate
+     * Audio, Auto Select, Default Alternate rendition that the client should try to
+     * play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
+     * DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate
+     * rendition that the client may try to play back by default. Represented as an
+     * EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio,
+     * not Auto Select Alternate rendition that the client will not try to play back by
+     * default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO,
+     * AUTOSELECT=NO
+     */
     inline const HlsAudioTrackType& GetAudioTrackType() const{ return m_audioTrackType; }
 
-    
+    /**
+     * Four types of audio-only tracks are supported: Audio-Only Variant Stream The
+     * client can play back this audio-only stream instead of video in low-bandwidth
+     * scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate
+     * Audio, Auto Select, Default Alternate rendition that the client should try to
+     * play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
+     * DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate
+     * rendition that the client may try to play back by default. Represented as an
+     * EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio,
+     * not Auto Select Alternate rendition that the client will not try to play back by
+     * default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO,
+     * AUTOSELECT=NO
+     */
+    inline bool AudioTrackTypeHasBeenSet() const { return m_audioTrackTypeHasBeenSet; }
+
+    /**
+     * Four types of audio-only tracks are supported: Audio-Only Variant Stream The
+     * client can play back this audio-only stream instead of video in low-bandwidth
+     * scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate
+     * Audio, Auto Select, Default Alternate rendition that the client should try to
+     * play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
+     * DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate
+     * rendition that the client may try to play back by default. Represented as an
+     * EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio,
+     * not Auto Select Alternate rendition that the client will not try to play back by
+     * default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO,
+     * AUTOSELECT=NO
+     */
     inline void SetAudioTrackType(const HlsAudioTrackType& value) { m_audioTrackTypeHasBeenSet = true; m_audioTrackType = value; }
 
-    
+    /**
+     * Four types of audio-only tracks are supported: Audio-Only Variant Stream The
+     * client can play back this audio-only stream instead of video in low-bandwidth
+     * scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate
+     * Audio, Auto Select, Default Alternate rendition that the client should try to
+     * play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
+     * DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate
+     * rendition that the client may try to play back by default. Represented as an
+     * EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio,
+     * not Auto Select Alternate rendition that the client will not try to play back by
+     * default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO,
+     * AUTOSELECT=NO
+     */
     inline void SetAudioTrackType(HlsAudioTrackType&& value) { m_audioTrackTypeHasBeenSet = true; m_audioTrackType = std::move(value); }
 
-    
+    /**
+     * Four types of audio-only tracks are supported: Audio-Only Variant Stream The
+     * client can play back this audio-only stream instead of video in low-bandwidth
+     * scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate
+     * Audio, Auto Select, Default Alternate rendition that the client should try to
+     * play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
+     * DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate
+     * rendition that the client may try to play back by default. Represented as an
+     * EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio,
+     * not Auto Select Alternate rendition that the client will not try to play back by
+     * default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO,
+     * AUTOSELECT=NO
+     */
     inline HlsSettings& WithAudioTrackType(const HlsAudioTrackType& value) { SetAudioTrackType(value); return *this;}
 
-    
+    /**
+     * Four types of audio-only tracks are supported: Audio-Only Variant Stream The
+     * client can play back this audio-only stream instead of video in low-bandwidth
+     * scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate
+     * Audio, Auto Select, Default Alternate rendition that the client should try to
+     * play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with
+     * DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate
+     * rendition that the client may try to play back by default. Represented as an
+     * EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio,
+     * not Auto Select Alternate rendition that the client will not try to play back by
+     * default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO,
+     * AUTOSELECT=NO
+     */
     inline HlsSettings& WithAudioTrackType(HlsAudioTrackType&& value) { SetAudioTrackType(std::move(value)); return *this;}
 
 
-    
+    /**
+     * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS
+     * manifest
+     */
     inline const HlsIFrameOnlyManifest& GetIFrameOnlyManifest() const{ return m_iFrameOnlyManifest; }
 
-    
+    /**
+     * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS
+     * manifest
+     */
+    inline bool IFrameOnlyManifestHasBeenSet() const { return m_iFrameOnlyManifestHasBeenSet; }
+
+    /**
+     * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS
+     * manifest
+     */
     inline void SetIFrameOnlyManifest(const HlsIFrameOnlyManifest& value) { m_iFrameOnlyManifestHasBeenSet = true; m_iFrameOnlyManifest = value; }
 
-    
+    /**
+     * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS
+     * manifest
+     */
     inline void SetIFrameOnlyManifest(HlsIFrameOnlyManifest&& value) { m_iFrameOnlyManifestHasBeenSet = true; m_iFrameOnlyManifest = std::move(value); }
 
-    
+    /**
+     * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS
+     * manifest
+     */
     inline HlsSettings& WithIFrameOnlyManifest(const HlsIFrameOnlyManifest& value) { SetIFrameOnlyManifest(value); return *this;}
 
-    
+    /**
+     * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS
+     * manifest
+     */
     inline HlsSettings& WithIFrameOnlyManifest(HlsIFrameOnlyManifest&& value) { SetIFrameOnlyManifest(std::move(value)); return *this;}
 
 
@@ -165,6 +328,12 @@ namespace Model
      * Identifiers":#format_identifier_parameters.
      */
     inline const Aws::String& GetSegmentModifier() const{ return m_segmentModifier; }
+
+    /**
+     * String concatenated to end of segment filenames. Accepts "Format
+     * Identifiers":#format_identifier_parameters.
+     */
+    inline bool SegmentModifierHasBeenSet() const { return m_segmentModifierHasBeenSet; }
 
     /**
      * String concatenated to end of segment filenames. Accepts "Format
@@ -206,6 +375,9 @@ namespace Model
 
     Aws::String m_audioGroupId;
     bool m_audioGroupIdHasBeenSet;
+
+    HlsAudioOnlyContainer m_audioOnlyContainer;
+    bool m_audioOnlyContainerHasBeenSet;
 
     Aws::String m_audioRenditionSets;
     bool m_audioRenditionSetsHasBeenSet;

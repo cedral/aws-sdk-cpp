@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteHealthCheckRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ID of the health check that you want to delete.</p>
      */
     inline const Aws::String& GetHealthCheckId() const{ return m_healthCheckId; }
+
+    /**
+     * <p>The ID of the health check that you want to delete.</p>
+     */
+    inline bool HealthCheckIdHasBeenSet() const { return m_healthCheckIdHasBeenSet; }
 
     /**
      * <p>The ID of the health check that you want to delete.</p>

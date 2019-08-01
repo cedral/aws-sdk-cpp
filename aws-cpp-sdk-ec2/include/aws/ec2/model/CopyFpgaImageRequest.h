@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CopyFpgaImageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -60,6 +60,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -75,6 +83,11 @@ namespace Model
      * <p>The ID of the source AFI.</p>
      */
     inline const Aws::String& GetSourceFpgaImageId() const{ return m_sourceFpgaImageId; }
+
+    /**
+     * <p>The ID of the source AFI.</p>
+     */
+    inline bool SourceFpgaImageIdHasBeenSet() const { return m_sourceFpgaImageIdHasBeenSet; }
 
     /**
      * <p>The ID of the source AFI.</p>
@@ -115,6 +128,11 @@ namespace Model
     /**
      * <p>The description for the new AFI.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description for the new AFI.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -151,6 +169,11 @@ namespace Model
     /**
      * <p>The name for the new AFI. The default is the name of the source AFI.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name for the new AFI. The default is the name of the source AFI.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -180,37 +203,42 @@ namespace Model
 
 
     /**
-     * <p>The region that contains the source AFI.</p>
+     * <p>The Region that contains the source AFI.</p>
      */
     inline const Aws::String& GetSourceRegion() const{ return m_sourceRegion; }
 
     /**
-     * <p>The region that contains the source AFI.</p>
+     * <p>The Region that contains the source AFI.</p>
+     */
+    inline bool SourceRegionHasBeenSet() const { return m_sourceRegionHasBeenSet; }
+
+    /**
+     * <p>The Region that contains the source AFI.</p>
      */
     inline void SetSourceRegion(const Aws::String& value) { m_sourceRegionHasBeenSet = true; m_sourceRegion = value; }
 
     /**
-     * <p>The region that contains the source AFI.</p>
+     * <p>The Region that contains the source AFI.</p>
      */
     inline void SetSourceRegion(Aws::String&& value) { m_sourceRegionHasBeenSet = true; m_sourceRegion = std::move(value); }
 
     /**
-     * <p>The region that contains the source AFI.</p>
+     * <p>The Region that contains the source AFI.</p>
      */
     inline void SetSourceRegion(const char* value) { m_sourceRegionHasBeenSet = true; m_sourceRegion.assign(value); }
 
     /**
-     * <p>The region that contains the source AFI.</p>
+     * <p>The Region that contains the source AFI.</p>
      */
     inline CopyFpgaImageRequest& WithSourceRegion(const Aws::String& value) { SetSourceRegion(value); return *this;}
 
     /**
-     * <p>The region that contains the source AFI.</p>
+     * <p>The Region that contains the source AFI.</p>
      */
     inline CopyFpgaImageRequest& WithSourceRegion(Aws::String&& value) { SetSourceRegion(std::move(value)); return *this;}
 
     /**
-     * <p>The region that contains the source AFI.</p>
+     * <p>The Region that contains the source AFI.</p>
      */
     inline CopyFpgaImageRequest& WithSourceRegion(const char* value) { SetSourceRegion(value); return *this;}
 
@@ -222,6 +250,14 @@ namespace Model
      * Idempotency</a>.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring
+     * Idempotency</a>.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency

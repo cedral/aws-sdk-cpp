@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/iotanalytics/IoTAnalytics_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/iotanalytics/model/DatastoreStorage.h>
 #include <aws/iotanalytics/model/DatastoreStatus.h>
 #include <aws/iotanalytics/model/RetentionPeriod.h>
 #include <aws/core/utils/DateTime.h>
@@ -58,6 +59,11 @@ namespace Model
     /**
      * <p>The name of the data store.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the data store.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -87,9 +93,45 @@ namespace Model
 
 
     /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline const DatastoreStorage& GetStorage() const{ return m_storage; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline bool StorageHasBeenSet() const { return m_storageHasBeenSet; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline void SetStorage(const DatastoreStorage& value) { m_storageHasBeenSet = true; m_storage = value; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline void SetStorage(DatastoreStorage&& value) { m_storageHasBeenSet = true; m_storage = std::move(value); }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline Datastore& WithStorage(const DatastoreStorage& value) { SetStorage(value); return *this;}
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline Datastore& WithStorage(DatastoreStorage&& value) { SetStorage(std::move(value)); return *this;}
+
+
+    /**
      * <p>The ARN of the data store.</p>
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * <p>The ARN of the data store.</p>
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * <p>The ARN of the data store.</p>
@@ -136,6 +178,14 @@ namespace Model
      * created and can be used.</p> </dd> <dt>DELETING</dt> <dd> <p>The data store is
      * being deleted.</p> </dd> </dl>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p>The status of a data store:</p> <dl> <dt>CREATING</dt> <dd> <p>The data store
+     * is being created.</p> </dd> <dt>ACTIVE</dt> <dd> <p>The data store has been
+     * created and can be used.</p> </dd> <dt>DELETING</dt> <dd> <p>The data store is
+     * being deleted.</p> </dd> </dl>
+     */
     inline void SetStatus(const DatastoreStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -171,6 +221,11 @@ namespace Model
     /**
      * <p>How long, in days, message data is kept for the data store.</p>
      */
+    inline bool RetentionPeriodHasBeenSet() const { return m_retentionPeriodHasBeenSet; }
+
+    /**
+     * <p>How long, in days, message data is kept for the data store.</p>
+     */
     inline void SetRetentionPeriod(const RetentionPeriod& value) { m_retentionPeriodHasBeenSet = true; m_retentionPeriod = value; }
 
     /**
@@ -193,6 +248,11 @@ namespace Model
      * <p>When the data store was created.</p>
      */
     inline const Aws::Utils::DateTime& GetCreationTime() const{ return m_creationTime; }
+
+    /**
+     * <p>When the data store was created.</p>
+     */
+    inline bool CreationTimeHasBeenSet() const { return m_creationTimeHasBeenSet; }
 
     /**
      * <p>When the data store was created.</p>
@@ -223,6 +283,11 @@ namespace Model
     /**
      * <p>The last time the data store was updated.</p>
      */
+    inline bool LastUpdateTimeHasBeenSet() const { return m_lastUpdateTimeHasBeenSet; }
+
+    /**
+     * <p>The last time the data store was updated.</p>
+     */
     inline void SetLastUpdateTime(const Aws::Utils::DateTime& value) { m_lastUpdateTimeHasBeenSet = true; m_lastUpdateTime = value; }
 
     /**
@@ -244,6 +309,9 @@ namespace Model
 
     Aws::String m_name;
     bool m_nameHasBeenSet;
+
+    DatastoreStorage m_storage;
+    bool m_storageHasBeenSet;
 
     Aws::String m_arn;
     bool m_arnHasBeenSet;

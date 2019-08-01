@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * cluster ID, use <a>DescribeClusters</a>.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The cluster identifier (ID) for the cluster that you are tagging. To find the
+     * cluster ID, use <a>DescribeClusters</a>.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The cluster identifier (ID) for the cluster that you are tagging. To find the
@@ -93,6 +99,11 @@ namespace Model
      * <p>A list of one or more tags.</p>
      */
     inline const Aws::Vector<Tag>& GetTagList() const{ return m_tagList; }
+
+    /**
+     * <p>A list of one or more tags.</p>
+     */
+    inline bool TagListHasBeenSet() const { return m_tagListHasBeenSet; }
 
     /**
      * <p>A list of one or more tags.</p>

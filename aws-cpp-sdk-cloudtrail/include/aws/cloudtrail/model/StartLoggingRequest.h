@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     StartLoggingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail
+     * logs AWS API calls. The format of a trail ARN is:</p> <p>
+     * <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail

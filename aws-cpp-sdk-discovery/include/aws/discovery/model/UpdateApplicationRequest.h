@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>Configuration ID of the application to be updated.</p>
      */
     inline const Aws::String& GetConfigurationId() const{ return m_configurationId; }
+
+    /**
+     * <p>Configuration ID of the application to be updated.</p>
+     */
+    inline bool ConfigurationIdHasBeenSet() const { return m_configurationIdHasBeenSet; }
 
     /**
      * <p>Configuration ID of the application to be updated.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>New name of the application to be updated.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>New name of the application to be updated.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>New description of the application to be updated.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>New description of the application to be updated.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>New description of the application to be updated.</p>

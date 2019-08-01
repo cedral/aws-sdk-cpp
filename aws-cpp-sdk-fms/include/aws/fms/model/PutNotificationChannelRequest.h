@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutNotificationChannelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * from AWS Firewall Manager.</p>
      */
     inline const Aws::String& GetSnsTopicArn() const{ return m_snsTopicArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications
+     * from AWS Firewall Manager.</p>
+     */
+    inline bool SnsTopicArnHasBeenSet() const { return m_snsTopicArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications
@@ -92,6 +98,12 @@ namespace Model
      * record AWS Firewall Manager activity. </p>
      */
     inline const Aws::String& GetSnsRoleName() const{ return m_snsRoleName; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to
+     * record AWS Firewall Manager activity. </p>
+     */
+    inline bool SnsRoleNameHasBeenSet() const { return m_snsRoleNameHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to

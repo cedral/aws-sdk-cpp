@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     RenewOfferingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ID of a request to renew an offering.</p>
      */
     inline const Aws::String& GetOfferingId() const{ return m_offeringId; }
+
+    /**
+     * <p>The ID of a request to renew an offering.</p>
+     */
+    inline bool OfferingIdHasBeenSet() const { return m_offeringIdHasBeenSet; }
 
     /**
      * <p>The ID of a request to renew an offering.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>The quantity requested in an offering renewal.</p>
      */
     inline int GetQuantity() const{ return m_quantity; }
+
+    /**
+     * <p>The quantity requested in an offering renewal.</p>
+     */
+    inline bool QuantityHasBeenSet() const { return m_quantityHasBeenSet; }
 
     /**
      * <p>The quantity requested in an offering renewal.</p>

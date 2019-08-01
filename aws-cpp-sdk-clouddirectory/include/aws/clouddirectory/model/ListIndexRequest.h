@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListIndexRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The ARN of the directory that the index exists in.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The ARN of the directory that the index exists in.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The ARN of the directory that the index exists in.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>Specifies the ranges of indexed values that you want to query.</p>
      */
+    inline bool RangesOnIndexedValuesHasBeenSet() const { return m_rangesOnIndexedValuesHasBeenSet; }
+
+    /**
+     * <p>Specifies the ranges of indexed values that you want to query.</p>
+     */
     inline void SetRangesOnIndexedValues(const Aws::Vector<ObjectAttributeRange>& value) { m_rangesOnIndexedValuesHasBeenSet = true; m_rangesOnIndexedValues = value; }
 
     /**
@@ -128,6 +138,11 @@ namespace Model
     /**
      * <p>The reference to the index to list.</p>
      */
+    inline bool IndexReferenceHasBeenSet() const { return m_indexReferenceHasBeenSet; }
+
+    /**
+     * <p>The reference to the index to list.</p>
+     */
     inline void SetIndexReference(const ObjectReference& value) { m_indexReferenceHasBeenSet = true; m_indexReference = value; }
 
     /**
@@ -160,6 +175,14 @@ namespace Model
      * href="http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon
      * Cloud Directory Limits</a>.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of objects in a single page to retrieve from the index
+     * during a request. For more information, see <a
+     * href="http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon
+     * Cloud Directory Limits</a>.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -175,6 +198,11 @@ namespace Model
      * <p>The pagination token.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The pagination token.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The pagination token.</p>
@@ -211,6 +239,11 @@ namespace Model
      * <p>The consistency level to execute the request at.</p>
      */
     inline const ConsistencyLevel& GetConsistencyLevel() const{ return m_consistencyLevel; }
+
+    /**
+     * <p>The consistency level to execute the request at.</p>
+     */
+    inline bool ConsistencyLevelHasBeenSet() const { return m_consistencyLevelHasBeenSet; }
 
     /**
      * <p>The consistency level to execute the request at.</p>

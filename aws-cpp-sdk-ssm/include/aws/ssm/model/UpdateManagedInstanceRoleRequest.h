@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateManagedInstanceRoleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the managed instance where you want to update the role.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The ID of the managed instance where you want to update the role.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The ID of the managed instance where you want to update the role.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The IAM role you want to assign or change.</p>
      */
     inline const Aws::String& GetIamRole() const{ return m_iamRole; }
+
+    /**
+     * <p>The IAM role you want to assign or change.</p>
+     */
+    inline bool IamRoleHasBeenSet() const { return m_iamRoleHasBeenSet; }
 
     /**
      * <p>The IAM role you want to assign or change.</p>

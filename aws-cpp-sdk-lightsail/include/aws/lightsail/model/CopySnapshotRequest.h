@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CopySnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the source instance or disk snapshot to be copied.</p>
      */
     inline const Aws::String& GetSourceSnapshotName() const{ return m_sourceSnapshotName; }
+
+    /**
+     * <p>The name of the source instance or disk snapshot to be copied.</p>
+     */
+    inline bool SourceSnapshotNameHasBeenSet() const { return m_sourceSnapshotNameHasBeenSet; }
 
     /**
      * <p>The name of the source instance or disk snapshot to be copied.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The name of the new instance or disk snapshot to be created as a copy.</p>
      */
+    inline bool TargetSnapshotNameHasBeenSet() const { return m_targetSnapshotNameHasBeenSet; }
+
+    /**
+     * <p>The name of the new instance or disk snapshot to be created as a copy.</p>
+     */
     inline void SetTargetSnapshotName(const Aws::String& value) { m_targetSnapshotNameHasBeenSet = true; m_targetSnapshotName = value; }
 
     /**
@@ -121,6 +131,11 @@ namespace Model
      * <p>The AWS Region where the source snapshot is located.</p>
      */
     inline const RegionName& GetSourceRegion() const{ return m_sourceRegion; }
+
+    /**
+     * <p>The AWS Region where the source snapshot is located.</p>
+     */
+    inline bool SourceRegionHasBeenSet() const { return m_sourceRegionHasBeenSet; }
 
     /**
      * <p>The AWS Region where the source snapshot is located.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeIdentityUsageRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * created by Amazon Cognito. GUID generation is unique within a region.
      */
     inline const Aws::String& GetIdentityPoolId() const{ return m_identityPoolId; }
+
+    /**
+     * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
+     * created by Amazon Cognito. GUID generation is unique within a region.
+     */
+    inline bool IdentityPoolIdHasBeenSet() const { return m_identityPoolIdHasBeenSet; }
 
     /**
      * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
@@ -94,6 +100,12 @@ namespace Model
      * created by Amazon Cognito. GUID generation is unique within a region.
      */
     inline const Aws::String& GetIdentityId() const{ return m_identityId; }
+
+    /**
+     * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
+     * created by Amazon Cognito. GUID generation is unique within a region.
+     */
+    inline bool IdentityIdHasBeenSet() const { return m_identityIdHasBeenSet; }
 
     /**
      * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)

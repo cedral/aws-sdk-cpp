@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListDevicesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The ARN of the fleet.</p>
      */
     inline const Aws::String& GetFleetArn() const{ return m_fleetArn; }
+
+    /**
+     * <p>The ARN of the fleet.</p>
+     */
+    inline bool FleetArnHasBeenSet() const { return m_fleetArnHasBeenSet; }
 
     /**
      * <p>The ARN of the fleet.</p>
@@ -88,6 +93,12 @@ namespace Model
      * <p>The pagination token used to retrieve the next page of results for this
      * operation. If this value is null, it retrieves the first page.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The pagination token used to retrieve the next page of results for this
+     * operation. If this value is null, it retrieves the first page.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -125,6 +136,11 @@ namespace Model
      * <p>The maximum number of results to be included in the next page.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of results to be included in the next page.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of results to be included in the next page.</p>

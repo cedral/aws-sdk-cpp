@@ -36,7 +36,7 @@ namespace Model
    * <p>A complex data type for the status codes that you specify that, when returned
    * by a primary origin, trigger CloudFront to failover to a second
    * origin.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/StatusCodes">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/StatusCodes">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API StatusCodes
@@ -57,6 +57,11 @@ namespace Model
     /**
      * <p>The number of status codes.</p>
      */
+    inline bool QuantityHasBeenSet() const { return m_quantityHasBeenSet; }
+
+    /**
+     * <p>The number of status codes.</p>
+     */
     inline void SetQuantity(int value) { m_quantityHasBeenSet = true; m_quantity = value; }
 
     /**
@@ -69,6 +74,11 @@ namespace Model
      * <p>The items (status codes) for an origin group.</p>
      */
     inline const Aws::Vector<int>& GetItems() const{ return m_items; }
+
+    /**
+     * <p>The items (status codes) for an origin group.</p>
+     */
+    inline bool ItemsHasBeenSet() const { return m_itemsHasBeenSet; }
 
     /**
      * <p>The items (status codes) for an origin group.</p>

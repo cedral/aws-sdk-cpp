@@ -27,15 +27,12 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for CancelExportTask.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelExportTaskRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API CancelExportTaskRequest : public EC2Request
   {
   public:
     CancelExportTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +51,12 @@ namespace Model
      * <code>CreateInstanceExportTask</code>.</p>
      */
     inline const Aws::String& GetExportTaskId() const{ return m_exportTaskId; }
+
+    /**
+     * <p>The ID of the export task. This is the ID returned by
+     * <code>CreateInstanceExportTask</code>.</p>
+     */
+    inline bool ExportTaskIdHasBeenSet() const { return m_exportTaskIdHasBeenSet; }
 
     /**
      * <p>The ID of the export task. This is the ID returned by

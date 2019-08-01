@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AllocatePrivateVirtualInterfaceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * provisioned.</p>
      */
     inline const Aws::String& GetConnectionId() const{ return m_connectionId; }
+
+    /**
+     * <p>The ID of the connection on which the private virtual interface is
+     * provisioned.</p>
+     */
+    inline bool ConnectionIdHasBeenSet() const { return m_connectionIdHasBeenSet; }
 
     /**
      * <p>The ID of the connection on which the private virtual interface is
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>The ID of the AWS account that owns the virtual private interface.</p>
      */
+    inline bool OwnerAccountHasBeenSet() const { return m_ownerAccountHasBeenSet; }
+
+    /**
+     * <p>The ID of the AWS account that owns the virtual private interface.</p>
+     */
     inline void SetOwnerAccount(const Aws::String& value) { m_ownerAccountHasBeenSet = true; m_ownerAccount = value; }
 
     /**
@@ -128,6 +139,11 @@ namespace Model
      * <p>Information about the private virtual interface.</p>
      */
     inline const NewPrivateVirtualInterfaceAllocation& GetNewPrivateVirtualInterfaceAllocation() const{ return m_newPrivateVirtualInterfaceAllocation; }
+
+    /**
+     * <p>Information about the private virtual interface.</p>
+     */
+    inline bool NewPrivateVirtualInterfaceAllocationHasBeenSet() const { return m_newPrivateVirtualInterfaceAllocationHasBeenSet; }
 
     /**
      * <p>Information about the private virtual interface.</p>

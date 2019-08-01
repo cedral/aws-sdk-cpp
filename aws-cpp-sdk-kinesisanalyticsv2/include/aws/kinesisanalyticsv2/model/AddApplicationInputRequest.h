@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     AddApplicationInputRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * source.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of your existing application to which you want to add the streaming
+     * source.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of your existing application to which you want to add the streaming
@@ -100,6 +106,13 @@ namespace Model
      * <a>DescribeApplication</a> operation to find the current application
      * version.</p>
      */
+    inline bool CurrentApplicationVersionIdHasBeenSet() const { return m_currentApplicationVersionIdHasBeenSet; }
+
+    /**
+     * <p>The current version of your application. You can use the
+     * <a>DescribeApplication</a> operation to find the current application
+     * version.</p>
+     */
     inline void SetCurrentApplicationVersionId(long long value) { m_currentApplicationVersionIdHasBeenSet = true; m_currentApplicationVersionId = value; }
 
     /**
@@ -114,6 +127,11 @@ namespace Model
      * <p>The <a>Input</a> to add.</p>
      */
     inline const Input& GetInput() const{ return m_input; }
+
+    /**
+     * <p>The <a>Input</a> to add.</p>
+     */
+    inline bool InputHasBeenSet() const { return m_inputHasBeenSet; }
 
     /**
      * <p>The <a>Input</a> to add.</p>

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     UpdateBrokerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * broker or after a manual broker reboot.
      */
     inline bool GetAutoMinorVersionUpgrade() const{ return m_autoMinorVersionUpgrade; }
+
+    /**
+     * Enables automatic upgrades to new minor versions for brokers, as Apache releases
+     * the versions. The automatic upgrades occur during the maintenance window of the
+     * broker or after a manual broker reboot.
+     */
+    inline bool AutoMinorVersionUpgradeHasBeenSet() const { return m_autoMinorVersionUpgradeHasBeenSet; }
 
     /**
      * Enables automatic upgrades to new minor versions for brokers, as Apache releases
@@ -76,6 +83,14 @@ namespace Model
      * characters.
      */
     inline const Aws::String& GetBrokerId() const{ return m_brokerId; }
+
+    /**
+     * The name of the broker. This value must be unique in your AWS account, 1-50
+     * characters long, must contain only letters, numbers, dashes, and underscores,
+     * and must not contain whitespaces, brackets, wildcard characters, or special
+     * characters.
+     */
+    inline bool BrokerIdHasBeenSet() const { return m_brokerIdHasBeenSet; }
 
     /**
      * The name of the broker. This value must be unique in your AWS account, 1-50
@@ -134,6 +149,11 @@ namespace Model
     /**
      * A list of information about the configuration.
      */
+    inline bool ConfigurationHasBeenSet() const { return m_configurationHasBeenSet; }
+
+    /**
+     * A list of information about the configuration.
+     */
     inline void SetConfiguration(const ConfigurationId& value) { m_configurationHasBeenSet = true; m_configuration = value; }
 
     /**
@@ -157,6 +177,12 @@ namespace Model
      * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
+
+    /**
+     * The version of the broker engine. For a list of supported engine versions, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
+     */
+    inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
      * The version of the broker engine. For a list of supported engine versions, see
@@ -199,6 +225,11 @@ namespace Model
      * Enables Amazon CloudWatch logging for brokers.
      */
     inline const Logs& GetLogs() const{ return m_logs; }
+
+    /**
+     * Enables Amazon CloudWatch logging for brokers.
+     */
+    inline bool LogsHasBeenSet() const { return m_logsHasBeenSet; }
 
     /**
      * Enables Amazon CloudWatch logging for brokers.

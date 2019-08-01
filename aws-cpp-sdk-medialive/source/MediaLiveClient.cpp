@@ -39,6 +39,7 @@
 #include <aws/medialive/model/DeleteInputRequest.h>
 #include <aws/medialive/model/DeleteInputSecurityGroupRequest.h>
 #include <aws/medialive/model/DeleteReservationRequest.h>
+#include <aws/medialive/model/DeleteScheduleRequest.h>
 #include <aws/medialive/model/DeleteTagsRequest.h>
 #include <aws/medialive/model/DescribeChannelRequest.h>
 #include <aws/medialive/model/DescribeInputRequest.h>
@@ -56,8 +57,10 @@
 #include <aws/medialive/model/StartChannelRequest.h>
 #include <aws/medialive/model/StopChannelRequest.h>
 #include <aws/medialive/model/UpdateChannelRequest.h>
+#include <aws/medialive/model/UpdateChannelClassRequest.h>
 #include <aws/medialive/model/UpdateInputRequest.h>
 #include <aws/medialive/model/UpdateInputSecurityGroupRequest.h>
+#include <aws/medialive/model/UpdateReservationRequest.h>
 
 using namespace Aws;
 using namespace Aws::Auth;
@@ -130,8 +133,14 @@ void MediaLiveClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 BatchUpdateScheduleOutcome MediaLiveClient::BatchUpdateSchedule(const BatchUpdateScheduleRequest& request) const
 {
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("BatchUpdateSchedule", "Required field: ChannelId, is not set");
+    return BatchUpdateScheduleOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/channels/";
@@ -274,6 +283,11 @@ void MediaLiveClient::CreateInputSecurityGroupAsyncHelper(const CreateInputSecur
 
 CreateTagsOutcome MediaLiveClient::CreateTags(const CreateTagsRequest& request) const
 {
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateTags", "Required field: ResourceArn, is not set");
+    return CreateTagsOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/tags/";
@@ -310,6 +324,11 @@ void MediaLiveClient::CreateTagsAsyncHelper(const CreateTagsRequest& request, co
 
 DeleteChannelOutcome MediaLiveClient::DeleteChannel(const DeleteChannelRequest& request) const
 {
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteChannel", "Required field: ChannelId, is not set");
+    return DeleteChannelOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/channels/";
@@ -346,6 +365,11 @@ void MediaLiveClient::DeleteChannelAsyncHelper(const DeleteChannelRequest& reque
 
 DeleteInputOutcome MediaLiveClient::DeleteInput(const DeleteInputRequest& request) const
 {
+  if (!request.InputIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteInput", "Required field: InputId, is not set");
+    return DeleteInputOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [InputId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/inputs/";
@@ -382,6 +406,11 @@ void MediaLiveClient::DeleteInputAsyncHelper(const DeleteInputRequest& request, 
 
 DeleteInputSecurityGroupOutcome MediaLiveClient::DeleteInputSecurityGroup(const DeleteInputSecurityGroupRequest& request) const
 {
+  if (!request.InputSecurityGroupIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteInputSecurityGroup", "Required field: InputSecurityGroupId, is not set");
+    return DeleteInputSecurityGroupOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [InputSecurityGroupId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/inputSecurityGroups/";
@@ -418,6 +447,11 @@ void MediaLiveClient::DeleteInputSecurityGroupAsyncHelper(const DeleteInputSecur
 
 DeleteReservationOutcome MediaLiveClient::DeleteReservation(const DeleteReservationRequest& request) const
 {
+  if (!request.ReservationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteReservation", "Required field: ReservationId, is not set");
+    return DeleteReservationOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ReservationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/reservations/";
@@ -452,8 +486,60 @@ void MediaLiveClient::DeleteReservationAsyncHelper(const DeleteReservationReques
   handler(this, request, DeleteReservation(request), context);
 }
 
+DeleteScheduleOutcome MediaLiveClient::DeleteSchedule(const DeleteScheduleRequest& request) const
+{
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteSchedule", "Required field: ChannelId, is not set");
+    return DeleteScheduleOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/prod/channels/";
+  ss << request.GetChannelId();
+  ss << "/schedule";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteScheduleOutcome(DeleteScheduleResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteScheduleOutcome(outcome.GetError());
+  }
+}
+
+DeleteScheduleOutcomeCallable MediaLiveClient::DeleteScheduleCallable(const DeleteScheduleRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteScheduleOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteSchedule(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void MediaLiveClient::DeleteScheduleAsync(const DeleteScheduleRequest& request, const DeleteScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteScheduleAsyncHelper( request, handler, context ); } );
+}
+
+void MediaLiveClient::DeleteScheduleAsyncHelper(const DeleteScheduleRequest& request, const DeleteScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteSchedule(request), context);
+}
+
 DeleteTagsOutcome MediaLiveClient::DeleteTags(const DeleteTagsRequest& request) const
 {
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteTags", "Required field: ResourceArn, is not set");
+    return DeleteTagsOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  if (!request.TagKeysHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteTags", "Required field: TagKeys, is not set");
+    return DeleteTagsOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/tags/";
@@ -490,6 +576,11 @@ void MediaLiveClient::DeleteTagsAsyncHelper(const DeleteTagsRequest& request, co
 
 DescribeChannelOutcome MediaLiveClient::DescribeChannel(const DescribeChannelRequest& request) const
 {
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeChannel", "Required field: ChannelId, is not set");
+    return DescribeChannelOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/channels/";
@@ -526,6 +617,11 @@ void MediaLiveClient::DescribeChannelAsyncHelper(const DescribeChannelRequest& r
 
 DescribeInputOutcome MediaLiveClient::DescribeInput(const DescribeInputRequest& request) const
 {
+  if (!request.InputIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeInput", "Required field: InputId, is not set");
+    return DescribeInputOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [InputId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/inputs/";
@@ -562,6 +658,11 @@ void MediaLiveClient::DescribeInputAsyncHelper(const DescribeInputRequest& reque
 
 DescribeInputSecurityGroupOutcome MediaLiveClient::DescribeInputSecurityGroup(const DescribeInputSecurityGroupRequest& request) const
 {
+  if (!request.InputSecurityGroupIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeInputSecurityGroup", "Required field: InputSecurityGroupId, is not set");
+    return DescribeInputSecurityGroupOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [InputSecurityGroupId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/inputSecurityGroups/";
@@ -598,6 +699,11 @@ void MediaLiveClient::DescribeInputSecurityGroupAsyncHelper(const DescribeInputS
 
 DescribeOfferingOutcome MediaLiveClient::DescribeOffering(const DescribeOfferingRequest& request) const
 {
+  if (!request.OfferingIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeOffering", "Required field: OfferingId, is not set");
+    return DescribeOfferingOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [OfferingId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/offerings/";
@@ -634,6 +740,11 @@ void MediaLiveClient::DescribeOfferingAsyncHelper(const DescribeOfferingRequest&
 
 DescribeReservationOutcome MediaLiveClient::DescribeReservation(const DescribeReservationRequest& request) const
 {
+  if (!request.ReservationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeReservation", "Required field: ReservationId, is not set");
+    return DescribeReservationOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ReservationId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/reservations/";
@@ -670,6 +781,11 @@ void MediaLiveClient::DescribeReservationAsyncHelper(const DescribeReservationRe
 
 DescribeScheduleOutcome MediaLiveClient::DescribeSchedule(const DescribeScheduleRequest& request) const
 {
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeSchedule", "Required field: ChannelId, is not set");
+    return DescribeScheduleOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/channels/";
@@ -882,6 +998,11 @@ void MediaLiveClient::ListReservationsAsyncHelper(const ListReservationsRequest&
 
 ListTagsForResourceOutcome MediaLiveClient::ListTagsForResource(const ListTagsForResourceRequest& request) const
 {
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListTagsForResource", "Required field: ResourceArn, is not set");
+    return ListTagsForResourceOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/tags/";
@@ -918,6 +1039,11 @@ void MediaLiveClient::ListTagsForResourceAsyncHelper(const ListTagsForResourceRe
 
 PurchaseOfferingOutcome MediaLiveClient::PurchaseOffering(const PurchaseOfferingRequest& request) const
 {
+  if (!request.OfferingIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("PurchaseOffering", "Required field: OfferingId, is not set");
+    return PurchaseOfferingOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [OfferingId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/offerings/";
@@ -955,6 +1081,11 @@ void MediaLiveClient::PurchaseOfferingAsyncHelper(const PurchaseOfferingRequest&
 
 StartChannelOutcome MediaLiveClient::StartChannel(const StartChannelRequest& request) const
 {
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("StartChannel", "Required field: ChannelId, is not set");
+    return StartChannelOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/channels/";
@@ -992,6 +1123,11 @@ void MediaLiveClient::StartChannelAsyncHelper(const StartChannelRequest& request
 
 StopChannelOutcome MediaLiveClient::StopChannel(const StopChannelRequest& request) const
 {
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("StopChannel", "Required field: ChannelId, is not set");
+    return StopChannelOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/channels/";
@@ -1029,6 +1165,11 @@ void MediaLiveClient::StopChannelAsyncHelper(const StopChannelRequest& request, 
 
 UpdateChannelOutcome MediaLiveClient::UpdateChannel(const UpdateChannelRequest& request) const
 {
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateChannel", "Required field: ChannelId, is not set");
+    return UpdateChannelOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/channels/";
@@ -1063,8 +1204,55 @@ void MediaLiveClient::UpdateChannelAsyncHelper(const UpdateChannelRequest& reque
   handler(this, request, UpdateChannel(request), context);
 }
 
+UpdateChannelClassOutcome MediaLiveClient::UpdateChannelClass(const UpdateChannelClassRequest& request) const
+{
+  if (!request.ChannelIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateChannelClass", "Required field: ChannelId, is not set");
+    return UpdateChannelClassOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ChannelId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/prod/channels/";
+  ss << request.GetChannelId();
+  ss << "/channelClass";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateChannelClassOutcome(UpdateChannelClassResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateChannelClassOutcome(outcome.GetError());
+  }
+}
+
+UpdateChannelClassOutcomeCallable MediaLiveClient::UpdateChannelClassCallable(const UpdateChannelClassRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateChannelClassOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateChannelClass(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void MediaLiveClient::UpdateChannelClassAsync(const UpdateChannelClassRequest& request, const UpdateChannelClassResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateChannelClassAsyncHelper( request, handler, context ); } );
+}
+
+void MediaLiveClient::UpdateChannelClassAsyncHelper(const UpdateChannelClassRequest& request, const UpdateChannelClassResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateChannelClass(request), context);
+}
+
 UpdateInputOutcome MediaLiveClient::UpdateInput(const UpdateInputRequest& request) const
 {
+  if (!request.InputIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateInput", "Required field: InputId, is not set");
+    return UpdateInputOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [InputId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/inputs/";
@@ -1101,6 +1289,11 @@ void MediaLiveClient::UpdateInputAsyncHelper(const UpdateInputRequest& request, 
 
 UpdateInputSecurityGroupOutcome MediaLiveClient::UpdateInputSecurityGroup(const UpdateInputSecurityGroupRequest& request) const
 {
+  if (!request.InputSecurityGroupIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateInputSecurityGroup", "Required field: InputSecurityGroupId, is not set");
+    return UpdateInputSecurityGroupOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [InputSecurityGroupId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/prod/inputSecurityGroups/";
@@ -1133,5 +1326,46 @@ void MediaLiveClient::UpdateInputSecurityGroupAsync(const UpdateInputSecurityGro
 void MediaLiveClient::UpdateInputSecurityGroupAsyncHelper(const UpdateInputSecurityGroupRequest& request, const UpdateInputSecurityGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, UpdateInputSecurityGroup(request), context);
+}
+
+UpdateReservationOutcome MediaLiveClient::UpdateReservation(const UpdateReservationRequest& request) const
+{
+  if (!request.ReservationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateReservation", "Required field: ReservationId, is not set");
+    return UpdateReservationOutcome(Aws::Client::AWSError<MediaLiveErrors>(MediaLiveErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ReservationId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/prod/reservations/";
+  ss << request.GetReservationId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateReservationOutcome(UpdateReservationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateReservationOutcome(outcome.GetError());
+  }
+}
+
+UpdateReservationOutcomeCallable MediaLiveClient::UpdateReservationCallable(const UpdateReservationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateReservationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateReservation(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void MediaLiveClient::UpdateReservationAsync(const UpdateReservationRequest& request, const UpdateReservationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateReservationAsyncHelper( request, handler, context ); } );
+}
+
+void MediaLiveClient::UpdateReservationAsyncHelper(const UpdateReservationRequest& request, const UpdateReservationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateReservation(request), context);
 }
 

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UnshareDirectoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * stop sharing.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The identifier of the AWS Managed Microsoft AD directory that you want to
+     * stop sharing.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The identifier of the AWS Managed Microsoft AD directory that you want to
@@ -93,6 +99,12 @@ namespace Model
      * be unshared.</p>
      */
     inline const UnshareTarget& GetUnshareTarget() const{ return m_unshareTarget; }
+
+    /**
+     * <p>Identifier for the directory consumer account with whom the directory has to
+     * be unshared.</p>
+     */
+    inline bool UnshareTargetHasBeenSet() const { return m_unshareTargetHasBeenSet; }
 
     /**
      * <p>Identifier for the directory consumer account with whom the directory has to

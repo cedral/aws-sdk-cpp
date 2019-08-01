@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribePipelinesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>.</p>
      */
     inline const Aws::Vector<Aws::String>& GetPipelineIds() const{ return m_pipelineIds; }
+
+    /**
+     * <p>The IDs of the pipelines to describe. You can pass as many as 25 identifiers
+     * in a single call. To obtain pipeline IDs, call <a>ListPipelines</a>.</p>
+     */
+    inline bool PipelineIdsHasBeenSet() const { return m_pipelineIdsHasBeenSet; }
 
     /**
      * <p>The IDs of the pipelines to describe. You can pass as many as 25 identifiers

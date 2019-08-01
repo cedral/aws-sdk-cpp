@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeleteDatasetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * created by Amazon Cognito. GUID generation is unique within a region.
      */
     inline const Aws::String& GetIdentityPoolId() const{ return m_identityPoolId; }
+
+    /**
+     * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
+     * created by Amazon Cognito. GUID generation is unique within a region.
+     */
+    inline bool IdentityPoolIdHasBeenSet() const { return m_identityPoolIdHasBeenSet; }
 
     /**
      * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
@@ -98,6 +104,12 @@ namespace Model
      * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
      * created by Amazon Cognito. GUID generation is unique within a region.
      */
+    inline bool IdentityIdHasBeenSet() const { return m_identityIdHasBeenSet; }
+
+    /**
+     * A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE)
+     * created by Amazon Cognito. GUID generation is unique within a region.
+     */
     inline void SetIdentityId(const Aws::String& value) { m_identityIdHasBeenSet = true; m_identityId = value; }
 
     /**
@@ -136,6 +148,12 @@ namespace Model
      * (underscore), '-' (dash), and '.' (dot).
      */
     inline const Aws::String& GetDatasetName() const{ return m_datasetName; }
+
+    /**
+     * A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
+     * (underscore), '-' (dash), and '.' (dot).
+     */
+    inline bool DatasetNameHasBeenSet() const { return m_datasetNameHasBeenSet; }
 
     /**
      * A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'

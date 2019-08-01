@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateBGPPeerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ID of the virtual interface.</p>
      */
     inline const Aws::String& GetVirtualInterfaceId() const{ return m_virtualInterfaceId; }
+
+    /**
+     * <p>The ID of the virtual interface.</p>
+     */
+    inline bool VirtualInterfaceIdHasBeenSet() const { return m_virtualInterfaceIdHasBeenSet; }
 
     /**
      * <p>The ID of the virtual interface.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>Information about the BGP peer.</p>
      */
     inline const NewBGPPeer& GetNewBGPPeer() const{ return m_newBGPPeer; }
+
+    /**
+     * <p>Information about the BGP peer.</p>
+     */
+    inline bool NewBGPPeerHasBeenSet() const { return m_newBGPPeerHasBeenSet; }
 
     /**
      * <p>Information about the BGP peer.</p>

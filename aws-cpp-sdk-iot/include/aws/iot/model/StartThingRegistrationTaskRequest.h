@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StartThingRegistrationTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The provisioning template.</p>
      */
     inline const Aws::String& GetTemplateBody() const{ return m_templateBody; }
+
+    /**
+     * <p>The provisioning template.</p>
+     */
+    inline bool TemplateBodyHasBeenSet() const { return m_templateBodyHasBeenSet; }
 
     /**
      * <p>The provisioning template.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The S3 bucket that contains the input file.</p>
      */
+    inline bool InputFileBucketHasBeenSet() const { return m_inputFileBucketHasBeenSet; }
+
+    /**
+     * <p>The S3 bucket that contains the input file.</p>
+     */
     inline void SetInputFileBucket(const Aws::String& value) { m_inputFileBucketHasBeenSet = true; m_inputFileBucket = value; }
 
     /**
@@ -120,6 +130,13 @@ namespace Model
      * device (thing).</p>
      */
     inline const Aws::String& GetInputFileKey() const{ return m_inputFileKey; }
+
+    /**
+     * <p>The name of input file within the S3 bucket. This file contains a newline
+     * delimited JSON file. Each line contains the parameter values to provision one
+     * device (thing).</p>
+     */
+    inline bool InputFileKeyHasBeenSet() const { return m_inputFileKeyHasBeenSet; }
 
     /**
      * <p>The name of input file within the S3 bucket. This file contains a newline
@@ -168,6 +185,11 @@ namespace Model
      * <p>The IAM role ARN that grants permission the input file.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The IAM role ARN that grants permission the input file.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The IAM role ARN that grants permission the input file.</p>

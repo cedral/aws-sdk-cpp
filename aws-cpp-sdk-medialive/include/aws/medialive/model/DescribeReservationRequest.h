@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeReservationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * Unique reservation ID, e.g. '1234567'
      */
     inline const Aws::String& GetReservationId() const{ return m_reservationId; }
+
+    /**
+     * Unique reservation ID, e.g. '1234567'
+     */
+    inline bool ReservationIdHasBeenSet() const { return m_reservationIdHasBeenSet; }
 
     /**
      * Unique reservation ID, e.g. '1234567'

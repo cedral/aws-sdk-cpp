@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeAssessmentRunsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ARN that specifies the assessment run that you want to describe.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAssessmentRunArns() const{ return m_assessmentRunArns; }
+
+    /**
+     * <p>The ARN that specifies the assessment run that you want to describe.</p>
+     */
+    inline bool AssessmentRunArnsHasBeenSet() const { return m_assessmentRunArnsHasBeenSet; }
 
     /**
      * <p>The ARN that specifies the assessment run that you want to describe.</p>

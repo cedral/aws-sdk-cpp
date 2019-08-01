@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeUserProfilesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * described.</p>
      */
     inline const Aws::Vector<Aws::String>& GetIamUserArns() const{ return m_iamUserArns; }
+
+    /**
+     * <p>An array of IAM or federated user ARNs that identify the users to be
+     * described.</p>
+     */
+    inline bool IamUserArnsHasBeenSet() const { return m_iamUserArnsHasBeenSet; }
 
     /**
      * <p>An array of IAM or federated user ARNs that identify the users to be

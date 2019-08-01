@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AttachPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the policy to attach.</p>
      */
     inline const Aws::String& GetPolicyName() const{ return m_policyName; }
+
+    /**
+     * <p>The name of the policy to attach.</p>
+     */
+    inline bool PolicyNameHasBeenSet() const { return m_policyNameHasBeenSet; }
 
     /**
      * <p>The name of the policy to attach.</p>
@@ -84,6 +89,13 @@ namespace Model
      * to which the policy is attached.</p>
      */
     inline const Aws::String& GetTarget() const{ return m_target; }
+
+    /**
+     * <p>The <a
+     * href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-security-identity.html">identity</a>
+     * to which the policy is attached.</p>
+     */
+    inline bool TargetHasBeenSet() const { return m_targetHasBeenSet; }
 
     /**
      * <p>The <a

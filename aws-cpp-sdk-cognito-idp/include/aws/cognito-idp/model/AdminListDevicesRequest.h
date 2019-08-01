@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     AdminListDevicesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The user pool ID.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The user name.</p>
      */
+    inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
+
+    /**
+     * <p>The user name.</p>
+     */
     inline void SetUsername(const Aws::String& value) { m_usernameHasBeenSet = true; m_username = value; }
 
     /**
@@ -128,6 +138,11 @@ namespace Model
     /**
      * <p>The limit of the devices request.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The limit of the devices request.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -140,6 +155,11 @@ namespace Model
      * <p>The pagination token.</p>
      */
     inline const Aws::String& GetPaginationToken() const{ return m_paginationToken; }
+
+    /**
+     * <p>The pagination token.</p>
+     */
+    inline bool PaginationTokenHasBeenSet() const { return m_paginationTokenHasBeenSet; }
 
     /**
      * <p>The pagination token.</p>

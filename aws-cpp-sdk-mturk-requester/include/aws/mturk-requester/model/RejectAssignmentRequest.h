@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RejectAssignmentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * the Requester. </p>
      */
     inline const Aws::String& GetAssignmentId() const{ return m_assignmentId; }
+
+    /**
+     * <p> The ID of the assignment. The assignment must correspond to a HIT created by
+     * the Requester. </p>
+     */
+    inline bool AssignmentIdHasBeenSet() const { return m_assignmentIdHasBeenSet; }
 
     /**
      * <p> The ID of the assignment. The assignment must correspond to a HIT created by
@@ -92,6 +98,12 @@ namespace Model
      * the web site. </p>
      */
     inline const Aws::String& GetRequesterFeedback() const{ return m_requesterFeedback; }
+
+    /**
+     * <p> A message for the Worker, which the Worker can see in the Status section of
+     * the web site. </p>
+     */
+    inline bool RequesterFeedbackHasBeenSet() const { return m_requesterFeedbackHasBeenSet; }
 
     /**
      * <p> A message for the Worker, which the Worker can see in the Status section of

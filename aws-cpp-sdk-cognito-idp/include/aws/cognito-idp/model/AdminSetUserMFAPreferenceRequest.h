@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     AdminSetUserMFAPreferenceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The SMS text message MFA settings.</p>
      */
     inline const SMSMfaSettingsType& GetSMSMfaSettings() const{ return m_sMSMfaSettings; }
+
+    /**
+     * <p>The SMS text message MFA settings.</p>
+     */
+    inline bool SMSMfaSettingsHasBeenSet() const { return m_sMSMfaSettingsHasBeenSet; }
 
     /**
      * <p>The SMS text message MFA settings.</p>
@@ -80,6 +85,11 @@ namespace Model
     /**
      * <p>The time-based one-time password software token MFA settings.</p>
      */
+    inline bool SoftwareTokenMfaSettingsHasBeenSet() const { return m_softwareTokenMfaSettingsHasBeenSet; }
+
+    /**
+     * <p>The time-based one-time password software token MFA settings.</p>
+     */
     inline void SetSoftwareTokenMfaSettings(const SoftwareTokenMfaSettingsType& value) { m_softwareTokenMfaSettingsHasBeenSet = true; m_softwareTokenMfaSettings = value; }
 
     /**
@@ -102,6 +112,11 @@ namespace Model
      * <p>The user pool username or alias.</p>
      */
     inline const Aws::String& GetUsername() const{ return m_username; }
+
+    /**
+     * <p>The user pool username or alias.</p>
+     */
+    inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
 
     /**
      * <p>The user pool username or alias.</p>
@@ -138,6 +153,11 @@ namespace Model
      * <p>The user pool ID.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID.</p>

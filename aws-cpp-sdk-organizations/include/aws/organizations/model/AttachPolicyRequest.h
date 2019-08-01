@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AttachPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,15 @@ namespace Model
      * lower-case letters or digits.</p>
      */
     inline const Aws::String& GetPolicyId() const{ return m_policyId; }
+
+    /**
+     * <p>The unique identifier (ID) of the policy that you want to attach to the
+     * target. You can get the ID for the policy by calling the <a>ListPolicies</a>
+     * operation.</p> <p>The <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a> for a policy ID string requires "p-" followed by from 8 to 128
+     * lower-case letters or digits.</p>
+     */
+    inline bool PolicyIdHasBeenSet() const { return m_policyIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) of the policy that you want to attach to the
@@ -122,6 +131,21 @@ namespace Model
      * digits.</p> </li> </ul>
      */
     inline const Aws::String& GetTargetId() const{ return m_targetId; }
+
+    /**
+     * <p>The unique identifier (ID) of the root, OU, or account that you want to
+     * attach the policy to. You can get the ID by calling the <a>ListRoots</a>,
+     * <a>ListOrganizationalUnitsForParent</a>, or <a>ListAccounts</a> operations.</p>
+     * <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a target
+     * ID string requires one of the following:</p> <ul> <li> <p>Root: a string that
+     * begins with "r-" followed by from 4 to 32 lower-case letters or digits.</p>
+     * </li> <li> <p>Account: a string that consists of exactly 12 digits.</p> </li>
+     * <li> <p>Organizational unit (OU): a string that begins with "ou-" followed by
+     * from 4 to 32 lower-case letters or digits (the ID of the root that the OU is in)
+     * followed by a second "-" dash and from 8 to 32 additional lower-case letters or
+     * digits.</p> </li> </ul>
+     */
+    inline bool TargetIdHasBeenSet() const { return m_targetIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) of the root, OU, or account that you want to

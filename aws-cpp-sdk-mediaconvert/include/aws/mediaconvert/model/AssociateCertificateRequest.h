@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * resource.
      */
     inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * The ARN of the ACM certificate that you want to associate with your MediaConvert
+     * resource.
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
 
     /**
      * The ARN of the ACM certificate that you want to associate with your MediaConvert

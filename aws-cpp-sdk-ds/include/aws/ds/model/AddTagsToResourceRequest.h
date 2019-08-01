@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     AddTagsToResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>Identifier (ID) for the directory to which to add the tag.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>Identifier (ID) for the directory to which to add the tag.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>Identifier (ID) for the directory to which to add the tag.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The tags to be assigned to the directory.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags to be assigned to the directory.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags to be assigned to the directory.</p>

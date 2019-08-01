@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     UpdateBandwidthRateLimitRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,9 @@ namespace Model
 
     
     inline const Aws::String& GetGatewayARN() const{ return m_gatewayARN; }
+
+    
+    inline bool GatewayARNHasBeenSet() const { return m_gatewayARNHasBeenSet; }
 
     
     inline void SetGatewayARN(const Aws::String& value) { m_gatewayARNHasBeenSet = true; m_gatewayARN = value; }
@@ -81,6 +84,11 @@ namespace Model
     /**
      * <p>The average upload bandwidth rate limit in bits per second.</p>
      */
+    inline bool AverageUploadRateLimitInBitsPerSecHasBeenSet() const { return m_averageUploadRateLimitInBitsPerSecHasBeenSet; }
+
+    /**
+     * <p>The average upload bandwidth rate limit in bits per second.</p>
+     */
     inline void SetAverageUploadRateLimitInBitsPerSec(long long value) { m_averageUploadRateLimitInBitsPerSecHasBeenSet = true; m_averageUploadRateLimitInBitsPerSec = value; }
 
     /**
@@ -93,6 +101,11 @@ namespace Model
      * <p>The average download bandwidth rate limit in bits per second.</p>
      */
     inline long long GetAverageDownloadRateLimitInBitsPerSec() const{ return m_averageDownloadRateLimitInBitsPerSec; }
+
+    /**
+     * <p>The average download bandwidth rate limit in bits per second.</p>
+     */
+    inline bool AverageDownloadRateLimitInBitsPerSecHasBeenSet() const { return m_averageDownloadRateLimitInBitsPerSecHasBeenSet; }
 
     /**
      * <p>The average download bandwidth rate limit in bits per second.</p>

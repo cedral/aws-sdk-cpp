@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DetectStackResourceDriftRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the stack to which the resource belongs.</p>
      */
     inline const Aws::String& GetStackName() const{ return m_stackName; }
+
+    /**
+     * <p>The name of the stack to which the resource belongs.</p>
+     */
+    inline bool StackNameHasBeenSet() const { return m_stackNameHasBeenSet; }
 
     /**
      * <p>The name of the stack to which the resource belongs.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The logical name of the resource for which to return drift information.</p>
      */
     inline const Aws::String& GetLogicalResourceId() const{ return m_logicalResourceId; }
+
+    /**
+     * <p>The logical name of the resource for which to return drift information.</p>
+     */
+    inline bool LogicalResourceIdHasBeenSet() const { return m_logicalResourceIdHasBeenSet; }
 
     /**
      * <p>The logical name of the resource for which to return drift information.</p>

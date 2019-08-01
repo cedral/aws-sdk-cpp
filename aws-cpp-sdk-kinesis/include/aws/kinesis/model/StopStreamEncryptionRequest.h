@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     StopStreamEncryptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the stream on which to stop encrypting records.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>The name of the stream on which to stop encrypting records.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>The name of the stream on which to stop encrypting records.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
      */
+    inline bool EncryptionTypeHasBeenSet() const { return m_encryptionTypeHasBeenSet; }
+
+    /**
+     * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
+     */
     inline void SetEncryptionType(const EncryptionType& value) { m_encryptionTypeHasBeenSet = true; m_encryptionType = value; }
 
     /**
@@ -122,6 +132,22 @@ namespace Model
      * Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul>
      */
     inline const Aws::String& GetKeyId() const{ return m_keyId; }
+
+    /**
+     * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This
+     * value can be a globally unique identifier, a fully specified Amazon Resource
+     * Name (ARN) to either an alias or a key, or an alias name prefixed by
+     * "alias/".You can also use a master key owned by Kinesis Data Streams by
+     * specifying the alias <code>aws/kinesis</code>.</p> <ul> <li> <p>Key ARN example:
+     * <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+     * </p> </li> <li> <p>Alias ARN example:
+     * <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code> </p> </li>
+     * <li> <p>Globally unique key ID example:
+     * <code>12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias name
+     * example: <code>alias/MyAliasName</code> </p> </li> <li> <p>Master key owned by
+     * Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul>
+     */
+    inline bool KeyIdHasBeenSet() const { return m_keyIdHasBeenSet; }
 
     /**
      * <p>The GUID for the customer-managed AWS KMS key to use for encryption. This

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StartOnDemandReplicationRunRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The identifier of the replication job.</p>
      */
     inline const Aws::String& GetReplicationJobId() const{ return m_replicationJobId; }
+
+    /**
+     * <p>The identifier of the replication job.</p>
+     */
+    inline bool ReplicationJobIdHasBeenSet() const { return m_replicationJobIdHasBeenSet; }
 
     /**
      * <p>The identifier of the replication job.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The description of the replication run.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The description of the replication run.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The description of the replication run.</p>

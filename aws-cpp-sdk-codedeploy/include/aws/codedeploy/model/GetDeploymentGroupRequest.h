@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetDeploymentGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * account.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
@@ -95,6 +101,11 @@ namespace Model
      * <p>The name of a deployment group for the specified application.</p>
      */
     inline const Aws::String& GetDeploymentGroupName() const{ return m_deploymentGroupName; }
+
+    /**
+     * <p>The name of a deployment group for the specified application.</p>
+     */
+    inline bool DeploymentGroupNameHasBeenSet() const { return m_deploymentGroupNameHasBeenSet; }
 
     /**
      * <p>The name of a deployment group for the specified application.</p>

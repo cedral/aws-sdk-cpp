@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     DescribeEnvironmentHealthRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,12 @@ namespace Model
      * EnvironmentName, or both.</p>
      */
     inline const Aws::String& GetEnvironmentName() const{ return m_environmentName; }
+
+    /**
+     * <p>Specify the environment by name.</p> <p>You must specify either this or an
+     * EnvironmentName, or both.</p>
+     */
+    inline bool EnvironmentNameHasBeenSet() const { return m_environmentNameHasBeenSet; }
 
     /**
      * <p>Specify the environment by name.</p> <p>You must specify either this or an
@@ -105,6 +111,12 @@ namespace Model
      * <p>Specify the environment by ID.</p> <p>You must specify either this or an
      * EnvironmentName, or both.</p>
      */
+    inline bool EnvironmentIdHasBeenSet() const { return m_environmentIdHasBeenSet; }
+
+    /**
+     * <p>Specify the environment by ID.</p> <p>You must specify either this or an
+     * EnvironmentName, or both.</p>
+     */
     inline void SetEnvironmentId(const Aws::String& value) { m_environmentIdHasBeenSet = true; m_environmentId = value; }
 
     /**
@@ -144,6 +156,13 @@ namespace Model
      * environment.</p>
      */
     inline const Aws::Vector<EnvironmentHealthAttribute>& GetAttributeNames() const{ return m_attributeNames; }
+
+    /**
+     * <p>Specify the response elements to return. To retrieve all attributes, set to
+     * <code>All</code>. If no attribute names are specified, returns the name of the
+     * environment.</p>
+     */
+    inline bool AttributeNamesHasBeenSet() const { return m_attributeNamesHasBeenSet; }
 
     /**
      * <p>Specify the response elements to return. To retrieve all attributes, set to

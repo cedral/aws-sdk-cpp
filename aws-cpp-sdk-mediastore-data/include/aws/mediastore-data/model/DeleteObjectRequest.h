@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteObjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * container. Format: &lt;folder name&gt;/&lt;folder name&gt;/&lt;file name&gt;</p>
      */
     inline const Aws::String& GetPath() const{ return m_path; }
+
+    /**
+     * <p>The path (including the file name) where the object is stored in the
+     * container. Format: &lt;folder name&gt;/&lt;folder name&gt;/&lt;file name&gt;</p>
+     */
+    inline bool PathHasBeenSet() const { return m_pathHasBeenSet; }
 
     /**
      * <p>The path (including the file name) where the object is stored in the

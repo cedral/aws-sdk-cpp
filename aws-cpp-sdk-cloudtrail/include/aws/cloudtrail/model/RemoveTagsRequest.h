@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     RemoveTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>Specifies the ARN of the trail from which tags should be removed. The format
+     * of a trail ARN is:</p> <p>
+     * <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>Specifies the ARN of the trail from which tags should be removed. The format
@@ -103,6 +110,11 @@ namespace Model
      * <p>Specifies a list of tags to be removed.</p>
      */
     inline const Aws::Vector<Tag>& GetTagsList() const{ return m_tagsList; }
+
+    /**
+     * <p>Specifies a list of tags to be removed.</p>
+     */
+    inline bool TagsListHasBeenSet() const { return m_tagsListHasBeenSet; }
 
     /**
      * <p>Specifies a list of tags to be removed.</p>

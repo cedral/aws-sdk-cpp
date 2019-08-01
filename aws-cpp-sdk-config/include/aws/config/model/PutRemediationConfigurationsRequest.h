@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutRemediationConfigurationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>A list of remediation configuration objects.</p>
      */
     inline const Aws::Vector<RemediationConfiguration>& GetRemediationConfigurations() const{ return m_remediationConfigurations; }
+
+    /**
+     * <p>A list of remediation configuration objects.</p>
+     */
+    inline bool RemediationConfigurationsHasBeenSet() const { return m_remediationConfigurationsHasBeenSet; }
 
     /**
      * <p>A list of remediation configuration objects.</p>

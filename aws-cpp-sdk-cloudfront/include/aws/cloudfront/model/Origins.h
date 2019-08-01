@@ -36,7 +36,7 @@ namespace Model
   /**
    * <p>A complex type that contains information about origins and origin groups for
    * this distribution. </p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/Origins">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/Origins">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API Origins
@@ -57,6 +57,11 @@ namespace Model
     /**
      * <p>The number of origins or origin groups for this distribution.</p>
      */
+    inline bool QuantityHasBeenSet() const { return m_quantityHasBeenSet; }
+
+    /**
+     * <p>The number of origins or origin groups for this distribution.</p>
+     */
     inline void SetQuantity(int value) { m_quantityHasBeenSet = true; m_quantity = value; }
 
     /**
@@ -70,6 +75,12 @@ namespace Model
      * distribution.</p>
      */
     inline const Aws::Vector<Origin>& GetItems() const{ return m_items; }
+
+    /**
+     * <p>A complex type that contains origins or origin groups for this
+     * distribution.</p>
+     */
+    inline bool ItemsHasBeenSet() const { return m_itemsHasBeenSet; }
 
     /**
      * <p>A complex type that contains origins or origin groups for this

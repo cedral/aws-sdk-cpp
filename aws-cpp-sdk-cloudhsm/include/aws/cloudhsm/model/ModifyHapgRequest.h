@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ModifyHapgRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ARN of the high-availability partition group to modify.</p>
      */
     inline const Aws::String& GetHapgArn() const{ return m_hapgArn; }
+
+    /**
+     * <p>The ARN of the high-availability partition group to modify.</p>
+     */
+    inline bool HapgArnHasBeenSet() const { return m_hapgArnHasBeenSet; }
 
     /**
      * <p>The ARN of the high-availability partition group to modify.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The new label for the high-availability partition group.</p>
      */
+    inline bool LabelHasBeenSet() const { return m_labelHasBeenSet; }
+
+    /**
+     * <p>The new label for the high-availability partition group.</p>
+     */
     inline void SetLabel(const Aws::String& value) { m_labelHasBeenSet = true; m_label = value; }
 
     /**
@@ -122,6 +132,12 @@ namespace Model
      * partition group.</p>
      */
     inline const Aws::Vector<Aws::String>& GetPartitionSerialList() const{ return m_partitionSerialList; }
+
+    /**
+     * <p>The list of partition serial numbers to make members of the high-availability
+     * partition group.</p>
+     */
+    inline bool PartitionSerialListHasBeenSet() const { return m_partitionSerialListHasBeenSet; }
 
     /**
      * <p>The list of partition serial numbers to make members of the high-availability

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CancelHandshakeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,14 @@ namespace Model
      * string requires "h-" followed by from 8 to 32 lower-case letters or digits.</p>
      */
     inline const Aws::String& GetHandshakeId() const{ return m_handshakeId; }
+
+    /**
+     * <p>The unique identifier (ID) of the handshake that you want to cancel. You can
+     * get the ID from the <a>ListHandshakesForOrganization</a> operation.</p> <p>The
+     * <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID
+     * string requires "h-" followed by from 8 to 32 lower-case letters or digits.</p>
+     */
+    inline bool HandshakeIdHasBeenSet() const { return m_handshakeIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) of the handshake that you want to cancel. You can

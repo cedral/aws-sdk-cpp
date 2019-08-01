@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribePendingAggregationRequestsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * <p>The maximum number of evaluation results returned on each page. The default
      * is maximum. If you specify 0, AWS Config uses the default.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of evaluation results returned on each page. The default
+     * is maximum. If you specify 0, AWS Config uses the default.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -68,6 +74,12 @@ namespace Model
      * page of results in a paginated response.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The nextToken string returned on a previous page that you use to get the next
+     * page of results in a paginated response.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The nextToken string returned on a previous page that you use to get the next

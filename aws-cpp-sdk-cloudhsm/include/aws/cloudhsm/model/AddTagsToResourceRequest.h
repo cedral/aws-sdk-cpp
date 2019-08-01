@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     AddTagsToResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the AWS CloudHSM resource to tag.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>One or more tags.</p>
      */
     inline const Aws::Vector<Tag>& GetTagList() const{ return m_tagList; }
+
+    /**
+     * <p>One or more tags.</p>
+     */
+    inline bool TagListHasBeenSet() const { return m_tagListHasBeenSet; }
 
     /**
      * <p>One or more tags.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteDocumentationPartRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>[Required] The identifier of the to-be-deleted documentation part.</p>
      */
     inline const Aws::String& GetDocumentationPartId() const{ return m_documentationPartId; }
+
+    /**
+     * <p>[Required] The identifier of the to-be-deleted documentation part.</p>
+     */
+    inline bool DocumentationPartIdHasBeenSet() const { return m_documentationPartIdHasBeenSet; }
 
     /**
      * <p>[Required] The identifier of the to-be-deleted documentation part.</p>

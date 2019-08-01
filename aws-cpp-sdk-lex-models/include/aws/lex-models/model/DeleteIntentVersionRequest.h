@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteIntentVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the intent.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the intent.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the intent.</p>
@@ -84,6 +89,13 @@ namespace Model
      * version, use the <a>DeleteIntent</a> operation.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The version of the intent to delete. You cannot delete the
+     * <code>$LATEST</code> version of the intent. To delete the <code>$LATEST</code>
+     * version, use the <a>DeleteIntent</a> operation.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The version of the intent to delete. You cannot delete the

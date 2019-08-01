@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeRoleAliasRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The role alias to describe.</p>
      */
     inline const Aws::String& GetRoleAlias() const{ return m_roleAlias; }
+
+    /**
+     * <p>The role alias to describe.</p>
+     */
+    inline bool RoleAliasHasBeenSet() const { return m_roleAliasHasBeenSet; }
 
     /**
      * <p>The role alias to describe.</p>

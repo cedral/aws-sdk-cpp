@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteStackSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * this value by running <a>ListStackSets</a>.</p>
      */
     inline const Aws::String& GetStackSetName() const{ return m_stackSetName; }
+
+    /**
+     * <p>The name or unique ID of the stack set that you're deleting. You can obtain
+     * this value by running <a>ListStackSets</a>.</p>
+     */
+    inline bool StackSetNameHasBeenSet() const { return m_stackSetNameHasBeenSet; }
 
     /**
      * <p>The name or unique ID of the stack set that you're deleting. You can obtain

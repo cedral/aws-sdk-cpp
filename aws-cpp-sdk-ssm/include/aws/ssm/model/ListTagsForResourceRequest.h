@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListTagsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>Returns a list of tags for a specific resource type.</p>
      */
     inline const ResourceTypeForTagging& GetResourceType() const{ return m_resourceType; }
+
+    /**
+     * <p>Returns a list of tags for a specific resource type.</p>
+     */
+    inline bool ResourceTypeHasBeenSet() const { return m_resourceTypeHasBeenSet; }
 
     /**
      * <p>Returns a list of tags for a specific resource type.</p>
@@ -75,6 +80,11 @@ namespace Model
      * <p>The resource ID for which you want to see a list of tags.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The resource ID for which you want to see a list of tags.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The resource ID for which you want to see a list of tags.</p>

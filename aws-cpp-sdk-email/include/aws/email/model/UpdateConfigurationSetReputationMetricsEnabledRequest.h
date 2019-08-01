@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateConfigurationSetReputationMetricsEnabledRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the configuration set that you want to update.</p>
      */
     inline const Aws::String& GetConfigurationSetName() const{ return m_configurationSetName; }
+
+    /**
+     * <p>The name of the configuration set that you want to update.</p>
+     */
+    inline bool ConfigurationSetNameHasBeenSet() const { return m_configurationSetNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration set that you want to update.</p>
@@ -91,6 +96,12 @@ namespace Model
      * configuration set, such as bounce and complaint rates, to Amazon CloudWatch.</p>
      */
     inline bool GetEnabled() const{ return m_enabled; }
+
+    /**
+     * <p>Describes whether or not Amazon SES will publish reputation metrics for the
+     * configuration set, such as bounce and complaint rates, to Amazon CloudWatch.</p>
+     */
+    inline bool EnabledHasBeenSet() const { return m_enabledHasBeenSet; }
 
     /**
      * <p>Describes whether or not Amazon SES will publish reputation metrics for the

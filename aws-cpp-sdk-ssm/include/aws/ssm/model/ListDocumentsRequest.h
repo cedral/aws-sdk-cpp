@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListDocumentsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * results.</p>
      */
     inline const Aws::Vector<DocumentFilter>& GetDocumentFilterList() const{ return m_documentFilterList; }
+
+    /**
+     * <p>One or more filters. Use a filter to return a more specific list of
+     * results.</p>
+     */
+    inline bool DocumentFilterListHasBeenSet() const { return m_documentFilterListHasBeenSet; }
 
     /**
      * <p>One or more filters. Use a filter to return a more specific list of
@@ -95,6 +101,12 @@ namespace Model
      * results.</p>
      */
     inline const Aws::Vector<DocumentKeyValuesFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>One or more filters. Use a filter to return a more specific list of
+     * results.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>One or more filters. Use a filter to return a more specific list of
@@ -145,6 +157,13 @@ namespace Model
      * token that you can specify in a subsequent call to get the next set of
      * results.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of items to return for this call. The call also returns a
+     * token that you can specify in a subsequent call to get the next set of
+     * results.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -160,6 +179,12 @@ namespace Model
      * a previous call.)</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next set of items to return. (You received this token from

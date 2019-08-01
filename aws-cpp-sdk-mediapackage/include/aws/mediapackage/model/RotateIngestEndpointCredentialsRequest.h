@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RotateIngestEndpointCredentialsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * The ID of the channel the IngestEndpoint is on.
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * The ID of the channel the IngestEndpoint is on.
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * The ID of the channel the IngestEndpoint is on.
@@ -82,6 +87,11 @@ namespace Model
      * The id of the IngestEndpoint whose credentials should be rotated
      */
     inline const Aws::String& GetIngestEndpointId() const{ return m_ingestEndpointId; }
+
+    /**
+     * The id of the IngestEndpoint whose credentials should be rotated
+     */
+    inline bool IngestEndpointIdHasBeenSet() const { return m_ingestEndpointIdHasBeenSet; }
 
     /**
      * The id of the IngestEndpoint whose credentials should be rotated

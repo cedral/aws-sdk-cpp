@@ -35,7 +35,7 @@ namespace Model
 
   /**
    * <p>The version for an option. Option group option versions are returned by the
-   * <a>DescribeOptionGroupOptions</a> action.</p><p><h3>See Also:</h3>   <a
+   * <code>DescribeOptionGroupOptions</code> action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/OptionVersion">AWS
    * API Reference</a></p>
    */
@@ -54,6 +54,11 @@ namespace Model
      * <p>The version of the option.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>The version of the option.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>The version of the option.</p>
@@ -91,6 +96,12 @@ namespace Model
      * false.</p>
      */
     inline bool GetIsDefault() const{ return m_isDefault; }
+
+    /**
+     * <p>True if the version is the default version of the option, and otherwise
+     * false.</p>
+     */
+    inline bool IsDefaultHasBeenSet() const { return m_isDefaultHasBeenSet; }
 
     /**
      * <p>True if the version is the default version of the option, and otherwise

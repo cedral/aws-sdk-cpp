@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetDeliverabilityTestReportRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,13 +45,16 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>A unique string that identifies the predictive inbox placement test.</p>
      */
     inline const Aws::String& GetReportId() const{ return m_reportId; }
+
+    /**
+     * <p>A unique string that identifies the predictive inbox placement test.</p>
+     */
+    inline bool ReportIdHasBeenSet() const { return m_reportIdHasBeenSet; }
 
     /**
      * <p>A unique string that identifies the predictive inbox placement test.</p>

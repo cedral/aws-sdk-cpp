@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name of the user that you want to describe.</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the user that you want to describe.</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the user that you want to describe.</p>
@@ -88,6 +93,12 @@ namespace Model
      * <p>The ID for the AWS account that the user is in. Currently, you use the ID for
      * the AWS account that contains your Amazon QuickSight account.</p>
      */
+    inline bool AwsAccountIdHasBeenSet() const { return m_awsAccountIdHasBeenSet; }
+
+    /**
+     * <p>The ID for the AWS account that the user is in. Currently, you use the ID for
+     * the AWS account that contains your Amazon QuickSight account.</p>
+     */
     inline void SetAwsAccountId(const Aws::String& value) { m_awsAccountIdHasBeenSet = true; m_awsAccountId = value; }
 
     /**
@@ -125,6 +136,11 @@ namespace Model
      * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
      */
     inline const Aws::String& GetNamespace() const{ return m_namespace; }
+
+    /**
+     * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+     */
+    inline bool NamespaceHasBeenSet() const { return m_namespaceHasBeenSet; }
 
     /**
      * <p>The namespace. Currently, you should set this to <code>default</code>.</p>

@@ -34,7 +34,7 @@ namespace Model
 {
 
   /**
-   * <p>Contains the Amazon Glacier response to your request.</p><p><h3>See
+   * <p>Contains the Amazon S3 Glacier response to your request.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/DescribeVaultOutput">AWS
    * API Reference</a></p>
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the vault.</p>
      */
     inline const Aws::String& GetVaultARN() const{ return m_vaultARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the vault.</p>
+     */
+    inline bool VaultARNHasBeenSet() const { return m_vaultARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the vault.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The name of the vault.</p>
      */
+    inline bool VaultNameHasBeenSet() const { return m_vaultNameHasBeenSet; }
+
+    /**
+     * <p>The name of the vault.</p>
+     */
     inline void SetVaultName(const Aws::String& value) { m_vaultNameHasBeenSet = true; m_vaultName = value; }
 
     /**
@@ -126,6 +136,13 @@ namespace Model
      * <code>2012-03-20T17:03:43.221Z</code>.</p>
      */
     inline const Aws::String& GetCreationDate() const{ return m_creationDate; }
+
+    /**
+     * <p>The Universal Coordinated Time (UTC) date when the vault was created. This
+     * value should be a string in the ISO 8601 date format, for example
+     * <code>2012-03-20T17:03:43.221Z</code>.</p>
+     */
+    inline bool CreationDateHasBeenSet() const { return m_creationDateHasBeenSet; }
 
     /**
      * <p>The Universal Coordinated Time (UTC) date when the vault was created. This
@@ -171,51 +188,58 @@ namespace Model
 
 
     /**
-     * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the
-     * last vault inventory. This value should be a string in the ISO 8601 date format,
-     * for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+     * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
+     * the last vault inventory. This value should be a string in the ISO 8601 date
+     * format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
      */
     inline const Aws::String& GetLastInventoryDate() const{ return m_lastInventoryDate; }
 
     /**
-     * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the
-     * last vault inventory. This value should be a string in the ISO 8601 date format,
-     * for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+     * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
+     * the last vault inventory. This value should be a string in the ISO 8601 date
+     * format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+     */
+    inline bool LastInventoryDateHasBeenSet() const { return m_lastInventoryDateHasBeenSet; }
+
+    /**
+     * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
+     * the last vault inventory. This value should be a string in the ISO 8601 date
+     * format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
      */
     inline void SetLastInventoryDate(const Aws::String& value) { m_lastInventoryDateHasBeenSet = true; m_lastInventoryDate = value; }
 
     /**
-     * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the
-     * last vault inventory. This value should be a string in the ISO 8601 date format,
-     * for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+     * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
+     * the last vault inventory. This value should be a string in the ISO 8601 date
+     * format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
      */
     inline void SetLastInventoryDate(Aws::String&& value) { m_lastInventoryDateHasBeenSet = true; m_lastInventoryDate = std::move(value); }
 
     /**
-     * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the
-     * last vault inventory. This value should be a string in the ISO 8601 date format,
-     * for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+     * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
+     * the last vault inventory. This value should be a string in the ISO 8601 date
+     * format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
      */
     inline void SetLastInventoryDate(const char* value) { m_lastInventoryDateHasBeenSet = true; m_lastInventoryDate.assign(value); }
 
     /**
-     * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the
-     * last vault inventory. This value should be a string in the ISO 8601 date format,
-     * for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+     * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
+     * the last vault inventory. This value should be a string in the ISO 8601 date
+     * format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
      */
     inline DescribeVaultOutput& WithLastInventoryDate(const Aws::String& value) { SetLastInventoryDate(value); return *this;}
 
     /**
-     * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the
-     * last vault inventory. This value should be a string in the ISO 8601 date format,
-     * for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+     * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
+     * the last vault inventory. This value should be a string in the ISO 8601 date
+     * format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
      */
     inline DescribeVaultOutput& WithLastInventoryDate(Aws::String&& value) { SetLastInventoryDate(std::move(value)); return *this;}
 
     /**
-     * <p>The Universal Coordinated Time (UTC) date when Amazon Glacier completed the
-     * last vault inventory. This value should be a string in the ISO 8601 date format,
-     * for example <code>2012-03-20T17:03:43.221Z</code>.</p>
+     * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed
+     * the last vault inventory. This value should be a string in the ISO 8601 date
+     * format, for example <code>2012-03-20T17:03:43.221Z</code>.</p>
      */
     inline DescribeVaultOutput& WithLastInventoryDate(const char* value) { SetLastInventoryDate(value); return *this;}
 
@@ -226,6 +250,13 @@ namespace Model
      * example if you just created the vault.</p>
      */
     inline long long GetNumberOfArchives() const{ return m_numberOfArchives; }
+
+    /**
+     * <p>The number of archives in the vault as of the last inventory date. This field
+     * will return <code>null</code> if an inventory has not yet run on the vault, for
+     * example if you just created the vault.</p>
+     */
+    inline bool NumberOfArchivesHasBeenSet() const { return m_numberOfArchivesHasBeenSet; }
 
     /**
      * <p>The number of archives in the vault as of the last inventory date. This field
@@ -248,6 +279,13 @@ namespace Model
      * for example if you just created the vault.</p>
      */
     inline long long GetSizeInBytes() const{ return m_sizeInBytes; }
+
+    /**
+     * <p>Total size, in bytes, of the archives in the vault as of the last inventory
+     * date. This field will return null if an inventory has not yet run on the vault,
+     * for example if you just created the vault.</p>
+     */
+    inline bool SizeInBytesHasBeenSet() const { return m_sizeInBytesHasBeenSet; }
 
     /**
      * <p>Total size, in bytes, of the archives in the vault as of the last inventory

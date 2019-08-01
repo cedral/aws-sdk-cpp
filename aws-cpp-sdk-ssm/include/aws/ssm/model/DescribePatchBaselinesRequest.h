@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribePatchBaselinesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * between 1 and 255 characters)</p>
      */
     inline const Aws::Vector<PatchOrchestratorFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>Each element in the array is a structure containing: </p> <p>Key: (string,
+     * "NAME_PREFIX" or "OWNER")</p> <p>Value: (array of strings, exactly 1 entry,
+     * between 1 and 255 characters)</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>Each element in the array is a structure containing: </p> <p>Key: (string,
@@ -104,6 +111,11 @@ namespace Model
     /**
      * <p>The maximum number of patch baselines to return (per page).</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of patch baselines to return (per page).</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -117,6 +129,12 @@ namespace Model
      * a previous call.)</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next set of items to return. (You received this token from

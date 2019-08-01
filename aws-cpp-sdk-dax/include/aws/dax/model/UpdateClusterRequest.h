@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the DAX cluster to be modified.</p>
      */
     inline const Aws::String& GetClusterName() const{ return m_clusterName; }
+
+    /**
+     * <p>The name of the DAX cluster to be modified.</p>
+     */
+    inline bool ClusterNameHasBeenSet() const { return m_clusterNameHasBeenSet; }
 
     /**
      * <p>The name of the DAX cluster to be modified.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>A description of the changes being made to the cluster.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>A description of the changes being made to the cluster.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -124,6 +134,14 @@ namespace Model
      * maintenance window.</p>
      */
     inline const Aws::String& GetPreferredMaintenanceWindow() const{ return m_preferredMaintenanceWindow; }
+
+    /**
+     * <p>A range of time when maintenance of DAX cluster software will be performed.
+     * For example: <code>sun:01:00-sun:09:00</code>. Cluster maintenance normally
+     * takes less than 30 minutes, and is performed automatically within the
+     * maintenance window.</p>
+     */
+    inline bool PreferredMaintenanceWindowHasBeenSet() const { return m_preferredMaintenanceWindowHasBeenSet; }
 
     /**
      * <p>A range of time when maintenance of DAX cluster software will be performed.
@@ -182,6 +200,11 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the topic.</p>
      */
+    inline bool NotificationTopicArnHasBeenSet() const { return m_notificationTopicArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the topic.</p>
+     */
     inline void SetNotificationTopicArn(const Aws::String& value) { m_notificationTopicArnHasBeenSet = true; m_notificationTopicArn = value; }
 
     /**
@@ -214,6 +237,11 @@ namespace Model
      * <p>The current state of the topic.</p>
      */
     inline const Aws::String& GetNotificationTopicStatus() const{ return m_notificationTopicStatus; }
+
+    /**
+     * <p>The current state of the topic.</p>
+     */
+    inline bool NotificationTopicStatusHasBeenSet() const { return m_notificationTopicStatusHasBeenSet; }
 
     /**
      * <p>The current state of the topic.</p>
@@ -254,6 +282,11 @@ namespace Model
     /**
      * <p>The name of a parameter group for this cluster.</p>
      */
+    inline bool ParameterGroupNameHasBeenSet() const { return m_parameterGroupNameHasBeenSet; }
+
+    /**
+     * <p>The name of a parameter group for this cluster.</p>
+     */
     inline void SetParameterGroupName(const Aws::String& value) { m_parameterGroupNameHasBeenSet = true; m_parameterGroupName = value; }
 
     /**
@@ -288,6 +321,13 @@ namespace Model
      * security group to each node.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroupIds() const{ return m_securityGroupIds; }
+
+    /**
+     * <p>A list of user-specified security group IDs to be assigned to each node in
+     * the DAX cluster. If this parameter is not specified, DAX assigns the default VPC
+     * security group to each node.</p>
+     */
+    inline bool SecurityGroupIdsHasBeenSet() const { return m_securityGroupIdsHasBeenSet; }
 
     /**
      * <p>A list of user-specified security group IDs to be assigned to each node in

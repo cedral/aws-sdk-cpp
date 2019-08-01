@@ -39,7 +39,11 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
+   * <p>Specifies the inventory configuration for an Amazon S3 bucket. For more
+   * information, see <a
+   * href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html">GET
+   * Bucket inventory</a> in the <i>Amazon Simple Storage Service API Reference</i>.
+   * </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/InventoryConfiguration">AWS
    * API Reference</a></p>
    */
@@ -57,6 +61,11 @@ namespace Model
      * <p>Contains information about where to publish the inventory results.</p>
      */
     inline const InventoryDestination& GetDestination() const{ return m_destination; }
+
+    /**
+     * <p>Contains information about where to publish the inventory results.</p>
+     */
+    inline bool DestinationHasBeenSet() const { return m_destinationHasBeenSet; }
 
     /**
      * <p>Contains information about where to publish the inventory results.</p>
@@ -80,17 +89,30 @@ namespace Model
 
 
     /**
-     * <p>Specifies whether the inventory is enabled or disabled.</p>
+     * <p>Specifies whether the inventory is enabled or disabled. If set to
+     * <code>True</code>, an inventory list is generated. If set to <code>False</code>,
+     * no inventory list is generated.</p>
      */
     inline bool GetIsEnabled() const{ return m_isEnabled; }
 
     /**
-     * <p>Specifies whether the inventory is enabled or disabled.</p>
+     * <p>Specifies whether the inventory is enabled or disabled. If set to
+     * <code>True</code>, an inventory list is generated. If set to <code>False</code>,
+     * no inventory list is generated.</p>
+     */
+    inline bool IsEnabledHasBeenSet() const { return m_isEnabledHasBeenSet; }
+
+    /**
+     * <p>Specifies whether the inventory is enabled or disabled. If set to
+     * <code>True</code>, an inventory list is generated. If set to <code>False</code>,
+     * no inventory list is generated.</p>
      */
     inline void SetIsEnabled(bool value) { m_isEnabledHasBeenSet = true; m_isEnabled = value; }
 
     /**
-     * <p>Specifies whether the inventory is enabled or disabled.</p>
+     * <p>Specifies whether the inventory is enabled or disabled. If set to
+     * <code>True</code>, an inventory list is generated. If set to <code>False</code>,
+     * no inventory list is generated.</p>
      */
     inline InventoryConfiguration& WithIsEnabled(bool value) { SetIsEnabled(value); return *this;}
 
@@ -100,6 +122,12 @@ namespace Model
      * the filter's criteria.</p>
      */
     inline const InventoryFilter& GetFilter() const{ return m_filter; }
+
+    /**
+     * <p>Specifies an inventory filter. The inventory only includes objects that meet
+     * the filter's criteria.</p>
+     */
+    inline bool FilterHasBeenSet() const { return m_filterHasBeenSet; }
 
     /**
      * <p>Specifies an inventory filter. The inventory only includes objects that meet
@@ -134,6 +162,11 @@ namespace Model
     /**
      * <p>The ID used to identify the inventory configuration.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The ID used to identify the inventory configuration.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -163,27 +196,56 @@ namespace Model
 
 
     /**
-     * <p>Specifies which object version(s) to included in the inventory results.</p>
+     * <p>Object versions to include in the inventory list. If set to <code>All</code>,
+     * the list includes all the object versions, which adds the version-related fields
+     * <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to
+     * the list. If set to <code>Current</code>, the list does not contain these
+     * version-related fields.</p>
      */
     inline const InventoryIncludedObjectVersions& GetIncludedObjectVersions() const{ return m_includedObjectVersions; }
 
     /**
-     * <p>Specifies which object version(s) to included in the inventory results.</p>
+     * <p>Object versions to include in the inventory list. If set to <code>All</code>,
+     * the list includes all the object versions, which adds the version-related fields
+     * <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to
+     * the list. If set to <code>Current</code>, the list does not contain these
+     * version-related fields.</p>
+     */
+    inline bool IncludedObjectVersionsHasBeenSet() const { return m_includedObjectVersionsHasBeenSet; }
+
+    /**
+     * <p>Object versions to include in the inventory list. If set to <code>All</code>,
+     * the list includes all the object versions, which adds the version-related fields
+     * <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to
+     * the list. If set to <code>Current</code>, the list does not contain these
+     * version-related fields.</p>
      */
     inline void SetIncludedObjectVersions(const InventoryIncludedObjectVersions& value) { m_includedObjectVersionsHasBeenSet = true; m_includedObjectVersions = value; }
 
     /**
-     * <p>Specifies which object version(s) to included in the inventory results.</p>
+     * <p>Object versions to include in the inventory list. If set to <code>All</code>,
+     * the list includes all the object versions, which adds the version-related fields
+     * <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to
+     * the list. If set to <code>Current</code>, the list does not contain these
+     * version-related fields.</p>
      */
     inline void SetIncludedObjectVersions(InventoryIncludedObjectVersions&& value) { m_includedObjectVersionsHasBeenSet = true; m_includedObjectVersions = std::move(value); }
 
     /**
-     * <p>Specifies which object version(s) to included in the inventory results.</p>
+     * <p>Object versions to include in the inventory list. If set to <code>All</code>,
+     * the list includes all the object versions, which adds the version-related fields
+     * <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to
+     * the list. If set to <code>Current</code>, the list does not contain these
+     * version-related fields.</p>
      */
     inline InventoryConfiguration& WithIncludedObjectVersions(const InventoryIncludedObjectVersions& value) { SetIncludedObjectVersions(value); return *this;}
 
     /**
-     * <p>Specifies which object version(s) to included in the inventory results.</p>
+     * <p>Object versions to include in the inventory list. If set to <code>All</code>,
+     * the list includes all the object versions, which adds the version-related fields
+     * <code>VersionId</code>, <code>IsLatest</code>, and <code>DeleteMarker</code> to
+     * the list. If set to <code>Current</code>, the list does not contain these
+     * version-related fields.</p>
      */
     inline InventoryConfiguration& WithIncludedObjectVersions(InventoryIncludedObjectVersions&& value) { SetIncludedObjectVersions(std::move(value)); return *this;}
 
@@ -192,6 +254,11 @@ namespace Model
      * <p>Contains the optional fields that are included in the inventory results.</p>
      */
     inline const Aws::Vector<InventoryOptionalField>& GetOptionalFields() const{ return m_optionalFields; }
+
+    /**
+     * <p>Contains the optional fields that are included in the inventory results.</p>
+     */
+    inline bool OptionalFieldsHasBeenSet() const { return m_optionalFieldsHasBeenSet; }
 
     /**
      * <p>Contains the optional fields that are included in the inventory results.</p>
@@ -228,6 +295,11 @@ namespace Model
      * <p>Specifies the schedule for generating inventory results.</p>
      */
     inline const InventorySchedule& GetSchedule() const{ return m_schedule; }
+
+    /**
+     * <p>Specifies the schedule for generating inventory results.</p>
+     */
+    inline bool ScheduleHasBeenSet() const { return m_scheduleHasBeenSet; }
 
     /**
      * <p>Specifies the schedule for generating inventory results.</p>

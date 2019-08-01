@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutDestinationPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>A name for an existing destination.</p>
      */
     inline const Aws::String& GetDestinationName() const{ return m_destinationName; }
+
+    /**
+     * <p>A name for an existing destination.</p>
+     */
+    inline bool DestinationNameHasBeenSet() const { return m_destinationNameHasBeenSet; }
 
     /**
      * <p>A name for an existing destination.</p>
@@ -85,6 +90,12 @@ namespace Model
      * log events to the associated destination.</p>
      */
     inline const Aws::String& GetAccessPolicy() const{ return m_accessPolicy; }
+
+    /**
+     * <p>An IAM policy document that authorizes cross-account users to deliver their
+     * log events to the associated destination.</p>
+     */
+    inline bool AccessPolicyHasBeenSet() const { return m_accessPolicyHasBeenSet; }
 
     /**
      * <p>An IAM policy document that authorizes cross-account users to deliver their

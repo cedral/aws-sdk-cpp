@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetServerCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,15 @@ namespace Model
      * can also include any of the following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetServerCertificateName() const{ return m_serverCertificateName; }
+
+    /**
+     * <p>The name of the server certificate you want to retrieve information
+     * about.</p> <p>This parameter allows (through its <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters
+     * consisting of upper and lowercase alphanumeric characters with no spaces. You
+     * can also include any of the following characters: _+=,.@-</p>
+     */
+    inline bool ServerCertificateNameHasBeenSet() const { return m_serverCertificateNameHasBeenSet; }
 
     /**
      * <p>The name of the server certificate you want to retrieve information

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DeleteTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * For example, <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>. </p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) from which you want to remove the tag or tags.
+     * For example, <code>arn:aws:redshift:us-east-1:123456789:cluster:t1</code>. </p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) from which you want to remove the tag or tags.
@@ -98,6 +104,11 @@ namespace Model
      * <p>The tag key that you want to delete.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTagKeys() const{ return m_tagKeys; }
+
+    /**
+     * <p>The tag key that you want to delete.</p>
+     */
+    inline bool TagKeysHasBeenSet() const { return m_tagKeysHasBeenSet; }
 
     /**
      * <p>The tag key that you want to delete.</p>

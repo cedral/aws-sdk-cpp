@@ -18,6 +18,7 @@
 #include <aws/ec2/EC2Request.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <utility>
+#include <aws/core/utils/UUID.h>
 
 namespace Aws
 {
@@ -32,7 +33,7 @@ namespace Model
   {
   public:
     CreateClientVpnRouteRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +51,11 @@ namespace Model
      * <p>The ID of the Client VPN endpoint to which to add the route.</p>
      */
     inline const Aws::String& GetClientVpnEndpointId() const{ return m_clientVpnEndpointId; }
+
+    /**
+     * <p>The ID of the Client VPN endpoint to which to add the route.</p>
+     */
+    inline bool ClientVpnEndpointIdHasBeenSet() const { return m_clientVpnEndpointIdHasBeenSet; }
 
     /**
      * <p>The ID of the Client VPN endpoint to which to add the route.</p>
@@ -92,6 +98,17 @@ namespace Model
      * specified for client allocation.</p>
      */
     inline const Aws::String& GetDestinationCidrBlock() const{ return m_destinationCidrBlock; }
+
+    /**
+     * <p>The IPv4 address range, in CIDR notation, of the route destination. For
+     * example:</p> <ul> <li> <p>To add a route for Internet access, enter
+     * <code>0.0.0.0/0</code> </p> </li> <li> <p>To add a route for a peered VPC, enter
+     * the peered VPC's IPv4 CIDR range</p> </li> <li> <p>To add a route for an
+     * on-premises network, enter the AWS Site-to-Site VPN connection's IPv4 CIDR
+     * range</p> </li> </ul> <p>Route address ranges cannot overlap with the CIDR range
+     * specified for client allocation.</p>
+     */
+    inline bool DestinationCidrBlockHasBeenSet() const { return m_destinationCidrBlockHasBeenSet; }
 
     /**
      * <p>The IPv4 address range, in CIDR notation, of the route destination. For
@@ -170,6 +187,12 @@ namespace Model
      * <p>The ID of the subnet through which you want to route traffic. The specified
      * subnet must be an existing target network of the Client VPN endpoint.</p>
      */
+    inline bool TargetVpcSubnetIdHasBeenSet() const { return m_targetVpcSubnetIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the subnet through which you want to route traffic. The specified
+     * subnet must be an existing target network of the Client VPN endpoint.</p>
+     */
     inline void SetTargetVpcSubnetId(const Aws::String& value) { m_targetVpcSubnetIdHasBeenSet = true; m_targetVpcSubnetId = value; }
 
     /**
@@ -211,6 +234,11 @@ namespace Model
     /**
      * <p>A brief description of the route.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>A brief description of the route.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -240,12 +268,85 @@ namespace Model
 
 
     /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline void SetClientToken(const Aws::String& value) { m_clientTokenHasBeenSet = true; m_clientToken = value; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline void SetClientToken(Aws::String&& value) { m_clientTokenHasBeenSet = true; m_clientToken = std::move(value); }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline void SetClientToken(const char* value) { m_clientTokenHasBeenSet = true; m_clientToken.assign(value); }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline CreateClientVpnRouteRequest& WithClientToken(const Aws::String& value) { SetClientToken(value); return *this;}
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline CreateClientVpnRouteRequest& WithClientToken(Aws::String&& value) { SetClientToken(std::move(value)); return *this;}
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline CreateClientVpnRouteRequest& WithClientToken(const char* value) { SetClientToken(value); return *this;}
+
+
+    /**
      * <p>Checks whether you have the required permissions for the action, without
      * actually making the request, and provides an error response. If you have the
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without
@@ -276,6 +377,9 @@ namespace Model
 
     Aws::String m_description;
     bool m_descriptionHasBeenSet;
+
+    Aws::String m_clientToken;
+    bool m_clientTokenHasBeenSet;
 
     bool m_dryRun;
     bool m_dryRunHasBeenSet;

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListUpdatesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,37 +49,42 @@ namespace Model
 
 
     /**
-     * <p>The name of the Amazon EKS cluster for which to list updates.</p>
+     * <p>The name of the Amazon EKS cluster to list updates for.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
-     * <p>The name of the Amazon EKS cluster for which to list updates.</p>
+     * <p>The name of the Amazon EKS cluster to list updates for.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the Amazon EKS cluster to list updates for.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
-     * <p>The name of the Amazon EKS cluster for which to list updates.</p>
+     * <p>The name of the Amazon EKS cluster to list updates for.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
     /**
-     * <p>The name of the Amazon EKS cluster for which to list updates.</p>
+     * <p>The name of the Amazon EKS cluster to list updates for.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
     /**
-     * <p>The name of the Amazon EKS cluster for which to list updates.</p>
+     * <p>The name of the Amazon EKS cluster to list updates for.</p>
      */
     inline ListUpdatesRequest& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
-     * <p>The name of the Amazon EKS cluster for which to list updates.</p>
+     * <p>The name of the Amazon EKS cluster to list updates for.</p>
      */
     inline ListUpdatesRequest& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the Amazon EKS cluster for which to list updates.</p>
+     * <p>The name of the Amazon EKS cluster to list updates for.</p>
      */
     inline ListUpdatesRequest& WithName(const char* value) { SetName(value); return *this;}
 
@@ -91,6 +96,14 @@ namespace Model
      * of the previous results that returned the <code>nextToken</code> value.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The <code>nextToken</code> value returned from a previous paginated
+     * <code>ListUpdates</code> request where <code>maxResults</code> was used and the
+     * results exceeded the value of that parameter. Pagination continues from the end
+     * of the previous results that returned the <code>nextToken</code> value.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
@@ -143,37 +156,49 @@ namespace Model
 
     /**
      * <p>The maximum number of update results returned by <code>ListUpdates</code> in
-     * paginated output. When this parameter is used, <code>ListUpdates</code> only
-     * returns <code>maxResults</code> results in a single page along with a
-     * <code>nextToken</code> response element. The remaining results of the initial
-     * request can be seen by sending another <code>ListUpdates</code> request with the
+     * paginated output. When you use this parameter, <code>ListUpdates</code> returns
+     * only <code>maxResults</code> results in a single page along with a
+     * <code>nextToken</code> response element. You can see the remaining results of
+     * the initial request by sending another <code>ListUpdates</code> request with the
      * returned <code>nextToken</code> value. This value can be between 1 and 100. If
-     * this parameter is not used, then <code>ListUpdates</code> returns up to 100
-     * results and a <code>nextToken</code> value if applicable.</p>
+     * you don't use this parameter, <code>ListUpdates</code> returns up to 100 results
+     * and a <code>nextToken</code> value if applicable.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
 
     /**
      * <p>The maximum number of update results returned by <code>ListUpdates</code> in
-     * paginated output. When this parameter is used, <code>ListUpdates</code> only
-     * returns <code>maxResults</code> results in a single page along with a
-     * <code>nextToken</code> response element. The remaining results of the initial
-     * request can be seen by sending another <code>ListUpdates</code> request with the
+     * paginated output. When you use this parameter, <code>ListUpdates</code> returns
+     * only <code>maxResults</code> results in a single page along with a
+     * <code>nextToken</code> response element. You can see the remaining results of
+     * the initial request by sending another <code>ListUpdates</code> request with the
      * returned <code>nextToken</code> value. This value can be between 1 and 100. If
-     * this parameter is not used, then <code>ListUpdates</code> returns up to 100
-     * results and a <code>nextToken</code> value if applicable.</p>
+     * you don't use this parameter, <code>ListUpdates</code> returns up to 100 results
+     * and a <code>nextToken</code> value if applicable.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of update results returned by <code>ListUpdates</code> in
+     * paginated output. When you use this parameter, <code>ListUpdates</code> returns
+     * only <code>maxResults</code> results in a single page along with a
+     * <code>nextToken</code> response element. You can see the remaining results of
+     * the initial request by sending another <code>ListUpdates</code> request with the
+     * returned <code>nextToken</code> value. This value can be between 1 and 100. If
+     * you don't use this parameter, <code>ListUpdates</code> returns up to 100 results
+     * and a <code>nextToken</code> value if applicable.</p>
      */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
      * <p>The maximum number of update results returned by <code>ListUpdates</code> in
-     * paginated output. When this parameter is used, <code>ListUpdates</code> only
-     * returns <code>maxResults</code> results in a single page along with a
-     * <code>nextToken</code> response element. The remaining results of the initial
-     * request can be seen by sending another <code>ListUpdates</code> request with the
+     * paginated output. When you use this parameter, <code>ListUpdates</code> returns
+     * only <code>maxResults</code> results in a single page along with a
+     * <code>nextToken</code> response element. You can see the remaining results of
+     * the initial request by sending another <code>ListUpdates</code> request with the
      * returned <code>nextToken</code> value. This value can be between 1 and 100. If
-     * this parameter is not used, then <code>ListUpdates</code> returns up to 100
-     * results and a <code>nextToken</code> value if applicable.</p>
+     * you don't use this parameter, <code>ListUpdates</code> returns up to 100 results
+     * and a <code>nextToken</code> value if applicable.</p>
      */
     inline ListUpdatesRequest& WithMaxResults(int value) { SetMaxResults(value); return *this;}
 

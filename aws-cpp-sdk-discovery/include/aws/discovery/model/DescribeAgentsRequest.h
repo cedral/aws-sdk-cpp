@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeAgentsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * with your AWS user account.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAgentIds() const{ return m_agentIds; }
+
+    /**
+     * <p>The agent or the Connector IDs for which you want information. If you specify
+     * no IDs, the system returns information about all agents/Connectors associated
+     * with your AWS user account.</p>
+     */
+    inline bool AgentIdsHasBeenSet() const { return m_agentIdsHasBeenSet; }
 
     /**
      * <p>The agent or the Connector IDs for which you want information. If you specify
@@ -115,6 +122,13 @@ namespace Model
      * <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{"key":
      * "collectionStatus", "value": "STARTED"}</code> </p>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>You can filter the request using various logical operators and a
+     * <i>key</i>-<i>value</i> format. For example: </p> <p> <code>{"key":
+     * "collectionStatus", "value": "STARTED"}</code> </p>
+     */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -163,6 +177,12 @@ namespace Model
      * <p>The total number of agents/Connectors to return in a single page of output.
      * The maximum value is 100.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The total number of agents/Connectors to return in a single page of output.
+     * The maximum value is 100.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -180,6 +200,15 @@ namespace Model
      * 10.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Token to retrieve the next set of results. For example, if you previously
+     * specified 100 IDs for <code>DescribeAgentsRequest$agentIds</code> but set
+     * <code>DescribeAgentsRequest$maxResults</code> to 10, you received a set of 10
+     * results along with a token. Use that token in this query to get the next set of
+     * 10.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Token to retrieve the next set of results. For example, if you previously

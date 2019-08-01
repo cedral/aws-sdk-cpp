@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeProtectedResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * of the ARN depends on the resource type.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format
+     * of the ARN depends on the resource type.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format

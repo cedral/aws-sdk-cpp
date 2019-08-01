@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ImportKeyPairRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the key pair for which you want to import the public key.</p>
      */
     inline const Aws::String& GetKeyPairName() const{ return m_keyPairName; }
+
+    /**
+     * <p>The name of the key pair for which you want to import the public key.</p>
+     */
+    inline bool KeyPairNameHasBeenSet() const { return m_keyPairNameHasBeenSet; }
 
     /**
      * <p>The name of the key pair for which you want to import the public key.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
      */
     inline const Aws::String& GetPublicKeyBase64() const{ return m_publicKeyBase64; }
+
+    /**
+     * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>
+     */
+    inline bool PublicKeyBase64HasBeenSet() const { return m_publicKeyBase64HasBeenSet; }
 
     /**
      * <p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>

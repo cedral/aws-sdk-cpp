@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateProjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,11 @@ namespace Model
      * <p>The name of the project to be updated.</p>
      */
     inline const Aws::String& GetProjectName() const{ return m_projectName; }
+
+    /**
+     * <p>The name of the project to be updated.</p>
+     */
+    inline bool ProjectNameHasBeenSet() const { return m_projectNameHasBeenSet; }
 
     /**
      * <p>The name of the project to be updated.</p>
@@ -87,6 +92,11 @@ namespace Model
     /**
      * <p>An optional user-defined description for the project.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>An optional user-defined description for the project.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -122,6 +132,14 @@ namespace Model
      * <code>callbackOverrides</code> for the device definition using this API.</p>
      */
     inline const PlacementTemplate& GetPlacementTemplate() const{ return m_placementTemplate; }
+
+    /**
+     * <p>An object defining the project update. Once a project has been created, you
+     * cannot add device template names to the project. However, for a given
+     * <code>placementTemplate</code>, you can update the associated
+     * <code>callbackOverrides</code> for the device definition using this API.</p>
+     */
+    inline bool PlacementTemplateHasBeenSet() const { return m_placementTemplateHasBeenSet; }
 
     /**
      * <p>An object defining the project update. Once a project has been created, you

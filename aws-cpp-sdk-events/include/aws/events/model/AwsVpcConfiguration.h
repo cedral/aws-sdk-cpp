@@ -36,9 +36,9 @@ namespace Model
 {
 
   /**
-   * <p>This structure specifies the VPC subnets and security groups for the task,
-   * and whether a public IP address is to be used. This structure is relevant only
-   * for ECS tasks that use the <code>awsvpc</code> network mode.</p><p><h3>See
+   * <p>This structure specifies the VPC subnets and security groups for the task and
+   * whether a public IP address is to be used. This structure is relevant only for
+   * ECS tasks that use the <code>awsvpc</code> network mode.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/events-2015-10-07/AwsVpcConfiguration">AWS
    * API Reference</a></p>
@@ -57,6 +57,12 @@ namespace Model
      * the same VPC. You can specify as many as 16 subnets.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSubnets() const{ return m_subnets; }
+
+    /**
+     * <p>Specifies the subnets associated with the task. These subnets must all be in
+     * the same VPC. You can specify as many as 16 subnets.</p>
+     */
+    inline bool SubnetsHasBeenSet() const { return m_subnetsHasBeenSet; }
 
     /**
      * <p>Specifies the subnets associated with the task. These subnets must all be in
@@ -104,7 +110,7 @@ namespace Model
     /**
      * <p>Specifies the security groups associated with the task. These security groups
      * must all be in the same VPC. You can specify as many as five security groups. If
-     * you do not specify a security group, the default security group for the VPC is
+     * you don't specify a security group, the default security group for the VPC is
      * used.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
@@ -112,7 +118,15 @@ namespace Model
     /**
      * <p>Specifies the security groups associated with the task. These security groups
      * must all be in the same VPC. You can specify as many as five security groups. If
-     * you do not specify a security group, the default security group for the VPC is
+     * you don't specify a security group, the default security group for the VPC is
+     * used.</p>
+     */
+    inline bool SecurityGroupsHasBeenSet() const { return m_securityGroupsHasBeenSet; }
+
+    /**
+     * <p>Specifies the security groups associated with the task. These security groups
+     * must all be in the same VPC. You can specify as many as five security groups. If
+     * you don't specify a security group, the default security group for the VPC is
      * used.</p>
      */
     inline void SetSecurityGroups(const Aws::Vector<Aws::String>& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = value; }
@@ -120,7 +134,7 @@ namespace Model
     /**
      * <p>Specifies the security groups associated with the task. These security groups
      * must all be in the same VPC. You can specify as many as five security groups. If
-     * you do not specify a security group, the default security group for the VPC is
+     * you don't specify a security group, the default security group for the VPC is
      * used.</p>
      */
     inline void SetSecurityGroups(Aws::Vector<Aws::String>&& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = std::move(value); }
@@ -128,7 +142,7 @@ namespace Model
     /**
      * <p>Specifies the security groups associated with the task. These security groups
      * must all be in the same VPC. You can specify as many as five security groups. If
-     * you do not specify a security group, the default security group for the VPC is
+     * you don't specify a security group, the default security group for the VPC is
      * used.</p>
      */
     inline AwsVpcConfiguration& WithSecurityGroups(const Aws::Vector<Aws::String>& value) { SetSecurityGroups(value); return *this;}
@@ -136,7 +150,7 @@ namespace Model
     /**
      * <p>Specifies the security groups associated with the task. These security groups
      * must all be in the same VPC. You can specify as many as five security groups. If
-     * you do not specify a security group, the default security group for the VPC is
+     * you don't specify a security group, the default security group for the VPC is
      * used.</p>
      */
     inline AwsVpcConfiguration& WithSecurityGroups(Aws::Vector<Aws::String>&& value) { SetSecurityGroups(std::move(value)); return *this;}
@@ -144,7 +158,7 @@ namespace Model
     /**
      * <p>Specifies the security groups associated with the task. These security groups
      * must all be in the same VPC. You can specify as many as five security groups. If
-     * you do not specify a security group, the default security group for the VPC is
+     * you don't specify a security group, the default security group for the VPC is
      * used.</p>
      */
     inline AwsVpcConfiguration& AddSecurityGroups(const Aws::String& value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(value); return *this; }
@@ -152,7 +166,7 @@ namespace Model
     /**
      * <p>Specifies the security groups associated with the task. These security groups
      * must all be in the same VPC. You can specify as many as five security groups. If
-     * you do not specify a security group, the default security group for the VPC is
+     * you don't specify a security group, the default security group for the VPC is
      * used.</p>
      */
     inline AwsVpcConfiguration& AddSecurityGroups(Aws::String&& value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(std::move(value)); return *this; }
@@ -160,7 +174,7 @@ namespace Model
     /**
      * <p>Specifies the security groups associated with the task. These security groups
      * must all be in the same VPC. You can specify as many as five security groups. If
-     * you do not specify a security group, the default security group for the VPC is
+     * you don't specify a security group, the default security group for the VPC is
      * used.</p>
      */
     inline AwsVpcConfiguration& AddSecurityGroups(const char* value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(value); return *this; }
@@ -172,6 +186,13 @@ namespace Model
      * in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
      */
     inline const AssignPublicIp& GetAssignPublicIp() const{ return m_assignPublicIp; }
+
+    /**
+     * <p>Specifies whether the task's elastic network interface receives a public IP
+     * address. You can specify <code>ENABLED</code> only when <code>LaunchType</code>
+     * in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
+     */
+    inline bool AssignPublicIpHasBeenSet() const { return m_assignPublicIpHasBeenSet; }
 
     /**
      * <p>Specifies whether the task's elastic network interface receives a public IP

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeliverConfigSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the delivery channel through which the snapshot is delivered.</p>
      */
     inline const Aws::String& GetDeliveryChannelName() const{ return m_deliveryChannelName; }
+
+    /**
+     * <p>The name of the delivery channel through which the snapshot is delivered.</p>
+     */
+    inline bool DeliveryChannelNameHasBeenSet() const { return m_deliveryChannelNameHasBeenSet; }
 
     /**
      * <p>The name of the delivery channel through which the snapshot is delivered.</p>

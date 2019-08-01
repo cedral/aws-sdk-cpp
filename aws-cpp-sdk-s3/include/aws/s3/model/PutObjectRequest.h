@@ -45,7 +45,7 @@ namespace Model
   {
   public:
     PutObjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -61,6 +61,11 @@ namespace Model
      * <p>The canned ACL to apply to the object.</p>
      */
     inline const ObjectCannedACL& GetACL() const{ return m_aCL; }
+
+    /**
+     * <p>The canned ACL to apply to the object.</p>
+     */
+    inline bool ACLHasBeenSet() const { return m_aCLHasBeenSet; }
 
     /**
      * <p>The canned ACL to apply to the object.</p>
@@ -87,6 +92,11 @@ namespace Model
      * <p>Name of the bucket to which the PUT operation was initiated.</p>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p>Name of the bucket to which the PUT operation was initiated.</p>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p>Name of the bucket to which the PUT operation was initiated.</p>
@@ -127,6 +137,11 @@ namespace Model
     /**
      * <p>Specifies caching behavior along the request/reply chain.</p>
      */
+    inline bool CacheControlHasBeenSet() const { return m_cacheControlHasBeenSet; }
+
+    /**
+     * <p>Specifies caching behavior along the request/reply chain.</p>
+     */
     inline void SetCacheControl(const Aws::String& value) { m_cacheControlHasBeenSet = true; m_cacheControl = value; }
 
     /**
@@ -159,6 +174,11 @@ namespace Model
      * <p>Specifies presentational information for the object.</p>
      */
     inline const Aws::String& GetContentDisposition() const{ return m_contentDisposition; }
+
+    /**
+     * <p>Specifies presentational information for the object.</p>
+     */
+    inline bool ContentDispositionHasBeenSet() const { return m_contentDispositionHasBeenSet; }
 
     /**
      * <p>Specifies presentational information for the object.</p>
@@ -197,6 +217,13 @@ namespace Model
      * the Content-Type header field.</p>
      */
     inline const Aws::String& GetContentEncoding() const{ return m_contentEncoding; }
+
+    /**
+     * <p>Specifies what content encodings have been applied to the object and thus
+     * what decoding mechanisms must be applied to obtain the media-type referenced by
+     * the Content-Type header field.</p>
+     */
+    inline bool ContentEncodingHasBeenSet() const { return m_contentEncodingHasBeenSet; }
 
     /**
      * <p>Specifies what content encodings have been applied to the object and thus
@@ -249,6 +276,11 @@ namespace Model
     /**
      * <p>The language the content is in.</p>
      */
+    inline bool ContentLanguageHasBeenSet() const { return m_contentLanguageHasBeenSet; }
+
+    /**
+     * <p>The language the content is in.</p>
+     */
     inline void SetContentLanguage(const Aws::String& value) { m_contentLanguageHasBeenSet = true; m_contentLanguage = value; }
 
     /**
@@ -287,6 +319,12 @@ namespace Model
      * <p>Size of the body in bytes. This parameter is useful when the size of the body
      * cannot be determined automatically.</p>
      */
+    inline bool ContentLengthHasBeenSet() const { return m_contentLengthHasBeenSet; }
+
+    /**
+     * <p>Size of the body in bytes. This parameter is useful when the size of the body
+     * cannot be determined automatically.</p>
+     */
     inline void SetContentLength(long long value) { m_contentLengthHasBeenSet = true; m_contentLength = value; }
 
     /**
@@ -298,43 +336,57 @@ namespace Model
 
     /**
      * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
-     * auto-populated when using the command from the CLI</p>
+     * auto-populated when using the command from the CLI. This parameted is required
+     * if object lock parameters are specified.</p>
      */
     inline const Aws::String& GetContentMD5() const{ return m_contentMD5; }
 
     /**
      * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
-     * auto-populated when using the command from the CLI</p>
+     * auto-populated when using the command from the CLI. This parameted is required
+     * if object lock parameters are specified.</p>
+     */
+    inline bool ContentMD5HasBeenSet() const { return m_contentMD5HasBeenSet; }
+
+    /**
+     * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
+     * auto-populated when using the command from the CLI. This parameted is required
+     * if object lock parameters are specified.</p>
      */
     inline void SetContentMD5(const Aws::String& value) { m_contentMD5HasBeenSet = true; m_contentMD5 = value; }
 
     /**
      * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
-     * auto-populated when using the command from the CLI</p>
+     * auto-populated when using the command from the CLI. This parameted is required
+     * if object lock parameters are specified.</p>
      */
     inline void SetContentMD5(Aws::String&& value) { m_contentMD5HasBeenSet = true; m_contentMD5 = std::move(value); }
 
     /**
      * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
-     * auto-populated when using the command from the CLI</p>
+     * auto-populated when using the command from the CLI. This parameted is required
+     * if object lock parameters are specified.</p>
      */
     inline void SetContentMD5(const char* value) { m_contentMD5HasBeenSet = true; m_contentMD5.assign(value); }
 
     /**
      * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
-     * auto-populated when using the command from the CLI</p>
+     * auto-populated when using the command from the CLI. This parameted is required
+     * if object lock parameters are specified.</p>
      */
     inline PutObjectRequest& WithContentMD5(const Aws::String& value) { SetContentMD5(value); return *this;}
 
     /**
      * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
-     * auto-populated when using the command from the CLI</p>
+     * auto-populated when using the command from the CLI. This parameted is required
+     * if object lock parameters are specified.</p>
      */
     inline PutObjectRequest& WithContentMD5(Aws::String&& value) { SetContentMD5(std::move(value)); return *this;}
 
     /**
      * <p>The base64-encoded 128-bit MD5 digest of the part data. This parameter is
-     * auto-populated when using the command from the CLI</p>
+     * auto-populated when using the command from the CLI. This parameted is required
+     * if object lock parameters are specified.</p>
      */
     inline PutObjectRequest& WithContentMD5(const char* value) { SetContentMD5(value); return *this;}
 
@@ -343,6 +395,11 @@ namespace Model
      * <p>The date and time at which the object is no longer cacheable.</p>
      */
     inline const Aws::Utils::DateTime& GetExpires() const{ return m_expires; }
+
+    /**
+     * <p>The date and time at which the object is no longer cacheable.</p>
+     */
+    inline bool ExpiresHasBeenSet() const { return m_expiresHasBeenSet; }
 
     /**
      * <p>The date and time at which the object is no longer cacheable.</p>
@@ -370,6 +427,12 @@ namespace Model
      * object.</p>
      */
     inline const Aws::String& GetGrantFullControl() const{ return m_grantFullControl; }
+
+    /**
+     * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
+     * object.</p>
+     */
+    inline bool GrantFullControlHasBeenSet() const { return m_grantFullControlHasBeenSet; }
 
     /**
      * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
@@ -416,6 +479,11 @@ namespace Model
     /**
      * <p>Allows grantee to read the object data and its metadata.</p>
      */
+    inline bool GrantReadHasBeenSet() const { return m_grantReadHasBeenSet; }
+
+    /**
+     * <p>Allows grantee to read the object data and its metadata.</p>
+     */
     inline void SetGrantRead(const Aws::String& value) { m_grantReadHasBeenSet = true; m_grantRead = value; }
 
     /**
@@ -448,6 +516,11 @@ namespace Model
      * <p>Allows grantee to read the object ACL.</p>
      */
     inline const Aws::String& GetGrantReadACP() const{ return m_grantReadACP; }
+
+    /**
+     * <p>Allows grantee to read the object ACL.</p>
+     */
+    inline bool GrantReadACPHasBeenSet() const { return m_grantReadACPHasBeenSet; }
 
     /**
      * <p>Allows grantee to read the object ACL.</p>
@@ -488,6 +561,11 @@ namespace Model
     /**
      * <p>Allows grantee to write the ACL for the applicable object.</p>
      */
+    inline bool GrantWriteACPHasBeenSet() const { return m_grantWriteACPHasBeenSet; }
+
+    /**
+     * <p>Allows grantee to write the ACL for the applicable object.</p>
+     */
     inline void SetGrantWriteACP(const Aws::String& value) { m_grantWriteACPHasBeenSet = true; m_grantWriteACP = value; }
 
     /**
@@ -524,6 +602,11 @@ namespace Model
     /**
      * <p>Object key for which the PUT operation was initiated.</p>
      */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
+
+    /**
+     * <p>Object key for which the PUT operation was initiated.</p>
+     */
     inline void SetKey(const Aws::String& value) { m_keyHasBeenSet = true; m_key = value; }
 
     /**
@@ -556,6 +639,11 @@ namespace Model
      * <p>A map of metadata to store with the object in S3.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetMetadata() const{ return m_metadata; }
+
+    /**
+     * <p>A map of metadata to store with the object in S3.</p>
+     */
+    inline bool MetadataHasBeenSet() const { return m_metadataHasBeenSet; }
 
     /**
      * <p>A map of metadata to store with the object in S3.</p>
@@ -623,6 +711,12 @@ namespace Model
      * <p>The Server-side encryption algorithm used when storing this object in S3
      * (e.g., AES256, aws:kms).</p>
      */
+    inline bool ServerSideEncryptionHasBeenSet() const { return m_serverSideEncryptionHasBeenSet; }
+
+    /**
+     * <p>The Server-side encryption algorithm used when storing this object in S3
+     * (e.g., AES256, aws:kms).</p>
+     */
     inline void SetServerSideEncryption(const ServerSideEncryption& value) { m_serverSideEncryptionHasBeenSet = true; m_serverSideEncryption = value; }
 
     /**
@@ -652,6 +746,11 @@ namespace Model
     /**
      * <p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>
      */
+    inline bool StorageClassHasBeenSet() const { return m_storageClassHasBeenSet; }
+
+    /**
+     * <p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>
+     */
     inline void SetStorageClass(const StorageClass& value) { m_storageClassHasBeenSet = true; m_storageClass = value; }
 
     /**
@@ -676,6 +775,13 @@ namespace Model
      * value of this header in the object metadata.</p>
      */
     inline const Aws::String& GetWebsiteRedirectLocation() const{ return m_websiteRedirectLocation; }
+
+    /**
+     * <p>If the bucket is configured as a website, redirects requests for this object
+     * to another object in the same bucket or to an external URL. Amazon S3 stores the
+     * value of this header in the object metadata.</p>
+     */
+    inline bool WebsiteRedirectLocationHasBeenSet() const { return m_websiteRedirectLocationHasBeenSet; }
 
     /**
      * <p>If the bucket is configured as a website, redirects requests for this object
@@ -730,6 +836,12 @@ namespace Model
      * <p>Specifies the algorithm to use to when encrypting the object (e.g.,
      * AES256).</p>
      */
+    inline bool SSECustomerAlgorithmHasBeenSet() const { return m_sSECustomerAlgorithmHasBeenSet; }
+
+    /**
+     * <p>Specifies the algorithm to use to when encrypting the object (e.g.,
+     * AES256).</p>
+     */
     inline void SetSSECustomerAlgorithm(const Aws::String& value) { m_sSECustomerAlgorithmHasBeenSet = true; m_sSECustomerAlgorithm = value; }
 
     /**
@@ -771,6 +883,15 @@ namespace Model
      * x-amz-server-side​-encryption​-customer-algorithm header.</p>
      */
     inline const Aws::String& GetSSECustomerKey() const{ return m_sSECustomerKey; }
+
+    /**
+     * <p>Specifies the customer-provided encryption key for Amazon S3 to use in
+     * encrypting data. This value is used to store the object and then it is
+     * discarded; Amazon does not store the encryption key. The key must be appropriate
+     * for use with the algorithm specified in the
+     * x-amz-server-side​-encryption​-customer-algorithm header.</p>
+     */
+    inline bool SSECustomerKeyHasBeenSet() const { return m_sSECustomerKeyHasBeenSet; }
 
     /**
      * <p>Specifies the customer-provided encryption key for Amazon S3 to use in
@@ -839,6 +960,13 @@ namespace Model
      * Amazon S3 uses this header for a message integrity check to ensure the
      * encryption key was transmitted without error.</p>
      */
+    inline bool SSECustomerKeyMD5HasBeenSet() const { return m_sSECustomerKeyMD5HasBeenSet; }
+
+    /**
+     * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
+     * Amazon S3 uses this header for a message integrity check to ensure the
+     * encryption key was transmitted without error.</p>
+     */
     inline void SetSSECustomerKeyMD5(const Aws::String& value) { m_sSECustomerKeyMD5HasBeenSet = true; m_sSECustomerKeyMD5 = value; }
 
     /**
@@ -885,6 +1013,15 @@ namespace Model
      * http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</p>
      */
     inline const Aws::String& GetSSEKMSKeyId() const{ return m_sSEKMSKeyId; }
+
+    /**
+     * <p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT
+     * requests for an object protected by AWS KMS will fail if not made via SSL or
+     * using SigV4. Documentation on configuring any of the officially supported AWS
+     * SDKs and CLI can be found at
+     * http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</p>
+     */
+    inline bool SSEKMSKeyIdHasBeenSet() const { return m_sSEKMSKeyIdHasBeenSet; }
 
     /**
      * <p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT
@@ -941,8 +1078,68 @@ namespace Model
     inline PutObjectRequest& WithSSEKMSKeyId(const char* value) { SetSSEKMSKeyId(value); return *this;}
 
 
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline const Aws::String& GetSSEKMSEncryptionContext() const{ return m_sSEKMSEncryptionContext; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline bool SSEKMSEncryptionContextHasBeenSet() const { return m_sSEKMSEncryptionContextHasBeenSet; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(const Aws::String& value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext = value; }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(Aws::String&& value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext = std::move(value); }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline void SetSSEKMSEncryptionContext(const char* value) { m_sSEKMSEncryptionContextHasBeenSet = true; m_sSEKMSEncryptionContext.assign(value); }
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline PutObjectRequest& WithSSEKMSEncryptionContext(const Aws::String& value) { SetSSEKMSEncryptionContext(value); return *this;}
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline PutObjectRequest& WithSSEKMSEncryptionContext(Aws::String&& value) { SetSSEKMSEncryptionContext(std::move(value)); return *this;}
+
+    /**
+     * <p>Specifies the AWS KMS Encryption Context to use for object encryption. The
+     * value of this header is a base64-encoded UTF-8 string holding JSON with the
+     * encryption context key-value pairs.</p>
+     */
+    inline PutObjectRequest& WithSSEKMSEncryptionContext(const char* value) { SetSSEKMSEncryptionContext(value); return *this;}
+
+
     
     inline const RequestPayer& GetRequestPayer() const{ return m_requestPayer; }
+
+    
+    inline bool RequestPayerHasBeenSet() const { return m_requestPayerHasBeenSet; }
 
     
     inline void SetRequestPayer(const RequestPayer& value) { m_requestPayerHasBeenSet = true; m_requestPayer = value; }
@@ -962,6 +1159,12 @@ namespace Model
      * parameters. (For example, "Key1=Value1")</p>
      */
     inline const Aws::String& GetTagging() const{ return m_tagging; }
+
+    /**
+     * <p>The tag-set for the object. The tag-set must be encoded as URL Query
+     * parameters. (For example, "Key1=Value1")</p>
+     */
+    inline bool TaggingHasBeenSet() const { return m_taggingHasBeenSet; }
 
     /**
      * <p>The tag-set for the object. The tag-set must be encoded as URL Query
@@ -1001,53 +1204,63 @@ namespace Model
 
 
     /**
-     * <p>The Object Lock mode that you want to apply to this object.</p>
+     * <p>The object lock mode that you want to apply to this object.</p>
      */
     inline const ObjectLockMode& GetObjectLockMode() const{ return m_objectLockMode; }
 
     /**
-     * <p>The Object Lock mode that you want to apply to this object.</p>
+     * <p>The object lock mode that you want to apply to this object.</p>
+     */
+    inline bool ObjectLockModeHasBeenSet() const { return m_objectLockModeHasBeenSet; }
+
+    /**
+     * <p>The object lock mode that you want to apply to this object.</p>
      */
     inline void SetObjectLockMode(const ObjectLockMode& value) { m_objectLockModeHasBeenSet = true; m_objectLockMode = value; }
 
     /**
-     * <p>The Object Lock mode that you want to apply to this object.</p>
+     * <p>The object lock mode that you want to apply to this object.</p>
      */
     inline void SetObjectLockMode(ObjectLockMode&& value) { m_objectLockModeHasBeenSet = true; m_objectLockMode = std::move(value); }
 
     /**
-     * <p>The Object Lock mode that you want to apply to this object.</p>
+     * <p>The object lock mode that you want to apply to this object.</p>
      */
     inline PutObjectRequest& WithObjectLockMode(const ObjectLockMode& value) { SetObjectLockMode(value); return *this;}
 
     /**
-     * <p>The Object Lock mode that you want to apply to this object.</p>
+     * <p>The object lock mode that you want to apply to this object.</p>
      */
     inline PutObjectRequest& WithObjectLockMode(ObjectLockMode&& value) { SetObjectLockMode(std::move(value)); return *this;}
 
 
     /**
-     * <p>The date and time when you want this object's Object Lock to expire.</p>
+     * <p>The date and time when you want this object's object lock to expire.</p>
      */
     inline const Aws::Utils::DateTime& GetObjectLockRetainUntilDate() const{ return m_objectLockRetainUntilDate; }
 
     /**
-     * <p>The date and time when you want this object's Object Lock to expire.</p>
+     * <p>The date and time when you want this object's object lock to expire.</p>
+     */
+    inline bool ObjectLockRetainUntilDateHasBeenSet() const { return m_objectLockRetainUntilDateHasBeenSet; }
+
+    /**
+     * <p>The date and time when you want this object's object lock to expire.</p>
      */
     inline void SetObjectLockRetainUntilDate(const Aws::Utils::DateTime& value) { m_objectLockRetainUntilDateHasBeenSet = true; m_objectLockRetainUntilDate = value; }
 
     /**
-     * <p>The date and time when you want this object's Object Lock to expire.</p>
+     * <p>The date and time when you want this object's object lock to expire.</p>
      */
     inline void SetObjectLockRetainUntilDate(Aws::Utils::DateTime&& value) { m_objectLockRetainUntilDateHasBeenSet = true; m_objectLockRetainUntilDate = std::move(value); }
 
     /**
-     * <p>The date and time when you want this object's Object Lock to expire.</p>
+     * <p>The date and time when you want this object's object lock to expire.</p>
      */
     inline PutObjectRequest& WithObjectLockRetainUntilDate(const Aws::Utils::DateTime& value) { SetObjectLockRetainUntilDate(value); return *this;}
 
     /**
-     * <p>The date and time when you want this object's Object Lock to expire.</p>
+     * <p>The date and time when you want this object's object lock to expire.</p>
      */
     inline PutObjectRequest& WithObjectLockRetainUntilDate(Aws::Utils::DateTime&& value) { SetObjectLockRetainUntilDate(std::move(value)); return *this;}
 
@@ -1056,6 +1269,11 @@ namespace Model
      * <p>The Legal Hold status that you want to apply to the specified object.</p>
      */
     inline const ObjectLockLegalHoldStatus& GetObjectLockLegalHoldStatus() const{ return m_objectLockLegalHoldStatus; }
+
+    /**
+     * <p>The Legal Hold status that you want to apply to the specified object.</p>
+     */
+    inline bool ObjectLockLegalHoldStatusHasBeenSet() const { return m_objectLockLegalHoldStatusHasBeenSet; }
 
     /**
      * <p>The Legal Hold status that you want to apply to the specified object.</p>
@@ -1080,6 +1298,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }
@@ -1182,6 +1403,9 @@ namespace Model
 
     Aws::String m_sSEKMSKeyId;
     bool m_sSEKMSKeyIdHasBeenSet;
+
+    Aws::String m_sSEKMSEncryptionContext;
+    bool m_sSEKMSEncryptionContextHasBeenSet;
 
     RequestPayer m_requestPayer;
     bool m_requestPayerHasBeenSet;

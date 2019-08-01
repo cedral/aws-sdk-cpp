@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     GetObjectLegalHoldRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,12 @@ namespace Model
      * retrieve.</p>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
+
+    /**
+     * <p>The bucket containing the object whose Legal Hold status you want to
+     * retrieve.</p>
+     */
+    inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
      * <p>The bucket containing the object whose Legal Hold status you want to
@@ -103,6 +109,11 @@ namespace Model
     /**
      * <p>The key name for the object whose Legal Hold status you want to retrieve.</p>
      */
+    inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
+
+    /**
+     * <p>The key name for the object whose Legal Hold status you want to retrieve.</p>
+     */
     inline void SetKey(const Aws::String& value) { m_keyHasBeenSet = true; m_key = value; }
 
     /**
@@ -136,6 +147,12 @@ namespace Model
      * retrieve.</p>
      */
     inline const Aws::String& GetVersionId() const{ return m_versionId; }
+
+    /**
+     * <p>The version ID of the object whose Legal Hold status you want to
+     * retrieve.</p>
+     */
+    inline bool VersionIdHasBeenSet() const { return m_versionIdHasBeenSet; }
 
     /**
      * <p>The version ID of the object whose Legal Hold status you want to
@@ -178,6 +195,9 @@ namespace Model
     inline const RequestPayer& GetRequestPayer() const{ return m_requestPayer; }
 
     
+    inline bool RequestPayerHasBeenSet() const { return m_requestPayerHasBeenSet; }
+
+    
     inline void SetRequestPayer(const RequestPayer& value) { m_requestPayerHasBeenSet = true; m_requestPayer = value; }
 
     
@@ -192,6 +212,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetCustomizedAccessLogTag() const{ return m_customizedAccessLogTag; }
+
+    
+    inline bool CustomizedAccessLogTagHasBeenSet() const { return m_customizedAccessLogTagHasBeenSet; }
 
     
     inline void SetCustomizedAccessLogTag(const Aws::Map<Aws::String, Aws::String>& value) { m_customizedAccessLogTagHasBeenSet = true; m_customizedAccessLogTag = value; }

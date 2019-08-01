@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for ImportSnapshot.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportSnapshotRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API ImportSnapshotRequest : public EC2Request
   {
   public:
     ImportSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +52,11 @@ namespace Model
      * <p>The client-specific data.</p>
      */
     inline const ClientData& GetClientData() const{ return m_clientData; }
+
+    /**
+     * <p>The client-specific data.</p>
+     */
+    inline bool ClientDataHasBeenSet() const { return m_clientDataHasBeenSet; }
 
     /**
      * <p>The client-specific data.</p>
@@ -81,6 +83,11 @@ namespace Model
      * <p>Token to enable idempotency for VM import requests.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>Token to enable idempotency for VM import requests.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>Token to enable idempotency for VM import requests.</p>
@@ -121,6 +128,11 @@ namespace Model
     /**
      * <p>The description string for the import snapshot task.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description string for the import snapshot task.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -157,6 +169,11 @@ namespace Model
     /**
      * <p>Information about the disk container.</p>
      */
+    inline bool DiskContainerHasBeenSet() const { return m_diskContainerHasBeenSet; }
+
+    /**
+     * <p>Information about the disk container.</p>
+     */
     inline void SetDiskContainer(const SnapshotDiskContainer& value) { m_diskContainerHasBeenSet = true; m_diskContainer = value; }
 
     /**
@@ -182,6 +199,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without
@@ -218,6 +243,16 @@ namespace Model
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
      * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
+    inline bool EncryptedHasBeenSet() const { return m_encryptedHasBeenSet; }
+
+    /**
+     * <p>Specifies whether the destination snapshot of the imported image should be
+     * encrypted. The default CMK for EBS is used unless you specify a non-default AWS
+     * Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     */
     inline void SetEncrypted(bool value) { m_encryptedHasBeenSet = true; m_encrypted = value; }
 
     /**
@@ -238,21 +273,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the snapshot is being copied to. </p>
+     * CMK must exist in the Region that the snapshot is being copied to.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
 
@@ -263,21 +301,52 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the snapshot is being copied to. </p>
+     * CMK must exist in the Region that the snapshot is being copied to.</p>
+     */
+    inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
+
+    /**
+     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
+     * key (CMK) to use when creating the encrypted snapshot. This parameter is only
+     * required if you want to use a non-default CMK; if this parameter is not
+     * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
+     * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
+     * identifier may be provided in any of the following formats: </p> <ul> <li>
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
+     * </li> <li> <p>ARN using key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
+     * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
+     * action you call may appear to complete even though you provided an invalid
+     * identifier. This action will eventually report failure. </p> <p>The specified
+     * CMK must exist in the Region that the snapshot is being copied to.</p>
      */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
 
@@ -288,21 +357,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the snapshot is being copied to. </p>
+     * CMK must exist in the Region that the snapshot is being copied to.</p>
      */
     inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = std::move(value); }
 
@@ -313,21 +385,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the snapshot is being copied to. </p>
+     * CMK must exist in the Region that the snapshot is being copied to.</p>
      */
     inline void SetKmsKeyId(const char* value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId.assign(value); }
 
@@ -338,21 +413,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the snapshot is being copied to. </p>
+     * CMK must exist in the Region that the snapshot is being copied to.</p>
      */
     inline ImportSnapshotRequest& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
 
@@ -363,21 +441,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the snapshot is being copied to. </p>
+     * CMK must exist in the Region that the snapshot is being copied to.</p>
      */
     inline ImportSnapshotRequest& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
 
@@ -388,21 +469,24 @@ namespace Model
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
      * identifier may be provided in any of the following formats: </p> <ul> <li>
-     * <p>Key ID</p> </li> <li> <p>Key alias, in the form
-     * <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The
-     * ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region
-     * of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace,
-     * and then the CMK ID. For example,
+     * <p>Key ID</p> </li> <li> <p>Key alias. The alias ARN contains the
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
+     * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
+     * alias. For example,
+     * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
+     * </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code>
+     * namespace, followed by the Region of the CMK, the AWS account ID of the CMK
+     * owner, the <code>key</code> namespace, and then the CMK ID. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
      * </li> <li> <p>ARN using key alias. The alias ARN contains the
-     * <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS
+     * <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS
      * account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK
      * alias. For example,
      * arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the region that the snapshot is being copied to. </p>
+     * CMK must exist in the Region that the snapshot is being copied to.</p>
      */
     inline ImportSnapshotRequest& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
@@ -411,6 +495,11 @@ namespace Model
      * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
      */
     inline const Aws::String& GetRoleName() const{ return m_roleName; }
+
+    /**
+     * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
+     */
+    inline bool RoleNameHasBeenSet() const { return m_roleNameHasBeenSet; }
 
     /**
      * <p>The name of the role to use when not using the default role, 'vmimport'.</p>

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListStacksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * retrieve.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A string that identifies the next page of stacks that you want to
+     * retrieve.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A string that identifies the next page of stacks that you want to
@@ -101,6 +107,14 @@ namespace Model
      * data type.</p>
      */
     inline const Aws::Vector<StackStatus>& GetStackStatusFilter() const{ return m_stackStatusFilter; }
+
+    /**
+     * <p>Stack status to use as a filter. Specify one or more stack status codes to
+     * list only stacks with the specified status codes. For a complete list of stack
+     * status codes, see the <code>StackStatus</code> parameter of the <a>Stack</a>
+     * data type.</p>
+     */
+    inline bool StackStatusFilterHasBeenSet() const { return m_stackStatusFilterHasBeenSet; }
 
     /**
      * <p>Stack status to use as a filter. Specify one or more stack status codes to

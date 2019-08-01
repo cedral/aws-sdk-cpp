@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteDirectConnectGatewayAssociationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,9 +45,55 @@ namespace Model
 
 
     /**
+     * <p>The ID of the Direct Connect gateway association.</p>
+     */
+    inline const Aws::String& GetAssociationId() const{ return m_associationId; }
+
+    /**
+     * <p>The ID of the Direct Connect gateway association.</p>
+     */
+    inline bool AssociationIdHasBeenSet() const { return m_associationIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the Direct Connect gateway association.</p>
+     */
+    inline void SetAssociationId(const Aws::String& value) { m_associationIdHasBeenSet = true; m_associationId = value; }
+
+    /**
+     * <p>The ID of the Direct Connect gateway association.</p>
+     */
+    inline void SetAssociationId(Aws::String&& value) { m_associationIdHasBeenSet = true; m_associationId = std::move(value); }
+
+    /**
+     * <p>The ID of the Direct Connect gateway association.</p>
+     */
+    inline void SetAssociationId(const char* value) { m_associationIdHasBeenSet = true; m_associationId.assign(value); }
+
+    /**
+     * <p>The ID of the Direct Connect gateway association.</p>
+     */
+    inline DeleteDirectConnectGatewayAssociationRequest& WithAssociationId(const Aws::String& value) { SetAssociationId(value); return *this;}
+
+    /**
+     * <p>The ID of the Direct Connect gateway association.</p>
+     */
+    inline DeleteDirectConnectGatewayAssociationRequest& WithAssociationId(Aws::String&& value) { SetAssociationId(std::move(value)); return *this;}
+
+    /**
+     * <p>The ID of the Direct Connect gateway association.</p>
+     */
+    inline DeleteDirectConnectGatewayAssociationRequest& WithAssociationId(const char* value) { SetAssociationId(value); return *this;}
+
+
+    /**
      * <p>The ID of the Direct Connect gateway.</p>
      */
     inline const Aws::String& GetDirectConnectGatewayId() const{ return m_directConnectGatewayId; }
+
+    /**
+     * <p>The ID of the Direct Connect gateway.</p>
+     */
+    inline bool DirectConnectGatewayIdHasBeenSet() const { return m_directConnectGatewayIdHasBeenSet; }
 
     /**
      * <p>The ID of the Direct Connect gateway.</p>
@@ -88,6 +134,11 @@ namespace Model
     /**
      * <p>The ID of the virtual private gateway.</p>
      */
+    inline bool VirtualGatewayIdHasBeenSet() const { return m_virtualGatewayIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the virtual private gateway.</p>
+     */
     inline void SetVirtualGatewayId(const Aws::String& value) { m_virtualGatewayIdHasBeenSet = true; m_virtualGatewayId = value; }
 
     /**
@@ -116,6 +167,9 @@ namespace Model
     inline DeleteDirectConnectGatewayAssociationRequest& WithVirtualGatewayId(const char* value) { SetVirtualGatewayId(value); return *this;}
 
   private:
+
+    Aws::String m_associationId;
+    bool m_associationIdHasBeenSet;
 
     Aws::String m_directConnectGatewayId;
     bool m_directConnectGatewayIdHasBeenSet;

@@ -60,6 +60,11 @@ namespace Model
     /**
      * <p>The state of the Availability Zone.</p>
      */
+    inline bool StateHasBeenSet() const { return m_stateHasBeenSet; }
+
+    /**
+     * <p>The state of the Availability Zone.</p>
+     */
     inline void SetState(const AvailabilityZoneState& value) { m_stateHasBeenSet = true; m_state = value; }
 
     /**
@@ -82,6 +87,11 @@ namespace Model
      * <p>Any messages about the Availability Zone.</p>
      */
     inline const Aws::Vector<AvailabilityZoneMessage>& GetMessages() const{ return m_messages; }
+
+    /**
+     * <p>Any messages about the Availability Zone.</p>
+     */
+    inline bool MessagesHasBeenSet() const { return m_messagesHasBeenSet; }
 
     /**
      * <p>Any messages about the Availability Zone.</p>
@@ -115,37 +125,42 @@ namespace Model
 
 
     /**
-     * <p>The name of the region.</p>
+     * <p>The name of the Region.</p>
      */
     inline const Aws::String& GetRegionName() const{ return m_regionName; }
 
     /**
-     * <p>The name of the region.</p>
+     * <p>The name of the Region.</p>
+     */
+    inline bool RegionNameHasBeenSet() const { return m_regionNameHasBeenSet; }
+
+    /**
+     * <p>The name of the Region.</p>
      */
     inline void SetRegionName(const Aws::String& value) { m_regionNameHasBeenSet = true; m_regionName = value; }
 
     /**
-     * <p>The name of the region.</p>
+     * <p>The name of the Region.</p>
      */
     inline void SetRegionName(Aws::String&& value) { m_regionNameHasBeenSet = true; m_regionName = std::move(value); }
 
     /**
-     * <p>The name of the region.</p>
+     * <p>The name of the Region.</p>
      */
     inline void SetRegionName(const char* value) { m_regionNameHasBeenSet = true; m_regionName.assign(value); }
 
     /**
-     * <p>The name of the region.</p>
+     * <p>The name of the Region.</p>
      */
     inline AvailabilityZone& WithRegionName(const Aws::String& value) { SetRegionName(value); return *this;}
 
     /**
-     * <p>The name of the region.</p>
+     * <p>The name of the Region.</p>
      */
     inline AvailabilityZone& WithRegionName(Aws::String&& value) { SetRegionName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the region.</p>
+     * <p>The name of the Region.</p>
      */
     inline AvailabilityZone& WithRegionName(const char* value) { SetRegionName(value); return *this;}
 
@@ -154,6 +169,11 @@ namespace Model
      * <p>The name of the Availability Zone.</p>
      */
     inline const Aws::String& GetZoneName() const{ return m_zoneName; }
+
+    /**
+     * <p>The name of the Availability Zone.</p>
+     */
+    inline bool ZoneNameHasBeenSet() const { return m_zoneNameHasBeenSet; }
 
     /**
      * <p>The name of the Availability Zone.</p>
@@ -190,6 +210,11 @@ namespace Model
      * <p>The ID of the Availability Zone.</p>
      */
     inline const Aws::String& GetZoneId() const{ return m_zoneId; }
+
+    /**
+     * <p>The ID of the Availability Zone.</p>
+     */
+    inline bool ZoneIdHasBeenSet() const { return m_zoneIdHasBeenSet; }
 
     /**
      * <p>The ID of the Availability Zone.</p>

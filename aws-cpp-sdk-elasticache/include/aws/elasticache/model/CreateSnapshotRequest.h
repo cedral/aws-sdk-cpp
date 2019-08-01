@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateSnapshotRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * this replication group.</p>
      */
     inline const Aws::String& GetReplicationGroupId() const{ return m_replicationGroupId; }
+
+    /**
+     * <p>The identifier of an existing replication group. The snapshot is created from
+     * this replication group.</p>
+     */
+    inline bool ReplicationGroupIdHasBeenSet() const { return m_replicationGroupIdHasBeenSet; }
 
     /**
      * <p>The identifier of an existing replication group. The snapshot is created from
@@ -103,6 +109,12 @@ namespace Model
      * <p>The identifier of an existing cluster. The snapshot is created from this
      * cluster.</p>
      */
+    inline bool CacheClusterIdHasBeenSet() const { return m_cacheClusterIdHasBeenSet; }
+
+    /**
+     * <p>The identifier of an existing cluster. The snapshot is created from this
+     * cluster.</p>
+     */
     inline void SetCacheClusterId(const Aws::String& value) { m_cacheClusterIdHasBeenSet = true; m_cacheClusterId = value; }
 
     /**
@@ -140,6 +152,11 @@ namespace Model
      * <p>A name for the snapshot being created.</p>
      */
     inline const Aws::String& GetSnapshotName() const{ return m_snapshotName; }
+
+    /**
+     * <p>A name for the snapshot being created.</p>
+     */
+    inline bool SnapshotNameHasBeenSet() const { return m_snapshotNameHasBeenSet; }
 
     /**
      * <p>A name for the snapshot being created.</p>

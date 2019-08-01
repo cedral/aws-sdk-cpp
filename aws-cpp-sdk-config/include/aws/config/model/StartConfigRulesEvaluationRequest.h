@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     StartConfigRulesEvaluationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * for.</p>
      */
     inline const Aws::Vector<Aws::String>& GetConfigRuleNames() const{ return m_configRuleNames; }
+
+    /**
+     * <p>The list of names of AWS Config rules that you want to run evaluations
+     * for.</p>
+     */
+    inline bool ConfigRuleNamesHasBeenSet() const { return m_configRuleNamesHasBeenSet; }
 
     /**
      * <p>The list of names of AWS Config rules that you want to run evaluations

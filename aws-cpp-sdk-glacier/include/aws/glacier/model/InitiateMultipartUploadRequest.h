@@ -27,7 +27,7 @@ namespace Model
 {
 
   /**
-   * <p>Provides options for initiating a multipart upload to an Amazon Glacier
+   * <p>Provides options for initiating a multipart upload to an Amazon S3 Glacier
    * vault.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/glacier-2012-06-01/InitiateMultipartUploadInput">AWS
    * API Reference</a></p>
@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     InitiateMultipartUploadRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,63 +51,72 @@ namespace Model
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID. </p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID. </p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID. </p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID. </p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
+
+    /**
+     * <p>The <code>AccountId</code> value is the AWS account ID of the account that
+     * owns the vault. You can either specify an AWS account ID or optionally a single
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID. </p>
      */
     inline void SetAccountId(const Aws::String& value) { m_accountIdHasBeenSet = true; m_accountId = value; }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID. </p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID. </p>
      */
     inline void SetAccountId(Aws::String&& value) { m_accountIdHasBeenSet = true; m_accountId = std::move(value); }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID. </p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID. </p>
      */
     inline void SetAccountId(const char* value) { m_accountIdHasBeenSet = true; m_accountId.assign(value); }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID. </p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID. </p>
      */
     inline InitiateMultipartUploadRequest& WithAccountId(const Aws::String& value) { SetAccountId(value); return *this;}
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID. </p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID. </p>
      */
     inline InitiateMultipartUploadRequest& WithAccountId(Aws::String&& value) { SetAccountId(std::move(value)); return *this;}
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID of the account that
      * owns the vault. You can either specify an AWS account ID or optionally a single
-     * '<code>-</code>' (hyphen), in which case Amazon Glacier uses the AWS account ID
-     * associated with the credentials used to sign the request. If you use an account
-     * ID, do not include any hyphens ('-') in the ID. </p>
+     * '<code>-</code>' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+     * ID associated with the credentials used to sign the request. If you use an
+     * account ID, do not include any hyphens ('-') in the ID. </p>
      */
     inline InitiateMultipartUploadRequest& WithAccountId(const char* value) { SetAccountId(value); return *this;}
 
@@ -116,6 +125,11 @@ namespace Model
      * <p>The name of the vault.</p>
      */
     inline const Aws::String& GetVaultName() const{ return m_vaultName; }
+
+    /**
+     * <p>The name of the vault.</p>
+     */
+    inline bool VaultNameHasBeenSet() const { return m_vaultNameHasBeenSet; }
 
     /**
      * <p>The name of the vault.</p>
@@ -155,6 +169,14 @@ namespace Model
      * allowable part size is 1 MB, and the maximum is 4 GB (4096 MB).</p>
      */
     inline const Aws::String& GetArchiveDescription() const{ return m_archiveDescription; }
+
+    /**
+     * <p>The archive description that you are uploading in parts.</p> <p>The part size
+     * must be a megabyte (1024 KB) multiplied by a power of 2, for example 1048576 (1
+     * MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum
+     * allowable part size is 1 MB, and the maximum is 4 GB (4096 MB).</p>
+     */
+    inline bool ArchiveDescriptionHasBeenSet() const { return m_archiveDescriptionHasBeenSet; }
 
     /**
      * <p>The archive description that you are uploading in parts.</p> <p>The part size
@@ -210,6 +232,12 @@ namespace Model
      * than this part size.</p>
      */
     inline const Aws::String& GetPartSize() const{ return m_partSize; }
+
+    /**
+     * <p>The size of each part except the last, in bytes. The last part can be smaller
+     * than this part size.</p>
+     */
+    inline bool PartSizeHasBeenSet() const { return m_partSizeHasBeenSet; }
 
     /**
      * <p>The size of each part except the last, in bytes. The last part can be smaller

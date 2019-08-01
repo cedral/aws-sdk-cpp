@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ChangePasswordRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The old password.</p>
      */
     inline const Aws::String& GetPreviousPassword() const{ return m_previousPassword; }
+
+    /**
+     * <p>The old password.</p>
+     */
+    inline bool PreviousPasswordHasBeenSet() const { return m_previousPasswordHasBeenSet; }
 
     /**
      * <p>The old password.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The new password.</p>
      */
+    inline bool ProposedPasswordHasBeenSet() const { return m_proposedPasswordHasBeenSet; }
+
+    /**
+     * <p>The new password.</p>
+     */
     inline void SetProposedPassword(const Aws::String& value) { m_proposedPasswordHasBeenSet = true; m_proposedPassword = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
      * <p>The access token.</p>
      */
     inline const Aws::String& GetAccessToken() const{ return m_accessToken; }
+
+    /**
+     * <p>The access token.</p>
+     */
+    inline bool AccessTokenHasBeenSet() const { return m_accessTokenHasBeenSet; }
 
     /**
      * <p>The access token.</p>

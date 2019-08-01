@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListIpRoutesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * addresses.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>Identifier (ID) of the directory for which you want to retrieve the IP
+     * addresses.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>Identifier (ID) of the directory for which you want to retrieve the IP
@@ -97,6 +103,12 @@ namespace Model
      * <p>The <i>ListIpRoutes.NextToken</i> value from a previous call to
      * <a>ListIpRoutes</a>. Pass null if this is the first call.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The <i>ListIpRoutes.NextToken</i> value from a previous call to
+     * <a>ListIpRoutes</a>. Pass null if this is the first call.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -135,6 +147,12 @@ namespace Model
      * of items is specified by the limitations of the operation.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>Maximum number of items to return. If this value is zero, the maximum number
+     * of items is specified by the limitations of the operation.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>Maximum number of items to return. If this value is zero, the maximum number

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     UpdateFleetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the image used to create the fleet.</p>
      */
     inline const Aws::String& GetImageName() const{ return m_imageName; }
+
+    /**
+     * <p>The name of the image used to create the fleet.</p>
+     */
+    inline bool ImageNameHasBeenSet() const { return m_imageNameHasBeenSet; }
 
     /**
      * <p>The name of the image used to create the fleet.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The ARN of the public, private, or shared image to use.</p>
      */
+    inline bool ImageArnHasBeenSet() const { return m_imageArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the public, private, or shared image to use.</p>
+     */
     inline void SetImageArn(const Aws::String& value) { m_imageArnHasBeenSet = true; m_imageArn = value; }
 
     /**
@@ -125,6 +135,11 @@ namespace Model
      * <p>A unique name for the fleet.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>A unique name for the fleet.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>A unique name for the fleet.</p>
@@ -175,6 +190,25 @@ namespace Model
      * </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul>
      */
     inline const Aws::String& GetInstanceType() const{ return m_instanceType; }
+
+    /**
+     * <p>The instance type to use when launching fleet instances. The following
+     * instance types are available:</p> <ul> <li> <p>stream.standard.medium</p> </li>
+     * <li> <p>stream.standard.large</p> </li> <li> <p>stream.compute.large</p> </li>
+     * <li> <p>stream.compute.xlarge</p> </li> <li> <p>stream.compute.2xlarge</p> </li>
+     * <li> <p>stream.compute.4xlarge</p> </li> <li> <p>stream.compute.8xlarge</p>
+     * </li> <li> <p>stream.memory.large</p> </li> <li> <p>stream.memory.xlarge</p>
+     * </li> <li> <p>stream.memory.2xlarge</p> </li> <li> <p>stream.memory.4xlarge</p>
+     * </li> <li> <p>stream.memory.8xlarge</p> </li> <li>
+     * <p>stream.graphics-design.large</p> </li> <li>
+     * <p>stream.graphics-design.xlarge</p> </li> <li>
+     * <p>stream.graphics-design.2xlarge</p> </li> <li>
+     * <p>stream.graphics-design.4xlarge</p> </li> <li>
+     * <p>stream.graphics-desktop.2xlarge</p> </li> <li>
+     * <p>stream.graphics-pro.4xlarge</p> </li> <li> <p>stream.graphics-pro.8xlarge</p>
+     * </li> <li> <p>stream.graphics-pro.16xlarge</p> </li> </ul>
+     */
+    inline bool InstanceTypeHasBeenSet() const { return m_instanceTypeHasBeenSet; }
 
     /**
      * <p>The instance type to use when launching fleet instances. The following
@@ -299,6 +333,11 @@ namespace Model
     /**
      * <p>The desired capacity for the fleet.</p>
      */
+    inline bool ComputeCapacityHasBeenSet() const { return m_computeCapacityHasBeenSet; }
+
+    /**
+     * <p>The desired capacity for the fleet.</p>
+     */
     inline void SetComputeCapacity(const ComputeCapacity& value) { m_computeCapacityHasBeenSet = true; m_computeCapacity = value; }
 
     /**
@@ -325,6 +364,11 @@ namespace Model
     /**
      * <p>The VPC configuration for the fleet.</p>
      */
+    inline bool VpcConfigHasBeenSet() const { return m_vpcConfigHasBeenSet; }
+
+    /**
+     * <p>The VPC configuration for the fleet.</p>
+     */
     inline void SetVpcConfig(const VpcConfig& value) { m_vpcConfigHasBeenSet = true; m_vpcConfig = value; }
 
     /**
@@ -344,48 +388,83 @@ namespace Model
 
 
     /**
-     * <p>The maximum time that a streaming session can run, in seconds. Specify a
-     * value between 600 and 360000. By default, the value is 900 seconds (15
-     * minutes).</p>
+     * <p>The maximum amount of time that a streaming session can remain active, in
+     * seconds. If users are still connected to a streaming instance five minutes
+     * before this limit is reached, they are prompted to save any open documents
+     * before being disconnected. After this time elapses, the instance is terminated
+     * and replaced by a new instance.</p> <p>Specify a value between 600 and
+     * 360000.</p>
      */
     inline int GetMaxUserDurationInSeconds() const{ return m_maxUserDurationInSeconds; }
 
     /**
-     * <p>The maximum time that a streaming session can run, in seconds. Specify a
-     * value between 600 and 360000. By default, the value is 900 seconds (15
-     * minutes).</p>
+     * <p>The maximum amount of time that a streaming session can remain active, in
+     * seconds. If users are still connected to a streaming instance five minutes
+     * before this limit is reached, they are prompted to save any open documents
+     * before being disconnected. After this time elapses, the instance is terminated
+     * and replaced by a new instance.</p> <p>Specify a value between 600 and
+     * 360000.</p>
+     */
+    inline bool MaxUserDurationInSecondsHasBeenSet() const { return m_maxUserDurationInSecondsHasBeenSet; }
+
+    /**
+     * <p>The maximum amount of time that a streaming session can remain active, in
+     * seconds. If users are still connected to a streaming instance five minutes
+     * before this limit is reached, they are prompted to save any open documents
+     * before being disconnected. After this time elapses, the instance is terminated
+     * and replaced by a new instance.</p> <p>Specify a value between 600 and
+     * 360000.</p>
      */
     inline void SetMaxUserDurationInSeconds(int value) { m_maxUserDurationInSecondsHasBeenSet = true; m_maxUserDurationInSeconds = value; }
 
     /**
-     * <p>The maximum time that a streaming session can run, in seconds. Specify a
-     * value between 600 and 360000. By default, the value is 900 seconds (15
-     * minutes).</p>
+     * <p>The maximum amount of time that a streaming session can remain active, in
+     * seconds. If users are still connected to a streaming instance five minutes
+     * before this limit is reached, they are prompted to save any open documents
+     * before being disconnected. After this time elapses, the instance is terminated
+     * and replaced by a new instance.</p> <p>Specify a value between 600 and
+     * 360000.</p>
      */
     inline UpdateFleetRequest& WithMaxUserDurationInSeconds(int value) { SetMaxUserDurationInSeconds(value); return *this;}
 
 
     /**
-     * <p>The time after disconnection when a session is considered to have ended, in
-     * seconds. If a user who was disconnected reconnects within this time interval,
-     * the user is connected to their previous session. Specify a value between 60 and
-     * 360000. By default, the value is 900 seconds (15 minutes).</p>
+     * <p>The amount of time that a streaming session remains active after users
+     * disconnect. If users try to reconnect to the streaming session after a
+     * disconnection or network interruption within this time interval, they are
+     * connected to their previous session. Otherwise, they are connected to a new
+     * session with a new streaming instance. </p> <p>Specify a value between 60 and
+     * 360000.</p>
      */
     inline int GetDisconnectTimeoutInSeconds() const{ return m_disconnectTimeoutInSeconds; }
 
     /**
-     * <p>The time after disconnection when a session is considered to have ended, in
-     * seconds. If a user who was disconnected reconnects within this time interval,
-     * the user is connected to their previous session. Specify a value between 60 and
-     * 360000. By default, the value is 900 seconds (15 minutes).</p>
+     * <p>The amount of time that a streaming session remains active after users
+     * disconnect. If users try to reconnect to the streaming session after a
+     * disconnection or network interruption within this time interval, they are
+     * connected to their previous session. Otherwise, they are connected to a new
+     * session with a new streaming instance. </p> <p>Specify a value between 60 and
+     * 360000.</p>
+     */
+    inline bool DisconnectTimeoutInSecondsHasBeenSet() const { return m_disconnectTimeoutInSecondsHasBeenSet; }
+
+    /**
+     * <p>The amount of time that a streaming session remains active after users
+     * disconnect. If users try to reconnect to the streaming session after a
+     * disconnection or network interruption within this time interval, they are
+     * connected to their previous session. Otherwise, they are connected to a new
+     * session with a new streaming instance. </p> <p>Specify a value between 60 and
+     * 360000.</p>
      */
     inline void SetDisconnectTimeoutInSeconds(int value) { m_disconnectTimeoutInSecondsHasBeenSet = true; m_disconnectTimeoutInSeconds = value; }
 
     /**
-     * <p>The time after disconnection when a session is considered to have ended, in
-     * seconds. If a user who was disconnected reconnects within this time interval,
-     * the user is connected to their previous session. Specify a value between 60 and
-     * 360000. By default, the value is 900 seconds (15 minutes).</p>
+     * <p>The amount of time that a streaming session remains active after users
+     * disconnect. If users try to reconnect to the streaming session after a
+     * disconnection or network interruption within this time interval, they are
+     * connected to their previous session. Otherwise, they are connected to a new
+     * session with a new streaming instance. </p> <p>Specify a value between 60 and
+     * 360000.</p>
      */
     inline UpdateFleetRequest& WithDisconnectTimeoutInSeconds(int value) { SetDisconnectTimeoutInSeconds(value); return *this;}
 
@@ -394,6 +473,11 @@ namespace Model
      * <p>The description to display.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The description to display.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The description to display.</p>
@@ -434,6 +518,11 @@ namespace Model
     /**
      * <p>The fleet name to display.</p>
      */
+    inline bool DisplayNameHasBeenSet() const { return m_displayNameHasBeenSet; }
+
+    /**
+     * <p>The fleet name to display.</p>
+     */
     inline void SetDisplayName(const Aws::String& value) { m_displayNameHasBeenSet = true; m_displayName = value; }
 
     /**
@@ -470,6 +559,11 @@ namespace Model
     /**
      * <p>Enables or disables default internet access for the fleet.</p>
      */
+    inline bool EnableDefaultInternetAccessHasBeenSet() const { return m_enableDefaultInternetAccessHasBeenSet; }
+
+    /**
+     * <p>Enables or disables default internet access for the fleet.</p>
+     */
     inline void SetEnableDefaultInternetAccess(bool value) { m_enableDefaultInternetAccessHasBeenSet = true; m_enableDefaultInternetAccess = value; }
 
     /**
@@ -483,6 +577,12 @@ namespace Model
      * fleet to a Microsoft Active Directory domain. </p>
      */
     inline const DomainJoinInfo& GetDomainJoinInfo() const{ return m_domainJoinInfo; }
+
+    /**
+     * <p>The name of the directory and organizational unit (OU) to use to join the
+     * fleet to a Microsoft Active Directory domain. </p>
+     */
+    inline bool DomainJoinInfoHasBeenSet() const { return m_domainJoinInfoHasBeenSet; }
 
     /**
      * <p>The name of the directory and organizational unit (OU) to use to join the
@@ -510,9 +610,111 @@ namespace Model
 
 
     /**
+     * <p>The amount of time that users can be idle (inactive) before they are
+     * disconnected from their streaming session and the
+     * <code>DisconnectTimeoutInSeconds</code> time interval begins. Users are notified
+     * before they are disconnected due to inactivity. If users try to reconnect to the
+     * streaming session before the time interval specified in
+     * <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
+     * previous session. Users are considered idle when they stop providing keyboard or
+     * mouse input during their streaming session. File uploads and downloads, audio
+     * in, audio out, and pixels changing do not qualify as user activity. If users
+     * continue to be idle after the time interval in
+     * <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are disconnected. </p>
+     * <p>To prevent users from being disconnected due to inactivity, specify a value
+     * of 0. Otherwise, specify a value between 60 and 3600. The default value is
+     * 0.</p> <note> <p>If you enable this feature, we recommend that you specify a
+     * value that corresponds exactly to a whole number of minutes (for example, 60,
+     * 120, and 180). If you don't do this, the value is rounded to the nearest minute.
+     * For example, if you specify a value of 70, users are disconnected after 1 minute
+     * of inactivity. If you specify a value that is at the midpoint between two
+     * different minutes, the value is rounded up. For example, if you specify a value
+     * of 90, users are disconnected after 2 minutes of inactivity. </p> </note>
+     */
+    inline int GetIdleDisconnectTimeoutInSeconds() const{ return m_idleDisconnectTimeoutInSeconds; }
+
+    /**
+     * <p>The amount of time that users can be idle (inactive) before they are
+     * disconnected from their streaming session and the
+     * <code>DisconnectTimeoutInSeconds</code> time interval begins. Users are notified
+     * before they are disconnected due to inactivity. If users try to reconnect to the
+     * streaming session before the time interval specified in
+     * <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
+     * previous session. Users are considered idle when they stop providing keyboard or
+     * mouse input during their streaming session. File uploads and downloads, audio
+     * in, audio out, and pixels changing do not qualify as user activity. If users
+     * continue to be idle after the time interval in
+     * <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are disconnected. </p>
+     * <p>To prevent users from being disconnected due to inactivity, specify a value
+     * of 0. Otherwise, specify a value between 60 and 3600. The default value is
+     * 0.</p> <note> <p>If you enable this feature, we recommend that you specify a
+     * value that corresponds exactly to a whole number of minutes (for example, 60,
+     * 120, and 180). If you don't do this, the value is rounded to the nearest minute.
+     * For example, if you specify a value of 70, users are disconnected after 1 minute
+     * of inactivity. If you specify a value that is at the midpoint between two
+     * different minutes, the value is rounded up. For example, if you specify a value
+     * of 90, users are disconnected after 2 minutes of inactivity. </p> </note>
+     */
+    inline bool IdleDisconnectTimeoutInSecondsHasBeenSet() const { return m_idleDisconnectTimeoutInSecondsHasBeenSet; }
+
+    /**
+     * <p>The amount of time that users can be idle (inactive) before they are
+     * disconnected from their streaming session and the
+     * <code>DisconnectTimeoutInSeconds</code> time interval begins. Users are notified
+     * before they are disconnected due to inactivity. If users try to reconnect to the
+     * streaming session before the time interval specified in
+     * <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
+     * previous session. Users are considered idle when they stop providing keyboard or
+     * mouse input during their streaming session. File uploads and downloads, audio
+     * in, audio out, and pixels changing do not qualify as user activity. If users
+     * continue to be idle after the time interval in
+     * <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are disconnected. </p>
+     * <p>To prevent users from being disconnected due to inactivity, specify a value
+     * of 0. Otherwise, specify a value between 60 and 3600. The default value is
+     * 0.</p> <note> <p>If you enable this feature, we recommend that you specify a
+     * value that corresponds exactly to a whole number of minutes (for example, 60,
+     * 120, and 180). If you don't do this, the value is rounded to the nearest minute.
+     * For example, if you specify a value of 70, users are disconnected after 1 minute
+     * of inactivity. If you specify a value that is at the midpoint between two
+     * different minutes, the value is rounded up. For example, if you specify a value
+     * of 90, users are disconnected after 2 minutes of inactivity. </p> </note>
+     */
+    inline void SetIdleDisconnectTimeoutInSeconds(int value) { m_idleDisconnectTimeoutInSecondsHasBeenSet = true; m_idleDisconnectTimeoutInSeconds = value; }
+
+    /**
+     * <p>The amount of time that users can be idle (inactive) before they are
+     * disconnected from their streaming session and the
+     * <code>DisconnectTimeoutInSeconds</code> time interval begins. Users are notified
+     * before they are disconnected due to inactivity. If users try to reconnect to the
+     * streaming session before the time interval specified in
+     * <code>DisconnectTimeoutInSeconds</code> elapses, they are connected to their
+     * previous session. Users are considered idle when they stop providing keyboard or
+     * mouse input during their streaming session. File uploads and downloads, audio
+     * in, audio out, and pixels changing do not qualify as user activity. If users
+     * continue to be idle after the time interval in
+     * <code>IdleDisconnectTimeoutInSeconds</code> elapses, they are disconnected. </p>
+     * <p>To prevent users from being disconnected due to inactivity, specify a value
+     * of 0. Otherwise, specify a value between 60 and 3600. The default value is
+     * 0.</p> <note> <p>If you enable this feature, we recommend that you specify a
+     * value that corresponds exactly to a whole number of minutes (for example, 60,
+     * 120, and 180). If you don't do this, the value is rounded to the nearest minute.
+     * For example, if you specify a value of 70, users are disconnected after 1 minute
+     * of inactivity. If you specify a value that is at the midpoint between two
+     * different minutes, the value is rounded up. For example, if you specify a value
+     * of 90, users are disconnected after 2 minutes of inactivity. </p> </note>
+     */
+    inline UpdateFleetRequest& WithIdleDisconnectTimeoutInSeconds(int value) { SetIdleDisconnectTimeoutInSeconds(value); return *this;}
+
+
+    /**
      * <p>The fleet attributes to delete.</p>
      */
     inline const Aws::Vector<FleetAttribute>& GetAttributesToDelete() const{ return m_attributesToDelete; }
+
+    /**
+     * <p>The fleet attributes to delete.</p>
+     */
+    inline bool AttributesToDeleteHasBeenSet() const { return m_attributesToDeleteHasBeenSet; }
 
     /**
      * <p>The fleet attributes to delete.</p>
@@ -581,6 +783,9 @@ namespace Model
 
     DomainJoinInfo m_domainJoinInfo;
     bool m_domainJoinInfoHasBeenSet;
+
+    int m_idleDisconnectTimeoutInSeconds;
+    bool m_idleDisconnectTimeoutInSecondsHasBeenSet;
 
     Aws::Vector<FleetAttribute> m_attributesToDelete;
     bool m_attributesToDeleteHasBeenSet;

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeregisterVolumeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * Amazon EC2 volume ID.</p>
      */
     inline const Aws::String& GetVolumeId() const{ return m_volumeId; }
+
+    /**
+     * <p>The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks
+     * assigned to the instance when you registered the volume with the stack, not the
+     * Amazon EC2 volume ID.</p>
+     */
+    inline bool VolumeIdHasBeenSet() const { return m_volumeIdHasBeenSet; }
 
     /**
      * <p>The AWS OpsWorks Stacks volume ID, which is the GUID that AWS OpsWorks Stacks

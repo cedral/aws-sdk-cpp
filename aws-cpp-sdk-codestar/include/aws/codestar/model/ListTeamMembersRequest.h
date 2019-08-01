@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTeamMembersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the project for which you want to list team members.</p>
      */
     inline const Aws::String& GetProjectId() const{ return m_projectId; }
+
+    /**
+     * <p>The ID of the project for which you want to list team members.</p>
+     */
+    inline bool ProjectIdHasBeenSet() const { return m_projectIdHasBeenSet; }
 
     /**
      * <p>The ID of the project for which you want to list team members.</p>
@@ -90,6 +95,12 @@ namespace Model
      * <p>The continuation token for the next set of results, if the results cannot be
      * returned in one response.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The continuation token for the next set of results, if the results cannot be
+     * returned in one response.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -127,6 +138,11 @@ namespace Model
      * <p>The maximum number of team members you want returned in a response.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of team members you want returned in a response.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of team members you want returned in a response.</p>

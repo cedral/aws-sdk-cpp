@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTemplatesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * indicate the position in the list of email templates.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A token returned from a previous call to <code>ListTemplates</code> to
+     * indicate the position in the list of email templates.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A token returned from a previous call to <code>ListTemplates</code> to
@@ -96,6 +102,14 @@ namespace Model
      * results.</p>
      */
     inline int GetMaxItems() const{ return m_maxItems; }
+
+    /**
+     * <p>The maximum number of templates to return. This value must be at least 1 and
+     * less than or equal to 10. If you do not specify a value, or if you specify a
+     * value less than 1 or greater than 10, the operation will return up to 10
+     * results.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
 
     /**
      * <p>The maximum number of templates to return. This value must be at least 1 and

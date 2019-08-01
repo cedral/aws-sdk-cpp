@@ -27,7 +27,8 @@ CreateConfigurationSetRequest::CreateConfigurationSetRequest() :
     m_trackingOptionsHasBeenSet(false),
     m_deliveryOptionsHasBeenSet(false),
     m_reputationOptionsHasBeenSet(false),
-    m_sendingOptionsHasBeenSet(false)
+    m_sendingOptionsHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -65,15 +66,18 @@ Aws::String CreateConfigurationSetRequest::SerializePayload() const
 
   }
 
+  if(m_tagsHasBeenSet)
+  {
+   Array<JsonValue> tagsJsonList(m_tags.size());
+   for(unsigned tagsIndex = 0; tagsIndex < tagsJsonList.GetLength(); ++tagsIndex)
+   {
+     tagsJsonList[tagsIndex].AsObject(m_tags[tagsIndex].Jsonize());
+   }
+   payload.WithArray("Tags", std::move(tagsJsonList));
+
+  }
+
   return payload.View().WriteReadable();
-}
-
-Aws::Http::HeaderValueCollection CreateConfigurationSetRequest::GetRequestSpecificHeaders() const
-{
-  Aws::Http::HeaderValueCollection headers;
-  headers.insert(Aws::Http::HeaderValuePair("X-Amz-Target", "com.amazonaws.services.pinpoint.email.CreateConfigurationSet"));
-  return headers;
-
 }
 
 

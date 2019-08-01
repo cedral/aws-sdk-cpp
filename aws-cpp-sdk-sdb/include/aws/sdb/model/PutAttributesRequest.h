@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     PutAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * The name of the domain in which to perform the operation.
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * The name of the domain in which to perform the operation.
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * The name of the domain in which to perform the operation.
@@ -93,6 +98,11 @@ namespace Model
     /**
      * The name of the item.
      */
+    inline bool ItemNameHasBeenSet() const { return m_itemNameHasBeenSet; }
+
+    /**
+     * The name of the item.
+     */
     inline void SetItemName(const Aws::String& value) { m_itemNameHasBeenSet = true; m_itemName = value; }
 
     /**
@@ -125,6 +135,11 @@ namespace Model
      * The list of attributes.
      */
     inline const Aws::Vector<ReplaceableAttribute>& GetAttributes() const{ return m_attributes; }
+
+    /**
+     * The list of attributes.
+     */
+    inline bool AttributesHasBeenSet() const { return m_attributesHasBeenSet; }
 
     /**
      * The list of attributes.
@@ -163,6 +178,13 @@ namespace Model
      * order for this request to be processed and the attributes to be updated.
      */
     inline const UpdateCondition& GetExpected() const{ return m_expected; }
+
+    /**
+     * The update condition which, if specified, determines whether the specified
+     * attributes will be updated or not. The update condition must be satisfied in
+     * order for this request to be processed and the attributes to be updated.
+     */
+    inline bool ExpectedHasBeenSet() const { return m_expectedHasBeenSet; }
 
     /**
      * The update condition which, if specified, determines whether the specified

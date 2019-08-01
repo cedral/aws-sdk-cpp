@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListProvisioningArtifactsForServiceActionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <code>act-fs7abcd89wxyz</code>.</p>
      */
     inline const Aws::String& GetServiceActionId() const{ return m_serviceActionId; }
+
+    /**
+     * <p>The self-service action identifier. For example,
+     * <code>act-fs7abcd89wxyz</code>.</p>
+     */
+    inline bool ServiceActionIdHasBeenSet() const { return m_serviceActionIdHasBeenSet; }
 
     /**
      * <p>The self-service action identifier. For example,
@@ -95,6 +101,11 @@ namespace Model
     /**
      * <p>The maximum number of items to return with this call.</p>
      */
+    inline bool PageSizeHasBeenSet() const { return m_pageSizeHasBeenSet; }
+
+    /**
+     * <p>The maximum number of items to return with this call.</p>
+     */
     inline void SetPageSize(int value) { m_pageSizeHasBeenSet = true; m_pageSize = value; }
 
     /**
@@ -108,6 +119,12 @@ namespace Model
      * results, use null.</p>
      */
     inline const Aws::String& GetPageToken() const{ return m_pageToken; }
+
+    /**
+     * <p>The page token for the next set of results. To retrieve the first set of
+     * results, use null.</p>
+     */
+    inline bool PageTokenHasBeenSet() const { return m_pageTokenHasBeenSet; }
 
     /**
      * <p>The page token for the next set of results. To retrieve the first set of
@@ -152,6 +169,13 @@ namespace Model
      * Chinese</p> </li> </ul>
      */
     inline const Aws::String& GetAcceptLanguage() const{ return m_acceptLanguage; }
+
+    /**
+     * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>
+     * </li> <li> <p> <code>jp</code> - Japanese</p> </li> <li> <p> <code>zh</code> -
+     * Chinese</p> </li> </ul>
+     */
+    inline bool AcceptLanguageHasBeenSet() const { return m_acceptLanguageHasBeenSet; }
 
     /**
      * <p>The language code.</p> <ul> <li> <p> <code>en</code> - English (default)</p>

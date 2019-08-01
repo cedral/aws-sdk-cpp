@@ -41,7 +41,7 @@ namespace Model
   {
   public:
     ListTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,12 @@ namespace Model
      * are attached that you want to view.</p>
      */
     inline const Aws::String& GetARN() const{ return m_aRN; }
+
+    /**
+     * <p> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags
+     * are attached that you want to view.</p>
+     */
+    inline bool ARNHasBeenSet() const { return m_aRNHasBeenSet; }
 
     /**
      * <p> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags

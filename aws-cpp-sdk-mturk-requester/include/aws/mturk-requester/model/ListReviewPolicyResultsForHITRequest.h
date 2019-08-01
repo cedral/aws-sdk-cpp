@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListReviewPolicyResultsForHITRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The unique identifier of the HIT to retrieve review results for.</p>
      */
     inline const Aws::String& GetHITId() const{ return m_hITId; }
+
+    /**
+     * <p>The unique identifier of the HIT to retrieve review results for.</p>
+     */
+    inline bool HITIdHasBeenSet() const { return m_hITIdHasBeenSet; }
 
     /**
      * <p>The unique identifier of the HIT to retrieve review results for.</p>
@@ -88,6 +93,13 @@ namespace Model
      * For a list of all the described policies, see Review Policies. </p>
      */
     inline const Aws::Vector<ReviewPolicyLevel>& GetPolicyLevels() const{ return m_policyLevels; }
+
+    /**
+     * <p> The Policy Level(s) to retrieve review results for - HIT or Assignment. If
+     * omitted, the default behavior is to retrieve all data for both policy levels.
+     * For a list of all the described policies, see Review Policies. </p>
+     */
+    inline bool PolicyLevelsHasBeenSet() const { return m_policyLevelsHasBeenSet; }
 
     /**
      * <p> The Policy Level(s) to retrieve review results for - HIT or Assignment. If
@@ -142,6 +154,12 @@ namespace Model
      * <p> Specify if the operation should retrieve a list of the actions taken
      * executing the Review Policies and their outcomes. </p>
      */
+    inline bool RetrieveActionsHasBeenSet() const { return m_retrieveActionsHasBeenSet; }
+
+    /**
+     * <p> Specify if the operation should retrieve a list of the actions taken
+     * executing the Review Policies and their outcomes. </p>
+     */
     inline void SetRetrieveActions(bool value) { m_retrieveActionsHasBeenSet = true; m_retrieveActions = value; }
 
     /**
@@ -161,6 +179,12 @@ namespace Model
      * <p> Specify if the operation should retrieve a list of the results computed by
      * the Review Policies. </p>
      */
+    inline bool RetrieveResultsHasBeenSet() const { return m_retrieveResultsHasBeenSet; }
+
+    /**
+     * <p> Specify if the operation should retrieve a list of the results computed by
+     * the Review Policies. </p>
+     */
     inline void SetRetrieveResults(bool value) { m_retrieveResultsHasBeenSet = true; m_retrieveResults = value; }
 
     /**
@@ -174,6 +198,11 @@ namespace Model
      * <p>Pagination token</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Pagination token</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Pagination token</p>
@@ -210,6 +239,11 @@ namespace Model
      * <p>Limit the number of results returned.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>Limit the number of results returned.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>Limit the number of results returned.</p>

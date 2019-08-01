@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetModelTemplateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The API identifier.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The API identifier.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The API identifier.</p>
@@ -82,6 +87,11 @@ namespace Model
      * <p>The model ID.</p>
      */
     inline const Aws::String& GetModelId() const{ return m_modelId; }
+
+    /**
+     * <p>The model ID.</p>
+     */
+    inline bool ModelIdHasBeenSet() const { return m_modelIdHasBeenSet; }
 
     /**
      * <p>The model ID.</p>

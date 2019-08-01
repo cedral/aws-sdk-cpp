@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeSnapshotsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * information.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The identifier of the directory for which to retrieve snapshot
+     * information.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The identifier of the directory for which to retrieve snapshot
@@ -98,6 +104,13 @@ namespace Model
      * <i>NextToken</i> members.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSnapshotIds() const{ return m_snapshotIds; }
+
+    /**
+     * <p>A list of identifiers of the snapshots to obtain the information for. If this
+     * member is null or empty, all snapshots are returned using the <i>Limit</i> and
+     * <i>NextToken</i> members.</p>
+     */
+    inline bool SnapshotIdsHasBeenSet() const { return m_snapshotIdsHasBeenSet; }
 
     /**
      * <p>A list of identifiers of the snapshots to obtain the information for. If this
@@ -159,6 +172,12 @@ namespace Model
      * <p>The <i>DescribeSnapshotsResult.NextToken</i> value from a previous call to
      * <a>DescribeSnapshots</a>. Pass null if this is the first call.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The <i>DescribeSnapshotsResult.NextToken</i> value from a previous call to
+     * <a>DescribeSnapshots</a>. Pass null if this is the first call.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -196,6 +215,11 @@ namespace Model
      * <p>The maximum number of objects to return.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of objects to return.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of objects to return.</p>

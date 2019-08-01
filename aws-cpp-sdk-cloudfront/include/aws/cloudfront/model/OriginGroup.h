@@ -41,7 +41,7 @@ namespace Model
    * distribution, you can specifiy the origin group instead of a single origin, and
    * CloudFront will failover from the primary origin to the second origin under the
    * failover conditions that you've chosen.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/OriginGroup">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/OriginGroup">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API OriginGroup
@@ -58,6 +58,11 @@ namespace Model
      * <p>The origin group's ID.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The origin group's ID.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The origin group's ID.</p>
@@ -100,6 +105,12 @@ namespace Model
      * <p>A complex type that contains information about the failover criteria for an
      * origin group.</p>
      */
+    inline bool FailoverCriteriaHasBeenSet() const { return m_failoverCriteriaHasBeenSet; }
+
+    /**
+     * <p>A complex type that contains information about the failover criteria for an
+     * origin group.</p>
+     */
     inline void SetFailoverCriteria(const OriginGroupFailoverCriteria& value) { m_failoverCriteriaHasBeenSet = true; m_failoverCriteria = value; }
 
     /**
@@ -126,6 +137,12 @@ namespace Model
      * group.</p>
      */
     inline const OriginGroupMembers& GetMembers() const{ return m_members; }
+
+    /**
+     * <p>A complex type that contains information about the origins in an origin
+     * group.</p>
+     */
+    inline bool MembersHasBeenSet() const { return m_membersHasBeenSet; }
 
     /**
      * <p>A complex type that contains information about the origins in an origin

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     GetRecordsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,13 @@ namespace Model
      * of a data record in the shard.</p>
      */
     inline const Aws::String& GetShardIterator() const{ return m_shardIterator; }
+
+    /**
+     * <p>The position in the shard from which you want to start sequentially reading
+     * data records. A shard iterator specifies this position using the sequence number
+     * of a data record in the shard.</p>
+     */
+    inline bool ShardIteratorHasBeenSet() const { return m_shardIteratorHasBeenSet; }
 
     /**
      * <p>The position in the shard from which you want to start sequentially reading
@@ -103,6 +110,13 @@ namespace Model
      * <code>InvalidArgumentException</code>.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>The maximum number of records to return. Specify a value of up to 10,000. If
+     * you specify a value that is greater than 10,000, <a>GetRecords</a> throws
+     * <code>InvalidArgumentException</code>.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>The maximum number of records to return. Specify a value of up to 10,000. If

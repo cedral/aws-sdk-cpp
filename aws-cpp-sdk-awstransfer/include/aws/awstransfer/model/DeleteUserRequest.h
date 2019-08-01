@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * user assigned to it.</p>
      */
     inline const Aws::String& GetServerId() const{ return m_serverId; }
+
+    /**
+     * <p>A system-assigned unique identifier for an SFTP server instance that has the
+     * user assigned to it.</p>
+     */
+    inline bool ServerIdHasBeenSet() const { return m_serverIdHasBeenSet; }
 
     /**
      * <p>A system-assigned unique identifier for an SFTP server instance that has the
@@ -92,6 +98,12 @@ namespace Model
      * server.</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>A unique string that identifies a user that is being deleted from the
+     * server.</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>A unique string that identifies a user that is being deleted from the

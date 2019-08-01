@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StopTrainingEntityRecognizerRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * currently being trained.</p>
      */
     inline const Aws::String& GetEntityRecognizerArn() const{ return m_entityRecognizerArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer
+     * currently being trained.</p>
+     */
+    inline bool EntityRecognizerArnHasBeenSet() const { return m_entityRecognizerArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the entity recognizer

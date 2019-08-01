@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetConnectionStatusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the instance.</p>
      */
     inline const Aws::String& GetTarget() const{ return m_target; }
+
+    /**
+     * <p>The ID of the instance.</p>
+     */
+    inline bool TargetHasBeenSet() const { return m_targetHasBeenSet; }
 
     /**
      * <p>The ID of the instance.</p>

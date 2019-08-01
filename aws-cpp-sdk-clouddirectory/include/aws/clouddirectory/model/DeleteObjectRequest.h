@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DeleteObjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * where the object resides. For more information, see <a>arns</a>.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+     * where the object resides. For more information, see <a>arns</a>.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
@@ -92,6 +98,11 @@ namespace Model
      * <p>A reference that identifies the object.</p>
      */
     inline const ObjectReference& GetObjectReference() const{ return m_objectReference; }
+
+    /**
+     * <p>A reference that identifies the object.</p>
+     */
+    inline bool ObjectReferenceHasBeenSet() const { return m_objectReferenceHasBeenSet; }
 
     /**
      * <p>A reference that identifies the object.</p>

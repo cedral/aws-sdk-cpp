@@ -18,6 +18,7 @@
 #include <aws/datasync/DataSyncRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/datasync/model/OnPremConfig.h>
+#include <aws/datasync/model/NfsMountOptions.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/datasync/model/TagListEntry.h>
 #include <utility>
@@ -38,7 +39,7 @@ namespace Model
   {
   public:
     CreateLocationNfsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -62,12 +63,12 @@ namespace Model
      * authentication. </p> <p>To transfer all the data in the folder you specified,
      * DataSync needs to have permissions to read all the data. To ensure this, either
      * configure the NFS export with <code>no_root_squash,</code> or ensure that the
-     * permissions for all of the files that you want sync allow read access for all
-     * users. Doing either enables the agent to read the files. For the agent to access
-     * directories, you must additionally enable all execute access. For information
-     * about NFS export configuration, see <a
-     * href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html">18.7.
-     * The /etc/exports Configuration File</a> in the Centos documentation. </p>
+     * permissions for all of the files that you want DataSync allow read access for
+     * all users. Doing either enables the agent to read the files. For the agent to
+     * access directories, you must additionally enable all execute access.</p> <p>For
+     * information about NFS export configuration, see
+     * "http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html"
+     * (18.7. The /etc/exports Configuration File).</p>
      */
     inline const Aws::String& GetSubdirectory() const{ return m_subdirectory; }
 
@@ -83,12 +84,33 @@ namespace Model
      * authentication. </p> <p>To transfer all the data in the folder you specified,
      * DataSync needs to have permissions to read all the data. To ensure this, either
      * configure the NFS export with <code>no_root_squash,</code> or ensure that the
-     * permissions for all of the files that you want sync allow read access for all
-     * users. Doing either enables the agent to read the files. For the agent to access
-     * directories, you must additionally enable all execute access. For information
-     * about NFS export configuration, see <a
-     * href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html">18.7.
-     * The /etc/exports Configuration File</a> in the Centos documentation. </p>
+     * permissions for all of the files that you want DataSync allow read access for
+     * all users. Doing either enables the agent to read the files. For the agent to
+     * access directories, you must additionally enable all execute access.</p> <p>For
+     * information about NFS export configuration, see
+     * "http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html"
+     * (18.7. The /etc/exports Configuration File).</p>
+     */
+    inline bool SubdirectoryHasBeenSet() const { return m_subdirectoryHasBeenSet; }
+
+    /**
+     * <p>The subdirectory in the NFS file system that is used to read data from the
+     * NFS source location or write data to the NFS destination. The NFS path should be
+     * a path that's exported by the NFS server, or a subdirectory of that path. The
+     * path should be such that it can be mounted by other NFS clients in your network.
+     * </p> <p>To see all the paths exported by your NFS server. run "<code>showmount
+     * -e nfs-server-name</code>" from an NFS client that has access to your server.
+     * You can specify any directory that appears in the results, and any subdirectory
+     * of that directory. Ensure that the NFS export is accessible without Kerberos
+     * authentication. </p> <p>To transfer all the data in the folder you specified,
+     * DataSync needs to have permissions to read all the data. To ensure this, either
+     * configure the NFS export with <code>no_root_squash,</code> or ensure that the
+     * permissions for all of the files that you want DataSync allow read access for
+     * all users. Doing either enables the agent to read the files. For the agent to
+     * access directories, you must additionally enable all execute access.</p> <p>For
+     * information about NFS export configuration, see
+     * "http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html"
+     * (18.7. The /etc/exports Configuration File).</p>
      */
     inline void SetSubdirectory(const Aws::String& value) { m_subdirectoryHasBeenSet = true; m_subdirectory = value; }
 
@@ -104,12 +126,12 @@ namespace Model
      * authentication. </p> <p>To transfer all the data in the folder you specified,
      * DataSync needs to have permissions to read all the data. To ensure this, either
      * configure the NFS export with <code>no_root_squash,</code> or ensure that the
-     * permissions for all of the files that you want sync allow read access for all
-     * users. Doing either enables the agent to read the files. For the agent to access
-     * directories, you must additionally enable all execute access. For information
-     * about NFS export configuration, see <a
-     * href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html">18.7.
-     * The /etc/exports Configuration File</a> in the Centos documentation. </p>
+     * permissions for all of the files that you want DataSync allow read access for
+     * all users. Doing either enables the agent to read the files. For the agent to
+     * access directories, you must additionally enable all execute access.</p> <p>For
+     * information about NFS export configuration, see
+     * "http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html"
+     * (18.7. The /etc/exports Configuration File).</p>
      */
     inline void SetSubdirectory(Aws::String&& value) { m_subdirectoryHasBeenSet = true; m_subdirectory = std::move(value); }
 
@@ -125,12 +147,12 @@ namespace Model
      * authentication. </p> <p>To transfer all the data in the folder you specified,
      * DataSync needs to have permissions to read all the data. To ensure this, either
      * configure the NFS export with <code>no_root_squash,</code> or ensure that the
-     * permissions for all of the files that you want sync allow read access for all
-     * users. Doing either enables the agent to read the files. For the agent to access
-     * directories, you must additionally enable all execute access. For information
-     * about NFS export configuration, see <a
-     * href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html">18.7.
-     * The /etc/exports Configuration File</a> in the Centos documentation. </p>
+     * permissions for all of the files that you want DataSync allow read access for
+     * all users. Doing either enables the agent to read the files. For the agent to
+     * access directories, you must additionally enable all execute access.</p> <p>For
+     * information about NFS export configuration, see
+     * "http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html"
+     * (18.7. The /etc/exports Configuration File).</p>
      */
     inline void SetSubdirectory(const char* value) { m_subdirectoryHasBeenSet = true; m_subdirectory.assign(value); }
 
@@ -146,12 +168,12 @@ namespace Model
      * authentication. </p> <p>To transfer all the data in the folder you specified,
      * DataSync needs to have permissions to read all the data. To ensure this, either
      * configure the NFS export with <code>no_root_squash,</code> or ensure that the
-     * permissions for all of the files that you want sync allow read access for all
-     * users. Doing either enables the agent to read the files. For the agent to access
-     * directories, you must additionally enable all execute access. For information
-     * about NFS export configuration, see <a
-     * href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html">18.7.
-     * The /etc/exports Configuration File</a> in the Centos documentation. </p>
+     * permissions for all of the files that you want DataSync allow read access for
+     * all users. Doing either enables the agent to read the files. For the agent to
+     * access directories, you must additionally enable all execute access.</p> <p>For
+     * information about NFS export configuration, see
+     * "http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html"
+     * (18.7. The /etc/exports Configuration File).</p>
      */
     inline CreateLocationNfsRequest& WithSubdirectory(const Aws::String& value) { SetSubdirectory(value); return *this;}
 
@@ -167,12 +189,12 @@ namespace Model
      * authentication. </p> <p>To transfer all the data in the folder you specified,
      * DataSync needs to have permissions to read all the data. To ensure this, either
      * configure the NFS export with <code>no_root_squash,</code> or ensure that the
-     * permissions for all of the files that you want sync allow read access for all
-     * users. Doing either enables the agent to read the files. For the agent to access
-     * directories, you must additionally enable all execute access. For information
-     * about NFS export configuration, see <a
-     * href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html">18.7.
-     * The /etc/exports Configuration File</a> in the Centos documentation. </p>
+     * permissions for all of the files that you want DataSync allow read access for
+     * all users. Doing either enables the agent to read the files. For the agent to
+     * access directories, you must additionally enable all execute access.</p> <p>For
+     * information about NFS export configuration, see
+     * "http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html"
+     * (18.7. The /etc/exports Configuration File).</p>
      */
     inline CreateLocationNfsRequest& WithSubdirectory(Aws::String&& value) { SetSubdirectory(std::move(value)); return *this;}
 
@@ -188,12 +210,12 @@ namespace Model
      * authentication. </p> <p>To transfer all the data in the folder you specified,
      * DataSync needs to have permissions to read all the data. To ensure this, either
      * configure the NFS export with <code>no_root_squash,</code> or ensure that the
-     * permissions for all of the files that you want sync allow read access for all
-     * users. Doing either enables the agent to read the files. For the agent to access
-     * directories, you must additionally enable all execute access. For information
-     * about NFS export configuration, see <a
-     * href="https://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html">18.7.
-     * The /etc/exports Configuration File</a> in the Centos documentation. </p>
+     * permissions for all of the files that you want DataSync allow read access for
+     * all users. Doing either enables the agent to read the files. For the agent to
+     * access directories, you must additionally enable all execute access.</p> <p>For
+     * information about NFS export configuration, see
+     * "http://web.mit.edu/rhel-doc/5/RHEL-5-manual/Deployment_Guide-en-US/s1-nfs-server-config-exports.html"
+     * (18.7. The /etc/exports Configuration File).</p>
      */
     inline CreateLocationNfsRequest& WithSubdirectory(const char* value) { SetSubdirectory(value); return *this;}
 
@@ -206,6 +228,15 @@ namespace Model
      * </note>
      */
     inline const Aws::String& GetServerHostname() const{ return m_serverHostname; }
+
+    /**
+     * <p>The name of the NFS server. This value is the IP address or Domain Name
+     * Service (DNS) name of the NFS server. An agent that is installed on-premises
+     * uses this host name to mount the NFS server in a network. </p> <note> <p>This
+     * name must either be DNS-compliant or must be an IP version 4 (IPv4) address.</p>
+     * </note>
+     */
+    inline bool ServerHostnameHasBeenSet() const { return m_serverHostnameHasBeenSet; }
 
     /**
      * <p>The name of the NFS server. This value is the IP address or Domain Name
@@ -272,6 +303,12 @@ namespace Model
      * <p>Contains a list of Amazon Resource Names (ARNs) of agents that are used to
      * connect to an NFS server.</p>
      */
+    inline bool OnPremConfigHasBeenSet() const { return m_onPremConfigHasBeenSet; }
+
+    /**
+     * <p>Contains a list of Amazon Resource Names (ARNs) of agents that are used to
+     * connect to an NFS server.</p>
+     */
     inline void SetOnPremConfig(const OnPremConfig& value) { m_onPremConfigHasBeenSet = true; m_onPremConfig = value; }
 
     /**
@@ -294,11 +331,49 @@ namespace Model
 
 
     /**
+     * <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
+     */
+    inline const NfsMountOptions& GetMountOptions() const{ return m_mountOptions; }
+
+    /**
+     * <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
+     */
+    inline bool MountOptionsHasBeenSet() const { return m_mountOptionsHasBeenSet; }
+
+    /**
+     * <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
+     */
+    inline void SetMountOptions(const NfsMountOptions& value) { m_mountOptionsHasBeenSet = true; m_mountOptions = value; }
+
+    /**
+     * <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
+     */
+    inline void SetMountOptions(NfsMountOptions&& value) { m_mountOptionsHasBeenSet = true; m_mountOptions = std::move(value); }
+
+    /**
+     * <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
+     */
+    inline CreateLocationNfsRequest& WithMountOptions(const NfsMountOptions& value) { SetMountOptions(value); return *this;}
+
+    /**
+     * <p>The NFS mount options that DataSync can use to mount your NFS share.</p>
+     */
+    inline CreateLocationNfsRequest& WithMountOptions(NfsMountOptions&& value) { SetMountOptions(std::move(value)); return *this;}
+
+
+    /**
      * <p>The key-value pair that represents the tag that you want to add to the
      * location. The value can be an empty string. We recommend using tags to name your
      * resources.</p>
      */
     inline const Aws::Vector<TagListEntry>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The key-value pair that represents the tag that you want to add to the
+     * location. The value can be an empty string. We recommend using tags to name your
+     * resources.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The key-value pair that represents the tag that you want to add to the
@@ -352,6 +427,9 @@ namespace Model
 
     OnPremConfig m_onPremConfig;
     bool m_onPremConfigHasBeenSet;
+
+    NfsMountOptions m_mountOptions;
+    bool m_mountOptionsHasBeenSet;
 
     Aws::Vector<TagListEntry> m_tags;
     bool m_tagsHasBeenSet;

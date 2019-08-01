@@ -19,6 +19,7 @@
 #include <aws/greengrass/model/BulkDeploymentStatus.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/greengrass/model/ErrorDetail.h>
 #include <utility>
 
@@ -205,6 +206,67 @@ namespace Model
      */
     inline GetBulkDeploymentStatusResult& WithErrorMessage(const char* value) { SetErrorMessage(value); return *this;}
 
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tags = value; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tags = std::move(value); }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& AddTags(const Aws::String& key, const Aws::String& value) { m_tags.emplace(key, value); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& AddTags(Aws::String&& key, const Aws::String& value) { m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& AddTags(const Aws::String& key, Aws::String&& value) { m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& AddTags(Aws::String&& key, Aws::String&& value) { m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& AddTags(const char* key, Aws::String&& value) { m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& AddTags(Aws::String&& key, const char* value) { m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * Tag(s) attached to the resource arn.
+     */
+    inline GetBulkDeploymentStatusResult& AddTags(const char* key, const char* value) { m_tags.emplace(key, value); return *this; }
+
   private:
 
     BulkDeploymentMetrics m_bulkDeploymentMetrics;
@@ -216,6 +278,8 @@ namespace Model
     Aws::Vector<ErrorDetail> m_errorDetails;
 
     Aws::String m_errorMessage;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
   };
 
 } // namespace Model

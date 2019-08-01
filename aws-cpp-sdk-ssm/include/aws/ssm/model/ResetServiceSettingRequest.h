@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ResetServiceSettingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The ID of the service setting to reset.</p>
      */
     inline const Aws::String& GetSettingId() const{ return m_settingId; }
+
+    /**
+     * <p>The ID of the service setting to reset.</p>
+     */
+    inline bool SettingIdHasBeenSet() const { return m_settingIdHasBeenSet; }
 
     /**
      * <p>The ID of the service setting to reset.</p>

@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ListRepositoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,14 @@ namespace Model
      * retrieved.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>An enumeration token that allows the operation to batch the results of the
+     * operation. Batch sizes are 1,000 for list repository operations. When the client
+     * sends the token back to AWS CodeCommit, another page of 1,000 records is
+     * retrieved.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>An enumeration token that allows the operation to batch the results of the
@@ -115,6 +123,11 @@ namespace Model
     /**
      * <p>The criteria used to sort the results of a list repositories operation.</p>
      */
+    inline bool SortByHasBeenSet() const { return m_sortByHasBeenSet; }
+
+    /**
+     * <p>The criteria used to sort the results of a list repositories operation.</p>
+     */
     inline void SetSortBy(const SortByEnum& value) { m_sortByHasBeenSet = true; m_sortBy = value; }
 
     /**
@@ -137,6 +150,11 @@ namespace Model
      * <p>The order in which to sort the results of a list repositories operation.</p>
      */
     inline const OrderEnum& GetOrder() const{ return m_order; }
+
+    /**
+     * <p>The order in which to sort the results of a list repositories operation.</p>
+     */
+    inline bool OrderHasBeenSet() const { return m_orderHasBeenSet; }
 
     /**
      * <p>The order in which to sort the results of a list repositories operation.</p>

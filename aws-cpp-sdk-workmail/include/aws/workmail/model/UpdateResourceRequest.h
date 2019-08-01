@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * updated.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The identifier associated with the organization for which the resource is
+     * updated.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The identifier associated with the organization for which the resource is
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>The identifier of the resource to be updated.</p>
      */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
+
+    /**
+     * <p>The identifier of the resource to be updated.</p>
+     */
     inline void SetResourceId(const Aws::String& value) { m_resourceIdHasBeenSet = true; m_resourceId = value; }
 
     /**
@@ -132,6 +143,11 @@ namespace Model
     /**
      * <p>The name of the resource to be updated.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the resource to be updated.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -164,6 +180,11 @@ namespace Model
      * <p>The resource's booking options to be updated.</p>
      */
     inline const BookingOptions& GetBookingOptions() const{ return m_bookingOptions; }
+
+    /**
+     * <p>The resource's booking options to be updated.</p>
+     */
+    inline bool BookingOptionsHasBeenSet() const { return m_bookingOptionsHasBeenSet; }
 
     /**
      * <p>The resource's booking options to be updated.</p>

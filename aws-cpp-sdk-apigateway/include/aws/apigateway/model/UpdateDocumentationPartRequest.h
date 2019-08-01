@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     UpdateDocumentationPartRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The string identifier of the associated <a>RestApi</a>.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>[Required] The identifier of the to-be-updated documentation part.</p>
      */
+    inline bool DocumentationPartIdHasBeenSet() const { return m_documentationPartIdHasBeenSet; }
+
+    /**
+     * <p>[Required] The identifier of the to-be-updated documentation part.</p>
+     */
     inline void SetDocumentationPartId(const Aws::String& value) { m_documentationPartIdHasBeenSet = true; m_documentationPartId = value; }
 
     /**
@@ -125,6 +135,12 @@ namespace Model
      * the order specified in this list.</p>
      */
     inline const Aws::Vector<PatchOperation>& GetPatchOperations() const{ return m_patchOperations; }
+
+    /**
+     * <p>A list of update operations to be applied to the specified resource and in
+     * the order specified in this list.</p>
+     */
+    inline bool PatchOperationsHasBeenSet() const { return m_patchOperationsHasBeenSet; }
 
     /**
      * <p>A list of update operations to be applied to the specified resource and in

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetResolverRuleAssociationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * about.</p>
      */
     inline const Aws::String& GetResolverRuleAssociationId() const{ return m_resolverRuleAssociationId; }
+
+    /**
+     * <p>The ID of the resolver rule association that you want to get information
+     * about.</p>
+     */
+    inline bool ResolverRuleAssociationIdHasBeenSet() const { return m_resolverRuleAssociationIdHasBeenSet; }
 
     /**
      * <p>The ID of the resolver rule association that you want to get information

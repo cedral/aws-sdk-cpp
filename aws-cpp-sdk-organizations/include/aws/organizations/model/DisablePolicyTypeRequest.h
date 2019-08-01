@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DisablePolicyTypeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,14 @@ namespace Model
      * requires "r-" followed by from 4 to 32 lower-case letters or digits.</p>
      */
     inline const Aws::String& GetRootId() const{ return m_rootId; }
+
+    /**
+     * <p>The unique identifier (ID) of the root in which you want to disable a policy
+     * type. You can get the ID from the <a>ListRoots</a> operation.</p> <p>The <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string
+     * requires "r-" followed by from 4 to 32 lower-case letters or digits.</p>
+     */
+    inline bool RootIdHasBeenSet() const { return m_rootIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) of the root in which you want to disable a policy
@@ -106,6 +114,11 @@ namespace Model
      * <p>The policy type that you want to disable in this root.</p>
      */
     inline const PolicyType& GetPolicyType() const{ return m_policyType; }
+
+    /**
+     * <p>The policy type that you want to disable in this root.</p>
+     */
+    inline bool PolicyTypeHasBeenSet() const { return m_policyTypeHasBeenSet; }
 
     /**
      * <p>The policy type that you want to disable in this root.</p>

@@ -39,7 +39,7 @@ namespace Model
    * (Amazon SNS). You will typically not use this action directly because Amazon
    * WorkMail adds the rule automatically during its setup procedure.</p> <p>For
    * information using a receipt rule to call Amazon WorkMail, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-workmail.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-workmail.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/WorkmailAction">AWS
    * API Reference</a></p>
@@ -60,7 +60,7 @@ namespace Model
      * WorkMail action is called. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline const Aws::String& GetTopicArn() const{ return m_topicArn; }
@@ -70,7 +70,17 @@ namespace Model
      * WorkMail action is called. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * Developer Guide</a>.</p>
+     */
+    inline bool TopicArnHasBeenSet() const { return m_topicArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the
+     * WorkMail action is called. An example of an Amazon SNS topic ARN is
+     * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
+     * about Amazon SNS topics, see the <a
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline void SetTopicArn(const Aws::String& value) { m_topicArnHasBeenSet = true; m_topicArn = value; }
@@ -80,7 +90,7 @@ namespace Model
      * WorkMail action is called. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline void SetTopicArn(Aws::String&& value) { m_topicArnHasBeenSet = true; m_topicArn = std::move(value); }
@@ -90,7 +100,7 @@ namespace Model
      * WorkMail action is called. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline void SetTopicArn(const char* value) { m_topicArnHasBeenSet = true; m_topicArn.assign(value); }
@@ -100,7 +110,7 @@ namespace Model
      * WorkMail action is called. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline WorkmailAction& WithTopicArn(const Aws::String& value) { SetTopicArn(value); return *this;}
@@ -110,7 +120,7 @@ namespace Model
      * WorkMail action is called. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline WorkmailAction& WithTopicArn(Aws::String&& value) { SetTopicArn(std::move(value)); return *this;}
@@ -120,7 +130,7 @@ namespace Model
      * WorkMail action is called. An example of an Amazon SNS topic ARN is
      * <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information
      * about Amazon SNS topics, see the <a
-     * href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
+     * href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS
      * Developer Guide</a>.</p>
      */
     inline WorkmailAction& WithTopicArn(const char* value) { SetTopicArn(value); return *this;}
@@ -131,7 +141,7 @@ namespace Model
      * organization ARN is
      * <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
      * For information about Amazon WorkMail organizations, see the <a
-     * href="http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
+     * href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
      * WorkMail Administrator Guide</a>.</p>
      */
     inline const Aws::String& GetOrganizationArn() const{ return m_organizationArn; }
@@ -141,7 +151,17 @@ namespace Model
      * organization ARN is
      * <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
      * For information about Amazon WorkMail organizations, see the <a
-     * href="http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
+     * href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
+     * WorkMail Administrator Guide</a>.</p>
+     */
+    inline bool OrganizationArnHasBeenSet() const { return m_organizationArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail
+     * organization ARN is
+     * <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
+     * For information about Amazon WorkMail organizations, see the <a
+     * href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
      * WorkMail Administrator Guide</a>.</p>
      */
     inline void SetOrganizationArn(const Aws::String& value) { m_organizationArnHasBeenSet = true; m_organizationArn = value; }
@@ -151,7 +171,7 @@ namespace Model
      * organization ARN is
      * <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
      * For information about Amazon WorkMail organizations, see the <a
-     * href="http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
+     * href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
      * WorkMail Administrator Guide</a>.</p>
      */
     inline void SetOrganizationArn(Aws::String&& value) { m_organizationArnHasBeenSet = true; m_organizationArn = std::move(value); }
@@ -161,7 +181,7 @@ namespace Model
      * organization ARN is
      * <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
      * For information about Amazon WorkMail organizations, see the <a
-     * href="http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
+     * href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
      * WorkMail Administrator Guide</a>.</p>
      */
     inline void SetOrganizationArn(const char* value) { m_organizationArnHasBeenSet = true; m_organizationArn.assign(value); }
@@ -171,7 +191,7 @@ namespace Model
      * organization ARN is
      * <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
      * For information about Amazon WorkMail organizations, see the <a
-     * href="http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
+     * href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
      * WorkMail Administrator Guide</a>.</p>
      */
     inline WorkmailAction& WithOrganizationArn(const Aws::String& value) { SetOrganizationArn(value); return *this;}
@@ -181,7 +201,7 @@ namespace Model
      * organization ARN is
      * <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
      * For information about Amazon WorkMail organizations, see the <a
-     * href="http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
+     * href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
      * WorkMail Administrator Guide</a>.</p>
      */
     inline WorkmailAction& WithOrganizationArn(Aws::String&& value) { SetOrganizationArn(std::move(value)); return *this;}
@@ -191,7 +211,7 @@ namespace Model
      * organization ARN is
      * <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>.
      * For information about Amazon WorkMail organizations, see the <a
-     * href="http://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
+     * href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon
      * WorkMail Administrator Guide</a>.</p>
      */
     inline WorkmailAction& WithOrganizationArn(const char* value) { SetOrganizationArn(value); return *this;}

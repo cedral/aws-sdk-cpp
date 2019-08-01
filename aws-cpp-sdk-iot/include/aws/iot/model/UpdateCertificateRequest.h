@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     UpdateCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,12 @@ namespace Model
      * certificate ID.)</p>
      */
     inline const Aws::String& GetCertificateId() const{ return m_certificateId; }
+
+    /**
+     * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+     * certificate ID.)</p>
+     */
+    inline bool CertificateIdHasBeenSet() const { return m_certificateIdHasBeenSet; }
 
     /**
      * <p>The ID of the certificate. (The last part of the certificate ARN contains the
@@ -103,6 +109,15 @@ namespace Model
      * used.</p>
      */
     inline const CertificateStatus& GetNewStatus() const{ return m_newStatus; }
+
+    /**
+     * <p>The new status.</p> <p> <b>Note:</b> Setting the status to PENDING_TRANSFER
+     * will result in an exception being thrown. PENDING_TRANSFER is a status used
+     * internally by AWS IoT. It is not intended for developer use.</p> <p>
+     * <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be
+     * used.</p>
+     */
+    inline bool NewStatusHasBeenSet() const { return m_newStatusHasBeenSet; }
 
     /**
      * <p>The new status.</p> <p> <b>Note:</b> Setting the status to PENDING_TRANSFER

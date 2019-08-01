@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteBackupSelectionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>Uniquely identifies a backup plan.</p>
      */
     inline const Aws::String& GetBackupPlanId() const{ return m_backupPlanId; }
+
+    /**
+     * <p>Uniquely identifies a backup plan.</p>
+     */
+    inline bool BackupPlanIdHasBeenSet() const { return m_backupPlanIdHasBeenSet; }
 
     /**
      * <p>Uniquely identifies a backup plan.</p>
@@ -83,6 +88,12 @@ namespace Model
      * backup plan.</p>
      */
     inline const Aws::String& GetSelectionId() const{ return m_selectionId; }
+
+    /**
+     * <p>Uniquely identifies the body of a request to assign a set of resources to a
+     * backup plan.</p>
+     */
+    inline bool SelectionIdHasBeenSet() const { return m_selectionIdHasBeenSet; }
 
     /**
      * <p>Uniquely identifies the body of a request to assign a set of resources to a

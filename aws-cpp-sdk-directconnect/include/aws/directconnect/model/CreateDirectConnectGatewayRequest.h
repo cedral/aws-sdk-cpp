@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateDirectConnectGatewayRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the Direct Connect gateway.</p>
      */
     inline const Aws::String& GetDirectConnectGatewayName() const{ return m_directConnectGatewayName; }
+
+    /**
+     * <p>The name of the Direct Connect gateway.</p>
+     */
+    inline bool DirectConnectGatewayNameHasBeenSet() const { return m_directConnectGatewayNameHasBeenSet; }
 
     /**
      * <p>The name of the Direct Connect gateway.</p>
@@ -87,6 +92,14 @@ namespace Model
      * 64512.</p>
      */
     inline long long GetAmazonSideAsn() const{ return m_amazonSideAsn; }
+
+    /**
+     * <p>The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be
+     * configured on the Amazon side of the connection. The ASN must be in the private
+     * range of 64,512 to 65,534 or 4,200,000,000 to 4,294,967,294. The default is
+     * 64512.</p>
+     */
+    inline bool AmazonSideAsnHasBeenSet() const { return m_amazonSideAsnHasBeenSet; }
 
     /**
      * <p>The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be

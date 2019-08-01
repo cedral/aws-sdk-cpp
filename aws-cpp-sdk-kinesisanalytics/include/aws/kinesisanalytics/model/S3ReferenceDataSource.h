@@ -37,7 +37,8 @@ namespace Model
    * <p>Identifies the S3 bucket and object that contains the reference data. Also
    * identifies the IAM role Amazon Kinesis Analytics can assume to read this object
    * on your behalf.</p> <p>An Amazon Kinesis Analytics application loads reference
-   * data only once. If the data changes, you call the <a>UpdateApplication</a>
+   * data only once. If the data changes, you call the <a
+   * href="https://docs.aws.amazon.com/kinesisanalytics/latest/dev/API_UpdateApplication.html">UpdateApplication</a>
    * operation to trigger reloading of data into your application.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/S3ReferenceDataSource">AWS
@@ -56,6 +57,11 @@ namespace Model
      * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
      */
     inline const Aws::String& GetBucketARN() const{ return m_bucketARN; }
+
+    /**
+     * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
+     */
+    inline bool BucketARNHasBeenSet() const { return m_bucketARNHasBeenSet; }
 
     /**
      * <p>Amazon Resource Name (ARN) of the S3 bucket.</p>
@@ -96,6 +102,11 @@ namespace Model
     /**
      * <p>Object key name containing reference data.</p>
      */
+    inline bool FileKeyHasBeenSet() const { return m_fileKeyHasBeenSet; }
+
+    /**
+     * <p>Object key name containing reference data.</p>
+     */
     inline void SetFileKey(const Aws::String& value) { m_fileKeyHasBeenSet = true; m_fileKey = value; }
 
     /**
@@ -131,6 +142,14 @@ namespace Model
      * to assume this role.</p>
      */
     inline const Aws::String& GetReferenceRoleARN() const{ return m_referenceRoleARN; }
+
+    /**
+     * <p>ARN of the IAM role that the service can assume to read data on your behalf.
+     * This role must have permission for the <code>s3:GetObject</code> action on the
+     * object and trust policy that allows Amazon Kinesis Analytics service principal
+     * to assume this role.</p>
+     */
+    inline bool ReferenceRoleARNHasBeenSet() const { return m_referenceRoleARNHasBeenSet; }
 
     /**
      * <p>ARN of the IAM role that the service can assume to read data on your behalf.

@@ -62,6 +62,8 @@ namespace Model
      * <p> <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
      * </p> </li> <li> <p> <i>Image classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of an image based
      * on annotations from individual workers.</p> <p>
@@ -74,6 +76,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
      * </p> </li> <li> <p> <i>Semantic segmentation</i> - Treats each pixel in an image
      * as a multi-class classification and treats pixel annotations from workers as
      * "votes" for the correct label.</p> <p>
@@ -86,6 +90,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
      * </p> </li> <li> <p> <i>Text classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of text based on
      * annotations from individual workers.</p> <p>
@@ -98,6 +104,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
      * </p> </li> </ul> <p>For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
      * Consolidation</a>.</p>
@@ -118,6 +126,8 @@ namespace Model
      * <p> <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
      * </p> </li> <li> <p> <i>Image classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of an image based
      * on annotations from individual workers.</p> <p>
@@ -130,6 +140,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
      * </p> </li> <li> <p> <i>Semantic segmentation</i> - Treats each pixel in an image
      * as a multi-class classification and treats pixel annotations from workers as
      * "votes" for the correct label.</p> <p>
@@ -142,6 +154,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
      * </p> </li> <li> <p> <i>Text classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of text based on
      * annotations from individual workers.</p> <p>
@@ -154,6 +168,72 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
+     * </p> </li> </ul> <p>For more information, see <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
+     * Consolidation</a>.</p>
+     */
+    inline bool AnnotationConsolidationLambdaArnHasBeenSet() const { return m_annotationConsolidationLambdaArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of a Lambda function implements the logic for
+     * annotation consolidation.</p> <p>For the built-in bounding box, image
+     * classification, semantic segmentation, and text classification task types,
+     * Amazon SageMaker Ground Truth provides the following Lambda functions:</p> <ul>
+     * <li> <p> <i>Bounding box</i> - Finds the most similar boxes from different
+     * workers based on the Jaccard index of the boxes.</p> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-BoundingBox</code> </p>
+     * <p> <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-BoundingBox</code> </p>
+     * <p> <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
+     * </p> </li> <li> <p> <i>Image classification</i> - Uses a variant of the
+     * Expectation Maximization approach to estimate the true class of an image based
+     * on annotations from individual workers.</p> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
+     * </p> </li> <li> <p> <i>Semantic segmentation</i> - Treats each pixel in an image
+     * as a multi-class classification and treats pixel annotations from workers as
+     * "votes" for the correct label.</p> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
+     * </p> </li> <li> <p> <i>Text classification</i> - Uses a variant of the
+     * Expectation Maximization approach to estimate the true class of text based on
+     * annotations from individual workers.</p> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
      * </p> </li> </ul> <p>For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
      * Consolidation</a>.</p>
@@ -174,6 +254,8 @@ namespace Model
      * <p> <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
      * </p> </li> <li> <p> <i>Image classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of an image based
      * on annotations from individual workers.</p> <p>
@@ -186,6 +268,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
      * </p> </li> <li> <p> <i>Semantic segmentation</i> - Treats each pixel in an image
      * as a multi-class classification and treats pixel annotations from workers as
      * "votes" for the correct label.</p> <p>
@@ -198,6 +282,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
      * </p> </li> <li> <p> <i>Text classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of text based on
      * annotations from individual workers.</p> <p>
@@ -210,6 +296,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
      * </p> </li> </ul> <p>For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
      * Consolidation</a>.</p>
@@ -230,6 +318,8 @@ namespace Model
      * <p> <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
      * </p> </li> <li> <p> <i>Image classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of an image based
      * on annotations from individual workers.</p> <p>
@@ -242,6 +332,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
      * </p> </li> <li> <p> <i>Semantic segmentation</i> - Treats each pixel in an image
      * as a multi-class classification and treats pixel annotations from workers as
      * "votes" for the correct label.</p> <p>
@@ -254,6 +346,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
      * </p> </li> <li> <p> <i>Text classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of text based on
      * annotations from individual workers.</p> <p>
@@ -266,6 +360,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
      * </p> </li> </ul> <p>For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
      * Consolidation</a>.</p>
@@ -286,6 +382,8 @@ namespace Model
      * <p> <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
      * </p> </li> <li> <p> <i>Image classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of an image based
      * on annotations from individual workers.</p> <p>
@@ -298,6 +396,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
      * </p> </li> <li> <p> <i>Semantic segmentation</i> - Treats each pixel in an image
      * as a multi-class classification and treats pixel annotations from workers as
      * "votes" for the correct label.</p> <p>
@@ -310,6 +410,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
      * </p> </li> <li> <p> <i>Text classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of text based on
      * annotations from individual workers.</p> <p>
@@ -322,6 +424,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
      * </p> </li> </ul> <p>For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
      * Consolidation</a>.</p>
@@ -342,6 +446,8 @@ namespace Model
      * <p> <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
      * </p> </li> <li> <p> <i>Image classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of an image based
      * on annotations from individual workers.</p> <p>
@@ -354,6 +460,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
      * </p> </li> <li> <p> <i>Semantic segmentation</i> - Treats each pixel in an image
      * as a multi-class classification and treats pixel annotations from workers as
      * "votes" for the correct label.</p> <p>
@@ -366,6 +474,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
      * </p> </li> <li> <p> <i>Text classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of text based on
      * annotations from individual workers.</p> <p>
@@ -378,6 +488,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
      * </p> </li> </ul> <p>For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
      * Consolidation</a>.</p>
@@ -398,6 +510,8 @@ namespace Model
      * <p> <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
      * </p> </li> <li> <p> <i>Image classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of an image based
      * on annotations from individual workers.</p> <p>
@@ -410,6 +524,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
      * </p> </li> <li> <p> <i>Semantic segmentation</i> - Treats each pixel in an image
      * as a multi-class classification and treats pixel annotations from workers as
      * "votes" for the correct label.</p> <p>
@@ -422,6 +538,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
      * </p> </li> <li> <p> <i>Text classification</i> - Uses a variant of the
      * Expectation Maximization approach to estimate the true class of text based on
      * annotations from individual workers.</p> <p>
@@ -434,6 +552,8 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
      * </p> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
+     * </p> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
      * </p> </li> </ul> <p>For more information, see <a
      * href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
      * Consolidation</a>.</p>

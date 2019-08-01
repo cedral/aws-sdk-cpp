@@ -30,7 +30,7 @@ namespace Model
    * <p>Represents a request to list the receipt rule sets that exist under your AWS
    * account. You use receipt rule sets to receive email with Amazon SES. For more
    * information, see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListReceiptRuleSetsRequest">AWS
    * API Reference</a></p>
@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ListReceiptRuleSetsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,12 @@ namespace Model
      * indicate the position in the receipt rule set list.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A token returned from a previous call to <code>ListReceiptRuleSets</code> to
+     * indicate the position in the receipt rule set list.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A token returned from a previous call to <code>ListReceiptRuleSets</code> to

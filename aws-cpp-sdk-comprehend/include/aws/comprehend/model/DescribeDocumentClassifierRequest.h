@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeDocumentClassifierRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * operation returns this identifier in its response.</p>
      */
     inline const Aws::String& GetDocumentClassifierArn() const{ return m_documentClassifierArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that identifies the document classifier. The
+     * operation returns this identifier in its response.</p>
+     */
+    inline bool DocumentClassifierArnHasBeenSet() const { return m_documentClassifierArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that identifies the document classifier. The

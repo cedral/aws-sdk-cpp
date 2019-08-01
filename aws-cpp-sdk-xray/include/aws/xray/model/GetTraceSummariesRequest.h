@@ -17,6 +17,8 @@
 #include <aws/xray/XRay_EXPORTS.h>
 #include <aws/xray/XRayRequest.h>
 #include <aws/core/utils/DateTime.h>
+#include <aws/xray/model/TimeRangeType.h>
+#include <aws/xray/model/SamplingStrategy.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <utility>
 
@@ -33,7 +35,7 @@ namespace Model
   {
   public:
     GetTraceSummariesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +49,11 @@ namespace Model
      * <p>The start of the time frame for which to retrieve traces.</p>
      */
     inline const Aws::Utils::DateTime& GetStartTime() const{ return m_startTime; }
+
+    /**
+     * <p>The start of the time frame for which to retrieve traces.</p>
+     */
+    inline bool StartTimeHasBeenSet() const { return m_startTimeHasBeenSet; }
 
     /**
      * <p>The start of the time frame for which to retrieve traces.</p>
@@ -77,6 +84,11 @@ namespace Model
     /**
      * <p>The end of the time frame for which to retrieve traces.</p>
      */
+    inline bool EndTimeHasBeenSet() const { return m_endTimeHasBeenSet; }
+
+    /**
+     * <p>The end of the time frame for which to retrieve traces.</p>
+     */
     inline void SetEndTime(const Aws::Utils::DateTime& value) { m_endTimeHasBeenSet = true; m_endTime = value; }
 
     /**
@@ -96,10 +108,53 @@ namespace Model
 
 
     /**
+     * <p>A parameter to indicate whether to query trace summaries by TraceId or Event
+     * time.</p>
+     */
+    inline const TimeRangeType& GetTimeRangeType() const{ return m_timeRangeType; }
+
+    /**
+     * <p>A parameter to indicate whether to query trace summaries by TraceId or Event
+     * time.</p>
+     */
+    inline bool TimeRangeTypeHasBeenSet() const { return m_timeRangeTypeHasBeenSet; }
+
+    /**
+     * <p>A parameter to indicate whether to query trace summaries by TraceId or Event
+     * time.</p>
+     */
+    inline void SetTimeRangeType(const TimeRangeType& value) { m_timeRangeTypeHasBeenSet = true; m_timeRangeType = value; }
+
+    /**
+     * <p>A parameter to indicate whether to query trace summaries by TraceId or Event
+     * time.</p>
+     */
+    inline void SetTimeRangeType(TimeRangeType&& value) { m_timeRangeTypeHasBeenSet = true; m_timeRangeType = std::move(value); }
+
+    /**
+     * <p>A parameter to indicate whether to query trace summaries by TraceId or Event
+     * time.</p>
+     */
+    inline GetTraceSummariesRequest& WithTimeRangeType(const TimeRangeType& value) { SetTimeRangeType(value); return *this;}
+
+    /**
+     * <p>A parameter to indicate whether to query trace summaries by TraceId or Event
+     * time.</p>
+     */
+    inline GetTraceSummariesRequest& WithTimeRangeType(TimeRangeType&& value) { SetTimeRangeType(std::move(value)); return *this;}
+
+
+    /**
      * <p>Set to <code>true</code> to get summaries for only a subset of available
      * traces.</p>
      */
     inline bool GetSampling() const{ return m_sampling; }
+
+    /**
+     * <p>Set to <code>true</code> to get summaries for only a subset of available
+     * traces.</p>
+     */
+    inline bool SamplingHasBeenSet() const { return m_samplingHasBeenSet; }
 
     /**
      * <p>Set to <code>true</code> to get summaries for only a subset of available
@@ -115,10 +170,53 @@ namespace Model
 
 
     /**
+     * <p>A paramater to indicate whether to enable sampling on trace summaries. Input
+     * parameters are Name and Value.</p>
+     */
+    inline const SamplingStrategy& GetSamplingStrategy() const{ return m_samplingStrategy; }
+
+    /**
+     * <p>A paramater to indicate whether to enable sampling on trace summaries. Input
+     * parameters are Name and Value.</p>
+     */
+    inline bool SamplingStrategyHasBeenSet() const { return m_samplingStrategyHasBeenSet; }
+
+    /**
+     * <p>A paramater to indicate whether to enable sampling on trace summaries. Input
+     * parameters are Name and Value.</p>
+     */
+    inline void SetSamplingStrategy(const SamplingStrategy& value) { m_samplingStrategyHasBeenSet = true; m_samplingStrategy = value; }
+
+    /**
+     * <p>A paramater to indicate whether to enable sampling on trace summaries. Input
+     * parameters are Name and Value.</p>
+     */
+    inline void SetSamplingStrategy(SamplingStrategy&& value) { m_samplingStrategyHasBeenSet = true; m_samplingStrategy = std::move(value); }
+
+    /**
+     * <p>A paramater to indicate whether to enable sampling on trace summaries. Input
+     * parameters are Name and Value.</p>
+     */
+    inline GetTraceSummariesRequest& WithSamplingStrategy(const SamplingStrategy& value) { SetSamplingStrategy(value); return *this;}
+
+    /**
+     * <p>A paramater to indicate whether to enable sampling on trace summaries. Input
+     * parameters are Name and Value.</p>
+     */
+    inline GetTraceSummariesRequest& WithSamplingStrategy(SamplingStrategy&& value) { SetSamplingStrategy(std::move(value)); return *this;}
+
+
+    /**
      * <p>Specify a filter expression to retrieve trace summaries for services or
      * requests that meet certain requirements.</p>
      */
     inline const Aws::String& GetFilterExpression() const{ return m_filterExpression; }
+
+    /**
+     * <p>Specify a filter expression to retrieve trace summaries for services or
+     * requests that meet certain requirements.</p>
+     */
+    inline bool FilterExpressionHasBeenSet() const { return m_filterExpressionHasBeenSet; }
 
     /**
      * <p>Specify a filter expression to retrieve trace summaries for services or
@@ -167,6 +265,12 @@ namespace Model
      * <p>Specify the pagination token returned by a previous request to retrieve the
      * next page of results.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>Specify the pagination token returned by a previous request to retrieve the
+     * next page of results.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -207,8 +311,14 @@ namespace Model
     Aws::Utils::DateTime m_endTime;
     bool m_endTimeHasBeenSet;
 
+    TimeRangeType m_timeRangeType;
+    bool m_timeRangeTypeHasBeenSet;
+
     bool m_sampling;
     bool m_samplingHasBeenSet;
+
+    SamplingStrategy m_samplingStrategy;
+    bool m_samplingStrategyHasBeenSet;
 
     Aws::String m_filterExpression;
     bool m_filterExpressionHasBeenSet;

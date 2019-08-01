@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * The name of the domain in which to perform the operation.
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * The name of the domain in which to perform the operation.
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * The name of the domain in which to perform the operation.
@@ -91,6 +96,11 @@ namespace Model
     /**
      * The name of the item.
      */
+    inline bool ItemNameHasBeenSet() const { return m_itemNameHasBeenSet; }
+
+    /**
+     * The name of the item.
+     */
     inline void SetItemName(const Aws::String& value) { m_itemNameHasBeenSet = true; m_itemName = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
      * The names of the attributes.
      */
     inline const Aws::Vector<Aws::String>& GetAttributeNames() const{ return m_attributeNames; }
+
+    /**
+     * The names of the attributes.
+     */
+    inline bool AttributeNamesHasBeenSet() const { return m_attributeNamesHasBeenSet; }
 
     /**
      * The names of the attributes.
@@ -167,6 +182,14 @@ namespace Model
      * the client may not see data that was written immediately before your read.
      */
     inline bool GetConsistentRead() const{ return m_consistentRead; }
+
+    /**
+     * Determines whether or not strong consistency should be enforced when data is
+     * read from SimpleDB. If <code>true</code>, any data previously written to
+     * SimpleDB will be returned. Otherwise, results will be consistent eventually, and
+     * the client may not see data that was written immediately before your read.
+     */
+    inline bool ConsistentReadHasBeenSet() const { return m_consistentReadHasBeenSet; }
 
     /**
      * Determines whether or not strong consistency should be enforced when data is

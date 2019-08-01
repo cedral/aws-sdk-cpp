@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     TestFailoverRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * is being tested by this operation.</p>
      */
     inline const Aws::String& GetReplicationGroupId() const{ return m_replicationGroupId; }
+
+    /**
+     * <p>The name of the replication group (console: cluster) whose automatic failover
+     * is being tested by this operation.</p>
+     */
+    inline bool ReplicationGroupIdHasBeenSet() const { return m_replicationGroupIdHasBeenSet; }
 
     /**
      * <p>The name of the replication group (console: cluster) whose automatic failover
@@ -95,6 +101,13 @@ namespace Model
      * failover on up to 5 node groups in any rolling 24-hour period.</p>
      */
     inline const Aws::String& GetNodeGroupId() const{ return m_nodeGroupId; }
+
+    /**
+     * <p>The name of the node group (called shard in the console) in this replication
+     * group on which automatic failover is to be tested. You may test automatic
+     * failover on up to 5 node groups in any rolling 24-hour period.</p>
+     */
+    inline bool NodeGroupIdHasBeenSet() const { return m_nodeGroupIdHasBeenSet; }
 
     /**
      * <p>The name of the node group (called shard in the console) in this replication

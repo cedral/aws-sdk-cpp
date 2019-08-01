@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CopyBackupToRegionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
      */
     inline const Aws::String& GetDestinationRegion() const{ return m_destinationRegion; }
+
+    /**
+     * <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
+     */
+    inline bool DestinationRegionHasBeenSet() const { return m_destinationRegionHasBeenSet; }
 
     /**
      * <p>The AWS region that will contain your copied CloudHSM cluster backup.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The ID of the backup that will be copied to the destination region. </p>
      */
     inline const Aws::String& GetBackupId() const{ return m_backupId; }
+
+    /**
+     * <p>The ID of the backup that will be copied to the destination region. </p>
+     */
+    inline bool BackupIdHasBeenSet() const { return m_backupIdHasBeenSet; }
 
     /**
      * <p>The ID of the backup that will be copied to the destination region. </p>

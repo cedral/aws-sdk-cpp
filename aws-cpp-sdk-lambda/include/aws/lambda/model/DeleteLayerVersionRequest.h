@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteLayerVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
      */
     inline const Aws::String& GetLayerName() const{ return m_layerName; }
+
+    /**
+     * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
+     */
+    inline bool LayerNameHasBeenSet() const { return m_layerNameHasBeenSet; }
 
     /**
      * <p>The name or Amazon Resource Name (ARN) of the layer.</p>
@@ -82,6 +87,11 @@ namespace Model
      * <p>The version number.</p>
      */
     inline long long GetVersionNumber() const{ return m_versionNumber; }
+
+    /**
+     * <p>The version number.</p>
+     */
+    inline bool VersionNumberHasBeenSet() const { return m_versionNumberHasBeenSet; }
 
     /**
      * <p>The version number.</p>

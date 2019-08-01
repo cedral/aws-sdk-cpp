@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateS3ResourcesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * classification types you want to update. </p>
      */
     inline const Aws::String& GetMemberAccountId() const{ return m_memberAccountId; }
+
+    /**
+     * <p>The AWS ID of the Amazon Macie member account whose S3 resources'
+     * classification types you want to update. </p>
+     */
+    inline bool MemberAccountIdHasBeenSet() const { return m_memberAccountIdHasBeenSet; }
 
     /**
      * <p>The AWS ID of the Amazon Macie member account whose S3 resources'
@@ -93,6 +99,11 @@ namespace Model
      * <p>The S3 resources whose classification types you want to update.</p>
      */
     inline const Aws::Vector<S3ResourceClassificationUpdate>& GetS3ResourcesUpdate() const{ return m_s3ResourcesUpdate; }
+
+    /**
+     * <p>The S3 resources whose classification types you want to update.</p>
+     */
+    inline bool S3ResourcesUpdateHasBeenSet() const { return m_s3ResourcesUpdateHasBeenSet; }
 
     /**
      * <p>The S3 resources whose classification types you want to update.</p>

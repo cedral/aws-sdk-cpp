@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/ModifyDBParameterGroupMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API ModifyDBParameterGroupRequest : public NeptuneRequest
   {
   public:
     ModifyDBParameterGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +53,12 @@ namespace Model
      * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
      */
     inline const Aws::String& GetDBParameterGroupName() const{ return m_dBParameterGroupName; }
+
+    /**
+     * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
+     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     */
+    inline bool DBParameterGroupNameHasBeenSet() const { return m_dBParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
@@ -105,6 +108,18 @@ namespace Model
      * DB instance without failover.</p> </note>
      */
     inline const Aws::Vector<Parameter>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>An array of parameter names, values, and the apply method for the parameter
+     * update. At least one parameter name, value, and apply method must be supplied;
+     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
+     * a single request.</p> <p>Valid Values (for the application method):
+     * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
+     * value with dynamic parameters only. You can use the pending-reboot value for
+     * both dynamic and static parameters, and changes are applied when you reboot the
+     * DB instance without failover.</p> </note>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter

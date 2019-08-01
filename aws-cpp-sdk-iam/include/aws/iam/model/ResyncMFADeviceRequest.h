@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ResyncMFADeviceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,15 @@ namespace Model
      * following characters: _+=,.@-</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
+
+    /**
+     * <p>The name of the user whose MFA device you want to resynchronize.</p> <p>This
+     * parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a>) a string of characters consisting of upper and lowercase
+     * alphanumeric characters with no spaces. You can also include any of the
+     * following characters: _+=,.@-</p>
+     */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>The name of the user whose MFA device you want to resynchronize.</p> <p>This
@@ -126,6 +135,15 @@ namespace Model
      * with no spaces. You can also include any of the following characters:
      * _+=,.@-</p>
      */
+    inline bool SerialNumberHasBeenSet() const { return m_serialNumberHasBeenSet; }
+
+    /**
+     * <p>Serial number that uniquely identifies the MFA device.</p> <p>This parameter
+     * allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
+     * a string of characters consisting of upper and lowercase alphanumeric characters
+     * with no spaces. You can also include any of the following characters:
+     * _+=,.@-</p>
+     */
     inline void SetSerialNumber(const Aws::String& value) { m_serialNumberHasBeenSet = true; m_serialNumber = value; }
 
     /**
@@ -184,6 +202,12 @@ namespace Model
      * <p>An authentication code emitted by the device.</p> <p>The format for this
      * parameter is a sequence of six digits.</p>
      */
+    inline bool AuthenticationCode1HasBeenSet() const { return m_authenticationCode1HasBeenSet; }
+
+    /**
+     * <p>An authentication code emitted by the device.</p> <p>The format for this
+     * parameter is a sequence of six digits.</p>
+     */
     inline void SetAuthenticationCode1(const Aws::String& value) { m_authenticationCode1HasBeenSet = true; m_authenticationCode1 = value; }
 
     /**
@@ -222,6 +246,12 @@ namespace Model
      * this parameter is a sequence of six digits.</p>
      */
     inline const Aws::String& GetAuthenticationCode2() const{ return m_authenticationCode2; }
+
+    /**
+     * <p>A subsequent authentication code emitted by the device.</p> <p>The format for
+     * this parameter is a sequence of six digits.</p>
+     */
+    inline bool AuthenticationCode2HasBeenSet() const { return m_authenticationCode2HasBeenSet; }
 
     /**
      * <p>A subsequent authentication code emitted by the device.</p> <p>The format for

@@ -31,7 +31,7 @@ namespace Model
    * are attached to an identity. Sending authorization is an Amazon SES feature that
    * enables you to authorize other senders to use your identities. For information,
    * see the <a
-   * href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+   * href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
    * SES Developer Guide</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentityPoliciesRequest">AWS
    * API Reference</a></p>
@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     ListIdentityPoliciesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -63,6 +63,16 @@ namespace Model
      * successfully call this API, you must own the identity.</p>
      */
     inline const Aws::String& GetIdentity() const{ return m_identity; }
+
+    /**
+     * <p>The identity that is associated with the policy for which the policies will
+     * be listed. You can specify an identity by using its name or by using its Amazon
+     * Resource Name (ARN). Examples: <code>user@example.com</code>,
+     * <code>example.com</code>,
+     * <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p> <p>To
+     * successfully call this API, you must own the identity.</p>
+     */
+    inline bool IdentityHasBeenSet() const { return m_identityHasBeenSet; }
 
     /**
      * <p>The identity that is associated with the policy for which the policies will

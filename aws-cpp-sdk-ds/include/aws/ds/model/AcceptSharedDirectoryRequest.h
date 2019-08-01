@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AcceptSharedDirectoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * identifier is different for each directory owner account. </p>
      */
     inline const Aws::String& GetSharedDirectoryId() const{ return m_sharedDirectoryId; }
+
+    /**
+     * <p>Identifier of the shared directory in the directory consumer account. This
+     * identifier is different for each directory owner account. </p>
+     */
+    inline bool SharedDirectoryIdHasBeenSet() const { return m_sharedDirectoryIdHasBeenSet; }
 
     /**
      * <p>Identifier of the shared directory in the directory consumer account. This

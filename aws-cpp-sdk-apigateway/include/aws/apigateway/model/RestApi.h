@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/apigateway/model/ApiKeySourceType.h>
 #include <aws/apigateway/model/EndpointConfiguration.h>
+#include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
 
 namespace Aws
@@ -58,6 +59,12 @@ namespace Model
      * API Gateway.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The API's identifier. This identifier is unique across all of your APIs in
+     * API Gateway.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The API's identifier. This identifier is unique across all of your APIs in
@@ -104,6 +111,11 @@ namespace Model
     /**
      * <p>The API's name.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The API's name.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -136,6 +148,11 @@ namespace Model
      * <p>The API's description.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>The API's description.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>The API's description.</p>
@@ -176,6 +193,11 @@ namespace Model
     /**
      * <p>The timestamp when the API was created.</p>
      */
+    inline bool CreatedDateHasBeenSet() const { return m_createdDateHasBeenSet; }
+
+    /**
+     * <p>The timestamp when the API was created.</p>
+     */
     inline void SetCreatedDate(const Aws::Utils::DateTime& value) { m_createdDateHasBeenSet = true; m_createdDate = value; }
 
     /**
@@ -198,6 +220,11 @@ namespace Model
      * <p>A version identifier for the API.</p>
      */
     inline const Aws::String& GetVersion() const{ return m_version; }
+
+    /**
+     * <p>A version identifier for the API.</p>
+     */
+    inline bool VersionHasBeenSet() const { return m_versionHasBeenSet; }
 
     /**
      * <p>A version identifier for the API.</p>
@@ -235,6 +262,12 @@ namespace Model
      * during API import.</p>
      */
     inline const Aws::Vector<Aws::String>& GetWarnings() const{ return m_warnings; }
+
+    /**
+     * <p>The warning messages reported when <code>failonwarnings</code> is turned on
+     * during API import.</p>
+     */
+    inline bool WarningsHasBeenSet() const { return m_warningsHasBeenSet; }
 
     /**
      * <p>The warning messages reported when <code>failonwarnings</code> is turned on
@@ -284,6 +317,12 @@ namespace Model
      * the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
      */
     inline const Aws::Vector<Aws::String>& GetBinaryMediaTypes() const{ return m_binaryMediaTypes; }
+
+    /**
+     * <p>The list of binary media types supported by the <a>RestApi</a>. By default,
+     * the <a>RestApi</a> supports only UTF-8-encoded text payloads.</p>
+     */
+    inline bool BinaryMediaTypesHasBeenSet() const { return m_binaryMediaTypesHasBeenSet; }
 
     /**
      * <p>The list of binary media types supported by the <a>RestApi</a>. By default,
@@ -344,6 +383,15 @@ namespace Model
      * is not applied on the payload if the payload size is smaller than this value.
      * Setting it to zero allows compression for any payload size.</p>
      */
+    inline bool MinimumCompressionSizeHasBeenSet() const { return m_minimumCompressionSizeHasBeenSet; }
+
+    /**
+     * <p>A nullable integer that is used to enable compression (with non-negative
+     * between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a
+     * null value) on an API. When compression is enabled, compression or decompression
+     * is not applied on the payload if the payload size is smaller than this value.
+     * Setting it to zero allows compression for any payload size.</p>
+     */
     inline void SetMinimumCompressionSize(int value) { m_minimumCompressionSizeHasBeenSet = true; m_minimumCompressionSize = value; }
 
     /**
@@ -364,6 +412,15 @@ namespace Model
      * authorizer.</li></ul> </p>
      */
     inline const ApiKeySourceType& GetApiKeySource() const{ return m_apiKeySource; }
+
+    /**
+     * <p>The source of the API key for metering requests according to a usage plan.
+     * Valid values are: <ul><li><code>HEADER</code> to read the API key from the
+     * <code>X-API-Key</code> header of a request. </li><li><code>AUTHORIZER</code> to
+     * read the API key from the <code>UsageIdentifierKey</code> from a custom
+     * authorizer.</li></ul> </p>
+     */
+    inline bool ApiKeySourceHasBeenSet() const { return m_apiKeySourceHasBeenSet; }
 
     /**
      * <p>The source of the API key for metering requests according to a usage plan.
@@ -412,6 +469,12 @@ namespace Model
      * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types
      * of the API. </p>
      */
+    inline bool EndpointConfigurationHasBeenSet() const { return m_endpointConfigurationHasBeenSet; }
+
+    /**
+     * <p>The endpoint configuration of this <a>RestApi</a> showing the endpoint types
+     * of the API. </p>
+     */
     inline void SetEndpointConfiguration(const EndpointConfiguration& value) { m_endpointConfigurationHasBeenSet = true; m_endpointConfiguration = value; }
 
     /**
@@ -438,6 +501,12 @@ namespace Model
      * the caller and <a>Method</a> configuration.
      */
     inline const Aws::String& GetPolicy() const{ return m_policy; }
+
+    /**
+     * A stringified JSON policy document that applies to this RestApi regardless of
+     * the caller and <a>Method</a> configuration.
+     */
+    inline bool PolicyHasBeenSet() const { return m_policyHasBeenSet; }
 
     /**
      * A stringified JSON policy document that applies to this RestApi regardless of
@@ -475,6 +544,85 @@ namespace Model
      */
     inline RestApi& WithPolicy(const char* value) { SetPolicy(value); return *this;}
 
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>The collection of tags. Each tag element is associated with a given
+     * resource.</p>
+     */
+    inline RestApi& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     Aws::String m_id;
@@ -509,6 +657,9 @@ namespace Model
 
     Aws::String m_policy;
     bool m_policyHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

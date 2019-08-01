@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteRepositoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * assumed.</p>
      */
     inline const Aws::String& GetRegistryId() const{ return m_registryId; }
+
+    /**
+     * <p>The AWS account ID associated with the registry that contains the repository
+     * to delete. If you do not specify a registry, the default registry is
+     * assumed.</p>
+     */
+    inline bool RegistryIdHasBeenSet() const { return m_registryIdHasBeenSet; }
 
     /**
      * <p>The AWS account ID associated with the registry that contains the repository
@@ -102,6 +109,11 @@ namespace Model
     /**
      * <p>The name of the repository to delete.</p>
      */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
+
+    /**
+     * <p>The name of the repository to delete.</p>
+     */
     inline void SetRepositoryName(const Aws::String& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = value; }
 
     /**
@@ -134,6 +146,11 @@ namespace Model
      * <p> If a repository contains images, forces the deletion.</p>
      */
     inline bool GetForce() const{ return m_force; }
+
+    /**
+     * <p> If a repository contains images, forces the deletion.</p>
+     */
+    inline bool ForceHasBeenSet() const { return m_forceHasBeenSet; }
 
     /**
      * <p> If a repository contains images, forces the deletion.</p>

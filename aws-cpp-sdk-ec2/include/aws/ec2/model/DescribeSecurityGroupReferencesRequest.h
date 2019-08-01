@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeSecurityGroupReferencesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -61,6 +61,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -73,42 +81,47 @@ namespace Model
 
 
     /**
-     * <p>One or more security group IDs in your account.</p>
+     * <p>The IDs of the security groups in your account.</p>
      */
     inline const Aws::Vector<Aws::String>& GetGroupId() const{ return m_groupId; }
 
     /**
-     * <p>One or more security group IDs in your account.</p>
+     * <p>The IDs of the security groups in your account.</p>
+     */
+    inline bool GroupIdHasBeenSet() const { return m_groupIdHasBeenSet; }
+
+    /**
+     * <p>The IDs of the security groups in your account.</p>
      */
     inline void SetGroupId(const Aws::Vector<Aws::String>& value) { m_groupIdHasBeenSet = true; m_groupId = value; }
 
     /**
-     * <p>One or more security group IDs in your account.</p>
+     * <p>The IDs of the security groups in your account.</p>
      */
     inline void SetGroupId(Aws::Vector<Aws::String>&& value) { m_groupIdHasBeenSet = true; m_groupId = std::move(value); }
 
     /**
-     * <p>One or more security group IDs in your account.</p>
+     * <p>The IDs of the security groups in your account.</p>
      */
     inline DescribeSecurityGroupReferencesRequest& WithGroupId(const Aws::Vector<Aws::String>& value) { SetGroupId(value); return *this;}
 
     /**
-     * <p>One or more security group IDs in your account.</p>
+     * <p>The IDs of the security groups in your account.</p>
      */
     inline DescribeSecurityGroupReferencesRequest& WithGroupId(Aws::Vector<Aws::String>&& value) { SetGroupId(std::move(value)); return *this;}
 
     /**
-     * <p>One or more security group IDs in your account.</p>
+     * <p>The IDs of the security groups in your account.</p>
      */
     inline DescribeSecurityGroupReferencesRequest& AddGroupId(const Aws::String& value) { m_groupIdHasBeenSet = true; m_groupId.push_back(value); return *this; }
 
     /**
-     * <p>One or more security group IDs in your account.</p>
+     * <p>The IDs of the security groups in your account.</p>
      */
     inline DescribeSecurityGroupReferencesRequest& AddGroupId(Aws::String&& value) { m_groupIdHasBeenSet = true; m_groupId.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>One or more security group IDs in your account.</p>
+     * <p>The IDs of the security groups in your account.</p>
      */
     inline DescribeSecurityGroupReferencesRequest& AddGroupId(const char* value) { m_groupIdHasBeenSet = true; m_groupId.push_back(value); return *this; }
 

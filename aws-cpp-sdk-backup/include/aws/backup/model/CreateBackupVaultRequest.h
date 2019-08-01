@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateBackupVaultRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,14 @@ namespace Model
      * and hyphens.</p>
      */
     inline const Aws::String& GetBackupVaultName() const{ return m_backupVaultName; }
+
+    /**
+     * <p>The name of a logical container where backups are stored. Backup vaults are
+     * identified by names that are unique to the account used to create them and the
+     * AWS Region where they are created. They consist of lowercase letters, numbers,
+     * and hyphens.</p>
+     */
+    inline bool BackupVaultNameHasBeenSet() const { return m_backupVaultNameHasBeenSet; }
 
     /**
      * <p>The name of a logical container where backups are stored. Backup vaults are
@@ -105,6 +113,12 @@ namespace Model
      * Each tag is a key-value pair.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetBackupVaultTags() const{ return m_backupVaultTags; }
+
+    /**
+     * <p>Metadata that you can assign to help organize the resources that you create.
+     * Each tag is a key-value pair.</p>
+     */
+    inline bool BackupVaultTagsHasBeenSet() const { return m_backupVaultTagsHasBeenSet; }
 
     /**
      * <p>Metadata that you can assign to help organize the resources that you create.
@@ -185,6 +199,13 @@ namespace Model
      * example,
      * <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
      */
+    inline bool EncryptionKeyArnHasBeenSet() const { return m_encryptionKeyArnHasBeenSet; }
+
+    /**
+     * <p>The server-side encryption key that is used to protect your backups; for
+     * example,
+     * <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+     */
     inline void SetEncryptionKeyArn(const Aws::String& value) { m_encryptionKeyArnHasBeenSet = true; m_encryptionKeyArn = value; }
 
     /**
@@ -228,6 +249,12 @@ namespace Model
      * retried without the risk of executing the operation twice.</p>
      */
     inline const Aws::String& GetCreatorRequestId() const{ return m_creatorRequestId; }
+
+    /**
+     * <p>A unique string that identifies the request and allows failed requests to be
+     * retried without the risk of executing the operation twice.</p>
+     */
+    inline bool CreatorRequestIdHasBeenSet() const { return m_creatorRequestIdHasBeenSet; }
 
     /**
      * <p>A unique string that identifies the request and allows failed requests to be

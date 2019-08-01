@@ -37,8 +37,11 @@ namespace Model
 {
 
   /**
-   * <p>The overrides that should be sent to a container.</p><p><h3>See Also:</h3>  
-   * <a
+   * <p>The overrides that should be sent to a container. An empty container override
+   * can be passed in. An example of an empty container override would be
+   * <code>{"containerOverrides": [ ] }</code>. If a non-empty container override is
+   * specified, the <code>name</code> parameter must be included.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/ContainerOverride">AWS
    * API Reference</a></p>
    */
@@ -56,6 +59,12 @@ namespace Model
      * required if any override is specified.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the container that receives the override. This parameter is
+     * required if any override is specified.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the container that receives the override. This parameter is
@@ -100,6 +109,13 @@ namespace Model
      * name.</p>
      */
     inline const Aws::Vector<Aws::String>& GetCommand() const{ return m_command; }
+
+    /**
+     * <p>The command to send to the container that overrides the default command from
+     * the Docker image or the task definition. You must also specify a container
+     * name.</p>
+     */
+    inline bool CommandHasBeenSet() const { return m_commandHasBeenSet; }
 
     /**
      * <p>The command to send to the container that overrides the default command from
@@ -165,6 +181,14 @@ namespace Model
      * override the existing environment variables from the Docker image or the task
      * definition. You must also specify a container name.</p>
      */
+    inline bool EnvironmentHasBeenSet() const { return m_environmentHasBeenSet; }
+
+    /**
+     * <p>The environment variables to send to the container. You can add new
+     * environment variables, which are added to the container at launch, or you can
+     * override the existing environment variables from the Docker image or the task
+     * definition. You must also specify a container name.</p>
+     */
     inline void SetEnvironment(const Aws::Vector<KeyValuePair>& value) { m_environmentHasBeenSet = true; m_environment = value; }
 
     /**
@@ -220,6 +244,13 @@ namespace Model
      * the default value from the task definition. You must also specify a container
      * name.</p>
      */
+    inline bool CpuHasBeenSet() const { return m_cpuHasBeenSet; }
+
+    /**
+     * <p>The number of <code>cpu</code> units reserved for the container, instead of
+     * the default value from the task definition. You must also specify a container
+     * name.</p>
+     */
     inline void SetCpu(int value) { m_cpuHasBeenSet = true; m_cpu = value; }
 
     /**
@@ -237,6 +268,14 @@ namespace Model
      * container name.</p>
      */
     inline int GetMemory() const{ return m_memory; }
+
+    /**
+     * <p>The hard limit (in MiB) of memory to present to the container, instead of the
+     * default value from the task definition. If your container attempts to exceed the
+     * memory specified here, the container is killed. You must also specify a
+     * container name.</p>
+     */
+    inline bool MemoryHasBeenSet() const { return m_memoryHasBeenSet; }
 
     /**
      * <p>The hard limit (in MiB) of memory to present to the container, instead of the
@@ -267,6 +306,13 @@ namespace Model
      * the default value from the task definition. You must also specify a container
      * name.</p>
      */
+    inline bool MemoryReservationHasBeenSet() const { return m_memoryReservationHasBeenSet; }
+
+    /**
+     * <p>The soft limit (in MiB) of memory to reserve for the container, instead of
+     * the default value from the task definition. You must also specify a container
+     * name.</p>
+     */
     inline void SetMemoryReservation(int value) { m_memoryReservationHasBeenSet = true; m_memoryReservation = value; }
 
     /**
@@ -283,6 +329,13 @@ namespace Model
      * GPU.</p>
      */
     inline const Aws::Vector<ResourceRequirement>& GetResourceRequirements() const{ return m_resourceRequirements; }
+
+    /**
+     * <p>The type and amount of a resource to assign to a container, instead of the
+     * default value from the task definition. The only supported resource is a
+     * GPU.</p>
+     */
+    inline bool ResourceRequirementsHasBeenSet() const { return m_resourceRequirementsHasBeenSet; }
 
     /**
      * <p>The type and amount of a resource to assign to a container, instead of the

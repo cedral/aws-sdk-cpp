@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SyncDeploymentJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,12 @@ namespace Model
      * of the request.</p>
      */
     inline const Aws::String& GetClientRequestToken() const{ return m_clientRequestToken; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request.</p>
+     */
+    inline bool ClientRequestTokenHasBeenSet() const { return m_clientRequestTokenHasBeenSet; }
 
     /**
      * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
@@ -90,6 +96,11 @@ namespace Model
      * <p>The target fleet for the synchronization.</p>
      */
     inline const Aws::String& GetFleet() const{ return m_fleet; }
+
+    /**
+     * <p>The target fleet for the synchronization.</p>
+     */
+    inline bool FleetHasBeenSet() const { return m_fleetHasBeenSet; }
 
     /**
      * <p>The target fleet for the synchronization.</p>

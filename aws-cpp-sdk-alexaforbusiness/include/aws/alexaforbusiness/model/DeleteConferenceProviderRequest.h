@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteConferenceProviderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the conference provider.</p>
      */
     inline const Aws::String& GetConferenceProviderArn() const{ return m_conferenceProviderArn; }
+
+    /**
+     * <p>The ARN of the conference provider.</p>
+     */
+    inline bool ConferenceProviderArnHasBeenSet() const { return m_conferenceProviderArnHasBeenSet; }
 
     /**
      * <p>The ARN of the conference provider.</p>

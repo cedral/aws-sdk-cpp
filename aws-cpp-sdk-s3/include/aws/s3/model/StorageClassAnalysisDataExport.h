@@ -49,27 +49,38 @@ namespace Model
 
 
     /**
-     * <p>The version of the output schema to use when exporting data. Must be V_1.</p>
+     * <p>The version of the output schema to use when exporting data. Must be
+     * <code>V_1</code>.</p>
      */
     inline const StorageClassAnalysisSchemaVersion& GetOutputSchemaVersion() const{ return m_outputSchemaVersion; }
 
     /**
-     * <p>The version of the output schema to use when exporting data. Must be V_1.</p>
+     * <p>The version of the output schema to use when exporting data. Must be
+     * <code>V_1</code>.</p>
+     */
+    inline bool OutputSchemaVersionHasBeenSet() const { return m_outputSchemaVersionHasBeenSet; }
+
+    /**
+     * <p>The version of the output schema to use when exporting data. Must be
+     * <code>V_1</code>.</p>
      */
     inline void SetOutputSchemaVersion(const StorageClassAnalysisSchemaVersion& value) { m_outputSchemaVersionHasBeenSet = true; m_outputSchemaVersion = value; }
 
     /**
-     * <p>The version of the output schema to use when exporting data. Must be V_1.</p>
+     * <p>The version of the output schema to use when exporting data. Must be
+     * <code>V_1</code>.</p>
      */
     inline void SetOutputSchemaVersion(StorageClassAnalysisSchemaVersion&& value) { m_outputSchemaVersionHasBeenSet = true; m_outputSchemaVersion = std::move(value); }
 
     /**
-     * <p>The version of the output schema to use when exporting data. Must be V_1.</p>
+     * <p>The version of the output schema to use when exporting data. Must be
+     * <code>V_1</code>.</p>
      */
     inline StorageClassAnalysisDataExport& WithOutputSchemaVersion(const StorageClassAnalysisSchemaVersion& value) { SetOutputSchemaVersion(value); return *this;}
 
     /**
-     * <p>The version of the output schema to use when exporting data. Must be V_1.</p>
+     * <p>The version of the output schema to use when exporting data. Must be
+     * <code>V_1</code>.</p>
      */
     inline StorageClassAnalysisDataExport& WithOutputSchemaVersion(StorageClassAnalysisSchemaVersion&& value) { SetOutputSchemaVersion(std::move(value)); return *this;}
 
@@ -78,6 +89,11 @@ namespace Model
      * <p>The place to store the data for an analysis.</p>
      */
     inline const AnalyticsExportDestination& GetDestination() const{ return m_destination; }
+
+    /**
+     * <p>The place to store the data for an analysis.</p>
+     */
+    inline bool DestinationHasBeenSet() const { return m_destinationHasBeenSet; }
 
     /**
      * <p>The place to store the data for an analysis.</p>

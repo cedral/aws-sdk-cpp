@@ -18,6 +18,8 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/DateTime.h>
 #include <aws/apigatewayv2/model/EndpointType.h>
+#include <aws/apigatewayv2/model/SecurityPolicy.h>
+#include <aws/apigatewayv2/model/DomainNameStatus.h>
 #include <utility>
 
 namespace Aws
@@ -57,6 +59,11 @@ namespace Model
     /**
      * <p>A domain name for the WebSocket API.</p>
      */
+    inline bool ApiGatewayDomainNameHasBeenSet() const { return m_apiGatewayDomainNameHasBeenSet; }
+
+    /**
+     * <p>A domain name for the WebSocket API.</p>
+     */
     inline void SetApiGatewayDomainName(const Aws::String& value) { m_apiGatewayDomainNameHasBeenSet = true; m_apiGatewayDomainName = value; }
 
     /**
@@ -91,6 +98,13 @@ namespace Model
  this domain name. AWS Certificate Manager is the only supported source.</p>
      */
     inline const Aws::String& GetCertificateArn() const{ return m_certificateArn; }
+
+    /**
+     * <p>An AWS-managed certificate that will be used by the edge-optimized endpoint
+     * for
+ this domain name. AWS Certificate Manager is the only supported source.</p>
+     */
+    inline bool CertificateArnHasBeenSet() const { return m_certificateArnHasBeenSet; }
 
     /**
      * <p>An AWS-managed certificate that will be used by the edge-optimized endpoint
@@ -147,6 +161,13 @@ namespace Model
      * edge-optimized
  endpoint for this domain name.</p>
      */
+    inline bool CertificateNameHasBeenSet() const { return m_certificateNameHasBeenSet; }
+
+    /**
+     * <p>The user-friendly name of the certificate that will be used by the
+     * edge-optimized
+ endpoint for this domain name.</p>
+     */
     inline void SetCertificateName(const Aws::String& value) { m_certificateNameHasBeenSet = true; m_certificateName = value; }
 
     /**
@@ -197,6 +218,13 @@ namespace Model
      * for
  this domain name was uploaded.</p>
      */
+    inline bool CertificateUploadDateHasBeenSet() const { return m_certificateUploadDateHasBeenSet; }
+
+    /**
+     * <p>The timestamp when the certificate that was used by edge-optimized endpoint
+     * for
+ this domain name was uploaded.</p>
+     */
     inline void SetCertificateUploadDate(const Aws::Utils::DateTime& value) { m_certificateUploadDateHasBeenSet = true; m_certificateUploadDate = value; }
 
     /**
@@ -229,6 +257,11 @@ namespace Model
     /**
      * <p>The endpoint type.</p>
      */
+    inline bool EndpointTypeHasBeenSet() const { return m_endpointTypeHasBeenSet; }
+
+    /**
+     * <p>The endpoint type.</p>
+     */
     inline void SetEndpointType(const EndpointType& value) { m_endpointTypeHasBeenSet = true; m_endpointType = value; }
 
     /**
@@ -251,6 +284,11 @@ namespace Model
      * <p>The Amazon Route 53 Hosted Zone ID of the endpoint.</p>
      */
     inline const Aws::String& GetHostedZoneId() const{ return m_hostedZoneId; }
+
+    /**
+     * <p>The Amazon Route 53 Hosted Zone ID of the endpoint.</p>
+     */
+    inline bool HostedZoneIdHasBeenSet() const { return m_hostedZoneIdHasBeenSet; }
 
     /**
      * <p>The Amazon Route 53 Hosted Zone ID of the endpoint.</p>
@@ -282,6 +320,141 @@ namespace Model
      */
     inline DomainNameConfiguration& WithHostedZoneId(const char* value) { SetHostedZoneId(value); return *this;}
 
+
+    /**
+     * <p>The Transport Layer Security (TLS) version of the security policy for this
+     * domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
+     */
+    inline const SecurityPolicy& GetSecurityPolicy() const{ return m_securityPolicy; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version of the security policy for this
+     * domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
+     */
+    inline bool SecurityPolicyHasBeenSet() const { return m_securityPolicyHasBeenSet; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version of the security policy for this
+     * domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
+     */
+    inline void SetSecurityPolicy(const SecurityPolicy& value) { m_securityPolicyHasBeenSet = true; m_securityPolicy = value; }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version of the security policy for this
+     * domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
+     */
+    inline void SetSecurityPolicy(SecurityPolicy&& value) { m_securityPolicyHasBeenSet = true; m_securityPolicy = std::move(value); }
+
+    /**
+     * <p>The Transport Layer Security (TLS) version of the security policy for this
+     * domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
+     */
+    inline DomainNameConfiguration& WithSecurityPolicy(const SecurityPolicy& value) { SetSecurityPolicy(value); return *this;}
+
+    /**
+     * <p>The Transport Layer Security (TLS) version of the security policy for this
+     * domain name. The valid values are TLS_1_0 and TLS_1_2.</p>
+     */
+    inline DomainNameConfiguration& WithSecurityPolicy(SecurityPolicy&& value) { SetSecurityPolicy(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The status of the domain name migration. The valid values are AVAILABLE and
+     * UPDATING. If the status is UPDATING, the domain cannot be modified further until
+     * the existing operation is complete. If it is AVAILABLE, the domain can be
+     * updated.</p>
+     */
+    inline const DomainNameStatus& GetDomainNameStatus() const{ return m_domainNameStatus; }
+
+    /**
+     * <p>The status of the domain name migration. The valid values are AVAILABLE and
+     * UPDATING. If the status is UPDATING, the domain cannot be modified further until
+     * the existing operation is complete. If it is AVAILABLE, the domain can be
+     * updated.</p>
+     */
+    inline bool DomainNameStatusHasBeenSet() const { return m_domainNameStatusHasBeenSet; }
+
+    /**
+     * <p>The status of the domain name migration. The valid values are AVAILABLE and
+     * UPDATING. If the status is UPDATING, the domain cannot be modified further until
+     * the existing operation is complete. If it is AVAILABLE, the domain can be
+     * updated.</p>
+     */
+    inline void SetDomainNameStatus(const DomainNameStatus& value) { m_domainNameStatusHasBeenSet = true; m_domainNameStatus = value; }
+
+    /**
+     * <p>The status of the domain name migration. The valid values are AVAILABLE and
+     * UPDATING. If the status is UPDATING, the domain cannot be modified further until
+     * the existing operation is complete. If it is AVAILABLE, the domain can be
+     * updated.</p>
+     */
+    inline void SetDomainNameStatus(DomainNameStatus&& value) { m_domainNameStatusHasBeenSet = true; m_domainNameStatus = std::move(value); }
+
+    /**
+     * <p>The status of the domain name migration. The valid values are AVAILABLE and
+     * UPDATING. If the status is UPDATING, the domain cannot be modified further until
+     * the existing operation is complete. If it is AVAILABLE, the domain can be
+     * updated.</p>
+     */
+    inline DomainNameConfiguration& WithDomainNameStatus(const DomainNameStatus& value) { SetDomainNameStatus(value); return *this;}
+
+    /**
+     * <p>The status of the domain name migration. The valid values are AVAILABLE and
+     * UPDATING. If the status is UPDATING, the domain cannot be modified further until
+     * the existing operation is complete. If it is AVAILABLE, the domain can be
+     * updated.</p>
+     */
+    inline DomainNameConfiguration& WithDomainNameStatus(DomainNameStatus&& value) { SetDomainNameStatus(std::move(value)); return *this;}
+
+
+    /**
+     * <p>An optional text message containing detailed information about status of the
+     * domain name migration.</p>
+     */
+    inline const Aws::String& GetDomainNameStatusMessage() const{ return m_domainNameStatusMessage; }
+
+    /**
+     * <p>An optional text message containing detailed information about status of the
+     * domain name migration.</p>
+     */
+    inline bool DomainNameStatusMessageHasBeenSet() const { return m_domainNameStatusMessageHasBeenSet; }
+
+    /**
+     * <p>An optional text message containing detailed information about status of the
+     * domain name migration.</p>
+     */
+    inline void SetDomainNameStatusMessage(const Aws::String& value) { m_domainNameStatusMessageHasBeenSet = true; m_domainNameStatusMessage = value; }
+
+    /**
+     * <p>An optional text message containing detailed information about status of the
+     * domain name migration.</p>
+     */
+    inline void SetDomainNameStatusMessage(Aws::String&& value) { m_domainNameStatusMessageHasBeenSet = true; m_domainNameStatusMessage = std::move(value); }
+
+    /**
+     * <p>An optional text message containing detailed information about status of the
+     * domain name migration.</p>
+     */
+    inline void SetDomainNameStatusMessage(const char* value) { m_domainNameStatusMessageHasBeenSet = true; m_domainNameStatusMessage.assign(value); }
+
+    /**
+     * <p>An optional text message containing detailed information about status of the
+     * domain name migration.</p>
+     */
+    inline DomainNameConfiguration& WithDomainNameStatusMessage(const Aws::String& value) { SetDomainNameStatusMessage(value); return *this;}
+
+    /**
+     * <p>An optional text message containing detailed information about status of the
+     * domain name migration.</p>
+     */
+    inline DomainNameConfiguration& WithDomainNameStatusMessage(Aws::String&& value) { SetDomainNameStatusMessage(std::move(value)); return *this;}
+
+    /**
+     * <p>An optional text message containing detailed information about status of the
+     * domain name migration.</p>
+     */
+    inline DomainNameConfiguration& WithDomainNameStatusMessage(const char* value) { SetDomainNameStatusMessage(value); return *this;}
+
   private:
 
     Aws::String m_apiGatewayDomainName;
@@ -301,6 +474,15 @@ namespace Model
 
     Aws::String m_hostedZoneId;
     bool m_hostedZoneIdHasBeenSet;
+
+    SecurityPolicy m_securityPolicy;
+    bool m_securityPolicyHasBeenSet;
+
+    DomainNameStatus m_domainNameStatus;
+    bool m_domainNameStatusHasBeenSet;
+
+    Aws::String m_domainNameStatusMessage;
+    bool m_domainNameStatusMessageHasBeenSet;
   };
 
 } // namespace Model

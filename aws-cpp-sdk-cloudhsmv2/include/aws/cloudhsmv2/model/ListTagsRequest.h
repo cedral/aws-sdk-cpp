@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * find the cluster ID, use <a>DescribeClusters</a>.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The cluster identifier (ID) for the cluster whose tags you are getting. To
+     * find the cluster ID, use <a>DescribeClusters</a>.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The cluster identifier (ID) for the cluster whose tags you are getting. To
@@ -97,6 +103,12 @@ namespace Model
      * <p>The <code>NextToken</code> value that you received in the previous response.
      * Use this value to get more tags.</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The <code>NextToken</code> value that you received in the previous response.
+     * Use this value to get more tags.</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -136,6 +148,13 @@ namespace Model
      * value.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of tags to return in the response. When there are more
+     * tags than the number you specify, the response contains a <code>NextToken</code>
+     * value.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of tags to return in the response. When there are more

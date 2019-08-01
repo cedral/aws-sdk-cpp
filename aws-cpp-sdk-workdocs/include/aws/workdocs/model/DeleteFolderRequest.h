@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteFolderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * administrative API actions, as in accessing the API using AWS credentials.</p>
      */
     inline const Aws::String& GetAuthenticationToken() const{ return m_authenticationToken; }
+
+    /**
+     * <p>Amazon WorkDocs authentication token. Do not set this field when using
+     * administrative API actions, as in accessing the API using AWS credentials.</p>
+     */
+    inline bool AuthenticationTokenHasBeenSet() const { return m_authenticationTokenHasBeenSet; }
 
     /**
      * <p>Amazon WorkDocs authentication token. Do not set this field when using
@@ -91,6 +97,11 @@ namespace Model
      * <p>The ID of the folder.</p>
      */
     inline const Aws::String& GetFolderId() const{ return m_folderId; }
+
+    /**
+     * <p>The ID of the folder.</p>
+     */
+    inline bool FolderIdHasBeenSet() const { return m_folderIdHasBeenSet; }
 
     /**
      * <p>The ID of the folder.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeMatchmakingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * values. </p>
      */
     inline const Aws::Vector<Aws::String>& GetTicketIds() const{ return m_ticketIds; }
+
+    /**
+     * <p>Unique identifier for a matchmaking ticket. You can include up to 10 ID
+     * values. </p>
+     */
+    inline bool TicketIdsHasBeenSet() const { return m_ticketIdsHasBeenSet; }
 
     /**
      * <p>Unique identifier for a matchmaking ticket. You can include up to 10 ID

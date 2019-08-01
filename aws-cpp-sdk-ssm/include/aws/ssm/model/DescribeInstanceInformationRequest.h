@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DescribeInstanceInformationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,17 @@ namespace Model
      * <code>InstanceInformationFilter</code> action causes an exception error. </p>
      */
     inline const Aws::Vector<InstanceInformationFilter>& GetInstanceInformationFilterList() const{ return m_instanceInformationFilterList; }
+
+    /**
+     * <p>This is a legacy method. We recommend that you don't use this method.
+     * Instead, use the <a>InstanceInformationFilter</a> action. The
+     * <code>InstanceInformationFilter</code> action enables you to return instance
+     * information by using tags that are specified as a key-value mapping. </p> <p>If
+     * you do use this method, then you can't use the
+     * <code>InstanceInformationFilter</code> action. Using this method and the
+     * <code>InstanceInformationFilter</code> action causes an exception error. </p>
+     */
+    inline bool InstanceInformationFilterListHasBeenSet() const { return m_instanceInformationFilterListHasBeenSet; }
 
     /**
      * <p>This is a legacy method. We recommend that you don't use this method.
@@ -137,6 +148,13 @@ namespace Model
      * instances. You can filter on Amazon EC2 tag. Specify tags by using a key-value
      * mapping.</p>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>One or more filters. Use a filter to return a more specific list of
+     * instances. You can filter on Amazon EC2 tag. Specify tags by using a key-value
+     * mapping.</p>
+     */
     inline void SetFilters(const Aws::Vector<InstanceInformationStringFilter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -187,6 +205,13 @@ namespace Model
      * token that you can specify in a subsequent call to get the next set of results.
      * </p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of items to return for this call. The call also returns a
+     * token that you can specify in a subsequent call to get the next set of results.
+     * </p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -202,6 +227,12 @@ namespace Model
      * a previous call.)</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token for the next set of items to return. (You received this token from

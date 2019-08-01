@@ -23,6 +23,10 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 UpdateServerRequest::UpdateServerRequest() : 
+    m_endpointDetailsHasBeenSet(false),
+    m_endpointType(EndpointType::NOT_SET),
+    m_endpointTypeHasBeenSet(false),
+    m_hostKeyHasBeenSet(false),
     m_identityProviderDetailsHasBeenSet(false),
     m_loggingRoleHasBeenSet(false),
     m_serverIdHasBeenSet(false)
@@ -32,6 +36,23 @@ UpdateServerRequest::UpdateServerRequest() :
 Aws::String UpdateServerRequest::SerializePayload() const
 {
   JsonValue payload;
+
+  if(m_endpointDetailsHasBeenSet)
+  {
+   payload.WithObject("EndpointDetails", m_endpointDetails.Jsonize());
+
+  }
+
+  if(m_endpointTypeHasBeenSet)
+  {
+   payload.WithString("EndpointType", EndpointTypeMapper::GetNameForEndpointType(m_endpointType));
+  }
+
+  if(m_hostKeyHasBeenSet)
+  {
+   payload.WithString("HostKey", m_hostKey);
+
+  }
 
   if(m_identityProviderDetailsHasBeenSet)
   {

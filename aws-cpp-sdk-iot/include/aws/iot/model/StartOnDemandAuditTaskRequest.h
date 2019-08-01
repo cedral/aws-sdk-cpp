@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     StartOnDemandAuditTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,15 @@ namespace Model
      * to select which checks are enabled.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTargetCheckNames() const{ return m_targetCheckNames; }
+
+    /**
+     * <p>Which checks are performed during the audit. The checks you specify must be
+     * enabled for your account or an exception occurs. Use
+     * <code>DescribeAccountAuditConfiguration</code> to see the list of all checks
+     * including those that are enabled or <code>UpdateAccountAuditConfiguration</code>
+     * to select which checks are enabled.</p>
+     */
+    inline bool TargetCheckNamesHasBeenSet() const { return m_targetCheckNamesHasBeenSet; }
 
     /**
      * <p>Which checks are performed during the audit. The checks you specify must be

@@ -46,7 +46,7 @@ namespace Model
    * event attribute's <code>cause</code> parameter is set to
    * <code>OPERATION_NOT_PERMITTED</code>. For details and example IAM policies, see
    * <a
-   * href="http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
+   * href="https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html">Using
    * IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer
    * Guide</i>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/swf-2012-01-25/RecordMarkerDecisionAttributes">AWS
@@ -65,6 +65,11 @@ namespace Model
      * <p> The name of the marker.</p>
      */
     inline const Aws::String& GetMarkerName() const{ return m_markerName; }
+
+    /**
+     * <p> The name of the marker.</p>
+     */
+    inline bool MarkerNameHasBeenSet() const { return m_markerNameHasBeenSet; }
 
     /**
      * <p> The name of the marker.</p>
@@ -101,6 +106,11 @@ namespace Model
      * <p> The details of the marker.</p>
      */
     inline const Aws::String& GetDetails() const{ return m_details; }
+
+    /**
+     * <p> The details of the marker.</p>
+     */
+    inline bool DetailsHasBeenSet() const { return m_detailsHasBeenSet; }
 
     /**
      * <p> The details of the marker.</p>

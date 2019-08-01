@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RegisterCrossAccountAccessRoleRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * needed to perform security assessments. </p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The ARN of the IAM role that grants Amazon Inspector access to AWS Services
+     * needed to perform security assessments. </p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The ARN of the IAM role that grants Amazon Inspector access to AWS Services

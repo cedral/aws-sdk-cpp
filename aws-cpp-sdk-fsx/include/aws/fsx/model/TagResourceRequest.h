@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     TagResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,12 @@ namespace Model
      * tag.</p>
      */
     inline const Aws::String& GetResourceARN() const{ return m_resourceARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon FSx resource that you want to
+     * tag.</p>
+     */
+    inline bool ResourceARNHasBeenSet() const { return m_resourceARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon FSx resource that you want to
@@ -98,6 +104,12 @@ namespace Model
      * the value is replaced by the one specified in this parameter.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>A list of tags for the resource. If a tag with a given key already exists,
+     * the value is replaced by the one specified in this parameter.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>A list of tags for the resource. If a tag with a given key already exists,

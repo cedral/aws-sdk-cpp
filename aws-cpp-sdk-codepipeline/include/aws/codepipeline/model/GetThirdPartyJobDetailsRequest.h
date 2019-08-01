@@ -27,8 +27,8 @@ namespace Model
 {
 
   /**
-   * <p>Represents the input of a GetThirdPartyJobDetails action.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Represents the input of a <code>GetThirdPartyJobDetails</code>
+   * action.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/codepipeline-2015-07-09/GetThirdPartyJobDetailsInput">AWS
    * API Reference</a></p>
    */
@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetThirdPartyJobDetailsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The unique system-generated ID used for identifying the job.</p>
      */
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    /**
+     * <p>The unique system-generated ID used for identifying the job.</p>
+     */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     /**
      * <p>The unique system-generated ID used for identifying the job.</p>
@@ -89,6 +94,12 @@ namespace Model
      * that the calling entity is allowed access to the job and its details.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>The clientToken portion of the clientId and clientToken pair used to verify
+     * that the calling entity is allowed access to the job and its details.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>The clientToken portion of the clientId and clientToken pair used to verify

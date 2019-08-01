@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteSkillGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the skill group to delete. Required.</p>
      */
     inline const Aws::String& GetSkillGroupArn() const{ return m_skillGroupArn; }
+
+    /**
+     * <p>The ARN of the skill group to delete. Required.</p>
+     */
+    inline bool SkillGroupArnHasBeenSet() const { return m_skillGroupArnHasBeenSet; }
 
     /**
      * <p>The ARN of the skill group to delete. Required.</p>

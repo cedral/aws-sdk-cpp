@@ -27,10 +27,12 @@ CreateJobTemplateRequest::CreateJobTemplateRequest() :
     m_categoryHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_priority(0),
+    m_priorityHasBeenSet(false),
     m_queueHasBeenSet(false),
     m_settingsHasBeenSet(false),
-    m_statusUpdateIntervalInSecs(0),
-    m_statusUpdateIntervalInSecsHasBeenSet(false),
+    m_statusUpdateInterval(StatusUpdateInterval::NOT_SET),
+    m_statusUpdateIntervalHasBeenSet(false),
     m_tagsHasBeenSet(false)
 {
 }
@@ -63,6 +65,12 @@ Aws::String CreateJobTemplateRequest::SerializePayload() const
 
   }
 
+  if(m_priorityHasBeenSet)
+  {
+   payload.WithInteger("priority", m_priority);
+
+  }
+
   if(m_queueHasBeenSet)
   {
    payload.WithString("queue", m_queue);
@@ -75,10 +83,9 @@ Aws::String CreateJobTemplateRequest::SerializePayload() const
 
   }
 
-  if(m_statusUpdateIntervalInSecsHasBeenSet)
+  if(m_statusUpdateIntervalHasBeenSet)
   {
-   payload.WithInt64("statusUpdateIntervalInSecs", m_statusUpdateIntervalInSecs);
-
+   payload.WithString("statusUpdateInterval", StatusUpdateIntervalMapper::GetNameForStatusUpdateInterval(m_statusUpdateInterval));
   }
 
   if(m_tagsHasBeenSet)

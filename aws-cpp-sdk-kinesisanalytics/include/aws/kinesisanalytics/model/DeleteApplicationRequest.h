@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>Name of the Amazon Kinesis Analytics application to delete.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>Name of the Amazon Kinesis Analytics application to delete.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>Name of the Amazon Kinesis Analytics application to delete.</p>
@@ -89,6 +94,12 @@ namespace Model
      * value. </p>
      */
     inline const Aws::Utils::DateTime& GetCreateTimestamp() const{ return m_createTimestamp; }
+
+    /**
+     * <p> You can use the <code>DescribeApplication</code> operation to get this
+     * value. </p>
+     */
+    inline bool CreateTimestampHasBeenSet() const { return m_createTimestampHasBeenSet; }
 
     /**
      * <p> You can use the <code>DescribeApplication</code> operation to get this

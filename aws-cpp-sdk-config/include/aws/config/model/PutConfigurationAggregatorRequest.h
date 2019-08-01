@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/config/model/OrganizationAggregationSource.h>
 #include <aws/config/model/AccountAggregationSource.h>
+#include <aws/config/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -35,7 +36,7 @@ namespace Model
   {
   public:
     PutConfigurationAggregatorRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +52,11 @@ namespace Model
      * <p>The name of the configuration aggregator.</p>
      */
     inline const Aws::String& GetConfigurationAggregatorName() const{ return m_configurationAggregatorName; }
+
+    /**
+     * <p>The name of the configuration aggregator.</p>
+     */
+    inline bool ConfigurationAggregatorNameHasBeenSet() const { return m_configurationAggregatorNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration aggregator.</p>
@@ -91,6 +97,11 @@ namespace Model
     /**
      * <p>A list of AccountAggregationSource object. </p>
      */
+    inline bool AccountAggregationSourcesHasBeenSet() const { return m_accountAggregationSourcesHasBeenSet; }
+
+    /**
+     * <p>A list of AccountAggregationSource object. </p>
+     */
     inline void SetAccountAggregationSources(const Aws::Vector<AccountAggregationSource>& value) { m_accountAggregationSourcesHasBeenSet = true; m_accountAggregationSources = value; }
 
     /**
@@ -127,6 +138,11 @@ namespace Model
     /**
      * <p>An OrganizationAggregationSource object.</p>
      */
+    inline bool OrganizationAggregationSourceHasBeenSet() const { return m_organizationAggregationSourceHasBeenSet; }
+
+    /**
+     * <p>An OrganizationAggregationSource object.</p>
+     */
     inline void SetOrganizationAggregationSource(const OrganizationAggregationSource& value) { m_organizationAggregationSourceHasBeenSet = true; m_organizationAggregationSource = value; }
 
     /**
@@ -144,6 +160,31 @@ namespace Model
      */
     inline PutConfigurationAggregatorRequest& WithOrganizationAggregationSource(OrganizationAggregationSource&& value) { SetOrganizationAggregationSource(std::move(value)); return *this;}
 
+
+    
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    
+    inline PutConfigurationAggregatorRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    
+    inline PutConfigurationAggregatorRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    
+    inline PutConfigurationAggregatorRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    
+    inline PutConfigurationAggregatorRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_configurationAggregatorName;
@@ -154,6 +195,9 @@ namespace Model
 
     OrganizationAggregationSource m_organizationAggregationSource;
     bool m_organizationAggregationSourceHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

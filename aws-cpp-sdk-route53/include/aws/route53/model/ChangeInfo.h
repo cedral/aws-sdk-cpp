@@ -58,6 +58,11 @@ namespace Model
     /**
      * <p>The ID of the request.</p>
      */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
+
+    /**
+     * <p>The ID of the request.</p>
+     */
     inline void SetId(const Aws::String& value) { m_idHasBeenSet = true; m_id = value; }
 
     /**
@@ -91,6 +96,12 @@ namespace Model
      * request has not yet been applied to all Amazon Route 53 DNS servers.</p>
      */
     inline const ChangeStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The current state of the request. <code>PENDING</code> indicates that this
+     * request has not yet been applied to all Amazon Route 53 DNS servers.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The current state of the request. <code>PENDING</code> indicates that this
@@ -133,6 +144,15 @@ namespace Model
      * <code>2017-03-27T17:48:16.751Z</code> represents March 27, 2017 at 17:48:16.751
      * UTC.</p>
      */
+    inline bool SubmittedAtHasBeenSet() const { return m_submittedAtHasBeenSet; }
+
+    /**
+     * <p>The date and time that the change request was submitted in <a
+     * href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601 format</a> and
+     * Coordinated Universal Time (UTC). For example, the value
+     * <code>2017-03-27T17:48:16.751Z</code> represents March 27, 2017 at 17:48:16.751
+     * UTC.</p>
+     */
     inline void SetSubmittedAt(const Aws::Utils::DateTime& value) { m_submittedAtHasBeenSet = true; m_submittedAt = value; }
 
     /**
@@ -166,49 +186,72 @@ namespace Model
     /**
      * <p>A complex type that describes change information about changes made to your
      * hosted zone.</p> <p>This element contains an ID that you use when performing a
-     * <a>GetChange</a> action to get detailed information about the change.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+     * action to get detailed information about the change.</p>
      */
     inline const Aws::String& GetComment() const{ return m_comment; }
 
     /**
      * <p>A complex type that describes change information about changes made to your
      * hosted zone.</p> <p>This element contains an ID that you use when performing a
-     * <a>GetChange</a> action to get detailed information about the change.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+     * action to get detailed information about the change.</p>
+     */
+    inline bool CommentHasBeenSet() const { return m_commentHasBeenSet; }
+
+    /**
+     * <p>A complex type that describes change information about changes made to your
+     * hosted zone.</p> <p>This element contains an ID that you use when performing a
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+     * action to get detailed information about the change.</p>
      */
     inline void SetComment(const Aws::String& value) { m_commentHasBeenSet = true; m_comment = value; }
 
     /**
      * <p>A complex type that describes change information about changes made to your
      * hosted zone.</p> <p>This element contains an ID that you use when performing a
-     * <a>GetChange</a> action to get detailed information about the change.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+     * action to get detailed information about the change.</p>
      */
     inline void SetComment(Aws::String&& value) { m_commentHasBeenSet = true; m_comment = std::move(value); }
 
     /**
      * <p>A complex type that describes change information about changes made to your
      * hosted zone.</p> <p>This element contains an ID that you use when performing a
-     * <a>GetChange</a> action to get detailed information about the change.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+     * action to get detailed information about the change.</p>
      */
     inline void SetComment(const char* value) { m_commentHasBeenSet = true; m_comment.assign(value); }
 
     /**
      * <p>A complex type that describes change information about changes made to your
      * hosted zone.</p> <p>This element contains an ID that you use when performing a
-     * <a>GetChange</a> action to get detailed information about the change.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+     * action to get detailed information about the change.</p>
      */
     inline ChangeInfo& WithComment(const Aws::String& value) { SetComment(value); return *this;}
 
     /**
      * <p>A complex type that describes change information about changes made to your
      * hosted zone.</p> <p>This element contains an ID that you use when performing a
-     * <a>GetChange</a> action to get detailed information about the change.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+     * action to get detailed information about the change.</p>
      */
     inline ChangeInfo& WithComment(Aws::String&& value) { SetComment(std::move(value)); return *this;}
 
     /**
      * <p>A complex type that describes change information about changes made to your
      * hosted zone.</p> <p>This element contains an ID that you use when performing a
-     * <a>GetChange</a> action to get detailed information about the change.</p>
+     * <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html">GetChange</a>
+     * action to get detailed information about the change.</p>
      */
     inline ChangeInfo& WithComment(const char* value) { SetComment(value); return *this;}
 

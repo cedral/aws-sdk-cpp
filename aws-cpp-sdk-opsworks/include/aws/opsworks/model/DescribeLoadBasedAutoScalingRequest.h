@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeLoadBasedAutoScalingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>An array of layer IDs.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLayerIds() const{ return m_layerIds; }
+
+    /**
+     * <p>An array of layer IDs.</p>
+     */
+    inline bool LayerIdsHasBeenSet() const { return m_layerIdsHasBeenSet; }
 
     /**
      * <p>An array of layer IDs.</p>

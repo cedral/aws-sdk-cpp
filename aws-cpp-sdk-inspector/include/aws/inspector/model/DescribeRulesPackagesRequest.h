@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeRulesPackagesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ARN that specifies the rules package that you want to describe.</p>
      */
     inline const Aws::Vector<Aws::String>& GetRulesPackageArns() const{ return m_rulesPackageArns; }
+
+    /**
+     * <p>The ARN that specifies the rules package that you want to describe.</p>
+     */
+    inline bool RulesPackageArnsHasBeenSet() const { return m_rulesPackageArnsHasBeenSet; }
 
     /**
      * <p>The ARN that specifies the rules package that you want to describe.</p>
@@ -91,6 +96,11 @@ namespace Model
      * <p>The locale that you want to translate a rules package description into.</p>
      */
     inline const Locale& GetLocale() const{ return m_locale; }
+
+    /**
+     * <p>The locale that you want to translate a rules package description into.</p>
+     */
+    inline bool LocaleHasBeenSet() const { return m_localeHasBeenSet; }
 
     /**
      * <p>The locale that you want to translate a rules package description into.</p>

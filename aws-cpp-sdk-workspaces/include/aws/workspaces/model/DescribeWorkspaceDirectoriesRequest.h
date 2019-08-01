@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeWorkspaceDirectoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * retrieved.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDirectoryIds() const{ return m_directoryIds; }
+
+    /**
+     * <p>The identifiers of the directories. If the value is null, all directories are
+     * retrieved.</p>
+     */
+    inline bool DirectoryIdsHasBeenSet() const { return m_directoryIdsHasBeenSet; }
 
     /**
      * <p>The identifiers of the directories. If the value is null, all directories are
@@ -99,6 +105,12 @@ namespace Model
      * paginated, provide this token to receive the next set of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If you received a <code>NextToken</code> from a previous call that was
+     * paginated, provide this token to receive the next set of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If you received a <code>NextToken</code> from a previous call that was

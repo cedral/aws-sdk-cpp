@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateSecurityGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A description for the security group. This is informational only.</p>
+     * <p>Constraints: Up to 255 characters in length</p> <p>Constraints for
+     * EC2-Classic: ASCII characters</p> <p>Constraints for EC2-VPC: a-z, A-Z, 0-9,
+     * spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A description for the security group. This is informational only.</p>
@@ -117,6 +125,14 @@ namespace Model
      * ASCII characters</p> <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
      * ._-:/()#,@[]+=&amp;;{}!$*</p>
      */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
+
+    /**
+     * <p>The name of the security group.</p> <p>Constraints: Up to 255 characters in
+     * length. Cannot start with <code>sg-</code>.</p> <p>Constraints for EC2-Classic:
+     * ASCII characters</p> <p>Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
+     * ._-:/()#,@[]+=&amp;;{}!$*</p>
+     */
     inline void SetGroupName(const Aws::String& value) { m_groupNameHasBeenSet = true; m_groupName = value; }
 
     /**
@@ -168,6 +184,11 @@ namespace Model
     /**
      * <p>[EC2-VPC] The ID of the VPC. Required for EC2-VPC.</p>
      */
+    inline bool VpcIdHasBeenSet() const { return m_vpcIdHasBeenSet; }
+
+    /**
+     * <p>[EC2-VPC] The ID of the VPC. Required for EC2-VPC.</p>
+     */
     inline void SetVpcId(const Aws::String& value) { m_vpcIdHasBeenSet = true; m_vpcId = value; }
 
     /**
@@ -203,6 +224,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

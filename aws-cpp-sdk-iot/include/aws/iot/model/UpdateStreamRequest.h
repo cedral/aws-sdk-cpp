@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The stream ID.</p>
      */
     inline const Aws::String& GetStreamId() const{ return m_streamId; }
+
+    /**
+     * <p>The stream ID.</p>
+     */
+    inline bool StreamIdHasBeenSet() const { return m_streamIdHasBeenSet; }
 
     /**
      * <p>The stream ID.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The description of the stream.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the stream.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -120,6 +130,11 @@ namespace Model
      * <p>The files associated with the stream.</p>
      */
     inline const Aws::Vector<StreamFile>& GetFiles() const{ return m_files; }
+
+    /**
+     * <p>The files associated with the stream.</p>
+     */
+    inline bool FilesHasBeenSet() const { return m_filesHasBeenSet; }
 
     /**
      * <p>The files associated with the stream.</p>
@@ -157,6 +172,12 @@ namespace Model
      * files.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>An IAM role that allows the IoT service principal assumes to access your S3
+     * files.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>An IAM role that allows the IoT service principal assumes to access your S3

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     UpdateNotebookInstanceLifecycleConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the lifecycle configuration.</p>
      */
     inline const Aws::String& GetNotebookInstanceLifecycleConfigName() const{ return m_notebookInstanceLifecycleConfigName; }
+
+    /**
+     * <p>The name of the lifecycle configuration.</p>
+     */
+    inline bool NotebookInstanceLifecycleConfigNameHasBeenSet() const { return m_notebookInstanceLifecycleConfigNameHasBeenSet; }
 
     /**
      * <p>The name of the lifecycle configuration.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>The shell script that runs only once, when you create a notebook instance</p>
      */
+    inline bool OnCreateHasBeenSet() const { return m_onCreateHasBeenSet; }
+
+    /**
+     * <p>The shell script that runs only once, when you create a notebook instance</p>
+     */
     inline void SetOnCreate(const Aws::Vector<NotebookInstanceLifecycleHook>& value) { m_onCreateHasBeenSet = true; m_onCreate = value; }
 
     /**
@@ -123,6 +133,12 @@ namespace Model
      * including when you create the notebook instance.</p>
      */
     inline const Aws::Vector<NotebookInstanceLifecycleHook>& GetOnStart() const{ return m_onStart; }
+
+    /**
+     * <p>The shell script that runs every time you start a notebook instance,
+     * including when you create the notebook instance.</p>
+     */
+    inline bool OnStartHasBeenSet() const { return m_onStartHasBeenSet; }
 
     /**
      * <p>The shell script that runs every time you start a notebook instance,

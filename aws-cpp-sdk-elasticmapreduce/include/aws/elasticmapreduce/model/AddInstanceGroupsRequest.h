@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     AddInstanceGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>Instance groups to add.</p>
      */
     inline const Aws::Vector<InstanceGroupConfig>& GetInstanceGroups() const{ return m_instanceGroups; }
+
+    /**
+     * <p>Instance groups to add.</p>
+     */
+    inline bool InstanceGroupsHasBeenSet() const { return m_instanceGroupsHasBeenSet; }
 
     /**
      * <p>Instance groups to add.</p>
@@ -89,6 +94,11 @@ namespace Model
      * <p>Job flow in which to add the instance groups.</p>
      */
     inline const Aws::String& GetJobFlowId() const{ return m_jobFlowId; }
+
+    /**
+     * <p>Job flow in which to add the instance groups.</p>
+     */
+    inline bool JobFlowIdHasBeenSet() const { return m_jobFlowIdHasBeenSet; }
 
     /**
      * <p>Job flow in which to add the instance groups.</p>

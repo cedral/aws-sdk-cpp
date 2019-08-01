@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StartDBClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * parameter is stored as a lowercase string.</p>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
+
+    /**
+     * <p>The DB cluster identifier of the Amazon Aurora DB cluster to be started. This
+     * parameter is stored as a lowercase string.</p>
+     */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
      * <p>The DB cluster identifier of the Amazon Aurora DB cluster to be started. This

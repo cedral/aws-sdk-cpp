@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StartFlowRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * The ARN of the flow that you want to start.
      */
     inline const Aws::String& GetFlowArn() const{ return m_flowArn; }
+
+    /**
+     * The ARN of the flow that you want to start.
+     */
+    inline bool FlowArnHasBeenSet() const { return m_flowArnHasBeenSet; }
 
     /**
      * The ARN of the flow that you want to start.

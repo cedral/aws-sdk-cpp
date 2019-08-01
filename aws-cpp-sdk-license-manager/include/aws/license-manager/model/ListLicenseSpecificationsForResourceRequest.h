@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListLicenseSpecificationsForResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * configuration.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>ARN of an AMI or Amazon EC2 instance that has an associated license
+     * configuration.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>ARN of an AMI or Amazon EC2 instance that has an associated license
@@ -99,6 +105,13 @@ namespace Model
      * remaining results, make another call with the returned <code>NextToken</code>
      * value.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>Maximum number of results to return in a single call. To retrieve the
+     * remaining results, make another call with the returned <code>NextToken</code>
+     * value.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -113,6 +126,11 @@ namespace Model
      * <p>Token for the next set of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Token for the next set of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Token for the next set of results.</p>

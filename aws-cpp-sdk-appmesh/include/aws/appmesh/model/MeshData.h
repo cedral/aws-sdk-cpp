@@ -17,6 +17,7 @@
 #include <aws/appmesh/AppMesh_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/appmesh/model/ResourceMetadata.h>
+#include <aws/appmesh/model/MeshSpec.h>
 #include <aws/appmesh/model/MeshStatus.h>
 #include <utility>
 
@@ -58,6 +59,11 @@ namespace Model
     /**
      * <p>The name of the service mesh.</p>
      */
+    inline bool MeshNameHasBeenSet() const { return m_meshNameHasBeenSet; }
+
+    /**
+     * <p>The name of the service mesh.</p>
+     */
     inline void SetMeshName(const Aws::String& value) { m_meshNameHasBeenSet = true; m_meshName = value; }
 
     /**
@@ -94,6 +100,11 @@ namespace Model
     /**
      * <p>The associated metadata for the service mesh.</p>
      */
+    inline bool MetadataHasBeenSet() const { return m_metadataHasBeenSet; }
+
+    /**
+     * <p>The associated metadata for the service mesh.</p>
+     */
     inline void SetMetadata(const ResourceMetadata& value) { m_metadataHasBeenSet = true; m_metadata = value; }
 
     /**
@@ -113,9 +124,45 @@ namespace Model
 
 
     /**
+     * <p>The associated specification for the service mesh.</p>
+     */
+    inline const MeshSpec& GetSpec() const{ return m_spec; }
+
+    /**
+     * <p>The associated specification for the service mesh.</p>
+     */
+    inline bool SpecHasBeenSet() const { return m_specHasBeenSet; }
+
+    /**
+     * <p>The associated specification for the service mesh.</p>
+     */
+    inline void SetSpec(const MeshSpec& value) { m_specHasBeenSet = true; m_spec = value; }
+
+    /**
+     * <p>The associated specification for the service mesh.</p>
+     */
+    inline void SetSpec(MeshSpec&& value) { m_specHasBeenSet = true; m_spec = std::move(value); }
+
+    /**
+     * <p>The associated specification for the service mesh.</p>
+     */
+    inline MeshData& WithSpec(const MeshSpec& value) { SetSpec(value); return *this;}
+
+    /**
+     * <p>The associated specification for the service mesh.</p>
+     */
+    inline MeshData& WithSpec(MeshSpec&& value) { SetSpec(std::move(value)); return *this;}
+
+
+    /**
      * <p>The status of the service mesh.</p>
      */
     inline const MeshStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the service mesh.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the service mesh.</p>
@@ -144,6 +191,9 @@ namespace Model
 
     ResourceMetadata m_metadata;
     bool m_metadataHasBeenSet;
+
+    MeshSpec m_spec;
+    bool m_specHasBeenSet;
 
     MeshStatus m_status;
     bool m_statusHasBeenSet;

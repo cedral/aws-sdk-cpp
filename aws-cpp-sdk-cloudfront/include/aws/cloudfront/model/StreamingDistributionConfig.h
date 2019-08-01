@@ -40,7 +40,7 @@ namespace Model
   /**
    * <p>The RTMP distribution's configuration information.</p><p><h3>See Also:</h3>  
    * <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2018-11-05/StreamingDistributionConfig">AWS
+   * href="http://docs.aws.amazon.com/goto/WebAPI/cloudfront-2019-03-26/StreamingDistributionConfig">AWS
    * API Reference</a></p>
    */
   class AWS_CLOUDFRONT_API StreamingDistributionConfig
@@ -63,6 +63,17 @@ namespace Model
      * <code>DistributionAlreadyExists</code> error.</p>
      */
     inline const Aws::String& GetCallerReference() const{ return m_callerReference; }
+
+    /**
+     * <p>A unique value (for example, a date-time stamp) that ensures that the request
+     * can't be replayed.</p> <p>If the value of <code>CallerReference</code> is new
+     * (regardless of the content of the <code>StreamingDistributionConfig</code>
+     * object), CloudFront creates a new distribution.</p> <p>If
+     * <code>CallerReference</code> is a value that you already sent in a previous
+     * request to create a distribution, CloudFront returns a
+     * <code>DistributionAlreadyExists</code> error.</p>
+     */
+    inline bool CallerReferenceHasBeenSet() const { return m_callerReferenceHasBeenSet; }
 
     /**
      * <p>A unique value (for example, a date-time stamp) that ensures that the request
@@ -141,6 +152,12 @@ namespace Model
      * <p>A complex type that contains information about the Amazon S3 bucket from
      * which you want CloudFront to get your media files for distribution. </p>
      */
+    inline bool S3OriginHasBeenSet() const { return m_s3OriginHasBeenSet; }
+
+    /**
+     * <p>A complex type that contains information about the Amazon S3 bucket from
+     * which you want CloudFront to get your media files for distribution. </p>
+     */
     inline void SetS3Origin(const S3Origin& value) { m_s3OriginHasBeenSet = true; m_s3Origin = value; }
 
     /**
@@ -172,6 +189,12 @@ namespace Model
      * <p>A complex type that contains information about CNAMEs (alternate domain
      * names), if any, for this streaming distribution. </p>
      */
+    inline bool AliasesHasBeenSet() const { return m_aliasesHasBeenSet; }
+
+    /**
+     * <p>A complex type that contains information about CNAMEs (alternate domain
+     * names), if any, for this streaming distribution. </p>
+     */
     inline void SetAliases(const Aliases& value) { m_aliasesHasBeenSet = true; m_aliases = value; }
 
     /**
@@ -197,6 +220,11 @@ namespace Model
      * <p>Any comments you want to include about the streaming distribution. </p>
      */
     inline const Aws::String& GetComment() const{ return m_comment; }
+
+    /**
+     * <p>Any comments you want to include about the streaming distribution. </p>
+     */
+    inline bool CommentHasBeenSet() const { return m_commentHasBeenSet; }
 
     /**
      * <p>Any comments you want to include about the streaming distribution. </p>
@@ -239,6 +267,12 @@ namespace Model
      * <p>A complex type that controls whether access logs are written for the
      * streaming distribution. </p>
      */
+    inline bool LoggingHasBeenSet() const { return m_loggingHasBeenSet; }
+
+    /**
+     * <p>A complex type that controls whether access logs are written for the
+     * streaming distribution. </p>
+     */
     inline void SetLogging(const StreamingLoggingConfig& value) { m_loggingHasBeenSet = true; m_logging = value; }
 
     /**
@@ -265,7 +299,7 @@ namespace Model
      * create signed URLs for private content. If you want the distribution to use
      * signed URLs, include this element; if you want the distribution to use public
      * URLs, remove this element. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
+     * href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
      * Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer
      * Guide</i>. </p>
      */
@@ -276,7 +310,18 @@ namespace Model
      * create signed URLs for private content. If you want the distribution to use
      * signed URLs, include this element; if you want the distribution to use public
      * URLs, remove this element. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
+     * href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
+     * Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer
+     * Guide</i>. </p>
+     */
+    inline bool TrustedSignersHasBeenSet() const { return m_trustedSignersHasBeenSet; }
+
+    /**
+     * <p>A complex type that specifies any AWS accounts that you want to permit to
+     * create signed URLs for private content. If you want the distribution to use
+     * signed URLs, include this element; if you want the distribution to use public
+     * URLs, remove this element. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
      * Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer
      * Guide</i>. </p>
      */
@@ -287,7 +332,7 @@ namespace Model
      * create signed URLs for private content. If you want the distribution to use
      * signed URLs, include this element; if you want the distribution to use public
      * URLs, remove this element. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
+     * href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
      * Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer
      * Guide</i>. </p>
      */
@@ -298,7 +343,7 @@ namespace Model
      * create signed URLs for private content. If you want the distribution to use
      * signed URLs, include this element; if you want the distribution to use public
      * URLs, remove this element. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
+     * href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
      * Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer
      * Guide</i>. </p>
      */
@@ -309,7 +354,7 @@ namespace Model
      * create signed URLs for private content. If you want the distribution to use
      * signed URLs, include this element; if you want the distribution to use public
      * URLs, remove this element. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
+     * href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving
      * Private Content through CloudFront</a> in the <i>Amazon CloudFront Developer
      * Guide</i>. </p>
      */
@@ -321,6 +366,12 @@ namespace Model
      * distribution. </p>
      */
     inline const PriceClass& GetPriceClass() const{ return m_priceClass; }
+
+    /**
+     * <p>A complex type that contains information about price class for this streaming
+     * distribution. </p>
+     */
+    inline bool PriceClassHasBeenSet() const { return m_priceClassHasBeenSet; }
 
     /**
      * <p>A complex type that contains information about price class for this streaming
@@ -352,6 +403,12 @@ namespace Model
      * content.</p>
      */
     inline bool GetEnabled() const{ return m_enabled; }
+
+    /**
+     * <p>Whether the streaming distribution is enabled to accept user requests for
+     * content.</p>
+     */
+    inline bool EnabledHasBeenSet() const { return m_enabledHasBeenSet; }
 
     /**
      * <p>Whether the streaming distribution is enabled to accept user requests for

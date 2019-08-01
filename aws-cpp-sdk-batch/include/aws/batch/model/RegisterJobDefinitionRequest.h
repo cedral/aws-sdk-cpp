@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     RegisterJobDefinitionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * lowercase), numbers, hyphens, and underscores are allowed.</p>
      */
     inline const Aws::String& GetJobDefinitionName() const{ return m_jobDefinitionName; }
+
+    /**
+     * <p>The name of the job definition to register. Up to 128 letters (uppercase and
+     * lowercase), numbers, hyphens, and underscores are allowed.</p>
+     */
+    inline bool JobDefinitionNameHasBeenSet() const { return m_jobDefinitionNameHasBeenSet; }
 
     /**
      * <p>The name of the job definition to register. Up to 128 letters (uppercase and
@@ -99,6 +105,11 @@ namespace Model
     /**
      * <p>The type of job definition.</p>
      */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
+
+    /**
+     * <p>The type of job definition.</p>
+     */
     inline void SetType(const JobDefinitionType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
@@ -124,6 +135,14 @@ namespace Model
      * from the job definition.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>Default parameter substitution placeholders to set in the job definition.
+     * Parameters are specified as a key-value pair mapping. Parameters in a
+     * <code>SubmitJob</code> request override any corresponding parameter defaults
+     * from the job definition.</p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>Default parameter substitution placeholders to set in the job definition.
@@ -228,6 +247,14 @@ namespace Model
      * <code>container</code>, then you must specify either
      * <code>containerProperties</code> or <code>nodeProperties</code>.</p>
      */
+    inline bool ContainerPropertiesHasBeenSet() const { return m_containerPropertiesHasBeenSet; }
+
+    /**
+     * <p>An object with various properties specific to single-node container-based
+     * jobs. If the job definition's <code>type</code> parameter is
+     * <code>container</code>, then you must specify either
+     * <code>containerProperties</code> or <code>nodeProperties</code>.</p>
+     */
     inline void SetContainerProperties(const ContainerProperties& value) { m_containerPropertiesHasBeenSet = true; m_containerProperties = value; }
 
     /**
@@ -259,7 +286,7 @@ namespace Model
      * <p>An object with various properties specific to multi-node parallel jobs. If
      * you specify node properties for a job, it becomes a multi-node parallel job. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
      * Parallel Jobs</a> in the <i>AWS Batch User Guide</i>. If the job definition's
      * <code>type</code> parameter is <code>container</code>, then you must specify
      * either <code>containerProperties</code> or <code>nodeProperties</code>.</p>
@@ -270,7 +297,18 @@ namespace Model
      * <p>An object with various properties specific to multi-node parallel jobs. If
      * you specify node properties for a job, it becomes a multi-node parallel job. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
+     * Parallel Jobs</a> in the <i>AWS Batch User Guide</i>. If the job definition's
+     * <code>type</code> parameter is <code>container</code>, then you must specify
+     * either <code>containerProperties</code> or <code>nodeProperties</code>.</p>
+     */
+    inline bool NodePropertiesHasBeenSet() const { return m_nodePropertiesHasBeenSet; }
+
+    /**
+     * <p>An object with various properties specific to multi-node parallel jobs. If
+     * you specify node properties for a job, it becomes a multi-node parallel job. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
      * Parallel Jobs</a> in the <i>AWS Batch User Guide</i>. If the job definition's
      * <code>type</code> parameter is <code>container</code>, then you must specify
      * either <code>containerProperties</code> or <code>nodeProperties</code>.</p>
@@ -281,7 +319,7 @@ namespace Model
      * <p>An object with various properties specific to multi-node parallel jobs. If
      * you specify node properties for a job, it becomes a multi-node parallel job. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
      * Parallel Jobs</a> in the <i>AWS Batch User Guide</i>. If the job definition's
      * <code>type</code> parameter is <code>container</code>, then you must specify
      * either <code>containerProperties</code> or <code>nodeProperties</code>.</p>
@@ -292,7 +330,7 @@ namespace Model
      * <p>An object with various properties specific to multi-node parallel jobs. If
      * you specify node properties for a job, it becomes a multi-node parallel job. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
      * Parallel Jobs</a> in the <i>AWS Batch User Guide</i>. If the job definition's
      * <code>type</code> parameter is <code>container</code>, then you must specify
      * either <code>containerProperties</code> or <code>nodeProperties</code>.</p>
@@ -303,7 +341,7 @@ namespace Model
      * <p>An object with various properties specific to multi-node parallel jobs. If
      * you specify node properties for a job, it becomes a multi-node parallel job. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-parallel-jobs.html">Multi-node
      * Parallel Jobs</a> in the <i>AWS Batch User Guide</i>. If the job definition's
      * <code>type</code> parameter is <code>container</code>, then you must specify
      * either <code>containerProperties</code> or <code>nodeProperties</code>.</p>
@@ -318,6 +356,14 @@ namespace Model
      * to a timeout, it is not retried. </p>
      */
     inline const RetryStrategy& GetRetryStrategy() const{ return m_retryStrategy; }
+
+    /**
+     * <p>The retry strategy to use for failed jobs that are submitted with this job
+     * definition. Any retry strategy that is specified during a <a>SubmitJob</a>
+     * operation overrides the retry strategy defined here. If a job is terminated due
+     * to a timeout, it is not retried. </p>
+     */
+    inline bool RetryStrategyHasBeenSet() const { return m_retryStrategyHasBeenSet; }
 
     /**
      * <p>The retry strategy to use for failed jobs that are submitted with this job
@@ -359,7 +405,7 @@ namespace Model
      * minimum value for the timeout is 60 seconds. Any timeout configuration that is
      * specified during a <a>SubmitJob</a> operation overrides the timeout
      * configuration defined here. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
      * Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
      */
     inline const JobTimeout& GetTimeout() const{ return m_timeout; }
@@ -371,7 +417,19 @@ namespace Model
      * minimum value for the timeout is 60 seconds. Any timeout configuration that is
      * specified during a <a>SubmitJob</a> operation overrides the timeout
      * configuration defined here. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+     * Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+     */
+    inline bool TimeoutHasBeenSet() const { return m_timeoutHasBeenSet; }
+
+    /**
+     * <p>The timeout configuration for jobs that are submitted with this job
+     * definition, after which AWS Batch terminates your jobs if they have not
+     * finished. If a job is terminated due to a timeout, it is not retried. The
+     * minimum value for the timeout is 60 seconds. Any timeout configuration that is
+     * specified during a <a>SubmitJob</a> operation overrides the timeout
+     * configuration defined here. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
      * Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
      */
     inline void SetTimeout(const JobTimeout& value) { m_timeoutHasBeenSet = true; m_timeout = value; }
@@ -383,7 +441,7 @@ namespace Model
      * minimum value for the timeout is 60 seconds. Any timeout configuration that is
      * specified during a <a>SubmitJob</a> operation overrides the timeout
      * configuration defined here. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
      * Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
      */
     inline void SetTimeout(JobTimeout&& value) { m_timeoutHasBeenSet = true; m_timeout = std::move(value); }
@@ -395,7 +453,7 @@ namespace Model
      * minimum value for the timeout is 60 seconds. Any timeout configuration that is
      * specified during a <a>SubmitJob</a> operation overrides the timeout
      * configuration defined here. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
      * Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
      */
     inline RegisterJobDefinitionRequest& WithTimeout(const JobTimeout& value) { SetTimeout(value); return *this;}
@@ -407,7 +465,7 @@ namespace Model
      * minimum value for the timeout is 60 seconds. Any timeout configuration that is
      * specified during a <a>SubmitJob</a> operation overrides the timeout
      * configuration defined here. For more information, see <a
-     * href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
      * Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
      */
     inline RegisterJobDefinitionRequest& WithTimeout(JobTimeout&& value) { SetTimeout(std::move(value)); return *this;}

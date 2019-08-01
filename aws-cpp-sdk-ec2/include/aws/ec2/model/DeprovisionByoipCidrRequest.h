@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeprovisionByoipCidrRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * prefix that you specified when you provisioned the address range.</p>
      */
     inline const Aws::String& GetCidr() const{ return m_cidr; }
+
+    /**
+     * <p>The public IPv4 address range, in CIDR notation. The prefix must be the same
+     * prefix that you specified when you provisioned the address range.</p>
+     */
+    inline bool CidrHasBeenSet() const { return m_cidrHasBeenSet; }
 
     /**
      * <p>The public IPv4 address range, in CIDR notation. The prefix must be the same
@@ -96,6 +102,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

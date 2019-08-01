@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeEcsClustersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>A list of ARNs, one for each cluster to be described.</p>
      */
     inline const Aws::Vector<Aws::String>& GetEcsClusterArns() const{ return m_ecsClusterArns; }
+
+    /**
+     * <p>A list of ARNs, one for each cluster to be described.</p>
+     */
+    inline bool EcsClusterArnsHasBeenSet() const { return m_ecsClusterArnsHasBeenSet; }
 
     /**
      * <p>A list of ARNs, one for each cluster to be described.</p>
@@ -91,6 +96,12 @@ namespace Model
      * cluster that is registered with the stack.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>A stack ID. <code>DescribeEcsClusters</code> returns a description of the
+     * cluster that is registered with the stack.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>A stack ID. <code>DescribeEcsClusters</code> returns a description of the
@@ -139,6 +150,17 @@ namespace Model
      * <code>null</code>.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If the previous paginated request did not return all of the remaining
+     * results, the response object's<code>NextToken</code> parameter value is set to a
+     * token. To retrieve the next set of results, call
+     * <code>DescribeEcsClusters</code> again and assign that token to the request
+     * object's <code>NextToken</code> parameter. If there are no remaining results,
+     * the previous response object's <code>NextToken</code> parameter is set to
+     * <code>null</code>.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If the previous paginated request did not return all of the remaining
@@ -215,6 +237,15 @@ namespace Model
      * the next set of results.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>To receive a paginated response, use this parameter to specify the maximum
+     * number of results to be returned with a single call. If the number of available
+     * results exceeds this maximum, the response includes a <code>NextToken</code>
+     * value that you can assign to the <code>NextToken</code> request parameter to get
+     * the next set of results.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>To receive a paginated response, use this parameter to specify the maximum

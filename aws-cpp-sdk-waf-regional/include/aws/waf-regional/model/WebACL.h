@@ -75,6 +75,15 @@ namespace Model
      * from AWS WAF (see <a>DeleteWebACL</a>).</p> <p> <code>WebACLId</code> is
      * returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>
      */
+    inline bool WebACLIdHasBeenSet() const { return m_webACLIdHasBeenSet; }
+
+    /**
+     * <p>A unique identifier for a <code>WebACL</code>. You use <code>WebACLId</code>
+     * to get information about a <code>WebACL</code> (see <a>GetWebACL</a>), update a
+     * <code>WebACL</code> (see <a>UpdateWebACL</a>), and delete a <code>WebACL</code>
+     * from AWS WAF (see <a>DeleteWebACL</a>).</p> <p> <code>WebACLId</code> is
+     * returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>
+     */
     inline void SetWebACLId(const Aws::String& value) { m_webACLIdHasBeenSet = true; m_webACLId = value; }
 
     /**
@@ -133,6 +142,12 @@ namespace Model
      * <p>A friendly name or description of the <code>WebACL</code>. You can't change
      * the name of a <code>WebACL</code> after you create it.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>A friendly name or description of the <code>WebACL</code>. You can't change
+     * the name of a <code>WebACL</code> after you create it.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -168,57 +183,73 @@ namespace Model
 
     /**
      * <p>A friendly name or description for the metrics for this <code>WebACL</code>.
-     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name
-     * can't contain whitespace. You can't change <code>MetricName</code> after you
-     * create the <code>WebACL</code>.</p>
+     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+     * length 128 and minimum length one. It can't contain whitespace or metric names
+     * reserved for AWS WAF, including "All" and "Default_Action." You can't change
+     * <code>MetricName</code> after you create the <code>WebACL</code>.</p>
      */
     inline const Aws::String& GetMetricName() const{ return m_metricName; }
 
     /**
      * <p>A friendly name or description for the metrics for this <code>WebACL</code>.
-     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name
-     * can't contain whitespace. You can't change <code>MetricName</code> after you
-     * create the <code>WebACL</code>.</p>
+     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+     * length 128 and minimum length one. It can't contain whitespace or metric names
+     * reserved for AWS WAF, including "All" and "Default_Action." You can't change
+     * <code>MetricName</code> after you create the <code>WebACL</code>.</p>
+     */
+    inline bool MetricNameHasBeenSet() const { return m_metricNameHasBeenSet; }
+
+    /**
+     * <p>A friendly name or description for the metrics for this <code>WebACL</code>.
+     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+     * length 128 and minimum length one. It can't contain whitespace or metric names
+     * reserved for AWS WAF, including "All" and "Default_Action." You can't change
+     * <code>MetricName</code> after you create the <code>WebACL</code>.</p>
      */
     inline void SetMetricName(const Aws::String& value) { m_metricNameHasBeenSet = true; m_metricName = value; }
 
     /**
      * <p>A friendly name or description for the metrics for this <code>WebACL</code>.
-     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name
-     * can't contain whitespace. You can't change <code>MetricName</code> after you
-     * create the <code>WebACL</code>.</p>
+     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+     * length 128 and minimum length one. It can't contain whitespace or metric names
+     * reserved for AWS WAF, including "All" and "Default_Action." You can't change
+     * <code>MetricName</code> after you create the <code>WebACL</code>.</p>
      */
     inline void SetMetricName(Aws::String&& value) { m_metricNameHasBeenSet = true; m_metricName = std::move(value); }
 
     /**
      * <p>A friendly name or description for the metrics for this <code>WebACL</code>.
-     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name
-     * can't contain whitespace. You can't change <code>MetricName</code> after you
-     * create the <code>WebACL</code>.</p>
+     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+     * length 128 and minimum length one. It can't contain whitespace or metric names
+     * reserved for AWS WAF, including "All" and "Default_Action." You can't change
+     * <code>MetricName</code> after you create the <code>WebACL</code>.</p>
      */
     inline void SetMetricName(const char* value) { m_metricNameHasBeenSet = true; m_metricName.assign(value); }
 
     /**
      * <p>A friendly name or description for the metrics for this <code>WebACL</code>.
-     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name
-     * can't contain whitespace. You can't change <code>MetricName</code> after you
-     * create the <code>WebACL</code>.</p>
+     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+     * length 128 and minimum length one. It can't contain whitespace or metric names
+     * reserved for AWS WAF, including "All" and "Default_Action." You can't change
+     * <code>MetricName</code> after you create the <code>WebACL</code>.</p>
      */
     inline WebACL& WithMetricName(const Aws::String& value) { SetMetricName(value); return *this;}
 
     /**
      * <p>A friendly name or description for the metrics for this <code>WebACL</code>.
-     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name
-     * can't contain whitespace. You can't change <code>MetricName</code> after you
-     * create the <code>WebACL</code>.</p>
+     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+     * length 128 and minimum length one. It can't contain whitespace or metric names
+     * reserved for AWS WAF, including "All" and "Default_Action." You can't change
+     * <code>MetricName</code> after you create the <code>WebACL</code>.</p>
      */
     inline WebACL& WithMetricName(Aws::String&& value) { SetMetricName(std::move(value)); return *this;}
 
     /**
      * <p>A friendly name or description for the metrics for this <code>WebACL</code>.
-     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9); the name
-     * can't contain whitespace. You can't change <code>MetricName</code> after you
-     * create the <code>WebACL</code>.</p>
+     * The name can contain only alphanumeric characters (A-Z, a-z, 0-9), with maximum
+     * length 128 and minimum length one. It can't contain whitespace or metric names
+     * reserved for AWS WAF, including "All" and "Default_Action." You can't change
+     * <code>MetricName</code> after you create the <code>WebACL</code>.</p>
      */
     inline WebACL& WithMetricName(const char* value) { SetMetricName(value); return *this;}
 
@@ -229,6 +260,13 @@ namespace Model
      * object.</p>
      */
     inline const WafAction& GetDefaultAction() const{ return m_defaultAction; }
+
+    /**
+     * <p>The action to perform if none of the <code>Rules</code> contained in the
+     * <code>WebACL</code> match. The action is specified by the <a>WafAction</a>
+     * object.</p>
+     */
+    inline bool DefaultActionHasBeenSet() const { return m_defaultActionHasBeenSet; }
 
     /**
      * <p>The action to perform if none of the <code>Rules</code> contained in the
@@ -265,6 +303,13 @@ namespace Model
      * <code>Rule</code>.</p>
      */
     inline const Aws::Vector<ActivatedRule>& GetRules() const{ return m_rules; }
+
+    /**
+     * <p>An array that contains the action for each <code>Rule</code> in a
+     * <code>WebACL</code>, the priority of the <code>Rule</code>, and the ID of the
+     * <code>Rule</code>.</p>
+     */
+    inline bool RulesHasBeenSet() const { return m_rulesHasBeenSet; }
 
     /**
      * <p>An array that contains the action for each <code>Rule</code> in a
@@ -313,6 +358,11 @@ namespace Model
      * <p>Tha Amazon Resource Name (ARN) of the web ACL.</p>
      */
     inline const Aws::String& GetWebACLArn() const{ return m_webACLArn; }
+
+    /**
+     * <p>Tha Amazon Resource Name (ARN) of the web ACL.</p>
+     */
+    inline bool WebACLArnHasBeenSet() const { return m_webACLArnHasBeenSet; }
 
     /**
      * <p>Tha Amazon Resource Name (ARN) of the web ACL.</p>

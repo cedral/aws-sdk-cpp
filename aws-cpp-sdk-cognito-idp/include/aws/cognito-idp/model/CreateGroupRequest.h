@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the group. Must be unique.</p>
      */
     inline const Aws::String& GetGroupName() const{ return m_groupName; }
+
+    /**
+     * <p>The name of the group. Must be unique.</p>
+     */
+    inline bool GroupNameHasBeenSet() const { return m_groupNameHasBeenSet; }
 
     /**
      * <p>The name of the group. Must be unique.</p>
@@ -88,6 +93,11 @@ namespace Model
     /**
      * <p>The user pool ID for the user pool.</p>
      */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
+
+    /**
+     * <p>The user pool ID for the user pool.</p>
+     */
     inline void SetUserPoolId(const Aws::String& value) { m_userPoolIdHasBeenSet = true; m_userPoolId = value; }
 
     /**
@@ -124,6 +134,11 @@ namespace Model
     /**
      * <p>A string containing the description of the group.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>A string containing the description of the group.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -156,6 +171,11 @@ namespace Model
      * <p>The role ARN for the group.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
+
+    /**
+     * <p>The role ARN for the group.</p>
+     */
+    inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
      * <p>The role ARN for the group.</p>
@@ -205,6 +225,24 @@ namespace Model
      * value is null.</p>
      */
     inline int GetPrecedence() const{ return m_precedence; }
+
+    /**
+     * <p>A nonnegative integer value that specifies the precedence of this group
+     * relative to the other groups that a user can belong to in the user pool. Zero is
+     * the highest precedence value. Groups with lower <code>Precedence</code> values
+     * take precedence over groups with higher or null <code>Precedence</code> values.
+     * If a user belongs to two or more groups, it is the group with the lowest
+     * precedence value whose role ARN will be used in the <code>cognito:roles</code>
+     * and <code>cognito:preferred_role</code> claims in the user's tokens.</p> <p>Two
+     * groups can have the same <code>Precedence</code> value. If this happens, neither
+     * group takes precedence over the other. If two groups with the same
+     * <code>Precedence</code> have the same role ARN, that role is used in the
+     * <code>cognito:preferred_role</code> claim in tokens for users in each group. If
+     * the two groups have different role ARNs, the <code>cognito:preferred_role</code>
+     * claim is not set in users' tokens.</p> <p>The default <code>Precedence</code>
+     * value is null.</p>
+     */
+    inline bool PrecedenceHasBeenSet() const { return m_precedenceHasBeenSet; }
 
     /**
      * <p>A nonnegative integer value that specifies the precedence of this group

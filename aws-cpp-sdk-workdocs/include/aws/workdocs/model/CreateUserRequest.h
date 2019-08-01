@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateUserRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ID of the organization.</p>
      */
     inline const Aws::String& GetOrganizationId() const{ return m_organizationId; }
+
+    /**
+     * <p>The ID of the organization.</p>
+     */
+    inline bool OrganizationIdHasBeenSet() const { return m_organizationIdHasBeenSet; }
 
     /**
      * <p>The ID of the organization.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The login name of the user.</p>
      */
+    inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
+
+    /**
+     * <p>The login name of the user.</p>
+     */
     inline void SetUsername(const Aws::String& value) { m_usernameHasBeenSet = true; m_username = value; }
 
     /**
@@ -121,6 +131,11 @@ namespace Model
      * <p>The email address of the user.</p>
      */
     inline const Aws::String& GetEmailAddress() const{ return m_emailAddress; }
+
+    /**
+     * <p>The email address of the user.</p>
+     */
+    inline bool EmailAddressHasBeenSet() const { return m_emailAddressHasBeenSet; }
 
     /**
      * <p>The email address of the user.</p>
@@ -161,6 +176,11 @@ namespace Model
     /**
      * <p>The given name of the user.</p>
      */
+    inline bool GivenNameHasBeenSet() const { return m_givenNameHasBeenSet; }
+
+    /**
+     * <p>The given name of the user.</p>
+     */
     inline void SetGivenName(const Aws::String& value) { m_givenNameHasBeenSet = true; m_givenName = value; }
 
     /**
@@ -193,6 +213,11 @@ namespace Model
      * <p>The surname of the user.</p>
      */
     inline const Aws::String& GetSurname() const{ return m_surname; }
+
+    /**
+     * <p>The surname of the user.</p>
+     */
+    inline bool SurnameHasBeenSet() const { return m_surnameHasBeenSet; }
 
     /**
      * <p>The surname of the user.</p>
@@ -233,6 +258,11 @@ namespace Model
     /**
      * <p>The password of the user.</p>
      */
+    inline bool PasswordHasBeenSet() const { return m_passwordHasBeenSet; }
+
+    /**
+     * <p>The password of the user.</p>
+     */
     inline void SetPassword(const Aws::String& value) { m_passwordHasBeenSet = true; m_password = value; }
 
     /**
@@ -265,6 +295,11 @@ namespace Model
      * <p>The time zone ID of the user.</p>
      */
     inline const Aws::String& GetTimeZoneId() const{ return m_timeZoneId; }
+
+    /**
+     * <p>The time zone ID of the user.</p>
+     */
+    inline bool TimeZoneIdHasBeenSet() const { return m_timeZoneIdHasBeenSet; }
 
     /**
      * <p>The time zone ID of the user.</p>
@@ -305,6 +340,11 @@ namespace Model
     /**
      * <p>The amount of storage for the user.</p>
      */
+    inline bool StorageRuleHasBeenSet() const { return m_storageRuleHasBeenSet; }
+
+    /**
+     * <p>The amount of storage for the user.</p>
+     */
     inline void SetStorageRule(const StorageRuleType& value) { m_storageRuleHasBeenSet = true; m_storageRule = value; }
 
     /**
@@ -328,6 +368,12 @@ namespace Model
      * administrative API actions, as in accessing the API using AWS credentials.</p>
      */
     inline const Aws::String& GetAuthenticationToken() const{ return m_authenticationToken; }
+
+    /**
+     * <p>Amazon WorkDocs authentication token. Do not set this field when using
+     * administrative API actions, as in accessing the API using AWS credentials.</p>
+     */
+    inline bool AuthenticationTokenHasBeenSet() const { return m_authenticationTokenHasBeenSet; }
 
     /**
      * <p>Amazon WorkDocs authentication token. Do not set this field when using

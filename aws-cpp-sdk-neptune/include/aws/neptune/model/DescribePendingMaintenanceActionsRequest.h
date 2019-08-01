@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DescribePendingMaintenanceActionsMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API DescribePendingMaintenanceActionsRequest : public NeptuneRequest
   {
   public:
     DescribePendingMaintenanceActionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +52,11 @@ namespace Model
      * <p>The ARN of a resource to return pending maintenance actions for.</p>
      */
     inline const Aws::String& GetResourceIdentifier() const{ return m_resourceIdentifier; }
+
+    /**
+     * <p>The ARN of a resource to return pending maintenance actions for.</p>
+     */
+    inline bool ResourceIdentifierHasBeenSet() const { return m_resourceIdentifierHasBeenSet; }
 
     /**
      * <p>The ARN of a resource to return pending maintenance actions for.</p>
@@ -98,6 +100,18 @@ namespace Model
      * for the DB instances identified by these ARNs.</p> </li> </ul>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>A filter that specifies one or more resources to return pending maintenance
+     * actions for.</p> <p>Supported filters:</p> <ul> <li> <p>
+     * <code>db-cluster-id</code> - Accepts DB cluster identifiers and DB cluster
+     * Amazon Resource Names (ARNs). The results list will only include pending
+     * maintenance actions for the DB clusters identified by these ARNs.</p> </li> <li>
+     * <p> <code>db-instance-id</code> - Accepts DB instance identifiers and DB
+     * instance ARNs. The results list will only include pending maintenance actions
+     * for the DB instances identified by these ARNs.</p> </li> </ul>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>A filter that specifies one or more resources to return pending maintenance
@@ -176,7 +190,7 @@ namespace Model
      * <p> An optional pagination token provided by a previous
      * <code>DescribePendingMaintenanceActions</code> request. If this parameter is
      * specified, the response includes only records beyond the marker, up to a number
-     * of records specified by <code>MaxRecords</code>. </p>
+     * of records specified by <code>MaxRecords</code>.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
 
@@ -184,7 +198,15 @@ namespace Model
      * <p> An optional pagination token provided by a previous
      * <code>DescribePendingMaintenanceActions</code> request. If this parameter is
      * specified, the response includes only records beyond the marker, up to a number
-     * of records specified by <code>MaxRecords</code>. </p>
+     * of records specified by <code>MaxRecords</code>.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p> An optional pagination token provided by a previous
+     * <code>DescribePendingMaintenanceActions</code> request. If this parameter is
+     * specified, the response includes only records beyond the marker, up to a number
+     * of records specified by <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
@@ -192,7 +214,7 @@ namespace Model
      * <p> An optional pagination token provided by a previous
      * <code>DescribePendingMaintenanceActions</code> request. If this parameter is
      * specified, the response includes only records beyond the marker, up to a number
-     * of records specified by <code>MaxRecords</code>. </p>
+     * of records specified by <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(Aws::String&& value) { m_markerHasBeenSet = true; m_marker = std::move(value); }
 
@@ -200,7 +222,7 @@ namespace Model
      * <p> An optional pagination token provided by a previous
      * <code>DescribePendingMaintenanceActions</code> request. If this parameter is
      * specified, the response includes only records beyond the marker, up to a number
-     * of records specified by <code>MaxRecords</code>. </p>
+     * of records specified by <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(const char* value) { m_markerHasBeenSet = true; m_marker.assign(value); }
 
@@ -208,7 +230,7 @@ namespace Model
      * <p> An optional pagination token provided by a previous
      * <code>DescribePendingMaintenanceActions</code> request. If this parameter is
      * specified, the response includes only records beyond the marker, up to a number
-     * of records specified by <code>MaxRecords</code>. </p>
+     * of records specified by <code>MaxRecords</code>.</p>
      */
     inline DescribePendingMaintenanceActionsRequest& WithMarker(const Aws::String& value) { SetMarker(value); return *this;}
 
@@ -216,7 +238,7 @@ namespace Model
      * <p> An optional pagination token provided by a previous
      * <code>DescribePendingMaintenanceActions</code> request. If this parameter is
      * specified, the response includes only records beyond the marker, up to a number
-     * of records specified by <code>MaxRecords</code>. </p>
+     * of records specified by <code>MaxRecords</code>.</p>
      */
     inline DescribePendingMaintenanceActionsRequest& WithMarker(Aws::String&& value) { SetMarker(std::move(value)); return *this;}
 
@@ -224,7 +246,7 @@ namespace Model
      * <p> An optional pagination token provided by a previous
      * <code>DescribePendingMaintenanceActions</code> request. If this parameter is
      * specified, the response includes only records beyond the marker, up to a number
-     * of records specified by <code>MaxRecords</code>. </p>
+     * of records specified by <code>MaxRecords</code>.</p>
      */
     inline DescribePendingMaintenanceActionsRequest& WithMarker(const char* value) { SetMarker(value); return *this;}
 
@@ -233,7 +255,7 @@ namespace Model
      * <p> The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
 
@@ -241,7 +263,15 @@ namespace Model
      * <p> The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p> The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
@@ -249,7 +279,7 @@ namespace Model
      * <p> The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline DescribePendingMaintenanceActionsRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
 

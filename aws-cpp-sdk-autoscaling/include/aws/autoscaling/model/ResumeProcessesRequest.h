@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ResumeProcessesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the Auto Scaling group.</p>
      */
     inline const Aws::String& GetAutoScalingGroupName() const{ return m_autoScalingGroupName; }
+
+    /**
+     * <p>The name of the Auto Scaling group.</p>
+     */
+    inline bool AutoScalingGroupNameHasBeenSet() const { return m_autoScalingGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the Auto Scaling group.</p>
@@ -93,6 +98,17 @@ namespace Model
      * <code>AddToLoadBalancer</code> </p> </li> </ul>
      */
     inline const Aws::Vector<Aws::String>& GetScalingProcesses() const{ return m_scalingProcesses; }
+
+    /**
+     * <p>One or more of the following processes. If you omit this parameter, all
+     * processes are specified.</p> <ul> <li> <p> <code>Launch</code> </p> </li> <li>
+     * <p> <code>Terminate</code> </p> </li> <li> <p> <code>HealthCheck</code> </p>
+     * </li> <li> <p> <code>ReplaceUnhealthy</code> </p> </li> <li> <p>
+     * <code>AZRebalance</code> </p> </li> <li> <p> <code>AlarmNotification</code> </p>
+     * </li> <li> <p> <code>ScheduledActions</code> </p> </li> <li> <p>
+     * <code>AddToLoadBalancer</code> </p> </li> </ul>
+     */
+    inline bool ScalingProcessesHasBeenSet() const { return m_scalingProcessesHasBeenSet; }
 
     /**
      * <p>One or more of the following processes. If you omit this parameter, all

@@ -56,56 +56,64 @@ namespace Model
     /**
      * <p>Specifies the name of the cache parameter group family to which the engine
      * default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> |
-     * <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> |
-     * <code>redis4.0</code> </p>
+     * <code>memcached1.5</code> | <code>redis2.6</code> | <code>redis2.8</code> |
+     * <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | </p>
      */
     inline const Aws::String& GetCacheParameterGroupFamily() const{ return m_cacheParameterGroupFamily; }
 
     /**
      * <p>Specifies the name of the cache parameter group family to which the engine
      * default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> |
-     * <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> |
-     * <code>redis4.0</code> </p>
+     * <code>memcached1.5</code> | <code>redis2.6</code> | <code>redis2.8</code> |
+     * <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | </p>
+     */
+    inline bool CacheParameterGroupFamilyHasBeenSet() const { return m_cacheParameterGroupFamilyHasBeenSet; }
+
+    /**
+     * <p>Specifies the name of the cache parameter group family to which the engine
+     * default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> |
+     * <code>memcached1.5</code> | <code>redis2.6</code> | <code>redis2.8</code> |
+     * <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | </p>
      */
     inline void SetCacheParameterGroupFamily(const Aws::String& value) { m_cacheParameterGroupFamilyHasBeenSet = true; m_cacheParameterGroupFamily = value; }
 
     /**
      * <p>Specifies the name of the cache parameter group family to which the engine
      * default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> |
-     * <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> |
-     * <code>redis4.0</code> </p>
+     * <code>memcached1.5</code> | <code>redis2.6</code> | <code>redis2.8</code> |
+     * <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | </p>
      */
     inline void SetCacheParameterGroupFamily(Aws::String&& value) { m_cacheParameterGroupFamilyHasBeenSet = true; m_cacheParameterGroupFamily = std::move(value); }
 
     /**
      * <p>Specifies the name of the cache parameter group family to which the engine
      * default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> |
-     * <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> |
-     * <code>redis4.0</code> </p>
+     * <code>memcached1.5</code> | <code>redis2.6</code> | <code>redis2.8</code> |
+     * <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | </p>
      */
     inline void SetCacheParameterGroupFamily(const char* value) { m_cacheParameterGroupFamilyHasBeenSet = true; m_cacheParameterGroupFamily.assign(value); }
 
     /**
      * <p>Specifies the name of the cache parameter group family to which the engine
      * default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> |
-     * <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> |
-     * <code>redis4.0</code> </p>
+     * <code>memcached1.5</code> | <code>redis2.6</code> | <code>redis2.8</code> |
+     * <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | </p>
      */
     inline EngineDefaults& WithCacheParameterGroupFamily(const Aws::String& value) { SetCacheParameterGroupFamily(value); return *this;}
 
     /**
      * <p>Specifies the name of the cache parameter group family to which the engine
      * default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> |
-     * <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> |
-     * <code>redis4.0</code> </p>
+     * <code>memcached1.5</code> | <code>redis2.6</code> | <code>redis2.8</code> |
+     * <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | </p>
      */
     inline EngineDefaults& WithCacheParameterGroupFamily(Aws::String&& value) { SetCacheParameterGroupFamily(std::move(value)); return *this;}
 
     /**
      * <p>Specifies the name of the cache parameter group family to which the engine
      * default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> |
-     * <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> |
-     * <code>redis4.0</code> </p>
+     * <code>memcached1.5</code> | <code>redis2.6</code> | <code>redis2.8</code> |
+     * <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | </p>
      */
     inline EngineDefaults& WithCacheParameterGroupFamily(const char* value) { SetCacheParameterGroupFamily(value); return *this;}
 
@@ -114,6 +122,11 @@ namespace Model
      * <p>Provides an identifier to allow retrieval of paginated results.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>Provides an identifier to allow retrieval of paginated results.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>Provides an identifier to allow retrieval of paginated results.</p>
@@ -154,6 +167,11 @@ namespace Model
     /**
      * <p>Contains a list of engine default parameters.</p>
      */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
+
+    /**
+     * <p>Contains a list of engine default parameters.</p>
+     */
     inline void SetParameters(const Aws::Vector<Parameter>& value) { m_parametersHasBeenSet = true; m_parameters = value; }
 
     /**
@@ -187,6 +205,12 @@ namespace Model
      * in the list contains detailed information about one parameter.</p>
      */
     inline const Aws::Vector<CacheNodeTypeSpecificParameter>& GetCacheNodeTypeSpecificParameters() const{ return m_cacheNodeTypeSpecificParameters; }
+
+    /**
+     * <p>A list of parameters specific to a particular cache node type. Each element
+     * in the list contains detailed information about one parameter.</p>
+     */
+    inline bool CacheNodeTypeSpecificParametersHasBeenSet() const { return m_cacheNodeTypeSpecificParametersHasBeenSet; }
 
     /**
      * <p>A list of parameters specific to a particular cache node type. Each element

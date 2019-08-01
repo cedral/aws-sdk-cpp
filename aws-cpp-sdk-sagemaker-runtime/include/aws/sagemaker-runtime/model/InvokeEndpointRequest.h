@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     InvokeEndpointRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,14 @@ namespace Model
      * API. </p>
      */
     inline const Aws::String& GetEndpointName() const{ return m_endpointName; }
+
+    /**
+     * <p>The name of the endpoint that you specified when you created the endpoint
+     * using the <a
+     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
+     * API. </p>
+     */
+    inline bool EndpointNameHasBeenSet() const { return m_endpointNameHasBeenSet; }
 
     /**
      * <p>The name of the endpoint that you specified when you created the endpoint
@@ -108,6 +116,11 @@ namespace Model
     /**
      * <p>The desired MIME type of the inference in the response.</p>
      */
+    inline bool AcceptHasBeenSet() const { return m_acceptHasBeenSet; }
+
+    /**
+     * <p>The desired MIME type of the inference in the response.</p>
+     */
     inline void SetAccept(const Aws::String& value) { m_acceptHasBeenSet = true; m_accept = value; }
 
     /**
@@ -140,6 +153,11 @@ namespace Model
      * <p/>
      */
     inline const Aws::String& GetCustomAttributes() const{ return m_customAttributes; }
+
+    /**
+     * <p/>
+     */
+    inline bool CustomAttributesHasBeenSet() const { return m_customAttributesHasBeenSet; }
 
     /**
      * <p/>

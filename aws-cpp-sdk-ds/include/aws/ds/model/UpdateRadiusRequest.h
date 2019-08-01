@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     UpdateRadiusRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * information.</p>
      */
     inline const Aws::String& GetDirectoryId() const{ return m_directoryId; }
+
+    /**
+     * <p>The identifier of the directory for which to update the RADIUS server
+     * information.</p>
+     */
+    inline bool DirectoryIdHasBeenSet() const { return m_directoryIdHasBeenSet; }
 
     /**
      * <p>The identifier of the directory for which to update the RADIUS server
@@ -97,6 +103,12 @@ namespace Model
      * server.</p>
      */
     inline const RadiusSettings& GetRadiusSettings() const{ return m_radiusSettings; }
+
+    /**
+     * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS
+     * server.</p>
+     */
+    inline bool RadiusSettingsHasBeenSet() const { return m_radiusSettingsHasBeenSet; }
 
     /**
      * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS

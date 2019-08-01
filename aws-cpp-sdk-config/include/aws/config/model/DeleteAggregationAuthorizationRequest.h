@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteAggregationAuthorizationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
      */
     inline const Aws::String& GetAuthorizedAccountId() const{ return m_authorizedAccountId; }
+
+    /**
+     * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
+     */
+    inline bool AuthorizedAccountIdHasBeenSet() const { return m_authorizedAccountIdHasBeenSet; }
 
     /**
      * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The region authorized to collect aggregated data.</p>
      */
     inline const Aws::String& GetAuthorizedAwsRegion() const{ return m_authorizedAwsRegion; }
+
+    /**
+     * <p>The region authorized to collect aggregated data.</p>
+     */
+    inline bool AuthorizedAwsRegionHasBeenSet() const { return m_authorizedAwsRegionHasBeenSet; }
 
     /**
      * <p>The region authorized to collect aggregated data.</p>

@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ImportCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,106 +48,138 @@ namespace Model
 
 
     /**
-     * <p>The customer-assigned name of the certificate. Valid characters are A-z and
-     * 0-9.</p>
+     * <p>A customer-assigned name for the certificate. Identifiers must begin with a
+     * letter; must contain only ASCII letters, digits, and hyphens; and must not end
+     * with a hyphen or contain two consecutive hyphens.</p>
      */
     inline const Aws::String& GetCertificateIdentifier() const{ return m_certificateIdentifier; }
 
     /**
-     * <p>The customer-assigned name of the certificate. Valid characters are A-z and
-     * 0-9.</p>
+     * <p>A customer-assigned name for the certificate. Identifiers must begin with a
+     * letter; must contain only ASCII letters, digits, and hyphens; and must not end
+     * with a hyphen or contain two consecutive hyphens.</p>
+     */
+    inline bool CertificateIdentifierHasBeenSet() const { return m_certificateIdentifierHasBeenSet; }
+
+    /**
+     * <p>A customer-assigned name for the certificate. Identifiers must begin with a
+     * letter; must contain only ASCII letters, digits, and hyphens; and must not end
+     * with a hyphen or contain two consecutive hyphens.</p>
      */
     inline void SetCertificateIdentifier(const Aws::String& value) { m_certificateIdentifierHasBeenSet = true; m_certificateIdentifier = value; }
 
     /**
-     * <p>The customer-assigned name of the certificate. Valid characters are A-z and
-     * 0-9.</p>
+     * <p>A customer-assigned name for the certificate. Identifiers must begin with a
+     * letter; must contain only ASCII letters, digits, and hyphens; and must not end
+     * with a hyphen or contain two consecutive hyphens.</p>
      */
     inline void SetCertificateIdentifier(Aws::String&& value) { m_certificateIdentifierHasBeenSet = true; m_certificateIdentifier = std::move(value); }
 
     /**
-     * <p>The customer-assigned name of the certificate. Valid characters are A-z and
-     * 0-9.</p>
+     * <p>A customer-assigned name for the certificate. Identifiers must begin with a
+     * letter; must contain only ASCII letters, digits, and hyphens; and must not end
+     * with a hyphen or contain two consecutive hyphens.</p>
      */
     inline void SetCertificateIdentifier(const char* value) { m_certificateIdentifierHasBeenSet = true; m_certificateIdentifier.assign(value); }
 
     /**
-     * <p>The customer-assigned name of the certificate. Valid characters are A-z and
-     * 0-9.</p>
+     * <p>A customer-assigned name for the certificate. Identifiers must begin with a
+     * letter; must contain only ASCII letters, digits, and hyphens; and must not end
+     * with a hyphen or contain two consecutive hyphens.</p>
      */
     inline ImportCertificateRequest& WithCertificateIdentifier(const Aws::String& value) { SetCertificateIdentifier(value); return *this;}
 
     /**
-     * <p>The customer-assigned name of the certificate. Valid characters are A-z and
-     * 0-9.</p>
+     * <p>A customer-assigned name for the certificate. Identifiers must begin with a
+     * letter; must contain only ASCII letters, digits, and hyphens; and must not end
+     * with a hyphen or contain two consecutive hyphens.</p>
      */
     inline ImportCertificateRequest& WithCertificateIdentifier(Aws::String&& value) { SetCertificateIdentifier(std::move(value)); return *this;}
 
     /**
-     * <p>The customer-assigned name of the certificate. Valid characters are A-z and
-     * 0-9.</p>
+     * <p>A customer-assigned name for the certificate. Identifiers must begin with a
+     * letter; must contain only ASCII letters, digits, and hyphens; and must not end
+     * with a hyphen or contain two consecutive hyphens.</p>
      */
     inline ImportCertificateRequest& WithCertificateIdentifier(const char* value) { SetCertificateIdentifier(value); return *this;}
 
 
     /**
-     * <p>The contents of the .pem X.509 certificate file for the certificate.</p>
+     * <p>The contents of a <code>.pem</code> file, which contains an X.509
+     * certificate.</p>
      */
     inline const Aws::String& GetCertificatePem() const{ return m_certificatePem; }
 
     /**
-     * <p>The contents of the .pem X.509 certificate file for the certificate.</p>
+     * <p>The contents of a <code>.pem</code> file, which contains an X.509
+     * certificate.</p>
+     */
+    inline bool CertificatePemHasBeenSet() const { return m_certificatePemHasBeenSet; }
+
+    /**
+     * <p>The contents of a <code>.pem</code> file, which contains an X.509
+     * certificate.</p>
      */
     inline void SetCertificatePem(const Aws::String& value) { m_certificatePemHasBeenSet = true; m_certificatePem = value; }
 
     /**
-     * <p>The contents of the .pem X.509 certificate file for the certificate.</p>
+     * <p>The contents of a <code>.pem</code> file, which contains an X.509
+     * certificate.</p>
      */
     inline void SetCertificatePem(Aws::String&& value) { m_certificatePemHasBeenSet = true; m_certificatePem = std::move(value); }
 
     /**
-     * <p>The contents of the .pem X.509 certificate file for the certificate.</p>
+     * <p>The contents of a <code>.pem</code> file, which contains an X.509
+     * certificate.</p>
      */
     inline void SetCertificatePem(const char* value) { m_certificatePemHasBeenSet = true; m_certificatePem.assign(value); }
 
     /**
-     * <p>The contents of the .pem X.509 certificate file for the certificate.</p>
+     * <p>The contents of a <code>.pem</code> file, which contains an X.509
+     * certificate.</p>
      */
     inline ImportCertificateRequest& WithCertificatePem(const Aws::String& value) { SetCertificatePem(value); return *this;}
 
     /**
-     * <p>The contents of the .pem X.509 certificate file for the certificate.</p>
+     * <p>The contents of a <code>.pem</code> file, which contains an X.509
+     * certificate.</p>
      */
     inline ImportCertificateRequest& WithCertificatePem(Aws::String&& value) { SetCertificatePem(std::move(value)); return *this;}
 
     /**
-     * <p>The contents of the .pem X.509 certificate file for the certificate.</p>
+     * <p>The contents of a <code>.pem</code> file, which contains an X.509
+     * certificate.</p>
      */
     inline ImportCertificateRequest& WithCertificatePem(const char* value) { SetCertificatePem(value); return *this;}
 
 
     /**
-     * <p>The location of the imported Oracle Wallet certificate for use with SSL.</p>
+     * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
      */
     inline const Aws::Utils::ByteBuffer& GetCertificateWallet() const{ return m_certificateWallet; }
 
     /**
-     * <p>The location of the imported Oracle Wallet certificate for use with SSL.</p>
+     * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
+     */
+    inline bool CertificateWalletHasBeenSet() const { return m_certificateWalletHasBeenSet; }
+
+    /**
+     * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
      */
     inline void SetCertificateWallet(const Aws::Utils::ByteBuffer& value) { m_certificateWalletHasBeenSet = true; m_certificateWallet = value; }
 
     /**
-     * <p>The location of the imported Oracle Wallet certificate for use with SSL.</p>
+     * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
      */
     inline void SetCertificateWallet(Aws::Utils::ByteBuffer&& value) { m_certificateWalletHasBeenSet = true; m_certificateWallet = std::move(value); }
 
     /**
-     * <p>The location of the imported Oracle Wallet certificate for use with SSL.</p>
+     * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
      */
     inline ImportCertificateRequest& WithCertificateWallet(const Aws::Utils::ByteBuffer& value) { SetCertificateWallet(value); return *this;}
 
     /**
-     * <p>The location of the imported Oracle Wallet certificate for use with SSL.</p>
+     * <p>The location of an imported Oracle Wallet certificate for use with SSL.</p>
      */
     inline ImportCertificateRequest& WithCertificateWallet(Aws::Utils::ByteBuffer&& value) { SetCertificateWallet(std::move(value)); return *this;}
 
@@ -156,6 +188,11 @@ namespace Model
      * <p>The tags associated with the certificate.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags associated with the certificate.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags associated with the certificate.</p>

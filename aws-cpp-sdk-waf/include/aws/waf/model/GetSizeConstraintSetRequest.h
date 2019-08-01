@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetSizeConstraintSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
      */
     inline const Aws::String& GetSizeConstraintSetId() const{ return m_sizeConstraintSetId; }
+
+    /**
+     * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you
+     * want to get. <code>SizeConstraintSetId</code> is returned by
+     * <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>
+     */
+    inline bool SizeConstraintSetIdHasBeenSet() const { return m_sizeConstraintSetIdHasBeenSet; }
 
     /**
      * <p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you

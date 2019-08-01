@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     AddTagsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
+     */
+    inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>
@@ -88,6 +93,13 @@ namespace Model
      * SageMaker sets the value to an empty string. </p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>An array of <code>Tag</code> objects. Each tag is a key-value pair. Only the
+     * <code>key</code> parameter is required. If you don't specify a value, Amazon
+     * SageMaker sets the value to an empty string. </p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>An array of <code>Tag</code> objects. Each tag is a key-value pair. Only the

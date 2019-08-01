@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeStacksRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * stack.</p>
      */
     inline const Aws::Vector<Aws::String>& GetStackIds() const{ return m_stackIds; }
+
+    /**
+     * <p>An array of stack IDs that specify the stacks to be described. If you omit
+     * this parameter, <code>DescribeStacks</code> returns a description of every
+     * stack.</p>
+     */
+    inline bool StackIdsHasBeenSet() const { return m_stackIdsHasBeenSet; }
 
     /**
      * <p>An array of stack IDs that specify the stacks to be described. If you omit

@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     ListVirtualNodesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -64,8 +64,8 @@ namespace Model
             <code>ListVirtualNodes</code> request with the returned
      * <code>nextToken</code> value.
          This value can be between 1 and 100. If
-     * you don't use this parameter,
-         <code>ListVirtualNodes</code> returns up
+     * you don't use this
+         parameter, <code>ListVirtualNodes</code> returns up
      * to 100 results and a
             <code>nextToken</code> value if applicable.</p>
      */
@@ -84,8 +84,28 @@ namespace Model
             <code>ListVirtualNodes</code> request with the returned
      * <code>nextToken</code> value.
          This value can be between 1 and 100. If
-     * you don't use this parameter,
-         <code>ListVirtualNodes</code> returns up
+     * you don't use this
+         parameter, <code>ListVirtualNodes</code> returns up
+     * to 100 results and a
+            <code>nextToken</code> value if applicable.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results returned by <code>ListVirtualNodes</code> in
+     * paginated
+         output. When you use this parameter,
+     * <code>ListVirtualNodes</code> returns only
+            <code>limit</code>
+     * results in a single page along with a <code>nextToken</code> response
+        
+     * element. You can see the remaining results of the initial request by sending
+     * another
+            <code>ListVirtualNodes</code> request with the returned
+     * <code>nextToken</code> value.
+         This value can be between 1 and 100. If
+     * you don't use this
+         parameter, <code>ListVirtualNodes</code> returns up
      * to 100 results and a
             <code>nextToken</code> value if applicable.</p>
      */
@@ -104,8 +124,8 @@ namespace Model
             <code>ListVirtualNodes</code> request with the returned
      * <code>nextToken</code> value.
          This value can be between 1 and 100. If
-     * you don't use this parameter,
-         <code>ListVirtualNodes</code> returns up
+     * you don't use this
+         parameter, <code>ListVirtualNodes</code> returns up
      * to 100 results and a
             <code>nextToken</code> value if applicable.</p>
      */
@@ -116,6 +136,11 @@ namespace Model
      * <p>The name of the service mesh to list virtual nodes in.</p>
      */
     inline const Aws::String& GetMeshName() const{ return m_meshName; }
+
+    /**
+     * <p>The name of the service mesh to list virtual nodes in.</p>
+     */
+    inline bool MeshNameHasBeenSet() const { return m_meshNameHasBeenSet; }
 
     /**
      * <p>The name of the service mesh to list virtual nodes in.</p>
@@ -150,85 +175,97 @@ namespace Model
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
-        
+         
      * <code>ListVirtualNodes</code> request where <code>limit</code> was used and the
-
-     * results exceeded the value of that parameter. Pagination continues from the end
-     * of the
-         previous results that returned the <code>nextToken</code>
-     * value.</p>
+     * results
+         exceeded the value of that parameter. Pagination continues from
+     * the end of the previous
+         results that returned the
+     * <code>nextToken</code> value.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
-        
+         
      * <code>ListVirtualNodes</code> request where <code>limit</code> was used and the
+     * results
+         exceeded the value of that parameter. Pagination continues from
+     * the end of the previous
+         results that returned the
+     * <code>nextToken</code> value.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
-     * results exceeded the value of that parameter. Pagination continues from the end
-     * of the
-         previous results that returned the <code>nextToken</code>
-     * value.</p>
+    /**
+     * <p>The <code>nextToken</code> value returned from a previous paginated
+         
+     * <code>ListVirtualNodes</code> request where <code>limit</code> was used and the
+     * results
+         exceeded the value of that parameter. Pagination continues from
+     * the end of the previous
+         results that returned the
+     * <code>nextToken</code> value.</p>
      */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
-        
+         
      * <code>ListVirtualNodes</code> request where <code>limit</code> was used and the
-
-     * results exceeded the value of that parameter. Pagination continues from the end
-     * of the
-         previous results that returned the <code>nextToken</code>
-     * value.</p>
+     * results
+         exceeded the value of that parameter. Pagination continues from
+     * the end of the previous
+         results that returned the
+     * <code>nextToken</code> value.</p>
      */
     inline void SetNextToken(Aws::String&& value) { m_nextTokenHasBeenSet = true; m_nextToken = std::move(value); }
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
-        
+         
      * <code>ListVirtualNodes</code> request where <code>limit</code> was used and the
-
-     * results exceeded the value of that parameter. Pagination continues from the end
-     * of the
-         previous results that returned the <code>nextToken</code>
-     * value.</p>
+     * results
+         exceeded the value of that parameter. Pagination continues from
+     * the end of the previous
+         results that returned the
+     * <code>nextToken</code> value.</p>
      */
     inline void SetNextToken(const char* value) { m_nextTokenHasBeenSet = true; m_nextToken.assign(value); }
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
-        
+         
      * <code>ListVirtualNodes</code> request where <code>limit</code> was used and the
-
-     * results exceeded the value of that parameter. Pagination continues from the end
-     * of the
-         previous results that returned the <code>nextToken</code>
-     * value.</p>
+     * results
+         exceeded the value of that parameter. Pagination continues from
+     * the end of the previous
+         results that returned the
+     * <code>nextToken</code> value.</p>
      */
     inline ListVirtualNodesRequest& WithNextToken(const Aws::String& value) { SetNextToken(value); return *this;}
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
-        
+         
      * <code>ListVirtualNodes</code> request where <code>limit</code> was used and the
-
-     * results exceeded the value of that parameter. Pagination continues from the end
-     * of the
-         previous results that returned the <code>nextToken</code>
-     * value.</p>
+     * results
+         exceeded the value of that parameter. Pagination continues from
+     * the end of the previous
+         results that returned the
+     * <code>nextToken</code> value.</p>
      */
     inline ListVirtualNodesRequest& WithNextToken(Aws::String&& value) { SetNextToken(std::move(value)); return *this;}
 
     /**
      * <p>The <code>nextToken</code> value returned from a previous paginated
-        
+         
      * <code>ListVirtualNodes</code> request where <code>limit</code> was used and the
-
-     * results exceeded the value of that parameter. Pagination continues from the end
-     * of the
-         previous results that returned the <code>nextToken</code>
-     * value.</p>
+     * results
+         exceeded the value of that parameter. Pagination continues from
+     * the end of the previous
+         results that returned the
+     * <code>nextToken</code> value.</p>
      */
     inline ListVirtualNodesRequest& WithNextToken(const char* value) { SetNextToken(value); return *this;}
 

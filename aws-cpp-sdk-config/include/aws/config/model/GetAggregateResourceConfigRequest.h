@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetAggregateResourceConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the configuration aggregator.</p>
      */
     inline const Aws::String& GetConfigurationAggregatorName() const{ return m_configurationAggregatorName; }
+
+    /**
+     * <p>The name of the configuration aggregator.</p>
+     */
+    inline bool ConfigurationAggregatorNameHasBeenSet() const { return m_configurationAggregatorNameHasBeenSet; }
 
     /**
      * <p>The name of the configuration aggregator.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>An object that identifies aggregate resource.</p>
      */
     inline const AggregateResourceIdentifier& GetResourceIdentifier() const{ return m_resourceIdentifier; }
+
+    /**
+     * <p>An object that identifies aggregate resource.</p>
+     */
+    inline bool ResourceIdentifierHasBeenSet() const { return m_resourceIdentifierHasBeenSet; }
 
     /**
      * <p>An object that identifies aggregate resource.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DetectEntitiesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * entities. Each string must contain fewer than 20,000 bytes of characters.</p>
      */
     inline const Aws::String& GetText() const{ return m_text; }
+
+    /**
+     * <p> A UTF-8 text string containing the clinical content being examined for
+     * entities. Each string must contain fewer than 20,000 bytes of characters.</p>
+     */
+    inline bool TextHasBeenSet() const { return m_textHasBeenSet; }
 
     /**
      * <p> A UTF-8 text string containing the clinical content being examined for

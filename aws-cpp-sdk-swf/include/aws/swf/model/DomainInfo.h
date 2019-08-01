@@ -56,6 +56,11 @@ namespace Model
     /**
      * <p>The name of the domain. This name is unique within the account.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the domain. This name is unique within the account.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -93,6 +98,16 @@ namespace Model
      * executions in this domain. </p> </li> </ul>
      */
     inline const RegistrationStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the domain:</p> <ul> <li> <p> <code>REGISTERED</code> – The
+     * domain is properly registered and available. You can use this domain for
+     * registering types and creating new workflow executions. </p> </li> <li> <p>
+     * <code>DEPRECATED</code> – The domain was deprecated using
+     * <a>DeprecateDomain</a>, but is still in use. You should not create new workflow
+     * executions in this domain. </p> </li> </ul>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the domain:</p> <ul> <li> <p> <code>REGISTERED</code> – The
@@ -143,6 +158,11 @@ namespace Model
     /**
      * <p>The description of the domain provided through <a>RegisterDomain</a>.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>The description of the domain provided through <a>RegisterDomain</a>.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -170,6 +190,47 @@ namespace Model
      */
     inline DomainInfo& WithDescription(const char* value) { SetDescription(value); return *this;}
 
+
+    /**
+     * <p>The ARN of the domain.</p>
+     */
+    inline const Aws::String& GetArn() const{ return m_arn; }
+
+    /**
+     * <p>The ARN of the domain.</p>
+     */
+    inline bool ArnHasBeenSet() const { return m_arnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the domain.</p>
+     */
+    inline void SetArn(const Aws::String& value) { m_arnHasBeenSet = true; m_arn = value; }
+
+    /**
+     * <p>The ARN of the domain.</p>
+     */
+    inline void SetArn(Aws::String&& value) { m_arnHasBeenSet = true; m_arn = std::move(value); }
+
+    /**
+     * <p>The ARN of the domain.</p>
+     */
+    inline void SetArn(const char* value) { m_arnHasBeenSet = true; m_arn.assign(value); }
+
+    /**
+     * <p>The ARN of the domain.</p>
+     */
+    inline DomainInfo& WithArn(const Aws::String& value) { SetArn(value); return *this;}
+
+    /**
+     * <p>The ARN of the domain.</p>
+     */
+    inline DomainInfo& WithArn(Aws::String&& value) { SetArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The ARN of the domain.</p>
+     */
+    inline DomainInfo& WithArn(const char* value) { SetArn(value); return *this;}
+
   private:
 
     Aws::String m_name;
@@ -180,6 +241,9 @@ namespace Model
 
     Aws::String m_description;
     bool m_descriptionHasBeenSet;
+
+    Aws::String m_arn;
+    bool m_arnHasBeenSet;
   };
 
 } // namespace Model

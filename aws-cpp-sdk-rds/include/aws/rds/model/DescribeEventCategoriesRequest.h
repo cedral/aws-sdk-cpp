@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeEventCategoriesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * db-instance | db-parameter-group | db-security-group | db-snapshot</p>
      */
     inline const Aws::String& GetSourceType() const{ return m_sourceType; }
+
+    /**
+     * <p>The type of source that is generating the events.</p> <p>Valid values:
+     * db-instance | db-parameter-group | db-security-group | db-snapshot</p>
+     */
+    inline bool SourceTypeHasBeenSet() const { return m_sourceTypeHasBeenSet; }
 
     /**
      * <p>The type of source that is generating the events.</p> <p>Valid values:
@@ -98,6 +104,11 @@ namespace Model
      * <p>This parameter is not currently supported.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>This parameter is not currently supported.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>This parameter is not currently supported.</p>

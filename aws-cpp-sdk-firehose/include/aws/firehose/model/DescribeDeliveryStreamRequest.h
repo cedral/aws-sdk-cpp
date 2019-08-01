@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DescribeDeliveryStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the delivery stream.</p>
      */
     inline const Aws::String& GetDeliveryStreamName() const{ return m_deliveryStreamName; }
+
+    /**
+     * <p>The name of the delivery stream.</p>
+     */
+    inline bool DeliveryStreamNameHasBeenSet() const { return m_deliveryStreamNameHasBeenSet; }
 
     /**
      * <p>The name of the delivery stream.</p>
@@ -90,6 +95,12 @@ namespace Model
      * <p>The limit on the number of destinations to return. You can have one
      * destination per delivery stream.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The limit on the number of destinations to return. You can have one
+     * destination per delivery stream.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -104,6 +115,12 @@ namespace Model
      * Kinesis Data Firehose supports one destination per delivery stream.</p>
      */
     inline const Aws::String& GetExclusiveStartDestinationId() const{ return m_exclusiveStartDestinationId; }
+
+    /**
+     * <p>The ID of the destination to start returning the destination information.
+     * Kinesis Data Firehose supports one destination per delivery stream.</p>
+     */
+    inline bool ExclusiveStartDestinationIdHasBeenSet() const { return m_exclusiveStartDestinationIdHasBeenSet; }
 
     /**
      * <p>The ID of the destination to start returning the destination information.

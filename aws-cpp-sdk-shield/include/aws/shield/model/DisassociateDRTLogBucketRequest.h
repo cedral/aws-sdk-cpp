@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DisassociateDRTLogBucketRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,37 +45,42 @@ namespace Model
 
 
     /**
-     * <p>The Amazon S3 bucket that contains your flow logs.</p>
+     * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
      */
     inline const Aws::String& GetLogBucket() const{ return m_logBucket; }
 
     /**
-     * <p>The Amazon S3 bucket that contains your flow logs.</p>
+     * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
+     */
+    inline bool LogBucketHasBeenSet() const { return m_logBucketHasBeenSet; }
+
+    /**
+     * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
      */
     inline void SetLogBucket(const Aws::String& value) { m_logBucketHasBeenSet = true; m_logBucket = value; }
 
     /**
-     * <p>The Amazon S3 bucket that contains your flow logs.</p>
+     * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
      */
     inline void SetLogBucket(Aws::String&& value) { m_logBucketHasBeenSet = true; m_logBucket = std::move(value); }
 
     /**
-     * <p>The Amazon S3 bucket that contains your flow logs.</p>
+     * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
      */
     inline void SetLogBucket(const char* value) { m_logBucketHasBeenSet = true; m_logBucket.assign(value); }
 
     /**
-     * <p>The Amazon S3 bucket that contains your flow logs.</p>
+     * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
      */
     inline DisassociateDRTLogBucketRequest& WithLogBucket(const Aws::String& value) { SetLogBucket(value); return *this;}
 
     /**
-     * <p>The Amazon S3 bucket that contains your flow logs.</p>
+     * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
      */
     inline DisassociateDRTLogBucketRequest& WithLogBucket(Aws::String&& value) { SetLogBucket(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon S3 bucket that contains your flow logs.</p>
+     * <p>The Amazon S3 bucket that contains your AWS WAF logs.</p>
      */
     inline DisassociateDRTLogBucketRequest& WithLogBucket(const char* value) { SetLogBucket(value); return *this;}
 

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateUserProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The user's IAM ARN; this can also be a federated user's ARN.</p>
      */
     inline const Aws::String& GetIamUserArn() const{ return m_iamUserArn; }
+
+    /**
+     * <p>The user's IAM ARN; this can also be a federated user's ARN.</p>
+     */
+    inline bool IamUserArnHasBeenSet() const { return m_iamUserArnHasBeenSet; }
 
     /**
      * <p>The user's IAM ARN; this can also be a federated user's ARN.</p>
@@ -88,6 +93,15 @@ namespace Model
      * Stacks generates one from the IAM user name. </p>
      */
     inline const Aws::String& GetSshUsername() const{ return m_sshUsername; }
+
+    /**
+     * <p>The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
+     * '-', and '_'. If the specified name includes other punctuation marks, AWS
+     * OpsWorks Stacks removes them. For example, <code>my.name</code> will be changed
+     * to <code>myname</code>. If you do not specify an SSH user name, AWS OpsWorks
+     * Stacks generates one from the IAM user name. </p>
+     */
+    inline bool SshUsernameHasBeenSet() const { return m_sshUsernameHasBeenSet; }
 
     /**
      * <p>The user's SSH user name. The allowable characters are [a-z], [A-Z], [0-9],
@@ -152,6 +166,11 @@ namespace Model
     /**
      * <p>The user's public SSH key.</p>
      */
+    inline bool SshPublicKeyHasBeenSet() const { return m_sshPublicKeyHasBeenSet; }
+
+    /**
+     * <p>The user's public SSH key.</p>
+     */
     inline void SetSshPublicKey(const Aws::String& value) { m_sshPublicKeyHasBeenSet = true; m_sshPublicKey = value; }
 
     /**
@@ -183,7 +202,7 @@ namespace Model
     /**
      * <p>Whether users can specify their own SSH public key through the My Settings
      * page. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
      * an IAM User's Public SSH Key</a>.</p>
      */
     inline bool GetAllowSelfManagement() const{ return m_allowSelfManagement; }
@@ -191,7 +210,15 @@ namespace Model
     /**
      * <p>Whether users can specify their own SSH public key through the My Settings
      * page. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
+     * an IAM User's Public SSH Key</a>.</p>
+     */
+    inline bool AllowSelfManagementHasBeenSet() const { return m_allowSelfManagementHasBeenSet; }
+
+    /**
+     * <p>Whether users can specify their own SSH public key through the My Settings
+     * page. For more information, see <a
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
      * an IAM User's Public SSH Key</a>.</p>
      */
     inline void SetAllowSelfManagement(bool value) { m_allowSelfManagementHasBeenSet = true; m_allowSelfManagement = value; }
@@ -199,7 +226,7 @@ namespace Model
     /**
      * <p>Whether users can specify their own SSH public key through the My Settings
      * page. For more information, see <a
-     * href="http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
+     * href="https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html">Setting
      * an IAM User's Public SSH Key</a>.</p>
      */
     inline CreateUserProfileRequest& WithAllowSelfManagement(bool value) { SetAllowSelfManagement(value); return *this;}

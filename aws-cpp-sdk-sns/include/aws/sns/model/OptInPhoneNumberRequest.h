@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     OptInPhoneNumberRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The phone number to opt in.</p>
      */
     inline const Aws::String& GetPhoneNumber() const{ return m_phoneNumber; }
+
+    /**
+     * <p>The phone number to opt in.</p>
+     */
+    inline bool PhoneNumberHasBeenSet() const { return m_phoneNumberHasBeenSet; }
 
     /**
      * <p>The phone number to opt in.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListActivatedRulesInRuleGroupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * get a list of <a>ActivatedRule</a> objects.</p>
      */
     inline const Aws::String& GetRuleGroupId() const{ return m_ruleGroupId; }
+
+    /**
+     * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to
+     * get a list of <a>ActivatedRule</a> objects.</p>
+     */
+    inline bool RuleGroupIdHasBeenSet() const { return m_ruleGroupIdHasBeenSet; }
 
     /**
      * <p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to
@@ -97,6 +103,17 @@ namespace Model
      * another batch of <code>ActivatedRules</code>.</p>
      */
     inline const Aws::String& GetNextMarker() const{ return m_nextMarker; }
+
+    /**
+     * <p>If you specify a value for <code>Limit</code> and you have more
+     * <code>ActivatedRules</code> than the value of <code>Limit</code>, AWS WAF
+     * returns a <code>NextMarker</code> value in the response that allows you to list
+     * another group of <code>ActivatedRules</code>. For the second and subsequent
+     * <code>ListActivatedRulesInRuleGroup</code> requests, specify the value of
+     * <code>NextMarker</code> from the previous response to get information about
+     * another batch of <code>ActivatedRules</code>.</p>
+     */
+    inline bool NextMarkerHasBeenSet() const { return m_nextMarkerHasBeenSet; }
 
     /**
      * <p>If you specify a value for <code>Limit</code> and you have more
@@ -173,6 +190,15 @@ namespace Model
      * <code>ActivatedRules</code>.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>Specifies the number of <code>ActivatedRules</code> that you want AWS WAF to
+     * return for this request. If you have more <code>ActivatedRules</code> than the
+     * number that you specify for <code>Limit</code>, the response includes a
+     * <code>NextMarker</code> value that you can use to get another batch of
+     * <code>ActivatedRules</code>.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>Specifies the number of <code>ActivatedRules</code> that you want AWS WAF to

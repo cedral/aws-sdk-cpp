@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeClustersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * entries. If you do not specify a cluster, the default cluster is assumed.</p>
      */
     inline const Aws::Vector<Aws::String>& GetClusters() const{ return m_clusters; }
+
+    /**
+     * <p>A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN)
+     * entries. If you do not specify a cluster, the default cluster is assumed.</p>
+     */
+    inline bool ClustersHasBeenSet() const { return m_clustersHasBeenSet; }
 
     /**
      * <p>A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN)
@@ -105,6 +111,17 @@ namespace Model
      * </li> </ul>
      */
     inline const Aws::Vector<ClusterField>& GetInclude() const{ return m_include; }
+
+    /**
+     * <p>Additional information about your clusters to be separated by launch type,
+     * including:</p> <ul> <li> <p>runningEC2TasksCount</p> </li> <li>
+     * <p>runningFargateTasksCount</p> </li> <li> <p>pendingEC2TasksCount</p> </li>
+     * <li> <p>pendingFargateTasksCount</p> </li> <li> <p>activeEC2ServiceCount</p>
+     * </li> <li> <p>activeFargateServiceCount</p> </li> <li>
+     * <p>drainingEC2ServiceCount</p> </li> <li> <p>drainingFargateServiceCount</p>
+     * </li> </ul>
+     */
+    inline bool IncludeHasBeenSet() const { return m_includeHasBeenSet; }
 
     /**
      * <p>Additional information about your clusters to be separated by launch type,

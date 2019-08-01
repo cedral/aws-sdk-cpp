@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetWebACLRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <a>ListWebACLs</a>.</p>
      */
     inline const Aws::String& GetWebACLId() const{ return m_webACLId; }
+
+    /**
+     * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to get.
+     * <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by
+     * <a>ListWebACLs</a>.</p>
+     */
+    inline bool WebACLIdHasBeenSet() const { return m_webACLIdHasBeenSet; }
 
     /**
      * <p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to get.

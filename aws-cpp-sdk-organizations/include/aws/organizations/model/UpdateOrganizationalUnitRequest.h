@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateOrganizationalUnitRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,16 @@ namespace Model
      * and from 8 to 32 additional lower-case letters or digits.</p>
      */
     inline const Aws::String& GetOrganizationalUnitId() const{ return m_organizationalUnitId; }
+
+    /**
+     * <p>The unique identifier (ID) of the OU that you want to rename. You can get the
+     * ID from the <a>ListOrganizationalUnitsForParent</a> operation.</p> <p>The <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a> for an organizational
+     * unit ID string requires "ou-" followed by from 4 to 32 lower-case letters or
+     * digits (the ID of the root that contains the OU) followed by a second "-" dash
+     * and from 8 to 32 additional lower-case letters or digits.</p>
+     */
+    inline bool OrganizationalUnitIdHasBeenSet() const { return m_organizationalUnitIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) of the OU that you want to rename. You can get the
@@ -122,6 +132,14 @@ namespace Model
      * character range.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The new name that you want to assign to the OU.</p> <p>The <a
+     * href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to
+     * validate this parameter is a string of any of the characters in the ASCII
+     * character range.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The new name that you want to assign to the OU.</p> <p>The <a

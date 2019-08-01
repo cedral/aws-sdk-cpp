@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     ListTrainingJobsForHyperParameterTuningJobRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The name of the tuning job whose training jobs you want to list.</p>
      */
     inline const Aws::String& GetHyperParameterTuningJobName() const{ return m_hyperParameterTuningJobName; }
+
+    /**
+     * <p>The name of the tuning job whose training jobs you want to list.</p>
+     */
+    inline bool HyperParameterTuningJobNameHasBeenSet() const { return m_hyperParameterTuningJobNameHasBeenSet; }
 
     /**
      * <p>The name of the tuning job whose training jobs you want to list.</p>
@@ -90,6 +95,14 @@ namespace Model
      * training jobs, use the token in the next request.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If the result of the previous
+     * <code>ListTrainingJobsForHyperParameterTuningJob</code> request was truncated,
+     * the response includes a <code>NextToken</code>. To retrieve the next set of
+     * training jobs, use the token in the next request.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If the result of the previous
@@ -148,6 +161,11 @@ namespace Model
     /**
      * <p>The maximum number of training jobs to return. The default value is 10.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of training jobs to return. The default value is 10.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -160,6 +178,11 @@ namespace Model
      * <p>A filter that returns only training jobs with the specified status.</p>
      */
     inline const TrainingJobStatus& GetStatusEquals() const{ return m_statusEquals; }
+
+    /**
+     * <p>A filter that returns only training jobs with the specified status.</p>
+     */
+    inline bool StatusEqualsHasBeenSet() const { return m_statusEqualsHasBeenSet; }
 
     /**
      * <p>A filter that returns only training jobs with the specified status.</p>
@@ -194,6 +217,13 @@ namespace Model
      * value of this field is <code>FinalObjectiveMetricValue</code>, any training jobs
      * that did not return an objective metric are not listed.</p>
      */
+    inline bool SortByHasBeenSet() const { return m_sortByHasBeenSet; }
+
+    /**
+     * <p>The field to sort results by. The default is <code>Name</code>.</p> <p>If the
+     * value of this field is <code>FinalObjectiveMetricValue</code>, any training jobs
+     * that did not return an objective metric are not listed.</p>
+     */
     inline void SetSortBy(const TrainingJobSortByOptions& value) { m_sortByHasBeenSet = true; m_sortBy = value; }
 
     /**
@@ -222,6 +252,11 @@ namespace Model
      * <p>The sort order for results. The default is <code>Ascending</code>.</p>
      */
     inline const SortOrder& GetSortOrder() const{ return m_sortOrder; }
+
+    /**
+     * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+     */
+    inline bool SortOrderHasBeenSet() const { return m_sortOrderHasBeenSet; }
 
     /**
      * <p>The sort order for results. The default is <code>Ascending</code>.</p>

@@ -30,7 +30,7 @@ namespace Model
   {
   public:
     PutRetentionConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * <p>Currently, only applicable to the configuration item history.</p> </note>
      */
     inline int GetRetentionPeriodInDays() const{ return m_retentionPeriodInDays; }
+
+    /**
+     * <p>Number of days AWS Config stores your historical information.</p> <note>
+     * <p>Currently, only applicable to the configuration item history.</p> </note>
+     */
+    inline bool RetentionPeriodInDaysHasBeenSet() const { return m_retentionPeriodInDaysHasBeenSet; }
 
     /**
      * <p>Number of days AWS Config stores your historical information.</p> <note>

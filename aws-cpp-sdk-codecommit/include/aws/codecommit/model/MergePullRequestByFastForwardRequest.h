@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     MergePullRequestByFastForwardRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * <a>ListPullRequests</a>.</p>
      */
     inline const Aws::String& GetPullRequestId() const{ return m_pullRequestId; }
+
+    /**
+     * <p>The system-generated ID of the pull request. To get this ID, use
+     * <a>ListPullRequests</a>.</p>
+     */
+    inline bool PullRequestIdHasBeenSet() const { return m_pullRequestIdHasBeenSet; }
 
     /**
      * <p>The system-generated ID of the pull request. To get this ID, use
@@ -95,6 +101,11 @@ namespace Model
     /**
      * <p>The name of the repository where the pull request was created.</p>
      */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
+
+    /**
+     * <p>The name of the repository where the pull request was created.</p>
+     */
     inline void SetRepositoryName(const Aws::String& value) { m_repositoryNameHasBeenSet = true; m_repositoryName = value; }
 
     /**
@@ -129,6 +140,13 @@ namespace Model
      * commit ID of the tip of the source branch does not match this commit ID.</p>
      */
     inline const Aws::String& GetSourceCommitId() const{ return m_sourceCommitId; }
+
+    /**
+     * <p>The full commit ID of the original or updated commit in the pull request
+     * source branch. Pass this value if you want an exception thrown if the current
+     * commit ID of the tip of the source branch does not match this commit ID.</p>
+     */
+    inline bool SourceCommitIdHasBeenSet() const { return m_sourceCommitIdHasBeenSet; }
 
     /**
      * <p>The full commit ID of the original or updated commit in the pull request

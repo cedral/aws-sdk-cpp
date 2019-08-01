@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     CreateQueueRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * Optional. A description of the queue that you are creating.
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * Optional. A description of the queue that you are creating.
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * Optional. A description of the queue that you are creating.
@@ -85,6 +90,11 @@ namespace Model
      * The name of the queue that you are creating.
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * The name of the queue that you are creating.
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * The name of the queue that you are creating.
@@ -133,6 +143,15 @@ namespace Model
      * or how little you use it. Reserved pricing requires a 12-month commitment. When
      * you use the API to create a queue, the default is on-demand.
      */
+    inline bool PricingPlanHasBeenSet() const { return m_pricingPlanHasBeenSet; }
+
+    /**
+     * Specifies whether the pricing plan for the queue is on-demand or reserved. For
+     * on-demand, you pay per minute, billed in increments of .01 minute. For reserved,
+     * you pay for the transcoding capacity of the entire queue, regardless of how much
+     * or how little you use it. Reserved pricing requires a 12-month commitment. When
+     * you use the API to create a queue, the default is on-demand.
+     */
     inline void SetPricingPlan(const PricingPlan& value) { m_pricingPlanHasBeenSet = true; m_pricingPlan = value; }
 
     /**
@@ -173,6 +192,12 @@ namespace Model
      * Details about the pricing plan for your reserved queue. Required for reserved
      * queues and not applicable to on-demand queues.
      */
+    inline bool ReservationPlanSettingsHasBeenSet() const { return m_reservationPlanSettingsHasBeenSet; }
+
+    /**
+     * Details about the pricing plan for your reserved queue. Required for reserved
+     * queues and not applicable to on-demand queues.
+     */
     inline void SetReservationPlanSettings(const ReservationPlanSettings& value) { m_reservationPlanSettingsHasBeenSet = true; m_reservationPlanSettings = value; }
 
     /**
@@ -199,6 +224,12 @@ namespace Model
      * key-value pair or with only a key.
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * The tags that you want to add to the resource. You can tag resources with a

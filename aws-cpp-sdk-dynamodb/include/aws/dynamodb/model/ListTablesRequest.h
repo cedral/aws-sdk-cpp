@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListTablesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,13 @@ namespace Model
      * that you can obtain the next page of results.</p>
      */
     inline const Aws::String& GetExclusiveStartTableName() const{ return m_exclusiveStartTableName; }
+
+    /**
+     * <p>The first table name that this operation will evaluate. Use the value that
+     * was returned for <code>LastEvaluatedTableName</code> in a previous operation, so
+     * that you can obtain the next page of results.</p>
+     */
+    inline bool ExclusiveStartTableNameHasBeenSet() const { return m_exclusiveStartTableNameHasBeenSet; }
 
     /**
      * <p>The first table name that this operation will evaluate. Use the value that
@@ -103,6 +110,12 @@ namespace Model
      * specified, the limit is 100.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>A maximum number of table names to return. If this parameter is not
+     * specified, the limit is 100.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>A maximum number of table names to return. If this parameter is not

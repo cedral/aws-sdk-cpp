@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     CreateLabelsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The ID of the resource.</p>
      */
     inline const Aws::String& GetResourceId() const{ return m_resourceId; }
+
+    /**
+     * <p>The ID of the resource.</p>
+     */
+    inline bool ResourceIdHasBeenSet() const { return m_resourceIdHasBeenSet; }
 
     /**
      * <p>The ID of the resource.</p>
@@ -85,6 +90,11 @@ namespace Model
      * <p>List of labels to add to the resource.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLabels() const{ return m_labels; }
+
+    /**
+     * <p>List of labels to add to the resource.</p>
+     */
+    inline bool LabelsHasBeenSet() const { return m_labelsHasBeenSet; }
 
     /**
      * <p>List of labels to add to the resource.</p>
@@ -127,6 +137,12 @@ namespace Model
      * administrative API actions, as in accessing the API using AWS credentials.</p>
      */
     inline const Aws::String& GetAuthenticationToken() const{ return m_authenticationToken; }
+
+    /**
+     * <p>Amazon WorkDocs authentication token. Do not set this field when using
+     * administrative API actions, as in accessing the API using AWS credentials.</p>
+     */
+    inline bool AuthenticationTokenHasBeenSet() const { return m_authenticationTokenHasBeenSet; }
 
     /**
      * <p>Amazon WorkDocs authentication token. Do not set this field when using

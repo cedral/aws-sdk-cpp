@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     UpdateRobotApplicationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The application information for the robot application.</p>
      */
     inline const Aws::String& GetApplication() const{ return m_application; }
+
+    /**
+     * <p>The application information for the robot application.</p>
+     */
+    inline bool ApplicationHasBeenSet() const { return m_applicationHasBeenSet; }
 
     /**
      * <p>The application information for the robot application.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The sources of the robot application.</p>
      */
+    inline bool SourcesHasBeenSet() const { return m_sourcesHasBeenSet; }
+
+    /**
+     * <p>The sources of the robot application.</p>
+     */
     inline void SetSources(const Aws::Vector<SourceConfig>& value) { m_sourcesHasBeenSet = true; m_sources = value; }
 
     /**
@@ -125,6 +135,11 @@ namespace Model
     /**
      * <p>The robot software suite used by the robot application.</p>
      */
+    inline bool RobotSoftwareSuiteHasBeenSet() const { return m_robotSoftwareSuiteHasBeenSet; }
+
+    /**
+     * <p>The robot software suite used by the robot application.</p>
+     */
     inline void SetRobotSoftwareSuite(const RobotSoftwareSuite& value) { m_robotSoftwareSuiteHasBeenSet = true; m_robotSoftwareSuite = value; }
 
     /**
@@ -147,6 +162,11 @@ namespace Model
      * <p>The revision id for the robot application.</p>
      */
     inline const Aws::String& GetCurrentRevisionId() const{ return m_currentRevisionId; }
+
+    /**
+     * <p>The revision id for the robot application.</p>
+     */
+    inline bool CurrentRevisionIdHasBeenSet() const { return m_currentRevisionIdHasBeenSet; }
 
     /**
      * <p>The revision id for the robot application.</p>

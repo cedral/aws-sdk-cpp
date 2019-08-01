@@ -47,17 +47,22 @@ namespace Model
 
 
     /**
-     * Average bitrate in bits/second.
+     * Specify the average bitrate in bits per second.
      */
     inline int GetBitrate() const{ return m_bitrate; }
 
     /**
-     * Average bitrate in bits/second.
+     * Specify the average bitrate in bits per second.
+     */
+    inline bool BitrateHasBeenSet() const { return m_bitrateHasBeenSet; }
+
+    /**
+     * Specify the average bitrate in bits per second.
      */
     inline void SetBitrate(int value) { m_bitrateHasBeenSet = true; m_bitrate = value; }
 
     /**
-     * Average bitrate in bits/second.
+     * Specify the average bitrate in bits per second.
      */
     inline Mp2Settings& WithBitrate(int value) { SetBitrate(value); return *this;}
 
@@ -68,6 +73,13 @@ namespace Model
      * will give you 2. In the API, valid values are 1 and 2.
      */
     inline int GetChannels() const{ return m_channels; }
+
+    /**
+     * Set Channels to specify the number of channels in this output audio track.
+     * Choosing Mono in the console will give you 1 output channel; choosing Stereo
+     * will give you 2. In the API, valid values are 1 and 2.
+     */
+    inline bool ChannelsHasBeenSet() const { return m_channelsHasBeenSet; }
 
     /**
      * Set Channels to specify the number of channels in this output audio track.
@@ -88,6 +100,11 @@ namespace Model
      * Sample rate in hz.
      */
     inline int GetSampleRate() const{ return m_sampleRate; }
+
+    /**
+     * Sample rate in hz.
+     */
+    inline bool SampleRateHasBeenSet() const { return m_sampleRateHasBeenSet; }
 
     /**
      * Sample rate in hz.

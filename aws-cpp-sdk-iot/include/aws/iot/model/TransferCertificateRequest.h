@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     TransferCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,12 @@ namespace Model
      * certificate ID.)</p>
      */
     inline const Aws::String& GetCertificateId() const{ return m_certificateId; }
+
+    /**
+     * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+     * certificate ID.)</p>
+     */
+    inline bool CertificateIdHasBeenSet() const { return m_certificateIdHasBeenSet; }
 
     /**
      * <p>The ID of the certificate. (The last part of the certificate ARN contains the
@@ -103,6 +109,11 @@ namespace Model
     /**
      * <p>The AWS account.</p>
      */
+    inline bool TargetAwsAccountHasBeenSet() const { return m_targetAwsAccountHasBeenSet; }
+
+    /**
+     * <p>The AWS account.</p>
+     */
     inline void SetTargetAwsAccount(const Aws::String& value) { m_targetAwsAccountHasBeenSet = true; m_targetAwsAccount = value; }
 
     /**
@@ -135,6 +146,11 @@ namespace Model
      * <p>The transfer message.</p>
      */
     inline const Aws::String& GetTransferMessage() const{ return m_transferMessage; }
+
+    /**
+     * <p>The transfer message.</p>
+     */
+    inline bool TransferMessageHasBeenSet() const { return m_transferMessageHasBeenSet; }
 
     /**
      * <p>The transfer message.</p>

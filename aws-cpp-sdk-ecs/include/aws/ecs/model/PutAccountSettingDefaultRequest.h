@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutAccountSettingDefaultRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,52 +46,86 @@ namespace Model
 
 
     /**
-     * <p>The resource type to enable the new format for. If
+     * <p>The resource name for which to modify the account setting. If
      * <code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS
      * services is affected. If <code>taskLongArnFormat</code> is specified, the ARN
-     * and resource ID for your Amazon ECS tasks are affected. If
+     * and resource ID for your Amazon ECS tasks is affected. If
      * <code>containerInstanceLongArnFormat</code> is specified, the ARN and resource
-     * ID for your Amazon ECS container instances are affected.</p>
+     * ID for your Amazon ECS container instances is affected. If
+     * <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS
+     * container instances is affected. If <code>containerInsights</code> is specified,
+     * the default setting for CloudWatch Container Insights for your clusters is
+     * affected.</p>
      */
     inline const SettingName& GetName() const{ return m_name; }
 
     /**
-     * <p>The resource type to enable the new format for. If
+     * <p>The resource name for which to modify the account setting. If
      * <code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS
      * services is affected. If <code>taskLongArnFormat</code> is specified, the ARN
-     * and resource ID for your Amazon ECS tasks are affected. If
+     * and resource ID for your Amazon ECS tasks is affected. If
      * <code>containerInstanceLongArnFormat</code> is specified, the ARN and resource
-     * ID for your Amazon ECS container instances are affected.</p>
+     * ID for your Amazon ECS container instances is affected. If
+     * <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS
+     * container instances is affected. If <code>containerInsights</code> is specified,
+     * the default setting for CloudWatch Container Insights for your clusters is
+     * affected.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The resource name for which to modify the account setting. If
+     * <code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS
+     * services is affected. If <code>taskLongArnFormat</code> is specified, the ARN
+     * and resource ID for your Amazon ECS tasks is affected. If
+     * <code>containerInstanceLongArnFormat</code> is specified, the ARN and resource
+     * ID for your Amazon ECS container instances is affected. If
+     * <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS
+     * container instances is affected. If <code>containerInsights</code> is specified,
+     * the default setting for CloudWatch Container Insights for your clusters is
+     * affected.</p>
      */
     inline void SetName(const SettingName& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
-     * <p>The resource type to enable the new format for. If
+     * <p>The resource name for which to modify the account setting. If
      * <code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS
      * services is affected. If <code>taskLongArnFormat</code> is specified, the ARN
-     * and resource ID for your Amazon ECS tasks are affected. If
+     * and resource ID for your Amazon ECS tasks is affected. If
      * <code>containerInstanceLongArnFormat</code> is specified, the ARN and resource
-     * ID for your Amazon ECS container instances are affected.</p>
+     * ID for your Amazon ECS container instances is affected. If
+     * <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS
+     * container instances is affected. If <code>containerInsights</code> is specified,
+     * the default setting for CloudWatch Container Insights for your clusters is
+     * affected.</p>
      */
     inline void SetName(SettingName&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
     /**
-     * <p>The resource type to enable the new format for. If
+     * <p>The resource name for which to modify the account setting. If
      * <code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS
      * services is affected. If <code>taskLongArnFormat</code> is specified, the ARN
-     * and resource ID for your Amazon ECS tasks are affected. If
+     * and resource ID for your Amazon ECS tasks is affected. If
      * <code>containerInstanceLongArnFormat</code> is specified, the ARN and resource
-     * ID for your Amazon ECS container instances are affected.</p>
+     * ID for your Amazon ECS container instances is affected. If
+     * <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS
+     * container instances is affected. If <code>containerInsights</code> is specified,
+     * the default setting for CloudWatch Container Insights for your clusters is
+     * affected.</p>
      */
     inline PutAccountSettingDefaultRequest& WithName(const SettingName& value) { SetName(value); return *this;}
 
     /**
-     * <p>The resource type to enable the new format for. If
+     * <p>The resource name for which to modify the account setting. If
      * <code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS
      * services is affected. If <code>taskLongArnFormat</code> is specified, the ARN
-     * and resource ID for your Amazon ECS tasks are affected. If
+     * and resource ID for your Amazon ECS tasks is affected. If
      * <code>containerInstanceLongArnFormat</code> is specified, the ARN and resource
-     * ID for your Amazon ECS container instances are affected.</p>
+     * ID for your Amazon ECS container instances is affected. If
+     * <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS
+     * container instances is affected. If <code>containerInsights</code> is specified,
+     * the default setting for CloudWatch Container Insights for your clusters is
+     * affected.</p>
      */
     inline PutAccountSettingDefaultRequest& WithName(SettingName&& value) { SetName(std::move(value)); return *this;}
 
@@ -101,6 +135,12 @@ namespace Model
      * are <code>enabled</code> and <code>disabled</code>.</p>
      */
     inline const Aws::String& GetValue() const{ return m_value; }
+
+    /**
+     * <p>The account setting value for the specified principal ARN. Accepted values
+     * are <code>enabled</code> and <code>disabled</code>.</p>
+     */
+    inline bool ValueHasBeenSet() const { return m_valueHasBeenSet; }
 
     /**
      * <p>The account setting value for the specified principal ARN. Accepted values

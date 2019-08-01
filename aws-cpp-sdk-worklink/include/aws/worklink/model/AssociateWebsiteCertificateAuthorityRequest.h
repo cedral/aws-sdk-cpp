@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateWebsiteCertificateAuthorityRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The ARN of the fleet.</p>
      */
     inline const Aws::String& GetFleetArn() const{ return m_fleetArn; }
+
+    /**
+     * <p>The ARN of the fleet.</p>
+     */
+    inline bool FleetArnHasBeenSet() const { return m_fleetArnHasBeenSet; }
 
     /**
      * <p>The ARN of the fleet.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>The root certificate of the CA.</p>
      */
+    inline bool CertificateHasBeenSet() const { return m_certificateHasBeenSet; }
+
+    /**
+     * <p>The root certificate of the CA.</p>
+     */
     inline void SetCertificate(const Aws::String& value) { m_certificateHasBeenSet = true; m_certificate = value; }
 
     /**
@@ -118,6 +128,11 @@ namespace Model
      * <p>The certificate name to display.</p>
      */
     inline const Aws::String& GetDisplayName() const{ return m_displayName; }
+
+    /**
+     * <p>The certificate name to display.</p>
+     */
+    inline bool DisplayNameHasBeenSet() const { return m_displayNameHasBeenSet; }
 
     /**
      * <p>The certificate name to display.</p>

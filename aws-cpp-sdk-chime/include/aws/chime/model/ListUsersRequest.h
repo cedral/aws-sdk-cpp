@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListUsersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The Amazon Chime account ID.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The Amazon Chime account ID.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The Amazon Chime account ID.</p>
@@ -88,6 +93,11 @@ namespace Model
      * <p>Optional. The user email address used to filter results. Maximum 1.</p>
      */
     inline const Aws::String& GetUserEmail() const{ return m_userEmail; }
+
+    /**
+     * <p>Optional. The user email address used to filter results. Maximum 1.</p>
+     */
+    inline bool UserEmailHasBeenSet() const { return m_userEmailHasBeenSet; }
 
     /**
      * <p>Optional. The user email address used to filter results. Maximum 1.</p>
@@ -130,6 +140,12 @@ namespace Model
      * <p>The maximum number of results to return in a single call. Defaults to
      * 100.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of results to return in a single call. Defaults to
+     * 100.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -143,6 +159,11 @@ namespace Model
      * <p>The token to use to retrieve the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token to use to retrieve the next page of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token to use to retrieve the next page of results.</p>

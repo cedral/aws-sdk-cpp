@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteBackupVaultRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,14 @@ namespace Model
      * numbers, and hyphens.</p>
      */
     inline const Aws::String& GetBackupVaultName() const{ return m_backupVaultName; }
+
+    /**
+     * <p>The name of a logical container where backups are stored. Backup vaults are
+     * identified by names that are unique to the account used to create them and
+     * theAWS Region where they are created. They consist of lowercase letters,
+     * numbers, and hyphens.</p>
+     */
+    inline bool BackupVaultNameHasBeenSet() const { return m_backupVaultNameHasBeenSet; }
 
     /**
      * <p>The name of a logical container where backups are stored. Backup vaults are

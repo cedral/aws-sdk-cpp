@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     InitiateVaultLockRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,16 @@ namespace Model
      * include any hyphens ('-') in the ID.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The <code>AccountId</code> value is the AWS account ID. This value must match
+     * the AWS account ID associated with the credentials used to sign the request. You
+     * can either specify an AWS account ID or optionally a single '<code>-</code>'
+     * (hyphen), in which case Amazon Glacier uses the AWS account ID associated with
+     * the credentials used to sign the request. If you specify your account ID, do not
+     * include any hyphens ('-') in the ID.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The <code>AccountId</code> value is the AWS account ID. This value must match
@@ -126,6 +136,11 @@ namespace Model
     /**
      * <p>The name of the vault.</p>
      */
+    inline bool VaultNameHasBeenSet() const { return m_vaultNameHasBeenSet; }
+
+    /**
+     * <p>The name of the vault.</p>
+     */
     inline void SetVaultName(const Aws::String& value) { m_vaultNameHasBeenSet = true; m_vaultName = value; }
 
     /**
@@ -159,6 +174,12 @@ namespace Model
      * character.</p>
      */
     inline const VaultLockPolicy& GetPolicy() const{ return m_policy; }
+
+    /**
+     * <p>The vault lock policy as a JSON string, which uses "\" as an escape
+     * character.</p>
+     */
+    inline bool PolicyHasBeenSet() const { return m_policyHasBeenSet; }
 
     /**
      * <p>The vault lock policy as a JSON string, which uses "\" as an escape

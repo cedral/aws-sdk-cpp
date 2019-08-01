@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteGeoMatchSetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * by <a>ListGeoMatchSets</a>.</p>
      */
     inline const Aws::String& GetGeoMatchSetId() const{ return m_geoMatchSetId; }
+
+    /**
+     * <p>The <code>GeoMatchSetID</code> of the <a>GeoMatchSet</a> that you want to
+     * delete. <code>GeoMatchSetId</code> is returned by <a>CreateGeoMatchSet</a> and
+     * by <a>ListGeoMatchSets</a>.</p>
+     */
+    inline bool GeoMatchSetIdHasBeenSet() const { return m_geoMatchSetIdHasBeenSet; }
 
     /**
      * <p>The <code>GeoMatchSetID</code> of the <a>GeoMatchSet</a> that you want to
@@ -98,6 +105,11 @@ namespace Model
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
      */
     inline const Aws::String& GetChangeToken() const{ return m_changeToken; }
+
+    /**
+     * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>
+     */
+    inline bool ChangeTokenHasBeenSet() const { return m_changeTokenHasBeenSet; }
 
     /**
      * <p>The value returned by the most recent call to <a>GetChangeToken</a>.</p>

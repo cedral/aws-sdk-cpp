@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PredictRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>A unique identifier of the <code>MLModel</code>.</p>
      */
     inline const Aws::String& GetMLModelId() const{ return m_mLModelId; }
+
+    /**
+     * <p>A unique identifier of the <code>MLModel</code>.</p>
+     */
+    inline bool MLModelIdHasBeenSet() const { return m_mLModelIdHasBeenSet; }
 
     /**
      * <p>A unique identifier of the <code>MLModel</code>.</p>
@@ -83,6 +88,9 @@ namespace Model
 
     
     inline const Aws::Map<Aws::String, Aws::String>& GetRecord() const{ return m_record; }
+
+    
+    inline bool RecordHasBeenSet() const { return m_recordHasBeenSet; }
 
     
     inline void SetRecord(const Aws::Map<Aws::String, Aws::String>& value) { m_recordHasBeenSet = true; m_record = value; }
@@ -120,6 +128,9 @@ namespace Model
 
     
     inline const Aws::String& GetPredictEndpoint() const{ return m_predictEndpoint; }
+
+    
+    inline bool PredictEndpointHasBeenSet() const { return m_predictEndpointHasBeenSet; }
 
     
     inline void SetPredictEndpoint(const Aws::String& value) { m_predictEndpointHasBeenSet = true; m_predictEndpoint = value; }

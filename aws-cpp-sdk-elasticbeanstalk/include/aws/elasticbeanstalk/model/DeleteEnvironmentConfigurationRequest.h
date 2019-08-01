@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DeleteEnvironmentConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the application the environment is associated with.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of the application the environment is associated with.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of the application the environment is associated with.</p>
@@ -90,6 +95,11 @@ namespace Model
      * <p>The name of the environment to delete the draft configuration from.</p>
      */
     inline const Aws::String& GetEnvironmentName() const{ return m_environmentName; }
+
+    /**
+     * <p>The name of the environment to delete the draft configuration from.</p>
+     */
+    inline bool EnvironmentNameHasBeenSet() const { return m_environmentNameHasBeenSet; }
 
     /**
      * <p>The name of the environment to delete the draft configuration from.</p>

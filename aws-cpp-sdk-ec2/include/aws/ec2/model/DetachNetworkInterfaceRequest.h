@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DetachNetworkInterfaceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The ID of the attachment.</p>
      */
     inline const Aws::String& GetAttachmentId() const{ return m_attachmentId; }
+
+    /**
+     * <p>The ID of the attachment.</p>
+     */
+    inline bool AttachmentIdHasBeenSet() const { return m_attachmentIdHasBeenSet; }
 
     /**
      * <p>The ID of the attachment.</p>
@@ -100,6 +105,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -115,6 +128,11 @@ namespace Model
      * <p>Specifies whether to force a detachment.</p>
      */
     inline bool GetForce() const{ return m_force; }
+
+    /**
+     * <p>Specifies whether to force a detachment.</p>
+     */
+    inline bool ForceHasBeenSet() const { return m_forceHasBeenSet; }
 
     /**
      * <p>Specifies whether to force a detachment.</p>

@@ -37,9 +37,9 @@ namespace Model
   /**
    * <p>Contains the information required to retrieve an app or cookbook from a
    * repository. For more information, see <a
-   * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating
+   * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html">Creating
    * Apps</a> or <a
-   * href="http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Custom
+   * href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html">Custom
    * Recipes and Cookbooks</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/Source">AWS API
    * Reference</a></p>
@@ -57,6 +57,11 @@ namespace Model
      * <p>The repository type.</p>
      */
     inline const SourceType& GetType() const{ return m_type; }
+
+    /**
+     * <p>The repository type.</p>
+     */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
 
     /**
      * <p>The repository type.</p>
@@ -84,6 +89,12 @@ namespace Model
      * <code>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</code>.</p>
      */
     inline const Aws::String& GetUrl() const{ return m_url; }
+
+    /**
+     * <p>The source URL. The following is an example of an Amazon S3 source URL:
+     * <code>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</code>.</p>
+     */
+    inline bool UrlHasBeenSet() const { return m_urlHasBeenSet; }
 
     /**
      * <p>The source URL. The following is an example of an Amazon S3 source URL:
@@ -129,6 +140,14 @@ namespace Model
      * set <code>Username</code> to the user name.</p> </li> </ul>
      */
     inline const Aws::String& GetUsername() const{ return m_username; }
+
+    /**
+     * <p>This parameter depends on the repository type.</p> <ul> <li> <p>For Amazon S3
+     * bundles, set <code>Username</code> to the appropriate IAM access key ID.</p>
+     * </li> <li> <p>For HTTP bundles, Git repositories, and Subversion repositories,
+     * set <code>Username</code> to the user name.</p> </li> </ul>
+     */
+    inline bool UsernameHasBeenSet() const { return m_usernameHasBeenSet; }
 
     /**
      * <p>This parameter depends on the repository type.</p> <ul> <li> <p>For Amazon S3
@@ -185,7 +204,7 @@ namespace Model
      * IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion
      * repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For
      * more information on how to safely handle IAM credentials, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
      * <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code>
      * instead of the actual value.</p>
      */
@@ -197,7 +216,19 @@ namespace Model
      * IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion
      * repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For
      * more information on how to safely handle IAM credentials, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
+     * <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code>
+     * instead of the actual value.</p>
+     */
+    inline bool PasswordHasBeenSet() const { return m_passwordHasBeenSet; }
+
+    /**
+     * <p>When included in a request, the parameter depends on the repository type.</p>
+     * <ul> <li> <p>For Amazon S3 bundles, set <code>Password</code> to the appropriate
+     * IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion
+     * repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For
+     * more information on how to safely handle IAM credentials, see <a
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
      * <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code>
      * instead of the actual value.</p>
      */
@@ -209,7 +240,7 @@ namespace Model
      * IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion
      * repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For
      * more information on how to safely handle IAM credentials, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
      * <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code>
      * instead of the actual value.</p>
      */
@@ -221,7 +252,7 @@ namespace Model
      * IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion
      * repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For
      * more information on how to safely handle IAM credentials, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
      * <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code>
      * instead of the actual value.</p>
      */
@@ -233,7 +264,7 @@ namespace Model
      * IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion
      * repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For
      * more information on how to safely handle IAM credentials, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
      * <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code>
      * instead of the actual value.</p>
      */
@@ -245,7 +276,7 @@ namespace Model
      * IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion
      * repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For
      * more information on how to safely handle IAM credentials, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
      * <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code>
      * instead of the actual value.</p>
      */
@@ -257,7 +288,7 @@ namespace Model
      * IAM secret access key.</p> </li> <li> <p>For HTTP bundles and Subversion
      * repositories, set <code>Password</code> to the password.</p> </li> </ul> <p>For
      * more information on how to safely handle IAM credentials, see <a
-     * href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
+     * href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html</a>.</p>
      * <p>In responses, AWS OpsWorks Stacks returns <code>*****FILTERED*****</code>
      * instead of the actual value.</p>
      */
@@ -269,6 +300,12 @@ namespace Model
      * Stacks returns <code>*****FILTERED*****</code> instead of the actual value.</p>
      */
     inline const Aws::String& GetSshKey() const{ return m_sshKey; }
+
+    /**
+     * <p>In requests, the repository's SSH key.</p> <p>In responses, AWS OpsWorks
+     * Stacks returns <code>*****FILTERED*****</code> instead of the actual value.</p>
+     */
+    inline bool SshKeyHasBeenSet() const { return m_sshKeyHasBeenSet; }
 
     /**
      * <p>In requests, the repository's SSH key.</p> <p>In responses, AWS OpsWorks
@@ -314,6 +351,14 @@ namespace Model
      * can potentially be deployed.</p>
      */
     inline const Aws::String& GetRevision() const{ return m_revision; }
+
+    /**
+     * <p>The application's version. AWS OpsWorks Stacks enables you to easily deploy
+     * new versions of an application. One of the simplest approaches is to have
+     * branches or revisions in your repository that represent different versions that
+     * can potentially be deployed.</p>
+     */
+    inline bool RevisionHasBeenSet() const { return m_revisionHasBeenSet; }
 
     /**
      * <p>The application's version. AWS OpsWorks Stacks enables you to easily deploy

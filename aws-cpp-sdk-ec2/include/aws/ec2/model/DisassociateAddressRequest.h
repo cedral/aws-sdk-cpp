@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DisassociateAddressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>
      */
     inline const Aws::String& GetAssociationId() const{ return m_associationId; }
+
+    /**
+     * <p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>
+     */
+    inline bool AssociationIdHasBeenSet() const { return m_associationIdHasBeenSet; }
 
     /**
      * <p>[EC2-VPC] The association ID. Required for EC2-VPC.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
      */
+    inline bool PublicIpHasBeenSet() const { return m_publicIpHasBeenSet; }
+
+    /**
+     * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
+     */
     inline void SetPublicIp(const Aws::String& value) { m_publicIpHasBeenSet = true; m_publicIp = value; }
 
     /**
@@ -125,6 +135,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

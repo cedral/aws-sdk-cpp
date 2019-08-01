@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     ListDeploymentGroupsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * account.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
+     * account.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of an AWS CodeDeploy application associated with the IAM user or AWS
@@ -96,6 +102,12 @@ namespace Model
      * be used to return the next set of deployment groups in the list.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>An identifier returned from the previous list deployment groups call. It can
+     * be used to return the next set of deployment groups in the list.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>An identifier returned from the previous list deployment groups call. It can

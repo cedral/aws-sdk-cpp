@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ResizeClusterRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The unique identifier for the cluster to resize.</p>
      */
     inline const Aws::String& GetClusterIdentifier() const{ return m_clusterIdentifier; }
+
+    /**
+     * <p>The unique identifier for the cluster to resize.</p>
+     */
+    inline bool ClusterIdentifierHasBeenSet() const { return m_clusterIdentifierHasBeenSet; }
 
     /**
      * <p>The unique identifier for the cluster to resize.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>The new cluster type for the specified cluster.</p>
      */
+    inline bool ClusterTypeHasBeenSet() const { return m_clusterTypeHasBeenSet; }
+
+    /**
+     * <p>The new cluster type for the specified cluster.</p>
+     */
     inline void SetClusterType(const Aws::String& value) { m_clusterTypeHasBeenSet = true; m_clusterType = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
      * <p>The new node type for the nodes you are adding.</p>
      */
     inline const Aws::String& GetNodeType() const{ return m_nodeType; }
+
+    /**
+     * <p>The new node type for the nodes you are adding.</p>
+     */
+    inline bool NodeTypeHasBeenSet() const { return m_nodeTypeHasBeenSet; }
 
     /**
      * <p>The new node type for the nodes you are adding.</p>
@@ -162,6 +177,11 @@ namespace Model
     /**
      * <p>The new number of nodes for the cluster.</p>
      */
+    inline bool NumberOfNodesHasBeenSet() const { return m_numberOfNodesHasBeenSet; }
+
+    /**
+     * <p>The new number of nodes for the cluster.</p>
+     */
     inline void SetNumberOfNodes(int value) { m_numberOfNodesHasBeenSet = true; m_numberOfNodes = value; }
 
     /**
@@ -176,6 +196,13 @@ namespace Model
      * <code>false</code>, the resize type is elastic. </p>
      */
     inline bool GetClassic() const{ return m_classic; }
+
+    /**
+     * <p>A boolean value indicating whether the resize operation is using the classic
+     * resize process. If you don't provide this parameter or set the value to
+     * <code>false</code>, the resize type is elastic. </p>
+     */
+    inline bool ClassicHasBeenSet() const { return m_classicHasBeenSet; }
 
     /**
      * <p>A boolean value indicating whether the resize operation is using the classic

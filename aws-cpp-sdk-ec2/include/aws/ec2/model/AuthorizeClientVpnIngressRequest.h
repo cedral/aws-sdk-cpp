@@ -18,6 +18,7 @@
 #include <aws/ec2/EC2Request.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <utility>
+#include <aws/core/utils/UUID.h>
 
 namespace Aws
 {
@@ -32,7 +33,7 @@ namespace Model
   {
   public:
     AuthorizeClientVpnIngressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +51,11 @@ namespace Model
      * <p>The ID of the Client VPN endpoint.</p>
      */
     inline const Aws::String& GetClientVpnEndpointId() const{ return m_clientVpnEndpointId; }
+
+    /**
+     * <p>The ID of the Client VPN endpoint.</p>
+     */
+    inline bool ClientVpnEndpointIdHasBeenSet() const { return m_clientVpnEndpointIdHasBeenSet; }
 
     /**
      * <p>The ID of the Client VPN endpoint.</p>
@@ -87,6 +93,12 @@ namespace Model
      * being authorized.</p>
      */
     inline const Aws::String& GetTargetNetworkCidr() const{ return m_targetNetworkCidr; }
+
+    /**
+     * <p>The IPv4 address range, in CIDR notation, of the network for which access is
+     * being authorized.</p>
+     */
+    inline bool TargetNetworkCidrHasBeenSet() const { return m_targetNetworkCidrHasBeenSet; }
 
     /**
      * <p>The IPv4 address range, in CIDR notation, of the network for which access is
@@ -133,6 +145,11 @@ namespace Model
     /**
      * <p>The ID of the Active Directory group to grant access.</p>
      */
+    inline bool AccessGroupIdHasBeenSet() const { return m_accessGroupIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the Active Directory group to grant access.</p>
+     */
     inline void SetAccessGroupId(const Aws::String& value) { m_accessGroupIdHasBeenSet = true; m_accessGroupId = value; }
 
     /**
@@ -173,6 +190,13 @@ namespace Model
      * grant all clients who successfully establish a VPN connection access to the
      * network.</p>
      */
+    inline bool AuthorizeAllGroupsHasBeenSet() const { return m_authorizeAllGroupsHasBeenSet; }
+
+    /**
+     * <p>Indicates whether to grant access to all clients. Use <code>true</code> to
+     * grant all clients who successfully establish a VPN connection access to the
+     * network.</p>
+     */
     inline void SetAuthorizeAllGroups(bool value) { m_authorizeAllGroupsHasBeenSet = true; m_authorizeAllGroups = value; }
 
     /**
@@ -187,6 +211,11 @@ namespace Model
      * <p>A brief description of the authorization rule.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p>A brief description of the authorization rule.</p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p>A brief description of the authorization rule.</p>
@@ -220,12 +249,85 @@ namespace Model
 
 
     /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline void SetClientToken(const Aws::String& value) { m_clientTokenHasBeenSet = true; m_clientToken = value; }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline void SetClientToken(Aws::String&& value) { m_clientTokenHasBeenSet = true; m_clientToken = std::move(value); }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline void SetClientToken(const char* value) { m_clientTokenHasBeenSet = true; m_clientToken.assign(value); }
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline AuthorizeClientVpnIngressRequest& WithClientToken(const Aws::String& value) { SetClientToken(value); return *this;}
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline AuthorizeClientVpnIngressRequest& WithClientToken(Aws::String&& value) { SetClientToken(std::move(value)); return *this;}
+
+    /**
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+     * to Ensure Idempotency</a>.</p>
+     */
+    inline AuthorizeClientVpnIngressRequest& WithClientToken(const char* value) { SetClientToken(value); return *this;}
+
+
+    /**
      * <p>Checks whether you have the required permissions for the action, without
      * actually making the request, and provides an error response. If you have the
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without
@@ -259,6 +361,9 @@ namespace Model
 
     Aws::String m_description;
     bool m_descriptionHasBeenSet;
+
+    Aws::String m_clientToken;
+    bool m_clientTokenHasBeenSet;
 
     bool m_dryRun;
     bool m_dryRunHasBeenSet;

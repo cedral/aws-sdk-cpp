@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     PutEmailIdentityFeedbackAttributesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -45,14 +45,18 @@ namespace Model
 
     Aws::String SerializePayload() const override;
 
-    Aws::Http::HeaderValueCollection GetRequestSpecificHeaders() const override;
-
 
     /**
      * <p>The email identity that you want to configure bounce and complaint feedback
      * forwarding for.</p>
      */
     inline const Aws::String& GetEmailIdentity() const{ return m_emailIdentity; }
+
+    /**
+     * <p>The email identity that you want to configure bounce and complaint feedback
+     * forwarding for.</p>
+     */
+    inline bool EmailIdentityHasBeenSet() const { return m_emailIdentityHasBeenSet; }
 
     /**
      * <p>The email identity that you want to configure bounce and complaint feedback
@@ -104,6 +108,20 @@ namespace Model
      * when these events occur (even if this setting is disabled).</p>
      */
     inline bool GetEmailForwardingEnabled() const{ return m_emailForwardingEnabled; }
+
+    /**
+     * <p>Sets the feedback forwarding configuration for the identity.</p> <p>If the
+     * value is <code>true</code>, Amazon Pinpoint sends you email notifications when
+     * bounce or complaint events occur. Amazon Pinpoint sends this notification to the
+     * address that you specified in the Return-Path header of the original email.</p>
+     * <p>When you set this value to <code>false</code>, Amazon Pinpoint sends
+     * notifications through other mechanisms, such as by notifying an Amazon SNS topic
+     * or another event destination. You're required to have a method of tracking
+     * bounces and complaints. If you haven't set up another mechanism for receiving
+     * bounce or complaint notifications, Amazon Pinpoint sends an email notification
+     * when these events occur (even if this setting is disabled).</p>
+     */
+    inline bool EmailForwardingEnabledHasBeenSet() const { return m_emailForwardingEnabledHasBeenSet; }
 
     /**
      * <p>Sets the feedback forwarding configuration for the identity.</p> <p>If the

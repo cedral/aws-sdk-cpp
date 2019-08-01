@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     EvaluateExpressionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ID of the pipeline.</p>
      */
     inline const Aws::String& GetPipelineId() const{ return m_pipelineId; }
+
+    /**
+     * <p>The ID of the pipeline.</p>
+     */
+    inline bool PipelineIdHasBeenSet() const { return m_pipelineIdHasBeenSet; }
 
     /**
      * <p>The ID of the pipeline.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The ID of the object.</p>
      */
+    inline bool ObjectIdHasBeenSet() const { return m_objectIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the object.</p>
+     */
     inline void SetObjectId(const Aws::String& value) { m_objectIdHasBeenSet = true; m_objectId = value; }
 
     /**
@@ -123,6 +133,11 @@ namespace Model
      * <p>The expression to evaluate.</p>
      */
     inline const Aws::String& GetExpression() const{ return m_expression; }
+
+    /**
+     * <p>The expression to evaluate.</p>
+     */
+    inline bool ExpressionHasBeenSet() const { return m_expressionHasBeenSet; }
 
     /**
      * <p>The expression to evaluate.</p>

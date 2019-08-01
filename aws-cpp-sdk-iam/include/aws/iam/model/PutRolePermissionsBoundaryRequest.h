@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutRolePermissionsBoundaryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * the permissions boundary.</p>
      */
     inline const Aws::String& GetRoleName() const{ return m_roleName; }
+
+    /**
+     * <p>The name (friendly name, not ARN) of the IAM role for which you want to set
+     * the permissions boundary.</p>
+     */
+    inline bool RoleNameHasBeenSet() const { return m_roleNameHasBeenSet; }
 
     /**
      * <p>The name (friendly name, not ARN) of the IAM role for which you want to set
@@ -94,6 +100,12 @@ namespace Model
      * role.</p>
      */
     inline const Aws::String& GetPermissionsBoundary() const{ return m_permissionsBoundary; }
+
+    /**
+     * <p>The ARN of the policy that is used to set the permissions boundary for the
+     * role.</p>
+     */
+    inline bool PermissionsBoundaryHasBeenSet() const { return m_permissionsBoundaryHasBeenSet; }
 
     /**
      * <p>The ARN of the policy that is used to set the permissions boundary for the

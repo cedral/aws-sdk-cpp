@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     UpdateServiceAccessPoliciesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,9 @@ namespace Model
 
     
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     
     inline void SetDomainName(const Aws::String& value) { m_domainNameHasBeenSet = true; m_domainName = value; }
@@ -79,6 +82,12 @@ namespace Model
      * rules. </p>
      */
     inline const Aws::String& GetAccessPolicies() const{ return m_accessPolicies; }
+
+    /**
+     * <p>The access rules you want to configure. These rules replace any existing
+     * rules. </p>
+     */
+    inline bool AccessPoliciesHasBeenSet() const { return m_accessPoliciesHasBeenSet; }
 
     /**
      * <p>The access rules you want to configure. These rules replace any existing

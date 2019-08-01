@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CancelAuditTaskRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * "IN_PROGRESS".</p>
      */
     inline const Aws::String& GetTaskId() const{ return m_taskId; }
+
+    /**
+     * <p>The ID of the audit you want to cancel. You can only cancel an audit that is
+     * "IN_PROGRESS".</p>
+     */
+    inline bool TaskIdHasBeenSet() const { return m_taskIdHasBeenSet; }
 
     /**
      * <p>The ID of the audit you want to cancel. You can only cancel an audit that is

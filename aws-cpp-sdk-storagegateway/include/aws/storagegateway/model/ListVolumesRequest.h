@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     ListVolumesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,9 @@ namespace Model
 
     
     inline const Aws::String& GetGatewayARN() const{ return m_gatewayARN; }
+
+    
+    inline bool GatewayARNHasBeenSet() const { return m_gatewayARNHasBeenSet; }
 
     
     inline void SetGatewayARN(const Aws::String& value) { m_gatewayARNHasBeenSet = true; m_gatewayARN = value; }
@@ -77,6 +80,13 @@ namespace Model
      * request.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>A string that indicates the position at which to begin the returned list of
+     * volumes. Obtain the marker from the response of a previous List iSCSI Volumes
+     * request.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>A string that indicates the position at which to begin the returned list of
@@ -126,6 +136,12 @@ namespace Model
      * number of items.</p>
      */
     inline int GetLimit() const{ return m_limit; }
+
+    /**
+     * <p>Specifies that the list of volumes returned be limited to the specified
+     * number of items.</p>
+     */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
 
     /**
      * <p>Specifies that the list of volumes returned be limited to the specified

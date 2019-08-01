@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ReplaceTransitGatewayRouteRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * the most specific match.</p>
      */
     inline const Aws::String& GetDestinationCidrBlock() const{ return m_destinationCidrBlock; }
+
+    /**
+     * <p>The CIDR range used for the destination match. Routing decisions are based on
+     * the most specific match.</p>
+     */
+    inline bool DestinationCidrBlockHasBeenSet() const { return m_destinationCidrBlockHasBeenSet; }
 
     /**
      * <p>The CIDR range used for the destination match. Routing decisions are based on
@@ -97,6 +103,11 @@ namespace Model
     /**
      * <p>The ID of the route table.</p>
      */
+    inline bool TransitGatewayRouteTableIdHasBeenSet() const { return m_transitGatewayRouteTableIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the route table.</p>
+     */
     inline void SetTransitGatewayRouteTableId(const Aws::String& value) { m_transitGatewayRouteTableIdHasBeenSet = true; m_transitGatewayRouteTableId = value; }
 
     /**
@@ -129,6 +140,11 @@ namespace Model
      * <p>The ID of the attachment.</p>
      */
     inline const Aws::String& GetTransitGatewayAttachmentId() const{ return m_transitGatewayAttachmentId; }
+
+    /**
+     * <p>The ID of the attachment.</p>
+     */
+    inline bool TransitGatewayAttachmentIdHasBeenSet() const { return m_transitGatewayAttachmentIdHasBeenSet; }
 
     /**
      * <p>The ID of the attachment.</p>
@@ -169,6 +185,11 @@ namespace Model
     /**
      * <p>Indicates whether traffic matching this route is to be dropped.</p>
      */
+    inline bool BlackholeHasBeenSet() const { return m_blackholeHasBeenSet; }
+
+    /**
+     * <p>Indicates whether traffic matching this route is to be dropped.</p>
+     */
     inline void SetBlackhole(bool value) { m_blackholeHasBeenSet = true; m_blackhole = value; }
 
     /**
@@ -184,6 +205,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

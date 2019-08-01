@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DescribeAlarmsForMetricRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The name of the metric.</p>
      */
     inline const Aws::String& GetMetricName() const{ return m_metricName; }
+
+    /**
+     * <p>The name of the metric.</p>
+     */
+    inline bool MetricNameHasBeenSet() const { return m_metricNameHasBeenSet; }
 
     /**
      * <p>The name of the metric.</p>
@@ -90,6 +95,11 @@ namespace Model
      * <p>The namespace of the metric.</p>
      */
     inline const Aws::String& GetNamespace() const{ return m_namespace; }
+
+    /**
+     * <p>The namespace of the metric.</p>
+     */
+    inline bool NamespaceHasBeenSet() const { return m_namespaceHasBeenSet; }
 
     /**
      * <p>The namespace of the metric.</p>
@@ -132,6 +142,12 @@ namespace Model
      * <p>The statistic for the metric, other than percentiles. For percentile
      * statistics, use <code>ExtendedStatistics</code>.</p>
      */
+    inline bool StatisticHasBeenSet() const { return m_statisticHasBeenSet; }
+
+    /**
+     * <p>The statistic for the metric, other than percentiles. For percentile
+     * statistics, use <code>ExtendedStatistics</code>.</p>
+     */
     inline void SetStatistic(const Statistic& value) { m_statisticHasBeenSet = true; m_statistic = value; }
 
     /**
@@ -158,6 +174,12 @@ namespace Model
      * p100.</p>
      */
     inline const Aws::String& GetExtendedStatistic() const{ return m_extendedStatistic; }
+
+    /**
+     * <p>The percentile statistic for the metric. Specify a value between p0.0 and
+     * p100.</p>
+     */
+    inline bool ExtendedStatisticHasBeenSet() const { return m_extendedStatisticHasBeenSet; }
 
     /**
      * <p>The percentile statistic for the metric. Specify a value between p0.0 and
@@ -206,6 +228,12 @@ namespace Model
      * <p>The dimensions associated with the metric. If the metric has any associated
      * dimensions, you must specify them in order for the call to succeed.</p>
      */
+    inline bool DimensionsHasBeenSet() const { return m_dimensionsHasBeenSet; }
+
+    /**
+     * <p>The dimensions associated with the metric. If the metric has any associated
+     * dimensions, you must specify them in order for the call to succeed.</p>
+     */
     inline void SetDimensions(const Aws::Vector<Dimension>& value) { m_dimensionsHasBeenSet = true; m_dimensions = value; }
 
     /**
@@ -247,6 +275,11 @@ namespace Model
     /**
      * <p>The period, in seconds, over which the statistic is applied.</p>
      */
+    inline bool PeriodHasBeenSet() const { return m_periodHasBeenSet; }
+
+    /**
+     * <p>The period, in seconds, over which the statistic is applied.</p>
+     */
     inline void SetPeriod(int value) { m_periodHasBeenSet = true; m_period = value; }
 
     /**
@@ -259,6 +292,11 @@ namespace Model
      * <p>The unit for the metric.</p>
      */
     inline const StandardUnit& GetUnit() const{ return m_unit; }
+
+    /**
+     * <p>The unit for the metric.</p>
+     */
+    inline bool UnitHasBeenSet() const { return m_unitHasBeenSet; }
 
     /**
      * <p>The unit for the metric.</p>

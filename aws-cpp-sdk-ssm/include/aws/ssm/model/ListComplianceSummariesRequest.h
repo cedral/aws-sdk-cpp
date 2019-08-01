@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ListComplianceSummariesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * specific list of results.</p>
      */
     inline const Aws::Vector<ComplianceStringFilter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>One or more compliance or inventory filters. Use a filter to return a more
+     * specific list of results.</p>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>One or more compliance or inventory filters. Use a filter to return a more
@@ -99,6 +105,12 @@ namespace Model
      * <p>A token to start the list. Use this token to get the next set of results.
      * </p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>A token to start the list. Use this token to get the next set of results.
+     * </p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -138,6 +150,13 @@ namespace Model
      * subsequent call to get the next set of results.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of items to return for this call. Currently, you can
+     * specify null or 50. The call also returns a token that you can specify in a
+     * subsequent call to get the next set of results.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return for this call. Currently, you can

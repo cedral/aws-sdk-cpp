@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetIntentVersionsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the intent for which versions should be returned.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the intent for which versions should be returned.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the intent for which versions should be returned.</p>
@@ -91,6 +96,14 @@ namespace Model
      * the next request. </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A pagination token for fetching the next page of intent versions. If the
+     * response to this call is truncated, Amazon Lex returns a pagination token in the
+     * response. To fetch the next page of versions, specify the pagination token in
+     * the next request. </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A pagination token for fetching the next page of intent versions. If the
@@ -146,6 +159,12 @@ namespace Model
      * is 10.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p>The maximum number of intent versions to return in the response. The default
+     * is 10.</p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of intent versions to return in the response. The default

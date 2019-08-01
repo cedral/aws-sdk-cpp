@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     NotifyWhenUploadedRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,9 @@ namespace Model
 
     
     inline const Aws::String& GetFileShareARN() const{ return m_fileShareARN; }
+
+    
+    inline bool FileShareARNHasBeenSet() const { return m_fileShareARNHasBeenSet; }
 
     
     inline void SetFileShareARN(const Aws::String& value) { m_fileShareARNHasBeenSet = true; m_fileShareARN = value; }

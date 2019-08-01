@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     ExportServerEngineAttributeRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * parameters and values provided in the <code>InputAttributes</code> list.</p>
      */
     inline const Aws::String& GetExportAttributeName() const{ return m_exportAttributeName; }
+
+    /**
+     * <p>The name of the export attribute. Currently, the supported export attribute
+     * is <code>Userdata</code>. This exports a user data script that includes
+     * parameters and values provided in the <code>InputAttributes</code> list.</p>
+     */
+    inline bool ExportAttributeNameHasBeenSet() const { return m_exportAttributeNameHasBeenSet; }
 
     /**
      * <p>The name of the export attribute. Currently, the supported export attribute
@@ -104,6 +111,11 @@ namespace Model
     /**
      * <p>The name of the server from which you are exporting the attribute.</p>
      */
+    inline bool ServerNameHasBeenSet() const { return m_serverNameHasBeenSet; }
+
+    /**
+     * <p>The name of the server from which you are exporting the attribute.</p>
+     */
     inline void SetServerName(const Aws::String& value) { m_serverNameHasBeenSet = true; m_serverName = value; }
 
     /**
@@ -149,6 +161,24 @@ namespace Model
      * parameter is ignored.</p> </li> </ul>
      */
     inline const Aws::Vector<EngineAttribute>& GetInputAttributes() const{ return m_inputAttributes; }
+
+    /**
+     * <p>The list of engine attributes. The list type is <code>EngineAttribute</code>.
+     * An <code>EngineAttribute</code> list item is a pair that includes an attribute
+     * name and its value. For the <code>Userdata</code> ExportAttributeName, the
+     * following are supported engine attribute names.</p> <ul> <li> <p> <b>RunList</b>
+     * In Chef, a list of roles or recipes that are run in the specified order. In
+     * Puppet, this parameter is ignored.</p> </li> <li> <p> <b>OrganizationName</b> In
+     * Chef, an organization name. AWS OpsWorks for Chef Automate always creates the
+     * organization <code>default</code>. In Puppet, this parameter is ignored.</p>
+     * </li> <li> <p> <b>NodeEnvironment</b> In Chef, a node environment (for example,
+     * development, staging, or one-box). In Puppet, this parameter is ignored.</p>
+     * </li> <li> <p> <b>NodeClientVersion</b> In Chef, the version of the Chef engine
+     * (three numbers separated by dots, such as 13.8.5). If this attribute is empty,
+     * OpsWorks for Chef Automate uses the most current version. In Puppet, this
+     * parameter is ignored.</p> </li> </ul>
+     */
+    inline bool InputAttributesHasBeenSet() const { return m_inputAttributesHasBeenSet; }
 
     /**
      * <p>The list of engine attributes. The list type is <code>EngineAttribute</code>.

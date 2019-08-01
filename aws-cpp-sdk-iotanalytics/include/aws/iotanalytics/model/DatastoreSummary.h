@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/iotanalytics/IoTAnalytics_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/iotanalytics/model/DatastoreStorageSummary.h>
 #include <aws/iotanalytics/model/DatastoreStatus.h>
 #include <aws/core/utils/DateTime.h>
 #include <utility>
@@ -57,6 +58,11 @@ namespace Model
     /**
      * <p>The name of the data store.</p>
      */
+    inline bool DatastoreNameHasBeenSet() const { return m_datastoreNameHasBeenSet; }
+
+    /**
+     * <p>The name of the data store.</p>
+     */
     inline void SetDatastoreName(const Aws::String& value) { m_datastoreNameHasBeenSet = true; m_datastoreName = value; }
 
     /**
@@ -86,9 +92,45 @@ namespace Model
 
 
     /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline const DatastoreStorageSummary& GetDatastoreStorage() const{ return m_datastoreStorage; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline bool DatastoreStorageHasBeenSet() const { return m_datastoreStorageHasBeenSet; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline void SetDatastoreStorage(const DatastoreStorageSummary& value) { m_datastoreStorageHasBeenSet = true; m_datastoreStorage = value; }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline void SetDatastoreStorage(DatastoreStorageSummary&& value) { m_datastoreStorageHasBeenSet = true; m_datastoreStorage = std::move(value); }
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline DatastoreSummary& WithDatastoreStorage(const DatastoreStorageSummary& value) { SetDatastoreStorage(value); return *this;}
+
+    /**
+     * <p>Where data store data is stored.</p>
+     */
+    inline DatastoreSummary& WithDatastoreStorage(DatastoreStorageSummary&& value) { SetDatastoreStorage(std::move(value)); return *this;}
+
+
+    /**
      * <p>The status of the data store.</p>
      */
     inline const DatastoreStatus& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>The status of the data store.</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>The status of the data store.</p>
@@ -119,6 +161,11 @@ namespace Model
     /**
      * <p>When the data store was created.</p>
      */
+    inline bool CreationTimeHasBeenSet() const { return m_creationTimeHasBeenSet; }
+
+    /**
+     * <p>When the data store was created.</p>
+     */
     inline void SetCreationTime(const Aws::Utils::DateTime& value) { m_creationTimeHasBeenSet = true; m_creationTime = value; }
 
     /**
@@ -145,6 +192,11 @@ namespace Model
     /**
      * <p>The last time the data store was updated.</p>
      */
+    inline bool LastUpdateTimeHasBeenSet() const { return m_lastUpdateTimeHasBeenSet; }
+
+    /**
+     * <p>The last time the data store was updated.</p>
+     */
     inline void SetLastUpdateTime(const Aws::Utils::DateTime& value) { m_lastUpdateTimeHasBeenSet = true; m_lastUpdateTime = value; }
 
     /**
@@ -166,6 +218,9 @@ namespace Model
 
     Aws::String m_datastoreName;
     bool m_datastoreNameHasBeenSet;
+
+    DatastoreStorageSummary m_datastoreStorage;
+    bool m_datastoreStorageHasBeenSet;
 
     DatastoreStatus m_status;
     bool m_statusHasBeenSet;

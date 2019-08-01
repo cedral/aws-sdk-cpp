@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     ListIdentitiesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,12 @@ namespace Model
      * "Domain". If this parameter is omitted, then all identities will be listed.</p>
      */
     inline const IdentityType& GetIdentityType() const{ return m_identityType; }
+
+    /**
+     * <p>The type of the identities to list. Possible values are "EmailAddress" and
+     * "Domain". If this parameter is omitted, then all identities will be listed.</p>
+     */
+    inline bool IdentityTypeHasBeenSet() const { return m_identityTypeHasBeenSet; }
 
     /**
      * <p>The type of the identities to list. Possible values are "EmailAddress" and
@@ -87,6 +93,11 @@ namespace Model
      * <p>The token to use for pagination.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token to use for pagination.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token to use for pagination.</p>
@@ -124,6 +135,12 @@ namespace Model
      * inclusive.</p>
      */
     inline int GetMaxItems() const{ return m_maxItems; }
+
+    /**
+     * <p>The maximum number of identities per page. Possible values are 1-1000
+     * inclusive.</p>
+     */
+    inline bool MaxItemsHasBeenSet() const { return m_maxItemsHasBeenSet; }
 
     /**
      * <p>The maximum number of identities per page. Possible values are 1-1000

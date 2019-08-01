@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeStreamRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) for the stream.</p>
      */
     inline const Aws::String& GetStreamArn() const{ return m_streamArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the stream.</p>
+     */
+    inline bool StreamArnHasBeenSet() const { return m_streamArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) for the stream.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
      */
+    inline bool LimitHasBeenSet() const { return m_limitHasBeenSet; }
+
+    /**
+     * <p>The maximum number of shard objects to return. The upper limit is 100.</p>
+     */
     inline void SetLimit(int value) { m_limitHasBeenSet = true; m_limit = value; }
 
     /**
@@ -103,6 +113,13 @@ namespace Model
      * operation. </p>
      */
     inline const Aws::String& GetExclusiveStartShardId() const{ return m_exclusiveStartShardId; }
+
+    /**
+     * <p>The shard ID of the first item that this operation will evaluate. Use the
+     * value that was returned for <code>LastEvaluatedShardId</code> in the previous
+     * operation. </p>
+     */
+    inline bool ExclusiveStartShardIdHasBeenSet() const { return m_exclusiveStartShardIdHasBeenSet; }
 
     /**
      * <p>The shard ID of the first item that this operation will evaluate. Use the

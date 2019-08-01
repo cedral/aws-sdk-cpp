@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     StopRelationalDatabaseRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of your database to stop.</p>
      */
     inline const Aws::String& GetRelationalDatabaseName() const{ return m_relationalDatabaseName; }
+
+    /**
+     * <p>The name of your database to stop.</p>
+     */
+    inline bool RelationalDatabaseNameHasBeenSet() const { return m_relationalDatabaseNameHasBeenSet; }
 
     /**
      * <p>The name of your database to stop.</p>
@@ -85,6 +90,12 @@ namespace Model
      * database.</p>
      */
     inline const Aws::String& GetRelationalDatabaseSnapshotName() const{ return m_relationalDatabaseSnapshotName; }
+
+    /**
+     * <p>The name of your new database snapshot to be created before stopping your
+     * database.</p>
+     */
+    inline bool RelationalDatabaseSnapshotNameHasBeenSet() const { return m_relationalDatabaseSnapshotNameHasBeenSet; }
 
     /**
      * <p>The name of your new database snapshot to be created before stopping your

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ModifyVpcTenancyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ID of the VPC.</p>
      */
     inline const Aws::String& GetVpcId() const{ return m_vpcId; }
+
+    /**
+     * <p>The ID of the VPC.</p>
+     */
+    inline bool VpcIdHasBeenSet() const { return m_vpcIdHasBeenSet; }
 
     /**
      * <p>The ID of the VPC.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The instance tenancy attribute for the VPC. </p>
      */
+    inline bool InstanceTenancyHasBeenSet() const { return m_instanceTenancyHasBeenSet; }
+
+    /**
+     * <p>The instance tenancy attribute for the VPC. </p>
+     */
     inline void SetInstanceTenancy(const VpcTenancy& value) { m_instanceTenancyHasBeenSet = true; m_instanceTenancy = value; }
 
     /**
@@ -116,6 +126,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

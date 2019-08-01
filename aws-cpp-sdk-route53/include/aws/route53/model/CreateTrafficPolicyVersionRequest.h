@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateTrafficPolicyVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the traffic policy for which you want to create a new version.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID of the traffic policy for which you want to create a new version.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID of the traffic policy for which you want to create a new version.</p>
@@ -85,49 +90,64 @@ namespace Model
     /**
      * <p>The definition of this version of the traffic policy, in JSON format. You
      * specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For
-     * more information about the JSON format, see <a>CreateTrafficPolicy</a>.</p>
+     * more information about the JSON format, see <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
      */
     inline const Aws::String& GetDocument() const{ return m_document; }
 
     /**
      * <p>The definition of this version of the traffic policy, in JSON format. You
      * specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For
-     * more information about the JSON format, see <a>CreateTrafficPolicy</a>.</p>
+     * more information about the JSON format, see <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
+     */
+    inline bool DocumentHasBeenSet() const { return m_documentHasBeenSet; }
+
+    /**
+     * <p>The definition of this version of the traffic policy, in JSON format. You
+     * specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For
+     * more information about the JSON format, see <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
      */
     inline void SetDocument(const Aws::String& value) { m_documentHasBeenSet = true; m_document = value; }
 
     /**
      * <p>The definition of this version of the traffic policy, in JSON format. You
      * specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For
-     * more information about the JSON format, see <a>CreateTrafficPolicy</a>.</p>
+     * more information about the JSON format, see <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
      */
     inline void SetDocument(Aws::String&& value) { m_documentHasBeenSet = true; m_document = std::move(value); }
 
     /**
      * <p>The definition of this version of the traffic policy, in JSON format. You
      * specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For
-     * more information about the JSON format, see <a>CreateTrafficPolicy</a>.</p>
+     * more information about the JSON format, see <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
      */
     inline void SetDocument(const char* value) { m_documentHasBeenSet = true; m_document.assign(value); }
 
     /**
      * <p>The definition of this version of the traffic policy, in JSON format. You
      * specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For
-     * more information about the JSON format, see <a>CreateTrafficPolicy</a>.</p>
+     * more information about the JSON format, see <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
      */
     inline CreateTrafficPolicyVersionRequest& WithDocument(const Aws::String& value) { SetDocument(value); return *this;}
 
     /**
      * <p>The definition of this version of the traffic policy, in JSON format. You
      * specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For
-     * more information about the JSON format, see <a>CreateTrafficPolicy</a>.</p>
+     * more information about the JSON format, see <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
      */
     inline CreateTrafficPolicyVersionRequest& WithDocument(Aws::String&& value) { SetDocument(std::move(value)); return *this;}
 
     /**
      * <p>The definition of this version of the traffic policy, in JSON format. You
      * specified the JSON in the <code>CreateTrafficPolicyVersion</code> request. For
-     * more information about the JSON format, see <a>CreateTrafficPolicy</a>.</p>
+     * more information about the JSON format, see <a
+     * href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateTrafficPolicy.html">CreateTrafficPolicy</a>.</p>
      */
     inline CreateTrafficPolicyVersionRequest& WithDocument(const char* value) { SetDocument(value); return *this;}
 
@@ -137,6 +157,12 @@ namespace Model
      * request, if any.</p>
      */
     inline const Aws::String& GetComment() const{ return m_comment; }
+
+    /**
+     * <p>The comment that you specified in the <code>CreateTrafficPolicyVersion</code>
+     * request, if any.</p>
+     */
+    inline bool CommentHasBeenSet() const { return m_commentHasBeenSet; }
 
     /**
      * <p>The comment that you specified in the <code>CreateTrafficPolicyVersion</code>

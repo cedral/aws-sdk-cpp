@@ -39,7 +39,7 @@ namespace Model
   {
   public:
     DeleteCertificateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -56,6 +56,12 @@ namespace Model
      * certificate ID.)</p>
      */
     inline const Aws::String& GetCertificateId() const{ return m_certificateId; }
+
+    /**
+     * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+     * certificate ID.)</p>
+     */
+    inline bool CertificateIdHasBeenSet() const { return m_certificateIdHasBeenSet; }
 
     /**
      * <p>The ID of the certificate. (The last part of the certificate ARN contains the
@@ -98,6 +104,11 @@ namespace Model
      * <p>Forces a certificate request to be deleted.</p>
      */
     inline bool GetForceDelete() const{ return m_forceDelete; }
+
+    /**
+     * <p>Forces a certificate request to be deleted.</p>
+     */
+    inline bool ForceDeleteHasBeenSet() const { return m_forceDeleteHasBeenSet; }
 
     /**
      * <p>Forces a certificate request to be deleted.</p>

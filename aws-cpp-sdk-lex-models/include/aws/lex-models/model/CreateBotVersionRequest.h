@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateBotVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * case sensitive. </p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the bot that you want to create a new version of. The name is
+     * case sensitive. </p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the bot that you want to create a new version of. The name is
@@ -93,6 +99,15 @@ namespace Model
      * checksum, Amazon Lex publishes the <code>$LATEST</code> version.</p>
      */
     inline const Aws::String& GetChecksum() const{ return m_checksum; }
+
+    /**
+     * <p>Identifies a specific revision of the <code>$LATEST</code> version of the
+     * bot. If you specify a checksum and the <code>$LATEST</code> version of the bot
+     * has a different checksum, a <code>PreconditionFailedException</code> exception
+     * is returned and Amazon Lex doesn't publish a new version. If you don't specify a
+     * checksum, Amazon Lex publishes the <code>$LATEST</code> version.</p>
+     */
+    inline bool ChecksumHasBeenSet() const { return m_checksumHasBeenSet; }
 
     /**
      * <p>Identifies a specific revision of the <code>$LATEST</code> version of the

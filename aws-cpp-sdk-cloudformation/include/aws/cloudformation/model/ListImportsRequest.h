@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListImportsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * names that are importing this value. </p>
      */
     inline const Aws::String& GetExportName() const{ return m_exportName; }
+
+    /**
+     * <p>The name of the exported output value. AWS CloudFormation returns the stack
+     * names that are importing this value. </p>
+     */
+    inline bool ExportNameHasBeenSet() const { return m_exportNameHasBeenSet; }
 
     /**
      * <p>The name of the exported output value. AWS CloudFormation returns the stack
@@ -95,6 +101,13 @@ namespace Model
      * </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>A string (provided by the <a>ListImports</a> response output) that identifies
+     * the next page of stacks that are importing the specified exported output value.
+     * </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>A string (provided by the <a>ListImports</a> response output) that identifies

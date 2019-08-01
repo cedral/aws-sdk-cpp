@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     SetCognitoEventsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The Cognito Identity Pool to use when configuring Cognito Events</p>
      */
     inline const Aws::String& GetIdentityPoolId() const{ return m_identityPoolId; }
+
+    /**
+     * <p>The Cognito Identity Pool to use when configuring Cognito Events</p>
+     */
+    inline bool IdentityPoolIdHasBeenSet() const { return m_identityPoolIdHasBeenSet; }
 
     /**
      * <p>The Cognito Identity Pool to use when configuring Cognito Events</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The events to configure</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetEvents() const{ return m_events; }
+
+    /**
+     * <p>The events to configure</p>
+     */
+    inline bool EventsHasBeenSet() const { return m_eventsHasBeenSet; }
 
     /**
      * <p>The events to configure</p>

@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreateWebhookRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the AWS CodeBuild project.</p>
      */
     inline const Aws::String& GetProjectName() const{ return m_projectName; }
+
+    /**
+     * <p>The name of the AWS CodeBuild project.</p>
+     */
+    inline bool ProjectNameHasBeenSet() const { return m_projectNameHasBeenSet; }
 
     /**
      * <p>The name of the AWS CodeBuild project.</p>
@@ -90,6 +95,15 @@ namespace Model
      * <code>filterGroups</code> instead of <code>branchFilter</code>. </p> </note>
      */
     inline const Aws::String& GetBranchFilter() const{ return m_branchFilter; }
+
+    /**
+     * <p>A regular expression used to determine which repository branches are built
+     * when a webhook is triggered. If the name of a branch matches the regular
+     * expression, then it is built. If <code>branchFilter</code> is empty, then all
+     * branches are built.</p> <note> <p> It is recommended that you use
+     * <code>filterGroups</code> instead of <code>branchFilter</code>. </p> </note>
+     */
+    inline bool BranchFilterHasBeenSet() const { return m_branchFilterHasBeenSet; }
 
     /**
      * <p>A regular expression used to determine which repository branches are built
@@ -155,6 +169,16 @@ namespace Model
      * its filters must pass. </p>
      */
     inline const Aws::Vector<Aws::Vector<WebhookFilter>>& GetFilterGroups() const{ return m_filterGroups; }
+
+    /**
+     * <p> An array of arrays of <code>WebhookFilter</code> objects used to determine
+     * which webhooks are triggered. At least one <code>WebhookFilter</code> in the
+     * array must specify <code>EVENT</code> as its <code>type</code>. </p> <p> For a
+     * build to be triggered, at least one filter group in the
+     * <code>filterGroups</code> array must pass. For a filter group to pass, each of
+     * its filters must pass. </p>
+     */
+    inline bool FilterGroupsHasBeenSet() const { return m_filterGroupsHasBeenSet; }
 
     /**
      * <p> An array of arrays of <code>WebhookFilter</code> objects used to determine

@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateAcceleratorRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
      */
     inline const Aws::String& GetAcceleratorArn() const{ return m_acceleratorArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
+     */
+    inline bool AcceleratorArnHasBeenSet() const { return m_acceleratorArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the accelerator to update.</p>
@@ -87,6 +92,13 @@ namespace Model
      * end with a hyphen.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
+     * must contain only alphanumeric characters or hyphens (-), and must not begin or
+     * end with a hyphen.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The name of the accelerator. The name can have a maximum of 32 characters,
@@ -139,6 +151,11 @@ namespace Model
     /**
      * <p>The value for the address type must be IPv4. </p>
      */
+    inline bool IpAddressTypeHasBeenSet() const { return m_ipAddressTypeHasBeenSet; }
+
+    /**
+     * <p>The value for the address type must be IPv4. </p>
+     */
     inline void SetIpAddressType(const IpAddressType& value) { m_ipAddressTypeHasBeenSet = true; m_ipAddressType = value; }
 
     /**
@@ -163,6 +180,13 @@ namespace Model
      * cannot be deleted. If set to false, the accelerator can be deleted.</p>
      */
     inline bool GetEnabled() const{ return m_enabled; }
+
+    /**
+     * <p>Indicates whether an accelerator is enabled. The value is true or false. The
+     * default value is true. </p> <p>If the value is set to true, the accelerator
+     * cannot be deleted. If set to false, the accelerator can be deleted.</p>
+     */
+    inline bool EnabledHasBeenSet() const { return m_enabledHasBeenSet; }
 
     /**
      * <p>Indicates whether an accelerator is enabled. The value is true or false. The

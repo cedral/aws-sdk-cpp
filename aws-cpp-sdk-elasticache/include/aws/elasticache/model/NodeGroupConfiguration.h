@@ -54,37 +54,50 @@ namespace Model
 
 
     /**
-     * <p>The 4-digit id for the node group these configuration values apply to.</p>
+     * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
+     * for the node group these configuration values apply to.</p>
      */
     inline const Aws::String& GetNodeGroupId() const{ return m_nodeGroupId; }
 
     /**
-     * <p>The 4-digit id for the node group these configuration values apply to.</p>
+     * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
+     * for the node group these configuration values apply to.</p>
+     */
+    inline bool NodeGroupIdHasBeenSet() const { return m_nodeGroupIdHasBeenSet; }
+
+    /**
+     * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
+     * for the node group these configuration values apply to.</p>
      */
     inline void SetNodeGroupId(const Aws::String& value) { m_nodeGroupIdHasBeenSet = true; m_nodeGroupId = value; }
 
     /**
-     * <p>The 4-digit id for the node group these configuration values apply to.</p>
+     * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
+     * for the node group these configuration values apply to.</p>
      */
     inline void SetNodeGroupId(Aws::String&& value) { m_nodeGroupIdHasBeenSet = true; m_nodeGroupId = std::move(value); }
 
     /**
-     * <p>The 4-digit id for the node group these configuration values apply to.</p>
+     * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
+     * for the node group these configuration values apply to.</p>
      */
     inline void SetNodeGroupId(const char* value) { m_nodeGroupIdHasBeenSet = true; m_nodeGroupId.assign(value); }
 
     /**
-     * <p>The 4-digit id for the node group these configuration values apply to.</p>
+     * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
+     * for the node group these configuration values apply to.</p>
      */
     inline NodeGroupConfiguration& WithNodeGroupId(const Aws::String& value) { SetNodeGroupId(value); return *this;}
 
     /**
-     * <p>The 4-digit id for the node group these configuration values apply to.</p>
+     * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
+     * for the node group these configuration values apply to.</p>
      */
     inline NodeGroupConfiguration& WithNodeGroupId(Aws::String&& value) { SetNodeGroupId(std::move(value)); return *this;}
 
     /**
-     * <p>The 4-digit id for the node group these configuration values apply to.</p>
+     * <p>Either the ElastiCache for Redis supplied 4-digit id or a user supplied id
+     * for the node group these configuration values apply to.</p>
      */
     inline NodeGroupConfiguration& WithNodeGroupId(const char* value) { SetNodeGroupId(value); return *this;}
 
@@ -95,6 +108,13 @@ namespace Model
      * <code>startkey-endkey</code>.</p> <p>Example: <code>"0-3999"</code> </p>
      */
     inline const Aws::String& GetSlots() const{ return m_slots; }
+
+    /**
+     * <p>A string that specifies the keyspace for a particular node group. Keyspaces
+     * range from 0 to 16,383. The string is in the format
+     * <code>startkey-endkey</code>.</p> <p>Example: <code>"0-3999"</code> </p>
+     */
+    inline bool SlotsHasBeenSet() const { return m_slotsHasBeenSet; }
 
     /**
      * <p>A string that specifies the keyspace for a particular node group. Keyspaces
@@ -147,6 +167,11 @@ namespace Model
     /**
      * <p>The number of read replica nodes in this node group (shard).</p>
      */
+    inline bool ReplicaCountHasBeenSet() const { return m_replicaCountHasBeenSet; }
+
+    /**
+     * <p>The number of read replica nodes in this node group (shard).</p>
+     */
     inline void SetReplicaCount(int value) { m_replicaCountHasBeenSet = true; m_replicaCount = value; }
 
     /**
@@ -160,6 +185,12 @@ namespace Model
      * launched.</p>
      */
     inline const Aws::String& GetPrimaryAvailabilityZone() const{ return m_primaryAvailabilityZone; }
+
+    /**
+     * <p>The Availability Zone where the primary node of this node group (shard) is
+     * launched.</p>
+     */
+    inline bool PrimaryAvailabilityZoneHasBeenSet() const { return m_primaryAvailabilityZoneHasBeenSet; }
 
     /**
      * <p>The Availability Zone where the primary node of this node group (shard) is
@@ -205,6 +236,14 @@ namespace Model
      * specified.</p>
      */
     inline const Aws::Vector<Aws::String>& GetReplicaAvailabilityZones() const{ return m_replicaAvailabilityZones; }
+
+    /**
+     * <p>A list of Availability Zones to be used for the read replicas. The number of
+     * Availability Zones in this list must match the value of
+     * <code>ReplicaCount</code> or <code>ReplicasPerNodeGroup</code> if not
+     * specified.</p>
+     */
+    inline bool ReplicaAvailabilityZonesHasBeenSet() const { return m_replicaAvailabilityZonesHasBeenSet; }
 
     /**
      * <p>A list of Availability Zones to be used for the read replicas. The number of

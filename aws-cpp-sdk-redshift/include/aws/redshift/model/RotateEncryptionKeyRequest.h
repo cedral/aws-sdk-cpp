@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     RotateEncryptionKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,13 @@ namespace Model
      * encryption enabled.</p>
      */
     inline const Aws::String& GetClusterIdentifier() const{ return m_clusterIdentifier; }
+
+    /**
+     * <p>The unique identifier of the cluster that you want to rotate the encryption
+     * keys for.</p> <p>Constraints: Must be the name of valid cluster that has
+     * encryption enabled.</p>
+     */
+    inline bool ClusterIdentifierHasBeenSet() const { return m_clusterIdentifierHasBeenSet; }
 
     /**
      * <p>The unique identifier of the cluster that you want to rotate the encryption

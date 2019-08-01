@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     RevokeInvitationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * Required.</p>
      */
     inline const Aws::String& GetUserArn() const{ return m_userArn; }
+
+    /**
+     * <p>The ARN of the user for whom to revoke an enrollment invitation.
+     * Required.</p>
+     */
+    inline bool UserArnHasBeenSet() const { return m_userArnHasBeenSet; }
 
     /**
      * <p>The ARN of the user for whom to revoke an enrollment invitation.
@@ -91,6 +97,11 @@ namespace Model
      * <p>The ARN of the enrollment invitation to revoke. Required.</p>
      */
     inline const Aws::String& GetEnrollmentId() const{ return m_enrollmentId; }
+
+    /**
+     * <p>The ARN of the enrollment invitation to revoke. Required.</p>
+     */
+    inline bool EnrollmentIdHasBeenSet() const { return m_enrollmentIdHasBeenSet; }
 
     /**
      * <p>The ARN of the enrollment invitation to revoke. Required.</p>

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     UpdateHostedZoneCommentRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID for the hosted zone that you want to update the comment for.</p>
      */
     inline const Aws::String& GetId() const{ return m_id; }
+
+    /**
+     * <p>The ID for the hosted zone that you want to update the comment for.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>The ID for the hosted zone that you want to update the comment for.</p>
@@ -88,6 +93,13 @@ namespace Model
      * <code>Comment</code> element, if any.</p>
      */
     inline const Aws::String& GetComment() const{ return m_comment; }
+
+    /**
+     * <p>The new comment for the hosted zone. If you don't specify a value for
+     * <code>Comment</code>, Amazon Route 53 deletes the existing value of the
+     * <code>Comment</code> element, if any.</p>
+     */
+    inline bool CommentHasBeenSet() const { return m_commentHasBeenSet; }
 
     /**
      * <p>The new comment for the hosted zone. If you don't specify a value for

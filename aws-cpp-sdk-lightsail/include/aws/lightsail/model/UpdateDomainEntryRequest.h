@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateDomainEntryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The name of the domain recordset to update.</p>
      */
     inline const Aws::String& GetDomainName() const{ return m_domainName; }
+
+    /**
+     * <p>The name of the domain recordset to update.</p>
+     */
+    inline bool DomainNameHasBeenSet() const { return m_domainNameHasBeenSet; }
 
     /**
      * <p>The name of the domain recordset to update.</p>
@@ -86,6 +91,12 @@ namespace Model
      * entry.</p>
      */
     inline const DomainEntry& GetDomainEntry() const{ return m_domainEntry; }
+
+    /**
+     * <p>An array of key-value pairs containing information about the domain
+     * entry.</p>
+     */
+    inline bool DomainEntryHasBeenSet() const { return m_domainEntryHasBeenSet; }
 
     /**
      * <p>An array of key-value pairs containing information about the domain

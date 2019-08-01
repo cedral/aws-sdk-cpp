@@ -40,7 +40,7 @@ namespace Model
   {
   public:
     GetModelRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -57,6 +57,12 @@ namespace Model
      * exists.</p>
      */
     inline const Aws::String& GetRestApiId() const{ return m_restApiId; }
+
+    /**
+     * <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a>
+     * exists.</p>
+     */
+    inline bool RestApiIdHasBeenSet() const { return m_restApiIdHasBeenSet; }
 
     /**
      * <p>[Required] The <a>RestApi</a> identifier under which the <a>Model</a>
@@ -103,6 +109,11 @@ namespace Model
     /**
      * <p>[Required] The name of the model as an identifier.</p>
      */
+    inline bool ModelNameHasBeenSet() const { return m_modelNameHasBeenSet; }
+
+    /**
+     * <p>[Required] The name of the model as an identifier.</p>
+     */
     inline void SetModelName(const Aws::String& value) { m_modelNameHasBeenSet = true; m_modelName = value; }
 
     /**
@@ -137,6 +148,13 @@ namespace Model
      * (<code>false</code>) The default is <code>false</code>.</p>
      */
     inline bool GetFlatten() const{ return m_flatten; }
+
+    /**
+     * <p>A query parameter of a Boolean value to resolve (<code>true</code>) all
+     * external model references and returns a flattened model schema or not
+     * (<code>false</code>) The default is <code>false</code>.</p>
+     */
+    inline bool FlattenHasBeenSet() const { return m_flattenHasBeenSet; }
 
     /**
      * <p>A query parameter of a Boolean value to resolve (<code>true</code>) all

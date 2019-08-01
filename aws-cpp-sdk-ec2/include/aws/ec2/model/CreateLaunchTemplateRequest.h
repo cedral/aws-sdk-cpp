@@ -18,6 +18,8 @@
 #include <aws/ec2/EC2Request.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/ec2/model/RequestLaunchTemplateData.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ec2/model/TagSpecification.h>
 #include <utility>
 
 namespace Aws
@@ -33,7 +35,7 @@ namespace Model
   {
   public:
     CreateLaunchTemplateRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -61,6 +63,14 @@ namespace Model
      * required permissions, the error response is <code>DryRunOperation</code>.
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
     inline void SetDryRun(bool value) { m_dryRunHasBeenSet = true; m_dryRun = value; }
 
     /**
@@ -79,6 +89,14 @@ namespace Model
      * Idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
+
+    /**
+     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
+     * the request. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+     * Idempotency</a>.</p> <p>Constraint: Maximum 128 ASCII characters.</p>
+     */
+    inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
@@ -137,6 +155,11 @@ namespace Model
     /**
      * <p>A name for the launch template.</p>
      */
+    inline bool LaunchTemplateNameHasBeenSet() const { return m_launchTemplateNameHasBeenSet; }
+
+    /**
+     * <p>A name for the launch template.</p>
+     */
     inline void SetLaunchTemplateName(const Aws::String& value) { m_launchTemplateNameHasBeenSet = true; m_launchTemplateName = value; }
 
     /**
@@ -169,6 +192,11 @@ namespace Model
      * <p>A description for the first version of the launch template.</p>
      */
     inline const Aws::String& GetVersionDescription() const{ return m_versionDescription; }
+
+    /**
+     * <p>A description for the first version of the launch template.</p>
+     */
+    inline bool VersionDescriptionHasBeenSet() const { return m_versionDescriptionHasBeenSet; }
 
     /**
      * <p>A description for the first version of the launch template.</p>
@@ -209,6 +237,11 @@ namespace Model
     /**
      * <p>The information for the launch template.</p>
      */
+    inline bool LaunchTemplateDataHasBeenSet() const { return m_launchTemplateDataHasBeenSet; }
+
+    /**
+     * <p>The information for the launch template.</p>
+     */
     inline void SetLaunchTemplateData(const RequestLaunchTemplateData& value) { m_launchTemplateDataHasBeenSet = true; m_launchTemplateData = value; }
 
     /**
@@ -226,6 +259,47 @@ namespace Model
      */
     inline CreateLaunchTemplateRequest& WithLaunchTemplateData(RequestLaunchTemplateData&& value) { SetLaunchTemplateData(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The tags to apply to the launch template during creation.</p>
+     */
+    inline const Aws::Vector<TagSpecification>& GetTagSpecifications() const{ return m_tagSpecifications; }
+
+    /**
+     * <p>The tags to apply to the launch template during creation.</p>
+     */
+    inline bool TagSpecificationsHasBeenSet() const { return m_tagSpecificationsHasBeenSet; }
+
+    /**
+     * <p>The tags to apply to the launch template during creation.</p>
+     */
+    inline void SetTagSpecifications(const Aws::Vector<TagSpecification>& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = value; }
+
+    /**
+     * <p>The tags to apply to the launch template during creation.</p>
+     */
+    inline void SetTagSpecifications(Aws::Vector<TagSpecification>&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = std::move(value); }
+
+    /**
+     * <p>The tags to apply to the launch template during creation.</p>
+     */
+    inline CreateLaunchTemplateRequest& WithTagSpecifications(const Aws::Vector<TagSpecification>& value) { SetTagSpecifications(value); return *this;}
+
+    /**
+     * <p>The tags to apply to the launch template during creation.</p>
+     */
+    inline CreateLaunchTemplateRequest& WithTagSpecifications(Aws::Vector<TagSpecification>&& value) { SetTagSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags to apply to the launch template during creation.</p>
+     */
+    inline CreateLaunchTemplateRequest& AddTagSpecifications(const TagSpecification& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The tags to apply to the launch template during creation.</p>
+     */
+    inline CreateLaunchTemplateRequest& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
+
   private:
 
     bool m_dryRun;
@@ -242,6 +316,9 @@ namespace Model
 
     RequestLaunchTemplateData m_launchTemplateData;
     bool m_launchTemplateDataHasBeenSet;
+
+    Aws::Vector<TagSpecification> m_tagSpecifications;
+    bool m_tagSpecificationsHasBeenSet;
   };
 
 } // namespace Model

@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     AddTagsToResourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,14 @@ namespace Model
      * Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
      */
     inline const Aws::String& GetResourceName() const{ return m_resourceName; }
+
+    /**
+     * <p>The Amazon RDS resource that the tags are added to. This value is an Amazon
+     * Resource Name (ARN). For information about creating an ARN, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
+     * Constructing an RDS Amazon Resource Name (ARN)</a>.</p>
+     */
+    inline bool ResourceNameHasBeenSet() const { return m_resourceNameHasBeenSet; }
 
     /**
      * <p>The Amazon RDS resource that the tags are added to. This value is an Amazon
@@ -112,6 +120,11 @@ namespace Model
      * <p>The tags to be assigned to the Amazon RDS resource.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags to be assigned to the Amazon RDS resource.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The tags to be assigned to the Amazon RDS resource.</p>

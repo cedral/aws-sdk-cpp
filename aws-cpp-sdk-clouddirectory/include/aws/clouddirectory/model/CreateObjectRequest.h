@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateObjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,12 @@ namespace Model
      * in which the object will be created. For more information, see <a>arns</a>.</p>
      */
     inline const Aws::String& GetDirectoryArn() const{ return m_directoryArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
+     * in which the object will be created. For more information, see <a>arns</a>.</p>
+     */
+    inline bool DirectoryArnHasBeenSet() const { return m_directoryArnHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>
@@ -101,6 +107,12 @@ namespace Model
      * <p>A list of schema facets to be associated with the object. Do not provide
      * minor version components. See <a>SchemaFacet</a> for details.</p>
      */
+    inline bool SchemaFacetsHasBeenSet() const { return m_schemaFacetsHasBeenSet; }
+
+    /**
+     * <p>A list of schema facets to be associated with the object. Do not provide
+     * minor version components. See <a>SchemaFacet</a> for details.</p>
+     */
     inline void SetSchemaFacets(const Aws::Vector<SchemaFacet>& value) { m_schemaFacetsHasBeenSet = true; m_schemaFacets = value; }
 
     /**
@@ -139,6 +151,12 @@ namespace Model
      * the map value.</p>
      */
     inline const Aws::Vector<AttributeKeyAndValue>& GetObjectAttributeList() const{ return m_objectAttributeList; }
+
+    /**
+     * <p>The attribute map whose attribute ARN contains the key and attribute value as
+     * the map value.</p>
+     */
+    inline bool ObjectAttributeListHasBeenSet() const { return m_objectAttributeListHasBeenSet; }
 
     /**
      * <p>The attribute map whose attribute ARN contains the key and attribute value as
@@ -185,6 +203,11 @@ namespace Model
     /**
      * <p>If specified, the parent reference to which this object will be attached.</p>
      */
+    inline bool ParentReferenceHasBeenSet() const { return m_parentReferenceHasBeenSet; }
+
+    /**
+     * <p>If specified, the parent reference to which this object will be attached.</p>
+     */
     inline void SetParentReference(const ObjectReference& value) { m_parentReferenceHasBeenSet = true; m_parentReference = value; }
 
     /**
@@ -207,6 +230,11 @@ namespace Model
      * <p>The name of link that is used to attach this object to a parent.</p>
      */
     inline const Aws::String& GetLinkName() const{ return m_linkName; }
+
+    /**
+     * <p>The name of link that is used to attach this object to a parent.</p>
+     */
+    inline bool LinkNameHasBeenSet() const { return m_linkNameHasBeenSet; }
 
     /**
      * <p>The name of link that is used to attach this object to a parent.</p>

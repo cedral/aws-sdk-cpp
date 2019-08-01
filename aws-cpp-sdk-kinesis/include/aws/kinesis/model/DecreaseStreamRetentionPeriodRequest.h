@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     DecreaseStreamRetentionPeriodRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the stream to modify.</p>
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
+
+    /**
+     * <p>The name of the stream to modify.</p>
+     */
+    inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
      * <p>The name of the stream to modify.</p>
@@ -89,6 +94,12 @@ namespace Model
      * current retention period.</p>
      */
     inline int GetRetentionPeriodHours() const{ return m_retentionPeriodHours; }
+
+    /**
+     * <p>The new retention period of the stream, in hours. Must be less than the
+     * current retention period.</p>
+     */
+    inline bool RetentionPeriodHoursHasBeenSet() const { return m_retentionPeriodHoursHasBeenSet; }
 
     /**
      * <p>The new retention period of the stream, in hours. Must be less than the

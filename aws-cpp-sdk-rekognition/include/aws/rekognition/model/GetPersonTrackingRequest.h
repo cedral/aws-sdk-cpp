@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetPersonTrackingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * <code>JobId</code> from a call to <code>StartPersonTracking</code>. </p>
      */
     inline const Aws::String& GetJobId() const{ return m_jobId; }
+
+    /**
+     * <p>The identifier for a job that tracks persons in a video. You get the
+     * <code>JobId</code> from a call to <code>StartPersonTracking</code>. </p>
+     */
+    inline bool JobIdHasBeenSet() const { return m_jobIdHasBeenSet; }
 
     /**
      * <p>The identifier for a job that tracks persons in a video. You get the
@@ -100,6 +106,13 @@ namespace Model
      * can specify is 1000. If you specify a value greater than 1000, a maximum of 1000
      * results is returned. The default value is 1000.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>Maximum number of results to return per paginated call. The largest value you
+     * can specify is 1000. If you specify a value greater than 1000, a maximum of 1000
+     * results is returned. The default value is 1000.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -116,6 +129,13 @@ namespace Model
      * You can use this pagination token to retrieve the next set of persons. </p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>If the previous response was incomplete (because there are more persons to
+     * retrieve), Amazon Rekognition Video returns a pagination token in the response.
+     * You can use this pagination token to retrieve the next set of persons. </p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>If the previous response was incomplete (because there are more persons to
@@ -168,6 +188,15 @@ namespace Model
      * confidence. The default sort is by <code>TIMESTAMP</code>.</p>
      */
     inline const PersonTrackingSortBy& GetSortBy() const{ return m_sortBy; }
+
+    /**
+     * <p>Sort to use for elements in the <code>Persons</code> array. Use
+     * <code>TIMESTAMP</code> to sort array elements by the time persons are detected.
+     * Use <code>INDEX</code> to sort by the tracked persons. If you sort by
+     * <code>INDEX</code>, the array elements for each person are sorted by detection
+     * confidence. The default sort is by <code>TIMESTAMP</code>.</p>
+     */
+    inline bool SortByHasBeenSet() const { return m_sortByHasBeenSet; }
 
     /**
      * <p>Sort to use for elements in the <code>Persons</code> array. Use

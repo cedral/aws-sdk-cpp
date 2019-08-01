@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     CreateConnectorDefinitionVersionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * A client token used to correlate requests and responses.
      */
     inline const Aws::String& GetAmznClientToken() const{ return m_amznClientToken; }
+
+    /**
+     * A client token used to correlate requests and responses.
+     */
+    inline bool AmznClientTokenHasBeenSet() const { return m_amznClientTokenHasBeenSet; }
 
     /**
      * A client token used to correlate requests and responses.
@@ -90,6 +95,11 @@ namespace Model
     /**
      * The ID of the connector definition.
      */
+    inline bool ConnectorDefinitionIdHasBeenSet() const { return m_connectorDefinitionIdHasBeenSet; }
+
+    /**
+     * The ID of the connector definition.
+     */
     inline void SetConnectorDefinitionId(const Aws::String& value) { m_connectorDefinitionIdHasBeenSet = true; m_connectorDefinitionId = value; }
 
     /**
@@ -123,6 +133,12 @@ namespace Model
      * configuration settings.
      */
     inline const Aws::Vector<Connector>& GetConnectors() const{ return m_connectors; }
+
+    /**
+     * A list of references to connectors in this version, with their corresponding
+     * configuration settings.
+     */
+    inline bool ConnectorsHasBeenSet() const { return m_connectorsHasBeenSet; }
 
     /**
      * A list of references to connectors in this version, with their corresponding

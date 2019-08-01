@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeCommandsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,13 @@ namespace Model
      * with the specified deployment.</p>
      */
     inline const Aws::String& GetDeploymentId() const{ return m_deploymentId; }
+
+    /**
+     * <p>The deployment ID. If you include this parameter,
+     * <code>DescribeCommands</code> returns a description of the commands associated
+     * with the specified deployment.</p>
+     */
+    inline bool DeploymentIdHasBeenSet() const { return m_deploymentIdHasBeenSet; }
 
     /**
      * <p>The deployment ID. If you include this parameter,
@@ -107,6 +114,13 @@ namespace Model
      * returns a description of the commands associated with the specified
      * instance.</p>
      */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
+
+    /**
+     * <p>The instance ID. If you include this parameter, <code>DescribeCommands</code>
+     * returns a description of the commands associated with the specified
+     * instance.</p>
+     */
     inline void SetInstanceId(const Aws::String& value) { m_instanceIdHasBeenSet = true; m_instanceId = value; }
 
     /**
@@ -151,6 +165,13 @@ namespace Model
      * Otherwise, it returns a description of every command.</p>
      */
     inline const Aws::Vector<Aws::String>& GetCommandIds() const{ return m_commandIds; }
+
+    /**
+     * <p>An array of command IDs. If you include this parameter,
+     * <code>DescribeCommands</code> returns a description of the specified commands.
+     * Otherwise, it returns a description of every command.</p>
+     */
+    inline bool CommandIdsHasBeenSet() const { return m_commandIdsHasBeenSet; }
 
     /**
      * <p>An array of command IDs. If you include this parameter,

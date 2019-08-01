@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     SetUICustomizationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,11 @@ namespace Model
      * <p>The user pool ID for the user pool.</p>
      */
     inline const Aws::String& GetUserPoolId() const{ return m_userPoolId; }
+
+    /**
+     * <p>The user pool ID for the user pool.</p>
+     */
+    inline bool UserPoolIdHasBeenSet() const { return m_userPoolIdHasBeenSet; }
 
     /**
      * <p>The user pool ID for the user pool.</p>
@@ -89,6 +94,11 @@ namespace Model
     /**
      * <p>The client ID for the client app.</p>
      */
+    inline bool ClientIdHasBeenSet() const { return m_clientIdHasBeenSet; }
+
+    /**
+     * <p>The client ID for the client app.</p>
+     */
     inline void SetClientId(const Aws::String& value) { m_clientIdHasBeenSet = true; m_clientId = value; }
 
     /**
@@ -125,6 +135,11 @@ namespace Model
     /**
      * <p>The CSS values in the UI customization.</p>
      */
+    inline bool CSSHasBeenSet() const { return m_cSSHasBeenSet; }
+
+    /**
+     * <p>The CSS values in the UI customization.</p>
+     */
     inline void SetCSS(const Aws::String& value) { m_cSSHasBeenSet = true; m_cSS = value; }
 
     /**
@@ -157,6 +172,11 @@ namespace Model
      * <p>The uploaded logo image for the UI customization.</p>
      */
     inline const Aws::Utils::ByteBuffer& GetImageFile() const{ return m_imageFile; }
+
+    /**
+     * <p>The uploaded logo image for the UI customization.</p>
+     */
+    inline bool ImageFileHasBeenSet() const { return m_imageFileHasBeenSet; }
 
     /**
      * <p>The uploaded logo image for the UI customization.</p>

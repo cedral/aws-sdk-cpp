@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     UpdateEndpointRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the endpoint whose configuration you want to update.</p>
      */
     inline const Aws::String& GetEndpointName() const{ return m_endpointName; }
+
+    /**
+     * <p>The name of the endpoint whose configuration you want to update.</p>
+     */
+    inline bool EndpointNameHasBeenSet() const { return m_endpointNameHasBeenSet; }
 
     /**
      * <p>The name of the endpoint whose configuration you want to update.</p>
@@ -84,6 +89,11 @@ namespace Model
      * <p>The name of the new endpoint configuration.</p>
      */
     inline const Aws::String& GetEndpointConfigName() const{ return m_endpointConfigName; }
+
+    /**
+     * <p>The name of the new endpoint configuration.</p>
+     */
+    inline bool EndpointConfigNameHasBeenSet() const { return m_endpointConfigNameHasBeenSet; }
 
     /**
      * <p>The name of the new endpoint configuration.</p>

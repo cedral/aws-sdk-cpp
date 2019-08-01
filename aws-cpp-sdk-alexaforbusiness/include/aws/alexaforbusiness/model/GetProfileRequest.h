@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     GetProfileRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ARN of the room profile for which to request details. Required.</p>
      */
     inline const Aws::String& GetProfileArn() const{ return m_profileArn; }
+
+    /**
+     * <p>The ARN of the room profile for which to request details. Required.</p>
+     */
+    inline bool ProfileArnHasBeenSet() const { return m_profileArnHasBeenSet; }
 
     /**
      * <p>The ARN of the room profile for which to request details. Required.</p>

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     TestIdentityProviderRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -49,6 +49,12 @@ namespace Model
      * authentication method is tested with a user name and password.</p>
      */
     inline const Aws::String& GetServerId() const{ return m_serverId; }
+
+    /**
+     * <p>A system assigned identifier for a specific server. That server's user
+     * authentication method is tested with a user name and password.</p>
+     */
+    inline bool ServerIdHasBeenSet() const { return m_serverIdHasBeenSet; }
 
     /**
      * <p>A system assigned identifier for a specific server. That server's user
@@ -95,6 +101,11 @@ namespace Model
     /**
      * <p>This request parameter is name of the user account to be tested.</p>
      */
+    inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
+
+    /**
+     * <p>This request parameter is name of the user account to be tested.</p>
+     */
     inline void SetUserName(const Aws::String& value) { m_userNameHasBeenSet = true; m_userName = value; }
 
     /**
@@ -127,6 +138,11 @@ namespace Model
      * <p>The password of the user account to be tested.</p>
      */
     inline const Aws::String& GetUserPassword() const{ return m_userPassword; }
+
+    /**
+     * <p>The password of the user account to be tested.</p>
+     */
+    inline bool UserPasswordHasBeenSet() const { return m_userPasswordHasBeenSet; }
 
     /**
      * <p>The password of the user account to be tested.</p>

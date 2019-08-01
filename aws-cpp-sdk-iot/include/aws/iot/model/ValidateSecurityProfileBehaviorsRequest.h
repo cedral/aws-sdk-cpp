@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ValidateSecurityProfileBehaviorsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,12 @@ namespace Model
      * alert.</p>
      */
     inline const Aws::Vector<Behavior>& GetBehaviors() const{ return m_behaviors; }
+
+    /**
+     * <p>Specifies the behaviors that, when violated by a device (thing), cause an
+     * alert.</p>
+     */
+    inline bool BehaviorsHasBeenSet() const { return m_behaviorsHasBeenSet; }
 
     /**
      * <p>Specifies the behaviors that, when violated by a device (thing), cause an

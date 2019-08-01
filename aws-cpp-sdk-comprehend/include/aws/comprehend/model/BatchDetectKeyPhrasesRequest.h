@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     BatchDetectKeyPhrasesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * UTF-8 encoded characters.</p>
      */
     inline const Aws::Vector<Aws::String>& GetTextList() const{ return m_textList; }
+
+    /**
+     * <p>A list containing the text of the input documents. The list can contain a
+     * maximum of 25 documents. Each document must contain fewer that 5,000 bytes of
+     * UTF-8 encoded characters.</p>
+     */
+    inline bool TextListHasBeenSet() const { return m_textListHasBeenSet; }
 
     /**
      * <p>A list containing the text of the input documents. The list can contain a
@@ -104,32 +111,50 @@ namespace Model
 
 
     /**
-     * <p>The language of the input documents. You can specify English ("en") or
-     * Spanish ("es"). All documents must be in the same language.</p>
+     * <p>The language of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must
+     * be in the same language.</p>
      */
     inline const LanguageCode& GetLanguageCode() const{ return m_languageCode; }
 
     /**
-     * <p>The language of the input documents. You can specify English ("en") or
-     * Spanish ("es"). All documents must be in the same language.</p>
+     * <p>The language of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must
+     * be in the same language.</p>
+     */
+    inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
+
+    /**
+     * <p>The language of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must
+     * be in the same language.</p>
      */
     inline void SetLanguageCode(const LanguageCode& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
 
     /**
-     * <p>The language of the input documents. You can specify English ("en") or
-     * Spanish ("es"). All documents must be in the same language.</p>
+     * <p>The language of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must
+     * be in the same language.</p>
      */
     inline void SetLanguageCode(LanguageCode&& value) { m_languageCodeHasBeenSet = true; m_languageCode = std::move(value); }
 
     /**
-     * <p>The language of the input documents. You can specify English ("en") or
-     * Spanish ("es"). All documents must be in the same language.</p>
+     * <p>The language of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must
+     * be in the same language.</p>
      */
     inline BatchDetectKeyPhrasesRequest& WithLanguageCode(const LanguageCode& value) { SetLanguageCode(value); return *this;}
 
     /**
-     * <p>The language of the input documents. You can specify English ("en") or
-     * Spanish ("es"). All documents must be in the same language.</p>
+     * <p>The language of the input documents. You can specify any of the primary
+     * languages supported by Amazon Comprehend: German ("de"), English ("en"), Spanish
+     * ("es"), French ("fr"), Italian ("it"), or Portuguese ("pt"). All documents must
+     * be in the same language.</p>
      */
     inline BatchDetectKeyPhrasesRequest& WithLanguageCode(LanguageCode&& value) { SetLanguageCode(std::move(value)); return *this;}
 

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateMountTargetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The ID of the file system for which to create the mount target.</p>
      */
     inline const Aws::String& GetFileSystemId() const{ return m_fileSystemId; }
+
+    /**
+     * <p>The ID of the file system for which to create the mount target.</p>
+     */
+    inline bool FileSystemIdHasBeenSet() const { return m_fileSystemIdHasBeenSet; }
 
     /**
      * <p>The ID of the file system for which to create the mount target.</p>
@@ -90,6 +95,11 @@ namespace Model
     /**
      * <p>The ID of the subnet to add the mount target in.</p>
      */
+    inline bool SubnetIdHasBeenSet() const { return m_subnetIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the subnet to add the mount target in.</p>
+     */
     inline void SetSubnetId(const Aws::String& value) { m_subnetIdHasBeenSet = true; m_subnetId = value; }
 
     /**
@@ -122,6 +132,11 @@ namespace Model
      * <p>Valid IPv4 address within the address range of the specified subnet.</p>
      */
     inline const Aws::String& GetIpAddress() const{ return m_ipAddress; }
+
+    /**
+     * <p>Valid IPv4 address within the address range of the specified subnet.</p>
+     */
+    inline bool IpAddressHasBeenSet() const { return m_ipAddressHasBeenSet; }
 
     /**
      * <p>Valid IPv4 address within the address range of the specified subnet.</p>
@@ -159,6 +174,12 @@ namespace Model
      * These must be for the same VPC as subnet specified.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
+
+    /**
+     * <p>Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>.
+     * These must be for the same VPC as subnet specified.</p>
+     */
+    inline bool SecurityGroupsHasBeenSet() const { return m_securityGroupsHasBeenSet; }
 
     /**
      * <p>Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>.

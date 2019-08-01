@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeLaunchConfigurationsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,12 @@ namespace Model
      * configurations are described.</p>
      */
     inline const Aws::Vector<Aws::String>& GetLaunchConfigurationNames() const{ return m_launchConfigurationNames; }
+
+    /**
+     * <p>The launch configuration names. If you omit this parameter, all launch
+     * configurations are described.</p>
+     */
+    inline bool LaunchConfigurationNamesHasBeenSet() const { return m_launchConfigurationNamesHasBeenSet; }
 
     /**
      * <p>The launch configuration names. If you omit this parameter, all launch
@@ -106,6 +112,12 @@ namespace Model
      * <p>The token for the next set of items to return. (You received this token from
      * a previous call.)</p>
      */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
+
+    /**
+     * <p>The token for the next set of items to return. (You received this token from
+     * a previous call.)</p>
+     */
     inline void SetNextToken(const Aws::String& value) { m_nextTokenHasBeenSet = true; m_nextToken = value; }
 
     /**
@@ -144,6 +156,12 @@ namespace Model
      * <code>50</code> and the maximum value is <code>100</code>.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
+
+    /**
+     * <p>The maximum number of items to return with this call. The default value is
+     * <code>50</code> and the maximum value is <code>100</code>.</p>
+     */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return with this call. The default value is

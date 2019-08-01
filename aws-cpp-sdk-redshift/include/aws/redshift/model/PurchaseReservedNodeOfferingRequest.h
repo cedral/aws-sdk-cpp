@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     PurchaseReservedNodeOfferingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The unique identifier of the reserved node offering you want to purchase.</p>
      */
     inline const Aws::String& GetReservedNodeOfferingId() const{ return m_reservedNodeOfferingId; }
+
+    /**
+     * <p>The unique identifier of the reserved node offering you want to purchase.</p>
+     */
+    inline bool ReservedNodeOfferingIdHasBeenSet() const { return m_reservedNodeOfferingIdHasBeenSet; }
 
     /**
      * <p>The unique identifier of the reserved node offering you want to purchase.</p>
@@ -90,6 +95,12 @@ namespace Model
      * <code>1</code> </p>
      */
     inline int GetNodeCount() const{ return m_nodeCount; }
+
+    /**
+     * <p>The number of reserved nodes that you want to purchase.</p> <p>Default:
+     * <code>1</code> </p>
+     */
+    inline bool NodeCountHasBeenSet() const { return m_nodeCountHasBeenSet; }
 
     /**
      * <p>The number of reserved nodes that you want to purchase.</p> <p>Default:

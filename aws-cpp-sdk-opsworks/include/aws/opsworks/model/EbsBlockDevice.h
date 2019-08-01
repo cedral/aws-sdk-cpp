@@ -37,7 +37,7 @@ namespace Model
   /**
    * <p>Describes an Amazon EBS volume. This data type maps directly to the Amazon
    * EC2 <a
-   * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>
+   * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>
    * data type.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/opsworks-2013-02-18/EbsBlockDevice">AWS
    * API Reference</a></p>
@@ -55,6 +55,11 @@ namespace Model
      * <p>The snapshot ID.</p>
      */
     inline const Aws::String& GetSnapshotId() const{ return m_snapshotId; }
+
+    /**
+     * <p>The snapshot ID.</p>
+     */
+    inline bool SnapshotIdHasBeenSet() const { return m_snapshotIdHasBeenSet; }
 
     /**
      * <p>The snapshot ID.</p>
@@ -90,40 +95,53 @@ namespace Model
     /**
      * <p>The number of I/O operations per second (IOPS) that the volume supports. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
      */
     inline int GetIops() const{ return m_iops; }
 
     /**
      * <p>The number of I/O operations per second (IOPS) that the volume supports. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
+     */
+    inline bool IopsHasBeenSet() const { return m_iopsHasBeenSet; }
+
+    /**
+     * <p>The number of I/O operations per second (IOPS) that the volume supports. For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
      */
     inline void SetIops(int value) { m_iopsHasBeenSet = true; m_iops = value; }
 
     /**
      * <p>The number of I/O operations per second (IOPS) that the volume supports. For
      * more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
      */
     inline EbsBlockDevice& WithIops(int value) { SetIops(value); return *this;}
 
 
     /**
      * <p>The volume size, in GiB. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
      */
     inline int GetVolumeSize() const{ return m_volumeSize; }
 
     /**
      * <p>The volume size, in GiB. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
+     */
+    inline bool VolumeSizeHasBeenSet() const { return m_volumeSizeHasBeenSet; }
+
+    /**
+     * <p>The volume size, in GiB. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
      */
     inline void SetVolumeSize(int value) { m_volumeSizeHasBeenSet = true; m_volumeSize = value; }
 
     /**
      * <p>The volume size, in GiB. For more information, see <a
-     * href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html">EbsBlockDevice</a>.</p>
      */
     inline EbsBlockDevice& WithVolumeSize(int value) { SetVolumeSize(value); return *this;}
 
@@ -139,6 +157,18 @@ namespace Model
      * specified in the AMI attributes to set IOPS to 50 x (volume size).</p>
      */
     inline const VolumeType& GetVolumeType() const{ return m_volumeType; }
+
+    /**
+     * <p>The volume type. <code>gp2</code> for General Purpose (SSD) volumes,
+     * <code>io1</code> for Provisioned IOPS (SSD) volumes, <code>st1</code> for
+     * Throughput Optimized hard disk drives (HDD), <code>sc1</code> for Cold HDD,and
+     * <code>standard</code> for Magnetic volumes.</p> <p>If you specify the
+     * <code>io1</code> volume type, you must also specify a value for the
+     * <code>Iops</code> attribute. The maximum ratio of provisioned IOPS to requested
+     * volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB)
+     * specified in the AMI attributes to set IOPS to 50 x (volume size).</p>
+     */
+    inline bool VolumeTypeHasBeenSet() const { return m_volumeTypeHasBeenSet; }
 
     /**
      * <p>The volume type. <code>gp2</code> for General Purpose (SSD) volumes,
@@ -193,6 +223,11 @@ namespace Model
      * <p>Whether the volume is deleted on instance termination.</p>
      */
     inline bool GetDeleteOnTermination() const{ return m_deleteOnTermination; }
+
+    /**
+     * <p>Whether the volume is deleted on instance termination.</p>
+     */
+    inline bool DeleteOnTerminationHasBeenSet() const { return m_deleteOnTerminationHasBeenSet; }
 
     /**
      * <p>Whether the volume is deleted on instance termination.</p>

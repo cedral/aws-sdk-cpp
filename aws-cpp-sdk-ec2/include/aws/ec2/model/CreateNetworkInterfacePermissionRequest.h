@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     CreateNetworkInterfacePermissionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,11 @@ namespace Model
      * <p>The ID of the network interface.</p>
      */
     inline const Aws::String& GetNetworkInterfaceId() const{ return m_networkInterfaceId; }
+
+    /**
+     * <p>The ID of the network interface.</p>
+     */
+    inline bool NetworkInterfaceIdHasBeenSet() const { return m_networkInterfaceIdHasBeenSet; }
 
     /**
      * <p>The ID of the network interface.</p>
@@ -95,6 +100,11 @@ namespace Model
     /**
      * <p>The AWS account ID.</p>
      */
+    inline bool AwsAccountIdHasBeenSet() const { return m_awsAccountIdHasBeenSet; }
+
+    /**
+     * <p>The AWS account ID.</p>
+     */
     inline void SetAwsAccountId(const Aws::String& value) { m_awsAccountIdHasBeenSet = true; m_awsAccountId = value; }
 
     /**
@@ -127,6 +137,11 @@ namespace Model
      * <p>The AWS service. Currently not supported.</p>
      */
     inline const Aws::String& GetAwsService() const{ return m_awsService; }
+
+    /**
+     * <p>The AWS service. Currently not supported.</p>
+     */
+    inline bool AwsServiceHasBeenSet() const { return m_awsServiceHasBeenSet; }
 
     /**
      * <p>The AWS service. Currently not supported.</p>
@@ -167,6 +182,11 @@ namespace Model
     /**
      * <p>The type of permission to grant.</p>
      */
+    inline bool PermissionHasBeenSet() const { return m_permissionHasBeenSet; }
+
+    /**
+     * <p>The type of permission to grant.</p>
+     */
     inline void SetPermission(const InterfacePermissionType& value) { m_permissionHasBeenSet = true; m_permission = value; }
 
     /**
@@ -192,6 +212,14 @@ namespace Model
      * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
      */
     inline bool GetDryRun() const{ return m_dryRun; }
+
+    /**
+     * <p>Checks whether you have the required permissions for the action, without
+     * actually making the request, and provides an error response. If you have the
+     * required permissions, the error response is <code>DryRunOperation</code>.
+     * Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+     */
+    inline bool DryRunHasBeenSet() const { return m_dryRunHasBeenSet; }
 
     /**
      * <p>Checks whether you have the required permissions for the action, without

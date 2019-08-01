@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     ListReviewableHITsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * specified, all HITs for the Reviewer are considered </p>
      */
     inline const Aws::String& GetHITTypeId() const{ return m_hITTypeId; }
+
+    /**
+     * <p> The ID of the HIT type of the HITs to consider for the query. If not
+     * specified, all HITs for the Reviewer are considered </p>
+     */
+    inline bool HITTypeIdHasBeenSet() const { return m_hITTypeIdHasBeenSet; }
 
     /**
      * <p> The ID of the HIT type of the HITs to consider for the query. If not
@@ -98,6 +104,12 @@ namespace Model
      * <p> Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable
      * is the default value. </p>
      */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
+
+    /**
+     * <p> Can be either <code>Reviewable</code> or <code>Reviewing</code>. Reviewable
+     * is the default value. </p>
+     */
     inline void SetStatus(const ReviewableHITStatus& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
@@ -123,6 +135,11 @@ namespace Model
      * <p>Pagination Token</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Pagination Token</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Pagination Token</p>
@@ -159,6 +176,11 @@ namespace Model
      * <p> Limit the number of results returned. </p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
+
+    /**
+     * <p> Limit the number of results returned. </p>
+     */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p> Limit the number of results returned. </p>

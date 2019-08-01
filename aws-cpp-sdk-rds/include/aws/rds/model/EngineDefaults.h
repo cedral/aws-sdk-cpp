@@ -37,7 +37,8 @@ namespace Model
 
   /**
    * <p> Contains the result of a successful invocation of the
-   * <a>DescribeEngineDefaultParameters</a> action. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeEngineDefaultParameters</code> action. </p><p><h3>See Also:</h3>  
+   * <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/EngineDefaults">AWS
    * API Reference</a></p>
    */
@@ -57,6 +58,12 @@ namespace Model
      * parameters apply to.</p>
      */
     inline const Aws::String& GetDBParameterGroupFamily() const{ return m_dBParameterGroupFamily; }
+
+    /**
+     * <p>Specifies the name of the DB parameter group family that the engine default
+     * parameters apply to.</p>
+     */
+    inline bool DBParameterGroupFamilyHasBeenSet() const { return m_dBParameterGroupFamilyHasBeenSet; }
 
     /**
      * <p>Specifies the name of the DB parameter group family that the engine default
@@ -107,6 +114,13 @@ namespace Model
      * If this parameter is specified, the response includes only records beyond the
      * marker, up to the value specified by <code>MaxRecords</code> . </p>
      */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p> An optional pagination token provided by a previous EngineDefaults request.
+     * If this parameter is specified, the response includes only records beyond the
+     * marker, up to the value specified by <code>MaxRecords</code> . </p>
+     */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
@@ -149,6 +163,11 @@ namespace Model
      * <p>Contains a list of engine default parameters.</p>
      */
     inline const Aws::Vector<Parameter>& GetParameters() const{ return m_parameters; }
+
+    /**
+     * <p>Contains a list of engine default parameters.</p>
+     */
+    inline bool ParametersHasBeenSet() const { return m_parametersHasBeenSet; }
 
     /**
      * <p>Contains a list of engine default parameters.</p>

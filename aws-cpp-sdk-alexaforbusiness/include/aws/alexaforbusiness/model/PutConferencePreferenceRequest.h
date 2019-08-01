@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     PutConferencePreferenceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The conference preference of a specific conference provider.</p>
      */
     inline const ConferencePreference& GetConferencePreference() const{ return m_conferencePreference; }
+
+    /**
+     * <p>The conference preference of a specific conference provider.</p>
+     */
+    inline bool ConferencePreferenceHasBeenSet() const { return m_conferencePreferenceHasBeenSet; }
 
     /**
      * <p>The conference preference of a specific conference provider.</p>

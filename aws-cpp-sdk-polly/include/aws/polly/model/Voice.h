@@ -20,6 +20,7 @@
 #include <aws/polly/model/LanguageCode.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/polly/model/Engine.h>
 #include <utility>
 
 namespace Aws
@@ -59,6 +60,11 @@ namespace Model
     /**
      * <p>Gender of the voice.</p>
      */
+    inline bool GenderHasBeenSet() const { return m_genderHasBeenSet; }
+
+    /**
+     * <p>Gender of the voice.</p>
+     */
     inline void SetGender(const Gender& value) { m_genderHasBeenSet = true; m_gender = value; }
 
     /**
@@ -82,6 +88,12 @@ namespace Model
      * the <code>SynthesizeSpeech</code> operation.</p>
      */
     inline const VoiceId& GetId() const{ return m_id; }
+
+    /**
+     * <p>Amazon Polly assigned voice ID. This is the ID that you specify when calling
+     * the <code>SynthesizeSpeech</code> operation.</p>
+     */
+    inline bool IdHasBeenSet() const { return m_idHasBeenSet; }
 
     /**
      * <p>Amazon Polly assigned voice ID. This is the ID that you specify when calling
@@ -116,6 +128,11 @@ namespace Model
     /**
      * <p>Language code of the voice.</p>
      */
+    inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
+
+    /**
+     * <p>Language code of the voice.</p>
+     */
     inline void SetLanguageCode(const LanguageCode& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
 
     /**
@@ -138,6 +155,11 @@ namespace Model
      * <p>Human readable name of the language in English.</p>
      */
     inline const Aws::String& GetLanguageName() const{ return m_languageName; }
+
+    /**
+     * <p>Human readable name of the language in English.</p>
+     */
+    inline bool LanguageNameHasBeenSet() const { return m_languageNameHasBeenSet; }
 
     /**
      * <p>Human readable name of the language in English.</p>
@@ -175,6 +197,12 @@ namespace Model
      * readable voice name that you might display in your application.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>Name of the voice (for example, Salli, Kendra, etc.). This provides a human
+     * readable voice name that you might display in your application.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>Name of the voice (for example, Salli, Kendra, etc.). This provides a human
@@ -221,6 +249,15 @@ namespace Model
      * show the code <code>hi-IN</code>.</p>
      */
     inline const Aws::Vector<LanguageCode>& GetAdditionalLanguageCodes() const{ return m_additionalLanguageCodes; }
+
+    /**
+     * <p>Additional codes for languages available for the specified voice in addition
+     * to its default language. </p> <p>For example, the default language for Aditi is
+     * Indian English (en-IN) because it was first used for that language. Since Aditi
+     * is bilingual and fluent in both Indian English and Hindi, this parameter would
+     * show the code <code>hi-IN</code>.</p>
+     */
+    inline bool AdditionalLanguageCodesHasBeenSet() const { return m_additionalLanguageCodesHasBeenSet; }
 
     /**
      * <p>Additional codes for languages available for the specified voice in addition
@@ -276,6 +313,55 @@ namespace Model
      */
     inline Voice& AddAdditionalLanguageCodes(LanguageCode&& value) { m_additionalLanguageCodesHasBeenSet = true; m_additionalLanguageCodes.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that
+     * are supported by a given voice.</p>
+     */
+    inline const Aws::Vector<Engine>& GetSupportedEngines() const{ return m_supportedEngines; }
+
+    /**
+     * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that
+     * are supported by a given voice.</p>
+     */
+    inline bool SupportedEnginesHasBeenSet() const { return m_supportedEnginesHasBeenSet; }
+
+    /**
+     * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that
+     * are supported by a given voice.</p>
+     */
+    inline void SetSupportedEngines(const Aws::Vector<Engine>& value) { m_supportedEnginesHasBeenSet = true; m_supportedEngines = value; }
+
+    /**
+     * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that
+     * are supported by a given voice.</p>
+     */
+    inline void SetSupportedEngines(Aws::Vector<Engine>&& value) { m_supportedEnginesHasBeenSet = true; m_supportedEngines = std::move(value); }
+
+    /**
+     * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that
+     * are supported by a given voice.</p>
+     */
+    inline Voice& WithSupportedEngines(const Aws::Vector<Engine>& value) { SetSupportedEngines(value); return *this;}
+
+    /**
+     * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that
+     * are supported by a given voice.</p>
+     */
+    inline Voice& WithSupportedEngines(Aws::Vector<Engine>&& value) { SetSupportedEngines(std::move(value)); return *this;}
+
+    /**
+     * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that
+     * are supported by a given voice.</p>
+     */
+    inline Voice& AddSupportedEngines(const Engine& value) { m_supportedEnginesHasBeenSet = true; m_supportedEngines.push_back(value); return *this; }
+
+    /**
+     * <p>Specifies which engines (<code>standard</code> or <code>neural</code>) that
+     * are supported by a given voice.</p>
+     */
+    inline Voice& AddSupportedEngines(Engine&& value) { m_supportedEnginesHasBeenSet = true; m_supportedEngines.push_back(std::move(value)); return *this; }
+
   private:
 
     Gender m_gender;
@@ -295,6 +381,9 @@ namespace Model
 
     Aws::Vector<LanguageCode> m_additionalLanguageCodes;
     bool m_additionalLanguageCodesHasBeenSet;
+
+    Aws::Vector<Engine> m_supportedEngines;
+    bool m_supportedEnginesHasBeenSet;
   };
 
 } // namespace Model

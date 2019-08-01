@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     UpdateEmergencyContactSettingsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * suspected attack.</p>
      */
     inline const Aws::Vector<EmergencyContact>& GetEmergencyContactList() const{ return m_emergencyContactList; }
+
+    /**
+     * <p>A list of email addresses that the DRT can use to contact you during a
+     * suspected attack.</p>
+     */
+    inline bool EmergencyContactListHasBeenSet() const { return m_emergencyContactListHasBeenSet; }
 
     /**
      * <p>A list of email addresses that the DRT can use to contact you during a

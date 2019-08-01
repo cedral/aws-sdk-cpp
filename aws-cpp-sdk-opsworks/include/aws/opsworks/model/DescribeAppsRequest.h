@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     DescribeAppsRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * returns a description of the apps in the specified stack.</p>
      */
     inline const Aws::String& GetStackId() const{ return m_stackId; }
+
+    /**
+     * <p>The app stack ID. If you use this parameter, <code>DescribeApps</code>
+     * returns a description of the apps in the specified stack.</p>
+     */
+    inline bool StackIdHasBeenSet() const { return m_stackIdHasBeenSet; }
 
     /**
      * <p>The app stack ID. If you use this parameter, <code>DescribeApps</code>
@@ -94,6 +100,13 @@ namespace Model
      * Otherwise, it returns a description of every app.</p>
      */
     inline const Aws::Vector<Aws::String>& GetAppIds() const{ return m_appIds; }
+
+    /**
+     * <p>An array of app IDs for the apps to be described. If you use this parameter,
+     * <code>DescribeApps</code> returns a description of the specified apps.
+     * Otherwise, it returns a description of every app.</p>
+     */
+    inline bool AppIdsHasBeenSet() const { return m_appIdsHasBeenSet; }
 
     /**
      * <p>An array of app IDs for the apps to be described. If you use this parameter,

@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     CreateProjectRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The project's name.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
+
+    /**
+     * <p>The project's name.</p>
+     */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
      * <p>The project's name.</p>
@@ -90,6 +95,13 @@ namespace Model
      * when scheduling a run.</p>
      */
     inline int GetDefaultJobTimeoutMinutes() const{ return m_defaultJobTimeoutMinutes; }
+
+    /**
+     * <p>Sets the execution timeout value (in minutes) for a project. All test runs in
+     * this project will use the specified execution timeout value unless overridden
+     * when scheduling a run.</p>
+     */
+    inline bool DefaultJobTimeoutMinutesHasBeenSet() const { return m_defaultJobTimeoutMinutesHasBeenSet; }
 
     /**
      * <p>Sets the execution timeout value (in minutes) for a project. All test runs in

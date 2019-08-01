@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DescribeReservedNodesRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>Identifier for the node reservation.</p>
      */
     inline const Aws::String& GetReservedNodeId() const{ return m_reservedNodeId; }
+
+    /**
+     * <p>Identifier for the node reservation.</p>
+     */
+    inline bool ReservedNodeIdHasBeenSet() const { return m_reservedNodeIdHasBeenSet; }
 
     /**
      * <p>Identifier for the node reservation.</p>
@@ -103,6 +108,16 @@ namespace Model
      * marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20,
      * maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of response records to return in each call. If the number
+     * of remaining response records exceeds the specified <code>MaxRecords</code>
+     * value, a value is returned in a <code>marker</code> field of the response. You
+     * can retrieve the next set of records by retrying the command with the returned
+     * marker value. </p> <p>Default: <code>100</code> </p> <p>Constraints: minimum 20,
+     * maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -125,6 +140,16 @@ namespace Model
      * <code>Marker</code> parameter and retrying the request. </p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
+
+    /**
+     * <p>An optional parameter that specifies the starting point to return a set of
+     * response records. When the results of a <a>DescribeReservedNodes</a> request
+     * exceed the value specified in <code>MaxRecords</code>, AWS returns a value in
+     * the <code>Marker</code> field of the response. You can retrieve the next set of
+     * response records by providing the returned marker value in the
+     * <code>Marker</code> parameter and retrying the request. </p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
 
     /**
      * <p>An optional parameter that specifies the starting point to return a set of

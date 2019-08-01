@@ -19,6 +19,7 @@
 #include <aws/mediaconvert/model/Ac3Settings.h>
 #include <aws/mediaconvert/model/AiffSettings.h>
 #include <aws/mediaconvert/model/AudioCodec.h>
+#include <aws/mediaconvert/model/Eac3AtmosSettings.h>
 #include <aws/mediaconvert/model/Eac3Settings.h>
 #include <aws/mediaconvert/model/Mp2Settings.h>
 #include <aws/mediaconvert/model/WavSettings.h>
@@ -42,11 +43,11 @@ namespace Model
   /**
    * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the
    * group of settings related to audio encoding. The settings in this group vary
-   * depending on the value you choose for Audio codec (Codec). For each codec enum
-   * you choose, define the corresponding settings object. The following lists the
-   * codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * WAV,
-   * WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3,
-   * Eac3Settings<p><h3>See Also:</h3>   <a
+   * depending on the value that you choose for Audio codec (Codec). For each codec
+   * enum that you choose, define the corresponding settings object. The following
+   * lists the codec enum, settings object pairs. * AAC, AacSettings * MP2,
+   * Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3,
+   * Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings<p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/mediaconvert-2017-08-29/AudioCodecSettings">AWS
    * API Reference</a></p>
    */
@@ -59,115 +60,323 @@ namespace Model
     Aws::Utils::Json::JsonValue Jsonize() const;
 
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AAC. The service accepts one of two mutually exclusive groups of AAC
+     * settings--VBR and CBR. To select one of these modes, set the value of Bitrate
+     * control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the
+     * audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use
+     * the setting Bitrate (bitrate). Defaults and valid values depend on the rate
+     * control mode.
+     */
     inline const AacSettings& GetAacSettings() const{ return m_aacSettings; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AAC. The service accepts one of two mutually exclusive groups of AAC
+     * settings--VBR and CBR. To select one of these modes, set the value of Bitrate
+     * control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the
+     * audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use
+     * the setting Bitrate (bitrate). Defaults and valid values depend on the rate
+     * control mode.
+     */
+    inline bool AacSettingsHasBeenSet() const { return m_aacSettingsHasBeenSet; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AAC. The service accepts one of two mutually exclusive groups of AAC
+     * settings--VBR and CBR. To select one of these modes, set the value of Bitrate
+     * control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the
+     * audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use
+     * the setting Bitrate (bitrate). Defaults and valid values depend on the rate
+     * control mode.
+     */
     inline void SetAacSettings(const AacSettings& value) { m_aacSettingsHasBeenSet = true; m_aacSettings = value; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AAC. The service accepts one of two mutually exclusive groups of AAC
+     * settings--VBR and CBR. To select one of these modes, set the value of Bitrate
+     * control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the
+     * audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use
+     * the setting Bitrate (bitrate). Defaults and valid values depend on the rate
+     * control mode.
+     */
     inline void SetAacSettings(AacSettings&& value) { m_aacSettingsHasBeenSet = true; m_aacSettings = std::move(value); }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AAC. The service accepts one of two mutually exclusive groups of AAC
+     * settings--VBR and CBR. To select one of these modes, set the value of Bitrate
+     * control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the
+     * audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use
+     * the setting Bitrate (bitrate). Defaults and valid values depend on the rate
+     * control mode.
+     */
     inline AudioCodecSettings& WithAacSettings(const AacSettings& value) { SetAacSettings(value); return *this;}
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AAC. The service accepts one of two mutually exclusive groups of AAC
+     * settings--VBR and CBR. To select one of these modes, set the value of Bitrate
+     * control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the
+     * audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use
+     * the setting Bitrate (bitrate). Defaults and valid values depend on the rate
+     * control mode.
+     */
     inline AudioCodecSettings& WithAacSettings(AacSettings&& value) { SetAacSettings(std::move(value)); return *this;}
 
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AC3.
+     */
     inline const Ac3Settings& GetAc3Settings() const{ return m_ac3Settings; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AC3.
+     */
+    inline bool Ac3SettingsHasBeenSet() const { return m_ac3SettingsHasBeenSet; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AC3.
+     */
     inline void SetAc3Settings(const Ac3Settings& value) { m_ac3SettingsHasBeenSet = true; m_ac3Settings = value; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AC3.
+     */
     inline void SetAc3Settings(Ac3Settings&& value) { m_ac3SettingsHasBeenSet = true; m_ac3Settings = std::move(value); }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AC3.
+     */
     inline AudioCodecSettings& WithAc3Settings(const Ac3Settings& value) { SetAc3Settings(value); return *this;}
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AC3.
+     */
     inline AudioCodecSettings& WithAc3Settings(Ac3Settings&& value) { SetAc3Settings(std::move(value)); return *this;}
 
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AIFF.
+     */
     inline const AiffSettings& GetAiffSettings() const{ return m_aiffSettings; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AIFF.
+     */
+    inline bool AiffSettingsHasBeenSet() const { return m_aiffSettingsHasBeenSet; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AIFF.
+     */
     inline void SetAiffSettings(const AiffSettings& value) { m_aiffSettingsHasBeenSet = true; m_aiffSettings = value; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AIFF.
+     */
     inline void SetAiffSettings(AiffSettings&& value) { m_aiffSettingsHasBeenSet = true; m_aiffSettings = std::move(value); }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AIFF.
+     */
     inline AudioCodecSettings& WithAiffSettings(const AiffSettings& value) { SetAiffSettings(value); return *this;}
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value AIFF.
+     */
     inline AudioCodecSettings& WithAiffSettings(AiffSettings&& value) { SetAiffSettings(std::move(value)); return *this;}
 
 
-    
+    /**
+     * Type of Audio codec.
+     */
     inline const AudioCodec& GetCodec() const{ return m_codec; }
 
-    
+    /**
+     * Type of Audio codec.
+     */
+    inline bool CodecHasBeenSet() const { return m_codecHasBeenSet; }
+
+    /**
+     * Type of Audio codec.
+     */
     inline void SetCodec(const AudioCodec& value) { m_codecHasBeenSet = true; m_codec = value; }
 
-    
+    /**
+     * Type of Audio codec.
+     */
     inline void SetCodec(AudioCodec&& value) { m_codecHasBeenSet = true; m_codec = std::move(value); }
 
-    
+    /**
+     * Type of Audio codec.
+     */
     inline AudioCodecSettings& WithCodec(const AudioCodec& value) { SetCodec(value); return *this;}
 
-    
+    /**
+     * Type of Audio codec.
+     */
     inline AudioCodecSettings& WithCodec(AudioCodec&& value) { SetCodec(std::move(value)); return *this;}
 
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3_ATMOS.
+     */
+    inline const Eac3AtmosSettings& GetEac3AtmosSettings() const{ return m_eac3AtmosSettings; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3_ATMOS.
+     */
+    inline bool Eac3AtmosSettingsHasBeenSet() const { return m_eac3AtmosSettingsHasBeenSet; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3_ATMOS.
+     */
+    inline void SetEac3AtmosSettings(const Eac3AtmosSettings& value) { m_eac3AtmosSettingsHasBeenSet = true; m_eac3AtmosSettings = value; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3_ATMOS.
+     */
+    inline void SetEac3AtmosSettings(Eac3AtmosSettings&& value) { m_eac3AtmosSettingsHasBeenSet = true; m_eac3AtmosSettings = std::move(value); }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3_ATMOS.
+     */
+    inline AudioCodecSettings& WithEac3AtmosSettings(const Eac3AtmosSettings& value) { SetEac3AtmosSettings(value); return *this;}
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3_ATMOS.
+     */
+    inline AudioCodecSettings& WithEac3AtmosSettings(Eac3AtmosSettings&& value) { SetEac3AtmosSettings(std::move(value)); return *this;}
+
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3.
+     */
     inline const Eac3Settings& GetEac3Settings() const{ return m_eac3Settings; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3.
+     */
+    inline bool Eac3SettingsHasBeenSet() const { return m_eac3SettingsHasBeenSet; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3.
+     */
     inline void SetEac3Settings(const Eac3Settings& value) { m_eac3SettingsHasBeenSet = true; m_eac3Settings = value; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3.
+     */
     inline void SetEac3Settings(Eac3Settings&& value) { m_eac3SettingsHasBeenSet = true; m_eac3Settings = std::move(value); }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3.
+     */
     inline AudioCodecSettings& WithEac3Settings(const Eac3Settings& value) { SetEac3Settings(value); return *this;}
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value EAC3.
+     */
     inline AudioCodecSettings& WithEac3Settings(Eac3Settings&& value) { SetEac3Settings(std::move(value)); return *this;}
 
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value MP2.
+     */
     inline const Mp2Settings& GetMp2Settings() const{ return m_mp2Settings; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value MP2.
+     */
+    inline bool Mp2SettingsHasBeenSet() const { return m_mp2SettingsHasBeenSet; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value MP2.
+     */
     inline void SetMp2Settings(const Mp2Settings& value) { m_mp2SettingsHasBeenSet = true; m_mp2Settings = value; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value MP2.
+     */
     inline void SetMp2Settings(Mp2Settings&& value) { m_mp2SettingsHasBeenSet = true; m_mp2Settings = std::move(value); }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value MP2.
+     */
     inline AudioCodecSettings& WithMp2Settings(const Mp2Settings& value) { SetMp2Settings(value); return *this;}
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value MP2.
+     */
     inline AudioCodecSettings& WithMp2Settings(Mp2Settings&& value) { SetMp2Settings(std::move(value)); return *this;}
 
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value WAV.
+     */
     inline const WavSettings& GetWavSettings() const{ return m_wavSettings; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value WAV.
+     */
+    inline bool WavSettingsHasBeenSet() const { return m_wavSettingsHasBeenSet; }
+
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value WAV.
+     */
     inline void SetWavSettings(const WavSettings& value) { m_wavSettingsHasBeenSet = true; m_wavSettings = value; }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value WAV.
+     */
     inline void SetWavSettings(WavSettings&& value) { m_wavSettingsHasBeenSet = true; m_wavSettings = std::move(value); }
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value WAV.
+     */
     inline AudioCodecSettings& WithWavSettings(const WavSettings& value) { SetWavSettings(value); return *this;}
 
-    
+    /**
+     * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the
+     * value WAV.
+     */
     inline AudioCodecSettings& WithWavSettings(WavSettings&& value) { SetWavSettings(std::move(value)); return *this;}
 
   private:
@@ -183,6 +392,9 @@ namespace Model
 
     AudioCodec m_codec;
     bool m_codecHasBeenSet;
+
+    Eac3AtmosSettings m_eac3AtmosSettings;
+    bool m_eac3AtmosSettingsHasBeenSet;
 
     Eac3Settings m_eac3Settings;
     bool m_eac3SettingsHasBeenSet;

@@ -60,6 +60,11 @@ namespace Model
     /**
      * <p>The name of the webhook.</p>
      */
+    inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
+
+    /**
+     * <p>The name of the webhook.</p>
+     */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
@@ -92,6 +97,11 @@ namespace Model
      * <p>The name of the pipeline you want to connect to the webhook.</p>
      */
     inline const Aws::String& GetTargetPipeline() const{ return m_targetPipeline; }
+
+    /**
+     * <p>The name of the pipeline you want to connect to the webhook.</p>
+     */
+    inline bool TargetPipelineHasBeenSet() const { return m_targetPipelineHasBeenSet; }
 
     /**
      * <p>The name of the pipeline you want to connect to the webhook.</p>
@@ -129,6 +139,12 @@ namespace Model
      * action must be from the source (first) stage of the pipeline.</p>
      */
     inline const Aws::String& GetTargetAction() const{ return m_targetAction; }
+
+    /**
+     * <p>The name of the action in a pipeline you want to connect to the webhook. The
+     * action must be from the source (first) stage of the pipeline.</p>
+     */
+    inline bool TargetActionHasBeenSet() const { return m_targetActionHasBeenSet; }
 
     /**
      * <p>The name of the action in a pipeline you want to connect to the webhook. The
@@ -179,6 +195,13 @@ namespace Model
      * webhook URL. All defined rules must pass for the request to be accepted and the
      * pipeline started.</p>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>A list of rules applied to the body/payload sent in the POST request to a
+     * webhook URL. All defined rules must pass for the request to be accepted and the
+     * pipeline started.</p>
+     */
     inline void SetFilters(const Aws::Vector<WebhookFilterRule>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -218,55 +241,72 @@ namespace Model
 
 
     /**
-     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li> <p>
-     * GITHUB_HMAC implements the authentication scheme described here:
-     * https://developer.github.com/webhooks/securing/</p> </li> <li> <p> IP will
-     * reject webhooks trigger requests unless they originate from an IP within the IP
-     * range whitelisted in the authentication configuration.</p> </li> <li> <p>
+     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li>
+     * <p>For information about the authentication scheme implemented by GITHUB_HMAC,
+     * see <a href="https://developer.github.com/webhooks/securing/">Securing your
+     * webhooks</a> on the GitHub Developer website.</p> </li> <li> <p> IP will reject
+     * webhooks trigger requests unless they originate from an IP within the IP range
+     * whitelisted in the authentication configuration.</p> </li> <li> <p>
      * UNAUTHENTICATED will accept all webhook trigger requests regardless of
      * origin.</p> </li> </ul>
      */
     inline const WebhookAuthenticationType& GetAuthentication() const{ return m_authentication; }
 
     /**
-     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li> <p>
-     * GITHUB_HMAC implements the authentication scheme described here:
-     * https://developer.github.com/webhooks/securing/</p> </li> <li> <p> IP will
-     * reject webhooks trigger requests unless they originate from an IP within the IP
-     * range whitelisted in the authentication configuration.</p> </li> <li> <p>
+     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li>
+     * <p>For information about the authentication scheme implemented by GITHUB_HMAC,
+     * see <a href="https://developer.github.com/webhooks/securing/">Securing your
+     * webhooks</a> on the GitHub Developer website.</p> </li> <li> <p> IP will reject
+     * webhooks trigger requests unless they originate from an IP within the IP range
+     * whitelisted in the authentication configuration.</p> </li> <li> <p>
+     * UNAUTHENTICATED will accept all webhook trigger requests regardless of
+     * origin.</p> </li> </ul>
+     */
+    inline bool AuthenticationHasBeenSet() const { return m_authenticationHasBeenSet; }
+
+    /**
+     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li>
+     * <p>For information about the authentication scheme implemented by GITHUB_HMAC,
+     * see <a href="https://developer.github.com/webhooks/securing/">Securing your
+     * webhooks</a> on the GitHub Developer website.</p> </li> <li> <p> IP will reject
+     * webhooks trigger requests unless they originate from an IP within the IP range
+     * whitelisted in the authentication configuration.</p> </li> <li> <p>
      * UNAUTHENTICATED will accept all webhook trigger requests regardless of
      * origin.</p> </li> </ul>
      */
     inline void SetAuthentication(const WebhookAuthenticationType& value) { m_authenticationHasBeenSet = true; m_authentication = value; }
 
     /**
-     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li> <p>
-     * GITHUB_HMAC implements the authentication scheme described here:
-     * https://developer.github.com/webhooks/securing/</p> </li> <li> <p> IP will
-     * reject webhooks trigger requests unless they originate from an IP within the IP
-     * range whitelisted in the authentication configuration.</p> </li> <li> <p>
+     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li>
+     * <p>For information about the authentication scheme implemented by GITHUB_HMAC,
+     * see <a href="https://developer.github.com/webhooks/securing/">Securing your
+     * webhooks</a> on the GitHub Developer website.</p> </li> <li> <p> IP will reject
+     * webhooks trigger requests unless they originate from an IP within the IP range
+     * whitelisted in the authentication configuration.</p> </li> <li> <p>
      * UNAUTHENTICATED will accept all webhook trigger requests regardless of
      * origin.</p> </li> </ul>
      */
     inline void SetAuthentication(WebhookAuthenticationType&& value) { m_authenticationHasBeenSet = true; m_authentication = std::move(value); }
 
     /**
-     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li> <p>
-     * GITHUB_HMAC implements the authentication scheme described here:
-     * https://developer.github.com/webhooks/securing/</p> </li> <li> <p> IP will
-     * reject webhooks trigger requests unless they originate from an IP within the IP
-     * range whitelisted in the authentication configuration.</p> </li> <li> <p>
+     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li>
+     * <p>For information about the authentication scheme implemented by GITHUB_HMAC,
+     * see <a href="https://developer.github.com/webhooks/securing/">Securing your
+     * webhooks</a> on the GitHub Developer website.</p> </li> <li> <p> IP will reject
+     * webhooks trigger requests unless they originate from an IP within the IP range
+     * whitelisted in the authentication configuration.</p> </li> <li> <p>
      * UNAUTHENTICATED will accept all webhook trigger requests regardless of
      * origin.</p> </li> </ul>
      */
     inline WebhookDefinition& WithAuthentication(const WebhookAuthenticationType& value) { SetAuthentication(value); return *this;}
 
     /**
-     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li> <p>
-     * GITHUB_HMAC implements the authentication scheme described here:
-     * https://developer.github.com/webhooks/securing/</p> </li> <li> <p> IP will
-     * reject webhooks trigger requests unless they originate from an IP within the IP
-     * range whitelisted in the authentication configuration.</p> </li> <li> <p>
+     * <p>Supported options are GITHUB_HMAC, IP and UNAUTHENTICATED.</p> <ul> <li>
+     * <p>For information about the authentication scheme implemented by GITHUB_HMAC,
+     * see <a href="https://developer.github.com/webhooks/securing/">Securing your
+     * webhooks</a> on the GitHub Developer website.</p> </li> <li> <p> IP will reject
+     * webhooks trigger requests unless they originate from an IP within the IP range
+     * whitelisted in the authentication configuration.</p> </li> <li> <p>
      * UNAUTHENTICATED will accept all webhook trigger requests regardless of
      * origin.</p> </li> </ul>
      */
@@ -276,45 +316,54 @@ namespace Model
     /**
      * <p>Properties that configure the authentication applied to incoming webhook
      * trigger requests. The required properties depend on the authentication type. For
-     * GITHUB_HMAC, only the SecretToken property must be set. For IP, only the
-     * AllowedIPRange property must be set to a valid CIDR range. For UNAUTHENTICATED,
-     * no properties can be set.</p>
+     * GITHUB_HMAC, only the <code>SecretToken </code>property must be set. For IP,
+     * only the <code>AllowedIPRange </code>property must be set to a valid CIDR range.
+     * For UNAUTHENTICATED, no properties can be set.</p>
      */
     inline const WebhookAuthConfiguration& GetAuthenticationConfiguration() const{ return m_authenticationConfiguration; }
 
     /**
      * <p>Properties that configure the authentication applied to incoming webhook
      * trigger requests. The required properties depend on the authentication type. For
-     * GITHUB_HMAC, only the SecretToken property must be set. For IP, only the
-     * AllowedIPRange property must be set to a valid CIDR range. For UNAUTHENTICATED,
-     * no properties can be set.</p>
+     * GITHUB_HMAC, only the <code>SecretToken </code>property must be set. For IP,
+     * only the <code>AllowedIPRange </code>property must be set to a valid CIDR range.
+     * For UNAUTHENTICATED, no properties can be set.</p>
+     */
+    inline bool AuthenticationConfigurationHasBeenSet() const { return m_authenticationConfigurationHasBeenSet; }
+
+    /**
+     * <p>Properties that configure the authentication applied to incoming webhook
+     * trigger requests. The required properties depend on the authentication type. For
+     * GITHUB_HMAC, only the <code>SecretToken </code>property must be set. For IP,
+     * only the <code>AllowedIPRange </code>property must be set to a valid CIDR range.
+     * For UNAUTHENTICATED, no properties can be set.</p>
      */
     inline void SetAuthenticationConfiguration(const WebhookAuthConfiguration& value) { m_authenticationConfigurationHasBeenSet = true; m_authenticationConfiguration = value; }
 
     /**
      * <p>Properties that configure the authentication applied to incoming webhook
      * trigger requests. The required properties depend on the authentication type. For
-     * GITHUB_HMAC, only the SecretToken property must be set. For IP, only the
-     * AllowedIPRange property must be set to a valid CIDR range. For UNAUTHENTICATED,
-     * no properties can be set.</p>
+     * GITHUB_HMAC, only the <code>SecretToken </code>property must be set. For IP,
+     * only the <code>AllowedIPRange </code>property must be set to a valid CIDR range.
+     * For UNAUTHENTICATED, no properties can be set.</p>
      */
     inline void SetAuthenticationConfiguration(WebhookAuthConfiguration&& value) { m_authenticationConfigurationHasBeenSet = true; m_authenticationConfiguration = std::move(value); }
 
     /**
      * <p>Properties that configure the authentication applied to incoming webhook
      * trigger requests. The required properties depend on the authentication type. For
-     * GITHUB_HMAC, only the SecretToken property must be set. For IP, only the
-     * AllowedIPRange property must be set to a valid CIDR range. For UNAUTHENTICATED,
-     * no properties can be set.</p>
+     * GITHUB_HMAC, only the <code>SecretToken </code>property must be set. For IP,
+     * only the <code>AllowedIPRange </code>property must be set to a valid CIDR range.
+     * For UNAUTHENTICATED, no properties can be set.</p>
      */
     inline WebhookDefinition& WithAuthenticationConfiguration(const WebhookAuthConfiguration& value) { SetAuthenticationConfiguration(value); return *this;}
 
     /**
      * <p>Properties that configure the authentication applied to incoming webhook
      * trigger requests. The required properties depend on the authentication type. For
-     * GITHUB_HMAC, only the SecretToken property must be set. For IP, only the
-     * AllowedIPRange property must be set to a valid CIDR range. For UNAUTHENTICATED,
-     * no properties can be set.</p>
+     * GITHUB_HMAC, only the <code>SecretToken </code>property must be set. For IP,
+     * only the <code>AllowedIPRange </code>property must be set to a valid CIDR range.
+     * For UNAUTHENTICATED, no properties can be set.</p>
      */
     inline WebhookDefinition& WithAuthenticationConfiguration(WebhookAuthConfiguration&& value) { SetAuthenticationConfiguration(std::move(value)); return *this;}
 

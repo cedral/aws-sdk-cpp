@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ListAssociationsForLicenseConfigurationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>ARN of a <code>LicenseConfiguration</code> object.</p>
      */
     inline const Aws::String& GetLicenseConfigurationArn() const{ return m_licenseConfigurationArn; }
+
+    /**
+     * <p>ARN of a <code>LicenseConfiguration</code> object.</p>
+     */
+    inline bool LicenseConfigurationArnHasBeenSet() const { return m_licenseConfigurationArnHasBeenSet; }
 
     /**
      * <p>ARN of a <code>LicenseConfiguration</code> object.</p>
@@ -92,6 +97,13 @@ namespace Model
      * remaining results, make another call with the returned <code>NextToken</code>
      * value.</p>
      */
+    inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
+
+    /**
+     * <p>Maximum number of results to return in a single call. To retrieve the
+     * remaining results, make another call with the returned <code>NextToken</code>
+     * value.</p>
+     */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
@@ -106,6 +118,11 @@ namespace Model
      * <p>Token for the next set of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>Token for the next set of results.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>Token for the next set of results.</p>

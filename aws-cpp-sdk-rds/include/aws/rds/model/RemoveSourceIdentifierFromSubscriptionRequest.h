@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     RemoveSourceIdentifierFromSubscriptionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,12 @@ namespace Model
      * source identifier from.</p>
      */
     inline const Aws::String& GetSubscriptionName() const{ return m_subscriptionName; }
+
+    /**
+     * <p>The name of the RDS event notification subscription you want to remove a
+     * source identifier from.</p>
+     */
+    inline bool SubscriptionNameHasBeenSet() const { return m_subscriptionNameHasBeenSet; }
 
     /**
      * <p>The name of the RDS event notification subscription you want to remove a
@@ -97,6 +103,12 @@ namespace Model
      * instance identifier</b> for a DB instance or the name of a security group. </p>
      */
     inline const Aws::String& GetSourceIdentifier() const{ return m_sourceIdentifier; }
+
+    /**
+     * <p> The source identifier to be removed from the subscription, such as the <b>DB
+     * instance identifier</b> for a DB instance or the name of a security group. </p>
+     */
+    inline bool SourceIdentifierHasBeenSet() const { return m_sourceIdentifierHasBeenSet; }
 
     /**
      * <p> The source identifier to be removed from the subscription, such as the <b>DB

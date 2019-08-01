@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     PutCorsPolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,11 @@ namespace Model
      * <p>The name of the container that you want to assign the CORS policy to.</p>
      */
     inline const Aws::String& GetContainerName() const{ return m_containerName; }
+
+    /**
+     * <p>The name of the container that you want to assign the CORS policy to.</p>
+     */
+    inline bool ContainerNameHasBeenSet() const { return m_containerNameHasBeenSet; }
 
     /**
      * <p>The name of the container that you want to assign the CORS policy to.</p>
@@ -86,6 +91,11 @@ namespace Model
      * <p>The CORS policy to apply to the container. </p>
      */
     inline const Aws::Vector<CorsRule>& GetCorsPolicy() const{ return m_corsPolicy; }
+
+    /**
+     * <p>The CORS policy to apply to the container. </p>
+     */
+    inline bool CorsPolicyHasBeenSet() const { return m_corsPolicyHasBeenSet; }
 
     /**
      * <p>The CORS policy to apply to the container. </p>

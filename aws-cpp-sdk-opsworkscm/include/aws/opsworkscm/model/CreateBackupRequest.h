@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateBackupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of the server that you want to back up. </p>
      */
     inline const Aws::String& GetServerName() const{ return m_serverName; }
+
+    /**
+     * <p>The name of the server that you want to back up. </p>
+     */
+    inline bool ServerNameHasBeenSet() const { return m_serverNameHasBeenSet; }
 
     /**
      * <p>The name of the server that you want to back up. </p>
@@ -84,6 +89,11 @@ namespace Model
      * <p> A user-defined description of the backup. </p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
+
+    /**
+     * <p> A user-defined description of the backup. </p>
+     */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
      * <p> A user-defined description of the backup. </p>

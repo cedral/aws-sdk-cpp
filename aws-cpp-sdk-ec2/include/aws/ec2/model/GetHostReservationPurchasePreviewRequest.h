@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     GetHostReservationPurchasePreviewRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
      */
     inline const Aws::Vector<Aws::String>& GetHostIdSet() const{ return m_hostIdSet; }
+
+    /**
+     * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
+     */
+    inline bool HostIdSetHasBeenSet() const { return m_hostIdSetHasBeenSet; }
 
     /**
      * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
@@ -92,6 +97,11 @@ namespace Model
      * <p>The offering ID of the reservation.</p>
      */
     inline const Aws::String& GetOfferingId() const{ return m_offeringId; }
+
+    /**
+     * <p>The offering ID of the reservation.</p>
+     */
+    inline bool OfferingIdHasBeenSet() const { return m_offeringIdHasBeenSet; }
 
     /**
      * <p>The offering ID of the reservation.</p>

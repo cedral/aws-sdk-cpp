@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     DeactivatePipelineRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ID of the pipeline.</p>
      */
     inline const Aws::String& GetPipelineId() const{ return m_pipelineId; }
+
+    /**
+     * <p>The ID of the pipeline.</p>
+     */
+    inline bool PipelineIdHasBeenSet() const { return m_pipelineIdHasBeenSet; }
 
     /**
      * <p>The ID of the pipeline.</p>
@@ -89,6 +94,13 @@ namespace Model
      * false, the pipeline is deactivated after all running objects finish.</p>
      */
     inline bool GetCancelActive() const{ return m_cancelActive; }
+
+    /**
+     * <p>Indicates whether to cancel any running objects. The default is true, which
+     * sets the state of any running objects to <code>CANCELED</code>. If this value is
+     * false, the pipeline is deactivated after all running objects finish.</p>
+     */
+    inline bool CancelActiveHasBeenSet() const { return m_cancelActiveHasBeenSet; }
 
     /**
      * <p>Indicates whether to cancel any running objects. The default is true, which

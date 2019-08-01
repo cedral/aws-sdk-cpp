@@ -38,7 +38,7 @@ namespace Model
   {
   public:
     CreateBudgetRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -54,6 +54,11 @@ namespace Model
      * <p>The <code>accountId</code> that is associated with the budget.</p>
      */
     inline const Aws::String& GetAccountId() const{ return m_accountId; }
+
+    /**
+     * <p>The <code>accountId</code> that is associated with the budget.</p>
+     */
+    inline bool AccountIdHasBeenSet() const { return m_accountIdHasBeenSet; }
 
     /**
      * <p>The <code>accountId</code> that is associated with the budget.</p>
@@ -94,6 +99,11 @@ namespace Model
     /**
      * <p>The budget object that you want to create.</p>
      */
+    inline bool BudgetHasBeenSet() const { return m_budgetHasBeenSet; }
+
+    /**
+     * <p>The budget object that you want to create.</p>
+     */
     inline void SetBudget(const Budget& value) { m_budgetHasBeenSet = true; m_budget = value; }
 
     /**
@@ -120,6 +130,15 @@ namespace Model
      * for you.</p>
      */
     inline const Aws::Vector<NotificationWithSubscribers>& GetNotificationsWithSubscribers() const{ return m_notificationsWithSubscribers; }
+
+    /**
+     * <p>A notification that you want to associate with a budget. A budget can have up
+     * to five notifications, and each notification can have one SNS subscriber and up
+     * to 10 email subscribers. If you include notifications and subscribers in your
+     * <code>CreateBudget</code> call, AWS creates the notifications and subscribers
+     * for you.</p>
+     */
+    inline bool NotificationsWithSubscribersHasBeenSet() const { return m_notificationsWithSubscribersHasBeenSet; }
 
     /**
      * <p>A notification that you want to associate with a budget. A budget can have up

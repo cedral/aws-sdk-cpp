@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteBackupRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,13 @@ namespace Model
      * <code>ServerName-yyyyMMddHHmmssSSS</code>. </p>
      */
     inline const Aws::String& GetBackupId() const{ return m_backupId; }
+
+    /**
+     * <p>The ID of the backup to delete. Run the DescribeBackups command to get a list
+     * of backup IDs. Backup IDs are in the format
+     * <code>ServerName-yyyyMMddHHmmssSSS</code>. </p>
+     */
+    inline bool BackupIdHasBeenSet() const { return m_backupIdHasBeenSet; }
 
     /**
      * <p>The ID of the backup to delete. Run the DescribeBackups command to get a list

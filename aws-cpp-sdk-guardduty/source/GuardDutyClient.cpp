@@ -63,10 +63,13 @@
 #include <aws/guardduty/model/ListIPSetsRequest.h>
 #include <aws/guardduty/model/ListInvitationsRequest.h>
 #include <aws/guardduty/model/ListMembersRequest.h>
+#include <aws/guardduty/model/ListTagsForResourceRequest.h>
 #include <aws/guardduty/model/ListThreatIntelSetsRequest.h>
 #include <aws/guardduty/model/StartMonitoringMembersRequest.h>
 #include <aws/guardduty/model/StopMonitoringMembersRequest.h>
+#include <aws/guardduty/model/TagResourceRequest.h>
 #include <aws/guardduty/model/UnarchiveFindingsRequest.h>
+#include <aws/guardduty/model/UntagResourceRequest.h>
 #include <aws/guardduty/model/UpdateDetectorRequest.h>
 #include <aws/guardduty/model/UpdateFilterRequest.h>
 #include <aws/guardduty/model/UpdateFindingsFeedbackRequest.h>
@@ -144,8 +147,14 @@ void GuardDutyClient::OverrideEndpoint(const Aws::String& endpoint)
       m_uri = m_configScheme + "://" + endpoint;
   }
 }
+
 AcceptInvitationOutcome GuardDutyClient::AcceptInvitation(const AcceptInvitationRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("AcceptInvitation", "Required field: DetectorId, is not set");
+    return AcceptInvitationOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -183,6 +192,11 @@ void GuardDutyClient::AcceptInvitationAsyncHelper(const AcceptInvitationRequest&
 
 ArchiveFindingsOutcome GuardDutyClient::ArchiveFindings(const ArchiveFindingsRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ArchiveFindings", "Required field: DetectorId, is not set");
+    return ArchiveFindingsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -255,6 +269,11 @@ void GuardDutyClient::CreateDetectorAsyncHelper(const CreateDetectorRequest& req
 
 CreateFilterOutcome GuardDutyClient::CreateFilter(const CreateFilterRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateFilter", "Required field: DetectorId, is not set");
+    return CreateFilterOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -292,6 +311,11 @@ void GuardDutyClient::CreateFilterAsyncHelper(const CreateFilterRequest& request
 
 CreateIPSetOutcome GuardDutyClient::CreateIPSet(const CreateIPSetRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateIPSet", "Required field: DetectorId, is not set");
+    return CreateIPSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -329,6 +353,11 @@ void GuardDutyClient::CreateIPSetAsyncHelper(const CreateIPSetRequest& request, 
 
 CreateMembersOutcome GuardDutyClient::CreateMembers(const CreateMembersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateMembers", "Required field: DetectorId, is not set");
+    return CreateMembersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -366,6 +395,11 @@ void GuardDutyClient::CreateMembersAsyncHelper(const CreateMembersRequest& reque
 
 CreateSampleFindingsOutcome GuardDutyClient::CreateSampleFindings(const CreateSampleFindingsRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateSampleFindings", "Required field: DetectorId, is not set");
+    return CreateSampleFindingsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -403,6 +437,11 @@ void GuardDutyClient::CreateSampleFindingsAsyncHelper(const CreateSampleFindings
 
 CreateThreatIntelSetOutcome GuardDutyClient::CreateThreatIntelSet(const CreateThreatIntelSetRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateThreatIntelSet", "Required field: DetectorId, is not set");
+    return CreateThreatIntelSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -475,6 +514,11 @@ void GuardDutyClient::DeclineInvitationsAsyncHelper(const DeclineInvitationsRequ
 
 DeleteDetectorOutcome GuardDutyClient::DeleteDetector(const DeleteDetectorRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteDetector", "Required field: DetectorId, is not set");
+    return DeleteDetectorOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -511,6 +555,16 @@ void GuardDutyClient::DeleteDetectorAsyncHelper(const DeleteDetectorRequest& req
 
 DeleteFilterOutcome GuardDutyClient::DeleteFilter(const DeleteFilterRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteFilter", "Required field: DetectorId, is not set");
+    return DeleteFilterOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.FilterNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteFilter", "Required field: FilterName, is not set");
+    return DeleteFilterOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [FilterName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -549,6 +603,16 @@ void GuardDutyClient::DeleteFilterAsyncHelper(const DeleteFilterRequest& request
 
 DeleteIPSetOutcome GuardDutyClient::DeleteIPSet(const DeleteIPSetRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteIPSet", "Required field: DetectorId, is not set");
+    return DeleteIPSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.IpSetIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteIPSet", "Required field: IpSetId, is not set");
+    return DeleteIPSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IpSetId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -622,6 +686,11 @@ void GuardDutyClient::DeleteInvitationsAsyncHelper(const DeleteInvitationsReques
 
 DeleteMembersOutcome GuardDutyClient::DeleteMembers(const DeleteMembersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteMembers", "Required field: DetectorId, is not set");
+    return DeleteMembersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -659,6 +728,16 @@ void GuardDutyClient::DeleteMembersAsyncHelper(const DeleteMembersRequest& reque
 
 DeleteThreatIntelSetOutcome GuardDutyClient::DeleteThreatIntelSet(const DeleteThreatIntelSetRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteThreatIntelSet", "Required field: DetectorId, is not set");
+    return DeleteThreatIntelSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.ThreatIntelSetIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteThreatIntelSet", "Required field: ThreatIntelSetId, is not set");
+    return DeleteThreatIntelSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ThreatIntelSetId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -697,6 +776,11 @@ void GuardDutyClient::DeleteThreatIntelSetAsyncHelper(const DeleteThreatIntelSet
 
 DisassociateFromMasterAccountOutcome GuardDutyClient::DisassociateFromMasterAccount(const DisassociateFromMasterAccountRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DisassociateFromMasterAccount", "Required field: DetectorId, is not set");
+    return DisassociateFromMasterAccountOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -734,6 +818,11 @@ void GuardDutyClient::DisassociateFromMasterAccountAsyncHelper(const Disassociat
 
 DisassociateMembersOutcome GuardDutyClient::DisassociateMembers(const DisassociateMembersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DisassociateMembers", "Required field: DetectorId, is not set");
+    return DisassociateMembersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -771,6 +860,11 @@ void GuardDutyClient::DisassociateMembersAsyncHelper(const DisassociateMembersRe
 
 GetDetectorOutcome GuardDutyClient::GetDetector(const GetDetectorRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetDetector", "Required field: DetectorId, is not set");
+    return GetDetectorOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -807,6 +901,16 @@ void GuardDutyClient::GetDetectorAsyncHelper(const GetDetectorRequest& request, 
 
 GetFilterOutcome GuardDutyClient::GetFilter(const GetFilterRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetFilter", "Required field: DetectorId, is not set");
+    return GetFilterOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.FilterNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetFilter", "Required field: FilterName, is not set");
+    return GetFilterOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [FilterName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -845,6 +949,11 @@ void GuardDutyClient::GetFilterAsyncHelper(const GetFilterRequest& request, cons
 
 GetFindingsOutcome GuardDutyClient::GetFindings(const GetFindingsRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetFindings", "Required field: DetectorId, is not set");
+    return GetFindingsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -882,6 +991,11 @@ void GuardDutyClient::GetFindingsAsyncHelper(const GetFindingsRequest& request, 
 
 GetFindingsStatisticsOutcome GuardDutyClient::GetFindingsStatistics(const GetFindingsStatisticsRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetFindingsStatistics", "Required field: DetectorId, is not set");
+    return GetFindingsStatisticsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -919,6 +1033,16 @@ void GuardDutyClient::GetFindingsStatisticsAsyncHelper(const GetFindingsStatisti
 
 GetIPSetOutcome GuardDutyClient::GetIPSet(const GetIPSetRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIPSet", "Required field: DetectorId, is not set");
+    return GetIPSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.IpSetIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetIPSet", "Required field: IpSetId, is not set");
+    return GetIPSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IpSetId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -992,6 +1116,11 @@ void GuardDutyClient::GetInvitationsCountAsyncHelper(const GetInvitationsCountRe
 
 GetMasterAccountOutcome GuardDutyClient::GetMasterAccount(const GetMasterAccountRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetMasterAccount", "Required field: DetectorId, is not set");
+    return GetMasterAccountOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1029,6 +1158,11 @@ void GuardDutyClient::GetMasterAccountAsyncHelper(const GetMasterAccountRequest&
 
 GetMembersOutcome GuardDutyClient::GetMembers(const GetMembersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetMembers", "Required field: DetectorId, is not set");
+    return GetMembersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1066,6 +1200,16 @@ void GuardDutyClient::GetMembersAsyncHelper(const GetMembersRequest& request, co
 
 GetThreatIntelSetOutcome GuardDutyClient::GetThreatIntelSet(const GetThreatIntelSetRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetThreatIntelSet", "Required field: DetectorId, is not set");
+    return GetThreatIntelSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.ThreatIntelSetIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetThreatIntelSet", "Required field: ThreatIntelSetId, is not set");
+    return GetThreatIntelSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ThreatIntelSetId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1104,6 +1248,11 @@ void GuardDutyClient::GetThreatIntelSetAsyncHelper(const GetThreatIntelSetReques
 
 InviteMembersOutcome GuardDutyClient::InviteMembers(const InviteMembersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("InviteMembers", "Required field: DetectorId, is not set");
+    return InviteMembersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1176,6 +1325,11 @@ void GuardDutyClient::ListDetectorsAsyncHelper(const ListDetectorsRequest& reque
 
 ListFiltersOutcome GuardDutyClient::ListFilters(const ListFiltersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListFilters", "Required field: DetectorId, is not set");
+    return ListFiltersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1213,6 +1367,11 @@ void GuardDutyClient::ListFiltersAsyncHelper(const ListFiltersRequest& request, 
 
 ListFindingsOutcome GuardDutyClient::ListFindings(const ListFindingsRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListFindings", "Required field: DetectorId, is not set");
+    return ListFindingsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1250,6 +1409,11 @@ void GuardDutyClient::ListFindingsAsyncHelper(const ListFindingsRequest& request
 
 ListIPSetsOutcome GuardDutyClient::ListIPSets(const ListIPSetsRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListIPSets", "Required field: DetectorId, is not set");
+    return ListIPSetsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1322,6 +1486,11 @@ void GuardDutyClient::ListInvitationsAsyncHelper(const ListInvitationsRequest& r
 
 ListMembersOutcome GuardDutyClient::ListMembers(const ListMembersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListMembers", "Required field: DetectorId, is not set");
+    return ListMembersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1357,8 +1526,54 @@ void GuardDutyClient::ListMembersAsyncHelper(const ListMembersRequest& request, 
   handler(this, request, ListMembers(request), context);
 }
 
+ListTagsForResourceOutcome GuardDutyClient::ListTagsForResource(const ListTagsForResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListTagsForResource", "Required field: ResourceArn, is not set");
+    return ListTagsForResourceOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTagsForResourceOutcome(outcome.GetError());
+  }
+}
+
+ListTagsForResourceOutcomeCallable GuardDutyClient::ListTagsForResourceCallable(const ListTagsForResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTagsForResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTagsForResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GuardDutyClient::ListTagsForResourceAsync(const ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTagsForResourceAsyncHelper( request, handler, context ); } );
+}
+
+void GuardDutyClient::ListTagsForResourceAsyncHelper(const ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTagsForResource(request), context);
+}
+
 ListThreatIntelSetsOutcome GuardDutyClient::ListThreatIntelSets(const ListThreatIntelSetsRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListThreatIntelSets", "Required field: DetectorId, is not set");
+    return ListThreatIntelSetsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1396,6 +1611,11 @@ void GuardDutyClient::ListThreatIntelSetsAsyncHelper(const ListThreatIntelSetsRe
 
 StartMonitoringMembersOutcome GuardDutyClient::StartMonitoringMembers(const StartMonitoringMembersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("StartMonitoringMembers", "Required field: DetectorId, is not set");
+    return StartMonitoringMembersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1433,6 +1653,11 @@ void GuardDutyClient::StartMonitoringMembersAsyncHelper(const StartMonitoringMem
 
 StopMonitoringMembersOutcome GuardDutyClient::StopMonitoringMembers(const StopMonitoringMembersRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("StopMonitoringMembers", "Required field: DetectorId, is not set");
+    return StopMonitoringMembersOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1468,8 +1693,54 @@ void GuardDutyClient::StopMonitoringMembersAsyncHelper(const StopMonitoringMembe
   handler(this, request, StopMonitoringMembers(request), context);
 }
 
+TagResourceOutcome GuardDutyClient::TagResource(const TagResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("TagResource", "Required field: ResourceArn, is not set");
+    return TagResourceOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return TagResourceOutcome(outcome.GetError());
+  }
+}
+
+TagResourceOutcomeCallable GuardDutyClient::TagResourceCallable(const TagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< TagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->TagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GuardDutyClient::TagResourceAsync(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->TagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void GuardDutyClient::TagResourceAsyncHelper(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, TagResource(request), context);
+}
+
 UnarchiveFindingsOutcome GuardDutyClient::UnarchiveFindings(const UnarchiveFindingsRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UnarchiveFindings", "Required field: DetectorId, is not set");
+    return UnarchiveFindingsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1505,8 +1776,59 @@ void GuardDutyClient::UnarchiveFindingsAsyncHelper(const UnarchiveFindingsReques
   handler(this, request, UnarchiveFindings(request), context);
 }
 
+UntagResourceOutcome GuardDutyClient::UntagResource(const UntagResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UntagResource", "Required field: ResourceArn, is not set");
+    return UntagResourceOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  if (!request.TagKeysHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UntagResource", "Required field: TagKeys, is not set");
+    return UntagResourceOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UntagResourceOutcome(outcome.GetError());
+  }
+}
+
+UntagResourceOutcomeCallable GuardDutyClient::UntagResourceCallable(const UntagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UntagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UntagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GuardDutyClient::UntagResourceAsync(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UntagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void GuardDutyClient::UntagResourceAsyncHelper(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UntagResource(request), context);
+}
+
 UpdateDetectorOutcome GuardDutyClient::UpdateDetector(const UpdateDetectorRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateDetector", "Required field: DetectorId, is not set");
+    return UpdateDetectorOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1543,6 +1865,16 @@ void GuardDutyClient::UpdateDetectorAsyncHelper(const UpdateDetectorRequest& req
 
 UpdateFilterOutcome GuardDutyClient::UpdateFilter(const UpdateFilterRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateFilter", "Required field: DetectorId, is not set");
+    return UpdateFilterOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.FilterNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateFilter", "Required field: FilterName, is not set");
+    return UpdateFilterOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [FilterName]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1581,6 +1913,11 @@ void GuardDutyClient::UpdateFilterAsyncHelper(const UpdateFilterRequest& request
 
 UpdateFindingsFeedbackOutcome GuardDutyClient::UpdateFindingsFeedback(const UpdateFindingsFeedbackRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateFindingsFeedback", "Required field: DetectorId, is not set");
+    return UpdateFindingsFeedbackOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1618,6 +1955,16 @@ void GuardDutyClient::UpdateFindingsFeedbackAsyncHelper(const UpdateFindingsFeed
 
 UpdateIPSetOutcome GuardDutyClient::UpdateIPSet(const UpdateIPSetRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateIPSet", "Required field: DetectorId, is not set");
+    return UpdateIPSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.IpSetIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateIPSet", "Required field: IpSetId, is not set");
+    return UpdateIPSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [IpSetId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";
@@ -1656,6 +2003,16 @@ void GuardDutyClient::UpdateIPSetAsyncHelper(const UpdateIPSetRequest& request, 
 
 UpdateThreatIntelSetOutcome GuardDutyClient::UpdateThreatIntelSet(const UpdateThreatIntelSetRequest& request) const
 {
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateThreatIntelSet", "Required field: DetectorId, is not set");
+    return UpdateThreatIntelSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.ThreatIntelSetIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateThreatIntelSet", "Required field: ThreatIntelSetId, is not set");
+    return UpdateThreatIntelSetOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ThreatIntelSetId]", false));
+  }
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/detector/";

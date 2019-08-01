@@ -17,6 +17,8 @@
 #include <aws/config/ConfigService_EXPORTS.h>
 #include <aws/config/ConfigServiceRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/config/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -32,7 +34,7 @@ namespace Model
   {
   public:
     PutAggregationAuthorizationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +50,11 @@ namespace Model
      * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
      */
     inline const Aws::String& GetAuthorizedAccountId() const{ return m_authorizedAccountId; }
+
+    /**
+     * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
+     */
+    inline bool AuthorizedAccountIdHasBeenSet() const { return m_authorizedAccountIdHasBeenSet; }
 
     /**
      * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
@@ -88,6 +95,11 @@ namespace Model
     /**
      * <p>The region authorized to collect aggregated data.</p>
      */
+    inline bool AuthorizedAwsRegionHasBeenSet() const { return m_authorizedAwsRegionHasBeenSet; }
+
+    /**
+     * <p>The region authorized to collect aggregated data.</p>
+     */
     inline void SetAuthorizedAwsRegion(const Aws::String& value) { m_authorizedAwsRegionHasBeenSet = true; m_authorizedAwsRegion = value; }
 
     /**
@@ -115,6 +127,31 @@ namespace Model
      */
     inline PutAggregationAuthorizationRequest& WithAuthorizedAwsRegion(const char* value) { SetAuthorizedAwsRegion(value); return *this;}
 
+
+    
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    
+    inline PutAggregationAuthorizationRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    
+    inline PutAggregationAuthorizationRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    
+    inline PutAggregationAuthorizationRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    
+    inline PutAggregationAuthorizationRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_authorizedAccountId;
@@ -122,6 +159,9 @@ namespace Model
 
     Aws::String m_authorizedAwsRegion;
     bool m_authorizedAwsRegionHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

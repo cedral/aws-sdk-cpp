@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetUsagePlanKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,13 @@ namespace Model
      * plan customer.</p>
      */
     inline const Aws::String& GetUsagePlanId() const{ return m_usagePlanId; }
+
+    /**
+     * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage
+     * plan containing the to-be-retrieved <a>UsagePlanKey</a> resource representing a
+     * plan customer.</p>
+     */
+    inline bool UsagePlanIdHasBeenSet() const { return m_usagePlanIdHasBeenSet; }
 
     /**
      * <p>[Required] The Id of the <a>UsagePlan</a> resource representing the usage
@@ -101,6 +108,12 @@ namespace Model
      * representing a plan customer.</p>
      */
     inline const Aws::String& GetKeyId() const{ return m_keyId; }
+
+    /**
+     * <p>[Required] The key Id of the to-be-retrieved <a>UsagePlanKey</a> resource
+     * representing a plan customer.</p>
+     */
+    inline bool KeyIdHasBeenSet() const { return m_keyIdHasBeenSet; }
 
     /**
      * <p>[Required] The key Id of the to-be-retrieved <a>UsagePlanKey</a> resource

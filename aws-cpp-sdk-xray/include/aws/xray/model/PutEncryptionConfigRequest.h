@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutEncryptionConfigRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -55,6 +55,19 @@ namespace Model
      * this key if you set <code>Type</code> to <code>NONE</code>.</p>
      */
     inline const Aws::String& GetKeyId() const{ return m_keyId; }
+
+    /**
+     * <p>An AWS KMS customer master key (CMK) in one of the following formats:</p>
+     * <ul> <li> <p> <b>Alias</b> - The name of the key. For example,
+     * <code>alias/MyKey</code>.</p> </li> <li> <p> <b>Key ID</b> - The KMS key ID of
+     * the key. For example, <code>ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>.</p>
+     * </li> <li> <p> <b>ARN</b> - The full Amazon Resource Name of the key ID or
+     * alias. For example,
+     * <code>arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456</code>.
+     * Use this format to specify a key in a different account.</p> </li> </ul> <p>Omit
+     * this key if you set <code>Type</code> to <code>NONE</code>.</p>
+     */
+    inline bool KeyIdHasBeenSet() const { return m_keyIdHasBeenSet; }
 
     /**
      * <p>An AWS KMS customer master key (CMK) in one of the following formats:</p>
@@ -140,6 +153,12 @@ namespace Model
      * encryption. Set to <code>NONE</code> for default encryption.</p>
      */
     inline const EncryptionType& GetType() const{ return m_type; }
+
+    /**
+     * <p>The type of encryption. Set to <code>KMS</code> to use your own key for
+     * encryption. Set to <code>NONE</code> for default encryption.</p>
+     */
+    inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
 
     /**
      * <p>The type of encryption. Set to <code>KMS</code> to use your own key for

@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeletePolicyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,15 @@ namespace Model
      * lower-case letters or digits.</p>
      */
     inline const Aws::String& GetPolicyId() const{ return m_policyId; }
+
+    /**
+     * <p>The unique identifier (ID) of the policy that you want to delete. You can get
+     * the ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a>
+     * operations.</p> <p>The <a href="http://wikipedia.org/wiki/regex">regex
+     * pattern</a> for a policy ID string requires "p-" followed by from 8 to 128
+     * lower-case letters or digits.</p>
+     */
+    inline bool PolicyIdHasBeenSet() const { return m_policyIdHasBeenSet; }
 
     /**
      * <p>The unique identifier (ID) of the policy that you want to delete. You can get

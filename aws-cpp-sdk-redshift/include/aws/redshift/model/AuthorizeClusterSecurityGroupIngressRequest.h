@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     AuthorizeClusterSecurityGroupIngressRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,11 @@ namespace Model
      * <p>The name of the security group to which the ingress rule is added.</p>
      */
     inline const Aws::String& GetClusterSecurityGroupName() const{ return m_clusterSecurityGroupName; }
+
+    /**
+     * <p>The name of the security group to which the ingress rule is added.</p>
+     */
+    inline bool ClusterSecurityGroupNameHasBeenSet() const { return m_clusterSecurityGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the security group to which the ingress rule is added.</p>
@@ -93,6 +98,11 @@ namespace Model
     /**
      * <p>The IP range to be added the Amazon Redshift security group.</p>
      */
+    inline bool CIDRIPHasBeenSet() const { return m_cIDRIPHasBeenSet; }
+
+    /**
+     * <p>The IP range to be added the Amazon Redshift security group.</p>
+     */
     inline void SetCIDRIP(const Aws::String& value) { m_cIDRIPHasBeenSet = true; m_cIDRIP = value; }
 
     /**
@@ -125,6 +135,11 @@ namespace Model
      * <p>The EC2 security group to be added the Amazon Redshift security group.</p>
      */
     inline const Aws::String& GetEC2SecurityGroupName() const{ return m_eC2SecurityGroupName; }
+
+    /**
+     * <p>The EC2 security group to be added the Amazon Redshift security group.</p>
+     */
+    inline bool EC2SecurityGroupNameHasBeenSet() const { return m_eC2SecurityGroupNameHasBeenSet; }
 
     /**
      * <p>The EC2 security group to be added the Amazon Redshift security group.</p>
@@ -163,6 +178,13 @@ namespace Model
      * acceptable value. </p> <p>Example: <code>111122223333</code> </p>
      */
     inline const Aws::String& GetEC2SecurityGroupOwnerId() const{ return m_eC2SecurityGroupOwnerId; }
+
+    /**
+     * <p>The AWS account number of the owner of the security group specified by the
+     * <i>EC2SecurityGroupName</i> parameter. The AWS Access Key ID is not an
+     * acceptable value. </p> <p>Example: <code>111122223333</code> </p>
+     */
+    inline bool EC2SecurityGroupOwnerIdHasBeenSet() const { return m_eC2SecurityGroupOwnerIdHasBeenSet; }
 
     /**
      * <p>The AWS account number of the owner of the security group specified by the

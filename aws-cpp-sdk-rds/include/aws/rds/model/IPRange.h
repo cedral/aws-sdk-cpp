@@ -35,7 +35,7 @@ namespace Model
 
   /**
    * <p> This data type is used as a response element in the
-   * <a>DescribeDBSecurityGroups</a> action. </p><p><h3>See Also:</h3>   <a
+   * <code>DescribeDBSecurityGroups</code> action. </p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/IPRange">AWS API
    * Reference</a></p>
    */
@@ -55,6 +55,12 @@ namespace Model
      * "authorized", "revoking", and "revoked".</p>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
+
+    /**
+     * <p>Specifies the status of the IP range. Status can be "authorizing",
+     * "authorized", "revoking", and "revoked".</p>
+     */
+    inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
      * <p>Specifies the status of the IP range. Status can be "authorizing",
@@ -97,6 +103,11 @@ namespace Model
      * <p>Specifies the IP range.</p>
      */
     inline const Aws::String& GetCIDRIP() const{ return m_cIDRIP; }
+
+    /**
+     * <p>Specifies the IP range.</p>
+     */
+    inline bool CIDRIPHasBeenSet() const { return m_cIDRIPHasBeenSet; }
 
     /**
      * <p>Specifies the IP range.</p>

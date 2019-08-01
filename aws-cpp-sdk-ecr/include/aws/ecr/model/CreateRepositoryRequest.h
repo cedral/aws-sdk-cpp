@@ -18,6 +18,7 @@
 #include <aws/ecr/ECRRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ecr/model/ImageTagMutability.h>
 #include <aws/ecr/model/Tag.h>
 #include <utility>
 
@@ -34,7 +35,7 @@ namespace Model
   {
   public:
     CreateRepositoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +54,14 @@ namespace Model
      * <code>project-a/nginx-web-app</code>).</p>
      */
     inline const Aws::String& GetRepositoryName() const{ return m_repositoryName; }
+
+    /**
+     * <p>The name to use for the repository. The repository name may be specified on
+     * its own (such as <code>nginx-web-app</code>) or it can be prepended with a
+     * namespace to group the repository into a category (such as
+     * <code>project-a/nginx-web-app</code>).</p>
+     */
+    inline bool RepositoryNameHasBeenSet() const { return m_repositoryNameHasBeenSet; }
 
     /**
      * <p>The name to use for the repository. The repository name may be specified on
@@ -104,39 +113,123 @@ namespace Model
 
 
     /**
-     * <p/>
+     * <p>The metadata that you apply to the repository to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define. Tag keys can have a maximum character length of 128 characters, and
+     * tag values can have a maximum length of 256 characters.</p>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
     /**
-     * <p/>
+     * <p>The metadata that you apply to the repository to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define. Tag keys can have a maximum character length of 128 characters, and
+     * tag values can have a maximum length of 256 characters.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The metadata that you apply to the repository to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define. Tag keys can have a maximum character length of 128 characters, and
+     * tag values can have a maximum length of 256 characters.</p>
      */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
-     * <p/>
+     * <p>The metadata that you apply to the repository to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define. Tag keys can have a maximum character length of 128 characters, and
+     * tag values can have a maximum length of 256 characters.</p>
      */
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
     /**
-     * <p/>
+     * <p>The metadata that you apply to the repository to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define. Tag keys can have a maximum character length of 128 characters, and
+     * tag values can have a maximum length of 256 characters.</p>
      */
     inline CreateRepositoryRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
     /**
-     * <p/>
+     * <p>The metadata that you apply to the repository to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define. Tag keys can have a maximum character length of 128 characters, and
+     * tag values can have a maximum length of 256 characters.</p>
      */
     inline CreateRepositoryRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
     /**
-     * <p/>
+     * <p>The metadata that you apply to the repository to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define. Tag keys can have a maximum character length of 128 characters, and
+     * tag values can have a maximum length of 256 characters.</p>
      */
     inline CreateRepositoryRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
     /**
-     * <p/>
+     * <p>The metadata that you apply to the repository to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define. Tag keys can have a maximum character length of 128 characters, and
+     * tag values can have a maximum length of 256 characters.</p>
      */
     inline CreateRepositoryRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The tag mutability setting for the repository. If this parameter is omitted,
+     * the default setting of <code>MUTABLE</code> will be used which will allow image
+     * tags to be overwritten. If <code>IMMUTABLE</code> is specified, all image tags
+     * within the repository will be immutable which will prevent them from being
+     * overwritten.</p>
+     */
+    inline const ImageTagMutability& GetImageTagMutability() const{ return m_imageTagMutability; }
+
+    /**
+     * <p>The tag mutability setting for the repository. If this parameter is omitted,
+     * the default setting of <code>MUTABLE</code> will be used which will allow image
+     * tags to be overwritten. If <code>IMMUTABLE</code> is specified, all image tags
+     * within the repository will be immutable which will prevent them from being
+     * overwritten.</p>
+     */
+    inline bool ImageTagMutabilityHasBeenSet() const { return m_imageTagMutabilityHasBeenSet; }
+
+    /**
+     * <p>The tag mutability setting for the repository. If this parameter is omitted,
+     * the default setting of <code>MUTABLE</code> will be used which will allow image
+     * tags to be overwritten. If <code>IMMUTABLE</code> is specified, all image tags
+     * within the repository will be immutable which will prevent them from being
+     * overwritten.</p>
+     */
+    inline void SetImageTagMutability(const ImageTagMutability& value) { m_imageTagMutabilityHasBeenSet = true; m_imageTagMutability = value; }
+
+    /**
+     * <p>The tag mutability setting for the repository. If this parameter is omitted,
+     * the default setting of <code>MUTABLE</code> will be used which will allow image
+     * tags to be overwritten. If <code>IMMUTABLE</code> is specified, all image tags
+     * within the repository will be immutable which will prevent them from being
+     * overwritten.</p>
+     */
+    inline void SetImageTagMutability(ImageTagMutability&& value) { m_imageTagMutabilityHasBeenSet = true; m_imageTagMutability = std::move(value); }
+
+    /**
+     * <p>The tag mutability setting for the repository. If this parameter is omitted,
+     * the default setting of <code>MUTABLE</code> will be used which will allow image
+     * tags to be overwritten. If <code>IMMUTABLE</code> is specified, all image tags
+     * within the repository will be immutable which will prevent them from being
+     * overwritten.</p>
+     */
+    inline CreateRepositoryRequest& WithImageTagMutability(const ImageTagMutability& value) { SetImageTagMutability(value); return *this;}
+
+    /**
+     * <p>The tag mutability setting for the repository. If this parameter is omitted,
+     * the default setting of <code>MUTABLE</code> will be used which will allow image
+     * tags to be overwritten. If <code>IMMUTABLE</code> is specified, all image tags
+     * within the repository will be immutable which will prevent them from being
+     * overwritten.</p>
+     */
+    inline CreateRepositoryRequest& WithImageTagMutability(ImageTagMutability&& value) { SetImageTagMutability(std::move(value)); return *this;}
 
   private:
 
@@ -145,6 +238,9 @@ namespace Model
 
     Aws::Vector<Tag> m_tags;
     bool m_tagsHasBeenSet;
+
+    ImageTagMutability m_imageTagMutability;
+    bool m_imageTagMutabilityHasBeenSet;
   };
 
 } // namespace Model

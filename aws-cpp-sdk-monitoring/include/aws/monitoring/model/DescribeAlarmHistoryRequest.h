@@ -34,7 +34,7 @@ namespace Model
   {
   public:
     DescribeAlarmHistoryRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -52,6 +52,11 @@ namespace Model
      * <p>The name of the alarm.</p>
      */
     inline const Aws::String& GetAlarmName() const{ return m_alarmName; }
+
+    /**
+     * <p>The name of the alarm.</p>
+     */
+    inline bool AlarmNameHasBeenSet() const { return m_alarmNameHasBeenSet; }
 
     /**
      * <p>The name of the alarm.</p>
@@ -92,6 +97,11 @@ namespace Model
     /**
      * <p>The type of alarm histories to retrieve.</p>
      */
+    inline bool HistoryItemTypeHasBeenSet() const { return m_historyItemTypeHasBeenSet; }
+
+    /**
+     * <p>The type of alarm histories to retrieve.</p>
+     */
     inline void SetHistoryItemType(const HistoryItemType& value) { m_historyItemTypeHasBeenSet = true; m_historyItemType = value; }
 
     /**
@@ -114,6 +124,11 @@ namespace Model
      * <p>The starting date to retrieve alarm history.</p>
      */
     inline const Aws::Utils::DateTime& GetStartDate() const{ return m_startDate; }
+
+    /**
+     * <p>The starting date to retrieve alarm history.</p>
+     */
+    inline bool StartDateHasBeenSet() const { return m_startDateHasBeenSet; }
 
     /**
      * <p>The starting date to retrieve alarm history.</p>
@@ -144,6 +159,11 @@ namespace Model
     /**
      * <p>The ending date to retrieve alarm history.</p>
      */
+    inline bool EndDateHasBeenSet() const { return m_endDateHasBeenSet; }
+
+    /**
+     * <p>The ending date to retrieve alarm history.</p>
+     */
     inline void SetEndDate(const Aws::Utils::DateTime& value) { m_endDateHasBeenSet = true; m_endDate = value; }
 
     /**
@@ -170,6 +190,11 @@ namespace Model
     /**
      * <p>The maximum number of alarm history records to retrieve.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of alarm history records to retrieve.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -183,6 +208,12 @@ namespace Model
      * available.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
+
+    /**
+     * <p>The token returned by a previous call to indicate that there is more data
+     * available.</p>
+     */
+    inline bool NextTokenHasBeenSet() const { return m_nextTokenHasBeenSet; }
 
     /**
      * <p>The token returned by a previous call to indicate that there is more data

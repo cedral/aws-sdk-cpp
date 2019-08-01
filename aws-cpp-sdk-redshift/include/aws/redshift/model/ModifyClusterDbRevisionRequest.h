@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     ModifyClusterDbRevisionRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,12 @@ namespace Model
      * modify. </p> <p>Example: <code>examplecluster</code> </p>
      */
     inline const Aws::String& GetClusterIdentifier() const{ return m_clusterIdentifier; }
+
+    /**
+     * <p>The unique identifier of a cluster whose database revision you want to
+     * modify. </p> <p>Example: <code>examplecluster</code> </p>
+     */
+    inline bool ClusterIdentifierHasBeenSet() const { return m_clusterIdentifierHasBeenSet; }
 
     /**
      * <p>The unique identifier of a cluster whose database revision you want to
@@ -94,6 +100,12 @@ namespace Model
      * response to the <a>DescribeClusterDbRevisions</a> request.</p>
      */
     inline const Aws::String& GetRevisionTarget() const{ return m_revisionTarget; }
+
+    /**
+     * <p>The identifier of the database revision. You can retrieve this value from the
+     * response to the <a>DescribeClusterDbRevisions</a> request.</p>
+     */
+    inline bool RevisionTargetHasBeenSet() const { return m_revisionTargetHasBeenSet; }
 
     /**
      * <p>The identifier of the database revision. You can retrieve this value from the

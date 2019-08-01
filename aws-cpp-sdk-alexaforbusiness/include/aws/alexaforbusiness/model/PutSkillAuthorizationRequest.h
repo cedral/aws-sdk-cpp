@@ -33,7 +33,7 @@ namespace Model
   {
   public:
     PutSkillAuthorizationRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -50,6 +50,12 @@ namespace Model
      * populated in the AuthorizationResult map to establish the authorization.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetAuthorizationResult() const{ return m_authorizationResult; }
+
+    /**
+     * <p>The authorization result specific to OAUTH code grant output. "Code” must be
+     * populated in the AuthorizationResult map to establish the authorization.</p>
+     */
+    inline bool AuthorizationResultHasBeenSet() const { return m_authorizationResultHasBeenSet; }
 
     /**
      * <p>The authorization result specific to OAUTH code grant output. "Code” must be
@@ -126,6 +132,11 @@ namespace Model
     /**
      * <p>The unique identifier of a skill.</p>
      */
+    inline bool SkillIdHasBeenSet() const { return m_skillIdHasBeenSet; }
+
+    /**
+     * <p>The unique identifier of a skill.</p>
+     */
     inline void SetSkillId(const Aws::String& value) { m_skillIdHasBeenSet = true; m_skillId = value; }
 
     /**
@@ -158,6 +169,11 @@ namespace Model
      * <p>The room that the skill is authorized for.</p>
      */
     inline const Aws::String& GetRoomArn() const{ return m_roomArn; }
+
+    /**
+     * <p>The room that the skill is authorized for.</p>
+     */
+    inline bool RoomArnHasBeenSet() const { return m_roomArnHasBeenSet; }
 
     /**
      * <p>The room that the skill is authorized for.</p>

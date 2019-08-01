@@ -29,15 +29,12 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/neptune-2014-10-31/DescribeDBClustersMessage">AWS
-   * API Reference</a></p>
    */
   class AWS_NEPTUNE_API DescribeDBClustersRequest : public NeptuneRequest
   {
   public:
     DescribeDBClustersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +55,14 @@ namespace Model
      * existing DBClusterIdentifier.</p> </li> </ul>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
+
+    /**
+     * <p>The user-supplied DB cluster identifier. If this parameter is specified,
+     * information from only the specific DB cluster is returned. This parameter isn't
+     * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match an
+     * existing DBClusterIdentifier.</p> </li> </ul>
+     */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
      * <p>The user-supplied DB cluster identifier. If this parameter is specified,
@@ -124,6 +129,15 @@ namespace Model
      * only include information about the DB clusters identified by these ARNs.</p>
      * </li> </ul>
      */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
+
+    /**
+     * <p>A filter that specifies one or more DB clusters to describe.</p> <p>Supported
+     * filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB cluster
+     * identifiers and DB cluster Amazon Resource Names (ARNs). The results list will
+     * only include information about the DB clusters identified by these ARNs.</p>
+     * </li> </ul>
+     */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
@@ -176,7 +190,7 @@ namespace Model
      * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
 
@@ -184,7 +198,15 @@ namespace Model
      * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
@@ -192,7 +214,7 @@ namespace Model
      * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
      * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * retrieved.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline DescribeDBClustersRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
 
@@ -200,49 +222,56 @@ namespace Model
     /**
      * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
      * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
 
     /**
      * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
      * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
+     * request. If this parameter is specified, the response includes only records
+     * beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
      * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
      * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(Aws::String&& value) { m_markerHasBeenSet = true; m_marker = std::move(value); }
 
     /**
      * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
      * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
      */
     inline void SetMarker(const char* value) { m_markerHasBeenSet = true; m_marker.assign(value); }
 
     /**
      * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
      * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
      */
     inline DescribeDBClustersRequest& WithMarker(const Aws::String& value) { SetMarker(value); return *this;}
 
     /**
      * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
      * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
      */
     inline DescribeDBClustersRequest& WithMarker(Aws::String&& value) { SetMarker(std::move(value)); return *this;}
 
     /**
      * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
      * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
      */
     inline DescribeDBClustersRequest& WithMarker(const char* value) { SetMarker(value); return *this;}
 

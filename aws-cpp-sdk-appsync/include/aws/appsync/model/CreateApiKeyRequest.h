@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     CreateApiKeyRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -46,6 +46,11 @@ namespace Model
      * <p>The ID for your GraphQL API.</p>
      */
     inline const Aws::String& GetApiId() const{ return m_apiId; }
+
+    /**
+     * <p>The ID for your GraphQL API.</p>
+     */
+    inline bool ApiIdHasBeenSet() const { return m_apiIdHasBeenSet; }
 
     /**
      * <p>The ID for your GraphQL API.</p>
@@ -86,6 +91,11 @@ namespace Model
     /**
      * <p>A description of the purpose of the API key.</p>
      */
+    inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
+
+    /**
+     * <p>A description of the purpose of the API key.</p>
+     */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
@@ -121,6 +131,14 @@ namespace Model
      * information, see .</p>
      */
     inline long long GetExpires() const{ return m_expires; }
+
+    /**
+     * <p>The time from creation time after which the API key expires. The date is
+     * represented as seconds since the epoch, rounded down to the nearest hour. The
+     * default value for this parameter is 7 days from creation time. For more
+     * information, see .</p>
+     */
+    inline bool ExpiresHasBeenSet() const { return m_expiresHasBeenSet; }
 
     /**
      * <p>The time from creation time after which the API key expires. The date is

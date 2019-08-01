@@ -37,7 +37,7 @@ namespace Model
   {
   public:
     DescribeDBClustersRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -58,6 +58,14 @@ namespace Model
      * existing DBClusterIdentifier.</p> </li> </ul>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
+
+    /**
+     * <p>The user-supplied DB cluster identifier. If this parameter is specified,
+     * information from only the specific DB cluster is returned. This parameter isn't
+     * case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match an
+     * existing DBClusterIdentifier.</p> </li> </ul>
+     */
+    inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
      * <p>The user-supplied DB cluster identifier. If this parameter is specified,
@@ -116,6 +124,15 @@ namespace Model
      * </li> </ul>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
+
+    /**
+     * <p>A filter that specifies one or more DB clusters to describe.</p> <p>Supported
+     * filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB cluster
+     * identifiers and DB cluster Amazon Resource Names (ARNs). The results list will
+     * only include information about the DB clusters identified by these ARNs.</p>
+     * </li> </ul>
+     */
+    inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
      * <p>A filter that specifies one or more DB clusters to describe.</p> <p>Supported
@@ -186,6 +203,14 @@ namespace Model
      * called a marker is included in the response so that the remaining results can be
      * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
+    inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
+
+    /**
+     * <p>The maximum number of records to include in the response. If more records
+     * exist than the specified <code>MaxRecords</code> value, a pagination token
+     * called a marker is included in the response so that the remaining results can be
+     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
@@ -198,53 +223,93 @@ namespace Model
 
 
     /**
-     * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-     * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBClusters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>. </p>
      */
     inline const Aws::String& GetMarker() const{ return m_marker; }
 
     /**
-     * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-     * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBClusters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>. </p>
+     */
+    inline bool MarkerHasBeenSet() const { return m_markerHasBeenSet; }
+
+    /**
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBClusters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>. </p>
      */
     inline void SetMarker(const Aws::String& value) { m_markerHasBeenSet = true; m_marker = value; }
 
     /**
-     * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-     * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBClusters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>. </p>
      */
     inline void SetMarker(Aws::String&& value) { m_markerHasBeenSet = true; m_marker = std::move(value); }
 
     /**
-     * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-     * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBClusters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>. </p>
      */
     inline void SetMarker(const char* value) { m_markerHasBeenSet = true; m_marker.assign(value); }
 
     /**
-     * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-     * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBClusters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>. </p>
      */
     inline DescribeDBClustersRequest& WithMarker(const Aws::String& value) { SetMarker(value); return *this;}
 
     /**
-     * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-     * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBClusters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>. </p>
      */
     inline DescribeDBClustersRequest& WithMarker(Aws::String&& value) { SetMarker(std::move(value)); return *this;}
 
     /**
-     * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-     * request. If this parameter is specified, the response includes only records
-     * beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
+     * <p>An optional pagination token provided by a previous
+     * <code>DescribeDBClusters</code> request. If this parameter is specified, the
+     * response includes only records beyond the marker, up to the value specified by
+     * <code>MaxRecords</code>. </p>
      */
     inline DescribeDBClustersRequest& WithMarker(const char* value) { SetMarker(value); return *this;}
+
+
+    /**
+     * <p>Optional Boolean parameter that specifies whether the output includes
+     * information about clusters shared from other AWS accounts.</p>
+     */
+    inline bool GetIncludeShared() const{ return m_includeShared; }
+
+    /**
+     * <p>Optional Boolean parameter that specifies whether the output includes
+     * information about clusters shared from other AWS accounts.</p>
+     */
+    inline bool IncludeSharedHasBeenSet() const { return m_includeSharedHasBeenSet; }
+
+    /**
+     * <p>Optional Boolean parameter that specifies whether the output includes
+     * information about clusters shared from other AWS accounts.</p>
+     */
+    inline void SetIncludeShared(bool value) { m_includeSharedHasBeenSet = true; m_includeShared = value; }
+
+    /**
+     * <p>Optional Boolean parameter that specifies whether the output includes
+     * information about clusters shared from other AWS accounts.</p>
+     */
+    inline DescribeDBClustersRequest& WithIncludeShared(bool value) { SetIncludeShared(value); return *this;}
 
   private:
 
@@ -259,6 +324,9 @@ namespace Model
 
     Aws::String m_marker;
     bool m_markerHasBeenSet;
+
+    bool m_includeShared;
+    bool m_includeSharedHasBeenSet;
   };
 
 } // namespace Model

@@ -40,7 +40,9 @@ SentimentDetectionJobProperties::SentimentDetectionJobProperties() :
     m_outputDataConfigHasBeenSet(false),
     m_languageCode(LanguageCode::NOT_SET),
     m_languageCodeHasBeenSet(false),
-    m_dataAccessRoleArnHasBeenSet(false)
+    m_dataAccessRoleArnHasBeenSet(false),
+    m_volumeKmsKeyIdHasBeenSet(false),
+    m_vpcConfigHasBeenSet(false)
 {
 }
 
@@ -56,7 +58,9 @@ SentimentDetectionJobProperties::SentimentDetectionJobProperties(JsonView jsonVa
     m_outputDataConfigHasBeenSet(false),
     m_languageCode(LanguageCode::NOT_SET),
     m_languageCodeHasBeenSet(false),
-    m_dataAccessRoleArnHasBeenSet(false)
+    m_dataAccessRoleArnHasBeenSet(false),
+    m_volumeKmsKeyIdHasBeenSet(false),
+    m_vpcConfigHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -133,6 +137,20 @@ SentimentDetectionJobProperties& SentimentDetectionJobProperties::operator =(Jso
     m_dataAccessRoleArnHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("VolumeKmsKeyId"))
+  {
+    m_volumeKmsKeyId = jsonValue.GetString("VolumeKmsKeyId");
+
+    m_volumeKmsKeyIdHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("VpcConfig"))
+  {
+    m_vpcConfig = jsonValue.GetObject("VpcConfig");
+
+    m_vpcConfigHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -193,6 +211,18 @@ JsonValue SentimentDetectionJobProperties::Jsonize() const
   if(m_dataAccessRoleArnHasBeenSet)
   {
    payload.WithString("DataAccessRoleArn", m_dataAccessRoleArn);
+
+  }
+
+  if(m_volumeKmsKeyIdHasBeenSet)
+  {
+   payload.WithString("VolumeKmsKeyId", m_volumeKmsKeyId);
+
+  }
+
+  if(m_vpcConfigHasBeenSet)
+  {
+   payload.WithObject("VpcConfig", m_vpcConfig.Jsonize());
 
   }
 

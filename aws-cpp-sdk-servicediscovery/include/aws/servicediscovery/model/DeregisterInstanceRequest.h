@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeregisterInstanceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The ID of the service that the instance is associated with.</p>
      */
     inline const Aws::String& GetServiceId() const{ return m_serviceId; }
+
+    /**
+     * <p>The ID of the service that the instance is associated with.</p>
+     */
+    inline bool ServiceIdHasBeenSet() const { return m_serviceIdHasBeenSet; }
 
     /**
      * <p>The ID of the service that the instance is associated with.</p>
@@ -85,6 +90,12 @@ namespace Model
      * <a>RegisterInstance</a> request.</p>
      */
     inline const Aws::String& GetInstanceId() const{ return m_instanceId; }
+
+    /**
+     * <p>The value that you specified for <code>Id</code> in the
+     * <a>RegisterInstance</a> request.</p>
+     */
+    inline bool InstanceIdHasBeenSet() const { return m_instanceIdHasBeenSet; }
 
     /**
      * <p>The value that you specified for <code>Id</code> in the

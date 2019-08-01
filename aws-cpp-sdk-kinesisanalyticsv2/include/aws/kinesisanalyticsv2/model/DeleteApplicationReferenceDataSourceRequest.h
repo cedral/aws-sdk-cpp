@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     DeleteApplicationReferenceDataSourceRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -48,6 +48,11 @@ namespace Model
      * <p>The name of an existing application.</p>
      */
     inline const Aws::String& GetApplicationName() const{ return m_applicationName; }
+
+    /**
+     * <p>The name of an existing application.</p>
+     */
+    inline bool ApplicationNameHasBeenSet() const { return m_applicationNameHasBeenSet; }
 
     /**
      * <p>The name of an existing application.</p>
@@ -94,6 +99,14 @@ namespace Model
      * not the current version, the <code>ConcurrentModificationException</code> is
      * returned.</p>
      */
+    inline bool CurrentApplicationVersionIdHasBeenSet() const { return m_currentApplicationVersionIdHasBeenSet; }
+
+    /**
+     * <p>The current application version. You can use the <a>DescribeApplication</a>
+     * operation to get the current application version. If the version specified is
+     * not the current version, the <code>ConcurrentModificationException</code> is
+     * returned.</p>
+     */
     inline void SetCurrentApplicationVersionId(long long value) { m_currentApplicationVersionIdHasBeenSet = true; m_currentApplicationVersionId = value; }
 
     /**
@@ -112,6 +125,14 @@ namespace Model
      * operation to get the reference ID. </p>
      */
     inline const Aws::String& GetReferenceId() const{ return m_referenceId; }
+
+    /**
+     * <p>The ID of the reference data source. When you add a reference data source to
+     * your application using the <a>AddApplicationReferenceDataSource</a>, Kinesis
+     * Data Analytics assigns an ID. You can use the <a>DescribeApplication</a>
+     * operation to get the reference ID. </p>
+     */
+    inline bool ReferenceIdHasBeenSet() const { return m_referenceIdHasBeenSet; }
 
     /**
      * <p>The ID of the reference data source. When you add a reference data source to

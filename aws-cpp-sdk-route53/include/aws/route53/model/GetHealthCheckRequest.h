@@ -36,7 +36,7 @@ namespace Model
   {
   public:
     GetHealthCheckRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -53,6 +53,14 @@ namespace Model
      * long.</p>
      */
     inline const Aws::String& GetHealthCheckId() const{ return m_healthCheckId; }
+
+    /**
+     * <p>The identifier that Amazon Route 53 assigned to the health check when you
+     * created it. When you add or update a resource record set, you use this value to
+     * specify which health check to use. The value can be up to 64 characters
+     * long.</p>
+     */
+    inline bool HealthCheckIdHasBeenSet() const { return m_healthCheckIdHasBeenSet; }
 
     /**
      * <p>The identifier that Amazon Route 53 assigned to the health check when you

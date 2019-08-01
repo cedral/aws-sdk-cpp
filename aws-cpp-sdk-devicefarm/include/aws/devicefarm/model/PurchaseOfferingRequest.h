@@ -35,7 +35,7 @@ namespace Model
   {
   public:
     PurchaseOfferingRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -51,6 +51,11 @@ namespace Model
      * <p>The ID of the offering.</p>
      */
     inline const Aws::String& GetOfferingId() const{ return m_offeringId; }
+
+    /**
+     * <p>The ID of the offering.</p>
+     */
+    inline bool OfferingIdHasBeenSet() const { return m_offeringIdHasBeenSet; }
 
     /**
      * <p>The ID of the offering.</p>
@@ -91,6 +96,11 @@ namespace Model
     /**
      * <p>The number of device slots you wish to purchase in an offering request.</p>
      */
+    inline bool QuantityHasBeenSet() const { return m_quantityHasBeenSet; }
+
+    /**
+     * <p>The number of device slots you wish to purchase in an offering request.</p>
+     */
     inline void SetQuantity(int value) { m_quantityHasBeenSet = true; m_quantity = value; }
 
     /**
@@ -103,6 +113,11 @@ namespace Model
      * <p>The ID of the offering promotion to be applied to the purchase.</p>
      */
     inline const Aws::String& GetOfferingPromotionId() const{ return m_offeringPromotionId; }
+
+    /**
+     * <p>The ID of the offering promotion to be applied to the purchase.</p>
+     */
+    inline bool OfferingPromotionIdHasBeenSet() const { return m_offeringPromotionIdHasBeenSet; }
 
     /**
      * <p>The ID of the offering promotion to be applied to the purchase.</p>

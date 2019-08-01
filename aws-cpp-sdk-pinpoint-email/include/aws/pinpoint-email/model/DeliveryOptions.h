@@ -15,6 +15,7 @@
 
 #pragma once
 #include <aws/pinpoint-email/PinpointEmail_EXPORTS.h>
+#include <aws/pinpoint-email/model/TlsPolicy.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <utility>
 
@@ -49,10 +50,71 @@ namespace Model
 
 
     /**
+     * <p>Specifies whether Amazon Pinpoint should require that incoming email is
+     * delivered over a connection that’s encrypted by using Transport Layer Security
+     * (TLS). If this value is set to <code>Require</code>, Amazon Pinpoint will bounce
+     * email messages that cannot be delivered over TLS. The default value is
+     * <code>Optional</code>.</p>
+     */
+    inline const TlsPolicy& GetTlsPolicy() const{ return m_tlsPolicy; }
+
+    /**
+     * <p>Specifies whether Amazon Pinpoint should require that incoming email is
+     * delivered over a connection that’s encrypted by using Transport Layer Security
+     * (TLS). If this value is set to <code>Require</code>, Amazon Pinpoint will bounce
+     * email messages that cannot be delivered over TLS. The default value is
+     * <code>Optional</code>.</p>
+     */
+    inline bool TlsPolicyHasBeenSet() const { return m_tlsPolicyHasBeenSet; }
+
+    /**
+     * <p>Specifies whether Amazon Pinpoint should require that incoming email is
+     * delivered over a connection that’s encrypted by using Transport Layer Security
+     * (TLS). If this value is set to <code>Require</code>, Amazon Pinpoint will bounce
+     * email messages that cannot be delivered over TLS. The default value is
+     * <code>Optional</code>.</p>
+     */
+    inline void SetTlsPolicy(const TlsPolicy& value) { m_tlsPolicyHasBeenSet = true; m_tlsPolicy = value; }
+
+    /**
+     * <p>Specifies whether Amazon Pinpoint should require that incoming email is
+     * delivered over a connection that’s encrypted by using Transport Layer Security
+     * (TLS). If this value is set to <code>Require</code>, Amazon Pinpoint will bounce
+     * email messages that cannot be delivered over TLS. The default value is
+     * <code>Optional</code>.</p>
+     */
+    inline void SetTlsPolicy(TlsPolicy&& value) { m_tlsPolicyHasBeenSet = true; m_tlsPolicy = std::move(value); }
+
+    /**
+     * <p>Specifies whether Amazon Pinpoint should require that incoming email is
+     * delivered over a connection that’s encrypted by using Transport Layer Security
+     * (TLS). If this value is set to <code>Require</code>, Amazon Pinpoint will bounce
+     * email messages that cannot be delivered over TLS. The default value is
+     * <code>Optional</code>.</p>
+     */
+    inline DeliveryOptions& WithTlsPolicy(const TlsPolicy& value) { SetTlsPolicy(value); return *this;}
+
+    /**
+     * <p>Specifies whether Amazon Pinpoint should require that incoming email is
+     * delivered over a connection that’s encrypted by using Transport Layer Security
+     * (TLS). If this value is set to <code>Require</code>, Amazon Pinpoint will bounce
+     * email messages that cannot be delivered over TLS. The default value is
+     * <code>Optional</code>.</p>
+     */
+    inline DeliveryOptions& WithTlsPolicy(TlsPolicy&& value) { SetTlsPolicy(std::move(value)); return *this;}
+
+
+    /**
      * <p>The name of the dedicated IP pool that you want to associate with the
      * configuration set.</p>
      */
     inline const Aws::String& GetSendingPoolName() const{ return m_sendingPoolName; }
+
+    /**
+     * <p>The name of the dedicated IP pool that you want to associate with the
+     * configuration set.</p>
+     */
+    inline bool SendingPoolNameHasBeenSet() const { return m_sendingPoolNameHasBeenSet; }
 
     /**
      * <p>The name of the dedicated IP pool that you want to associate with the
@@ -91,6 +153,9 @@ namespace Model
     inline DeliveryOptions& WithSendingPoolName(const char* value) { SetSendingPoolName(value); return *this;}
 
   private:
+
+    TlsPolicy m_tlsPolicy;
+    bool m_tlsPolicyHasBeenSet;
 
     Aws::String m_sendingPoolName;
     bool m_sendingPoolNameHasBeenSet;

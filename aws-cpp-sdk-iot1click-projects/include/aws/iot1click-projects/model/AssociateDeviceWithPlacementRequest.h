@@ -32,7 +32,7 @@ namespace Model
   {
   public:
     AssociateDeviceWithPlacementRequest();
-    
+
     // Service request name is the Operation name which will send this request out,
     // each operation should has unique request name, so that we can get operation's name from this request.
     // Note: this is not true for response, multiple operations may have the same response name,
@@ -47,6 +47,12 @@ namespace Model
      * device.</p>
      */
     inline const Aws::String& GetProjectName() const{ return m_projectName; }
+
+    /**
+     * <p>The name of the project containing the placement in which to associate the
+     * device.</p>
+     */
+    inline bool ProjectNameHasBeenSet() const { return m_projectNameHasBeenSet; }
 
     /**
      * <p>The name of the project containing the placement in which to associate the
@@ -93,6 +99,11 @@ namespace Model
     /**
      * <p>The name of the placement in which to associate the device.</p>
      */
+    inline bool PlacementNameHasBeenSet() const { return m_placementNameHasBeenSet; }
+
+    /**
+     * <p>The name of the placement in which to associate the device.</p>
+     */
     inline void SetPlacementName(const Aws::String& value) { m_placementNameHasBeenSet = true; m_placementName = value; }
 
     /**
@@ -127,6 +138,13 @@ namespace Model
      * <code>deviceId</code> values.</p>
      */
     inline const Aws::String& GetDeviceId() const{ return m_deviceId; }
+
+    /**
+     * <p>The ID of the physical device to be associated with the given placement in
+     * the project. Note that a mandatory 4 character prefix is required for all
+     * <code>deviceId</code> values.</p>
+     */
+    inline bool DeviceIdHasBeenSet() const { return m_deviceIdHasBeenSet; }
 
     /**
      * <p>The ID of the physical device to be associated with the given placement in
@@ -175,6 +193,11 @@ namespace Model
      * <p>The device template name to associate with the device ID.</p>
      */
     inline const Aws::String& GetDeviceTemplateName() const{ return m_deviceTemplateName; }
+
+    /**
+     * <p>The device template name to associate with the device ID.</p>
+     */
+    inline bool DeviceTemplateNameHasBeenSet() const { return m_deviceTemplateNameHasBeenSet; }
 
     /**
      * <p>The device template name to associate with the device ID.</p>
