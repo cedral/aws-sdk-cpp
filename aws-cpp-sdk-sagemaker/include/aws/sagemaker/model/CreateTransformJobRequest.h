@@ -24,6 +24,7 @@
 #include <aws/sagemaker/model/TransformResources.h>
 #include <aws/sagemaker/model/DataProcessing.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/sagemaker/model/ExperimentConfig.h>
 #include <aws/sagemaker/model/Tag.h>
 #include <utility>
 
@@ -162,10 +163,10 @@ namespace Model
      * <p>The maximum number of parallel requests that can be sent to each instance in
      * a transform job. If <code>MaxConcurrentTransforms</code> is set to
      * <code>0</code> or left unset, Amazon SageMaker checks the optional
-     * execution-parameters to determine the optimal settings for your chosen
-     * algorithm. If the execution-parameters endpoint is not enabled, the default
-     * value is <code>1</code>. For more information on execution-parameters, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+     * execution-parameters to determine the settings for your chosen algorithm. If the
+     * execution-parameters endpoint is not enabled, the default value is
+     * <code>1</code>. For more information on execution-parameters, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
      * Containers Serve Requests</a>. For built-in algorithms, you don't need to set a
      * value for <code>MaxConcurrentTransforms</code>.</p>
      */
@@ -175,10 +176,10 @@ namespace Model
      * <p>The maximum number of parallel requests that can be sent to each instance in
      * a transform job. If <code>MaxConcurrentTransforms</code> is set to
      * <code>0</code> or left unset, Amazon SageMaker checks the optional
-     * execution-parameters to determine the optimal settings for your chosen
-     * algorithm. If the execution-parameters endpoint is not enabled, the default
-     * value is <code>1</code>. For more information on execution-parameters, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+     * execution-parameters to determine the settings for your chosen algorithm. If the
+     * execution-parameters endpoint is not enabled, the default value is
+     * <code>1</code>. For more information on execution-parameters, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
      * Containers Serve Requests</a>. For built-in algorithms, you don't need to set a
      * value for <code>MaxConcurrentTransforms</code>.</p>
      */
@@ -188,10 +189,10 @@ namespace Model
      * <p>The maximum number of parallel requests that can be sent to each instance in
      * a transform job. If <code>MaxConcurrentTransforms</code> is set to
      * <code>0</code> or left unset, Amazon SageMaker checks the optional
-     * execution-parameters to determine the optimal settings for your chosen
-     * algorithm. If the execution-parameters endpoint is not enabled, the default
-     * value is <code>1</code>. For more information on execution-parameters, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+     * execution-parameters to determine the settings for your chosen algorithm. If the
+     * execution-parameters endpoint is not enabled, the default value is
+     * <code>1</code>. For more information on execution-parameters, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
      * Containers Serve Requests</a>. For built-in algorithms, you don't need to set a
      * value for <code>MaxConcurrentTransforms</code>.</p>
      */
@@ -201,10 +202,10 @@ namespace Model
      * <p>The maximum number of parallel requests that can be sent to each instance in
      * a transform job. If <code>MaxConcurrentTransforms</code> is set to
      * <code>0</code> or left unset, Amazon SageMaker checks the optional
-     * execution-parameters to determine the optimal settings for your chosen
-     * algorithm. If the execution-parameters endpoint is not enabled, the default
-     * value is <code>1</code>. For more information on execution-parameters, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
+     * execution-parameters to determine the settings for your chosen algorithm. If the
+     * execution-parameters endpoint is not enabled, the default value is
+     * <code>1</code>. For more information on execution-parameters, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-batch-code.html#your-algorithms-batch-code-how-containe-serves-requests">How
      * Containers Serve Requests</a>. For built-in algorithms, you don't need to set a
      * value for <code>MaxConcurrentTransforms</code>.</p>
      */
@@ -272,9 +273,10 @@ namespace Model
      * <p>Specifies the number of records to include in a mini-batch for an HTTP
      * inference request. A <i>record</i> <i/> is a single unit of input data that
      * inference can be made on. For example, a single line in a CSV file is a record.
-     * </p> <p>To enable the batch strategy, you must set <code>SplitType</code> to
-     * <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To
-     * use only one record when making an HTTP invocation request to a container, set
+     * </p> <p>To enable the batch strategy, you must set the <code>SplitType</code>
+     * property of the <a>DataProcessing</a> object to <code>Line</code>,
+     * <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To use only one record
+     * when making an HTTP invocation request to a container, set
      * <code>BatchStrategy</code> to <code>SingleRecord</code> and
      * <code>SplitType</code> to <code>Line</code>.</p> <p>To fit as many records in a
      * mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
@@ -287,9 +289,10 @@ namespace Model
      * <p>Specifies the number of records to include in a mini-batch for an HTTP
      * inference request. A <i>record</i> <i/> is a single unit of input data that
      * inference can be made on. For example, a single line in a CSV file is a record.
-     * </p> <p>To enable the batch strategy, you must set <code>SplitType</code> to
-     * <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To
-     * use only one record when making an HTTP invocation request to a container, set
+     * </p> <p>To enable the batch strategy, you must set the <code>SplitType</code>
+     * property of the <a>DataProcessing</a> object to <code>Line</code>,
+     * <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To use only one record
+     * when making an HTTP invocation request to a container, set
      * <code>BatchStrategy</code> to <code>SingleRecord</code> and
      * <code>SplitType</code> to <code>Line</code>.</p> <p>To fit as many records in a
      * mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
@@ -302,9 +305,10 @@ namespace Model
      * <p>Specifies the number of records to include in a mini-batch for an HTTP
      * inference request. A <i>record</i> <i/> is a single unit of input data that
      * inference can be made on. For example, a single line in a CSV file is a record.
-     * </p> <p>To enable the batch strategy, you must set <code>SplitType</code> to
-     * <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To
-     * use only one record when making an HTTP invocation request to a container, set
+     * </p> <p>To enable the batch strategy, you must set the <code>SplitType</code>
+     * property of the <a>DataProcessing</a> object to <code>Line</code>,
+     * <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To use only one record
+     * when making an HTTP invocation request to a container, set
      * <code>BatchStrategy</code> to <code>SingleRecord</code> and
      * <code>SplitType</code> to <code>Line</code>.</p> <p>To fit as many records in a
      * mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
@@ -317,9 +321,10 @@ namespace Model
      * <p>Specifies the number of records to include in a mini-batch for an HTTP
      * inference request. A <i>record</i> <i/> is a single unit of input data that
      * inference can be made on. For example, a single line in a CSV file is a record.
-     * </p> <p>To enable the batch strategy, you must set <code>SplitType</code> to
-     * <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To
-     * use only one record when making an HTTP invocation request to a container, set
+     * </p> <p>To enable the batch strategy, you must set the <code>SplitType</code>
+     * property of the <a>DataProcessing</a> object to <code>Line</code>,
+     * <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To use only one record
+     * when making an HTTP invocation request to a container, set
      * <code>BatchStrategy</code> to <code>SingleRecord</code> and
      * <code>SplitType</code> to <code>Line</code>.</p> <p>To fit as many records in a
      * mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
@@ -332,9 +337,10 @@ namespace Model
      * <p>Specifies the number of records to include in a mini-batch for an HTTP
      * inference request. A <i>record</i> <i/> is a single unit of input data that
      * inference can be made on. For example, a single line in a CSV file is a record.
-     * </p> <p>To enable the batch strategy, you must set <code>SplitType</code> to
-     * <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To
-     * use only one record when making an HTTP invocation request to a container, set
+     * </p> <p>To enable the batch strategy, you must set the <code>SplitType</code>
+     * property of the <a>DataProcessing</a> object to <code>Line</code>,
+     * <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To use only one record
+     * when making an HTTP invocation request to a container, set
      * <code>BatchStrategy</code> to <code>SingleRecord</code> and
      * <code>SplitType</code> to <code>Line</code>.</p> <p>To fit as many records in a
      * mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
@@ -347,9 +353,10 @@ namespace Model
      * <p>Specifies the number of records to include in a mini-batch for an HTTP
      * inference request. A <i>record</i> <i/> is a single unit of input data that
      * inference can be made on. For example, a single line in a CSV file is a record.
-     * </p> <p>To enable the batch strategy, you must set <code>SplitType</code> to
-     * <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To
-     * use only one record when making an HTTP invocation request to a container, set
+     * </p> <p>To enable the batch strategy, you must set the <code>SplitType</code>
+     * property of the <a>DataProcessing</a> object to <code>Line</code>,
+     * <code>RecordIO</code>, or <code>TFRecord</code>.</p> <p>To use only one record
+     * when making an HTTP invocation request to a container, set
      * <code>BatchStrategy</code> to <code>SingleRecord</code> and
      * <code>SplitType</code> to <code>Line</code>.</p> <p>To fit as many records in a
      * mini-batch as can fit within the <code>MaxPayloadInMB</code> limit, set
@@ -538,50 +545,74 @@ namespace Model
 
 
     /**
-     * <p>The data structure used for combining the input data and inference in the
-     * output file. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
-     * Transform I/O Join</a>.</p>
+     * <p>The data structure used to specify the data to be used for inference in a
+     * batch transform job and to associate the data that is relevant to the prediction
+     * results in the output. The input filter provided allows you to exclude input
+     * data that is not needed for inference in a batch transform job. The output
+     * filter provided allows you to include input data relevant to interpreting the
+     * predictions in the output from the job. For more information, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate
+     * Prediction Results with their Corresponding Input Records</a>.</p>
      */
     inline const DataProcessing& GetDataProcessing() const{ return m_dataProcessing; }
 
     /**
-     * <p>The data structure used for combining the input data and inference in the
-     * output file. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
-     * Transform I/O Join</a>.</p>
+     * <p>The data structure used to specify the data to be used for inference in a
+     * batch transform job and to associate the data that is relevant to the prediction
+     * results in the output. The input filter provided allows you to exclude input
+     * data that is not needed for inference in a batch transform job. The output
+     * filter provided allows you to include input data relevant to interpreting the
+     * predictions in the output from the job. For more information, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate
+     * Prediction Results with their Corresponding Input Records</a>.</p>
      */
     inline bool DataProcessingHasBeenSet() const { return m_dataProcessingHasBeenSet; }
 
     /**
-     * <p>The data structure used for combining the input data and inference in the
-     * output file. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
-     * Transform I/O Join</a>.</p>
+     * <p>The data structure used to specify the data to be used for inference in a
+     * batch transform job and to associate the data that is relevant to the prediction
+     * results in the output. The input filter provided allows you to exclude input
+     * data that is not needed for inference in a batch transform job. The output
+     * filter provided allows you to include input data relevant to interpreting the
+     * predictions in the output from the job. For more information, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate
+     * Prediction Results with their Corresponding Input Records</a>.</p>
      */
     inline void SetDataProcessing(const DataProcessing& value) { m_dataProcessingHasBeenSet = true; m_dataProcessing = value; }
 
     /**
-     * <p>The data structure used for combining the input data and inference in the
-     * output file. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
-     * Transform I/O Join</a>.</p>
+     * <p>The data structure used to specify the data to be used for inference in a
+     * batch transform job and to associate the data that is relevant to the prediction
+     * results in the output. The input filter provided allows you to exclude input
+     * data that is not needed for inference in a batch transform job. The output
+     * filter provided allows you to include input data relevant to interpreting the
+     * predictions in the output from the job. For more information, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate
+     * Prediction Results with their Corresponding Input Records</a>.</p>
      */
     inline void SetDataProcessing(DataProcessing&& value) { m_dataProcessingHasBeenSet = true; m_dataProcessing = std::move(value); }
 
     /**
-     * <p>The data structure used for combining the input data and inference in the
-     * output file. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
-     * Transform I/O Join</a>.</p>
+     * <p>The data structure used to specify the data to be used for inference in a
+     * batch transform job and to associate the data that is relevant to the prediction
+     * results in the output. The input filter provided allows you to exclude input
+     * data that is not needed for inference in a batch transform job. The output
+     * filter provided allows you to include input data relevant to interpreting the
+     * predictions in the output from the job. For more information, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate
+     * Prediction Results with their Corresponding Input Records</a>.</p>
      */
     inline CreateTransformJobRequest& WithDataProcessing(const DataProcessing& value) { SetDataProcessing(value); return *this;}
 
     /**
-     * <p>The data structure used for combining the input data and inference in the
-     * output file. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-io-join.html">Batch
-     * Transform I/O Join</a>.</p>
+     * <p>The data structure used to specify the data to be used for inference in a
+     * batch transform job and to associate the data that is relevant to the prediction
+     * results in the output. The input filter provided allows you to exclude input
+     * data that is not needed for inference in a batch transform job. The output
+     * filter provided allows you to include input data relevant to interpreting the
+     * predictions in the output from the job. For more information, see <a
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html">Associate
+     * Prediction Results with their Corresponding Input Records</a>.</p>
      */
     inline CreateTransformJobRequest& WithDataProcessing(DataProcessing&& value) { SetDataProcessing(std::move(value)); return *this;}
 
@@ -650,6 +681,25 @@ namespace Model
      */
     inline CreateTransformJobRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
+
+    
+    inline const ExperimentConfig& GetExperimentConfig() const{ return m_experimentConfig; }
+
+    
+    inline bool ExperimentConfigHasBeenSet() const { return m_experimentConfigHasBeenSet; }
+
+    
+    inline void SetExperimentConfig(const ExperimentConfig& value) { m_experimentConfigHasBeenSet = true; m_experimentConfig = value; }
+
+    
+    inline void SetExperimentConfig(ExperimentConfig&& value) { m_experimentConfigHasBeenSet = true; m_experimentConfig = std::move(value); }
+
+    
+    inline CreateTransformJobRequest& WithExperimentConfig(const ExperimentConfig& value) { SetExperimentConfig(value); return *this;}
+
+    
+    inline CreateTransformJobRequest& WithExperimentConfig(ExperimentConfig&& value) { SetExperimentConfig(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_transformJobName;
@@ -684,6 +734,9 @@ namespace Model
 
     Aws::Vector<Tag> m_tags;
     bool m_tagsHasBeenSet;
+
+    ExperimentConfig m_experimentConfig;
+    bool m_experimentConfigHasBeenSet;
   };
 
 } // namespace Model

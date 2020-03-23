@@ -32,6 +32,9 @@ Container::Container() :
     m_containerArnHasBeenSet(false),
     m_taskArnHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_imageHasBeenSet(false),
+    m_imageDigestHasBeenSet(false),
+    m_runtimeIdHasBeenSet(false),
     m_lastStatusHasBeenSet(false),
     m_exitCode(0),
     m_exitCodeHasBeenSet(false),
@@ -51,6 +54,9 @@ Container::Container(JsonView jsonValue) :
     m_containerArnHasBeenSet(false),
     m_taskArnHasBeenSet(false),
     m_nameHasBeenSet(false),
+    m_imageHasBeenSet(false),
+    m_imageDigestHasBeenSet(false),
+    m_runtimeIdHasBeenSet(false),
     m_lastStatusHasBeenSet(false),
     m_exitCode(0),
     m_exitCodeHasBeenSet(false),
@@ -88,6 +94,27 @@ Container& Container::operator =(JsonView jsonValue)
     m_name = jsonValue.GetString("name");
 
     m_nameHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("image"))
+  {
+    m_image = jsonValue.GetString("image");
+
+    m_imageHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("imageDigest"))
+  {
+    m_imageDigest = jsonValue.GetString("imageDigest");
+
+    m_imageDigestHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("runtimeId"))
+  {
+    m_runtimeId = jsonValue.GetString("runtimeId");
+
+    m_runtimeIdHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("lastStatus"))
@@ -191,6 +218,24 @@ JsonValue Container::Jsonize() const
   if(m_nameHasBeenSet)
   {
    payload.WithString("name", m_name);
+
+  }
+
+  if(m_imageHasBeenSet)
+  {
+   payload.WithString("image", m_image);
+
+  }
+
+  if(m_imageDigestHasBeenSet)
+  {
+   payload.WithString("imageDigest", m_imageDigest);
+
+  }
+
+  if(m_runtimeIdHasBeenSet)
+  {
+   payload.WithString("runtimeId", m_runtimeId);
 
   }
 

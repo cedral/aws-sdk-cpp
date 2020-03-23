@@ -37,6 +37,7 @@
 #include <aws/redshift/model/CreateEventSubscriptionResult.h>
 #include <aws/redshift/model/CreateHsmClientCertificateResult.h>
 #include <aws/redshift/model/CreateHsmConfigurationResult.h>
+#include <aws/redshift/model/CreateScheduledActionResult.h>
 #include <aws/redshift/model/CreateSnapshotCopyGrantResult.h>
 #include <aws/redshift/model/CreateSnapshotScheduleResult.h>
 #include <aws/redshift/model/DeleteClusterResult.h>
@@ -58,10 +59,12 @@
 #include <aws/redshift/model/DescribeHsmClientCertificatesResult.h>
 #include <aws/redshift/model/DescribeHsmConfigurationsResult.h>
 #include <aws/redshift/model/DescribeLoggingStatusResult.h>
+#include <aws/redshift/model/DescribeNodeConfigurationOptionsResult.h>
 #include <aws/redshift/model/DescribeOrderableClusterOptionsResult.h>
 #include <aws/redshift/model/DescribeReservedNodeOfferingsResult.h>
 #include <aws/redshift/model/DescribeReservedNodesResult.h>
 #include <aws/redshift/model/DescribeResizeResult.h>
+#include <aws/redshift/model/DescribeScheduledActionsResult.h>
 #include <aws/redshift/model/DescribeSnapshotCopyGrantsResult.h>
 #include <aws/redshift/model/DescribeSnapshotSchedulesResult.h>
 #include <aws/redshift/model/DescribeStorageResult.h>
@@ -81,14 +84,17 @@
 #include <aws/redshift/model/ModifyClusterSnapshotResult.h>
 #include <aws/redshift/model/ModifyClusterSubnetGroupResult.h>
 #include <aws/redshift/model/ModifyEventSubscriptionResult.h>
+#include <aws/redshift/model/ModifyScheduledActionResult.h>
 #include <aws/redshift/model/ModifySnapshotCopyRetentionPeriodResult.h>
 #include <aws/redshift/model/ModifySnapshotScheduleResult.h>
+#include <aws/redshift/model/PauseClusterResult.h>
 #include <aws/redshift/model/PurchaseReservedNodeOfferingResult.h>
 #include <aws/redshift/model/RebootClusterResult.h>
 #include <aws/redshift/model/ResetClusterParameterGroupResult.h>
 #include <aws/redshift/model/ResizeClusterResult.h>
 #include <aws/redshift/model/RestoreFromClusterSnapshotResult.h>
 #include <aws/redshift/model/RestoreTableFromClusterSnapshotResult.h>
+#include <aws/redshift/model/ResumeClusterResult.h>
 #include <aws/redshift/model/RevokeClusterSecurityGroupIngressResult.h>
 #include <aws/redshift/model/RevokeSnapshotAccessResult.h>
 #include <aws/redshift/model/RotateEncryptionKeyResult.h>
@@ -153,6 +159,7 @@ namespace Model
         class CreateEventSubscriptionRequest;
         class CreateHsmClientCertificateRequest;
         class CreateHsmConfigurationRequest;
+        class CreateScheduledActionRequest;
         class CreateSnapshotCopyGrantRequest;
         class CreateSnapshotScheduleRequest;
         class CreateTagsRequest;
@@ -164,6 +171,7 @@ namespace Model
         class DeleteEventSubscriptionRequest;
         class DeleteHsmClientCertificateRequest;
         class DeleteHsmConfigurationRequest;
+        class DeleteScheduledActionRequest;
         class DeleteSnapshotCopyGrantRequest;
         class DeleteSnapshotScheduleRequest;
         class DeleteTagsRequest;
@@ -184,10 +192,12 @@ namespace Model
         class DescribeHsmClientCertificatesRequest;
         class DescribeHsmConfigurationsRequest;
         class DescribeLoggingStatusRequest;
+        class DescribeNodeConfigurationOptionsRequest;
         class DescribeOrderableClusterOptionsRequest;
         class DescribeReservedNodeOfferingsRequest;
         class DescribeReservedNodesRequest;
         class DescribeResizeRequest;
+        class DescribeScheduledActionsRequest;
         class DescribeSnapshotCopyGrantsRequest;
         class DescribeSnapshotSchedulesRequest;
         class DescribeStorageRequest;
@@ -208,14 +218,17 @@ namespace Model
         class ModifyClusterSnapshotScheduleRequest;
         class ModifyClusterSubnetGroupRequest;
         class ModifyEventSubscriptionRequest;
+        class ModifyScheduledActionRequest;
         class ModifySnapshotCopyRetentionPeriodRequest;
         class ModifySnapshotScheduleRequest;
+        class PauseClusterRequest;
         class PurchaseReservedNodeOfferingRequest;
         class RebootClusterRequest;
         class ResetClusterParameterGroupRequest;
         class ResizeClusterRequest;
         class RestoreFromClusterSnapshotRequest;
         class RestoreTableFromClusterSnapshotRequest;
+        class ResumeClusterRequest;
         class RevokeClusterSecurityGroupIngressRequest;
         class RevokeSnapshotAccessRequest;
         class RotateEncryptionKeyRequest;
@@ -235,6 +248,7 @@ namespace Model
         typedef Aws::Utils::Outcome<CreateEventSubscriptionResult, Aws::Client::AWSError<RedshiftErrors>> CreateEventSubscriptionOutcome;
         typedef Aws::Utils::Outcome<CreateHsmClientCertificateResult, Aws::Client::AWSError<RedshiftErrors>> CreateHsmClientCertificateOutcome;
         typedef Aws::Utils::Outcome<CreateHsmConfigurationResult, Aws::Client::AWSError<RedshiftErrors>> CreateHsmConfigurationOutcome;
+        typedef Aws::Utils::Outcome<CreateScheduledActionResult, Aws::Client::AWSError<RedshiftErrors>> CreateScheduledActionOutcome;
         typedef Aws::Utils::Outcome<CreateSnapshotCopyGrantResult, Aws::Client::AWSError<RedshiftErrors>> CreateSnapshotCopyGrantOutcome;
         typedef Aws::Utils::Outcome<CreateSnapshotScheduleResult, Aws::Client::AWSError<RedshiftErrors>> CreateSnapshotScheduleOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> CreateTagsOutcome;
@@ -246,6 +260,7 @@ namespace Model
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> DeleteEventSubscriptionOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> DeleteHsmClientCertificateOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> DeleteHsmConfigurationOutcome;
+        typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> DeleteScheduledActionOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> DeleteSnapshotCopyGrantOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> DeleteSnapshotScheduleOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> DeleteTagsOutcome;
@@ -266,10 +281,12 @@ namespace Model
         typedef Aws::Utils::Outcome<DescribeHsmClientCertificatesResult, Aws::Client::AWSError<RedshiftErrors>> DescribeHsmClientCertificatesOutcome;
         typedef Aws::Utils::Outcome<DescribeHsmConfigurationsResult, Aws::Client::AWSError<RedshiftErrors>> DescribeHsmConfigurationsOutcome;
         typedef Aws::Utils::Outcome<DescribeLoggingStatusResult, Aws::Client::AWSError<RedshiftErrors>> DescribeLoggingStatusOutcome;
+        typedef Aws::Utils::Outcome<DescribeNodeConfigurationOptionsResult, Aws::Client::AWSError<RedshiftErrors>> DescribeNodeConfigurationOptionsOutcome;
         typedef Aws::Utils::Outcome<DescribeOrderableClusterOptionsResult, Aws::Client::AWSError<RedshiftErrors>> DescribeOrderableClusterOptionsOutcome;
         typedef Aws::Utils::Outcome<DescribeReservedNodeOfferingsResult, Aws::Client::AWSError<RedshiftErrors>> DescribeReservedNodeOfferingsOutcome;
         typedef Aws::Utils::Outcome<DescribeReservedNodesResult, Aws::Client::AWSError<RedshiftErrors>> DescribeReservedNodesOutcome;
         typedef Aws::Utils::Outcome<DescribeResizeResult, Aws::Client::AWSError<RedshiftErrors>> DescribeResizeOutcome;
+        typedef Aws::Utils::Outcome<DescribeScheduledActionsResult, Aws::Client::AWSError<RedshiftErrors>> DescribeScheduledActionsOutcome;
         typedef Aws::Utils::Outcome<DescribeSnapshotCopyGrantsResult, Aws::Client::AWSError<RedshiftErrors>> DescribeSnapshotCopyGrantsOutcome;
         typedef Aws::Utils::Outcome<DescribeSnapshotSchedulesResult, Aws::Client::AWSError<RedshiftErrors>> DescribeSnapshotSchedulesOutcome;
         typedef Aws::Utils::Outcome<DescribeStorageResult, Aws::Client::AWSError<RedshiftErrors>> DescribeStorageOutcome;
@@ -290,14 +307,17 @@ namespace Model
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RedshiftErrors>> ModifyClusterSnapshotScheduleOutcome;
         typedef Aws::Utils::Outcome<ModifyClusterSubnetGroupResult, Aws::Client::AWSError<RedshiftErrors>> ModifyClusterSubnetGroupOutcome;
         typedef Aws::Utils::Outcome<ModifyEventSubscriptionResult, Aws::Client::AWSError<RedshiftErrors>> ModifyEventSubscriptionOutcome;
+        typedef Aws::Utils::Outcome<ModifyScheduledActionResult, Aws::Client::AWSError<RedshiftErrors>> ModifyScheduledActionOutcome;
         typedef Aws::Utils::Outcome<ModifySnapshotCopyRetentionPeriodResult, Aws::Client::AWSError<RedshiftErrors>> ModifySnapshotCopyRetentionPeriodOutcome;
         typedef Aws::Utils::Outcome<ModifySnapshotScheduleResult, Aws::Client::AWSError<RedshiftErrors>> ModifySnapshotScheduleOutcome;
+        typedef Aws::Utils::Outcome<PauseClusterResult, Aws::Client::AWSError<RedshiftErrors>> PauseClusterOutcome;
         typedef Aws::Utils::Outcome<PurchaseReservedNodeOfferingResult, Aws::Client::AWSError<RedshiftErrors>> PurchaseReservedNodeOfferingOutcome;
         typedef Aws::Utils::Outcome<RebootClusterResult, Aws::Client::AWSError<RedshiftErrors>> RebootClusterOutcome;
         typedef Aws::Utils::Outcome<ResetClusterParameterGroupResult, Aws::Client::AWSError<RedshiftErrors>> ResetClusterParameterGroupOutcome;
         typedef Aws::Utils::Outcome<ResizeClusterResult, Aws::Client::AWSError<RedshiftErrors>> ResizeClusterOutcome;
         typedef Aws::Utils::Outcome<RestoreFromClusterSnapshotResult, Aws::Client::AWSError<RedshiftErrors>> RestoreFromClusterSnapshotOutcome;
         typedef Aws::Utils::Outcome<RestoreTableFromClusterSnapshotResult, Aws::Client::AWSError<RedshiftErrors>> RestoreTableFromClusterSnapshotOutcome;
+        typedef Aws::Utils::Outcome<ResumeClusterResult, Aws::Client::AWSError<RedshiftErrors>> ResumeClusterOutcome;
         typedef Aws::Utils::Outcome<RevokeClusterSecurityGroupIngressResult, Aws::Client::AWSError<RedshiftErrors>> RevokeClusterSecurityGroupIngressOutcome;
         typedef Aws::Utils::Outcome<RevokeSnapshotAccessResult, Aws::Client::AWSError<RedshiftErrors>> RevokeSnapshotAccessOutcome;
         typedef Aws::Utils::Outcome<RotateEncryptionKeyResult, Aws::Client::AWSError<RedshiftErrors>> RotateEncryptionKeyOutcome;
@@ -317,6 +337,7 @@ namespace Model
         typedef std::future<CreateEventSubscriptionOutcome> CreateEventSubscriptionOutcomeCallable;
         typedef std::future<CreateHsmClientCertificateOutcome> CreateHsmClientCertificateOutcomeCallable;
         typedef std::future<CreateHsmConfigurationOutcome> CreateHsmConfigurationOutcomeCallable;
+        typedef std::future<CreateScheduledActionOutcome> CreateScheduledActionOutcomeCallable;
         typedef std::future<CreateSnapshotCopyGrantOutcome> CreateSnapshotCopyGrantOutcomeCallable;
         typedef std::future<CreateSnapshotScheduleOutcome> CreateSnapshotScheduleOutcomeCallable;
         typedef std::future<CreateTagsOutcome> CreateTagsOutcomeCallable;
@@ -328,6 +349,7 @@ namespace Model
         typedef std::future<DeleteEventSubscriptionOutcome> DeleteEventSubscriptionOutcomeCallable;
         typedef std::future<DeleteHsmClientCertificateOutcome> DeleteHsmClientCertificateOutcomeCallable;
         typedef std::future<DeleteHsmConfigurationOutcome> DeleteHsmConfigurationOutcomeCallable;
+        typedef std::future<DeleteScheduledActionOutcome> DeleteScheduledActionOutcomeCallable;
         typedef std::future<DeleteSnapshotCopyGrantOutcome> DeleteSnapshotCopyGrantOutcomeCallable;
         typedef std::future<DeleteSnapshotScheduleOutcome> DeleteSnapshotScheduleOutcomeCallable;
         typedef std::future<DeleteTagsOutcome> DeleteTagsOutcomeCallable;
@@ -348,10 +370,12 @@ namespace Model
         typedef std::future<DescribeHsmClientCertificatesOutcome> DescribeHsmClientCertificatesOutcomeCallable;
         typedef std::future<DescribeHsmConfigurationsOutcome> DescribeHsmConfigurationsOutcomeCallable;
         typedef std::future<DescribeLoggingStatusOutcome> DescribeLoggingStatusOutcomeCallable;
+        typedef std::future<DescribeNodeConfigurationOptionsOutcome> DescribeNodeConfigurationOptionsOutcomeCallable;
         typedef std::future<DescribeOrderableClusterOptionsOutcome> DescribeOrderableClusterOptionsOutcomeCallable;
         typedef std::future<DescribeReservedNodeOfferingsOutcome> DescribeReservedNodeOfferingsOutcomeCallable;
         typedef std::future<DescribeReservedNodesOutcome> DescribeReservedNodesOutcomeCallable;
         typedef std::future<DescribeResizeOutcome> DescribeResizeOutcomeCallable;
+        typedef std::future<DescribeScheduledActionsOutcome> DescribeScheduledActionsOutcomeCallable;
         typedef std::future<DescribeSnapshotCopyGrantsOutcome> DescribeSnapshotCopyGrantsOutcomeCallable;
         typedef std::future<DescribeSnapshotSchedulesOutcome> DescribeSnapshotSchedulesOutcomeCallable;
         typedef std::future<DescribeStorageOutcome> DescribeStorageOutcomeCallable;
@@ -372,14 +396,17 @@ namespace Model
         typedef std::future<ModifyClusterSnapshotScheduleOutcome> ModifyClusterSnapshotScheduleOutcomeCallable;
         typedef std::future<ModifyClusterSubnetGroupOutcome> ModifyClusterSubnetGroupOutcomeCallable;
         typedef std::future<ModifyEventSubscriptionOutcome> ModifyEventSubscriptionOutcomeCallable;
+        typedef std::future<ModifyScheduledActionOutcome> ModifyScheduledActionOutcomeCallable;
         typedef std::future<ModifySnapshotCopyRetentionPeriodOutcome> ModifySnapshotCopyRetentionPeriodOutcomeCallable;
         typedef std::future<ModifySnapshotScheduleOutcome> ModifySnapshotScheduleOutcomeCallable;
+        typedef std::future<PauseClusterOutcome> PauseClusterOutcomeCallable;
         typedef std::future<PurchaseReservedNodeOfferingOutcome> PurchaseReservedNodeOfferingOutcomeCallable;
         typedef std::future<RebootClusterOutcome> RebootClusterOutcomeCallable;
         typedef std::future<ResetClusterParameterGroupOutcome> ResetClusterParameterGroupOutcomeCallable;
         typedef std::future<ResizeClusterOutcome> ResizeClusterOutcomeCallable;
         typedef std::future<RestoreFromClusterSnapshotOutcome> RestoreFromClusterSnapshotOutcomeCallable;
         typedef std::future<RestoreTableFromClusterSnapshotOutcome> RestoreTableFromClusterSnapshotOutcomeCallable;
+        typedef std::future<ResumeClusterOutcome> ResumeClusterOutcomeCallable;
         typedef std::future<RevokeClusterSecurityGroupIngressOutcome> RevokeClusterSecurityGroupIngressOutcomeCallable;
         typedef std::future<RevokeSnapshotAccessOutcome> RevokeSnapshotAccessOutcomeCallable;
         typedef std::future<RotateEncryptionKeyOutcome> RotateEncryptionKeyOutcomeCallable;
@@ -402,6 +429,7 @@ namespace Model
     typedef std::function<void(const RedshiftClient*, const Model::CreateEventSubscriptionRequest&, const Model::CreateEventSubscriptionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateEventSubscriptionResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::CreateHsmClientCertificateRequest&, const Model::CreateHsmClientCertificateOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateHsmClientCertificateResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::CreateHsmConfigurationRequest&, const Model::CreateHsmConfigurationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateHsmConfigurationResponseReceivedHandler;
+    typedef std::function<void(const RedshiftClient*, const Model::CreateScheduledActionRequest&, const Model::CreateScheduledActionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateScheduledActionResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::CreateSnapshotCopyGrantRequest&, const Model::CreateSnapshotCopyGrantOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateSnapshotCopyGrantResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::CreateSnapshotScheduleRequest&, const Model::CreateSnapshotScheduleOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateSnapshotScheduleResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::CreateTagsRequest&, const Model::CreateTagsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateTagsResponseReceivedHandler;
@@ -413,6 +441,7 @@ namespace Model
     typedef std::function<void(const RedshiftClient*, const Model::DeleteEventSubscriptionRequest&, const Model::DeleteEventSubscriptionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteEventSubscriptionResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DeleteHsmClientCertificateRequest&, const Model::DeleteHsmClientCertificateOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteHsmClientCertificateResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DeleteHsmConfigurationRequest&, const Model::DeleteHsmConfigurationOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteHsmConfigurationResponseReceivedHandler;
+    typedef std::function<void(const RedshiftClient*, const Model::DeleteScheduledActionRequest&, const Model::DeleteScheduledActionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteScheduledActionResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DeleteSnapshotCopyGrantRequest&, const Model::DeleteSnapshotCopyGrantOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteSnapshotCopyGrantResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DeleteSnapshotScheduleRequest&, const Model::DeleteSnapshotScheduleOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteSnapshotScheduleResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DeleteTagsRequest&, const Model::DeleteTagsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteTagsResponseReceivedHandler;
@@ -433,10 +462,12 @@ namespace Model
     typedef std::function<void(const RedshiftClient*, const Model::DescribeHsmClientCertificatesRequest&, const Model::DescribeHsmClientCertificatesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeHsmClientCertificatesResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeHsmConfigurationsRequest&, const Model::DescribeHsmConfigurationsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeHsmConfigurationsResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeLoggingStatusRequest&, const Model::DescribeLoggingStatusOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeLoggingStatusResponseReceivedHandler;
+    typedef std::function<void(const RedshiftClient*, const Model::DescribeNodeConfigurationOptionsRequest&, const Model::DescribeNodeConfigurationOptionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeNodeConfigurationOptionsResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeOrderableClusterOptionsRequest&, const Model::DescribeOrderableClusterOptionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeOrderableClusterOptionsResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeReservedNodeOfferingsRequest&, const Model::DescribeReservedNodeOfferingsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeReservedNodeOfferingsResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeReservedNodesRequest&, const Model::DescribeReservedNodesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeReservedNodesResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeResizeRequest&, const Model::DescribeResizeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeResizeResponseReceivedHandler;
+    typedef std::function<void(const RedshiftClient*, const Model::DescribeScheduledActionsRequest&, const Model::DescribeScheduledActionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeScheduledActionsResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeSnapshotCopyGrantsRequest&, const Model::DescribeSnapshotCopyGrantsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeSnapshotCopyGrantsResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeSnapshotSchedulesRequest&, const Model::DescribeSnapshotSchedulesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeSnapshotSchedulesResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::DescribeStorageRequest&, const Model::DescribeStorageOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeStorageResponseReceivedHandler;
@@ -457,14 +488,17 @@ namespace Model
     typedef std::function<void(const RedshiftClient*, const Model::ModifyClusterSnapshotScheduleRequest&, const Model::ModifyClusterSnapshotScheduleOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyClusterSnapshotScheduleResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::ModifyClusterSubnetGroupRequest&, const Model::ModifyClusterSubnetGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyClusterSubnetGroupResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::ModifyEventSubscriptionRequest&, const Model::ModifyEventSubscriptionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyEventSubscriptionResponseReceivedHandler;
+    typedef std::function<void(const RedshiftClient*, const Model::ModifyScheduledActionRequest&, const Model::ModifyScheduledActionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyScheduledActionResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::ModifySnapshotCopyRetentionPeriodRequest&, const Model::ModifySnapshotCopyRetentionPeriodOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifySnapshotCopyRetentionPeriodResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::ModifySnapshotScheduleRequest&, const Model::ModifySnapshotScheduleOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifySnapshotScheduleResponseReceivedHandler;
+    typedef std::function<void(const RedshiftClient*, const Model::PauseClusterRequest&, const Model::PauseClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PauseClusterResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::PurchaseReservedNodeOfferingRequest&, const Model::PurchaseReservedNodeOfferingOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PurchaseReservedNodeOfferingResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::RebootClusterRequest&, const Model::RebootClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RebootClusterResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::ResetClusterParameterGroupRequest&, const Model::ResetClusterParameterGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ResetClusterParameterGroupResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::ResizeClusterRequest&, const Model::ResizeClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ResizeClusterResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::RestoreFromClusterSnapshotRequest&, const Model::RestoreFromClusterSnapshotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RestoreFromClusterSnapshotResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::RestoreTableFromClusterSnapshotRequest&, const Model::RestoreTableFromClusterSnapshotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RestoreTableFromClusterSnapshotResponseReceivedHandler;
+    typedef std::function<void(const RedshiftClient*, const Model::ResumeClusterRequest&, const Model::ResumeClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ResumeClusterResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::RevokeClusterSecurityGroupIngressRequest&, const Model::RevokeClusterSecurityGroupIngressOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RevokeClusterSecurityGroupIngressResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::RevokeSnapshotAccessRequest&, const Model::RevokeSnapshotAccessOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RevokeSnapshotAccessResponseReceivedHandler;
     typedef std::function<void(const RedshiftClient*, const Model::RotateEncryptionKeyRequest&, const Model::RotateEncryptionKeyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RotateEncryptionKeyResponseReceivedHandler;
@@ -701,14 +735,16 @@ namespace Model
         virtual void BatchDeleteClusterSnapshotsAsync(const Model::BatchDeleteClusterSnapshotsRequest& request, const BatchDeleteClusterSnapshotsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Modifies the settings for a list of snapshots.</p><p><h3>See Also:</h3>   <a
+         * <p>Modifies the settings for a set of cluster snapshots.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchModifyClusterSnapshots">AWS
          * API Reference</a></p>
          */
         virtual Model::BatchModifyClusterSnapshotsOutcome BatchModifyClusterSnapshots(const Model::BatchModifyClusterSnapshotsRequest& request) const;
 
         /**
-         * <p>Modifies the settings for a list of snapshots.</p><p><h3>See Also:</h3>   <a
+         * <p>Modifies the settings for a set of cluster snapshots.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchModifyClusterSnapshots">AWS
          * API Reference</a></p>
          *
@@ -717,7 +753,8 @@ namespace Model
         virtual Model::BatchModifyClusterSnapshotsOutcomeCallable BatchModifyClusterSnapshotsCallable(const Model::BatchModifyClusterSnapshotsRequest& request) const;
 
         /**
-         * <p>Modifies the settings for a list of snapshots.</p><p><h3>See Also:</h3>   <a
+         * <p>Modifies the settings for a set of cluster snapshots.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/BatchModifyClusterSnapshots">AWS
          * API Reference</a></p>
          *
@@ -726,14 +763,14 @@ namespace Model
         virtual void BatchModifyClusterSnapshotsAsync(const Model::BatchModifyClusterSnapshotsRequest& request, const BatchModifyClusterSnapshotsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Cancels a resize operation.</p><p><h3>See Also:</h3>   <a
+         * <p>Cancels a resize operation for a cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CancelResize">AWS
          * API Reference</a></p>
          */
         virtual Model::CancelResizeOutcome CancelResize(const Model::CancelResizeRequest& request) const;
 
         /**
-         * <p>Cancels a resize operation.</p><p><h3>See Also:</h3>   <a
+         * <p>Cancels a resize operation for a cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CancelResize">AWS
          * API Reference</a></p>
          *
@@ -742,7 +779,7 @@ namespace Model
         virtual Model::CancelResizeOutcomeCallable CancelResizeCallable(const Model::CancelResizeRequest& request) const;
 
         /**
-         * <p>Cancels a resize operation.</p><p><h3>See Also:</h3>   <a
+         * <p>Cancels a resize operation for a cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CancelResize">AWS
          * API Reference</a></p>
          *
@@ -806,10 +843,11 @@ namespace Model
         virtual void CopyClusterSnapshotAsync(const Model::CopyClusterSnapshotRequest& request, const CopyClusterSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates a new cluster.</p> <p>To create a cluster in Virtual Private Cloud
-         * (VPC), you must provide a cluster subnet group name. The cluster subnet group
-         * identifies the subnets of your VPC that Amazon Redshift uses when creating the
-         * cluster. For more information about managing clusters, go to <a
+         * <p>Creates a new cluster with the specified parameters.</p> <p>To create a
+         * cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group
+         * name. The cluster subnet group identifies the subnets of your VPC that Amazon
+         * Redshift uses when creating the cluster. For more information about managing
+         * clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -819,10 +857,11 @@ namespace Model
         virtual Model::CreateClusterOutcome CreateCluster(const Model::CreateClusterRequest& request) const;
 
         /**
-         * <p>Creates a new cluster.</p> <p>To create a cluster in Virtual Private Cloud
-         * (VPC), you must provide a cluster subnet group name. The cluster subnet group
-         * identifies the subnets of your VPC that Amazon Redshift uses when creating the
-         * cluster. For more information about managing clusters, go to <a
+         * <p>Creates a new cluster with the specified parameters.</p> <p>To create a
+         * cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group
+         * name. The cluster subnet group identifies the subnets of your VPC that Amazon
+         * Redshift uses when creating the cluster. For more information about managing
+         * clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -834,10 +873,11 @@ namespace Model
         virtual Model::CreateClusterOutcomeCallable CreateClusterCallable(const Model::CreateClusterRequest& request) const;
 
         /**
-         * <p>Creates a new cluster.</p> <p>To create a cluster in Virtual Private Cloud
-         * (VPC), you must provide a cluster subnet group name. The cluster subnet group
-         * identifies the subnets of your VPC that Amazon Redshift uses when creating the
-         * cluster. For more information about managing clusters, go to <a
+         * <p>Creates a new cluster with the specified parameters.</p> <p>To create a
+         * cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group
+         * name. The cluster subnet group identifies the subnets of your VPC that Amazon
+         * Redshift uses when creating the cluster. For more information about managing
+         * clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
          * Guide</i>.</p><p><h3>See Also:</h3>   <a
@@ -1207,6 +1247,37 @@ namespace Model
         virtual void CreateHsmConfigurationAsync(const Model::CreateHsmConfigurationRequest& request, const CreateHsmConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Creates a scheduled action. A scheduled action contains a schedule and an
+         * Amazon Redshift API action. For example, you can create a schedule of when to
+         * run the <code>ResizeCluster</code> API operation. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateScheduledAction">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CreateScheduledActionOutcome CreateScheduledAction(const Model::CreateScheduledActionRequest& request) const;
+
+        /**
+         * <p>Creates a scheduled action. A scheduled action contains a schedule and an
+         * Amazon Redshift API action. For example, you can create a schedule of when to
+         * run the <code>ResizeCluster</code> API operation. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateScheduledAction">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CreateScheduledActionOutcomeCallable CreateScheduledActionCallable(const Model::CreateScheduledActionRequest& request) const;
+
+        /**
+         * <p>Creates a scheduled action. A scheduled action contains a schedule and an
+         * Amazon Redshift API action. For example, you can create a schedule of when to
+         * run the <code>ResizeCluster</code> API operation. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateScheduledAction">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CreateScheduledActionAsync(const Model::CreateScheduledActionRequest& request, const CreateScheduledActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Creates a snapshot copy grant that permits Amazon Redshift to use a customer
          * master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied
          * snapshots in a destination region.</p> <p> For more information about managing
@@ -1250,14 +1321,16 @@ namespace Model
         virtual void CreateSnapshotCopyGrantAsync(const Model::CreateSnapshotCopyGrantRequest& request, const CreateSnapshotCopyGrantResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates a new snapshot schedule.</p><p><h3>See Also:</h3>   <a
+         * <p>Creates a snapshot schedule with the rate of every 12 hours.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateSnapshotSchedule">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateSnapshotScheduleOutcome CreateSnapshotSchedule(const Model::CreateSnapshotScheduleRequest& request) const;
 
         /**
-         * <p>Creates a new snapshot schedule.</p><p><h3>See Also:</h3>   <a
+         * <p>Creates a snapshot schedule with the rate of every 12 hours.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateSnapshotSchedule">AWS
          * API Reference</a></p>
          *
@@ -1266,7 +1339,8 @@ namespace Model
         virtual Model::CreateSnapshotScheduleOutcomeCallable CreateSnapshotScheduleCallable(const Model::CreateSnapshotScheduleRequest& request) const;
 
         /**
-         * <p>Creates a new snapshot schedule.</p><p><h3>See Also:</h3>   <a
+         * <p>Creates a snapshot schedule with the rate of every 12 hours.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateSnapshotSchedule">AWS
          * API Reference</a></p>
          *
@@ -1275,22 +1349,22 @@ namespace Model
         virtual void CreateSnapshotScheduleAsync(const Model::CreateSnapshotScheduleRequest& request, const CreateSnapshotScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Adds one or more tags to a specified resource.</p> <p>A resource can have up
-         * to 50 tags. If you try to create more than 50 tags for a resource, you will
-         * receive an error and the attempt will fail.</p> <p>If you specify a key that
-         * already exists for the resource, the value for that key will be updated with the
-         * new value.</p><p><h3>See Also:</h3>   <a
+         * <p>Adds tags to a cluster.</p> <p>A resource can have up to 50 tags. If you try
+         * to create more than 50 tags for a resource, you will receive an error and the
+         * attempt will fail.</p> <p>If you specify a key that already exists for the
+         * resource, the value for that key will be updated with the new
+         * value.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateTags">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateTagsOutcome CreateTags(const Model::CreateTagsRequest& request) const;
 
         /**
-         * <p>Adds one or more tags to a specified resource.</p> <p>A resource can have up
-         * to 50 tags. If you try to create more than 50 tags for a resource, you will
-         * receive an error and the attempt will fail.</p> <p>If you specify a key that
-         * already exists for the resource, the value for that key will be updated with the
-         * new value.</p><p><h3>See Also:</h3>   <a
+         * <p>Adds tags to a cluster.</p> <p>A resource can have up to 50 tags. If you try
+         * to create more than 50 tags for a resource, you will receive an error and the
+         * attempt will fail.</p> <p>If you specify a key that already exists for the
+         * resource, the value for that key will be updated with the new
+         * value.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateTags">AWS
          * API Reference</a></p>
          *
@@ -1299,11 +1373,11 @@ namespace Model
         virtual Model::CreateTagsOutcomeCallable CreateTagsCallable(const Model::CreateTagsRequest& request) const;
 
         /**
-         * <p>Adds one or more tags to a specified resource.</p> <p>A resource can have up
-         * to 50 tags. If you try to create more than 50 tags for a resource, you will
-         * receive an error and the attempt will fail.</p> <p>If you specify a key that
-         * already exists for the resource, the value for that key will be updated with the
-         * new value.</p><p><h3>See Also:</h3>   <a
+         * <p>Adds tags to a cluster.</p> <p>A resource can have up to 50 tags. If you try
+         * to create more than 50 tags for a resource, you will receive an error and the
+         * attempt will fail.</p> <p>If you specify a key that already exists for the
+         * resource, the value for that key will be updated with the new
+         * value.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/CreateTags">AWS
          * API Reference</a></p>
          *
@@ -1312,11 +1386,11 @@ namespace Model
         virtual void CreateTagsAsync(const Model::CreateTagsRequest& request, const CreateTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes a previously provisioned cluster. A successful response from the web
-         * service indicates that the request was received correctly. Use
-         * <a>DescribeClusters</a> to monitor the status of the deletion. The delete
-         * operation cannot be canceled or reverted once submitted. For more information
-         * about managing clusters, go to <a
+         * <p>Deletes a previously provisioned cluster without its final snapshot being
+         * created. A successful response from the web service indicates that the request
+         * was received correctly. Use <a>DescribeClusters</a> to monitor the status of the
+         * deletion. The delete operation cannot be canceled or reverted once submitted.
+         * For more information about managing clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
          * Guide</i>.</p> <p>If you want to shut down the cluster and retain it for future
@@ -1335,11 +1409,11 @@ namespace Model
         virtual Model::DeleteClusterOutcome DeleteCluster(const Model::DeleteClusterRequest& request) const;
 
         /**
-         * <p>Deletes a previously provisioned cluster. A successful response from the web
-         * service indicates that the request was received correctly. Use
-         * <a>DescribeClusters</a> to monitor the status of the deletion. The delete
-         * operation cannot be canceled or reverted once submitted. For more information
-         * about managing clusters, go to <a
+         * <p>Deletes a previously provisioned cluster without its final snapshot being
+         * created. A successful response from the web service indicates that the request
+         * was received correctly. Use <a>DescribeClusters</a> to monitor the status of the
+         * deletion. The delete operation cannot be canceled or reverted once submitted.
+         * For more information about managing clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
          * Guide</i>.</p> <p>If you want to shut down the cluster and retain it for future
@@ -1360,11 +1434,11 @@ namespace Model
         virtual Model::DeleteClusterOutcomeCallable DeleteClusterCallable(const Model::DeleteClusterRequest& request) const;
 
         /**
-         * <p>Deletes a previously provisioned cluster. A successful response from the web
-         * service indicates that the request was received correctly. Use
-         * <a>DescribeClusters</a> to monitor the status of the deletion. The delete
-         * operation cannot be canceled or reverted once submitted. For more information
-         * about managing clusters, go to <a
+         * <p>Deletes a previously provisioned cluster without its final snapshot being
+         * created. A successful response from the web service indicates that the request
+         * was received correctly. Use <a>DescribeClusters</a> to monitor the status of the
+         * deletion. The delete operation cannot be canceled or reverted once submitted.
+         * For more information about managing clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
          * Guide</i>.</p> <p>If you want to shut down the cluster and retain it for future
@@ -1611,6 +1685,31 @@ namespace Model
         virtual void DeleteHsmConfigurationAsync(const Model::DeleteHsmConfigurationRequest& request, const DeleteHsmConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Deletes a scheduled action. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteScheduledAction">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DeleteScheduledActionOutcome DeleteScheduledAction(const Model::DeleteScheduledActionRequest& request) const;
+
+        /**
+         * <p>Deletes a scheduled action. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteScheduledAction">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DeleteScheduledActionOutcomeCallable DeleteScheduledActionCallable(const Model::DeleteScheduledActionRequest& request) const;
+
+        /**
+         * <p>Deletes a scheduled action. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteScheduledAction">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DeleteScheduledActionAsync(const Model::DeleteScheduledActionRequest& request, const DeleteScheduledActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Deletes the specified snapshot copy grant.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteSnapshotCopyGrant">AWS
          * API Reference</a></p>
@@ -1661,18 +1760,16 @@ namespace Model
         virtual void DeleteSnapshotScheduleAsync(const Model::DeleteSnapshotScheduleRequest& request, const DeleteSnapshotScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes a tag or tags from a resource. You must provide the ARN of the
-         * resource from which you want to delete the tag or tags.</p><p><h3>See Also:</h3>
-         * <a
+         * <p>Deletes tags from a resource. You must provide the ARN of the resource from
+         * which you want to delete the tag or tags.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteTags">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteTagsOutcome DeleteTags(const Model::DeleteTagsRequest& request) const;
 
         /**
-         * <p>Deletes a tag or tags from a resource. You must provide the ARN of the
-         * resource from which you want to delete the tag or tags.</p><p><h3>See Also:</h3>
-         * <a
+         * <p>Deletes tags from a resource. You must provide the ARN of the resource from
+         * which you want to delete the tag or tags.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteTags">AWS
          * API Reference</a></p>
          *
@@ -1681,9 +1778,8 @@ namespace Model
         virtual Model::DeleteTagsOutcomeCallable DeleteTagsCallable(const Model::DeleteTagsRequest& request) const;
 
         /**
-         * <p>Deletes a tag or tags from a resource. You must provide the ARN of the
-         * resource from which you want to delete the tag or tags.</p><p><h3>See Also:</h3>
-         * <a
+         * <p>Deletes tags from a resource. You must provide the ARN of the resource from
+         * which you want to delete the tag or tags.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DeleteTags">AWS
          * API Reference</a></p>
          *
@@ -2507,6 +2603,37 @@ namespace Model
         virtual void DescribeLoggingStatusAsync(const Model::DescribeLoggingStatusRequest& request, const DescribeLoggingStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Returns properties of possible node configurations such as node type, number
+         * of nodes, and disk usage for the specified action type.</p><p><h3>See Also:</h3>
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeNodeConfigurationOptions">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeNodeConfigurationOptionsOutcome DescribeNodeConfigurationOptions(const Model::DescribeNodeConfigurationOptionsRequest& request) const;
+
+        /**
+         * <p>Returns properties of possible node configurations such as node type, number
+         * of nodes, and disk usage for the specified action type.</p><p><h3>See Also:</h3>
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeNodeConfigurationOptions">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeNodeConfigurationOptionsOutcomeCallable DescribeNodeConfigurationOptionsCallable(const Model::DescribeNodeConfigurationOptionsRequest& request) const;
+
+        /**
+         * <p>Returns properties of possible node configurations such as node type, number
+         * of nodes, and disk usage for the specified action type.</p><p><h3>See Also:</h3>
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeNodeConfigurationOptions">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeNodeConfigurationOptionsAsync(const Model::DescribeNodeConfigurationOptionsRequest& request, const DescribeNodeConfigurationOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Returns a list of orderable cluster options. Before you create a new cluster
          * you can use this operation to find what options are available, such as the EC2
          * Availability Zones (AZ) in the specific AWS Region that you can specify, and the
@@ -2682,6 +2809,31 @@ namespace Model
         virtual void DescribeResizeAsync(const Model::DescribeResizeRequest& request, const DescribeResizeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Describes properties of scheduled actions. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeScheduledActions">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeScheduledActionsOutcome DescribeScheduledActions(const Model::DescribeScheduledActionsRequest& request) const;
+
+        /**
+         * <p>Describes properties of scheduled actions. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeScheduledActions">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeScheduledActionsOutcomeCallable DescribeScheduledActionsCallable(const Model::DescribeScheduledActionsRequest& request) const;
+
+        /**
+         * <p>Describes properties of scheduled actions. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeScheduledActions">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeScheduledActionsAsync(const Model::DescribeScheduledActionsRequest& request, const DescribeScheduledActionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Returns a list of snapshot copy grants owned by the AWS account in the
          * destination region.</p> <p> For more information about managing snapshot copy
          * grants, go to <a
@@ -2747,16 +2899,16 @@ namespace Model
         virtual void DescribeSnapshotSchedulesAsync(const Model::DescribeSnapshotSchedulesRequest& request, const DescribeSnapshotSchedulesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Returns the total amount of snapshot usage and provisioned storage for a user
-         * in megabytes.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns account level backups storage size and provisional
+         * storage.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeStorage">AWS
          * API Reference</a></p>
          */
         virtual Model::DescribeStorageOutcome DescribeStorage(const Model::DescribeStorageRequest& request) const;
 
         /**
-         * <p>Returns the total amount of snapshot usage and provisioned storage for a user
-         * in megabytes.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns account level backups storage size and provisional
+         * storage.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeStorage">AWS
          * API Reference</a></p>
          *
@@ -2765,8 +2917,8 @@ namespace Model
         virtual Model::DescribeStorageOutcomeCallable DescribeStorageCallable(const Model::DescribeStorageRequest& request) const;
 
         /**
-         * <p>Returns the total amount of snapshot usage and provisioned storage for a user
-         * in megabytes.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns account level backups storage size and provisional
+         * storage.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/DescribeStorage">AWS
          * API Reference</a></p>
          *
@@ -3137,36 +3289,34 @@ namespace Model
         virtual void GetReservedNodeExchangeOfferingsAsync(const Model::GetReservedNodeExchangeOfferingsRequest& request, const GetReservedNodeExchangeOfferingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Modifies the settings for a cluster. For example, you can add another
-         * security or parameter group, update the preferred maintenance window, or change
-         * the master user password. Resetting a cluster password or modifying the security
-         * groups associated with a cluster do not need a reboot. However, modifying a
-         * parameter group requires a reboot for parameters to take effect. For more
-         * information about managing clusters, go to <a
+         * <p>Modifies the settings for a cluster.</p> <p>You can also change node type and
+         * the number of nodes to scale up or down the cluster. When resizing a cluster,
+         * you must specify both the number of nodes and the node type even if one of the
+         * parameters does not change.</p> <p>You can add another security or parameter
+         * group, or change the master user password. Resetting a cluster password or
+         * modifying the security groups associated with a cluster do not need a reboot.
+         * However, modifying a parameter group requires a reboot for parameters to take
+         * effect. For more information about managing clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
-         * Guide</i>.</p> <p>You can also change node type and the number of nodes to scale
-         * up or down the cluster. When resizing a cluster, you must specify both the
-         * number of nodes and the node type even if one of the parameters does not
-         * change.</p><p><h3>See Also:</h3>   <a
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyCluster">AWS
          * API Reference</a></p>
          */
         virtual Model::ModifyClusterOutcome ModifyCluster(const Model::ModifyClusterRequest& request) const;
 
         /**
-         * <p>Modifies the settings for a cluster. For example, you can add another
-         * security or parameter group, update the preferred maintenance window, or change
-         * the master user password. Resetting a cluster password or modifying the security
-         * groups associated with a cluster do not need a reboot. However, modifying a
-         * parameter group requires a reboot for parameters to take effect. For more
-         * information about managing clusters, go to <a
+         * <p>Modifies the settings for a cluster.</p> <p>You can also change node type and
+         * the number of nodes to scale up or down the cluster. When resizing a cluster,
+         * you must specify both the number of nodes and the node type even if one of the
+         * parameters does not change.</p> <p>You can add another security or parameter
+         * group, or change the master user password. Resetting a cluster password or
+         * modifying the security groups associated with a cluster do not need a reboot.
+         * However, modifying a parameter group requires a reboot for parameters to take
+         * effect. For more information about managing clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
-         * Guide</i>.</p> <p>You can also change node type and the number of nodes to scale
-         * up or down the cluster. When resizing a cluster, you must specify both the
-         * number of nodes and the node type even if one of the parameters does not
-         * change.</p><p><h3>See Also:</h3>   <a
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyCluster">AWS
          * API Reference</a></p>
          *
@@ -3175,18 +3325,17 @@ namespace Model
         virtual Model::ModifyClusterOutcomeCallable ModifyClusterCallable(const Model::ModifyClusterRequest& request) const;
 
         /**
-         * <p>Modifies the settings for a cluster. For example, you can add another
-         * security or parameter group, update the preferred maintenance window, or change
-         * the master user password. Resetting a cluster password or modifying the security
-         * groups associated with a cluster do not need a reboot. However, modifying a
-         * parameter group requires a reboot for parameters to take effect. For more
-         * information about managing clusters, go to <a
+         * <p>Modifies the settings for a cluster.</p> <p>You can also change node type and
+         * the number of nodes to scale up or down the cluster. When resizing a cluster,
+         * you must specify both the number of nodes and the node type even if one of the
+         * parameters does not change.</p> <p>You can add another security or parameter
+         * group, or change the master user password. Resetting a cluster password or
+         * modifying the security groups associated with a cluster do not need a reboot.
+         * However, modifying a parameter group requires a reboot for parameters to take
+         * effect. For more information about managing clusters, go to <a
          * href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
          * Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management
-         * Guide</i>.</p> <p>You can also change node type and the number of nodes to scale
-         * up or down the cluster. When resizing a cluster, you must specify both the
-         * number of nodes and the node type even if one of the parameters does not
-         * change.</p><p><h3>See Also:</h3>   <a
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyCluster">AWS
          * API Reference</a></p>
          *
@@ -3257,18 +3406,14 @@ namespace Model
         virtual void ModifyClusterIamRolesAsync(const Model::ModifyClusterIamRolesRequest& request, const ModifyClusterIamRolesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Modifies the maintenance settings of a cluster. For example, you can defer a
-         * maintenance window. You can also update or cancel a deferment. </p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Modifies the maintenance settings of a cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterMaintenance">AWS
          * API Reference</a></p>
          */
         virtual Model::ModifyClusterMaintenanceOutcome ModifyClusterMaintenance(const Model::ModifyClusterMaintenanceRequest& request) const;
 
         /**
-         * <p>Modifies the maintenance settings of a cluster. For example, you can defer a
-         * maintenance window. You can also update or cancel a deferment. </p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Modifies the maintenance settings of a cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterMaintenance">AWS
          * API Reference</a></p>
          *
@@ -3277,9 +3422,7 @@ namespace Model
         virtual Model::ModifyClusterMaintenanceOutcomeCallable ModifyClusterMaintenanceCallable(const Model::ModifyClusterMaintenanceRequest& request) const;
 
         /**
-         * <p>Modifies the maintenance settings of a cluster. For example, you can defer a
-         * maintenance window. You can also update or cancel a deferment. </p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Modifies the maintenance settings of a cluster.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterMaintenance">AWS
          * API Reference</a></p>
          *
@@ -3325,14 +3468,18 @@ namespace Model
         virtual void ModifyClusterParameterGroupAsync(const Model::ModifyClusterParameterGroupRequest& request, const ModifyClusterParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Modifies the settings for a snapshot.</p><p><h3>See Also:</h3>   <a
+         * <p>Modifies the settings for a snapshot.</p> <p>This exanmple modifies the
+         * manual retention period setting for a cluster snapshot.</p><p><h3>See Also:</h3>
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshot">AWS
          * API Reference</a></p>
          */
         virtual Model::ModifyClusterSnapshotOutcome ModifyClusterSnapshot(const Model::ModifyClusterSnapshotRequest& request) const;
 
         /**
-         * <p>Modifies the settings for a snapshot.</p><p><h3>See Also:</h3>   <a
+         * <p>Modifies the settings for a snapshot.</p> <p>This exanmple modifies the
+         * manual retention period setting for a cluster snapshot.</p><p><h3>See Also:</h3>
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshot">AWS
          * API Reference</a></p>
          *
@@ -3341,7 +3488,9 @@ namespace Model
         virtual Model::ModifyClusterSnapshotOutcomeCallable ModifyClusterSnapshotCallable(const Model::ModifyClusterSnapshotRequest& request) const;
 
         /**
-         * <p>Modifies the settings for a snapshot.</p><p><h3>See Also:</h3>   <a
+         * <p>Modifies the settings for a snapshot.</p> <p>This exanmple modifies the
+         * manual retention period setting for a cluster snapshot.</p><p><h3>See Also:</h3>
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyClusterSnapshot">AWS
          * API Reference</a></p>
          *
@@ -3434,6 +3583,31 @@ namespace Model
         virtual void ModifyEventSubscriptionAsync(const Model::ModifyEventSubscriptionRequest& request, const ModifyEventSubscriptionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Modifies a scheduled action. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyScheduledAction">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ModifyScheduledActionOutcome ModifyScheduledAction(const Model::ModifyScheduledActionRequest& request) const;
+
+        /**
+         * <p>Modifies a scheduled action. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyScheduledAction">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ModifyScheduledActionOutcomeCallable ModifyScheduledActionCallable(const Model::ModifyScheduledActionRequest& request) const;
+
+        /**
+         * <p>Modifies a scheduled action. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ModifyScheduledAction">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ModifyScheduledActionAsync(const Model::ModifyScheduledActionRequest& request, const ModifyScheduledActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Modifies the number of days to retain snapshots in the destination AWS Region
          * after they are copied from the source AWS Region. By default, this operation
          * only changes the retention period of copied automated snapshots. The retention
@@ -3506,6 +3680,31 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void ModifySnapshotScheduleAsync(const Model::ModifySnapshotScheduleRequest& request, const ModifySnapshotScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Pauses a cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/PauseCluster">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::PauseClusterOutcome PauseCluster(const Model::PauseClusterRequest& request) const;
+
+        /**
+         * <p>Pauses a cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/PauseCluster">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::PauseClusterOutcomeCallable PauseClusterCallable(const Model::PauseClusterRequest& request) const;
+
+        /**
+         * <p>Pauses a cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/PauseCluster">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void PauseClusterAsync(const Model::PauseClusterRequest& request, const PauseClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Allows you to purchase reserved nodes. Amazon Redshift offers a predefined
@@ -3647,8 +3846,9 @@ namespace Model
          * resize operations have the following restrictions:</p> <ul> <li> <p>You can only
          * resize clusters of the following types:</p> <ul> <li> <p>dc2.large</p> </li>
          * <li> <p>dc2.8xlarge</p> </li> <li> <p>ds2.xlarge</p> </li> <li>
-         * <p>ds2.8xlarge</p> </li> </ul> </li> <li> <p>The type of nodes that you add must
-         * match the node type for the cluster.</p> </li> </ul><p><h3>See Also:</h3>   <a
+         * <p>ds2.8xlarge</p> </li> <li> <p>ra3.16xlarge</p> </li> </ul> </li> <li> <p>The
+         * type of nodes that you add must match the node type for the cluster.</p> </li>
+         * </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ResizeCluster">AWS
          * API Reference</a></p>
          */
@@ -3662,8 +3862,9 @@ namespace Model
          * resize operations have the following restrictions:</p> <ul> <li> <p>You can only
          * resize clusters of the following types:</p> <ul> <li> <p>dc2.large</p> </li>
          * <li> <p>dc2.8xlarge</p> </li> <li> <p>ds2.xlarge</p> </li> <li>
-         * <p>ds2.8xlarge</p> </li> </ul> </li> <li> <p>The type of nodes that you add must
-         * match the node type for the cluster.</p> </li> </ul><p><h3>See Also:</h3>   <a
+         * <p>ds2.8xlarge</p> </li> <li> <p>ra3.16xlarge</p> </li> </ul> </li> <li> <p>The
+         * type of nodes that you add must match the node type for the cluster.</p> </li>
+         * </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ResizeCluster">AWS
          * API Reference</a></p>
          *
@@ -3679,8 +3880,9 @@ namespace Model
          * resize operations have the following restrictions:</p> <ul> <li> <p>You can only
          * resize clusters of the following types:</p> <ul> <li> <p>dc2.large</p> </li>
          * <li> <p>dc2.8xlarge</p> </li> <li> <p>ds2.xlarge</p> </li> <li>
-         * <p>ds2.8xlarge</p> </li> </ul> </li> <li> <p>The type of nodes that you add must
-         * match the node type for the cluster.</p> </li> </ul><p><h3>See Also:</h3>   <a
+         * <p>ds2.8xlarge</p> </li> <li> <p>ra3.16xlarge</p> </li> </ul> </li> <li> <p>The
+         * type of nodes that you add must match the node type for the cluster.</p> </li>
+         * </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ResizeCluster">AWS
          * API Reference</a></p>
          *
@@ -3809,6 +4011,31 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void RestoreTableFromClusterSnapshotAsync(const Model::RestoreTableFromClusterSnapshotRequest& request, const RestoreTableFromClusterSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Resumes a paused cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ResumeCluster">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ResumeClusterOutcome ResumeCluster(const Model::ResumeClusterRequest& request) const;
+
+        /**
+         * <p>Resumes a paused cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ResumeCluster">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ResumeClusterOutcomeCallable ResumeClusterCallable(const Model::ResumeClusterRequest& request) const;
+
+        /**
+         * <p>Resumes a paused cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/redshift-2012-12-01/ResumeCluster">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ResumeClusterAsync(const Model::ResumeClusterRequest& request, const ResumeClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Revokes an ingress rule in an Amazon Redshift security group for a previously
@@ -3940,6 +4167,7 @@ namespace Model
         void CreateEventSubscriptionAsyncHelper(const Model::CreateEventSubscriptionRequest& request, const CreateEventSubscriptionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateHsmClientCertificateAsyncHelper(const Model::CreateHsmClientCertificateRequest& request, const CreateHsmClientCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateHsmConfigurationAsyncHelper(const Model::CreateHsmConfigurationRequest& request, const CreateHsmConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CreateScheduledActionAsyncHelper(const Model::CreateScheduledActionRequest& request, const CreateScheduledActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateSnapshotCopyGrantAsyncHelper(const Model::CreateSnapshotCopyGrantRequest& request, const CreateSnapshotCopyGrantResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateSnapshotScheduleAsyncHelper(const Model::CreateSnapshotScheduleRequest& request, const CreateSnapshotScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateTagsAsyncHelper(const Model::CreateTagsRequest& request, const CreateTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -3951,6 +4179,7 @@ namespace Model
         void DeleteEventSubscriptionAsyncHelper(const Model::DeleteEventSubscriptionRequest& request, const DeleteEventSubscriptionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteHsmClientCertificateAsyncHelper(const Model::DeleteHsmClientCertificateRequest& request, const DeleteHsmClientCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteHsmConfigurationAsyncHelper(const Model::DeleteHsmConfigurationRequest& request, const DeleteHsmConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DeleteScheduledActionAsyncHelper(const Model::DeleteScheduledActionRequest& request, const DeleteScheduledActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteSnapshotCopyGrantAsyncHelper(const Model::DeleteSnapshotCopyGrantRequest& request, const DeleteSnapshotCopyGrantResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteSnapshotScheduleAsyncHelper(const Model::DeleteSnapshotScheduleRequest& request, const DeleteSnapshotScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteTagsAsyncHelper(const Model::DeleteTagsRequest& request, const DeleteTagsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -3971,10 +4200,12 @@ namespace Model
         void DescribeHsmClientCertificatesAsyncHelper(const Model::DescribeHsmClientCertificatesRequest& request, const DescribeHsmClientCertificatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeHsmConfigurationsAsyncHelper(const Model::DescribeHsmConfigurationsRequest& request, const DescribeHsmConfigurationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeLoggingStatusAsyncHelper(const Model::DescribeLoggingStatusRequest& request, const DescribeLoggingStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeNodeConfigurationOptionsAsyncHelper(const Model::DescribeNodeConfigurationOptionsRequest& request, const DescribeNodeConfigurationOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeOrderableClusterOptionsAsyncHelper(const Model::DescribeOrderableClusterOptionsRequest& request, const DescribeOrderableClusterOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeReservedNodeOfferingsAsyncHelper(const Model::DescribeReservedNodeOfferingsRequest& request, const DescribeReservedNodeOfferingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeReservedNodesAsyncHelper(const Model::DescribeReservedNodesRequest& request, const DescribeReservedNodesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeResizeAsyncHelper(const Model::DescribeResizeRequest& request, const DescribeResizeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeScheduledActionsAsyncHelper(const Model::DescribeScheduledActionsRequest& request, const DescribeScheduledActionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeSnapshotCopyGrantsAsyncHelper(const Model::DescribeSnapshotCopyGrantsRequest& request, const DescribeSnapshotCopyGrantsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeSnapshotSchedulesAsyncHelper(const Model::DescribeSnapshotSchedulesRequest& request, const DescribeSnapshotSchedulesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeStorageAsyncHelper(const Model::DescribeStorageRequest& request, const DescribeStorageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -3995,14 +4226,17 @@ namespace Model
         void ModifyClusterSnapshotScheduleAsyncHelper(const Model::ModifyClusterSnapshotScheduleRequest& request, const ModifyClusterSnapshotScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyClusterSubnetGroupAsyncHelper(const Model::ModifyClusterSubnetGroupRequest& request, const ModifyClusterSubnetGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyEventSubscriptionAsyncHelper(const Model::ModifyEventSubscriptionRequest& request, const ModifyEventSubscriptionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ModifyScheduledActionAsyncHelper(const Model::ModifyScheduledActionRequest& request, const ModifyScheduledActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifySnapshotCopyRetentionPeriodAsyncHelper(const Model::ModifySnapshotCopyRetentionPeriodRequest& request, const ModifySnapshotCopyRetentionPeriodResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifySnapshotScheduleAsyncHelper(const Model::ModifySnapshotScheduleRequest& request, const ModifySnapshotScheduleResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void PauseClusterAsyncHelper(const Model::PauseClusterRequest& request, const PauseClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PurchaseReservedNodeOfferingAsyncHelper(const Model::PurchaseReservedNodeOfferingRequest& request, const PurchaseReservedNodeOfferingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RebootClusterAsyncHelper(const Model::RebootClusterRequest& request, const RebootClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ResetClusterParameterGroupAsyncHelper(const Model::ResetClusterParameterGroupRequest& request, const ResetClusterParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ResizeClusterAsyncHelper(const Model::ResizeClusterRequest& request, const ResizeClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RestoreFromClusterSnapshotAsyncHelper(const Model::RestoreFromClusterSnapshotRequest& request, const RestoreFromClusterSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RestoreTableFromClusterSnapshotAsyncHelper(const Model::RestoreTableFromClusterSnapshotRequest& request, const RestoreTableFromClusterSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ResumeClusterAsyncHelper(const Model::ResumeClusterRequest& request, const ResumeClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RevokeClusterSecurityGroupIngressAsyncHelper(const Model::RevokeClusterSecurityGroupIngressRequest& request, const RevokeClusterSecurityGroupIngressResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RevokeSnapshotAccessAsyncHelper(const Model::RevokeSnapshotAccessRequest& request, const RevokeSnapshotAccessResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RotateEncryptionKeyAsyncHelper(const Model::RotateEncryptionKeyRequest& request, const RotateEncryptionKeyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

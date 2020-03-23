@@ -23,6 +23,7 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 CreateOriginEndpointRequest::CreateOriginEndpointRequest() : 
+    m_authorizationHasBeenSet(false),
     m_channelIdHasBeenSet(false),
     m_cmafPackageHasBeenSet(false),
     m_dashPackageHasBeenSet(false),
@@ -31,6 +32,8 @@ CreateOriginEndpointRequest::CreateOriginEndpointRequest() :
     m_idHasBeenSet(false),
     m_manifestNameHasBeenSet(false),
     m_mssPackageHasBeenSet(false),
+    m_origination(Origination::NOT_SET),
+    m_originationHasBeenSet(false),
     m_startoverWindowSeconds(0),
     m_startoverWindowSecondsHasBeenSet(false),
     m_tagsHasBeenSet(false),
@@ -43,6 +46,12 @@ CreateOriginEndpointRequest::CreateOriginEndpointRequest() :
 Aws::String CreateOriginEndpointRequest::SerializePayload() const
 {
   JsonValue payload;
+
+  if(m_authorizationHasBeenSet)
+  {
+   payload.WithObject("authorization", m_authorization.Jsonize());
+
+  }
 
   if(m_channelIdHasBeenSet)
   {
@@ -90,6 +99,11 @@ Aws::String CreateOriginEndpointRequest::SerializePayload() const
   {
    payload.WithObject("mssPackage", m_mssPackage.Jsonize());
 
+  }
+
+  if(m_originationHasBeenSet)
+  {
+   payload.WithString("origination", OriginationMapper::GetNameForOrigination(m_origination));
   }
 
   if(m_startoverWindowSecondsHasBeenSet)

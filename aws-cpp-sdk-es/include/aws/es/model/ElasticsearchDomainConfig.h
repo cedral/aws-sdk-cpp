@@ -26,6 +26,8 @@
 #include <aws/es/model/NodeToNodeEncryptionOptionsStatus.h>
 #include <aws/es/model/AdvancedOptionsStatus.h>
 #include <aws/es/model/LogPublishingOptionsStatus.h>
+#include <aws/es/model/DomainEndpointOptionsStatus.h>
+#include <aws/es/model/AdvancedSecurityOptionsStatus.h>
 #include <utility>
 
 namespace Aws
@@ -463,6 +465,74 @@ namespace Model
      */
     inline ElasticsearchDomainConfig& WithLogPublishingOptions(LogPublishingOptionsStatus&& value) { SetLogPublishingOptions(std::move(value)); return *this;}
 
+
+    /**
+     * <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch
+     * domain.</p>
+     */
+    inline const DomainEndpointOptionsStatus& GetDomainEndpointOptions() const{ return m_domainEndpointOptions; }
+
+    /**
+     * <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch
+     * domain.</p>
+     */
+    inline bool DomainEndpointOptionsHasBeenSet() const { return m_domainEndpointOptionsHasBeenSet; }
+
+    /**
+     * <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch
+     * domain.</p>
+     */
+    inline void SetDomainEndpointOptions(const DomainEndpointOptionsStatus& value) { m_domainEndpointOptionsHasBeenSet = true; m_domainEndpointOptions = value; }
+
+    /**
+     * <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch
+     * domain.</p>
+     */
+    inline void SetDomainEndpointOptions(DomainEndpointOptionsStatus&& value) { m_domainEndpointOptionsHasBeenSet = true; m_domainEndpointOptions = std::move(value); }
+
+    /**
+     * <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch
+     * domain.</p>
+     */
+    inline ElasticsearchDomainConfig& WithDomainEndpointOptions(const DomainEndpointOptionsStatus& value) { SetDomainEndpointOptions(value); return *this;}
+
+    /**
+     * <p>Specifies the <code>DomainEndpointOptions</code> for the Elasticsearch
+     * domain.</p>
+     */
+    inline ElasticsearchDomainConfig& WithDomainEndpointOptions(DomainEndpointOptionsStatus&& value) { SetDomainEndpointOptions(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>
+     */
+    inline const AdvancedSecurityOptionsStatus& GetAdvancedSecurityOptions() const{ return m_advancedSecurityOptions; }
+
+    /**
+     * <p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>
+     */
+    inline bool AdvancedSecurityOptionsHasBeenSet() const { return m_advancedSecurityOptionsHasBeenSet; }
+
+    /**
+     * <p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>
+     */
+    inline void SetAdvancedSecurityOptions(const AdvancedSecurityOptionsStatus& value) { m_advancedSecurityOptionsHasBeenSet = true; m_advancedSecurityOptions = value; }
+
+    /**
+     * <p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>
+     */
+    inline void SetAdvancedSecurityOptions(AdvancedSecurityOptionsStatus&& value) { m_advancedSecurityOptionsHasBeenSet = true; m_advancedSecurityOptions = std::move(value); }
+
+    /**
+     * <p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>
+     */
+    inline ElasticsearchDomainConfig& WithAdvancedSecurityOptions(const AdvancedSecurityOptionsStatus& value) { SetAdvancedSecurityOptions(value); return *this;}
+
+    /**
+     * <p>Specifies <code>AdvancedSecurityOptions</code> for the domain. </p>
+     */
+    inline ElasticsearchDomainConfig& WithAdvancedSecurityOptions(AdvancedSecurityOptionsStatus&& value) { SetAdvancedSecurityOptions(std::move(value)); return *this;}
+
   private:
 
     ElasticsearchVersionStatus m_elasticsearchVersion;
@@ -497,6 +567,12 @@ namespace Model
 
     LogPublishingOptionsStatus m_logPublishingOptions;
     bool m_logPublishingOptionsHasBeenSet;
+
+    DomainEndpointOptionsStatus m_domainEndpointOptions;
+    bool m_domainEndpointOptionsHasBeenSet;
+
+    AdvancedSecurityOptionsStatus m_advancedSecurityOptions;
+    bool m_advancedSecurityOptionsHasBeenSet;
   };
 
 } // namespace Model

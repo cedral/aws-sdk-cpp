@@ -30,6 +30,7 @@
 #include <aws/personalize/PersonalizeClient.h>
 #include <aws/personalize/PersonalizeEndpoint.h>
 #include <aws/personalize/PersonalizeErrorMarshaller.h>
+#include <aws/personalize/model/CreateBatchInferenceJobRequest.h>
 #include <aws/personalize/model/CreateCampaignRequest.h>
 #include <aws/personalize/model/CreateDatasetRequest.h>
 #include <aws/personalize/model/CreateDatasetGroupRequest.h>
@@ -45,6 +46,7 @@
 #include <aws/personalize/model/DeleteSchemaRequest.h>
 #include <aws/personalize/model/DeleteSolutionRequest.h>
 #include <aws/personalize/model/DescribeAlgorithmRequest.h>
+#include <aws/personalize/model/DescribeBatchInferenceJobRequest.h>
 #include <aws/personalize/model/DescribeCampaignRequest.h>
 #include <aws/personalize/model/DescribeDatasetRequest.h>
 #include <aws/personalize/model/DescribeDatasetGroupRequest.h>
@@ -56,6 +58,7 @@
 #include <aws/personalize/model/DescribeSolutionRequest.h>
 #include <aws/personalize/model/DescribeSolutionVersionRequest.h>
 #include <aws/personalize/model/GetSolutionMetricsRequest.h>
+#include <aws/personalize/model/ListBatchInferenceJobsRequest.h>
 #include <aws/personalize/model/ListCampaignsRequest.h>
 #include <aws/personalize/model/ListDatasetGroupsRequest.h>
 #include <aws/personalize/model/ListDatasetImportJobsRequest.h>
@@ -139,13 +142,48 @@ void PersonalizeClient::OverrideEndpoint(const Aws::String& endpoint)
   }
 }
 
+CreateBatchInferenceJobOutcome PersonalizeClient::CreateBatchInferenceJob(const CreateBatchInferenceJobRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateBatchInferenceJobOutcome(CreateBatchInferenceJobResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateBatchInferenceJobOutcome(outcome.GetError());
+  }
+}
+
+CreateBatchInferenceJobOutcomeCallable PersonalizeClient::CreateBatchInferenceJobCallable(const CreateBatchInferenceJobRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateBatchInferenceJobOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateBatchInferenceJob(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PersonalizeClient::CreateBatchInferenceJobAsync(const CreateBatchInferenceJobRequest& request, const CreateBatchInferenceJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateBatchInferenceJobAsyncHelper( request, handler, context ); } );
+}
+
+void PersonalizeClient::CreateBatchInferenceJobAsyncHelper(const CreateBatchInferenceJobRequest& request, const CreateBatchInferenceJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateBatchInferenceJob(request), context);
+}
+
 CreateCampaignOutcome PersonalizeClient::CreateCampaign(const CreateCampaignRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateCampaignOutcome(CreateCampaignResult(outcome.GetResult()));
@@ -180,7 +218,7 @@ CreateDatasetOutcome PersonalizeClient::CreateDataset(const CreateDatasetRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDatasetOutcome(CreateDatasetResult(outcome.GetResult()));
@@ -215,7 +253,7 @@ CreateDatasetGroupOutcome PersonalizeClient::CreateDatasetGroup(const CreateData
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDatasetGroupOutcome(CreateDatasetGroupResult(outcome.GetResult()));
@@ -250,7 +288,7 @@ CreateDatasetImportJobOutcome PersonalizeClient::CreateDatasetImportJob(const Cr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDatasetImportJobOutcome(CreateDatasetImportJobResult(outcome.GetResult()));
@@ -285,7 +323,7 @@ CreateEventTrackerOutcome PersonalizeClient::CreateEventTracker(const CreateEven
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateEventTrackerOutcome(CreateEventTrackerResult(outcome.GetResult()));
@@ -320,7 +358,7 @@ CreateSchemaOutcome PersonalizeClient::CreateSchema(const CreateSchemaRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSchemaOutcome(CreateSchemaResult(outcome.GetResult()));
@@ -355,7 +393,7 @@ CreateSolutionOutcome PersonalizeClient::CreateSolution(const CreateSolutionRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSolutionOutcome(CreateSolutionResult(outcome.GetResult()));
@@ -390,7 +428,7 @@ CreateSolutionVersionOutcome PersonalizeClient::CreateSolutionVersion(const Crea
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSolutionVersionOutcome(CreateSolutionVersionResult(outcome.GetResult()));
@@ -425,7 +463,7 @@ DeleteCampaignOutcome PersonalizeClient::DeleteCampaign(const DeleteCampaignRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteCampaignOutcome(NoResult());
@@ -460,7 +498,7 @@ DeleteDatasetOutcome PersonalizeClient::DeleteDataset(const DeleteDatasetRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDatasetOutcome(NoResult());
@@ -495,7 +533,7 @@ DeleteDatasetGroupOutcome PersonalizeClient::DeleteDatasetGroup(const DeleteData
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDatasetGroupOutcome(NoResult());
@@ -530,7 +568,7 @@ DeleteEventTrackerOutcome PersonalizeClient::DeleteEventTracker(const DeleteEven
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteEventTrackerOutcome(NoResult());
@@ -565,7 +603,7 @@ DeleteSchemaOutcome PersonalizeClient::DeleteSchema(const DeleteSchemaRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSchemaOutcome(NoResult());
@@ -600,7 +638,7 @@ DeleteSolutionOutcome PersonalizeClient::DeleteSolution(const DeleteSolutionRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSolutionOutcome(NoResult());
@@ -635,7 +673,7 @@ DescribeAlgorithmOutcome PersonalizeClient::DescribeAlgorithm(const DescribeAlgo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAlgorithmOutcome(DescribeAlgorithmResult(outcome.GetResult()));
@@ -664,13 +702,48 @@ void PersonalizeClient::DescribeAlgorithmAsyncHelper(const DescribeAlgorithmRequ
   handler(this, request, DescribeAlgorithm(request), context);
 }
 
+DescribeBatchInferenceJobOutcome PersonalizeClient::DescribeBatchInferenceJob(const DescribeBatchInferenceJobRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeBatchInferenceJobOutcome(DescribeBatchInferenceJobResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeBatchInferenceJobOutcome(outcome.GetError());
+  }
+}
+
+DescribeBatchInferenceJobOutcomeCallable PersonalizeClient::DescribeBatchInferenceJobCallable(const DescribeBatchInferenceJobRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeBatchInferenceJobOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeBatchInferenceJob(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PersonalizeClient::DescribeBatchInferenceJobAsync(const DescribeBatchInferenceJobRequest& request, const DescribeBatchInferenceJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeBatchInferenceJobAsyncHelper( request, handler, context ); } );
+}
+
+void PersonalizeClient::DescribeBatchInferenceJobAsyncHelper(const DescribeBatchInferenceJobRequest& request, const DescribeBatchInferenceJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeBatchInferenceJob(request), context);
+}
+
 DescribeCampaignOutcome PersonalizeClient::DescribeCampaign(const DescribeCampaignRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeCampaignOutcome(DescribeCampaignResult(outcome.GetResult()));
@@ -705,7 +778,7 @@ DescribeDatasetOutcome PersonalizeClient::DescribeDataset(const DescribeDatasetR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDatasetOutcome(DescribeDatasetResult(outcome.GetResult()));
@@ -740,7 +813,7 @@ DescribeDatasetGroupOutcome PersonalizeClient::DescribeDatasetGroup(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDatasetGroupOutcome(DescribeDatasetGroupResult(outcome.GetResult()));
@@ -775,7 +848,7 @@ DescribeDatasetImportJobOutcome PersonalizeClient::DescribeDatasetImportJob(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDatasetImportJobOutcome(DescribeDatasetImportJobResult(outcome.GetResult()));
@@ -810,7 +883,7 @@ DescribeEventTrackerOutcome PersonalizeClient::DescribeEventTracker(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEventTrackerOutcome(DescribeEventTrackerResult(outcome.GetResult()));
@@ -845,7 +918,7 @@ DescribeFeatureTransformationOutcome PersonalizeClient::DescribeFeatureTransform
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeFeatureTransformationOutcome(DescribeFeatureTransformationResult(outcome.GetResult()));
@@ -880,7 +953,7 @@ DescribeRecipeOutcome PersonalizeClient::DescribeRecipe(const DescribeRecipeRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeRecipeOutcome(DescribeRecipeResult(outcome.GetResult()));
@@ -915,7 +988,7 @@ DescribeSchemaOutcome PersonalizeClient::DescribeSchema(const DescribeSchemaRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSchemaOutcome(DescribeSchemaResult(outcome.GetResult()));
@@ -950,7 +1023,7 @@ DescribeSolutionOutcome PersonalizeClient::DescribeSolution(const DescribeSoluti
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSolutionOutcome(DescribeSolutionResult(outcome.GetResult()));
@@ -985,7 +1058,7 @@ DescribeSolutionVersionOutcome PersonalizeClient::DescribeSolutionVersion(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSolutionVersionOutcome(DescribeSolutionVersionResult(outcome.GetResult()));
@@ -1020,7 +1093,7 @@ GetSolutionMetricsOutcome PersonalizeClient::GetSolutionMetrics(const GetSolutio
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSolutionMetricsOutcome(GetSolutionMetricsResult(outcome.GetResult()));
@@ -1049,13 +1122,48 @@ void PersonalizeClient::GetSolutionMetricsAsyncHelper(const GetSolutionMetricsRe
   handler(this, request, GetSolutionMetrics(request), context);
 }
 
+ListBatchInferenceJobsOutcome PersonalizeClient::ListBatchInferenceJobs(const ListBatchInferenceJobsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListBatchInferenceJobsOutcome(ListBatchInferenceJobsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListBatchInferenceJobsOutcome(outcome.GetError());
+  }
+}
+
+ListBatchInferenceJobsOutcomeCallable PersonalizeClient::ListBatchInferenceJobsCallable(const ListBatchInferenceJobsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListBatchInferenceJobsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListBatchInferenceJobs(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PersonalizeClient::ListBatchInferenceJobsAsync(const ListBatchInferenceJobsRequest& request, const ListBatchInferenceJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListBatchInferenceJobsAsyncHelper( request, handler, context ); } );
+}
+
+void PersonalizeClient::ListBatchInferenceJobsAsyncHelper(const ListBatchInferenceJobsRequest& request, const ListBatchInferenceJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListBatchInferenceJobs(request), context);
+}
+
 ListCampaignsOutcome PersonalizeClient::ListCampaigns(const ListCampaignsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCampaignsOutcome(ListCampaignsResult(outcome.GetResult()));
@@ -1090,7 +1198,7 @@ ListDatasetGroupsOutcome PersonalizeClient::ListDatasetGroups(const ListDatasetG
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDatasetGroupsOutcome(ListDatasetGroupsResult(outcome.GetResult()));
@@ -1125,7 +1233,7 @@ ListDatasetImportJobsOutcome PersonalizeClient::ListDatasetImportJobs(const List
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDatasetImportJobsOutcome(ListDatasetImportJobsResult(outcome.GetResult()));
@@ -1160,7 +1268,7 @@ ListDatasetsOutcome PersonalizeClient::ListDatasets(const ListDatasetsRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDatasetsOutcome(ListDatasetsResult(outcome.GetResult()));
@@ -1195,7 +1303,7 @@ ListEventTrackersOutcome PersonalizeClient::ListEventTrackers(const ListEventTra
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListEventTrackersOutcome(ListEventTrackersResult(outcome.GetResult()));
@@ -1230,7 +1338,7 @@ ListRecipesOutcome PersonalizeClient::ListRecipes(const ListRecipesRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListRecipesOutcome(ListRecipesResult(outcome.GetResult()));
@@ -1265,7 +1373,7 @@ ListSchemasOutcome PersonalizeClient::ListSchemas(const ListSchemasRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSchemasOutcome(ListSchemasResult(outcome.GetResult()));
@@ -1300,7 +1408,7 @@ ListSolutionVersionsOutcome PersonalizeClient::ListSolutionVersions(const ListSo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSolutionVersionsOutcome(ListSolutionVersionsResult(outcome.GetResult()));
@@ -1335,7 +1443,7 @@ ListSolutionsOutcome PersonalizeClient::ListSolutions(const ListSolutionsRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSolutionsOutcome(ListSolutionsResult(outcome.GetResult()));
@@ -1370,7 +1478,7 @@ UpdateCampaignOutcome PersonalizeClient::UpdateCampaign(const UpdateCampaignRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateCampaignOutcome(UpdateCampaignResult(outcome.GetResult()));

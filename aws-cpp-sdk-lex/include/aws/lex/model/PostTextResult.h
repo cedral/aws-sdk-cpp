@@ -17,6 +17,7 @@
 #include <aws/lex/LexRuntimeService_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
+#include <aws/lex/model/SentimentResponse.h>
 #include <aws/lex/model/MessageFormatType.h>
 #include <aws/lex/model/DialogState.h>
 #include <aws/lex/model/ResponseCard.h>
@@ -457,6 +458,42 @@ namespace Model
 
 
     /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline const SentimentResponse& GetSentimentResponse() const{ return m_sentimentResponse; }
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline void SetSentimentResponse(const SentimentResponse& value) { m_sentimentResponse = value; }
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline void SetSentimentResponse(SentimentResponse&& value) { m_sentimentResponse = std::move(value); }
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline PostTextResult& WithSentimentResponse(const SentimentResponse& value) { SetSentimentResponse(value); return *this;}
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline PostTextResult& WithSentimentResponse(SentimentResponse&& value) { SetSentimentResponse(std::move(value)); return *this;}
+
+
+    /**
      * <p>The format of the response message. One of the following values:</p> <ul>
      * <li> <p> <code>PlainText</code> - The message contains plain UTF-8 text.</p>
      * </li> <li> <p> <code>CustomPayload</code> - The message is a custom format
@@ -756,6 +793,42 @@ namespace Model
      */
     inline PostTextResult& WithResponseCard(ResponseCard&& value) { SetResponseCard(std::move(value)); return *this;}
 
+
+    /**
+     * <p>A unique identifier for the session.</p>
+     */
+    inline const Aws::String& GetSessionId() const{ return m_sessionId; }
+
+    /**
+     * <p>A unique identifier for the session.</p>
+     */
+    inline void SetSessionId(const Aws::String& value) { m_sessionId = value; }
+
+    /**
+     * <p>A unique identifier for the session.</p>
+     */
+    inline void SetSessionId(Aws::String&& value) { m_sessionId = std::move(value); }
+
+    /**
+     * <p>A unique identifier for the session.</p>
+     */
+    inline void SetSessionId(const char* value) { m_sessionId.assign(value); }
+
+    /**
+     * <p>A unique identifier for the session.</p>
+     */
+    inline PostTextResult& WithSessionId(const Aws::String& value) { SetSessionId(value); return *this;}
+
+    /**
+     * <p>A unique identifier for the session.</p>
+     */
+    inline PostTextResult& WithSessionId(Aws::String&& value) { SetSessionId(std::move(value)); return *this;}
+
+    /**
+     * <p>A unique identifier for the session.</p>
+     */
+    inline PostTextResult& WithSessionId(const char* value) { SetSessionId(value); return *this;}
+
   private:
 
     Aws::String m_intentName;
@@ -766,6 +839,8 @@ namespace Model
 
     Aws::String m_message;
 
+    SentimentResponse m_sentimentResponse;
+
     MessageFormatType m_messageFormat;
 
     DialogState m_dialogState;
@@ -773,6 +848,8 @@ namespace Model
     Aws::String m_slotToElicit;
 
     ResponseCard m_responseCard;
+
+    Aws::String m_sessionId;
   };
 
 } // namespace Model

@@ -43,11 +43,14 @@
 #include <aws/lex-models/model/GetSlotTypeVersionsResult.h>
 #include <aws/lex-models/model/GetSlotTypesResult.h>
 #include <aws/lex-models/model/GetUtterancesViewResult.h>
+#include <aws/lex-models/model/ListTagsForResourceResult.h>
 #include <aws/lex-models/model/PutBotResult.h>
 #include <aws/lex-models/model/PutBotAliasResult.h>
 #include <aws/lex-models/model/PutIntentResult.h>
 #include <aws/lex-models/model/PutSlotTypeResult.h>
 #include <aws/lex-models/model/StartImportResult.h>
+#include <aws/lex-models/model/TagResourceResult.h>
+#include <aws/lex-models/model/UntagResourceResult.h>
 #include <aws/core/NoResult.h>
 #include <aws/core/client/AsyncCallerContext.h>
 #include <aws/core/http/HttpTypes.h>
@@ -119,11 +122,14 @@ namespace Model
         class GetSlotTypeVersionsRequest;
         class GetSlotTypesRequest;
         class GetUtterancesViewRequest;
+        class ListTagsForResourceRequest;
         class PutBotRequest;
         class PutBotAliasRequest;
         class PutIntentRequest;
         class PutSlotTypeRequest;
         class StartImportRequest;
+        class TagResourceRequest;
+        class UntagResourceRequest;
 
         typedef Aws::Utils::Outcome<CreateBotVersionResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> CreateBotVersionOutcome;
         typedef Aws::Utils::Outcome<CreateIntentVersionResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> CreateIntentVersionOutcome;
@@ -156,11 +162,14 @@ namespace Model
         typedef Aws::Utils::Outcome<GetSlotTypeVersionsResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> GetSlotTypeVersionsOutcome;
         typedef Aws::Utils::Outcome<GetSlotTypesResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> GetSlotTypesOutcome;
         typedef Aws::Utils::Outcome<GetUtterancesViewResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> GetUtterancesViewOutcome;
+        typedef Aws::Utils::Outcome<ListTagsForResourceResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> ListTagsForResourceOutcome;
         typedef Aws::Utils::Outcome<PutBotResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> PutBotOutcome;
         typedef Aws::Utils::Outcome<PutBotAliasResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> PutBotAliasOutcome;
         typedef Aws::Utils::Outcome<PutIntentResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> PutIntentOutcome;
         typedef Aws::Utils::Outcome<PutSlotTypeResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> PutSlotTypeOutcome;
         typedef Aws::Utils::Outcome<StartImportResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> StartImportOutcome;
+        typedef Aws::Utils::Outcome<TagResourceResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> TagResourceOutcome;
+        typedef Aws::Utils::Outcome<UntagResourceResult, Aws::Client::AWSError<LexModelBuildingServiceErrors>> UntagResourceOutcome;
 
         typedef std::future<CreateBotVersionOutcome> CreateBotVersionOutcomeCallable;
         typedef std::future<CreateIntentVersionOutcome> CreateIntentVersionOutcomeCallable;
@@ -193,11 +202,14 @@ namespace Model
         typedef std::future<GetSlotTypeVersionsOutcome> GetSlotTypeVersionsOutcomeCallable;
         typedef std::future<GetSlotTypesOutcome> GetSlotTypesOutcomeCallable;
         typedef std::future<GetUtterancesViewOutcome> GetUtterancesViewOutcomeCallable;
+        typedef std::future<ListTagsForResourceOutcome> ListTagsForResourceOutcomeCallable;
         typedef std::future<PutBotOutcome> PutBotOutcomeCallable;
         typedef std::future<PutBotAliasOutcome> PutBotAliasOutcomeCallable;
         typedef std::future<PutIntentOutcome> PutIntentOutcomeCallable;
         typedef std::future<PutSlotTypeOutcome> PutSlotTypeOutcomeCallable;
         typedef std::future<StartImportOutcome> StartImportOutcomeCallable;
+        typedef std::future<TagResourceOutcome> TagResourceOutcomeCallable;
+        typedef std::future<UntagResourceOutcome> UntagResourceOutcomeCallable;
 } // namespace Model
 
   class LexModelBuildingServiceClient;
@@ -233,11 +245,14 @@ namespace Model
     typedef std::function<void(const LexModelBuildingServiceClient*, const Model::GetSlotTypeVersionsRequest&, const Model::GetSlotTypeVersionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetSlotTypeVersionsResponseReceivedHandler;
     typedef std::function<void(const LexModelBuildingServiceClient*, const Model::GetSlotTypesRequest&, const Model::GetSlotTypesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetSlotTypesResponseReceivedHandler;
     typedef std::function<void(const LexModelBuildingServiceClient*, const Model::GetUtterancesViewRequest&, const Model::GetUtterancesViewOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetUtterancesViewResponseReceivedHandler;
+    typedef std::function<void(const LexModelBuildingServiceClient*, const Model::ListTagsForResourceRequest&, const Model::ListTagsForResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListTagsForResourceResponseReceivedHandler;
     typedef std::function<void(const LexModelBuildingServiceClient*, const Model::PutBotRequest&, const Model::PutBotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutBotResponseReceivedHandler;
     typedef std::function<void(const LexModelBuildingServiceClient*, const Model::PutBotAliasRequest&, const Model::PutBotAliasOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutBotAliasResponseReceivedHandler;
     typedef std::function<void(const LexModelBuildingServiceClient*, const Model::PutIntentRequest&, const Model::PutIntentOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutIntentResponseReceivedHandler;
     typedef std::function<void(const LexModelBuildingServiceClient*, const Model::PutSlotTypeRequest&, const Model::PutSlotTypeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutSlotTypeResponseReceivedHandler;
     typedef std::function<void(const LexModelBuildingServiceClient*, const Model::StartImportRequest&, const Model::StartImportOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartImportResponseReceivedHandler;
+    typedef std::function<void(const LexModelBuildingServiceClient*, const Model::TagResourceRequest&, const Model::TagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > TagResourceResponseReceivedHandler;
+    typedef std::function<void(const LexModelBuildingServiceClient*, const Model::UntagResourceRequest&, const Model::UntagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UntagResourceResponseReceivedHandler;
 
   /**
    * <fullname>Amazon Lex Build-Time Actions</fullname> <p> Amazon Lex is an AWS
@@ -439,6 +454,11 @@ namespace Model
         /**
          * <p>Deletes all versions of the bot, including the <code>$LATEST</code> version.
          * To delete a specific version of the bot, use the <a>DeleteBotVersion</a>
+         * operation. The <code>DeleteBot</code> operation doesn't immediately remove the
+         * bot schema. Instead, it is marked for deletion and removed later.</p> <p>Amazon
+         * Lex stores utterances indefinitely for improving the ability of your bot to
+         * respond to user inputs. These utterances are not removed when the bot is
+         * deleted. To remove the utterances, use the <a>DeleteUtterances</a>
          * operation.</p> <p>If a bot has an alias, you can't delete it. Instead, the
          * <code>DeleteBot</code> operation returns a <code>ResourceInUseException</code>
          * exception that includes a reference to the alias that refers to the bot. To
@@ -454,6 +474,11 @@ namespace Model
         /**
          * <p>Deletes all versions of the bot, including the <code>$LATEST</code> version.
          * To delete a specific version of the bot, use the <a>DeleteBotVersion</a>
+         * operation. The <code>DeleteBot</code> operation doesn't immediately remove the
+         * bot schema. Instead, it is marked for deletion and removed later.</p> <p>Amazon
+         * Lex stores utterances indefinitely for improving the ability of your bot to
+         * respond to user inputs. These utterances are not removed when the bot is
+         * deleted. To remove the utterances, use the <a>DeleteUtterances</a>
          * operation.</p> <p>If a bot has an alias, you can't delete it. Instead, the
          * <code>DeleteBot</code> operation returns a <code>ResourceInUseException</code>
          * exception that includes a reference to the alias that refers to the bot. To
@@ -471,6 +496,11 @@ namespace Model
         /**
          * <p>Deletes all versions of the bot, including the <code>$LATEST</code> version.
          * To delete a specific version of the bot, use the <a>DeleteBotVersion</a>
+         * operation. The <code>DeleteBot</code> operation doesn't immediately remove the
+         * bot schema. Instead, it is marked for deletion and removed later.</p> <p>Amazon
+         * Lex stores utterances indefinitely for improving the ability of your bot to
+         * respond to user inputs. These utterances are not removed when the bot is
+         * deleted. To remove the utterances, use the <a>DeleteUtterances</a>
          * operation.</p> <p>If a bot has an alias, you can't delete it. Instead, the
          * <code>DeleteBot</code> operation returns a <code>ResourceInUseException</code>
          * exception that includes a reference to the alias that refers to the bot. To
@@ -794,9 +824,13 @@ namespace Model
          * send to your bot. Utterances are stored for 15 days for use with the
          * <a>GetUtterancesView</a> operation, and then stored indefinitely for use in
          * improving the ability of your bot to respond to user input.</p> <p>Use the
-         * <code>DeleteStoredUtterances</code> operation to manually delete stored
-         * utterances for a specific user.</p> <p>This operation requires permissions for
-         * the <code>lex:DeleteUtterances</code> action.</p><p><h3>See Also:</h3>   <a
+         * <code>DeleteUtterances</code> operation to manually delete stored utterances for
+         * a specific user. When you use the <code>DeleteUtterances</code> operation,
+         * utterances stored for improving your bot's ability to respond to user input are
+         * deleted immediately. Utterances stored for use with the
+         * <code>GetUtterancesView</code> operation are deleted after 15 days.</p> <p>This
+         * operation requires permissions for the <code>lex:DeleteUtterances</code>
+         * action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/DeleteUtterances">AWS
          * API Reference</a></p>
          */
@@ -807,9 +841,13 @@ namespace Model
          * send to your bot. Utterances are stored for 15 days for use with the
          * <a>GetUtterancesView</a> operation, and then stored indefinitely for use in
          * improving the ability of your bot to respond to user input.</p> <p>Use the
-         * <code>DeleteStoredUtterances</code> operation to manually delete stored
-         * utterances for a specific user.</p> <p>This operation requires permissions for
-         * the <code>lex:DeleteUtterances</code> action.</p><p><h3>See Also:</h3>   <a
+         * <code>DeleteUtterances</code> operation to manually delete stored utterances for
+         * a specific user. When you use the <code>DeleteUtterances</code> operation,
+         * utterances stored for improving your bot's ability to respond to user input are
+         * deleted immediately. Utterances stored for use with the
+         * <code>GetUtterancesView</code> operation are deleted after 15 days.</p> <p>This
+         * operation requires permissions for the <code>lex:DeleteUtterances</code>
+         * action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/DeleteUtterances">AWS
          * API Reference</a></p>
          *
@@ -822,9 +860,13 @@ namespace Model
          * send to your bot. Utterances are stored for 15 days for use with the
          * <a>GetUtterancesView</a> operation, and then stored indefinitely for use in
          * improving the ability of your bot to respond to user input.</p> <p>Use the
-         * <code>DeleteStoredUtterances</code> operation to manually delete stored
-         * utterances for a specific user.</p> <p>This operation requires permissions for
-         * the <code>lex:DeleteUtterances</code> action.</p><p><h3>See Also:</h3>   <a
+         * <code>DeleteUtterances</code> operation to manually delete stored utterances for
+         * a specific user. When you use the <code>DeleteUtterances</code> operation,
+         * utterances stored for improving your bot's ability to respond to user input are
+         * deleted immediately. Utterances stored for use with the
+         * <code>GetUtterancesView</code> operation are deleted after 15 days.</p> <p>This
+         * operation requires permissions for the <code>lex:DeleteUtterances</code>
+         * action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/DeleteUtterances">AWS
          * API Reference</a></p>
          *
@@ -1506,11 +1548,14 @@ namespace Model
          * to the <code>OrderFlowers</code> intent so that your bot recognizes that
          * utterance.</p> <p>After you publish a new version of a bot, you can get
          * information about the old version and the new so that you can compare the
-         * performance across the two versions. </p> <note> <p>Utterance statistics are
-         * generated once a day. Data is available for the last 15 days. You can request
-         * information for up to 5 versions in each request. The response contains
-         * information about a maximum of 100 utterances for each version.</p> </note>
-         * <p>This operation requires permissions for the
+         * performance across the two versions. </p> <p>Utterance statistics are generated
+         * once a day. Data is available for the last 15 days. You can request information
+         * for up to 5 versions of your bot in each request. Amazon Lex returns the most
+         * frequent utterances received by the bot in the last 15 days. The response
+         * contains information about a maximum of 100 utterances for each version.</p>
+         * <p>If you set <code>childDirected</code> field to true when you created your
+         * bot, or if you opted out of participating in improving Amazon Lex, utterances
+         * are not available.</p> <p>This operation requires permissions for the
          * <code>lex:GetUtterancesView</code> action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/GetUtterancesView">AWS
          * API Reference</a></p>
@@ -1528,11 +1573,14 @@ namespace Model
          * to the <code>OrderFlowers</code> intent so that your bot recognizes that
          * utterance.</p> <p>After you publish a new version of a bot, you can get
          * information about the old version and the new so that you can compare the
-         * performance across the two versions. </p> <note> <p>Utterance statistics are
-         * generated once a day. Data is available for the last 15 days. You can request
-         * information for up to 5 versions in each request. The response contains
-         * information about a maximum of 100 utterances for each version.</p> </note>
-         * <p>This operation requires permissions for the
+         * performance across the two versions. </p> <p>Utterance statistics are generated
+         * once a day. Data is available for the last 15 days. You can request information
+         * for up to 5 versions of your bot in each request. Amazon Lex returns the most
+         * frequent utterances received by the bot in the last 15 days. The response
+         * contains information about a maximum of 100 utterances for each version.</p>
+         * <p>If you set <code>childDirected</code> field to true when you created your
+         * bot, or if you opted out of participating in improving Amazon Lex, utterances
+         * are not available.</p> <p>This operation requires permissions for the
          * <code>lex:GetUtterancesView</code> action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/GetUtterancesView">AWS
          * API Reference</a></p>
@@ -1552,11 +1600,14 @@ namespace Model
          * to the <code>OrderFlowers</code> intent so that your bot recognizes that
          * utterance.</p> <p>After you publish a new version of a bot, you can get
          * information about the old version and the new so that you can compare the
-         * performance across the two versions. </p> <note> <p>Utterance statistics are
-         * generated once a day. Data is available for the last 15 days. You can request
-         * information for up to 5 versions in each request. The response contains
-         * information about a maximum of 100 utterances for each version.</p> </note>
-         * <p>This operation requires permissions for the
+         * performance across the two versions. </p> <p>Utterance statistics are generated
+         * once a day. Data is available for the last 15 days. You can request information
+         * for up to 5 versions of your bot in each request. Amazon Lex returns the most
+         * frequent utterances received by the bot in the last 15 days. The response
+         * contains information about a maximum of 100 utterances for each version.</p>
+         * <p>If you set <code>childDirected</code> field to true when you created your
+         * bot, or if you opted out of participating in improving Amazon Lex, utterances
+         * are not available.</p> <p>This operation requires permissions for the
          * <code>lex:GetUtterancesView</code> action.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/GetUtterancesView">AWS
          * API Reference</a></p>
@@ -1564,6 +1615,37 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void GetUtterancesViewAsync(const Model::GetUtterancesViewRequest& request, const GetUtterancesViewResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Gets a list of tags associated with the specified resource. Only bots, bot
+         * aliases, and bot channels can have tags associated with them.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/ListTagsForResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ListTagsForResourceOutcome ListTagsForResource(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * <p>Gets a list of tags associated with the specified resource. Only bots, bot
+         * aliases, and bot channels can have tags associated with them.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/ListTagsForResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListTagsForResourceOutcomeCallable ListTagsForResourceCallable(const Model::ListTagsForResourceRequest& request) const;
+
+        /**
+         * <p>Gets a list of tags associated with the specified resource. Only bots, bot
+         * aliases, and bot channels can have tags associated with them.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/ListTagsForResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListTagsForResourceAsync(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Creates an Amazon Lex conversational bot or replaces an existing bot. When
@@ -1581,7 +1663,7 @@ namespace Model
          * you don't specify values for required fields, Amazon Lex throws an
          * exception.</p> <p>This operation requires permissions for the
          * <code>lex:PutBot</code> action. For more information, see
-         * <a>auth-and-access-control</a>.</p><p><h3>See Also:</h3>   <a
+         * <a>security-iam</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/PutBot">AWS
          * API Reference</a></p>
          */
@@ -1603,7 +1685,7 @@ namespace Model
          * you don't specify values for required fields, Amazon Lex throws an
          * exception.</p> <p>This operation requires permissions for the
          * <code>lex:PutBot</code> action. For more information, see
-         * <a>auth-and-access-control</a>.</p><p><h3>See Also:</h3>   <a
+         * <a>security-iam</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/PutBot">AWS
          * API Reference</a></p>
          *
@@ -1627,7 +1709,7 @@ namespace Model
          * you don't specify values for required fields, Amazon Lex throws an
          * exception.</p> <p>This operation requires permissions for the
          * <code>lex:PutBot</code> action. For more information, see
-         * <a>auth-and-access-control</a>.</p><p><h3>See Also:</h3>   <a
+         * <a>security-iam</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/PutBot">AWS
          * API Reference</a></p>
          *
@@ -1873,6 +1955,65 @@ namespace Model
          */
         virtual void StartImportAsync(const Model::StartImportRequest& request, const StartImportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
+        /**
+         * <p>Adds the specified tags to the specified resource. If a tag key already
+         * exists, the existing value is replaced with the new value.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/TagResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::TagResourceOutcome TagResource(const Model::TagResourceRequest& request) const;
+
+        /**
+         * <p>Adds the specified tags to the specified resource. If a tag key already
+         * exists, the existing value is replaced with the new value.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/TagResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::TagResourceOutcomeCallable TagResourceCallable(const Model::TagResourceRequest& request) const;
+
+        /**
+         * <p>Adds the specified tags to the specified resource. If a tag key already
+         * exists, the existing value is replaced with the new value.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/TagResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void TagResourceAsync(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Removes tags from a bot, bot alias or bot channel.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/UntagResource">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UntagResourceOutcome UntagResource(const Model::UntagResourceRequest& request) const;
+
+        /**
+         * <p>Removes tags from a bot, bot alias or bot channel.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/UntagResource">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UntagResourceOutcomeCallable UntagResourceCallable(const Model::UntagResourceRequest& request) const;
+
+        /**
+         * <p>Removes tags from a bot, bot alias or bot channel.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/UntagResource">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UntagResourceAsync(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
 
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
@@ -1908,11 +2049,14 @@ namespace Model
         void GetSlotTypeVersionsAsyncHelper(const Model::GetSlotTypeVersionsRequest& request, const GetSlotTypeVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetSlotTypesAsyncHelper(const Model::GetSlotTypesRequest& request, const GetSlotTypesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetUtterancesViewAsyncHelper(const Model::GetUtterancesViewRequest& request, const GetUtterancesViewResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListTagsForResourceAsyncHelper(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutBotAsyncHelper(const Model::PutBotRequest& request, const PutBotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutBotAliasAsyncHelper(const Model::PutBotAliasRequest& request, const PutBotAliasResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutIntentAsyncHelper(const Model::PutIntentRequest& request, const PutIntentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutSlotTypeAsyncHelper(const Model::PutSlotTypeRequest& request, const PutSlotTypeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartImportAsyncHelper(const Model::StartImportRequest& request, const StartImportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void TagResourceAsyncHelper(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UntagResourceAsyncHelper(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
 
       Aws::String m_uri;
       Aws::String m_configScheme;

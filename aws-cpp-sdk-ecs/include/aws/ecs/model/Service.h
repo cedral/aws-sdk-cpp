@@ -26,6 +26,7 @@
 #include <aws/ecs/model/PropagateTags.h>
 #include <aws/ecs/model/LoadBalancer.h>
 #include <aws/ecs/model/ServiceRegistry.h>
+#include <aws/ecs/model/CapacityProviderStrategyItem.h>
 #include <aws/ecs/model/TaskSet.h>
 #include <aws/ecs/model/Deployment.h>
 #include <aws/ecs/model/ServiceEvent.h>
@@ -245,112 +246,56 @@ namespace Model
     /**
      * <p>A list of Elastic Load Balancing load balancer objects, containing the load
      * balancer name, the container name (as it appears in a container definition), and
-     * the container port to access from the load balancer.</p> <p>Services with tasks
-     * that use the <code>awsvpc</code> network mode (for example, those with the
-     * Fargate launch type) only support Application Load Balancers and Network Load
-     * Balancers. Classic Load Balancers are not supported. Also, when you create any
-     * target groups for these services, you must choose <code>ip</code> as the target
-     * type, not <code>instance</code>. Tasks that use the <code>awsvpc</code> network
-     * mode are associated with an elastic network interface, not an Amazon EC2
-     * instance.</p>
+     * the container port to access from the load balancer.</p>
      */
     inline const Aws::Vector<LoadBalancer>& GetLoadBalancers() const{ return m_loadBalancers; }
 
     /**
      * <p>A list of Elastic Load Balancing load balancer objects, containing the load
      * balancer name, the container name (as it appears in a container definition), and
-     * the container port to access from the load balancer.</p> <p>Services with tasks
-     * that use the <code>awsvpc</code> network mode (for example, those with the
-     * Fargate launch type) only support Application Load Balancers and Network Load
-     * Balancers. Classic Load Balancers are not supported. Also, when you create any
-     * target groups for these services, you must choose <code>ip</code> as the target
-     * type, not <code>instance</code>. Tasks that use the <code>awsvpc</code> network
-     * mode are associated with an elastic network interface, not an Amazon EC2
-     * instance.</p>
+     * the container port to access from the load balancer.</p>
      */
     inline bool LoadBalancersHasBeenSet() const { return m_loadBalancersHasBeenSet; }
 
     /**
      * <p>A list of Elastic Load Balancing load balancer objects, containing the load
      * balancer name, the container name (as it appears in a container definition), and
-     * the container port to access from the load balancer.</p> <p>Services with tasks
-     * that use the <code>awsvpc</code> network mode (for example, those with the
-     * Fargate launch type) only support Application Load Balancers and Network Load
-     * Balancers. Classic Load Balancers are not supported. Also, when you create any
-     * target groups for these services, you must choose <code>ip</code> as the target
-     * type, not <code>instance</code>. Tasks that use the <code>awsvpc</code> network
-     * mode are associated with an elastic network interface, not an Amazon EC2
-     * instance.</p>
+     * the container port to access from the load balancer.</p>
      */
     inline void SetLoadBalancers(const Aws::Vector<LoadBalancer>& value) { m_loadBalancersHasBeenSet = true; m_loadBalancers = value; }
 
     /**
      * <p>A list of Elastic Load Balancing load balancer objects, containing the load
      * balancer name, the container name (as it appears in a container definition), and
-     * the container port to access from the load balancer.</p> <p>Services with tasks
-     * that use the <code>awsvpc</code> network mode (for example, those with the
-     * Fargate launch type) only support Application Load Balancers and Network Load
-     * Balancers. Classic Load Balancers are not supported. Also, when you create any
-     * target groups for these services, you must choose <code>ip</code> as the target
-     * type, not <code>instance</code>. Tasks that use the <code>awsvpc</code> network
-     * mode are associated with an elastic network interface, not an Amazon EC2
-     * instance.</p>
+     * the container port to access from the load balancer.</p>
      */
     inline void SetLoadBalancers(Aws::Vector<LoadBalancer>&& value) { m_loadBalancersHasBeenSet = true; m_loadBalancers = std::move(value); }
 
     /**
      * <p>A list of Elastic Load Balancing load balancer objects, containing the load
      * balancer name, the container name (as it appears in a container definition), and
-     * the container port to access from the load balancer.</p> <p>Services with tasks
-     * that use the <code>awsvpc</code> network mode (for example, those with the
-     * Fargate launch type) only support Application Load Balancers and Network Load
-     * Balancers. Classic Load Balancers are not supported. Also, when you create any
-     * target groups for these services, you must choose <code>ip</code> as the target
-     * type, not <code>instance</code>. Tasks that use the <code>awsvpc</code> network
-     * mode are associated with an elastic network interface, not an Amazon EC2
-     * instance.</p>
+     * the container port to access from the load balancer.</p>
      */
     inline Service& WithLoadBalancers(const Aws::Vector<LoadBalancer>& value) { SetLoadBalancers(value); return *this;}
 
     /**
      * <p>A list of Elastic Load Balancing load balancer objects, containing the load
      * balancer name, the container name (as it appears in a container definition), and
-     * the container port to access from the load balancer.</p> <p>Services with tasks
-     * that use the <code>awsvpc</code> network mode (for example, those with the
-     * Fargate launch type) only support Application Load Balancers and Network Load
-     * Balancers. Classic Load Balancers are not supported. Also, when you create any
-     * target groups for these services, you must choose <code>ip</code> as the target
-     * type, not <code>instance</code>. Tasks that use the <code>awsvpc</code> network
-     * mode are associated with an elastic network interface, not an Amazon EC2
-     * instance.</p>
+     * the container port to access from the load balancer.</p>
      */
     inline Service& WithLoadBalancers(Aws::Vector<LoadBalancer>&& value) { SetLoadBalancers(std::move(value)); return *this;}
 
     /**
      * <p>A list of Elastic Load Balancing load balancer objects, containing the load
      * balancer name, the container name (as it appears in a container definition), and
-     * the container port to access from the load balancer.</p> <p>Services with tasks
-     * that use the <code>awsvpc</code> network mode (for example, those with the
-     * Fargate launch type) only support Application Load Balancers and Network Load
-     * Balancers. Classic Load Balancers are not supported. Also, when you create any
-     * target groups for these services, you must choose <code>ip</code> as the target
-     * type, not <code>instance</code>. Tasks that use the <code>awsvpc</code> network
-     * mode are associated with an elastic network interface, not an Amazon EC2
-     * instance.</p>
+     * the container port to access from the load balancer.</p>
      */
     inline Service& AddLoadBalancers(const LoadBalancer& value) { m_loadBalancersHasBeenSet = true; m_loadBalancers.push_back(value); return *this; }
 
     /**
      * <p>A list of Elastic Load Balancing load balancer objects, containing the load
      * balancer name, the container name (as it appears in a container definition), and
-     * the container port to access from the load balancer.</p> <p>Services with tasks
-     * that use the <code>awsvpc</code> network mode (for example, those with the
-     * Fargate launch type) only support Application Load Balancers and Network Load
-     * Balancers. Classic Load Balancers are not supported. Also, when you create any
-     * target groups for these services, you must choose <code>ip</code> as the target
-     * type, not <code>instance</code>. Tasks that use the <code>awsvpc</code> network
-     * mode are associated with an elastic network interface, not an Amazon EC2
-     * instance.</p>
+     * the container port to access from the load balancer.</p>
      */
     inline Service& AddLoadBalancers(LoadBalancer&& value) { m_loadBalancersHasBeenSet = true; m_loadBalancers.push_back(std::move(value)); return *this; }
 
@@ -607,6 +552,47 @@ namespace Model
      * Guide</i>.</p>
      */
     inline Service& WithLaunchType(LaunchType&& value) { SetLaunchType(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The capacity provider strategy associated with the service.</p>
+     */
+    inline const Aws::Vector<CapacityProviderStrategyItem>& GetCapacityProviderStrategy() const{ return m_capacityProviderStrategy; }
+
+    /**
+     * <p>The capacity provider strategy associated with the service.</p>
+     */
+    inline bool CapacityProviderStrategyHasBeenSet() const { return m_capacityProviderStrategyHasBeenSet; }
+
+    /**
+     * <p>The capacity provider strategy associated with the service.</p>
+     */
+    inline void SetCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy = value; }
+
+    /**
+     * <p>The capacity provider strategy associated with the service.</p>
+     */
+    inline void SetCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy = std::move(value); }
+
+    /**
+     * <p>The capacity provider strategy associated with the service.</p>
+     */
+    inline Service& WithCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { SetCapacityProviderStrategy(value); return *this;}
+
+    /**
+     * <p>The capacity provider strategy associated with the service.</p>
+     */
+    inline Service& WithCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { SetCapacityProviderStrategy(std::move(value)); return *this;}
+
+    /**
+     * <p>The capacity provider strategy associated with the service.</p>
+     */
+    inline Service& AddCapacityProviderStrategy(const CapacityProviderStrategyItem& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy.push_back(value); return *this; }
+
+    /**
+     * <p>The capacity provider strategy associated with the service.</p>
+     */
+    inline Service& AddCapacityProviderStrategy(CapacityProviderStrategyItem&& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy.push_back(std::move(value)); return *this; }
 
 
     /**
@@ -1295,32 +1281,44 @@ namespace Model
 
 
     /**
-     * <p>The deployment controller type the service is using.</p>
+     * <p>The deployment controller type the service is using. When using the
+     * DescribeServices API, this field is omitted if the service is using the
+     * <code>ECS</code> deployment controller type.</p>
      */
     inline const DeploymentController& GetDeploymentController() const{ return m_deploymentController; }
 
     /**
-     * <p>The deployment controller type the service is using.</p>
+     * <p>The deployment controller type the service is using. When using the
+     * DescribeServices API, this field is omitted if the service is using the
+     * <code>ECS</code> deployment controller type.</p>
      */
     inline bool DeploymentControllerHasBeenSet() const { return m_deploymentControllerHasBeenSet; }
 
     /**
-     * <p>The deployment controller type the service is using.</p>
+     * <p>The deployment controller type the service is using. When using the
+     * DescribeServices API, this field is omitted if the service is using the
+     * <code>ECS</code> deployment controller type.</p>
      */
     inline void SetDeploymentController(const DeploymentController& value) { m_deploymentControllerHasBeenSet = true; m_deploymentController = value; }
 
     /**
-     * <p>The deployment controller type the service is using.</p>
+     * <p>The deployment controller type the service is using. When using the
+     * DescribeServices API, this field is omitted if the service is using the
+     * <code>ECS</code> deployment controller type.</p>
      */
     inline void SetDeploymentController(DeploymentController&& value) { m_deploymentControllerHasBeenSet = true; m_deploymentController = std::move(value); }
 
     /**
-     * <p>The deployment controller type the service is using.</p>
+     * <p>The deployment controller type the service is using. When using the
+     * DescribeServices API, this field is omitted if the service is using the
+     * <code>ECS</code> deployment controller type.</p>
      */
     inline Service& WithDeploymentController(const DeploymentController& value) { SetDeploymentController(value); return *this;}
 
     /**
-     * <p>The deployment controller type the service is using.</p>
+     * <p>The deployment controller type the service is using. When using the
+     * DescribeServices API, this field is omitted if the service is using the
+     * <code>ECS</code> deployment controller type.</p>
      */
     inline Service& WithDeploymentController(DeploymentController&& value) { SetDeploymentController(std::move(value)); return *this;}
 
@@ -1328,64 +1326,160 @@ namespace Model
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline Service& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline Service& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline Service& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline Service& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
@@ -1535,6 +1629,9 @@ namespace Model
 
     LaunchType m_launchType;
     bool m_launchTypeHasBeenSet;
+
+    Aws::Vector<CapacityProviderStrategyItem> m_capacityProviderStrategy;
+    bool m_capacityProviderStrategyHasBeenSet;
 
     Aws::String m_platformVersion;
     bool m_platformVersionHasBeenSet;

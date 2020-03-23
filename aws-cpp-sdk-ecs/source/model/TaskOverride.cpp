@@ -30,15 +30,21 @@ namespace Model
 
 TaskOverride::TaskOverride() : 
     m_containerOverridesHasBeenSet(false),
-    m_taskRoleArnHasBeenSet(false),
-    m_executionRoleArnHasBeenSet(false)
+    m_cpuHasBeenSet(false),
+    m_inferenceAcceleratorOverridesHasBeenSet(false),
+    m_executionRoleArnHasBeenSet(false),
+    m_memoryHasBeenSet(false),
+    m_taskRoleArnHasBeenSet(false)
 {
 }
 
 TaskOverride::TaskOverride(JsonView jsonValue) : 
     m_containerOverridesHasBeenSet(false),
-    m_taskRoleArnHasBeenSet(false),
-    m_executionRoleArnHasBeenSet(false)
+    m_cpuHasBeenSet(false),
+    m_inferenceAcceleratorOverridesHasBeenSet(false),
+    m_executionRoleArnHasBeenSet(false),
+    m_memoryHasBeenSet(false),
+    m_taskRoleArnHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -55,11 +61,21 @@ TaskOverride& TaskOverride::operator =(JsonView jsonValue)
     m_containerOverridesHasBeenSet = true;
   }
 
-  if(jsonValue.ValueExists("taskRoleArn"))
+  if(jsonValue.ValueExists("cpu"))
   {
-    m_taskRoleArn = jsonValue.GetString("taskRoleArn");
+    m_cpu = jsonValue.GetString("cpu");
 
-    m_taskRoleArnHasBeenSet = true;
+    m_cpuHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("inferenceAcceleratorOverrides"))
+  {
+    Array<JsonView> inferenceAcceleratorOverridesJsonList = jsonValue.GetArray("inferenceAcceleratorOverrides");
+    for(unsigned inferenceAcceleratorOverridesIndex = 0; inferenceAcceleratorOverridesIndex < inferenceAcceleratorOverridesJsonList.GetLength(); ++inferenceAcceleratorOverridesIndex)
+    {
+      m_inferenceAcceleratorOverrides.push_back(inferenceAcceleratorOverridesJsonList[inferenceAcceleratorOverridesIndex].AsObject());
+    }
+    m_inferenceAcceleratorOverridesHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("executionRoleArn"))
@@ -67,6 +83,20 @@ TaskOverride& TaskOverride::operator =(JsonView jsonValue)
     m_executionRoleArn = jsonValue.GetString("executionRoleArn");
 
     m_executionRoleArnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("memory"))
+  {
+    m_memory = jsonValue.GetString("memory");
+
+    m_memoryHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("taskRoleArn"))
+  {
+    m_taskRoleArn = jsonValue.GetString("taskRoleArn");
+
+    m_taskRoleArnHasBeenSet = true;
   }
 
   return *this;
@@ -87,15 +117,38 @@ JsonValue TaskOverride::Jsonize() const
 
   }
 
-  if(m_taskRoleArnHasBeenSet)
+  if(m_cpuHasBeenSet)
   {
-   payload.WithString("taskRoleArn", m_taskRoleArn);
+   payload.WithString("cpu", m_cpu);
+
+  }
+
+  if(m_inferenceAcceleratorOverridesHasBeenSet)
+  {
+   Array<JsonValue> inferenceAcceleratorOverridesJsonList(m_inferenceAcceleratorOverrides.size());
+   for(unsigned inferenceAcceleratorOverridesIndex = 0; inferenceAcceleratorOverridesIndex < inferenceAcceleratorOverridesJsonList.GetLength(); ++inferenceAcceleratorOverridesIndex)
+   {
+     inferenceAcceleratorOverridesJsonList[inferenceAcceleratorOverridesIndex].AsObject(m_inferenceAcceleratorOverrides[inferenceAcceleratorOverridesIndex].Jsonize());
+   }
+   payload.WithArray("inferenceAcceleratorOverrides", std::move(inferenceAcceleratorOverridesJsonList));
 
   }
 
   if(m_executionRoleArnHasBeenSet)
   {
    payload.WithString("executionRoleArn", m_executionRoleArn);
+
+  }
+
+  if(m_memoryHasBeenSet)
+  {
+   payload.WithString("memory", m_memory);
+
+  }
+
+  if(m_taskRoleArnHasBeenSet)
+  {
+   payload.WithString("taskRoleArn", m_taskRoleArn);
 
   }
 

@@ -37,14 +37,21 @@ namespace Aws
         static const int ml_c5_HASH = HashingUtils::HashString("ml_c5");
         static const int ml_p2_HASH = HashingUtils::HashString("ml_p2");
         static const int ml_p3_HASH = HashingUtils::HashString("ml_p3");
+        static const int ml_inf1_HASH = HashingUtils::HashString("ml_inf1");
         static const int jetson_tx1_HASH = HashingUtils::HashString("jetson_tx1");
         static const int jetson_tx2_HASH = HashingUtils::HashString("jetson_tx2");
         static const int jetson_nano_HASH = HashingUtils::HashString("jetson_nano");
+        static const int jetson_xavier_HASH = HashingUtils::HashString("jetson_xavier");
         static const int rasp3b_HASH = HashingUtils::HashString("rasp3b");
+        static const int imx8qm_HASH = HashingUtils::HashString("imx8qm");
         static const int deeplens_HASH = HashingUtils::HashString("deeplens");
         static const int rk3399_HASH = HashingUtils::HashString("rk3399");
         static const int rk3288_HASH = HashingUtils::HashString("rk3288");
+        static const int aisage_HASH = HashingUtils::HashString("aisage");
         static const int sbe_c_HASH = HashingUtils::HashString("sbe_c");
+        static const int qcs605_HASH = HashingUtils::HashString("qcs605");
+        static const int qcs603_HASH = HashingUtils::HashString("qcs603");
+        static const int amba_cv22_HASH = HashingUtils::HashString("amba_cv22");
 
 
         TargetDevice GetTargetDeviceForName(const Aws::String& name)
@@ -78,6 +85,10 @@ namespace Aws
           {
             return TargetDevice::ml_p3;
           }
+          else if (hashCode == ml_inf1_HASH)
+          {
+            return TargetDevice::ml_inf1;
+          }
           else if (hashCode == jetson_tx1_HASH)
           {
             return TargetDevice::jetson_tx1;
@@ -90,9 +101,17 @@ namespace Aws
           {
             return TargetDevice::jetson_nano;
           }
+          else if (hashCode == jetson_xavier_HASH)
+          {
+            return TargetDevice::jetson_xavier;
+          }
           else if (hashCode == rasp3b_HASH)
           {
             return TargetDevice::rasp3b;
+          }
+          else if (hashCode == imx8qm_HASH)
+          {
+            return TargetDevice::imx8qm;
           }
           else if (hashCode == deeplens_HASH)
           {
@@ -106,9 +125,25 @@ namespace Aws
           {
             return TargetDevice::rk3288;
           }
+          else if (hashCode == aisage_HASH)
+          {
+            return TargetDevice::aisage;
+          }
           else if (hashCode == sbe_c_HASH)
           {
             return TargetDevice::sbe_c;
+          }
+          else if (hashCode == qcs605_HASH)
+          {
+            return TargetDevice::qcs605;
+          }
+          else if (hashCode == qcs603_HASH)
+          {
+            return TargetDevice::qcs603;
+          }
+          else if (hashCode == amba_cv22_HASH)
+          {
+            return TargetDevice::amba_cv22;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -138,22 +173,36 @@ namespace Aws
             return "ml_p2";
           case TargetDevice::ml_p3:
             return "ml_p3";
+          case TargetDevice::ml_inf1:
+            return "ml_inf1";
           case TargetDevice::jetson_tx1:
             return "jetson_tx1";
           case TargetDevice::jetson_tx2:
             return "jetson_tx2";
           case TargetDevice::jetson_nano:
             return "jetson_nano";
+          case TargetDevice::jetson_xavier:
+            return "jetson_xavier";
           case TargetDevice::rasp3b:
             return "rasp3b";
+          case TargetDevice::imx8qm:
+            return "imx8qm";
           case TargetDevice::deeplens:
             return "deeplens";
           case TargetDevice::rk3399:
             return "rk3399";
           case TargetDevice::rk3288:
             return "rk3288";
+          case TargetDevice::aisage:
+            return "aisage";
           case TargetDevice::sbe_c:
             return "sbe_c";
+          case TargetDevice::qcs605:
+            return "qcs605";
+          case TargetDevice::qcs603:
+            return "qcs603";
+          case TargetDevice::amba_cv22:
+            return "amba_cv22";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

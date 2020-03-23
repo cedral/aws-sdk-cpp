@@ -67,94 +67,101 @@ namespace Model
 
 
     /**
-     * <p>The ContinuationToken that represents where this request began.</p>
+     * <p>The marker that is used as a starting point for this analytics configuration
+     * list response. This value is present if it was sent in the request.</p>
      */
     inline const Aws::String& GetContinuationToken() const{ return m_continuationToken; }
 
     /**
-     * <p>The ContinuationToken that represents where this request began.</p>
+     * <p>The marker that is used as a starting point for this analytics configuration
+     * list response. This value is present if it was sent in the request.</p>
      */
     inline void SetContinuationToken(const Aws::String& value) { m_continuationToken = value; }
 
     /**
-     * <p>The ContinuationToken that represents where this request began.</p>
+     * <p>The marker that is used as a starting point for this analytics configuration
+     * list response. This value is present if it was sent in the request.</p>
      */
     inline void SetContinuationToken(Aws::String&& value) { m_continuationToken = std::move(value); }
 
     /**
-     * <p>The ContinuationToken that represents where this request began.</p>
+     * <p>The marker that is used as a starting point for this analytics configuration
+     * list response. This value is present if it was sent in the request.</p>
      */
     inline void SetContinuationToken(const char* value) { m_continuationToken.assign(value); }
 
     /**
-     * <p>The ContinuationToken that represents where this request began.</p>
+     * <p>The marker that is used as a starting point for this analytics configuration
+     * list response. This value is present if it was sent in the request.</p>
      */
     inline ListBucketAnalyticsConfigurationsResult& WithContinuationToken(const Aws::String& value) { SetContinuationToken(value); return *this;}
 
     /**
-     * <p>The ContinuationToken that represents where this request began.</p>
+     * <p>The marker that is used as a starting point for this analytics configuration
+     * list response. This value is present if it was sent in the request.</p>
      */
     inline ListBucketAnalyticsConfigurationsResult& WithContinuationToken(Aws::String&& value) { SetContinuationToken(std::move(value)); return *this;}
 
     /**
-     * <p>The ContinuationToken that represents where this request began.</p>
+     * <p>The marker that is used as a starting point for this analytics configuration
+     * list response. This value is present if it was sent in the request.</p>
      */
     inline ListBucketAnalyticsConfigurationsResult& WithContinuationToken(const char* value) { SetContinuationToken(value); return *this;}
 
 
     /**
-     * <p>NextContinuationToken is sent when isTruncated is true, which indicates that
-     * there are more analytics configurations to list. The next request must include
-     * this NextContinuationToken. The token is obfuscated and is not a usable
-     * value.</p>
+     * <p> <code>NextContinuationToken</code> is sent when <code>isTruncated</code> is
+     * true, which indicates that there are more analytics configurations to list. The
+     * next request must include this <code>NextContinuationToken</code>. The token is
+     * obfuscated and is not a usable value.</p>
      */
     inline const Aws::String& GetNextContinuationToken() const{ return m_nextContinuationToken; }
 
     /**
-     * <p>NextContinuationToken is sent when isTruncated is true, which indicates that
-     * there are more analytics configurations to list. The next request must include
-     * this NextContinuationToken. The token is obfuscated and is not a usable
-     * value.</p>
+     * <p> <code>NextContinuationToken</code> is sent when <code>isTruncated</code> is
+     * true, which indicates that there are more analytics configurations to list. The
+     * next request must include this <code>NextContinuationToken</code>. The token is
+     * obfuscated and is not a usable value.</p>
      */
     inline void SetNextContinuationToken(const Aws::String& value) { m_nextContinuationToken = value; }
 
     /**
-     * <p>NextContinuationToken is sent when isTruncated is true, which indicates that
-     * there are more analytics configurations to list. The next request must include
-     * this NextContinuationToken. The token is obfuscated and is not a usable
-     * value.</p>
+     * <p> <code>NextContinuationToken</code> is sent when <code>isTruncated</code> is
+     * true, which indicates that there are more analytics configurations to list. The
+     * next request must include this <code>NextContinuationToken</code>. The token is
+     * obfuscated and is not a usable value.</p>
      */
     inline void SetNextContinuationToken(Aws::String&& value) { m_nextContinuationToken = std::move(value); }
 
     /**
-     * <p>NextContinuationToken is sent when isTruncated is true, which indicates that
-     * there are more analytics configurations to list. The next request must include
-     * this NextContinuationToken. The token is obfuscated and is not a usable
-     * value.</p>
+     * <p> <code>NextContinuationToken</code> is sent when <code>isTruncated</code> is
+     * true, which indicates that there are more analytics configurations to list. The
+     * next request must include this <code>NextContinuationToken</code>. The token is
+     * obfuscated and is not a usable value.</p>
      */
     inline void SetNextContinuationToken(const char* value) { m_nextContinuationToken.assign(value); }
 
     /**
-     * <p>NextContinuationToken is sent when isTruncated is true, which indicates that
-     * there are more analytics configurations to list. The next request must include
-     * this NextContinuationToken. The token is obfuscated and is not a usable
-     * value.</p>
+     * <p> <code>NextContinuationToken</code> is sent when <code>isTruncated</code> is
+     * true, which indicates that there are more analytics configurations to list. The
+     * next request must include this <code>NextContinuationToken</code>. The token is
+     * obfuscated and is not a usable value.</p>
      */
     inline ListBucketAnalyticsConfigurationsResult& WithNextContinuationToken(const Aws::String& value) { SetNextContinuationToken(value); return *this;}
 
     /**
-     * <p>NextContinuationToken is sent when isTruncated is true, which indicates that
-     * there are more analytics configurations to list. The next request must include
-     * this NextContinuationToken. The token is obfuscated and is not a usable
-     * value.</p>
+     * <p> <code>NextContinuationToken</code> is sent when <code>isTruncated</code> is
+     * true, which indicates that there are more analytics configurations to list. The
+     * next request must include this <code>NextContinuationToken</code>. The token is
+     * obfuscated and is not a usable value.</p>
      */
     inline ListBucketAnalyticsConfigurationsResult& WithNextContinuationToken(Aws::String&& value) { SetNextContinuationToken(std::move(value)); return *this;}
 
     /**
-     * <p>NextContinuationToken is sent when isTruncated is true, which indicates that
-     * there are more analytics configurations to list. The next request must include
-     * this NextContinuationToken. The token is obfuscated and is not a usable
-     * value.</p>
+     * <p> <code>NextContinuationToken</code> is sent when <code>isTruncated</code> is
+     * true, which indicates that there are more analytics configurations to list. The
+     * next request must include this <code>NextContinuationToken</code>. The token is
+     * obfuscated and is not a usable value.</p>
      */
     inline ListBucketAnalyticsConfigurationsResult& WithNextContinuationToken(const char* value) { SetNextContinuationToken(value); return *this;}
 

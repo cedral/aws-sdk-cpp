@@ -18,6 +18,7 @@
 #include <aws/medialive/model/H264AdaptiveQuantization.h>
 #include <aws/medialive/model/AfdSignaling.h>
 #include <aws/medialive/model/H264ColorMetadata.h>
+#include <aws/medialive/model/H264ColorSpaceSettings.h>
 #include <aws/medialive/model/H264EntropyEncoding.h>
 #include <aws/medialive/model/FixedAfd.h>
 #include <aws/medialive/model/H264FlickerAq.h>
@@ -204,22 +205,22 @@ namespace Model
 
 
     /**
-     * Size of buffer (HRD buffer model) in bits/second.
+     * Size of buffer (HRD buffer model) in bits.
      */
     inline int GetBufSize() const{ return m_bufSize; }
 
     /**
-     * Size of buffer (HRD buffer model) in bits/second.
+     * Size of buffer (HRD buffer model) in bits.
      */
     inline bool BufSizeHasBeenSet() const { return m_bufSizeHasBeenSet; }
 
     /**
-     * Size of buffer (HRD buffer model) in bits/second.
+     * Size of buffer (HRD buffer model) in bits.
      */
     inline void SetBufSize(int value) { m_bufSizeHasBeenSet = true; m_bufSize = value; }
 
     /**
-     * Size of buffer (HRD buffer model) in bits/second.
+     * Size of buffer (HRD buffer model) in bits.
      */
     inline H264Settings& WithBufSize(int value) { SetBufSize(value); return *this;}
 
@@ -253,6 +254,37 @@ namespace Model
      * Includes colorspace metadata in the output.
      */
     inline H264Settings& WithColorMetadata(H264ColorMetadata&& value) { SetColorMetadata(std::move(value)); return *this;}
+
+
+    /**
+     * Color Space settings
+     */
+    inline const H264ColorSpaceSettings& GetColorSpaceSettings() const{ return m_colorSpaceSettings; }
+
+    /**
+     * Color Space settings
+     */
+    inline bool ColorSpaceSettingsHasBeenSet() const { return m_colorSpaceSettingsHasBeenSet; }
+
+    /**
+     * Color Space settings
+     */
+    inline void SetColorSpaceSettings(const H264ColorSpaceSettings& value) { m_colorSpaceSettingsHasBeenSet = true; m_colorSpaceSettings = value; }
+
+    /**
+     * Color Space settings
+     */
+    inline void SetColorSpaceSettings(H264ColorSpaceSettings&& value) { m_colorSpaceSettingsHasBeenSet = true; m_colorSpaceSettings = std::move(value); }
+
+    /**
+     * Color Space settings
+     */
+    inline H264Settings& WithColorSpaceSettings(const H264ColorSpaceSettings& value) { SetColorSpaceSettings(value); return *this;}
+
+    /**
+     * Color Space settings
+     */
+    inline H264Settings& WithColorSpaceSettings(H264ColorSpaceSettings&& value) { SetColorSpaceSettings(std::move(value)); return *this;}
 
 
     /**
@@ -540,25 +572,41 @@ namespace Model
 
     /**
      * GOP size (keyframe interval) in units of either frames or seconds per
-     * gopSizeUnits. Must be greater than zero.
+     * gopSizeUnits.
+If gopSizeUnits is frames, gopSize must be an integer and must be
+     * greater than or equal to 1.
+If gopSizeUnits is seconds, gopSize must be greater
+     * than 0, but need not be an integer.
      */
     inline double GetGopSize() const{ return m_gopSize; }
 
     /**
      * GOP size (keyframe interval) in units of either frames or seconds per
-     * gopSizeUnits. Must be greater than zero.
+     * gopSizeUnits.
+If gopSizeUnits is frames, gopSize must be an integer and must be
+     * greater than or equal to 1.
+If gopSizeUnits is seconds, gopSize must be greater
+     * than 0, but need not be an integer.
      */
     inline bool GopSizeHasBeenSet() const { return m_gopSizeHasBeenSet; }
 
     /**
      * GOP size (keyframe interval) in units of either frames or seconds per
-     * gopSizeUnits. Must be greater than zero.
+     * gopSizeUnits.
+If gopSizeUnits is frames, gopSize must be an integer and must be
+     * greater than or equal to 1.
+If gopSizeUnits is seconds, gopSize must be greater
+     * than 0, but need not be an integer.
      */
     inline void SetGopSize(double value) { m_gopSizeHasBeenSet = true; m_gopSize = value; }
 
     /**
      * GOP size (keyframe interval) in units of either frames or seconds per
-     * gopSizeUnits. Must be greater than zero.
+     * gopSizeUnits.
+If gopSizeUnits is frames, gopSize must be an integer and must be
+     * greater than or equal to 1.
+If gopSizeUnits is seconds, gopSize must be greater
+     * than 0, but need not be an integer.
      */
     inline H264Settings& WithGopSize(double value) { SetGopSize(value); return *this;}
 
@@ -669,79 +717,79 @@ namespace Model
 
 
     /**
-     * For QVBR: See the tooltip for Quality level 
+     * For QVBR: See the tooltip for Quality level
 
-For VBR: Set the maximum bitrate
-     * in order to accommodate expected spikes in the complexity of the video.
+For VBR: Set the maximum bitrate in
+     * order to accommodate expected spikes in the complexity of the video.
      */
     inline int GetMaxBitrate() const{ return m_maxBitrate; }
 
     /**
-     * For QVBR: See the tooltip for Quality level 
+     * For QVBR: See the tooltip for Quality level
 
-For VBR: Set the maximum bitrate
-     * in order to accommodate expected spikes in the complexity of the video.
+For VBR: Set the maximum bitrate in
+     * order to accommodate expected spikes in the complexity of the video.
      */
     inline bool MaxBitrateHasBeenSet() const { return m_maxBitrateHasBeenSet; }
 
     /**
-     * For QVBR: See the tooltip for Quality level 
+     * For QVBR: See the tooltip for Quality level
 
-For VBR: Set the maximum bitrate
-     * in order to accommodate expected spikes in the complexity of the video.
+For VBR: Set the maximum bitrate in
+     * order to accommodate expected spikes in the complexity of the video.
      */
     inline void SetMaxBitrate(int value) { m_maxBitrateHasBeenSet = true; m_maxBitrate = value; }
 
     /**
-     * For QVBR: See the tooltip for Quality level 
+     * For QVBR: See the tooltip for Quality level
 
-For VBR: Set the maximum bitrate
-     * in order to accommodate expected spikes in the complexity of the video.
+For VBR: Set the maximum bitrate in
+     * order to accommodate expected spikes in the complexity of the video.
      */
     inline H264Settings& WithMaxBitrate(int value) { SetMaxBitrate(value); return *this;}
 
 
     /**
-     * Only meaningful if sceneChangeDetect is set to enabled.  Enforces separation
-     * between repeated (cadence) I-frames and I-frames inserted by Scene Change
-     * Detection. If a scene change I-frame is within I-interval frames of a cadence
-     * I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP
-     * stretch requires enabling lookahead as well as setting I-interval. The normal
-     * cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size +
-     * Min-I-interval - 1
+     * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if
+     * multiplex rate control is used.  Enforces separation between repeated (cadence)
+     * I-frames and I-frames inserted by Scene Change Detection. If a scene change
+     * I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk
+     * and/or stretched to the scene change I-frame. GOP stretch requires enabling
+     * lookahead as well as setting I-interval. The normal cadence resumes for the next
+     * GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
      */
     inline int GetMinIInterval() const{ return m_minIInterval; }
 
     /**
-     * Only meaningful if sceneChangeDetect is set to enabled.  Enforces separation
-     * between repeated (cadence) I-frames and I-frames inserted by Scene Change
-     * Detection. If a scene change I-frame is within I-interval frames of a cadence
-     * I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP
-     * stretch requires enabling lookahead as well as setting I-interval. The normal
-     * cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size +
-     * Min-I-interval - 1
+     * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if
+     * multiplex rate control is used.  Enforces separation between repeated (cadence)
+     * I-frames and I-frames inserted by Scene Change Detection. If a scene change
+     * I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk
+     * and/or stretched to the scene change I-frame. GOP stretch requires enabling
+     * lookahead as well as setting I-interval. The normal cadence resumes for the next
+     * GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
      */
     inline bool MinIIntervalHasBeenSet() const { return m_minIIntervalHasBeenSet; }
 
     /**
-     * Only meaningful if sceneChangeDetect is set to enabled.  Enforces separation
-     * between repeated (cadence) I-frames and I-frames inserted by Scene Change
-     * Detection. If a scene change I-frame is within I-interval frames of a cadence
-     * I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP
-     * stretch requires enabling lookahead as well as setting I-interval. The normal
-     * cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size +
-     * Min-I-interval - 1
+     * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if
+     * multiplex rate control is used.  Enforces separation between repeated (cadence)
+     * I-frames and I-frames inserted by Scene Change Detection. If a scene change
+     * I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk
+     * and/or stretched to the scene change I-frame. GOP stretch requires enabling
+     * lookahead as well as setting I-interval. The normal cadence resumes for the next
+     * GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
      */
     inline void SetMinIInterval(int value) { m_minIIntervalHasBeenSet = true; m_minIInterval = value; }
 
     /**
-     * Only meaningful if sceneChangeDetect is set to enabled.  Enforces separation
-     * between repeated (cadence) I-frames and I-frames inserted by Scene Change
-     * Detection. If a scene change I-frame is within I-interval frames of a cadence
-     * I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP
-     * stretch requires enabling lookahead as well as setting I-interval. The normal
-     * cadence resumes for the next GOP. Note: Maximum GOP stretch = GOP size +
-     * Min-I-interval - 1
+     * Only meaningful if sceneChangeDetect is set to enabled.  Defaults to 5 if
+     * multiplex rate control is used.  Enforces separation between repeated (cadence)
+     * I-frames and I-frames inserted by Scene Change Detection. If a scene change
+     * I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk
+     * and/or stretched to the scene change I-frame. GOP stretch requires enabling
+     * lookahead as well as setting I-interval. The normal cadence resumes for the next
+     * GOP. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
      */
     inline H264Settings& WithMinIInterval(int value) { SetMinIInterval(value); return *this;}
 
@@ -953,7 +1001,7 @@ For VBR: Set the maximum bitrate
 
 
     /**
-     * Rate control mode. 
+     * Rate control mode.
 
 QVBR: Quality will match the specified quality level except
      * when it is constrained by the
@@ -969,11 +1017,18 @@ CBR: Quality varies,
      * depending on the video complexity. Recommended only if you distribute
 your
      * assets to devices that cannot handle variable bitrates.
+
+Multiplex: This rate
+     * control mode is only supported (and is required) when the video is
+     * being
+delivered to a MediaLive Multiplex in which case the rate control
+     * configuration is controlled
+by the properties within the Multiplex Program.
      */
     inline const H264RateControlMode& GetRateControlMode() const{ return m_rateControlMode; }
 
     /**
-     * Rate control mode. 
+     * Rate control mode.
 
 QVBR: Quality will match the specified quality level except
      * when it is constrained by the
@@ -989,11 +1044,18 @@ CBR: Quality varies,
      * depending on the video complexity. Recommended only if you distribute
 your
      * assets to devices that cannot handle variable bitrates.
+
+Multiplex: This rate
+     * control mode is only supported (and is required) when the video is
+     * being
+delivered to a MediaLive Multiplex in which case the rate control
+     * configuration is controlled
+by the properties within the Multiplex Program.
      */
     inline bool RateControlModeHasBeenSet() const { return m_rateControlModeHasBeenSet; }
 
     /**
-     * Rate control mode. 
+     * Rate control mode.
 
 QVBR: Quality will match the specified quality level except
      * when it is constrained by the
@@ -1009,11 +1071,18 @@ CBR: Quality varies,
      * depending on the video complexity. Recommended only if you distribute
 your
      * assets to devices that cannot handle variable bitrates.
+
+Multiplex: This rate
+     * control mode is only supported (and is required) when the video is
+     * being
+delivered to a MediaLive Multiplex in which case the rate control
+     * configuration is controlled
+by the properties within the Multiplex Program.
      */
     inline void SetRateControlMode(const H264RateControlMode& value) { m_rateControlModeHasBeenSet = true; m_rateControlMode = value; }
 
     /**
-     * Rate control mode. 
+     * Rate control mode.
 
 QVBR: Quality will match the specified quality level except
      * when it is constrained by the
@@ -1029,11 +1098,18 @@ CBR: Quality varies,
      * depending on the video complexity. Recommended only if you distribute
 your
      * assets to devices that cannot handle variable bitrates.
+
+Multiplex: This rate
+     * control mode is only supported (and is required) when the video is
+     * being
+delivered to a MediaLive Multiplex in which case the rate control
+     * configuration is controlled
+by the properties within the Multiplex Program.
      */
     inline void SetRateControlMode(H264RateControlMode&& value) { m_rateControlModeHasBeenSet = true; m_rateControlMode = std::move(value); }
 
     /**
-     * Rate control mode. 
+     * Rate control mode.
 
 QVBR: Quality will match the specified quality level except
      * when it is constrained by the
@@ -1049,11 +1125,18 @@ CBR: Quality varies,
      * depending on the video complexity. Recommended only if you distribute
 your
      * assets to devices that cannot handle variable bitrates.
+
+Multiplex: This rate
+     * control mode is only supported (and is required) when the video is
+     * being
+delivered to a MediaLive Multiplex in which case the rate control
+     * configuration is controlled
+by the properties within the Multiplex Program.
      */
     inline H264Settings& WithRateControlMode(const H264RateControlMode& value) { SetRateControlMode(value); return *this;}
 
     /**
-     * Rate control mode. 
+     * Rate control mode.
 
 QVBR: Quality will match the specified quality level except
      * when it is constrained by the
@@ -1069,6 +1152,13 @@ CBR: Quality varies,
      * depending on the video complexity. Recommended only if you distribute
 your
      * assets to devices that cannot handle variable bitrates.
+
+Multiplex: This rate
+     * control mode is only supported (and is required) when the video is
+     * being
+delivered to a MediaLive Multiplex in which case the rate control
+     * configuration is controlled
+by the properties within the Multiplex Program.
      */
     inline H264Settings& WithRateControlMode(H264RateControlMode&& value) { SetRateControlMode(std::move(value)); return *this;}
 
@@ -1440,6 +1530,9 @@ This field is optional; when
 
     H264ColorMetadata m_colorMetadata;
     bool m_colorMetadataHasBeenSet;
+
+    H264ColorSpaceSettings m_colorSpaceSettings;
+    bool m_colorSpaceSettingsHasBeenSet;
 
     H264EntropyEncoding m_entropyEncoding;
     bool m_entropyEncodingHasBeenSet;

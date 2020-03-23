@@ -42,7 +42,9 @@ FleetAttributes::FleetAttributes() :
     m_status(FleetStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_buildIdHasBeenSet(false),
+    m_buildArnHasBeenSet(false),
     m_scriptIdHasBeenSet(false),
+    m_scriptArnHasBeenSet(false),
     m_serverLaunchPathHasBeenSet(false),
     m_serverLaunchParametersHasBeenSet(false),
     m_logPathsHasBeenSet(false),
@@ -53,7 +55,8 @@ FleetAttributes::FleetAttributes() :
     m_resourceCreationLimitPolicyHasBeenSet(false),
     m_metricGroupsHasBeenSet(false),
     m_stoppedActionsHasBeenSet(false),
-    m_instanceRoleArnHasBeenSet(false)
+    m_instanceRoleArnHasBeenSet(false),
+    m_certificateConfigurationHasBeenSet(false)
 {
 }
 
@@ -71,7 +74,9 @@ FleetAttributes::FleetAttributes(JsonView jsonValue) :
     m_status(FleetStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_buildIdHasBeenSet(false),
+    m_buildArnHasBeenSet(false),
     m_scriptIdHasBeenSet(false),
+    m_scriptArnHasBeenSet(false),
     m_serverLaunchPathHasBeenSet(false),
     m_serverLaunchParametersHasBeenSet(false),
     m_logPathsHasBeenSet(false),
@@ -82,7 +87,8 @@ FleetAttributes::FleetAttributes(JsonView jsonValue) :
     m_resourceCreationLimitPolicyHasBeenSet(false),
     m_metricGroupsHasBeenSet(false),
     m_stoppedActionsHasBeenSet(false),
-    m_instanceRoleArnHasBeenSet(false)
+    m_instanceRoleArnHasBeenSet(false),
+    m_certificateConfigurationHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -159,11 +165,25 @@ FleetAttributes& FleetAttributes::operator =(JsonView jsonValue)
     m_buildIdHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("BuildArn"))
+  {
+    m_buildArn = jsonValue.GetString("BuildArn");
+
+    m_buildArnHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("ScriptId"))
   {
     m_scriptId = jsonValue.GetString("ScriptId");
 
     m_scriptIdHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("ScriptArn"))
+  {
+    m_scriptArn = jsonValue.GetString("ScriptArn");
+
+    m_scriptArnHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("ServerLaunchPath"))
@@ -238,6 +258,13 @@ FleetAttributes& FleetAttributes::operator =(JsonView jsonValue)
     m_instanceRoleArnHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("CertificateConfiguration"))
+  {
+    m_certificateConfiguration = jsonValue.GetObject("CertificateConfiguration");
+
+    m_certificateConfigurationHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -300,9 +327,21 @@ JsonValue FleetAttributes::Jsonize() const
 
   }
 
+  if(m_buildArnHasBeenSet)
+  {
+   payload.WithString("BuildArn", m_buildArn);
+
+  }
+
   if(m_scriptIdHasBeenSet)
   {
    payload.WithString("ScriptId", m_scriptId);
+
+  }
+
+  if(m_scriptArnHasBeenSet)
+  {
+   payload.WithString("ScriptArn", m_scriptArn);
 
   }
 
@@ -370,6 +409,12 @@ JsonValue FleetAttributes::Jsonize() const
   if(m_instanceRoleArnHasBeenSet)
   {
    payload.WithString("InstanceRoleArn", m_instanceRoleArn);
+
+  }
+
+  if(m_certificateConfigurationHasBeenSet)
+  {
+   payload.WithObject("CertificateConfiguration", m_certificateConfiguration.Jsonize());
 
   }
 

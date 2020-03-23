@@ -17,7 +17,9 @@
 #include <aws/states/SFN_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/states/model/StateMachineStatus.h>
+#include <aws/states/model/StateMachineType.h>
 #include <aws/core/utils/DateTime.h>
+#include <aws/states/model/LoggingConfiguration.h>
 #include <utility>
 
 namespace Aws
@@ -82,71 +84,78 @@ namespace Model
 
     /**
      * <p>The name of the state machine.</p> <p>A name must <i>not</i> contain:</p>
-     * <ul> <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
+     * <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
      * ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
      * <p>The name of the state machine.</p> <p>A name must <i>not</i> contain:</p>
-     * <ul> <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
+     * <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
      * ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline void SetName(const Aws::String& value) { m_name = value; }
 
     /**
      * <p>The name of the state machine.</p> <p>A name must <i>not</i> contain:</p>
-     * <ul> <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
+     * <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
      * ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline void SetName(Aws::String&& value) { m_name = std::move(value); }
 
     /**
      * <p>The name of the state machine.</p> <p>A name must <i>not</i> contain:</p>
-     * <ul> <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
+     * <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
      * ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline void SetName(const char* value) { m_name.assign(value); }
 
     /**
      * <p>The name of the state machine.</p> <p>A name must <i>not</i> contain:</p>
-     * <ul> <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
+     * <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
      * ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline DescribeStateMachineResult& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
      * <p>The name of the state machine.</p> <p>A name must <i>not</i> contain:</p>
-     * <ul> <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
+     * <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
      * ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline DescribeStateMachineResult& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
     /**
      * <p>The name of the state machine.</p> <p>A name must <i>not</i> contain:</p>
-     * <ul> <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
+     * <ul> <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [
      * ]</code> </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline DescribeStateMachineResult& WithName(const char* value) { SetName(value); return *this;}
 
@@ -278,6 +287,37 @@ namespace Model
 
 
     /**
+     * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
+     * <code>EXPRESS</code>).</p>
+     */
+    inline const StateMachineType& GetType() const{ return m_type; }
+
+    /**
+     * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
+     * <code>EXPRESS</code>).</p>
+     */
+    inline void SetType(const StateMachineType& value) { m_type = value; }
+
+    /**
+     * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
+     * <code>EXPRESS</code>).</p>
+     */
+    inline void SetType(StateMachineType&& value) { m_type = std::move(value); }
+
+    /**
+     * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
+     * <code>EXPRESS</code>).</p>
+     */
+    inline DescribeStateMachineResult& WithType(const StateMachineType& value) { SetType(value); return *this;}
+
+    /**
+     * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
+     * <code>EXPRESS</code>).</p>
+     */
+    inline DescribeStateMachineResult& WithType(StateMachineType&& value) { SetType(std::move(value)); return *this;}
+
+
+    /**
      * <p>The date the state machine is created.</p>
      */
     inline const Aws::Utils::DateTime& GetCreationDate() const{ return m_creationDate; }
@@ -302,6 +342,22 @@ namespace Model
      */
     inline DescribeStateMachineResult& WithCreationDate(Aws::Utils::DateTime&& value) { SetCreationDate(std::move(value)); return *this;}
 
+
+    
+    inline const LoggingConfiguration& GetLoggingConfiguration() const{ return m_loggingConfiguration; }
+
+    
+    inline void SetLoggingConfiguration(const LoggingConfiguration& value) { m_loggingConfiguration = value; }
+
+    
+    inline void SetLoggingConfiguration(LoggingConfiguration&& value) { m_loggingConfiguration = std::move(value); }
+
+    
+    inline DescribeStateMachineResult& WithLoggingConfiguration(const LoggingConfiguration& value) { SetLoggingConfiguration(value); return *this;}
+
+    
+    inline DescribeStateMachineResult& WithLoggingConfiguration(LoggingConfiguration&& value) { SetLoggingConfiguration(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_stateMachineArn;
@@ -314,7 +370,11 @@ namespace Model
 
     Aws::String m_roleArn;
 
+    StateMachineType m_type;
+
     Aws::Utils::DateTime m_creationDate;
+
+    LoggingConfiguration m_loggingConfiguration;
   };
 
 } // namespace Model

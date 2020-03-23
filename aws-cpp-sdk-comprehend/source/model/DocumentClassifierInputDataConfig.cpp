@@ -29,12 +29,14 @@ namespace Model
 {
 
 DocumentClassifierInputDataConfig::DocumentClassifierInputDataConfig() : 
-    m_s3UriHasBeenSet(false)
+    m_s3UriHasBeenSet(false),
+    m_labelDelimiterHasBeenSet(false)
 {
 }
 
 DocumentClassifierInputDataConfig::DocumentClassifierInputDataConfig(JsonView jsonValue) : 
-    m_s3UriHasBeenSet(false)
+    m_s3UriHasBeenSet(false),
+    m_labelDelimiterHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -48,6 +50,13 @@ DocumentClassifierInputDataConfig& DocumentClassifierInputDataConfig::operator =
     m_s3UriHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("LabelDelimiter"))
+  {
+    m_labelDelimiter = jsonValue.GetString("LabelDelimiter");
+
+    m_labelDelimiterHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -58,6 +67,12 @@ JsonValue DocumentClassifierInputDataConfig::Jsonize() const
   if(m_s3UriHasBeenSet)
   {
    payload.WithString("S3Uri", m_s3Uri);
+
+  }
+
+  if(m_labelDelimiterHasBeenSet)
+  {
+   payload.WithString("LabelDelimiter", m_labelDelimiter);
 
   }
 

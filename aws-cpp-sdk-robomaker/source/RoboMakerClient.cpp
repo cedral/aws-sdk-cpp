@@ -33,6 +33,7 @@
 #include <aws/robomaker/model/BatchDescribeSimulationJobRequest.h>
 #include <aws/robomaker/model/CancelDeploymentJobRequest.h>
 #include <aws/robomaker/model/CancelSimulationJobRequest.h>
+#include <aws/robomaker/model/CancelSimulationJobBatchRequest.h>
 #include <aws/robomaker/model/CreateDeploymentJobRequest.h>
 #include <aws/robomaker/model/CreateFleetRequest.h>
 #include <aws/robomaker/model/CreateRobotRequest.h>
@@ -52,15 +53,18 @@
 #include <aws/robomaker/model/DescribeRobotApplicationRequest.h>
 #include <aws/robomaker/model/DescribeSimulationApplicationRequest.h>
 #include <aws/robomaker/model/DescribeSimulationJobRequest.h>
+#include <aws/robomaker/model/DescribeSimulationJobBatchRequest.h>
 #include <aws/robomaker/model/ListDeploymentJobsRequest.h>
 #include <aws/robomaker/model/ListFleetsRequest.h>
 #include <aws/robomaker/model/ListRobotApplicationsRequest.h>
 #include <aws/robomaker/model/ListRobotsRequest.h>
 #include <aws/robomaker/model/ListSimulationApplicationsRequest.h>
+#include <aws/robomaker/model/ListSimulationJobBatchesRequest.h>
 #include <aws/robomaker/model/ListSimulationJobsRequest.h>
 #include <aws/robomaker/model/ListTagsForResourceRequest.h>
 #include <aws/robomaker/model/RegisterRobotRequest.h>
 #include <aws/robomaker/model/RestartSimulationJobRequest.h>
+#include <aws/robomaker/model/StartSimulationJobBatchRequest.h>
 #include <aws/robomaker/model/SyncDeploymentJobRequest.h>
 #include <aws/robomaker/model/TagResourceRequest.h>
 #include <aws/robomaker/model/UntagResourceRequest.h>
@@ -145,7 +149,7 @@ BatchDescribeSimulationJobOutcome RoboMakerClient::BatchDescribeSimulationJob(co
   Aws::StringStream ss;
   ss << "/batchDescribeSimulationJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDescribeSimulationJobOutcome(BatchDescribeSimulationJobResult(outcome.GetResult()));
@@ -180,7 +184,7 @@ CancelDeploymentJobOutcome RoboMakerClient::CancelDeploymentJob(const CancelDepl
   Aws::StringStream ss;
   ss << "/cancelDeploymentJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelDeploymentJobOutcome(CancelDeploymentJobResult(outcome.GetResult()));
@@ -215,7 +219,7 @@ CancelSimulationJobOutcome RoboMakerClient::CancelSimulationJob(const CancelSimu
   Aws::StringStream ss;
   ss << "/cancelSimulationJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelSimulationJobOutcome(CancelSimulationJobResult(outcome.GetResult()));
@@ -244,13 +248,48 @@ void RoboMakerClient::CancelSimulationJobAsyncHelper(const CancelSimulationJobRe
   handler(this, request, CancelSimulationJob(request), context);
 }
 
+CancelSimulationJobBatchOutcome RoboMakerClient::CancelSimulationJobBatch(const CancelSimulationJobBatchRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/cancelSimulationJobBatch";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CancelSimulationJobBatchOutcome(CancelSimulationJobBatchResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CancelSimulationJobBatchOutcome(outcome.GetError());
+  }
+}
+
+CancelSimulationJobBatchOutcomeCallable RoboMakerClient::CancelSimulationJobBatchCallable(const CancelSimulationJobBatchRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CancelSimulationJobBatchOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CancelSimulationJobBatch(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RoboMakerClient::CancelSimulationJobBatchAsync(const CancelSimulationJobBatchRequest& request, const CancelSimulationJobBatchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CancelSimulationJobBatchAsyncHelper( request, handler, context ); } );
+}
+
+void RoboMakerClient::CancelSimulationJobBatchAsyncHelper(const CancelSimulationJobBatchRequest& request, const CancelSimulationJobBatchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CancelSimulationJobBatch(request), context);
+}
+
 CreateDeploymentJobOutcome RoboMakerClient::CreateDeploymentJob(const CreateDeploymentJobRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/createDeploymentJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDeploymentJobOutcome(CreateDeploymentJobResult(outcome.GetResult()));
@@ -285,7 +324,7 @@ CreateFleetOutcome RoboMakerClient::CreateFleet(const CreateFleetRequest& reques
   Aws::StringStream ss;
   ss << "/createFleet";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateFleetOutcome(CreateFleetResult(outcome.GetResult()));
@@ -320,7 +359,7 @@ CreateRobotOutcome RoboMakerClient::CreateRobot(const CreateRobotRequest& reques
   Aws::StringStream ss;
   ss << "/createRobot";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateRobotOutcome(CreateRobotResult(outcome.GetResult()));
@@ -355,7 +394,7 @@ CreateRobotApplicationOutcome RoboMakerClient::CreateRobotApplication(const Crea
   Aws::StringStream ss;
   ss << "/createRobotApplication";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateRobotApplicationOutcome(CreateRobotApplicationResult(outcome.GetResult()));
@@ -390,7 +429,7 @@ CreateRobotApplicationVersionOutcome RoboMakerClient::CreateRobotApplicationVers
   Aws::StringStream ss;
   ss << "/createRobotApplicationVersion";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateRobotApplicationVersionOutcome(CreateRobotApplicationVersionResult(outcome.GetResult()));
@@ -425,7 +464,7 @@ CreateSimulationApplicationOutcome RoboMakerClient::CreateSimulationApplication(
   Aws::StringStream ss;
   ss << "/createSimulationApplication";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSimulationApplicationOutcome(CreateSimulationApplicationResult(outcome.GetResult()));
@@ -460,7 +499,7 @@ CreateSimulationApplicationVersionOutcome RoboMakerClient::CreateSimulationAppli
   Aws::StringStream ss;
   ss << "/createSimulationApplicationVersion";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSimulationApplicationVersionOutcome(CreateSimulationApplicationVersionResult(outcome.GetResult()));
@@ -495,7 +534,7 @@ CreateSimulationJobOutcome RoboMakerClient::CreateSimulationJob(const CreateSimu
   Aws::StringStream ss;
   ss << "/createSimulationJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSimulationJobOutcome(CreateSimulationJobResult(outcome.GetResult()));
@@ -530,7 +569,7 @@ DeleteFleetOutcome RoboMakerClient::DeleteFleet(const DeleteFleetRequest& reques
   Aws::StringStream ss;
   ss << "/deleteFleet";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteFleetOutcome(DeleteFleetResult(outcome.GetResult()));
@@ -565,7 +604,7 @@ DeleteRobotOutcome RoboMakerClient::DeleteRobot(const DeleteRobotRequest& reques
   Aws::StringStream ss;
   ss << "/deleteRobot";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRobotOutcome(DeleteRobotResult(outcome.GetResult()));
@@ -600,7 +639,7 @@ DeleteRobotApplicationOutcome RoboMakerClient::DeleteRobotApplication(const Dele
   Aws::StringStream ss;
   ss << "/deleteRobotApplication";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRobotApplicationOutcome(DeleteRobotApplicationResult(outcome.GetResult()));
@@ -635,7 +674,7 @@ DeleteSimulationApplicationOutcome RoboMakerClient::DeleteSimulationApplication(
   Aws::StringStream ss;
   ss << "/deleteSimulationApplication";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSimulationApplicationOutcome(DeleteSimulationApplicationResult(outcome.GetResult()));
@@ -670,7 +709,7 @@ DeregisterRobotOutcome RoboMakerClient::DeregisterRobot(const DeregisterRobotReq
   Aws::StringStream ss;
   ss << "/deregisterRobot";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeregisterRobotOutcome(DeregisterRobotResult(outcome.GetResult()));
@@ -705,7 +744,7 @@ DescribeDeploymentJobOutcome RoboMakerClient::DescribeDeploymentJob(const Descri
   Aws::StringStream ss;
   ss << "/describeDeploymentJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDeploymentJobOutcome(DescribeDeploymentJobResult(outcome.GetResult()));
@@ -740,7 +779,7 @@ DescribeFleetOutcome RoboMakerClient::DescribeFleet(const DescribeFleetRequest& 
   Aws::StringStream ss;
   ss << "/describeFleet";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeFleetOutcome(DescribeFleetResult(outcome.GetResult()));
@@ -775,7 +814,7 @@ DescribeRobotOutcome RoboMakerClient::DescribeRobot(const DescribeRobotRequest& 
   Aws::StringStream ss;
   ss << "/describeRobot";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeRobotOutcome(DescribeRobotResult(outcome.GetResult()));
@@ -810,7 +849,7 @@ DescribeRobotApplicationOutcome RoboMakerClient::DescribeRobotApplication(const 
   Aws::StringStream ss;
   ss << "/describeRobotApplication";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeRobotApplicationOutcome(DescribeRobotApplicationResult(outcome.GetResult()));
@@ -845,7 +884,7 @@ DescribeSimulationApplicationOutcome RoboMakerClient::DescribeSimulationApplicat
   Aws::StringStream ss;
   ss << "/describeSimulationApplication";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSimulationApplicationOutcome(DescribeSimulationApplicationResult(outcome.GetResult()));
@@ -880,7 +919,7 @@ DescribeSimulationJobOutcome RoboMakerClient::DescribeSimulationJob(const Descri
   Aws::StringStream ss;
   ss << "/describeSimulationJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSimulationJobOutcome(DescribeSimulationJobResult(outcome.GetResult()));
@@ -909,13 +948,48 @@ void RoboMakerClient::DescribeSimulationJobAsyncHelper(const DescribeSimulationJ
   handler(this, request, DescribeSimulationJob(request), context);
 }
 
+DescribeSimulationJobBatchOutcome RoboMakerClient::DescribeSimulationJobBatch(const DescribeSimulationJobBatchRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/describeSimulationJobBatch";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeSimulationJobBatchOutcome(DescribeSimulationJobBatchResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeSimulationJobBatchOutcome(outcome.GetError());
+  }
+}
+
+DescribeSimulationJobBatchOutcomeCallable RoboMakerClient::DescribeSimulationJobBatchCallable(const DescribeSimulationJobBatchRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeSimulationJobBatchOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeSimulationJobBatch(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RoboMakerClient::DescribeSimulationJobBatchAsync(const DescribeSimulationJobBatchRequest& request, const DescribeSimulationJobBatchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeSimulationJobBatchAsyncHelper( request, handler, context ); } );
+}
+
+void RoboMakerClient::DescribeSimulationJobBatchAsyncHelper(const DescribeSimulationJobBatchRequest& request, const DescribeSimulationJobBatchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeSimulationJobBatch(request), context);
+}
+
 ListDeploymentJobsOutcome RoboMakerClient::ListDeploymentJobs(const ListDeploymentJobsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/listDeploymentJobs";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDeploymentJobsOutcome(ListDeploymentJobsResult(outcome.GetResult()));
@@ -950,7 +1024,7 @@ ListFleetsOutcome RoboMakerClient::ListFleets(const ListFleetsRequest& request) 
   Aws::StringStream ss;
   ss << "/listFleets";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListFleetsOutcome(ListFleetsResult(outcome.GetResult()));
@@ -985,7 +1059,7 @@ ListRobotApplicationsOutcome RoboMakerClient::ListRobotApplications(const ListRo
   Aws::StringStream ss;
   ss << "/listRobotApplications";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListRobotApplicationsOutcome(ListRobotApplicationsResult(outcome.GetResult()));
@@ -1020,7 +1094,7 @@ ListRobotsOutcome RoboMakerClient::ListRobots(const ListRobotsRequest& request) 
   Aws::StringStream ss;
   ss << "/listRobots";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListRobotsOutcome(ListRobotsResult(outcome.GetResult()));
@@ -1055,7 +1129,7 @@ ListSimulationApplicationsOutcome RoboMakerClient::ListSimulationApplications(co
   Aws::StringStream ss;
   ss << "/listSimulationApplications";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSimulationApplicationsOutcome(ListSimulationApplicationsResult(outcome.GetResult()));
@@ -1084,13 +1158,48 @@ void RoboMakerClient::ListSimulationApplicationsAsyncHelper(const ListSimulation
   handler(this, request, ListSimulationApplications(request), context);
 }
 
+ListSimulationJobBatchesOutcome RoboMakerClient::ListSimulationJobBatches(const ListSimulationJobBatchesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/listSimulationJobBatches";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListSimulationJobBatchesOutcome(ListSimulationJobBatchesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListSimulationJobBatchesOutcome(outcome.GetError());
+  }
+}
+
+ListSimulationJobBatchesOutcomeCallable RoboMakerClient::ListSimulationJobBatchesCallable(const ListSimulationJobBatchesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListSimulationJobBatchesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListSimulationJobBatches(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RoboMakerClient::ListSimulationJobBatchesAsync(const ListSimulationJobBatchesRequest& request, const ListSimulationJobBatchesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListSimulationJobBatchesAsyncHelper( request, handler, context ); } );
+}
+
+void RoboMakerClient::ListSimulationJobBatchesAsyncHelper(const ListSimulationJobBatchesRequest& request, const ListSimulationJobBatchesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListSimulationJobBatches(request), context);
+}
+
 ListSimulationJobsOutcome RoboMakerClient::ListSimulationJobs(const ListSimulationJobsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/listSimulationJobs";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSimulationJobsOutcome(ListSimulationJobsResult(outcome.GetResult()));
@@ -1131,7 +1240,7 @@ ListTagsForResourceOutcome RoboMakerClient::ListTagsForResource(const ListTagsFo
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -1166,7 +1275,7 @@ RegisterRobotOutcome RoboMakerClient::RegisterRobot(const RegisterRobotRequest& 
   Aws::StringStream ss;
   ss << "/registerRobot";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterRobotOutcome(RegisterRobotResult(outcome.GetResult()));
@@ -1201,7 +1310,7 @@ RestartSimulationJobOutcome RoboMakerClient::RestartSimulationJob(const RestartS
   Aws::StringStream ss;
   ss << "/restartSimulationJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RestartSimulationJobOutcome(RestartSimulationJobResult(outcome.GetResult()));
@@ -1230,13 +1339,48 @@ void RoboMakerClient::RestartSimulationJobAsyncHelper(const RestartSimulationJob
   handler(this, request, RestartSimulationJob(request), context);
 }
 
+StartSimulationJobBatchOutcome RoboMakerClient::StartSimulationJobBatch(const StartSimulationJobBatchRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/startSimulationJobBatch";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartSimulationJobBatchOutcome(StartSimulationJobBatchResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartSimulationJobBatchOutcome(outcome.GetError());
+  }
+}
+
+StartSimulationJobBatchOutcomeCallable RoboMakerClient::StartSimulationJobBatchCallable(const StartSimulationJobBatchRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartSimulationJobBatchOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartSimulationJobBatch(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RoboMakerClient::StartSimulationJobBatchAsync(const StartSimulationJobBatchRequest& request, const StartSimulationJobBatchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartSimulationJobBatchAsyncHelper( request, handler, context ); } );
+}
+
+void RoboMakerClient::StartSimulationJobBatchAsyncHelper(const StartSimulationJobBatchRequest& request, const StartSimulationJobBatchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartSimulationJobBatch(request), context);
+}
+
 SyncDeploymentJobOutcome RoboMakerClient::SyncDeploymentJob(const SyncDeploymentJobRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/syncDeploymentJob";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SyncDeploymentJobOutcome(SyncDeploymentJobResult(outcome.GetResult()));
@@ -1277,7 +1421,7 @@ TagResourceOutcome RoboMakerClient::TagResource(const TagResourceRequest& reques
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -1323,7 +1467,7 @@ UntagResourceOutcome RoboMakerClient::UntagResource(const UntagResourceRequest& 
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -1358,7 +1502,7 @@ UpdateRobotApplicationOutcome RoboMakerClient::UpdateRobotApplication(const Upda
   Aws::StringStream ss;
   ss << "/updateRobotApplication";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateRobotApplicationOutcome(UpdateRobotApplicationResult(outcome.GetResult()));
@@ -1393,7 +1537,7 @@ UpdateSimulationApplicationOutcome RoboMakerClient::UpdateSimulationApplication(
   Aws::StringStream ss;
   ss << "/updateSimulationApplication";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateSimulationApplicationOutcome(UpdateSimulationApplicationResult(outcome.GetResult()));

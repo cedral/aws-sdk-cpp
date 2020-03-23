@@ -53,57 +53,57 @@ namespace Model
   public:
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints: This identifier must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints: This identifier must match the
      * identifier of an existing DB cluster.</p>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints: This identifier must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints: This identifier must match the
      * identifier of an existing DB cluster.</p>
      */
     inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints: This identifier must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints: This identifier must match the
      * identifier of an existing DB cluster.</p>
      */
     inline void SetDBClusterIdentifier(const Aws::String& value) { m_dBClusterIdentifierHasBeenSet = true; m_dBClusterIdentifier = value; }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints: This identifier must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints: This identifier must match the
      * identifier of an existing DB cluster.</p>
      */
     inline void SetDBClusterIdentifier(Aws::String&& value) { m_dBClusterIdentifierHasBeenSet = true; m_dBClusterIdentifier = std::move(value); }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints: This identifier must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints: This identifier must match the
      * identifier of an existing DB cluster.</p>
      */
     inline void SetDBClusterIdentifier(const char* value) { m_dBClusterIdentifierHasBeenSet = true; m_dBClusterIdentifier.assign(value); }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints: This identifier must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints: This identifier must match the
      * identifier of an existing DB cluster.</p>
      */
     inline ModifyDBClusterRequest& WithDBClusterIdentifier(const Aws::String& value) { SetDBClusterIdentifier(value); return *this;}
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints: This identifier must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints: This identifier must match the
      * identifier of an existing DB cluster.</p>
      */
     inline ModifyDBClusterRequest& WithDBClusterIdentifier(Aws::String&& value) { SetDBClusterIdentifier(std::move(value)); return *this;}
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints: This identifier must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints: This identifier must match the
      * identifier of an existing DB cluster.</p>
      */
     inline ModifyDBClusterRequest& WithDBClusterIdentifier(const char* value) { SetDBClusterIdentifier(value); return *this;}
@@ -795,28 +795,36 @@ namespace Model
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool GetEnableIAMDatabaseAuthentication() const{ return m_enableIAMDatabaseAuthentication; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool EnableIAMDatabaseAuthenticationHasBeenSet() const { return m_enableIAMDatabaseAuthenticationHasBeenSet; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline void SetEnableIAMDatabaseAuthentication(bool value) { m_enableIAMDatabaseAuthenticationHasBeenSet = true; m_enableIAMDatabaseAuthentication = value; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline ModifyDBClusterRequest& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 
@@ -891,7 +899,17 @@ namespace Model
      * <p>The version number of the database engine to which you want to upgrade.
      * Changing this parameter results in an outage. The change is applied during the
      * next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-     * <p>For a list of valid engine versions, use <a>DescribeDBEngineVersions</a>.</p>
+     * <p>To list all of the available engine versions for <code>aurora</code> (for
+     * MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p>
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
 
@@ -899,7 +917,17 @@ namespace Model
      * <p>The version number of the database engine to which you want to upgrade.
      * Changing this parameter results in an outage. The change is applied during the
      * next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-     * <p>For a list of valid engine versions, use <a>DescribeDBEngineVersions</a>.</p>
+     * <p>To list all of the available engine versions for <code>aurora</code> (for
+     * MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p>
      */
     inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
@@ -907,7 +935,17 @@ namespace Model
      * <p>The version number of the database engine to which you want to upgrade.
      * Changing this parameter results in an outage. The change is applied during the
      * next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-     * <p>For a list of valid engine versions, use <a>DescribeDBEngineVersions</a>.</p>
+     * <p>To list all of the available engine versions for <code>aurora</code> (for
+     * MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p>
      */
     inline void SetEngineVersion(const Aws::String& value) { m_engineVersionHasBeenSet = true; m_engineVersion = value; }
 
@@ -915,7 +953,17 @@ namespace Model
      * <p>The version number of the database engine to which you want to upgrade.
      * Changing this parameter results in an outage. The change is applied during the
      * next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-     * <p>For a list of valid engine versions, use <a>DescribeDBEngineVersions</a>.</p>
+     * <p>To list all of the available engine versions for <code>aurora</code> (for
+     * MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p>
      */
     inline void SetEngineVersion(Aws::String&& value) { m_engineVersionHasBeenSet = true; m_engineVersion = std::move(value); }
 
@@ -923,7 +971,17 @@ namespace Model
      * <p>The version number of the database engine to which you want to upgrade.
      * Changing this parameter results in an outage. The change is applied during the
      * next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-     * <p>For a list of valid engine versions, use <a>DescribeDBEngineVersions</a>.</p>
+     * <p>To list all of the available engine versions for <code>aurora</code> (for
+     * MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p>
      */
     inline void SetEngineVersion(const char* value) { m_engineVersionHasBeenSet = true; m_engineVersion.assign(value); }
 
@@ -931,7 +989,17 @@ namespace Model
      * <p>The version number of the database engine to which you want to upgrade.
      * Changing this parameter results in an outage. The change is applied during the
      * next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-     * <p>For a list of valid engine versions, use <a>DescribeDBEngineVersions</a>.</p>
+     * <p>To list all of the available engine versions for <code>aurora</code> (for
+     * MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p>
      */
     inline ModifyDBClusterRequest& WithEngineVersion(const Aws::String& value) { SetEngineVersion(value); return *this;}
 
@@ -939,7 +1007,17 @@ namespace Model
      * <p>The version number of the database engine to which you want to upgrade.
      * Changing this parameter results in an outage. The change is applied during the
      * next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-     * <p>For a list of valid engine versions, use <a>DescribeDBEngineVersions</a>.</p>
+     * <p>To list all of the available engine versions for <code>aurora</code> (for
+     * MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p>
      */
     inline ModifyDBClusterRequest& WithEngineVersion(Aws::String&& value) { SetEngineVersion(std::move(value)); return *this;}
 
@@ -947,7 +1025,17 @@ namespace Model
      * <p>The version number of the database engine to which you want to upgrade.
      * Changing this parameter results in an outage. The change is applied during the
      * next maintenance window unless <code>ApplyImmediately</code> is enabled.</p>
-     * <p>For a list of valid engine versions, use <a>DescribeDBEngineVersions</a>.</p>
+     * <p>To list all of the available engine versions for <code>aurora</code> (for
+     * MySQL 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p>
      */
     inline ModifyDBClusterRequest& WithEngineVersion(const char* value) { SetEngineVersion(value); return *this;}
 
@@ -1096,6 +1184,112 @@ namespace Model
      * parameter.</p> </li> </ul>
      */
     inline ModifyDBClusterRequest& WithDBInstanceParameterGroupName(const char* value) { SetDBInstanceParameterGroupName(value); return *this;}
+
+
+    /**
+     * <p>The Active Directory directory ID to move the DB cluster to. Specify
+     * <code>none</code> to remove the cluster from its current domain. The domain must
+     * be created prior to this operation. </p>
+     */
+    inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The Active Directory directory ID to move the DB cluster to. Specify
+     * <code>none</code> to remove the cluster from its current domain. The domain must
+     * be created prior to this operation. </p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
+
+    /**
+     * <p>The Active Directory directory ID to move the DB cluster to. Specify
+     * <code>none</code> to remove the cluster from its current domain. The domain must
+     * be created prior to this operation. </p>
+     */
+    inline void SetDomain(const Aws::String& value) { m_domainHasBeenSet = true; m_domain = value; }
+
+    /**
+     * <p>The Active Directory directory ID to move the DB cluster to. Specify
+     * <code>none</code> to remove the cluster from its current domain. The domain must
+     * be created prior to this operation. </p>
+     */
+    inline void SetDomain(Aws::String&& value) { m_domainHasBeenSet = true; m_domain = std::move(value); }
+
+    /**
+     * <p>The Active Directory directory ID to move the DB cluster to. Specify
+     * <code>none</code> to remove the cluster from its current domain. The domain must
+     * be created prior to this operation. </p>
+     */
+    inline void SetDomain(const char* value) { m_domainHasBeenSet = true; m_domain.assign(value); }
+
+    /**
+     * <p>The Active Directory directory ID to move the DB cluster to. Specify
+     * <code>none</code> to remove the cluster from its current domain. The domain must
+     * be created prior to this operation. </p>
+     */
+    inline ModifyDBClusterRequest& WithDomain(const Aws::String& value) { SetDomain(value); return *this;}
+
+    /**
+     * <p>The Active Directory directory ID to move the DB cluster to. Specify
+     * <code>none</code> to remove the cluster from its current domain. The domain must
+     * be created prior to this operation. </p>
+     */
+    inline ModifyDBClusterRequest& WithDomain(Aws::String&& value) { SetDomain(std::move(value)); return *this;}
+
+    /**
+     * <p>The Active Directory directory ID to move the DB cluster to. Specify
+     * <code>none</code> to remove the cluster from its current domain. The domain must
+     * be created prior to this operation. </p>
+     */
+    inline ModifyDBClusterRequest& WithDomain(const char* value) { SetDomain(value); return *this;}
+
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline const Aws::String& GetDomainIAMRoleName() const{ return m_domainIAMRoleName; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline bool DomainIAMRoleNameHasBeenSet() const { return m_domainIAMRoleNameHasBeenSet; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const Aws::String& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = value; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(Aws::String&& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = std::move(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const char* value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName.assign(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline ModifyDBClusterRequest& WithDomainIAMRoleName(const Aws::String& value) { SetDomainIAMRoleName(value); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline ModifyDBClusterRequest& WithDomainIAMRoleName(Aws::String&& value) { SetDomainIAMRoleName(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline ModifyDBClusterRequest& WithDomainIAMRoleName(const char* value) { SetDomainIAMRoleName(value); return *this;}
 
 
     /**
@@ -1293,6 +1487,12 @@ namespace Model
 
     Aws::String m_dBInstanceParameterGroupName;
     bool m_dBInstanceParameterGroupNameHasBeenSet;
+
+    Aws::String m_domain;
+    bool m_domainHasBeenSet;
+
+    Aws::String m_domainIAMRoleName;
+    bool m_domainIAMRoleNameHasBeenSet;
 
     ScalingConfiguration m_scalingConfiguration;
     bool m_scalingConfigurationHasBeenSet;

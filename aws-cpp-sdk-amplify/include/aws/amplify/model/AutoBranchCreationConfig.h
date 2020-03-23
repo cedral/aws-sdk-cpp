@@ -310,6 +310,68 @@ namespace Model
      */
     inline AutoBranchCreationConfig& WithBuildSpec(const char* value) { SetBuildSpec(value); return *this;}
 
+
+    /**
+     * <p> Enables Pull Request Preview for auto created branch. </p>
+     */
+    inline bool GetEnablePullRequestPreview() const{ return m_enablePullRequestPreview; }
+
+    /**
+     * <p> Enables Pull Request Preview for auto created branch. </p>
+     */
+    inline bool EnablePullRequestPreviewHasBeenSet() const { return m_enablePullRequestPreviewHasBeenSet; }
+
+    /**
+     * <p> Enables Pull Request Preview for auto created branch. </p>
+     */
+    inline void SetEnablePullRequestPreview(bool value) { m_enablePullRequestPreviewHasBeenSet = true; m_enablePullRequestPreview = value; }
+
+    /**
+     * <p> Enables Pull Request Preview for auto created branch. </p>
+     */
+    inline AutoBranchCreationConfig& WithEnablePullRequestPreview(bool value) { SetEnablePullRequestPreview(value); return *this;}
+
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline const Aws::String& GetPullRequestEnvironmentName() const{ return m_pullRequestEnvironmentName; }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline bool PullRequestEnvironmentNameHasBeenSet() const { return m_pullRequestEnvironmentNameHasBeenSet; }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline void SetPullRequestEnvironmentName(const Aws::String& value) { m_pullRequestEnvironmentNameHasBeenSet = true; m_pullRequestEnvironmentName = value; }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline void SetPullRequestEnvironmentName(Aws::String&& value) { m_pullRequestEnvironmentNameHasBeenSet = true; m_pullRequestEnvironmentName = std::move(value); }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline void SetPullRequestEnvironmentName(const char* value) { m_pullRequestEnvironmentNameHasBeenSet = true; m_pullRequestEnvironmentName.assign(value); }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline AutoBranchCreationConfig& WithPullRequestEnvironmentName(const Aws::String& value) { SetPullRequestEnvironmentName(value); return *this;}
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline AutoBranchCreationConfig& WithPullRequestEnvironmentName(Aws::String&& value) { SetPullRequestEnvironmentName(std::move(value)); return *this;}
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline AutoBranchCreationConfig& WithPullRequestEnvironmentName(const char* value) { SetPullRequestEnvironmentName(value); return *this;}
+
   private:
 
     Stage m_stage;
@@ -332,6 +394,12 @@ namespace Model
 
     Aws::String m_buildSpec;
     bool m_buildSpecHasBeenSet;
+
+    bool m_enablePullRequestPreview;
+    bool m_enablePullRequestPreviewHasBeenSet;
+
+    Aws::String m_pullRequestEnvironmentName;
+    bool m_pullRequestEnvironmentNameHasBeenSet;
   };
 
 } // namespace Model

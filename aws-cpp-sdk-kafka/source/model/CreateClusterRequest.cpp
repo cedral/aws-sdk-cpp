@@ -30,7 +30,9 @@ CreateClusterRequest::CreateClusterRequest() :
     m_encryptionInfoHasBeenSet(false),
     m_enhancedMonitoring(EnhancedMonitoring::NOT_SET),
     m_enhancedMonitoringHasBeenSet(false),
+    m_openMonitoringHasBeenSet(false),
     m_kafkaVersionHasBeenSet(false),
+    m_loggingInfoHasBeenSet(false),
     m_numberOfBrokerNodes(0),
     m_numberOfBrokerNodesHasBeenSet(false),
     m_tagsHasBeenSet(false)
@@ -76,9 +78,21 @@ Aws::String CreateClusterRequest::SerializePayload() const
    payload.WithString("enhancedMonitoring", EnhancedMonitoringMapper::GetNameForEnhancedMonitoring(m_enhancedMonitoring));
   }
 
+  if(m_openMonitoringHasBeenSet)
+  {
+   payload.WithObject("openMonitoring", m_openMonitoring.Jsonize());
+
+  }
+
   if(m_kafkaVersionHasBeenSet)
   {
    payload.WithString("kafkaVersion", m_kafkaVersion);
+
+  }
+
+  if(m_loggingInfoHasBeenSet)
+  {
+   payload.WithObject("loggingInfo", m_loggingInfo.Jsonize());
 
   }
 

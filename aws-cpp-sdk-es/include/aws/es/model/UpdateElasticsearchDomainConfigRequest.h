@@ -23,6 +23,8 @@
 #include <aws/es/model/VPCOptions.h>
 #include <aws/es/model/CognitoOptions.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
+#include <aws/es/model/DomainEndpointOptions.h>
+#include <aws/es/model/AdvancedSecurityOptionsInput.h>
 #include <aws/es/model/LogType.h>
 #include <aws/es/model/LogPublishingOption.h>
 #include <utility>
@@ -518,6 +520,74 @@ namespace Model
      */
     inline UpdateElasticsearchDomainConfigRequest& AddLogPublishingOptions(LogType&& key, LogPublishingOption&& value) { m_logPublishingOptionsHasBeenSet = true; m_logPublishingOptions.emplace(std::move(key), std::move(value)); return *this; }
 
+
+    /**
+     * <p>Options to specify configuration that will be applied to the domain
+     * endpoint.</p>
+     */
+    inline const DomainEndpointOptions& GetDomainEndpointOptions() const{ return m_domainEndpointOptions; }
+
+    /**
+     * <p>Options to specify configuration that will be applied to the domain
+     * endpoint.</p>
+     */
+    inline bool DomainEndpointOptionsHasBeenSet() const { return m_domainEndpointOptionsHasBeenSet; }
+
+    /**
+     * <p>Options to specify configuration that will be applied to the domain
+     * endpoint.</p>
+     */
+    inline void SetDomainEndpointOptions(const DomainEndpointOptions& value) { m_domainEndpointOptionsHasBeenSet = true; m_domainEndpointOptions = value; }
+
+    /**
+     * <p>Options to specify configuration that will be applied to the domain
+     * endpoint.</p>
+     */
+    inline void SetDomainEndpointOptions(DomainEndpointOptions&& value) { m_domainEndpointOptionsHasBeenSet = true; m_domainEndpointOptions = std::move(value); }
+
+    /**
+     * <p>Options to specify configuration that will be applied to the domain
+     * endpoint.</p>
+     */
+    inline UpdateElasticsearchDomainConfigRequest& WithDomainEndpointOptions(const DomainEndpointOptions& value) { SetDomainEndpointOptions(value); return *this;}
+
+    /**
+     * <p>Options to specify configuration that will be applied to the domain
+     * endpoint.</p>
+     */
+    inline UpdateElasticsearchDomainConfigRequest& WithDomainEndpointOptions(DomainEndpointOptions&& value) { SetDomainEndpointOptions(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Specifies advanced security options.</p>
+     */
+    inline const AdvancedSecurityOptionsInput& GetAdvancedSecurityOptions() const{ return m_advancedSecurityOptions; }
+
+    /**
+     * <p>Specifies advanced security options.</p>
+     */
+    inline bool AdvancedSecurityOptionsHasBeenSet() const { return m_advancedSecurityOptionsHasBeenSet; }
+
+    /**
+     * <p>Specifies advanced security options.</p>
+     */
+    inline void SetAdvancedSecurityOptions(const AdvancedSecurityOptionsInput& value) { m_advancedSecurityOptionsHasBeenSet = true; m_advancedSecurityOptions = value; }
+
+    /**
+     * <p>Specifies advanced security options.</p>
+     */
+    inline void SetAdvancedSecurityOptions(AdvancedSecurityOptionsInput&& value) { m_advancedSecurityOptionsHasBeenSet = true; m_advancedSecurityOptions = std::move(value); }
+
+    /**
+     * <p>Specifies advanced security options.</p>
+     */
+    inline UpdateElasticsearchDomainConfigRequest& WithAdvancedSecurityOptions(const AdvancedSecurityOptionsInput& value) { SetAdvancedSecurityOptions(value); return *this;}
+
+    /**
+     * <p>Specifies advanced security options.</p>
+     */
+    inline UpdateElasticsearchDomainConfigRequest& WithAdvancedSecurityOptions(AdvancedSecurityOptionsInput&& value) { SetAdvancedSecurityOptions(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_domainName;
@@ -546,6 +616,12 @@ namespace Model
 
     Aws::Map<LogType, LogPublishingOption> m_logPublishingOptions;
     bool m_logPublishingOptionsHasBeenSet;
+
+    DomainEndpointOptions m_domainEndpointOptions;
+    bool m_domainEndpointOptionsHasBeenSet;
+
+    AdvancedSecurityOptionsInput m_advancedSecurityOptions;
+    bool m_advancedSecurityOptionsHasBeenSet;
   };
 
 } // namespace Model

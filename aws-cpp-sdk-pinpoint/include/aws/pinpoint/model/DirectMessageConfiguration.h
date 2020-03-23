@@ -186,63 +186,63 @@ namespace Model
 
 
     /**
-     * <p>The default message body for all channels.</p>
+     * <p>The default message for all channels.</p>
      */
     inline const DefaultMessage& GetDefaultMessage() const{ return m_defaultMessage; }
 
     /**
-     * <p>The default message body for all channels.</p>
+     * <p>The default message for all channels.</p>
      */
     inline bool DefaultMessageHasBeenSet() const { return m_defaultMessageHasBeenSet; }
 
     /**
-     * <p>The default message body for all channels.</p>
+     * <p>The default message for all channels.</p>
      */
     inline void SetDefaultMessage(const DefaultMessage& value) { m_defaultMessageHasBeenSet = true; m_defaultMessage = value; }
 
     /**
-     * <p>The default message body for all channels.</p>
+     * <p>The default message for all channels.</p>
      */
     inline void SetDefaultMessage(DefaultMessage&& value) { m_defaultMessageHasBeenSet = true; m_defaultMessage = std::move(value); }
 
     /**
-     * <p>The default message body for all channels.</p>
+     * <p>The default message for all channels.</p>
      */
     inline DirectMessageConfiguration& WithDefaultMessage(const DefaultMessage& value) { SetDefaultMessage(value); return *this;}
 
     /**
-     * <p>The default message body for all channels.</p>
+     * <p>The default message for all channels.</p>
      */
     inline DirectMessageConfiguration& WithDefaultMessage(DefaultMessage&& value) { SetDefaultMessage(std::move(value)); return *this;}
 
 
     /**
-     * <p>The default push notification message for all push channels.</p>
+     * <p>The default push notification message for all push notification channels.</p>
      */
     inline const DefaultPushNotificationMessage& GetDefaultPushNotificationMessage() const{ return m_defaultPushNotificationMessage; }
 
     /**
-     * <p>The default push notification message for all push channels.</p>
+     * <p>The default push notification message for all push notification channels.</p>
      */
     inline bool DefaultPushNotificationMessageHasBeenSet() const { return m_defaultPushNotificationMessageHasBeenSet; }
 
     /**
-     * <p>The default push notification message for all push channels.</p>
+     * <p>The default push notification message for all push notification channels.</p>
      */
     inline void SetDefaultPushNotificationMessage(const DefaultPushNotificationMessage& value) { m_defaultPushNotificationMessageHasBeenSet = true; m_defaultPushNotificationMessage = value; }
 
     /**
-     * <p>The default push notification message for all push channels.</p>
+     * <p>The default push notification message for all push notification channels.</p>
      */
     inline void SetDefaultPushNotificationMessage(DefaultPushNotificationMessage&& value) { m_defaultPushNotificationMessageHasBeenSet = true; m_defaultPushNotificationMessage = std::move(value); }
 
     /**
-     * <p>The default push notification message for all push channels.</p>
+     * <p>The default push notification message for all push notification channels.</p>
      */
     inline DirectMessageConfiguration& WithDefaultPushNotificationMessage(const DefaultPushNotificationMessage& value) { SetDefaultPushNotificationMessage(value); return *this;}
 
     /**
-     * <p>The default push notification message for all push channels.</p>
+     * <p>The default push notification message for all push notification channels.</p>
      */
     inline DirectMessageConfiguration& WithDefaultPushNotificationMessage(DefaultPushNotificationMessage&& value) { SetDefaultPushNotificationMessage(std::move(value)); return *this;}
 

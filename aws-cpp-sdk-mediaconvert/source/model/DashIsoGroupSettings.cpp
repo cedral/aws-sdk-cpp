@@ -29,6 +29,7 @@ namespace Model
 {
 
 DashIsoGroupSettings::DashIsoGroupSettings() : 
+    m_additionalManifestsHasBeenSet(false),
     m_baseUrlHasBeenSet(false),
     m_destinationHasBeenSet(false),
     m_destinationSettingsHasBeenSet(false),
@@ -39,6 +40,8 @@ DashIsoGroupSettings::DashIsoGroupSettings() :
     m_hbbtvComplianceHasBeenSet(false),
     m_minBufferTime(0),
     m_minBufferTimeHasBeenSet(false),
+    m_mpdProfile(DashIsoMpdProfile::NOT_SET),
+    m_mpdProfileHasBeenSet(false),
     m_segmentControl(DashIsoSegmentControl::NOT_SET),
     m_segmentControlHasBeenSet(false),
     m_segmentLength(0),
@@ -49,6 +52,7 @@ DashIsoGroupSettings::DashIsoGroupSettings() :
 }
 
 DashIsoGroupSettings::DashIsoGroupSettings(JsonView jsonValue) : 
+    m_additionalManifestsHasBeenSet(false),
     m_baseUrlHasBeenSet(false),
     m_destinationHasBeenSet(false),
     m_destinationSettingsHasBeenSet(false),
@@ -59,6 +63,8 @@ DashIsoGroupSettings::DashIsoGroupSettings(JsonView jsonValue) :
     m_hbbtvComplianceHasBeenSet(false),
     m_minBufferTime(0),
     m_minBufferTimeHasBeenSet(false),
+    m_mpdProfile(DashIsoMpdProfile::NOT_SET),
+    m_mpdProfileHasBeenSet(false),
     m_segmentControl(DashIsoSegmentControl::NOT_SET),
     m_segmentControlHasBeenSet(false),
     m_segmentLength(0),
@@ -71,6 +77,16 @@ DashIsoGroupSettings::DashIsoGroupSettings(JsonView jsonValue) :
 
 DashIsoGroupSettings& DashIsoGroupSettings::operator =(JsonView jsonValue)
 {
+  if(jsonValue.ValueExists("additionalManifests"))
+  {
+    Array<JsonView> additionalManifestsJsonList = jsonValue.GetArray("additionalManifests");
+    for(unsigned additionalManifestsIndex = 0; additionalManifestsIndex < additionalManifestsJsonList.GetLength(); ++additionalManifestsIndex)
+    {
+      m_additionalManifests.push_back(additionalManifestsJsonList[additionalManifestsIndex].AsObject());
+    }
+    m_additionalManifestsHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("baseUrl"))
   {
     m_baseUrl = jsonValue.GetString("baseUrl");
@@ -120,6 +136,13 @@ DashIsoGroupSettings& DashIsoGroupSettings::operator =(JsonView jsonValue)
     m_minBufferTimeHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("mpdProfile"))
+  {
+    m_mpdProfile = DashIsoMpdProfileMapper::GetDashIsoMpdProfileForName(jsonValue.GetString("mpdProfile"));
+
+    m_mpdProfileHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("segmentControl"))
   {
     m_segmentControl = DashIsoSegmentControlMapper::GetDashIsoSegmentControlForName(jsonValue.GetString("segmentControl"));
@@ -147,6 +170,17 @@ DashIsoGroupSettings& DashIsoGroupSettings::operator =(JsonView jsonValue)
 JsonValue DashIsoGroupSettings::Jsonize() const
 {
   JsonValue payload;
+
+  if(m_additionalManifestsHasBeenSet)
+  {
+   Array<JsonValue> additionalManifestsJsonList(m_additionalManifests.size());
+   for(unsigned additionalManifestsIndex = 0; additionalManifestsIndex < additionalManifestsJsonList.GetLength(); ++additionalManifestsIndex)
+   {
+     additionalManifestsJsonList[additionalManifestsIndex].AsObject(m_additionalManifests[additionalManifestsIndex].Jsonize());
+   }
+   payload.WithArray("additionalManifests", std::move(additionalManifestsJsonList));
+
+  }
 
   if(m_baseUrlHasBeenSet)
   {
@@ -187,6 +221,11 @@ JsonValue DashIsoGroupSettings::Jsonize() const
   {
    payload.WithInteger("minBufferTime", m_minBufferTime);
 
+  }
+
+  if(m_mpdProfileHasBeenSet)
+  {
+   payload.WithString("mpdProfile", DashIsoMpdProfileMapper::GetNameForDashIsoMpdProfile(m_mpdProfile));
   }
 
   if(m_segmentControlHasBeenSet)

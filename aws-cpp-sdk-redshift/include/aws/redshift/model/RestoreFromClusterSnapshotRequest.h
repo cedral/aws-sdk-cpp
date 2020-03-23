@@ -269,56 +269,56 @@ namespace Model
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
      * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
-     * <code>us-east-1a</code> </p>
+     * <code>us-east-2a</code> </p>
      */
     inline const Aws::String& GetAvailabilityZone() const{ return m_availabilityZone; }
 
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
      * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
-     * <code>us-east-1a</code> </p>
+     * <code>us-east-2a</code> </p>
      */
     inline bool AvailabilityZoneHasBeenSet() const { return m_availabilityZoneHasBeenSet; }
 
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
      * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
-     * <code>us-east-1a</code> </p>
+     * <code>us-east-2a</code> </p>
      */
     inline void SetAvailabilityZone(const Aws::String& value) { m_availabilityZoneHasBeenSet = true; m_availabilityZone = value; }
 
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
      * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
-     * <code>us-east-1a</code> </p>
+     * <code>us-east-2a</code> </p>
      */
     inline void SetAvailabilityZone(Aws::String&& value) { m_availabilityZoneHasBeenSet = true; m_availabilityZone = std::move(value); }
 
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
      * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
-     * <code>us-east-1a</code> </p>
+     * <code>us-east-2a</code> </p>
      */
     inline void SetAvailabilityZone(const char* value) { m_availabilityZoneHasBeenSet = true; m_availabilityZone.assign(value); }
 
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
      * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
-     * <code>us-east-1a</code> </p>
+     * <code>us-east-2a</code> </p>
      */
     inline RestoreFromClusterSnapshotRequest& WithAvailabilityZone(const Aws::String& value) { SetAvailabilityZone(value); return *this;}
 
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
      * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
-     * <code>us-east-1a</code> </p>
+     * <code>us-east-2a</code> </p>
      */
     inline RestoreFromClusterSnapshotRequest& WithAvailabilityZone(Aws::String&& value) { SetAvailabilityZone(std::move(value)); return *this;}
 
     /**
      * <p>The Amazon EC2 Availability Zone in which to restore the cluster.</p>
      * <p>Default: A random, system-chosen Availability Zone.</p> <p>Example:
-     * <code>us-east-1a</code> </p>
+     * <code>us-east-2a</code> </p>
      */
     inline RestoreFromClusterSnapshotRequest& WithAvailabilityZone(const char* value) { SetAvailabilityZone(value); return *this;}
 
@@ -1505,6 +1505,27 @@ namespace Model
      */
     inline RestoreFromClusterSnapshotRequest& WithSnapshotScheduleIdentifier(const char* value) { SetSnapshotScheduleIdentifier(value); return *this;}
 
+
+    /**
+     * <p>The number of nodes specified when provisioning the restored cluster.</p>
+     */
+    inline int GetNumberOfNodes() const{ return m_numberOfNodes; }
+
+    /**
+     * <p>The number of nodes specified when provisioning the restored cluster.</p>
+     */
+    inline bool NumberOfNodesHasBeenSet() const { return m_numberOfNodesHasBeenSet; }
+
+    /**
+     * <p>The number of nodes specified when provisioning the restored cluster.</p>
+     */
+    inline void SetNumberOfNodes(int value) { m_numberOfNodesHasBeenSet = true; m_numberOfNodes = value; }
+
+    /**
+     * <p>The number of nodes specified when provisioning the restored cluster.</p>
+     */
+    inline RestoreFromClusterSnapshotRequest& WithNumberOfNodes(int value) { SetNumberOfNodes(value); return *this;}
+
   private:
 
     Aws::String m_clusterIdentifier;
@@ -1581,6 +1602,9 @@ namespace Model
 
     Aws::String m_snapshotScheduleIdentifier;
     bool m_snapshotScheduleIdentifierHasBeenSet;
+
+    int m_numberOfNodes;
+    bool m_numberOfNodesHasBeenSet;
   };
 
 } // namespace Model

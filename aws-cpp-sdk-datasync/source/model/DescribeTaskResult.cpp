@@ -82,6 +82,24 @@ DescribeTaskResult& DescribeTaskResult::operator =(const Aws::AmazonWebServiceRe
 
   }
 
+  if(jsonValue.ValueExists("SourceNetworkInterfaceArns"))
+  {
+    Array<JsonView> sourceNetworkInterfaceArnsJsonList = jsonValue.GetArray("SourceNetworkInterfaceArns");
+    for(unsigned sourceNetworkInterfaceArnsIndex = 0; sourceNetworkInterfaceArnsIndex < sourceNetworkInterfaceArnsJsonList.GetLength(); ++sourceNetworkInterfaceArnsIndex)
+    {
+      m_sourceNetworkInterfaceArns.push_back(sourceNetworkInterfaceArnsJsonList[sourceNetworkInterfaceArnsIndex].AsString());
+    }
+  }
+
+  if(jsonValue.ValueExists("DestinationNetworkInterfaceArns"))
+  {
+    Array<JsonView> destinationNetworkInterfaceArnsJsonList = jsonValue.GetArray("DestinationNetworkInterfaceArns");
+    for(unsigned destinationNetworkInterfaceArnsIndex = 0; destinationNetworkInterfaceArnsIndex < destinationNetworkInterfaceArnsJsonList.GetLength(); ++destinationNetworkInterfaceArnsIndex)
+    {
+      m_destinationNetworkInterfaceArns.push_back(destinationNetworkInterfaceArnsJsonList[destinationNetworkInterfaceArnsIndex].AsString());
+    }
+  }
+
   if(jsonValue.ValueExists("Options"))
   {
     m_options = jsonValue.GetObject("Options");
@@ -95,6 +113,12 @@ DescribeTaskResult& DescribeTaskResult::operator =(const Aws::AmazonWebServiceRe
     {
       m_excludes.push_back(excludesJsonList[excludesIndex].AsObject());
     }
+  }
+
+  if(jsonValue.ValueExists("Schedule"))
+  {
+    m_schedule = jsonValue.GetObject("Schedule");
+
   }
 
   if(jsonValue.ValueExists("ErrorCode"))

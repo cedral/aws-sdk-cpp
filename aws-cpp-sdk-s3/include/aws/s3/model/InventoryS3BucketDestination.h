@@ -35,7 +35,8 @@ namespace Model
 {
 
   /**
-   * <p/><p><h3>See Also:</h3>   <a
+   * <p>Contains the bucket name, file format, bucket owner (optional), and prefix
+   * (optional) where inventory results are published.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/InventoryS3BucketDestination">AWS
    * API Reference</a></p>
    */
@@ -91,49 +92,49 @@ namespace Model
 
 
     /**
-     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be
+     * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
      * published.</p>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
 
     /**
-     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be
+     * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
      * published.</p>
      */
     inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
-     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be
+     * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
      * published.</p>
      */
     inline void SetBucket(const Aws::String& value) { m_bucketHasBeenSet = true; m_bucket = value; }
 
     /**
-     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be
+     * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
      * published.</p>
      */
     inline void SetBucket(Aws::String&& value) { m_bucketHasBeenSet = true; m_bucket = std::move(value); }
 
     /**
-     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be
+     * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
      * published.</p>
      */
     inline void SetBucket(const char* value) { m_bucketHasBeenSet = true; m_bucket.assign(value); }
 
     /**
-     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be
+     * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
      * published.</p>
      */
     inline InventoryS3BucketDestination& WithBucket(const Aws::String& value) { SetBucket(value); return *this;}
 
     /**
-     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be
+     * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
      * published.</p>
      */
     inline InventoryS3BucketDestination& WithBucket(Aws::String&& value) { SetBucket(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon resource name (ARN) of the bucket where inventory results will be
+     * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
      * published.</p>
      */
     inline InventoryS3BucketDestination& WithBucket(const char* value) { SetBucket(value); return *this;}

@@ -109,49 +109,49 @@ namespace Model
 
 
     /**
-     * <p>The username of the user for the WorkSpace. This username must exist in the
+     * <p>The user name of the user for the WorkSpace. This user name must exist in the
      * AWS Directory Service directory for the WorkSpace.</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
 
     /**
-     * <p>The username of the user for the WorkSpace. This username must exist in the
+     * <p>The user name of the user for the WorkSpace. This user name must exist in the
      * AWS Directory Service directory for the WorkSpace.</p>
      */
     inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
-     * <p>The username of the user for the WorkSpace. This username must exist in the
+     * <p>The user name of the user for the WorkSpace. This user name must exist in the
      * AWS Directory Service directory for the WorkSpace.</p>
      */
     inline void SetUserName(const Aws::String& value) { m_userNameHasBeenSet = true; m_userName = value; }
 
     /**
-     * <p>The username of the user for the WorkSpace. This username must exist in the
+     * <p>The user name of the user for the WorkSpace. This user name must exist in the
      * AWS Directory Service directory for the WorkSpace.</p>
      */
     inline void SetUserName(Aws::String&& value) { m_userNameHasBeenSet = true; m_userName = std::move(value); }
 
     /**
-     * <p>The username of the user for the WorkSpace. This username must exist in the
+     * <p>The user name of the user for the WorkSpace. This user name must exist in the
      * AWS Directory Service directory for the WorkSpace.</p>
      */
     inline void SetUserName(const char* value) { m_userNameHasBeenSet = true; m_userName.assign(value); }
 
     /**
-     * <p>The username of the user for the WorkSpace. This username must exist in the
+     * <p>The user name of the user for the WorkSpace. This user name must exist in the
      * AWS Directory Service directory for the WorkSpace.</p>
      */
     inline WorkspaceRequest& WithUserName(const Aws::String& value) { SetUserName(value); return *this;}
 
     /**
-     * <p>The username of the user for the WorkSpace. This username must exist in the
+     * <p>The user name of the user for the WorkSpace. This user name must exist in the
      * AWS Directory Service directory for the WorkSpace.</p>
      */
     inline WorkspaceRequest& WithUserName(Aws::String&& value) { SetUserName(std::move(value)); return *this;}
 
     /**
-     * <p>The username of the user for the WorkSpace. This username must exist in the
+     * <p>The user name of the user for the WorkSpace. This user name must exist in the
      * AWS Directory Service directory for the WorkSpace.</p>
      */
     inline WorkspaceRequest& WithUserName(const char* value) { SetUserName(value); return *this;}
@@ -207,42 +207,50 @@ namespace Model
 
 
     /**
-     * <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
+     * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored
+     * on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
      */
     inline const Aws::String& GetVolumeEncryptionKey() const{ return m_volumeEncryptionKey; }
 
     /**
-     * <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
+     * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored
+     * on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
      */
     inline bool VolumeEncryptionKeyHasBeenSet() const { return m_volumeEncryptionKeyHasBeenSet; }
 
     /**
-     * <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
+     * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored
+     * on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
      */
     inline void SetVolumeEncryptionKey(const Aws::String& value) { m_volumeEncryptionKeyHasBeenSet = true; m_volumeEncryptionKey = value; }
 
     /**
-     * <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
+     * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored
+     * on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
      */
     inline void SetVolumeEncryptionKey(Aws::String&& value) { m_volumeEncryptionKeyHasBeenSet = true; m_volumeEncryptionKey = std::move(value); }
 
     /**
-     * <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
+     * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored
+     * on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
      */
     inline void SetVolumeEncryptionKey(const char* value) { m_volumeEncryptionKeyHasBeenSet = true; m_volumeEncryptionKey.assign(value); }
 
     /**
-     * <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
+     * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored
+     * on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
      */
     inline WorkspaceRequest& WithVolumeEncryptionKey(const Aws::String& value) { SetVolumeEncryptionKey(value); return *this;}
 
     /**
-     * <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
+     * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored
+     * on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
      */
     inline WorkspaceRequest& WithVolumeEncryptionKey(Aws::String&& value) { SetVolumeEncryptionKey(std::move(value)); return *this;}
 
     /**
-     * <p>The KMS key used to encrypt data stored on your WorkSpace.</p>
+     * <p>The symmetric AWS KMS customer master key (CMK) used to encrypt data stored
+     * on your WorkSpace. Amazon WorkSpaces does not support asymmetric CMKs.</p>
      */
     inline WorkspaceRequest& WithVolumeEncryptionKey(const char* value) { SetVolumeEncryptionKey(value); return *this;}
 

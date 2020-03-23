@@ -20,6 +20,7 @@
 #include <aws/transcribe/model/LanguageCode.h>
 #include <aws/transcribe/model/TranscriptionJobStatus.h>
 #include <aws/transcribe/model/OutputLocationType.h>
+#include <aws/transcribe/model/ContentRedaction.h>
 #include <utility>
 
 namespace Aws
@@ -38,7 +39,7 @@ namespace Model
 {
 
   /**
-   * <p>Provides a summary of information about a transcription job. .</p><p><h3>See
+   * <p>Provides a summary of information about a transcription job.</p><p><h3>See
    * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/transcribe-2017-10-26/TranscriptionJobSummary">AWS
    * API Reference</a></p>
@@ -122,6 +123,37 @@ namespace Model
      * <p>A timestamp that shows when the job was created.</p>
      */
     inline TranscriptionJobSummary& WithCreationTime(Aws::Utils::DateTime&& value) { SetCreationTime(std::move(value)); return *this;}
+
+
+    /**
+     * <p>A timestamp that shows when the job started processing.</p>
+     */
+    inline const Aws::Utils::DateTime& GetStartTime() const{ return m_startTime; }
+
+    /**
+     * <p>A timestamp that shows when the job started processing.</p>
+     */
+    inline bool StartTimeHasBeenSet() const { return m_startTimeHasBeenSet; }
+
+    /**
+     * <p>A timestamp that shows when the job started processing.</p>
+     */
+    inline void SetStartTime(const Aws::Utils::DateTime& value) { m_startTimeHasBeenSet = true; m_startTime = value; }
+
+    /**
+     * <p>A timestamp that shows when the job started processing.</p>
+     */
+    inline void SetStartTime(Aws::Utils::DateTime&& value) { m_startTimeHasBeenSet = true; m_startTime = std::move(value); }
+
+    /**
+     * <p>A timestamp that shows when the job started processing.</p>
+     */
+    inline TranscriptionJobSummary& WithStartTime(const Aws::Utils::DateTime& value) { SetStartTime(value); return *this;}
+
+    /**
+     * <p>A timestamp that shows when the job started processing.</p>
+     */
+    inline TranscriptionJobSummary& WithStartTime(Aws::Utils::DateTime&& value) { SetStartTime(std::move(value)); return *this;}
 
 
     /**
@@ -350,6 +382,37 @@ namespace Model
      */
     inline TranscriptionJobSummary& WithOutputLocationType(OutputLocationType&& value) { SetOutputLocationType(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The content redaction settings of the transcription job.</p>
+     */
+    inline const ContentRedaction& GetContentRedaction() const{ return m_contentRedaction; }
+
+    /**
+     * <p>The content redaction settings of the transcription job.</p>
+     */
+    inline bool ContentRedactionHasBeenSet() const { return m_contentRedactionHasBeenSet; }
+
+    /**
+     * <p>The content redaction settings of the transcription job.</p>
+     */
+    inline void SetContentRedaction(const ContentRedaction& value) { m_contentRedactionHasBeenSet = true; m_contentRedaction = value; }
+
+    /**
+     * <p>The content redaction settings of the transcription job.</p>
+     */
+    inline void SetContentRedaction(ContentRedaction&& value) { m_contentRedactionHasBeenSet = true; m_contentRedaction = std::move(value); }
+
+    /**
+     * <p>The content redaction settings of the transcription job.</p>
+     */
+    inline TranscriptionJobSummary& WithContentRedaction(const ContentRedaction& value) { SetContentRedaction(value); return *this;}
+
+    /**
+     * <p>The content redaction settings of the transcription job.</p>
+     */
+    inline TranscriptionJobSummary& WithContentRedaction(ContentRedaction&& value) { SetContentRedaction(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_transcriptionJobName;
@@ -357,6 +420,9 @@ namespace Model
 
     Aws::Utils::DateTime m_creationTime;
     bool m_creationTimeHasBeenSet;
+
+    Aws::Utils::DateTime m_startTime;
+    bool m_startTimeHasBeenSet;
 
     Aws::Utils::DateTime m_completionTime;
     bool m_completionTimeHasBeenSet;
@@ -372,6 +438,9 @@ namespace Model
 
     OutputLocationType m_outputLocationType;
     bool m_outputLocationTypeHasBeenSet;
+
+    ContentRedaction m_contentRedaction;
+    bool m_contentRedactionHasBeenSet;
   };
 
 } // namespace Model

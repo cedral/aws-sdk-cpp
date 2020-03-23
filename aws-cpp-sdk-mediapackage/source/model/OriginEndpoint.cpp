@@ -30,6 +30,7 @@ namespace Model
 
 OriginEndpoint::OriginEndpoint() : 
     m_arnHasBeenSet(false),
+    m_authorizationHasBeenSet(false),
     m_channelIdHasBeenSet(false),
     m_cmafPackageHasBeenSet(false),
     m_dashPackageHasBeenSet(false),
@@ -38,6 +39,8 @@ OriginEndpoint::OriginEndpoint() :
     m_idHasBeenSet(false),
     m_manifestNameHasBeenSet(false),
     m_mssPackageHasBeenSet(false),
+    m_origination(Origination::NOT_SET),
+    m_originationHasBeenSet(false),
     m_startoverWindowSeconds(0),
     m_startoverWindowSecondsHasBeenSet(false),
     m_tagsHasBeenSet(false),
@@ -50,6 +53,7 @@ OriginEndpoint::OriginEndpoint() :
 
 OriginEndpoint::OriginEndpoint(JsonView jsonValue) : 
     m_arnHasBeenSet(false),
+    m_authorizationHasBeenSet(false),
     m_channelIdHasBeenSet(false),
     m_cmafPackageHasBeenSet(false),
     m_dashPackageHasBeenSet(false),
@@ -58,6 +62,8 @@ OriginEndpoint::OriginEndpoint(JsonView jsonValue) :
     m_idHasBeenSet(false),
     m_manifestNameHasBeenSet(false),
     m_mssPackageHasBeenSet(false),
+    m_origination(Origination::NOT_SET),
+    m_originationHasBeenSet(false),
     m_startoverWindowSeconds(0),
     m_startoverWindowSecondsHasBeenSet(false),
     m_tagsHasBeenSet(false),
@@ -76,6 +82,13 @@ OriginEndpoint& OriginEndpoint::operator =(JsonView jsonValue)
     m_arn = jsonValue.GetString("arn");
 
     m_arnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("authorization"))
+  {
+    m_authorization = jsonValue.GetObject("authorization");
+
+    m_authorizationHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("channelId"))
@@ -134,6 +147,13 @@ OriginEndpoint& OriginEndpoint::operator =(JsonView jsonValue)
     m_mssPackageHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("origination"))
+  {
+    m_origination = OriginationMapper::GetOriginationForName(jsonValue.GetString("origination"));
+
+    m_originationHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("startoverWindowSeconds"))
   {
     m_startoverWindowSeconds = jsonValue.GetInteger("startoverWindowSeconds");
@@ -188,6 +208,12 @@ JsonValue OriginEndpoint::Jsonize() const
 
   }
 
+  if(m_authorizationHasBeenSet)
+  {
+   payload.WithObject("authorization", m_authorization.Jsonize());
+
+  }
+
   if(m_channelIdHasBeenSet)
   {
    payload.WithString("channelId", m_channelId);
@@ -234,6 +260,11 @@ JsonValue OriginEndpoint::Jsonize() const
   {
    payload.WithObject("mssPackage", m_mssPackage.Jsonize());
 
+  }
+
+  if(m_originationHasBeenSet)
+  {
+   payload.WithString("origination", OriginationMapper::GetNameForOrigination(m_origination));
   }
 
   if(m_startoverWindowSecondsHasBeenSet)

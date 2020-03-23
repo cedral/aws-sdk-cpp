@@ -44,86 +44,86 @@ namespace Model
 
 
     /**
-     * <p>A list of ARNs for the resources that represent your subscriptions to
+     * <p>The list of ARNs for the resources that represent your subscriptions to
      * products. </p>
      */
     inline const Aws::Vector<Aws::String>& GetProductSubscriptions() const{ return m_productSubscriptions; }
 
     /**
-     * <p>A list of ARNs for the resources that represent your subscriptions to
+     * <p>The list of ARNs for the resources that represent your subscriptions to
      * products. </p>
      */
     inline void SetProductSubscriptions(const Aws::Vector<Aws::String>& value) { m_productSubscriptions = value; }
 
     /**
-     * <p>A list of ARNs for the resources that represent your subscriptions to
+     * <p>The list of ARNs for the resources that represent your subscriptions to
      * products. </p>
      */
     inline void SetProductSubscriptions(Aws::Vector<Aws::String>&& value) { m_productSubscriptions = std::move(value); }
 
     /**
-     * <p>A list of ARNs for the resources that represent your subscriptions to
+     * <p>The list of ARNs for the resources that represent your subscriptions to
      * products. </p>
      */
     inline ListEnabledProductsForImportResult& WithProductSubscriptions(const Aws::Vector<Aws::String>& value) { SetProductSubscriptions(value); return *this;}
 
     /**
-     * <p>A list of ARNs for the resources that represent your subscriptions to
+     * <p>The list of ARNs for the resources that represent your subscriptions to
      * products. </p>
      */
     inline ListEnabledProductsForImportResult& WithProductSubscriptions(Aws::Vector<Aws::String>&& value) { SetProductSubscriptions(std::move(value)); return *this;}
 
     /**
-     * <p>A list of ARNs for the resources that represent your subscriptions to
+     * <p>The list of ARNs for the resources that represent your subscriptions to
      * products. </p>
      */
     inline ListEnabledProductsForImportResult& AddProductSubscriptions(const Aws::String& value) { m_productSubscriptions.push_back(value); return *this; }
 
     /**
-     * <p>A list of ARNs for the resources that represent your subscriptions to
+     * <p>The list of ARNs for the resources that represent your subscriptions to
      * products. </p>
      */
     inline ListEnabledProductsForImportResult& AddProductSubscriptions(Aws::String&& value) { m_productSubscriptions.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>A list of ARNs for the resources that represent your subscriptions to
+     * <p>The list of ARNs for the resources that represent your subscriptions to
      * products. </p>
      */
     inline ListEnabledProductsForImportResult& AddProductSubscriptions(const char* value) { m_productSubscriptions.push_back(value); return *this; }
 
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline void SetNextToken(const Aws::String& value) { m_nextToken = value; }
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline void SetNextToken(Aws::String&& value) { m_nextToken = std::move(value); }
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline void SetNextToken(const char* value) { m_nextToken.assign(value); }
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline ListEnabledProductsForImportResult& WithNextToken(const Aws::String& value) { SetNextToken(value); return *this;}
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline ListEnabledProductsForImportResult& WithNextToken(Aws::String&& value) { SetNextToken(std::move(value)); return *this;}
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline ListEnabledProductsForImportResult& WithNextToken(const char* value) { SetNextToken(value); return *this;}
 

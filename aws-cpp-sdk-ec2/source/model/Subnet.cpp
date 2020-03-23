@@ -49,7 +49,8 @@ Subnet::Subnet() :
     m_assignIpv6AddressOnCreationHasBeenSet(false),
     m_ipv6CidrBlockAssociationSetHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_subnetArnHasBeenSet(false)
+    m_subnetArnHasBeenSet(false),
+    m_outpostArnHasBeenSet(false)
 {
 }
 
@@ -72,7 +73,8 @@ Subnet::Subnet(const XmlNode& xmlNode) :
     m_assignIpv6AddressOnCreationHasBeenSet(false),
     m_ipv6CidrBlockAssociationSetHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_subnetArnHasBeenSet(false)
+    m_subnetArnHasBeenSet(false),
+    m_outpostArnHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -86,67 +88,67 @@ Subnet& Subnet::operator =(const XmlNode& xmlNode)
     XmlNode availabilityZoneNode = resultNode.FirstChild("availabilityZone");
     if(!availabilityZoneNode.IsNull())
     {
-      m_availabilityZone = availabilityZoneNode.GetText();
+      m_availabilityZone = Aws::Utils::Xml::DecodeEscapedXmlText(availabilityZoneNode.GetText());
       m_availabilityZoneHasBeenSet = true;
     }
     XmlNode availabilityZoneIdNode = resultNode.FirstChild("availabilityZoneId");
     if(!availabilityZoneIdNode.IsNull())
     {
-      m_availabilityZoneId = availabilityZoneIdNode.GetText();
+      m_availabilityZoneId = Aws::Utils::Xml::DecodeEscapedXmlText(availabilityZoneIdNode.GetText());
       m_availabilityZoneIdHasBeenSet = true;
     }
     XmlNode availableIpAddressCountNode = resultNode.FirstChild("availableIpAddressCount");
     if(!availableIpAddressCountNode.IsNull())
     {
-      m_availableIpAddressCount = StringUtils::ConvertToInt32(StringUtils::Trim(availableIpAddressCountNode.GetText().c_str()).c_str());
+      m_availableIpAddressCount = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(availableIpAddressCountNode.GetText()).c_str()).c_str());
       m_availableIpAddressCountHasBeenSet = true;
     }
     XmlNode cidrBlockNode = resultNode.FirstChild("cidrBlock");
     if(!cidrBlockNode.IsNull())
     {
-      m_cidrBlock = cidrBlockNode.GetText();
+      m_cidrBlock = Aws::Utils::Xml::DecodeEscapedXmlText(cidrBlockNode.GetText());
       m_cidrBlockHasBeenSet = true;
     }
     XmlNode defaultForAzNode = resultNode.FirstChild("defaultForAz");
     if(!defaultForAzNode.IsNull())
     {
-      m_defaultForAz = StringUtils::ConvertToBool(StringUtils::Trim(defaultForAzNode.GetText().c_str()).c_str());
+      m_defaultForAz = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(defaultForAzNode.GetText()).c_str()).c_str());
       m_defaultForAzHasBeenSet = true;
     }
     XmlNode mapPublicIpOnLaunchNode = resultNode.FirstChild("mapPublicIpOnLaunch");
     if(!mapPublicIpOnLaunchNode.IsNull())
     {
-      m_mapPublicIpOnLaunch = StringUtils::ConvertToBool(StringUtils::Trim(mapPublicIpOnLaunchNode.GetText().c_str()).c_str());
+      m_mapPublicIpOnLaunch = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(mapPublicIpOnLaunchNode.GetText()).c_str()).c_str());
       m_mapPublicIpOnLaunchHasBeenSet = true;
     }
     XmlNode stateNode = resultNode.FirstChild("state");
     if(!stateNode.IsNull())
     {
-      m_state = SubnetStateMapper::GetSubnetStateForName(StringUtils::Trim(stateNode.GetText().c_str()).c_str());
+      m_state = SubnetStateMapper::GetSubnetStateForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(stateNode.GetText()).c_str()).c_str());
       m_stateHasBeenSet = true;
     }
     XmlNode subnetIdNode = resultNode.FirstChild("subnetId");
     if(!subnetIdNode.IsNull())
     {
-      m_subnetId = subnetIdNode.GetText();
+      m_subnetId = Aws::Utils::Xml::DecodeEscapedXmlText(subnetIdNode.GetText());
       m_subnetIdHasBeenSet = true;
     }
     XmlNode vpcIdNode = resultNode.FirstChild("vpcId");
     if(!vpcIdNode.IsNull())
     {
-      m_vpcId = vpcIdNode.GetText();
+      m_vpcId = Aws::Utils::Xml::DecodeEscapedXmlText(vpcIdNode.GetText());
       m_vpcIdHasBeenSet = true;
     }
     XmlNode ownerIdNode = resultNode.FirstChild("ownerId");
     if(!ownerIdNode.IsNull())
     {
-      m_ownerId = ownerIdNode.GetText();
+      m_ownerId = Aws::Utils::Xml::DecodeEscapedXmlText(ownerIdNode.GetText());
       m_ownerIdHasBeenSet = true;
     }
     XmlNode assignIpv6AddressOnCreationNode = resultNode.FirstChild("assignIpv6AddressOnCreation");
     if(!assignIpv6AddressOnCreationNode.IsNull())
     {
-      m_assignIpv6AddressOnCreation = StringUtils::ConvertToBool(StringUtils::Trim(assignIpv6AddressOnCreationNode.GetText().c_str()).c_str());
+      m_assignIpv6AddressOnCreation = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(assignIpv6AddressOnCreationNode.GetText()).c_str()).c_str());
       m_assignIpv6AddressOnCreationHasBeenSet = true;
     }
     XmlNode ipv6CidrBlockAssociationSetNode = resultNode.FirstChild("ipv6CidrBlockAssociationSet");
@@ -176,8 +178,14 @@ Subnet& Subnet::operator =(const XmlNode& xmlNode)
     XmlNode subnetArnNode = resultNode.FirstChild("subnetArn");
     if(!subnetArnNode.IsNull())
     {
-      m_subnetArn = subnetArnNode.GetText();
+      m_subnetArn = Aws::Utils::Xml::DecodeEscapedXmlText(subnetArnNode.GetText());
       m_subnetArnHasBeenSet = true;
+    }
+    XmlNode outpostArnNode = resultNode.FirstChild("outpostArn");
+    if(!outpostArnNode.IsNull())
+    {
+      m_outpostArn = Aws::Utils::Xml::DecodeEscapedXmlText(outpostArnNode.GetText());
+      m_outpostArnHasBeenSet = true;
     }
   }
 
@@ -268,6 +276,11 @@ void Subnet::OutputToStream(Aws::OStream& oStream, const char* location, unsigne
       oStream << location << index << locationValue << ".SubnetArn=" << StringUtils::URLEncode(m_subnetArn.c_str()) << "&";
   }
 
+  if(m_outpostArnHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".OutpostArn=" << StringUtils::URLEncode(m_outpostArn.c_str()) << "&";
+  }
+
 }
 
 void Subnet::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -339,6 +352,10 @@ void Subnet::OutputToStream(Aws::OStream& oStream, const char* location) const
   if(m_subnetArnHasBeenSet)
   {
       oStream << location << ".SubnetArn=" << StringUtils::URLEncode(m_subnetArn.c_str()) << "&";
+  }
+  if(m_outpostArnHasBeenSet)
+  {
+      oStream << location << ".OutpostArn=" << StringUtils::URLEncode(m_outpostArn.c_str()) << "&";
   }
 }
 

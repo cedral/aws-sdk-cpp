@@ -19,6 +19,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/mq/model/ConfigurationId.h>
 #include <aws/mq/model/Logs.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
 #include <utility>
 
 namespace Aws
@@ -222,6 +223,63 @@ namespace Model
 
 
     /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline const Aws::String& GetHostInstanceType() const{ return m_hostInstanceType; }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline bool HostInstanceTypeHasBeenSet() const { return m_hostInstanceTypeHasBeenSet; }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline void SetHostInstanceType(const Aws::String& value) { m_hostInstanceTypeHasBeenSet = true; m_hostInstanceType = value; }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline void SetHostInstanceType(Aws::String&& value) { m_hostInstanceTypeHasBeenSet = true; m_hostInstanceType = std::move(value); }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline void SetHostInstanceType(const char* value) { m_hostInstanceTypeHasBeenSet = true; m_hostInstanceType.assign(value); }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline UpdateBrokerRequest& WithHostInstanceType(const Aws::String& value) { SetHostInstanceType(value); return *this;}
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline UpdateBrokerRequest& WithHostInstanceType(Aws::String&& value) { SetHostInstanceType(std::move(value)); return *this;}
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline UpdateBrokerRequest& WithHostInstanceType(const char* value) { SetHostInstanceType(value); return *this;}
+
+
+    /**
      * Enables Amazon CloudWatch logging for brokers.
      */
     inline const Logs& GetLogs() const{ return m_logs; }
@@ -251,6 +309,61 @@ namespace Model
      */
     inline UpdateBrokerRequest& WithLogs(Logs&& value) { SetLogs(std::move(value)); return *this;}
 
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline bool SecurityGroupsHasBeenSet() const { return m_securityGroupsHasBeenSet; }
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline void SetSecurityGroups(const Aws::Vector<Aws::String>& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = value; }
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline void SetSecurityGroups(Aws::Vector<Aws::String>&& value) { m_securityGroupsHasBeenSet = true; m_securityGroups = std::move(value); }
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline UpdateBrokerRequest& WithSecurityGroups(const Aws::Vector<Aws::String>& value) { SetSecurityGroups(value); return *this;}
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline UpdateBrokerRequest& WithSecurityGroups(Aws::Vector<Aws::String>&& value) { SetSecurityGroups(std::move(value)); return *this;}
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline UpdateBrokerRequest& AddSecurityGroups(const Aws::String& value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(value); return *this; }
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline UpdateBrokerRequest& AddSecurityGroups(Aws::String&& value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(std::move(value)); return *this; }
+
+    /**
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
+     * to brokers.
+     */
+    inline UpdateBrokerRequest& AddSecurityGroups(const char* value) { m_securityGroupsHasBeenSet = true; m_securityGroups.push_back(value); return *this; }
+
   private:
 
     bool m_autoMinorVersionUpgrade;
@@ -265,8 +378,14 @@ namespace Model
     Aws::String m_engineVersion;
     bool m_engineVersionHasBeenSet;
 
+    Aws::String m_hostInstanceType;
+    bool m_hostInstanceTypeHasBeenSet;
+
     Logs m_logs;
     bool m_logsHasBeenSet;
+
+    Aws::Vector<Aws::String> m_securityGroups;
+    bool m_securityGroupsHasBeenSet;
   };
 
 } // namespace Model

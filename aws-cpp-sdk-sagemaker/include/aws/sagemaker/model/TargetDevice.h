@@ -33,14 +33,21 @@ namespace Model
     ml_c5,
     ml_p2,
     ml_p3,
+    ml_inf1,
     jetson_tx1,
     jetson_tx2,
     jetson_nano,
+    jetson_xavier,
     rasp3b,
+    imx8qm,
     deeplens,
     rk3399,
     rk3288,
-    sbe_c
+    aisage,
+    sbe_c,
+    qcs605,
+    qcs603,
+    amba_cv22
   };
 
 namespace TargetDeviceMapper

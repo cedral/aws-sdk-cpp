@@ -35,8 +35,8 @@ namespace Model
 {
 
   /**
-   * <p>Information identifying the non-compliant resource.</p><p><h3>See Also:</h3> 
-   * <a
+   * <p>Information that identifies the noncompliant resource.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/iot-2015-05-28/ResourceIdentifier">AWS
    * API Reference</a></p>
    */
@@ -132,42 +132,42 @@ namespace Model
 
 
     /**
-     * <p>The ID of the Cognito Identity Pool.</p>
+     * <p>The ID of the Amazon Cognito identity pool.</p>
      */
     inline const Aws::String& GetCognitoIdentityPoolId() const{ return m_cognitoIdentityPoolId; }
 
     /**
-     * <p>The ID of the Cognito Identity Pool.</p>
+     * <p>The ID of the Amazon Cognito identity pool.</p>
      */
     inline bool CognitoIdentityPoolIdHasBeenSet() const { return m_cognitoIdentityPoolIdHasBeenSet; }
 
     /**
-     * <p>The ID of the Cognito Identity Pool.</p>
+     * <p>The ID of the Amazon Cognito identity pool.</p>
      */
     inline void SetCognitoIdentityPoolId(const Aws::String& value) { m_cognitoIdentityPoolIdHasBeenSet = true; m_cognitoIdentityPoolId = value; }
 
     /**
-     * <p>The ID of the Cognito Identity Pool.</p>
+     * <p>The ID of the Amazon Cognito identity pool.</p>
      */
     inline void SetCognitoIdentityPoolId(Aws::String&& value) { m_cognitoIdentityPoolIdHasBeenSet = true; m_cognitoIdentityPoolId = std::move(value); }
 
     /**
-     * <p>The ID of the Cognito Identity Pool.</p>
+     * <p>The ID of the Amazon Cognito identity pool.</p>
      */
     inline void SetCognitoIdentityPoolId(const char* value) { m_cognitoIdentityPoolIdHasBeenSet = true; m_cognitoIdentityPoolId.assign(value); }
 
     /**
-     * <p>The ID of the Cognito Identity Pool.</p>
+     * <p>The ID of the Amazon Cognito identity pool.</p>
      */
     inline ResourceIdentifier& WithCognitoIdentityPoolId(const Aws::String& value) { SetCognitoIdentityPoolId(value); return *this;}
 
     /**
-     * <p>The ID of the Cognito Identity Pool.</p>
+     * <p>The ID of the Amazon Cognito identity pool.</p>
      */
     inline ResourceIdentifier& WithCognitoIdentityPoolId(Aws::String&& value) { SetCognitoIdentityPoolId(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the Cognito Identity Pool.</p>
+     * <p>The ID of the Amazon Cognito identity pool.</p>
      */
     inline ResourceIdentifier& WithCognitoIdentityPoolId(const char* value) { SetCognitoIdentityPoolId(value); return *this;}
 
@@ -284,6 +284,88 @@ namespace Model
      */
     inline ResourceIdentifier& WithAccount(const char* value) { SetAccount(value); return *this;}
 
+
+    /**
+     * <p>The ARN of the IAM role that has overly permissive actions.</p>
+     */
+    inline const Aws::String& GetIamRoleArn() const{ return m_iamRoleArn; }
+
+    /**
+     * <p>The ARN of the IAM role that has overly permissive actions.</p>
+     */
+    inline bool IamRoleArnHasBeenSet() const { return m_iamRoleArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the IAM role that has overly permissive actions.</p>
+     */
+    inline void SetIamRoleArn(const Aws::String& value) { m_iamRoleArnHasBeenSet = true; m_iamRoleArn = value; }
+
+    /**
+     * <p>The ARN of the IAM role that has overly permissive actions.</p>
+     */
+    inline void SetIamRoleArn(Aws::String&& value) { m_iamRoleArnHasBeenSet = true; m_iamRoleArn = std::move(value); }
+
+    /**
+     * <p>The ARN of the IAM role that has overly permissive actions.</p>
+     */
+    inline void SetIamRoleArn(const char* value) { m_iamRoleArnHasBeenSet = true; m_iamRoleArn.assign(value); }
+
+    /**
+     * <p>The ARN of the IAM role that has overly permissive actions.</p>
+     */
+    inline ResourceIdentifier& WithIamRoleArn(const Aws::String& value) { SetIamRoleArn(value); return *this;}
+
+    /**
+     * <p>The ARN of the IAM role that has overly permissive actions.</p>
+     */
+    inline ResourceIdentifier& WithIamRoleArn(Aws::String&& value) { SetIamRoleArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The ARN of the IAM role that has overly permissive actions.</p>
+     */
+    inline ResourceIdentifier& WithIamRoleArn(const char* value) { SetIamRoleArn(value); return *this;}
+
+
+    /**
+     * <p>The ARN of the role alias that has overly permissive actions.</p>
+     */
+    inline const Aws::String& GetRoleAliasArn() const{ return m_roleAliasArn; }
+
+    /**
+     * <p>The ARN of the role alias that has overly permissive actions.</p>
+     */
+    inline bool RoleAliasArnHasBeenSet() const { return m_roleAliasArnHasBeenSet; }
+
+    /**
+     * <p>The ARN of the role alias that has overly permissive actions.</p>
+     */
+    inline void SetRoleAliasArn(const Aws::String& value) { m_roleAliasArnHasBeenSet = true; m_roleAliasArn = value; }
+
+    /**
+     * <p>The ARN of the role alias that has overly permissive actions.</p>
+     */
+    inline void SetRoleAliasArn(Aws::String&& value) { m_roleAliasArnHasBeenSet = true; m_roleAliasArn = std::move(value); }
+
+    /**
+     * <p>The ARN of the role alias that has overly permissive actions.</p>
+     */
+    inline void SetRoleAliasArn(const char* value) { m_roleAliasArnHasBeenSet = true; m_roleAliasArn.assign(value); }
+
+    /**
+     * <p>The ARN of the role alias that has overly permissive actions.</p>
+     */
+    inline ResourceIdentifier& WithRoleAliasArn(const Aws::String& value) { SetRoleAliasArn(value); return *this;}
+
+    /**
+     * <p>The ARN of the role alias that has overly permissive actions.</p>
+     */
+    inline ResourceIdentifier& WithRoleAliasArn(Aws::String&& value) { SetRoleAliasArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The ARN of the role alias that has overly permissive actions.</p>
+     */
+    inline ResourceIdentifier& WithRoleAliasArn(const char* value) { SetRoleAliasArn(value); return *this;}
+
   private:
 
     Aws::String m_deviceCertificateId;
@@ -303,6 +385,12 @@ namespace Model
 
     Aws::String m_account;
     bool m_accountHasBeenSet;
+
+    Aws::String m_iamRoleArn;
+    bool m_iamRoleArnHasBeenSet;
+
+    Aws::String m_roleAliasArn;
+    bool m_roleAliasArnHasBeenSet;
   };
 
 } // namespace Model

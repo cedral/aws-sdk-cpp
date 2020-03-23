@@ -35,11 +35,15 @@
 #include <aws/cloudtrail/model/DeleteTrailRequest.h>
 #include <aws/cloudtrail/model/DescribeTrailsRequest.h>
 #include <aws/cloudtrail/model/GetEventSelectorsRequest.h>
+#include <aws/cloudtrail/model/GetInsightSelectorsRequest.h>
+#include <aws/cloudtrail/model/GetTrailRequest.h>
 #include <aws/cloudtrail/model/GetTrailStatusRequest.h>
 #include <aws/cloudtrail/model/ListPublicKeysRequest.h>
 #include <aws/cloudtrail/model/ListTagsRequest.h>
+#include <aws/cloudtrail/model/ListTrailsRequest.h>
 #include <aws/cloudtrail/model/LookupEventsRequest.h>
 #include <aws/cloudtrail/model/PutEventSelectorsRequest.h>
+#include <aws/cloudtrail/model/PutInsightSelectorsRequest.h>
 #include <aws/cloudtrail/model/RemoveTagsRequest.h>
 #include <aws/cloudtrail/model/StartLoggingRequest.h>
 #include <aws/cloudtrail/model/StopLoggingRequest.h>
@@ -123,7 +127,7 @@ AddTagsOutcome CloudTrailClient::AddTags(const AddTagsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddTagsOutcome(AddTagsResult(outcome.GetResult()));
@@ -158,7 +162,7 @@ CreateTrailOutcome CloudTrailClient::CreateTrail(const CreateTrailRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateTrailOutcome(CreateTrailResult(outcome.GetResult()));
@@ -193,7 +197,7 @@ DeleteTrailOutcome CloudTrailClient::DeleteTrail(const DeleteTrailRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTrailOutcome(DeleteTrailResult(outcome.GetResult()));
@@ -228,7 +232,7 @@ DescribeTrailsOutcome CloudTrailClient::DescribeTrails(const DescribeTrailsReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeTrailsOutcome(DescribeTrailsResult(outcome.GetResult()));
@@ -263,7 +267,7 @@ GetEventSelectorsOutcome CloudTrailClient::GetEventSelectors(const GetEventSelec
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetEventSelectorsOutcome(GetEventSelectorsResult(outcome.GetResult()));
@@ -292,13 +296,83 @@ void CloudTrailClient::GetEventSelectorsAsyncHelper(const GetEventSelectorsReque
   handler(this, request, GetEventSelectors(request), context);
 }
 
+GetInsightSelectorsOutcome CloudTrailClient::GetInsightSelectors(const GetInsightSelectorsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetInsightSelectorsOutcome(GetInsightSelectorsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetInsightSelectorsOutcome(outcome.GetError());
+  }
+}
+
+GetInsightSelectorsOutcomeCallable CloudTrailClient::GetInsightSelectorsCallable(const GetInsightSelectorsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetInsightSelectorsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetInsightSelectors(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CloudTrailClient::GetInsightSelectorsAsync(const GetInsightSelectorsRequest& request, const GetInsightSelectorsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetInsightSelectorsAsyncHelper( request, handler, context ); } );
+}
+
+void CloudTrailClient::GetInsightSelectorsAsyncHelper(const GetInsightSelectorsRequest& request, const GetInsightSelectorsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetInsightSelectors(request), context);
+}
+
+GetTrailOutcome CloudTrailClient::GetTrail(const GetTrailRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetTrailOutcome(GetTrailResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetTrailOutcome(outcome.GetError());
+  }
+}
+
+GetTrailOutcomeCallable CloudTrailClient::GetTrailCallable(const GetTrailRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetTrailOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetTrail(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CloudTrailClient::GetTrailAsync(const GetTrailRequest& request, const GetTrailResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetTrailAsyncHelper( request, handler, context ); } );
+}
+
+void CloudTrailClient::GetTrailAsyncHelper(const GetTrailRequest& request, const GetTrailResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetTrail(request), context);
+}
+
 GetTrailStatusOutcome CloudTrailClient::GetTrailStatus(const GetTrailStatusRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTrailStatusOutcome(GetTrailStatusResult(outcome.GetResult()));
@@ -333,7 +407,7 @@ ListPublicKeysOutcome CloudTrailClient::ListPublicKeys(const ListPublicKeysReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListPublicKeysOutcome(ListPublicKeysResult(outcome.GetResult()));
@@ -368,7 +442,7 @@ ListTagsOutcome CloudTrailClient::ListTags(const ListTagsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsOutcome(ListTagsResult(outcome.GetResult()));
@@ -397,13 +471,48 @@ void CloudTrailClient::ListTagsAsyncHelper(const ListTagsRequest& request, const
   handler(this, request, ListTags(request), context);
 }
 
+ListTrailsOutcome CloudTrailClient::ListTrails(const ListTrailsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTrailsOutcome(ListTrailsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTrailsOutcome(outcome.GetError());
+  }
+}
+
+ListTrailsOutcomeCallable CloudTrailClient::ListTrailsCallable(const ListTrailsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTrailsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTrails(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CloudTrailClient::ListTrailsAsync(const ListTrailsRequest& request, const ListTrailsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTrailsAsyncHelper( request, handler, context ); } );
+}
+
+void CloudTrailClient::ListTrailsAsyncHelper(const ListTrailsRequest& request, const ListTrailsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTrails(request), context);
+}
+
 LookupEventsOutcome CloudTrailClient::LookupEvents(const LookupEventsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return LookupEventsOutcome(LookupEventsResult(outcome.GetResult()));
@@ -438,7 +547,7 @@ PutEventSelectorsOutcome CloudTrailClient::PutEventSelectors(const PutEventSelec
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutEventSelectorsOutcome(PutEventSelectorsResult(outcome.GetResult()));
@@ -467,13 +576,48 @@ void CloudTrailClient::PutEventSelectorsAsyncHelper(const PutEventSelectorsReque
   handler(this, request, PutEventSelectors(request), context);
 }
 
+PutInsightSelectorsOutcome CloudTrailClient::PutInsightSelectors(const PutInsightSelectorsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return PutInsightSelectorsOutcome(PutInsightSelectorsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return PutInsightSelectorsOutcome(outcome.GetError());
+  }
+}
+
+PutInsightSelectorsOutcomeCallable CloudTrailClient::PutInsightSelectorsCallable(const PutInsightSelectorsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< PutInsightSelectorsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->PutInsightSelectors(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CloudTrailClient::PutInsightSelectorsAsync(const PutInsightSelectorsRequest& request, const PutInsightSelectorsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->PutInsightSelectorsAsyncHelper( request, handler, context ); } );
+}
+
+void CloudTrailClient::PutInsightSelectorsAsyncHelper(const PutInsightSelectorsRequest& request, const PutInsightSelectorsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, PutInsightSelectors(request), context);
+}
+
 RemoveTagsOutcome CloudTrailClient::RemoveTags(const RemoveTagsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RemoveTagsOutcome(RemoveTagsResult(outcome.GetResult()));
@@ -508,7 +652,7 @@ StartLoggingOutcome CloudTrailClient::StartLogging(const StartLoggingRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartLoggingOutcome(StartLoggingResult(outcome.GetResult()));
@@ -543,7 +687,7 @@ StopLoggingOutcome CloudTrailClient::StopLogging(const StopLoggingRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopLoggingOutcome(StopLoggingResult(outcome.GetResult()));
@@ -578,7 +722,7 @@ UpdateTrailOutcome CloudTrailClient::UpdateTrail(const UpdateTrailRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateTrailOutcome(UpdateTrailResult(outcome.GetResult()));

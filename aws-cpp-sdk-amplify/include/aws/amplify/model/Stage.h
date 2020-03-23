@@ -29,7 +29,8 @@ namespace Model
     PRODUCTION,
     BETA,
     DEVELOPMENT,
-    EXPERIMENTAL
+    EXPERIMENTAL,
+    PULL_REQUEST
   };
 
 namespace StageMapper

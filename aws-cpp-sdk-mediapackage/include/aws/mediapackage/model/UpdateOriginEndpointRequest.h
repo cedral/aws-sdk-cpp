@@ -16,11 +16,13 @@
 #pragma once
 #include <aws/mediapackage/MediaPackage_EXPORTS.h>
 #include <aws/mediapackage/MediaPackageRequest.h>
+#include <aws/mediapackage/model/Authorization.h>
 #include <aws/mediapackage/model/CmafPackageCreateOrUpdateParameters.h>
 #include <aws/mediapackage/model/DashPackage.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/mediapackage/model/HlsPackage.h>
 #include <aws/mediapackage/model/MssPackage.h>
+#include <aws/mediapackage/model/Origination.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <utility>
 
@@ -49,6 +51,25 @@ namespace Model
     inline virtual const char* GetServiceRequestName() const override { return "UpdateOriginEndpoint"; }
 
     Aws::String SerializePayload() const override;
+
+
+    
+    inline const Authorization& GetAuthorization() const{ return m_authorization; }
+
+    
+    inline bool AuthorizationHasBeenSet() const { return m_authorizationHasBeenSet; }
+
+    
+    inline void SetAuthorization(const Authorization& value) { m_authorizationHasBeenSet = true; m_authorization = value; }
+
+    
+    inline void SetAuthorization(Authorization&& value) { m_authorizationHasBeenSet = true; m_authorization = std::move(value); }
+
+    
+    inline UpdateOriginEndpointRequest& WithAuthorization(const Authorization& value) { SetAuthorization(value); return *this;}
+
+    
+    inline UpdateOriginEndpointRequest& WithAuthorization(Authorization&& value) { SetAuthorization(std::move(value)); return *this;}
 
 
     
@@ -251,6 +272,79 @@ namespace Model
 
 
     /**
+     * Control whether origination of video is allowed for this OriginEndpoint. If set
+     * to ALLOW, the OriginEndpoint
+may by requested, pursuant to any other form of
+     * access control. If set to DENY, the OriginEndpoint may not be
+requested. This
+     * can be helpful for Live to VOD harvesting, or for temporarily disabling
+     * origination
+
+     */
+    inline const Origination& GetOrigination() const{ return m_origination; }
+
+    /**
+     * Control whether origination of video is allowed for this OriginEndpoint. If set
+     * to ALLOW, the OriginEndpoint
+may by requested, pursuant to any other form of
+     * access control. If set to DENY, the OriginEndpoint may not be
+requested. This
+     * can be helpful for Live to VOD harvesting, or for temporarily disabling
+     * origination
+
+     */
+    inline bool OriginationHasBeenSet() const { return m_originationHasBeenSet; }
+
+    /**
+     * Control whether origination of video is allowed for this OriginEndpoint. If set
+     * to ALLOW, the OriginEndpoint
+may by requested, pursuant to any other form of
+     * access control. If set to DENY, the OriginEndpoint may not be
+requested. This
+     * can be helpful for Live to VOD harvesting, or for temporarily disabling
+     * origination
+
+     */
+    inline void SetOrigination(const Origination& value) { m_originationHasBeenSet = true; m_origination = value; }
+
+    /**
+     * Control whether origination of video is allowed for this OriginEndpoint. If set
+     * to ALLOW, the OriginEndpoint
+may by requested, pursuant to any other form of
+     * access control. If set to DENY, the OriginEndpoint may not be
+requested. This
+     * can be helpful for Live to VOD harvesting, or for temporarily disabling
+     * origination
+
+     */
+    inline void SetOrigination(Origination&& value) { m_originationHasBeenSet = true; m_origination = std::move(value); }
+
+    /**
+     * Control whether origination of video is allowed for this OriginEndpoint. If set
+     * to ALLOW, the OriginEndpoint
+may by requested, pursuant to any other form of
+     * access control. If set to DENY, the OriginEndpoint may not be
+requested. This
+     * can be helpful for Live to VOD harvesting, or for temporarily disabling
+     * origination
+
+     */
+    inline UpdateOriginEndpointRequest& WithOrigination(const Origination& value) { SetOrigination(value); return *this;}
+
+    /**
+     * Control whether origination of video is allowed for this OriginEndpoint. If set
+     * to ALLOW, the OriginEndpoint
+may by requested, pursuant to any other form of
+     * access control. If set to DENY, the OriginEndpoint may not be
+requested. This
+     * can be helpful for Live to VOD harvesting, or for temporarily disabling
+     * origination
+
+     */
+    inline UpdateOriginEndpointRequest& WithOrigination(Origination&& value) { SetOrigination(std::move(value)); return *this;}
+
+
+    /**
      * Maximum duration (in seconds) of content to retain for startover playback.
 If
      * not specified, startover playback will be disabled for the OriginEndpoint.
@@ -372,6 +466,9 @@ If not
 
   private:
 
+    Authorization m_authorization;
+    bool m_authorizationHasBeenSet;
+
     CmafPackageCreateOrUpdateParameters m_cmafPackage;
     bool m_cmafPackageHasBeenSet;
 
@@ -392,6 +489,9 @@ If not
 
     MssPackage m_mssPackage;
     bool m_mssPackageHasBeenSet;
+
+    Origination m_origination;
+    bool m_originationHasBeenSet;
 
     int m_startoverWindowSeconds;
     bool m_startoverWindowSecondsHasBeenSet;

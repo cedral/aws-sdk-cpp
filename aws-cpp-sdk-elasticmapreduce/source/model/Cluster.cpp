@@ -61,7 +61,11 @@ Cluster::Cluster() :
     m_ebsRootVolumeSizeHasBeenSet(false),
     m_repoUpgradeOnBoot(RepoUpgradeOnBoot::NOT_SET),
     m_repoUpgradeOnBootHasBeenSet(false),
-    m_kerberosAttributesHasBeenSet(false)
+    m_kerberosAttributesHasBeenSet(false),
+    m_clusterArnHasBeenSet(false),
+    m_stepConcurrencyLevel(0),
+    m_stepConcurrencyLevelHasBeenSet(false),
+    m_outpostArnHasBeenSet(false)
 {
 }
 
@@ -98,7 +102,11 @@ Cluster::Cluster(JsonView jsonValue) :
     m_ebsRootVolumeSizeHasBeenSet(false),
     m_repoUpgradeOnBoot(RepoUpgradeOnBoot::NOT_SET),
     m_repoUpgradeOnBootHasBeenSet(false),
-    m_kerberosAttributesHasBeenSet(false)
+    m_kerberosAttributesHasBeenSet(false),
+    m_clusterArnHasBeenSet(false),
+    m_stepConcurrencyLevel(0),
+    m_stepConcurrencyLevelHasBeenSet(false),
+    m_outpostArnHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -289,6 +297,27 @@ Cluster& Cluster::operator =(JsonView jsonValue)
     m_kerberosAttributesHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("ClusterArn"))
+  {
+    m_clusterArn = jsonValue.GetString("ClusterArn");
+
+    m_clusterArnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("StepConcurrencyLevel"))
+  {
+    m_stepConcurrencyLevel = jsonValue.GetInteger("StepConcurrencyLevel");
+
+    m_stepConcurrencyLevelHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("OutpostArn"))
+  {
+    m_outpostArn = jsonValue.GetString("OutpostArn");
+
+    m_outpostArnHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -455,6 +484,24 @@ JsonValue Cluster::Jsonize() const
   if(m_kerberosAttributesHasBeenSet)
   {
    payload.WithObject("KerberosAttributes", m_kerberosAttributes.Jsonize());
+
+  }
+
+  if(m_clusterArnHasBeenSet)
+  {
+   payload.WithString("ClusterArn", m_clusterArn);
+
+  }
+
+  if(m_stepConcurrencyLevelHasBeenSet)
+  {
+   payload.WithInteger("StepConcurrencyLevel", m_stepConcurrencyLevel);
+
+  }
+
+  if(m_outpostArnHasBeenSet)
+  {
+   payload.WithString("OutpostArn", m_outpostArn);
 
   }
 

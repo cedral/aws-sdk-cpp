@@ -54,7 +54,7 @@ namespace Model
     /**
      * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
      * This parameter can't be used in conjunction with the
-     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not
+     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter isn't
      * case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match
      * the identifier of an existing DBCluster.</p> </li> </ul>
      */
@@ -63,7 +63,7 @@ namespace Model
     /**
      * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
      * This parameter can't be used in conjunction with the
-     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not
+     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter isn't
      * case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match
      * the identifier of an existing DBCluster.</p> </li> </ul>
      */
@@ -72,7 +72,7 @@ namespace Model
     /**
      * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
      * This parameter can't be used in conjunction with the
-     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not
+     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter isn't
      * case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match
      * the identifier of an existing DBCluster.</p> </li> </ul>
      */
@@ -81,7 +81,7 @@ namespace Model
     /**
      * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
      * This parameter can't be used in conjunction with the
-     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not
+     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter isn't
      * case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match
      * the identifier of an existing DBCluster.</p> </li> </ul>
      */
@@ -90,7 +90,7 @@ namespace Model
     /**
      * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
      * This parameter can't be used in conjunction with the
-     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not
+     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter isn't
      * case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match
      * the identifier of an existing DBCluster.</p> </li> </ul>
      */
@@ -99,7 +99,7 @@ namespace Model
     /**
      * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
      * This parameter can't be used in conjunction with the
-     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not
+     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter isn't
      * case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match
      * the identifier of an existing DBCluster.</p> </li> </ul>
      */
@@ -108,7 +108,7 @@ namespace Model
     /**
      * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
      * This parameter can't be used in conjunction with the
-     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not
+     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter isn't
      * case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match
      * the identifier of an existing DBCluster.</p> </li> </ul>
      */
@@ -117,7 +117,7 @@ namespace Model
     /**
      * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for.
      * This parameter can't be used in conjunction with the
-     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter is not
+     * <code>DBClusterSnapshotIdentifier</code> parameter. This parameter isn't
      * case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match
      * the identifier of an existing DBCluster.</p> </li> </ul>
      */
@@ -391,42 +391,90 @@ namespace Model
 
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB
+     * cluster identifiers and DB cluster Amazon Resource Names (ARNs).</p> </li> <li>
+     * <p> <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot
+     * identifiers.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * cluster snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of
+     * database engines.</p> </li> </ul>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB
+     * cluster identifiers and DB cluster Amazon Resource Names (ARNs).</p> </li> <li>
+     * <p> <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot
+     * identifiers.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * cluster snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of
+     * database engines.</p> </li> </ul>
      */
     inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB
+     * cluster identifiers and DB cluster Amazon Resource Names (ARNs).</p> </li> <li>
+     * <p> <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot
+     * identifiers.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * cluster snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of
+     * database engines.</p> </li> </ul>
      */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB
+     * cluster identifiers and DB cluster Amazon Resource Names (ARNs).</p> </li> <li>
+     * <p> <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot
+     * identifiers.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * cluster snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of
+     * database engines.</p> </li> </ul>
      */
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB
+     * cluster identifiers and DB cluster Amazon Resource Names (ARNs).</p> </li> <li>
+     * <p> <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot
+     * identifiers.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * cluster snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of
+     * database engines.</p> </li> </ul>
      */
     inline DescribeDBClusterSnapshotsRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB
+     * cluster identifiers and DB cluster Amazon Resource Names (ARNs).</p> </li> <li>
+     * <p> <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot
+     * identifiers.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * cluster snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of
+     * database engines.</p> </li> </ul>
      */
     inline DescribeDBClusterSnapshotsRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB
+     * cluster identifiers and DB cluster Amazon Resource Names (ARNs).</p> </li> <li>
+     * <p> <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot
+     * identifiers.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * cluster snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of
+     * database engines.</p> </li> </ul>
      */
     inline DescribeDBClusterSnapshotsRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB cluster snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-cluster-id</code> - Accepts DB
+     * cluster identifiers and DB cluster Amazon Resource Names (ARNs).</p> </li> <li>
+     * <p> <code>db-cluster-snapshot-id</code> - Accepts DB cluster snapshot
+     * identifiers.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * cluster snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of
+     * database engines.</p> </li> </ul>
      */
     inline DescribeDBClusterSnapshotsRequest& AddFilters(Filter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
 
@@ -434,32 +482,32 @@ namespace Model
     /**
      * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
-     * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * called a marker is included in the response so you can retrieve the remaining
+     * results. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
 
     /**
      * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
-     * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * called a marker is included in the response so you can retrieve the remaining
+     * results. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
 
     /**
      * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
-     * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * called a marker is included in the response so you can retrieve the remaining
+     * results. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
      * <p>The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
-     * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * called a marker is included in the response so you can retrieve the remaining
+     * results. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline DescribeDBClusterSnapshotsRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
 

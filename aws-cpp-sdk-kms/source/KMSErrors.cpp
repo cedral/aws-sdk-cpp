@@ -35,6 +35,7 @@ static const int INVALID_IMPORT_TOKEN_HASH = HashingUtils::HashString("InvalidIm
 static const int K_M_S_INVALID_STATE_HASH = HashingUtils::HashString("KMSInvalidStateException");
 static const int INVALID_KEY_USAGE_HASH = HashingUtils::HashString("InvalidKeyUsageException");
 static const int LIMIT_EXCEEDED_HASH = HashingUtils::HashString("LimitExceededException");
+static const int INCORRECT_KEY_HASH = HashingUtils::HashString("IncorrectKeyException");
 static const int CUSTOM_KEY_STORE_NOT_FOUND_HASH = HashingUtils::HashString("CustomKeyStoreNotFoundException");
 static const int K_M_S_INTERNAL_HASH = HashingUtils::HashString("KMSInternalException");
 static const int CLOUD_HSM_CLUSTER_NOT_RELATED_HASH = HashingUtils::HashString("CloudHsmClusterNotRelatedException");
@@ -57,6 +58,7 @@ static const int CLOUD_HSM_CLUSTER_IN_USE_HASH = HashingUtils::HashString("Cloud
 static const int INVALID_ARN_HASH = HashingUtils::HashString("InvalidArnException");
 static const int KEY_UNAVAILABLE_HASH = HashingUtils::HashString("KeyUnavailableException");
 static const int INVALID_CIPHERTEXT_HASH = HashingUtils::HashString("InvalidCiphertextException");
+static const int K_M_S_INVALID_SIGNATURE_HASH = HashingUtils::HashString("KMSInvalidSignatureException");
 static const int CUSTOM_KEY_STORE_INVALID_STATE_HASH = HashingUtils::HashString("CustomKeyStoreInvalidStateException");
 static const int EXPIRED_IMPORT_TOKEN_HASH = HashingUtils::HashString("ExpiredImportTokenException");
 
@@ -92,6 +94,10 @@ AWSError<CoreErrors> GetErrorForName(const char* errorName)
   else if (hashCode == LIMIT_EXCEEDED_HASH)
   {
     return AWSError<CoreErrors>(static_cast<CoreErrors>(KMSErrors::LIMIT_EXCEEDED), false);
+  }
+  else if (hashCode == INCORRECT_KEY_HASH)
+  {
+    return AWSError<CoreErrors>(static_cast<CoreErrors>(KMSErrors::INCORRECT_KEY), false);
   }
   else if (hashCode == CUSTOM_KEY_STORE_NOT_FOUND_HASH)
   {
@@ -180,6 +186,10 @@ AWSError<CoreErrors> GetErrorForName(const char* errorName)
   else if (hashCode == INVALID_CIPHERTEXT_HASH)
   {
     return AWSError<CoreErrors>(static_cast<CoreErrors>(KMSErrors::INVALID_CIPHERTEXT), false);
+  }
+  else if (hashCode == K_M_S_INVALID_SIGNATURE_HASH)
+  {
+    return AWSError<CoreErrors>(static_cast<CoreErrors>(KMSErrors::K_M_S_INVALID_SIGNATURE), false);
   }
   else if (hashCode == CUSTOM_KEY_STORE_INVALID_STATE_HASH)
   {

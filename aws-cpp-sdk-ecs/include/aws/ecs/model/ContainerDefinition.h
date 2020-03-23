@@ -22,6 +22,7 @@
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/ecs/model/LogConfiguration.h>
 #include <aws/ecs/model/HealthCheck.h>
+#include <aws/ecs/model/FirelensConfiguration.h>
 #include <aws/ecs/model/PortMapping.h>
 #include <aws/ecs/model/KeyValuePair.h>
 #include <aws/ecs/model/MountPoint.h>
@@ -479,27 +480,19 @@ namespace Model
      * determine the number of CPU units that are available per EC2 instance type by
      * multiplying the vCPUs listed for that instance type on the <a
      * href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instances</a> detail
-     * page by 1,024.</p> </note> <p>For example, if you run a single-container task on
-     * a single-core instance type with 512 CPU units specified for that container, and
+     * page by 1,024.</p> </note> <p>Linux containers share unallocated CPU units with
+     * other containers on the container instance with the same ratio as their
+     * allocated amount. For example, if you run a single-container task on a
+     * single-core instance type with 512 CPU units specified for that container, and
      * that is the only task running on the container instance, that container could
      * use the full 1,024 CPU unit share at any given time. However, if you launched
      * another copy of the same task on that container instance, each task would be
      * guaranteed a minimum of 512 CPU units when needed, and each container could
      * float to higher CPU usage if the other container was not using it, but if both
      * tasks were 100% active all of the time, they would be limited to 512 CPU
-     * units.</p> <p>Linux containers share unallocated CPU units with other containers
-     * on the container instance with the same ratio as their allocated amount. For
-     * example, if you run a single-container task on a single-core instance type with
-     * 512 CPU units specified for that container, and that is the only task running on
-     * the container instance, that container could use the full 1,024 CPU unit share
-     * at any given time. However, if you launched another copy of the same task on
-     * that container instance, each task would be guaranteed a minimum of 512 CPU
-     * units when needed, and each container could float to higher CPU usage if the
-     * other container was not using it, but if both tasks were 100% active all of the
-     * time, they would be limited to 512 CPU units.</p> <p>On Linux container
-     * instances, the Docker daemon on the container instance uses the CPU value to
-     * calculate the relative CPU share ratios for running containers. For more
-     * information, see <a
+     * units.</p> <p>On Linux container instances, the Docker daemon on the container
+     * instance uses the CPU value to calculate the relative CPU share ratios for
+     * running containers. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#cpu-share-constraint">CPU
      * share constraint</a> in the Docker documentation. The minimum valid CPU share
      * value that the Linux kernel allows is 2. However, the CPU parameter is not
@@ -531,27 +524,19 @@ namespace Model
      * determine the number of CPU units that are available per EC2 instance type by
      * multiplying the vCPUs listed for that instance type on the <a
      * href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instances</a> detail
-     * page by 1,024.</p> </note> <p>For example, if you run a single-container task on
-     * a single-core instance type with 512 CPU units specified for that container, and
+     * page by 1,024.</p> </note> <p>Linux containers share unallocated CPU units with
+     * other containers on the container instance with the same ratio as their
+     * allocated amount. For example, if you run a single-container task on a
+     * single-core instance type with 512 CPU units specified for that container, and
      * that is the only task running on the container instance, that container could
      * use the full 1,024 CPU unit share at any given time. However, if you launched
      * another copy of the same task on that container instance, each task would be
      * guaranteed a minimum of 512 CPU units when needed, and each container could
      * float to higher CPU usage if the other container was not using it, but if both
      * tasks were 100% active all of the time, they would be limited to 512 CPU
-     * units.</p> <p>Linux containers share unallocated CPU units with other containers
-     * on the container instance with the same ratio as their allocated amount. For
-     * example, if you run a single-container task on a single-core instance type with
-     * 512 CPU units specified for that container, and that is the only task running on
-     * the container instance, that container could use the full 1,024 CPU unit share
-     * at any given time. However, if you launched another copy of the same task on
-     * that container instance, each task would be guaranteed a minimum of 512 CPU
-     * units when needed, and each container could float to higher CPU usage if the
-     * other container was not using it, but if both tasks were 100% active all of the
-     * time, they would be limited to 512 CPU units.</p> <p>On Linux container
-     * instances, the Docker daemon on the container instance uses the CPU value to
-     * calculate the relative CPU share ratios for running containers. For more
-     * information, see <a
+     * units.</p> <p>On Linux container instances, the Docker daemon on the container
+     * instance uses the CPU value to calculate the relative CPU share ratios for
+     * running containers. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#cpu-share-constraint">CPU
      * share constraint</a> in the Docker documentation. The minimum valid CPU share
      * value that the Linux kernel allows is 2. However, the CPU parameter is not
@@ -583,27 +568,19 @@ namespace Model
      * determine the number of CPU units that are available per EC2 instance type by
      * multiplying the vCPUs listed for that instance type on the <a
      * href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instances</a> detail
-     * page by 1,024.</p> </note> <p>For example, if you run a single-container task on
-     * a single-core instance type with 512 CPU units specified for that container, and
+     * page by 1,024.</p> </note> <p>Linux containers share unallocated CPU units with
+     * other containers on the container instance with the same ratio as their
+     * allocated amount. For example, if you run a single-container task on a
+     * single-core instance type with 512 CPU units specified for that container, and
      * that is the only task running on the container instance, that container could
      * use the full 1,024 CPU unit share at any given time. However, if you launched
      * another copy of the same task on that container instance, each task would be
      * guaranteed a minimum of 512 CPU units when needed, and each container could
      * float to higher CPU usage if the other container was not using it, but if both
      * tasks were 100% active all of the time, they would be limited to 512 CPU
-     * units.</p> <p>Linux containers share unallocated CPU units with other containers
-     * on the container instance with the same ratio as their allocated amount. For
-     * example, if you run a single-container task on a single-core instance type with
-     * 512 CPU units specified for that container, and that is the only task running on
-     * the container instance, that container could use the full 1,024 CPU unit share
-     * at any given time. However, if you launched another copy of the same task on
-     * that container instance, each task would be guaranteed a minimum of 512 CPU
-     * units when needed, and each container could float to higher CPU usage if the
-     * other container was not using it, but if both tasks were 100% active all of the
-     * time, they would be limited to 512 CPU units.</p> <p>On Linux container
-     * instances, the Docker daemon on the container instance uses the CPU value to
-     * calculate the relative CPU share ratios for running containers. For more
-     * information, see <a
+     * units.</p> <p>On Linux container instances, the Docker daemon on the container
+     * instance uses the CPU value to calculate the relative CPU share ratios for
+     * running containers. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#cpu-share-constraint">CPU
      * share constraint</a> in the Docker documentation. The minimum valid CPU share
      * value that the Linux kernel allows is 2. However, the CPU parameter is not
@@ -635,27 +612,19 @@ namespace Model
      * determine the number of CPU units that are available per EC2 instance type by
      * multiplying the vCPUs listed for that instance type on the <a
      * href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instances</a> detail
-     * page by 1,024.</p> </note> <p>For example, if you run a single-container task on
-     * a single-core instance type with 512 CPU units specified for that container, and
+     * page by 1,024.</p> </note> <p>Linux containers share unallocated CPU units with
+     * other containers on the container instance with the same ratio as their
+     * allocated amount. For example, if you run a single-container task on a
+     * single-core instance type with 512 CPU units specified for that container, and
      * that is the only task running on the container instance, that container could
      * use the full 1,024 CPU unit share at any given time. However, if you launched
      * another copy of the same task on that container instance, each task would be
      * guaranteed a minimum of 512 CPU units when needed, and each container could
      * float to higher CPU usage if the other container was not using it, but if both
      * tasks were 100% active all of the time, they would be limited to 512 CPU
-     * units.</p> <p>Linux containers share unallocated CPU units with other containers
-     * on the container instance with the same ratio as their allocated amount. For
-     * example, if you run a single-container task on a single-core instance type with
-     * 512 CPU units specified for that container, and that is the only task running on
-     * the container instance, that container could use the full 1,024 CPU unit share
-     * at any given time. However, if you launched another copy of the same task on
-     * that container instance, each task would be guaranteed a minimum of 512 CPU
-     * units when needed, and each container could float to higher CPU usage if the
-     * other container was not using it, but if both tasks were 100% active all of the
-     * time, they would be limited to 512 CPU units.</p> <p>On Linux container
-     * instances, the Docker daemon on the container instance uses the CPU value to
-     * calculate the relative CPU share ratios for running containers. For more
-     * information, see <a
+     * units.</p> <p>On Linux container instances, the Docker daemon on the container
+     * instance uses the CPU value to calculate the relative CPU share ratios for
+     * running containers. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#cpu-share-constraint">CPU
      * share constraint</a> in the Docker documentation. The minimum valid CPU share
      * value that the Linux kernel allows is 2. However, the CPU parameter is not
@@ -685,10 +654,10 @@ namespace Model
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>--memory</code> option to <a
      * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>If
-     * your containers are part of a task using the Fargate launch type, this field is
-     * optional.</p> <p>For containers that are part of a task using the EC2 launch
-     * type, you must specify a non-zero integer for one or both of <code>memory</code>
-     * or <code>memoryReservation</code> in container definitions. If you specify both,
+     * using the Fargate launch type, this parameter is optional.</p> <p>If using the
+     * EC2 launch type, you must specify either a task-level memory value or a
+     * container-level memory value. If you specify both a container-level
+     * <code>memory</code> and <code>memoryReservation</code> value,
      * <code>memory</code> must be greater than <code>memoryReservation</code>. If you
      * specify <code>memoryReservation</code>, then that value is subtracted from the
      * available memory resources for the container instance on which the container is
@@ -709,10 +678,10 @@ namespace Model
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>--memory</code> option to <a
      * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>If
-     * your containers are part of a task using the Fargate launch type, this field is
-     * optional.</p> <p>For containers that are part of a task using the EC2 launch
-     * type, you must specify a non-zero integer for one or both of <code>memory</code>
-     * or <code>memoryReservation</code> in container definitions. If you specify both,
+     * using the Fargate launch type, this parameter is optional.</p> <p>If using the
+     * EC2 launch type, you must specify either a task-level memory value or a
+     * container-level memory value. If you specify both a container-level
+     * <code>memory</code> and <code>memoryReservation</code> value,
      * <code>memory</code> must be greater than <code>memoryReservation</code>. If you
      * specify <code>memoryReservation</code>, then that value is subtracted from the
      * available memory resources for the container instance on which the container is
@@ -733,10 +702,10 @@ namespace Model
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>--memory</code> option to <a
      * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>If
-     * your containers are part of a task using the Fargate launch type, this field is
-     * optional.</p> <p>For containers that are part of a task using the EC2 launch
-     * type, you must specify a non-zero integer for one or both of <code>memory</code>
-     * or <code>memoryReservation</code> in container definitions. If you specify both,
+     * using the Fargate launch type, this parameter is optional.</p> <p>If using the
+     * EC2 launch type, you must specify either a task-level memory value or a
+     * container-level memory value. If you specify both a container-level
+     * <code>memory</code> and <code>memoryReservation</code> value,
      * <code>memory</code> must be greater than <code>memoryReservation</code>. If you
      * specify <code>memoryReservation</code>, then that value is subtracted from the
      * available memory resources for the container instance on which the container is
@@ -757,10 +726,10 @@ namespace Model
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>--memory</code> option to <a
      * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>If
-     * your containers are part of a task using the Fargate launch type, this field is
-     * optional.</p> <p>For containers that are part of a task using the EC2 launch
-     * type, you must specify a non-zero integer for one or both of <code>memory</code>
-     * or <code>memoryReservation</code> in container definitions. If you specify both,
+     * using the Fargate launch type, this parameter is optional.</p> <p>If using the
+     * EC2 launch type, you must specify either a task-level memory value or a
+     * container-level memory value. If you specify both a container-level
+     * <code>memory</code> and <code>memoryReservation</code> value,
      * <code>memory</code> must be greater than <code>memoryReservation</code>. If you
      * specify <code>memoryReservation</code>, then that value is subtracted from the
      * available memory resources for the container instance on which the container is
@@ -783,21 +752,22 @@ namespace Model
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>--memory-reservation</code> option to <a
-     * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>You
-     * must specify a non-zero integer for one or both of <code>memory</code> or
-     * <code>memoryReservation</code> in container definitions. If you specify both,
-     * <code>memory</code> must be greater than <code>memoryReservation</code>. If you
-     * specify <code>memoryReservation</code>, then that value is subtracted from the
-     * available memory resources for the container instance on which the container is
-     * placed. Otherwise, the value of <code>memory</code> is used.</p> <p>For example,
-     * if your container normally uses 128 MiB of memory, but occasionally bursts to
-     * 256 MiB of memory for short periods of time, you can set a
-     * <code>memoryReservation</code> of 128 MiB, and a <code>memory</code> hard limit
-     * of 300 MiB. This configuration would allow the container to only reserve 128 MiB
-     * of memory from the remaining resources on the container instance, but also allow
-     * the container to consume more memory resources when needed.</p> <p>The Docker
-     * daemon reserves a minimum of 4 MiB of memory for a container, so you should not
-     * specify fewer than 4 MiB of memory for your containers. </p>
+     * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>If a
+     * task-level memory value is not specified, you must specify a non-zero integer
+     * for one or both of <code>memory</code> or <code>memoryReservation</code> in a
+     * container definition. If you specify both, <code>memory</code> must be greater
+     * than <code>memoryReservation</code>. If you specify
+     * <code>memoryReservation</code>, then that value is subtracted from the available
+     * memory resources for the container instance on which the container is placed.
+     * Otherwise, the value of <code>memory</code> is used.</p> <p>For example, if your
+     * container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of
+     * memory for short periods of time, you can set a <code>memoryReservation</code>
+     * of 128 MiB, and a <code>memory</code> hard limit of 300 MiB. This configuration
+     * would allow the container to only reserve 128 MiB of memory from the remaining
+     * resources on the container instance, but also allow the container to consume
+     * more memory resources when needed.</p> <p>The Docker daemon reserves a minimum
+     * of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB
+     * of memory for your containers. </p>
      */
     inline int GetMemoryReservation() const{ return m_memoryReservation; }
 
@@ -813,21 +783,22 @@ namespace Model
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>--memory-reservation</code> option to <a
-     * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>You
-     * must specify a non-zero integer for one or both of <code>memory</code> or
-     * <code>memoryReservation</code> in container definitions. If you specify both,
-     * <code>memory</code> must be greater than <code>memoryReservation</code>. If you
-     * specify <code>memoryReservation</code>, then that value is subtracted from the
-     * available memory resources for the container instance on which the container is
-     * placed. Otherwise, the value of <code>memory</code> is used.</p> <p>For example,
-     * if your container normally uses 128 MiB of memory, but occasionally bursts to
-     * 256 MiB of memory for short periods of time, you can set a
-     * <code>memoryReservation</code> of 128 MiB, and a <code>memory</code> hard limit
-     * of 300 MiB. This configuration would allow the container to only reserve 128 MiB
-     * of memory from the remaining resources on the container instance, but also allow
-     * the container to consume more memory resources when needed.</p> <p>The Docker
-     * daemon reserves a minimum of 4 MiB of memory for a container, so you should not
-     * specify fewer than 4 MiB of memory for your containers. </p>
+     * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>If a
+     * task-level memory value is not specified, you must specify a non-zero integer
+     * for one or both of <code>memory</code> or <code>memoryReservation</code> in a
+     * container definition. If you specify both, <code>memory</code> must be greater
+     * than <code>memoryReservation</code>. If you specify
+     * <code>memoryReservation</code>, then that value is subtracted from the available
+     * memory resources for the container instance on which the container is placed.
+     * Otherwise, the value of <code>memory</code> is used.</p> <p>For example, if your
+     * container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of
+     * memory for short periods of time, you can set a <code>memoryReservation</code>
+     * of 128 MiB, and a <code>memory</code> hard limit of 300 MiB. This configuration
+     * would allow the container to only reserve 128 MiB of memory from the remaining
+     * resources on the container instance, but also allow the container to consume
+     * more memory resources when needed.</p> <p>The Docker daemon reserves a minimum
+     * of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB
+     * of memory for your containers. </p>
      */
     inline bool MemoryReservationHasBeenSet() const { return m_memoryReservationHasBeenSet; }
 
@@ -843,21 +814,22 @@ namespace Model
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>--memory-reservation</code> option to <a
-     * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>You
-     * must specify a non-zero integer for one or both of <code>memory</code> or
-     * <code>memoryReservation</code> in container definitions. If you specify both,
-     * <code>memory</code> must be greater than <code>memoryReservation</code>. If you
-     * specify <code>memoryReservation</code>, then that value is subtracted from the
-     * available memory resources for the container instance on which the container is
-     * placed. Otherwise, the value of <code>memory</code> is used.</p> <p>For example,
-     * if your container normally uses 128 MiB of memory, but occasionally bursts to
-     * 256 MiB of memory for short periods of time, you can set a
-     * <code>memoryReservation</code> of 128 MiB, and a <code>memory</code> hard limit
-     * of 300 MiB. This configuration would allow the container to only reserve 128 MiB
-     * of memory from the remaining resources on the container instance, but also allow
-     * the container to consume more memory resources when needed.</p> <p>The Docker
-     * daemon reserves a minimum of 4 MiB of memory for a container, so you should not
-     * specify fewer than 4 MiB of memory for your containers. </p>
+     * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>If a
+     * task-level memory value is not specified, you must specify a non-zero integer
+     * for one or both of <code>memory</code> or <code>memoryReservation</code> in a
+     * container definition. If you specify both, <code>memory</code> must be greater
+     * than <code>memoryReservation</code>. If you specify
+     * <code>memoryReservation</code>, then that value is subtracted from the available
+     * memory resources for the container instance on which the container is placed.
+     * Otherwise, the value of <code>memory</code> is used.</p> <p>For example, if your
+     * container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of
+     * memory for short periods of time, you can set a <code>memoryReservation</code>
+     * of 128 MiB, and a <code>memory</code> hard limit of 300 MiB. This configuration
+     * would allow the container to only reserve 128 MiB of memory from the remaining
+     * resources on the container instance, but also allow the container to consume
+     * more memory resources when needed.</p> <p>The Docker daemon reserves a minimum
+     * of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB
+     * of memory for your containers. </p>
      */
     inline void SetMemoryReservation(int value) { m_memoryReservationHasBeenSet = true; m_memoryReservation = value; }
 
@@ -873,21 +845,22 @@ namespace Model
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
      * <code>--memory-reservation</code> option to <a
-     * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>You
-     * must specify a non-zero integer for one or both of <code>memory</code> or
-     * <code>memoryReservation</code> in container definitions. If you specify both,
-     * <code>memory</code> must be greater than <code>memoryReservation</code>. If you
-     * specify <code>memoryReservation</code>, then that value is subtracted from the
-     * available memory resources for the container instance on which the container is
-     * placed. Otherwise, the value of <code>memory</code> is used.</p> <p>For example,
-     * if your container normally uses 128 MiB of memory, but occasionally bursts to
-     * 256 MiB of memory for short periods of time, you can set a
-     * <code>memoryReservation</code> of 128 MiB, and a <code>memory</code> hard limit
-     * of 300 MiB. This configuration would allow the container to only reserve 128 MiB
-     * of memory from the remaining resources on the container instance, but also allow
-     * the container to consume more memory resources when needed.</p> <p>The Docker
-     * daemon reserves a minimum of 4 MiB of memory for a container, so you should not
-     * specify fewer than 4 MiB of memory for your containers. </p>
+     * href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p> <p>If a
+     * task-level memory value is not specified, you must specify a non-zero integer
+     * for one or both of <code>memory</code> or <code>memoryReservation</code> in a
+     * container definition. If you specify both, <code>memory</code> must be greater
+     * than <code>memoryReservation</code>. If you specify
+     * <code>memoryReservation</code>, then that value is subtracted from the available
+     * memory resources for the container instance on which the container is placed.
+     * Otherwise, the value of <code>memory</code> is used.</p> <p>For example, if your
+     * container normally uses 128 MiB of memory, but occasionally bursts to 256 MiB of
+     * memory for short periods of time, you can set a <code>memoryReservation</code>
+     * of 128 MiB, and a <code>memory</code> hard limit of 300 MiB. This configuration
+     * would allow the container to only reserve 128 MiB of memory from the remaining
+     * resources on the container instance, but also allow the container to consume
+     * more memory resources when needed.</p> <p>The Docker daemon reserves a minimum
+     * of 4 MiB of memory for a container, so you should not specify fewer than 4 MiB
+     * of memory for your containers. </p>
      */
     inline ContainerDefinition& WithMemoryReservation(int value) { SetMemoryReservation(value); return *this;}
 
@@ -2107,9 +2080,8 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p> <p>For tasks using the Fargate launch type, the task or service
+     * requires platform version <code>1.3.0</code> or later.</p>
      */
     inline const Aws::Vector<ContainerDependency>& GetDependsOn() const{ return m_dependsOn; }
 
@@ -2130,9 +2102,8 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p> <p>For tasks using the Fargate launch type, the task or service
+     * requires platform version <code>1.3.0</code> or later.</p>
      */
     inline bool DependsOnHasBeenSet() const { return m_dependsOnHasBeenSet; }
 
@@ -2153,9 +2124,8 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p> <p>For tasks using the Fargate launch type, the task or service
+     * requires platform version <code>1.3.0</code> or later.</p>
      */
     inline void SetDependsOn(const Aws::Vector<ContainerDependency>& value) { m_dependsOnHasBeenSet = true; m_dependsOn = value; }
 
@@ -2176,9 +2146,8 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p> <p>For tasks using the Fargate launch type, the task or service
+     * requires platform version <code>1.3.0</code> or later.</p>
      */
     inline void SetDependsOn(Aws::Vector<ContainerDependency>&& value) { m_dependsOnHasBeenSet = true; m_dependsOn = std::move(value); }
 
@@ -2199,9 +2168,8 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p> <p>For tasks using the Fargate launch type, the task or service
+     * requires platform version <code>1.3.0</code> or later.</p>
      */
     inline ContainerDefinition& WithDependsOn(const Aws::Vector<ContainerDependency>& value) { SetDependsOn(value); return *this;}
 
@@ -2222,9 +2190,8 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p> <p>For tasks using the Fargate launch type, the task or service
+     * requires platform version <code>1.3.0</code> or later.</p>
      */
     inline ContainerDefinition& WithDependsOn(Aws::Vector<ContainerDependency>&& value) { SetDependsOn(std::move(value)); return *this;}
 
@@ -2245,9 +2212,8 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p> <p>For tasks using the Fargate launch type, the task or service
+     * requires platform version <code>1.3.0</code> or later.</p>
      */
     inline ContainerDefinition& AddDependsOn(const ContainerDependency& value) { m_dependsOnHasBeenSet = true; m_dependsOn.push_back(value); return *this; }
 
@@ -2268,26 +2234,33 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p> <p>For tasks using the Fargate launch type, the task or service
+     * requires platform version <code>1.3.0</code> or later.</p>
      */
     inline ContainerDefinition& AddDependsOn(ContainerDependency&& value) { m_dependsOnHasBeenSet = true; m_dependsOn.push_back(std::move(value)); return *this; }
 
 
     /**
-     * <p>Time duration to wait before giving up on resolving dependencies for a
-     * container. For example, you specify two containers in a task definition with
-     * containerA having a dependency on containerB reaching a <code>COMPLETE</code>,
-     * <code>SUCCESS</code>, or <code>HEALTHY</code> status. If a
-     * <code>startTimeout</code> value is specified for containerB and it does not
+     * <p>Time duration (in seconds) to wait before giving up on resolving dependencies
+     * for a container. For example, you specify two containers in a task definition
+     * with containerA having a dependency on containerB reaching a
+     * <code>COMPLETE</code>, <code>SUCCESS</code>, or <code>HEALTHY</code> status. If
+     * a <code>startTimeout</code> value is specified for containerB and it does not
      * reach the desired status within that time then containerA will give up and not
      * start. This results in the task transitioning to a <code>STOPPED</code>
-     * state.</p> <p>For tasks using the EC2 launch type, the container instances
-     * require at least version 1.26.0 of the container agent to enable a container
-     * start timeout value. However, we recommend using the latest container agent
-     * version. For information about checking your agent version and updating to the
-     * latest version, see <a
+     * state.</p> <p>For tasks using the Fargate launch type, this parameter requires
+     * that the task or service uses platform version 1.3.0 or later. If this parameter
+     * is not specified, the default value of 3 minutes is used.</p> <p>For tasks using
+     * the EC2 launch type, if the <code>startTimeout</code> parameter is not
+     * specified, the value set for the Amazon ECS container agent configuration
+     * variable <code>ECS_CONTAINER_START_TIMEOUT</code> is used by default. If neither
+     * the <code>startTimeout</code> parameter or the
+     * <code>ECS_CONTAINER_START_TIMEOUT</code> agent configuration variable are set,
+     * then the default values of 3 minutes for Linux containers and 8 minutes on
+     * Windows containers are used. Your container instances require at least version
+     * 1.26.0 of the container agent to enable a container start timeout value.
+     * However, we recommend using the latest container agent version. For information
+     * about checking your agent version and updating to the latest version, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating
      * the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>. If you are using an Amazon ECS-optimized Linux AMI, your
@@ -2297,25 +2270,31 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p>
      */
     inline int GetStartTimeout() const{ return m_startTimeout; }
 
     /**
-     * <p>Time duration to wait before giving up on resolving dependencies for a
-     * container. For example, you specify two containers in a task definition with
-     * containerA having a dependency on containerB reaching a <code>COMPLETE</code>,
-     * <code>SUCCESS</code>, or <code>HEALTHY</code> status. If a
-     * <code>startTimeout</code> value is specified for containerB and it does not
+     * <p>Time duration (in seconds) to wait before giving up on resolving dependencies
+     * for a container. For example, you specify two containers in a task definition
+     * with containerA having a dependency on containerB reaching a
+     * <code>COMPLETE</code>, <code>SUCCESS</code>, or <code>HEALTHY</code> status. If
+     * a <code>startTimeout</code> value is specified for containerB and it does not
      * reach the desired status within that time then containerA will give up and not
      * start. This results in the task transitioning to a <code>STOPPED</code>
-     * state.</p> <p>For tasks using the EC2 launch type, the container instances
-     * require at least version 1.26.0 of the container agent to enable a container
-     * start timeout value. However, we recommend using the latest container agent
-     * version. For information about checking your agent version and updating to the
-     * latest version, see <a
+     * state.</p> <p>For tasks using the Fargate launch type, this parameter requires
+     * that the task or service uses platform version 1.3.0 or later. If this parameter
+     * is not specified, the default value of 3 minutes is used.</p> <p>For tasks using
+     * the EC2 launch type, if the <code>startTimeout</code> parameter is not
+     * specified, the value set for the Amazon ECS container agent configuration
+     * variable <code>ECS_CONTAINER_START_TIMEOUT</code> is used by default. If neither
+     * the <code>startTimeout</code> parameter or the
+     * <code>ECS_CONTAINER_START_TIMEOUT</code> agent configuration variable are set,
+     * then the default values of 3 minutes for Linux containers and 8 minutes on
+     * Windows containers are used. Your container instances require at least version
+     * 1.26.0 of the container agent to enable a container start timeout value.
+     * However, we recommend using the latest container agent version. For information
+     * about checking your agent version and updating to the latest version, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating
      * the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>. If you are using an Amazon ECS-optimized Linux AMI, your
@@ -2325,25 +2304,31 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p>
      */
     inline bool StartTimeoutHasBeenSet() const { return m_startTimeoutHasBeenSet; }
 
     /**
-     * <p>Time duration to wait before giving up on resolving dependencies for a
-     * container. For example, you specify two containers in a task definition with
-     * containerA having a dependency on containerB reaching a <code>COMPLETE</code>,
-     * <code>SUCCESS</code>, or <code>HEALTHY</code> status. If a
-     * <code>startTimeout</code> value is specified for containerB and it does not
+     * <p>Time duration (in seconds) to wait before giving up on resolving dependencies
+     * for a container. For example, you specify two containers in a task definition
+     * with containerA having a dependency on containerB reaching a
+     * <code>COMPLETE</code>, <code>SUCCESS</code>, or <code>HEALTHY</code> status. If
+     * a <code>startTimeout</code> value is specified for containerB and it does not
      * reach the desired status within that time then containerA will give up and not
      * start. This results in the task transitioning to a <code>STOPPED</code>
-     * state.</p> <p>For tasks using the EC2 launch type, the container instances
-     * require at least version 1.26.0 of the container agent to enable a container
-     * start timeout value. However, we recommend using the latest container agent
-     * version. For information about checking your agent version and updating to the
-     * latest version, see <a
+     * state.</p> <p>For tasks using the Fargate launch type, this parameter requires
+     * that the task or service uses platform version 1.3.0 or later. If this parameter
+     * is not specified, the default value of 3 minutes is used.</p> <p>For tasks using
+     * the EC2 launch type, if the <code>startTimeout</code> parameter is not
+     * specified, the value set for the Amazon ECS container agent configuration
+     * variable <code>ECS_CONTAINER_START_TIMEOUT</code> is used by default. If neither
+     * the <code>startTimeout</code> parameter or the
+     * <code>ECS_CONTAINER_START_TIMEOUT</code> agent configuration variable are set,
+     * then the default values of 3 minutes for Linux containers and 8 minutes on
+     * Windows containers are used. Your container instances require at least version
+     * 1.26.0 of the container agent to enable a container start timeout value.
+     * However, we recommend using the latest container agent version. For information
+     * about checking your agent version and updating to the latest version, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating
      * the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>. If you are using an Amazon ECS-optimized Linux AMI, your
@@ -2353,25 +2338,31 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p>
      */
     inline void SetStartTimeout(int value) { m_startTimeoutHasBeenSet = true; m_startTimeout = value; }
 
     /**
-     * <p>Time duration to wait before giving up on resolving dependencies for a
-     * container. For example, you specify two containers in a task definition with
-     * containerA having a dependency on containerB reaching a <code>COMPLETE</code>,
-     * <code>SUCCESS</code>, or <code>HEALTHY</code> status. If a
-     * <code>startTimeout</code> value is specified for containerB and it does not
+     * <p>Time duration (in seconds) to wait before giving up on resolving dependencies
+     * for a container. For example, you specify two containers in a task definition
+     * with containerA having a dependency on containerB reaching a
+     * <code>COMPLETE</code>, <code>SUCCESS</code>, or <code>HEALTHY</code> status. If
+     * a <code>startTimeout</code> value is specified for containerB and it does not
      * reach the desired status within that time then containerA will give up and not
      * start. This results in the task transitioning to a <code>STOPPED</code>
-     * state.</p> <p>For tasks using the EC2 launch type, the container instances
-     * require at least version 1.26.0 of the container agent to enable a container
-     * start timeout value. However, we recommend using the latest container agent
-     * version. For information about checking your agent version and updating to the
-     * latest version, see <a
+     * state.</p> <p>For tasks using the Fargate launch type, this parameter requires
+     * that the task or service uses platform version 1.3.0 or later. If this parameter
+     * is not specified, the default value of 3 minutes is used.</p> <p>For tasks using
+     * the EC2 launch type, if the <code>startTimeout</code> parameter is not
+     * specified, the value set for the Amazon ECS container agent configuration
+     * variable <code>ECS_CONTAINER_START_TIMEOUT</code> is used by default. If neither
+     * the <code>startTimeout</code> parameter or the
+     * <code>ECS_CONTAINER_START_TIMEOUT</code> agent configuration variable are set,
+     * then the default values of 3 minutes for Linux containers and 8 minutes on
+     * Windows containers are used. Your container instances require at least version
+     * 1.26.0 of the container agent to enable a container start timeout value.
+     * However, we recommend using the latest container agent version. For information
+     * about checking your agent version and updating to the latest version, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating
      * the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>. If you are using an Amazon ECS-optimized Linux AMI, your
@@ -2381,25 +2372,27 @@ namespace Model
      * <code>ecs-init</code>. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon
      * ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <p>This parameter is available for tasks using the Fargate launch
-     * type in the Ohio (us-east-2) region only and the task or service requires
-     * platform version 1.3.0 or later.</p>
+     * Guide</i>.</p>
      */
     inline ContainerDefinition& WithStartTimeout(int value) { SetStartTimeout(value); return *this;}
 
 
     /**
-     * <p>Time duration to wait before the container is forcefully killed if it doesn't
-     * exit normally on its own. For tasks using the Fargate launch type, the max
-     * <code>stopTimeout</code> value is 2 minutes. This parameter is available for
-     * tasks using the Fargate launch type in the Ohio (us-east-2) region only and the
-     * task or service requires platform version 1.3.0 or later.</p> <p>For tasks using
-     * the EC2 launch type, the stop timeout value for the container takes precedence
-     * over the <code>ECS_CONTAINER_STOP_TIMEOUT</code> container agent configuration
-     * parameter, if used. Container instances require at least version 1.26.0 of the
-     * container agent to enable a container stop timeout value. However, we recommend
-     * using the latest container agent version. For information about checking your
-     * agent version and updating to the latest version, see <a
+     * <p>Time duration (in seconds) to wait before the container is forcefully killed
+     * if it doesn't exit normally on its own.</p> <p>For tasks using the Fargate
+     * launch type, the task or service requires platform version 1.3.0 or later. The
+     * max stop timeout value is 120 seconds and if the parameter is not specified, the
+     * default value of 30 seconds is used.</p> <p>For tasks using the EC2 launch type,
+     * if the <code>stopTimeout</code> parameter is not specified, the value set for
+     * the Amazon ECS container agent configuration variable
+     * <code>ECS_CONTAINER_STOP_TIMEOUT</code> is used by default. If neither the
+     * <code>stopTimeout</code> parameter or the
+     * <code>ECS_CONTAINER_STOP_TIMEOUT</code> agent configuration variable are set,
+     * then the default values of 30 seconds for Linux containers and 30 seconds on
+     * Windows containers are used. Your container instances require at least version
+     * 1.26.0 of the container agent to enable a container stop timeout value. However,
+     * we recommend using the latest container agent version. For information about
+     * checking your agent version and updating to the latest version, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating
      * the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>. If you are using an Amazon ECS-optimized Linux AMI, your
@@ -2414,17 +2407,21 @@ namespace Model
     inline int GetStopTimeout() const{ return m_stopTimeout; }
 
     /**
-     * <p>Time duration to wait before the container is forcefully killed if it doesn't
-     * exit normally on its own. For tasks using the Fargate launch type, the max
-     * <code>stopTimeout</code> value is 2 minutes. This parameter is available for
-     * tasks using the Fargate launch type in the Ohio (us-east-2) region only and the
-     * task or service requires platform version 1.3.0 or later.</p> <p>For tasks using
-     * the EC2 launch type, the stop timeout value for the container takes precedence
-     * over the <code>ECS_CONTAINER_STOP_TIMEOUT</code> container agent configuration
-     * parameter, if used. Container instances require at least version 1.26.0 of the
-     * container agent to enable a container stop timeout value. However, we recommend
-     * using the latest container agent version. For information about checking your
-     * agent version and updating to the latest version, see <a
+     * <p>Time duration (in seconds) to wait before the container is forcefully killed
+     * if it doesn't exit normally on its own.</p> <p>For tasks using the Fargate
+     * launch type, the task or service requires platform version 1.3.0 or later. The
+     * max stop timeout value is 120 seconds and if the parameter is not specified, the
+     * default value of 30 seconds is used.</p> <p>For tasks using the EC2 launch type,
+     * if the <code>stopTimeout</code> parameter is not specified, the value set for
+     * the Amazon ECS container agent configuration variable
+     * <code>ECS_CONTAINER_STOP_TIMEOUT</code> is used by default. If neither the
+     * <code>stopTimeout</code> parameter or the
+     * <code>ECS_CONTAINER_STOP_TIMEOUT</code> agent configuration variable are set,
+     * then the default values of 30 seconds for Linux containers and 30 seconds on
+     * Windows containers are used. Your container instances require at least version
+     * 1.26.0 of the container agent to enable a container stop timeout value. However,
+     * we recommend using the latest container agent version. For information about
+     * checking your agent version and updating to the latest version, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating
      * the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>. If you are using an Amazon ECS-optimized Linux AMI, your
@@ -2439,17 +2436,21 @@ namespace Model
     inline bool StopTimeoutHasBeenSet() const { return m_stopTimeoutHasBeenSet; }
 
     /**
-     * <p>Time duration to wait before the container is forcefully killed if it doesn't
-     * exit normally on its own. For tasks using the Fargate launch type, the max
-     * <code>stopTimeout</code> value is 2 minutes. This parameter is available for
-     * tasks using the Fargate launch type in the Ohio (us-east-2) region only and the
-     * task or service requires platform version 1.3.0 or later.</p> <p>For tasks using
-     * the EC2 launch type, the stop timeout value for the container takes precedence
-     * over the <code>ECS_CONTAINER_STOP_TIMEOUT</code> container agent configuration
-     * parameter, if used. Container instances require at least version 1.26.0 of the
-     * container agent to enable a container stop timeout value. However, we recommend
-     * using the latest container agent version. For information about checking your
-     * agent version and updating to the latest version, see <a
+     * <p>Time duration (in seconds) to wait before the container is forcefully killed
+     * if it doesn't exit normally on its own.</p> <p>For tasks using the Fargate
+     * launch type, the task or service requires platform version 1.3.0 or later. The
+     * max stop timeout value is 120 seconds and if the parameter is not specified, the
+     * default value of 30 seconds is used.</p> <p>For tasks using the EC2 launch type,
+     * if the <code>stopTimeout</code> parameter is not specified, the value set for
+     * the Amazon ECS container agent configuration variable
+     * <code>ECS_CONTAINER_STOP_TIMEOUT</code> is used by default. If neither the
+     * <code>stopTimeout</code> parameter or the
+     * <code>ECS_CONTAINER_STOP_TIMEOUT</code> agent configuration variable are set,
+     * then the default values of 30 seconds for Linux containers and 30 seconds on
+     * Windows containers are used. Your container instances require at least version
+     * 1.26.0 of the container agent to enable a container stop timeout value. However,
+     * we recommend using the latest container agent version. For information about
+     * checking your agent version and updating to the latest version, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating
      * the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>. If you are using an Amazon ECS-optimized Linux AMI, your
@@ -2464,17 +2465,21 @@ namespace Model
     inline void SetStopTimeout(int value) { m_stopTimeoutHasBeenSet = true; m_stopTimeout = value; }
 
     /**
-     * <p>Time duration to wait before the container is forcefully killed if it doesn't
-     * exit normally on its own. For tasks using the Fargate launch type, the max
-     * <code>stopTimeout</code> value is 2 minutes. This parameter is available for
-     * tasks using the Fargate launch type in the Ohio (us-east-2) region only and the
-     * task or service requires platform version 1.3.0 or later.</p> <p>For tasks using
-     * the EC2 launch type, the stop timeout value for the container takes precedence
-     * over the <code>ECS_CONTAINER_STOP_TIMEOUT</code> container agent configuration
-     * parameter, if used. Container instances require at least version 1.26.0 of the
-     * container agent to enable a container stop timeout value. However, we recommend
-     * using the latest container agent version. For information about checking your
-     * agent version and updating to the latest version, see <a
+     * <p>Time duration (in seconds) to wait before the container is forcefully killed
+     * if it doesn't exit normally on its own.</p> <p>For tasks using the Fargate
+     * launch type, the task or service requires platform version 1.3.0 or later. The
+     * max stop timeout value is 120 seconds and if the parameter is not specified, the
+     * default value of 30 seconds is used.</p> <p>For tasks using the EC2 launch type,
+     * if the <code>stopTimeout</code> parameter is not specified, the value set for
+     * the Amazon ECS container agent configuration variable
+     * <code>ECS_CONTAINER_STOP_TIMEOUT</code> is used by default. If neither the
+     * <code>stopTimeout</code> parameter or the
+     * <code>ECS_CONTAINER_STOP_TIMEOUT</code> agent configuration variable are set,
+     * then the default values of 30 seconds for Linux containers and 30 seconds on
+     * Windows containers are used. Your container instances require at least version
+     * 1.26.0 of the container agent to enable a container stop timeout value. However,
+     * we recommend using the latest container agent version. For information about
+     * checking your agent version and updating to the latest version, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating
      * the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>. If you are using an Amazon ECS-optimized Linux AMI, your
@@ -3301,8 +3306,13 @@ namespace Model
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3315,16 +3325,20 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline const Aws::Vector<Aws::String>& GetDockerSecurityOptions() const{ return m_dockerSecurityOptions; }
 
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3337,16 +3351,20 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline bool DockerSecurityOptionsHasBeenSet() const { return m_dockerSecurityOptionsHasBeenSet; }
 
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3359,16 +3377,20 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline void SetDockerSecurityOptions(const Aws::Vector<Aws::String>& value) { m_dockerSecurityOptionsHasBeenSet = true; m_dockerSecurityOptions = value; }
 
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3381,16 +3403,20 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline void SetDockerSecurityOptions(Aws::Vector<Aws::String>&& value) { m_dockerSecurityOptionsHasBeenSet = true; m_dockerSecurityOptions = std::move(value); }
 
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3403,16 +3429,20 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline ContainerDefinition& WithDockerSecurityOptions(const Aws::Vector<Aws::String>& value) { SetDockerSecurityOptions(value); return *this;}
 
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3425,16 +3455,20 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline ContainerDefinition& WithDockerSecurityOptions(Aws::Vector<Aws::String>&& value) { SetDockerSecurityOptions(std::move(value)); return *this;}
 
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3447,16 +3481,20 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline ContainerDefinition& AddDockerSecurityOptions(const Aws::String& value) { m_dockerSecurityOptionsHasBeenSet = true; m_dockerSecurityOptions.push_back(value); return *this; }
 
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3469,16 +3507,20 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline ContainerDefinition& AddDockerSecurityOptions(Aws::String&& value) { m_dockerSecurityOptionsHasBeenSet = true; m_dockerSecurityOptions.push_back(std::move(value)); return *this; }
 
     /**
      * <p>A list of strings to provide custom labels for SELinux and AppArmor
      * multi-level security systems. This field is not valid for containers in tasks
-     * using the Fargate launch type.</p> <p>This parameter maps to
-     * <code>SecurityOpt</code> in the <a
+     * using the Fargate launch type.</p> <p>With Windows containers, this parameter
+     * can be used to reference a credential spec file when configuring a container for
+     * Active Directory authentication. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/windows-gmsa.html">Using
+     * gMSAs for Windows Containers</a> in the <i>Amazon Elastic Container Service
+     * Developer Guide</i>.</p> <p>This parameter maps to <code>SecurityOpt</code> in
+     * the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3491,8 +3533,7 @@ namespace Model
      * see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
      * ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service
-     * Developer Guide</i>.</p> </note> <note> <p>This parameter is not supported for
-     * Windows containers.</p> </note>
+     * Developer Guide</i>.</p> </note>
      */
     inline ContainerDefinition& AddDockerSecurityOptions(const char* value) { m_dockerSecurityOptionsHasBeenSet = true; m_dockerSecurityOptions.push_back(value); return *this; }
 
@@ -3925,13 +3966,8 @@ namespace Model
 
 
     /**
-     * <p>The log configuration specification for the container.</p> <p>For tasks using
-     * the Fargate launch type, the supported log drivers are <code>awslogs</code> and
-     * <code>splunk</code>.</p> <p>For tasks using the EC2 launch type, the supported
-     * log drivers are <code>awslogs</code>, <code>syslog</code>, <code>gelf</code>,
-     * <code>fluentd</code>, <code>splunk</code>, <code>journald</code>, and
-     * <code>json-file</code>.</p> <p>This parameter maps to <code>LogConfig</code> in
-     * the <a
+     * <p>The log configuration specification for the container.</p> <p>This parameter
+     * maps to <code>LogConfig</code> in the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -3965,13 +4001,8 @@ namespace Model
     inline const LogConfiguration& GetLogConfiguration() const{ return m_logConfiguration; }
 
     /**
-     * <p>The log configuration specification for the container.</p> <p>For tasks using
-     * the Fargate launch type, the supported log drivers are <code>awslogs</code> and
-     * <code>splunk</code>.</p> <p>For tasks using the EC2 launch type, the supported
-     * log drivers are <code>awslogs</code>, <code>syslog</code>, <code>gelf</code>,
-     * <code>fluentd</code>, <code>splunk</code>, <code>journald</code>, and
-     * <code>json-file</code>.</p> <p>This parameter maps to <code>LogConfig</code> in
-     * the <a
+     * <p>The log configuration specification for the container.</p> <p>This parameter
+     * maps to <code>LogConfig</code> in the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -4005,13 +4036,8 @@ namespace Model
     inline bool LogConfigurationHasBeenSet() const { return m_logConfigurationHasBeenSet; }
 
     /**
-     * <p>The log configuration specification for the container.</p> <p>For tasks using
-     * the Fargate launch type, the supported log drivers are <code>awslogs</code> and
-     * <code>splunk</code>.</p> <p>For tasks using the EC2 launch type, the supported
-     * log drivers are <code>awslogs</code>, <code>syslog</code>, <code>gelf</code>,
-     * <code>fluentd</code>, <code>splunk</code>, <code>journald</code>, and
-     * <code>json-file</code>.</p> <p>This parameter maps to <code>LogConfig</code> in
-     * the <a
+     * <p>The log configuration specification for the container.</p> <p>This parameter
+     * maps to <code>LogConfig</code> in the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -4045,13 +4071,8 @@ namespace Model
     inline void SetLogConfiguration(const LogConfiguration& value) { m_logConfigurationHasBeenSet = true; m_logConfiguration = value; }
 
     /**
-     * <p>The log configuration specification for the container.</p> <p>For tasks using
-     * the Fargate launch type, the supported log drivers are <code>awslogs</code> and
-     * <code>splunk</code>.</p> <p>For tasks using the EC2 launch type, the supported
-     * log drivers are <code>awslogs</code>, <code>syslog</code>, <code>gelf</code>,
-     * <code>fluentd</code>, <code>splunk</code>, <code>journald</code>, and
-     * <code>json-file</code>.</p> <p>This parameter maps to <code>LogConfig</code> in
-     * the <a
+     * <p>The log configuration specification for the container.</p> <p>This parameter
+     * maps to <code>LogConfig</code> in the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -4085,13 +4106,8 @@ namespace Model
     inline void SetLogConfiguration(LogConfiguration&& value) { m_logConfigurationHasBeenSet = true; m_logConfiguration = std::move(value); }
 
     /**
-     * <p>The log configuration specification for the container.</p> <p>For tasks using
-     * the Fargate launch type, the supported log drivers are <code>awslogs</code> and
-     * <code>splunk</code>.</p> <p>For tasks using the EC2 launch type, the supported
-     * log drivers are <code>awslogs</code>, <code>syslog</code>, <code>gelf</code>,
-     * <code>fluentd</code>, <code>splunk</code>, <code>journald</code>, and
-     * <code>json-file</code>.</p> <p>This parameter maps to <code>LogConfig</code> in
-     * the <a
+     * <p>The log configuration specification for the container.</p> <p>This parameter
+     * maps to <code>LogConfig</code> in the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -4125,13 +4141,8 @@ namespace Model
     inline ContainerDefinition& WithLogConfiguration(const LogConfiguration& value) { SetLogConfiguration(value); return *this;}
 
     /**
-     * <p>The log configuration specification for the container.</p> <p>For tasks using
-     * the Fargate launch type, the supported log drivers are <code>awslogs</code> and
-     * <code>splunk</code>.</p> <p>For tasks using the EC2 launch type, the supported
-     * log drivers are <code>awslogs</code>, <code>syslog</code>, <code>gelf</code>,
-     * <code>fluentd</code>, <code>splunk</code>, <code>journald</code>, and
-     * <code>json-file</code>.</p> <p>This parameter maps to <code>LogConfig</code> in
-     * the <a
+     * <p>The log configuration specification for the container.</p> <p>This parameter
+     * maps to <code>LogConfig</code> in the <a
      * href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create
      * a container</a> section of the <a
      * href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
@@ -4433,6 +4444,61 @@ namespace Model
      */
     inline ContainerDefinition& AddResourceRequirements(ResourceRequirement&& value) { m_resourceRequirementsHasBeenSet = true; m_resourceRequirements.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>The FireLens configuration for the container. This is used to specify and
+     * configure a log router for container logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
+     * Log Routing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p>
+     */
+    inline const FirelensConfiguration& GetFirelensConfiguration() const{ return m_firelensConfiguration; }
+
+    /**
+     * <p>The FireLens configuration for the container. This is used to specify and
+     * configure a log router for container logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
+     * Log Routing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p>
+     */
+    inline bool FirelensConfigurationHasBeenSet() const { return m_firelensConfigurationHasBeenSet; }
+
+    /**
+     * <p>The FireLens configuration for the container. This is used to specify and
+     * configure a log router for container logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
+     * Log Routing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p>
+     */
+    inline void SetFirelensConfiguration(const FirelensConfiguration& value) { m_firelensConfigurationHasBeenSet = true; m_firelensConfiguration = value; }
+
+    /**
+     * <p>The FireLens configuration for the container. This is used to specify and
+     * configure a log router for container logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
+     * Log Routing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p>
+     */
+    inline void SetFirelensConfiguration(FirelensConfiguration&& value) { m_firelensConfigurationHasBeenSet = true; m_firelensConfiguration = std::move(value); }
+
+    /**
+     * <p>The FireLens configuration for the container. This is used to specify and
+     * configure a log router for container logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
+     * Log Routing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p>
+     */
+    inline ContainerDefinition& WithFirelensConfiguration(const FirelensConfiguration& value) { SetFirelensConfiguration(value); return *this;}
+
+    /**
+     * <p>The FireLens configuration for the container. This is used to specify and
+     * configure a log router for container logs. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom
+     * Log Routing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p>
+     */
+    inline ContainerDefinition& WithFirelensConfiguration(FirelensConfiguration&& value) { SetFirelensConfiguration(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_name;
@@ -4545,6 +4611,9 @@ namespace Model
 
     Aws::Vector<ResourceRequirement> m_resourceRequirements;
     bool m_resourceRequirementsHasBeenSet;
+
+    FirelensConfiguration m_firelensConfiguration;
+    bool m_firelensConfigurationHasBeenSet;
   };
 
 } // namespace Model

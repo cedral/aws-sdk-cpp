@@ -33,6 +33,12 @@ namespace GuardDuty
 namespace Model
 {
 
+  /**
+   * <p>Contains information about a tag associated with the Ec2
+   * instance.</p><p><h3>See Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/guardduty-2017-11-28/Tag">AWS API
+   * Reference</a></p>
+   */
   class AWS_GUARDDUTY_API Tag
   {
   public:

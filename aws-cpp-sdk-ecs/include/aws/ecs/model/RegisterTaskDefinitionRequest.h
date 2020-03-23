@@ -27,6 +27,7 @@
 #include <aws/ecs/model/TaskDefinitionPlacementConstraint.h>
 #include <aws/ecs/model/Compatibility.h>
 #include <aws/ecs/model/Tag.h>
+#include <aws/ecs/model/InferenceAccelerator.h>
 #include <utility>
 
 namespace Aws
@@ -1065,64 +1066,160 @@ namespace Model
     /**
      * <p>The metadata that you apply to the task definition to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
     /**
      * <p>The metadata that you apply to the task definition to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The metadata that you apply to the task definition to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
      * <p>The metadata that you apply to the task definition to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
     /**
      * <p>The metadata that you apply to the task definition to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline RegisterTaskDefinitionRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
     /**
      * <p>The metadata that you apply to the task definition to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline RegisterTaskDefinitionRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
     /**
      * <p>The metadata that you apply to the task definition to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline RegisterTaskDefinitionRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
     /**
      * <p>The metadata that you apply to the task definition to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline RegisterTaskDefinitionRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
@@ -1131,10 +1228,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1149,10 +1246,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1167,10 +1264,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1185,10 +1282,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1203,10 +1300,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1221,10 +1318,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1441,6 +1538,47 @@ namespace Model
     
     inline RegisterTaskDefinitionRequest& WithProxyConfiguration(ProxyConfiguration&& value) { SetProxyConfiguration(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+     */
+    inline const Aws::Vector<InferenceAccelerator>& GetInferenceAccelerators() const{ return m_inferenceAccelerators; }
+
+    /**
+     * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+     */
+    inline bool InferenceAcceleratorsHasBeenSet() const { return m_inferenceAcceleratorsHasBeenSet; }
+
+    /**
+     * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+     */
+    inline void SetInferenceAccelerators(const Aws::Vector<InferenceAccelerator>& value) { m_inferenceAcceleratorsHasBeenSet = true; m_inferenceAccelerators = value; }
+
+    /**
+     * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+     */
+    inline void SetInferenceAccelerators(Aws::Vector<InferenceAccelerator>&& value) { m_inferenceAcceleratorsHasBeenSet = true; m_inferenceAccelerators = std::move(value); }
+
+    /**
+     * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+     */
+    inline RegisterTaskDefinitionRequest& WithInferenceAccelerators(const Aws::Vector<InferenceAccelerator>& value) { SetInferenceAccelerators(value); return *this;}
+
+    /**
+     * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+     */
+    inline RegisterTaskDefinitionRequest& WithInferenceAccelerators(Aws::Vector<InferenceAccelerator>&& value) { SetInferenceAccelerators(std::move(value)); return *this;}
+
+    /**
+     * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+     */
+    inline RegisterTaskDefinitionRequest& AddInferenceAccelerators(const InferenceAccelerator& value) { m_inferenceAcceleratorsHasBeenSet = true; m_inferenceAccelerators.push_back(value); return *this; }
+
+    /**
+     * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
+     */
+    inline RegisterTaskDefinitionRequest& AddInferenceAccelerators(InferenceAccelerator&& value) { m_inferenceAcceleratorsHasBeenSet = true; m_inferenceAccelerators.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_family;
@@ -1484,6 +1622,9 @@ namespace Model
 
     ProxyConfiguration m_proxyConfiguration;
     bool m_proxyConfigurationHasBeenSet;
+
+    Aws::Vector<InferenceAccelerator> m_inferenceAccelerators;
+    bool m_inferenceAcceleratorsHasBeenSet;
   };
 
 } // namespace Model

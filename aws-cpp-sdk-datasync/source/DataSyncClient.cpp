@@ -33,16 +33,20 @@
 #include <aws/datasync/model/CancelTaskExecutionRequest.h>
 #include <aws/datasync/model/CreateAgentRequest.h>
 #include <aws/datasync/model/CreateLocationEfsRequest.h>
+#include <aws/datasync/model/CreateLocationFsxWindowsRequest.h>
 #include <aws/datasync/model/CreateLocationNfsRequest.h>
 #include <aws/datasync/model/CreateLocationS3Request.h>
+#include <aws/datasync/model/CreateLocationSmbRequest.h>
 #include <aws/datasync/model/CreateTaskRequest.h>
 #include <aws/datasync/model/DeleteAgentRequest.h>
 #include <aws/datasync/model/DeleteLocationRequest.h>
 #include <aws/datasync/model/DeleteTaskRequest.h>
 #include <aws/datasync/model/DescribeAgentRequest.h>
 #include <aws/datasync/model/DescribeLocationEfsRequest.h>
+#include <aws/datasync/model/DescribeLocationFsxWindowsRequest.h>
 #include <aws/datasync/model/DescribeLocationNfsRequest.h>
 #include <aws/datasync/model/DescribeLocationS3Request.h>
+#include <aws/datasync/model/DescribeLocationSmbRequest.h>
 #include <aws/datasync/model/DescribeTaskRequest.h>
 #include <aws/datasync/model/DescribeTaskExecutionRequest.h>
 #include <aws/datasync/model/ListAgentsRequest.h>
@@ -134,7 +138,7 @@ CancelTaskExecutionOutcome DataSyncClient::CancelTaskExecution(const CancelTaskE
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelTaskExecutionOutcome(CancelTaskExecutionResult(outcome.GetResult()));
@@ -169,7 +173,7 @@ CreateAgentOutcome DataSyncClient::CreateAgent(const CreateAgentRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAgentOutcome(CreateAgentResult(outcome.GetResult()));
@@ -204,7 +208,7 @@ CreateLocationEfsOutcome DataSyncClient::CreateLocationEfs(const CreateLocationE
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateLocationEfsOutcome(CreateLocationEfsResult(outcome.GetResult()));
@@ -233,13 +237,48 @@ void DataSyncClient::CreateLocationEfsAsyncHelper(const CreateLocationEfsRequest
   handler(this, request, CreateLocationEfs(request), context);
 }
 
+CreateLocationFsxWindowsOutcome DataSyncClient::CreateLocationFsxWindows(const CreateLocationFsxWindowsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateLocationFsxWindowsOutcome(CreateLocationFsxWindowsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateLocationFsxWindowsOutcome(outcome.GetError());
+  }
+}
+
+CreateLocationFsxWindowsOutcomeCallable DataSyncClient::CreateLocationFsxWindowsCallable(const CreateLocationFsxWindowsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateLocationFsxWindowsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateLocationFsxWindows(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DataSyncClient::CreateLocationFsxWindowsAsync(const CreateLocationFsxWindowsRequest& request, const CreateLocationFsxWindowsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateLocationFsxWindowsAsyncHelper( request, handler, context ); } );
+}
+
+void DataSyncClient::CreateLocationFsxWindowsAsyncHelper(const CreateLocationFsxWindowsRequest& request, const CreateLocationFsxWindowsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateLocationFsxWindows(request), context);
+}
+
 CreateLocationNfsOutcome DataSyncClient::CreateLocationNfs(const CreateLocationNfsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateLocationNfsOutcome(CreateLocationNfsResult(outcome.GetResult()));
@@ -274,7 +313,7 @@ CreateLocationS3Outcome DataSyncClient::CreateLocationS3(const CreateLocationS3R
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateLocationS3Outcome(CreateLocationS3Result(outcome.GetResult()));
@@ -303,13 +342,48 @@ void DataSyncClient::CreateLocationS3AsyncHelper(const CreateLocationS3Request& 
   handler(this, request, CreateLocationS3(request), context);
 }
 
+CreateLocationSmbOutcome DataSyncClient::CreateLocationSmb(const CreateLocationSmbRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateLocationSmbOutcome(CreateLocationSmbResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateLocationSmbOutcome(outcome.GetError());
+  }
+}
+
+CreateLocationSmbOutcomeCallable DataSyncClient::CreateLocationSmbCallable(const CreateLocationSmbRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateLocationSmbOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateLocationSmb(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DataSyncClient::CreateLocationSmbAsync(const CreateLocationSmbRequest& request, const CreateLocationSmbResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateLocationSmbAsyncHelper( request, handler, context ); } );
+}
+
+void DataSyncClient::CreateLocationSmbAsyncHelper(const CreateLocationSmbRequest& request, const CreateLocationSmbResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateLocationSmb(request), context);
+}
+
 CreateTaskOutcome DataSyncClient::CreateTask(const CreateTaskRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateTaskOutcome(CreateTaskResult(outcome.GetResult()));
@@ -344,7 +418,7 @@ DeleteAgentOutcome DataSyncClient::DeleteAgent(const DeleteAgentRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAgentOutcome(DeleteAgentResult(outcome.GetResult()));
@@ -379,7 +453,7 @@ DeleteLocationOutcome DataSyncClient::DeleteLocation(const DeleteLocationRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteLocationOutcome(DeleteLocationResult(outcome.GetResult()));
@@ -414,7 +488,7 @@ DeleteTaskOutcome DataSyncClient::DeleteTask(const DeleteTaskRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTaskOutcome(DeleteTaskResult(outcome.GetResult()));
@@ -449,7 +523,7 @@ DescribeAgentOutcome DataSyncClient::DescribeAgent(const DescribeAgentRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAgentOutcome(DescribeAgentResult(outcome.GetResult()));
@@ -484,7 +558,7 @@ DescribeLocationEfsOutcome DataSyncClient::DescribeLocationEfs(const DescribeLoc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeLocationEfsOutcome(DescribeLocationEfsResult(outcome.GetResult()));
@@ -513,13 +587,48 @@ void DataSyncClient::DescribeLocationEfsAsyncHelper(const DescribeLocationEfsReq
   handler(this, request, DescribeLocationEfs(request), context);
 }
 
+DescribeLocationFsxWindowsOutcome DataSyncClient::DescribeLocationFsxWindows(const DescribeLocationFsxWindowsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLocationFsxWindowsOutcome(DescribeLocationFsxWindowsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLocationFsxWindowsOutcome(outcome.GetError());
+  }
+}
+
+DescribeLocationFsxWindowsOutcomeCallable DataSyncClient::DescribeLocationFsxWindowsCallable(const DescribeLocationFsxWindowsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLocationFsxWindowsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLocationFsxWindows(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DataSyncClient::DescribeLocationFsxWindowsAsync(const DescribeLocationFsxWindowsRequest& request, const DescribeLocationFsxWindowsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLocationFsxWindowsAsyncHelper( request, handler, context ); } );
+}
+
+void DataSyncClient::DescribeLocationFsxWindowsAsyncHelper(const DescribeLocationFsxWindowsRequest& request, const DescribeLocationFsxWindowsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLocationFsxWindows(request), context);
+}
+
 DescribeLocationNfsOutcome DataSyncClient::DescribeLocationNfs(const DescribeLocationNfsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeLocationNfsOutcome(DescribeLocationNfsResult(outcome.GetResult()));
@@ -554,7 +663,7 @@ DescribeLocationS3Outcome DataSyncClient::DescribeLocationS3(const DescribeLocat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeLocationS3Outcome(DescribeLocationS3Result(outcome.GetResult()));
@@ -583,13 +692,48 @@ void DataSyncClient::DescribeLocationS3AsyncHelper(const DescribeLocationS3Reque
   handler(this, request, DescribeLocationS3(request), context);
 }
 
+DescribeLocationSmbOutcome DataSyncClient::DescribeLocationSmb(const DescribeLocationSmbRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLocationSmbOutcome(DescribeLocationSmbResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLocationSmbOutcome(outcome.GetError());
+  }
+}
+
+DescribeLocationSmbOutcomeCallable DataSyncClient::DescribeLocationSmbCallable(const DescribeLocationSmbRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLocationSmbOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLocationSmb(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DataSyncClient::DescribeLocationSmbAsync(const DescribeLocationSmbRequest& request, const DescribeLocationSmbResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLocationSmbAsyncHelper( request, handler, context ); } );
+}
+
+void DataSyncClient::DescribeLocationSmbAsyncHelper(const DescribeLocationSmbRequest& request, const DescribeLocationSmbResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLocationSmb(request), context);
+}
+
 DescribeTaskOutcome DataSyncClient::DescribeTask(const DescribeTaskRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeTaskOutcome(DescribeTaskResult(outcome.GetResult()));
@@ -624,7 +768,7 @@ DescribeTaskExecutionOutcome DataSyncClient::DescribeTaskExecution(const Describ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeTaskExecutionOutcome(DescribeTaskExecutionResult(outcome.GetResult()));
@@ -659,7 +803,7 @@ ListAgentsOutcome DataSyncClient::ListAgents(const ListAgentsRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAgentsOutcome(ListAgentsResult(outcome.GetResult()));
@@ -694,7 +838,7 @@ ListLocationsOutcome DataSyncClient::ListLocations(const ListLocationsRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListLocationsOutcome(ListLocationsResult(outcome.GetResult()));
@@ -729,7 +873,7 @@ ListTagsForResourceOutcome DataSyncClient::ListTagsForResource(const ListTagsFor
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -764,7 +908,7 @@ ListTaskExecutionsOutcome DataSyncClient::ListTaskExecutions(const ListTaskExecu
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTaskExecutionsOutcome(ListTaskExecutionsResult(outcome.GetResult()));
@@ -799,7 +943,7 @@ ListTasksOutcome DataSyncClient::ListTasks(const ListTasksRequest& request) cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTasksOutcome(ListTasksResult(outcome.GetResult()));
@@ -834,7 +978,7 @@ StartTaskExecutionOutcome DataSyncClient::StartTaskExecution(const StartTaskExec
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartTaskExecutionOutcome(StartTaskExecutionResult(outcome.GetResult()));
@@ -869,7 +1013,7 @@ TagResourceOutcome DataSyncClient::TagResource(const TagResourceRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -904,7 +1048,7 @@ UntagResourceOutcome DataSyncClient::UntagResource(const UntagResourceRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -939,7 +1083,7 @@ UpdateAgentOutcome DataSyncClient::UpdateAgent(const UpdateAgentRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAgentOutcome(UpdateAgentResult(outcome.GetResult()));
@@ -974,7 +1118,7 @@ UpdateTaskOutcome DataSyncClient::UpdateTask(const UpdateTaskRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateTaskOutcome(UpdateTaskResult(outcome.GetResult()));

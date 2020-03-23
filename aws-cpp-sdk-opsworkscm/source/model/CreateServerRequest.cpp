@@ -25,6 +25,9 @@ using namespace Aws::Utils;
 CreateServerRequest::CreateServerRequest() : 
     m_associatePublicIpAddress(false),
     m_associatePublicIpAddressHasBeenSet(false),
+    m_customDomainHasBeenSet(false),
+    m_customCertificateHasBeenSet(false),
+    m_customPrivateKeyHasBeenSet(false),
     m_disableAutomatedBackup(false),
     m_disableAutomatedBackupHasBeenSet(false),
     m_engineHasBeenSet(false),
@@ -42,6 +45,7 @@ CreateServerRequest::CreateServerRequest() :
     m_securityGroupIdsHasBeenSet(false),
     m_serviceRoleArnHasBeenSet(false),
     m_subnetIdsHasBeenSet(false),
+    m_tagsHasBeenSet(false),
     m_backupIdHasBeenSet(false)
 {
 }
@@ -53,6 +57,24 @@ Aws::String CreateServerRequest::SerializePayload() const
   if(m_associatePublicIpAddressHasBeenSet)
   {
    payload.WithBool("AssociatePublicIpAddress", m_associatePublicIpAddress);
+
+  }
+
+  if(m_customDomainHasBeenSet)
+  {
+   payload.WithString("CustomDomain", m_customDomain);
+
+  }
+
+  if(m_customCertificateHasBeenSet)
+  {
+   payload.WithString("CustomCertificate", m_customCertificate);
+
+  }
+
+  if(m_customPrivateKeyHasBeenSet)
+  {
+   payload.WithString("CustomPrivateKey", m_customPrivateKey);
 
   }
 
@@ -158,6 +180,17 @@ Aws::String CreateServerRequest::SerializePayload() const
      subnetIdsJsonList[subnetIdsIndex].AsString(m_subnetIds[subnetIdsIndex]);
    }
    payload.WithArray("SubnetIds", std::move(subnetIdsJsonList));
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   Array<JsonValue> tagsJsonList(m_tags.size());
+   for(unsigned tagsIndex = 0; tagsIndex < tagsJsonList.GetLength(); ++tagsIndex)
+   {
+     tagsJsonList[tagsIndex].AsObject(m_tags[tagsIndex].Jsonize());
+   }
+   payload.WithArray("Tags", std::move(tagsJsonList));
 
   }
 

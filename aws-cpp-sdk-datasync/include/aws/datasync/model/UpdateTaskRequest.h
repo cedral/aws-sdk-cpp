@@ -19,6 +19,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/datasync/model/Options.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/datasync/model/TaskSchedule.h>
 #include <aws/datasync/model/FilterRule.h>
 #include <utility>
 
@@ -119,60 +120,123 @@ namespace Model
 
 
     /**
-     * <p/> <p>A filter that determines which files to exclude from a task based on the
-     * specified pattern in the filter. Transfers all files in the task’s subdirectory,
-     * except files that match the filter that is set. </p>
+     * <p>A list of filter rules that determines which files to exclude from a task.
+     * The list should contain a single filter string that consists of the patterns to
+     * exclude. The patterns are delimited by "|" (that is, a pipe), for example:
+     * <code>"/folder1|/folder2"</code> </p> <p> </p>
      */
     inline const Aws::Vector<FilterRule>& GetExcludes() const{ return m_excludes; }
 
     /**
-     * <p/> <p>A filter that determines which files to exclude from a task based on the
-     * specified pattern in the filter. Transfers all files in the task’s subdirectory,
-     * except files that match the filter that is set. </p>
+     * <p>A list of filter rules that determines which files to exclude from a task.
+     * The list should contain a single filter string that consists of the patterns to
+     * exclude. The patterns are delimited by "|" (that is, a pipe), for example:
+     * <code>"/folder1|/folder2"</code> </p> <p> </p>
      */
     inline bool ExcludesHasBeenSet() const { return m_excludesHasBeenSet; }
 
     /**
-     * <p/> <p>A filter that determines which files to exclude from a task based on the
-     * specified pattern in the filter. Transfers all files in the task’s subdirectory,
-     * except files that match the filter that is set. </p>
+     * <p>A list of filter rules that determines which files to exclude from a task.
+     * The list should contain a single filter string that consists of the patterns to
+     * exclude. The patterns are delimited by "|" (that is, a pipe), for example:
+     * <code>"/folder1|/folder2"</code> </p> <p> </p>
      */
     inline void SetExcludes(const Aws::Vector<FilterRule>& value) { m_excludesHasBeenSet = true; m_excludes = value; }
 
     /**
-     * <p/> <p>A filter that determines which files to exclude from a task based on the
-     * specified pattern in the filter. Transfers all files in the task’s subdirectory,
-     * except files that match the filter that is set. </p>
+     * <p>A list of filter rules that determines which files to exclude from a task.
+     * The list should contain a single filter string that consists of the patterns to
+     * exclude. The patterns are delimited by "|" (that is, a pipe), for example:
+     * <code>"/folder1|/folder2"</code> </p> <p> </p>
      */
     inline void SetExcludes(Aws::Vector<FilterRule>&& value) { m_excludesHasBeenSet = true; m_excludes = std::move(value); }
 
     /**
-     * <p/> <p>A filter that determines which files to exclude from a task based on the
-     * specified pattern in the filter. Transfers all files in the task’s subdirectory,
-     * except files that match the filter that is set. </p>
+     * <p>A list of filter rules that determines which files to exclude from a task.
+     * The list should contain a single filter string that consists of the patterns to
+     * exclude. The patterns are delimited by "|" (that is, a pipe), for example:
+     * <code>"/folder1|/folder2"</code> </p> <p> </p>
      */
     inline UpdateTaskRequest& WithExcludes(const Aws::Vector<FilterRule>& value) { SetExcludes(value); return *this;}
 
     /**
-     * <p/> <p>A filter that determines which files to exclude from a task based on the
-     * specified pattern in the filter. Transfers all files in the task’s subdirectory,
-     * except files that match the filter that is set. </p>
+     * <p>A list of filter rules that determines which files to exclude from a task.
+     * The list should contain a single filter string that consists of the patterns to
+     * exclude. The patterns are delimited by "|" (that is, a pipe), for example:
+     * <code>"/folder1|/folder2"</code> </p> <p> </p>
      */
     inline UpdateTaskRequest& WithExcludes(Aws::Vector<FilterRule>&& value) { SetExcludes(std::move(value)); return *this;}
 
     /**
-     * <p/> <p>A filter that determines which files to exclude from a task based on the
-     * specified pattern in the filter. Transfers all files in the task’s subdirectory,
-     * except files that match the filter that is set. </p>
+     * <p>A list of filter rules that determines which files to exclude from a task.
+     * The list should contain a single filter string that consists of the patterns to
+     * exclude. The patterns are delimited by "|" (that is, a pipe), for example:
+     * <code>"/folder1|/folder2"</code> </p> <p> </p>
      */
     inline UpdateTaskRequest& AddExcludes(const FilterRule& value) { m_excludesHasBeenSet = true; m_excludes.push_back(value); return *this; }
 
     /**
-     * <p/> <p>A filter that determines which files to exclude from a task based on the
-     * specified pattern in the filter. Transfers all files in the task’s subdirectory,
-     * except files that match the filter that is set. </p>
+     * <p>A list of filter rules that determines which files to exclude from a task.
+     * The list should contain a single filter string that consists of the patterns to
+     * exclude. The patterns are delimited by "|" (that is, a pipe), for example:
+     * <code>"/folder1|/folder2"</code> </p> <p> </p>
      */
     inline UpdateTaskRequest& AddExcludes(FilterRule&& value) { m_excludesHasBeenSet = true; m_excludes.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>Specifies a schedule used to periodically transfer files from a source to a
+     * destination location. You can configure your task to execute hourly, daily,
+     * weekly or on specific days of the week. You control when in the day or hour you
+     * want the task to execute. The time you specify is UTC time. For more
+     * information, see <a>task-scheduling</a>.</p>
+     */
+    inline const TaskSchedule& GetSchedule() const{ return m_schedule; }
+
+    /**
+     * <p>Specifies a schedule used to periodically transfer files from a source to a
+     * destination location. You can configure your task to execute hourly, daily,
+     * weekly or on specific days of the week. You control when in the day or hour you
+     * want the task to execute. The time you specify is UTC time. For more
+     * information, see <a>task-scheduling</a>.</p>
+     */
+    inline bool ScheduleHasBeenSet() const { return m_scheduleHasBeenSet; }
+
+    /**
+     * <p>Specifies a schedule used to periodically transfer files from a source to a
+     * destination location. You can configure your task to execute hourly, daily,
+     * weekly or on specific days of the week. You control when in the day or hour you
+     * want the task to execute. The time you specify is UTC time. For more
+     * information, see <a>task-scheduling</a>.</p>
+     */
+    inline void SetSchedule(const TaskSchedule& value) { m_scheduleHasBeenSet = true; m_schedule = value; }
+
+    /**
+     * <p>Specifies a schedule used to periodically transfer files from a source to a
+     * destination location. You can configure your task to execute hourly, daily,
+     * weekly or on specific days of the week. You control when in the day or hour you
+     * want the task to execute. The time you specify is UTC time. For more
+     * information, see <a>task-scheduling</a>.</p>
+     */
+    inline void SetSchedule(TaskSchedule&& value) { m_scheduleHasBeenSet = true; m_schedule = std::move(value); }
+
+    /**
+     * <p>Specifies a schedule used to periodically transfer files from a source to a
+     * destination location. You can configure your task to execute hourly, daily,
+     * weekly or on specific days of the week. You control when in the day or hour you
+     * want the task to execute. The time you specify is UTC time. For more
+     * information, see <a>task-scheduling</a>.</p>
+     */
+    inline UpdateTaskRequest& WithSchedule(const TaskSchedule& value) { SetSchedule(value); return *this;}
+
+    /**
+     * <p>Specifies a schedule used to periodically transfer files from a source to a
+     * destination location. You can configure your task to execute hourly, daily,
+     * weekly or on specific days of the week. You control when in the day or hour you
+     * want the task to execute. The time you specify is UTC time. For more
+     * information, see <a>task-scheduling</a>.</p>
+     */
+    inline UpdateTaskRequest& WithSchedule(TaskSchedule&& value) { SetSchedule(std::move(value)); return *this;}
 
 
     /**
@@ -274,6 +338,9 @@ namespace Model
 
     Aws::Vector<FilterRule> m_excludes;
     bool m_excludesHasBeenSet;
+
+    TaskSchedule m_schedule;
+    bool m_scheduleHasBeenSet;
 
     Aws::String m_name;
     bool m_nameHasBeenSet;

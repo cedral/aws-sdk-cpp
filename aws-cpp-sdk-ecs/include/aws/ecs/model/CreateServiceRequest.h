@@ -26,6 +26,7 @@
 #include <aws/ecs/model/PropagateTags.h>
 #include <aws/ecs/model/LoadBalancer.h>
 #include <aws/ecs/model/ServiceRegistry.h>
+#include <aws/ecs/model/CapacityProviderStrategyItem.h>
 #include <aws/ecs/model/PlacementConstraint.h>
 #include <aws/ecs/model/PlacementStrategy.h>
 #include <aws/ecs/model/Tag.h>
@@ -252,306 +253,378 @@ namespace Model
 
 
     /**
-     * <p>A load balancer object representing the load balancer to use with your
-     * service.</p> <p>If the service is using the <code>ECS</code> deployment
-     * controller, you are limited to one load balancer or target group.</p> <p>If the
-     * service is using the <code>CODE_DEPLOY</code> deployment controller, the service
-     * is required to use either an Application Load Balancer or Network Load Balancer.
-     * When creating an AWS CodeDeploy deployment group, you specify two target groups
-     * (referred to as a <code>targetGroupPair</code>). During a deployment, AWS
-     * CodeDeploy determines which task set in your service has the status
-     * <code>PRIMARY</code> and associates one target group with it, and then
-     * associates the other target group with the replacement task set. The load
-     * balancer can also have up to two listeners: a required listener for production
-     * traffic and an optional listener that allows you perform validation tests with
-     * Lambda functions before routing production traffic to it.</p> <p>After you
-     * create a service using the <code>ECS</code> deployment controller, the load
-     * balancer name or target group ARN, container name, and container port specified
-     * in the service definition are immutable. If you are using the
-     * <code>CODE_DEPLOY</code> deployment controller, these values can be changed when
-     * updating the service.</p> <p>For Classic Load Balancers, this object must
-     * contain the load balancer name, the container name (as it appears in a container
+     * <p>A load balancer object representing the load balancers to use with your
+     * service. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+     * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p> <p>If the service is using the rolling update (<code>ECS</code>)
+     * deployment controller and using either an Application Load Balancer or Network
+     * Load Balancer, you can specify multiple target groups to attach to the service.
+     * The service-linked role is required for services that make use of multiple
+     * target groups. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+     * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
+     * Service Developer Guide</i>.</p> <p>If the service is using the
+     * <code>CODE_DEPLOY</code> deployment controller, the service is required to use
+     * either an Application Load Balancer or Network Load Balancer. When creating an
+     * AWS CodeDeploy deployment group, you specify two target groups (referred to as a
+     * <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
+     * which task set in your service has the status <code>PRIMARY</code> and
+     * associates one target group with it, and then associates the other target group
+     * with the replacement task set. The load balancer can also have up to two
+     * listeners: a required listener for production traffic and an optional listener
+     * that allows you perform validation tests with Lambda functions before routing
+     * production traffic to it.</p> <p>After you create a service using the
+     * <code>ECS</code> deployment controller, the load balancer name or target group
+     * ARN, container name, and container port specified in the service definition are
+     * immutable. If you are using the <code>CODE_DEPLOY</code> deployment controller,
+     * these values can be changed when updating the service.</p> <p>For Application
+     * Load Balancers and Network Load Balancers, this object must contain the load
+     * balancer target group ARN, the container name (as it appears in a container
      * definition), and the container port to access from the load balancer. When a
      * task from this service is placed on a container instance, the container instance
-     * is registered with the load balancer specified here.</p> <p>For Application Load
-     * Balancers and Network Load Balancers, this object must contain the load balancer
-     * target group ARN, the container name (as it appears in a container definition),
-     * and the container port to access from the load balancer. When a task from this
-     * service is placed on a container instance, the container instance and port
-     * combination is registered as a target in the target group specified here.</p>
-     * <p>Services with tasks that use the <code>awsvpc</code> network mode (for
-     * example, those with the Fargate launch type) only support Application Load
-     * Balancers and Network Load Balancers. Classic Load Balancers are not supported.
-     * Also, when you create any target groups for these services, you must choose
-     * <code>ip</code> as the target type, not <code>instance</code>, because tasks
-     * that use the <code>awsvpc</code> network mode are associated with an elastic
-     * network interface, not an Amazon EC2 instance.</p>
+     * and port combination is registered as a target in the target group specified
+     * here.</p> <p>For Classic Load Balancers, this object must contain the load
+     * balancer name, the container name (as it appears in a container definition), and
+     * the container port to access from the load balancer. When a task from this
+     * service is placed on a container instance, the container instance is registered
+     * with the load balancer specified here.</p> <p>Services with tasks that use the
+     * <code>awsvpc</code> network mode (for example, those with the Fargate launch
+     * type) only support Application Load Balancers and Network Load Balancers.
+     * Classic Load Balancers are not supported. Also, when you create any target
+     * groups for these services, you must choose <code>ip</code> as the target type,
+     * not <code>instance</code>, because tasks that use the <code>awsvpc</code>
+     * network mode are associated with an elastic network interface, not an Amazon EC2
+     * instance.</p>
      */
     inline const Aws::Vector<LoadBalancer>& GetLoadBalancers() const{ return m_loadBalancers; }
 
     /**
-     * <p>A load balancer object representing the load balancer to use with your
-     * service.</p> <p>If the service is using the <code>ECS</code> deployment
-     * controller, you are limited to one load balancer or target group.</p> <p>If the
-     * service is using the <code>CODE_DEPLOY</code> deployment controller, the service
-     * is required to use either an Application Load Balancer or Network Load Balancer.
-     * When creating an AWS CodeDeploy deployment group, you specify two target groups
-     * (referred to as a <code>targetGroupPair</code>). During a deployment, AWS
-     * CodeDeploy determines which task set in your service has the status
-     * <code>PRIMARY</code> and associates one target group with it, and then
-     * associates the other target group with the replacement task set. The load
-     * balancer can also have up to two listeners: a required listener for production
-     * traffic and an optional listener that allows you perform validation tests with
-     * Lambda functions before routing production traffic to it.</p> <p>After you
-     * create a service using the <code>ECS</code> deployment controller, the load
-     * balancer name or target group ARN, container name, and container port specified
-     * in the service definition are immutable. If you are using the
-     * <code>CODE_DEPLOY</code> deployment controller, these values can be changed when
-     * updating the service.</p> <p>For Classic Load Balancers, this object must
-     * contain the load balancer name, the container name (as it appears in a container
+     * <p>A load balancer object representing the load balancers to use with your
+     * service. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+     * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p> <p>If the service is using the rolling update (<code>ECS</code>)
+     * deployment controller and using either an Application Load Balancer or Network
+     * Load Balancer, you can specify multiple target groups to attach to the service.
+     * The service-linked role is required for services that make use of multiple
+     * target groups. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+     * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
+     * Service Developer Guide</i>.</p> <p>If the service is using the
+     * <code>CODE_DEPLOY</code> deployment controller, the service is required to use
+     * either an Application Load Balancer or Network Load Balancer. When creating an
+     * AWS CodeDeploy deployment group, you specify two target groups (referred to as a
+     * <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
+     * which task set in your service has the status <code>PRIMARY</code> and
+     * associates one target group with it, and then associates the other target group
+     * with the replacement task set. The load balancer can also have up to two
+     * listeners: a required listener for production traffic and an optional listener
+     * that allows you perform validation tests with Lambda functions before routing
+     * production traffic to it.</p> <p>After you create a service using the
+     * <code>ECS</code> deployment controller, the load balancer name or target group
+     * ARN, container name, and container port specified in the service definition are
+     * immutable. If you are using the <code>CODE_DEPLOY</code> deployment controller,
+     * these values can be changed when updating the service.</p> <p>For Application
+     * Load Balancers and Network Load Balancers, this object must contain the load
+     * balancer target group ARN, the container name (as it appears in a container
      * definition), and the container port to access from the load balancer. When a
      * task from this service is placed on a container instance, the container instance
-     * is registered with the load balancer specified here.</p> <p>For Application Load
-     * Balancers and Network Load Balancers, this object must contain the load balancer
-     * target group ARN, the container name (as it appears in a container definition),
-     * and the container port to access from the load balancer. When a task from this
-     * service is placed on a container instance, the container instance and port
-     * combination is registered as a target in the target group specified here.</p>
-     * <p>Services with tasks that use the <code>awsvpc</code> network mode (for
-     * example, those with the Fargate launch type) only support Application Load
-     * Balancers and Network Load Balancers. Classic Load Balancers are not supported.
-     * Also, when you create any target groups for these services, you must choose
-     * <code>ip</code> as the target type, not <code>instance</code>, because tasks
-     * that use the <code>awsvpc</code> network mode are associated with an elastic
-     * network interface, not an Amazon EC2 instance.</p>
+     * and port combination is registered as a target in the target group specified
+     * here.</p> <p>For Classic Load Balancers, this object must contain the load
+     * balancer name, the container name (as it appears in a container definition), and
+     * the container port to access from the load balancer. When a task from this
+     * service is placed on a container instance, the container instance is registered
+     * with the load balancer specified here.</p> <p>Services with tasks that use the
+     * <code>awsvpc</code> network mode (for example, those with the Fargate launch
+     * type) only support Application Load Balancers and Network Load Balancers.
+     * Classic Load Balancers are not supported. Also, when you create any target
+     * groups for these services, you must choose <code>ip</code> as the target type,
+     * not <code>instance</code>, because tasks that use the <code>awsvpc</code>
+     * network mode are associated with an elastic network interface, not an Amazon EC2
+     * instance.</p>
      */
     inline bool LoadBalancersHasBeenSet() const { return m_loadBalancersHasBeenSet; }
 
     /**
-     * <p>A load balancer object representing the load balancer to use with your
-     * service.</p> <p>If the service is using the <code>ECS</code> deployment
-     * controller, you are limited to one load balancer or target group.</p> <p>If the
-     * service is using the <code>CODE_DEPLOY</code> deployment controller, the service
-     * is required to use either an Application Load Balancer or Network Load Balancer.
-     * When creating an AWS CodeDeploy deployment group, you specify two target groups
-     * (referred to as a <code>targetGroupPair</code>). During a deployment, AWS
-     * CodeDeploy determines which task set in your service has the status
-     * <code>PRIMARY</code> and associates one target group with it, and then
-     * associates the other target group with the replacement task set. The load
-     * balancer can also have up to two listeners: a required listener for production
-     * traffic and an optional listener that allows you perform validation tests with
-     * Lambda functions before routing production traffic to it.</p> <p>After you
-     * create a service using the <code>ECS</code> deployment controller, the load
-     * balancer name or target group ARN, container name, and container port specified
-     * in the service definition are immutable. If you are using the
-     * <code>CODE_DEPLOY</code> deployment controller, these values can be changed when
-     * updating the service.</p> <p>For Classic Load Balancers, this object must
-     * contain the load balancer name, the container name (as it appears in a container
+     * <p>A load balancer object representing the load balancers to use with your
+     * service. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+     * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p> <p>If the service is using the rolling update (<code>ECS</code>)
+     * deployment controller and using either an Application Load Balancer or Network
+     * Load Balancer, you can specify multiple target groups to attach to the service.
+     * The service-linked role is required for services that make use of multiple
+     * target groups. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+     * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
+     * Service Developer Guide</i>.</p> <p>If the service is using the
+     * <code>CODE_DEPLOY</code> deployment controller, the service is required to use
+     * either an Application Load Balancer or Network Load Balancer. When creating an
+     * AWS CodeDeploy deployment group, you specify two target groups (referred to as a
+     * <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
+     * which task set in your service has the status <code>PRIMARY</code> and
+     * associates one target group with it, and then associates the other target group
+     * with the replacement task set. The load balancer can also have up to two
+     * listeners: a required listener for production traffic and an optional listener
+     * that allows you perform validation tests with Lambda functions before routing
+     * production traffic to it.</p> <p>After you create a service using the
+     * <code>ECS</code> deployment controller, the load balancer name or target group
+     * ARN, container name, and container port specified in the service definition are
+     * immutable. If you are using the <code>CODE_DEPLOY</code> deployment controller,
+     * these values can be changed when updating the service.</p> <p>For Application
+     * Load Balancers and Network Load Balancers, this object must contain the load
+     * balancer target group ARN, the container name (as it appears in a container
      * definition), and the container port to access from the load balancer. When a
      * task from this service is placed on a container instance, the container instance
-     * is registered with the load balancer specified here.</p> <p>For Application Load
-     * Balancers and Network Load Balancers, this object must contain the load balancer
-     * target group ARN, the container name (as it appears in a container definition),
-     * and the container port to access from the load balancer. When a task from this
-     * service is placed on a container instance, the container instance and port
-     * combination is registered as a target in the target group specified here.</p>
-     * <p>Services with tasks that use the <code>awsvpc</code> network mode (for
-     * example, those with the Fargate launch type) only support Application Load
-     * Balancers and Network Load Balancers. Classic Load Balancers are not supported.
-     * Also, when you create any target groups for these services, you must choose
-     * <code>ip</code> as the target type, not <code>instance</code>, because tasks
-     * that use the <code>awsvpc</code> network mode are associated with an elastic
-     * network interface, not an Amazon EC2 instance.</p>
+     * and port combination is registered as a target in the target group specified
+     * here.</p> <p>For Classic Load Balancers, this object must contain the load
+     * balancer name, the container name (as it appears in a container definition), and
+     * the container port to access from the load balancer. When a task from this
+     * service is placed on a container instance, the container instance is registered
+     * with the load balancer specified here.</p> <p>Services with tasks that use the
+     * <code>awsvpc</code> network mode (for example, those with the Fargate launch
+     * type) only support Application Load Balancers and Network Load Balancers.
+     * Classic Load Balancers are not supported. Also, when you create any target
+     * groups for these services, you must choose <code>ip</code> as the target type,
+     * not <code>instance</code>, because tasks that use the <code>awsvpc</code>
+     * network mode are associated with an elastic network interface, not an Amazon EC2
+     * instance.</p>
      */
     inline void SetLoadBalancers(const Aws::Vector<LoadBalancer>& value) { m_loadBalancersHasBeenSet = true; m_loadBalancers = value; }
 
     /**
-     * <p>A load balancer object representing the load balancer to use with your
-     * service.</p> <p>If the service is using the <code>ECS</code> deployment
-     * controller, you are limited to one load balancer or target group.</p> <p>If the
-     * service is using the <code>CODE_DEPLOY</code> deployment controller, the service
-     * is required to use either an Application Load Balancer or Network Load Balancer.
-     * When creating an AWS CodeDeploy deployment group, you specify two target groups
-     * (referred to as a <code>targetGroupPair</code>). During a deployment, AWS
-     * CodeDeploy determines which task set in your service has the status
-     * <code>PRIMARY</code> and associates one target group with it, and then
-     * associates the other target group with the replacement task set. The load
-     * balancer can also have up to two listeners: a required listener for production
-     * traffic and an optional listener that allows you perform validation tests with
-     * Lambda functions before routing production traffic to it.</p> <p>After you
-     * create a service using the <code>ECS</code> deployment controller, the load
-     * balancer name or target group ARN, container name, and container port specified
-     * in the service definition are immutable. If you are using the
-     * <code>CODE_DEPLOY</code> deployment controller, these values can be changed when
-     * updating the service.</p> <p>For Classic Load Balancers, this object must
-     * contain the load balancer name, the container name (as it appears in a container
+     * <p>A load balancer object representing the load balancers to use with your
+     * service. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+     * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p> <p>If the service is using the rolling update (<code>ECS</code>)
+     * deployment controller and using either an Application Load Balancer or Network
+     * Load Balancer, you can specify multiple target groups to attach to the service.
+     * The service-linked role is required for services that make use of multiple
+     * target groups. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+     * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
+     * Service Developer Guide</i>.</p> <p>If the service is using the
+     * <code>CODE_DEPLOY</code> deployment controller, the service is required to use
+     * either an Application Load Balancer or Network Load Balancer. When creating an
+     * AWS CodeDeploy deployment group, you specify two target groups (referred to as a
+     * <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
+     * which task set in your service has the status <code>PRIMARY</code> and
+     * associates one target group with it, and then associates the other target group
+     * with the replacement task set. The load balancer can also have up to two
+     * listeners: a required listener for production traffic and an optional listener
+     * that allows you perform validation tests with Lambda functions before routing
+     * production traffic to it.</p> <p>After you create a service using the
+     * <code>ECS</code> deployment controller, the load balancer name or target group
+     * ARN, container name, and container port specified in the service definition are
+     * immutable. If you are using the <code>CODE_DEPLOY</code> deployment controller,
+     * these values can be changed when updating the service.</p> <p>For Application
+     * Load Balancers and Network Load Balancers, this object must contain the load
+     * balancer target group ARN, the container name (as it appears in a container
      * definition), and the container port to access from the load balancer. When a
      * task from this service is placed on a container instance, the container instance
-     * is registered with the load balancer specified here.</p> <p>For Application Load
-     * Balancers and Network Load Balancers, this object must contain the load balancer
-     * target group ARN, the container name (as it appears in a container definition),
-     * and the container port to access from the load balancer. When a task from this
-     * service is placed on a container instance, the container instance and port
-     * combination is registered as a target in the target group specified here.</p>
-     * <p>Services with tasks that use the <code>awsvpc</code> network mode (for
-     * example, those with the Fargate launch type) only support Application Load
-     * Balancers and Network Load Balancers. Classic Load Balancers are not supported.
-     * Also, when you create any target groups for these services, you must choose
-     * <code>ip</code> as the target type, not <code>instance</code>, because tasks
-     * that use the <code>awsvpc</code> network mode are associated with an elastic
-     * network interface, not an Amazon EC2 instance.</p>
+     * and port combination is registered as a target in the target group specified
+     * here.</p> <p>For Classic Load Balancers, this object must contain the load
+     * balancer name, the container name (as it appears in a container definition), and
+     * the container port to access from the load balancer. When a task from this
+     * service is placed on a container instance, the container instance is registered
+     * with the load balancer specified here.</p> <p>Services with tasks that use the
+     * <code>awsvpc</code> network mode (for example, those with the Fargate launch
+     * type) only support Application Load Balancers and Network Load Balancers.
+     * Classic Load Balancers are not supported. Also, when you create any target
+     * groups for these services, you must choose <code>ip</code> as the target type,
+     * not <code>instance</code>, because tasks that use the <code>awsvpc</code>
+     * network mode are associated with an elastic network interface, not an Amazon EC2
+     * instance.</p>
      */
     inline void SetLoadBalancers(Aws::Vector<LoadBalancer>&& value) { m_loadBalancersHasBeenSet = true; m_loadBalancers = std::move(value); }
 
     /**
-     * <p>A load balancer object representing the load balancer to use with your
-     * service.</p> <p>If the service is using the <code>ECS</code> deployment
-     * controller, you are limited to one load balancer or target group.</p> <p>If the
-     * service is using the <code>CODE_DEPLOY</code> deployment controller, the service
-     * is required to use either an Application Load Balancer or Network Load Balancer.
-     * When creating an AWS CodeDeploy deployment group, you specify two target groups
-     * (referred to as a <code>targetGroupPair</code>). During a deployment, AWS
-     * CodeDeploy determines which task set in your service has the status
-     * <code>PRIMARY</code> and associates one target group with it, and then
-     * associates the other target group with the replacement task set. The load
-     * balancer can also have up to two listeners: a required listener for production
-     * traffic and an optional listener that allows you perform validation tests with
-     * Lambda functions before routing production traffic to it.</p> <p>After you
-     * create a service using the <code>ECS</code> deployment controller, the load
-     * balancer name or target group ARN, container name, and container port specified
-     * in the service definition are immutable. If you are using the
-     * <code>CODE_DEPLOY</code> deployment controller, these values can be changed when
-     * updating the service.</p> <p>For Classic Load Balancers, this object must
-     * contain the load balancer name, the container name (as it appears in a container
+     * <p>A load balancer object representing the load balancers to use with your
+     * service. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+     * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p> <p>If the service is using the rolling update (<code>ECS</code>)
+     * deployment controller and using either an Application Load Balancer or Network
+     * Load Balancer, you can specify multiple target groups to attach to the service.
+     * The service-linked role is required for services that make use of multiple
+     * target groups. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+     * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
+     * Service Developer Guide</i>.</p> <p>If the service is using the
+     * <code>CODE_DEPLOY</code> deployment controller, the service is required to use
+     * either an Application Load Balancer or Network Load Balancer. When creating an
+     * AWS CodeDeploy deployment group, you specify two target groups (referred to as a
+     * <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
+     * which task set in your service has the status <code>PRIMARY</code> and
+     * associates one target group with it, and then associates the other target group
+     * with the replacement task set. The load balancer can also have up to two
+     * listeners: a required listener for production traffic and an optional listener
+     * that allows you perform validation tests with Lambda functions before routing
+     * production traffic to it.</p> <p>After you create a service using the
+     * <code>ECS</code> deployment controller, the load balancer name or target group
+     * ARN, container name, and container port specified in the service definition are
+     * immutable. If you are using the <code>CODE_DEPLOY</code> deployment controller,
+     * these values can be changed when updating the service.</p> <p>For Application
+     * Load Balancers and Network Load Balancers, this object must contain the load
+     * balancer target group ARN, the container name (as it appears in a container
      * definition), and the container port to access from the load balancer. When a
      * task from this service is placed on a container instance, the container instance
-     * is registered with the load balancer specified here.</p> <p>For Application Load
-     * Balancers and Network Load Balancers, this object must contain the load balancer
-     * target group ARN, the container name (as it appears in a container definition),
-     * and the container port to access from the load balancer. When a task from this
-     * service is placed on a container instance, the container instance and port
-     * combination is registered as a target in the target group specified here.</p>
-     * <p>Services with tasks that use the <code>awsvpc</code> network mode (for
-     * example, those with the Fargate launch type) only support Application Load
-     * Balancers and Network Load Balancers. Classic Load Balancers are not supported.
-     * Also, when you create any target groups for these services, you must choose
-     * <code>ip</code> as the target type, not <code>instance</code>, because tasks
-     * that use the <code>awsvpc</code> network mode are associated with an elastic
-     * network interface, not an Amazon EC2 instance.</p>
+     * and port combination is registered as a target in the target group specified
+     * here.</p> <p>For Classic Load Balancers, this object must contain the load
+     * balancer name, the container name (as it appears in a container definition), and
+     * the container port to access from the load balancer. When a task from this
+     * service is placed on a container instance, the container instance is registered
+     * with the load balancer specified here.</p> <p>Services with tasks that use the
+     * <code>awsvpc</code> network mode (for example, those with the Fargate launch
+     * type) only support Application Load Balancers and Network Load Balancers.
+     * Classic Load Balancers are not supported. Also, when you create any target
+     * groups for these services, you must choose <code>ip</code> as the target type,
+     * not <code>instance</code>, because tasks that use the <code>awsvpc</code>
+     * network mode are associated with an elastic network interface, not an Amazon EC2
+     * instance.</p>
      */
     inline CreateServiceRequest& WithLoadBalancers(const Aws::Vector<LoadBalancer>& value) { SetLoadBalancers(value); return *this;}
 
     /**
-     * <p>A load balancer object representing the load balancer to use with your
-     * service.</p> <p>If the service is using the <code>ECS</code> deployment
-     * controller, you are limited to one load balancer or target group.</p> <p>If the
-     * service is using the <code>CODE_DEPLOY</code> deployment controller, the service
-     * is required to use either an Application Load Balancer or Network Load Balancer.
-     * When creating an AWS CodeDeploy deployment group, you specify two target groups
-     * (referred to as a <code>targetGroupPair</code>). During a deployment, AWS
-     * CodeDeploy determines which task set in your service has the status
-     * <code>PRIMARY</code> and associates one target group with it, and then
-     * associates the other target group with the replacement task set. The load
-     * balancer can also have up to two listeners: a required listener for production
-     * traffic and an optional listener that allows you perform validation tests with
-     * Lambda functions before routing production traffic to it.</p> <p>After you
-     * create a service using the <code>ECS</code> deployment controller, the load
-     * balancer name or target group ARN, container name, and container port specified
-     * in the service definition are immutable. If you are using the
-     * <code>CODE_DEPLOY</code> deployment controller, these values can be changed when
-     * updating the service.</p> <p>For Classic Load Balancers, this object must
-     * contain the load balancer name, the container name (as it appears in a container
+     * <p>A load balancer object representing the load balancers to use with your
+     * service. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+     * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p> <p>If the service is using the rolling update (<code>ECS</code>)
+     * deployment controller and using either an Application Load Balancer or Network
+     * Load Balancer, you can specify multiple target groups to attach to the service.
+     * The service-linked role is required for services that make use of multiple
+     * target groups. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+     * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
+     * Service Developer Guide</i>.</p> <p>If the service is using the
+     * <code>CODE_DEPLOY</code> deployment controller, the service is required to use
+     * either an Application Load Balancer or Network Load Balancer. When creating an
+     * AWS CodeDeploy deployment group, you specify two target groups (referred to as a
+     * <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
+     * which task set in your service has the status <code>PRIMARY</code> and
+     * associates one target group with it, and then associates the other target group
+     * with the replacement task set. The load balancer can also have up to two
+     * listeners: a required listener for production traffic and an optional listener
+     * that allows you perform validation tests with Lambda functions before routing
+     * production traffic to it.</p> <p>After you create a service using the
+     * <code>ECS</code> deployment controller, the load balancer name or target group
+     * ARN, container name, and container port specified in the service definition are
+     * immutable. If you are using the <code>CODE_DEPLOY</code> deployment controller,
+     * these values can be changed when updating the service.</p> <p>For Application
+     * Load Balancers and Network Load Balancers, this object must contain the load
+     * balancer target group ARN, the container name (as it appears in a container
      * definition), and the container port to access from the load balancer. When a
      * task from this service is placed on a container instance, the container instance
-     * is registered with the load balancer specified here.</p> <p>For Application Load
-     * Balancers and Network Load Balancers, this object must contain the load balancer
-     * target group ARN, the container name (as it appears in a container definition),
-     * and the container port to access from the load balancer. When a task from this
-     * service is placed on a container instance, the container instance and port
-     * combination is registered as a target in the target group specified here.</p>
-     * <p>Services with tasks that use the <code>awsvpc</code> network mode (for
-     * example, those with the Fargate launch type) only support Application Load
-     * Balancers and Network Load Balancers. Classic Load Balancers are not supported.
-     * Also, when you create any target groups for these services, you must choose
-     * <code>ip</code> as the target type, not <code>instance</code>, because tasks
-     * that use the <code>awsvpc</code> network mode are associated with an elastic
-     * network interface, not an Amazon EC2 instance.</p>
+     * and port combination is registered as a target in the target group specified
+     * here.</p> <p>For Classic Load Balancers, this object must contain the load
+     * balancer name, the container name (as it appears in a container definition), and
+     * the container port to access from the load balancer. When a task from this
+     * service is placed on a container instance, the container instance is registered
+     * with the load balancer specified here.</p> <p>Services with tasks that use the
+     * <code>awsvpc</code> network mode (for example, those with the Fargate launch
+     * type) only support Application Load Balancers and Network Load Balancers.
+     * Classic Load Balancers are not supported. Also, when you create any target
+     * groups for these services, you must choose <code>ip</code> as the target type,
+     * not <code>instance</code>, because tasks that use the <code>awsvpc</code>
+     * network mode are associated with an elastic network interface, not an Amazon EC2
+     * instance.</p>
      */
     inline CreateServiceRequest& WithLoadBalancers(Aws::Vector<LoadBalancer>&& value) { SetLoadBalancers(std::move(value)); return *this;}
 
     /**
-     * <p>A load balancer object representing the load balancer to use with your
-     * service.</p> <p>If the service is using the <code>ECS</code> deployment
-     * controller, you are limited to one load balancer or target group.</p> <p>If the
-     * service is using the <code>CODE_DEPLOY</code> deployment controller, the service
-     * is required to use either an Application Load Balancer or Network Load Balancer.
-     * When creating an AWS CodeDeploy deployment group, you specify two target groups
-     * (referred to as a <code>targetGroupPair</code>). During a deployment, AWS
-     * CodeDeploy determines which task set in your service has the status
-     * <code>PRIMARY</code> and associates one target group with it, and then
-     * associates the other target group with the replacement task set. The load
-     * balancer can also have up to two listeners: a required listener for production
-     * traffic and an optional listener that allows you perform validation tests with
-     * Lambda functions before routing production traffic to it.</p> <p>After you
-     * create a service using the <code>ECS</code> deployment controller, the load
-     * balancer name or target group ARN, container name, and container port specified
-     * in the service definition are immutable. If you are using the
-     * <code>CODE_DEPLOY</code> deployment controller, these values can be changed when
-     * updating the service.</p> <p>For Classic Load Balancers, this object must
-     * contain the load balancer name, the container name (as it appears in a container
+     * <p>A load balancer object representing the load balancers to use with your
+     * service. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+     * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p> <p>If the service is using the rolling update (<code>ECS</code>)
+     * deployment controller and using either an Application Load Balancer or Network
+     * Load Balancer, you can specify multiple target groups to attach to the service.
+     * The service-linked role is required for services that make use of multiple
+     * target groups. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+     * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
+     * Service Developer Guide</i>.</p> <p>If the service is using the
+     * <code>CODE_DEPLOY</code> deployment controller, the service is required to use
+     * either an Application Load Balancer or Network Load Balancer. When creating an
+     * AWS CodeDeploy deployment group, you specify two target groups (referred to as a
+     * <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
+     * which task set in your service has the status <code>PRIMARY</code> and
+     * associates one target group with it, and then associates the other target group
+     * with the replacement task set. The load balancer can also have up to two
+     * listeners: a required listener for production traffic and an optional listener
+     * that allows you perform validation tests with Lambda functions before routing
+     * production traffic to it.</p> <p>After you create a service using the
+     * <code>ECS</code> deployment controller, the load balancer name or target group
+     * ARN, container name, and container port specified in the service definition are
+     * immutable. If you are using the <code>CODE_DEPLOY</code> deployment controller,
+     * these values can be changed when updating the service.</p> <p>For Application
+     * Load Balancers and Network Load Balancers, this object must contain the load
+     * balancer target group ARN, the container name (as it appears in a container
      * definition), and the container port to access from the load balancer. When a
      * task from this service is placed on a container instance, the container instance
-     * is registered with the load balancer specified here.</p> <p>For Application Load
-     * Balancers and Network Load Balancers, this object must contain the load balancer
-     * target group ARN, the container name (as it appears in a container definition),
-     * and the container port to access from the load balancer. When a task from this
-     * service is placed on a container instance, the container instance and port
-     * combination is registered as a target in the target group specified here.</p>
-     * <p>Services with tasks that use the <code>awsvpc</code> network mode (for
-     * example, those with the Fargate launch type) only support Application Load
-     * Balancers and Network Load Balancers. Classic Load Balancers are not supported.
-     * Also, when you create any target groups for these services, you must choose
-     * <code>ip</code> as the target type, not <code>instance</code>, because tasks
-     * that use the <code>awsvpc</code> network mode are associated with an elastic
-     * network interface, not an Amazon EC2 instance.</p>
+     * and port combination is registered as a target in the target group specified
+     * here.</p> <p>For Classic Load Balancers, this object must contain the load
+     * balancer name, the container name (as it appears in a container definition), and
+     * the container port to access from the load balancer. When a task from this
+     * service is placed on a container instance, the container instance is registered
+     * with the load balancer specified here.</p> <p>Services with tasks that use the
+     * <code>awsvpc</code> network mode (for example, those with the Fargate launch
+     * type) only support Application Load Balancers and Network Load Balancers.
+     * Classic Load Balancers are not supported. Also, when you create any target
+     * groups for these services, you must choose <code>ip</code> as the target type,
+     * not <code>instance</code>, because tasks that use the <code>awsvpc</code>
+     * network mode are associated with an elastic network interface, not an Amazon EC2
+     * instance.</p>
      */
     inline CreateServiceRequest& AddLoadBalancers(const LoadBalancer& value) { m_loadBalancersHasBeenSet = true; m_loadBalancers.push_back(value); return *this; }
 
     /**
-     * <p>A load balancer object representing the load balancer to use with your
-     * service.</p> <p>If the service is using the <code>ECS</code> deployment
-     * controller, you are limited to one load balancer or target group.</p> <p>If the
-     * service is using the <code>CODE_DEPLOY</code> deployment controller, the service
-     * is required to use either an Application Load Balancer or Network Load Balancer.
-     * When creating an AWS CodeDeploy deployment group, you specify two target groups
-     * (referred to as a <code>targetGroupPair</code>). During a deployment, AWS
-     * CodeDeploy determines which task set in your service has the status
-     * <code>PRIMARY</code> and associates one target group with it, and then
-     * associates the other target group with the replacement task set. The load
-     * balancer can also have up to two listeners: a required listener for production
-     * traffic and an optional listener that allows you perform validation tests with
-     * Lambda functions before routing production traffic to it.</p> <p>After you
-     * create a service using the <code>ECS</code> deployment controller, the load
-     * balancer name or target group ARN, container name, and container port specified
-     * in the service definition are immutable. If you are using the
-     * <code>CODE_DEPLOY</code> deployment controller, these values can be changed when
-     * updating the service.</p> <p>For Classic Load Balancers, this object must
-     * contain the load balancer name, the container name (as it appears in a container
+     * <p>A load balancer object representing the load balancers to use with your
+     * service. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
+     * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
+     * Guide</i>.</p> <p>If the service is using the rolling update (<code>ECS</code>)
+     * deployment controller and using either an Application Load Balancer or Network
+     * Load Balancer, you can specify multiple target groups to attach to the service.
+     * The service-linked role is required for services that make use of multiple
+     * target groups. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+     * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
+     * Service Developer Guide</i>.</p> <p>If the service is using the
+     * <code>CODE_DEPLOY</code> deployment controller, the service is required to use
+     * either an Application Load Balancer or Network Load Balancer. When creating an
+     * AWS CodeDeploy deployment group, you specify two target groups (referred to as a
+     * <code>targetGroupPair</code>). During a deployment, AWS CodeDeploy determines
+     * which task set in your service has the status <code>PRIMARY</code> and
+     * associates one target group with it, and then associates the other target group
+     * with the replacement task set. The load balancer can also have up to two
+     * listeners: a required listener for production traffic and an optional listener
+     * that allows you perform validation tests with Lambda functions before routing
+     * production traffic to it.</p> <p>After you create a service using the
+     * <code>ECS</code> deployment controller, the load balancer name or target group
+     * ARN, container name, and container port specified in the service definition are
+     * immutable. If you are using the <code>CODE_DEPLOY</code> deployment controller,
+     * these values can be changed when updating the service.</p> <p>For Application
+     * Load Balancers and Network Load Balancers, this object must contain the load
+     * balancer target group ARN, the container name (as it appears in a container
      * definition), and the container port to access from the load balancer. When a
      * task from this service is placed on a container instance, the container instance
-     * is registered with the load balancer specified here.</p> <p>For Application Load
-     * Balancers and Network Load Balancers, this object must contain the load balancer
-     * target group ARN, the container name (as it appears in a container definition),
-     * and the container port to access from the load balancer. When a task from this
-     * service is placed on a container instance, the container instance and port
-     * combination is registered as a target in the target group specified here.</p>
-     * <p>Services with tasks that use the <code>awsvpc</code> network mode (for
-     * example, those with the Fargate launch type) only support Application Load
-     * Balancers and Network Load Balancers. Classic Load Balancers are not supported.
-     * Also, when you create any target groups for these services, you must choose
-     * <code>ip</code> as the target type, not <code>instance</code>, because tasks
-     * that use the <code>awsvpc</code> network mode are associated with an elastic
-     * network interface, not an Amazon EC2 instance.</p>
+     * and port combination is registered as a target in the target group specified
+     * here.</p> <p>For Classic Load Balancers, this object must contain the load
+     * balancer name, the container name (as it appears in a container definition), and
+     * the container port to access from the load balancer. When a task from this
+     * service is placed on a container instance, the container instance is registered
+     * with the load balancer specified here.</p> <p>Services with tasks that use the
+     * <code>awsvpc</code> network mode (for example, those with the Fargate launch
+     * type) only support Application Load Balancers and Network Load Balancers.
+     * Classic Load Balancers are not supported. Also, when you create any target
+     * groups for these services, you must choose <code>ip</code> as the target type,
+     * not <code>instance</code>, because tasks that use the <code>awsvpc</code>
+     * network mode are associated with an elastic network interface, not an Amazon EC2
+     * instance.</p>
      */
     inline CreateServiceRequest& AddLoadBalancers(LoadBalancer&& value) { m_loadBalancersHasBeenSet = true; m_loadBalancers.push_back(std::move(value)); return *this; }
 
@@ -647,25 +720,37 @@ namespace Model
 
     /**
      * <p>The number of instantiations of the specified task definition to place and
-     * keep running on your cluster.</p>
+     * keep running on your cluster.</p> <p>This is required if
+     * <code>schedulingStrategy</code> is <code>REPLICA</code> or is not specified. If
+     * <code>schedulingStrategy</code> is <code>DAEMON</code> then this is not
+     * required.</p>
      */
     inline int GetDesiredCount() const{ return m_desiredCount; }
 
     /**
      * <p>The number of instantiations of the specified task definition to place and
-     * keep running on your cluster.</p>
+     * keep running on your cluster.</p> <p>This is required if
+     * <code>schedulingStrategy</code> is <code>REPLICA</code> or is not specified. If
+     * <code>schedulingStrategy</code> is <code>DAEMON</code> then this is not
+     * required.</p>
      */
     inline bool DesiredCountHasBeenSet() const { return m_desiredCountHasBeenSet; }
 
     /**
      * <p>The number of instantiations of the specified task definition to place and
-     * keep running on your cluster.</p>
+     * keep running on your cluster.</p> <p>This is required if
+     * <code>schedulingStrategy</code> is <code>REPLICA</code> or is not specified. If
+     * <code>schedulingStrategy</code> is <code>DAEMON</code> then this is not
+     * required.</p>
      */
     inline void SetDesiredCount(int value) { m_desiredCountHasBeenSet = true; m_desiredCount = value; }
 
     /**
      * <p>The number of instantiations of the specified task definition to place and
-     * keep running on your cluster.</p>
+     * keep running on your cluster.</p> <p>This is required if
+     * <code>schedulingStrategy</code> is <code>REPLICA</code> or is not specified. If
+     * <code>schedulingStrategy</code> is <code>DAEMON</code> then this is not
+     * required.</p>
      */
     inline CreateServiceRequest& WithDesiredCount(int value) { SetDesiredCount(value); return *this;}
 
@@ -723,7 +808,8 @@ namespace Model
      * <p>The launch type on which to run your service. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p>
+     * Guide</i>.</p> <p>If a <code>launchType</code> is specified, the
+     * <code>capacityProviderStrategy</code> parameter must be omitted.</p>
      */
     inline const LaunchType& GetLaunchType() const{ return m_launchType; }
 
@@ -731,7 +817,8 @@ namespace Model
      * <p>The launch type on which to run your service. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p>
+     * Guide</i>.</p> <p>If a <code>launchType</code> is specified, the
+     * <code>capacityProviderStrategy</code> parameter must be omitted.</p>
      */
     inline bool LaunchTypeHasBeenSet() const { return m_launchTypeHasBeenSet; }
 
@@ -739,7 +826,8 @@ namespace Model
      * <p>The launch type on which to run your service. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p>
+     * Guide</i>.</p> <p>If a <code>launchType</code> is specified, the
+     * <code>capacityProviderStrategy</code> parameter must be omitted.</p>
      */
     inline void SetLaunchType(const LaunchType& value) { m_launchTypeHasBeenSet = true; m_launchType = value; }
 
@@ -747,7 +835,8 @@ namespace Model
      * <p>The launch type on which to run your service. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p>
+     * Guide</i>.</p> <p>If a <code>launchType</code> is specified, the
+     * <code>capacityProviderStrategy</code> parameter must be omitted.</p>
      */
     inline void SetLaunchType(LaunchType&& value) { m_launchTypeHasBeenSet = true; m_launchType = std::move(value); }
 
@@ -755,7 +844,8 @@ namespace Model
      * <p>The launch type on which to run your service. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p>
+     * Guide</i>.</p> <p>If a <code>launchType</code> is specified, the
+     * <code>capacityProviderStrategy</code> parameter must be omitted.</p>
      */
     inline CreateServiceRequest& WithLaunchType(const LaunchType& value) { SetLaunchType(value); return *this;}
 
@@ -763,9 +853,203 @@ namespace Model
      * <p>The launch type on which to run your service. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
      * ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p>
+     * Guide</i>.</p> <p>If a <code>launchType</code> is specified, the
+     * <code>capacityProviderStrategy</code> parameter must be omitted.</p>
      */
     inline CreateServiceRequest& WithLaunchType(LaunchType&& value) { SetLaunchType(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The capacity provider strategy to use for the service.</p> <p>A capacity
+     * provider strategy consists of one or more capacity providers along with the
+     * <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+     * must be associated with the cluster to be used in a capacity provider strategy.
+     * The <a>PutClusterCapacityProviders</a> API is used to associate a capacity
+     * provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
+     * <code>UPDATING</code> status can be used.</p> <p>If a
+     * <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+     * parameter must be omitted. If no <code>capacityProviderStrategy</code> or
+     * <code>launchType</code> is specified, the
+     * <code>defaultCapacityProviderStrategy</code> for the cluster is used.</p> <p>If
+     * specifying a capacity provider that uses an Auto Scaling group, the capacity
+     * provider must already be created. New capacity providers can be created with the
+     * <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS Fargate
+     * capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline const Aws::Vector<CapacityProviderStrategyItem>& GetCapacityProviderStrategy() const{ return m_capacityProviderStrategy; }
+
+    /**
+     * <p>The capacity provider strategy to use for the service.</p> <p>A capacity
+     * provider strategy consists of one or more capacity providers along with the
+     * <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+     * must be associated with the cluster to be used in a capacity provider strategy.
+     * The <a>PutClusterCapacityProviders</a> API is used to associate a capacity
+     * provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
+     * <code>UPDATING</code> status can be used.</p> <p>If a
+     * <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+     * parameter must be omitted. If no <code>capacityProviderStrategy</code> or
+     * <code>launchType</code> is specified, the
+     * <code>defaultCapacityProviderStrategy</code> for the cluster is used.</p> <p>If
+     * specifying a capacity provider that uses an Auto Scaling group, the capacity
+     * provider must already be created. New capacity providers can be created with the
+     * <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS Fargate
+     * capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline bool CapacityProviderStrategyHasBeenSet() const { return m_capacityProviderStrategyHasBeenSet; }
+
+    /**
+     * <p>The capacity provider strategy to use for the service.</p> <p>A capacity
+     * provider strategy consists of one or more capacity providers along with the
+     * <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+     * must be associated with the cluster to be used in a capacity provider strategy.
+     * The <a>PutClusterCapacityProviders</a> API is used to associate a capacity
+     * provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
+     * <code>UPDATING</code> status can be used.</p> <p>If a
+     * <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+     * parameter must be omitted. If no <code>capacityProviderStrategy</code> or
+     * <code>launchType</code> is specified, the
+     * <code>defaultCapacityProviderStrategy</code> for the cluster is used.</p> <p>If
+     * specifying a capacity provider that uses an Auto Scaling group, the capacity
+     * provider must already be created. New capacity providers can be created with the
+     * <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS Fargate
+     * capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline void SetCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy = value; }
+
+    /**
+     * <p>The capacity provider strategy to use for the service.</p> <p>A capacity
+     * provider strategy consists of one or more capacity providers along with the
+     * <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+     * must be associated with the cluster to be used in a capacity provider strategy.
+     * The <a>PutClusterCapacityProviders</a> API is used to associate a capacity
+     * provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
+     * <code>UPDATING</code> status can be used.</p> <p>If a
+     * <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+     * parameter must be omitted. If no <code>capacityProviderStrategy</code> or
+     * <code>launchType</code> is specified, the
+     * <code>defaultCapacityProviderStrategy</code> for the cluster is used.</p> <p>If
+     * specifying a capacity provider that uses an Auto Scaling group, the capacity
+     * provider must already be created. New capacity providers can be created with the
+     * <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS Fargate
+     * capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline void SetCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy = std::move(value); }
+
+    /**
+     * <p>The capacity provider strategy to use for the service.</p> <p>A capacity
+     * provider strategy consists of one or more capacity providers along with the
+     * <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+     * must be associated with the cluster to be used in a capacity provider strategy.
+     * The <a>PutClusterCapacityProviders</a> API is used to associate a capacity
+     * provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
+     * <code>UPDATING</code> status can be used.</p> <p>If a
+     * <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+     * parameter must be omitted. If no <code>capacityProviderStrategy</code> or
+     * <code>launchType</code> is specified, the
+     * <code>defaultCapacityProviderStrategy</code> for the cluster is used.</p> <p>If
+     * specifying a capacity provider that uses an Auto Scaling group, the capacity
+     * provider must already be created. New capacity providers can be created with the
+     * <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS Fargate
+     * capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateServiceRequest& WithCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { SetCapacityProviderStrategy(value); return *this;}
+
+    /**
+     * <p>The capacity provider strategy to use for the service.</p> <p>A capacity
+     * provider strategy consists of one or more capacity providers along with the
+     * <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+     * must be associated with the cluster to be used in a capacity provider strategy.
+     * The <a>PutClusterCapacityProviders</a> API is used to associate a capacity
+     * provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
+     * <code>UPDATING</code> status can be used.</p> <p>If a
+     * <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+     * parameter must be omitted. If no <code>capacityProviderStrategy</code> or
+     * <code>launchType</code> is specified, the
+     * <code>defaultCapacityProviderStrategy</code> for the cluster is used.</p> <p>If
+     * specifying a capacity provider that uses an Auto Scaling group, the capacity
+     * provider must already be created. New capacity providers can be created with the
+     * <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS Fargate
+     * capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateServiceRequest& WithCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { SetCapacityProviderStrategy(std::move(value)); return *this;}
+
+    /**
+     * <p>The capacity provider strategy to use for the service.</p> <p>A capacity
+     * provider strategy consists of one or more capacity providers along with the
+     * <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+     * must be associated with the cluster to be used in a capacity provider strategy.
+     * The <a>PutClusterCapacityProviders</a> API is used to associate a capacity
+     * provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
+     * <code>UPDATING</code> status can be used.</p> <p>If a
+     * <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+     * parameter must be omitted. If no <code>capacityProviderStrategy</code> or
+     * <code>launchType</code> is specified, the
+     * <code>defaultCapacityProviderStrategy</code> for the cluster is used.</p> <p>If
+     * specifying a capacity provider that uses an Auto Scaling group, the capacity
+     * provider must already be created. New capacity providers can be created with the
+     * <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS Fargate
+     * capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateServiceRequest& AddCapacityProviderStrategy(const CapacityProviderStrategyItem& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy.push_back(value); return *this; }
+
+    /**
+     * <p>The capacity provider strategy to use for the service.</p> <p>A capacity
+     * provider strategy consists of one or more capacity providers along with the
+     * <code>base</code> and <code>weight</code> to assign to them. A capacity provider
+     * must be associated with the cluster to be used in a capacity provider strategy.
+     * The <a>PutClusterCapacityProviders</a> API is used to associate a capacity
+     * provider with a cluster. Only capacity providers with an <code>ACTIVE</code> or
+     * <code>UPDATING</code> status can be used.</p> <p>If a
+     * <code>capacityProviderStrategy</code> is specified, the <code>launchType</code>
+     * parameter must be omitted. If no <code>capacityProviderStrategy</code> or
+     * <code>launchType</code> is specified, the
+     * <code>defaultCapacityProviderStrategy</code> for the cluster is used.</p> <p>If
+     * specifying a capacity provider that uses an Auto Scaling group, the capacity
+     * provider must already be created. New capacity providers can be created with the
+     * <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS Fargate
+     * capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateServiceRequest& AddCapacityProviderStrategy(CapacityProviderStrategyItem&& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy.push_back(std::move(value)); return *this; }
 
 
     /**
@@ -866,8 +1150,10 @@ namespace Model
      * the <code>loadBalancers</code> parameter.</p> <important> <p>If your account has
      * already created the Amazon ECS service-linked role, that role is used by default
      * for your service unless you specify a role here. The service-linked role is
-     * required if your task definition uses the <code>awsvpc</code> network mode, in
-     * which case you should not specify a role here. For more information, see <a
+     * required if your task definition uses the <code>awsvpc</code> network mode or if
+     * the service is configured to use service discovery, an external deployment
+     * controller, multiple target groups, or Elastic Inference accelerators in which
+     * case you should not specify a role here. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
      * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
      * Service Developer Guide</i>.</p> </important> <p>If your specified role has a
@@ -890,8 +1176,10 @@ namespace Model
      * the <code>loadBalancers</code> parameter.</p> <important> <p>If your account has
      * already created the Amazon ECS service-linked role, that role is used by default
      * for your service unless you specify a role here. The service-linked role is
-     * required if your task definition uses the <code>awsvpc</code> network mode, in
-     * which case you should not specify a role here. For more information, see <a
+     * required if your task definition uses the <code>awsvpc</code> network mode or if
+     * the service is configured to use service discovery, an external deployment
+     * controller, multiple target groups, or Elastic Inference accelerators in which
+     * case you should not specify a role here. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
      * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
      * Service Developer Guide</i>.</p> </important> <p>If your specified role has a
@@ -914,8 +1202,10 @@ namespace Model
      * the <code>loadBalancers</code> parameter.</p> <important> <p>If your account has
      * already created the Amazon ECS service-linked role, that role is used by default
      * for your service unless you specify a role here. The service-linked role is
-     * required if your task definition uses the <code>awsvpc</code> network mode, in
-     * which case you should not specify a role here. For more information, see <a
+     * required if your task definition uses the <code>awsvpc</code> network mode or if
+     * the service is configured to use service discovery, an external deployment
+     * controller, multiple target groups, or Elastic Inference accelerators in which
+     * case you should not specify a role here. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
      * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
      * Service Developer Guide</i>.</p> </important> <p>If your specified role has a
@@ -938,8 +1228,10 @@ namespace Model
      * the <code>loadBalancers</code> parameter.</p> <important> <p>If your account has
      * already created the Amazon ECS service-linked role, that role is used by default
      * for your service unless you specify a role here. The service-linked role is
-     * required if your task definition uses the <code>awsvpc</code> network mode, in
-     * which case you should not specify a role here. For more information, see <a
+     * required if your task definition uses the <code>awsvpc</code> network mode or if
+     * the service is configured to use service discovery, an external deployment
+     * controller, multiple target groups, or Elastic Inference accelerators in which
+     * case you should not specify a role here. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
      * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
      * Service Developer Guide</i>.</p> </important> <p>If your specified role has a
@@ -962,8 +1254,10 @@ namespace Model
      * the <code>loadBalancers</code> parameter.</p> <important> <p>If your account has
      * already created the Amazon ECS service-linked role, that role is used by default
      * for your service unless you specify a role here. The service-linked role is
-     * required if your task definition uses the <code>awsvpc</code> network mode, in
-     * which case you should not specify a role here. For more information, see <a
+     * required if your task definition uses the <code>awsvpc</code> network mode or if
+     * the service is configured to use service discovery, an external deployment
+     * controller, multiple target groups, or Elastic Inference accelerators in which
+     * case you should not specify a role here. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
      * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
      * Service Developer Guide</i>.</p> </important> <p>If your specified role has a
@@ -986,8 +1280,10 @@ namespace Model
      * the <code>loadBalancers</code> parameter.</p> <important> <p>If your account has
      * already created the Amazon ECS service-linked role, that role is used by default
      * for your service unless you specify a role here. The service-linked role is
-     * required if your task definition uses the <code>awsvpc</code> network mode, in
-     * which case you should not specify a role here. For more information, see <a
+     * required if your task definition uses the <code>awsvpc</code> network mode or if
+     * the service is configured to use service discovery, an external deployment
+     * controller, multiple target groups, or Elastic Inference accelerators in which
+     * case you should not specify a role here. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
      * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
      * Service Developer Guide</i>.</p> </important> <p>If your specified role has a
@@ -1010,8 +1306,10 @@ namespace Model
      * the <code>loadBalancers</code> parameter.</p> <important> <p>If your account has
      * already created the Amazon ECS service-linked role, that role is used by default
      * for your service unless you specify a role here. The service-linked role is
-     * required if your task definition uses the <code>awsvpc</code> network mode, in
-     * which case you should not specify a role here. For more information, see <a
+     * required if your task definition uses the <code>awsvpc</code> network mode or if
+     * the service is configured to use service discovery, an external deployment
+     * controller, multiple target groups, or Elastic Inference accelerators in which
+     * case you should not specify a role here. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
      * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
      * Service Developer Guide</i>.</p> </important> <p>If your specified role has a
@@ -1034,8 +1332,10 @@ namespace Model
      * the <code>loadBalancers</code> parameter.</p> <important> <p>If your account has
      * already created the Amazon ECS service-linked role, that role is used by default
      * for your service unless you specify a role here. The service-linked role is
-     * required if your task definition uses the <code>awsvpc</code> network mode, in
-     * which case you should not specify a role here. For more information, see <a
+     * required if your task definition uses the <code>awsvpc</code> network mode or if
+     * the service is configured to use service discovery, an external deployment
+     * controller, multiple target groups, or Elastic Inference accelerators in which
+     * case you should not specify a role here. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
      * Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container
      * Service Developer Guide</i>.</p> </important> <p>If your specified role has a
@@ -1263,52 +1563,60 @@ namespace Model
     /**
      * <p>The period of time, in seconds, that the Amazon ECS service scheduler should
      * ignore unhealthy Elastic Load Balancing target health checks after a task has
-     * first started. This is only valid if your service is configured to use a load
-     * balancer. If your service's tasks take a while to start and respond to Elastic
-     * Load Balancing health checks, you can specify a health check grace period of up
-     * to 2,147,483,647 seconds. During that time, the ECS service scheduler ignores
-     * health check status. This grace period can prevent the ECS service scheduler
-     * from marking tasks as unhealthy and stopping them before they have time to come
-     * up.</p>
+     * first started. This is only used when your service is configured to use a load
+     * balancer. If your service has a load balancer defined and you don't specify a
+     * health check grace period value, the default value of <code>0</code> is
+     * used.</p> <p>If your service's tasks take a while to start and respond to
+     * Elastic Load Balancing health checks, you can specify a health check grace
+     * period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service
+     * scheduler ignores health check status. This grace period can prevent the service
+     * scheduler from marking tasks as unhealthy and stopping them before they have
+     * time to come up.</p>
      */
     inline int GetHealthCheckGracePeriodSeconds() const{ return m_healthCheckGracePeriodSeconds; }
 
     /**
      * <p>The period of time, in seconds, that the Amazon ECS service scheduler should
      * ignore unhealthy Elastic Load Balancing target health checks after a task has
-     * first started. This is only valid if your service is configured to use a load
-     * balancer. If your service's tasks take a while to start and respond to Elastic
-     * Load Balancing health checks, you can specify a health check grace period of up
-     * to 2,147,483,647 seconds. During that time, the ECS service scheduler ignores
-     * health check status. This grace period can prevent the ECS service scheduler
-     * from marking tasks as unhealthy and stopping them before they have time to come
-     * up.</p>
+     * first started. This is only used when your service is configured to use a load
+     * balancer. If your service has a load balancer defined and you don't specify a
+     * health check grace period value, the default value of <code>0</code> is
+     * used.</p> <p>If your service's tasks take a while to start and respond to
+     * Elastic Load Balancing health checks, you can specify a health check grace
+     * period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service
+     * scheduler ignores health check status. This grace period can prevent the service
+     * scheduler from marking tasks as unhealthy and stopping them before they have
+     * time to come up.</p>
      */
     inline bool HealthCheckGracePeriodSecondsHasBeenSet() const { return m_healthCheckGracePeriodSecondsHasBeenSet; }
 
     /**
      * <p>The period of time, in seconds, that the Amazon ECS service scheduler should
      * ignore unhealthy Elastic Load Balancing target health checks after a task has
-     * first started. This is only valid if your service is configured to use a load
-     * balancer. If your service's tasks take a while to start and respond to Elastic
-     * Load Balancing health checks, you can specify a health check grace period of up
-     * to 2,147,483,647 seconds. During that time, the ECS service scheduler ignores
-     * health check status. This grace period can prevent the ECS service scheduler
-     * from marking tasks as unhealthy and stopping them before they have time to come
-     * up.</p>
+     * first started. This is only used when your service is configured to use a load
+     * balancer. If your service has a load balancer defined and you don't specify a
+     * health check grace period value, the default value of <code>0</code> is
+     * used.</p> <p>If your service's tasks take a while to start and respond to
+     * Elastic Load Balancing health checks, you can specify a health check grace
+     * period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service
+     * scheduler ignores health check status. This grace period can prevent the service
+     * scheduler from marking tasks as unhealthy and stopping them before they have
+     * time to come up.</p>
      */
     inline void SetHealthCheckGracePeriodSeconds(int value) { m_healthCheckGracePeriodSecondsHasBeenSet = true; m_healthCheckGracePeriodSeconds = value; }
 
     /**
      * <p>The period of time, in seconds, that the Amazon ECS service scheduler should
      * ignore unhealthy Elastic Load Balancing target health checks after a task has
-     * first started. This is only valid if your service is configured to use a load
-     * balancer. If your service's tasks take a while to start and respond to Elastic
-     * Load Balancing health checks, you can specify a health check grace period of up
-     * to 2,147,483,647 seconds. During that time, the ECS service scheduler ignores
-     * health check status. This grace period can prevent the ECS service scheduler
-     * from marking tasks as unhealthy and stopping them before they have time to come
-     * up.</p>
+     * first started. This is only used when your service is configured to use a load
+     * balancer. If your service has a load balancer defined and you don't specify a
+     * health check grace period value, the default value of <code>0</code> is
+     * used.</p> <p>If your service's tasks take a while to start and respond to
+     * Elastic Load Balancing health checks, you can specify a health check grace
+     * period of up to 2,147,483,647 seconds. During that time, the Amazon ECS service
+     * scheduler ignores health check status. This grace period can prevent the service
+     * scheduler from marking tasks as unhealthy and stopping them before they have
+     * time to come up.</p>
      */
     inline CreateServiceRequest& WithHealthCheckGracePeriodSeconds(int value) { SetHealthCheckGracePeriodSeconds(value); return *this;}
 
@@ -1474,72 +1782,168 @@ namespace Model
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. When a service is deleted, the tags are deleted as well. Tag keys
-     * can have a maximum character length of 128 characters, and tag values can have a
-     * maximum length of 256 characters.</p>
+     * you define. When a service is deleted, the tags are deleted as well.</p> <p>The
+     * following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of
+     * tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be
+     * unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key
+     * length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length
+     * - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is
+     * used across multiple services and resources, remember that other services may
+     * have restrictions on allowed characters. Generally allowed characters are:
+     * letters, numbers, and spaces representable in UTF-8, and the following
+     * characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are
+     * case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. When a service is deleted, the tags are deleted as well. Tag keys
-     * can have a maximum character length of 128 characters, and tag values can have a
-     * maximum length of 256 characters.</p>
+     * you define. When a service is deleted, the tags are deleted as well.</p> <p>The
+     * following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of
+     * tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be
+     * unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key
+     * length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length
+     * - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is
+     * used across multiple services and resources, remember that other services may
+     * have restrictions on allowed characters. Generally allowed characters are:
+     * letters, numbers, and spaces representable in UTF-8, and the following
+     * characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are
+     * case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. When a service is deleted, the tags are deleted as well. Tag keys
-     * can have a maximum character length of 128 characters, and tag values can have a
-     * maximum length of 256 characters.</p>
+     * you define. When a service is deleted, the tags are deleted as well.</p> <p>The
+     * following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of
+     * tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be
+     * unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key
+     * length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length
+     * - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is
+     * used across multiple services and resources, remember that other services may
+     * have restrictions on allowed characters. Generally allowed characters are:
+     * letters, numbers, and spaces representable in UTF-8, and the following
+     * characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are
+     * case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. When a service is deleted, the tags are deleted as well. Tag keys
-     * can have a maximum character length of 128 characters, and tag values can have a
-     * maximum length of 256 characters.</p>
+     * you define. When a service is deleted, the tags are deleted as well.</p> <p>The
+     * following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of
+     * tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be
+     * unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key
+     * length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length
+     * - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is
+     * used across multiple services and resources, remember that other services may
+     * have restrictions on allowed characters. Generally allowed characters are:
+     * letters, numbers, and spaces representable in UTF-8, and the following
+     * characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are
+     * case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. When a service is deleted, the tags are deleted as well. Tag keys
-     * can have a maximum character length of 128 characters, and tag values can have a
-     * maximum length of 256 characters.</p>
+     * you define. When a service is deleted, the tags are deleted as well.</p> <p>The
+     * following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of
+     * tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be
+     * unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key
+     * length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length
+     * - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is
+     * used across multiple services and resources, remember that other services may
+     * have restrictions on allowed characters. Generally allowed characters are:
+     * letters, numbers, and spaces representable in UTF-8, and the following
+     * characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are
+     * case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline CreateServiceRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. When a service is deleted, the tags are deleted as well. Tag keys
-     * can have a maximum character length of 128 characters, and tag values can have a
-     * maximum length of 256 characters.</p>
+     * you define. When a service is deleted, the tags are deleted as well.</p> <p>The
+     * following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of
+     * tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be
+     * unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key
+     * length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length
+     * - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is
+     * used across multiple services and resources, remember that other services may
+     * have restrictions on allowed characters. Generally allowed characters are:
+     * letters, numbers, and spaces representable in UTF-8, and the following
+     * characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are
+     * case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline CreateServiceRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. When a service is deleted, the tags are deleted as well. Tag keys
-     * can have a maximum character length of 128 characters, and tag values can have a
-     * maximum length of 256 characters.</p>
+     * you define. When a service is deleted, the tags are deleted as well.</p> <p>The
+     * following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of
+     * tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be
+     * unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key
+     * length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length
+     * - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is
+     * used across multiple services and resources, remember that other services may
+     * have restrictions on allowed characters. Generally allowed characters are:
+     * letters, numbers, and spaces representable in UTF-8, and the following
+     * characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are
+     * case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline CreateServiceRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
     /**
      * <p>The metadata that you apply to the service to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. When a service is deleted, the tags are deleted as well. Tag keys
-     * can have a maximum character length of 128 characters, and tag values can have a
-     * maximum length of 256 characters.</p>
+     * you define. When a service is deleted, the tags are deleted as well.</p> <p>The
+     * following basic restrictions apply to tags:</p> <ul> <li> <p>Maximum number of
+     * tags per resource - 50</p> </li> <li> <p>For each resource, each tag key must be
+     * unique, and each tag key can have only one value.</p> </li> <li> <p>Maximum key
+     * length - 128 Unicode characters in UTF-8</p> </li> <li> <p>Maximum value length
+     * - 256 Unicode characters in UTF-8</p> </li> <li> <p>If your tagging schema is
+     * used across multiple services and resources, remember that other services may
+     * have restrictions on allowed characters. Generally allowed characters are:
+     * letters, numbers, and spaces representable in UTF-8, and the following
+     * characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values are
+     * case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline CreateServiceRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
@@ -1660,6 +2064,9 @@ namespace Model
 
     LaunchType m_launchType;
     bool m_launchTypeHasBeenSet;
+
+    Aws::Vector<CapacityProviderStrategyItem> m_capacityProviderStrategy;
+    bool m_capacityProviderStrategyHasBeenSet;
 
     Aws::String m_platformVersion;
     bool m_platformVersionHasBeenSet;

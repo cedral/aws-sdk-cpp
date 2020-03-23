@@ -22,6 +22,7 @@
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/appstream/model/StorageConnector.h>
 #include <aws/appstream/model/UserSetting.h>
+#include <aws/appstream/model/AccessEndpoint.h>
 #include <utility>
 
 namespace Aws
@@ -403,7 +404,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
 
@@ -415,7 +416,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
@@ -427,7 +428,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
@@ -439,7 +440,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
@@ -451,7 +452,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
 
@@ -463,7 +464,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
 
@@ -475,7 +476,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
 
@@ -487,7 +488,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
 
@@ -499,7 +500,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
 
@@ -511,7 +512,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
 
@@ -523,7 +524,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
 
@@ -535,7 +536,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
 
@@ -547,9 +548,122 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information about tags, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateStackRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+
+    /**
+     * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the
+     * stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+     */
+    inline const Aws::Vector<AccessEndpoint>& GetAccessEndpoints() const{ return m_accessEndpoints; }
+
+    /**
+     * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the
+     * stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+     */
+    inline bool AccessEndpointsHasBeenSet() const { return m_accessEndpointsHasBeenSet; }
+
+    /**
+     * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the
+     * stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+     */
+    inline void SetAccessEndpoints(const Aws::Vector<AccessEndpoint>& value) { m_accessEndpointsHasBeenSet = true; m_accessEndpoints = value; }
+
+    /**
+     * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the
+     * stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+     */
+    inline void SetAccessEndpoints(Aws::Vector<AccessEndpoint>&& value) { m_accessEndpointsHasBeenSet = true; m_accessEndpoints = std::move(value); }
+
+    /**
+     * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the
+     * stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+     */
+    inline CreateStackRequest& WithAccessEndpoints(const Aws::Vector<AccessEndpoint>& value) { SetAccessEndpoints(value); return *this;}
+
+    /**
+     * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the
+     * stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+     */
+    inline CreateStackRequest& WithAccessEndpoints(Aws::Vector<AccessEndpoint>&& value) { SetAccessEndpoints(std::move(value)); return *this;}
+
+    /**
+     * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the
+     * stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+     */
+    inline CreateStackRequest& AddAccessEndpoints(const AccessEndpoint& value) { m_accessEndpointsHasBeenSet = true; m_accessEndpoints.push_back(value); return *this; }
+
+    /**
+     * <p>The list of interface VPC endpoint (interface endpoint) objects. Users of the
+     * stack can connect to AppStream 2.0 only through the specified endpoints.</p>
+     */
+    inline CreateStackRequest& AddAccessEndpoints(AccessEndpoint&& value) { m_accessEndpointsHasBeenSet = true; m_accessEndpoints.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline const Aws::Vector<Aws::String>& GetEmbedHostDomains() const{ return m_embedHostDomains; }
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline bool EmbedHostDomainsHasBeenSet() const { return m_embedHostDomainsHasBeenSet; }
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline void SetEmbedHostDomains(const Aws::Vector<Aws::String>& value) { m_embedHostDomainsHasBeenSet = true; m_embedHostDomains = value; }
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline void SetEmbedHostDomains(Aws::Vector<Aws::String>&& value) { m_embedHostDomainsHasBeenSet = true; m_embedHostDomains = std::move(value); }
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline CreateStackRequest& WithEmbedHostDomains(const Aws::Vector<Aws::String>& value) { SetEmbedHostDomains(value); return *this;}
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline CreateStackRequest& WithEmbedHostDomains(Aws::Vector<Aws::String>&& value) { SetEmbedHostDomains(std::move(value)); return *this;}
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline CreateStackRequest& AddEmbedHostDomains(const Aws::String& value) { m_embedHostDomainsHasBeenSet = true; m_embedHostDomains.push_back(value); return *this; }
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline CreateStackRequest& AddEmbedHostDomains(Aws::String&& value) { m_embedHostDomainsHasBeenSet = true; m_embedHostDomains.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p>The domains where AppStream 2.0 streaming sessions can be embedded in an
+     * iframe. You must approve the domains that you want to host embedded AppStream
+     * 2.0 streaming sessions.</p>
+     */
+    inline CreateStackRequest& AddEmbedHostDomains(const char* value) { m_embedHostDomainsHasBeenSet = true; m_embedHostDomains.push_back(value); return *this; }
 
   private:
 
@@ -579,6 +693,12 @@ namespace Model
 
     Aws::Map<Aws::String, Aws::String> m_tags;
     bool m_tagsHasBeenSet;
+
+    Aws::Vector<AccessEndpoint> m_accessEndpoints;
+    bool m_accessEndpointsHasBeenSet;
+
+    Aws::Vector<Aws::String> m_embedHostDomains;
+    bool m_embedHostDomainsHasBeenSet;
   };
 
 } // namespace Model

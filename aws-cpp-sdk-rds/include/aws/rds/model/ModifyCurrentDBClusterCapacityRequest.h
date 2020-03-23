@@ -47,57 +47,57 @@ namespace Model
   public:
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline const Aws::String& GetDBClusterIdentifier() const{ return m_dBClusterIdentifier; }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline bool DBClusterIdentifierHasBeenSet() const { return m_dBClusterIdentifierHasBeenSet; }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline void SetDBClusterIdentifier(const Aws::String& value) { m_dBClusterIdentifierHasBeenSet = true; m_dBClusterIdentifier = value; }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline void SetDBClusterIdentifier(Aws::String&& value) { m_dBClusterIdentifierHasBeenSet = true; m_dBClusterIdentifier = std::move(value); }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline void SetDBClusterIdentifier(const char* value) { m_dBClusterIdentifierHasBeenSet = true; m_dBClusterIdentifier.assign(value); }
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline ModifyCurrentDBClusterCapacityRequest& WithDBClusterIdentifier(const Aws::String& value) { SetDBClusterIdentifier(value); return *this;}
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline ModifyCurrentDBClusterCapacityRequest& WithDBClusterIdentifier(Aws::String&& value) { SetDBClusterIdentifier(std::move(value)); return *this;}
 
     /**
-     * <p>The DB cluster identifier for the cluster being modified. This parameter is
-     * not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
+     * <p>The DB cluster identifier for the cluster being modified. This parameter
+     * isn't case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the
      * identifier of an existing DB cluster.</p> </li> </ul>
      */
     inline ModifyCurrentDBClusterCapacityRequest& WithDBClusterIdentifier(const char* value) { SetDBClusterIdentifier(value); return *this;}
@@ -106,36 +106,48 @@ namespace Model
     /**
      * <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused
      * Aurora Serverless DB cluster, it automatically resumes.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Value must be <code>1</code>, <code>2</code>, <code>4</code>,
-     * <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>,
-     * <code>128</code>, or <code>256</code>.</p> </li> </ul>
+     * <ul> <li> <p>For Aurora MySQL, valid capacity values are <code>1</code>,
+     * <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
+     * <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+     * </li> <li> <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>,
+     * <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>,
+     * <code>64</code>, <code>192</code>, and <code>384</code>.</p> </li> </ul>
      */
     inline int GetCapacity() const{ return m_capacity; }
 
     /**
      * <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused
      * Aurora Serverless DB cluster, it automatically resumes.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Value must be <code>1</code>, <code>2</code>, <code>4</code>,
-     * <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>,
-     * <code>128</code>, or <code>256</code>.</p> </li> </ul>
+     * <ul> <li> <p>For Aurora MySQL, valid capacity values are <code>1</code>,
+     * <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
+     * <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+     * </li> <li> <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>,
+     * <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>,
+     * <code>64</code>, <code>192</code>, and <code>384</code>.</p> </li> </ul>
      */
     inline bool CapacityHasBeenSet() const { return m_capacityHasBeenSet; }
 
     /**
      * <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused
      * Aurora Serverless DB cluster, it automatically resumes.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Value must be <code>1</code>, <code>2</code>, <code>4</code>,
-     * <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>,
-     * <code>128</code>, or <code>256</code>.</p> </li> </ul>
+     * <ul> <li> <p>For Aurora MySQL, valid capacity values are <code>1</code>,
+     * <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
+     * <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+     * </li> <li> <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>,
+     * <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>,
+     * <code>64</code>, <code>192</code>, and <code>384</code>.</p> </li> </ul>
      */
     inline void SetCapacity(int value) { m_capacityHasBeenSet = true; m_capacity = value; }
 
     /**
      * <p>The DB cluster capacity.</p> <p>When you change the capacity of a paused
      * Aurora Serverless DB cluster, it automatically resumes.</p> <p>Constraints:</p>
-     * <ul> <li> <p>Value must be <code>1</code>, <code>2</code>, <code>4</code>,
-     * <code>8</code>, <code>16</code>, <code>32</code>, <code>64</code>,
-     * <code>128</code>, or <code>256</code>.</p> </li> </ul>
+     * <ul> <li> <p>For Aurora MySQL, valid capacity values are <code>1</code>,
+     * <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>,
+     * <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>
+     * </li> <li> <p>For Aurora PostgreSQL, valid capacity values are <code>2</code>,
+     * <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>,
+     * <code>64</code>, <code>192</code>, and <code>384</code>.</p> </li> </ul>
      */
     inline ModifyCurrentDBClusterCapacityRequest& WithCapacity(int value) { SetCapacity(value); return *this;}
 
@@ -179,7 +191,7 @@ namespace Model
      * <code>RollbackCapacityChange</code>.</p> <p>
      * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
      * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
-     * ignores the capacity change if a scaling point is not found in the timeout
+     * ignores the capacity change if a scaling point isn't found in the timeout
      * period.</p>
      */
     inline const Aws::String& GetTimeoutAction() const{ return m_timeoutAction; }
@@ -190,7 +202,7 @@ namespace Model
      * <code>RollbackCapacityChange</code>.</p> <p>
      * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
      * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
-     * ignores the capacity change if a scaling point is not found in the timeout
+     * ignores the capacity change if a scaling point isn't found in the timeout
      * period.</p>
      */
     inline bool TimeoutActionHasBeenSet() const { return m_timeoutActionHasBeenSet; }
@@ -201,7 +213,7 @@ namespace Model
      * <code>RollbackCapacityChange</code>.</p> <p>
      * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
      * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
-     * ignores the capacity change if a scaling point is not found in the timeout
+     * ignores the capacity change if a scaling point isn't found in the timeout
      * period.</p>
      */
     inline void SetTimeoutAction(const Aws::String& value) { m_timeoutActionHasBeenSet = true; m_timeoutAction = value; }
@@ -212,7 +224,7 @@ namespace Model
      * <code>RollbackCapacityChange</code>.</p> <p>
      * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
      * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
-     * ignores the capacity change if a scaling point is not found in the timeout
+     * ignores the capacity change if a scaling point isn't found in the timeout
      * period.</p>
      */
     inline void SetTimeoutAction(Aws::String&& value) { m_timeoutActionHasBeenSet = true; m_timeoutAction = std::move(value); }
@@ -223,7 +235,7 @@ namespace Model
      * <code>RollbackCapacityChange</code>.</p> <p>
      * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
      * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
-     * ignores the capacity change if a scaling point is not found in the timeout
+     * ignores the capacity change if a scaling point isn't found in the timeout
      * period.</p>
      */
     inline void SetTimeoutAction(const char* value) { m_timeoutActionHasBeenSet = true; m_timeoutAction.assign(value); }
@@ -234,7 +246,7 @@ namespace Model
      * <code>RollbackCapacityChange</code>.</p> <p>
      * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
      * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
-     * ignores the capacity change if a scaling point is not found in the timeout
+     * ignores the capacity change if a scaling point isn't found in the timeout
      * period.</p>
      */
     inline ModifyCurrentDBClusterCapacityRequest& WithTimeoutAction(const Aws::String& value) { SetTimeoutAction(value); return *this;}
@@ -245,7 +257,7 @@ namespace Model
      * <code>RollbackCapacityChange</code>.</p> <p>
      * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
      * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
-     * ignores the capacity change if a scaling point is not found in the timeout
+     * ignores the capacity change if a scaling point isn't found in the timeout
      * period.</p>
      */
     inline ModifyCurrentDBClusterCapacityRequest& WithTimeoutAction(Aws::String&& value) { SetTimeoutAction(std::move(value)); return *this;}
@@ -256,7 +268,7 @@ namespace Model
      * <code>RollbackCapacityChange</code>.</p> <p>
      * <code>ForceApplyCapacityChange</code>, the default, sets the capacity to the
      * specified value as soon as possible.</p> <p> <code>RollbackCapacityChange</code>
-     * ignores the capacity change if a scaling point is not found in the timeout
+     * ignores the capacity change if a scaling point isn't found in the timeout
      * period.</p>
      */
     inline ModifyCurrentDBClusterCapacityRequest& WithTimeoutAction(const char* value) { SetTimeoutAction(value); return *this;}

@@ -31,6 +31,7 @@ namespace Aws
       {
 
         static const int json_HASH = HashingUtils::HashString("json");
+        static const int json_unformatted_HASH = HashingUtils::HashString("json-unformatted");
 
 
         MessageFormatValue GetMessageFormatValueForName(const Aws::String& name)
@@ -39,6 +40,10 @@ namespace Aws
           if (hashCode == json_HASH)
           {
             return MessageFormatValue::json;
+          }
+          else if (hashCode == json_unformatted_HASH)
+          {
+            return MessageFormatValue::json_unformatted;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -56,6 +61,8 @@ namespace Aws
           {
           case MessageFormatValue::json:
             return "json";
+          case MessageFormatValue::json_unformatted:
+            return "json-unformatted";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

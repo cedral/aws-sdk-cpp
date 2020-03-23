@@ -38,6 +38,7 @@
 #include <aws/ecr/model/DeleteLifecyclePolicyRequest.h>
 #include <aws/ecr/model/DeleteRepositoryRequest.h>
 #include <aws/ecr/model/DeleteRepositoryPolicyRequest.h>
+#include <aws/ecr/model/DescribeImageScanFindingsRequest.h>
 #include <aws/ecr/model/DescribeImagesRequest.h>
 #include <aws/ecr/model/DescribeRepositoriesRequest.h>
 #include <aws/ecr/model/GetAuthorizationTokenRequest.h>
@@ -49,9 +50,11 @@
 #include <aws/ecr/model/ListImagesRequest.h>
 #include <aws/ecr/model/ListTagsForResourceRequest.h>
 #include <aws/ecr/model/PutImageRequest.h>
+#include <aws/ecr/model/PutImageScanningConfigurationRequest.h>
 #include <aws/ecr/model/PutImageTagMutabilityRequest.h>
 #include <aws/ecr/model/PutLifecyclePolicyRequest.h>
 #include <aws/ecr/model/SetRepositoryPolicyRequest.h>
+#include <aws/ecr/model/StartImageScanRequest.h>
 #include <aws/ecr/model/StartLifecyclePolicyPreviewRequest.h>
 #include <aws/ecr/model/TagResourceRequest.h>
 #include <aws/ecr/model/UntagResourceRequest.h>
@@ -135,7 +138,7 @@ BatchCheckLayerAvailabilityOutcome ECRClient::BatchCheckLayerAvailability(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchCheckLayerAvailabilityOutcome(BatchCheckLayerAvailabilityResult(outcome.GetResult()));
@@ -170,7 +173,7 @@ BatchDeleteImageOutcome ECRClient::BatchDeleteImage(const BatchDeleteImageReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDeleteImageOutcome(BatchDeleteImageResult(outcome.GetResult()));
@@ -205,7 +208,7 @@ BatchGetImageOutcome ECRClient::BatchGetImage(const BatchGetImageRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchGetImageOutcome(BatchGetImageResult(outcome.GetResult()));
@@ -240,7 +243,7 @@ CompleteLayerUploadOutcome ECRClient::CompleteLayerUpload(const CompleteLayerUpl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CompleteLayerUploadOutcome(CompleteLayerUploadResult(outcome.GetResult()));
@@ -275,7 +278,7 @@ CreateRepositoryOutcome ECRClient::CreateRepository(const CreateRepositoryReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateRepositoryOutcome(CreateRepositoryResult(outcome.GetResult()));
@@ -310,7 +313,7 @@ DeleteLifecyclePolicyOutcome ECRClient::DeleteLifecyclePolicy(const DeleteLifecy
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteLifecyclePolicyOutcome(DeleteLifecyclePolicyResult(outcome.GetResult()));
@@ -345,7 +348,7 @@ DeleteRepositoryOutcome ECRClient::DeleteRepository(const DeleteRepositoryReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRepositoryOutcome(DeleteRepositoryResult(outcome.GetResult()));
@@ -380,7 +383,7 @@ DeleteRepositoryPolicyOutcome ECRClient::DeleteRepositoryPolicy(const DeleteRepo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRepositoryPolicyOutcome(DeleteRepositoryPolicyResult(outcome.GetResult()));
@@ -409,13 +412,48 @@ void ECRClient::DeleteRepositoryPolicyAsyncHelper(const DeleteRepositoryPolicyRe
   handler(this, request, DeleteRepositoryPolicy(request), context);
 }
 
+DescribeImageScanFindingsOutcome ECRClient::DescribeImageScanFindings(const DescribeImageScanFindingsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeImageScanFindingsOutcome(DescribeImageScanFindingsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeImageScanFindingsOutcome(outcome.GetError());
+  }
+}
+
+DescribeImageScanFindingsOutcomeCallable ECRClient::DescribeImageScanFindingsCallable(const DescribeImageScanFindingsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeImageScanFindingsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeImageScanFindings(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ECRClient::DescribeImageScanFindingsAsync(const DescribeImageScanFindingsRequest& request, const DescribeImageScanFindingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeImageScanFindingsAsyncHelper( request, handler, context ); } );
+}
+
+void ECRClient::DescribeImageScanFindingsAsyncHelper(const DescribeImageScanFindingsRequest& request, const DescribeImageScanFindingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeImageScanFindings(request), context);
+}
+
 DescribeImagesOutcome ECRClient::DescribeImages(const DescribeImagesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeImagesOutcome(DescribeImagesResult(outcome.GetResult()));
@@ -450,7 +488,7 @@ DescribeRepositoriesOutcome ECRClient::DescribeRepositories(const DescribeReposi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeRepositoriesOutcome(DescribeRepositoriesResult(outcome.GetResult()));
@@ -485,7 +523,7 @@ GetAuthorizationTokenOutcome ECRClient::GetAuthorizationToken(const GetAuthoriza
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAuthorizationTokenOutcome(GetAuthorizationTokenResult(outcome.GetResult()));
@@ -520,7 +558,7 @@ GetDownloadUrlForLayerOutcome ECRClient::GetDownloadUrlForLayer(const GetDownloa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDownloadUrlForLayerOutcome(GetDownloadUrlForLayerResult(outcome.GetResult()));
@@ -555,7 +593,7 @@ GetLifecyclePolicyOutcome ECRClient::GetLifecyclePolicy(const GetLifecyclePolicy
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetLifecyclePolicyOutcome(GetLifecyclePolicyResult(outcome.GetResult()));
@@ -590,7 +628,7 @@ GetLifecyclePolicyPreviewOutcome ECRClient::GetLifecyclePolicyPreview(const GetL
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetLifecyclePolicyPreviewOutcome(GetLifecyclePolicyPreviewResult(outcome.GetResult()));
@@ -625,7 +663,7 @@ GetRepositoryPolicyOutcome ECRClient::GetRepositoryPolicy(const GetRepositoryPol
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRepositoryPolicyOutcome(GetRepositoryPolicyResult(outcome.GetResult()));
@@ -660,7 +698,7 @@ InitiateLayerUploadOutcome ECRClient::InitiateLayerUpload(const InitiateLayerUpl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return InitiateLayerUploadOutcome(InitiateLayerUploadResult(outcome.GetResult()));
@@ -695,7 +733,7 @@ ListImagesOutcome ECRClient::ListImages(const ListImagesRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListImagesOutcome(ListImagesResult(outcome.GetResult()));
@@ -730,7 +768,7 @@ ListTagsForResourceOutcome ECRClient::ListTagsForResource(const ListTagsForResou
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -765,7 +803,7 @@ PutImageOutcome ECRClient::PutImage(const PutImageRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutImageOutcome(PutImageResult(outcome.GetResult()));
@@ -794,13 +832,48 @@ void ECRClient::PutImageAsyncHelper(const PutImageRequest& request, const PutIma
   handler(this, request, PutImage(request), context);
 }
 
+PutImageScanningConfigurationOutcome ECRClient::PutImageScanningConfiguration(const PutImageScanningConfigurationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return PutImageScanningConfigurationOutcome(PutImageScanningConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return PutImageScanningConfigurationOutcome(outcome.GetError());
+  }
+}
+
+PutImageScanningConfigurationOutcomeCallable ECRClient::PutImageScanningConfigurationCallable(const PutImageScanningConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< PutImageScanningConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->PutImageScanningConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ECRClient::PutImageScanningConfigurationAsync(const PutImageScanningConfigurationRequest& request, const PutImageScanningConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->PutImageScanningConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void ECRClient::PutImageScanningConfigurationAsyncHelper(const PutImageScanningConfigurationRequest& request, const PutImageScanningConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, PutImageScanningConfiguration(request), context);
+}
+
 PutImageTagMutabilityOutcome ECRClient::PutImageTagMutability(const PutImageTagMutabilityRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutImageTagMutabilityOutcome(PutImageTagMutabilityResult(outcome.GetResult()));
@@ -835,7 +908,7 @@ PutLifecyclePolicyOutcome ECRClient::PutLifecyclePolicy(const PutLifecyclePolicy
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutLifecyclePolicyOutcome(PutLifecyclePolicyResult(outcome.GetResult()));
@@ -870,7 +943,7 @@ SetRepositoryPolicyOutcome ECRClient::SetRepositoryPolicy(const SetRepositoryPol
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SetRepositoryPolicyOutcome(SetRepositoryPolicyResult(outcome.GetResult()));
@@ -899,13 +972,48 @@ void ECRClient::SetRepositoryPolicyAsyncHelper(const SetRepositoryPolicyRequest&
   handler(this, request, SetRepositoryPolicy(request), context);
 }
 
+StartImageScanOutcome ECRClient::StartImageScan(const StartImageScanRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartImageScanOutcome(StartImageScanResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartImageScanOutcome(outcome.GetError());
+  }
+}
+
+StartImageScanOutcomeCallable ECRClient::StartImageScanCallable(const StartImageScanRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartImageScanOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartImageScan(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ECRClient::StartImageScanAsync(const StartImageScanRequest& request, const StartImageScanResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartImageScanAsyncHelper( request, handler, context ); } );
+}
+
+void ECRClient::StartImageScanAsyncHelper(const StartImageScanRequest& request, const StartImageScanResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartImageScan(request), context);
+}
+
 StartLifecyclePolicyPreviewOutcome ECRClient::StartLifecyclePolicyPreview(const StartLifecyclePolicyPreviewRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartLifecyclePolicyPreviewOutcome(StartLifecyclePolicyPreviewResult(outcome.GetResult()));
@@ -940,7 +1048,7 @@ TagResourceOutcome ECRClient::TagResource(const TagResourceRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -975,7 +1083,7 @@ UntagResourceOutcome ECRClient::UntagResource(const UntagResourceRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -1010,7 +1118,7 @@ UploadLayerPartOutcome ECRClient::UploadLayerPart(const UploadLayerPartRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UploadLayerPartOutcome(UploadLayerPartResult(outcome.GetResult()));

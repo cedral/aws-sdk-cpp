@@ -236,7 +236,7 @@ namespace Model
      * <p> An optional parameter to set a folder name in the S3 bucket. If provided,
      * tables are created in the path <code>
      * <i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>. If this
-     * parameter is not specified, then the path used is <code>
+     * parameter isn't specified, then the path used is <code>
      * <i>schema_name</i>/<i>table_name</i>/</code>. </p>
      */
     inline const Aws::String& GetBucketFolder() const{ return m_bucketFolder; }
@@ -245,7 +245,7 @@ namespace Model
      * <p> An optional parameter to set a folder name in the S3 bucket. If provided,
      * tables are created in the path <code>
      * <i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>. If this
-     * parameter is not specified, then the path used is <code>
+     * parameter isn't specified, then the path used is <code>
      * <i>schema_name</i>/<i>table_name</i>/</code>. </p>
      */
     inline bool BucketFolderHasBeenSet() const { return m_bucketFolderHasBeenSet; }
@@ -254,7 +254,7 @@ namespace Model
      * <p> An optional parameter to set a folder name in the S3 bucket. If provided,
      * tables are created in the path <code>
      * <i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>. If this
-     * parameter is not specified, then the path used is <code>
+     * parameter isn't specified, then the path used is <code>
      * <i>schema_name</i>/<i>table_name</i>/</code>. </p>
      */
     inline void SetBucketFolder(const Aws::String& value) { m_bucketFolderHasBeenSet = true; m_bucketFolder = value; }
@@ -263,7 +263,7 @@ namespace Model
      * <p> An optional parameter to set a folder name in the S3 bucket. If provided,
      * tables are created in the path <code>
      * <i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>. If this
-     * parameter is not specified, then the path used is <code>
+     * parameter isn't specified, then the path used is <code>
      * <i>schema_name</i>/<i>table_name</i>/</code>. </p>
      */
     inline void SetBucketFolder(Aws::String&& value) { m_bucketFolderHasBeenSet = true; m_bucketFolder = std::move(value); }
@@ -272,7 +272,7 @@ namespace Model
      * <p> An optional parameter to set a folder name in the S3 bucket. If provided,
      * tables are created in the path <code>
      * <i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>. If this
-     * parameter is not specified, then the path used is <code>
+     * parameter isn't specified, then the path used is <code>
      * <i>schema_name</i>/<i>table_name</i>/</code>. </p>
      */
     inline void SetBucketFolder(const char* value) { m_bucketFolderHasBeenSet = true; m_bucketFolder.assign(value); }
@@ -281,7 +281,7 @@ namespace Model
      * <p> An optional parameter to set a folder name in the S3 bucket. If provided,
      * tables are created in the path <code>
      * <i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>. If this
-     * parameter is not specified, then the path used is <code>
+     * parameter isn't specified, then the path used is <code>
      * <i>schema_name</i>/<i>table_name</i>/</code>. </p>
      */
     inline S3Settings& WithBucketFolder(const Aws::String& value) { SetBucketFolder(value); return *this;}
@@ -290,7 +290,7 @@ namespace Model
      * <p> An optional parameter to set a folder name in the S3 bucket. If provided,
      * tables are created in the path <code>
      * <i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>. If this
-     * parameter is not specified, then the path used is <code>
+     * parameter isn't specified, then the path used is <code>
      * <i>schema_name</i>/<i>table_name</i>/</code>. </p>
      */
     inline S3Settings& WithBucketFolder(Aws::String&& value) { SetBucketFolder(std::move(value)); return *this;}
@@ -299,7 +299,7 @@ namespace Model
      * <p> An optional parameter to set a folder name in the S3 bucket. If provided,
      * tables are created in the path <code>
      * <i>bucketFolder</i>/<i>schema_name</i>/<i>table_name</i>/</code>. If this
-     * parameter is not specified, then the path used is <code>
+     * parameter isn't specified, then the path used is <code>
      * <i>schema_name</i>/<i>table_name</i>/</code>. </p>
      */
     inline S3Settings& WithBucketFolder(const char* value) { SetBucketFolder(value); return *this;}
@@ -347,44 +347,50 @@ namespace Model
 
 
     /**
-     * <p> An optional parameter to use GZIP to compress the target files. Set to GZIP
-     * to compress the target files. Set to NONE (the default) or do not use to leave
-     * the files uncompressed. Applies to both .csv and .parquet file formats. </p>
+     * <p>An optional parameter to use GZIP to compress the target files. Set to GZIP
+     * to compress the target files. Either set this parameter to NONE (the default) or
+     * don't use it to leave the files uncompressed. This parameter applies to both
+     * .csv and .parquet file formats. </p>
      */
     inline const CompressionTypeValue& GetCompressionType() const{ return m_compressionType; }
 
     /**
-     * <p> An optional parameter to use GZIP to compress the target files. Set to GZIP
-     * to compress the target files. Set to NONE (the default) or do not use to leave
-     * the files uncompressed. Applies to both .csv and .parquet file formats. </p>
+     * <p>An optional parameter to use GZIP to compress the target files. Set to GZIP
+     * to compress the target files. Either set this parameter to NONE (the default) or
+     * don't use it to leave the files uncompressed. This parameter applies to both
+     * .csv and .parquet file formats. </p>
      */
     inline bool CompressionTypeHasBeenSet() const { return m_compressionTypeHasBeenSet; }
 
     /**
-     * <p> An optional parameter to use GZIP to compress the target files. Set to GZIP
-     * to compress the target files. Set to NONE (the default) or do not use to leave
-     * the files uncompressed. Applies to both .csv and .parquet file formats. </p>
+     * <p>An optional parameter to use GZIP to compress the target files. Set to GZIP
+     * to compress the target files. Either set this parameter to NONE (the default) or
+     * don't use it to leave the files uncompressed. This parameter applies to both
+     * .csv and .parquet file formats. </p>
      */
     inline void SetCompressionType(const CompressionTypeValue& value) { m_compressionTypeHasBeenSet = true; m_compressionType = value; }
 
     /**
-     * <p> An optional parameter to use GZIP to compress the target files. Set to GZIP
-     * to compress the target files. Set to NONE (the default) or do not use to leave
-     * the files uncompressed. Applies to both .csv and .parquet file formats. </p>
+     * <p>An optional parameter to use GZIP to compress the target files. Set to GZIP
+     * to compress the target files. Either set this parameter to NONE (the default) or
+     * don't use it to leave the files uncompressed. This parameter applies to both
+     * .csv and .parquet file formats. </p>
      */
     inline void SetCompressionType(CompressionTypeValue&& value) { m_compressionTypeHasBeenSet = true; m_compressionType = std::move(value); }
 
     /**
-     * <p> An optional parameter to use GZIP to compress the target files. Set to GZIP
-     * to compress the target files. Set to NONE (the default) or do not use to leave
-     * the files uncompressed. Applies to both .csv and .parquet file formats. </p>
+     * <p>An optional parameter to use GZIP to compress the target files. Set to GZIP
+     * to compress the target files. Either set this parameter to NONE (the default) or
+     * don't use it to leave the files uncompressed. This parameter applies to both
+     * .csv and .parquet file formats. </p>
      */
     inline S3Settings& WithCompressionType(const CompressionTypeValue& value) { SetCompressionType(value); return *this;}
 
     /**
-     * <p> An optional parameter to use GZIP to compress the target files. Set to GZIP
-     * to compress the target files. Set to NONE (the default) or do not use to leave
-     * the files uncompressed. Applies to both .csv and .parquet file formats. </p>
+     * <p>An optional parameter to use GZIP to compress the target files. Set to GZIP
+     * to compress the target files. Either set this parameter to NONE (the default) or
+     * don't use it to leave the files uncompressed. This parameter applies to both
+     * .csv and .parquet file formats. </p>
      */
     inline S3Settings& WithCompressionType(CompressionTypeValue&& value) { SetCompressionType(std::move(value)); return *this;}
 
@@ -909,17 +915,18 @@ namespace Model
     /**
      * <p>A value that enables a full load to write INSERT operations to the
      * comma-separated value (.csv) output files only to indicate how the rows were
-     * added to the source database.</p> <note> <p>AWS DMS supports
-     * <code>IncludeOpForFullLoad</code> in versions 3.1.4 and later.</p> </note>
-     * <p>For full load, records can only be inserted. By default (the
+     * added to the source database.</p> <note> <p>AWS DMS supports the
+     * <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and later.</p>
+     * </note> <p>For full load, records can only be inserted. By default (the
      * <code>false</code> setting), no information is recorded in these output files
      * for a full load to indicate that the rows were inserted at the source database.
      * If <code>IncludeOpForFullLoad</code> is set to <code>true</code> or
      * <code>y</code>, the INSERT is recorded as an I annotation in the first field of
      * the .csv file. This allows the format of your target records from a full load to
      * be consistent with the target records from a CDC load.</p> <note> <p>This
-     * setting works together with <code>CdcInsertsOnly</code> for output to .csv files
-     * only. For more information about how these settings work together, see <a
+     * setting works together with the <code>CdcInsertsOnly</code> and the
+     * <code>CdcInsertsAndUpdates</code> parameters for output to .csv files only. For
+     * more information about how these settings work together, see <a
      * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
      * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
      * Service User Guide.</i>.</p> </note>
@@ -929,17 +936,18 @@ namespace Model
     /**
      * <p>A value that enables a full load to write INSERT operations to the
      * comma-separated value (.csv) output files only to indicate how the rows were
-     * added to the source database.</p> <note> <p>AWS DMS supports
-     * <code>IncludeOpForFullLoad</code> in versions 3.1.4 and later.</p> </note>
-     * <p>For full load, records can only be inserted. By default (the
+     * added to the source database.</p> <note> <p>AWS DMS supports the
+     * <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and later.</p>
+     * </note> <p>For full load, records can only be inserted. By default (the
      * <code>false</code> setting), no information is recorded in these output files
      * for a full load to indicate that the rows were inserted at the source database.
      * If <code>IncludeOpForFullLoad</code> is set to <code>true</code> or
      * <code>y</code>, the INSERT is recorded as an I annotation in the first field of
      * the .csv file. This allows the format of your target records from a full load to
      * be consistent with the target records from a CDC load.</p> <note> <p>This
-     * setting works together with <code>CdcInsertsOnly</code> for output to .csv files
-     * only. For more information about how these settings work together, see <a
+     * setting works together with the <code>CdcInsertsOnly</code> and the
+     * <code>CdcInsertsAndUpdates</code> parameters for output to .csv files only. For
+     * more information about how these settings work together, see <a
      * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
      * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
      * Service User Guide.</i>.</p> </note>
@@ -949,17 +957,18 @@ namespace Model
     /**
      * <p>A value that enables a full load to write INSERT operations to the
      * comma-separated value (.csv) output files only to indicate how the rows were
-     * added to the source database.</p> <note> <p>AWS DMS supports
-     * <code>IncludeOpForFullLoad</code> in versions 3.1.4 and later.</p> </note>
-     * <p>For full load, records can only be inserted. By default (the
+     * added to the source database.</p> <note> <p>AWS DMS supports the
+     * <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and later.</p>
+     * </note> <p>For full load, records can only be inserted. By default (the
      * <code>false</code> setting), no information is recorded in these output files
      * for a full load to indicate that the rows were inserted at the source database.
      * If <code>IncludeOpForFullLoad</code> is set to <code>true</code> or
      * <code>y</code>, the INSERT is recorded as an I annotation in the first field of
      * the .csv file. This allows the format of your target records from a full load to
      * be consistent with the target records from a CDC load.</p> <note> <p>This
-     * setting works together with <code>CdcInsertsOnly</code> for output to .csv files
-     * only. For more information about how these settings work together, see <a
+     * setting works together with the <code>CdcInsertsOnly</code> and the
+     * <code>CdcInsertsAndUpdates</code> parameters for output to .csv files only. For
+     * more information about how these settings work together, see <a
      * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
      * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
      * Service User Guide.</i>.</p> </note>
@@ -969,17 +978,18 @@ namespace Model
     /**
      * <p>A value that enables a full load to write INSERT operations to the
      * comma-separated value (.csv) output files only to indicate how the rows were
-     * added to the source database.</p> <note> <p>AWS DMS supports
-     * <code>IncludeOpForFullLoad</code> in versions 3.1.4 and later.</p> </note>
-     * <p>For full load, records can only be inserted. By default (the
+     * added to the source database.</p> <note> <p>AWS DMS supports the
+     * <code>IncludeOpForFullLoad</code> parameter in versions 3.1.4 and later.</p>
+     * </note> <p>For full load, records can only be inserted. By default (the
      * <code>false</code> setting), no information is recorded in these output files
      * for a full load to indicate that the rows were inserted at the source database.
      * If <code>IncludeOpForFullLoad</code> is set to <code>true</code> or
      * <code>y</code>, the INSERT is recorded as an I annotation in the first field of
      * the .csv file. This allows the format of your target records from a full load to
      * be consistent with the target records from a CDC load.</p> <note> <p>This
-     * setting works together with <code>CdcInsertsOnly</code> for output to .csv files
-     * only. For more information about how these settings work together, see <a
+     * setting works together with the <code>CdcInsertsOnly</code> and the
+     * <code>CdcInsertsAndUpdates</code> parameters for output to .csv files only. For
+     * more information about how these settings work together, see <a
      * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
      * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
      * Service User Guide.</i>.</p> </note>
@@ -993,7 +1003,7 @@ namespace Model
      * <code>false</code> setting), the first field in a .csv or .parquet record
      * contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate
      * whether the row was inserted, updated, or deleted at the source database for a
-     * CDC load to the target.</p> <p>If <code>cdcInsertsOnly</code> is set to
+     * CDC load to the target.</p> <p>If <code>CdcInsertsOnly</code> is set to
      * <code>true</code> or <code>y</code>, only INSERTs from the source database are
      * migrated to the .csv or .parquet file. For .csv format only, how these INSERTs
      * are recorded depends on the value of <code>IncludeOpForFullLoad</code>. If
@@ -1004,9 +1014,13 @@ namespace Model
      * source. For more information about how these settings work together, see <a
      * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
      * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
-     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports this interaction between
-     * <code>CdcInsertsOnly</code> and <code>IncludeOpForFullLoad</code> in versions
-     * 3.1.4 and later. </p> </note>
+     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports the interaction
+     * described preceding between the <code>CdcInsertsOnly</code> and
+     * <code>IncludeOpForFullLoad</code> parameters in versions 3.1.4 and later. </p>
+     * <p> <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both
+     * be set to <code>true</code> for the same endpoint. Set either
+     * <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to
+     * <code>true</code> for the same endpoint, but not both.</p> </note>
      */
     inline bool GetCdcInsertsOnly() const{ return m_cdcInsertsOnly; }
 
@@ -1016,7 +1030,7 @@ namespace Model
      * <code>false</code> setting), the first field in a .csv or .parquet record
      * contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate
      * whether the row was inserted, updated, or deleted at the source database for a
-     * CDC load to the target.</p> <p>If <code>cdcInsertsOnly</code> is set to
+     * CDC load to the target.</p> <p>If <code>CdcInsertsOnly</code> is set to
      * <code>true</code> or <code>y</code>, only INSERTs from the source database are
      * migrated to the .csv or .parquet file. For .csv format only, how these INSERTs
      * are recorded depends on the value of <code>IncludeOpForFullLoad</code>. If
@@ -1027,9 +1041,13 @@ namespace Model
      * source. For more information about how these settings work together, see <a
      * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
      * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
-     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports this interaction between
-     * <code>CdcInsertsOnly</code> and <code>IncludeOpForFullLoad</code> in versions
-     * 3.1.4 and later. </p> </note>
+     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports the interaction
+     * described preceding between the <code>CdcInsertsOnly</code> and
+     * <code>IncludeOpForFullLoad</code> parameters in versions 3.1.4 and later. </p>
+     * <p> <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both
+     * be set to <code>true</code> for the same endpoint. Set either
+     * <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to
+     * <code>true</code> for the same endpoint, but not both.</p> </note>
      */
     inline bool CdcInsertsOnlyHasBeenSet() const { return m_cdcInsertsOnlyHasBeenSet; }
 
@@ -1039,7 +1057,7 @@ namespace Model
      * <code>false</code> setting), the first field in a .csv or .parquet record
      * contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate
      * whether the row was inserted, updated, or deleted at the source database for a
-     * CDC load to the target.</p> <p>If <code>cdcInsertsOnly</code> is set to
+     * CDC load to the target.</p> <p>If <code>CdcInsertsOnly</code> is set to
      * <code>true</code> or <code>y</code>, only INSERTs from the source database are
      * migrated to the .csv or .parquet file. For .csv format only, how these INSERTs
      * are recorded depends on the value of <code>IncludeOpForFullLoad</code>. If
@@ -1050,9 +1068,13 @@ namespace Model
      * source. For more information about how these settings work together, see <a
      * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
      * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
-     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports this interaction between
-     * <code>CdcInsertsOnly</code> and <code>IncludeOpForFullLoad</code> in versions
-     * 3.1.4 and later. </p> </note>
+     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports the interaction
+     * described preceding between the <code>CdcInsertsOnly</code> and
+     * <code>IncludeOpForFullLoad</code> parameters in versions 3.1.4 and later. </p>
+     * <p> <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both
+     * be set to <code>true</code> for the same endpoint. Set either
+     * <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to
+     * <code>true</code> for the same endpoint, but not both.</p> </note>
      */
     inline void SetCdcInsertsOnly(bool value) { m_cdcInsertsOnlyHasBeenSet = true; m_cdcInsertsOnly = value; }
 
@@ -1062,7 +1084,7 @@ namespace Model
      * <code>false</code> setting), the first field in a .csv or .parquet record
      * contains the letter I (INSERT), U (UPDATE), or D (DELETE). These values indicate
      * whether the row was inserted, updated, or deleted at the source database for a
-     * CDC load to the target.</p> <p>If <code>cdcInsertsOnly</code> is set to
+     * CDC load to the target.</p> <p>If <code>CdcInsertsOnly</code> is set to
      * <code>true</code> or <code>y</code>, only INSERTs from the source database are
      * migrated to the .csv or .parquet file. For .csv format only, how these INSERTs
      * are recorded depends on the value of <code>IncludeOpForFullLoad</code>. If
@@ -1073,148 +1095,358 @@ namespace Model
      * source. For more information about how these settings work together, see <a
      * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
      * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
-     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports this interaction between
-     * <code>CdcInsertsOnly</code> and <code>IncludeOpForFullLoad</code> in versions
-     * 3.1.4 and later. </p> </note>
+     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports the interaction
+     * described preceding between the <code>CdcInsertsOnly</code> and
+     * <code>IncludeOpForFullLoad</code> parameters in versions 3.1.4 and later. </p>
+     * <p> <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both
+     * be set to <code>true</code> for the same endpoint. Set either
+     * <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to
+     * <code>true</code> for the same endpoint, but not both.</p> </note>
      */
     inline S3Settings& WithCdcInsertsOnly(bool value) { SetCdcInsertsOnly(value); return *this;}
 
 
     /**
-     * <p>A value that includes a timestamp column in the Amazon S3 target endpoint
-     * data. AWS DMS includes an additional column in the migrated data when you set
-     * <code>timestampColumnName</code> to a non-blank value. </p> <note> <p>AWS DMS
-     * supports <code>TimestampColumnName</code> in versions 3.1.4 and later.</p>
-     * </note> <p>For a full load, each row of the timestamp column contains a
-     * timestamp for when the data was transferred from the source to the target by
-     * DMS. For a CDC load, each row of the timestamp column contains the timestamp for
-     * the commit of that row in the source database. The format for the timestamp
-     * column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. For CDC, the
-     * microsecond precision depends on the commit timestamp supported by DMS for the
-     * source database. When the <code>AddColumnName</code> setting is set to
-     * <code>true</code>, DMS also includes the name for the timestamp column that you
-     * set as the nonblank value of <code>timestampColumnName</code>.</p>
+     * <p>A value that when nonblank causes AWS DMS to add a column with timestamp
+     * information to the endpoint data for an Amazon S3 target.</p> <note> <p>AWS DMS
+     * supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+     * later.</p> </note> <p>DMS includes an additional <code>STRING</code> column in
+     * the .csv or .parquet object files of your migrated data when you set
+     * <code>TimestampColumnName</code> to a nonblank value.</p> <p>For a full load,
+     * each row of this timestamp column contains a timestamp for when the data was
+     * transferred from the source to the target by DMS. </p> <p>For a change data
+     * capture (CDC) load, each row of the timestamp column contains the timestamp for
+     * the commit of that row in the source database.</p> <p>The string format for this
+     * timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. By default,
+     * the precision of this value is in microseconds. For a CDC load, the rounding of
+     * the precision depends on the commit timestamp supported by DMS for the source
+     * database.</p> <p>When the <code>AddColumnName</code> parameter is set to
+     * <code>true</code>, DMS also includes a name for the timestamp column that you
+     * set with <code>TimestampColumnName</code>.</p>
      */
     inline const Aws::String& GetTimestampColumnName() const{ return m_timestampColumnName; }
 
     /**
-     * <p>A value that includes a timestamp column in the Amazon S3 target endpoint
-     * data. AWS DMS includes an additional column in the migrated data when you set
-     * <code>timestampColumnName</code> to a non-blank value. </p> <note> <p>AWS DMS
-     * supports <code>TimestampColumnName</code> in versions 3.1.4 and later.</p>
-     * </note> <p>For a full load, each row of the timestamp column contains a
-     * timestamp for when the data was transferred from the source to the target by
-     * DMS. For a CDC load, each row of the timestamp column contains the timestamp for
-     * the commit of that row in the source database. The format for the timestamp
-     * column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. For CDC, the
-     * microsecond precision depends on the commit timestamp supported by DMS for the
-     * source database. When the <code>AddColumnName</code> setting is set to
-     * <code>true</code>, DMS also includes the name for the timestamp column that you
-     * set as the nonblank value of <code>timestampColumnName</code>.</p>
+     * <p>A value that when nonblank causes AWS DMS to add a column with timestamp
+     * information to the endpoint data for an Amazon S3 target.</p> <note> <p>AWS DMS
+     * supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+     * later.</p> </note> <p>DMS includes an additional <code>STRING</code> column in
+     * the .csv or .parquet object files of your migrated data when you set
+     * <code>TimestampColumnName</code> to a nonblank value.</p> <p>For a full load,
+     * each row of this timestamp column contains a timestamp for when the data was
+     * transferred from the source to the target by DMS. </p> <p>For a change data
+     * capture (CDC) load, each row of the timestamp column contains the timestamp for
+     * the commit of that row in the source database.</p> <p>The string format for this
+     * timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. By default,
+     * the precision of this value is in microseconds. For a CDC load, the rounding of
+     * the precision depends on the commit timestamp supported by DMS for the source
+     * database.</p> <p>When the <code>AddColumnName</code> parameter is set to
+     * <code>true</code>, DMS also includes a name for the timestamp column that you
+     * set with <code>TimestampColumnName</code>.</p>
      */
     inline bool TimestampColumnNameHasBeenSet() const { return m_timestampColumnNameHasBeenSet; }
 
     /**
-     * <p>A value that includes a timestamp column in the Amazon S3 target endpoint
-     * data. AWS DMS includes an additional column in the migrated data when you set
-     * <code>timestampColumnName</code> to a non-blank value. </p> <note> <p>AWS DMS
-     * supports <code>TimestampColumnName</code> in versions 3.1.4 and later.</p>
-     * </note> <p>For a full load, each row of the timestamp column contains a
-     * timestamp for when the data was transferred from the source to the target by
-     * DMS. For a CDC load, each row of the timestamp column contains the timestamp for
-     * the commit of that row in the source database. The format for the timestamp
-     * column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. For CDC, the
-     * microsecond precision depends on the commit timestamp supported by DMS for the
-     * source database. When the <code>AddColumnName</code> setting is set to
-     * <code>true</code>, DMS also includes the name for the timestamp column that you
-     * set as the nonblank value of <code>timestampColumnName</code>.</p>
+     * <p>A value that when nonblank causes AWS DMS to add a column with timestamp
+     * information to the endpoint data for an Amazon S3 target.</p> <note> <p>AWS DMS
+     * supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+     * later.</p> </note> <p>DMS includes an additional <code>STRING</code> column in
+     * the .csv or .parquet object files of your migrated data when you set
+     * <code>TimestampColumnName</code> to a nonblank value.</p> <p>For a full load,
+     * each row of this timestamp column contains a timestamp for when the data was
+     * transferred from the source to the target by DMS. </p> <p>For a change data
+     * capture (CDC) load, each row of the timestamp column contains the timestamp for
+     * the commit of that row in the source database.</p> <p>The string format for this
+     * timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. By default,
+     * the precision of this value is in microseconds. For a CDC load, the rounding of
+     * the precision depends on the commit timestamp supported by DMS for the source
+     * database.</p> <p>When the <code>AddColumnName</code> parameter is set to
+     * <code>true</code>, DMS also includes a name for the timestamp column that you
+     * set with <code>TimestampColumnName</code>.</p>
      */
     inline void SetTimestampColumnName(const Aws::String& value) { m_timestampColumnNameHasBeenSet = true; m_timestampColumnName = value; }
 
     /**
-     * <p>A value that includes a timestamp column in the Amazon S3 target endpoint
-     * data. AWS DMS includes an additional column in the migrated data when you set
-     * <code>timestampColumnName</code> to a non-blank value. </p> <note> <p>AWS DMS
-     * supports <code>TimestampColumnName</code> in versions 3.1.4 and later.</p>
-     * </note> <p>For a full load, each row of the timestamp column contains a
-     * timestamp for when the data was transferred from the source to the target by
-     * DMS. For a CDC load, each row of the timestamp column contains the timestamp for
-     * the commit of that row in the source database. The format for the timestamp
-     * column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. For CDC, the
-     * microsecond precision depends on the commit timestamp supported by DMS for the
-     * source database. When the <code>AddColumnName</code> setting is set to
-     * <code>true</code>, DMS also includes the name for the timestamp column that you
-     * set as the nonblank value of <code>timestampColumnName</code>.</p>
+     * <p>A value that when nonblank causes AWS DMS to add a column with timestamp
+     * information to the endpoint data for an Amazon S3 target.</p> <note> <p>AWS DMS
+     * supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+     * later.</p> </note> <p>DMS includes an additional <code>STRING</code> column in
+     * the .csv or .parquet object files of your migrated data when you set
+     * <code>TimestampColumnName</code> to a nonblank value.</p> <p>For a full load,
+     * each row of this timestamp column contains a timestamp for when the data was
+     * transferred from the source to the target by DMS. </p> <p>For a change data
+     * capture (CDC) load, each row of the timestamp column contains the timestamp for
+     * the commit of that row in the source database.</p> <p>The string format for this
+     * timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. By default,
+     * the precision of this value is in microseconds. For a CDC load, the rounding of
+     * the precision depends on the commit timestamp supported by DMS for the source
+     * database.</p> <p>When the <code>AddColumnName</code> parameter is set to
+     * <code>true</code>, DMS also includes a name for the timestamp column that you
+     * set with <code>TimestampColumnName</code>.</p>
      */
     inline void SetTimestampColumnName(Aws::String&& value) { m_timestampColumnNameHasBeenSet = true; m_timestampColumnName = std::move(value); }
 
     /**
-     * <p>A value that includes a timestamp column in the Amazon S3 target endpoint
-     * data. AWS DMS includes an additional column in the migrated data when you set
-     * <code>timestampColumnName</code> to a non-blank value. </p> <note> <p>AWS DMS
-     * supports <code>TimestampColumnName</code> in versions 3.1.4 and later.</p>
-     * </note> <p>For a full load, each row of the timestamp column contains a
-     * timestamp for when the data was transferred from the source to the target by
-     * DMS. For a CDC load, each row of the timestamp column contains the timestamp for
-     * the commit of that row in the source database. The format for the timestamp
-     * column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. For CDC, the
-     * microsecond precision depends on the commit timestamp supported by DMS for the
-     * source database. When the <code>AddColumnName</code> setting is set to
-     * <code>true</code>, DMS also includes the name for the timestamp column that you
-     * set as the nonblank value of <code>timestampColumnName</code>.</p>
+     * <p>A value that when nonblank causes AWS DMS to add a column with timestamp
+     * information to the endpoint data for an Amazon S3 target.</p> <note> <p>AWS DMS
+     * supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+     * later.</p> </note> <p>DMS includes an additional <code>STRING</code> column in
+     * the .csv or .parquet object files of your migrated data when you set
+     * <code>TimestampColumnName</code> to a nonblank value.</p> <p>For a full load,
+     * each row of this timestamp column contains a timestamp for when the data was
+     * transferred from the source to the target by DMS. </p> <p>For a change data
+     * capture (CDC) load, each row of the timestamp column contains the timestamp for
+     * the commit of that row in the source database.</p> <p>The string format for this
+     * timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. By default,
+     * the precision of this value is in microseconds. For a CDC load, the rounding of
+     * the precision depends on the commit timestamp supported by DMS for the source
+     * database.</p> <p>When the <code>AddColumnName</code> parameter is set to
+     * <code>true</code>, DMS also includes a name for the timestamp column that you
+     * set with <code>TimestampColumnName</code>.</p>
      */
     inline void SetTimestampColumnName(const char* value) { m_timestampColumnNameHasBeenSet = true; m_timestampColumnName.assign(value); }
 
     /**
-     * <p>A value that includes a timestamp column in the Amazon S3 target endpoint
-     * data. AWS DMS includes an additional column in the migrated data when you set
-     * <code>timestampColumnName</code> to a non-blank value. </p> <note> <p>AWS DMS
-     * supports <code>TimestampColumnName</code> in versions 3.1.4 and later.</p>
-     * </note> <p>For a full load, each row of the timestamp column contains a
-     * timestamp for when the data was transferred from the source to the target by
-     * DMS. For a CDC load, each row of the timestamp column contains the timestamp for
-     * the commit of that row in the source database. The format for the timestamp
-     * column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. For CDC, the
-     * microsecond precision depends on the commit timestamp supported by DMS for the
-     * source database. When the <code>AddColumnName</code> setting is set to
-     * <code>true</code>, DMS also includes the name for the timestamp column that you
-     * set as the nonblank value of <code>timestampColumnName</code>.</p>
+     * <p>A value that when nonblank causes AWS DMS to add a column with timestamp
+     * information to the endpoint data for an Amazon S3 target.</p> <note> <p>AWS DMS
+     * supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+     * later.</p> </note> <p>DMS includes an additional <code>STRING</code> column in
+     * the .csv or .parquet object files of your migrated data when you set
+     * <code>TimestampColumnName</code> to a nonblank value.</p> <p>For a full load,
+     * each row of this timestamp column contains a timestamp for when the data was
+     * transferred from the source to the target by DMS. </p> <p>For a change data
+     * capture (CDC) load, each row of the timestamp column contains the timestamp for
+     * the commit of that row in the source database.</p> <p>The string format for this
+     * timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. By default,
+     * the precision of this value is in microseconds. For a CDC load, the rounding of
+     * the precision depends on the commit timestamp supported by DMS for the source
+     * database.</p> <p>When the <code>AddColumnName</code> parameter is set to
+     * <code>true</code>, DMS also includes a name for the timestamp column that you
+     * set with <code>TimestampColumnName</code>.</p>
      */
     inline S3Settings& WithTimestampColumnName(const Aws::String& value) { SetTimestampColumnName(value); return *this;}
 
     /**
-     * <p>A value that includes a timestamp column in the Amazon S3 target endpoint
-     * data. AWS DMS includes an additional column in the migrated data when you set
-     * <code>timestampColumnName</code> to a non-blank value. </p> <note> <p>AWS DMS
-     * supports <code>TimestampColumnName</code> in versions 3.1.4 and later.</p>
-     * </note> <p>For a full load, each row of the timestamp column contains a
-     * timestamp for when the data was transferred from the source to the target by
-     * DMS. For a CDC load, each row of the timestamp column contains the timestamp for
-     * the commit of that row in the source database. The format for the timestamp
-     * column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. For CDC, the
-     * microsecond precision depends on the commit timestamp supported by DMS for the
-     * source database. When the <code>AddColumnName</code> setting is set to
-     * <code>true</code>, DMS also includes the name for the timestamp column that you
-     * set as the nonblank value of <code>timestampColumnName</code>.</p>
+     * <p>A value that when nonblank causes AWS DMS to add a column with timestamp
+     * information to the endpoint data for an Amazon S3 target.</p> <note> <p>AWS DMS
+     * supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+     * later.</p> </note> <p>DMS includes an additional <code>STRING</code> column in
+     * the .csv or .parquet object files of your migrated data when you set
+     * <code>TimestampColumnName</code> to a nonblank value.</p> <p>For a full load,
+     * each row of this timestamp column contains a timestamp for when the data was
+     * transferred from the source to the target by DMS. </p> <p>For a change data
+     * capture (CDC) load, each row of the timestamp column contains the timestamp for
+     * the commit of that row in the source database.</p> <p>The string format for this
+     * timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. By default,
+     * the precision of this value is in microseconds. For a CDC load, the rounding of
+     * the precision depends on the commit timestamp supported by DMS for the source
+     * database.</p> <p>When the <code>AddColumnName</code> parameter is set to
+     * <code>true</code>, DMS also includes a name for the timestamp column that you
+     * set with <code>TimestampColumnName</code>.</p>
      */
     inline S3Settings& WithTimestampColumnName(Aws::String&& value) { SetTimestampColumnName(std::move(value)); return *this;}
 
     /**
-     * <p>A value that includes a timestamp column in the Amazon S3 target endpoint
-     * data. AWS DMS includes an additional column in the migrated data when you set
-     * <code>timestampColumnName</code> to a non-blank value. </p> <note> <p>AWS DMS
-     * supports <code>TimestampColumnName</code> in versions 3.1.4 and later.</p>
-     * </note> <p>For a full load, each row of the timestamp column contains a
-     * timestamp for when the data was transferred from the source to the target by
-     * DMS. For a CDC load, each row of the timestamp column contains the timestamp for
-     * the commit of that row in the source database. The format for the timestamp
-     * column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. For CDC, the
-     * microsecond precision depends on the commit timestamp supported by DMS for the
-     * source database. When the <code>AddColumnName</code> setting is set to
-     * <code>true</code>, DMS also includes the name for the timestamp column that you
-     * set as the nonblank value of <code>timestampColumnName</code>.</p>
+     * <p>A value that when nonblank causes AWS DMS to add a column with timestamp
+     * information to the endpoint data for an Amazon S3 target.</p> <note> <p>AWS DMS
+     * supports the <code>TimestampColumnName</code> parameter in versions 3.1.4 and
+     * later.</p> </note> <p>DMS includes an additional <code>STRING</code> column in
+     * the .csv or .parquet object files of your migrated data when you set
+     * <code>TimestampColumnName</code> to a nonblank value.</p> <p>For a full load,
+     * each row of this timestamp column contains a timestamp for when the data was
+     * transferred from the source to the target by DMS. </p> <p>For a change data
+     * capture (CDC) load, each row of the timestamp column contains the timestamp for
+     * the commit of that row in the source database.</p> <p>The string format for this
+     * timestamp column value is <code>yyyy-MM-dd HH:mm:ss.SSSSSS</code>. By default,
+     * the precision of this value is in microseconds. For a CDC load, the rounding of
+     * the precision depends on the commit timestamp supported by DMS for the source
+     * database.</p> <p>When the <code>AddColumnName</code> parameter is set to
+     * <code>true</code>, DMS also includes a name for the timestamp column that you
+     * set with <code>TimestampColumnName</code>.</p>
      */
     inline S3Settings& WithTimestampColumnName(const char* value) { SetTimestampColumnName(value); return *this;}
+
+
+    /**
+     * <p>A value that specifies the precision of any <code>TIMESTAMP</code> column
+     * values that are written to an Amazon S3 object file in .parquet format.</p>
+     * <note> <p>AWS DMS supports the <code>ParquetTimestampInMillisecond</code>
+     * parameter in versions 3.1.4 and later.</p> </note> <p>When
+     * <code>ParquetTimestampInMillisecond</code> is set to <code>true</code> or
+     * <code>y</code>, AWS DMS writes all <code>TIMESTAMP</code> columns in a .parquet
+     * formatted file with millisecond precision. Otherwise, DMS writes them with
+     * microsecond precision.</p> <p>Currently, Amazon Athena and AWS Glue can handle
+     * only millisecond precision for <code>TIMESTAMP</code> values. Set this parameter
+     * to <code>true</code> for S3 endpoint object files that are .parquet formatted
+     * only if you plan to query or process the data with Athena or AWS Glue.</p>
+     * <note> <p>AWS DMS writes any <code>TIMESTAMP</code> column values written to an
+     * S3 file in .csv format with microsecond precision.</p> <p>Setting
+     * <code>ParquetTimestampInMillisecond</code> has no effect on the string format of
+     * the timestamp column value that is inserted by setting the
+     * <code>TimestampColumnName</code> parameter.</p> </note>
+     */
+    inline bool GetParquetTimestampInMillisecond() const{ return m_parquetTimestampInMillisecond; }
+
+    /**
+     * <p>A value that specifies the precision of any <code>TIMESTAMP</code> column
+     * values that are written to an Amazon S3 object file in .parquet format.</p>
+     * <note> <p>AWS DMS supports the <code>ParquetTimestampInMillisecond</code>
+     * parameter in versions 3.1.4 and later.</p> </note> <p>When
+     * <code>ParquetTimestampInMillisecond</code> is set to <code>true</code> or
+     * <code>y</code>, AWS DMS writes all <code>TIMESTAMP</code> columns in a .parquet
+     * formatted file with millisecond precision. Otherwise, DMS writes them with
+     * microsecond precision.</p> <p>Currently, Amazon Athena and AWS Glue can handle
+     * only millisecond precision for <code>TIMESTAMP</code> values. Set this parameter
+     * to <code>true</code> for S3 endpoint object files that are .parquet formatted
+     * only if you plan to query or process the data with Athena or AWS Glue.</p>
+     * <note> <p>AWS DMS writes any <code>TIMESTAMP</code> column values written to an
+     * S3 file in .csv format with microsecond precision.</p> <p>Setting
+     * <code>ParquetTimestampInMillisecond</code> has no effect on the string format of
+     * the timestamp column value that is inserted by setting the
+     * <code>TimestampColumnName</code> parameter.</p> </note>
+     */
+    inline bool ParquetTimestampInMillisecondHasBeenSet() const { return m_parquetTimestampInMillisecondHasBeenSet; }
+
+    /**
+     * <p>A value that specifies the precision of any <code>TIMESTAMP</code> column
+     * values that are written to an Amazon S3 object file in .parquet format.</p>
+     * <note> <p>AWS DMS supports the <code>ParquetTimestampInMillisecond</code>
+     * parameter in versions 3.1.4 and later.</p> </note> <p>When
+     * <code>ParquetTimestampInMillisecond</code> is set to <code>true</code> or
+     * <code>y</code>, AWS DMS writes all <code>TIMESTAMP</code> columns in a .parquet
+     * formatted file with millisecond precision. Otherwise, DMS writes them with
+     * microsecond precision.</p> <p>Currently, Amazon Athena and AWS Glue can handle
+     * only millisecond precision for <code>TIMESTAMP</code> values. Set this parameter
+     * to <code>true</code> for S3 endpoint object files that are .parquet formatted
+     * only if you plan to query or process the data with Athena or AWS Glue.</p>
+     * <note> <p>AWS DMS writes any <code>TIMESTAMP</code> column values written to an
+     * S3 file in .csv format with microsecond precision.</p> <p>Setting
+     * <code>ParquetTimestampInMillisecond</code> has no effect on the string format of
+     * the timestamp column value that is inserted by setting the
+     * <code>TimestampColumnName</code> parameter.</p> </note>
+     */
+    inline void SetParquetTimestampInMillisecond(bool value) { m_parquetTimestampInMillisecondHasBeenSet = true; m_parquetTimestampInMillisecond = value; }
+
+    /**
+     * <p>A value that specifies the precision of any <code>TIMESTAMP</code> column
+     * values that are written to an Amazon S3 object file in .parquet format.</p>
+     * <note> <p>AWS DMS supports the <code>ParquetTimestampInMillisecond</code>
+     * parameter in versions 3.1.4 and later.</p> </note> <p>When
+     * <code>ParquetTimestampInMillisecond</code> is set to <code>true</code> or
+     * <code>y</code>, AWS DMS writes all <code>TIMESTAMP</code> columns in a .parquet
+     * formatted file with millisecond precision. Otherwise, DMS writes them with
+     * microsecond precision.</p> <p>Currently, Amazon Athena and AWS Glue can handle
+     * only millisecond precision for <code>TIMESTAMP</code> values. Set this parameter
+     * to <code>true</code> for S3 endpoint object files that are .parquet formatted
+     * only if you plan to query or process the data with Athena or AWS Glue.</p>
+     * <note> <p>AWS DMS writes any <code>TIMESTAMP</code> column values written to an
+     * S3 file in .csv format with microsecond precision.</p> <p>Setting
+     * <code>ParquetTimestampInMillisecond</code> has no effect on the string format of
+     * the timestamp column value that is inserted by setting the
+     * <code>TimestampColumnName</code> parameter.</p> </note>
+     */
+    inline S3Settings& WithParquetTimestampInMillisecond(bool value) { SetParquetTimestampInMillisecond(value); return *this;}
+
+
+    /**
+     * <p>A value that enables a change data capture (CDC) load to write INSERT and
+     * UPDATE operations to .csv or .parquet (columnar storage) output files. The
+     * default setting is <code>false</code>, but when
+     * <code>CdcInsertsAndUpdates</code> is set to <code>true</code>or <code>y</code>,
+     * INSERTs and UPDATEs from the source database are migrated to the .csv or
+     * .parquet file. </p> <p>For .csv file format only, how these INSERTs and UPDATEs
+     * are recorded depends on the value of the <code>IncludeOpForFullLoad</code>
+     * parameter. If <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the
+     * first field of every CDC record is set to either <code>I</code> or
+     * <code>U</code> to indicate INSERT and UPDATE operations at the source. But if
+     * <code>IncludeOpForFullLoad</code> is set to <code>false</code>, CDC records are
+     * written without an indication of INSERT or UPDATE operations at the source. For
+     * more information about how these settings work together, see <a
+     * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
+     * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
+     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports the use of the
+     * <code>CdcInsertsAndUpdates</code> parameter in versions 3.3.1 and later.</p> <p>
+     * <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be
+     * set to <code>true</code> for the same endpoint. Set either
+     * <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to
+     * <code>true</code> for the same endpoint, but not both.</p> </note>
+     */
+    inline bool GetCdcInsertsAndUpdates() const{ return m_cdcInsertsAndUpdates; }
+
+    /**
+     * <p>A value that enables a change data capture (CDC) load to write INSERT and
+     * UPDATE operations to .csv or .parquet (columnar storage) output files. The
+     * default setting is <code>false</code>, but when
+     * <code>CdcInsertsAndUpdates</code> is set to <code>true</code>or <code>y</code>,
+     * INSERTs and UPDATEs from the source database are migrated to the .csv or
+     * .parquet file. </p> <p>For .csv file format only, how these INSERTs and UPDATEs
+     * are recorded depends on the value of the <code>IncludeOpForFullLoad</code>
+     * parameter. If <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the
+     * first field of every CDC record is set to either <code>I</code> or
+     * <code>U</code> to indicate INSERT and UPDATE operations at the source. But if
+     * <code>IncludeOpForFullLoad</code> is set to <code>false</code>, CDC records are
+     * written without an indication of INSERT or UPDATE operations at the source. For
+     * more information about how these settings work together, see <a
+     * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
+     * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
+     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports the use of the
+     * <code>CdcInsertsAndUpdates</code> parameter in versions 3.3.1 and later.</p> <p>
+     * <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be
+     * set to <code>true</code> for the same endpoint. Set either
+     * <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to
+     * <code>true</code> for the same endpoint, but not both.</p> </note>
+     */
+    inline bool CdcInsertsAndUpdatesHasBeenSet() const { return m_cdcInsertsAndUpdatesHasBeenSet; }
+
+    /**
+     * <p>A value that enables a change data capture (CDC) load to write INSERT and
+     * UPDATE operations to .csv or .parquet (columnar storage) output files. The
+     * default setting is <code>false</code>, but when
+     * <code>CdcInsertsAndUpdates</code> is set to <code>true</code>or <code>y</code>,
+     * INSERTs and UPDATEs from the source database are migrated to the .csv or
+     * .parquet file. </p> <p>For .csv file format only, how these INSERTs and UPDATEs
+     * are recorded depends on the value of the <code>IncludeOpForFullLoad</code>
+     * parameter. If <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the
+     * first field of every CDC record is set to either <code>I</code> or
+     * <code>U</code> to indicate INSERT and UPDATE operations at the source. But if
+     * <code>IncludeOpForFullLoad</code> is set to <code>false</code>, CDC records are
+     * written without an indication of INSERT or UPDATE operations at the source. For
+     * more information about how these settings work together, see <a
+     * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
+     * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
+     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports the use of the
+     * <code>CdcInsertsAndUpdates</code> parameter in versions 3.3.1 and later.</p> <p>
+     * <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be
+     * set to <code>true</code> for the same endpoint. Set either
+     * <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to
+     * <code>true</code> for the same endpoint, but not both.</p> </note>
+     */
+    inline void SetCdcInsertsAndUpdates(bool value) { m_cdcInsertsAndUpdatesHasBeenSet = true; m_cdcInsertsAndUpdates = value; }
+
+    /**
+     * <p>A value that enables a change data capture (CDC) load to write INSERT and
+     * UPDATE operations to .csv or .parquet (columnar storage) output files. The
+     * default setting is <code>false</code>, but when
+     * <code>CdcInsertsAndUpdates</code> is set to <code>true</code>or <code>y</code>,
+     * INSERTs and UPDATEs from the source database are migrated to the .csv or
+     * .parquet file. </p> <p>For .csv file format only, how these INSERTs and UPDATEs
+     * are recorded depends on the value of the <code>IncludeOpForFullLoad</code>
+     * parameter. If <code>IncludeOpForFullLoad</code> is set to <code>true</code>, the
+     * first field of every CDC record is set to either <code>I</code> or
+     * <code>U</code> to indicate INSERT and UPDATE operations at the source. But if
+     * <code>IncludeOpForFullLoad</code> is set to <code>false</code>, CDC records are
+     * written without an indication of INSERT or UPDATE operations at the source. For
+     * more information about how these settings work together, see <a
+     * href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring.InsertOps">Indicating
+     * Source DB Operations in Migrated S3 Data</a> in the <i>AWS Database Migration
+     * Service User Guide.</i>.</p> <note> <p>AWS DMS supports the use of the
+     * <code>CdcInsertsAndUpdates</code> parameter in versions 3.3.1 and later.</p> <p>
+     * <code>CdcInsertsOnly</code> and <code>CdcInsertsAndUpdates</code> can't both be
+     * set to <code>true</code> for the same endpoint. Set either
+     * <code>CdcInsertsOnly</code> or <code>CdcInsertsAndUpdates</code> to
+     * <code>true</code> for the same endpoint, but not both.</p> </note>
+     */
+    inline S3Settings& WithCdcInsertsAndUpdates(bool value) { SetCdcInsertsAndUpdates(value); return *this;}
 
   private:
 
@@ -1274,6 +1506,12 @@ namespace Model
 
     Aws::String m_timestampColumnName;
     bool m_timestampColumnNameHasBeenSet;
+
+    bool m_parquetTimestampInMillisecond;
+    bool m_parquetTimestampInMillisecondHasBeenSet;
+
+    bool m_cdcInsertsAndUpdates;
+    bool m_cdcInsertsAndUpdatesHasBeenSet;
   };
 
 } // namespace Model

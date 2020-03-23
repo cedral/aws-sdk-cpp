@@ -307,11 +307,15 @@ namespace Model
          * After a CMK is associated with a log group, all newly ingested data for the log
          * group is encrypted using the CMK. This association is stored as long as the data
          * encrypted with the CMK is still within Amazon CloudWatch Logs. This enables
-         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p>
-         * <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
-         * <p>If you attempt to associate a CMK with a log group but the CMK does not exist
-         * or the CMK is disabled, you will receive an
-         * <code>InvalidParameterException</code> error. </p><p><h3>See Also:</h3>   <a
+         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <note>
+         * <p> <b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not use
+         * an associate an asymmetric CMK with your log group. For more information, see <a
+         * href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+         * Symmetric and Asymmetric Keys</a>.</p> </note> <p>Note that it can take up to 5
+         * minutes for this operation to take effect.</p> <p>If you attempt to associate a
+         * CMK with a log group but the CMK does not exist or the CMK is disabled, you will
+         * receive an <code>InvalidParameterException</code> error. </p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/AssociateKmsKey">AWS
          * API Reference</a></p>
          */
@@ -324,11 +328,15 @@ namespace Model
          * After a CMK is associated with a log group, all newly ingested data for the log
          * group is encrypted using the CMK. This association is stored as long as the data
          * encrypted with the CMK is still within Amazon CloudWatch Logs. This enables
-         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p>
-         * <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
-         * <p>If you attempt to associate a CMK with a log group but the CMK does not exist
-         * or the CMK is disabled, you will receive an
-         * <code>InvalidParameterException</code> error. </p><p><h3>See Also:</h3>   <a
+         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <note>
+         * <p> <b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not use
+         * an associate an asymmetric CMK with your log group. For more information, see <a
+         * href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+         * Symmetric and Asymmetric Keys</a>.</p> </note> <p>Note that it can take up to 5
+         * minutes for this operation to take effect.</p> <p>If you attempt to associate a
+         * CMK with a log group but the CMK does not exist or the CMK is disabled, you will
+         * receive an <code>InvalidParameterException</code> error. </p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/AssociateKmsKey">AWS
          * API Reference</a></p>
          *
@@ -343,11 +351,15 @@ namespace Model
          * After a CMK is associated with a log group, all newly ingested data for the log
          * group is encrypted using the CMK. This association is stored as long as the data
          * encrypted with the CMK is still within Amazon CloudWatch Logs. This enables
-         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p>
-         * <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
-         * <p>If you attempt to associate a CMK with a log group but the CMK does not exist
-         * or the CMK is disabled, you will receive an
-         * <code>InvalidParameterException</code> error. </p><p><h3>See Also:</h3>   <a
+         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <note>
+         * <p> <b>Important:</b> CloudWatch Logs supports only symmetric CMKs. Do not use
+         * an associate an asymmetric CMK with your log group. For more information, see <a
+         * href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+         * Symmetric and Asymmetric Keys</a>.</p> </note> <p>Note that it can take up to 5
+         * minutes for this operation to take effect.</p> <p>If you attempt to associate a
+         * CMK with a log group but the CMK does not exist or the CMK is disabled, you will
+         * receive an <code>InvalidParameterException</code> error. </p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/AssociateKmsKey">AWS
          * API Reference</a></p>
          *
@@ -448,40 +460,48 @@ namespace Model
         virtual void CreateExportTaskAsync(const Model::CreateExportTaskRequest& request, const CreateExportTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates a log group with the specified name.</p> <p>You can create up to 5000
-         * log groups per account.</p> <p>You must use the following guidelines when naming
-         * a log group:</p> <ul> <li> <p>Log group names must be unique within a region for
-         * an AWS account.</p> </li> <li> <p>Log group names can be between 1 and 512
-         * characters long.</p> </li> <li> <p>Log group names consist of the following
-         * characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash),
-         * and '.' (period).</p> </li> </ul> <p>If you associate a AWS Key Management
-         * Service (AWS KMS) customer master key (CMK) with the log group, ingested data is
-         * encrypted using the CMK. This association is stored as long as the data
-         * encrypted with the CMK is still within Amazon CloudWatch Logs. This enables
-         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>If
-         * you attempt to associate a CMK with the log group but the CMK does not exist or
-         * the CMK is disabled, you will receive an <code>InvalidParameterException</code>
-         * error. </p><p><h3>See Also:</h3>   <a
+         * <p>Creates a log group with the specified name.</p> <p>You can create up to
+         * 20,000 log groups per account.</p> <p>You must use the following guidelines when
+         * naming a log group:</p> <ul> <li> <p>Log group names must be unique within a
+         * region for an AWS account.</p> </li> <li> <p>Log group names can be between 1
+         * and 512 characters long.</p> </li> <li> <p>Log group names consist of the
+         * following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/'
+         * (forward slash), '.' (period), and '#' (number sign)</p> </li> </ul> <p>If you
+         * associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with
+         * the log group, ingested data is encrypted using the CMK. This association is
+         * stored as long as the data encrypted with the CMK is still within Amazon
+         * CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data
+         * whenever it is requested.</p> <p>If you attempt to associate a CMK with the log
+         * group but the CMK does not exist or the CMK is disabled, you will receive an
+         * <code>InvalidParameterException</code> error. </p> <note> <p> <b>Important:</b>
+         * CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK
+         * with your log group. For more information, see <a
+         * href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+         * Symmetric and Asymmetric Keys</a>.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/CreateLogGroup">AWS
          * API Reference</a></p>
          */
         virtual Model::CreateLogGroupOutcome CreateLogGroup(const Model::CreateLogGroupRequest& request) const;
 
         /**
-         * <p>Creates a log group with the specified name.</p> <p>You can create up to 5000
-         * log groups per account.</p> <p>You must use the following guidelines when naming
-         * a log group:</p> <ul> <li> <p>Log group names must be unique within a region for
-         * an AWS account.</p> </li> <li> <p>Log group names can be between 1 and 512
-         * characters long.</p> </li> <li> <p>Log group names consist of the following
-         * characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash),
-         * and '.' (period).</p> </li> </ul> <p>If you associate a AWS Key Management
-         * Service (AWS KMS) customer master key (CMK) with the log group, ingested data is
-         * encrypted using the CMK. This association is stored as long as the data
-         * encrypted with the CMK is still within Amazon CloudWatch Logs. This enables
-         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>If
-         * you attempt to associate a CMK with the log group but the CMK does not exist or
-         * the CMK is disabled, you will receive an <code>InvalidParameterException</code>
-         * error. </p><p><h3>See Also:</h3>   <a
+         * <p>Creates a log group with the specified name.</p> <p>You can create up to
+         * 20,000 log groups per account.</p> <p>You must use the following guidelines when
+         * naming a log group:</p> <ul> <li> <p>Log group names must be unique within a
+         * region for an AWS account.</p> </li> <li> <p>Log group names can be between 1
+         * and 512 characters long.</p> </li> <li> <p>Log group names consist of the
+         * following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/'
+         * (forward slash), '.' (period), and '#' (number sign)</p> </li> </ul> <p>If you
+         * associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with
+         * the log group, ingested data is encrypted using the CMK. This association is
+         * stored as long as the data encrypted with the CMK is still within Amazon
+         * CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data
+         * whenever it is requested.</p> <p>If you attempt to associate a CMK with the log
+         * group but the CMK does not exist or the CMK is disabled, you will receive an
+         * <code>InvalidParameterException</code> error. </p> <note> <p> <b>Important:</b>
+         * CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK
+         * with your log group. For more information, see <a
+         * href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+         * Symmetric and Asymmetric Keys</a>.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/CreateLogGroup">AWS
          * API Reference</a></p>
          *
@@ -490,20 +510,24 @@ namespace Model
         virtual Model::CreateLogGroupOutcomeCallable CreateLogGroupCallable(const Model::CreateLogGroupRequest& request) const;
 
         /**
-         * <p>Creates a log group with the specified name.</p> <p>You can create up to 5000
-         * log groups per account.</p> <p>You must use the following guidelines when naming
-         * a log group:</p> <ul> <li> <p>Log group names must be unique within a region for
-         * an AWS account.</p> </li> <li> <p>Log group names can be between 1 and 512
-         * characters long.</p> </li> <li> <p>Log group names consist of the following
-         * characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash),
-         * and '.' (period).</p> </li> </ul> <p>If you associate a AWS Key Management
-         * Service (AWS KMS) customer master key (CMK) with the log group, ingested data is
-         * encrypted using the CMK. This association is stored as long as the data
-         * encrypted with the CMK is still within Amazon CloudWatch Logs. This enables
-         * Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p> <p>If
-         * you attempt to associate a CMK with the log group but the CMK does not exist or
-         * the CMK is disabled, you will receive an <code>InvalidParameterException</code>
-         * error. </p><p><h3>See Also:</h3>   <a
+         * <p>Creates a log group with the specified name.</p> <p>You can create up to
+         * 20,000 log groups per account.</p> <p>You must use the following guidelines when
+         * naming a log group:</p> <ul> <li> <p>Log group names must be unique within a
+         * region for an AWS account.</p> </li> <li> <p>Log group names can be between 1
+         * and 512 characters long.</p> </li> <li> <p>Log group names consist of the
+         * following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/'
+         * (forward slash), '.' (period), and '#' (number sign)</p> </li> </ul> <p>If you
+         * associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with
+         * the log group, ingested data is encrypted using the CMK. This association is
+         * stored as long as the data encrypted with the CMK is still within Amazon
+         * CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data
+         * whenever it is requested.</p> <p>If you attempt to associate a CMK with the log
+         * group but the CMK does not exist or the CMK is disabled, you will receive an
+         * <code>InvalidParameterException</code> error. </p> <note> <p> <b>Important:</b>
+         * CloudWatch Logs supports only symmetric CMKs. Do not associate an asymmetric CMK
+         * with your log group. For more information, see <a
+         * href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Using
+         * Symmetric and Asymmetric Keys</a>.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/CreateLogGroup">AWS
          * API Reference</a></p>
          *
@@ -513,12 +537,13 @@ namespace Model
 
         /**
          * <p>Creates a log stream for the specified log group.</p> <p>There is no limit on
-         * the number of log streams that you can create for a log group.</p> <p>You must
-         * use the following guidelines when naming a log stream:</p> <ul> <li> <p>Log
-         * stream names must be unique within the log group.</p> </li> <li> <p>Log stream
-         * names can be between 1 and 512 characters long.</p> </li> <li> <p>The ':'
-         * (colon) and '*' (asterisk) characters are not allowed.</p> </li> </ul><p><h3>See
-         * Also:</h3>   <a
+         * the number of log streams that you can create for a log group. There is a limit
+         * of 50 TPS on <code>CreateLogStream</code> operations, after which transactions
+         * are throttled.</p> <p>You must use the following guidelines when naming a log
+         * stream:</p> <ul> <li> <p>Log stream names must be unique within the log
+         * group.</p> </li> <li> <p>Log stream names can be between 1 and 512 characters
+         * long.</p> </li> <li> <p>The ':' (colon) and '*' (asterisk) characters are not
+         * allowed.</p> </li> </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/CreateLogStream">AWS
          * API Reference</a></p>
          */
@@ -526,12 +551,13 @@ namespace Model
 
         /**
          * <p>Creates a log stream for the specified log group.</p> <p>There is no limit on
-         * the number of log streams that you can create for a log group.</p> <p>You must
-         * use the following guidelines when naming a log stream:</p> <ul> <li> <p>Log
-         * stream names must be unique within the log group.</p> </li> <li> <p>Log stream
-         * names can be between 1 and 512 characters long.</p> </li> <li> <p>The ':'
-         * (colon) and '*' (asterisk) characters are not allowed.</p> </li> </ul><p><h3>See
-         * Also:</h3>   <a
+         * the number of log streams that you can create for a log group. There is a limit
+         * of 50 TPS on <code>CreateLogStream</code> operations, after which transactions
+         * are throttled.</p> <p>You must use the following guidelines when naming a log
+         * stream:</p> <ul> <li> <p>Log stream names must be unique within the log
+         * group.</p> </li> <li> <p>Log stream names can be between 1 and 512 characters
+         * long.</p> </li> <li> <p>The ':' (colon) and '*' (asterisk) characters are not
+         * allowed.</p> </li> </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/CreateLogStream">AWS
          * API Reference</a></p>
          *
@@ -541,12 +567,13 @@ namespace Model
 
         /**
          * <p>Creates a log stream for the specified log group.</p> <p>There is no limit on
-         * the number of log streams that you can create for a log group.</p> <p>You must
-         * use the following guidelines when naming a log stream:</p> <ul> <li> <p>Log
-         * stream names must be unique within the log group.</p> </li> <li> <p>Log stream
-         * names can be between 1 and 512 characters long.</p> </li> <li> <p>The ':'
-         * (colon) and '*' (asterisk) characters are not allowed.</p> </li> </ul><p><h3>See
-         * Also:</h3>   <a
+         * the number of log streams that you can create for a log group. There is a limit
+         * of 50 TPS on <code>CreateLogStream</code> operations, after which transactions
+         * are throttled.</p> <p>You must use the following guidelines when naming a log
+         * stream:</p> <ul> <li> <p>Log stream names must be unique within the log
+         * group.</p> </li> <li> <p>Log stream names can be between 1 and 512 characters
+         * long.</p> </li> <li> <p>The ':' (colon) and '*' (asterisk) characters are not
+         * allowed.</p> </li> </ul><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/CreateLogStream">AWS
          * API Reference</a></p>
          *
@@ -1279,34 +1306,32 @@ namespace Model
         virtual void ListTagsLogGroupAsync(const Model::ListTagsLogGroupRequest& request, const ListTagsLogGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Creates or updates a destination. A destination encapsulates a physical
-         * resource (such as an Amazon Kinesis stream) and enables you to subscribe to a
-         * real-time stream of log events for a different account, ingested using
-         * <a>PutLogEvents</a>. A destination can be an Amazon Kinesis stream, Amazon
-         * Kinesis Data Firehose strea, or an AWS Lambda function.</p> <p>Through an access
-         * policy, a destination controls what is written to it. By default,
-         * <code>PutDestination</code> does not set any access policy with the destination,
-         * which means a cross-account user cannot call <a>PutSubscriptionFilter</a>
-         * against this destination. To enable this, the destination owner must call
-         * <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates or updates a destination. This operation is used only to create
+         * destinations for cross-account subscriptions.</p> <p>A destination encapsulates
+         * a physical resource (such as an Amazon Kinesis stream) and enables you to
+         * subscribe to a real-time stream of log events for a different account, ingested
+         * using <a>PutLogEvents</a>.</p> <p>Through an access policy, a destination
+         * controls what is written to it. By default, <code>PutDestination</code> does not
+         * set any access policy with the destination, which means a cross-account user
+         * cannot call <a>PutSubscriptionFilter</a> against this destination. To enable
+         * this, the destination owner must call <a>PutDestinationPolicy</a> after
+         * <code>PutDestination</code>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutDestination">AWS
          * API Reference</a></p>
          */
         virtual Model::PutDestinationOutcome PutDestination(const Model::PutDestinationRequest& request) const;
 
         /**
-         * <p>Creates or updates a destination. A destination encapsulates a physical
-         * resource (such as an Amazon Kinesis stream) and enables you to subscribe to a
-         * real-time stream of log events for a different account, ingested using
-         * <a>PutLogEvents</a>. A destination can be an Amazon Kinesis stream, Amazon
-         * Kinesis Data Firehose strea, or an AWS Lambda function.</p> <p>Through an access
-         * policy, a destination controls what is written to it. By default,
-         * <code>PutDestination</code> does not set any access policy with the destination,
-         * which means a cross-account user cannot call <a>PutSubscriptionFilter</a>
-         * against this destination. To enable this, the destination owner must call
-         * <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates or updates a destination. This operation is used only to create
+         * destinations for cross-account subscriptions.</p> <p>A destination encapsulates
+         * a physical resource (such as an Amazon Kinesis stream) and enables you to
+         * subscribe to a real-time stream of log events for a different account, ingested
+         * using <a>PutLogEvents</a>.</p> <p>Through an access policy, a destination
+         * controls what is written to it. By default, <code>PutDestination</code> does not
+         * set any access policy with the destination, which means a cross-account user
+         * cannot call <a>PutSubscriptionFilter</a> against this destination. To enable
+         * this, the destination owner must call <a>PutDestinationPolicy</a> after
+         * <code>PutDestination</code>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutDestination">AWS
          * API Reference</a></p>
          *
@@ -1315,17 +1340,16 @@ namespace Model
         virtual Model::PutDestinationOutcomeCallable PutDestinationCallable(const Model::PutDestinationRequest& request) const;
 
         /**
-         * <p>Creates or updates a destination. A destination encapsulates a physical
-         * resource (such as an Amazon Kinesis stream) and enables you to subscribe to a
-         * real-time stream of log events for a different account, ingested using
-         * <a>PutLogEvents</a>. A destination can be an Amazon Kinesis stream, Amazon
-         * Kinesis Data Firehose strea, or an AWS Lambda function.</p> <p>Through an access
-         * policy, a destination controls what is written to it. By default,
-         * <code>PutDestination</code> does not set any access policy with the destination,
-         * which means a cross-account user cannot call <a>PutSubscriptionFilter</a>
-         * against this destination. To enable this, the destination owner must call
-         * <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Creates or updates a destination. This operation is used only to create
+         * destinations for cross-account subscriptions.</p> <p>A destination encapsulates
+         * a physical resource (such as an Amazon Kinesis stream) and enables you to
+         * subscribe to a real-time stream of log events for a different account, ingested
+         * using <a>PutLogEvents</a>.</p> <p>Through an access policy, a destination
+         * controls what is written to it. By default, <code>PutDestination</code> does not
+         * set any access policy with the destination, which means a cross-account user
+         * cannot call <a>PutSubscriptionFilter</a> against this destination. To enable
+         * this, the destination owner must call <a>PutDestinationPolicy</a> after
+         * <code>PutDestination</code>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutDestination">AWS
          * API Reference</a></p>
          *
@@ -1374,7 +1398,8 @@ namespace Model
          * <p>Uploads a batch of log events to the specified log stream.</p> <p>You must
          * include the sequence token obtained from the response of the previous call. An
          * upload in a newly created log stream does not require a sequence token. You can
-         * also get the sequence token using <a>DescribeLogStreams</a>. If you call
+         * also get the sequence token in the <code>expectedSequenceToken</code> field from
+         * <code>InvalidSequenceTokenException</code>. If you call
          * <code>PutLogEvents</code> twice within a narrow time period using the same value
          * for <code>sequenceToken</code>, both calls may be successful, or one may be
          * rejected.</p> <p>The batch of events must satisfy the following constraints:</p>
@@ -1387,10 +1412,12 @@ namespace Model
          * their timestamp. The timestamp is the time the event occurred, expressed as the
          * number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for
          * PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format:
-         * yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p> </li> <li> <p>The
-         * maximum number of log events in a batch is 10,000.</p> </li> <li> <p>A batch of
-         * log events in a single request cannot span more than 24 hours. Otherwise, the
-         * operation fails.</p> </li> </ul> <p>If a call to PutLogEvents returns
+         * yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p> </li> <li> <p>A
+         * batch of log events in a single request cannot span more than 24 hours.
+         * Otherwise, the operation fails.</p> </li> <li> <p>The maximum number of log
+         * events in a batch is 10,000.</p> </li> <li> <p>There is a quota of 5 requests
+         * per second per log stream. Additional requests are throttled. This quota can't
+         * be changed.</p> </li> </ul> <p>If a call to PutLogEvents returns
          * "UnrecognizedClientException" the most likely cause is an invalid AWS access key
          * ID or secret key. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutLogEvents">AWS
@@ -1402,7 +1429,8 @@ namespace Model
          * <p>Uploads a batch of log events to the specified log stream.</p> <p>You must
          * include the sequence token obtained from the response of the previous call. An
          * upload in a newly created log stream does not require a sequence token. You can
-         * also get the sequence token using <a>DescribeLogStreams</a>. If you call
+         * also get the sequence token in the <code>expectedSequenceToken</code> field from
+         * <code>InvalidSequenceTokenException</code>. If you call
          * <code>PutLogEvents</code> twice within a narrow time period using the same value
          * for <code>sequenceToken</code>, both calls may be successful, or one may be
          * rejected.</p> <p>The batch of events must satisfy the following constraints:</p>
@@ -1415,10 +1443,12 @@ namespace Model
          * their timestamp. The timestamp is the time the event occurred, expressed as the
          * number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for
          * PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format:
-         * yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p> </li> <li> <p>The
-         * maximum number of log events in a batch is 10,000.</p> </li> <li> <p>A batch of
-         * log events in a single request cannot span more than 24 hours. Otherwise, the
-         * operation fails.</p> </li> </ul> <p>If a call to PutLogEvents returns
+         * yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p> </li> <li> <p>A
+         * batch of log events in a single request cannot span more than 24 hours.
+         * Otherwise, the operation fails.</p> </li> <li> <p>The maximum number of log
+         * events in a batch is 10,000.</p> </li> <li> <p>There is a quota of 5 requests
+         * per second per log stream. Additional requests are throttled. This quota can't
+         * be changed.</p> </li> </ul> <p>If a call to PutLogEvents returns
          * "UnrecognizedClientException" the most likely cause is an invalid AWS access key
          * ID or secret key. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutLogEvents">AWS
@@ -1432,7 +1462,8 @@ namespace Model
          * <p>Uploads a batch of log events to the specified log stream.</p> <p>You must
          * include the sequence token obtained from the response of the previous call. An
          * upload in a newly created log stream does not require a sequence token. You can
-         * also get the sequence token using <a>DescribeLogStreams</a>. If you call
+         * also get the sequence token in the <code>expectedSequenceToken</code> field from
+         * <code>InvalidSequenceTokenException</code>. If you call
          * <code>PutLogEvents</code> twice within a narrow time period using the same value
          * for <code>sequenceToken</code>, both calls may be successful, or one may be
          * rejected.</p> <p>The batch of events must satisfy the following constraints:</p>
@@ -1445,10 +1476,12 @@ namespace Model
          * their timestamp. The timestamp is the time the event occurred, expressed as the
          * number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for
          * PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format:
-         * yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p> </li> <li> <p>The
-         * maximum number of log events in a batch is 10,000.</p> </li> <li> <p>A batch of
-         * log events in a single request cannot span more than 24 hours. Otherwise, the
-         * operation fails.</p> </li> </ul> <p>If a call to PutLogEvents returns
+         * yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p> </li> <li> <p>A
+         * batch of log events in a single request cannot span more than 24 hours.
+         * Otherwise, the operation fails.</p> </li> <li> <p>The maximum number of log
+         * events in a batch is 10,000.</p> </li> <li> <p>There is a quota of 5 requests
+         * per second per log stream. Additional requests are throttled. This quota can't
+         * be changed.</p> </li> </ul> <p>If a call to PutLogEvents returns
          * "UnrecognizedClientException" the most likely cause is an invalid AWS access key
          * ID or secret key. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/logs-2014-03-28/PutLogEvents">AWS

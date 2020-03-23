@@ -40,10 +40,13 @@ ClusterInfo::ClusterInfo() :
     m_encryptionInfoHasBeenSet(false),
     m_enhancedMonitoring(EnhancedMonitoring::NOT_SET),
     m_enhancedMonitoringHasBeenSet(false),
+    m_openMonitoringHasBeenSet(false),
+    m_loggingInfoHasBeenSet(false),
     m_numberOfBrokerNodes(0),
     m_numberOfBrokerNodesHasBeenSet(false),
     m_state(ClusterState::NOT_SET),
     m_stateHasBeenSet(false),
+    m_stateInfoHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_zookeeperConnectStringHasBeenSet(false)
 {
@@ -61,10 +64,13 @@ ClusterInfo::ClusterInfo(JsonView jsonValue) :
     m_encryptionInfoHasBeenSet(false),
     m_enhancedMonitoring(EnhancedMonitoring::NOT_SET),
     m_enhancedMonitoringHasBeenSet(false),
+    m_openMonitoringHasBeenSet(false),
+    m_loggingInfoHasBeenSet(false),
     m_numberOfBrokerNodes(0),
     m_numberOfBrokerNodesHasBeenSet(false),
     m_state(ClusterState::NOT_SET),
     m_stateHasBeenSet(false),
+    m_stateInfoHasBeenSet(false),
     m_tagsHasBeenSet(false),
     m_zookeeperConnectStringHasBeenSet(false)
 {
@@ -143,6 +149,20 @@ ClusterInfo& ClusterInfo::operator =(JsonView jsonValue)
     m_enhancedMonitoringHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("openMonitoring"))
+  {
+    m_openMonitoring = jsonValue.GetObject("openMonitoring");
+
+    m_openMonitoringHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("loggingInfo"))
+  {
+    m_loggingInfo = jsonValue.GetObject("loggingInfo");
+
+    m_loggingInfoHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("numberOfBrokerNodes"))
   {
     m_numberOfBrokerNodes = jsonValue.GetInteger("numberOfBrokerNodes");
@@ -155,6 +175,13 @@ ClusterInfo& ClusterInfo::operator =(JsonView jsonValue)
     m_state = ClusterStateMapper::GetClusterStateForName(jsonValue.GetString("state"));
 
     m_stateHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("stateInfo"))
+  {
+    m_stateInfo = jsonValue.GetObject("stateInfo");
+
+    m_stateInfoHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("tags"))
@@ -239,6 +266,18 @@ JsonValue ClusterInfo::Jsonize() const
    payload.WithString("enhancedMonitoring", EnhancedMonitoringMapper::GetNameForEnhancedMonitoring(m_enhancedMonitoring));
   }
 
+  if(m_openMonitoringHasBeenSet)
+  {
+   payload.WithObject("openMonitoring", m_openMonitoring.Jsonize());
+
+  }
+
+  if(m_loggingInfoHasBeenSet)
+  {
+   payload.WithObject("loggingInfo", m_loggingInfo.Jsonize());
+
+  }
+
   if(m_numberOfBrokerNodesHasBeenSet)
   {
    payload.WithInteger("numberOfBrokerNodes", m_numberOfBrokerNodes);
@@ -248,6 +287,12 @@ JsonValue ClusterInfo::Jsonize() const
   if(m_stateHasBeenSet)
   {
    payload.WithString("state", ClusterStateMapper::GetNameForClusterState(m_state));
+  }
+
+  if(m_stateInfoHasBeenSet)
+  {
+   payload.WithObject("stateInfo", m_stateInfo.Jsonize());
+
   }
 
   if(m_tagsHasBeenSet)

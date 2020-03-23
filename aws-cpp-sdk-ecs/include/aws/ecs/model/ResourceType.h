@@ -26,7 +26,8 @@ namespace Model
   enum class ResourceType
   {
     NOT_SET,
-    GPU
+    GPU,
+    InferenceAccelerator
   };
 
 namespace ResourceTypeMapper

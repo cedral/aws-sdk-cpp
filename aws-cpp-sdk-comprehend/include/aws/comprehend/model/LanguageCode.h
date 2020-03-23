@@ -31,7 +31,13 @@ namespace Model
     fr,
     de,
     it,
-    pt
+    pt,
+    ar,
+    hi,
+    ja,
+    ko,
+    zh,
+    zh_TW
   };
 
 namespace LanguageCodeMapper

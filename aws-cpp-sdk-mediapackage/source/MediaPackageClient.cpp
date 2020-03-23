@@ -31,12 +31,15 @@
 #include <aws/mediapackage/MediaPackageEndpoint.h>
 #include <aws/mediapackage/MediaPackageErrorMarshaller.h>
 #include <aws/mediapackage/model/CreateChannelRequest.h>
+#include <aws/mediapackage/model/CreateHarvestJobRequest.h>
 #include <aws/mediapackage/model/CreateOriginEndpointRequest.h>
 #include <aws/mediapackage/model/DeleteChannelRequest.h>
 #include <aws/mediapackage/model/DeleteOriginEndpointRequest.h>
 #include <aws/mediapackage/model/DescribeChannelRequest.h>
+#include <aws/mediapackage/model/DescribeHarvestJobRequest.h>
 #include <aws/mediapackage/model/DescribeOriginEndpointRequest.h>
 #include <aws/mediapackage/model/ListChannelsRequest.h>
+#include <aws/mediapackage/model/ListHarvestJobsRequest.h>
 #include <aws/mediapackage/model/ListOriginEndpointsRequest.h>
 #include <aws/mediapackage/model/ListTagsForResourceRequest.h>
 #include <aws/mediapackage/model/RotateIngestEndpointCredentialsRequest.h>
@@ -123,7 +126,7 @@ CreateChannelOutcome MediaPackageClient::CreateChannel(const CreateChannelReques
   Aws::StringStream ss;
   ss << "/channels";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateChannelOutcome(CreateChannelResult(outcome.GetResult()));
@@ -152,13 +155,48 @@ void MediaPackageClient::CreateChannelAsyncHelper(const CreateChannelRequest& re
   handler(this, request, CreateChannel(request), context);
 }
 
+CreateHarvestJobOutcome MediaPackageClient::CreateHarvestJob(const CreateHarvestJobRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/harvest_jobs";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateHarvestJobOutcome(CreateHarvestJobResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateHarvestJobOutcome(outcome.GetError());
+  }
+}
+
+CreateHarvestJobOutcomeCallable MediaPackageClient::CreateHarvestJobCallable(const CreateHarvestJobRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateHarvestJobOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateHarvestJob(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void MediaPackageClient::CreateHarvestJobAsync(const CreateHarvestJobRequest& request, const CreateHarvestJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateHarvestJobAsyncHelper( request, handler, context ); } );
+}
+
+void MediaPackageClient::CreateHarvestJobAsyncHelper(const CreateHarvestJobRequest& request, const CreateHarvestJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateHarvestJob(request), context);
+}
+
 CreateOriginEndpointOutcome MediaPackageClient::CreateOriginEndpoint(const CreateOriginEndpointRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/origin_endpoints";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateOriginEndpointOutcome(CreateOriginEndpointResult(outcome.GetResult()));
@@ -199,7 +237,7 @@ DeleteChannelOutcome MediaPackageClient::DeleteChannel(const DeleteChannelReques
   ss << "/channels/";
   ss << request.GetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteChannelOutcome(DeleteChannelResult(outcome.GetResult()));
@@ -240,7 +278,7 @@ DeleteOriginEndpointOutcome MediaPackageClient::DeleteOriginEndpoint(const Delet
   ss << "/origin_endpoints/";
   ss << request.GetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteOriginEndpointOutcome(DeleteOriginEndpointResult(outcome.GetResult()));
@@ -281,7 +319,7 @@ DescribeChannelOutcome MediaPackageClient::DescribeChannel(const DescribeChannel
   ss << "/channels/";
   ss << request.GetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeChannelOutcome(DescribeChannelResult(outcome.GetResult()));
@@ -310,6 +348,47 @@ void MediaPackageClient::DescribeChannelAsyncHelper(const DescribeChannelRequest
   handler(this, request, DescribeChannel(request), context);
 }
 
+DescribeHarvestJobOutcome MediaPackageClient::DescribeHarvestJob(const DescribeHarvestJobRequest& request) const
+{
+  if (!request.IdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeHarvestJob", "Required field: Id, is not set");
+    return DescribeHarvestJobOutcome(Aws::Client::AWSError<MediaPackageErrors>(MediaPackageErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Id]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/harvest_jobs/";
+  ss << request.GetId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeHarvestJobOutcome(DescribeHarvestJobResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeHarvestJobOutcome(outcome.GetError());
+  }
+}
+
+DescribeHarvestJobOutcomeCallable MediaPackageClient::DescribeHarvestJobCallable(const DescribeHarvestJobRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeHarvestJobOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeHarvestJob(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void MediaPackageClient::DescribeHarvestJobAsync(const DescribeHarvestJobRequest& request, const DescribeHarvestJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeHarvestJobAsyncHelper( request, handler, context ); } );
+}
+
+void MediaPackageClient::DescribeHarvestJobAsyncHelper(const DescribeHarvestJobRequest& request, const DescribeHarvestJobResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeHarvestJob(request), context);
+}
+
 DescribeOriginEndpointOutcome MediaPackageClient::DescribeOriginEndpoint(const DescribeOriginEndpointRequest& request) const
 {
   if (!request.IdHasBeenSet())
@@ -322,7 +401,7 @@ DescribeOriginEndpointOutcome MediaPackageClient::DescribeOriginEndpoint(const D
   ss << "/origin_endpoints/";
   ss << request.GetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeOriginEndpointOutcome(DescribeOriginEndpointResult(outcome.GetResult()));
@@ -357,7 +436,7 @@ ListChannelsOutcome MediaPackageClient::ListChannels(const ListChannelsRequest& 
   Aws::StringStream ss;
   ss << "/channels";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListChannelsOutcome(ListChannelsResult(outcome.GetResult()));
@@ -386,13 +465,48 @@ void MediaPackageClient::ListChannelsAsyncHelper(const ListChannelsRequest& requ
   handler(this, request, ListChannels(request), context);
 }
 
+ListHarvestJobsOutcome MediaPackageClient::ListHarvestJobs(const ListHarvestJobsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/harvest_jobs";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListHarvestJobsOutcome(ListHarvestJobsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListHarvestJobsOutcome(outcome.GetError());
+  }
+}
+
+ListHarvestJobsOutcomeCallable MediaPackageClient::ListHarvestJobsCallable(const ListHarvestJobsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListHarvestJobsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListHarvestJobs(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void MediaPackageClient::ListHarvestJobsAsync(const ListHarvestJobsRequest& request, const ListHarvestJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListHarvestJobsAsyncHelper( request, handler, context ); } );
+}
+
+void MediaPackageClient::ListHarvestJobsAsyncHelper(const ListHarvestJobsRequest& request, const ListHarvestJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListHarvestJobs(request), context);
+}
+
 ListOriginEndpointsOutcome MediaPackageClient::ListOriginEndpoints(const ListOriginEndpointsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/origin_endpoints";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListOriginEndpointsOutcome(ListOriginEndpointsResult(outcome.GetResult()));
@@ -433,7 +547,7 @@ ListTagsForResourceOutcome MediaPackageClient::ListTagsForResource(const ListTag
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -482,7 +596,7 @@ RotateIngestEndpointCredentialsOutcome MediaPackageClient::RotateIngestEndpointC
   ss << request.GetIngestEndpointId();
   ss << "/credentials";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RotateIngestEndpointCredentialsOutcome(RotateIngestEndpointCredentialsResult(outcome.GetResult()));
@@ -523,7 +637,7 @@ TagResourceOutcome MediaPackageClient::TagResource(const TagResourceRequest& req
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(NoResult());
@@ -569,7 +683,7 @@ UntagResourceOutcome MediaPackageClient::UntagResource(const UntagResourceReques
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(NoResult());
@@ -610,7 +724,7 @@ UpdateChannelOutcome MediaPackageClient::UpdateChannel(const UpdateChannelReques
   ss << "/channels/";
   ss << request.GetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateChannelOutcome(UpdateChannelResult(outcome.GetResult()));
@@ -651,7 +765,7 @@ UpdateOriginEndpointOutcome MediaPackageClient::UpdateOriginEndpoint(const Updat
   ss << "/origin_endpoints/";
   ss << request.GetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateOriginEndpointOutcome(UpdateOriginEndpointResult(outcome.GetResult()));

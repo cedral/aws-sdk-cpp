@@ -50,7 +50,8 @@ VpcEndpoint::VpcEndpoint() :
     m_dnsEntriesHasBeenSet(false),
     m_creationTimestampHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_ownerIdHasBeenSet(false)
+    m_ownerIdHasBeenSet(false),
+    m_lastErrorHasBeenSet(false)
 {
 }
 
@@ -74,7 +75,8 @@ VpcEndpoint::VpcEndpoint(const XmlNode& xmlNode) :
     m_dnsEntriesHasBeenSet(false),
     m_creationTimestampHasBeenSet(false),
     m_tagsHasBeenSet(false),
-    m_ownerIdHasBeenSet(false)
+    m_ownerIdHasBeenSet(false),
+    m_lastErrorHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -88,37 +90,37 @@ VpcEndpoint& VpcEndpoint::operator =(const XmlNode& xmlNode)
     XmlNode vpcEndpointIdNode = resultNode.FirstChild("vpcEndpointId");
     if(!vpcEndpointIdNode.IsNull())
     {
-      m_vpcEndpointId = vpcEndpointIdNode.GetText();
+      m_vpcEndpointId = Aws::Utils::Xml::DecodeEscapedXmlText(vpcEndpointIdNode.GetText());
       m_vpcEndpointIdHasBeenSet = true;
     }
     XmlNode vpcEndpointTypeNode = resultNode.FirstChild("vpcEndpointType");
     if(!vpcEndpointTypeNode.IsNull())
     {
-      m_vpcEndpointType = VpcEndpointTypeMapper::GetVpcEndpointTypeForName(StringUtils::Trim(vpcEndpointTypeNode.GetText().c_str()).c_str());
+      m_vpcEndpointType = VpcEndpointTypeMapper::GetVpcEndpointTypeForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(vpcEndpointTypeNode.GetText()).c_str()).c_str());
       m_vpcEndpointTypeHasBeenSet = true;
     }
     XmlNode vpcIdNode = resultNode.FirstChild("vpcId");
     if(!vpcIdNode.IsNull())
     {
-      m_vpcId = vpcIdNode.GetText();
+      m_vpcId = Aws::Utils::Xml::DecodeEscapedXmlText(vpcIdNode.GetText());
       m_vpcIdHasBeenSet = true;
     }
     XmlNode serviceNameNode = resultNode.FirstChild("serviceName");
     if(!serviceNameNode.IsNull())
     {
-      m_serviceName = serviceNameNode.GetText();
+      m_serviceName = Aws::Utils::Xml::DecodeEscapedXmlText(serviceNameNode.GetText());
       m_serviceNameHasBeenSet = true;
     }
     XmlNode stateNode = resultNode.FirstChild("state");
     if(!stateNode.IsNull())
     {
-      m_state = StateMapper::GetStateForName(StringUtils::Trim(stateNode.GetText().c_str()).c_str());
+      m_state = StateMapper::GetStateForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(stateNode.GetText()).c_str()).c_str());
       m_stateHasBeenSet = true;
     }
     XmlNode policyDocumentNode = resultNode.FirstChild("policyDocument");
     if(!policyDocumentNode.IsNull())
     {
-      m_policyDocument = policyDocumentNode.GetText();
+      m_policyDocument = Aws::Utils::Xml::DecodeEscapedXmlText(policyDocumentNode.GetText());
       m_policyDocumentHasBeenSet = true;
     }
     XmlNode routeTableIdsNode = resultNode.FirstChild("routeTableIdSet");
@@ -160,13 +162,13 @@ VpcEndpoint& VpcEndpoint::operator =(const XmlNode& xmlNode)
     XmlNode privateDnsEnabledNode = resultNode.FirstChild("privateDnsEnabled");
     if(!privateDnsEnabledNode.IsNull())
     {
-      m_privateDnsEnabled = StringUtils::ConvertToBool(StringUtils::Trim(privateDnsEnabledNode.GetText().c_str()).c_str());
+      m_privateDnsEnabled = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(privateDnsEnabledNode.GetText()).c_str()).c_str());
       m_privateDnsEnabledHasBeenSet = true;
     }
     XmlNode requesterManagedNode = resultNode.FirstChild("requesterManaged");
     if(!requesterManagedNode.IsNull())
     {
-      m_requesterManaged = StringUtils::ConvertToBool(StringUtils::Trim(requesterManagedNode.GetText().c_str()).c_str());
+      m_requesterManaged = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(requesterManagedNode.GetText()).c_str()).c_str());
       m_requesterManagedHasBeenSet = true;
     }
     XmlNode networkInterfaceIdsNode = resultNode.FirstChild("networkInterfaceIdSet");
@@ -196,7 +198,7 @@ VpcEndpoint& VpcEndpoint::operator =(const XmlNode& xmlNode)
     XmlNode creationTimestampNode = resultNode.FirstChild("creationTimestamp");
     if(!creationTimestampNode.IsNull())
     {
-      m_creationTimestamp = DateTime(StringUtils::Trim(creationTimestampNode.GetText().c_str()).c_str(), DateFormat::ISO_8601);
+      m_creationTimestamp = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(creationTimestampNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
       m_creationTimestampHasBeenSet = true;
     }
     XmlNode tagsNode = resultNode.FirstChild("tagSet");
@@ -214,8 +216,14 @@ VpcEndpoint& VpcEndpoint::operator =(const XmlNode& xmlNode)
     XmlNode ownerIdNode = resultNode.FirstChild("ownerId");
     if(!ownerIdNode.IsNull())
     {
-      m_ownerId = ownerIdNode.GetText();
+      m_ownerId = Aws::Utils::Xml::DecodeEscapedXmlText(ownerIdNode.GetText());
       m_ownerIdHasBeenSet = true;
+    }
+    XmlNode lastErrorNode = resultNode.FirstChild("lastError");
+    if(!lastErrorNode.IsNull())
+    {
+      m_lastError = lastErrorNode;
+      m_lastErrorHasBeenSet = true;
     }
   }
 
@@ -334,6 +342,13 @@ void VpcEndpoint::OutputToStream(Aws::OStream& oStream, const char* location, un
       oStream << location << index << locationValue << ".OwnerId=" << StringUtils::URLEncode(m_ownerId.c_str()) << "&";
   }
 
+  if(m_lastErrorHasBeenSet)
+  {
+      Aws::StringStream lastErrorLocationAndMemberSs;
+      lastErrorLocationAndMemberSs << location << index << locationValue << ".LastError";
+      m_lastError.OutputToStream(oStream, lastErrorLocationAndMemberSs.str().c_str());
+  }
+
 }
 
 void VpcEndpoint::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -431,6 +446,12 @@ void VpcEndpoint::OutputToStream(Aws::OStream& oStream, const char* location) co
   if(m_ownerIdHasBeenSet)
   {
       oStream << location << ".OwnerId=" << StringUtils::URLEncode(m_ownerId.c_str()) << "&";
+  }
+  if(m_lastErrorHasBeenSet)
+  {
+      Aws::String lastErrorLocationAndMember(location);
+      lastErrorLocationAndMember += ".LastError";
+      m_lastError.OutputToStream(oStream, lastErrorLocationAndMember.c_str());
   }
 }
 

@@ -26,11 +26,13 @@
 #include <aws/rds/model/ApplyPendingMaintenanceActionResult.h>
 #include <aws/rds/model/AuthorizeDBSecurityGroupIngressResult.h>
 #include <aws/rds/model/BacktrackDBClusterResult.h>
+#include <aws/rds/model/CancelExportTaskResult.h>
 #include <aws/rds/model/CopyDBClusterParameterGroupResult.h>
 #include <aws/rds/model/CopyDBClusterSnapshotResult.h>
 #include <aws/rds/model/CopyDBParameterGroupResult.h>
 #include <aws/rds/model/CopyDBSnapshotResult.h>
 #include <aws/rds/model/CopyOptionGroupResult.h>
+#include <aws/rds/model/CreateCustomAvailabilityZoneResult.h>
 #include <aws/rds/model/CreateDBClusterResult.h>
 #include <aws/rds/model/CreateDBClusterEndpointResult.h>
 #include <aws/rds/model/CreateDBClusterParameterGroupResult.h>
@@ -38,22 +40,28 @@
 #include <aws/rds/model/CreateDBInstanceResult.h>
 #include <aws/rds/model/CreateDBInstanceReadReplicaResult.h>
 #include <aws/rds/model/CreateDBParameterGroupResult.h>
+#include <aws/rds/model/CreateDBProxyResult.h>
 #include <aws/rds/model/CreateDBSecurityGroupResult.h>
 #include <aws/rds/model/CreateDBSnapshotResult.h>
 #include <aws/rds/model/CreateDBSubnetGroupResult.h>
 #include <aws/rds/model/CreateEventSubscriptionResult.h>
 #include <aws/rds/model/CreateGlobalClusterResult.h>
 #include <aws/rds/model/CreateOptionGroupResult.h>
+#include <aws/rds/model/DeleteCustomAvailabilityZoneResult.h>
 #include <aws/rds/model/DeleteDBClusterResult.h>
 #include <aws/rds/model/DeleteDBClusterEndpointResult.h>
 #include <aws/rds/model/DeleteDBClusterSnapshotResult.h>
 #include <aws/rds/model/DeleteDBInstanceResult.h>
 #include <aws/rds/model/DeleteDBInstanceAutomatedBackupResult.h>
+#include <aws/rds/model/DeleteDBProxyResult.h>
 #include <aws/rds/model/DeleteDBSnapshotResult.h>
 #include <aws/rds/model/DeleteEventSubscriptionResult.h>
 #include <aws/rds/model/DeleteGlobalClusterResult.h>
+#include <aws/rds/model/DeleteInstallationMediaResult.h>
+#include <aws/rds/model/DeregisterDBProxyTargetsResult.h>
 #include <aws/rds/model/DescribeAccountAttributesResult.h>
 #include <aws/rds/model/DescribeCertificatesResult.h>
+#include <aws/rds/model/DescribeCustomAvailabilityZonesResult.h>
 #include <aws/rds/model/DescribeDBClusterBacktracksResult.h>
 #include <aws/rds/model/DescribeDBClusterEndpointsResult.h>
 #include <aws/rds/model/DescribeDBClusterParameterGroupsResult.h>
@@ -67,6 +75,9 @@
 #include <aws/rds/model/DescribeDBLogFilesResult.h>
 #include <aws/rds/model/DescribeDBParameterGroupsResult.h>
 #include <aws/rds/model/DescribeDBParametersResult.h>
+#include <aws/rds/model/DescribeDBProxiesResult.h>
+#include <aws/rds/model/DescribeDBProxyTargetGroupsResult.h>
+#include <aws/rds/model/DescribeDBProxyTargetsResult.h>
 #include <aws/rds/model/DescribeDBSecurityGroupsResult.h>
 #include <aws/rds/model/DescribeDBSnapshotAttributesResult.h>
 #include <aws/rds/model/DescribeDBSnapshotsResult.h>
@@ -76,7 +87,9 @@
 #include <aws/rds/model/DescribeEventCategoriesResult.h>
 #include <aws/rds/model/DescribeEventSubscriptionsResult.h>
 #include <aws/rds/model/DescribeEventsResult.h>
+#include <aws/rds/model/DescribeExportTasksResult.h>
 #include <aws/rds/model/DescribeGlobalClustersResult.h>
+#include <aws/rds/model/DescribeInstallationMediaResult.h>
 #include <aws/rds/model/DescribeOptionGroupOptionsResult.h>
 #include <aws/rds/model/DescribeOptionGroupsResult.h>
 #include <aws/rds/model/DescribeOrderableDBInstanceOptionsResult.h>
@@ -87,7 +100,9 @@
 #include <aws/rds/model/DescribeValidDBInstanceModificationsResult.h>
 #include <aws/rds/model/DownloadDBLogFilePortionResult.h>
 #include <aws/rds/model/FailoverDBClusterResult.h>
+#include <aws/rds/model/ImportInstallationMediaResult.h>
 #include <aws/rds/model/ListTagsForResourceResult.h>
+#include <aws/rds/model/ModifyCertificatesResult.h>
 #include <aws/rds/model/ModifyCurrentDBClusterCapacityResult.h>
 #include <aws/rds/model/ModifyDBClusterResult.h>
 #include <aws/rds/model/ModifyDBClusterEndpointResult.h>
@@ -95,6 +110,8 @@
 #include <aws/rds/model/ModifyDBClusterSnapshotAttributeResult.h>
 #include <aws/rds/model/ModifyDBInstanceResult.h>
 #include <aws/rds/model/ModifyDBParameterGroupResult.h>
+#include <aws/rds/model/ModifyDBProxyResult.h>
+#include <aws/rds/model/ModifyDBProxyTargetGroupResult.h>
 #include <aws/rds/model/ModifyDBSnapshotResult.h>
 #include <aws/rds/model/ModifyDBSnapshotAttributeResult.h>
 #include <aws/rds/model/ModifyDBSubnetGroupResult.h>
@@ -105,6 +122,7 @@
 #include <aws/rds/model/PromoteReadReplicaDBClusterResult.h>
 #include <aws/rds/model/PurchaseReservedDBInstancesOfferingResult.h>
 #include <aws/rds/model/RebootDBInstanceResult.h>
+#include <aws/rds/model/RegisterDBProxyTargetsResult.h>
 #include <aws/rds/model/RemoveFromGlobalClusterResult.h>
 #include <aws/rds/model/RemoveSourceIdentifierFromSubscriptionResult.h>
 #include <aws/rds/model/ResetDBClusterParameterGroupResult.h>
@@ -119,6 +137,7 @@
 #include <aws/rds/model/StartActivityStreamResult.h>
 #include <aws/rds/model/StartDBClusterResult.h>
 #include <aws/rds/model/StartDBInstanceResult.h>
+#include <aws/rds/model/StartExportTaskResult.h>
 #include <aws/rds/model/StopActivityStreamResult.h>
 #include <aws/rds/model/StopDBClusterResult.h>
 #include <aws/rds/model/StopDBInstanceResult.h>
@@ -173,11 +192,13 @@ namespace Aws
         class ApplyPendingMaintenanceActionRequest;
         class AuthorizeDBSecurityGroupIngressRequest;
         class BacktrackDBClusterRequest;
+        class CancelExportTaskRequest;
         class CopyDBClusterParameterGroupRequest;
         class CopyDBClusterSnapshotRequest;
         class CopyDBParameterGroupRequest;
         class CopyDBSnapshotRequest;
         class CopyOptionGroupRequest;
+        class CreateCustomAvailabilityZoneRequest;
         class CreateDBClusterRequest;
         class CreateDBClusterEndpointRequest;
         class CreateDBClusterParameterGroupRequest;
@@ -185,12 +206,14 @@ namespace Aws
         class CreateDBInstanceRequest;
         class CreateDBInstanceReadReplicaRequest;
         class CreateDBParameterGroupRequest;
+        class CreateDBProxyRequest;
         class CreateDBSecurityGroupRequest;
         class CreateDBSnapshotRequest;
         class CreateDBSubnetGroupRequest;
         class CreateEventSubscriptionRequest;
         class CreateGlobalClusterRequest;
         class CreateOptionGroupRequest;
+        class DeleteCustomAvailabilityZoneRequest;
         class DeleteDBClusterRequest;
         class DeleteDBClusterEndpointRequest;
         class DeleteDBClusterParameterGroupRequest;
@@ -198,14 +221,18 @@ namespace Aws
         class DeleteDBInstanceRequest;
         class DeleteDBInstanceAutomatedBackupRequest;
         class DeleteDBParameterGroupRequest;
+        class DeleteDBProxyRequest;
         class DeleteDBSecurityGroupRequest;
         class DeleteDBSnapshotRequest;
         class DeleteDBSubnetGroupRequest;
         class DeleteEventSubscriptionRequest;
         class DeleteGlobalClusterRequest;
+        class DeleteInstallationMediaRequest;
         class DeleteOptionGroupRequest;
+        class DeregisterDBProxyTargetsRequest;
         class DescribeAccountAttributesRequest;
         class DescribeCertificatesRequest;
+        class DescribeCustomAvailabilityZonesRequest;
         class DescribeDBClusterBacktracksRequest;
         class DescribeDBClusterEndpointsRequest;
         class DescribeDBClusterParameterGroupsRequest;
@@ -219,6 +246,9 @@ namespace Aws
         class DescribeDBLogFilesRequest;
         class DescribeDBParameterGroupsRequest;
         class DescribeDBParametersRequest;
+        class DescribeDBProxiesRequest;
+        class DescribeDBProxyTargetGroupsRequest;
+        class DescribeDBProxyTargetsRequest;
         class DescribeDBSecurityGroupsRequest;
         class DescribeDBSnapshotAttributesRequest;
         class DescribeDBSnapshotsRequest;
@@ -228,7 +258,9 @@ namespace Aws
         class DescribeEventCategoriesRequest;
         class DescribeEventSubscriptionsRequest;
         class DescribeEventsRequest;
+        class DescribeExportTasksRequest;
         class DescribeGlobalClustersRequest;
+        class DescribeInstallationMediaRequest;
         class DescribeOptionGroupOptionsRequest;
         class DescribeOptionGroupsRequest;
         class DescribeOrderableDBInstanceOptionsRequest;
@@ -239,7 +271,9 @@ namespace Aws
         class DescribeValidDBInstanceModificationsRequest;
         class DownloadDBLogFilePortionRequest;
         class FailoverDBClusterRequest;
+        class ImportInstallationMediaRequest;
         class ListTagsForResourceRequest;
+        class ModifyCertificatesRequest;
         class ModifyCurrentDBClusterCapacityRequest;
         class ModifyDBClusterRequest;
         class ModifyDBClusterEndpointRequest;
@@ -247,6 +281,8 @@ namespace Aws
         class ModifyDBClusterSnapshotAttributeRequest;
         class ModifyDBInstanceRequest;
         class ModifyDBParameterGroupRequest;
+        class ModifyDBProxyRequest;
+        class ModifyDBProxyTargetGroupRequest;
         class ModifyDBSnapshotRequest;
         class ModifyDBSnapshotAttributeRequest;
         class ModifyDBSubnetGroupRequest;
@@ -257,6 +293,7 @@ namespace Aws
         class PromoteReadReplicaDBClusterRequest;
         class PurchaseReservedDBInstancesOfferingRequest;
         class RebootDBInstanceRequest;
+        class RegisterDBProxyTargetsRequest;
         class RemoveFromGlobalClusterRequest;
         class RemoveRoleFromDBClusterRequest;
         class RemoveRoleFromDBInstanceRequest;
@@ -274,6 +311,7 @@ namespace Aws
         class StartActivityStreamRequest;
         class StartDBClusterRequest;
         class StartDBInstanceRequest;
+        class StartExportTaskRequest;
         class StopActivityStreamRequest;
         class StopDBClusterRequest;
         class StopDBInstanceRequest;
@@ -285,11 +323,13 @@ namespace Aws
         typedef Aws::Utils::Outcome<ApplyPendingMaintenanceActionResult, Aws::Client::AWSError<RDSErrors>> ApplyPendingMaintenanceActionOutcome;
         typedef Aws::Utils::Outcome<AuthorizeDBSecurityGroupIngressResult, Aws::Client::AWSError<RDSErrors>> AuthorizeDBSecurityGroupIngressOutcome;
         typedef Aws::Utils::Outcome<BacktrackDBClusterResult, Aws::Client::AWSError<RDSErrors>> BacktrackDBClusterOutcome;
+        typedef Aws::Utils::Outcome<CancelExportTaskResult, Aws::Client::AWSError<RDSErrors>> CancelExportTaskOutcome;
         typedef Aws::Utils::Outcome<CopyDBClusterParameterGroupResult, Aws::Client::AWSError<RDSErrors>> CopyDBClusterParameterGroupOutcome;
         typedef Aws::Utils::Outcome<CopyDBClusterSnapshotResult, Aws::Client::AWSError<RDSErrors>> CopyDBClusterSnapshotOutcome;
         typedef Aws::Utils::Outcome<CopyDBParameterGroupResult, Aws::Client::AWSError<RDSErrors>> CopyDBParameterGroupOutcome;
         typedef Aws::Utils::Outcome<CopyDBSnapshotResult, Aws::Client::AWSError<RDSErrors>> CopyDBSnapshotOutcome;
         typedef Aws::Utils::Outcome<CopyOptionGroupResult, Aws::Client::AWSError<RDSErrors>> CopyOptionGroupOutcome;
+        typedef Aws::Utils::Outcome<CreateCustomAvailabilityZoneResult, Aws::Client::AWSError<RDSErrors>> CreateCustomAvailabilityZoneOutcome;
         typedef Aws::Utils::Outcome<CreateDBClusterResult, Aws::Client::AWSError<RDSErrors>> CreateDBClusterOutcome;
         typedef Aws::Utils::Outcome<CreateDBClusterEndpointResult, Aws::Client::AWSError<RDSErrors>> CreateDBClusterEndpointOutcome;
         typedef Aws::Utils::Outcome<CreateDBClusterParameterGroupResult, Aws::Client::AWSError<RDSErrors>> CreateDBClusterParameterGroupOutcome;
@@ -297,12 +337,14 @@ namespace Aws
         typedef Aws::Utils::Outcome<CreateDBInstanceResult, Aws::Client::AWSError<RDSErrors>> CreateDBInstanceOutcome;
         typedef Aws::Utils::Outcome<CreateDBInstanceReadReplicaResult, Aws::Client::AWSError<RDSErrors>> CreateDBInstanceReadReplicaOutcome;
         typedef Aws::Utils::Outcome<CreateDBParameterGroupResult, Aws::Client::AWSError<RDSErrors>> CreateDBParameterGroupOutcome;
+        typedef Aws::Utils::Outcome<CreateDBProxyResult, Aws::Client::AWSError<RDSErrors>> CreateDBProxyOutcome;
         typedef Aws::Utils::Outcome<CreateDBSecurityGroupResult, Aws::Client::AWSError<RDSErrors>> CreateDBSecurityGroupOutcome;
         typedef Aws::Utils::Outcome<CreateDBSnapshotResult, Aws::Client::AWSError<RDSErrors>> CreateDBSnapshotOutcome;
         typedef Aws::Utils::Outcome<CreateDBSubnetGroupResult, Aws::Client::AWSError<RDSErrors>> CreateDBSubnetGroupOutcome;
         typedef Aws::Utils::Outcome<CreateEventSubscriptionResult, Aws::Client::AWSError<RDSErrors>> CreateEventSubscriptionOutcome;
         typedef Aws::Utils::Outcome<CreateGlobalClusterResult, Aws::Client::AWSError<RDSErrors>> CreateGlobalClusterOutcome;
         typedef Aws::Utils::Outcome<CreateOptionGroupResult, Aws::Client::AWSError<RDSErrors>> CreateOptionGroupOutcome;
+        typedef Aws::Utils::Outcome<DeleteCustomAvailabilityZoneResult, Aws::Client::AWSError<RDSErrors>> DeleteCustomAvailabilityZoneOutcome;
         typedef Aws::Utils::Outcome<DeleteDBClusterResult, Aws::Client::AWSError<RDSErrors>> DeleteDBClusterOutcome;
         typedef Aws::Utils::Outcome<DeleteDBClusterEndpointResult, Aws::Client::AWSError<RDSErrors>> DeleteDBClusterEndpointOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RDSErrors>> DeleteDBClusterParameterGroupOutcome;
@@ -310,14 +352,18 @@ namespace Aws
         typedef Aws::Utils::Outcome<DeleteDBInstanceResult, Aws::Client::AWSError<RDSErrors>> DeleteDBInstanceOutcome;
         typedef Aws::Utils::Outcome<DeleteDBInstanceAutomatedBackupResult, Aws::Client::AWSError<RDSErrors>> DeleteDBInstanceAutomatedBackupOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RDSErrors>> DeleteDBParameterGroupOutcome;
+        typedef Aws::Utils::Outcome<DeleteDBProxyResult, Aws::Client::AWSError<RDSErrors>> DeleteDBProxyOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RDSErrors>> DeleteDBSecurityGroupOutcome;
         typedef Aws::Utils::Outcome<DeleteDBSnapshotResult, Aws::Client::AWSError<RDSErrors>> DeleteDBSnapshotOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RDSErrors>> DeleteDBSubnetGroupOutcome;
         typedef Aws::Utils::Outcome<DeleteEventSubscriptionResult, Aws::Client::AWSError<RDSErrors>> DeleteEventSubscriptionOutcome;
         typedef Aws::Utils::Outcome<DeleteGlobalClusterResult, Aws::Client::AWSError<RDSErrors>> DeleteGlobalClusterOutcome;
+        typedef Aws::Utils::Outcome<DeleteInstallationMediaResult, Aws::Client::AWSError<RDSErrors>> DeleteInstallationMediaOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RDSErrors>> DeleteOptionGroupOutcome;
+        typedef Aws::Utils::Outcome<DeregisterDBProxyTargetsResult, Aws::Client::AWSError<RDSErrors>> DeregisterDBProxyTargetsOutcome;
         typedef Aws::Utils::Outcome<DescribeAccountAttributesResult, Aws::Client::AWSError<RDSErrors>> DescribeAccountAttributesOutcome;
         typedef Aws::Utils::Outcome<DescribeCertificatesResult, Aws::Client::AWSError<RDSErrors>> DescribeCertificatesOutcome;
+        typedef Aws::Utils::Outcome<DescribeCustomAvailabilityZonesResult, Aws::Client::AWSError<RDSErrors>> DescribeCustomAvailabilityZonesOutcome;
         typedef Aws::Utils::Outcome<DescribeDBClusterBacktracksResult, Aws::Client::AWSError<RDSErrors>> DescribeDBClusterBacktracksOutcome;
         typedef Aws::Utils::Outcome<DescribeDBClusterEndpointsResult, Aws::Client::AWSError<RDSErrors>> DescribeDBClusterEndpointsOutcome;
         typedef Aws::Utils::Outcome<DescribeDBClusterParameterGroupsResult, Aws::Client::AWSError<RDSErrors>> DescribeDBClusterParameterGroupsOutcome;
@@ -331,6 +377,9 @@ namespace Aws
         typedef Aws::Utils::Outcome<DescribeDBLogFilesResult, Aws::Client::AWSError<RDSErrors>> DescribeDBLogFilesOutcome;
         typedef Aws::Utils::Outcome<DescribeDBParameterGroupsResult, Aws::Client::AWSError<RDSErrors>> DescribeDBParameterGroupsOutcome;
         typedef Aws::Utils::Outcome<DescribeDBParametersResult, Aws::Client::AWSError<RDSErrors>> DescribeDBParametersOutcome;
+        typedef Aws::Utils::Outcome<DescribeDBProxiesResult, Aws::Client::AWSError<RDSErrors>> DescribeDBProxiesOutcome;
+        typedef Aws::Utils::Outcome<DescribeDBProxyTargetGroupsResult, Aws::Client::AWSError<RDSErrors>> DescribeDBProxyTargetGroupsOutcome;
+        typedef Aws::Utils::Outcome<DescribeDBProxyTargetsResult, Aws::Client::AWSError<RDSErrors>> DescribeDBProxyTargetsOutcome;
         typedef Aws::Utils::Outcome<DescribeDBSecurityGroupsResult, Aws::Client::AWSError<RDSErrors>> DescribeDBSecurityGroupsOutcome;
         typedef Aws::Utils::Outcome<DescribeDBSnapshotAttributesResult, Aws::Client::AWSError<RDSErrors>> DescribeDBSnapshotAttributesOutcome;
         typedef Aws::Utils::Outcome<DescribeDBSnapshotsResult, Aws::Client::AWSError<RDSErrors>> DescribeDBSnapshotsOutcome;
@@ -340,7 +389,9 @@ namespace Aws
         typedef Aws::Utils::Outcome<DescribeEventCategoriesResult, Aws::Client::AWSError<RDSErrors>> DescribeEventCategoriesOutcome;
         typedef Aws::Utils::Outcome<DescribeEventSubscriptionsResult, Aws::Client::AWSError<RDSErrors>> DescribeEventSubscriptionsOutcome;
         typedef Aws::Utils::Outcome<DescribeEventsResult, Aws::Client::AWSError<RDSErrors>> DescribeEventsOutcome;
+        typedef Aws::Utils::Outcome<DescribeExportTasksResult, Aws::Client::AWSError<RDSErrors>> DescribeExportTasksOutcome;
         typedef Aws::Utils::Outcome<DescribeGlobalClustersResult, Aws::Client::AWSError<RDSErrors>> DescribeGlobalClustersOutcome;
+        typedef Aws::Utils::Outcome<DescribeInstallationMediaResult, Aws::Client::AWSError<RDSErrors>> DescribeInstallationMediaOutcome;
         typedef Aws::Utils::Outcome<DescribeOptionGroupOptionsResult, Aws::Client::AWSError<RDSErrors>> DescribeOptionGroupOptionsOutcome;
         typedef Aws::Utils::Outcome<DescribeOptionGroupsResult, Aws::Client::AWSError<RDSErrors>> DescribeOptionGroupsOutcome;
         typedef Aws::Utils::Outcome<DescribeOrderableDBInstanceOptionsResult, Aws::Client::AWSError<RDSErrors>> DescribeOrderableDBInstanceOptionsOutcome;
@@ -351,7 +402,9 @@ namespace Aws
         typedef Aws::Utils::Outcome<DescribeValidDBInstanceModificationsResult, Aws::Client::AWSError<RDSErrors>> DescribeValidDBInstanceModificationsOutcome;
         typedef Aws::Utils::Outcome<DownloadDBLogFilePortionResult, Aws::Client::AWSError<RDSErrors>> DownloadDBLogFilePortionOutcome;
         typedef Aws::Utils::Outcome<FailoverDBClusterResult, Aws::Client::AWSError<RDSErrors>> FailoverDBClusterOutcome;
+        typedef Aws::Utils::Outcome<ImportInstallationMediaResult, Aws::Client::AWSError<RDSErrors>> ImportInstallationMediaOutcome;
         typedef Aws::Utils::Outcome<ListTagsForResourceResult, Aws::Client::AWSError<RDSErrors>> ListTagsForResourceOutcome;
+        typedef Aws::Utils::Outcome<ModifyCertificatesResult, Aws::Client::AWSError<RDSErrors>> ModifyCertificatesOutcome;
         typedef Aws::Utils::Outcome<ModifyCurrentDBClusterCapacityResult, Aws::Client::AWSError<RDSErrors>> ModifyCurrentDBClusterCapacityOutcome;
         typedef Aws::Utils::Outcome<ModifyDBClusterResult, Aws::Client::AWSError<RDSErrors>> ModifyDBClusterOutcome;
         typedef Aws::Utils::Outcome<ModifyDBClusterEndpointResult, Aws::Client::AWSError<RDSErrors>> ModifyDBClusterEndpointOutcome;
@@ -359,6 +412,8 @@ namespace Aws
         typedef Aws::Utils::Outcome<ModifyDBClusterSnapshotAttributeResult, Aws::Client::AWSError<RDSErrors>> ModifyDBClusterSnapshotAttributeOutcome;
         typedef Aws::Utils::Outcome<ModifyDBInstanceResult, Aws::Client::AWSError<RDSErrors>> ModifyDBInstanceOutcome;
         typedef Aws::Utils::Outcome<ModifyDBParameterGroupResult, Aws::Client::AWSError<RDSErrors>> ModifyDBParameterGroupOutcome;
+        typedef Aws::Utils::Outcome<ModifyDBProxyResult, Aws::Client::AWSError<RDSErrors>> ModifyDBProxyOutcome;
+        typedef Aws::Utils::Outcome<ModifyDBProxyTargetGroupResult, Aws::Client::AWSError<RDSErrors>> ModifyDBProxyTargetGroupOutcome;
         typedef Aws::Utils::Outcome<ModifyDBSnapshotResult, Aws::Client::AWSError<RDSErrors>> ModifyDBSnapshotOutcome;
         typedef Aws::Utils::Outcome<ModifyDBSnapshotAttributeResult, Aws::Client::AWSError<RDSErrors>> ModifyDBSnapshotAttributeOutcome;
         typedef Aws::Utils::Outcome<ModifyDBSubnetGroupResult, Aws::Client::AWSError<RDSErrors>> ModifyDBSubnetGroupOutcome;
@@ -369,6 +424,7 @@ namespace Aws
         typedef Aws::Utils::Outcome<PromoteReadReplicaDBClusterResult, Aws::Client::AWSError<RDSErrors>> PromoteReadReplicaDBClusterOutcome;
         typedef Aws::Utils::Outcome<PurchaseReservedDBInstancesOfferingResult, Aws::Client::AWSError<RDSErrors>> PurchaseReservedDBInstancesOfferingOutcome;
         typedef Aws::Utils::Outcome<RebootDBInstanceResult, Aws::Client::AWSError<RDSErrors>> RebootDBInstanceOutcome;
+        typedef Aws::Utils::Outcome<RegisterDBProxyTargetsResult, Aws::Client::AWSError<RDSErrors>> RegisterDBProxyTargetsOutcome;
         typedef Aws::Utils::Outcome<RemoveFromGlobalClusterResult, Aws::Client::AWSError<RDSErrors>> RemoveFromGlobalClusterOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RDSErrors>> RemoveRoleFromDBClusterOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<RDSErrors>> RemoveRoleFromDBInstanceOutcome;
@@ -386,6 +442,7 @@ namespace Aws
         typedef Aws::Utils::Outcome<StartActivityStreamResult, Aws::Client::AWSError<RDSErrors>> StartActivityStreamOutcome;
         typedef Aws::Utils::Outcome<StartDBClusterResult, Aws::Client::AWSError<RDSErrors>> StartDBClusterOutcome;
         typedef Aws::Utils::Outcome<StartDBInstanceResult, Aws::Client::AWSError<RDSErrors>> StartDBInstanceOutcome;
+        typedef Aws::Utils::Outcome<StartExportTaskResult, Aws::Client::AWSError<RDSErrors>> StartExportTaskOutcome;
         typedef Aws::Utils::Outcome<StopActivityStreamResult, Aws::Client::AWSError<RDSErrors>> StopActivityStreamOutcome;
         typedef Aws::Utils::Outcome<StopDBClusterResult, Aws::Client::AWSError<RDSErrors>> StopDBClusterOutcome;
         typedef Aws::Utils::Outcome<StopDBInstanceResult, Aws::Client::AWSError<RDSErrors>> StopDBInstanceOutcome;
@@ -397,11 +454,13 @@ namespace Aws
         typedef std::future<ApplyPendingMaintenanceActionOutcome> ApplyPendingMaintenanceActionOutcomeCallable;
         typedef std::future<AuthorizeDBSecurityGroupIngressOutcome> AuthorizeDBSecurityGroupIngressOutcomeCallable;
         typedef std::future<BacktrackDBClusterOutcome> BacktrackDBClusterOutcomeCallable;
+        typedef std::future<CancelExportTaskOutcome> CancelExportTaskOutcomeCallable;
         typedef std::future<CopyDBClusterParameterGroupOutcome> CopyDBClusterParameterGroupOutcomeCallable;
         typedef std::future<CopyDBClusterSnapshotOutcome> CopyDBClusterSnapshotOutcomeCallable;
         typedef std::future<CopyDBParameterGroupOutcome> CopyDBParameterGroupOutcomeCallable;
         typedef std::future<CopyDBSnapshotOutcome> CopyDBSnapshotOutcomeCallable;
         typedef std::future<CopyOptionGroupOutcome> CopyOptionGroupOutcomeCallable;
+        typedef std::future<CreateCustomAvailabilityZoneOutcome> CreateCustomAvailabilityZoneOutcomeCallable;
         typedef std::future<CreateDBClusterOutcome> CreateDBClusterOutcomeCallable;
         typedef std::future<CreateDBClusterEndpointOutcome> CreateDBClusterEndpointOutcomeCallable;
         typedef std::future<CreateDBClusterParameterGroupOutcome> CreateDBClusterParameterGroupOutcomeCallable;
@@ -409,12 +468,14 @@ namespace Aws
         typedef std::future<CreateDBInstanceOutcome> CreateDBInstanceOutcomeCallable;
         typedef std::future<CreateDBInstanceReadReplicaOutcome> CreateDBInstanceReadReplicaOutcomeCallable;
         typedef std::future<CreateDBParameterGroupOutcome> CreateDBParameterGroupOutcomeCallable;
+        typedef std::future<CreateDBProxyOutcome> CreateDBProxyOutcomeCallable;
         typedef std::future<CreateDBSecurityGroupOutcome> CreateDBSecurityGroupOutcomeCallable;
         typedef std::future<CreateDBSnapshotOutcome> CreateDBSnapshotOutcomeCallable;
         typedef std::future<CreateDBSubnetGroupOutcome> CreateDBSubnetGroupOutcomeCallable;
         typedef std::future<CreateEventSubscriptionOutcome> CreateEventSubscriptionOutcomeCallable;
         typedef std::future<CreateGlobalClusterOutcome> CreateGlobalClusterOutcomeCallable;
         typedef std::future<CreateOptionGroupOutcome> CreateOptionGroupOutcomeCallable;
+        typedef std::future<DeleteCustomAvailabilityZoneOutcome> DeleteCustomAvailabilityZoneOutcomeCallable;
         typedef std::future<DeleteDBClusterOutcome> DeleteDBClusterOutcomeCallable;
         typedef std::future<DeleteDBClusterEndpointOutcome> DeleteDBClusterEndpointOutcomeCallable;
         typedef std::future<DeleteDBClusterParameterGroupOutcome> DeleteDBClusterParameterGroupOutcomeCallable;
@@ -422,14 +483,18 @@ namespace Aws
         typedef std::future<DeleteDBInstanceOutcome> DeleteDBInstanceOutcomeCallable;
         typedef std::future<DeleteDBInstanceAutomatedBackupOutcome> DeleteDBInstanceAutomatedBackupOutcomeCallable;
         typedef std::future<DeleteDBParameterGroupOutcome> DeleteDBParameterGroupOutcomeCallable;
+        typedef std::future<DeleteDBProxyOutcome> DeleteDBProxyOutcomeCallable;
         typedef std::future<DeleteDBSecurityGroupOutcome> DeleteDBSecurityGroupOutcomeCallable;
         typedef std::future<DeleteDBSnapshotOutcome> DeleteDBSnapshotOutcomeCallable;
         typedef std::future<DeleteDBSubnetGroupOutcome> DeleteDBSubnetGroupOutcomeCallable;
         typedef std::future<DeleteEventSubscriptionOutcome> DeleteEventSubscriptionOutcomeCallable;
         typedef std::future<DeleteGlobalClusterOutcome> DeleteGlobalClusterOutcomeCallable;
+        typedef std::future<DeleteInstallationMediaOutcome> DeleteInstallationMediaOutcomeCallable;
         typedef std::future<DeleteOptionGroupOutcome> DeleteOptionGroupOutcomeCallable;
+        typedef std::future<DeregisterDBProxyTargetsOutcome> DeregisterDBProxyTargetsOutcomeCallable;
         typedef std::future<DescribeAccountAttributesOutcome> DescribeAccountAttributesOutcomeCallable;
         typedef std::future<DescribeCertificatesOutcome> DescribeCertificatesOutcomeCallable;
+        typedef std::future<DescribeCustomAvailabilityZonesOutcome> DescribeCustomAvailabilityZonesOutcomeCallable;
         typedef std::future<DescribeDBClusterBacktracksOutcome> DescribeDBClusterBacktracksOutcomeCallable;
         typedef std::future<DescribeDBClusterEndpointsOutcome> DescribeDBClusterEndpointsOutcomeCallable;
         typedef std::future<DescribeDBClusterParameterGroupsOutcome> DescribeDBClusterParameterGroupsOutcomeCallable;
@@ -443,6 +508,9 @@ namespace Aws
         typedef std::future<DescribeDBLogFilesOutcome> DescribeDBLogFilesOutcomeCallable;
         typedef std::future<DescribeDBParameterGroupsOutcome> DescribeDBParameterGroupsOutcomeCallable;
         typedef std::future<DescribeDBParametersOutcome> DescribeDBParametersOutcomeCallable;
+        typedef std::future<DescribeDBProxiesOutcome> DescribeDBProxiesOutcomeCallable;
+        typedef std::future<DescribeDBProxyTargetGroupsOutcome> DescribeDBProxyTargetGroupsOutcomeCallable;
+        typedef std::future<DescribeDBProxyTargetsOutcome> DescribeDBProxyTargetsOutcomeCallable;
         typedef std::future<DescribeDBSecurityGroupsOutcome> DescribeDBSecurityGroupsOutcomeCallable;
         typedef std::future<DescribeDBSnapshotAttributesOutcome> DescribeDBSnapshotAttributesOutcomeCallable;
         typedef std::future<DescribeDBSnapshotsOutcome> DescribeDBSnapshotsOutcomeCallable;
@@ -452,7 +520,9 @@ namespace Aws
         typedef std::future<DescribeEventCategoriesOutcome> DescribeEventCategoriesOutcomeCallable;
         typedef std::future<DescribeEventSubscriptionsOutcome> DescribeEventSubscriptionsOutcomeCallable;
         typedef std::future<DescribeEventsOutcome> DescribeEventsOutcomeCallable;
+        typedef std::future<DescribeExportTasksOutcome> DescribeExportTasksOutcomeCallable;
         typedef std::future<DescribeGlobalClustersOutcome> DescribeGlobalClustersOutcomeCallable;
+        typedef std::future<DescribeInstallationMediaOutcome> DescribeInstallationMediaOutcomeCallable;
         typedef std::future<DescribeOptionGroupOptionsOutcome> DescribeOptionGroupOptionsOutcomeCallable;
         typedef std::future<DescribeOptionGroupsOutcome> DescribeOptionGroupsOutcomeCallable;
         typedef std::future<DescribeOrderableDBInstanceOptionsOutcome> DescribeOrderableDBInstanceOptionsOutcomeCallable;
@@ -463,7 +533,9 @@ namespace Aws
         typedef std::future<DescribeValidDBInstanceModificationsOutcome> DescribeValidDBInstanceModificationsOutcomeCallable;
         typedef std::future<DownloadDBLogFilePortionOutcome> DownloadDBLogFilePortionOutcomeCallable;
         typedef std::future<FailoverDBClusterOutcome> FailoverDBClusterOutcomeCallable;
+        typedef std::future<ImportInstallationMediaOutcome> ImportInstallationMediaOutcomeCallable;
         typedef std::future<ListTagsForResourceOutcome> ListTagsForResourceOutcomeCallable;
+        typedef std::future<ModifyCertificatesOutcome> ModifyCertificatesOutcomeCallable;
         typedef std::future<ModifyCurrentDBClusterCapacityOutcome> ModifyCurrentDBClusterCapacityOutcomeCallable;
         typedef std::future<ModifyDBClusterOutcome> ModifyDBClusterOutcomeCallable;
         typedef std::future<ModifyDBClusterEndpointOutcome> ModifyDBClusterEndpointOutcomeCallable;
@@ -471,6 +543,8 @@ namespace Aws
         typedef std::future<ModifyDBClusterSnapshotAttributeOutcome> ModifyDBClusterSnapshotAttributeOutcomeCallable;
         typedef std::future<ModifyDBInstanceOutcome> ModifyDBInstanceOutcomeCallable;
         typedef std::future<ModifyDBParameterGroupOutcome> ModifyDBParameterGroupOutcomeCallable;
+        typedef std::future<ModifyDBProxyOutcome> ModifyDBProxyOutcomeCallable;
+        typedef std::future<ModifyDBProxyTargetGroupOutcome> ModifyDBProxyTargetGroupOutcomeCallable;
         typedef std::future<ModifyDBSnapshotOutcome> ModifyDBSnapshotOutcomeCallable;
         typedef std::future<ModifyDBSnapshotAttributeOutcome> ModifyDBSnapshotAttributeOutcomeCallable;
         typedef std::future<ModifyDBSubnetGroupOutcome> ModifyDBSubnetGroupOutcomeCallable;
@@ -481,6 +555,7 @@ namespace Aws
         typedef std::future<PromoteReadReplicaDBClusterOutcome> PromoteReadReplicaDBClusterOutcomeCallable;
         typedef std::future<PurchaseReservedDBInstancesOfferingOutcome> PurchaseReservedDBInstancesOfferingOutcomeCallable;
         typedef std::future<RebootDBInstanceOutcome> RebootDBInstanceOutcomeCallable;
+        typedef std::future<RegisterDBProxyTargetsOutcome> RegisterDBProxyTargetsOutcomeCallable;
         typedef std::future<RemoveFromGlobalClusterOutcome> RemoveFromGlobalClusterOutcomeCallable;
         typedef std::future<RemoveRoleFromDBClusterOutcome> RemoveRoleFromDBClusterOutcomeCallable;
         typedef std::future<RemoveRoleFromDBInstanceOutcome> RemoveRoleFromDBInstanceOutcomeCallable;
@@ -498,6 +573,7 @@ namespace Aws
         typedef std::future<StartActivityStreamOutcome> StartActivityStreamOutcomeCallable;
         typedef std::future<StartDBClusterOutcome> StartDBClusterOutcomeCallable;
         typedef std::future<StartDBInstanceOutcome> StartDBInstanceOutcomeCallable;
+        typedef std::future<StartExportTaskOutcome> StartExportTaskOutcomeCallable;
         typedef std::future<StopActivityStreamOutcome> StopActivityStreamOutcomeCallable;
         typedef std::future<StopDBClusterOutcome> StopDBClusterOutcomeCallable;
         typedef std::future<StopDBInstanceOutcome> StopDBInstanceOutcomeCallable;
@@ -512,11 +588,13 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::ApplyPendingMaintenanceActionRequest&, const Model::ApplyPendingMaintenanceActionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ApplyPendingMaintenanceActionResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::AuthorizeDBSecurityGroupIngressRequest&, const Model::AuthorizeDBSecurityGroupIngressOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > AuthorizeDBSecurityGroupIngressResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::BacktrackDBClusterRequest&, const Model::BacktrackDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > BacktrackDBClusterResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::CancelExportTaskRequest&, const Model::CancelExportTaskOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CancelExportTaskResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CopyDBClusterParameterGroupRequest&, const Model::CopyDBClusterParameterGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CopyDBClusterParameterGroupResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CopyDBClusterSnapshotRequest&, const Model::CopyDBClusterSnapshotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CopyDBClusterSnapshotResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CopyDBParameterGroupRequest&, const Model::CopyDBParameterGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CopyDBParameterGroupResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CopyDBSnapshotRequest&, const Model::CopyDBSnapshotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CopyDBSnapshotResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CopyOptionGroupRequest&, const Model::CopyOptionGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CopyOptionGroupResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::CreateCustomAvailabilityZoneRequest&, const Model::CreateCustomAvailabilityZoneOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateCustomAvailabilityZoneResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateDBClusterRequest&, const Model::CreateDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateDBClusterEndpointRequest&, const Model::CreateDBClusterEndpointOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBClusterEndpointResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateDBClusterParameterGroupRequest&, const Model::CreateDBClusterParameterGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBClusterParameterGroupResponseReceivedHandler;
@@ -524,12 +602,14 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::CreateDBInstanceRequest&, const Model::CreateDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBInstanceResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateDBInstanceReadReplicaRequest&, const Model::CreateDBInstanceReadReplicaOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBInstanceReadReplicaResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateDBParameterGroupRequest&, const Model::CreateDBParameterGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBParameterGroupResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::CreateDBProxyRequest&, const Model::CreateDBProxyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBProxyResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateDBSecurityGroupRequest&, const Model::CreateDBSecurityGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBSecurityGroupResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateDBSnapshotRequest&, const Model::CreateDBSnapshotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBSnapshotResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateDBSubnetGroupRequest&, const Model::CreateDBSubnetGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateDBSubnetGroupResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateEventSubscriptionRequest&, const Model::CreateEventSubscriptionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateEventSubscriptionResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateGlobalClusterRequest&, const Model::CreateGlobalClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateGlobalClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::CreateOptionGroupRequest&, const Model::CreateOptionGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateOptionGroupResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DeleteCustomAvailabilityZoneRequest&, const Model::DeleteCustomAvailabilityZoneOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteCustomAvailabilityZoneResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteDBClusterRequest&, const Model::DeleteDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteDBClusterEndpointRequest&, const Model::DeleteDBClusterEndpointOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBClusterEndpointResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteDBClusterParameterGroupRequest&, const Model::DeleteDBClusterParameterGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBClusterParameterGroupResponseReceivedHandler;
@@ -537,14 +617,18 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::DeleteDBInstanceRequest&, const Model::DeleteDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBInstanceResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteDBInstanceAutomatedBackupRequest&, const Model::DeleteDBInstanceAutomatedBackupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBInstanceAutomatedBackupResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteDBParameterGroupRequest&, const Model::DeleteDBParameterGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBParameterGroupResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DeleteDBProxyRequest&, const Model::DeleteDBProxyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBProxyResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteDBSecurityGroupRequest&, const Model::DeleteDBSecurityGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBSecurityGroupResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteDBSnapshotRequest&, const Model::DeleteDBSnapshotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBSnapshotResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteDBSubnetGroupRequest&, const Model::DeleteDBSubnetGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteDBSubnetGroupResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteEventSubscriptionRequest&, const Model::DeleteEventSubscriptionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteEventSubscriptionResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteGlobalClusterRequest&, const Model::DeleteGlobalClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteGlobalClusterResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DeleteInstallationMediaRequest&, const Model::DeleteInstallationMediaOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteInstallationMediaResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DeleteOptionGroupRequest&, const Model::DeleteOptionGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteOptionGroupResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DeregisterDBProxyTargetsRequest&, const Model::DeregisterDBProxyTargetsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeregisterDBProxyTargetsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeAccountAttributesRequest&, const Model::DescribeAccountAttributesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeAccountAttributesResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeCertificatesRequest&, const Model::DescribeCertificatesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeCertificatesResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DescribeCustomAvailabilityZonesRequest&, const Model::DescribeCustomAvailabilityZonesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeCustomAvailabilityZonesResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeDBClusterBacktracksRequest&, const Model::DescribeDBClusterBacktracksOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBClusterBacktracksResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeDBClusterEndpointsRequest&, const Model::DescribeDBClusterEndpointsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBClusterEndpointsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeDBClusterParameterGroupsRequest&, const Model::DescribeDBClusterParameterGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBClusterParameterGroupsResponseReceivedHandler;
@@ -558,6 +642,9 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::DescribeDBLogFilesRequest&, const Model::DescribeDBLogFilesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBLogFilesResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeDBParameterGroupsRequest&, const Model::DescribeDBParameterGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBParameterGroupsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeDBParametersRequest&, const Model::DescribeDBParametersOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBParametersResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DescribeDBProxiesRequest&, const Model::DescribeDBProxiesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBProxiesResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DescribeDBProxyTargetGroupsRequest&, const Model::DescribeDBProxyTargetGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBProxyTargetGroupsResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DescribeDBProxyTargetsRequest&, const Model::DescribeDBProxyTargetsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBProxyTargetsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeDBSecurityGroupsRequest&, const Model::DescribeDBSecurityGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBSecurityGroupsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeDBSnapshotAttributesRequest&, const Model::DescribeDBSnapshotAttributesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBSnapshotAttributesResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeDBSnapshotsRequest&, const Model::DescribeDBSnapshotsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeDBSnapshotsResponseReceivedHandler;
@@ -567,7 +654,9 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::DescribeEventCategoriesRequest&, const Model::DescribeEventCategoriesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeEventCategoriesResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeEventSubscriptionsRequest&, const Model::DescribeEventSubscriptionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeEventSubscriptionsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeEventsRequest&, const Model::DescribeEventsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeEventsResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DescribeExportTasksRequest&, const Model::DescribeExportTasksOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeExportTasksResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeGlobalClustersRequest&, const Model::DescribeGlobalClustersOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeGlobalClustersResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::DescribeInstallationMediaRequest&, const Model::DescribeInstallationMediaOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeInstallationMediaResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeOptionGroupOptionsRequest&, const Model::DescribeOptionGroupOptionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeOptionGroupOptionsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeOptionGroupsRequest&, const Model::DescribeOptionGroupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeOptionGroupsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DescribeOrderableDBInstanceOptionsRequest&, const Model::DescribeOrderableDBInstanceOptionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeOrderableDBInstanceOptionsResponseReceivedHandler;
@@ -578,7 +667,9 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::DescribeValidDBInstanceModificationsRequest&, const Model::DescribeValidDBInstanceModificationsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeValidDBInstanceModificationsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::DownloadDBLogFilePortionRequest&, const Model::DownloadDBLogFilePortionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DownloadDBLogFilePortionResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::FailoverDBClusterRequest&, const Model::FailoverDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > FailoverDBClusterResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::ImportInstallationMediaRequest&, const Model::ImportInstallationMediaOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ImportInstallationMediaResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ListTagsForResourceRequest&, const Model::ListTagsForResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListTagsForResourceResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::ModifyCertificatesRequest&, const Model::ModifyCertificatesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyCertificatesResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ModifyCurrentDBClusterCapacityRequest&, const Model::ModifyCurrentDBClusterCapacityOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyCurrentDBClusterCapacityResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ModifyDBClusterRequest&, const Model::ModifyDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ModifyDBClusterEndpointRequest&, const Model::ModifyDBClusterEndpointOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBClusterEndpointResponseReceivedHandler;
@@ -586,6 +677,8 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::ModifyDBClusterSnapshotAttributeRequest&, const Model::ModifyDBClusterSnapshotAttributeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBClusterSnapshotAttributeResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ModifyDBInstanceRequest&, const Model::ModifyDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBInstanceResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ModifyDBParameterGroupRequest&, const Model::ModifyDBParameterGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBParameterGroupResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::ModifyDBProxyRequest&, const Model::ModifyDBProxyOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBProxyResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::ModifyDBProxyTargetGroupRequest&, const Model::ModifyDBProxyTargetGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBProxyTargetGroupResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ModifyDBSnapshotRequest&, const Model::ModifyDBSnapshotOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBSnapshotResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ModifyDBSnapshotAttributeRequest&, const Model::ModifyDBSnapshotAttributeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBSnapshotAttributeResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::ModifyDBSubnetGroupRequest&, const Model::ModifyDBSubnetGroupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ModifyDBSubnetGroupResponseReceivedHandler;
@@ -596,6 +689,7 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::PromoteReadReplicaDBClusterRequest&, const Model::PromoteReadReplicaDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PromoteReadReplicaDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::PurchaseReservedDBInstancesOfferingRequest&, const Model::PurchaseReservedDBInstancesOfferingOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PurchaseReservedDBInstancesOfferingResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::RebootDBInstanceRequest&, const Model::RebootDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RebootDBInstanceResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::RegisterDBProxyTargetsRequest&, const Model::RegisterDBProxyTargetsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RegisterDBProxyTargetsResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::RemoveFromGlobalClusterRequest&, const Model::RemoveFromGlobalClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RemoveFromGlobalClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::RemoveRoleFromDBClusterRequest&, const Model::RemoveRoleFromDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RemoveRoleFromDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::RemoveRoleFromDBInstanceRequest&, const Model::RemoveRoleFromDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RemoveRoleFromDBInstanceResponseReceivedHandler;
@@ -613,6 +707,7 @@ namespace Aws
     typedef std::function<void(const RDSClient*, const Model::StartActivityStreamRequest&, const Model::StartActivityStreamOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartActivityStreamResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StartDBClusterRequest&, const Model::StartDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StartDBInstanceRequest&, const Model::StartDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartDBInstanceResponseReceivedHandler;
+    typedef std::function<void(const RDSClient*, const Model::StartExportTaskRequest&, const Model::StartExportTaskOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartExportTaskResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StopActivityStreamRequest&, const Model::StopActivityStreamOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopActivityStreamResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StopDBClusterRequest&, const Model::StopDBClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopDBClusterResponseReceivedHandler;
     typedef std::function<void(const RDSClient*, const Model::StopDBInstanceRequest&, const Model::StopDBInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopDBInstanceResponseReceivedHandler;
@@ -621,7 +716,7 @@ namespace Aws
      * <fullname>Amazon Relational Database Service</fullname> <p> </p> <p>Amazon
    * Relational Database Service (Amazon RDS) is a web service that makes it easier
    * to set up, operate, and scale a relational database in the cloud. It provides
-   * cost-efficient, resizable capacity for an industry-standard relational database
+   * cost-efficient, resizeable capacity for an industry-standard relational database
    * and manages common database administration tasks, freeing up developers to focus
    * on what makes their applications and businesses unique.</p> <p>Amazon RDS gives
    * you access to the capabilities of a MySQL, MariaDB, PostgreSQL, Microsoft SQL
@@ -634,14 +729,13 @@ namespace Aws
    * Amazon Web Services, there are no up-front investments, and you pay only for the
    * resources you use.</p> <p>This interface reference for Amazon RDS contains
    * documentation for a programming or command line interface you can use to manage
-   * Amazon RDS. Note that Amazon RDS is asynchronous, which means that some
-   * interfaces might require techniques such as polling or callback functions to
-   * determine when a command has been applied. In this reference, the parameter
-   * descriptions indicate whether a command is applied immediately, on the next
-   * instance reboot, or during the maintenance window. The reference structure is as
-   * follows, and we list following some related topics from the user guide.</p> <p>
-   * <b>Amazon RDS API Reference</b> </p> <ul> <li> <p>For the alphabetical list of
-   * API actions, see <a
+   * Amazon RDS. Amazon RDS is asynchronous, which means that some interfaces might
+   * require techniques such as polling or callback functions to determine when a
+   * command has been applied. In this reference, the parameter descriptions indicate
+   * whether a command is applied immediately, on the next instance reboot, or during
+   * the maintenance window. The reference structure is as follows, and we list
+   * following some related topics from the user guide.</p> <p> <b>Amazon RDS API
+   * Reference</b> </p> <ul> <li> <p>For the alphabetical list of API actions, see <a
    * href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Operations.html">API
    * Actions</a>.</p> </li> <li> <p>For the alphabetical list of data types, see <a
    * href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Types.html">Data
@@ -657,7 +751,7 @@ namespace Aws
    * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html">Using
    * the Query API</a>.</p> </li> </ul>
      */
-        class AWS_RDS_API RDSClient : public Aws::Client::AWSXMLClient
+                class AWS_RDS_API RDSClient : public Aws::Client::AWSXMLClient
     {
     public:
     typedef Aws::Client::AWSXMLClient BASECLASS;
@@ -966,6 +1060,37 @@ namespace Aws
         virtual void BacktrackDBClusterAsync(const Model::BacktrackDBClusterRequest& request, const BacktrackDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.
+         * Any data that has already been written to the S3 bucket isn't removed.
+         * </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CancelExportTask">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CancelExportTaskOutcome CancelExportTask(const Model::CancelExportTaskRequest& request) const;
+
+        /**
+         * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.
+         * Any data that has already been written to the S3 bucket isn't removed.
+         * </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CancelExportTask">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CancelExportTaskOutcomeCallable CancelExportTaskCallable(const Model::CancelExportTaskRequest& request) const;
+
+        /**
+         * <p>Cancels an export task in progress that is exporting a snapshot to Amazon S3.
+         * Any data that has already been written to the S3 bucket isn't removed.
+         * </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CancelExportTask">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CancelExportTaskAsync(const Model::CancelExportTaskRequest& request, const CancelExportTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Copies the specified DB cluster parameter group.</p> <note> <p>This action
          * only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CopyDBClusterParameterGroup">AWS
@@ -1017,7 +1142,7 @@ namespace Aws
          * <code>CopyDBClusterSnapshot</code> action that is called in the destination AWS
          * Region, and the action contained in the pre-signed URL.</p> </li> <li> <p>
          * <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster
-         * snapshot will be created in.</p> </li> <li> <p>
+         * snapshot is to be created in.</p> </li> <li> <p>
          * <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot
          * identifier for the encrypted DB cluster snapshot to be copied. This identifier
          * must be in the Amazon Resource Name (ARN) format for the source AWS Region. For
@@ -1031,7 +1156,12 @@ namespace Aws
          * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
          * and <a
          * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-         * Signature Version 4 Signing Process</a>.</p> </li> <li> <p>
+         * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+         * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+         * <code>--source-region</code> for the AWS CLI) instead of specifying
+         * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+         * autogenerates a pre-signed URL that is a valid request for the operation that
+         * can be executed in the source AWS Region.</p> </note> </li> <li> <p>
          * <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy
          * of the DB cluster snapshot in the destination AWS Region.</p> </li> <li> <p>
          * <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot
@@ -1079,7 +1209,7 @@ namespace Aws
          * <code>CopyDBClusterSnapshot</code> action that is called in the destination AWS
          * Region, and the action contained in the pre-signed URL.</p> </li> <li> <p>
          * <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster
-         * snapshot will be created in.</p> </li> <li> <p>
+         * snapshot is to be created in.</p> </li> <li> <p>
          * <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot
          * identifier for the encrypted DB cluster snapshot to be copied. This identifier
          * must be in the Amazon Resource Name (ARN) format for the source AWS Region. For
@@ -1093,7 +1223,12 @@ namespace Aws
          * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
          * and <a
          * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-         * Signature Version 4 Signing Process</a>.</p> </li> <li> <p>
+         * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+         * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+         * <code>--source-region</code> for the AWS CLI) instead of specifying
+         * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+         * autogenerates a pre-signed URL that is a valid request for the operation that
+         * can be executed in the source AWS Region.</p> </note> </li> <li> <p>
          * <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy
          * of the DB cluster snapshot in the destination AWS Region.</p> </li> <li> <p>
          * <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot
@@ -1143,7 +1278,7 @@ namespace Aws
          * <code>CopyDBClusterSnapshot</code> action that is called in the destination AWS
          * Region, and the action contained in the pre-signed URL.</p> </li> <li> <p>
          * <code>DestinationRegion</code> - The name of the AWS Region that the DB cluster
-         * snapshot will be created in.</p> </li> <li> <p>
+         * snapshot is to be created in.</p> </li> <li> <p>
          * <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot
          * identifier for the encrypted DB cluster snapshot to be copied. This identifier
          * must be in the Amazon Resource Name (ARN) format for the source AWS Region. For
@@ -1157,7 +1292,12 @@ namespace Aws
          * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
          * and <a
          * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-         * Signature Version 4 Signing Process</a>.</p> </li> <li> <p>
+         * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+         * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+         * <code>--source-region</code> for the AWS CLI) instead of specifying
+         * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+         * autogenerates a pre-signed URL that is a valid request for the operation that
+         * can be executed in the source AWS Region.</p> </note> </li> <li> <p>
          * <code>TargetDBClusterSnapshotIdentifier</code> - The identifier for the new copy
          * of the DB cluster snapshot in the destination AWS Region.</p> </li> <li> <p>
          * <code>SourceDBClusterSnapshotIdentifier</code> - The DB cluster snapshot
@@ -1214,7 +1354,7 @@ namespace Aws
          * another. In that case, the AWS Region where you call the
          * <code>CopyDBSnapshot</code> action is the destination AWS Region for the DB
          * snapshot copy. </p> <p>For more information about copying snapshots, see <a
-         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html">Copying
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying
          * a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i> </p><p><h3>See Also:</h3>
          * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CopyDBSnapshot">AWS
@@ -1228,7 +1368,7 @@ namespace Aws
          * another. In that case, the AWS Region where you call the
          * <code>CopyDBSnapshot</code> action is the destination AWS Region for the DB
          * snapshot copy. </p> <p>For more information about copying snapshots, see <a
-         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html">Copying
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying
          * a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i> </p><p><h3>See Also:</h3>
          * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CopyDBSnapshot">AWS
@@ -1244,7 +1384,7 @@ namespace Aws
          * another. In that case, the AWS Region where you call the
          * <code>CopyDBSnapshot</code> action is the destination AWS Region for the DB
          * snapshot copy. </p> <p>For more information about copying snapshots, see <a
-         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html">Copying
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html#USER_CopyDBSnapshot">Copying
          * a DB Snapshot</a> in the <i>Amazon RDS User Guide.</i> </p><p><h3>See Also:</h3>
          * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CopyDBSnapshot">AWS
@@ -1278,6 +1418,43 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void CopyOptionGroupAsync(const Model::CopyOptionGroupRequest& request, const CopyOptionGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Creates a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises
+         * AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information
+         * about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateCustomAvailabilityZone">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CreateCustomAvailabilityZoneOutcome CreateCustomAvailabilityZone(const Model::CreateCustomAvailabilityZoneRequest& request) const;
+
+        /**
+         * <p>Creates a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises
+         * AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information
+         * about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateCustomAvailabilityZone">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CreateCustomAvailabilityZoneOutcomeCallable CreateCustomAvailabilityZoneCallable(const Model::CreateCustomAvailabilityZoneRequest& request) const;
+
+        /**
+         * <p>Creates a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises
+         * AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information
+         * about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateCustomAvailabilityZone">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CreateCustomAvailabilityZoneAsync(const Model::CreateCustomAvailabilityZoneRequest& request, const CreateCustomAvailabilityZoneResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Creates a new Amazon Aurora DB cluster.</p> <p>You can use the
@@ -1671,6 +1848,37 @@ namespace Aws
         virtual void CreateDBParameterGroupAsync(const Model::CreateDBParameterGroupRequest& request, const CreateDBParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Creates a new DB
+         * proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateDBProxy">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CreateDBProxyOutcome CreateDBProxy(const Model::CreateDBProxyRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Creates a new DB
+         * proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateDBProxy">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CreateDBProxyOutcomeCallable CreateDBProxyCallable(const Model::CreateDBProxyRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Creates a new DB
+         * proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateDBProxy">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CreateDBProxyAsync(const Model::CreateDBProxyRequest& request, const CreateDBProxyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Creates a new DB security group. DB security groups control access to a DB
          * instance.</p> <note> <p>A DB security group controls access to EC2-Classic DB
          * instances that are not in a VPC.</p> </note><p><h3>See Also:</h3>   <a
@@ -1759,7 +1967,7 @@ namespace Aws
 
         /**
          * <p>Creates an RDS event notification subscription. This action requires a topic
-         * ARN (Amazon Resource Name) created by either the RDS console, the SNS console,
+         * Amazon Resource Name (ARN) created by either the RDS console, the SNS console,
          * or the SNS API. To obtain an ARN with SNS, you must create a topic in Amazon SNS
          * and subscribe to the topic. The ARN is displayed in the SNS console.</p> <p>You
          * can specify the type of source (SourceType) you want to be notified of, provide
@@ -1771,9 +1979,12 @@ namespace Aws
          * SourceIdentifier = myDBInstance1, you are notified of all the db-instance events
          * for the specified source. If you specify a SourceType but do not specify a
          * SourceIdentifier, you receive notice of the events for that source type for all
-         * your RDS sources. If you do not specify either the SourceType nor the
+         * your RDS sources. If you don't specify either the SourceType or the
          * SourceIdentifier, you are notified of events generated from all RDS sources
-         * belonging to your customer account.</p><p><h3>See Also:</h3>   <a
+         * belonging to your customer account.</p> <note> <p>RDS event notification is only
+         * available for unencrypted SNS topics. If you specify an encrypted SNS topic,
+         * event notifications aren't sent for the topic.</p> </note><p><h3>See Also:</h3> 
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateEventSubscription">AWS
          * API Reference</a></p>
          */
@@ -1781,7 +1992,7 @@ namespace Aws
 
         /**
          * <p>Creates an RDS event notification subscription. This action requires a topic
-         * ARN (Amazon Resource Name) created by either the RDS console, the SNS console,
+         * Amazon Resource Name (ARN) created by either the RDS console, the SNS console,
          * or the SNS API. To obtain an ARN with SNS, you must create a topic in Amazon SNS
          * and subscribe to the topic. The ARN is displayed in the SNS console.</p> <p>You
          * can specify the type of source (SourceType) you want to be notified of, provide
@@ -1793,9 +2004,12 @@ namespace Aws
          * SourceIdentifier = myDBInstance1, you are notified of all the db-instance events
          * for the specified source. If you specify a SourceType but do not specify a
          * SourceIdentifier, you receive notice of the events for that source type for all
-         * your RDS sources. If you do not specify either the SourceType nor the
+         * your RDS sources. If you don't specify either the SourceType or the
          * SourceIdentifier, you are notified of events generated from all RDS sources
-         * belonging to your customer account.</p><p><h3>See Also:</h3>   <a
+         * belonging to your customer account.</p> <note> <p>RDS event notification is only
+         * available for unencrypted SNS topics. If you specify an encrypted SNS topic,
+         * event notifications aren't sent for the topic.</p> </note><p><h3>See Also:</h3> 
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateEventSubscription">AWS
          * API Reference</a></p>
          *
@@ -1805,7 +2019,7 @@ namespace Aws
 
         /**
          * <p>Creates an RDS event notification subscription. This action requires a topic
-         * ARN (Amazon Resource Name) created by either the RDS console, the SNS console,
+         * Amazon Resource Name (ARN) created by either the RDS console, the SNS console,
          * or the SNS API. To obtain an ARN with SNS, you must create a topic in Amazon SNS
          * and subscribe to the topic. The ARN is displayed in the SNS console.</p> <p>You
          * can specify the type of source (SourceType) you want to be notified of, provide
@@ -1817,9 +2031,12 @@ namespace Aws
          * SourceIdentifier = myDBInstance1, you are notified of all the db-instance events
          * for the specified source. If you specify a SourceType but do not specify a
          * SourceIdentifier, you receive notice of the events for that source type for all
-         * your RDS sources. If you do not specify either the SourceType nor the
+         * your RDS sources. If you don't specify either the SourceType or the
          * SourceIdentifier, you are notified of events generated from all RDS sources
-         * belonging to your customer account.</p><p><h3>See Also:</h3>   <a
+         * belonging to your customer account.</p> <note> <p>RDS event notification is only
+         * available for unencrypted SNS topics. If you specify an encrypted SNS topic,
+         * event notifications aren't sent for the topic.</p> </note><p><h3>See Also:</h3> 
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/CreateEventSubscription">AWS
          * API Reference</a></p>
          *
@@ -1903,6 +2120,43 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void CreateOptionGroupAsync(const Model::CreateOptionGroupRequest& request, const CreateOptionGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Deletes a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises
+         * AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information
+         * about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteCustomAvailabilityZone">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DeleteCustomAvailabilityZoneOutcome DeleteCustomAvailabilityZone(const Model::DeleteCustomAvailabilityZoneRequest& request) const;
+
+        /**
+         * <p>Deletes a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises
+         * AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information
+         * about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteCustomAvailabilityZone">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DeleteCustomAvailabilityZoneOutcomeCallable DeleteCustomAvailabilityZoneCallable(const Model::DeleteCustomAvailabilityZoneRequest& request) const;
+
+        /**
+         * <p>Deletes a custom Availability Zone (AZ).</p> <p>A custom AZ is an on-premises
+         * AZ that is integrated with a VMware vSphere cluster.</p> <p>For more information
+         * about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteCustomAvailabilityZone">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DeleteCustomAvailabilityZoneAsync(const Model::DeleteCustomAvailabilityZoneRequest& request, const DeleteCustomAvailabilityZoneResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>The DeleteDBCluster action deletes a previously provisioned DB cluster. When
@@ -2078,8 +2332,8 @@ namespace Aws
          * a final DB snapshot the status of the Amazon RDS DB instance is
          * <code>deleting</code> until the DB snapshot is created. The API action
          * <code>DescribeDBInstance</code> is used to monitor the status of this operation.
-         * The action can't be canceled or reverted once submitted. </p> <p>Note that when
-         * a DB instance is in a failure state and has a status of <code>failed</code>,
+         * The action can't be canceled or reverted once submitted. </p> <p>When a DB
+         * instance is in a failure state and has a status of <code>failed</code>,
          * <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can
          * only delete it when you skip creation of the final snapshot with the
          * <code>SkipFinalSnapshot</code> parameter.</p> <p>If the specified DB instance is
@@ -2104,8 +2358,8 @@ namespace Aws
          * a final DB snapshot the status of the Amazon RDS DB instance is
          * <code>deleting</code> until the DB snapshot is created. The API action
          * <code>DescribeDBInstance</code> is used to monitor the status of this operation.
-         * The action can't be canceled or reverted once submitted. </p> <p>Note that when
-         * a DB instance is in a failure state and has a status of <code>failed</code>,
+         * The action can't be canceled or reverted once submitted. </p> <p>When a DB
+         * instance is in a failure state and has a status of <code>failed</code>,
          * <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can
          * only delete it when you skip creation of the final snapshot with the
          * <code>SkipFinalSnapshot</code> parameter.</p> <p>If the specified DB instance is
@@ -2132,8 +2386,8 @@ namespace Aws
          * a final DB snapshot the status of the Amazon RDS DB instance is
          * <code>deleting</code> until the DB snapshot is created. The API action
          * <code>DescribeDBInstance</code> is used to monitor the status of this operation.
-         * The action can't be canceled or reverted once submitted. </p> <p>Note that when
-         * a DB instance is in a failure state and has a status of <code>failed</code>,
+         * The action can't be canceled or reverted once submitted. </p> <p>When a DB
+         * instance is in a failure state and has a status of <code>failed</code>,
          * <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can
          * only delete it when you skip creation of the final snapshot with the
          * <code>SkipFinalSnapshot</code> parameter.</p> <p>If the specified DB instance is
@@ -2210,6 +2464,37 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void DeleteDBParameterGroupAsync(const Model::DeleteDBParameterGroupRequest& request, const DeleteDBParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Deletes an existing
+         * proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBProxy">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DeleteDBProxyOutcome DeleteDBProxy(const Model::DeleteDBProxyRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Deletes an existing
+         * proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBProxy">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DeleteDBProxyOutcomeCallable DeleteDBProxyCallable(const Model::DeleteDBProxyRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Deletes an existing
+         * proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteDBProxy">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DeleteDBProxyAsync(const Model::DeleteDBProxyRequest& request, const DeleteDBProxyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Deletes a DB security group.</p> <note> <p>The specified DB security group
@@ -2361,6 +2646,37 @@ namespace Aws
         virtual void DeleteGlobalClusterAsync(const Model::DeleteGlobalClusterRequest& request, const DeleteGlobalClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Deletes the installation medium for a DB engine that requires an on-premises
+         * customer provided license, such as Microsoft SQL Server.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteInstallationMedia">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DeleteInstallationMediaOutcome DeleteInstallationMedia(const Model::DeleteInstallationMediaRequest& request) const;
+
+        /**
+         * <p>Deletes the installation medium for a DB engine that requires an on-premises
+         * customer provided license, such as Microsoft SQL Server.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteInstallationMedia">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DeleteInstallationMediaOutcomeCallable DeleteInstallationMediaCallable(const Model::DeleteInstallationMediaRequest& request) const;
+
+        /**
+         * <p>Deletes the installation medium for a DB engine that requires an on-premises
+         * customer provided license, such as Microsoft SQL Server.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteInstallationMedia">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DeleteInstallationMediaAsync(const Model::DeleteInstallationMediaRequest& request, const DeleteInstallationMediaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Deletes an existing option group.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeleteOptionGroup">AWS
          * API Reference</a></p>
@@ -2384,6 +2700,40 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void DeleteOptionGroupAsync(const Model::DeleteOptionGroupRequest& request, const DeleteOptionGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Remove the association
+         * between one or more <code>DBProxyTarget</code> data structures and a
+         * <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeregisterDBProxyTargets">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DeregisterDBProxyTargetsOutcome DeregisterDBProxyTargets(const Model::DeregisterDBProxyTargetsRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Remove the association
+         * between one or more <code>DBProxyTarget</code> data structures and a
+         * <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeregisterDBProxyTargets">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DeregisterDBProxyTargetsOutcomeCallable DeregisterDBProxyTargetsCallable(const Model::DeregisterDBProxyTargetsRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Remove the association
+         * between one or more <code>DBProxyTarget</code> data structures and a
+         * <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DeregisterDBProxyTargets">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DeregisterDBProxyTargetsAsync(const Model::DeregisterDBProxyTargetsRequest& request, const DeregisterDBProxyTargetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Lists all of the attributes for a customer account. The attributes include
@@ -2449,6 +2799,43 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void DescribeCertificatesAsync(const Model::DescribeCertificatesRequest& request, const DescribeCertificatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Returns information about custom Availability Zones (AZs).</p> <p>A custom AZ
+         * is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
+         * <p>For more information about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeCustomAvailabilityZones">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeCustomAvailabilityZonesOutcome DescribeCustomAvailabilityZones(const Model::DescribeCustomAvailabilityZonesRequest& request) const;
+
+        /**
+         * <p>Returns information about custom Availability Zones (AZs).</p> <p>A custom AZ
+         * is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
+         * <p>For more information about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeCustomAvailabilityZones">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeCustomAvailabilityZonesOutcomeCallable DescribeCustomAvailabilityZonesCallable(const Model::DescribeCustomAvailabilityZonesRequest& request) const;
+
+        /**
+         * <p>Returns information about custom Availability Zones (AZs).</p> <p>A custom AZ
+         * is an on-premises AZ that is integrated with a VMware vSphere cluster.</p>
+         * <p>For more information about RDS on VMware, see the <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/RDSonVMwareUserGuide/rds-on-vmware.html">
+         * <i>RDS on VMware User Guide.</i> </a> </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeCustomAvailabilityZones">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeCustomAvailabilityZonesAsync(const Model::DescribeCustomAvailabilityZonesRequest& request, const DescribeCustomAvailabilityZonesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Returns information about backtracks for a DB cluster.</p> <p>For more
@@ -2710,8 +3097,8 @@ namespace Aws
          * pagination.</p> <p>For more information on Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
-         * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
-         * Also:</h3>   <a
+         * <p>This operation can also return information for Amazon Neptune DB instances
+         * and Amazon DocumentDB instances.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusters">AWS
          * API Reference</a></p>
          */
@@ -2722,8 +3109,8 @@ namespace Aws
          * pagination.</p> <p>For more information on Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
-         * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
-         * Also:</h3>   <a
+         * <p>This operation can also return information for Amazon Neptune DB instances
+         * and Amazon DocumentDB instances.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusters">AWS
          * API Reference</a></p>
          *
@@ -2736,8 +3123,8 @@ namespace Aws
          * pagination.</p> <p>For more information on Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
-         * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
-         * Also:</h3>   <a
+         * <p>This operation can also return information for Amazon Neptune DB instances
+         * and Amazon DocumentDB instances.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBClusters">AWS
          * API Reference</a></p>
          *
@@ -2812,7 +3199,9 @@ namespace Aws
 
         /**
          * <p>Returns information about provisioned RDS instances. This API supports
-         * pagination.</p><p><h3>See Also:</h3>   <a
+         * pagination.</p> <note> <p>This operation can also return information for Amazon
+         * Neptune DB instances and Amazon DocumentDB instances.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBInstances">AWS
          * API Reference</a></p>
          */
@@ -2820,7 +3209,9 @@ namespace Aws
 
         /**
          * <p>Returns information about provisioned RDS instances. This API supports
-         * pagination.</p><p><h3>See Also:</h3>   <a
+         * pagination.</p> <note> <p>This operation can also return information for Amazon
+         * Neptune DB instances and Amazon DocumentDB instances.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBInstances">AWS
          * API Reference</a></p>
          *
@@ -2830,7 +3221,9 @@ namespace Aws
 
         /**
          * <p>Returns information about provisioned RDS instances. This API supports
-         * pagination.</p><p><h3>See Also:</h3>   <a
+         * pagination.</p> <note> <p>This operation can also return information for Amazon
+         * Neptune DB instances and Amazon DocumentDB instances.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBInstances">AWS
          * API Reference</a></p>
          *
@@ -2924,6 +3317,105 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void DescribeDBParametersAsync(const Model::DescribeDBParametersRequest& request, const DescribeDBParametersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about DB proxies.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxies">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeDBProxiesOutcome DescribeDBProxies(const Model::DescribeDBProxiesRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about DB proxies.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxies">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeDBProxiesOutcomeCallable DescribeDBProxiesCallable(const Model::DescribeDBProxiesRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about DB proxies.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxies">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeDBProxiesAsync(const Model::DescribeDBProxiesRequest& request, const DescribeDBProxiesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about DB proxy target groups, represented by <code>DBProxyTargetGroup</code>
+         * data structures.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxyTargetGroups">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeDBProxyTargetGroupsOutcome DescribeDBProxyTargetGroups(const Model::DescribeDBProxyTargetGroupsRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about DB proxy target groups, represented by <code>DBProxyTargetGroup</code>
+         * data structures.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxyTargetGroups">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeDBProxyTargetGroupsOutcomeCallable DescribeDBProxyTargetGroupsCallable(const Model::DescribeDBProxyTargetGroupsRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about DB proxy target groups, represented by <code>DBProxyTargetGroup</code>
+         * data structures.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxyTargetGroups">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeDBProxyTargetGroupsAsync(const Model::DescribeDBProxyTargetGroupsRequest& request, const DescribeDBProxyTargetGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about <code>DBProxyTarget</code> objects. This API supports
+         * pagination.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxyTargets">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeDBProxyTargetsOutcome DescribeDBProxyTargets(const Model::DescribeDBProxyTargetsRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about <code>DBProxyTarget</code> objects. This API supports
+         * pagination.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxyTargets">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeDBProxyTargetsOutcomeCallable DescribeDBProxyTargetsCallable(const Model::DescribeDBProxyTargetsRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Returns information
+         * about <code>DBProxyTarget</code> objects. This API supports
+         * pagination.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeDBProxyTargets">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeDBProxyTargetsAsync(const Model::DescribeDBProxyTargetsRequest& request, const DescribeDBProxyTargetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p> Returns a list of <code>DBSecurityGroup</code> descriptions. If a
@@ -3253,6 +3745,34 @@ namespace Aws
         virtual void DescribeEventsAsync(const Model::DescribeEventsRequest& request, const DescribeEventsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Returns information about a snapshot export to Amazon S3. This API operation
+         * supports pagination. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeExportTasks">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeExportTasksOutcome DescribeExportTasks(const Model::DescribeExportTasksRequest& request) const;
+
+        /**
+         * <p>Returns information about a snapshot export to Amazon S3. This API operation
+         * supports pagination. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeExportTasks">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeExportTasksOutcomeCallable DescribeExportTasksCallable(const Model::DescribeExportTasksRequest& request) const;
+
+        /**
+         * <p>Returns information about a snapshot export to Amazon S3. This API operation
+         * supports pagination. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeExportTasks">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeExportTasksAsync(const Model::DescribeExportTasksRequest& request, const DescribeExportTasksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p> Returns information about Aurora global database clusters. This API supports
          * pagination. </p> <p> For more information on Amazon Aurora, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
@@ -3291,6 +3811,37 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void DescribeGlobalClustersAsync(const Model::DescribeGlobalClustersRequest& request, const DescribeGlobalClustersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Describes the available installation media for a DB engine that requires an
+         * on-premises customer provided license, such as Microsoft SQL
+         * Server.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeInstallationMedia">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeInstallationMediaOutcome DescribeInstallationMedia(const Model::DescribeInstallationMediaRequest& request) const;
+
+        /**
+         * <p>Describes the available installation media for a DB engine that requires an
+         * on-premises customer provided license, such as Microsoft SQL
+         * Server.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeInstallationMedia">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeInstallationMediaOutcomeCallable DescribeInstallationMediaCallable(const Model::DescribeInstallationMediaRequest& request) const;
+
+        /**
+         * <p>Describes the available installation media for a DB engine that requires an
+         * on-premises customer provided license, such as Microsoft SQL
+         * Server.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeInstallationMedia">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeInstallationMediaAsync(const Model::DescribeInstallationMediaRequest& request, const DescribeInstallationMediaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Describes all available options.</p><p><h3>See Also:</h3>   <a
@@ -3603,6 +4154,34 @@ namespace Aws
         virtual void FailoverDBClusterAsync(const Model::FailoverDBClusterRequest& request, const FailoverDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Imports the installation media for a DB engine that requires an on-premises
+         * customer provided license, such as SQL Server.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ImportInstallationMedia">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ImportInstallationMediaOutcome ImportInstallationMedia(const Model::ImportInstallationMediaRequest& request) const;
+
+        /**
+         * <p>Imports the installation media for a DB engine that requires an on-premises
+         * customer provided license, such as SQL Server.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ImportInstallationMedia">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ImportInstallationMediaOutcomeCallable ImportInstallationMediaCallable(const Model::ImportInstallationMediaRequest& request) const;
+
+        /**
+         * <p>Imports the installation media for a DB engine that requires an on-premises
+         * customer provided license, such as SQL Server.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ImportInstallationMedia">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ImportInstallationMediaAsync(const Model::ImportInstallationMediaRequest& request, const ImportInstallationMediaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Lists all tags on an Amazon RDS resource.</p> <p>For an overview on tagging
          * an Amazon RDS resource, see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging
@@ -3638,6 +4217,94 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void ListTagsForResourceAsync(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Override the system-default Secure Sockets Layer/Transport Layer Security
+         * (SSL/TLS) certificate for Amazon RDS for new DB instances temporarily, or remove
+         * the override.</p> <p>By using this operation, you can specify an RDS-approved
+         * SSL/TLS certificate for new DB instances that is different from the default
+         * certificate provided by RDS. You can also use this operation to remove the
+         * override, so that new DB instances use the default certificate provided by
+         * RDS.</p> <p>You might need to override the default certificate in the following
+         * situations:</p> <ul> <li> <p>You already migrated your applications to support
+         * the latest certificate authority (CA) certificate, but the new CA certificate is
+         * not yet the RDS default CA certificate for the specified AWS Region.</p> </li>
+         * <li> <p>RDS has already moved to a new default CA certificate for the specified
+         * AWS Region, but you are still in the process of supporting the new CA
+         * certificate. In this case, you temporarily need additional time to finish your
+         * application changes.</p> </li> </ul> <p>For more information about rotating your
+         * SSL/TLS certificate for RDS DB engines, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+         * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon RDS User Guide</i>.</p>
+         * <p>For more information about rotating your SSL/TLS certificate for Aurora DB
+         * engines, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+         * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyCertificates">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ModifyCertificatesOutcome ModifyCertificates(const Model::ModifyCertificatesRequest& request) const;
+
+        /**
+         * <p>Override the system-default Secure Sockets Layer/Transport Layer Security
+         * (SSL/TLS) certificate for Amazon RDS for new DB instances temporarily, or remove
+         * the override.</p> <p>By using this operation, you can specify an RDS-approved
+         * SSL/TLS certificate for new DB instances that is different from the default
+         * certificate provided by RDS. You can also use this operation to remove the
+         * override, so that new DB instances use the default certificate provided by
+         * RDS.</p> <p>You might need to override the default certificate in the following
+         * situations:</p> <ul> <li> <p>You already migrated your applications to support
+         * the latest certificate authority (CA) certificate, but the new CA certificate is
+         * not yet the RDS default CA certificate for the specified AWS Region.</p> </li>
+         * <li> <p>RDS has already moved to a new default CA certificate for the specified
+         * AWS Region, but you are still in the process of supporting the new CA
+         * certificate. In this case, you temporarily need additional time to finish your
+         * application changes.</p> </li> </ul> <p>For more information about rotating your
+         * SSL/TLS certificate for RDS DB engines, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+         * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon RDS User Guide</i>.</p>
+         * <p>For more information about rotating your SSL/TLS certificate for Aurora DB
+         * engines, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+         * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyCertificates">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ModifyCertificatesOutcomeCallable ModifyCertificatesCallable(const Model::ModifyCertificatesRequest& request) const;
+
+        /**
+         * <p>Override the system-default Secure Sockets Layer/Transport Layer Security
+         * (SSL/TLS) certificate for Amazon RDS for new DB instances temporarily, or remove
+         * the override.</p> <p>By using this operation, you can specify an RDS-approved
+         * SSL/TLS certificate for new DB instances that is different from the default
+         * certificate provided by RDS. You can also use this operation to remove the
+         * override, so that new DB instances use the default certificate provided by
+         * RDS.</p> <p>You might need to override the default certificate in the following
+         * situations:</p> <ul> <li> <p>You already migrated your applications to support
+         * the latest certificate authority (CA) certificate, but the new CA certificate is
+         * not yet the RDS default CA certificate for the specified AWS Region.</p> </li>
+         * <li> <p>RDS has already moved to a new default CA certificate for the specified
+         * AWS Region, but you are still in the process of supporting the new CA
+         * certificate. In this case, you temporarily need additional time to finish your
+         * application changes.</p> </li> </ul> <p>For more information about rotating your
+         * SSL/TLS certificate for RDS DB engines, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+         * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon RDS User Guide</i>.</p>
+         * <p>For more information about rotating your SSL/TLS certificate for Aurora DB
+         * engines, see <a
+         * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+         * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User
+         * Guide</i>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyCertificates">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ModifyCertificatesAsync(const Model::ModifyCertificatesRequest& request, const ModifyCertificatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Set the capacity of an Aurora Serverless DB cluster to a specific value.</p>
@@ -3813,8 +4480,13 @@ namespace Aws
          * parameter. You can use the <i>Parameter Groups</i> option of the <a
          * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
          * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
-         * parameter group has been created or modified.</p> </important> <note> <p>This
-         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
+         * parameter group has been created or modified.</p> <p>If the modified DB cluster
+         * parameter group is used by an Aurora Serverless cluster, Aurora applies the
+         * update immediately. The cluster restart might interrupt your workload. In that
+         * case, your application must reopen any connections and retry any transactions
+         * that were active when the parameter changes took effect.</p> </important> <note>
+         * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterParameterGroup">AWS
          * API Reference</a></p>
          */
@@ -3841,8 +4513,13 @@ namespace Aws
          * parameter. You can use the <i>Parameter Groups</i> option of the <a
          * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
          * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
-         * parameter group has been created or modified.</p> </important> <note> <p>This
-         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
+         * parameter group has been created or modified.</p> <p>If the modified DB cluster
+         * parameter group is used by an Aurora Serverless cluster, Aurora applies the
+         * update immediately. The cluster restart might interrupt your workload. In that
+         * case, your application must reopen any connections and retry any transactions
+         * that were active when the parameter changes took effect.</p> </important> <note>
+         * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterParameterGroup">AWS
          * API Reference</a></p>
          *
@@ -3871,8 +4548,13 @@ namespace Aws
          * parameter. You can use the <i>Parameter Groups</i> option of the <a
          * href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
          * <code>DescribeDBClusterParameters</code> action to verify that your DB cluster
-         * parameter group has been created or modified.</p> </important> <note> <p>This
-         * action only applies to Aurora DB clusters.</p> </note><p><h3>See Also:</h3>   <a
+         * parameter group has been created or modified.</p> <p>If the modified DB cluster
+         * parameter group is used by an Aurora Serverless cluster, Aurora applies the
+         * update immediately. The cluster restart might interrupt your workload. In that
+         * case, your application must reopen any connections and retry any transactions
+         * that were active when the parameter changes took effect.</p> </important> <note>
+         * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBClusterParameterGroup">AWS
          * API Reference</a></p>
          *
@@ -4067,9 +4749,71 @@ namespace Aws
         virtual void ModifyDBParameterGroupAsync(const Model::ModifyDBParameterGroupRequest& request, const ModifyDBParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Changes the settings
+         * for an existing DB proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBProxy">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ModifyDBProxyOutcome ModifyDBProxy(const Model::ModifyDBProxyRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Changes the settings
+         * for an existing DB proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBProxy">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ModifyDBProxyOutcomeCallable ModifyDBProxyCallable(const Model::ModifyDBProxyRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Changes the settings
+         * for an existing DB proxy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBProxy">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ModifyDBProxyAsync(const Model::ModifyDBProxyRequest& request, const ModifyDBProxyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Modifies the properties
+         * of a <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBProxyTargetGroup">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ModifyDBProxyTargetGroupOutcome ModifyDBProxyTargetGroup(const Model::ModifyDBProxyTargetGroupRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Modifies the properties
+         * of a <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBProxyTargetGroup">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ModifyDBProxyTargetGroupOutcomeCallable ModifyDBProxyTargetGroupCallable(const Model::ModifyDBProxyTargetGroupRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Modifies the properties
+         * of a <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBProxyTargetGroup">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ModifyDBProxyTargetGroupAsync(const Model::ModifyDBProxyTargetGroupRequest& request, const ModifyDBProxyTargetGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Updates a manual DB snapshot, which can be encrypted or not encrypted, with a
-         * new engine version. </p> <p>Amazon RDS supports upgrading DB snapshots for MySQL
-         * and Oracle. </p><p><h3>See Also:</h3>   <a
+         * new engine version. </p> <p>Amazon RDS supports upgrading DB snapshots for
+         * MySQL, Oracle, and PostgreSQL. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBSnapshot">AWS
          * API Reference</a></p>
          */
@@ -4077,8 +4821,8 @@ namespace Aws
 
         /**
          * <p>Updates a manual DB snapshot, which can be encrypted or not encrypted, with a
-         * new engine version. </p> <p>Amazon RDS supports upgrading DB snapshots for MySQL
-         * and Oracle. </p><p><h3>See Also:</h3>   <a
+         * new engine version. </p> <p>Amazon RDS supports upgrading DB snapshots for
+         * MySQL, Oracle, and PostgreSQL. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBSnapshot">AWS
          * API Reference</a></p>
          *
@@ -4088,8 +4832,8 @@ namespace Aws
 
         /**
          * <p>Updates a manual DB snapshot, which can be encrypted or not encrypted, with a
-         * new engine version. </p> <p>Amazon RDS supports upgrading DB snapshots for MySQL
-         * and Oracle. </p><p><h3>See Also:</h3>   <a
+         * new engine version. </p> <p>Amazon RDS supports upgrading DB snapshots for
+         * MySQL, Oracle, and PostgreSQL. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/ModifyDBSnapshot">AWS
          * API Reference</a></p>
          *
@@ -4193,9 +4937,9 @@ namespace Aws
         virtual void ModifyDBSubnetGroupAsync(const Model::ModifyDBSubnetGroupRequest& request, const ModifyDBSubnetGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Modifies an existing RDS event notification subscription. Note that you can't
-         * modify the source identifiers using this call; to change source identifiers for
-         * a subscription, use the <code>AddSourceIdentifierToSubscription</code> and
+         * <p>Modifies an existing RDS event notification subscription. You can't modify
+         * the source identifiers using this call. To change source identifiers for a
+         * subscription, use the <code>AddSourceIdentifierToSubscription</code> and
          * <code>RemoveSourceIdentifierFromSubscription</code> calls.</p> <p>You can see a
          * list of the event categories for a given SourceType in the <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
@@ -4207,9 +4951,9 @@ namespace Aws
         virtual Model::ModifyEventSubscriptionOutcome ModifyEventSubscription(const Model::ModifyEventSubscriptionRequest& request) const;
 
         /**
-         * <p>Modifies an existing RDS event notification subscription. Note that you can't
-         * modify the source identifiers using this call; to change source identifiers for
-         * a subscription, use the <code>AddSourceIdentifierToSubscription</code> and
+         * <p>Modifies an existing RDS event notification subscription. You can't modify
+         * the source identifiers using this call. To change source identifiers for a
+         * subscription, use the <code>AddSourceIdentifierToSubscription</code> and
          * <code>RemoveSourceIdentifierFromSubscription</code> calls.</p> <p>You can see a
          * list of the event categories for a given SourceType in the <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
@@ -4223,9 +4967,9 @@ namespace Aws
         virtual Model::ModifyEventSubscriptionOutcomeCallable ModifyEventSubscriptionCallable(const Model::ModifyEventSubscriptionRequest& request) const;
 
         /**
-         * <p>Modifies an existing RDS event notification subscription. Note that you can't
-         * modify the source identifiers using this call; to change source identifiers for
-         * a subscription, use the <code>AddSourceIdentifierToSubscription</code> and
+         * <p>Modifies an existing RDS event notification subscription. You can't modify
+         * the source identifiers using this call. To change source identifiers for a
+         * subscription, use the <code>AddSourceIdentifierToSubscription</code> and
          * <code>RemoveSourceIdentifierFromSubscription</code> calls.</p> <p>You can see a
          * list of the event categories for a given SourceType in the <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">Events</a>
@@ -4465,6 +5209,40 @@ namespace Aws
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void RebootDBInstanceAsync(const Model::RebootDBInstanceRequest& request, const RebootDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Associate one or more
+         * <code>DBProxyTarget</code> data structures with a
+         * <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RegisterDBProxyTargets">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::RegisterDBProxyTargetsOutcome RegisterDBProxyTargets(const Model::RegisterDBProxyTargetsRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Associate one or more
+         * <code>DBProxyTarget</code> data structures with a
+         * <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RegisterDBProxyTargets">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::RegisterDBProxyTargetsOutcomeCallable RegisterDBProxyTargetsCallable(const Model::RegisterDBProxyTargetsRequest& request) const;
+
+        /**
+         * <note> <p>This is prerelease documentation for the RDS Database Proxy feature in
+         * preview release. It is subject to change.</p> </note> <p>Associate one or more
+         * <code>DBProxyTarget</code> data structures with a
+         * <code>DBProxyTargetGroup</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/RegisterDBProxyTargets">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void RegisterDBProxyTargetsAsync(const Model::RegisterDBProxyTargetsRequest& request, const RegisterDBProxyTargetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p> Detaches an Aurora secondary cluster from an Aurora global database cluster.
@@ -4798,8 +5576,9 @@ namespace Aws
          * snapshot with a default configuration and default security group.</p> <p>If a DB
          * cluster snapshot is specified, the target DB cluster is created from the source
          * DB cluster restore point with the same configuration as the original source DB
-         * cluster, except that the new DB cluster is created with the default security
-         * group.</p> <p>For more information on Amazon Aurora, see <a
+         * cluster. If you don't specify a security group, the new DB cluster is associated
+         * with the default security group.</p> <p>For more information on Amazon Aurora,
+         * see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -4815,8 +5594,9 @@ namespace Aws
          * snapshot with a default configuration and default security group.</p> <p>If a DB
          * cluster snapshot is specified, the target DB cluster is created from the source
          * DB cluster restore point with the same configuration as the original source DB
-         * cluster, except that the new DB cluster is created with the default security
-         * group.</p> <p>For more information on Amazon Aurora, see <a
+         * cluster. If you don't specify a security group, the new DB cluster is associated
+         * with the default security group.</p> <p>For more information on Amazon Aurora,
+         * see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -4834,8 +5614,9 @@ namespace Aws
          * snapshot with a default configuration and default security group.</p> <p>If a DB
          * cluster snapshot is specified, the target DB cluster is created from the source
          * DB cluster restore point with the same configuration as the original source DB
-         * cluster, except that the new DB cluster is created with the default security
-         * group.</p> <p>For more information on Amazon Aurora, see <a
+         * cluster. If you don't specify a security group, the new DB cluster is associated
+         * with the default security group.</p> <p>For more information on Amazon Aurora,
+         * see <a
          * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
          * What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i> </p> <note>
          * <p>This action only applies to Aurora DB clusters.</p> </note><p><h3>See
@@ -5264,6 +6045,34 @@ namespace Aws
         virtual void StartDBInstanceAsync(const Model::StartDBInstanceRequest& request, const StartDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Starts an export of a snapshot to Amazon S3. The provided IAM role must have
+         * access to the S3 bucket. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartExportTask">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::StartExportTaskOutcome StartExportTask(const Model::StartExportTaskRequest& request) const;
+
+        /**
+         * <p>Starts an export of a snapshot to Amazon S3. The provided IAM role must have
+         * access to the S3 bucket. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartExportTask">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::StartExportTaskOutcomeCallable StartExportTaskCallable(const Model::StartExportTaskRequest& request) const;
+
+        /**
+         * <p>Starts an export of a snapshot to Amazon S3. The provided IAM role must have
+         * access to the S3 bucket. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/StartExportTask">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void StartExportTaskAsync(const Model::StartExportTaskRequest& request, const StartExportTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Stops a database activity stream that was started using the AWS console, the
          * <code>start-activity-stream</code> AWS CLI command, or the
          * <code>StartActivityStream</code> action.</p> <p>For more information, see <a
@@ -5412,11 +6221,13 @@ namespace Aws
         void ApplyPendingMaintenanceActionAsyncHelper(const Model::ApplyPendingMaintenanceActionRequest& request, const ApplyPendingMaintenanceActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void AuthorizeDBSecurityGroupIngressAsyncHelper(const Model::AuthorizeDBSecurityGroupIngressRequest& request, const AuthorizeDBSecurityGroupIngressResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void BacktrackDBClusterAsyncHelper(const Model::BacktrackDBClusterRequest& request, const BacktrackDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CancelExportTaskAsyncHelper(const Model::CancelExportTaskRequest& request, const CancelExportTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CopyDBClusterParameterGroupAsyncHelper(const Model::CopyDBClusterParameterGroupRequest& request, const CopyDBClusterParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CopyDBClusterSnapshotAsyncHelper(const Model::CopyDBClusterSnapshotRequest& request, const CopyDBClusterSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CopyDBParameterGroupAsyncHelper(const Model::CopyDBParameterGroupRequest& request, const CopyDBParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CopyDBSnapshotAsyncHelper(const Model::CopyDBSnapshotRequest& request, const CopyDBSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CopyOptionGroupAsyncHelper(const Model::CopyOptionGroupRequest& request, const CopyOptionGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CreateCustomAvailabilityZoneAsyncHelper(const Model::CreateCustomAvailabilityZoneRequest& request, const CreateCustomAvailabilityZoneResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDBClusterAsyncHelper(const Model::CreateDBClusterRequest& request, const CreateDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDBClusterEndpointAsyncHelper(const Model::CreateDBClusterEndpointRequest& request, const CreateDBClusterEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDBClusterParameterGroupAsyncHelper(const Model::CreateDBClusterParameterGroupRequest& request, const CreateDBClusterParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5424,12 +6235,14 @@ namespace Aws
         void CreateDBInstanceAsyncHelper(const Model::CreateDBInstanceRequest& request, const CreateDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDBInstanceReadReplicaAsyncHelper(const Model::CreateDBInstanceReadReplicaRequest& request, const CreateDBInstanceReadReplicaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDBParameterGroupAsyncHelper(const Model::CreateDBParameterGroupRequest& request, const CreateDBParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CreateDBProxyAsyncHelper(const Model::CreateDBProxyRequest& request, const CreateDBProxyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDBSecurityGroupAsyncHelper(const Model::CreateDBSecurityGroupRequest& request, const CreateDBSecurityGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDBSnapshotAsyncHelper(const Model::CreateDBSnapshotRequest& request, const CreateDBSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateDBSubnetGroupAsyncHelper(const Model::CreateDBSubnetGroupRequest& request, const CreateDBSubnetGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateEventSubscriptionAsyncHelper(const Model::CreateEventSubscriptionRequest& request, const CreateEventSubscriptionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateGlobalClusterAsyncHelper(const Model::CreateGlobalClusterRequest& request, const CreateGlobalClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateOptionGroupAsyncHelper(const Model::CreateOptionGroupRequest& request, const CreateOptionGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DeleteCustomAvailabilityZoneAsyncHelper(const Model::DeleteCustomAvailabilityZoneRequest& request, const DeleteCustomAvailabilityZoneResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDBClusterAsyncHelper(const Model::DeleteDBClusterRequest& request, const DeleteDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDBClusterEndpointAsyncHelper(const Model::DeleteDBClusterEndpointRequest& request, const DeleteDBClusterEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDBClusterParameterGroupAsyncHelper(const Model::DeleteDBClusterParameterGroupRequest& request, const DeleteDBClusterParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5437,14 +6250,18 @@ namespace Aws
         void DeleteDBInstanceAsyncHelper(const Model::DeleteDBInstanceRequest& request, const DeleteDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDBInstanceAutomatedBackupAsyncHelper(const Model::DeleteDBInstanceAutomatedBackupRequest& request, const DeleteDBInstanceAutomatedBackupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDBParameterGroupAsyncHelper(const Model::DeleteDBParameterGroupRequest& request, const DeleteDBParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DeleteDBProxyAsyncHelper(const Model::DeleteDBProxyRequest& request, const DeleteDBProxyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDBSecurityGroupAsyncHelper(const Model::DeleteDBSecurityGroupRequest& request, const DeleteDBSecurityGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDBSnapshotAsyncHelper(const Model::DeleteDBSnapshotRequest& request, const DeleteDBSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteDBSubnetGroupAsyncHelper(const Model::DeleteDBSubnetGroupRequest& request, const DeleteDBSubnetGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteEventSubscriptionAsyncHelper(const Model::DeleteEventSubscriptionRequest& request, const DeleteEventSubscriptionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteGlobalClusterAsyncHelper(const Model::DeleteGlobalClusterRequest& request, const DeleteGlobalClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DeleteInstallationMediaAsyncHelper(const Model::DeleteInstallationMediaRequest& request, const DeleteInstallationMediaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteOptionGroupAsyncHelper(const Model::DeleteOptionGroupRequest& request, const DeleteOptionGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DeregisterDBProxyTargetsAsyncHelper(const Model::DeregisterDBProxyTargetsRequest& request, const DeregisterDBProxyTargetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeAccountAttributesAsyncHelper(const Model::DescribeAccountAttributesRequest& request, const DescribeAccountAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeCertificatesAsyncHelper(const Model::DescribeCertificatesRequest& request, const DescribeCertificatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeCustomAvailabilityZonesAsyncHelper(const Model::DescribeCustomAvailabilityZonesRequest& request, const DescribeCustomAvailabilityZonesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDBClusterBacktracksAsyncHelper(const Model::DescribeDBClusterBacktracksRequest& request, const DescribeDBClusterBacktracksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDBClusterEndpointsAsyncHelper(const Model::DescribeDBClusterEndpointsRequest& request, const DescribeDBClusterEndpointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDBClusterParameterGroupsAsyncHelper(const Model::DescribeDBClusterParameterGroupsRequest& request, const DescribeDBClusterParameterGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5458,6 +6275,9 @@ namespace Aws
         void DescribeDBLogFilesAsyncHelper(const Model::DescribeDBLogFilesRequest& request, const DescribeDBLogFilesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDBParameterGroupsAsyncHelper(const Model::DescribeDBParameterGroupsRequest& request, const DescribeDBParameterGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDBParametersAsyncHelper(const Model::DescribeDBParametersRequest& request, const DescribeDBParametersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeDBProxiesAsyncHelper(const Model::DescribeDBProxiesRequest& request, const DescribeDBProxiesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeDBProxyTargetGroupsAsyncHelper(const Model::DescribeDBProxyTargetGroupsRequest& request, const DescribeDBProxyTargetGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeDBProxyTargetsAsyncHelper(const Model::DescribeDBProxyTargetsRequest& request, const DescribeDBProxyTargetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDBSecurityGroupsAsyncHelper(const Model::DescribeDBSecurityGroupsRequest& request, const DescribeDBSecurityGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDBSnapshotAttributesAsyncHelper(const Model::DescribeDBSnapshotAttributesRequest& request, const DescribeDBSnapshotAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeDBSnapshotsAsyncHelper(const Model::DescribeDBSnapshotsRequest& request, const DescribeDBSnapshotsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5467,7 +6287,9 @@ namespace Aws
         void DescribeEventCategoriesAsyncHelper(const Model::DescribeEventCategoriesRequest& request, const DescribeEventCategoriesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeEventSubscriptionsAsyncHelper(const Model::DescribeEventSubscriptionsRequest& request, const DescribeEventSubscriptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeEventsAsyncHelper(const Model::DescribeEventsRequest& request, const DescribeEventsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeExportTasksAsyncHelper(const Model::DescribeExportTasksRequest& request, const DescribeExportTasksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeGlobalClustersAsyncHelper(const Model::DescribeGlobalClustersRequest& request, const DescribeGlobalClustersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeInstallationMediaAsyncHelper(const Model::DescribeInstallationMediaRequest& request, const DescribeInstallationMediaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeOptionGroupOptionsAsyncHelper(const Model::DescribeOptionGroupOptionsRequest& request, const DescribeOptionGroupOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeOptionGroupsAsyncHelper(const Model::DescribeOptionGroupsRequest& request, const DescribeOptionGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeOrderableDBInstanceOptionsAsyncHelper(const Model::DescribeOrderableDBInstanceOptionsRequest& request, const DescribeOrderableDBInstanceOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5478,7 +6300,9 @@ namespace Aws
         void DescribeValidDBInstanceModificationsAsyncHelper(const Model::DescribeValidDBInstanceModificationsRequest& request, const DescribeValidDBInstanceModificationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DownloadDBLogFilePortionAsyncHelper(const Model::DownloadDBLogFilePortionRequest& request, const DownloadDBLogFilePortionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void FailoverDBClusterAsyncHelper(const Model::FailoverDBClusterRequest& request, const FailoverDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ImportInstallationMediaAsyncHelper(const Model::ImportInstallationMediaRequest& request, const ImportInstallationMediaResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListTagsForResourceAsyncHelper(const Model::ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ModifyCertificatesAsyncHelper(const Model::ModifyCertificatesRequest& request, const ModifyCertificatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyCurrentDBClusterCapacityAsyncHelper(const Model::ModifyCurrentDBClusterCapacityRequest& request, const ModifyCurrentDBClusterCapacityResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyDBClusterAsyncHelper(const Model::ModifyDBClusterRequest& request, const ModifyDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyDBClusterEndpointAsyncHelper(const Model::ModifyDBClusterEndpointRequest& request, const ModifyDBClusterEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5486,6 +6310,8 @@ namespace Aws
         void ModifyDBClusterSnapshotAttributeAsyncHelper(const Model::ModifyDBClusterSnapshotAttributeRequest& request, const ModifyDBClusterSnapshotAttributeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyDBInstanceAsyncHelper(const Model::ModifyDBInstanceRequest& request, const ModifyDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyDBParameterGroupAsyncHelper(const Model::ModifyDBParameterGroupRequest& request, const ModifyDBParameterGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ModifyDBProxyAsyncHelper(const Model::ModifyDBProxyRequest& request, const ModifyDBProxyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ModifyDBProxyTargetGroupAsyncHelper(const Model::ModifyDBProxyTargetGroupRequest& request, const ModifyDBProxyTargetGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyDBSnapshotAsyncHelper(const Model::ModifyDBSnapshotRequest& request, const ModifyDBSnapshotResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyDBSnapshotAttributeAsyncHelper(const Model::ModifyDBSnapshotAttributeRequest& request, const ModifyDBSnapshotAttributeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ModifyDBSubnetGroupAsyncHelper(const Model::ModifyDBSubnetGroupRequest& request, const ModifyDBSubnetGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5496,6 +6322,7 @@ namespace Aws
         void PromoteReadReplicaDBClusterAsyncHelper(const Model::PromoteReadReplicaDBClusterRequest& request, const PromoteReadReplicaDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PurchaseReservedDBInstancesOfferingAsyncHelper(const Model::PurchaseReservedDBInstancesOfferingRequest& request, const PurchaseReservedDBInstancesOfferingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RebootDBInstanceAsyncHelper(const Model::RebootDBInstanceRequest& request, const RebootDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void RegisterDBProxyTargetsAsyncHelper(const Model::RegisterDBProxyTargetsRequest& request, const RegisterDBProxyTargetsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RemoveFromGlobalClusterAsyncHelper(const Model::RemoveFromGlobalClusterRequest& request, const RemoveFromGlobalClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RemoveRoleFromDBClusterAsyncHelper(const Model::RemoveRoleFromDBClusterRequest& request, const RemoveRoleFromDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RemoveRoleFromDBInstanceAsyncHelper(const Model::RemoveRoleFromDBInstanceRequest& request, const RemoveRoleFromDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -5513,6 +6340,7 @@ namespace Aws
         void StartActivityStreamAsyncHelper(const Model::StartActivityStreamRequest& request, const StartActivityStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartDBClusterAsyncHelper(const Model::StartDBClusterRequest& request, const StartDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartDBInstanceAsyncHelper(const Model::StartDBInstanceRequest& request, const StartDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void StartExportTaskAsyncHelper(const Model::StartExportTaskRequest& request, const StartExportTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopActivityStreamAsyncHelper(const Model::StopActivityStreamRequest& request, const StopActivityStreamResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopDBClusterAsyncHelper(const Model::StopDBClusterRequest& request, const StopDBClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopDBInstanceAsyncHelper(const Model::StopDBInstanceRequest& request, const StopDBInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

@@ -124,42 +124,42 @@ namespace Model
 
 
     /**
-     * <p>The ID of the signing profile to be created.</p>
+     * <p>The ID of the signing platform to be created.</p>
      */
     inline const Aws::String& GetPlatformId() const{ return m_platformId; }
 
     /**
-     * <p>The ID of the signing profile to be created.</p>
+     * <p>The ID of the signing platform to be created.</p>
      */
     inline bool PlatformIdHasBeenSet() const { return m_platformIdHasBeenSet; }
 
     /**
-     * <p>The ID of the signing profile to be created.</p>
+     * <p>The ID of the signing platform to be created.</p>
      */
     inline void SetPlatformId(const Aws::String& value) { m_platformIdHasBeenSet = true; m_platformId = value; }
 
     /**
-     * <p>The ID of the signing profile to be created.</p>
+     * <p>The ID of the signing platform to be created.</p>
      */
     inline void SetPlatformId(Aws::String&& value) { m_platformIdHasBeenSet = true; m_platformId = std::move(value); }
 
     /**
-     * <p>The ID of the signing profile to be created.</p>
+     * <p>The ID of the signing platform to be created.</p>
      */
     inline void SetPlatformId(const char* value) { m_platformIdHasBeenSet = true; m_platformId.assign(value); }
 
     /**
-     * <p>The ID of the signing profile to be created.</p>
+     * <p>The ID of the signing platform to be created.</p>
      */
     inline PutSigningProfileRequest& WithPlatformId(const Aws::String& value) { SetPlatformId(value); return *this;}
 
     /**
-     * <p>The ID of the signing profile to be created.</p>
+     * <p>The ID of the signing platform to be created.</p>
      */
     inline PutSigningProfileRequest& WithPlatformId(Aws::String&& value) { SetPlatformId(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the signing profile to be created.</p>
+     * <p>The ID of the signing platform to be created.</p>
      */
     inline PutSigningProfileRequest& WithPlatformId(const char* value) { SetPlatformId(value); return *this;}
 
@@ -285,6 +285,72 @@ namespace Model
      */
     inline PutSigningProfileRequest& AddSigningParameters(const char* key, const char* value) { m_signingParametersHasBeenSet = true; m_signingParameters.emplace(key, value); return *this; }
 
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * <p>Tags to be associated with the signing profile that is being created.</p>
+     */
+    inline PutSigningProfileRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
   private:
 
     Aws::String m_profileName;
@@ -301,6 +367,9 @@ namespace Model
 
     Aws::Map<Aws::String, Aws::String> m_signingParameters;
     bool m_signingParametersHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

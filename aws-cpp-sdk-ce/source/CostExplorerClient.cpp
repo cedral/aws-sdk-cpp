@@ -30,15 +30,25 @@
 #include <aws/ce/CostExplorerClient.h>
 #include <aws/ce/CostExplorerEndpoint.h>
 #include <aws/ce/CostExplorerErrorMarshaller.h>
+#include <aws/ce/model/CreateCostCategoryDefinitionRequest.h>
+#include <aws/ce/model/DeleteCostCategoryDefinitionRequest.h>
+#include <aws/ce/model/DescribeCostCategoryDefinitionRequest.h>
 #include <aws/ce/model/GetCostAndUsageRequest.h>
+#include <aws/ce/model/GetCostAndUsageWithResourcesRequest.h>
 #include <aws/ce/model/GetCostForecastRequest.h>
 #include <aws/ce/model/GetDimensionValuesRequest.h>
 #include <aws/ce/model/GetReservationCoverageRequest.h>
 #include <aws/ce/model/GetReservationPurchaseRecommendationRequest.h>
 #include <aws/ce/model/GetReservationUtilizationRequest.h>
 #include <aws/ce/model/GetRightsizingRecommendationRequest.h>
+#include <aws/ce/model/GetSavingsPlansCoverageRequest.h>
+#include <aws/ce/model/GetSavingsPlansPurchaseRecommendationRequest.h>
+#include <aws/ce/model/GetSavingsPlansUtilizationRequest.h>
+#include <aws/ce/model/GetSavingsPlansUtilizationDetailsRequest.h>
 #include <aws/ce/model/GetTagsRequest.h>
 #include <aws/ce/model/GetUsageForecastRequest.h>
+#include <aws/ce/model/ListCostCategoryDefinitionsRequest.h>
+#include <aws/ce/model/UpdateCostCategoryDefinitionRequest.h>
 
 using namespace Aws;
 using namespace Aws::Auth;
@@ -112,13 +122,118 @@ void CostExplorerClient::OverrideEndpoint(const Aws::String& endpoint)
   }
 }
 
+CreateCostCategoryDefinitionOutcome CostExplorerClient::CreateCostCategoryDefinition(const CreateCostCategoryDefinitionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateCostCategoryDefinitionOutcome(CreateCostCategoryDefinitionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateCostCategoryDefinitionOutcome(outcome.GetError());
+  }
+}
+
+CreateCostCategoryDefinitionOutcomeCallable CostExplorerClient::CreateCostCategoryDefinitionCallable(const CreateCostCategoryDefinitionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateCostCategoryDefinitionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateCostCategoryDefinition(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::CreateCostCategoryDefinitionAsync(const CreateCostCategoryDefinitionRequest& request, const CreateCostCategoryDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateCostCategoryDefinitionAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::CreateCostCategoryDefinitionAsyncHelper(const CreateCostCategoryDefinitionRequest& request, const CreateCostCategoryDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateCostCategoryDefinition(request), context);
+}
+
+DeleteCostCategoryDefinitionOutcome CostExplorerClient::DeleteCostCategoryDefinition(const DeleteCostCategoryDefinitionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteCostCategoryDefinitionOutcome(DeleteCostCategoryDefinitionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteCostCategoryDefinitionOutcome(outcome.GetError());
+  }
+}
+
+DeleteCostCategoryDefinitionOutcomeCallable CostExplorerClient::DeleteCostCategoryDefinitionCallable(const DeleteCostCategoryDefinitionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteCostCategoryDefinitionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteCostCategoryDefinition(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::DeleteCostCategoryDefinitionAsync(const DeleteCostCategoryDefinitionRequest& request, const DeleteCostCategoryDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteCostCategoryDefinitionAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::DeleteCostCategoryDefinitionAsyncHelper(const DeleteCostCategoryDefinitionRequest& request, const DeleteCostCategoryDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteCostCategoryDefinition(request), context);
+}
+
+DescribeCostCategoryDefinitionOutcome CostExplorerClient::DescribeCostCategoryDefinition(const DescribeCostCategoryDefinitionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeCostCategoryDefinitionOutcome(DescribeCostCategoryDefinitionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeCostCategoryDefinitionOutcome(outcome.GetError());
+  }
+}
+
+DescribeCostCategoryDefinitionOutcomeCallable CostExplorerClient::DescribeCostCategoryDefinitionCallable(const DescribeCostCategoryDefinitionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeCostCategoryDefinitionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeCostCategoryDefinition(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::DescribeCostCategoryDefinitionAsync(const DescribeCostCategoryDefinitionRequest& request, const DescribeCostCategoryDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeCostCategoryDefinitionAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::DescribeCostCategoryDefinitionAsyncHelper(const DescribeCostCategoryDefinitionRequest& request, const DescribeCostCategoryDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeCostCategoryDefinition(request), context);
+}
+
 GetCostAndUsageOutcome CostExplorerClient::GetCostAndUsage(const GetCostAndUsageRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCostAndUsageOutcome(GetCostAndUsageResult(outcome.GetResult()));
@@ -147,13 +262,48 @@ void CostExplorerClient::GetCostAndUsageAsyncHelper(const GetCostAndUsageRequest
   handler(this, request, GetCostAndUsage(request), context);
 }
 
+GetCostAndUsageWithResourcesOutcome CostExplorerClient::GetCostAndUsageWithResources(const GetCostAndUsageWithResourcesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetCostAndUsageWithResourcesOutcome(GetCostAndUsageWithResourcesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetCostAndUsageWithResourcesOutcome(outcome.GetError());
+  }
+}
+
+GetCostAndUsageWithResourcesOutcomeCallable CostExplorerClient::GetCostAndUsageWithResourcesCallable(const GetCostAndUsageWithResourcesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetCostAndUsageWithResourcesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetCostAndUsageWithResources(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::GetCostAndUsageWithResourcesAsync(const GetCostAndUsageWithResourcesRequest& request, const GetCostAndUsageWithResourcesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetCostAndUsageWithResourcesAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::GetCostAndUsageWithResourcesAsyncHelper(const GetCostAndUsageWithResourcesRequest& request, const GetCostAndUsageWithResourcesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetCostAndUsageWithResources(request), context);
+}
+
 GetCostForecastOutcome CostExplorerClient::GetCostForecast(const GetCostForecastRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCostForecastOutcome(GetCostForecastResult(outcome.GetResult()));
@@ -188,7 +338,7 @@ GetDimensionValuesOutcome CostExplorerClient::GetDimensionValues(const GetDimens
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDimensionValuesOutcome(GetDimensionValuesResult(outcome.GetResult()));
@@ -223,7 +373,7 @@ GetReservationCoverageOutcome CostExplorerClient::GetReservationCoverage(const G
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetReservationCoverageOutcome(GetReservationCoverageResult(outcome.GetResult()));
@@ -258,7 +408,7 @@ GetReservationPurchaseRecommendationOutcome CostExplorerClient::GetReservationPu
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetReservationPurchaseRecommendationOutcome(GetReservationPurchaseRecommendationResult(outcome.GetResult()));
@@ -293,7 +443,7 @@ GetReservationUtilizationOutcome CostExplorerClient::GetReservationUtilization(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetReservationUtilizationOutcome(GetReservationUtilizationResult(outcome.GetResult()));
@@ -328,7 +478,7 @@ GetRightsizingRecommendationOutcome CostExplorerClient::GetRightsizingRecommenda
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRightsizingRecommendationOutcome(GetRightsizingRecommendationResult(outcome.GetResult()));
@@ -357,13 +507,153 @@ void CostExplorerClient::GetRightsizingRecommendationAsyncHelper(const GetRights
   handler(this, request, GetRightsizingRecommendation(request), context);
 }
 
+GetSavingsPlansCoverageOutcome CostExplorerClient::GetSavingsPlansCoverage(const GetSavingsPlansCoverageRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetSavingsPlansCoverageOutcome(GetSavingsPlansCoverageResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetSavingsPlansCoverageOutcome(outcome.GetError());
+  }
+}
+
+GetSavingsPlansCoverageOutcomeCallable CostExplorerClient::GetSavingsPlansCoverageCallable(const GetSavingsPlansCoverageRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetSavingsPlansCoverageOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetSavingsPlansCoverage(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::GetSavingsPlansCoverageAsync(const GetSavingsPlansCoverageRequest& request, const GetSavingsPlansCoverageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetSavingsPlansCoverageAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::GetSavingsPlansCoverageAsyncHelper(const GetSavingsPlansCoverageRequest& request, const GetSavingsPlansCoverageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetSavingsPlansCoverage(request), context);
+}
+
+GetSavingsPlansPurchaseRecommendationOutcome CostExplorerClient::GetSavingsPlansPurchaseRecommendation(const GetSavingsPlansPurchaseRecommendationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetSavingsPlansPurchaseRecommendationOutcome(GetSavingsPlansPurchaseRecommendationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetSavingsPlansPurchaseRecommendationOutcome(outcome.GetError());
+  }
+}
+
+GetSavingsPlansPurchaseRecommendationOutcomeCallable CostExplorerClient::GetSavingsPlansPurchaseRecommendationCallable(const GetSavingsPlansPurchaseRecommendationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetSavingsPlansPurchaseRecommendationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetSavingsPlansPurchaseRecommendation(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::GetSavingsPlansPurchaseRecommendationAsync(const GetSavingsPlansPurchaseRecommendationRequest& request, const GetSavingsPlansPurchaseRecommendationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetSavingsPlansPurchaseRecommendationAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::GetSavingsPlansPurchaseRecommendationAsyncHelper(const GetSavingsPlansPurchaseRecommendationRequest& request, const GetSavingsPlansPurchaseRecommendationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetSavingsPlansPurchaseRecommendation(request), context);
+}
+
+GetSavingsPlansUtilizationOutcome CostExplorerClient::GetSavingsPlansUtilization(const GetSavingsPlansUtilizationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetSavingsPlansUtilizationOutcome(GetSavingsPlansUtilizationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetSavingsPlansUtilizationOutcome(outcome.GetError());
+  }
+}
+
+GetSavingsPlansUtilizationOutcomeCallable CostExplorerClient::GetSavingsPlansUtilizationCallable(const GetSavingsPlansUtilizationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetSavingsPlansUtilizationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetSavingsPlansUtilization(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::GetSavingsPlansUtilizationAsync(const GetSavingsPlansUtilizationRequest& request, const GetSavingsPlansUtilizationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetSavingsPlansUtilizationAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::GetSavingsPlansUtilizationAsyncHelper(const GetSavingsPlansUtilizationRequest& request, const GetSavingsPlansUtilizationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetSavingsPlansUtilization(request), context);
+}
+
+GetSavingsPlansUtilizationDetailsOutcome CostExplorerClient::GetSavingsPlansUtilizationDetails(const GetSavingsPlansUtilizationDetailsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetSavingsPlansUtilizationDetailsOutcome(GetSavingsPlansUtilizationDetailsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetSavingsPlansUtilizationDetailsOutcome(outcome.GetError());
+  }
+}
+
+GetSavingsPlansUtilizationDetailsOutcomeCallable CostExplorerClient::GetSavingsPlansUtilizationDetailsCallable(const GetSavingsPlansUtilizationDetailsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetSavingsPlansUtilizationDetailsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetSavingsPlansUtilizationDetails(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::GetSavingsPlansUtilizationDetailsAsync(const GetSavingsPlansUtilizationDetailsRequest& request, const GetSavingsPlansUtilizationDetailsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetSavingsPlansUtilizationDetailsAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::GetSavingsPlansUtilizationDetailsAsyncHelper(const GetSavingsPlansUtilizationDetailsRequest& request, const GetSavingsPlansUtilizationDetailsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetSavingsPlansUtilizationDetails(request), context);
+}
+
 GetTagsOutcome CostExplorerClient::GetTags(const GetTagsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTagsOutcome(GetTagsResult(outcome.GetResult()));
@@ -398,7 +688,7 @@ GetUsageForecastOutcome CostExplorerClient::GetUsageForecast(const GetUsageForec
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetUsageForecastOutcome(GetUsageForecastResult(outcome.GetResult()));
@@ -425,5 +715,75 @@ void CostExplorerClient::GetUsageForecastAsync(const GetUsageForecastRequest& re
 void CostExplorerClient::GetUsageForecastAsyncHelper(const GetUsageForecastRequest& request, const GetUsageForecastResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, GetUsageForecast(request), context);
+}
+
+ListCostCategoryDefinitionsOutcome CostExplorerClient::ListCostCategoryDefinitions(const ListCostCategoryDefinitionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListCostCategoryDefinitionsOutcome(ListCostCategoryDefinitionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListCostCategoryDefinitionsOutcome(outcome.GetError());
+  }
+}
+
+ListCostCategoryDefinitionsOutcomeCallable CostExplorerClient::ListCostCategoryDefinitionsCallable(const ListCostCategoryDefinitionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListCostCategoryDefinitionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListCostCategoryDefinitions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::ListCostCategoryDefinitionsAsync(const ListCostCategoryDefinitionsRequest& request, const ListCostCategoryDefinitionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListCostCategoryDefinitionsAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::ListCostCategoryDefinitionsAsyncHelper(const ListCostCategoryDefinitionsRequest& request, const ListCostCategoryDefinitionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListCostCategoryDefinitions(request), context);
+}
+
+UpdateCostCategoryDefinitionOutcome CostExplorerClient::UpdateCostCategoryDefinition(const UpdateCostCategoryDefinitionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateCostCategoryDefinitionOutcome(UpdateCostCategoryDefinitionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateCostCategoryDefinitionOutcome(outcome.GetError());
+  }
+}
+
+UpdateCostCategoryDefinitionOutcomeCallable CostExplorerClient::UpdateCostCategoryDefinitionCallable(const UpdateCostCategoryDefinitionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateCostCategoryDefinitionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateCostCategoryDefinition(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void CostExplorerClient::UpdateCostCategoryDefinitionAsync(const UpdateCostCategoryDefinitionRequest& request, const UpdateCostCategoryDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateCostCategoryDefinitionAsyncHelper( request, handler, context ); } );
+}
+
+void CostExplorerClient::UpdateCostCategoryDefinitionAsyncHelper(const UpdateCostCategoryDefinitionRequest& request, const UpdateCostCategoryDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateCostCategoryDefinition(request), context);
 }
 

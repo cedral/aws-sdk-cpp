@@ -195,7 +195,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline const Aws::Map<Aws::String, Aws::Vector<Aws::String>>& GetAttributes() const{ return m_attributes; }
@@ -203,7 +203,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline bool AttributesHasBeenSet() const { return m_attributesHasBeenSet; }
@@ -211,7 +211,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline void SetAttributes(const Aws::Map<Aws::String, Aws::Vector<Aws::String>>& value) { m_attributesHasBeenSet = true; m_attributes = value; }
@@ -219,7 +219,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline void SetAttributes(Aws::Map<Aws::String, Aws::Vector<Aws::String>>&& value) { m_attributesHasBeenSet = true; m_attributes = std::move(value); }
@@ -227,7 +227,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline EndpointResponse& WithAttributes(const Aws::Map<Aws::String, Aws::Vector<Aws::String>>& value) { SetAttributes(value); return *this;}
@@ -235,7 +235,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline EndpointResponse& WithAttributes(Aws::Map<Aws::String, Aws::Vector<Aws::String>>&& value) { SetAttributes(std::move(value)); return *this;}
@@ -243,7 +243,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline EndpointResponse& AddAttributes(const Aws::String& key, const Aws::Vector<Aws::String>& value) { m_attributesHasBeenSet = true; m_attributes.emplace(key, value); return *this; }
@@ -251,7 +251,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline EndpointResponse& AddAttributes(Aws::String&& key, const Aws::Vector<Aws::String>& value) { m_attributesHasBeenSet = true; m_attributes.emplace(std::move(key), value); return *this; }
@@ -259,7 +259,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline EndpointResponse& AddAttributes(const Aws::String& key, Aws::Vector<Aws::String>&& value) { m_attributesHasBeenSet = true; m_attributes.emplace(key, std::move(value)); return *this; }
@@ -267,7 +267,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline EndpointResponse& AddAttributes(Aws::String&& key, Aws::Vector<Aws::String>&& value) { m_attributesHasBeenSet = true; m_attributes.emplace(std::move(key), std::move(value)); return *this; }
@@ -275,7 +275,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline EndpointResponse& AddAttributes(const char* key, Aws::Vector<Aws::String>&& value) { m_attributesHasBeenSet = true; m_attributes.emplace(key, std::move(value)); return *this; }
@@ -283,7 +283,7 @@ namespace Model
     /**
      * <p>One or more custom attributes that describe the endpoint by associating a
      * name with an array of values. For example, the value of a custom attribute named
-     * Interests might be: ["science", "music", "travel"]. You can use these attributes
+     * Interests might be: ["Science", "Music", "Travel"]. You can use these attributes
      * as filter criteria when you create segments.</p>
      */
     inline EndpointResponse& AddAttributes(const char* key, const Aws::Vector<Aws::String>& value) { m_attributesHasBeenSet = true; m_attributes.emplace(key, value); return *this; }
@@ -519,42 +519,82 @@ namespace Model
 
 
     /**
-     * <p>Not used.</p>
+     * <p>Specifies whether messages or push notifications are sent to the endpoint.
+     * Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE,
+     * messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets
+     * this value to ACTIVE when you create an endpoint or update an existing endpoint.
+     * Amazon Pinpoint automatically sets this value to INACTIVE if you update another
+     * endpoint that has the same address specified by the Address property.</p>
      */
     inline const Aws::String& GetEndpointStatus() const{ return m_endpointStatus; }
 
     /**
-     * <p>Not used.</p>
+     * <p>Specifies whether messages or push notifications are sent to the endpoint.
+     * Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE,
+     * messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets
+     * this value to ACTIVE when you create an endpoint or update an existing endpoint.
+     * Amazon Pinpoint automatically sets this value to INACTIVE if you update another
+     * endpoint that has the same address specified by the Address property.</p>
      */
     inline bool EndpointStatusHasBeenSet() const { return m_endpointStatusHasBeenSet; }
 
     /**
-     * <p>Not used.</p>
+     * <p>Specifies whether messages or push notifications are sent to the endpoint.
+     * Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE,
+     * messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets
+     * this value to ACTIVE when you create an endpoint or update an existing endpoint.
+     * Amazon Pinpoint automatically sets this value to INACTIVE if you update another
+     * endpoint that has the same address specified by the Address property.</p>
      */
     inline void SetEndpointStatus(const Aws::String& value) { m_endpointStatusHasBeenSet = true; m_endpointStatus = value; }
 
     /**
-     * <p>Not used.</p>
+     * <p>Specifies whether messages or push notifications are sent to the endpoint.
+     * Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE,
+     * messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets
+     * this value to ACTIVE when you create an endpoint or update an existing endpoint.
+     * Amazon Pinpoint automatically sets this value to INACTIVE if you update another
+     * endpoint that has the same address specified by the Address property.</p>
      */
     inline void SetEndpointStatus(Aws::String&& value) { m_endpointStatusHasBeenSet = true; m_endpointStatus = std::move(value); }
 
     /**
-     * <p>Not used.</p>
+     * <p>Specifies whether messages or push notifications are sent to the endpoint.
+     * Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE,
+     * messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets
+     * this value to ACTIVE when you create an endpoint or update an existing endpoint.
+     * Amazon Pinpoint automatically sets this value to INACTIVE if you update another
+     * endpoint that has the same address specified by the Address property.</p>
      */
     inline void SetEndpointStatus(const char* value) { m_endpointStatusHasBeenSet = true; m_endpointStatus.assign(value); }
 
     /**
-     * <p>Not used.</p>
+     * <p>Specifies whether messages or push notifications are sent to the endpoint.
+     * Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE,
+     * messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets
+     * this value to ACTIVE when you create an endpoint or update an existing endpoint.
+     * Amazon Pinpoint automatically sets this value to INACTIVE if you update another
+     * endpoint that has the same address specified by the Address property.</p>
      */
     inline EndpointResponse& WithEndpointStatus(const Aws::String& value) { SetEndpointStatus(value); return *this;}
 
     /**
-     * <p>Not used.</p>
+     * <p>Specifies whether messages or push notifications are sent to the endpoint.
+     * Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE,
+     * messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets
+     * this value to ACTIVE when you create an endpoint or update an existing endpoint.
+     * Amazon Pinpoint automatically sets this value to INACTIVE if you update another
+     * endpoint that has the same address specified by the Address property.</p>
      */
     inline EndpointResponse& WithEndpointStatus(Aws::String&& value) { SetEndpointStatus(std::move(value)); return *this;}
 
     /**
-     * <p>Not used.</p>
+     * <p>Specifies whether messages or push notifications are sent to the endpoint.
+     * Possible values are: ACTIVE, messages are sent to the endpoint; and, INACTIVE,
+     * messages aren’t sent to the endpoint.</p> <p>Amazon Pinpoint automatically sets
+     * this value to ACTIVE when you create an endpoint or update an existing endpoint.
+     * Amazon Pinpoint automatically sets this value to INACTIVE if you update another
+     * endpoint that has the same address specified by the Address property.</p>
      */
     inline EndpointResponse& WithEndpointStatus(const char* value) { SetEndpointStatus(value); return *this;}
 

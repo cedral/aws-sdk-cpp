@@ -35,7 +35,8 @@ VolumeStatusEvent::VolumeStatusEvent() :
     m_eventIdHasBeenSet(false),
     m_eventTypeHasBeenSet(false),
     m_notAfterHasBeenSet(false),
-    m_notBeforeHasBeenSet(false)
+    m_notBeforeHasBeenSet(false),
+    m_instanceIdHasBeenSet(false)
 {
 }
 
@@ -44,7 +45,8 @@ VolumeStatusEvent::VolumeStatusEvent(const XmlNode& xmlNode) :
     m_eventIdHasBeenSet(false),
     m_eventTypeHasBeenSet(false),
     m_notAfterHasBeenSet(false),
-    m_notBeforeHasBeenSet(false)
+    m_notBeforeHasBeenSet(false),
+    m_instanceIdHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -58,32 +60,38 @@ VolumeStatusEvent& VolumeStatusEvent::operator =(const XmlNode& xmlNode)
     XmlNode descriptionNode = resultNode.FirstChild("description");
     if(!descriptionNode.IsNull())
     {
-      m_description = descriptionNode.GetText();
+      m_description = Aws::Utils::Xml::DecodeEscapedXmlText(descriptionNode.GetText());
       m_descriptionHasBeenSet = true;
     }
     XmlNode eventIdNode = resultNode.FirstChild("eventId");
     if(!eventIdNode.IsNull())
     {
-      m_eventId = eventIdNode.GetText();
+      m_eventId = Aws::Utils::Xml::DecodeEscapedXmlText(eventIdNode.GetText());
       m_eventIdHasBeenSet = true;
     }
     XmlNode eventTypeNode = resultNode.FirstChild("eventType");
     if(!eventTypeNode.IsNull())
     {
-      m_eventType = eventTypeNode.GetText();
+      m_eventType = Aws::Utils::Xml::DecodeEscapedXmlText(eventTypeNode.GetText());
       m_eventTypeHasBeenSet = true;
     }
     XmlNode notAfterNode = resultNode.FirstChild("notAfter");
     if(!notAfterNode.IsNull())
     {
-      m_notAfter = DateTime(StringUtils::Trim(notAfterNode.GetText().c_str()).c_str(), DateFormat::ISO_8601);
+      m_notAfter = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(notAfterNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
       m_notAfterHasBeenSet = true;
     }
     XmlNode notBeforeNode = resultNode.FirstChild("notBefore");
     if(!notBeforeNode.IsNull())
     {
-      m_notBefore = DateTime(StringUtils::Trim(notBeforeNode.GetText().c_str()).c_str(), DateFormat::ISO_8601);
+      m_notBefore = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(notBeforeNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
       m_notBeforeHasBeenSet = true;
+    }
+    XmlNode instanceIdNode = resultNode.FirstChild("instanceId");
+    if(!instanceIdNode.IsNull())
+    {
+      m_instanceId = Aws::Utils::Xml::DecodeEscapedXmlText(instanceIdNode.GetText());
+      m_instanceIdHasBeenSet = true;
     }
   }
 
@@ -117,6 +125,11 @@ void VolumeStatusEvent::OutputToStream(Aws::OStream& oStream, const char* locati
       oStream << location << index << locationValue << ".NotBefore=" << StringUtils::URLEncode(m_notBefore.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
 
+  if(m_instanceIdHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".InstanceId=" << StringUtils::URLEncode(m_instanceId.c_str()) << "&";
+  }
+
 }
 
 void VolumeStatusEvent::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -140,6 +153,10 @@ void VolumeStatusEvent::OutputToStream(Aws::OStream& oStream, const char* locati
   if(m_notBeforeHasBeenSet)
   {
       oStream << location << ".NotBefore=" << StringUtils::URLEncode(m_notBefore.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
+  }
+  if(m_instanceIdHasBeenSet)
+  {
+      oStream << location << ".InstanceId=" << StringUtils::URLEncode(m_instanceId.c_str()) << "&";
   }
 }
 

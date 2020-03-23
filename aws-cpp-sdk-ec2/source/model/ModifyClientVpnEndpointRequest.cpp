@@ -25,11 +25,15 @@ ModifyClientVpnEndpointRequest::ModifyClientVpnEndpointRequest() :
     m_serverCertificateArnHasBeenSet(false),
     m_connectionLogOptionsHasBeenSet(false),
     m_dnsServersHasBeenSet(false),
+    m_vpnPort(0),
+    m_vpnPortHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_splitTunnel(false),
     m_splitTunnelHasBeenSet(false),
     m_dryRun(false),
-    m_dryRunHasBeenSet(false)
+    m_dryRunHasBeenSet(false),
+    m_securityGroupIdsHasBeenSet(false),
+    m_vpcIdHasBeenSet(false)
 {
 }
 
@@ -57,6 +61,11 @@ Aws::String ModifyClientVpnEndpointRequest::SerializePayload() const
     m_dnsServers.OutputToStream(ss, "DnsServers");
   }
 
+  if(m_vpnPortHasBeenSet)
+  {
+    ss << "VpnPort=" << m_vpnPort << "&";
+  }
+
   if(m_descriptionHasBeenSet)
   {
     ss << "Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
@@ -70,6 +79,22 @@ Aws::String ModifyClientVpnEndpointRequest::SerializePayload() const
   if(m_dryRunHasBeenSet)
   {
     ss << "DryRun=" << std::boolalpha << m_dryRun << "&";
+  }
+
+  if(m_securityGroupIdsHasBeenSet)
+  {
+    unsigned securityGroupIdsCount = 1;
+    for(auto& item : m_securityGroupIds)
+    {
+      ss << "SecurityGroupId." << securityGroupIdsCount << "="
+          << StringUtils::URLEncode(item.c_str()) << "&";
+      securityGroupIdsCount++;
+    }
+  }
+
+  if(m_vpcIdHasBeenSet)
+  {
+    ss << "VpcId=" << StringUtils::URLEncode(m_vpcId.c_str()) << "&";
   }
 
   ss << "Version=2016-11-15";

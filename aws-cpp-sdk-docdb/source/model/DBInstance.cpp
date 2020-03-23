@@ -57,6 +57,7 @@ DBInstance::DBInstance() :
     m_storageEncryptedHasBeenSet(false),
     m_kmsKeyIdHasBeenSet(false),
     m_dbiResourceIdHasBeenSet(false),
+    m_cACertificateIdentifierHasBeenSet(false),
     m_promotionTier(0),
     m_promotionTierHasBeenSet(false),
     m_dBInstanceArnHasBeenSet(false),
@@ -91,6 +92,7 @@ DBInstance::DBInstance(const XmlNode& xmlNode) :
     m_storageEncryptedHasBeenSet(false),
     m_kmsKeyIdHasBeenSet(false),
     m_dbiResourceIdHasBeenSet(false),
+    m_cACertificateIdentifierHasBeenSet(false),
     m_promotionTier(0),
     m_promotionTierHasBeenSet(false),
     m_dBInstanceArnHasBeenSet(false),
@@ -108,25 +110,25 @@ DBInstance& DBInstance::operator =(const XmlNode& xmlNode)
     XmlNode dBInstanceIdentifierNode = resultNode.FirstChild("DBInstanceIdentifier");
     if(!dBInstanceIdentifierNode.IsNull())
     {
-      m_dBInstanceIdentifier = dBInstanceIdentifierNode.GetText();
+      m_dBInstanceIdentifier = Aws::Utils::Xml::DecodeEscapedXmlText(dBInstanceIdentifierNode.GetText());
       m_dBInstanceIdentifierHasBeenSet = true;
     }
     XmlNode dBInstanceClassNode = resultNode.FirstChild("DBInstanceClass");
     if(!dBInstanceClassNode.IsNull())
     {
-      m_dBInstanceClass = dBInstanceClassNode.GetText();
+      m_dBInstanceClass = Aws::Utils::Xml::DecodeEscapedXmlText(dBInstanceClassNode.GetText());
       m_dBInstanceClassHasBeenSet = true;
     }
     XmlNode engineNode = resultNode.FirstChild("Engine");
     if(!engineNode.IsNull())
     {
-      m_engine = engineNode.GetText();
+      m_engine = Aws::Utils::Xml::DecodeEscapedXmlText(engineNode.GetText());
       m_engineHasBeenSet = true;
     }
     XmlNode dBInstanceStatusNode = resultNode.FirstChild("DBInstanceStatus");
     if(!dBInstanceStatusNode.IsNull())
     {
-      m_dBInstanceStatus = dBInstanceStatusNode.GetText();
+      m_dBInstanceStatus = Aws::Utils::Xml::DecodeEscapedXmlText(dBInstanceStatusNode.GetText());
       m_dBInstanceStatusHasBeenSet = true;
     }
     XmlNode endpointNode = resultNode.FirstChild("Endpoint");
@@ -138,19 +140,19 @@ DBInstance& DBInstance::operator =(const XmlNode& xmlNode)
     XmlNode instanceCreateTimeNode = resultNode.FirstChild("InstanceCreateTime");
     if(!instanceCreateTimeNode.IsNull())
     {
-      m_instanceCreateTime = DateTime(StringUtils::Trim(instanceCreateTimeNode.GetText().c_str()).c_str(), DateFormat::ISO_8601);
+      m_instanceCreateTime = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(instanceCreateTimeNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
       m_instanceCreateTimeHasBeenSet = true;
     }
     XmlNode preferredBackupWindowNode = resultNode.FirstChild("PreferredBackupWindow");
     if(!preferredBackupWindowNode.IsNull())
     {
-      m_preferredBackupWindow = preferredBackupWindowNode.GetText();
+      m_preferredBackupWindow = Aws::Utils::Xml::DecodeEscapedXmlText(preferredBackupWindowNode.GetText());
       m_preferredBackupWindowHasBeenSet = true;
     }
     XmlNode backupRetentionPeriodNode = resultNode.FirstChild("BackupRetentionPeriod");
     if(!backupRetentionPeriodNode.IsNull())
     {
-      m_backupRetentionPeriod = StringUtils::ConvertToInt32(StringUtils::Trim(backupRetentionPeriodNode.GetText().c_str()).c_str());
+      m_backupRetentionPeriod = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(backupRetentionPeriodNode.GetText()).c_str()).c_str());
       m_backupRetentionPeriodHasBeenSet = true;
     }
     XmlNode vpcSecurityGroupsNode = resultNode.FirstChild("VpcSecurityGroups");
@@ -168,7 +170,7 @@ DBInstance& DBInstance::operator =(const XmlNode& xmlNode)
     XmlNode availabilityZoneNode = resultNode.FirstChild("AvailabilityZone");
     if(!availabilityZoneNode.IsNull())
     {
-      m_availabilityZone = availabilityZoneNode.GetText();
+      m_availabilityZone = Aws::Utils::Xml::DecodeEscapedXmlText(availabilityZoneNode.GetText());
       m_availabilityZoneHasBeenSet = true;
     }
     XmlNode dBSubnetGroupNode = resultNode.FirstChild("DBSubnetGroup");
@@ -180,7 +182,7 @@ DBInstance& DBInstance::operator =(const XmlNode& xmlNode)
     XmlNode preferredMaintenanceWindowNode = resultNode.FirstChild("PreferredMaintenanceWindow");
     if(!preferredMaintenanceWindowNode.IsNull())
     {
-      m_preferredMaintenanceWindow = preferredMaintenanceWindowNode.GetText();
+      m_preferredMaintenanceWindow = Aws::Utils::Xml::DecodeEscapedXmlText(preferredMaintenanceWindowNode.GetText());
       m_preferredMaintenanceWindowHasBeenSet = true;
     }
     XmlNode pendingModifiedValuesNode = resultNode.FirstChild("PendingModifiedValues");
@@ -192,25 +194,25 @@ DBInstance& DBInstance::operator =(const XmlNode& xmlNode)
     XmlNode latestRestorableTimeNode = resultNode.FirstChild("LatestRestorableTime");
     if(!latestRestorableTimeNode.IsNull())
     {
-      m_latestRestorableTime = DateTime(StringUtils::Trim(latestRestorableTimeNode.GetText().c_str()).c_str(), DateFormat::ISO_8601);
+      m_latestRestorableTime = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(latestRestorableTimeNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
       m_latestRestorableTimeHasBeenSet = true;
     }
     XmlNode engineVersionNode = resultNode.FirstChild("EngineVersion");
     if(!engineVersionNode.IsNull())
     {
-      m_engineVersion = engineVersionNode.GetText();
+      m_engineVersion = Aws::Utils::Xml::DecodeEscapedXmlText(engineVersionNode.GetText());
       m_engineVersionHasBeenSet = true;
     }
     XmlNode autoMinorVersionUpgradeNode = resultNode.FirstChild("AutoMinorVersionUpgrade");
     if(!autoMinorVersionUpgradeNode.IsNull())
     {
-      m_autoMinorVersionUpgrade = StringUtils::ConvertToBool(StringUtils::Trim(autoMinorVersionUpgradeNode.GetText().c_str()).c_str());
+      m_autoMinorVersionUpgrade = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(autoMinorVersionUpgradeNode.GetText()).c_str()).c_str());
       m_autoMinorVersionUpgradeHasBeenSet = true;
     }
     XmlNode publiclyAccessibleNode = resultNode.FirstChild("PubliclyAccessible");
     if(!publiclyAccessibleNode.IsNull())
     {
-      m_publiclyAccessible = StringUtils::ConvertToBool(StringUtils::Trim(publiclyAccessibleNode.GetText().c_str()).c_str());
+      m_publiclyAccessible = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(publiclyAccessibleNode.GetText()).c_str()).c_str());
       m_publiclyAccessibleHasBeenSet = true;
     }
     XmlNode statusInfosNode = resultNode.FirstChild("StatusInfos");
@@ -228,37 +230,43 @@ DBInstance& DBInstance::operator =(const XmlNode& xmlNode)
     XmlNode dBClusterIdentifierNode = resultNode.FirstChild("DBClusterIdentifier");
     if(!dBClusterIdentifierNode.IsNull())
     {
-      m_dBClusterIdentifier = dBClusterIdentifierNode.GetText();
+      m_dBClusterIdentifier = Aws::Utils::Xml::DecodeEscapedXmlText(dBClusterIdentifierNode.GetText());
       m_dBClusterIdentifierHasBeenSet = true;
     }
     XmlNode storageEncryptedNode = resultNode.FirstChild("StorageEncrypted");
     if(!storageEncryptedNode.IsNull())
     {
-      m_storageEncrypted = StringUtils::ConvertToBool(StringUtils::Trim(storageEncryptedNode.GetText().c_str()).c_str());
+      m_storageEncrypted = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(storageEncryptedNode.GetText()).c_str()).c_str());
       m_storageEncryptedHasBeenSet = true;
     }
     XmlNode kmsKeyIdNode = resultNode.FirstChild("KmsKeyId");
     if(!kmsKeyIdNode.IsNull())
     {
-      m_kmsKeyId = kmsKeyIdNode.GetText();
+      m_kmsKeyId = Aws::Utils::Xml::DecodeEscapedXmlText(kmsKeyIdNode.GetText());
       m_kmsKeyIdHasBeenSet = true;
     }
     XmlNode dbiResourceIdNode = resultNode.FirstChild("DbiResourceId");
     if(!dbiResourceIdNode.IsNull())
     {
-      m_dbiResourceId = dbiResourceIdNode.GetText();
+      m_dbiResourceId = Aws::Utils::Xml::DecodeEscapedXmlText(dbiResourceIdNode.GetText());
       m_dbiResourceIdHasBeenSet = true;
+    }
+    XmlNode cACertificateIdentifierNode = resultNode.FirstChild("CACertificateIdentifier");
+    if(!cACertificateIdentifierNode.IsNull())
+    {
+      m_cACertificateIdentifier = Aws::Utils::Xml::DecodeEscapedXmlText(cACertificateIdentifierNode.GetText());
+      m_cACertificateIdentifierHasBeenSet = true;
     }
     XmlNode promotionTierNode = resultNode.FirstChild("PromotionTier");
     if(!promotionTierNode.IsNull())
     {
-      m_promotionTier = StringUtils::ConvertToInt32(StringUtils::Trim(promotionTierNode.GetText().c_str()).c_str());
+      m_promotionTier = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(promotionTierNode.GetText()).c_str()).c_str());
       m_promotionTierHasBeenSet = true;
     }
     XmlNode dBInstanceArnNode = resultNode.FirstChild("DBInstanceArn");
     if(!dBInstanceArnNode.IsNull())
     {
-      m_dBInstanceArn = dBInstanceArnNode.GetText();
+      m_dBInstanceArn = Aws::Utils::Xml::DecodeEscapedXmlText(dBInstanceArnNode.GetText());
       m_dBInstanceArnHasBeenSet = true;
     }
     XmlNode enabledCloudwatchLogsExportsNode = resultNode.FirstChild("EnabledCloudwatchLogsExports");
@@ -408,6 +416,11 @@ void DBInstance::OutputToStream(Aws::OStream& oStream, const char* location, uns
       oStream << location << index << locationValue << ".DbiResourceId=" << StringUtils::URLEncode(m_dbiResourceId.c_str()) << "&";
   }
 
+  if(m_cACertificateIdentifierHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".CACertificateIdentifier=" << StringUtils::URLEncode(m_cACertificateIdentifier.c_str()) << "&";
+  }
+
   if(m_promotionTierHasBeenSet)
   {
       oStream << location << index << locationValue << ".PromotionTier=" << m_promotionTier << "&";
@@ -536,6 +549,10 @@ void DBInstance::OutputToStream(Aws::OStream& oStream, const char* location) con
   if(m_dbiResourceIdHasBeenSet)
   {
       oStream << location << ".DbiResourceId=" << StringUtils::URLEncode(m_dbiResourceId.c_str()) << "&";
+  }
+  if(m_cACertificateIdentifierHasBeenSet)
+  {
+      oStream << location << ".CACertificateIdentifier=" << StringUtils::URLEncode(m_cACertificateIdentifier.c_str()) << "&";
   }
   if(m_promotionTierHasBeenSet)
   {

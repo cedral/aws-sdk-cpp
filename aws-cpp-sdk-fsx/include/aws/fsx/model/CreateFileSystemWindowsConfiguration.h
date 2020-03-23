@@ -17,6 +17,7 @@
 #include <aws/fsx/FSx_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/fsx/model/SelfManagedActiveDirectoryConfiguration.h>
+#include <aws/fsx/model/WindowsDeploymentType.h>
 #include <utility>
 
 namespace Aws
@@ -116,6 +117,164 @@ namespace Model
 
     
     inline CreateFileSystemWindowsConfiguration& WithSelfManagedActiveDirectoryConfiguration(SelfManagedActiveDirectoryConfiguration&& value) { SetSelfManagedActiveDirectoryConfiguration(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Specifies the file system deployment type, valid values are the
+     * following:</p> <ul> <li> <p>MULTI_AZ_1 - Deploys a high availability file system
+     * that is configured for Multi-AZ redundancy to tolerate temporary Availability
+     * Zone (AZ) unavailability. You can only deploy a Multi-AZ file system in AWS
+     * Regions that have a minimum of three Availability Zones.</p> </li> <li>
+     * <p>SINGLE_AZ_1 - (Default) Choose to deploy a file system that is configured for
+     * single AZ redundancy.</p> </li> </ul> <p>To learn more about high availability
+     * Multi-AZ file systems, see <a
+     * href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+     * High Availability for Amazon FSx for Windows File Server</a>.</p>
+     */
+    inline const WindowsDeploymentType& GetDeploymentType() const{ return m_deploymentType; }
+
+    /**
+     * <p>Specifies the file system deployment type, valid values are the
+     * following:</p> <ul> <li> <p>MULTI_AZ_1 - Deploys a high availability file system
+     * that is configured for Multi-AZ redundancy to tolerate temporary Availability
+     * Zone (AZ) unavailability. You can only deploy a Multi-AZ file system in AWS
+     * Regions that have a minimum of three Availability Zones.</p> </li> <li>
+     * <p>SINGLE_AZ_1 - (Default) Choose to deploy a file system that is configured for
+     * single AZ redundancy.</p> </li> </ul> <p>To learn more about high availability
+     * Multi-AZ file systems, see <a
+     * href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+     * High Availability for Amazon FSx for Windows File Server</a>.</p>
+     */
+    inline bool DeploymentTypeHasBeenSet() const { return m_deploymentTypeHasBeenSet; }
+
+    /**
+     * <p>Specifies the file system deployment type, valid values are the
+     * following:</p> <ul> <li> <p>MULTI_AZ_1 - Deploys a high availability file system
+     * that is configured for Multi-AZ redundancy to tolerate temporary Availability
+     * Zone (AZ) unavailability. You can only deploy a Multi-AZ file system in AWS
+     * Regions that have a minimum of three Availability Zones.</p> </li> <li>
+     * <p>SINGLE_AZ_1 - (Default) Choose to deploy a file system that is configured for
+     * single AZ redundancy.</p> </li> </ul> <p>To learn more about high availability
+     * Multi-AZ file systems, see <a
+     * href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+     * High Availability for Amazon FSx for Windows File Server</a>.</p>
+     */
+    inline void SetDeploymentType(const WindowsDeploymentType& value) { m_deploymentTypeHasBeenSet = true; m_deploymentType = value; }
+
+    /**
+     * <p>Specifies the file system deployment type, valid values are the
+     * following:</p> <ul> <li> <p>MULTI_AZ_1 - Deploys a high availability file system
+     * that is configured for Multi-AZ redundancy to tolerate temporary Availability
+     * Zone (AZ) unavailability. You can only deploy a Multi-AZ file system in AWS
+     * Regions that have a minimum of three Availability Zones.</p> </li> <li>
+     * <p>SINGLE_AZ_1 - (Default) Choose to deploy a file system that is configured for
+     * single AZ redundancy.</p> </li> </ul> <p>To learn more about high availability
+     * Multi-AZ file systems, see <a
+     * href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+     * High Availability for Amazon FSx for Windows File Server</a>.</p>
+     */
+    inline void SetDeploymentType(WindowsDeploymentType&& value) { m_deploymentTypeHasBeenSet = true; m_deploymentType = std::move(value); }
+
+    /**
+     * <p>Specifies the file system deployment type, valid values are the
+     * following:</p> <ul> <li> <p>MULTI_AZ_1 - Deploys a high availability file system
+     * that is configured for Multi-AZ redundancy to tolerate temporary Availability
+     * Zone (AZ) unavailability. You can only deploy a Multi-AZ file system in AWS
+     * Regions that have a minimum of three Availability Zones.</p> </li> <li>
+     * <p>SINGLE_AZ_1 - (Default) Choose to deploy a file system that is configured for
+     * single AZ redundancy.</p> </li> </ul> <p>To learn more about high availability
+     * Multi-AZ file systems, see <a
+     * href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+     * High Availability for Amazon FSx for Windows File Server</a>.</p>
+     */
+    inline CreateFileSystemWindowsConfiguration& WithDeploymentType(const WindowsDeploymentType& value) { SetDeploymentType(value); return *this;}
+
+    /**
+     * <p>Specifies the file system deployment type, valid values are the
+     * following:</p> <ul> <li> <p>MULTI_AZ_1 - Deploys a high availability file system
+     * that is configured for Multi-AZ redundancy to tolerate temporary Availability
+     * Zone (AZ) unavailability. You can only deploy a Multi-AZ file system in AWS
+     * Regions that have a minimum of three Availability Zones.</p> </li> <li>
+     * <p>SINGLE_AZ_1 - (Default) Choose to deploy a file system that is configured for
+     * single AZ redundancy.</p> </li> </ul> <p>To learn more about high availability
+     * Multi-AZ file systems, see <a
+     * href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
+     * High Availability for Amazon FSx for Windows File Server</a>.</p>
+     */
+    inline CreateFileSystemWindowsConfiguration& WithDeploymentType(WindowsDeploymentType&& value) { SetDeploymentType(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>.
+     * This specifies the subnet in which you want the preferred file server to be
+     * located. For in-AWS applications, we recommend that you launch your clients in
+     * the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+     * data transfer costs and minimize latency. </p>
+     */
+    inline const Aws::String& GetPreferredSubnetId() const{ return m_preferredSubnetId; }
+
+    /**
+     * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>.
+     * This specifies the subnet in which you want the preferred file server to be
+     * located. For in-AWS applications, we recommend that you launch your clients in
+     * the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+     * data transfer costs and minimize latency. </p>
+     */
+    inline bool PreferredSubnetIdHasBeenSet() const { return m_preferredSubnetIdHasBeenSet; }
+
+    /**
+     * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>.
+     * This specifies the subnet in which you want the preferred file server to be
+     * located. For in-AWS applications, we recommend that you launch your clients in
+     * the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+     * data transfer costs and minimize latency. </p>
+     */
+    inline void SetPreferredSubnetId(const Aws::String& value) { m_preferredSubnetIdHasBeenSet = true; m_preferredSubnetId = value; }
+
+    /**
+     * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>.
+     * This specifies the subnet in which you want the preferred file server to be
+     * located. For in-AWS applications, we recommend that you launch your clients in
+     * the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+     * data transfer costs and minimize latency. </p>
+     */
+    inline void SetPreferredSubnetId(Aws::String&& value) { m_preferredSubnetIdHasBeenSet = true; m_preferredSubnetId = std::move(value); }
+
+    /**
+     * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>.
+     * This specifies the subnet in which you want the preferred file server to be
+     * located. For in-AWS applications, we recommend that you launch your clients in
+     * the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+     * data transfer costs and minimize latency. </p>
+     */
+    inline void SetPreferredSubnetId(const char* value) { m_preferredSubnetIdHasBeenSet = true; m_preferredSubnetId.assign(value); }
+
+    /**
+     * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>.
+     * This specifies the subnet in which you want the preferred file server to be
+     * located. For in-AWS applications, we recommend that you launch your clients in
+     * the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+     * data transfer costs and minimize latency. </p>
+     */
+    inline CreateFileSystemWindowsConfiguration& WithPreferredSubnetId(const Aws::String& value) { SetPreferredSubnetId(value); return *this;}
+
+    /**
+     * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>.
+     * This specifies the subnet in which you want the preferred file server to be
+     * located. For in-AWS applications, we recommend that you launch your clients in
+     * the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+     * data transfer costs and minimize latency. </p>
+     */
+    inline CreateFileSystemWindowsConfiguration& WithPreferredSubnetId(Aws::String&& value) { SetPreferredSubnetId(std::move(value)); return *this;}
+
+    /**
+     * <p>Required when <code>DeploymentType</code> is set to <code>MULTI_AZ_1</code>.
+     * This specifies the subnet in which you want the preferred file server to be
+     * located. For in-AWS applications, we recommend that you launch your clients in
+     * the same Availability Zone (AZ) as your preferred file server to reduce cross-AZ
+     * data transfer costs and minimize latency. </p>
+     */
+    inline CreateFileSystemWindowsConfiguration& WithPreferredSubnetId(const char* value) { SetPreferredSubnetId(value); return *this;}
 
 
     /**
@@ -275,7 +434,9 @@ namespace Model
      * to backups. This value defaults to false. If it's set to true, all tags for the
      * file system are copied to all automatic and user-initiated backups where the
      * user doesn't specify tags. If this value is true, and you specify one or more
-     * tags, only the specified tags are copied to backups.</p>
+     * tags, only the specified tags are copied to backups. If you specify one or more
+     * tags when creating a user-initiated backup, no tags are copied from the file
+     * system, regardless of this value.</p>
      */
     inline bool GetCopyTagsToBackups() const{ return m_copyTagsToBackups; }
 
@@ -284,7 +445,9 @@ namespace Model
      * to backups. This value defaults to false. If it's set to true, all tags for the
      * file system are copied to all automatic and user-initiated backups where the
      * user doesn't specify tags. If this value is true, and you specify one or more
-     * tags, only the specified tags are copied to backups.</p>
+     * tags, only the specified tags are copied to backups. If you specify one or more
+     * tags when creating a user-initiated backup, no tags are copied from the file
+     * system, regardless of this value.</p>
      */
     inline bool CopyTagsToBackupsHasBeenSet() const { return m_copyTagsToBackupsHasBeenSet; }
 
@@ -293,7 +456,9 @@ namespace Model
      * to backups. This value defaults to false. If it's set to true, all tags for the
      * file system are copied to all automatic and user-initiated backups where the
      * user doesn't specify tags. If this value is true, and you specify one or more
-     * tags, only the specified tags are copied to backups.</p>
+     * tags, only the specified tags are copied to backups. If you specify one or more
+     * tags when creating a user-initiated backup, no tags are copied from the file
+     * system, regardless of this value.</p>
      */
     inline void SetCopyTagsToBackups(bool value) { m_copyTagsToBackupsHasBeenSet = true; m_copyTagsToBackups = value; }
 
@@ -302,7 +467,9 @@ namespace Model
      * to backups. This value defaults to false. If it's set to true, all tags for the
      * file system are copied to all automatic and user-initiated backups where the
      * user doesn't specify tags. If this value is true, and you specify one or more
-     * tags, only the specified tags are copied to backups.</p>
+     * tags, only the specified tags are copied to backups. If you specify one or more
+     * tags when creating a user-initiated backup, no tags are copied from the file
+     * system, regardless of this value.</p>
      */
     inline CreateFileSystemWindowsConfiguration& WithCopyTagsToBackups(bool value) { SetCopyTagsToBackups(value); return *this;}
 
@@ -313,6 +480,12 @@ namespace Model
 
     SelfManagedActiveDirectoryConfiguration m_selfManagedActiveDirectoryConfiguration;
     bool m_selfManagedActiveDirectoryConfigurationHasBeenSet;
+
+    WindowsDeploymentType m_deploymentType;
+    bool m_deploymentTypeHasBeenSet;
+
+    Aws::String m_preferredSubnetId;
+    bool m_preferredSubnetIdHasBeenSet;
 
     int m_throughputCapacity;
     bool m_throughputCapacityHasBeenSet;

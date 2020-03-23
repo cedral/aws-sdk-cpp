@@ -471,7 +471,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. For more information, see
      * <a>CreateDBInstance</a>.</p>
      */
@@ -481,7 +481,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. For more information, see
      * <a>CreateDBInstance</a>.</p>
      */
@@ -491,7 +491,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. For more information, see
      * <a>CreateDBInstance</a>.</p>
      */
@@ -501,7 +501,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. For more information, see
      * <a>CreateDBInstance</a>.</p>
      */
@@ -762,7 +762,7 @@ namespace Model
 
     /**
      * <p>Specifies the amount of provisioned IOPS for the DB instance, expressed in
-     * I/O operations per second. If this parameter is not specified, the IOPS value is
+     * I/O operations per second. If this parameter isn't specified, the IOPS value is
      * taken from the backup. If this parameter is set to 0, the new instance is
      * converted to a non-PIOPS instance. The conversion takes additional time, though
      * your DB instance is available for connections before the conversion starts. </p>
@@ -776,7 +776,7 @@ namespace Model
 
     /**
      * <p>Specifies the amount of provisioned IOPS for the DB instance, expressed in
-     * I/O operations per second. If this parameter is not specified, the IOPS value is
+     * I/O operations per second. If this parameter isn't specified, the IOPS value is
      * taken from the backup. If this parameter is set to 0, the new instance is
      * converted to a non-PIOPS instance. The conversion takes additional time, though
      * your DB instance is available for connections before the conversion starts. </p>
@@ -790,7 +790,7 @@ namespace Model
 
     /**
      * <p>Specifies the amount of provisioned IOPS for the DB instance, expressed in
-     * I/O operations per second. If this parameter is not specified, the IOPS value is
+     * I/O operations per second. If this parameter isn't specified, the IOPS value is
      * taken from the backup. If this parameter is set to 0, the new instance is
      * converted to a non-PIOPS instance. The conversion takes additional time, though
      * your DB instance is available for connections before the conversion starts. </p>
@@ -804,7 +804,7 @@ namespace Model
 
     /**
      * <p>Specifies the amount of provisioned IOPS for the DB instance, expressed in
-     * I/O operations per second. If this parameter is not specified, the IOPS value is
+     * I/O operations per second. If this parameter isn't specified, the IOPS value is
      * taken from the backup. If this parameter is set to 0, the new instance is
      * converted to a non-PIOPS instance. The conversion takes additional time, though
      * your DB instance is available for connections before the conversion starts. </p>
@@ -1143,42 +1143,146 @@ namespace Model
 
 
     /**
-     * <p>Specify the Active Directory Domain to restore the instance in.</p>
+     * <p>Specify the Active Directory directory ID to restore the DB instance in. The
+     * domain must be created prior to this operation. Currently, only Microsoft SQL
+     * Server and Oracle DB instances can be created in an Active Directory Domain.
+     * </p> <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
 
     /**
-     * <p>Specify the Active Directory Domain to restore the instance in.</p>
+     * <p>Specify the Active Directory directory ID to restore the DB instance in. The
+     * domain must be created prior to this operation. Currently, only Microsoft SQL
+     * Server and Oracle DB instances can be created in an Active Directory Domain.
+     * </p> <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
-     * <p>Specify the Active Directory Domain to restore the instance in.</p>
+     * <p>Specify the Active Directory directory ID to restore the DB instance in. The
+     * domain must be created prior to this operation. Currently, only Microsoft SQL
+     * Server and Oracle DB instances can be created in an Active Directory Domain.
+     * </p> <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline void SetDomain(const Aws::String& value) { m_domainHasBeenSet = true; m_domain = value; }
 
     /**
-     * <p>Specify the Active Directory Domain to restore the instance in.</p>
+     * <p>Specify the Active Directory directory ID to restore the DB instance in. The
+     * domain must be created prior to this operation. Currently, only Microsoft SQL
+     * Server and Oracle DB instances can be created in an Active Directory Domain.
+     * </p> <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline void SetDomain(Aws::String&& value) { m_domainHasBeenSet = true; m_domain = std::move(value); }
 
     /**
-     * <p>Specify the Active Directory Domain to restore the instance in.</p>
+     * <p>Specify the Active Directory directory ID to restore the DB instance in. The
+     * domain must be created prior to this operation. Currently, only Microsoft SQL
+     * Server and Oracle DB instances can be created in an Active Directory Domain.
+     * </p> <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline void SetDomain(const char* value) { m_domainHasBeenSet = true; m_domain.assign(value); }
 
     /**
-     * <p>Specify the Active Directory Domain to restore the instance in.</p>
+     * <p>Specify the Active Directory directory ID to restore the DB instance in. The
+     * domain must be created prior to this operation. Currently, only Microsoft SQL
+     * Server and Oracle DB instances can be created in an Active Directory Domain.
+     * </p> <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDomain(const Aws::String& value) { SetDomain(value); return *this;}
 
     /**
-     * <p>Specify the Active Directory Domain to restore the instance in.</p>
+     * <p>Specify the Active Directory directory ID to restore the DB instance in. The
+     * domain must be created prior to this operation. Currently, only Microsoft SQL
+     * Server and Oracle DB instances can be created in an Active Directory Domain.
+     * </p> <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDomain(Aws::String&& value) { SetDomain(std::move(value)); return *this;}
 
     /**
-     * <p>Specify the Active Directory Domain to restore the instance in.</p>
+     * <p>Specify the Active Directory directory ID to restore the DB instance in. The
+     * domain must be created prior to this operation. Currently, only Microsoft SQL
+     * Server and Oracle DB instances can be created in an Active Directory Domain.
+     * </p> <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDomain(const char* value) { SetDomain(value); return *this;}
 
@@ -1259,41 +1363,45 @@ namespace Model
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p> <p>You can enable IAM database authentication for the following
-     * database engines</p> <ul> <li> <p>For MySQL 5.6, minor version 5.6.34 or
-     * higher</p> </li> <li> <p>For MySQL 5.7, minor version 5.7.16 or higher</p> </li>
-     * </ul>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline bool GetEnableIAMDatabaseAuthentication() const{ return m_enableIAMDatabaseAuthentication; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p> <p>You can enable IAM database authentication for the following
-     * database engines</p> <ul> <li> <p>For MySQL 5.6, minor version 5.6.34 or
-     * higher</p> </li> <li> <p>For MySQL 5.7, minor version 5.7.16 or higher</p> </li>
-     * </ul>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline bool EnableIAMDatabaseAuthenticationHasBeenSet() const { return m_enableIAMDatabaseAuthenticationHasBeenSet; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p> <p>You can enable IAM database authentication for the following
-     * database engines</p> <ul> <li> <p>For MySQL 5.6, minor version 5.6.34 or
-     * higher</p> </li> <li> <p>For MySQL 5.7, minor version 5.7.16 or higher</p> </li>
-     * </ul>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline void SetEnableIAMDatabaseAuthentication(bool value) { m_enableIAMDatabaseAuthenticationHasBeenSet = true; m_enableIAMDatabaseAuthentication = value; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p> <p>You can enable IAM database authentication for the following
-     * database engines</p> <ul> <li> <p>For MySQL 5.6, minor version 5.6.34 or
-     * higher</p> </li> <li> <p>For MySQL 5.7, minor version 5.7.16 or higher</p> </li>
-     * </ul>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 
@@ -1464,90 +1572,90 @@ namespace Model
 
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default DBParameterGroup for the specified engine
-     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
-     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
-     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
-     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-     * </li> </ul>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters, numbers, or
+     * hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
      */
     inline const Aws::String& GetDBParameterGroupName() const{ return m_dBParameterGroupName; }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default DBParameterGroup for the specified engine
-     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
-     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
-     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
-     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-     * </li> </ul>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters, numbers, or
+     * hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
      */
     inline bool DBParameterGroupNameHasBeenSet() const { return m_dBParameterGroupNameHasBeenSet; }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default DBParameterGroup for the specified engine
-     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
-     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
-     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
-     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-     * </li> </ul>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters, numbers, or
+     * hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
      */
     inline void SetDBParameterGroupName(const Aws::String& value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName = value; }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default DBParameterGroup for the specified engine
-     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
-     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
-     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
-     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-     * </li> </ul>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters, numbers, or
+     * hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
      */
     inline void SetDBParameterGroupName(Aws::String&& value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName = std::move(value); }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default DBParameterGroup for the specified engine
-     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
-     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
-     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
-     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-     * </li> </ul>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters, numbers, or
+     * hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
      */
     inline void SetDBParameterGroupName(const char* value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName.assign(value); }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default DBParameterGroup for the specified engine
-     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
-     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
-     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
-     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-     * </li> </ul>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters, numbers, or
+     * hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDBParameterGroupName(const Aws::String& value) { SetDBParameterGroupName(value); return *this;}
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default DBParameterGroup for the specified engine
-     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
-     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
-     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
-     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-     * </li> </ul>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters, numbers, or
+     * hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDBParameterGroupName(Aws::String&& value) { SetDBParameterGroupName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default DBParameterGroup for the specified engine
-     * is used.</p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name
-     * of an existing DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters,
-     * numbers, or hyphens.</p> </li> <li> <p>First character must be a letter.</p>
-     * </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p>
-     * </li> </ul>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
+     * <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an existing
+     * DBParameterGroup.</p> </li> <li> <p>Must be 1 to 255 letters, numbers, or
+     * hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li>
+     * <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>
      */
     inline RestoreDBInstanceFromDBSnapshotRequest& WithDBParameterGroupName(const char* value) { SetDBParameterGroupName(value); return *this;}
 

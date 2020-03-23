@@ -34,6 +34,7 @@
 #include <aws/ec2/model/CpuOptions.h>
 #include <aws/ec2/model/CapacityReservationSpecificationResponse.h>
 #include <aws/ec2/model/HibernationOptions.h>
+#include <aws/ec2/model/InstanceMetadataOptionsResponse.h>
 #include <aws/ec2/model/ProductCode.h>
 #include <aws/ec2/model/InstanceBlockDeviceMapping.h>
 #include <aws/ec2/model/ElasticGpuAssociation.h>
@@ -1078,32 +1079,38 @@ namespace Model
 
 
     /**
-     * <p>The hypervisor type of the instance.</p>
+     * <p>The hypervisor type of the instance. The value <code>xen</code> is used for
+     * both Xen and Nitro hypervisors.</p>
      */
     inline const HypervisorType& GetHypervisor() const{ return m_hypervisor; }
 
     /**
-     * <p>The hypervisor type of the instance.</p>
+     * <p>The hypervisor type of the instance. The value <code>xen</code> is used for
+     * both Xen and Nitro hypervisors.</p>
      */
     inline bool HypervisorHasBeenSet() const { return m_hypervisorHasBeenSet; }
 
     /**
-     * <p>The hypervisor type of the instance.</p>
+     * <p>The hypervisor type of the instance. The value <code>xen</code> is used for
+     * both Xen and Nitro hypervisors.</p>
      */
     inline void SetHypervisor(const HypervisorType& value) { m_hypervisorHasBeenSet = true; m_hypervisor = value; }
 
     /**
-     * <p>The hypervisor type of the instance.</p>
+     * <p>The hypervisor type of the instance. The value <code>xen</code> is used for
+     * both Xen and Nitro hypervisors.</p>
      */
     inline void SetHypervisor(HypervisorType&& value) { m_hypervisorHasBeenSet = true; m_hypervisor = std::move(value); }
 
     /**
-     * <p>The hypervisor type of the instance.</p>
+     * <p>The hypervisor type of the instance. The value <code>xen</code> is used for
+     * both Xen and Nitro hypervisors.</p>
      */
     inline Instance& WithHypervisor(const HypervisorType& value) { SetHypervisor(value); return *this;}
 
     /**
-     * <p>The hypervisor type of the instance.</p>
+     * <p>The hypervisor type of the instance. The value <code>xen</code> is used for
+     * both Xen and Nitro hypervisors.</p>
      */
     inline Instance& WithHypervisor(HypervisorType&& value) { SetHypervisor(std::move(value)); return *this;}
 
@@ -1212,42 +1219,42 @@ namespace Model
 
 
     /**
-     * <p> The elastic inference accelerator associated with the instance. </p>
+     * <p> The elastic inference accelerator associated with the instance.</p>
      */
     inline const Aws::Vector<ElasticInferenceAcceleratorAssociation>& GetElasticInferenceAcceleratorAssociations() const{ return m_elasticInferenceAcceleratorAssociations; }
 
     /**
-     * <p> The elastic inference accelerator associated with the instance. </p>
+     * <p> The elastic inference accelerator associated with the instance.</p>
      */
     inline bool ElasticInferenceAcceleratorAssociationsHasBeenSet() const { return m_elasticInferenceAcceleratorAssociationsHasBeenSet; }
 
     /**
-     * <p> The elastic inference accelerator associated with the instance. </p>
+     * <p> The elastic inference accelerator associated with the instance.</p>
      */
     inline void SetElasticInferenceAcceleratorAssociations(const Aws::Vector<ElasticInferenceAcceleratorAssociation>& value) { m_elasticInferenceAcceleratorAssociationsHasBeenSet = true; m_elasticInferenceAcceleratorAssociations = value; }
 
     /**
-     * <p> The elastic inference accelerator associated with the instance. </p>
+     * <p> The elastic inference accelerator associated with the instance.</p>
      */
     inline void SetElasticInferenceAcceleratorAssociations(Aws::Vector<ElasticInferenceAcceleratorAssociation>&& value) { m_elasticInferenceAcceleratorAssociationsHasBeenSet = true; m_elasticInferenceAcceleratorAssociations = std::move(value); }
 
     /**
-     * <p> The elastic inference accelerator associated with the instance. </p>
+     * <p> The elastic inference accelerator associated with the instance.</p>
      */
     inline Instance& WithElasticInferenceAcceleratorAssociations(const Aws::Vector<ElasticInferenceAcceleratorAssociation>& value) { SetElasticInferenceAcceleratorAssociations(value); return *this;}
 
     /**
-     * <p> The elastic inference accelerator associated with the instance. </p>
+     * <p> The elastic inference accelerator associated with the instance.</p>
      */
     inline Instance& WithElasticInferenceAcceleratorAssociations(Aws::Vector<ElasticInferenceAcceleratorAssociation>&& value) { SetElasticInferenceAcceleratorAssociations(std::move(value)); return *this;}
 
     /**
-     * <p> The elastic inference accelerator associated with the instance. </p>
+     * <p> The elastic inference accelerator associated with the instance.</p>
      */
     inline Instance& AddElasticInferenceAcceleratorAssociations(const ElasticInferenceAcceleratorAssociation& value) { m_elasticInferenceAcceleratorAssociationsHasBeenSet = true; m_elasticInferenceAcceleratorAssociations.push_back(value); return *this; }
 
     /**
-     * <p> The elastic inference accelerator associated with the instance. </p>
+     * <p> The elastic inference accelerator associated with the instance.</p>
      */
     inline Instance& AddElasticInferenceAcceleratorAssociations(ElasticInferenceAcceleratorAssociation&& value) { m_elasticInferenceAcceleratorAssociationsHasBeenSet = true; m_elasticInferenceAcceleratorAssociations.push_back(std::move(value)); return *this; }
 
@@ -1291,6 +1298,47 @@ namespace Model
      * <p>[EC2-VPC] The network interfaces for the instance.</p>
      */
     inline Instance& AddNetworkInterfaces(InstanceNetworkInterface&& value) { m_networkInterfacesHasBeenSet = true; m_networkInterfaces.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline const Aws::String& GetOutpostArn() const{ return m_outpostArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline bool OutpostArnHasBeenSet() const { return m_outpostArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(const Aws::String& value) { m_outpostArnHasBeenSet = true; m_outpostArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(Aws::String&& value) { m_outpostArnHasBeenSet = true; m_outpostArn = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(const char* value) { m_outpostArnHasBeenSet = true; m_outpostArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline Instance& WithOutpostArn(const Aws::String& value) { SetOutpostArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline Instance& WithOutpostArn(Aws::String&& value) { SetOutpostArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline Instance& WithOutpostArn(const char* value) { SetOutpostArn(value); return *this;}
 
 
     /**
@@ -1832,6 +1880,37 @@ namespace Model
      */
     inline Instance& AddLicenses(LicenseConfiguration&& value) { m_licensesHasBeenSet = true; m_licenses.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>The metadata options for the instance.</p>
+     */
+    inline const InstanceMetadataOptionsResponse& GetMetadataOptions() const{ return m_metadataOptions; }
+
+    /**
+     * <p>The metadata options for the instance.</p>
+     */
+    inline bool MetadataOptionsHasBeenSet() const { return m_metadataOptionsHasBeenSet; }
+
+    /**
+     * <p>The metadata options for the instance.</p>
+     */
+    inline void SetMetadataOptions(const InstanceMetadataOptionsResponse& value) { m_metadataOptionsHasBeenSet = true; m_metadataOptions = value; }
+
+    /**
+     * <p>The metadata options for the instance.</p>
+     */
+    inline void SetMetadataOptions(InstanceMetadataOptionsResponse&& value) { m_metadataOptionsHasBeenSet = true; m_metadataOptions = std::move(value); }
+
+    /**
+     * <p>The metadata options for the instance.</p>
+     */
+    inline Instance& WithMetadataOptions(const InstanceMetadataOptionsResponse& value) { SetMetadataOptions(value); return *this;}
+
+    /**
+     * <p>The metadata options for the instance.</p>
+     */
+    inline Instance& WithMetadataOptions(InstanceMetadataOptionsResponse&& value) { SetMetadataOptions(std::move(value)); return *this;}
+
   private:
 
     int m_amiLaunchIndex;
@@ -1927,6 +2006,9 @@ namespace Model
     Aws::Vector<InstanceNetworkInterface> m_networkInterfaces;
     bool m_networkInterfacesHasBeenSet;
 
+    Aws::String m_outpostArn;
+    bool m_outpostArnHasBeenSet;
+
     Aws::String m_rootDeviceName;
     bool m_rootDeviceNameHasBeenSet;
 
@@ -1968,6 +2050,9 @@ namespace Model
 
     Aws::Vector<LicenseConfiguration> m_licenses;
     bool m_licensesHasBeenSet;
+
+    InstanceMetadataOptionsResponse m_metadataOptions;
+    bool m_metadataOptionsHasBeenSet;
   };
 
 } // namespace Model

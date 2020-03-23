@@ -24,8 +24,13 @@
 #include <aws/sagemaker/model/ResourceConfig.h>
 #include <aws/sagemaker/model/VpcConfig.h>
 #include <aws/sagemaker/model/StoppingCondition.h>
+#include <aws/sagemaker/model/CheckpointConfig.h>
+#include <aws/sagemaker/model/DebugHookConfig.h>
+#include <aws/sagemaker/model/TensorBoardOutputConfig.h>
+#include <aws/sagemaker/model/ExperimentConfig.h>
 #include <aws/sagemaker/model/Channel.h>
 #include <aws/sagemaker/model/Tag.h>
+#include <aws/sagemaker/model/DebugRuleConfiguration.h>
 #include <utility>
 
 namespace Aws
@@ -440,12 +445,14 @@ namespace Model
      * </p> <p>Algorithms can accept input data from one or more channels. For example,
      * an algorithm might have two channels of input data, <code>training_data</code>
      * and <code>validation_data</code>. The configuration for each channel provides
-     * the S3 location where the input data is stored. It also provides information
-     * about the stored data: the MIME type, compression method, and whether the data
-     * is wrapped in RecordIO format. </p> <p>Depending on the input mode that the
-     * algorithm supports, Amazon SageMaker either copies input data files from an S3
-     * bucket to a local directory in the Docker container, or makes it available as
-     * input streams. </p>
+     * the S3, EFS, or FSx location where the input data is stored. It also provides
+     * information about the stored data: the MIME type, compression method, and
+     * whether the data is wrapped in RecordIO format. </p> <p>Depending on the input
+     * mode that the algorithm supports, Amazon SageMaker either copies input data
+     * files from an S3 bucket to a local directory in the Docker container, or makes
+     * it available as input streams. For example, if you specify an EFS location,
+     * input data files will be made available as input streams. They do not need to be
+     * downloaded.</p>
      */
     inline const Aws::Vector<Channel>& GetInputDataConfig() const{ return m_inputDataConfig; }
 
@@ -455,12 +462,14 @@ namespace Model
      * </p> <p>Algorithms can accept input data from one or more channels. For example,
      * an algorithm might have two channels of input data, <code>training_data</code>
      * and <code>validation_data</code>. The configuration for each channel provides
-     * the S3 location where the input data is stored. It also provides information
-     * about the stored data: the MIME type, compression method, and whether the data
-     * is wrapped in RecordIO format. </p> <p>Depending on the input mode that the
-     * algorithm supports, Amazon SageMaker either copies input data files from an S3
-     * bucket to a local directory in the Docker container, or makes it available as
-     * input streams. </p>
+     * the S3, EFS, or FSx location where the input data is stored. It also provides
+     * information about the stored data: the MIME type, compression method, and
+     * whether the data is wrapped in RecordIO format. </p> <p>Depending on the input
+     * mode that the algorithm supports, Amazon SageMaker either copies input data
+     * files from an S3 bucket to a local directory in the Docker container, or makes
+     * it available as input streams. For example, if you specify an EFS location,
+     * input data files will be made available as input streams. They do not need to be
+     * downloaded.</p>
      */
     inline bool InputDataConfigHasBeenSet() const { return m_inputDataConfigHasBeenSet; }
 
@@ -470,12 +479,14 @@ namespace Model
      * </p> <p>Algorithms can accept input data from one or more channels. For example,
      * an algorithm might have two channels of input data, <code>training_data</code>
      * and <code>validation_data</code>. The configuration for each channel provides
-     * the S3 location where the input data is stored. It also provides information
-     * about the stored data: the MIME type, compression method, and whether the data
-     * is wrapped in RecordIO format. </p> <p>Depending on the input mode that the
-     * algorithm supports, Amazon SageMaker either copies input data files from an S3
-     * bucket to a local directory in the Docker container, or makes it available as
-     * input streams. </p>
+     * the S3, EFS, or FSx location where the input data is stored. It also provides
+     * information about the stored data: the MIME type, compression method, and
+     * whether the data is wrapped in RecordIO format. </p> <p>Depending on the input
+     * mode that the algorithm supports, Amazon SageMaker either copies input data
+     * files from an S3 bucket to a local directory in the Docker container, or makes
+     * it available as input streams. For example, if you specify an EFS location,
+     * input data files will be made available as input streams. They do not need to be
+     * downloaded.</p>
      */
     inline void SetInputDataConfig(const Aws::Vector<Channel>& value) { m_inputDataConfigHasBeenSet = true; m_inputDataConfig = value; }
 
@@ -485,12 +496,14 @@ namespace Model
      * </p> <p>Algorithms can accept input data from one or more channels. For example,
      * an algorithm might have two channels of input data, <code>training_data</code>
      * and <code>validation_data</code>. The configuration for each channel provides
-     * the S3 location where the input data is stored. It also provides information
-     * about the stored data: the MIME type, compression method, and whether the data
-     * is wrapped in RecordIO format. </p> <p>Depending on the input mode that the
-     * algorithm supports, Amazon SageMaker either copies input data files from an S3
-     * bucket to a local directory in the Docker container, or makes it available as
-     * input streams. </p>
+     * the S3, EFS, or FSx location where the input data is stored. It also provides
+     * information about the stored data: the MIME type, compression method, and
+     * whether the data is wrapped in RecordIO format. </p> <p>Depending on the input
+     * mode that the algorithm supports, Amazon SageMaker either copies input data
+     * files from an S3 bucket to a local directory in the Docker container, or makes
+     * it available as input streams. For example, if you specify an EFS location,
+     * input data files will be made available as input streams. They do not need to be
+     * downloaded.</p>
      */
     inline void SetInputDataConfig(Aws::Vector<Channel>&& value) { m_inputDataConfigHasBeenSet = true; m_inputDataConfig = std::move(value); }
 
@@ -500,12 +513,14 @@ namespace Model
      * </p> <p>Algorithms can accept input data from one or more channels. For example,
      * an algorithm might have two channels of input data, <code>training_data</code>
      * and <code>validation_data</code>. The configuration for each channel provides
-     * the S3 location where the input data is stored. It also provides information
-     * about the stored data: the MIME type, compression method, and whether the data
-     * is wrapped in RecordIO format. </p> <p>Depending on the input mode that the
-     * algorithm supports, Amazon SageMaker either copies input data files from an S3
-     * bucket to a local directory in the Docker container, or makes it available as
-     * input streams. </p>
+     * the S3, EFS, or FSx location where the input data is stored. It also provides
+     * information about the stored data: the MIME type, compression method, and
+     * whether the data is wrapped in RecordIO format. </p> <p>Depending on the input
+     * mode that the algorithm supports, Amazon SageMaker either copies input data
+     * files from an S3 bucket to a local directory in the Docker container, or makes
+     * it available as input streams. For example, if you specify an EFS location,
+     * input data files will be made available as input streams. They do not need to be
+     * downloaded.</p>
      */
     inline CreateTrainingJobRequest& WithInputDataConfig(const Aws::Vector<Channel>& value) { SetInputDataConfig(value); return *this;}
 
@@ -515,12 +530,14 @@ namespace Model
      * </p> <p>Algorithms can accept input data from one or more channels. For example,
      * an algorithm might have two channels of input data, <code>training_data</code>
      * and <code>validation_data</code>. The configuration for each channel provides
-     * the S3 location where the input data is stored. It also provides information
-     * about the stored data: the MIME type, compression method, and whether the data
-     * is wrapped in RecordIO format. </p> <p>Depending on the input mode that the
-     * algorithm supports, Amazon SageMaker either copies input data files from an S3
-     * bucket to a local directory in the Docker container, or makes it available as
-     * input streams. </p>
+     * the S3, EFS, or FSx location where the input data is stored. It also provides
+     * information about the stored data: the MIME type, compression method, and
+     * whether the data is wrapped in RecordIO format. </p> <p>Depending on the input
+     * mode that the algorithm supports, Amazon SageMaker either copies input data
+     * files from an S3 bucket to a local directory in the Docker container, or makes
+     * it available as input streams. For example, if you specify an EFS location,
+     * input data files will be made available as input streams. They do not need to be
+     * downloaded.</p>
      */
     inline CreateTrainingJobRequest& WithInputDataConfig(Aws::Vector<Channel>&& value) { SetInputDataConfig(std::move(value)); return *this;}
 
@@ -530,12 +547,14 @@ namespace Model
      * </p> <p>Algorithms can accept input data from one or more channels. For example,
      * an algorithm might have two channels of input data, <code>training_data</code>
      * and <code>validation_data</code>. The configuration for each channel provides
-     * the S3 location where the input data is stored. It also provides information
-     * about the stored data: the MIME type, compression method, and whether the data
-     * is wrapped in RecordIO format. </p> <p>Depending on the input mode that the
-     * algorithm supports, Amazon SageMaker either copies input data files from an S3
-     * bucket to a local directory in the Docker container, or makes it available as
-     * input streams. </p>
+     * the S3, EFS, or FSx location where the input data is stored. It also provides
+     * information about the stored data: the MIME type, compression method, and
+     * whether the data is wrapped in RecordIO format. </p> <p>Depending on the input
+     * mode that the algorithm supports, Amazon SageMaker either copies input data
+     * files from an S3 bucket to a local directory in the Docker container, or makes
+     * it available as input streams. For example, if you specify an EFS location,
+     * input data files will be made available as input streams. They do not need to be
+     * downloaded.</p>
      */
     inline CreateTrainingJobRequest& AddInputDataConfig(const Channel& value) { m_inputDataConfigHasBeenSet = true; m_inputDataConfig.push_back(value); return *this; }
 
@@ -545,49 +564,51 @@ namespace Model
      * </p> <p>Algorithms can accept input data from one or more channels. For example,
      * an algorithm might have two channels of input data, <code>training_data</code>
      * and <code>validation_data</code>. The configuration for each channel provides
-     * the S3 location where the input data is stored. It also provides information
-     * about the stored data: the MIME type, compression method, and whether the data
-     * is wrapped in RecordIO format. </p> <p>Depending on the input mode that the
-     * algorithm supports, Amazon SageMaker either copies input data files from an S3
-     * bucket to a local directory in the Docker container, or makes it available as
-     * input streams. </p>
+     * the S3, EFS, or FSx location where the input data is stored. It also provides
+     * information about the stored data: the MIME type, compression method, and
+     * whether the data is wrapped in RecordIO format. </p> <p>Depending on the input
+     * mode that the algorithm supports, Amazon SageMaker either copies input data
+     * files from an S3 bucket to a local directory in the Docker container, or makes
+     * it available as input streams. For example, if you specify an EFS location,
+     * input data files will be made available as input streams. They do not need to be
+     * downloaded.</p>
      */
     inline CreateTrainingJobRequest& AddInputDataConfig(Channel&& value) { m_inputDataConfigHasBeenSet = true; m_inputDataConfig.push_back(std::move(value)); return *this; }
 
 
     /**
-     * <p>Specifies the path to the S3 bucket where you want to store model artifacts.
-     * Amazon SageMaker creates subfolders for the artifacts. </p>
+     * <p>Specifies the path to the S3 location where you want to store model
+     * artifacts. Amazon SageMaker creates subfolders for the artifacts. </p>
      */
     inline const OutputDataConfig& GetOutputDataConfig() const{ return m_outputDataConfig; }
 
     /**
-     * <p>Specifies the path to the S3 bucket where you want to store model artifacts.
-     * Amazon SageMaker creates subfolders for the artifacts. </p>
+     * <p>Specifies the path to the S3 location where you want to store model
+     * artifacts. Amazon SageMaker creates subfolders for the artifacts. </p>
      */
     inline bool OutputDataConfigHasBeenSet() const { return m_outputDataConfigHasBeenSet; }
 
     /**
-     * <p>Specifies the path to the S3 bucket where you want to store model artifacts.
-     * Amazon SageMaker creates subfolders for the artifacts. </p>
+     * <p>Specifies the path to the S3 location where you want to store model
+     * artifacts. Amazon SageMaker creates subfolders for the artifacts. </p>
      */
     inline void SetOutputDataConfig(const OutputDataConfig& value) { m_outputDataConfigHasBeenSet = true; m_outputDataConfig = value; }
 
     /**
-     * <p>Specifies the path to the S3 bucket where you want to store model artifacts.
-     * Amazon SageMaker creates subfolders for the artifacts. </p>
+     * <p>Specifies the path to the S3 location where you want to store model
+     * artifacts. Amazon SageMaker creates subfolders for the artifacts. </p>
      */
     inline void SetOutputDataConfig(OutputDataConfig&& value) { m_outputDataConfigHasBeenSet = true; m_outputDataConfig = std::move(value); }
 
     /**
-     * <p>Specifies the path to the S3 bucket where you want to store model artifacts.
-     * Amazon SageMaker creates subfolders for the artifacts. </p>
+     * <p>Specifies the path to the S3 location where you want to store model
+     * artifacts. Amazon SageMaker creates subfolders for the artifacts. </p>
      */
     inline CreateTrainingJobRequest& WithOutputDataConfig(const OutputDataConfig& value) { SetOutputDataConfig(value); return *this;}
 
     /**
-     * <p>Specifies the path to the S3 bucket where you want to store model artifacts.
-     * Amazon SageMaker creates subfolders for the artifacts. </p>
+     * <p>Specifies the path to the S3 location where you want to store model
+     * artifacts. Amazon SageMaker creates subfolders for the artifacts. </p>
      */
     inline CreateTrainingJobRequest& WithOutputDataConfig(OutputDataConfig&& value) { SetOutputDataConfig(std::move(value)); return *this;}
 
@@ -846,8 +867,7 @@ namespace Model
      * training. If you enable network isolation for training jobs that are configured
      * to use a VPC, Amazon SageMaker downloads and uploads customer data and model
      * artifacts through the specified VPC, but the training container does not have
-     * network access.</p> <note> <p>The Semantic Segmentation built-in algorithm does
-     * not support network isolation.</p> </note>
+     * network access.</p>
      */
     inline bool GetEnableNetworkIsolation() const{ return m_enableNetworkIsolation; }
 
@@ -857,8 +877,7 @@ namespace Model
      * training. If you enable network isolation for training jobs that are configured
      * to use a VPC, Amazon SageMaker downloads and uploads customer data and model
      * artifacts through the specified VPC, but the training container does not have
-     * network access.</p> <note> <p>The Semantic Segmentation built-in algorithm does
-     * not support network isolation.</p> </note>
+     * network access.</p>
      */
     inline bool EnableNetworkIsolationHasBeenSet() const { return m_enableNetworkIsolationHasBeenSet; }
 
@@ -868,8 +887,7 @@ namespace Model
      * training. If you enable network isolation for training jobs that are configured
      * to use a VPC, Amazon SageMaker downloads and uploads customer data and model
      * artifacts through the specified VPC, but the training container does not have
-     * network access.</p> <note> <p>The Semantic Segmentation built-in algorithm does
-     * not support network isolation.</p> </note>
+     * network access.</p>
      */
     inline void SetEnableNetworkIsolation(bool value) { m_enableNetworkIsolationHasBeenSet = true; m_enableNetworkIsolation = value; }
 
@@ -879,8 +897,7 @@ namespace Model
      * training. If you enable network isolation for training jobs that are configured
      * to use a VPC, Amazon SageMaker downloads and uploads customer data and model
      * artifacts through the specified VPC, but the training container does not have
-     * network access.</p> <note> <p>The Semantic Segmentation built-in algorithm does
-     * not support network isolation.</p> </note>
+     * network access.</p>
      */
     inline CreateTrainingJobRequest& WithEnableNetworkIsolation(bool value) { SetEnableNetworkIsolation(value); return *this;}
 
@@ -933,6 +950,194 @@ namespace Model
      */
     inline CreateTrainingJobRequest& WithEnableInterContainerTrafficEncryption(bool value) { SetEnableInterContainerTrafficEncryption(value); return *this;}
 
+
+    /**
+     * <p>To train models using managed spot training, choose <code>True</code>.
+     * Managed spot training provides a fully managed and scalable infrastructure for
+     * training machine learning models. this option is useful when training jobs can
+     * be interrupted and when there is flexibility when the training job is run. </p>
+     * <p>The complete and intermediate results of jobs are stored in an Amazon S3
+     * bucket, and can be used as a starting point to train models incrementally.
+     * Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to
+     * see when managed spot training jobs are running, interrupted, resumed, or
+     * completed. </p>
+     */
+    inline bool GetEnableManagedSpotTraining() const{ return m_enableManagedSpotTraining; }
+
+    /**
+     * <p>To train models using managed spot training, choose <code>True</code>.
+     * Managed spot training provides a fully managed and scalable infrastructure for
+     * training machine learning models. this option is useful when training jobs can
+     * be interrupted and when there is flexibility when the training job is run. </p>
+     * <p>The complete and intermediate results of jobs are stored in an Amazon S3
+     * bucket, and can be used as a starting point to train models incrementally.
+     * Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to
+     * see when managed spot training jobs are running, interrupted, resumed, or
+     * completed. </p>
+     */
+    inline bool EnableManagedSpotTrainingHasBeenSet() const { return m_enableManagedSpotTrainingHasBeenSet; }
+
+    /**
+     * <p>To train models using managed spot training, choose <code>True</code>.
+     * Managed spot training provides a fully managed and scalable infrastructure for
+     * training machine learning models. this option is useful when training jobs can
+     * be interrupted and when there is flexibility when the training job is run. </p>
+     * <p>The complete and intermediate results of jobs are stored in an Amazon S3
+     * bucket, and can be used as a starting point to train models incrementally.
+     * Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to
+     * see when managed spot training jobs are running, interrupted, resumed, or
+     * completed. </p>
+     */
+    inline void SetEnableManagedSpotTraining(bool value) { m_enableManagedSpotTrainingHasBeenSet = true; m_enableManagedSpotTraining = value; }
+
+    /**
+     * <p>To train models using managed spot training, choose <code>True</code>.
+     * Managed spot training provides a fully managed and scalable infrastructure for
+     * training machine learning models. this option is useful when training jobs can
+     * be interrupted and when there is flexibility when the training job is run. </p>
+     * <p>The complete and intermediate results of jobs are stored in an Amazon S3
+     * bucket, and can be used as a starting point to train models incrementally.
+     * Amazon SageMaker provides metrics and logs in CloudWatch. They can be used to
+     * see when managed spot training jobs are running, interrupted, resumed, or
+     * completed. </p>
+     */
+    inline CreateTrainingJobRequest& WithEnableManagedSpotTraining(bool value) { SetEnableManagedSpotTraining(value); return *this;}
+
+
+    /**
+     * <p>Contains information about the output location for managed spot training
+     * checkpoint data.</p>
+     */
+    inline const CheckpointConfig& GetCheckpointConfig() const{ return m_checkpointConfig; }
+
+    /**
+     * <p>Contains information about the output location for managed spot training
+     * checkpoint data.</p>
+     */
+    inline bool CheckpointConfigHasBeenSet() const { return m_checkpointConfigHasBeenSet; }
+
+    /**
+     * <p>Contains information about the output location for managed spot training
+     * checkpoint data.</p>
+     */
+    inline void SetCheckpointConfig(const CheckpointConfig& value) { m_checkpointConfigHasBeenSet = true; m_checkpointConfig = value; }
+
+    /**
+     * <p>Contains information about the output location for managed spot training
+     * checkpoint data.</p>
+     */
+    inline void SetCheckpointConfig(CheckpointConfig&& value) { m_checkpointConfigHasBeenSet = true; m_checkpointConfig = std::move(value); }
+
+    /**
+     * <p>Contains information about the output location for managed spot training
+     * checkpoint data.</p>
+     */
+    inline CreateTrainingJobRequest& WithCheckpointConfig(const CheckpointConfig& value) { SetCheckpointConfig(value); return *this;}
+
+    /**
+     * <p>Contains information about the output location for managed spot training
+     * checkpoint data.</p>
+     */
+    inline CreateTrainingJobRequest& WithCheckpointConfig(CheckpointConfig&& value) { SetCheckpointConfig(std::move(value)); return *this;}
+
+
+    
+    inline const DebugHookConfig& GetDebugHookConfig() const{ return m_debugHookConfig; }
+
+    
+    inline bool DebugHookConfigHasBeenSet() const { return m_debugHookConfigHasBeenSet; }
+
+    
+    inline void SetDebugHookConfig(const DebugHookConfig& value) { m_debugHookConfigHasBeenSet = true; m_debugHookConfig = value; }
+
+    
+    inline void SetDebugHookConfig(DebugHookConfig&& value) { m_debugHookConfigHasBeenSet = true; m_debugHookConfig = std::move(value); }
+
+    
+    inline CreateTrainingJobRequest& WithDebugHookConfig(const DebugHookConfig& value) { SetDebugHookConfig(value); return *this;}
+
+    
+    inline CreateTrainingJobRequest& WithDebugHookConfig(DebugHookConfig&& value) { SetDebugHookConfig(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Configuration information for debugging rules.</p>
+     */
+    inline const Aws::Vector<DebugRuleConfiguration>& GetDebugRuleConfigurations() const{ return m_debugRuleConfigurations; }
+
+    /**
+     * <p>Configuration information for debugging rules.</p>
+     */
+    inline bool DebugRuleConfigurationsHasBeenSet() const { return m_debugRuleConfigurationsHasBeenSet; }
+
+    /**
+     * <p>Configuration information for debugging rules.</p>
+     */
+    inline void SetDebugRuleConfigurations(const Aws::Vector<DebugRuleConfiguration>& value) { m_debugRuleConfigurationsHasBeenSet = true; m_debugRuleConfigurations = value; }
+
+    /**
+     * <p>Configuration information for debugging rules.</p>
+     */
+    inline void SetDebugRuleConfigurations(Aws::Vector<DebugRuleConfiguration>&& value) { m_debugRuleConfigurationsHasBeenSet = true; m_debugRuleConfigurations = std::move(value); }
+
+    /**
+     * <p>Configuration information for debugging rules.</p>
+     */
+    inline CreateTrainingJobRequest& WithDebugRuleConfigurations(const Aws::Vector<DebugRuleConfiguration>& value) { SetDebugRuleConfigurations(value); return *this;}
+
+    /**
+     * <p>Configuration information for debugging rules.</p>
+     */
+    inline CreateTrainingJobRequest& WithDebugRuleConfigurations(Aws::Vector<DebugRuleConfiguration>&& value) { SetDebugRuleConfigurations(std::move(value)); return *this;}
+
+    /**
+     * <p>Configuration information for debugging rules.</p>
+     */
+    inline CreateTrainingJobRequest& AddDebugRuleConfigurations(const DebugRuleConfiguration& value) { m_debugRuleConfigurationsHasBeenSet = true; m_debugRuleConfigurations.push_back(value); return *this; }
+
+    /**
+     * <p>Configuration information for debugging rules.</p>
+     */
+    inline CreateTrainingJobRequest& AddDebugRuleConfigurations(DebugRuleConfiguration&& value) { m_debugRuleConfigurationsHasBeenSet = true; m_debugRuleConfigurations.push_back(std::move(value)); return *this; }
+
+
+    
+    inline const TensorBoardOutputConfig& GetTensorBoardOutputConfig() const{ return m_tensorBoardOutputConfig; }
+
+    
+    inline bool TensorBoardOutputConfigHasBeenSet() const { return m_tensorBoardOutputConfigHasBeenSet; }
+
+    
+    inline void SetTensorBoardOutputConfig(const TensorBoardOutputConfig& value) { m_tensorBoardOutputConfigHasBeenSet = true; m_tensorBoardOutputConfig = value; }
+
+    
+    inline void SetTensorBoardOutputConfig(TensorBoardOutputConfig&& value) { m_tensorBoardOutputConfigHasBeenSet = true; m_tensorBoardOutputConfig = std::move(value); }
+
+    
+    inline CreateTrainingJobRequest& WithTensorBoardOutputConfig(const TensorBoardOutputConfig& value) { SetTensorBoardOutputConfig(value); return *this;}
+
+    
+    inline CreateTrainingJobRequest& WithTensorBoardOutputConfig(TensorBoardOutputConfig&& value) { SetTensorBoardOutputConfig(std::move(value)); return *this;}
+
+
+    
+    inline const ExperimentConfig& GetExperimentConfig() const{ return m_experimentConfig; }
+
+    
+    inline bool ExperimentConfigHasBeenSet() const { return m_experimentConfigHasBeenSet; }
+
+    
+    inline void SetExperimentConfig(const ExperimentConfig& value) { m_experimentConfigHasBeenSet = true; m_experimentConfig = value; }
+
+    
+    inline void SetExperimentConfig(ExperimentConfig&& value) { m_experimentConfigHasBeenSet = true; m_experimentConfig = std::move(value); }
+
+    
+    inline CreateTrainingJobRequest& WithExperimentConfig(const ExperimentConfig& value) { SetExperimentConfig(value); return *this;}
+
+    
+    inline CreateTrainingJobRequest& WithExperimentConfig(ExperimentConfig&& value) { SetExperimentConfig(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_trainingJobName;
@@ -970,6 +1175,24 @@ namespace Model
 
     bool m_enableInterContainerTrafficEncryption;
     bool m_enableInterContainerTrafficEncryptionHasBeenSet;
+
+    bool m_enableManagedSpotTraining;
+    bool m_enableManagedSpotTrainingHasBeenSet;
+
+    CheckpointConfig m_checkpointConfig;
+    bool m_checkpointConfigHasBeenSet;
+
+    DebugHookConfig m_debugHookConfig;
+    bool m_debugHookConfigHasBeenSet;
+
+    Aws::Vector<DebugRuleConfiguration> m_debugRuleConfigurations;
+    bool m_debugRuleConfigurationsHasBeenSet;
+
+    TensorBoardOutputConfig m_tensorBoardOutputConfig;
+    bool m_tensorBoardOutputConfigHasBeenSet;
+
+    ExperimentConfig m_experimentConfig;
+    bool m_experimentConfigHasBeenSet;
   };
 
 } // namespace Model

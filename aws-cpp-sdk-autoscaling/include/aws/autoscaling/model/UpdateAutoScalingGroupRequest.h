@@ -93,96 +93,56 @@ namespace Model
     /**
      * <p>The name of the launch configuration. If you specify
      * <code>LaunchConfigurationName</code> in your update request, you can't specify
-     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p> <note>
-     * <p>To update an Auto Scaling group with a launch configuration with
-     * <code>InstanceMonitoring</code> set to <code>false</code>, you must first
-     * disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it
-     * using <a>DisableMetricsCollection</a>.</p> </note>
+     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
      */
     inline const Aws::String& GetLaunchConfigurationName() const{ return m_launchConfigurationName; }
 
     /**
      * <p>The name of the launch configuration. If you specify
      * <code>LaunchConfigurationName</code> in your update request, you can't specify
-     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p> <note>
-     * <p>To update an Auto Scaling group with a launch configuration with
-     * <code>InstanceMonitoring</code> set to <code>false</code>, you must first
-     * disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it
-     * using <a>DisableMetricsCollection</a>.</p> </note>
+     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
      */
     inline bool LaunchConfigurationNameHasBeenSet() const { return m_launchConfigurationNameHasBeenSet; }
 
     /**
      * <p>The name of the launch configuration. If you specify
      * <code>LaunchConfigurationName</code> in your update request, you can't specify
-     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p> <note>
-     * <p>To update an Auto Scaling group with a launch configuration with
-     * <code>InstanceMonitoring</code> set to <code>false</code>, you must first
-     * disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it
-     * using <a>DisableMetricsCollection</a>.</p> </note>
+     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
      */
     inline void SetLaunchConfigurationName(const Aws::String& value) { m_launchConfigurationNameHasBeenSet = true; m_launchConfigurationName = value; }
 
     /**
      * <p>The name of the launch configuration. If you specify
      * <code>LaunchConfigurationName</code> in your update request, you can't specify
-     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p> <note>
-     * <p>To update an Auto Scaling group with a launch configuration with
-     * <code>InstanceMonitoring</code> set to <code>false</code>, you must first
-     * disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it
-     * using <a>DisableMetricsCollection</a>.</p> </note>
+     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
      */
     inline void SetLaunchConfigurationName(Aws::String&& value) { m_launchConfigurationNameHasBeenSet = true; m_launchConfigurationName = std::move(value); }
 
     /**
      * <p>The name of the launch configuration. If you specify
      * <code>LaunchConfigurationName</code> in your update request, you can't specify
-     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p> <note>
-     * <p>To update an Auto Scaling group with a launch configuration with
-     * <code>InstanceMonitoring</code> set to <code>false</code>, you must first
-     * disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it
-     * using <a>DisableMetricsCollection</a>.</p> </note>
+     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
      */
     inline void SetLaunchConfigurationName(const char* value) { m_launchConfigurationNameHasBeenSet = true; m_launchConfigurationName.assign(value); }
 
     /**
      * <p>The name of the launch configuration. If you specify
      * <code>LaunchConfigurationName</code> in your update request, you can't specify
-     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p> <note>
-     * <p>To update an Auto Scaling group with a launch configuration with
-     * <code>InstanceMonitoring</code> set to <code>false</code>, you must first
-     * disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it
-     * using <a>DisableMetricsCollection</a>.</p> </note>
+     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithLaunchConfigurationName(const Aws::String& value) { SetLaunchConfigurationName(value); return *this;}
 
     /**
      * <p>The name of the launch configuration. If you specify
      * <code>LaunchConfigurationName</code> in your update request, you can't specify
-     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p> <note>
-     * <p>To update an Auto Scaling group with a launch configuration with
-     * <code>InstanceMonitoring</code> set to <code>false</code>, you must first
-     * disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it
-     * using <a>DisableMetricsCollection</a>.</p> </note>
+     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithLaunchConfigurationName(Aws::String&& value) { SetLaunchConfigurationName(std::move(value)); return *this;}
 
     /**
      * <p>The name of the launch configuration. If you specify
      * <code>LaunchConfigurationName</code> in your update request, you can't specify
-     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p> <note>
-     * <p>To update an Auto Scaling group with a launch configuration with
-     * <code>InstanceMonitoring</code> set to <code>false</code>, you must first
-     * disable the collection of group metrics. Otherwise, you get an error. If you
-     * have previously enabled the collection of group metrics, you can disable it
-     * using <a>DisableMetricsCollection</a>.</p> </note>
+     * <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithLaunchConfigurationName(const char* value) { SetLaunchConfigurationName(value); return *this;}
 
@@ -191,6 +151,9 @@ namespace Model
      * <p>The launch template and version to use to specify the updates. If you specify
      * <code>LaunchTemplate</code> in your update request, you can't specify
      * <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.</p>
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
      */
     inline const LaunchTemplateSpecification& GetLaunchTemplate() const{ return m_launchTemplate; }
 
@@ -198,6 +161,9 @@ namespace Model
      * <p>The launch template and version to use to specify the updates. If you specify
      * <code>LaunchTemplate</code> in your update request, you can't specify
      * <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.</p>
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
      */
     inline bool LaunchTemplateHasBeenSet() const { return m_launchTemplateHasBeenSet; }
 
@@ -205,6 +171,9 @@ namespace Model
      * <p>The launch template and version to use to specify the updates. If you specify
      * <code>LaunchTemplate</code> in your update request, you can't specify
      * <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.</p>
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
      */
     inline void SetLaunchTemplate(const LaunchTemplateSpecification& value) { m_launchTemplateHasBeenSet = true; m_launchTemplate = value; }
 
@@ -212,6 +181,9 @@ namespace Model
      * <p>The launch template and version to use to specify the updates. If you specify
      * <code>LaunchTemplate</code> in your update request, you can't specify
      * <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.</p>
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
      */
     inline void SetLaunchTemplate(LaunchTemplateSpecification&& value) { m_launchTemplateHasBeenSet = true; m_launchTemplate = std::move(value); }
 
@@ -219,6 +191,9 @@ namespace Model
      * <p>The launch template and version to use to specify the updates. If you specify
      * <code>LaunchTemplate</code> in your update request, you can't specify
      * <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.</p>
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithLaunchTemplate(const LaunchTemplateSpecification& value) { SetLaunchTemplate(value); return *this;}
 
@@ -226,6 +201,9 @@ namespace Model
      * <p>The launch template and version to use to specify the updates. If you specify
      * <code>LaunchTemplate</code> in your update request, you can't specify
      * <code>LaunchConfigurationName</code> or <code>MixedInstancesPolicy</code>.</p>
+     * <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_LaunchTemplateSpecification.html">LaunchTemplateSpecification</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithLaunchTemplate(LaunchTemplateSpecification&& value) { SetLaunchTemplate(std::move(value)); return *this;}
 
@@ -235,6 +213,8 @@ namespace Model
      * call to <code>UpdateAutoScalingGroup</code>, you can make changes to the policy
      * that is specified. All optional parameters are left unchanged if not
      * specified.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_MixedInstancesPolicy.html">MixedInstancesPolicy</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i> and <a
      * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
      * Scaling Groups with Multiple Instance Types and Purchase Options</a> in the
      * <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -246,6 +226,8 @@ namespace Model
      * call to <code>UpdateAutoScalingGroup</code>, you can make changes to the policy
      * that is specified. All optional parameters are left unchanged if not
      * specified.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_MixedInstancesPolicy.html">MixedInstancesPolicy</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i> and <a
      * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
      * Scaling Groups with Multiple Instance Types and Purchase Options</a> in the
      * <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -257,6 +239,8 @@ namespace Model
      * call to <code>UpdateAutoScalingGroup</code>, you can make changes to the policy
      * that is specified. All optional parameters are left unchanged if not
      * specified.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_MixedInstancesPolicy.html">MixedInstancesPolicy</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i> and <a
      * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
      * Scaling Groups with Multiple Instance Types and Purchase Options</a> in the
      * <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -268,6 +252,8 @@ namespace Model
      * call to <code>UpdateAutoScalingGroup</code>, you can make changes to the policy
      * that is specified. All optional parameters are left unchanged if not
      * specified.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_MixedInstancesPolicy.html">MixedInstancesPolicy</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i> and <a
      * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
      * Scaling Groups with Multiple Instance Types and Purchase Options</a> in the
      * <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -279,6 +265,8 @@ namespace Model
      * call to <code>UpdateAutoScalingGroup</code>, you can make changes to the policy
      * that is specified. All optional parameters are left unchanged if not
      * specified.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_MixedInstancesPolicy.html">MixedInstancesPolicy</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i> and <a
      * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
      * Scaling Groups with Multiple Instance Types and Purchase Options</a> in the
      * <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -290,6 +278,8 @@ namespace Model
      * call to <code>UpdateAutoScalingGroup</code>, you can make changes to the policy
      * that is specified. All optional parameters are left unchanged if not
      * specified.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_MixedInstancesPolicy.html">MixedInstancesPolicy</a>
+     * in the <i>Amazon EC2 Auto Scaling API Reference</i> and <a
      * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
      * Scaling Groups with Multiple Instance Types and Purchase Options</a> in the
      * <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -528,10 +518,10 @@ namespace Model
      * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before
      * checking the health status of an EC2 instance that has come into service. The
      * default value is <code>0</code>.</p> <p>For more information, see <a
-     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User
-     * Guide</i>.</p> <p>Conditional: This parameter is required if you are adding an
-     * <code>ELB</code> health check.</p>
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+     * Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+     * <p>Conditional: This parameter is required if you are adding an <code>ELB</code>
+     * health check.</p>
      */
     inline int GetHealthCheckGracePeriod() const{ return m_healthCheckGracePeriod; }
 
@@ -539,10 +529,10 @@ namespace Model
      * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before
      * checking the health status of an EC2 instance that has come into service. The
      * default value is <code>0</code>.</p> <p>For more information, see <a
-     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User
-     * Guide</i>.</p> <p>Conditional: This parameter is required if you are adding an
-     * <code>ELB</code> health check.</p>
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+     * Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+     * <p>Conditional: This parameter is required if you are adding an <code>ELB</code>
+     * health check.</p>
      */
     inline bool HealthCheckGracePeriodHasBeenSet() const { return m_healthCheckGracePeriodHasBeenSet; }
 
@@ -550,10 +540,10 @@ namespace Model
      * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before
      * checking the health status of an EC2 instance that has come into service. The
      * default value is <code>0</code>.</p> <p>For more information, see <a
-     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User
-     * Guide</i>.</p> <p>Conditional: This parameter is required if you are adding an
-     * <code>ELB</code> health check.</p>
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+     * Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+     * <p>Conditional: This parameter is required if you are adding an <code>ELB</code>
+     * health check.</p>
      */
     inline void SetHealthCheckGracePeriod(int value) { m_healthCheckGracePeriodHasBeenSet = true; m_healthCheckGracePeriod = value; }
 
@@ -561,10 +551,10 @@ namespace Model
      * <p>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before
      * checking the health status of an EC2 instance that has come into service. The
      * default value is <code>0</code>.</p> <p>For more information, see <a
-     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-     * Checks for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User
-     * Guide</i>.</p> <p>Conditional: This parameter is required if you are adding an
-     * <code>ELB</code> health check.</p>
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html#health-check-grace-period">Health
+     * Check Grace Period</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+     * <p>Conditional: This parameter is required if you are adding an <code>ELB</code>
+     * health check.</p>
      */
     inline UpdateAutoScalingGroupRequest& WithHealthCheckGracePeriod(int value) { SetHealthCheckGracePeriod(value); return *this;}
 
@@ -915,6 +905,47 @@ namespace Model
      */
     inline UpdateAutoScalingGroupRequest& WithServiceLinkedRoleARN(const char* value) { SetServiceLinkedRoleARN(value); return *this;}
 
+
+    /**
+     * <p>The maximum amount of time, in seconds, that an instance can be in
+     * service.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing
+     * Auto Scaling Instances Based on Maximum Instance Lifetime</a> in the <i>Amazon
+     * EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of
+     * 604800.</p>
+     */
+    inline int GetMaxInstanceLifetime() const{ return m_maxInstanceLifetime; }
+
+    /**
+     * <p>The maximum amount of time, in seconds, that an instance can be in
+     * service.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing
+     * Auto Scaling Instances Based on Maximum Instance Lifetime</a> in the <i>Amazon
+     * EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of
+     * 604800.</p>
+     */
+    inline bool MaxInstanceLifetimeHasBeenSet() const { return m_maxInstanceLifetimeHasBeenSet; }
+
+    /**
+     * <p>The maximum amount of time, in seconds, that an instance can be in
+     * service.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing
+     * Auto Scaling Instances Based on Maximum Instance Lifetime</a> in the <i>Amazon
+     * EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of
+     * 604800.</p>
+     */
+    inline void SetMaxInstanceLifetime(int value) { m_maxInstanceLifetimeHasBeenSet = true; m_maxInstanceLifetime = value; }
+
+    /**
+     * <p>The maximum amount of time, in seconds, that an instance can be in
+     * service.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html">Replacing
+     * Auto Scaling Instances Based on Maximum Instance Lifetime</a> in the <i>Amazon
+     * EC2 Auto Scaling User Guide</i>.</p> <p>Valid Range: Minimum value of
+     * 604800.</p>
+     */
+    inline UpdateAutoScalingGroupRequest& WithMaxInstanceLifetime(int value) { SetMaxInstanceLifetime(value); return *this;}
+
   private:
 
     Aws::String m_autoScalingGroupName;
@@ -964,6 +995,9 @@ namespace Model
 
     Aws::String m_serviceLinkedRoleARN;
     bool m_serviceLinkedRoleARNHasBeenSet;
+
+    int m_maxInstanceLifetime;
+    bool m_maxInstanceLifetimeHasBeenSet;
   };
 
 } // namespace Model

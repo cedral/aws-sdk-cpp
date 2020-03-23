@@ -174,32 +174,80 @@ namespace Model
 
 
     /**
-     * <p>The Amazon QuickSight role for the user.</p>
+     * <p>The Amazon QuickSight role for the user. The user role can be one of the
+     * following:.</p> <ul> <li> <p> <code>READER</code>: A user who has read-only
+     * access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can
+     * create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p>
+     * <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+     * QuickSight settings.</p> </li> <li> <p> <code>RESTRICTED_READER</code>: This
+     * role isn't currently available for use.</p> </li> <li> <p>
+     * <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p>
+     * </li> </ul>
      */
     inline const UserRole& GetRole() const{ return m_role; }
 
     /**
-     * <p>The Amazon QuickSight role for the user.</p>
+     * <p>The Amazon QuickSight role for the user. The user role can be one of the
+     * following:.</p> <ul> <li> <p> <code>READER</code>: A user who has read-only
+     * access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can
+     * create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p>
+     * <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+     * QuickSight settings.</p> </li> <li> <p> <code>RESTRICTED_READER</code>: This
+     * role isn't currently available for use.</p> </li> <li> <p>
+     * <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p>
+     * </li> </ul>
      */
     inline bool RoleHasBeenSet() const { return m_roleHasBeenSet; }
 
     /**
-     * <p>The Amazon QuickSight role for the user.</p>
+     * <p>The Amazon QuickSight role for the user. The user role can be one of the
+     * following:.</p> <ul> <li> <p> <code>READER</code>: A user who has read-only
+     * access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can
+     * create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p>
+     * <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+     * QuickSight settings.</p> </li> <li> <p> <code>RESTRICTED_READER</code>: This
+     * role isn't currently available for use.</p> </li> <li> <p>
+     * <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p>
+     * </li> </ul>
      */
     inline void SetRole(const UserRole& value) { m_roleHasBeenSet = true; m_role = value; }
 
     /**
-     * <p>The Amazon QuickSight role for the user.</p>
+     * <p>The Amazon QuickSight role for the user. The user role can be one of the
+     * following:.</p> <ul> <li> <p> <code>READER</code>: A user who has read-only
+     * access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can
+     * create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p>
+     * <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+     * QuickSight settings.</p> </li> <li> <p> <code>RESTRICTED_READER</code>: This
+     * role isn't currently available for use.</p> </li> <li> <p>
+     * <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p>
+     * </li> </ul>
      */
     inline void SetRole(UserRole&& value) { m_roleHasBeenSet = true; m_role = std::move(value); }
 
     /**
-     * <p>The Amazon QuickSight role for the user.</p>
+     * <p>The Amazon QuickSight role for the user. The user role can be one of the
+     * following:.</p> <ul> <li> <p> <code>READER</code>: A user who has read-only
+     * access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can
+     * create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p>
+     * <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+     * QuickSight settings.</p> </li> <li> <p> <code>RESTRICTED_READER</code>: This
+     * role isn't currently available for use.</p> </li> <li> <p>
+     * <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p>
+     * </li> </ul>
      */
     inline User& WithRole(const UserRole& value) { SetRole(value); return *this;}
 
     /**
-     * <p>The Amazon QuickSight role for the user.</p>
+     * <p>The Amazon QuickSight role for the user. The user role can be one of the
+     * following:.</p> <ul> <li> <p> <code>READER</code>: A user who has read-only
+     * access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can
+     * create data sources, datasets, analyses, and dashboards.</p> </li> <li> <p>
+     * <code>ADMIN</code>: A user who is an author, who can also manage Amazon
+     * QuickSight settings.</p> </li> <li> <p> <code>RESTRICTED_READER</code>: This
+     * role isn't currently available for use.</p> </li> <li> <p>
+     * <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for use.</p>
+     * </li> </ul>
      */
     inline User& WithRole(UserRole&& value) { SetRole(std::move(value)); return *this;}
 
@@ -236,30 +284,30 @@ namespace Model
 
 
     /**
-     * <p>Active status of user. When you create an Amazon QuickSight user that’s not
-     * an IAM user or an AD user, that user is inactive until they sign in and provide
-     * a password</p>
+     * <p>The active status of user. When you create an Amazon QuickSight user that’s
+     * not an IAM user or an Active Directory user, that user is inactive until they
+     * sign in and provide a password.</p>
      */
     inline bool GetActive() const{ return m_active; }
 
     /**
-     * <p>Active status of user. When you create an Amazon QuickSight user that’s not
-     * an IAM user or an AD user, that user is inactive until they sign in and provide
-     * a password</p>
+     * <p>The active status of user. When you create an Amazon QuickSight user that’s
+     * not an IAM user or an Active Directory user, that user is inactive until they
+     * sign in and provide a password.</p>
      */
     inline bool ActiveHasBeenSet() const { return m_activeHasBeenSet; }
 
     /**
-     * <p>Active status of user. When you create an Amazon QuickSight user that’s not
-     * an IAM user or an AD user, that user is inactive until they sign in and provide
-     * a password</p>
+     * <p>The active status of user. When you create an Amazon QuickSight user that’s
+     * not an IAM user or an Active Directory user, that user is inactive until they
+     * sign in and provide a password.</p>
      */
     inline void SetActive(bool value) { m_activeHasBeenSet = true; m_active = value; }
 
     /**
-     * <p>Active status of user. When you create an Amazon QuickSight user that’s not
-     * an IAM user or an AD user, that user is inactive until they sign in and provide
-     * a password</p>
+     * <p>The active status of user. When you create an Amazon QuickSight user that’s
+     * not an IAM user or an Active Directory user, that user is inactive until they
+     * sign in and provide a password.</p>
      */
     inline User& WithActive(bool value) { SetActive(value); return *this;}
 

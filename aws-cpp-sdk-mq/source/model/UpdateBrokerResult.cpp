@@ -64,10 +64,25 @@ UpdateBrokerResult& UpdateBrokerResult::operator =(const Aws::AmazonWebServiceRe
 
   }
 
+  if(jsonValue.ValueExists("hostInstanceType"))
+  {
+    m_hostInstanceType = jsonValue.GetString("hostInstanceType");
+
+  }
+
   if(jsonValue.ValueExists("logs"))
   {
     m_logs = jsonValue.GetObject("logs");
 
+  }
+
+  if(jsonValue.ValueExists("securityGroups"))
+  {
+    Array<JsonView> securityGroupsJsonList = jsonValue.GetArray("securityGroups");
+    for(unsigned securityGroupsIndex = 0; securityGroupsIndex < securityGroupsJsonList.GetLength(); ++securityGroupsIndex)
+    {
+      m_securityGroups.push_back(securityGroupsJsonList[securityGroupsIndex].AsString());
+    }
   }
 
 

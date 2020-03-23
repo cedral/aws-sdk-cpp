@@ -48,6 +48,17 @@ DescribeAlarmsResult& DescribeAlarmsResult::operator =(const Aws::AmazonWebServi
 
   if(!resultNode.IsNull())
   {
+    XmlNode compositeAlarmsNode = resultNode.FirstChild("CompositeAlarms");
+    if(!compositeAlarmsNode.IsNull())
+    {
+      XmlNode compositeAlarmsMember = compositeAlarmsNode.FirstChild("member");
+      while(!compositeAlarmsMember.IsNull())
+      {
+        m_compositeAlarms.push_back(compositeAlarmsMember);
+        compositeAlarmsMember = compositeAlarmsMember.NextNode("member");
+      }
+
+    }
     XmlNode metricAlarmsNode = resultNode.FirstChild("MetricAlarms");
     if(!metricAlarmsNode.IsNull())
     {
@@ -62,7 +73,7 @@ DescribeAlarmsResult& DescribeAlarmsResult::operator =(const Aws::AmazonWebServi
     XmlNode nextTokenNode = resultNode.FirstChild("NextToken");
     if(!nextTokenNode.IsNull())
     {
-      m_nextToken = nextTokenNode.GetText();
+      m_nextToken = Aws::Utils::Xml::DecodeEscapedXmlText(nextTokenNode.GetText());
     }
   }
 

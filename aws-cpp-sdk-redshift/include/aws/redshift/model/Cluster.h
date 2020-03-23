@@ -160,10 +160,11 @@ namespace Model
      * </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p>
      * <code>incompatible-parameters</code> </p> </li> <li> <p>
      * <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code>
-     * </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p>
-     * <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li>
-     * <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code>
-     * </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>
+     * </p> </li> <li> <p> <code>paused</code> </p> </li> <li> <p>
+     * <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li>
+     * <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p>
+     * </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p>
+     * <code>updating-hsm</code> </p> </li> </ul>
      */
     inline const Aws::String& GetClusterStatus() const{ return m_clusterStatus; }
 
@@ -178,10 +179,11 @@ namespace Model
      * </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p>
      * <code>incompatible-parameters</code> </p> </li> <li> <p>
      * <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code>
-     * </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p>
-     * <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li>
-     * <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code>
-     * </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>
+     * </p> </li> <li> <p> <code>paused</code> </p> </li> <li> <p>
+     * <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li>
+     * <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p>
+     * </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p>
+     * <code>updating-hsm</code> </p> </li> </ul>
      */
     inline bool ClusterStatusHasBeenSet() const { return m_clusterStatusHasBeenSet; }
 
@@ -196,10 +198,11 @@ namespace Model
      * </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p>
      * <code>incompatible-parameters</code> </p> </li> <li> <p>
      * <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code>
-     * </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p>
-     * <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li>
-     * <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code>
-     * </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>
+     * </p> </li> <li> <p> <code>paused</code> </p> </li> <li> <p>
+     * <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li>
+     * <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p>
+     * </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p>
+     * <code>updating-hsm</code> </p> </li> </ul>
      */
     inline void SetClusterStatus(const Aws::String& value) { m_clusterStatusHasBeenSet = true; m_clusterStatus = value; }
 
@@ -214,10 +217,11 @@ namespace Model
      * </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p>
      * <code>incompatible-parameters</code> </p> </li> <li> <p>
      * <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code>
-     * </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p>
-     * <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li>
-     * <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code>
-     * </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>
+     * </p> </li> <li> <p> <code>paused</code> </p> </li> <li> <p>
+     * <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li>
+     * <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p>
+     * </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p>
+     * <code>updating-hsm</code> </p> </li> </ul>
      */
     inline void SetClusterStatus(Aws::String&& value) { m_clusterStatusHasBeenSet = true; m_clusterStatus = std::move(value); }
 
@@ -232,10 +236,11 @@ namespace Model
      * </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p>
      * <code>incompatible-parameters</code> </p> </li> <li> <p>
      * <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code>
-     * </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p>
-     * <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li>
-     * <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code>
-     * </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>
+     * </p> </li> <li> <p> <code>paused</code> </p> </li> <li> <p>
+     * <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li>
+     * <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p>
+     * </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p>
+     * <code>updating-hsm</code> </p> </li> </ul>
      */
     inline void SetClusterStatus(const char* value) { m_clusterStatusHasBeenSet = true; m_clusterStatus.assign(value); }
 
@@ -250,10 +255,11 @@ namespace Model
      * </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p>
      * <code>incompatible-parameters</code> </p> </li> <li> <p>
      * <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code>
-     * </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p>
-     * <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li>
-     * <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code>
-     * </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>
+     * </p> </li> <li> <p> <code>paused</code> </p> </li> <li> <p>
+     * <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li>
+     * <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p>
+     * </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p>
+     * <code>updating-hsm</code> </p> </li> </ul>
      */
     inline Cluster& WithClusterStatus(const Aws::String& value) { SetClusterStatus(value); return *this;}
 
@@ -268,10 +274,11 @@ namespace Model
      * </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p>
      * <code>incompatible-parameters</code> </p> </li> <li> <p>
      * <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code>
-     * </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p>
-     * <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li>
-     * <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code>
-     * </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>
+     * </p> </li> <li> <p> <code>paused</code> </p> </li> <li> <p>
+     * <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li>
+     * <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p>
+     * </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p>
+     * <code>updating-hsm</code> </p> </li> </ul>
      */
     inline Cluster& WithClusterStatus(Aws::String&& value) { SetClusterStatus(std::move(value)); return *this;}
 
@@ -286,10 +293,11 @@ namespace Model
      * </p> </li> <li> <p> <code>incompatible-network</code> </p> </li> <li> <p>
      * <code>incompatible-parameters</code> </p> </li> <li> <p>
      * <code>incompatible-restore</code> </p> </li> <li> <p> <code>modifying</code>
-     * </p> </li> <li> <p> <code>rebooting</code> </p> </li> <li> <p>
-     * <code>renaming</code> </p> </li> <li> <p> <code>resizing</code> </p> </li> <li>
-     * <p> <code>rotating-keys</code> </p> </li> <li> <p> <code>storage-full</code>
-     * </p> </li> <li> <p> <code>updating-hsm</code> </p> </li> </ul>
+     * </p> </li> <li> <p> <code>paused</code> </p> </li> <li> <p>
+     * <code>rebooting</code> </p> </li> <li> <p> <code>renaming</code> </p> </li> <li>
+     * <p> <code>resizing</code> </p> </li> <li> <p> <code>rotating-keys</code> </p>
+     * </li> <li> <p> <code>storage-full</code> </p> </li> <li> <p>
+     * <code>updating-hsm</code> </p> </li> </ul>
      */
     inline Cluster& WithClusterStatus(const char* value) { SetClusterStatus(value); return *this;}
 
@@ -1959,6 +1967,139 @@ namespace Model
 
 
     /**
+     * <p>The date and time when the next snapshot is expected to be taken for clusters
+     * with a valid snapshot schedule and backups enabled. </p>
+     */
+    inline const Aws::Utils::DateTime& GetExpectedNextSnapshotScheduleTime() const{ return m_expectedNextSnapshotScheduleTime; }
+
+    /**
+     * <p>The date and time when the next snapshot is expected to be taken for clusters
+     * with a valid snapshot schedule and backups enabled. </p>
+     */
+    inline bool ExpectedNextSnapshotScheduleTimeHasBeenSet() const { return m_expectedNextSnapshotScheduleTimeHasBeenSet; }
+
+    /**
+     * <p>The date and time when the next snapshot is expected to be taken for clusters
+     * with a valid snapshot schedule and backups enabled. </p>
+     */
+    inline void SetExpectedNextSnapshotScheduleTime(const Aws::Utils::DateTime& value) { m_expectedNextSnapshotScheduleTimeHasBeenSet = true; m_expectedNextSnapshotScheduleTime = value; }
+
+    /**
+     * <p>The date and time when the next snapshot is expected to be taken for clusters
+     * with a valid snapshot schedule and backups enabled. </p>
+     */
+    inline void SetExpectedNextSnapshotScheduleTime(Aws::Utils::DateTime&& value) { m_expectedNextSnapshotScheduleTimeHasBeenSet = true; m_expectedNextSnapshotScheduleTime = std::move(value); }
+
+    /**
+     * <p>The date and time when the next snapshot is expected to be taken for clusters
+     * with a valid snapshot schedule and backups enabled. </p>
+     */
+    inline Cluster& WithExpectedNextSnapshotScheduleTime(const Aws::Utils::DateTime& value) { SetExpectedNextSnapshotScheduleTime(value); return *this;}
+
+    /**
+     * <p>The date and time when the next snapshot is expected to be taken for clusters
+     * with a valid snapshot schedule and backups enabled. </p>
+     */
+    inline Cluster& WithExpectedNextSnapshotScheduleTime(Aws::Utils::DateTime&& value) { SetExpectedNextSnapshotScheduleTime(std::move(value)); return *this;}
+
+
+    /**
+     * <p> The status of next expected snapshot for clusters having a valid snapshot
+     * schedule and backups enabled. Possible values are the following:</p> <ul> <li>
+     * <p>OnTrack - The next snapshot is expected to be taken on time. </p> </li> <li>
+     * <p>Pending - The next snapshot is pending to be taken. </p> </li> </ul>
+     */
+    inline const Aws::String& GetExpectedNextSnapshotScheduleTimeStatus() const{ return m_expectedNextSnapshotScheduleTimeStatus; }
+
+    /**
+     * <p> The status of next expected snapshot for clusters having a valid snapshot
+     * schedule and backups enabled. Possible values are the following:</p> <ul> <li>
+     * <p>OnTrack - The next snapshot is expected to be taken on time. </p> </li> <li>
+     * <p>Pending - The next snapshot is pending to be taken. </p> </li> </ul>
+     */
+    inline bool ExpectedNextSnapshotScheduleTimeStatusHasBeenSet() const { return m_expectedNextSnapshotScheduleTimeStatusHasBeenSet; }
+
+    /**
+     * <p> The status of next expected snapshot for clusters having a valid snapshot
+     * schedule and backups enabled. Possible values are the following:</p> <ul> <li>
+     * <p>OnTrack - The next snapshot is expected to be taken on time. </p> </li> <li>
+     * <p>Pending - The next snapshot is pending to be taken. </p> </li> </ul>
+     */
+    inline void SetExpectedNextSnapshotScheduleTimeStatus(const Aws::String& value) { m_expectedNextSnapshotScheduleTimeStatusHasBeenSet = true; m_expectedNextSnapshotScheduleTimeStatus = value; }
+
+    /**
+     * <p> The status of next expected snapshot for clusters having a valid snapshot
+     * schedule and backups enabled. Possible values are the following:</p> <ul> <li>
+     * <p>OnTrack - The next snapshot is expected to be taken on time. </p> </li> <li>
+     * <p>Pending - The next snapshot is pending to be taken. </p> </li> </ul>
+     */
+    inline void SetExpectedNextSnapshotScheduleTimeStatus(Aws::String&& value) { m_expectedNextSnapshotScheduleTimeStatusHasBeenSet = true; m_expectedNextSnapshotScheduleTimeStatus = std::move(value); }
+
+    /**
+     * <p> The status of next expected snapshot for clusters having a valid snapshot
+     * schedule and backups enabled. Possible values are the following:</p> <ul> <li>
+     * <p>OnTrack - The next snapshot is expected to be taken on time. </p> </li> <li>
+     * <p>Pending - The next snapshot is pending to be taken. </p> </li> </ul>
+     */
+    inline void SetExpectedNextSnapshotScheduleTimeStatus(const char* value) { m_expectedNextSnapshotScheduleTimeStatusHasBeenSet = true; m_expectedNextSnapshotScheduleTimeStatus.assign(value); }
+
+    /**
+     * <p> The status of next expected snapshot for clusters having a valid snapshot
+     * schedule and backups enabled. Possible values are the following:</p> <ul> <li>
+     * <p>OnTrack - The next snapshot is expected to be taken on time. </p> </li> <li>
+     * <p>Pending - The next snapshot is pending to be taken. </p> </li> </ul>
+     */
+    inline Cluster& WithExpectedNextSnapshotScheduleTimeStatus(const Aws::String& value) { SetExpectedNextSnapshotScheduleTimeStatus(value); return *this;}
+
+    /**
+     * <p> The status of next expected snapshot for clusters having a valid snapshot
+     * schedule and backups enabled. Possible values are the following:</p> <ul> <li>
+     * <p>OnTrack - The next snapshot is expected to be taken on time. </p> </li> <li>
+     * <p>Pending - The next snapshot is pending to be taken. </p> </li> </ul>
+     */
+    inline Cluster& WithExpectedNextSnapshotScheduleTimeStatus(Aws::String&& value) { SetExpectedNextSnapshotScheduleTimeStatus(std::move(value)); return *this;}
+
+    /**
+     * <p> The status of next expected snapshot for clusters having a valid snapshot
+     * schedule and backups enabled. Possible values are the following:</p> <ul> <li>
+     * <p>OnTrack - The next snapshot is expected to be taken on time. </p> </li> <li>
+     * <p>Pending - The next snapshot is pending to be taken. </p> </li> </ul>
+     */
+    inline Cluster& WithExpectedNextSnapshotScheduleTimeStatus(const char* value) { SetExpectedNextSnapshotScheduleTimeStatus(value); return *this;}
+
+
+    /**
+     * <p>The date and time in UTC when system maintenance can begin.</p>
+     */
+    inline const Aws::Utils::DateTime& GetNextMaintenanceWindowStartTime() const{ return m_nextMaintenanceWindowStartTime; }
+
+    /**
+     * <p>The date and time in UTC when system maintenance can begin.</p>
+     */
+    inline bool NextMaintenanceWindowStartTimeHasBeenSet() const { return m_nextMaintenanceWindowStartTimeHasBeenSet; }
+
+    /**
+     * <p>The date and time in UTC when system maintenance can begin.</p>
+     */
+    inline void SetNextMaintenanceWindowStartTime(const Aws::Utils::DateTime& value) { m_nextMaintenanceWindowStartTimeHasBeenSet = true; m_nextMaintenanceWindowStartTime = value; }
+
+    /**
+     * <p>The date and time in UTC when system maintenance can begin.</p>
+     */
+    inline void SetNextMaintenanceWindowStartTime(Aws::Utils::DateTime&& value) { m_nextMaintenanceWindowStartTimeHasBeenSet = true; m_nextMaintenanceWindowStartTime = std::move(value); }
+
+    /**
+     * <p>The date and time in UTC when system maintenance can begin.</p>
+     */
+    inline Cluster& WithNextMaintenanceWindowStartTime(const Aws::Utils::DateTime& value) { SetNextMaintenanceWindowStartTime(value); return *this;}
+
+    /**
+     * <p>The date and time in UTC when system maintenance can begin.</p>
+     */
+    inline Cluster& WithNextMaintenanceWindowStartTime(Aws::Utils::DateTime&& value) { SetNextMaintenanceWindowStartTime(std::move(value)); return *this;}
+
+
+    /**
      * <p>Returns the following:</p> <ul> <li> <p>AllowCancelResize: a boolean value
      * indicating if the resize operation can be cancelled.</p> </li> <li>
      * <p>ResizeType: Returns ClassicResize</p> </li> </ul>
@@ -2127,6 +2268,15 @@ namespace Model
 
     ScheduleState m_snapshotScheduleState;
     bool m_snapshotScheduleStateHasBeenSet;
+
+    Aws::Utils::DateTime m_expectedNextSnapshotScheduleTime;
+    bool m_expectedNextSnapshotScheduleTimeHasBeenSet;
+
+    Aws::String m_expectedNextSnapshotScheduleTimeStatus;
+    bool m_expectedNextSnapshotScheduleTimeStatusHasBeenSet;
+
+    Aws::Utils::DateTime m_nextMaintenanceWindowStartTime;
+    bool m_nextMaintenanceWindowStartTimeHasBeenSet;
 
     ResizeInfo m_resizeInfo;
     bool m_resizeInfoHasBeenSet;

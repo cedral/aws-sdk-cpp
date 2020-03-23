@@ -823,50 +823,38 @@ namespace Model
 
 
     /**
-     * <p>A complex type that specifies whether you want viewers to use HTTP or HTTPS
-     * to request your objects, whether you're using an alternate domain name with
-     * HTTPS, and if so, if you're using AWS Certificate Manager (ACM) or a third-party
-     * certificate authority.</p>
+     * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+     * communicating with viewers.</p>
      */
     inline const ViewerCertificate& GetViewerCertificate() const{ return m_viewerCertificate; }
 
     /**
-     * <p>A complex type that specifies whether you want viewers to use HTTP or HTTPS
-     * to request your objects, whether you're using an alternate domain name with
-     * HTTPS, and if so, if you're using AWS Certificate Manager (ACM) or a third-party
-     * certificate authority.</p>
+     * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+     * communicating with viewers.</p>
      */
     inline bool ViewerCertificateHasBeenSet() const { return m_viewerCertificateHasBeenSet; }
 
     /**
-     * <p>A complex type that specifies whether you want viewers to use HTTP or HTTPS
-     * to request your objects, whether you're using an alternate domain name with
-     * HTTPS, and if so, if you're using AWS Certificate Manager (ACM) or a third-party
-     * certificate authority.</p>
+     * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+     * communicating with viewers.</p>
      */
     inline void SetViewerCertificate(const ViewerCertificate& value) { m_viewerCertificateHasBeenSet = true; m_viewerCertificate = value; }
 
     /**
-     * <p>A complex type that specifies whether you want viewers to use HTTP or HTTPS
-     * to request your objects, whether you're using an alternate domain name with
-     * HTTPS, and if so, if you're using AWS Certificate Manager (ACM) or a third-party
-     * certificate authority.</p>
+     * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+     * communicating with viewers.</p>
      */
     inline void SetViewerCertificate(ViewerCertificate&& value) { m_viewerCertificateHasBeenSet = true; m_viewerCertificate = std::move(value); }
 
     /**
-     * <p>A complex type that specifies whether you want viewers to use HTTP or HTTPS
-     * to request your objects, whether you're using an alternate domain name with
-     * HTTPS, and if so, if you're using AWS Certificate Manager (ACM) or a third-party
-     * certificate authority.</p>
+     * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+     * communicating with viewers.</p>
      */
     inline DistributionConfig& WithViewerCertificate(const ViewerCertificate& value) { SetViewerCertificate(value); return *this;}
 
     /**
-     * <p>A complex type that specifies whether you want viewers to use HTTP or HTTPS
-     * to request your objects, whether you're using an alternate domain name with
-     * HTTPS, and if so, if you're using AWS Certificate Manager (ACM) or a third-party
-     * certificate authority.</p>
+     * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+     * communicating with viewers.</p>
      */
     inline DistributionConfig& WithViewerCertificate(ViewerCertificate&& value) { SetViewerCertificate(std::move(value)); return *this;}
 
@@ -910,120 +898,152 @@ namespace Model
 
     /**
      * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-     * with this distribution.</p> <p>AWS WAF is a web application firewall that lets
-     * you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and
-     * lets you control access to your content. Based on conditions that you specify,
-     * such as the IP addresses that requests originate from or the values of query
-     * strings, CloudFront responds to requests either with the requested content or
-     * with an HTTP 403 status code (Forbidden). You can also configure CloudFront to
-     * return a custom error page when a request is blocked. For more information about
-     * AWS WAF, see the <a
-     * href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+     * with this distribution. To specify a web ACL created using the latest version of
+     * AWS WAF, use the ACL ARN, for example
+     * <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+     * To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+     * <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p> <p>AWS WAF is a web
+     * application firewall that lets you monitor the HTTP and HTTPS requests that are
+     * forwarded to CloudFront, and lets you control access to your content. Based on
+     * conditions that you specify, such as the IP addresses that requests originate
+     * from or the values of query strings, CloudFront responds to requests either with
+     * the requested content or with an HTTP 403 status code (Forbidden). You can also
+     * configure CloudFront to return a custom error page when a request is blocked.
+     * For more information about AWS WAF, see the <a
+     * href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
      * WAF Developer Guide</a>. </p>
      */
     inline const Aws::String& GetWebACLId() const{ return m_webACLId; }
 
     /**
      * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-     * with this distribution.</p> <p>AWS WAF is a web application firewall that lets
-     * you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and
-     * lets you control access to your content. Based on conditions that you specify,
-     * such as the IP addresses that requests originate from or the values of query
-     * strings, CloudFront responds to requests either with the requested content or
-     * with an HTTP 403 status code (Forbidden). You can also configure CloudFront to
-     * return a custom error page when a request is blocked. For more information about
-     * AWS WAF, see the <a
-     * href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+     * with this distribution. To specify a web ACL created using the latest version of
+     * AWS WAF, use the ACL ARN, for example
+     * <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+     * To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+     * <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p> <p>AWS WAF is a web
+     * application firewall that lets you monitor the HTTP and HTTPS requests that are
+     * forwarded to CloudFront, and lets you control access to your content. Based on
+     * conditions that you specify, such as the IP addresses that requests originate
+     * from or the values of query strings, CloudFront responds to requests either with
+     * the requested content or with an HTTP 403 status code (Forbidden). You can also
+     * configure CloudFront to return a custom error page when a request is blocked.
+     * For more information about AWS WAF, see the <a
+     * href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
      * WAF Developer Guide</a>. </p>
      */
     inline bool WebACLIdHasBeenSet() const { return m_webACLIdHasBeenSet; }
 
     /**
      * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-     * with this distribution.</p> <p>AWS WAF is a web application firewall that lets
-     * you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and
-     * lets you control access to your content. Based on conditions that you specify,
-     * such as the IP addresses that requests originate from or the values of query
-     * strings, CloudFront responds to requests either with the requested content or
-     * with an HTTP 403 status code (Forbidden). You can also configure CloudFront to
-     * return a custom error page when a request is blocked. For more information about
-     * AWS WAF, see the <a
-     * href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+     * with this distribution. To specify a web ACL created using the latest version of
+     * AWS WAF, use the ACL ARN, for example
+     * <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+     * To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+     * <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p> <p>AWS WAF is a web
+     * application firewall that lets you monitor the HTTP and HTTPS requests that are
+     * forwarded to CloudFront, and lets you control access to your content. Based on
+     * conditions that you specify, such as the IP addresses that requests originate
+     * from or the values of query strings, CloudFront responds to requests either with
+     * the requested content or with an HTTP 403 status code (Forbidden). You can also
+     * configure CloudFront to return a custom error page when a request is blocked.
+     * For more information about AWS WAF, see the <a
+     * href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
      * WAF Developer Guide</a>. </p>
      */
     inline void SetWebACLId(const Aws::String& value) { m_webACLIdHasBeenSet = true; m_webACLId = value; }
 
     /**
      * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-     * with this distribution.</p> <p>AWS WAF is a web application firewall that lets
-     * you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and
-     * lets you control access to your content. Based on conditions that you specify,
-     * such as the IP addresses that requests originate from or the values of query
-     * strings, CloudFront responds to requests either with the requested content or
-     * with an HTTP 403 status code (Forbidden). You can also configure CloudFront to
-     * return a custom error page when a request is blocked. For more information about
-     * AWS WAF, see the <a
-     * href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+     * with this distribution. To specify a web ACL created using the latest version of
+     * AWS WAF, use the ACL ARN, for example
+     * <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+     * To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+     * <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p> <p>AWS WAF is a web
+     * application firewall that lets you monitor the HTTP and HTTPS requests that are
+     * forwarded to CloudFront, and lets you control access to your content. Based on
+     * conditions that you specify, such as the IP addresses that requests originate
+     * from or the values of query strings, CloudFront responds to requests either with
+     * the requested content or with an HTTP 403 status code (Forbidden). You can also
+     * configure CloudFront to return a custom error page when a request is blocked.
+     * For more information about AWS WAF, see the <a
+     * href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
      * WAF Developer Guide</a>. </p>
      */
     inline void SetWebACLId(Aws::String&& value) { m_webACLIdHasBeenSet = true; m_webACLId = std::move(value); }
 
     /**
      * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-     * with this distribution.</p> <p>AWS WAF is a web application firewall that lets
-     * you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and
-     * lets you control access to your content. Based on conditions that you specify,
-     * such as the IP addresses that requests originate from or the values of query
-     * strings, CloudFront responds to requests either with the requested content or
-     * with an HTTP 403 status code (Forbidden). You can also configure CloudFront to
-     * return a custom error page when a request is blocked. For more information about
-     * AWS WAF, see the <a
-     * href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+     * with this distribution. To specify a web ACL created using the latest version of
+     * AWS WAF, use the ACL ARN, for example
+     * <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+     * To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+     * <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p> <p>AWS WAF is a web
+     * application firewall that lets you monitor the HTTP and HTTPS requests that are
+     * forwarded to CloudFront, and lets you control access to your content. Based on
+     * conditions that you specify, such as the IP addresses that requests originate
+     * from or the values of query strings, CloudFront responds to requests either with
+     * the requested content or with an HTTP 403 status code (Forbidden). You can also
+     * configure CloudFront to return a custom error page when a request is blocked.
+     * For more information about AWS WAF, see the <a
+     * href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
      * WAF Developer Guide</a>. </p>
      */
     inline void SetWebACLId(const char* value) { m_webACLIdHasBeenSet = true; m_webACLId.assign(value); }
 
     /**
      * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-     * with this distribution.</p> <p>AWS WAF is a web application firewall that lets
-     * you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and
-     * lets you control access to your content. Based on conditions that you specify,
-     * such as the IP addresses that requests originate from or the values of query
-     * strings, CloudFront responds to requests either with the requested content or
-     * with an HTTP 403 status code (Forbidden). You can also configure CloudFront to
-     * return a custom error page when a request is blocked. For more information about
-     * AWS WAF, see the <a
-     * href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+     * with this distribution. To specify a web ACL created using the latest version of
+     * AWS WAF, use the ACL ARN, for example
+     * <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+     * To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+     * <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p> <p>AWS WAF is a web
+     * application firewall that lets you monitor the HTTP and HTTPS requests that are
+     * forwarded to CloudFront, and lets you control access to your content. Based on
+     * conditions that you specify, such as the IP addresses that requests originate
+     * from or the values of query strings, CloudFront responds to requests either with
+     * the requested content or with an HTTP 403 status code (Forbidden). You can also
+     * configure CloudFront to return a custom error page when a request is blocked.
+     * For more information about AWS WAF, see the <a
+     * href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
      * WAF Developer Guide</a>. </p>
      */
     inline DistributionConfig& WithWebACLId(const Aws::String& value) { SetWebACLId(value); return *this;}
 
     /**
      * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-     * with this distribution.</p> <p>AWS WAF is a web application firewall that lets
-     * you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and
-     * lets you control access to your content. Based on conditions that you specify,
-     * such as the IP addresses that requests originate from or the values of query
-     * strings, CloudFront responds to requests either with the requested content or
-     * with an HTTP 403 status code (Forbidden). You can also configure CloudFront to
-     * return a custom error page when a request is blocked. For more information about
-     * AWS WAF, see the <a
-     * href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+     * with this distribution. To specify a web ACL created using the latest version of
+     * AWS WAF, use the ACL ARN, for example
+     * <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+     * To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+     * <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p> <p>AWS WAF is a web
+     * application firewall that lets you monitor the HTTP and HTTPS requests that are
+     * forwarded to CloudFront, and lets you control access to your content. Based on
+     * conditions that you specify, such as the IP addresses that requests originate
+     * from or the values of query strings, CloudFront responds to requests either with
+     * the requested content or with an HTTP 403 status code (Forbidden). You can also
+     * configure CloudFront to return a custom error page when a request is blocked.
+     * For more information about AWS WAF, see the <a
+     * href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
      * WAF Developer Guide</a>. </p>
      */
     inline DistributionConfig& WithWebACLId(Aws::String&& value) { SetWebACLId(std::move(value)); return *this;}
 
     /**
      * <p>A unique identifier that specifies the AWS WAF web ACL, if any, to associate
-     * with this distribution.</p> <p>AWS WAF is a web application firewall that lets
-     * you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and
-     * lets you control access to your content. Based on conditions that you specify,
-     * such as the IP addresses that requests originate from or the values of query
-     * strings, CloudFront responds to requests either with the requested content or
-     * with an HTTP 403 status code (Forbidden). You can also configure CloudFront to
-     * return a custom error page when a request is blocked. For more information about
-     * AWS WAF, see the <a
-     * href="http://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
+     * with this distribution. To specify a web ACL created using the latest version of
+     * AWS WAF, use the ACL ARN, for example
+     * <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
+     * To specify a web ACL created using AWS WAF Classic, use the ACL ID, for example
+     * <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p> <p>AWS WAF is a web
+     * application firewall that lets you monitor the HTTP and HTTPS requests that are
+     * forwarded to CloudFront, and lets you control access to your content. Based on
+     * conditions that you specify, such as the IP addresses that requests originate
+     * from or the values of query strings, CloudFront responds to requests either with
+     * the requested content or with an HTTP 403 status code (Forbidden). You can also
+     * configure CloudFront to return a custom error page when a request is blocked.
+     * For more information about AWS WAF, see the <a
+     * href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">AWS
      * WAF Developer Guide</a>. </p>
      */
     inline DistributionConfig& WithWebACLId(const char* value) { SetWebACLId(value); return *this;}

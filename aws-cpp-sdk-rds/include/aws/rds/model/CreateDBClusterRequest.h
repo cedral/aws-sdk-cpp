@@ -213,58 +213,58 @@ namespace Model
 
 
     /**
-     * <p>The name for your database of up to 64 alpha-numeric characters. If you do
-     * not provide a name, Amazon RDS will not create a database in the DB cluster you
-     * are creating.</p>
+     * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+     * provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+     * creating.</p>
      */
     inline const Aws::String& GetDatabaseName() const{ return m_databaseName; }
 
     /**
-     * <p>The name for your database of up to 64 alpha-numeric characters. If you do
-     * not provide a name, Amazon RDS will not create a database in the DB cluster you
-     * are creating.</p>
+     * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+     * provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+     * creating.</p>
      */
     inline bool DatabaseNameHasBeenSet() const { return m_databaseNameHasBeenSet; }
 
     /**
-     * <p>The name for your database of up to 64 alpha-numeric characters. If you do
-     * not provide a name, Amazon RDS will not create a database in the DB cluster you
-     * are creating.</p>
+     * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+     * provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+     * creating.</p>
      */
     inline void SetDatabaseName(const Aws::String& value) { m_databaseNameHasBeenSet = true; m_databaseName = value; }
 
     /**
-     * <p>The name for your database of up to 64 alpha-numeric characters. If you do
-     * not provide a name, Amazon RDS will not create a database in the DB cluster you
-     * are creating.</p>
+     * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+     * provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+     * creating.</p>
      */
     inline void SetDatabaseName(Aws::String&& value) { m_databaseNameHasBeenSet = true; m_databaseName = std::move(value); }
 
     /**
-     * <p>The name for your database of up to 64 alpha-numeric characters. If you do
-     * not provide a name, Amazon RDS will not create a database in the DB cluster you
-     * are creating.</p>
+     * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+     * provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+     * creating.</p>
      */
     inline void SetDatabaseName(const char* value) { m_databaseNameHasBeenSet = true; m_databaseName.assign(value); }
 
     /**
-     * <p>The name for your database of up to 64 alpha-numeric characters. If you do
-     * not provide a name, Amazon RDS will not create a database in the DB cluster you
-     * are creating.</p>
+     * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+     * provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+     * creating.</p>
      */
     inline CreateDBClusterRequest& WithDatabaseName(const Aws::String& value) { SetDatabaseName(value); return *this;}
 
     /**
-     * <p>The name for your database of up to 64 alpha-numeric characters. If you do
-     * not provide a name, Amazon RDS will not create a database in the DB cluster you
-     * are creating.</p>
+     * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+     * provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+     * creating.</p>
      */
     inline CreateDBClusterRequest& WithDatabaseName(Aws::String&& value) { SetDatabaseName(std::move(value)); return *this;}
 
     /**
-     * <p>The name for your database of up to 64 alpha-numeric characters. If you do
-     * not provide a name, Amazon RDS will not create a database in the DB cluster you
-     * are creating.</p>
+     * <p>The name for your database of up to 64 alphanumeric characters. If you do not
+     * provide a name, Amazon RDS doesn't create a database in the DB cluster you are
+     * creating.</p>
      */
     inline CreateDBClusterRequest& WithDatabaseName(const char* value) { SetDatabaseName(value); return *this;}
 
@@ -344,65 +344,73 @@ namespace Model
 
     /**
      * <p> The name of the DB cluster parameter group to associate with this DB
-     * cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-     * </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an
-     * existing DB cluster parameter group.</p> </li> </ul>
+     * cluster. If you do not specify a value, then the default DB cluster parameter
+     * group for the specified DB engine and version is used. </p> <p>Constraints:</p>
+     * <ul> <li> <p>If supplied, must match the name of an existing DB cluster
+     * parameter group.</p> </li> </ul>
      */
     inline const Aws::String& GetDBClusterParameterGroupName() const{ return m_dBClusterParameterGroupName; }
 
     /**
      * <p> The name of the DB cluster parameter group to associate with this DB
-     * cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-     * </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an
-     * existing DB cluster parameter group.</p> </li> </ul>
+     * cluster. If you do not specify a value, then the default DB cluster parameter
+     * group for the specified DB engine and version is used. </p> <p>Constraints:</p>
+     * <ul> <li> <p>If supplied, must match the name of an existing DB cluster
+     * parameter group.</p> </li> </ul>
      */
     inline bool DBClusterParameterGroupNameHasBeenSet() const { return m_dBClusterParameterGroupNameHasBeenSet; }
 
     /**
      * <p> The name of the DB cluster parameter group to associate with this DB
-     * cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-     * </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an
-     * existing DB cluster parameter group.</p> </li> </ul>
+     * cluster. If you do not specify a value, then the default DB cluster parameter
+     * group for the specified DB engine and version is used. </p> <p>Constraints:</p>
+     * <ul> <li> <p>If supplied, must match the name of an existing DB cluster
+     * parameter group.</p> </li> </ul>
      */
     inline void SetDBClusterParameterGroupName(const Aws::String& value) { m_dBClusterParameterGroupNameHasBeenSet = true; m_dBClusterParameterGroupName = value; }
 
     /**
      * <p> The name of the DB cluster parameter group to associate with this DB
-     * cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-     * </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an
-     * existing DB cluster parameter group.</p> </li> </ul>
+     * cluster. If you do not specify a value, then the default DB cluster parameter
+     * group for the specified DB engine and version is used. </p> <p>Constraints:</p>
+     * <ul> <li> <p>If supplied, must match the name of an existing DB cluster
+     * parameter group.</p> </li> </ul>
      */
     inline void SetDBClusterParameterGroupName(Aws::String&& value) { m_dBClusterParameterGroupNameHasBeenSet = true; m_dBClusterParameterGroupName = std::move(value); }
 
     /**
      * <p> The name of the DB cluster parameter group to associate with this DB
-     * cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-     * </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an
-     * existing DB cluster parameter group.</p> </li> </ul>
+     * cluster. If you do not specify a value, then the default DB cluster parameter
+     * group for the specified DB engine and version is used. </p> <p>Constraints:</p>
+     * <ul> <li> <p>If supplied, must match the name of an existing DB cluster
+     * parameter group.</p> </li> </ul>
      */
     inline void SetDBClusterParameterGroupName(const char* value) { m_dBClusterParameterGroupNameHasBeenSet = true; m_dBClusterParameterGroupName.assign(value); }
 
     /**
      * <p> The name of the DB cluster parameter group to associate with this DB
-     * cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-     * </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an
-     * existing DB cluster parameter group.</p> </li> </ul>
+     * cluster. If you do not specify a value, then the default DB cluster parameter
+     * group for the specified DB engine and version is used. </p> <p>Constraints:</p>
+     * <ul> <li> <p>If supplied, must match the name of an existing DB cluster
+     * parameter group.</p> </li> </ul>
      */
     inline CreateDBClusterRequest& WithDBClusterParameterGroupName(const Aws::String& value) { SetDBClusterParameterGroupName(value); return *this;}
 
     /**
      * <p> The name of the DB cluster parameter group to associate with this DB
-     * cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-     * </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an
-     * existing DB cluster parameter group.</p> </li> </ul>
+     * cluster. If you do not specify a value, then the default DB cluster parameter
+     * group for the specified DB engine and version is used. </p> <p>Constraints:</p>
+     * <ul> <li> <p>If supplied, must match the name of an existing DB cluster
+     * parameter group.</p> </li> </ul>
      */
     inline CreateDBClusterRequest& WithDBClusterParameterGroupName(Aws::String&& value) { SetDBClusterParameterGroupName(std::move(value)); return *this;}
 
     /**
      * <p> The name of the DB cluster parameter group to associate with this DB
-     * cluster. If this argument is omitted, <code>default.aurora5.6</code> is used.
-     * </p> <p>Constraints:</p> <ul> <li> <p>If supplied, must match the name of an
-     * existing DB cluster parameter group.</p> </li> </ul>
+     * cluster. If you do not specify a value, then the default DB cluster parameter
+     * group for the specified DB engine and version is used. </p> <p>Constraints:</p>
+     * <ul> <li> <p>If supplied, must match the name of an existing DB cluster
+     * parameter group.</p> </li> </ul>
      */
     inline CreateDBClusterRequest& WithDBClusterParameterGroupName(const char* value) { SetDBClusterParameterGroupName(value); return *this;}
 
@@ -576,58 +584,154 @@ namespace Model
 
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code>, <code>5.7.12</code> </p> <p> <b>Aurora
-     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code>, <code>5.7.12</code> </p> <p> <b>Aurora
-     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code>, <code>5.7.12</code> </p> <p> <b>Aurora
-     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(const Aws::String& value) { m_engineVersionHasBeenSet = true; m_engineVersion = value; }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code>, <code>5.7.12</code> </p> <p> <b>Aurora
-     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(Aws::String&& value) { m_engineVersionHasBeenSet = true; m_engineVersion = std::move(value); }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code>, <code>5.7.12</code> </p> <p> <b>Aurora
-     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(const char* value) { m_engineVersionHasBeenSet = true; m_engineVersion.assign(value); }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code>, <code>5.7.12</code> </p> <p> <b>Aurora
-     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline CreateDBClusterRequest& WithEngineVersion(const Aws::String& value) { SetEngineVersion(value); return *this;}
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code>, <code>5.7.12</code> </p> <p> <b>Aurora
-     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline CreateDBClusterRequest& WithEngineVersion(Aws::String&& value) { SetEngineVersion(std::move(value)); return *this;}
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code>, <code>5.7.12</code> </p> <p> <b>Aurora
-     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline CreateDBClusterRequest& WithEngineVersion(const char* value) { SetEngineVersion(value); return *this;}
 
@@ -1190,13 +1294,13 @@ namespace Model
      * identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you
      * are creating a DB cluster with the same AWS account that owns the KMS encryption
      * key used to encrypt the new DB cluster, then you can use the KMS key alias
-     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key is
-     * not specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
+     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key isn't
+     * specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
      * <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then
      * Amazon RDS will use the encryption key used to encrypt the source. Otherwise,
      * Amazon RDS will use your default encryption key. </p> </li> <li> <p>If the
      * <code>StorageEncrypted</code> parameter is enabled and
-     * <code>ReplicationSourceIdentifier</code> is not specified, then Amazon RDS will
+     * <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS will
      * use your default encryption key.</p> </li> </ul> <p>AWS KMS creates the default
      * encryption key for your AWS account. Your AWS account has a different default
      * encryption key for each AWS Region.</p> <p>If you create a Read Replica of an
@@ -1211,13 +1315,13 @@ namespace Model
      * identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you
      * are creating a DB cluster with the same AWS account that owns the KMS encryption
      * key used to encrypt the new DB cluster, then you can use the KMS key alias
-     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key is
-     * not specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
+     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key isn't
+     * specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
      * <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then
      * Amazon RDS will use the encryption key used to encrypt the source. Otherwise,
      * Amazon RDS will use your default encryption key. </p> </li> <li> <p>If the
      * <code>StorageEncrypted</code> parameter is enabled and
-     * <code>ReplicationSourceIdentifier</code> is not specified, then Amazon RDS will
+     * <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS will
      * use your default encryption key.</p> </li> </ul> <p>AWS KMS creates the default
      * encryption key for your AWS account. Your AWS account has a different default
      * encryption key for each AWS Region.</p> <p>If you create a Read Replica of an
@@ -1232,13 +1336,13 @@ namespace Model
      * identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you
      * are creating a DB cluster with the same AWS account that owns the KMS encryption
      * key used to encrypt the new DB cluster, then you can use the KMS key alias
-     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key is
-     * not specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
+     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key isn't
+     * specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
      * <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then
      * Amazon RDS will use the encryption key used to encrypt the source. Otherwise,
      * Amazon RDS will use your default encryption key. </p> </li> <li> <p>If the
      * <code>StorageEncrypted</code> parameter is enabled and
-     * <code>ReplicationSourceIdentifier</code> is not specified, then Amazon RDS will
+     * <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS will
      * use your default encryption key.</p> </li> </ul> <p>AWS KMS creates the default
      * encryption key for your AWS account. Your AWS account has a different default
      * encryption key for each AWS Region.</p> <p>If you create a Read Replica of an
@@ -1253,13 +1357,13 @@ namespace Model
      * identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you
      * are creating a DB cluster with the same AWS account that owns the KMS encryption
      * key used to encrypt the new DB cluster, then you can use the KMS key alias
-     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key is
-     * not specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
+     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key isn't
+     * specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
      * <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then
      * Amazon RDS will use the encryption key used to encrypt the source. Otherwise,
      * Amazon RDS will use your default encryption key. </p> </li> <li> <p>If the
      * <code>StorageEncrypted</code> parameter is enabled and
-     * <code>ReplicationSourceIdentifier</code> is not specified, then Amazon RDS will
+     * <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS will
      * use your default encryption key.</p> </li> </ul> <p>AWS KMS creates the default
      * encryption key for your AWS account. Your AWS account has a different default
      * encryption key for each AWS Region.</p> <p>If you create a Read Replica of an
@@ -1274,13 +1378,13 @@ namespace Model
      * identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you
      * are creating a DB cluster with the same AWS account that owns the KMS encryption
      * key used to encrypt the new DB cluster, then you can use the KMS key alias
-     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key is
-     * not specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
+     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key isn't
+     * specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
      * <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then
      * Amazon RDS will use the encryption key used to encrypt the source. Otherwise,
      * Amazon RDS will use your default encryption key. </p> </li> <li> <p>If the
      * <code>StorageEncrypted</code> parameter is enabled and
-     * <code>ReplicationSourceIdentifier</code> is not specified, then Amazon RDS will
+     * <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS will
      * use your default encryption key.</p> </li> </ul> <p>AWS KMS creates the default
      * encryption key for your AWS account. Your AWS account has a different default
      * encryption key for each AWS Region.</p> <p>If you create a Read Replica of an
@@ -1295,13 +1399,13 @@ namespace Model
      * identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you
      * are creating a DB cluster with the same AWS account that owns the KMS encryption
      * key used to encrypt the new DB cluster, then you can use the KMS key alias
-     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key is
-     * not specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
+     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key isn't
+     * specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
      * <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then
      * Amazon RDS will use the encryption key used to encrypt the source. Otherwise,
      * Amazon RDS will use your default encryption key. </p> </li> <li> <p>If the
      * <code>StorageEncrypted</code> parameter is enabled and
-     * <code>ReplicationSourceIdentifier</code> is not specified, then Amazon RDS will
+     * <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS will
      * use your default encryption key.</p> </li> </ul> <p>AWS KMS creates the default
      * encryption key for your AWS account. Your AWS account has a different default
      * encryption key for each AWS Region.</p> <p>If you create a Read Replica of an
@@ -1316,13 +1420,13 @@ namespace Model
      * identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you
      * are creating a DB cluster with the same AWS account that owns the KMS encryption
      * key used to encrypt the new DB cluster, then you can use the KMS key alias
-     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key is
-     * not specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
+     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key isn't
+     * specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
      * <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then
      * Amazon RDS will use the encryption key used to encrypt the source. Otherwise,
      * Amazon RDS will use your default encryption key. </p> </li> <li> <p>If the
      * <code>StorageEncrypted</code> parameter is enabled and
-     * <code>ReplicationSourceIdentifier</code> is not specified, then Amazon RDS will
+     * <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS will
      * use your default encryption key.</p> </li> </ul> <p>AWS KMS creates the default
      * encryption key for your AWS account. Your AWS account has a different default
      * encryption key for each AWS Region.</p> <p>If you create a Read Replica of an
@@ -1337,13 +1441,13 @@ namespace Model
      * identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If you
      * are creating a DB cluster with the same AWS account that owns the KMS encryption
      * key used to encrypt the new DB cluster, then you can use the KMS key alias
-     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key is
-     * not specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
+     * instead of the ARN for the KMS encryption key.</p> <p>If an encryption key isn't
+     * specified in <code>KmsKeyId</code>:</p> <ul> <li> <p>If
      * <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then
      * Amazon RDS will use the encryption key used to encrypt the source. Otherwise,
      * Amazon RDS will use your default encryption key. </p> </li> <li> <p>If the
      * <code>StorageEncrypted</code> parameter is enabled and
-     * <code>ReplicationSourceIdentifier</code> is not specified, then Amazon RDS will
+     * <code>ReplicationSourceIdentifier</code> isn't specified, then Amazon RDS will
      * use your default encryption key.</p> </li> </ul> <p>AWS KMS creates the default
      * encryption key for your AWS account. Your AWS account has a different default
      * encryption key for each AWS Region.</p> <p>If you create a Read Replica of an
@@ -1381,7 +1485,12 @@ namespace Model
      * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
      * and <a
      * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-     * Signature Version 4 Signing Process</a>.</p>
+     * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+     * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+     * <code>--source-region</code> for the AWS CLI) instead of specifying
+     * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+     * autogenerates a pre-signed URL that is a valid request for the operation that
+     * can be executed in the source AWS Region.</p> </note>
      */
     inline const Aws::String& GetPreSignedUrl() const{ return m_preSignedUrl; }
 
@@ -1412,7 +1521,12 @@ namespace Model
      * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
      * and <a
      * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-     * Signature Version 4 Signing Process</a>.</p>
+     * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+     * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+     * <code>--source-region</code> for the AWS CLI) instead of specifying
+     * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+     * autogenerates a pre-signed URL that is a valid request for the operation that
+     * can be executed in the source AWS Region.</p> </note>
      */
     inline bool PreSignedUrlHasBeenSet() const { return m_preSignedUrlHasBeenSet; }
 
@@ -1443,7 +1557,12 @@ namespace Model
      * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
      * and <a
      * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-     * Signature Version 4 Signing Process</a>.</p>
+     * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+     * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+     * <code>--source-region</code> for the AWS CLI) instead of specifying
+     * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+     * autogenerates a pre-signed URL that is a valid request for the operation that
+     * can be executed in the source AWS Region.</p> </note>
      */
     inline void SetPreSignedUrl(const Aws::String& value) { m_preSignedUrlHasBeenSet = true; m_preSignedUrl = value; }
 
@@ -1474,7 +1593,12 @@ namespace Model
      * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
      * and <a
      * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-     * Signature Version 4 Signing Process</a>.</p>
+     * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+     * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+     * <code>--source-region</code> for the AWS CLI) instead of specifying
+     * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+     * autogenerates a pre-signed URL that is a valid request for the operation that
+     * can be executed in the source AWS Region.</p> </note>
      */
     inline void SetPreSignedUrl(Aws::String&& value) { m_preSignedUrlHasBeenSet = true; m_preSignedUrl = std::move(value); }
 
@@ -1505,7 +1629,12 @@ namespace Model
      * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
      * and <a
      * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-     * Signature Version 4 Signing Process</a>.</p>
+     * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+     * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+     * <code>--source-region</code> for the AWS CLI) instead of specifying
+     * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+     * autogenerates a pre-signed URL that is a valid request for the operation that
+     * can be executed in the source AWS Region.</p> </note>
      */
     inline void SetPreSignedUrl(const char* value) { m_preSignedUrlHasBeenSet = true; m_preSignedUrl.assign(value); }
 
@@ -1536,7 +1665,12 @@ namespace Model
      * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
      * and <a
      * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-     * Signature Version 4 Signing Process</a>.</p>
+     * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+     * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+     * <code>--source-region</code> for the AWS CLI) instead of specifying
+     * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+     * autogenerates a pre-signed URL that is a valid request for the operation that
+     * can be executed in the source AWS Region.</p> </note>
      */
     inline CreateDBClusterRequest& WithPreSignedUrl(const Aws::String& value) { SetPreSignedUrl(value); return *this;}
 
@@ -1567,7 +1701,12 @@ namespace Model
      * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
      * and <a
      * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-     * Signature Version 4 Signing Process</a>.</p>
+     * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+     * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+     * <code>--source-region</code> for the AWS CLI) instead of specifying
+     * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+     * autogenerates a pre-signed URL that is a valid request for the operation that
+     * can be executed in the source AWS Region.</p> </note>
      */
     inline CreateDBClusterRequest& WithPreSignedUrl(Aws::String&& value) { SetPreSignedUrl(std::move(value)); return *this;}
 
@@ -1598,7 +1737,12 @@ namespace Model
      * Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a>
      * and <a
      * href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">
-     * Signature Version 4 Signing Process</a>.</p>
+     * Signature Version 4 Signing Process</a>.</p> <note> <p>If you are using an AWS
+     * SDK tool or the AWS CLI, you can specify <code>SourceRegion</code> (or
+     * <code>--source-region</code> for the AWS CLI) instead of specifying
+     * <code>PreSignedUrl</code> manually. Specifying <code>SourceRegion</code>
+     * autogenerates a pre-signed URL that is a valid request for the operation that
+     * can be executed in the source AWS Region.</p> </note>
      */
     inline CreateDBClusterRequest& WithPreSignedUrl(const char* value) { SetPreSignedUrl(value); return *this;}
 
@@ -1606,28 +1750,36 @@ namespace Model
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool GetEnableIAMDatabaseAuthentication() const{ return m_enableIAMDatabaseAuthentication; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool EnableIAMDatabaseAuthenticationHasBeenSet() const { return m_enableIAMDatabaseAuthenticationHasBeenSet; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline void SetEnableIAMDatabaseAuthentication(bool value) { m_enableIAMDatabaseAuthenticationHasBeenSet = true; m_enableIAMDatabaseAuthentication = value; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline CreateDBClusterRequest& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 
@@ -1758,49 +1910,137 @@ namespace Model
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, <code>parallelquery</code>, or <code>global</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p> <p>Limitations and requirements apply to some DB
+     * engine modes. For more information, see the following sections in the <i>Amazon
+     * Aurora User Guide</i>:</p> <ul> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+     * Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+     * Limitations of Parallel Query</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+     * Requirements for Aurora Global Databases</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+     * Limitations of Multi-Master Clusters</a> </p> </li> </ul>
      */
     inline const Aws::String& GetEngineMode() const{ return m_engineMode; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, <code>parallelquery</code>, or <code>global</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p> <p>Limitations and requirements apply to some DB
+     * engine modes. For more information, see the following sections in the <i>Amazon
+     * Aurora User Guide</i>:</p> <ul> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+     * Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+     * Limitations of Parallel Query</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+     * Requirements for Aurora Global Databases</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+     * Limitations of Multi-Master Clusters</a> </p> </li> </ul>
      */
     inline bool EngineModeHasBeenSet() const { return m_engineModeHasBeenSet; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, <code>parallelquery</code>, or <code>global</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p> <p>Limitations and requirements apply to some DB
+     * engine modes. For more information, see the following sections in the <i>Amazon
+     * Aurora User Guide</i>:</p> <ul> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+     * Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+     * Limitations of Parallel Query</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+     * Requirements for Aurora Global Databases</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+     * Limitations of Multi-Master Clusters</a> </p> </li> </ul>
      */
     inline void SetEngineMode(const Aws::String& value) { m_engineModeHasBeenSet = true; m_engineMode = value; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, <code>parallelquery</code>, or <code>global</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p> <p>Limitations and requirements apply to some DB
+     * engine modes. For more information, see the following sections in the <i>Amazon
+     * Aurora User Guide</i>:</p> <ul> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+     * Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+     * Limitations of Parallel Query</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+     * Requirements for Aurora Global Databases</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+     * Limitations of Multi-Master Clusters</a> </p> </li> </ul>
      */
     inline void SetEngineMode(Aws::String&& value) { m_engineModeHasBeenSet = true; m_engineMode = std::move(value); }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, <code>parallelquery</code>, or <code>global</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p> <p>Limitations and requirements apply to some DB
+     * engine modes. For more information, see the following sections in the <i>Amazon
+     * Aurora User Guide</i>:</p> <ul> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+     * Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+     * Limitations of Parallel Query</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+     * Requirements for Aurora Global Databases</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+     * Limitations of Multi-Master Clusters</a> </p> </li> </ul>
      */
     inline void SetEngineMode(const char* value) { m_engineModeHasBeenSet = true; m_engineMode.assign(value); }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, <code>parallelquery</code>, or <code>global</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p> <p>Limitations and requirements apply to some DB
+     * engine modes. For more information, see the following sections in the <i>Amazon
+     * Aurora User Guide</i>:</p> <ul> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+     * Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+     * Limitations of Parallel Query</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+     * Requirements for Aurora Global Databases</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+     * Limitations of Multi-Master Clusters</a> </p> </li> </ul>
      */
     inline CreateDBClusterRequest& WithEngineMode(const Aws::String& value) { SetEngineMode(value); return *this;}
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, <code>parallelquery</code>, or <code>global</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p> <p>Limitations and requirements apply to some DB
+     * engine modes. For more information, see the following sections in the <i>Amazon
+     * Aurora User Guide</i>:</p> <ul> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+     * Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+     * Limitations of Parallel Query</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+     * Requirements for Aurora Global Databases</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+     * Limitations of Multi-Master Clusters</a> </p> </li> </ul>
      */
     inline CreateDBClusterRequest& WithEngineMode(Aws::String&& value) { SetEngineMode(std::move(value)); return *this;}
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, <code>parallelquery</code>, or <code>global</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p> <p>Limitations and requirements apply to some DB
+     * engine modes. For more information, see the following sections in the <i>Amazon
+     * Aurora User Guide</i>:</p> <ul> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">
+     * Limitations of Aurora Serverless</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-parallel-query.html#aurora-mysql-parallel-query-limitations">
+     * Limitations of Parallel Query</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html#aurora-global-database.limitations">
+     * Requirements for Aurora Global Databases</a> </p> </li> <li> <p> <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html#aurora-multi-master-limitations">
+     * Limitations of Multi-Master Clusters</a> </p> </li> </ul>
      */
     inline CreateDBClusterRequest& WithEngineMode(const char* value) { SetEngineMode(value); return *this;}
 
@@ -1921,6 +2161,59 @@ namespace Model
 
 
     /**
+     * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora
+     * Serverless DB cluster. By default, the HTTP endpoint is disabled.</p> <p>When
+     * enabled, the HTTP endpoint provides a connectionless web service API for running
+     * SQL queries on the Aurora Serverless DB cluster. You can also query your
+     * database from inside the RDS console with the query editor.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+     * the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
+     */
+    inline bool GetEnableHttpEndpoint() const{ return m_enableHttpEndpoint; }
+
+    /**
+     * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora
+     * Serverless DB cluster. By default, the HTTP endpoint is disabled.</p> <p>When
+     * enabled, the HTTP endpoint provides a connectionless web service API for running
+     * SQL queries on the Aurora Serverless DB cluster. You can also query your
+     * database from inside the RDS console with the query editor.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+     * the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
+     */
+    inline bool EnableHttpEndpointHasBeenSet() const { return m_enableHttpEndpointHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora
+     * Serverless DB cluster. By default, the HTTP endpoint is disabled.</p> <p>When
+     * enabled, the HTTP endpoint provides a connectionless web service API for running
+     * SQL queries on the Aurora Serverless DB cluster. You can also query your
+     * database from inside the RDS console with the query editor.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+     * the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
+     */
+    inline void SetEnableHttpEndpoint(bool value) { m_enableHttpEndpointHasBeenSet = true; m_enableHttpEndpoint = value; }
+
+    /**
+     * <p>A value that indicates whether to enable the HTTP endpoint for an Aurora
+     * Serverless DB cluster. By default, the HTTP endpoint is disabled.</p> <p>When
+     * enabled, the HTTP endpoint provides a connectionless web service API for running
+     * SQL queries on the Aurora Serverless DB cluster. You can also query your
+     * database from inside the RDS console with the query editor.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using
+     * the Data API for Aurora Serverless</a> in the <i>Amazon Aurora User
+     * Guide</i>.</p>
+     */
+    inline CreateDBClusterRequest& WithEnableHttpEndpoint(bool value) { SetEnableHttpEndpoint(value); return *this;}
+
+
+    /**
      * <p>A value that indicates whether to copy all tags from the DB cluster to
      * snapshots of the DB cluster. The default is not to copy them.</p>
      */
@@ -1943,6 +2236,136 @@ namespace Model
      * snapshots of the DB cluster. The default is not to copy them.</p>
      */
     inline CreateDBClusterRequest& WithCopyTagsToSnapshot(bool value) { SetCopyTagsToSnapshot(value); return *this;}
+
+
+    /**
+     * <p>The Active Directory directory ID to create the DB cluster in.</p> <p> For
+     * Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to
+     * authenticate users that connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>The Active Directory directory ID to create the DB cluster in.</p> <p> For
+     * Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to
+     * authenticate users that connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
+
+    /**
+     * <p>The Active Directory directory ID to create the DB cluster in.</p> <p> For
+     * Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to
+     * authenticate users that connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(const Aws::String& value) { m_domainHasBeenSet = true; m_domain = value; }
+
+    /**
+     * <p>The Active Directory directory ID to create the DB cluster in.</p> <p> For
+     * Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to
+     * authenticate users that connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(Aws::String&& value) { m_domainHasBeenSet = true; m_domain = std::move(value); }
+
+    /**
+     * <p>The Active Directory directory ID to create the DB cluster in.</p> <p> For
+     * Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to
+     * authenticate users that connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(const char* value) { m_domainHasBeenSet = true; m_domain.assign(value); }
+
+    /**
+     * <p>The Active Directory directory ID to create the DB cluster in.</p> <p> For
+     * Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to
+     * authenticate users that connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline CreateDBClusterRequest& WithDomain(const Aws::String& value) { SetDomain(value); return *this;}
+
+    /**
+     * <p>The Active Directory directory ID to create the DB cluster in.</p> <p> For
+     * Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to
+     * authenticate users that connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline CreateDBClusterRequest& WithDomain(Aws::String&& value) { SetDomain(std::move(value)); return *this;}
+
+    /**
+     * <p>The Active Directory directory ID to create the DB cluster in.</p> <p> For
+     * Amazon Aurora DB clusters, Amazon RDS can use Kerberos Authentication to
+     * authenticate users that connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline CreateDBClusterRequest& WithDomain(const char* value) { SetDomain(value); return *this;}
+
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline const Aws::String& GetDomainIAMRoleName() const{ return m_domainIAMRoleName; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline bool DomainIAMRoleNameHasBeenSet() const { return m_domainIAMRoleNameHasBeenSet; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const Aws::String& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = value; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(Aws::String&& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = std::move(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const char* value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName.assign(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline CreateDBClusterRequest& WithDomainIAMRoleName(const Aws::String& value) { SetDomainIAMRoleName(value); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline CreateDBClusterRequest& WithDomainIAMRoleName(Aws::String&& value) { SetDomainIAMRoleName(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline CreateDBClusterRequest& WithDomainIAMRoleName(const char* value) { SetDomainIAMRoleName(value); return *this;}
 
   private:
 
@@ -2030,8 +2453,17 @@ namespace Model
     Aws::String m_globalClusterIdentifier;
     bool m_globalClusterIdentifierHasBeenSet;
 
+    bool m_enableHttpEndpoint;
+    bool m_enableHttpEndpointHasBeenSet;
+
     bool m_copyTagsToSnapshot;
     bool m_copyTagsToSnapshotHasBeenSet;
+
+    Aws::String m_domain;
+    bool m_domainHasBeenSet;
+
+    Aws::String m_domainIAMRoleName;
+    bool m_domainIAMRoleNameHasBeenSet;
   };
 
 } // namespace Model

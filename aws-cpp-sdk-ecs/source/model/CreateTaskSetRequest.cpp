@@ -32,9 +32,11 @@ CreateTaskSetRequest::CreateTaskSetRequest() :
     m_serviceRegistriesHasBeenSet(false),
     m_launchType(LaunchType::NOT_SET),
     m_launchTypeHasBeenSet(false),
+    m_capacityProviderStrategyHasBeenSet(false),
     m_platformVersionHasBeenSet(false),
     m_scaleHasBeenSet(false),
-    m_clientTokenHasBeenSet(false)
+    m_clientTokenHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -99,6 +101,17 @@ Aws::String CreateTaskSetRequest::SerializePayload() const
    payload.WithString("launchType", LaunchTypeMapper::GetNameForLaunchType(m_launchType));
   }
 
+  if(m_capacityProviderStrategyHasBeenSet)
+  {
+   Array<JsonValue> capacityProviderStrategyJsonList(m_capacityProviderStrategy.size());
+   for(unsigned capacityProviderStrategyIndex = 0; capacityProviderStrategyIndex < capacityProviderStrategyJsonList.GetLength(); ++capacityProviderStrategyIndex)
+   {
+     capacityProviderStrategyJsonList[capacityProviderStrategyIndex].AsObject(m_capacityProviderStrategy[capacityProviderStrategyIndex].Jsonize());
+   }
+   payload.WithArray("capacityProviderStrategy", std::move(capacityProviderStrategyJsonList));
+
+  }
+
   if(m_platformVersionHasBeenSet)
   {
    payload.WithString("platformVersion", m_platformVersion);
@@ -114,6 +127,17 @@ Aws::String CreateTaskSetRequest::SerializePayload() const
   if(m_clientTokenHasBeenSet)
   {
    payload.WithString("clientToken", m_clientToken);
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   Array<JsonValue> tagsJsonList(m_tags.size());
+   for(unsigned tagsIndex = 0; tagsIndex < tagsJsonList.GetLength(); ++tagsIndex)
+   {
+     tagsJsonList[tagsIndex].AsObject(m_tags[tagsIndex].Jsonize());
+   }
+   payload.WithArray("tags", std::move(tagsJsonList));
 
   }
 

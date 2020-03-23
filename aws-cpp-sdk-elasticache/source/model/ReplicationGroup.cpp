@@ -33,6 +33,7 @@ namespace Model
 ReplicationGroup::ReplicationGroup() : 
     m_replicationGroupIdHasBeenSet(false),
     m_descriptionHasBeenSet(false),
+    m_globalReplicationGroupInfoHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_pendingModifiedValuesHasBeenSet(false),
     m_memberClustersHasBeenSet(false),
@@ -49,16 +50,19 @@ ReplicationGroup::ReplicationGroup() :
     m_cacheNodeTypeHasBeenSet(false),
     m_authTokenEnabled(false),
     m_authTokenEnabledHasBeenSet(false),
+    m_authTokenLastModifiedDateHasBeenSet(false),
     m_transitEncryptionEnabled(false),
     m_transitEncryptionEnabledHasBeenSet(false),
     m_atRestEncryptionEnabled(false),
-    m_atRestEncryptionEnabledHasBeenSet(false)
+    m_atRestEncryptionEnabledHasBeenSet(false),
+    m_kmsKeyIdHasBeenSet(false)
 {
 }
 
 ReplicationGroup::ReplicationGroup(const XmlNode& xmlNode) : 
     m_replicationGroupIdHasBeenSet(false),
     m_descriptionHasBeenSet(false),
+    m_globalReplicationGroupInfoHasBeenSet(false),
     m_statusHasBeenSet(false),
     m_pendingModifiedValuesHasBeenSet(false),
     m_memberClustersHasBeenSet(false),
@@ -75,10 +79,12 @@ ReplicationGroup::ReplicationGroup(const XmlNode& xmlNode) :
     m_cacheNodeTypeHasBeenSet(false),
     m_authTokenEnabled(false),
     m_authTokenEnabledHasBeenSet(false),
+    m_authTokenLastModifiedDateHasBeenSet(false),
     m_transitEncryptionEnabled(false),
     m_transitEncryptionEnabledHasBeenSet(false),
     m_atRestEncryptionEnabled(false),
-    m_atRestEncryptionEnabledHasBeenSet(false)
+    m_atRestEncryptionEnabledHasBeenSet(false),
+    m_kmsKeyIdHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -92,19 +98,25 @@ ReplicationGroup& ReplicationGroup::operator =(const XmlNode& xmlNode)
     XmlNode replicationGroupIdNode = resultNode.FirstChild("ReplicationGroupId");
     if(!replicationGroupIdNode.IsNull())
     {
-      m_replicationGroupId = replicationGroupIdNode.GetText();
+      m_replicationGroupId = Aws::Utils::Xml::DecodeEscapedXmlText(replicationGroupIdNode.GetText());
       m_replicationGroupIdHasBeenSet = true;
     }
     XmlNode descriptionNode = resultNode.FirstChild("Description");
     if(!descriptionNode.IsNull())
     {
-      m_description = descriptionNode.GetText();
+      m_description = Aws::Utils::Xml::DecodeEscapedXmlText(descriptionNode.GetText());
       m_descriptionHasBeenSet = true;
+    }
+    XmlNode globalReplicationGroupInfoNode = resultNode.FirstChild("GlobalReplicationGroupInfo");
+    if(!globalReplicationGroupInfoNode.IsNull())
+    {
+      m_globalReplicationGroupInfo = globalReplicationGroupInfoNode;
+      m_globalReplicationGroupInfoHasBeenSet = true;
     }
     XmlNode statusNode = resultNode.FirstChild("Status");
     if(!statusNode.IsNull())
     {
-      m_status = statusNode.GetText();
+      m_status = Aws::Utils::Xml::DecodeEscapedXmlText(statusNode.GetText());
       m_statusHasBeenSet = true;
     }
     XmlNode pendingModifiedValuesNode = resultNode.FirstChild("PendingModifiedValues");
@@ -140,13 +152,13 @@ ReplicationGroup& ReplicationGroup::operator =(const XmlNode& xmlNode)
     XmlNode snapshottingClusterIdNode = resultNode.FirstChild("SnapshottingClusterId");
     if(!snapshottingClusterIdNode.IsNull())
     {
-      m_snapshottingClusterId = snapshottingClusterIdNode.GetText();
+      m_snapshottingClusterId = Aws::Utils::Xml::DecodeEscapedXmlText(snapshottingClusterIdNode.GetText());
       m_snapshottingClusterIdHasBeenSet = true;
     }
     XmlNode automaticFailoverNode = resultNode.FirstChild("AutomaticFailover");
     if(!automaticFailoverNode.IsNull())
     {
-      m_automaticFailover = AutomaticFailoverStatusMapper::GetAutomaticFailoverStatusForName(StringUtils::Trim(automaticFailoverNode.GetText().c_str()).c_str());
+      m_automaticFailover = AutomaticFailoverStatusMapper::GetAutomaticFailoverStatusForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(automaticFailoverNode.GetText()).c_str()).c_str());
       m_automaticFailoverHasBeenSet = true;
     }
     XmlNode configurationEndpointNode = resultNode.FirstChild("ConfigurationEndpoint");
@@ -158,44 +170,56 @@ ReplicationGroup& ReplicationGroup::operator =(const XmlNode& xmlNode)
     XmlNode snapshotRetentionLimitNode = resultNode.FirstChild("SnapshotRetentionLimit");
     if(!snapshotRetentionLimitNode.IsNull())
     {
-      m_snapshotRetentionLimit = StringUtils::ConvertToInt32(StringUtils::Trim(snapshotRetentionLimitNode.GetText().c_str()).c_str());
+      m_snapshotRetentionLimit = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(snapshotRetentionLimitNode.GetText()).c_str()).c_str());
       m_snapshotRetentionLimitHasBeenSet = true;
     }
     XmlNode snapshotWindowNode = resultNode.FirstChild("SnapshotWindow");
     if(!snapshotWindowNode.IsNull())
     {
-      m_snapshotWindow = snapshotWindowNode.GetText();
+      m_snapshotWindow = Aws::Utils::Xml::DecodeEscapedXmlText(snapshotWindowNode.GetText());
       m_snapshotWindowHasBeenSet = true;
     }
     XmlNode clusterEnabledNode = resultNode.FirstChild("ClusterEnabled");
     if(!clusterEnabledNode.IsNull())
     {
-      m_clusterEnabled = StringUtils::ConvertToBool(StringUtils::Trim(clusterEnabledNode.GetText().c_str()).c_str());
+      m_clusterEnabled = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(clusterEnabledNode.GetText()).c_str()).c_str());
       m_clusterEnabledHasBeenSet = true;
     }
     XmlNode cacheNodeTypeNode = resultNode.FirstChild("CacheNodeType");
     if(!cacheNodeTypeNode.IsNull())
     {
-      m_cacheNodeType = cacheNodeTypeNode.GetText();
+      m_cacheNodeType = Aws::Utils::Xml::DecodeEscapedXmlText(cacheNodeTypeNode.GetText());
       m_cacheNodeTypeHasBeenSet = true;
     }
     XmlNode authTokenEnabledNode = resultNode.FirstChild("AuthTokenEnabled");
     if(!authTokenEnabledNode.IsNull())
     {
-      m_authTokenEnabled = StringUtils::ConvertToBool(StringUtils::Trim(authTokenEnabledNode.GetText().c_str()).c_str());
+      m_authTokenEnabled = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(authTokenEnabledNode.GetText()).c_str()).c_str());
       m_authTokenEnabledHasBeenSet = true;
+    }
+    XmlNode authTokenLastModifiedDateNode = resultNode.FirstChild("AuthTokenLastModifiedDate");
+    if(!authTokenLastModifiedDateNode.IsNull())
+    {
+      m_authTokenLastModifiedDate = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(authTokenLastModifiedDateNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
+      m_authTokenLastModifiedDateHasBeenSet = true;
     }
     XmlNode transitEncryptionEnabledNode = resultNode.FirstChild("TransitEncryptionEnabled");
     if(!transitEncryptionEnabledNode.IsNull())
     {
-      m_transitEncryptionEnabled = StringUtils::ConvertToBool(StringUtils::Trim(transitEncryptionEnabledNode.GetText().c_str()).c_str());
+      m_transitEncryptionEnabled = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(transitEncryptionEnabledNode.GetText()).c_str()).c_str());
       m_transitEncryptionEnabledHasBeenSet = true;
     }
     XmlNode atRestEncryptionEnabledNode = resultNode.FirstChild("AtRestEncryptionEnabled");
     if(!atRestEncryptionEnabledNode.IsNull())
     {
-      m_atRestEncryptionEnabled = StringUtils::ConvertToBool(StringUtils::Trim(atRestEncryptionEnabledNode.GetText().c_str()).c_str());
+      m_atRestEncryptionEnabled = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(atRestEncryptionEnabledNode.GetText()).c_str()).c_str());
       m_atRestEncryptionEnabledHasBeenSet = true;
+    }
+    XmlNode kmsKeyIdNode = resultNode.FirstChild("KmsKeyId");
+    if(!kmsKeyIdNode.IsNull())
+    {
+      m_kmsKeyId = Aws::Utils::Xml::DecodeEscapedXmlText(kmsKeyIdNode.GetText());
+      m_kmsKeyIdHasBeenSet = true;
     }
   }
 
@@ -212,6 +236,13 @@ void ReplicationGroup::OutputToStream(Aws::OStream& oStream, const char* locatio
   if(m_descriptionHasBeenSet)
   {
       oStream << location << index << locationValue << ".Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
+  }
+
+  if(m_globalReplicationGroupInfoHasBeenSet)
+  {
+      Aws::StringStream globalReplicationGroupInfoLocationAndMemberSs;
+      globalReplicationGroupInfoLocationAndMemberSs << location << index << locationValue << ".GlobalReplicationGroupInfo";
+      m_globalReplicationGroupInfo.OutputToStream(oStream, globalReplicationGroupInfoLocationAndMemberSs.str().c_str());
   }
 
   if(m_statusHasBeenSet)
@@ -288,6 +319,11 @@ void ReplicationGroup::OutputToStream(Aws::OStream& oStream, const char* locatio
       oStream << location << index << locationValue << ".AuthTokenEnabled=" << std::boolalpha << m_authTokenEnabled << "&";
   }
 
+  if(m_authTokenLastModifiedDateHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".AuthTokenLastModifiedDate=" << StringUtils::URLEncode(m_authTokenLastModifiedDate.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
+  }
+
   if(m_transitEncryptionEnabledHasBeenSet)
   {
       oStream << location << index << locationValue << ".TransitEncryptionEnabled=" << std::boolalpha << m_transitEncryptionEnabled << "&";
@@ -296,6 +332,11 @@ void ReplicationGroup::OutputToStream(Aws::OStream& oStream, const char* locatio
   if(m_atRestEncryptionEnabledHasBeenSet)
   {
       oStream << location << index << locationValue << ".AtRestEncryptionEnabled=" << std::boolalpha << m_atRestEncryptionEnabled << "&";
+  }
+
+  if(m_kmsKeyIdHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".KmsKeyId=" << StringUtils::URLEncode(m_kmsKeyId.c_str()) << "&";
   }
 
 }
@@ -309,6 +350,12 @@ void ReplicationGroup::OutputToStream(Aws::OStream& oStream, const char* locatio
   if(m_descriptionHasBeenSet)
   {
       oStream << location << ".Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
+  }
+  if(m_globalReplicationGroupInfoHasBeenSet)
+  {
+      Aws::String globalReplicationGroupInfoLocationAndMember(location);
+      globalReplicationGroupInfoLocationAndMember += ".GlobalReplicationGroupInfo";
+      m_globalReplicationGroupInfo.OutputToStream(oStream, globalReplicationGroupInfoLocationAndMember.c_str());
   }
   if(m_statusHasBeenSet)
   {
@@ -372,6 +419,10 @@ void ReplicationGroup::OutputToStream(Aws::OStream& oStream, const char* locatio
   {
       oStream << location << ".AuthTokenEnabled=" << std::boolalpha << m_authTokenEnabled << "&";
   }
+  if(m_authTokenLastModifiedDateHasBeenSet)
+  {
+      oStream << location << ".AuthTokenLastModifiedDate=" << StringUtils::URLEncode(m_authTokenLastModifiedDate.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
+  }
   if(m_transitEncryptionEnabledHasBeenSet)
   {
       oStream << location << ".TransitEncryptionEnabled=" << std::boolalpha << m_transitEncryptionEnabled << "&";
@@ -379,6 +430,10 @@ void ReplicationGroup::OutputToStream(Aws::OStream& oStream, const char* locatio
   if(m_atRestEncryptionEnabledHasBeenSet)
   {
       oStream << location << ".AtRestEncryptionEnabled=" << std::boolalpha << m_atRestEncryptionEnabled << "&";
+  }
+  if(m_kmsKeyIdHasBeenSet)
+  {
+      oStream << location << ".KmsKeyId=" << StringUtils::URLEncode(m_kmsKeyId.c_str()) << "&";
   }
 }
 

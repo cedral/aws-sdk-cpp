@@ -45,37 +45,37 @@ namespace Model
 
 
     /**
-     * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
+     * <p>The Amazon Resource Name (ARN) that id entifies the execution.</p>
      */
     inline const Aws::String& GetExecutionArn() const{ return m_executionArn; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
+     * <p>The Amazon Resource Name (ARN) that id entifies the execution.</p>
      */
     inline void SetExecutionArn(const Aws::String& value) { m_executionArn = value; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
+     * <p>The Amazon Resource Name (ARN) that id entifies the execution.</p>
      */
     inline void SetExecutionArn(Aws::String&& value) { m_executionArn = std::move(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
+     * <p>The Amazon Resource Name (ARN) that id entifies the execution.</p>
      */
     inline void SetExecutionArn(const char* value) { m_executionArn.assign(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
+     * <p>The Amazon Resource Name (ARN) that id entifies the execution.</p>
      */
     inline DescribeExecutionResult& WithExecutionArn(const Aws::String& value) { SetExecutionArn(value); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
+     * <p>The Amazon Resource Name (ARN) that id entifies the execution.</p>
      */
     inline DescribeExecutionResult& WithExecutionArn(Aws::String&& value) { SetExecutionArn(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) that identifies the execution.</p>
+     * <p>The Amazon Resource Name (ARN) that id entifies the execution.</p>
      */
     inline DescribeExecutionResult& WithExecutionArn(const char* value) { SetExecutionArn(value); return *this;}
 
@@ -118,71 +118,78 @@ namespace Model
 
     /**
      * <p>The name of the execution.</p> <p>A name must <i>not</i> contain:</p> <ul>
-     * <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
+     * <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
      * </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
      * <p>The name of the execution.</p> <p>A name must <i>not</i> contain:</p> <ul>
-     * <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
+     * <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
      * </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline void SetName(const Aws::String& value) { m_name = value; }
 
     /**
      * <p>The name of the execution.</p> <p>A name must <i>not</i> contain:</p> <ul>
-     * <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
+     * <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
      * </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline void SetName(Aws::String&& value) { m_name = std::move(value); }
 
     /**
      * <p>The name of the execution.</p> <p>A name must <i>not</i> contain:</p> <ul>
-     * <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
+     * <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
      * </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline void SetName(const char* value) { m_name.assign(value); }
 
     /**
      * <p>The name of the execution.</p> <p>A name must <i>not</i> contain:</p> <ul>
-     * <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
+     * <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
      * </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline DescribeExecutionResult& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
      * <p>The name of the execution.</p> <p>A name must <i>not</i> contain:</p> <ul>
-     * <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
+     * <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
      * </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline DescribeExecutionResult& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
     /**
      * <p>The name of the execution.</p> <p>A name must <i>not</i> contain:</p> <ul>
-     * <li> <p>whitespace</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
+     * <li> <p>white space</p> </li> <li> <p>brackets <code>&lt; &gt; { } [ ]</code>
      * </p> </li> <li> <p>wildcard characters <code>? *</code> </p> </li> <li>
      * <p>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> </p> </li>
      * <li> <p>control characters (<code>U+0000-001F</code>,
-     * <code>U+007F-009F</code>)</p> </li> </ul>
+     * <code>U+007F-009F</code>)</p> </li> </ul> <p>To enable logging with CloudWatch
+     * Logs, the name should only contain 0-9, A-Z, a-z, - and _.</p>
      */
     inline DescribeExecutionResult& WithName(const char* value) { SetName(value); return *this;}
 

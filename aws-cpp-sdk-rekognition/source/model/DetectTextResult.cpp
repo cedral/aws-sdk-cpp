@@ -47,6 +47,12 @@ DetectTextResult& DetectTextResult::operator =(const Aws::AmazonWebServiceResult
     }
   }
 
+  if(jsonValue.ValueExists("TextModelVersion"))
+  {
+    m_textModelVersion = jsonValue.GetString("TextModelVersion");
+
+  }
+
 
 
   return *this;

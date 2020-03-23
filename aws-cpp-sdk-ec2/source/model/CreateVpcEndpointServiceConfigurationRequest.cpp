@@ -25,8 +25,10 @@ CreateVpcEndpointServiceConfigurationRequest::CreateVpcEndpointServiceConfigurat
     m_dryRunHasBeenSet(false),
     m_acceptanceRequired(false),
     m_acceptanceRequiredHasBeenSet(false),
+    m_privateDnsNameHasBeenSet(false),
     m_networkLoadBalancerArnsHasBeenSet(false),
-    m_clientTokenHasBeenSet(false)
+    m_clientTokenHasBeenSet(false),
+    m_tagSpecificationsHasBeenSet(false)
 {
 }
 
@@ -44,6 +46,11 @@ Aws::String CreateVpcEndpointServiceConfigurationRequest::SerializePayload() con
     ss << "AcceptanceRequired=" << std::boolalpha << m_acceptanceRequired << "&";
   }
 
+  if(m_privateDnsNameHasBeenSet)
+  {
+    ss << "PrivateDnsName=" << StringUtils::URLEncode(m_privateDnsName.c_str()) << "&";
+  }
+
   if(m_networkLoadBalancerArnsHasBeenSet)
   {
     unsigned networkLoadBalancerArnsCount = 1;
@@ -58,6 +65,16 @@ Aws::String CreateVpcEndpointServiceConfigurationRequest::SerializePayload() con
   if(m_clientTokenHasBeenSet)
   {
     ss << "ClientToken=" << StringUtils::URLEncode(m_clientToken.c_str()) << "&";
+  }
+
+  if(m_tagSpecificationsHasBeenSet)
+  {
+    unsigned tagSpecificationsCount = 1;
+    for(auto& item : m_tagSpecifications)
+    {
+      item.OutputToStream(ss, "TagSpecification.", tagSpecificationsCount, "");
+      tagSpecificationsCount++;
+    }
   }
 
   ss << "Version=2016-11-15";

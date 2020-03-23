@@ -33,7 +33,10 @@ namespace Model
     REDIRECT_URL,
     FEEDBACK_URL,
     THEME_NAME,
-    USER_SETTINGS
+    USER_SETTINGS,
+    EMBED_HOST_DOMAINS,
+    IAM_ROLE_ARN,
+    ACCESS_ENDPOINTS
   };
 
 namespace StackAttributeMapper

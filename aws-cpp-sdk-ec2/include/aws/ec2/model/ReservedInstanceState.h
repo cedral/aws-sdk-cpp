@@ -29,7 +29,9 @@ namespace Model
     payment_pending,
     active,
     payment_failed,
-    retired
+    retired,
+    queued,
+    queued_deleted
   };
 
 namespace ReservedInstanceStateMapper

@@ -37,7 +37,9 @@ namespace Model
     Stopped,
     MaxRuntimeExceeded,
     Completed,
-    Failed
+    Failed,
+    Interrupted,
+    MaxWaitTimeExceeded
   };
 
 namespace SecondaryStatusMapper

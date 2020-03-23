@@ -48,24 +48,31 @@
 #include <aws/ds/model/DeleteLogSubscriptionRequest.h>
 #include <aws/ds/model/DeleteSnapshotRequest.h>
 #include <aws/ds/model/DeleteTrustRequest.h>
+#include <aws/ds/model/DeregisterCertificateRequest.h>
 #include <aws/ds/model/DeregisterEventTopicRequest.h>
+#include <aws/ds/model/DescribeCertificateRequest.h>
 #include <aws/ds/model/DescribeConditionalForwardersRequest.h>
 #include <aws/ds/model/DescribeDirectoriesRequest.h>
 #include <aws/ds/model/DescribeDomainControllersRequest.h>
 #include <aws/ds/model/DescribeEventTopicsRequest.h>
+#include <aws/ds/model/DescribeLDAPSSettingsRequest.h>
 #include <aws/ds/model/DescribeSharedDirectoriesRequest.h>
 #include <aws/ds/model/DescribeSnapshotsRequest.h>
 #include <aws/ds/model/DescribeTrustsRequest.h>
+#include <aws/ds/model/DisableLDAPSRequest.h>
 #include <aws/ds/model/DisableRadiusRequest.h>
 #include <aws/ds/model/DisableSsoRequest.h>
+#include <aws/ds/model/EnableLDAPSRequest.h>
 #include <aws/ds/model/EnableRadiusRequest.h>
 #include <aws/ds/model/EnableSsoRequest.h>
 #include <aws/ds/model/GetDirectoryLimitsRequest.h>
 #include <aws/ds/model/GetSnapshotLimitsRequest.h>
+#include <aws/ds/model/ListCertificatesRequest.h>
 #include <aws/ds/model/ListIpRoutesRequest.h>
 #include <aws/ds/model/ListLogSubscriptionsRequest.h>
 #include <aws/ds/model/ListSchemaExtensionsRequest.h>
 #include <aws/ds/model/ListTagsForResourceRequest.h>
+#include <aws/ds/model/RegisterCertificateRequest.h>
 #include <aws/ds/model/RegisterEventTopicRequest.h>
 #include <aws/ds/model/RejectSharedDirectoryRequest.h>
 #include <aws/ds/model/RemoveIpRoutesRequest.h>
@@ -159,7 +166,7 @@ AcceptSharedDirectoryOutcome DirectoryServiceClient::AcceptSharedDirectory(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AcceptSharedDirectoryOutcome(AcceptSharedDirectoryResult(outcome.GetResult()));
@@ -194,7 +201,7 @@ AddIpRoutesOutcome DirectoryServiceClient::AddIpRoutes(const AddIpRoutesRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddIpRoutesOutcome(AddIpRoutesResult(outcome.GetResult()));
@@ -229,7 +236,7 @@ AddTagsToResourceOutcome DirectoryServiceClient::AddTagsToResource(const AddTags
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddTagsToResourceOutcome(AddTagsToResourceResult(outcome.GetResult()));
@@ -264,7 +271,7 @@ CancelSchemaExtensionOutcome DirectoryServiceClient::CancelSchemaExtension(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelSchemaExtensionOutcome(CancelSchemaExtensionResult(outcome.GetResult()));
@@ -299,7 +306,7 @@ ConnectDirectoryOutcome DirectoryServiceClient::ConnectDirectory(const ConnectDi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ConnectDirectoryOutcome(ConnectDirectoryResult(outcome.GetResult()));
@@ -334,7 +341,7 @@ CreateAliasOutcome DirectoryServiceClient::CreateAlias(const CreateAliasRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAliasOutcome(CreateAliasResult(outcome.GetResult()));
@@ -369,7 +376,7 @@ CreateComputerOutcome DirectoryServiceClient::CreateComputer(const CreateCompute
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateComputerOutcome(CreateComputerResult(outcome.GetResult()));
@@ -404,7 +411,7 @@ CreateConditionalForwarderOutcome DirectoryServiceClient::CreateConditionalForwa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateConditionalForwarderOutcome(CreateConditionalForwarderResult(outcome.GetResult()));
@@ -439,7 +446,7 @@ CreateDirectoryOutcome DirectoryServiceClient::CreateDirectory(const CreateDirec
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDirectoryOutcome(CreateDirectoryResult(outcome.GetResult()));
@@ -474,7 +481,7 @@ CreateLogSubscriptionOutcome DirectoryServiceClient::CreateLogSubscription(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateLogSubscriptionOutcome(CreateLogSubscriptionResult(outcome.GetResult()));
@@ -509,7 +516,7 @@ CreateMicrosoftADOutcome DirectoryServiceClient::CreateMicrosoftAD(const CreateM
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateMicrosoftADOutcome(CreateMicrosoftADResult(outcome.GetResult()));
@@ -544,7 +551,7 @@ CreateSnapshotOutcome DirectoryServiceClient::CreateSnapshot(const CreateSnapsho
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSnapshotOutcome(CreateSnapshotResult(outcome.GetResult()));
@@ -579,7 +586,7 @@ CreateTrustOutcome DirectoryServiceClient::CreateTrust(const CreateTrustRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateTrustOutcome(CreateTrustResult(outcome.GetResult()));
@@ -614,7 +621,7 @@ DeleteConditionalForwarderOutcome DirectoryServiceClient::DeleteConditionalForwa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteConditionalForwarderOutcome(DeleteConditionalForwarderResult(outcome.GetResult()));
@@ -649,7 +656,7 @@ DeleteDirectoryOutcome DirectoryServiceClient::DeleteDirectory(const DeleteDirec
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDirectoryOutcome(DeleteDirectoryResult(outcome.GetResult()));
@@ -684,7 +691,7 @@ DeleteLogSubscriptionOutcome DirectoryServiceClient::DeleteLogSubscription(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteLogSubscriptionOutcome(DeleteLogSubscriptionResult(outcome.GetResult()));
@@ -719,7 +726,7 @@ DeleteSnapshotOutcome DirectoryServiceClient::DeleteSnapshot(const DeleteSnapsho
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSnapshotOutcome(DeleteSnapshotResult(outcome.GetResult()));
@@ -754,7 +761,7 @@ DeleteTrustOutcome DirectoryServiceClient::DeleteTrust(const DeleteTrustRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTrustOutcome(DeleteTrustResult(outcome.GetResult()));
@@ -783,13 +790,48 @@ void DirectoryServiceClient::DeleteTrustAsyncHelper(const DeleteTrustRequest& re
   handler(this, request, DeleteTrust(request), context);
 }
 
+DeregisterCertificateOutcome DirectoryServiceClient::DeregisterCertificate(const DeregisterCertificateRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeregisterCertificateOutcome(DeregisterCertificateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeregisterCertificateOutcome(outcome.GetError());
+  }
+}
+
+DeregisterCertificateOutcomeCallable DirectoryServiceClient::DeregisterCertificateCallable(const DeregisterCertificateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeregisterCertificateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeregisterCertificate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DirectoryServiceClient::DeregisterCertificateAsync(const DeregisterCertificateRequest& request, const DeregisterCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeregisterCertificateAsyncHelper( request, handler, context ); } );
+}
+
+void DirectoryServiceClient::DeregisterCertificateAsyncHelper(const DeregisterCertificateRequest& request, const DeregisterCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeregisterCertificate(request), context);
+}
+
 DeregisterEventTopicOutcome DirectoryServiceClient::DeregisterEventTopic(const DeregisterEventTopicRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeregisterEventTopicOutcome(DeregisterEventTopicResult(outcome.GetResult()));
@@ -818,13 +860,48 @@ void DirectoryServiceClient::DeregisterEventTopicAsyncHelper(const DeregisterEve
   handler(this, request, DeregisterEventTopic(request), context);
 }
 
+DescribeCertificateOutcome DirectoryServiceClient::DescribeCertificate(const DescribeCertificateRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeCertificateOutcome(DescribeCertificateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeCertificateOutcome(outcome.GetError());
+  }
+}
+
+DescribeCertificateOutcomeCallable DirectoryServiceClient::DescribeCertificateCallable(const DescribeCertificateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeCertificateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeCertificate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DirectoryServiceClient::DescribeCertificateAsync(const DescribeCertificateRequest& request, const DescribeCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeCertificateAsyncHelper( request, handler, context ); } );
+}
+
+void DirectoryServiceClient::DescribeCertificateAsyncHelper(const DescribeCertificateRequest& request, const DescribeCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeCertificate(request), context);
+}
+
 DescribeConditionalForwardersOutcome DirectoryServiceClient::DescribeConditionalForwarders(const DescribeConditionalForwardersRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeConditionalForwardersOutcome(DescribeConditionalForwardersResult(outcome.GetResult()));
@@ -859,7 +936,7 @@ DescribeDirectoriesOutcome DirectoryServiceClient::DescribeDirectories(const Des
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDirectoriesOutcome(DescribeDirectoriesResult(outcome.GetResult()));
@@ -894,7 +971,7 @@ DescribeDomainControllersOutcome DirectoryServiceClient::DescribeDomainControlle
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDomainControllersOutcome(DescribeDomainControllersResult(outcome.GetResult()));
@@ -929,7 +1006,7 @@ DescribeEventTopicsOutcome DirectoryServiceClient::DescribeEventTopics(const Des
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEventTopicsOutcome(DescribeEventTopicsResult(outcome.GetResult()));
@@ -958,13 +1035,48 @@ void DirectoryServiceClient::DescribeEventTopicsAsyncHelper(const DescribeEventT
   handler(this, request, DescribeEventTopics(request), context);
 }
 
+DescribeLDAPSSettingsOutcome DirectoryServiceClient::DescribeLDAPSSettings(const DescribeLDAPSSettingsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLDAPSSettingsOutcome(DescribeLDAPSSettingsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLDAPSSettingsOutcome(outcome.GetError());
+  }
+}
+
+DescribeLDAPSSettingsOutcomeCallable DirectoryServiceClient::DescribeLDAPSSettingsCallable(const DescribeLDAPSSettingsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLDAPSSettingsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLDAPSSettings(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DirectoryServiceClient::DescribeLDAPSSettingsAsync(const DescribeLDAPSSettingsRequest& request, const DescribeLDAPSSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLDAPSSettingsAsyncHelper( request, handler, context ); } );
+}
+
+void DirectoryServiceClient::DescribeLDAPSSettingsAsyncHelper(const DescribeLDAPSSettingsRequest& request, const DescribeLDAPSSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLDAPSSettings(request), context);
+}
+
 DescribeSharedDirectoriesOutcome DirectoryServiceClient::DescribeSharedDirectories(const DescribeSharedDirectoriesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSharedDirectoriesOutcome(DescribeSharedDirectoriesResult(outcome.GetResult()));
@@ -999,7 +1111,7 @@ DescribeSnapshotsOutcome DirectoryServiceClient::DescribeSnapshots(const Describ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSnapshotsOutcome(DescribeSnapshotsResult(outcome.GetResult()));
@@ -1034,7 +1146,7 @@ DescribeTrustsOutcome DirectoryServiceClient::DescribeTrusts(const DescribeTrust
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeTrustsOutcome(DescribeTrustsResult(outcome.GetResult()));
@@ -1063,13 +1175,48 @@ void DirectoryServiceClient::DescribeTrustsAsyncHelper(const DescribeTrustsReque
   handler(this, request, DescribeTrusts(request), context);
 }
 
+DisableLDAPSOutcome DirectoryServiceClient::DisableLDAPS(const DisableLDAPSRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DisableLDAPSOutcome(DisableLDAPSResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DisableLDAPSOutcome(outcome.GetError());
+  }
+}
+
+DisableLDAPSOutcomeCallable DirectoryServiceClient::DisableLDAPSCallable(const DisableLDAPSRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DisableLDAPSOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DisableLDAPS(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DirectoryServiceClient::DisableLDAPSAsync(const DisableLDAPSRequest& request, const DisableLDAPSResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DisableLDAPSAsyncHelper( request, handler, context ); } );
+}
+
+void DirectoryServiceClient::DisableLDAPSAsyncHelper(const DisableLDAPSRequest& request, const DisableLDAPSResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DisableLDAPS(request), context);
+}
+
 DisableRadiusOutcome DirectoryServiceClient::DisableRadius(const DisableRadiusRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisableRadiusOutcome(DisableRadiusResult(outcome.GetResult()));
@@ -1104,7 +1251,7 @@ DisableSsoOutcome DirectoryServiceClient::DisableSso(const DisableSsoRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisableSsoOutcome(DisableSsoResult(outcome.GetResult()));
@@ -1133,13 +1280,48 @@ void DirectoryServiceClient::DisableSsoAsyncHelper(const DisableSsoRequest& requ
   handler(this, request, DisableSso(request), context);
 }
 
+EnableLDAPSOutcome DirectoryServiceClient::EnableLDAPS(const EnableLDAPSRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return EnableLDAPSOutcome(EnableLDAPSResult(outcome.GetResult()));
+  }
+  else
+  {
+    return EnableLDAPSOutcome(outcome.GetError());
+  }
+}
+
+EnableLDAPSOutcomeCallable DirectoryServiceClient::EnableLDAPSCallable(const EnableLDAPSRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< EnableLDAPSOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->EnableLDAPS(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DirectoryServiceClient::EnableLDAPSAsync(const EnableLDAPSRequest& request, const EnableLDAPSResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->EnableLDAPSAsyncHelper( request, handler, context ); } );
+}
+
+void DirectoryServiceClient::EnableLDAPSAsyncHelper(const EnableLDAPSRequest& request, const EnableLDAPSResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, EnableLDAPS(request), context);
+}
+
 EnableRadiusOutcome DirectoryServiceClient::EnableRadius(const EnableRadiusRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EnableRadiusOutcome(EnableRadiusResult(outcome.GetResult()));
@@ -1174,7 +1356,7 @@ EnableSsoOutcome DirectoryServiceClient::EnableSso(const EnableSsoRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EnableSsoOutcome(EnableSsoResult(outcome.GetResult()));
@@ -1209,7 +1391,7 @@ GetDirectoryLimitsOutcome DirectoryServiceClient::GetDirectoryLimits(const GetDi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDirectoryLimitsOutcome(GetDirectoryLimitsResult(outcome.GetResult()));
@@ -1244,7 +1426,7 @@ GetSnapshotLimitsOutcome DirectoryServiceClient::GetSnapshotLimits(const GetSnap
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSnapshotLimitsOutcome(GetSnapshotLimitsResult(outcome.GetResult()));
@@ -1273,13 +1455,48 @@ void DirectoryServiceClient::GetSnapshotLimitsAsyncHelper(const GetSnapshotLimit
   handler(this, request, GetSnapshotLimits(request), context);
 }
 
+ListCertificatesOutcome DirectoryServiceClient::ListCertificates(const ListCertificatesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListCertificatesOutcome(ListCertificatesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListCertificatesOutcome(outcome.GetError());
+  }
+}
+
+ListCertificatesOutcomeCallable DirectoryServiceClient::ListCertificatesCallable(const ListCertificatesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListCertificatesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListCertificates(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DirectoryServiceClient::ListCertificatesAsync(const ListCertificatesRequest& request, const ListCertificatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListCertificatesAsyncHelper( request, handler, context ); } );
+}
+
+void DirectoryServiceClient::ListCertificatesAsyncHelper(const ListCertificatesRequest& request, const ListCertificatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListCertificates(request), context);
+}
+
 ListIpRoutesOutcome DirectoryServiceClient::ListIpRoutes(const ListIpRoutesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListIpRoutesOutcome(ListIpRoutesResult(outcome.GetResult()));
@@ -1314,7 +1531,7 @@ ListLogSubscriptionsOutcome DirectoryServiceClient::ListLogSubscriptions(const L
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListLogSubscriptionsOutcome(ListLogSubscriptionsResult(outcome.GetResult()));
@@ -1349,7 +1566,7 @@ ListSchemaExtensionsOutcome DirectoryServiceClient::ListSchemaExtensions(const L
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSchemaExtensionsOutcome(ListSchemaExtensionsResult(outcome.GetResult()));
@@ -1384,7 +1601,7 @@ ListTagsForResourceOutcome DirectoryServiceClient::ListTagsForResource(const Lis
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -1413,13 +1630,48 @@ void DirectoryServiceClient::ListTagsForResourceAsyncHelper(const ListTagsForRes
   handler(this, request, ListTagsForResource(request), context);
 }
 
+RegisterCertificateOutcome DirectoryServiceClient::RegisterCertificate(const RegisterCertificateRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return RegisterCertificateOutcome(RegisterCertificateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return RegisterCertificateOutcome(outcome.GetError());
+  }
+}
+
+RegisterCertificateOutcomeCallable DirectoryServiceClient::RegisterCertificateCallable(const RegisterCertificateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< RegisterCertificateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->RegisterCertificate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DirectoryServiceClient::RegisterCertificateAsync(const RegisterCertificateRequest& request, const RegisterCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->RegisterCertificateAsyncHelper( request, handler, context ); } );
+}
+
+void DirectoryServiceClient::RegisterCertificateAsyncHelper(const RegisterCertificateRequest& request, const RegisterCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, RegisterCertificate(request), context);
+}
+
 RegisterEventTopicOutcome DirectoryServiceClient::RegisterEventTopic(const RegisterEventTopicRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterEventTopicOutcome(RegisterEventTopicResult(outcome.GetResult()));
@@ -1454,7 +1706,7 @@ RejectSharedDirectoryOutcome DirectoryServiceClient::RejectSharedDirectory(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RejectSharedDirectoryOutcome(RejectSharedDirectoryResult(outcome.GetResult()));
@@ -1489,7 +1741,7 @@ RemoveIpRoutesOutcome DirectoryServiceClient::RemoveIpRoutes(const RemoveIpRoute
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RemoveIpRoutesOutcome(RemoveIpRoutesResult(outcome.GetResult()));
@@ -1524,7 +1776,7 @@ RemoveTagsFromResourceOutcome DirectoryServiceClient::RemoveTagsFromResource(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RemoveTagsFromResourceOutcome(RemoveTagsFromResourceResult(outcome.GetResult()));
@@ -1559,7 +1811,7 @@ ResetUserPasswordOutcome DirectoryServiceClient::ResetUserPassword(const ResetUs
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ResetUserPasswordOutcome(ResetUserPasswordResult(outcome.GetResult()));
@@ -1594,7 +1846,7 @@ RestoreFromSnapshotOutcome DirectoryServiceClient::RestoreFromSnapshot(const Res
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RestoreFromSnapshotOutcome(RestoreFromSnapshotResult(outcome.GetResult()));
@@ -1629,7 +1881,7 @@ ShareDirectoryOutcome DirectoryServiceClient::ShareDirectory(const ShareDirector
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ShareDirectoryOutcome(ShareDirectoryResult(outcome.GetResult()));
@@ -1664,7 +1916,7 @@ StartSchemaExtensionOutcome DirectoryServiceClient::StartSchemaExtension(const S
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartSchemaExtensionOutcome(StartSchemaExtensionResult(outcome.GetResult()));
@@ -1699,7 +1951,7 @@ UnshareDirectoryOutcome DirectoryServiceClient::UnshareDirectory(const UnshareDi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UnshareDirectoryOutcome(UnshareDirectoryResult(outcome.GetResult()));
@@ -1734,7 +1986,7 @@ UpdateConditionalForwarderOutcome DirectoryServiceClient::UpdateConditionalForwa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateConditionalForwarderOutcome(UpdateConditionalForwarderResult(outcome.GetResult()));
@@ -1769,7 +2021,7 @@ UpdateNumberOfDomainControllersOutcome DirectoryServiceClient::UpdateNumberOfDom
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateNumberOfDomainControllersOutcome(UpdateNumberOfDomainControllersResult(outcome.GetResult()));
@@ -1804,7 +2056,7 @@ UpdateRadiusOutcome DirectoryServiceClient::UpdateRadius(const UpdateRadiusReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateRadiusOutcome(UpdateRadiusResult(outcome.GetResult()));
@@ -1839,7 +2091,7 @@ UpdateTrustOutcome DirectoryServiceClient::UpdateTrust(const UpdateTrustRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateTrustOutcome(UpdateTrustResult(outcome.GetResult()));
@@ -1874,7 +2126,7 @@ VerifyTrustOutcome DirectoryServiceClient::VerifyTrust(const VerifyTrustRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return VerifyTrustOutcome(VerifyTrustResult(outcome.GetResult()));

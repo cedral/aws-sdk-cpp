@@ -40,11 +40,14 @@ Action::Action() :
     m_firehoseHasBeenSet(false),
     m_cloudwatchMetricHasBeenSet(false),
     m_cloudwatchAlarmHasBeenSet(false),
+    m_cloudwatchLogsHasBeenSet(false),
     m_elasticsearchHasBeenSet(false),
     m_salesforceHasBeenSet(false),
     m_iotAnalyticsHasBeenSet(false),
     m_iotEventsHasBeenSet(false),
-    m_stepFunctionsHasBeenSet(false)
+    m_iotSiteWiseHasBeenSet(false),
+    m_stepFunctionsHasBeenSet(false),
+    m_httpHasBeenSet(false)
 {
 }
 
@@ -60,11 +63,14 @@ Action::Action(JsonView jsonValue) :
     m_firehoseHasBeenSet(false),
     m_cloudwatchMetricHasBeenSet(false),
     m_cloudwatchAlarmHasBeenSet(false),
+    m_cloudwatchLogsHasBeenSet(false),
     m_elasticsearchHasBeenSet(false),
     m_salesforceHasBeenSet(false),
     m_iotAnalyticsHasBeenSet(false),
     m_iotEventsHasBeenSet(false),
-    m_stepFunctionsHasBeenSet(false)
+    m_iotSiteWiseHasBeenSet(false),
+    m_stepFunctionsHasBeenSet(false),
+    m_httpHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -148,6 +154,13 @@ Action& Action::operator =(JsonView jsonValue)
     m_cloudwatchAlarmHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("cloudwatchLogs"))
+  {
+    m_cloudwatchLogs = jsonValue.GetObject("cloudwatchLogs");
+
+    m_cloudwatchLogsHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("elasticsearch"))
   {
     m_elasticsearch = jsonValue.GetObject("elasticsearch");
@@ -176,11 +189,25 @@ Action& Action::operator =(JsonView jsonValue)
     m_iotEventsHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("iotSiteWise"))
+  {
+    m_iotSiteWise = jsonValue.GetObject("iotSiteWise");
+
+    m_iotSiteWiseHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("stepFunctions"))
   {
     m_stepFunctions = jsonValue.GetObject("stepFunctions");
 
     m_stepFunctionsHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("http"))
+  {
+    m_http = jsonValue.GetObject("http");
+
+    m_httpHasBeenSet = true;
   }
 
   return *this;
@@ -256,6 +283,12 @@ JsonValue Action::Jsonize() const
 
   }
 
+  if(m_cloudwatchLogsHasBeenSet)
+  {
+   payload.WithObject("cloudwatchLogs", m_cloudwatchLogs.Jsonize());
+
+  }
+
   if(m_elasticsearchHasBeenSet)
   {
    payload.WithObject("elasticsearch", m_elasticsearch.Jsonize());
@@ -280,9 +313,21 @@ JsonValue Action::Jsonize() const
 
   }
 
+  if(m_iotSiteWiseHasBeenSet)
+  {
+   payload.WithObject("iotSiteWise", m_iotSiteWise.Jsonize());
+
+  }
+
   if(m_stepFunctionsHasBeenSet)
   {
    payload.WithObject("stepFunctions", m_stepFunctions.Jsonize());
+
+  }
+
+  if(m_httpHasBeenSet)
+  {
+   payload.WithObject("http", m_http.Jsonize());
 
   }
 

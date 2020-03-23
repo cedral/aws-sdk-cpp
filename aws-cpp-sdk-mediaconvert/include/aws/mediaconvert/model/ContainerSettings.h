@@ -15,12 +15,14 @@
 
 #pragma once
 #include <aws/mediaconvert/MediaConvert_EXPORTS.h>
+#include <aws/mediaconvert/model/CmfcSettings.h>
 #include <aws/mediaconvert/model/ContainerType.h>
 #include <aws/mediaconvert/model/F4vSettings.h>
 #include <aws/mediaconvert/model/M2tsSettings.h>
 #include <aws/mediaconvert/model/M3u8Settings.h>
 #include <aws/mediaconvert/model/MovSettings.h>
 #include <aws/mediaconvert/model/Mp4Settings.h>
+#include <aws/mediaconvert/model/MpdSettings.h>
 #include <utility>
 
 namespace Aws
@@ -50,6 +52,37 @@ namespace Model
     ContainerSettings(Aws::Utils::Json::JsonView jsonValue);
     ContainerSettings& operator=(Aws::Utils::Json::JsonView jsonValue);
     Aws::Utils::Json::JsonValue Jsonize() const;
+
+
+    /**
+     * Settings for MP4 segments in CMAF
+     */
+    inline const CmfcSettings& GetCmfcSettings() const{ return m_cmfcSettings; }
+
+    /**
+     * Settings for MP4 segments in CMAF
+     */
+    inline bool CmfcSettingsHasBeenSet() const { return m_cmfcSettingsHasBeenSet; }
+
+    /**
+     * Settings for MP4 segments in CMAF
+     */
+    inline void SetCmfcSettings(const CmfcSettings& value) { m_cmfcSettingsHasBeenSet = true; m_cmfcSettings = value; }
+
+    /**
+     * Settings for MP4 segments in CMAF
+     */
+    inline void SetCmfcSettings(CmfcSettings&& value) { m_cmfcSettingsHasBeenSet = true; m_cmfcSettings = std::move(value); }
+
+    /**
+     * Settings for MP4 segments in CMAF
+     */
+    inline ContainerSettings& WithCmfcSettings(const CmfcSettings& value) { SetCmfcSettings(value); return *this;}
+
+    /**
+     * Settings for MP4 segments in CMAF
+     */
+    inline ContainerSettings& WithCmfcSettings(CmfcSettings&& value) { SetCmfcSettings(std::move(value)); return *this;}
 
 
     /**
@@ -303,7 +336,41 @@ namespace Model
      */
     inline ContainerSettings& WithMp4Settings(Mp4Settings&& value) { SetMp4Settings(std::move(value)); return *this;}
 
+
+    /**
+     * Settings for MP4 segments in DASH
+     */
+    inline const MpdSettings& GetMpdSettings() const{ return m_mpdSettings; }
+
+    /**
+     * Settings for MP4 segments in DASH
+     */
+    inline bool MpdSettingsHasBeenSet() const { return m_mpdSettingsHasBeenSet; }
+
+    /**
+     * Settings for MP4 segments in DASH
+     */
+    inline void SetMpdSettings(const MpdSettings& value) { m_mpdSettingsHasBeenSet = true; m_mpdSettings = value; }
+
+    /**
+     * Settings for MP4 segments in DASH
+     */
+    inline void SetMpdSettings(MpdSettings&& value) { m_mpdSettingsHasBeenSet = true; m_mpdSettings = std::move(value); }
+
+    /**
+     * Settings for MP4 segments in DASH
+     */
+    inline ContainerSettings& WithMpdSettings(const MpdSettings& value) { SetMpdSettings(value); return *this;}
+
+    /**
+     * Settings for MP4 segments in DASH
+     */
+    inline ContainerSettings& WithMpdSettings(MpdSettings&& value) { SetMpdSettings(std::move(value)); return *this;}
+
   private:
+
+    CmfcSettings m_cmfcSettings;
+    bool m_cmfcSettingsHasBeenSet;
 
     ContainerType m_container;
     bool m_containerHasBeenSet;
@@ -322,6 +389,9 @@ namespace Model
 
     Mp4Settings m_mp4Settings;
     bool m_mp4SettingsHasBeenSet;
+
+    MpdSettings m_mpdSettings;
+    bool m_mpdSettingsHasBeenSet;
   };
 
 } // namespace Model

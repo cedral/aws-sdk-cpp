@@ -199,80 +199,80 @@ namespace Model
     /**
      * <p>(Optional) The name of the domain group whose members are granted
      * administrative privileges for the file system. Administrative privileges include
-     * taking ownership of files and folders, and setting audit controls (audit ACLs)
-     * on files and folders. The group that you specify must already exist in your
-     * domain. If you don't provide one, your AD domain's Domain Admins group is
-     * used.</p>
+     * taking ownership of files and folders, setting audit controls (audit ACLs) on
+     * files and folders, and administering the file system remotely by using the FSx
+     * Remote PowerShell. The group that you specify must already exist in your domain.
+     * If you don't provide one, your AD domain's Domain Admins group is used.</p>
      */
     inline const Aws::String& GetFileSystemAdministratorsGroup() const{ return m_fileSystemAdministratorsGroup; }
 
     /**
      * <p>(Optional) The name of the domain group whose members are granted
      * administrative privileges for the file system. Administrative privileges include
-     * taking ownership of files and folders, and setting audit controls (audit ACLs)
-     * on files and folders. The group that you specify must already exist in your
-     * domain. If you don't provide one, your AD domain's Domain Admins group is
-     * used.</p>
+     * taking ownership of files and folders, setting audit controls (audit ACLs) on
+     * files and folders, and administering the file system remotely by using the FSx
+     * Remote PowerShell. The group that you specify must already exist in your domain.
+     * If you don't provide one, your AD domain's Domain Admins group is used.</p>
      */
     inline bool FileSystemAdministratorsGroupHasBeenSet() const { return m_fileSystemAdministratorsGroupHasBeenSet; }
 
     /**
      * <p>(Optional) The name of the domain group whose members are granted
      * administrative privileges for the file system. Administrative privileges include
-     * taking ownership of files and folders, and setting audit controls (audit ACLs)
-     * on files and folders. The group that you specify must already exist in your
-     * domain. If you don't provide one, your AD domain's Domain Admins group is
-     * used.</p>
+     * taking ownership of files and folders, setting audit controls (audit ACLs) on
+     * files and folders, and administering the file system remotely by using the FSx
+     * Remote PowerShell. The group that you specify must already exist in your domain.
+     * If you don't provide one, your AD domain's Domain Admins group is used.</p>
      */
     inline void SetFileSystemAdministratorsGroup(const Aws::String& value) { m_fileSystemAdministratorsGroupHasBeenSet = true; m_fileSystemAdministratorsGroup = value; }
 
     /**
      * <p>(Optional) The name of the domain group whose members are granted
      * administrative privileges for the file system. Administrative privileges include
-     * taking ownership of files and folders, and setting audit controls (audit ACLs)
-     * on files and folders. The group that you specify must already exist in your
-     * domain. If you don't provide one, your AD domain's Domain Admins group is
-     * used.</p>
+     * taking ownership of files and folders, setting audit controls (audit ACLs) on
+     * files and folders, and administering the file system remotely by using the FSx
+     * Remote PowerShell. The group that you specify must already exist in your domain.
+     * If you don't provide one, your AD domain's Domain Admins group is used.</p>
      */
     inline void SetFileSystemAdministratorsGroup(Aws::String&& value) { m_fileSystemAdministratorsGroupHasBeenSet = true; m_fileSystemAdministratorsGroup = std::move(value); }
 
     /**
      * <p>(Optional) The name of the domain group whose members are granted
      * administrative privileges for the file system. Administrative privileges include
-     * taking ownership of files and folders, and setting audit controls (audit ACLs)
-     * on files and folders. The group that you specify must already exist in your
-     * domain. If you don't provide one, your AD domain's Domain Admins group is
-     * used.</p>
+     * taking ownership of files and folders, setting audit controls (audit ACLs) on
+     * files and folders, and administering the file system remotely by using the FSx
+     * Remote PowerShell. The group that you specify must already exist in your domain.
+     * If you don't provide one, your AD domain's Domain Admins group is used.</p>
      */
     inline void SetFileSystemAdministratorsGroup(const char* value) { m_fileSystemAdministratorsGroupHasBeenSet = true; m_fileSystemAdministratorsGroup.assign(value); }
 
     /**
      * <p>(Optional) The name of the domain group whose members are granted
      * administrative privileges for the file system. Administrative privileges include
-     * taking ownership of files and folders, and setting audit controls (audit ACLs)
-     * on files and folders. The group that you specify must already exist in your
-     * domain. If you don't provide one, your AD domain's Domain Admins group is
-     * used.</p>
+     * taking ownership of files and folders, setting audit controls (audit ACLs) on
+     * files and folders, and administering the file system remotely by using the FSx
+     * Remote PowerShell. The group that you specify must already exist in your domain.
+     * If you don't provide one, your AD domain's Domain Admins group is used.</p>
      */
     inline SelfManagedActiveDirectoryConfiguration& WithFileSystemAdministratorsGroup(const Aws::String& value) { SetFileSystemAdministratorsGroup(value); return *this;}
 
     /**
      * <p>(Optional) The name of the domain group whose members are granted
      * administrative privileges for the file system. Administrative privileges include
-     * taking ownership of files and folders, and setting audit controls (audit ACLs)
-     * on files and folders. The group that you specify must already exist in your
-     * domain. If you don't provide one, your AD domain's Domain Admins group is
-     * used.</p>
+     * taking ownership of files and folders, setting audit controls (audit ACLs) on
+     * files and folders, and administering the file system remotely by using the FSx
+     * Remote PowerShell. The group that you specify must already exist in your domain.
+     * If you don't provide one, your AD domain's Domain Admins group is used.</p>
      */
     inline SelfManagedActiveDirectoryConfiguration& WithFileSystemAdministratorsGroup(Aws::String&& value) { SetFileSystemAdministratorsGroup(std::move(value)); return *this;}
 
     /**
      * <p>(Optional) The name of the domain group whose members are granted
      * administrative privileges for the file system. Administrative privileges include
-     * taking ownership of files and folders, and setting audit controls (audit ACLs)
-     * on files and folders. The group that you specify must already exist in your
-     * domain. If you don't provide one, your AD domain's Domain Admins group is
-     * used.</p>
+     * taking ownership of files and folders, setting audit controls (audit ACLs) on
+     * files and folders, and administering the file system remotely by using the FSx
+     * Remote PowerShell. The group that you specify must already exist in your domain.
+     * If you don't provide one, your AD domain's Domain Admins group is used.</p>
      */
     inline SelfManagedActiveDirectoryConfiguration& WithFileSystemAdministratorsGroup(const char* value) { SetFileSystemAdministratorsGroup(value); return *this;}
 
@@ -403,7 +403,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -
@@ -415,7 +415,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -
@@ -427,7 +427,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -
@@ -439,7 +439,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -
@@ -451,7 +451,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -
@@ -463,7 +463,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -
@@ -475,7 +475,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -
@@ -487,7 +487,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -
@@ -499,7 +499,7 @@ namespace Model
      * <p>A list of up to two IP addresses of DNS servers or domain controllers in the
      * self-managed AD directory. The IP addresses need to be either in the same VPC
      * CIDR range as the one in which your Amazon FSx file system is being created, or
-     * in the private IP version 4 (Iv4) address ranges, as specified in <a
+     * in the private IP version 4 (IPv4) address ranges, as specified in <a
      * href="http://www.faqs.org/rfcs/rfc1918.html">RFC 1918</a>:</p> <ul> <li>
      * <p>10.0.0.0 - 10.255.255.255 (10/8 prefix)</p> </li> <li> <p>172.16.0.0 -
      * 172.31.255.255 (172.16/12 prefix)</p> </li> <li> <p>192.168.0.0 -

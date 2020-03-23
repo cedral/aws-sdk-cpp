@@ -32,6 +32,7 @@ namespace Aws
 
         static const int AVAILABLE_HASH = HashingUtils::HashString("AVAILABLE");
         static const int CREATING_HASH = HashingUtils::HashString("CREATING");
+        static const int QUEUED_HASH = HashingUtils::HashString("QUEUED");
         static const int RUNNING_HASH = HashingUtils::HashString("RUNNING");
         static const int UNAVAILABLE_HASH = HashingUtils::HashString("UNAVAILABLE");
 
@@ -46,6 +47,10 @@ namespace Aws
           else if (hashCode == CREATING_HASH)
           {
             return TaskStatus::CREATING;
+          }
+          else if (hashCode == QUEUED_HASH)
+          {
+            return TaskStatus::QUEUED;
           }
           else if (hashCode == RUNNING_HASH)
           {
@@ -73,6 +78,8 @@ namespace Aws
             return "AVAILABLE";
           case TaskStatus::CREATING:
             return "CREATING";
+          case TaskStatus::QUEUED:
+            return "QUEUED";
           case TaskStatus::RUNNING:
             return "RUNNING";
           case TaskStatus::UNAVAILABLE:

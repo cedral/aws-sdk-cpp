@@ -81,6 +81,7 @@
 #include <aws/gamelift/model/ListBuildsRequest.h>
 #include <aws/gamelift/model/ListFleetsRequest.h>
 #include <aws/gamelift/model/ListScriptsRequest.h>
+#include <aws/gamelift/model/ListTagsForResourceRequest.h>
 #include <aws/gamelift/model/PutScalingPolicyRequest.h>
 #include <aws/gamelift/model/RequestUploadCredentialsRequest.h>
 #include <aws/gamelift/model/ResolveAliasRequest.h>
@@ -92,6 +93,8 @@
 #include <aws/gamelift/model/StopFleetActionsRequest.h>
 #include <aws/gamelift/model/StopGameSessionPlacementRequest.h>
 #include <aws/gamelift/model/StopMatchmakingRequest.h>
+#include <aws/gamelift/model/TagResourceRequest.h>
+#include <aws/gamelift/model/UntagResourceRequest.h>
 #include <aws/gamelift/model/UpdateAliasRequest.h>
 #include <aws/gamelift/model/UpdateBuildRequest.h>
 #include <aws/gamelift/model/UpdateFleetAttributesRequest.h>
@@ -182,7 +185,7 @@ AcceptMatchOutcome GameLiftClient::AcceptMatch(const AcceptMatchRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AcceptMatchOutcome(AcceptMatchResult(outcome.GetResult()));
@@ -217,7 +220,7 @@ CreateAliasOutcome GameLiftClient::CreateAlias(const CreateAliasRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAliasOutcome(CreateAliasResult(outcome.GetResult()));
@@ -252,7 +255,7 @@ CreateBuildOutcome GameLiftClient::CreateBuild(const CreateBuildRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateBuildOutcome(CreateBuildResult(outcome.GetResult()));
@@ -287,7 +290,7 @@ CreateFleetOutcome GameLiftClient::CreateFleet(const CreateFleetRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateFleetOutcome(CreateFleetResult(outcome.GetResult()));
@@ -322,7 +325,7 @@ CreateGameSessionOutcome GameLiftClient::CreateGameSession(const CreateGameSessi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateGameSessionOutcome(CreateGameSessionResult(outcome.GetResult()));
@@ -357,7 +360,7 @@ CreateGameSessionQueueOutcome GameLiftClient::CreateGameSessionQueue(const Creat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateGameSessionQueueOutcome(CreateGameSessionQueueResult(outcome.GetResult()));
@@ -392,7 +395,7 @@ CreateMatchmakingConfigurationOutcome GameLiftClient::CreateMatchmakingConfigura
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateMatchmakingConfigurationOutcome(CreateMatchmakingConfigurationResult(outcome.GetResult()));
@@ -427,7 +430,7 @@ CreateMatchmakingRuleSetOutcome GameLiftClient::CreateMatchmakingRuleSet(const C
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateMatchmakingRuleSetOutcome(CreateMatchmakingRuleSetResult(outcome.GetResult()));
@@ -462,7 +465,7 @@ CreatePlayerSessionOutcome GameLiftClient::CreatePlayerSession(const CreatePlaye
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreatePlayerSessionOutcome(CreatePlayerSessionResult(outcome.GetResult()));
@@ -497,7 +500,7 @@ CreatePlayerSessionsOutcome GameLiftClient::CreatePlayerSessions(const CreatePla
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreatePlayerSessionsOutcome(CreatePlayerSessionsResult(outcome.GetResult()));
@@ -532,7 +535,7 @@ CreateScriptOutcome GameLiftClient::CreateScript(const CreateScriptRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateScriptOutcome(CreateScriptResult(outcome.GetResult()));
@@ -567,7 +570,7 @@ CreateVpcPeeringAuthorizationOutcome GameLiftClient::CreateVpcPeeringAuthorizati
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateVpcPeeringAuthorizationOutcome(CreateVpcPeeringAuthorizationResult(outcome.GetResult()));
@@ -602,7 +605,7 @@ CreateVpcPeeringConnectionOutcome GameLiftClient::CreateVpcPeeringConnection(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateVpcPeeringConnectionOutcome(CreateVpcPeeringConnectionResult(outcome.GetResult()));
@@ -637,7 +640,7 @@ DeleteAliasOutcome GameLiftClient::DeleteAlias(const DeleteAliasRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAliasOutcome(NoResult());
@@ -672,7 +675,7 @@ DeleteBuildOutcome GameLiftClient::DeleteBuild(const DeleteBuildRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBuildOutcome(NoResult());
@@ -707,7 +710,7 @@ DeleteFleetOutcome GameLiftClient::DeleteFleet(const DeleteFleetRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteFleetOutcome(NoResult());
@@ -742,7 +745,7 @@ DeleteGameSessionQueueOutcome GameLiftClient::DeleteGameSessionQueue(const Delet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteGameSessionQueueOutcome(DeleteGameSessionQueueResult(outcome.GetResult()));
@@ -777,7 +780,7 @@ DeleteMatchmakingConfigurationOutcome GameLiftClient::DeleteMatchmakingConfigura
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteMatchmakingConfigurationOutcome(DeleteMatchmakingConfigurationResult(outcome.GetResult()));
@@ -812,7 +815,7 @@ DeleteMatchmakingRuleSetOutcome GameLiftClient::DeleteMatchmakingRuleSet(const D
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteMatchmakingRuleSetOutcome(DeleteMatchmakingRuleSetResult(outcome.GetResult()));
@@ -847,7 +850,7 @@ DeleteScalingPolicyOutcome GameLiftClient::DeleteScalingPolicy(const DeleteScali
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteScalingPolicyOutcome(NoResult());
@@ -882,7 +885,7 @@ DeleteScriptOutcome GameLiftClient::DeleteScript(const DeleteScriptRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteScriptOutcome(NoResult());
@@ -917,7 +920,7 @@ DeleteVpcPeeringAuthorizationOutcome GameLiftClient::DeleteVpcPeeringAuthorizati
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteVpcPeeringAuthorizationOutcome(DeleteVpcPeeringAuthorizationResult(outcome.GetResult()));
@@ -952,7 +955,7 @@ DeleteVpcPeeringConnectionOutcome GameLiftClient::DeleteVpcPeeringConnection(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteVpcPeeringConnectionOutcome(DeleteVpcPeeringConnectionResult(outcome.GetResult()));
@@ -987,7 +990,7 @@ DescribeAliasOutcome GameLiftClient::DescribeAlias(const DescribeAliasRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAliasOutcome(DescribeAliasResult(outcome.GetResult()));
@@ -1022,7 +1025,7 @@ DescribeBuildOutcome GameLiftClient::DescribeBuild(const DescribeBuildRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeBuildOutcome(DescribeBuildResult(outcome.GetResult()));
@@ -1057,7 +1060,7 @@ DescribeEC2InstanceLimitsOutcome GameLiftClient::DescribeEC2InstanceLimits(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEC2InstanceLimitsOutcome(DescribeEC2InstanceLimitsResult(outcome.GetResult()));
@@ -1092,7 +1095,7 @@ DescribeFleetAttributesOutcome GameLiftClient::DescribeFleetAttributes(const Des
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeFleetAttributesOutcome(DescribeFleetAttributesResult(outcome.GetResult()));
@@ -1127,7 +1130,7 @@ DescribeFleetCapacityOutcome GameLiftClient::DescribeFleetCapacity(const Describ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeFleetCapacityOutcome(DescribeFleetCapacityResult(outcome.GetResult()));
@@ -1162,7 +1165,7 @@ DescribeFleetEventsOutcome GameLiftClient::DescribeFleetEvents(const DescribeFle
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeFleetEventsOutcome(DescribeFleetEventsResult(outcome.GetResult()));
@@ -1197,7 +1200,7 @@ DescribeFleetPortSettingsOutcome GameLiftClient::DescribeFleetPortSettings(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeFleetPortSettingsOutcome(DescribeFleetPortSettingsResult(outcome.GetResult()));
@@ -1232,7 +1235,7 @@ DescribeFleetUtilizationOutcome GameLiftClient::DescribeFleetUtilization(const D
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeFleetUtilizationOutcome(DescribeFleetUtilizationResult(outcome.GetResult()));
@@ -1267,7 +1270,7 @@ DescribeGameSessionDetailsOutcome GameLiftClient::DescribeGameSessionDetails(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeGameSessionDetailsOutcome(DescribeGameSessionDetailsResult(outcome.GetResult()));
@@ -1302,7 +1305,7 @@ DescribeGameSessionPlacementOutcome GameLiftClient::DescribeGameSessionPlacement
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeGameSessionPlacementOutcome(DescribeGameSessionPlacementResult(outcome.GetResult()));
@@ -1337,7 +1340,7 @@ DescribeGameSessionQueuesOutcome GameLiftClient::DescribeGameSessionQueues(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeGameSessionQueuesOutcome(DescribeGameSessionQueuesResult(outcome.GetResult()));
@@ -1372,7 +1375,7 @@ DescribeGameSessionsOutcome GameLiftClient::DescribeGameSessions(const DescribeG
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeGameSessionsOutcome(DescribeGameSessionsResult(outcome.GetResult()));
@@ -1407,7 +1410,7 @@ DescribeInstancesOutcome GameLiftClient::DescribeInstances(const DescribeInstanc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeInstancesOutcome(DescribeInstancesResult(outcome.GetResult()));
@@ -1442,7 +1445,7 @@ DescribeMatchmakingOutcome GameLiftClient::DescribeMatchmaking(const DescribeMat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMatchmakingOutcome(DescribeMatchmakingResult(outcome.GetResult()));
@@ -1477,7 +1480,7 @@ DescribeMatchmakingConfigurationsOutcome GameLiftClient::DescribeMatchmakingConf
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMatchmakingConfigurationsOutcome(DescribeMatchmakingConfigurationsResult(outcome.GetResult()));
@@ -1512,7 +1515,7 @@ DescribeMatchmakingRuleSetsOutcome GameLiftClient::DescribeMatchmakingRuleSets(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMatchmakingRuleSetsOutcome(DescribeMatchmakingRuleSetsResult(outcome.GetResult()));
@@ -1547,7 +1550,7 @@ DescribePlayerSessionsOutcome GameLiftClient::DescribePlayerSessions(const Descr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribePlayerSessionsOutcome(DescribePlayerSessionsResult(outcome.GetResult()));
@@ -1582,7 +1585,7 @@ DescribeRuntimeConfigurationOutcome GameLiftClient::DescribeRuntimeConfiguration
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeRuntimeConfigurationOutcome(DescribeRuntimeConfigurationResult(outcome.GetResult()));
@@ -1617,7 +1620,7 @@ DescribeScalingPoliciesOutcome GameLiftClient::DescribeScalingPolicies(const Des
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeScalingPoliciesOutcome(DescribeScalingPoliciesResult(outcome.GetResult()));
@@ -1652,7 +1655,7 @@ DescribeScriptOutcome GameLiftClient::DescribeScript(const DescribeScriptRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeScriptOutcome(DescribeScriptResult(outcome.GetResult()));
@@ -1687,7 +1690,7 @@ DescribeVpcPeeringAuthorizationsOutcome GameLiftClient::DescribeVpcPeeringAuthor
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeVpcPeeringAuthorizationsOutcome(DescribeVpcPeeringAuthorizationsResult(outcome.GetResult()));
@@ -1722,7 +1725,7 @@ DescribeVpcPeeringConnectionsOutcome GameLiftClient::DescribeVpcPeeringConnectio
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeVpcPeeringConnectionsOutcome(DescribeVpcPeeringConnectionsResult(outcome.GetResult()));
@@ -1757,7 +1760,7 @@ GetGameSessionLogUrlOutcome GameLiftClient::GetGameSessionLogUrl(const GetGameSe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetGameSessionLogUrlOutcome(GetGameSessionLogUrlResult(outcome.GetResult()));
@@ -1792,7 +1795,7 @@ GetInstanceAccessOutcome GameLiftClient::GetInstanceAccess(const GetInstanceAcce
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetInstanceAccessOutcome(GetInstanceAccessResult(outcome.GetResult()));
@@ -1827,7 +1830,7 @@ ListAliasesOutcome GameLiftClient::ListAliases(const ListAliasesRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAliasesOutcome(ListAliasesResult(outcome.GetResult()));
@@ -1862,7 +1865,7 @@ ListBuildsOutcome GameLiftClient::ListBuilds(const ListBuildsRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListBuildsOutcome(ListBuildsResult(outcome.GetResult()));
@@ -1897,7 +1900,7 @@ ListFleetsOutcome GameLiftClient::ListFleets(const ListFleetsRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListFleetsOutcome(ListFleetsResult(outcome.GetResult()));
@@ -1932,7 +1935,7 @@ ListScriptsOutcome GameLiftClient::ListScripts(const ListScriptsRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListScriptsOutcome(ListScriptsResult(outcome.GetResult()));
@@ -1961,13 +1964,48 @@ void GameLiftClient::ListScriptsAsyncHelper(const ListScriptsRequest& request, c
   handler(this, request, ListScripts(request), context);
 }
 
+ListTagsForResourceOutcome GameLiftClient::ListTagsForResource(const ListTagsForResourceRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTagsForResourceOutcome(outcome.GetError());
+  }
+}
+
+ListTagsForResourceOutcomeCallable GameLiftClient::ListTagsForResourceCallable(const ListTagsForResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTagsForResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTagsForResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GameLiftClient::ListTagsForResourceAsync(const ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTagsForResourceAsyncHelper( request, handler, context ); } );
+}
+
+void GameLiftClient::ListTagsForResourceAsyncHelper(const ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTagsForResource(request), context);
+}
+
 PutScalingPolicyOutcome GameLiftClient::PutScalingPolicy(const PutScalingPolicyRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutScalingPolicyOutcome(PutScalingPolicyResult(outcome.GetResult()));
@@ -2002,7 +2040,7 @@ RequestUploadCredentialsOutcome GameLiftClient::RequestUploadCredentials(const R
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RequestUploadCredentialsOutcome(RequestUploadCredentialsResult(outcome.GetResult()));
@@ -2037,7 +2075,7 @@ ResolveAliasOutcome GameLiftClient::ResolveAlias(const ResolveAliasRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ResolveAliasOutcome(ResolveAliasResult(outcome.GetResult()));
@@ -2072,7 +2110,7 @@ SearchGameSessionsOutcome GameLiftClient::SearchGameSessions(const SearchGameSes
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SearchGameSessionsOutcome(SearchGameSessionsResult(outcome.GetResult()));
@@ -2107,7 +2145,7 @@ StartFleetActionsOutcome GameLiftClient::StartFleetActions(const StartFleetActio
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartFleetActionsOutcome(StartFleetActionsResult(outcome.GetResult()));
@@ -2142,7 +2180,7 @@ StartGameSessionPlacementOutcome GameLiftClient::StartGameSessionPlacement(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartGameSessionPlacementOutcome(StartGameSessionPlacementResult(outcome.GetResult()));
@@ -2177,7 +2215,7 @@ StartMatchBackfillOutcome GameLiftClient::StartMatchBackfill(const StartMatchBac
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartMatchBackfillOutcome(StartMatchBackfillResult(outcome.GetResult()));
@@ -2212,7 +2250,7 @@ StartMatchmakingOutcome GameLiftClient::StartMatchmaking(const StartMatchmakingR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartMatchmakingOutcome(StartMatchmakingResult(outcome.GetResult()));
@@ -2247,7 +2285,7 @@ StopFleetActionsOutcome GameLiftClient::StopFleetActions(const StopFleetActionsR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopFleetActionsOutcome(StopFleetActionsResult(outcome.GetResult()));
@@ -2282,7 +2320,7 @@ StopGameSessionPlacementOutcome GameLiftClient::StopGameSessionPlacement(const S
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopGameSessionPlacementOutcome(StopGameSessionPlacementResult(outcome.GetResult()));
@@ -2317,7 +2355,7 @@ StopMatchmakingOutcome GameLiftClient::StopMatchmaking(const StopMatchmakingRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopMatchmakingOutcome(StopMatchmakingResult(outcome.GetResult()));
@@ -2346,13 +2384,83 @@ void GameLiftClient::StopMatchmakingAsyncHelper(const StopMatchmakingRequest& re
   handler(this, request, StopMatchmaking(request), context);
 }
 
+TagResourceOutcome GameLiftClient::TagResource(const TagResourceRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return TagResourceOutcome(outcome.GetError());
+  }
+}
+
+TagResourceOutcomeCallable GameLiftClient::TagResourceCallable(const TagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< TagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->TagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GameLiftClient::TagResourceAsync(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->TagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void GameLiftClient::TagResourceAsyncHelper(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, TagResource(request), context);
+}
+
+UntagResourceOutcome GameLiftClient::UntagResource(const UntagResourceRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UntagResourceOutcome(outcome.GetError());
+  }
+}
+
+UntagResourceOutcomeCallable GameLiftClient::UntagResourceCallable(const UntagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UntagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UntagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GameLiftClient::UntagResourceAsync(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UntagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void GameLiftClient::UntagResourceAsyncHelper(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UntagResource(request), context);
+}
+
 UpdateAliasOutcome GameLiftClient::UpdateAlias(const UpdateAliasRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAliasOutcome(UpdateAliasResult(outcome.GetResult()));
@@ -2387,7 +2495,7 @@ UpdateBuildOutcome GameLiftClient::UpdateBuild(const UpdateBuildRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateBuildOutcome(UpdateBuildResult(outcome.GetResult()));
@@ -2422,7 +2530,7 @@ UpdateFleetAttributesOutcome GameLiftClient::UpdateFleetAttributes(const UpdateF
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateFleetAttributesOutcome(UpdateFleetAttributesResult(outcome.GetResult()));
@@ -2457,7 +2565,7 @@ UpdateFleetCapacityOutcome GameLiftClient::UpdateFleetCapacity(const UpdateFleet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateFleetCapacityOutcome(UpdateFleetCapacityResult(outcome.GetResult()));
@@ -2492,7 +2600,7 @@ UpdateFleetPortSettingsOutcome GameLiftClient::UpdateFleetPortSettings(const Upd
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateFleetPortSettingsOutcome(UpdateFleetPortSettingsResult(outcome.GetResult()));
@@ -2527,7 +2635,7 @@ UpdateGameSessionOutcome GameLiftClient::UpdateGameSession(const UpdateGameSessi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateGameSessionOutcome(UpdateGameSessionResult(outcome.GetResult()));
@@ -2562,7 +2670,7 @@ UpdateGameSessionQueueOutcome GameLiftClient::UpdateGameSessionQueue(const Updat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateGameSessionQueueOutcome(UpdateGameSessionQueueResult(outcome.GetResult()));
@@ -2597,7 +2705,7 @@ UpdateMatchmakingConfigurationOutcome GameLiftClient::UpdateMatchmakingConfigura
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateMatchmakingConfigurationOutcome(UpdateMatchmakingConfigurationResult(outcome.GetResult()));
@@ -2632,7 +2740,7 @@ UpdateRuntimeConfigurationOutcome GameLiftClient::UpdateRuntimeConfiguration(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateRuntimeConfigurationOutcome(UpdateRuntimeConfigurationResult(outcome.GetResult()));
@@ -2667,7 +2775,7 @@ UpdateScriptOutcome GameLiftClient::UpdateScript(const UpdateScriptRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateScriptOutcome(UpdateScriptResult(outcome.GetResult()));
@@ -2702,7 +2810,7 @@ ValidateMatchmakingRuleSetOutcome GameLiftClient::ValidateMatchmakingRuleSet(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ValidateMatchmakingRuleSetOutcome(ValidateMatchmakingRuleSetResult(outcome.GetResult()));

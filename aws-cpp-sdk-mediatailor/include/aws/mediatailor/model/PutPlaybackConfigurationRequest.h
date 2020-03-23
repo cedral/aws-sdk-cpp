@@ -19,6 +19,7 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/mediatailor/model/CdnConfiguration.h>
 #include <aws/mediatailor/model/DashConfigurationForPut.h>
+#include <aws/mediatailor/model/LivePreRollConfiguration.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
 
@@ -187,6 +188,37 @@ namespace Model
 
 
     /**
+     * <p>The configuration for pre-roll ad insertion.</p>
+     */
+    inline const LivePreRollConfiguration& GetLivePreRollConfiguration() const{ return m_livePreRollConfiguration; }
+
+    /**
+     * <p>The configuration for pre-roll ad insertion.</p>
+     */
+    inline bool LivePreRollConfigurationHasBeenSet() const { return m_livePreRollConfigurationHasBeenSet; }
+
+    /**
+     * <p>The configuration for pre-roll ad insertion.</p>
+     */
+    inline void SetLivePreRollConfiguration(const LivePreRollConfiguration& value) { m_livePreRollConfigurationHasBeenSet = true; m_livePreRollConfiguration = value; }
+
+    /**
+     * <p>The configuration for pre-roll ad insertion.</p>
+     */
+    inline void SetLivePreRollConfiguration(LivePreRollConfiguration&& value) { m_livePreRollConfigurationHasBeenSet = true; m_livePreRollConfiguration = std::move(value); }
+
+    /**
+     * <p>The configuration for pre-roll ad insertion.</p>
+     */
+    inline PutPlaybackConfigurationRequest& WithLivePreRollConfiguration(const LivePreRollConfiguration& value) { SetLivePreRollConfiguration(value); return *this;}
+
+    /**
+     * <p>The configuration for pre-roll ad insertion.</p>
+     */
+    inline PutPlaybackConfigurationRequest& WithLivePreRollConfiguration(LivePreRollConfiguration&& value) { SetLivePreRollConfiguration(std::move(value)); return *this;}
+
+
+    /**
      * <p>The identifier for the playback configuration.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
@@ -225,6 +257,31 @@ namespace Model
      * <p>The identifier for the playback configuration.</p>
      */
     inline PutPlaybackConfigurationRequest& WithName(const char* value) { SetName(value); return *this;}
+
+
+    /**
+     * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad
+     * break.</p>
+     */
+    inline int GetPersonalizationThresholdSeconds() const{ return m_personalizationThresholdSeconds; }
+
+    /**
+     * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad
+     * break.</p>
+     */
+    inline bool PersonalizationThresholdSecondsHasBeenSet() const { return m_personalizationThresholdSecondsHasBeenSet; }
+
+    /**
+     * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad
+     * break.</p>
+     */
+    inline void SetPersonalizationThresholdSeconds(int value) { m_personalizationThresholdSecondsHasBeenSet = true; m_personalizationThresholdSeconds = value; }
+
+    /**
+     * <p>The maximum duration of underfilled ad time (in seconds) allowed in an ad
+     * break.</p>
+     */
+    inline PutPlaybackConfigurationRequest& WithPersonalizationThresholdSeconds(int value) { SetPersonalizationThresholdSeconds(value); return *this;}
 
 
     /**
@@ -498,8 +555,14 @@ namespace Model
     DashConfigurationForPut m_dashConfiguration;
     bool m_dashConfigurationHasBeenSet;
 
+    LivePreRollConfiguration m_livePreRollConfiguration;
+    bool m_livePreRollConfigurationHasBeenSet;
+
     Aws::String m_name;
     bool m_nameHasBeenSet;
+
+    int m_personalizationThresholdSeconds;
+    bool m_personalizationThresholdSecondsHasBeenSet;
 
     Aws::String m_slateAdUrl;
     bool m_slateAdUrlHasBeenSet;

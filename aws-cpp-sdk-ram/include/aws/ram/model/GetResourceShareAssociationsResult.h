@@ -45,37 +45,37 @@ namespace Model
 
 
     /**
-     * <p>Information about the association.</p>
+     * <p>Information about the associations.</p>
      */
     inline const Aws::Vector<ResourceShareAssociation>& GetResourceShareAssociations() const{ return m_resourceShareAssociations; }
 
     /**
-     * <p>Information about the association.</p>
+     * <p>Information about the associations.</p>
      */
     inline void SetResourceShareAssociations(const Aws::Vector<ResourceShareAssociation>& value) { m_resourceShareAssociations = value; }
 
     /**
-     * <p>Information about the association.</p>
+     * <p>Information about the associations.</p>
      */
     inline void SetResourceShareAssociations(Aws::Vector<ResourceShareAssociation>&& value) { m_resourceShareAssociations = std::move(value); }
 
     /**
-     * <p>Information about the association.</p>
+     * <p>Information about the associations.</p>
      */
     inline GetResourceShareAssociationsResult& WithResourceShareAssociations(const Aws::Vector<ResourceShareAssociation>& value) { SetResourceShareAssociations(value); return *this;}
 
     /**
-     * <p>Information about the association.</p>
+     * <p>Information about the associations.</p>
      */
     inline GetResourceShareAssociationsResult& WithResourceShareAssociations(Aws::Vector<ResourceShareAssociation>&& value) { SetResourceShareAssociations(std::move(value)); return *this;}
 
     /**
-     * <p>Information about the association.</p>
+     * <p>Information about the associations.</p>
      */
     inline GetResourceShareAssociationsResult& AddResourceShareAssociations(const ResourceShareAssociation& value) { m_resourceShareAssociations.push_back(value); return *this; }
 
     /**
-     * <p>Information about the association.</p>
+     * <p>Information about the associations.</p>
      */
     inline GetResourceShareAssociationsResult& AddResourceShareAssociations(ResourceShareAssociation&& value) { m_resourceShareAssociations.push_back(std::move(value)); return *this; }
 

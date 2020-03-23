@@ -30,9 +30,6 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for CreateVolume.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVolumeRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API CreateVolumeRequest : public EC2Request
   {
@@ -341,99 +338,136 @@ namespace Model
 
 
     /**
-     * <p>The size of the volume, in GiBs.</p> <p>Constraints: 1-16,384 for
-     * <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for
-     * <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for
-     * <code>standard</code>. If you specify a snapshot, the volume size must be equal
-     * to or larger than the snapshot size.</p> <p>Default: If you're creating the
-     * volume from a snapshot and don't specify a volume size, the default is the
-     * snapshot size.</p> <note> <p>At least one of Size or SnapshotId is required.</p>
-     * </note>
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline const Aws::String& GetOutpostArn() const{ return m_outpostArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline bool OutpostArnHasBeenSet() const { return m_outpostArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(const Aws::String& value) { m_outpostArnHasBeenSet = true; m_outpostArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(Aws::String&& value) { m_outpostArnHasBeenSet = true; m_outpostArn = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(const char* value) { m_outpostArnHasBeenSet = true; m_outpostArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline CreateVolumeRequest& WithOutpostArn(const Aws::String& value) { SetOutpostArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline CreateVolumeRequest& WithOutpostArn(Aws::String&& value) { SetOutpostArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline CreateVolumeRequest& WithOutpostArn(const char* value) { SetOutpostArn(value); return *this;}
+
+
+    /**
+     * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a
+     * volume size.</p> <p>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for
+     * <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for
+     * <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a
+     * snapshot, the volume size must be equal to or larger than the snapshot size.</p>
+     * <p>Default: If you're creating the volume from a snapshot and don't specify a
+     * volume size, the default is the snapshot size.</p>
      */
     inline int GetSize() const{ return m_size; }
 
     /**
-     * <p>The size of the volume, in GiBs.</p> <p>Constraints: 1-16,384 for
-     * <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for
-     * <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for
-     * <code>standard</code>. If you specify a snapshot, the volume size must be equal
-     * to or larger than the snapshot size.</p> <p>Default: If you're creating the
-     * volume from a snapshot and don't specify a volume size, the default is the
-     * snapshot size.</p> <note> <p>At least one of Size or SnapshotId is required.</p>
-     * </note>
+     * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a
+     * volume size.</p> <p>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for
+     * <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for
+     * <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a
+     * snapshot, the volume size must be equal to or larger than the snapshot size.</p>
+     * <p>Default: If you're creating the volume from a snapshot and don't specify a
+     * volume size, the default is the snapshot size.</p>
      */
     inline bool SizeHasBeenSet() const { return m_sizeHasBeenSet; }
 
     /**
-     * <p>The size of the volume, in GiBs.</p> <p>Constraints: 1-16,384 for
-     * <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for
-     * <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for
-     * <code>standard</code>. If you specify a snapshot, the volume size must be equal
-     * to or larger than the snapshot size.</p> <p>Default: If you're creating the
-     * volume from a snapshot and don't specify a volume size, the default is the
-     * snapshot size.</p> <note> <p>At least one of Size or SnapshotId is required.</p>
-     * </note>
+     * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a
+     * volume size.</p> <p>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for
+     * <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for
+     * <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a
+     * snapshot, the volume size must be equal to or larger than the snapshot size.</p>
+     * <p>Default: If you're creating the volume from a snapshot and don't specify a
+     * volume size, the default is the snapshot size.</p>
      */
     inline void SetSize(int value) { m_sizeHasBeenSet = true; m_size = value; }
 
     /**
-     * <p>The size of the volume, in GiBs.</p> <p>Constraints: 1-16,384 for
-     * <code>gp2</code>, 4-16,384 for <code>io1</code>, 500-16,384 for
-     * <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for
-     * <code>standard</code>. If you specify a snapshot, the volume size must be equal
-     * to or larger than the snapshot size.</p> <p>Default: If you're creating the
-     * volume from a snapshot and don't specify a volume size, the default is the
-     * snapshot size.</p> <note> <p>At least one of Size or SnapshotId is required.</p>
-     * </note>
+     * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a
+     * volume size.</p> <p>Constraints: 1-16,384 for <code>gp2</code>, 4-16,384 for
+     * <code>io1</code>, 500-16,384 for <code>st1</code>, 500-16,384 for
+     * <code>sc1</code>, and 1-1,024 for <code>standard</code>. If you specify a
+     * snapshot, the volume size must be equal to or larger than the snapshot size.</p>
+     * <p>Default: If you're creating the volume from a snapshot and don't specify a
+     * volume size, the default is the snapshot size.</p>
      */
     inline CreateVolumeRequest& WithSize(int value) { SetSize(value); return *this;}
 
 
     /**
-     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
-     * Size or SnapshotId are required.</p> </note>
+     * <p>The snapshot from which to create the volume. You must specify either a
+     * snapshot ID or a volume size.</p>
      */
     inline const Aws::String& GetSnapshotId() const{ return m_snapshotId; }
 
     /**
-     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
-     * Size or SnapshotId are required.</p> </note>
+     * <p>The snapshot from which to create the volume. You must specify either a
+     * snapshot ID or a volume size.</p>
      */
     inline bool SnapshotIdHasBeenSet() const { return m_snapshotIdHasBeenSet; }
 
     /**
-     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
-     * Size or SnapshotId are required.</p> </note>
+     * <p>The snapshot from which to create the volume. You must specify either a
+     * snapshot ID or a volume size.</p>
      */
     inline void SetSnapshotId(const Aws::String& value) { m_snapshotIdHasBeenSet = true; m_snapshotId = value; }
 
     /**
-     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
-     * Size or SnapshotId are required.</p> </note>
+     * <p>The snapshot from which to create the volume. You must specify either a
+     * snapshot ID or a volume size.</p>
      */
     inline void SetSnapshotId(Aws::String&& value) { m_snapshotIdHasBeenSet = true; m_snapshotId = std::move(value); }
 
     /**
-     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
-     * Size or SnapshotId are required.</p> </note>
+     * <p>The snapshot from which to create the volume. You must specify either a
+     * snapshot ID or a volume size.</p>
      */
     inline void SetSnapshotId(const char* value) { m_snapshotIdHasBeenSet = true; m_snapshotId.assign(value); }
 
     /**
-     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
-     * Size or SnapshotId are required.</p> </note>
+     * <p>The snapshot from which to create the volume. You must specify either a
+     * snapshot ID or a volume size.</p>
      */
     inline CreateVolumeRequest& WithSnapshotId(const Aws::String& value) { SetSnapshotId(value); return *this;}
 
     /**
-     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
-     * Size or SnapshotId are required.</p> </note>
+     * <p>The snapshot from which to create the volume. You must specify either a
+     * snapshot ID or a volume size.</p>
      */
     inline CreateVolumeRequest& WithSnapshotId(Aws::String&& value) { SetSnapshotId(std::move(value)); return *this;}
 
     /**
-     * <p>The snapshot from which to create the volume.</p> <note> <p>At least one of
-     * Size or SnapshotId are required.</p> </note>
+     * <p>The snapshot from which to create the volume. You must specify either a
+     * snapshot ID or a volume size.</p>
      */
     inline CreateVolumeRequest& WithSnapshotId(const char* value) { SetSnapshotId(value); return *this;}
 
@@ -442,11 +476,7 @@ namespace Model
      * <p>The volume type. This can be <code>gp2</code> for General Purpose SSD,
      * <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput
      * Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for
-     * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
-     * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
-     * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
-     * EBS defaults to <code>gp2</code>.</p>
+     * Magnetic volumes.</p> <p>Default: <code>gp2</code> </p>
      */
     inline const VolumeType& GetVolumeType() const{ return m_volumeType; }
 
@@ -454,11 +484,7 @@ namespace Model
      * <p>The volume type. This can be <code>gp2</code> for General Purpose SSD,
      * <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput
      * Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for
-     * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
-     * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
-     * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
-     * EBS defaults to <code>gp2</code>.</p>
+     * Magnetic volumes.</p> <p>Default: <code>gp2</code> </p>
      */
     inline bool VolumeTypeHasBeenSet() const { return m_volumeTypeHasBeenSet; }
 
@@ -466,11 +492,7 @@ namespace Model
      * <p>The volume type. This can be <code>gp2</code> for General Purpose SSD,
      * <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput
      * Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for
-     * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
-     * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
-     * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
-     * EBS defaults to <code>gp2</code>.</p>
+     * Magnetic volumes.</p> <p>Default: <code>gp2</code> </p>
      */
     inline void SetVolumeType(const VolumeType& value) { m_volumeTypeHasBeenSet = true; m_volumeType = value; }
 
@@ -478,11 +500,7 @@ namespace Model
      * <p>The volume type. This can be <code>gp2</code> for General Purpose SSD,
      * <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput
      * Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for
-     * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
-     * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
-     * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
-     * EBS defaults to <code>gp2</code>.</p>
+     * Magnetic volumes.</p> <p>Default: <code>gp2</code> </p>
      */
     inline void SetVolumeType(VolumeType&& value) { m_volumeTypeHasBeenSet = true; m_volumeType = std::move(value); }
 
@@ -490,11 +508,7 @@ namespace Model
      * <p>The volume type. This can be <code>gp2</code> for General Purpose SSD,
      * <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput
      * Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for
-     * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
-     * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
-     * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
-     * EBS defaults to <code>gp2</code>.</p>
+     * Magnetic volumes.</p> <p>Default: <code>gp2</code> </p>
      */
     inline CreateVolumeRequest& WithVolumeType(const VolumeType& value) { SetVolumeType(value); return *this;}
 
@@ -502,11 +516,7 @@ namespace Model
      * <p>The volume type. This can be <code>gp2</code> for General Purpose SSD,
      * <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput
      * Optimized HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for
-     * Magnetic volumes.</p> <p>Defaults: If no volume type is specified, the default
-     * is <code>standard</code> in us-east-1, eu-west-1, eu-central-1, us-west-2,
-     * us-west-1, sa-east-1, ap-northeast-1, ap-northeast-2, ap-southeast-1,
-     * ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1. In all other Regions,
-     * EBS defaults to <code>gp2</code>.</p>
+     * Magnetic volumes.</p> <p>Default: <code>gp2</code> </p>
      */
     inline CreateVolumeRequest& WithVolumeType(VolumeType&& value) { SetVolumeType(std::move(value)); return *this;}
 
@@ -584,6 +594,51 @@ namespace Model
      */
     inline CreateVolumeRequest& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable
+     * Multi-Attach, you can attach the volume to up to 16 <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instances</a> in the same Availability Zone. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+     * Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline bool GetMultiAttachEnabled() const{ return m_multiAttachEnabled; }
+
+    /**
+     * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable
+     * Multi-Attach, you can attach the volume to up to 16 <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instances</a> in the same Availability Zone. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+     * Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline bool MultiAttachEnabledHasBeenSet() const { return m_multiAttachEnabledHasBeenSet; }
+
+    /**
+     * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable
+     * Multi-Attach, you can attach the volume to up to 16 <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instances</a> in the same Availability Zone. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+     * Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline void SetMultiAttachEnabled(bool value) { m_multiAttachEnabledHasBeenSet = true; m_multiAttachEnabled = value; }
+
+    /**
+     * <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable
+     * Multi-Attach, you can attach the volume to up to 16 <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instances</a> in the same Availability Zone. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
+     * Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline CreateVolumeRequest& WithMultiAttachEnabled(bool value) { SetMultiAttachEnabled(value); return *this;}
+
   private:
 
     Aws::String m_availabilityZone;
@@ -597,6 +652,9 @@ namespace Model
 
     Aws::String m_kmsKeyId;
     bool m_kmsKeyIdHasBeenSet;
+
+    Aws::String m_outpostArn;
+    bool m_outpostArnHasBeenSet;
 
     int m_size;
     bool m_sizeHasBeenSet;
@@ -612,6 +670,9 @@ namespace Model
 
     Aws::Vector<TagSpecification> m_tagSpecifications;
     bool m_tagSpecificationsHasBeenSet;
+
+    bool m_multiAttachEnabled;
+    bool m_multiAttachEnabledHasBeenSet;
   };
 
 } // namespace Model

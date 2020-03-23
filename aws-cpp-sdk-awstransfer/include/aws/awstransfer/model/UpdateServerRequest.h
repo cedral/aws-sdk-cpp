@@ -49,43 +49,55 @@ namespace Model
 
     /**
      * <p>The virtual private cloud (VPC) endpoint settings that are configured for
-     * your SFTP server. With a VPC endpoint, your SFTP server isn't accessible over
-     * the public internet.</p>
+     * your SFTP server. With a VPC endpoint, you can restrict access to your SFTP
+     * server to resources only within your VPC. To control incoming internet traffic,
+     * you will need to associate one or more Elastic IP addresses with your server's
+     * endpoint. </p>
      */
     inline const EndpointDetails& GetEndpointDetails() const{ return m_endpointDetails; }
 
     /**
      * <p>The virtual private cloud (VPC) endpoint settings that are configured for
-     * your SFTP server. With a VPC endpoint, your SFTP server isn't accessible over
-     * the public internet.</p>
+     * your SFTP server. With a VPC endpoint, you can restrict access to your SFTP
+     * server to resources only within your VPC. To control incoming internet traffic,
+     * you will need to associate one or more Elastic IP addresses with your server's
+     * endpoint. </p>
      */
     inline bool EndpointDetailsHasBeenSet() const { return m_endpointDetailsHasBeenSet; }
 
     /**
      * <p>The virtual private cloud (VPC) endpoint settings that are configured for
-     * your SFTP server. With a VPC endpoint, your SFTP server isn't accessible over
-     * the public internet.</p>
+     * your SFTP server. With a VPC endpoint, you can restrict access to your SFTP
+     * server to resources only within your VPC. To control incoming internet traffic,
+     * you will need to associate one or more Elastic IP addresses with your server's
+     * endpoint. </p>
      */
     inline void SetEndpointDetails(const EndpointDetails& value) { m_endpointDetailsHasBeenSet = true; m_endpointDetails = value; }
 
     /**
      * <p>The virtual private cloud (VPC) endpoint settings that are configured for
-     * your SFTP server. With a VPC endpoint, your SFTP server isn't accessible over
-     * the public internet.</p>
+     * your SFTP server. With a VPC endpoint, you can restrict access to your SFTP
+     * server to resources only within your VPC. To control incoming internet traffic,
+     * you will need to associate one or more Elastic IP addresses with your server's
+     * endpoint. </p>
      */
     inline void SetEndpointDetails(EndpointDetails&& value) { m_endpointDetailsHasBeenSet = true; m_endpointDetails = std::move(value); }
 
     /**
      * <p>The virtual private cloud (VPC) endpoint settings that are configured for
-     * your SFTP server. With a VPC endpoint, your SFTP server isn't accessible over
-     * the public internet.</p>
+     * your SFTP server. With a VPC endpoint, you can restrict access to your SFTP
+     * server to resources only within your VPC. To control incoming internet traffic,
+     * you will need to associate one or more Elastic IP addresses with your server's
+     * endpoint. </p>
      */
     inline UpdateServerRequest& WithEndpointDetails(const EndpointDetails& value) { SetEndpointDetails(value); return *this;}
 
     /**
      * <p>The virtual private cloud (VPC) endpoint settings that are configured for
-     * your SFTP server. With a VPC endpoint, your SFTP server isn't accessible over
-     * the public internet.</p>
+     * your SFTP server. With a VPC endpoint, you can restrict access to your SFTP
+     * server to resources only within your VPC. To control incoming internet traffic,
+     * you will need to associate one or more Elastic IP addresses with your server's
+     * endpoint. </p>
      */
     inline UpdateServerRequest& WithEndpointDetails(EndpointDetails&& value) { SetEndpointDetails(std::move(value)); return *this;}
 
@@ -144,8 +156,9 @@ namespace Model
      * my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate
      * existing users from an existing SFTP server to a new AWS SFTP server, don't
      * update the host key. Accidentally changing a server's host key can be
-     * disruptive. For more information, see <a>change-host-key</a> in the <i>AWS SFTP
-     * User Guide.</i> </p> </important>
+     * disruptive.</p> </important> <p> For more information, see
+     * "https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
+     * in the <i>AWS SFTP User Guide.</i> </p>
      */
     inline const Aws::String& GetHostKey() const{ return m_hostKey; }
 
@@ -154,8 +167,9 @@ namespace Model
      * my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate
      * existing users from an existing SFTP server to a new AWS SFTP server, don't
      * update the host key. Accidentally changing a server's host key can be
-     * disruptive. For more information, see <a>change-host-key</a> in the <i>AWS SFTP
-     * User Guide.</i> </p> </important>
+     * disruptive.</p> </important> <p> For more information, see
+     * "https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
+     * in the <i>AWS SFTP User Guide.</i> </p>
      */
     inline bool HostKeyHasBeenSet() const { return m_hostKeyHasBeenSet; }
 
@@ -164,8 +178,9 @@ namespace Model
      * my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate
      * existing users from an existing SFTP server to a new AWS SFTP server, don't
      * update the host key. Accidentally changing a server's host key can be
-     * disruptive. For more information, see <a>change-host-key</a> in the <i>AWS SFTP
-     * User Guide.</i> </p> </important>
+     * disruptive.</p> </important> <p> For more information, see
+     * "https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
+     * in the <i>AWS SFTP User Guide.</i> </p>
      */
     inline void SetHostKey(const Aws::String& value) { m_hostKeyHasBeenSet = true; m_hostKey = value; }
 
@@ -174,8 +189,9 @@ namespace Model
      * my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate
      * existing users from an existing SFTP server to a new AWS SFTP server, don't
      * update the host key. Accidentally changing a server's host key can be
-     * disruptive. For more information, see <a>change-host-key</a> in the <i>AWS SFTP
-     * User Guide.</i> </p> </important>
+     * disruptive.</p> </important> <p> For more information, see
+     * "https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
+     * in the <i>AWS SFTP User Guide.</i> </p>
      */
     inline void SetHostKey(Aws::String&& value) { m_hostKeyHasBeenSet = true; m_hostKey = std::move(value); }
 
@@ -184,8 +200,9 @@ namespace Model
      * my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate
      * existing users from an existing SFTP server to a new AWS SFTP server, don't
      * update the host key. Accidentally changing a server's host key can be
-     * disruptive. For more information, see <a>change-host-key</a> in the <i>AWS SFTP
-     * User Guide.</i> </p> </important>
+     * disruptive.</p> </important> <p> For more information, see
+     * "https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
+     * in the <i>AWS SFTP User Guide.</i> </p>
      */
     inline void SetHostKey(const char* value) { m_hostKeyHasBeenSet = true; m_hostKey.assign(value); }
 
@@ -194,8 +211,9 @@ namespace Model
      * my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate
      * existing users from an existing SFTP server to a new AWS SFTP server, don't
      * update the host key. Accidentally changing a server's host key can be
-     * disruptive. For more information, see <a>change-host-key</a> in the <i>AWS SFTP
-     * User Guide.</i> </p> </important>
+     * disruptive.</p> </important> <p> For more information, see
+     * "https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
+     * in the <i>AWS SFTP User Guide.</i> </p>
      */
     inline UpdateServerRequest& WithHostKey(const Aws::String& value) { SetHostKey(value); return *this;}
 
@@ -204,8 +222,9 @@ namespace Model
      * my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate
      * existing users from an existing SFTP server to a new AWS SFTP server, don't
      * update the host key. Accidentally changing a server's host key can be
-     * disruptive. For more information, see <a>change-host-key</a> in the <i>AWS SFTP
-     * User Guide.</i> </p> </important>
+     * disruptive.</p> </important> <p> For more information, see
+     * "https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
+     * in the <i>AWS SFTP User Guide.</i> </p>
      */
     inline UpdateServerRequest& WithHostKey(Aws::String&& value) { SetHostKey(std::move(value)); return *this;}
 
@@ -214,8 +233,9 @@ namespace Model
      * my-new-server-key</code>.</p> <important> <p>If you aren't planning to migrate
      * existing users from an existing SFTP server to a new AWS SFTP server, don't
      * update the host key. Accidentally changing a server's host key can be
-     * disruptive. For more information, see <a>change-host-key</a> in the <i>AWS SFTP
-     * User Guide.</i> </p> </important>
+     * disruptive.</p> </important> <p> For more information, see
+     * "https://docs.aws.amazon.com/transfer/latest/userguide/configuring-servers.html#change-host-key"
+     * in the <i>AWS SFTP User Guide.</i> </p>
      */
     inline UpdateServerRequest& WithHostKey(const char* value) { SetHostKey(value); return *this;}
 

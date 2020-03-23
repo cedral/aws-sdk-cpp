@@ -32,7 +32,8 @@ namespace Model
     ApproximateFirstReceiveTimestamp,
     SequenceNumber,
     MessageDeduplicationId,
-    MessageGroupId
+    MessageGroupId,
+    AWSTraceHeader
   };
 
 namespace MessageSystemAttributeNameMapper

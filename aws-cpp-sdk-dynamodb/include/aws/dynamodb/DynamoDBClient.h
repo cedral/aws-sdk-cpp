@@ -31,14 +31,17 @@
 #include <aws/dynamodb/model/DeleteTableResult.h>
 #include <aws/dynamodb/model/DescribeBackupResult.h>
 #include <aws/dynamodb/model/DescribeContinuousBackupsResult.h>
+#include <aws/dynamodb/model/DescribeContributorInsightsResult.h>
 #include <aws/dynamodb/model/DescribeEndpointsResult.h>
 #include <aws/dynamodb/model/DescribeGlobalTableResult.h>
 #include <aws/dynamodb/model/DescribeGlobalTableSettingsResult.h>
 #include <aws/dynamodb/model/DescribeLimitsResult.h>
 #include <aws/dynamodb/model/DescribeTableResult.h>
+#include <aws/dynamodb/model/DescribeTableReplicaAutoScalingResult.h>
 #include <aws/dynamodb/model/DescribeTimeToLiveResult.h>
 #include <aws/dynamodb/model/GetItemResult.h>
 #include <aws/dynamodb/model/ListBackupsResult.h>
+#include <aws/dynamodb/model/ListContributorInsightsResult.h>
 #include <aws/dynamodb/model/ListGlobalTablesResult.h>
 #include <aws/dynamodb/model/ListTablesResult.h>
 #include <aws/dynamodb/model/ListTagsOfResourceResult.h>
@@ -50,10 +53,12 @@
 #include <aws/dynamodb/model/TransactGetItemsResult.h>
 #include <aws/dynamodb/model/TransactWriteItemsResult.h>
 #include <aws/dynamodb/model/UpdateContinuousBackupsResult.h>
+#include <aws/dynamodb/model/UpdateContributorInsightsResult.h>
 #include <aws/dynamodb/model/UpdateGlobalTableResult.h>
 #include <aws/dynamodb/model/UpdateGlobalTableSettingsResult.h>
 #include <aws/dynamodb/model/UpdateItemResult.h>
 #include <aws/dynamodb/model/UpdateTableResult.h>
+#include <aws/dynamodb/model/UpdateTableReplicaAutoScalingResult.h>
 #include <aws/dynamodb/model/UpdateTimeToLiveResult.h>
 #include <aws/core/NoResult.h>
 #include <aws/core/client/AsyncCallerContext.h>
@@ -106,14 +111,17 @@ namespace Model
         class DeleteTableRequest;
         class DescribeBackupRequest;
         class DescribeContinuousBackupsRequest;
+        class DescribeContributorInsightsRequest;
         class DescribeEndpointsRequest;
         class DescribeGlobalTableRequest;
         class DescribeGlobalTableSettingsRequest;
         class DescribeLimitsRequest;
         class DescribeTableRequest;
+        class DescribeTableReplicaAutoScalingRequest;
         class DescribeTimeToLiveRequest;
         class GetItemRequest;
         class ListBackupsRequest;
+        class ListContributorInsightsRequest;
         class ListGlobalTablesRequest;
         class ListTablesRequest;
         class ListTagsOfResourceRequest;
@@ -127,10 +135,12 @@ namespace Model
         class TransactWriteItemsRequest;
         class UntagResourceRequest;
         class UpdateContinuousBackupsRequest;
+        class UpdateContributorInsightsRequest;
         class UpdateGlobalTableRequest;
         class UpdateGlobalTableSettingsRequest;
         class UpdateItemRequest;
         class UpdateTableRequest;
+        class UpdateTableReplicaAutoScalingRequest;
         class UpdateTimeToLiveRequest;
 
         typedef Aws::Utils::Outcome<BatchGetItemResult, Aws::Client::AWSError<DynamoDBErrors>> BatchGetItemOutcome;
@@ -143,14 +153,17 @@ namespace Model
         typedef Aws::Utils::Outcome<DeleteTableResult, Aws::Client::AWSError<DynamoDBErrors>> DeleteTableOutcome;
         typedef Aws::Utils::Outcome<DescribeBackupResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeBackupOutcome;
         typedef Aws::Utils::Outcome<DescribeContinuousBackupsResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeContinuousBackupsOutcome;
+        typedef Aws::Utils::Outcome<DescribeContributorInsightsResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeContributorInsightsOutcome;
         typedef Aws::Utils::Outcome<DescribeEndpointsResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeEndpointsOutcome;
         typedef Aws::Utils::Outcome<DescribeGlobalTableResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeGlobalTableOutcome;
         typedef Aws::Utils::Outcome<DescribeGlobalTableSettingsResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeGlobalTableSettingsOutcome;
         typedef Aws::Utils::Outcome<DescribeLimitsResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeLimitsOutcome;
         typedef Aws::Utils::Outcome<DescribeTableResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeTableOutcome;
+        typedef Aws::Utils::Outcome<DescribeTableReplicaAutoScalingResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeTableReplicaAutoScalingOutcome;
         typedef Aws::Utils::Outcome<DescribeTimeToLiveResult, Aws::Client::AWSError<DynamoDBErrors>> DescribeTimeToLiveOutcome;
         typedef Aws::Utils::Outcome<GetItemResult, Aws::Client::AWSError<DynamoDBErrors>> GetItemOutcome;
         typedef Aws::Utils::Outcome<ListBackupsResult, Aws::Client::AWSError<DynamoDBErrors>> ListBackupsOutcome;
+        typedef Aws::Utils::Outcome<ListContributorInsightsResult, Aws::Client::AWSError<DynamoDBErrors>> ListContributorInsightsOutcome;
         typedef Aws::Utils::Outcome<ListGlobalTablesResult, Aws::Client::AWSError<DynamoDBErrors>> ListGlobalTablesOutcome;
         typedef Aws::Utils::Outcome<ListTablesResult, Aws::Client::AWSError<DynamoDBErrors>> ListTablesOutcome;
         typedef Aws::Utils::Outcome<ListTagsOfResourceResult, Aws::Client::AWSError<DynamoDBErrors>> ListTagsOfResourceOutcome;
@@ -164,10 +177,12 @@ namespace Model
         typedef Aws::Utils::Outcome<TransactWriteItemsResult, Aws::Client::AWSError<DynamoDBErrors>> TransactWriteItemsOutcome;
         typedef Aws::Utils::Outcome<Aws::NoResult, Aws::Client::AWSError<DynamoDBErrors>> UntagResourceOutcome;
         typedef Aws::Utils::Outcome<UpdateContinuousBackupsResult, Aws::Client::AWSError<DynamoDBErrors>> UpdateContinuousBackupsOutcome;
+        typedef Aws::Utils::Outcome<UpdateContributorInsightsResult, Aws::Client::AWSError<DynamoDBErrors>> UpdateContributorInsightsOutcome;
         typedef Aws::Utils::Outcome<UpdateGlobalTableResult, Aws::Client::AWSError<DynamoDBErrors>> UpdateGlobalTableOutcome;
         typedef Aws::Utils::Outcome<UpdateGlobalTableSettingsResult, Aws::Client::AWSError<DynamoDBErrors>> UpdateGlobalTableSettingsOutcome;
         typedef Aws::Utils::Outcome<UpdateItemResult, Aws::Client::AWSError<DynamoDBErrors>> UpdateItemOutcome;
         typedef Aws::Utils::Outcome<UpdateTableResult, Aws::Client::AWSError<DynamoDBErrors>> UpdateTableOutcome;
+        typedef Aws::Utils::Outcome<UpdateTableReplicaAutoScalingResult, Aws::Client::AWSError<DynamoDBErrors>> UpdateTableReplicaAutoScalingOutcome;
         typedef Aws::Utils::Outcome<UpdateTimeToLiveResult, Aws::Client::AWSError<DynamoDBErrors>> UpdateTimeToLiveOutcome;
 
         typedef std::future<BatchGetItemOutcome> BatchGetItemOutcomeCallable;
@@ -180,14 +195,17 @@ namespace Model
         typedef std::future<DeleteTableOutcome> DeleteTableOutcomeCallable;
         typedef std::future<DescribeBackupOutcome> DescribeBackupOutcomeCallable;
         typedef std::future<DescribeContinuousBackupsOutcome> DescribeContinuousBackupsOutcomeCallable;
+        typedef std::future<DescribeContributorInsightsOutcome> DescribeContributorInsightsOutcomeCallable;
         typedef std::future<DescribeEndpointsOutcome> DescribeEndpointsOutcomeCallable;
         typedef std::future<DescribeGlobalTableOutcome> DescribeGlobalTableOutcomeCallable;
         typedef std::future<DescribeGlobalTableSettingsOutcome> DescribeGlobalTableSettingsOutcomeCallable;
         typedef std::future<DescribeLimitsOutcome> DescribeLimitsOutcomeCallable;
         typedef std::future<DescribeTableOutcome> DescribeTableOutcomeCallable;
+        typedef std::future<DescribeTableReplicaAutoScalingOutcome> DescribeTableReplicaAutoScalingOutcomeCallable;
         typedef std::future<DescribeTimeToLiveOutcome> DescribeTimeToLiveOutcomeCallable;
         typedef std::future<GetItemOutcome> GetItemOutcomeCallable;
         typedef std::future<ListBackupsOutcome> ListBackupsOutcomeCallable;
+        typedef std::future<ListContributorInsightsOutcome> ListContributorInsightsOutcomeCallable;
         typedef std::future<ListGlobalTablesOutcome> ListGlobalTablesOutcomeCallable;
         typedef std::future<ListTablesOutcome> ListTablesOutcomeCallable;
         typedef std::future<ListTagsOfResourceOutcome> ListTagsOfResourceOutcomeCallable;
@@ -201,10 +219,12 @@ namespace Model
         typedef std::future<TransactWriteItemsOutcome> TransactWriteItemsOutcomeCallable;
         typedef std::future<UntagResourceOutcome> UntagResourceOutcomeCallable;
         typedef std::future<UpdateContinuousBackupsOutcome> UpdateContinuousBackupsOutcomeCallable;
+        typedef std::future<UpdateContributorInsightsOutcome> UpdateContributorInsightsOutcomeCallable;
         typedef std::future<UpdateGlobalTableOutcome> UpdateGlobalTableOutcomeCallable;
         typedef std::future<UpdateGlobalTableSettingsOutcome> UpdateGlobalTableSettingsOutcomeCallable;
         typedef std::future<UpdateItemOutcome> UpdateItemOutcomeCallable;
         typedef std::future<UpdateTableOutcome> UpdateTableOutcomeCallable;
+        typedef std::future<UpdateTableReplicaAutoScalingOutcome> UpdateTableReplicaAutoScalingOutcomeCallable;
         typedef std::future<UpdateTimeToLiveOutcome> UpdateTimeToLiveOutcomeCallable;
 } // namespace Model
 
@@ -220,14 +240,17 @@ namespace Model
     typedef std::function<void(const DynamoDBClient*, const Model::DeleteTableRequest&, const Model::DeleteTableOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteTableResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::DescribeBackupRequest&, const Model::DescribeBackupOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeBackupResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::DescribeContinuousBackupsRequest&, const Model::DescribeContinuousBackupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeContinuousBackupsResponseReceivedHandler;
+    typedef std::function<void(const DynamoDBClient*, const Model::DescribeContributorInsightsRequest&, const Model::DescribeContributorInsightsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeContributorInsightsResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::DescribeEndpointsRequest&, const Model::DescribeEndpointsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeEndpointsResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::DescribeGlobalTableRequest&, const Model::DescribeGlobalTableOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeGlobalTableResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::DescribeGlobalTableSettingsRequest&, const Model::DescribeGlobalTableSettingsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeGlobalTableSettingsResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::DescribeLimitsRequest&, const Model::DescribeLimitsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeLimitsResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::DescribeTableRequest&, const Model::DescribeTableOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeTableResponseReceivedHandler;
+    typedef std::function<void(const DynamoDBClient*, const Model::DescribeTableReplicaAutoScalingRequest&, const Model::DescribeTableReplicaAutoScalingOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeTableReplicaAutoScalingResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::DescribeTimeToLiveRequest&, const Model::DescribeTimeToLiveOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeTimeToLiveResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::GetItemRequest&, const Model::GetItemOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetItemResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::ListBackupsRequest&, const Model::ListBackupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListBackupsResponseReceivedHandler;
+    typedef std::function<void(const DynamoDBClient*, const Model::ListContributorInsightsRequest&, const Model::ListContributorInsightsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListContributorInsightsResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::ListGlobalTablesRequest&, const Model::ListGlobalTablesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListGlobalTablesResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::ListTablesRequest&, const Model::ListTablesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListTablesResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::ListTagsOfResourceRequest&, const Model::ListTagsOfResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListTagsOfResourceResponseReceivedHandler;
@@ -241,10 +264,12 @@ namespace Model
     typedef std::function<void(const DynamoDBClient*, const Model::TransactWriteItemsRequest&, const Model::TransactWriteItemsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > TransactWriteItemsResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::UntagResourceRequest&, const Model::UntagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UntagResourceResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::UpdateContinuousBackupsRequest&, const Model::UpdateContinuousBackupsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateContinuousBackupsResponseReceivedHandler;
+    typedef std::function<void(const DynamoDBClient*, const Model::UpdateContributorInsightsRequest&, const Model::UpdateContributorInsightsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateContributorInsightsResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::UpdateGlobalTableRequest&, const Model::UpdateGlobalTableOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateGlobalTableResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::UpdateGlobalTableSettingsRequest&, const Model::UpdateGlobalTableSettingsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateGlobalTableSettingsResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::UpdateItemRequest&, const Model::UpdateItemOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateItemResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::UpdateTableRequest&, const Model::UpdateTableOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateTableResponseReceivedHandler;
+    typedef std::function<void(const DynamoDBClient*, const Model::UpdateTableReplicaAutoScalingRequest&, const Model::UpdateTableReplicaAutoScalingOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateTableReplicaAutoScalingResponseReceivedHandler;
     typedef std::function<void(const DynamoDBClient*, const Model::UpdateTimeToLiveRequest&, const Model::UpdateTimeToLiveOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateTimeToLiveResponseReceivedHandler;
 
   /**
@@ -723,25 +748,27 @@ namespace Model
         /**
          * <p>Creates a global table from an existing table. A global table creates a
          * replication relationship between two or more DynamoDB tables with the same table
-         * name in the provided Regions. </p> <p>If you want to add a new replica table to
-         * a global table, each of the following conditions must be true:</p> <ul> <li>
-         * <p>The table must have the same primary key as all of the other replicas.</p>
-         * </li> <li> <p>The table must have the same name as all of the other
-         * replicas.</p> </li> <li> <p>The table must have DynamoDB Streams enabled, with
-         * the stream containing both the new and the old images of the item.</p> </li>
-         * <li> <p>None of the replica tables in the global table can contain any data.</p>
-         * </li> </ul> <p> If global secondary indexes are specified, then the following
-         * conditions must also be met: </p> <ul> <li> <p> The global secondary indexes
-         * must have the same name. </p> </li> <li> <p> The global secondary indexes must
-         * have the same hash key and sort key (if present). </p> </li> </ul> <important>
-         * <p> Write capacity settings should be set consistently across your replica
-         * tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling
-         * to manage the write capacity settings for all of your global tables replicas and
-         * indexes. </p> <p> If you prefer to manage write capacity settings manually, you
-         * should provision equal replicated write capacity units to your replica tables.
-         * You should also provision equal replicated write capacity units to matching
-         * secondary indexes across your global table. </p> </important><p><h3>See
-         * Also:</h3>   <a
+         * name in the provided Regions. </p> <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note> <p>If you want to add a new replica
+         * table to a global table, each of the following conditions must be true:</p> <ul>
+         * <li> <p>The table must have the same primary key as all of the other
+         * replicas.</p> </li> <li> <p>The table must have the same name as all of the
+         * other replicas.</p> </li> <li> <p>The table must have DynamoDB Streams enabled,
+         * with the stream containing both the new and the old images of the item.</p>
+         * </li> <li> <p>None of the replica tables in the global table can contain any
+         * data.</p> </li> </ul> <p> If global secondary indexes are specified, then the
+         * following conditions must also be met: </p> <ul> <li> <p> The global secondary
+         * indexes must have the same name. </p> </li> <li> <p> The global secondary
+         * indexes must have the same hash key and sort key (if present). </p> </li> </ul>
+         * <important> <p> Write capacity settings should be set consistently across your
+         * replica tables and secondary indexes. DynamoDB strongly recommends enabling auto
+         * scaling to manage the write capacity settings for all of your global tables
+         * replicas and indexes. </p> <p> If you prefer to manage write capacity settings
+         * manually, you should provision equal replicated write capacity units to your
+         * replica tables. You should also provision equal replicated write capacity units
+         * to matching secondary indexes across your global table. </p>
+         * </important><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/CreateGlobalTable">AWS
          * API Reference</a></p>
          */
@@ -750,25 +777,27 @@ namespace Model
         /**
          * <p>Creates a global table from an existing table. A global table creates a
          * replication relationship between two or more DynamoDB tables with the same table
-         * name in the provided Regions. </p> <p>If you want to add a new replica table to
-         * a global table, each of the following conditions must be true:</p> <ul> <li>
-         * <p>The table must have the same primary key as all of the other replicas.</p>
-         * </li> <li> <p>The table must have the same name as all of the other
-         * replicas.</p> </li> <li> <p>The table must have DynamoDB Streams enabled, with
-         * the stream containing both the new and the old images of the item.</p> </li>
-         * <li> <p>None of the replica tables in the global table can contain any data.</p>
-         * </li> </ul> <p> If global secondary indexes are specified, then the following
-         * conditions must also be met: </p> <ul> <li> <p> The global secondary indexes
-         * must have the same name. </p> </li> <li> <p> The global secondary indexes must
-         * have the same hash key and sort key (if present). </p> </li> </ul> <important>
-         * <p> Write capacity settings should be set consistently across your replica
-         * tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling
-         * to manage the write capacity settings for all of your global tables replicas and
-         * indexes. </p> <p> If you prefer to manage write capacity settings manually, you
-         * should provision equal replicated write capacity units to your replica tables.
-         * You should also provision equal replicated write capacity units to matching
-         * secondary indexes across your global table. </p> </important><p><h3>See
-         * Also:</h3>   <a
+         * name in the provided Regions. </p> <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note> <p>If you want to add a new replica
+         * table to a global table, each of the following conditions must be true:</p> <ul>
+         * <li> <p>The table must have the same primary key as all of the other
+         * replicas.</p> </li> <li> <p>The table must have the same name as all of the
+         * other replicas.</p> </li> <li> <p>The table must have DynamoDB Streams enabled,
+         * with the stream containing both the new and the old images of the item.</p>
+         * </li> <li> <p>None of the replica tables in the global table can contain any
+         * data.</p> </li> </ul> <p> If global secondary indexes are specified, then the
+         * following conditions must also be met: </p> <ul> <li> <p> The global secondary
+         * indexes must have the same name. </p> </li> <li> <p> The global secondary
+         * indexes must have the same hash key and sort key (if present). </p> </li> </ul>
+         * <important> <p> Write capacity settings should be set consistently across your
+         * replica tables and secondary indexes. DynamoDB strongly recommends enabling auto
+         * scaling to manage the write capacity settings for all of your global tables
+         * replicas and indexes. </p> <p> If you prefer to manage write capacity settings
+         * manually, you should provision equal replicated write capacity units to your
+         * replica tables. You should also provision equal replicated write capacity units
+         * to matching secondary indexes across your global table. </p>
+         * </important><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/CreateGlobalTable">AWS
          * API Reference</a></p>
          *
@@ -779,25 +808,27 @@ namespace Model
         /**
          * <p>Creates a global table from an existing table. A global table creates a
          * replication relationship between two or more DynamoDB tables with the same table
-         * name in the provided Regions. </p> <p>If you want to add a new replica table to
-         * a global table, each of the following conditions must be true:</p> <ul> <li>
-         * <p>The table must have the same primary key as all of the other replicas.</p>
-         * </li> <li> <p>The table must have the same name as all of the other
-         * replicas.</p> </li> <li> <p>The table must have DynamoDB Streams enabled, with
-         * the stream containing both the new and the old images of the item.</p> </li>
-         * <li> <p>None of the replica tables in the global table can contain any data.</p>
-         * </li> </ul> <p> If global secondary indexes are specified, then the following
-         * conditions must also be met: </p> <ul> <li> <p> The global secondary indexes
-         * must have the same name. </p> </li> <li> <p> The global secondary indexes must
-         * have the same hash key and sort key (if present). </p> </li> </ul> <important>
-         * <p> Write capacity settings should be set consistently across your replica
-         * tables and secondary indexes. DynamoDB strongly recommends enabling auto scaling
-         * to manage the write capacity settings for all of your global tables replicas and
-         * indexes. </p> <p> If you prefer to manage write capacity settings manually, you
-         * should provision equal replicated write capacity units to your replica tables.
-         * You should also provision equal replicated write capacity units to matching
-         * secondary indexes across your global table. </p> </important><p><h3>See
-         * Also:</h3>   <a
+         * name in the provided Regions. </p> <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note> <p>If you want to add a new replica
+         * table to a global table, each of the following conditions must be true:</p> <ul>
+         * <li> <p>The table must have the same primary key as all of the other
+         * replicas.</p> </li> <li> <p>The table must have the same name as all of the
+         * other replicas.</p> </li> <li> <p>The table must have DynamoDB Streams enabled,
+         * with the stream containing both the new and the old images of the item.</p>
+         * </li> <li> <p>None of the replica tables in the global table can contain any
+         * data.</p> </li> </ul> <p> If global secondary indexes are specified, then the
+         * following conditions must also be met: </p> <ul> <li> <p> The global secondary
+         * indexes must have the same name. </p> </li> <li> <p> The global secondary
+         * indexes must have the same hash key and sort key (if present). </p> </li> </ul>
+         * <important> <p> Write capacity settings should be set consistently across your
+         * replica tables and secondary indexes. DynamoDB strongly recommends enabling auto
+         * scaling to manage the write capacity settings for all of your global tables
+         * replicas and indexes. </p> <p> If you prefer to manage write capacity settings
+         * manually, you should provision equal replicated write capacity units to your
+         * replica tables. You should also provision equal replicated write capacity units
+         * to matching secondary indexes across your global table. </p>
+         * </important><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/CreateGlobalTable">AWS
          * API Reference</a></p>
          *
@@ -1115,6 +1146,34 @@ namespace Model
         virtual void DescribeContinuousBackupsAsync(const Model::DescribeContinuousBackupsRequest& request, const DescribeContinuousBackupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Returns information about contributor insights, for a given table or global
+         * secondary index.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeContributorInsights">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeContributorInsightsOutcome DescribeContributorInsights(const Model::DescribeContributorInsightsRequest& request) const;
+
+        /**
+         * <p>Returns information about contributor insights, for a given table or global
+         * secondary index.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeContributorInsights">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeContributorInsightsOutcomeCallable DescribeContributorInsightsCallable(const Model::DescribeContributorInsightsRequest& request) const;
+
+        /**
+         * <p>Returns information about contributor insights, for a given table or global
+         * secondary index.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeContributorInsights">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeContributorInsightsAsync(const Model::DescribeContributorInsightsRequest& request, const DescribeContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Returns the regional endpoint information.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeEndpoints">AWS
          * API Reference</a></p>
@@ -1140,16 +1199,20 @@ namespace Model
         virtual void DescribeEndpointsAsync(const Model::DescribeEndpointsRequest& request, const DescribeEndpointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Returns information about the specified global table.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Returns information about the specified global table.</p> <note> <p>This
+         * method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeGlobalTable">AWS
          * API Reference</a></p>
          */
         virtual Model::DescribeGlobalTableOutcome DescribeGlobalTable(const Model::DescribeGlobalTableRequest& request) const;
 
         /**
-         * <p>Returns information about the specified global table.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Returns information about the specified global table.</p> <note> <p>This
+         * method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeGlobalTable">AWS
          * API Reference</a></p>
          *
@@ -1158,8 +1221,10 @@ namespace Model
         virtual Model::DescribeGlobalTableOutcomeCallable DescribeGlobalTableCallable(const Model::DescribeGlobalTableRequest& request) const;
 
         /**
-         * <p>Returns information about the specified global table.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Returns information about the specified global table.</p> <note> <p>This
+         * method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeGlobalTable">AWS
          * API Reference</a></p>
          *
@@ -1168,16 +1233,20 @@ namespace Model
         virtual void DescribeGlobalTableAsync(const Model::DescribeGlobalTableRequest& request, const DescribeGlobalTableResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Describes Region-specific settings for a global table.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Describes Region-specific settings for a global table.</p> <note> <p>This
+         * method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeGlobalTableSettings">AWS
          * API Reference</a></p>
          */
         virtual Model::DescribeGlobalTableSettingsOutcome DescribeGlobalTableSettings(const Model::DescribeGlobalTableSettingsRequest& request) const;
 
         /**
-         * <p>Describes Region-specific settings for a global table.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Describes Region-specific settings for a global table.</p> <note> <p>This
+         * method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeGlobalTableSettings">AWS
          * API Reference</a></p>
          *
@@ -1186,8 +1255,10 @@ namespace Model
         virtual Model::DescribeGlobalTableSettingsOutcomeCallable DescribeGlobalTableSettingsCallable(const Model::DescribeGlobalTableSettingsRequest& request) const;
 
         /**
-         * <p>Describes Region-specific settings for a global table.</p><p><h3>See
-         * Also:</h3>   <a
+         * <p>Describes Region-specific settings for a global table.</p> <note> <p>This
+         * method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeGlobalTableSettings">AWS
          * API Reference</a></p>
          *
@@ -1390,6 +1461,40 @@ namespace Model
         virtual void DescribeTableAsync(const Model::DescribeTableRequest& request, const DescribeTableResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Describes auto scaling settings across replicas of the global table at
+         * once.</p> <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+         * 2019.11.21</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeTableReplicaAutoScaling">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeTableReplicaAutoScalingOutcome DescribeTableReplicaAutoScaling(const Model::DescribeTableReplicaAutoScalingRequest& request) const;
+
+        /**
+         * <p>Describes auto scaling settings across replicas of the global table at
+         * once.</p> <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+         * 2019.11.21</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeTableReplicaAutoScaling">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeTableReplicaAutoScalingOutcomeCallable DescribeTableReplicaAutoScalingCallable(const Model::DescribeTableReplicaAutoScalingRequest& request) const;
+
+        /**
+         * <p>Describes auto scaling settings across replicas of the global table at
+         * once.</p> <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+         * 2019.11.21</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeTableReplicaAutoScaling">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeTableReplicaAutoScalingAsync(const Model::DescribeTableReplicaAutoScalingRequest& request, const DescribeTableReplicaAutoScalingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Gives a description of the Time to Live (TTL) status on the specified table.
          * </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/DescribeTimeToLive">AWS
@@ -1510,16 +1615,48 @@ namespace Model
         virtual void ListBackupsAsync(const Model::ListBackupsRequest& request, const ListBackupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Lists all global tables that have a replica in the specified
-         * Region.</p><p><h3>See Also:</h3>   <a
+         * <p>Returns a list of ContributorInsightsSummary for a table and all its global
+         * secondary indexes.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ListContributorInsights">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ListContributorInsightsOutcome ListContributorInsights(const Model::ListContributorInsightsRequest& request) const;
+
+        /**
+         * <p>Returns a list of ContributorInsightsSummary for a table and all its global
+         * secondary indexes.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ListContributorInsights">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListContributorInsightsOutcomeCallable ListContributorInsightsCallable(const Model::ListContributorInsightsRequest& request) const;
+
+        /**
+         * <p>Returns a list of ContributorInsightsSummary for a table and all its global
+         * secondary indexes.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ListContributorInsights">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListContributorInsightsAsync(const Model::ListContributorInsightsRequest& request, const ListContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Lists all global tables that have a replica in the specified Region.</p>
+         * <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ListGlobalTables">AWS
          * API Reference</a></p>
          */
         virtual Model::ListGlobalTablesOutcome ListGlobalTables(const Model::ListGlobalTablesRequest& request) const;
 
         /**
-         * <p>Lists all global tables that have a replica in the specified
-         * Region.</p><p><h3>See Also:</h3>   <a
+         * <p>Lists all global tables that have a replica in the specified Region.</p>
+         * <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ListGlobalTables">AWS
          * API Reference</a></p>
          *
@@ -1528,8 +1665,10 @@ namespace Model
         virtual Model::ListGlobalTablesOutcomeCallable ListGlobalTablesCallable(const Model::ListGlobalTablesRequest& request) const;
 
         /**
-         * <p>Lists all global tables that have a replica in the specified
-         * Region.</p><p><h3>See Also:</h3>   <a
+         * <p>Lists all global tables that have a replica in the specified Region.</p>
+         * <note> <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
+         * 2017.11.29</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/ListGlobalTables">AWS
          * API Reference</a></p>
          *
@@ -2186,18 +2325,14 @@ namespace Model
          * <code>Get</code> structure that specifies an item to retrieve from a table in
          * the account and Region. A call to <code>TransactGetItems</code> cannot retrieve
          * items from tables in more than one AWS account or Region. The aggregate size of
-         * the items in the transaction cannot exceed 4 MB.</p> <note> <p>All AWS Regions
-         * and AWS GovCloud (US) support up to 25 items per transaction with up to 4 MB of
-         * data, except the following AWS Regions: </p> <ul> <li> <p>China (Beijing)</p>
-         * </li> <li> <p>China (Ningxia)</p> </li> </ul> <p>The China (Beijing) and China
-         * (Ningxia) Regions support up to 10 items per transaction with up to 4 MB of
-         * data. </p> </note> <p>DynamoDB rejects the entire <code>TransactGetItems</code>
-         * request if any of the following is true:</p> <ul> <li> <p>A conflicting
-         * operation is in the process of updating an item to be read.</p> </li> <li>
-         * <p>There is insufficient provisioned capacity for the transaction to be
-         * completed.</p> </li> <li> <p>There is a user error, such as an invalid data
-         * format.</p> </li> <li> <p>The aggregate size of the items in the transaction
-         * cannot exceed 4 MB.</p> </li> </ul><p><h3>See Also:</h3>   <a
+         * the items in the transaction cannot exceed 4 MB.</p> <p>DynamoDB rejects the
+         * entire <code>TransactGetItems</code> request if any of the following is
+         * true:</p> <ul> <li> <p>A conflicting operation is in the process of updating an
+         * item to be read.</p> </li> <li> <p>There is insufficient provisioned capacity
+         * for the transaction to be completed.</p> </li> <li> <p>There is a user error,
+         * such as an invalid data format.</p> </li> <li> <p>The aggregate size of the
+         * items in the transaction cannot exceed 4 MB.</p> </li> </ul><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/TransactGetItems">AWS
          * API Reference</a></p>
          */
@@ -2211,18 +2346,14 @@ namespace Model
          * <code>Get</code> structure that specifies an item to retrieve from a table in
          * the account and Region. A call to <code>TransactGetItems</code> cannot retrieve
          * items from tables in more than one AWS account or Region. The aggregate size of
-         * the items in the transaction cannot exceed 4 MB.</p> <note> <p>All AWS Regions
-         * and AWS GovCloud (US) support up to 25 items per transaction with up to 4 MB of
-         * data, except the following AWS Regions: </p> <ul> <li> <p>China (Beijing)</p>
-         * </li> <li> <p>China (Ningxia)</p> </li> </ul> <p>The China (Beijing) and China
-         * (Ningxia) Regions support up to 10 items per transaction with up to 4 MB of
-         * data. </p> </note> <p>DynamoDB rejects the entire <code>TransactGetItems</code>
-         * request if any of the following is true:</p> <ul> <li> <p>A conflicting
-         * operation is in the process of updating an item to be read.</p> </li> <li>
-         * <p>There is insufficient provisioned capacity for the transaction to be
-         * completed.</p> </li> <li> <p>There is a user error, such as an invalid data
-         * format.</p> </li> <li> <p>The aggregate size of the items in the transaction
-         * cannot exceed 4 MB.</p> </li> </ul><p><h3>See Also:</h3>   <a
+         * the items in the transaction cannot exceed 4 MB.</p> <p>DynamoDB rejects the
+         * entire <code>TransactGetItems</code> request if any of the following is
+         * true:</p> <ul> <li> <p>A conflicting operation is in the process of updating an
+         * item to be read.</p> </li> <li> <p>There is insufficient provisioned capacity
+         * for the transaction to be completed.</p> </li> <li> <p>There is a user error,
+         * such as an invalid data format.</p> </li> <li> <p>The aggregate size of the
+         * items in the transaction cannot exceed 4 MB.</p> </li> </ul><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/TransactGetItems">AWS
          * API Reference</a></p>
          *
@@ -2238,18 +2369,14 @@ namespace Model
          * <code>Get</code> structure that specifies an item to retrieve from a table in
          * the account and Region. A call to <code>TransactGetItems</code> cannot retrieve
          * items from tables in more than one AWS account or Region. The aggregate size of
-         * the items in the transaction cannot exceed 4 MB.</p> <note> <p>All AWS Regions
-         * and AWS GovCloud (US) support up to 25 items per transaction with up to 4 MB of
-         * data, except the following AWS Regions: </p> <ul> <li> <p>China (Beijing)</p>
-         * </li> <li> <p>China (Ningxia)</p> </li> </ul> <p>The China (Beijing) and China
-         * (Ningxia) Regions support up to 10 items per transaction with up to 4 MB of
-         * data. </p> </note> <p>DynamoDB rejects the entire <code>TransactGetItems</code>
-         * request if any of the following is true:</p> <ul> <li> <p>A conflicting
-         * operation is in the process of updating an item to be read.</p> </li> <li>
-         * <p>There is insufficient provisioned capacity for the transaction to be
-         * completed.</p> </li> <li> <p>There is a user error, such as an invalid data
-         * format.</p> </li> <li> <p>The aggregate size of the items in the transaction
-         * cannot exceed 4 MB.</p> </li> </ul><p><h3>See Also:</h3>   <a
+         * the items in the transaction cannot exceed 4 MB.</p> <p>DynamoDB rejects the
+         * entire <code>TransactGetItems</code> request if any of the following is
+         * true:</p> <ul> <li> <p>A conflicting operation is in the process of updating an
+         * item to be read.</p> </li> <li> <p>There is insufficient provisioned capacity
+         * for the transaction to be completed.</p> </li> <li> <p>There is a user error,
+         * such as an invalid data format.</p> </li> <li> <p>The aggregate size of the
+         * items in the transaction cannot exceed 4 MB.</p> </li> </ul><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/TransactGetItems">AWS
          * API Reference</a></p>
          *
@@ -2263,40 +2390,35 @@ namespace Model
          * but not in different AWS accounts or Regions, and no two actions can target the
          * same item. For example, you cannot both <code>ConditionCheck</code> and
          * <code>Update</code> the same item. The aggregate size of the items in the
-         * transaction cannot exceed 4 MB.</p> <note> <p>All AWS Regions and AWS GovCloud
-         * (US) support up to 25 items per transaction with up to 4 MB of data, except the
-         * following AWS Regions: </p> <ul> <li> <p>China (Beijing)</p> </li> <li> <p>China
-         * (Ningxia)</p> </li> </ul> <p>The China (Beijing) and China (Ningxia) Regions
-         * support up to 10 items per transaction with up to 4 MB of data. </p> </note>
-         * <p>The actions are completed atomically so that either all of them succeed, or
-         * all of them fail. They are defined by the following objects:</p> <ul> <li> <p>
-         * <code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a
-         * new item. This structure specifies the primary key of the item to be written,
-         * the name of the table to write it in, an optional condition expression that must
-         * be satisfied for the write to succeed, a list of the item's attributes, and a
-         * field indicating whether to retrieve the item's attributes if the condition is
-         * not met.</p> </li> <li> <p> <code>Update</code>  &#x97;   Initiates an
-         * <code>UpdateItem</code> operation to update an existing item. This structure
-         * specifies the primary key of the item to be updated, the name of the table where
-         * it resides, an optional condition expression that must be satisfied for the
-         * update to succeed, an expression that defines one or more attributes to be
-         * updated, and a field indicating whether to retrieve the item's attributes if the
-         * condition is not met.</p> </li> <li> <p> <code>Delete</code>  &#x97;   Initiates
-         * a <code>DeleteItem</code> operation to delete an existing item. This structure
-         * specifies the primary key of the item to be deleted, the name of the table where
-         * it resides, an optional condition expression that must be satisfied for the
-         * deletion to succeed, and a field indicating whether to retrieve the item's
-         * attributes if the condition is not met.</p> </li> <li> <p>
-         * <code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not
-         * being modified by the transaction. This structure specifies the primary key of
-         * the item to be checked, the name of the table where it resides, a condition
-         * expression that must be satisfied for the transaction to succeed, and a field
+         * transaction cannot exceed 4 MB.</p> <p>The actions are completed atomically so
+         * that either all of them succeed, or all of them fail. They are defined by the
+         * following objects:</p> <ul> <li> <p> <code>Put</code>  &#x97;   Initiates a
+         * <code>PutItem</code> operation to write a new item. This structure specifies the
+         * primary key of the item to be written, the name of the table to write it in, an
+         * optional condition expression that must be satisfied for the write to succeed, a
+         * list of the item's attributes, and a field indicating whether to retrieve the
+         * item's attributes if the condition is not met.</p> </li> <li> <p>
+         * <code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to
+         * update an existing item. This structure specifies the primary key of the item to
+         * be updated, the name of the table where it resides, an optional condition
+         * expression that must be satisfied for the update to succeed, an expression that
+         * defines one or more attributes to be updated, and a field indicating whether to
+         * retrieve the item's attributes if the condition is not met.</p> </li> <li> <p>
+         * <code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to
+         * delete an existing item. This structure specifies the primary key of the item to
+         * be deleted, the name of the table where it resides, an optional condition
+         * expression that must be satisfied for the deletion to succeed, and a field
          * indicating whether to retrieve the item's attributes if the condition is not
-         * met.</p> </li> </ul> <p>DynamoDB rejects the entire
-         * <code>TransactWriteItems</code> request if any of the following is true:</p>
-         * <ul> <li> <p>A condition in one of the condition expressions is not met.</p>
-         * </li> <li> <p>An ongoing operation is in the process of updating the same
-         * item.</p> </li> <li> <p>There is insufficient provisioned capacity for the
+         * met.</p> </li> <li> <p> <code>ConditionCheck</code>  &#x97;   Applies a
+         * condition to an item that is not being modified by the transaction. This
+         * structure specifies the primary key of the item to be checked, the name of the
+         * table where it resides, a condition expression that must be satisfied for the
+         * transaction to succeed, and a field indicating whether to retrieve the item's
+         * attributes if the condition is not met.</p> </li> </ul> <p>DynamoDB rejects the
+         * entire <code>TransactWriteItems</code> request if any of the following is
+         * true:</p> <ul> <li> <p>A condition in one of the condition expressions is not
+         * met.</p> </li> <li> <p>An ongoing operation is in the process of updating the
+         * same item.</p> </li> <li> <p>There is insufficient provisioned capacity for the
          * transaction to be completed.</p> </li> <li> <p>An item size becomes too large
          * (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a
          * similar validation error occurs because of changes made by the transaction.</p>
@@ -2314,40 +2436,35 @@ namespace Model
          * but not in different AWS accounts or Regions, and no two actions can target the
          * same item. For example, you cannot both <code>ConditionCheck</code> and
          * <code>Update</code> the same item. The aggregate size of the items in the
-         * transaction cannot exceed 4 MB.</p> <note> <p>All AWS Regions and AWS GovCloud
-         * (US) support up to 25 items per transaction with up to 4 MB of data, except the
-         * following AWS Regions: </p> <ul> <li> <p>China (Beijing)</p> </li> <li> <p>China
-         * (Ningxia)</p> </li> </ul> <p>The China (Beijing) and China (Ningxia) Regions
-         * support up to 10 items per transaction with up to 4 MB of data. </p> </note>
-         * <p>The actions are completed atomically so that either all of them succeed, or
-         * all of them fail. They are defined by the following objects:</p> <ul> <li> <p>
-         * <code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a
-         * new item. This structure specifies the primary key of the item to be written,
-         * the name of the table to write it in, an optional condition expression that must
-         * be satisfied for the write to succeed, a list of the item's attributes, and a
-         * field indicating whether to retrieve the item's attributes if the condition is
-         * not met.</p> </li> <li> <p> <code>Update</code>  &#x97;   Initiates an
-         * <code>UpdateItem</code> operation to update an existing item. This structure
-         * specifies the primary key of the item to be updated, the name of the table where
-         * it resides, an optional condition expression that must be satisfied for the
-         * update to succeed, an expression that defines one or more attributes to be
-         * updated, and a field indicating whether to retrieve the item's attributes if the
-         * condition is not met.</p> </li> <li> <p> <code>Delete</code>  &#x97;   Initiates
-         * a <code>DeleteItem</code> operation to delete an existing item. This structure
-         * specifies the primary key of the item to be deleted, the name of the table where
-         * it resides, an optional condition expression that must be satisfied for the
-         * deletion to succeed, and a field indicating whether to retrieve the item's
-         * attributes if the condition is not met.</p> </li> <li> <p>
-         * <code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not
-         * being modified by the transaction. This structure specifies the primary key of
-         * the item to be checked, the name of the table where it resides, a condition
-         * expression that must be satisfied for the transaction to succeed, and a field
+         * transaction cannot exceed 4 MB.</p> <p>The actions are completed atomically so
+         * that either all of them succeed, or all of them fail. They are defined by the
+         * following objects:</p> <ul> <li> <p> <code>Put</code>  &#x97;   Initiates a
+         * <code>PutItem</code> operation to write a new item. This structure specifies the
+         * primary key of the item to be written, the name of the table to write it in, an
+         * optional condition expression that must be satisfied for the write to succeed, a
+         * list of the item's attributes, and a field indicating whether to retrieve the
+         * item's attributes if the condition is not met.</p> </li> <li> <p>
+         * <code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to
+         * update an existing item. This structure specifies the primary key of the item to
+         * be updated, the name of the table where it resides, an optional condition
+         * expression that must be satisfied for the update to succeed, an expression that
+         * defines one or more attributes to be updated, and a field indicating whether to
+         * retrieve the item's attributes if the condition is not met.</p> </li> <li> <p>
+         * <code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to
+         * delete an existing item. This structure specifies the primary key of the item to
+         * be deleted, the name of the table where it resides, an optional condition
+         * expression that must be satisfied for the deletion to succeed, and a field
          * indicating whether to retrieve the item's attributes if the condition is not
-         * met.</p> </li> </ul> <p>DynamoDB rejects the entire
-         * <code>TransactWriteItems</code> request if any of the following is true:</p>
-         * <ul> <li> <p>A condition in one of the condition expressions is not met.</p>
-         * </li> <li> <p>An ongoing operation is in the process of updating the same
-         * item.</p> </li> <li> <p>There is insufficient provisioned capacity for the
+         * met.</p> </li> <li> <p> <code>ConditionCheck</code>  &#x97;   Applies a
+         * condition to an item that is not being modified by the transaction. This
+         * structure specifies the primary key of the item to be checked, the name of the
+         * table where it resides, a condition expression that must be satisfied for the
+         * transaction to succeed, and a field indicating whether to retrieve the item's
+         * attributes if the condition is not met.</p> </li> </ul> <p>DynamoDB rejects the
+         * entire <code>TransactWriteItems</code> request if any of the following is
+         * true:</p> <ul> <li> <p>A condition in one of the condition expressions is not
+         * met.</p> </li> <li> <p>An ongoing operation is in the process of updating the
+         * same item.</p> </li> <li> <p>There is insufficient provisioned capacity for the
          * transaction to be completed.</p> </li> <li> <p>An item size becomes too large
          * (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a
          * similar validation error occurs because of changes made by the transaction.</p>
@@ -2367,40 +2484,35 @@ namespace Model
          * but not in different AWS accounts or Regions, and no two actions can target the
          * same item. For example, you cannot both <code>ConditionCheck</code> and
          * <code>Update</code> the same item. The aggregate size of the items in the
-         * transaction cannot exceed 4 MB.</p> <note> <p>All AWS Regions and AWS GovCloud
-         * (US) support up to 25 items per transaction with up to 4 MB of data, except the
-         * following AWS Regions: </p> <ul> <li> <p>China (Beijing)</p> </li> <li> <p>China
-         * (Ningxia)</p> </li> </ul> <p>The China (Beijing) and China (Ningxia) Regions
-         * support up to 10 items per transaction with up to 4 MB of data. </p> </note>
-         * <p>The actions are completed atomically so that either all of them succeed, or
-         * all of them fail. They are defined by the following objects:</p> <ul> <li> <p>
-         * <code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a
-         * new item. This structure specifies the primary key of the item to be written,
-         * the name of the table to write it in, an optional condition expression that must
-         * be satisfied for the write to succeed, a list of the item's attributes, and a
-         * field indicating whether to retrieve the item's attributes if the condition is
-         * not met.</p> </li> <li> <p> <code>Update</code>  &#x97;   Initiates an
-         * <code>UpdateItem</code> operation to update an existing item. This structure
-         * specifies the primary key of the item to be updated, the name of the table where
-         * it resides, an optional condition expression that must be satisfied for the
-         * update to succeed, an expression that defines one or more attributes to be
-         * updated, and a field indicating whether to retrieve the item's attributes if the
-         * condition is not met.</p> </li> <li> <p> <code>Delete</code>  &#x97;   Initiates
-         * a <code>DeleteItem</code> operation to delete an existing item. This structure
-         * specifies the primary key of the item to be deleted, the name of the table where
-         * it resides, an optional condition expression that must be satisfied for the
-         * deletion to succeed, and a field indicating whether to retrieve the item's
-         * attributes if the condition is not met.</p> </li> <li> <p>
-         * <code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not
-         * being modified by the transaction. This structure specifies the primary key of
-         * the item to be checked, the name of the table where it resides, a condition
-         * expression that must be satisfied for the transaction to succeed, and a field
+         * transaction cannot exceed 4 MB.</p> <p>The actions are completed atomically so
+         * that either all of them succeed, or all of them fail. They are defined by the
+         * following objects:</p> <ul> <li> <p> <code>Put</code>  &#x97;   Initiates a
+         * <code>PutItem</code> operation to write a new item. This structure specifies the
+         * primary key of the item to be written, the name of the table to write it in, an
+         * optional condition expression that must be satisfied for the write to succeed, a
+         * list of the item's attributes, and a field indicating whether to retrieve the
+         * item's attributes if the condition is not met.</p> </li> <li> <p>
+         * <code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to
+         * update an existing item. This structure specifies the primary key of the item to
+         * be updated, the name of the table where it resides, an optional condition
+         * expression that must be satisfied for the update to succeed, an expression that
+         * defines one or more attributes to be updated, and a field indicating whether to
+         * retrieve the item's attributes if the condition is not met.</p> </li> <li> <p>
+         * <code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to
+         * delete an existing item. This structure specifies the primary key of the item to
+         * be deleted, the name of the table where it resides, an optional condition
+         * expression that must be satisfied for the deletion to succeed, and a field
          * indicating whether to retrieve the item's attributes if the condition is not
-         * met.</p> </li> </ul> <p>DynamoDB rejects the entire
-         * <code>TransactWriteItems</code> request if any of the following is true:</p>
-         * <ul> <li> <p>A condition in one of the condition expressions is not met.</p>
-         * </li> <li> <p>An ongoing operation is in the process of updating the same
-         * item.</p> </li> <li> <p>There is insufficient provisioned capacity for the
+         * met.</p> </li> <li> <p> <code>ConditionCheck</code>  &#x97;   Applies a
+         * condition to an item that is not being modified by the transaction. This
+         * structure specifies the primary key of the item to be checked, the name of the
+         * table where it resides, a condition expression that must be satisfied for the
+         * transaction to succeed, and a field indicating whether to retrieve the item's
+         * attributes if the condition is not met.</p> </li> </ul> <p>DynamoDB rejects the
+         * entire <code>TransactWriteItems</code> request if any of the following is
+         * true:</p> <ul> <li> <p>A condition in one of the condition expressions is not
+         * met.</p> </li> <li> <p>An ongoing operation is in the process of updating the
+         * same item.</p> </li> <li> <p>There is insufficient provisioned capacity for the
          * transaction to be completed.</p> </li> <li> <p>An item size becomes too large
          * (bigger than 400 KB), a local secondary index (LSI) becomes too large, or a
          * similar validation error occurs because of changes made by the transaction.</p>
@@ -2511,6 +2623,34 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void UpdateContinuousBackupsAsync(const Model::UpdateContinuousBackupsRequest& request, const UpdateContinuousBackupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Updates the status for contributor insights for a specific table or
+         * index.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/UpdateContributorInsights">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UpdateContributorInsightsOutcome UpdateContributorInsights(const Model::UpdateContributorInsightsRequest& request) const;
+
+        /**
+         * <p>Updates the status for contributor insights for a specific table or
+         * index.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/UpdateContributorInsights">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UpdateContributorInsightsOutcomeCallable UpdateContributorInsightsCallable(const Model::UpdateContributorInsightsRequest& request) const;
+
+        /**
+         * <p>Updates the status for contributor insights for a specific table or
+         * index.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/UpdateContributorInsights">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UpdateContributorInsightsAsync(const Model::UpdateContributorInsightsRequest& request, const UpdateContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Adds or removes replicas in the specified global table. The global table must
@@ -2703,6 +2843,40 @@ namespace Model
         virtual void UpdateTableAsync(const Model::UpdateTableRequest& request, const UpdateTableResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Updates auto scaling settings on your global tables at once.</p> <note>
+         * <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+         * 2019.11.21</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/UpdateTableReplicaAutoScaling">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UpdateTableReplicaAutoScalingOutcome UpdateTableReplicaAutoScaling(const Model::UpdateTableReplicaAutoScalingRequest& request) const;
+
+        /**
+         * <p>Updates auto scaling settings on your global tables at once.</p> <note>
+         * <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+         * 2019.11.21</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/UpdateTableReplicaAutoScaling">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UpdateTableReplicaAutoScalingOutcomeCallable UpdateTableReplicaAutoScalingCallable(const Model::UpdateTableReplicaAutoScalingRequest& request) const;
+
+        /**
+         * <p>Updates auto scaling settings on your global tables at once.</p> <note>
+         * <p>This method only applies to <a
+         * href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
+         * 2019.11.21</a> of global tables.</p> </note><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/dynamodb-2012-08-10/UpdateTableReplicaAutoScaling">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UpdateTableReplicaAutoScalingAsync(const Model::UpdateTableReplicaAutoScalingRequest& request, const UpdateTableReplicaAutoScalingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live
          * (TTL) for the specified table. A successful <code>UpdateTimeToLive</code> call
          * returns the current <code>TimeToLiveSpecification</code>. It can take up to one
@@ -2804,14 +2978,17 @@ namespace Model
         void DeleteTableAsyncHelper(const Model::DeleteTableRequest& request, const DeleteTableResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeBackupAsyncHelper(const Model::DescribeBackupRequest& request, const DescribeBackupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeContinuousBackupsAsyncHelper(const Model::DescribeContinuousBackupsRequest& request, const DescribeContinuousBackupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeContributorInsightsAsyncHelper(const Model::DescribeContributorInsightsRequest& request, const DescribeContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeEndpointsAsyncHelper(const Model::DescribeEndpointsRequest& request, const DescribeEndpointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeGlobalTableAsyncHelper(const Model::DescribeGlobalTableRequest& request, const DescribeGlobalTableResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeGlobalTableSettingsAsyncHelper(const Model::DescribeGlobalTableSettingsRequest& request, const DescribeGlobalTableSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeLimitsAsyncHelper(const Model::DescribeLimitsRequest& request, const DescribeLimitsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeTableAsyncHelper(const Model::DescribeTableRequest& request, const DescribeTableResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeTableReplicaAutoScalingAsyncHelper(const Model::DescribeTableReplicaAutoScalingRequest& request, const DescribeTableReplicaAutoScalingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeTimeToLiveAsyncHelper(const Model::DescribeTimeToLiveRequest& request, const DescribeTimeToLiveResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetItemAsyncHelper(const Model::GetItemRequest& request, const GetItemResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListBackupsAsyncHelper(const Model::ListBackupsRequest& request, const ListBackupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListContributorInsightsAsyncHelper(const Model::ListContributorInsightsRequest& request, const ListContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListGlobalTablesAsyncHelper(const Model::ListGlobalTablesRequest& request, const ListGlobalTablesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListTablesAsyncHelper(const Model::ListTablesRequest& request, const ListTablesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListTagsOfResourceAsyncHelper(const Model::ListTagsOfResourceRequest& request, const ListTagsOfResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -2825,10 +3002,12 @@ namespace Model
         void TransactWriteItemsAsyncHelper(const Model::TransactWriteItemsRequest& request, const TransactWriteItemsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UntagResourceAsyncHelper(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateContinuousBackupsAsyncHelper(const Model::UpdateContinuousBackupsRequest& request, const UpdateContinuousBackupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UpdateContributorInsightsAsyncHelper(const Model::UpdateContributorInsightsRequest& request, const UpdateContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateGlobalTableAsyncHelper(const Model::UpdateGlobalTableRequest& request, const UpdateGlobalTableResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateGlobalTableSettingsAsyncHelper(const Model::UpdateGlobalTableSettingsRequest& request, const UpdateGlobalTableSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateItemAsyncHelper(const Model::UpdateItemRequest& request, const UpdateItemResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateTableAsyncHelper(const Model::UpdateTableRequest& request, const UpdateTableResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UpdateTableReplicaAutoScalingAsyncHelper(const Model::UpdateTableReplicaAutoScalingRequest& request, const UpdateTableReplicaAutoScalingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateTimeToLiveAsyncHelper(const Model::UpdateTimeToLiveRequest& request, const UpdateTimeToLiveResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
 
       Aws::String m_uri;

@@ -42,7 +42,7 @@ namespace Model
 {
 
   /**
-   * <p>Represents an alarm.</p><p><h3>See Also:</h3>   <a
+   * <p>The details about a metric alarm.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/monitoring-2010-08-01/MetricAlarm">AWS
    * API Reference</a></p>
    */
@@ -867,22 +867,22 @@ namespace Model
 
 
     /**
-     * <p>The number of datapoints that must be breaching to trigger the alarm.</p>
+     * <p>The number of data points that must be breaching to trigger the alarm.</p>
      */
     inline int GetDatapointsToAlarm() const{ return m_datapointsToAlarm; }
 
     /**
-     * <p>The number of datapoints that must be breaching to trigger the alarm.</p>
+     * <p>The number of data points that must be breaching to trigger the alarm.</p>
      */
     inline bool DatapointsToAlarmHasBeenSet() const { return m_datapointsToAlarmHasBeenSet; }
 
     /**
-     * <p>The number of datapoints that must be breaching to trigger the alarm.</p>
+     * <p>The number of data points that must be breaching to trigger the alarm.</p>
      */
     inline void SetDatapointsToAlarm(int value) { m_datapointsToAlarmHasBeenSet = true; m_datapointsToAlarm = value; }
 
     /**
-     * <p>The number of datapoints that must be breaching to trigger the alarm.</p>
+     * <p>The number of data points that must be breaching to trigger the alarm.</p>
      */
     inline MetricAlarm& WithDatapointsToAlarm(int value) { SetDatapointsToAlarm(value); return *this;}
 

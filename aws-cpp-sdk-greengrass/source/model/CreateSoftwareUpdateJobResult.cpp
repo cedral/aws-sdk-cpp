@@ -50,6 +50,12 @@ CreateSoftwareUpdateJobResult& CreateSoftwareUpdateJobResult::operator =(const A
 
   }
 
+  if(jsonValue.ValueExists("PlatformSoftwareVersion"))
+  {
+    m_platformSoftwareVersion = jsonValue.GetString("PlatformSoftwareVersion");
+
+  }
+
 
 
   return *this;

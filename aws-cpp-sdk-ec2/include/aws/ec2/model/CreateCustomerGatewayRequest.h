@@ -126,6 +126,47 @@ namespace Model
 
 
     /**
+     * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+     */
+    inline const Aws::String& GetCertificateArn() const{ return m_certificateArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+     */
+    inline bool CertificateArnHasBeenSet() const { return m_certificateArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+     */
+    inline void SetCertificateArn(const Aws::String& value) { m_certificateArnHasBeenSet = true; m_certificateArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+     */
+    inline void SetCertificateArn(Aws::String&& value) { m_certificateArnHasBeenSet = true; m_certificateArn = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+     */
+    inline void SetCertificateArn(const char* value) { m_certificateArnHasBeenSet = true; m_certificateArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+     */
+    inline CreateCustomerGatewayRequest& WithCertificateArn(const Aws::String& value) { SetCertificateArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+     */
+    inline CreateCustomerGatewayRequest& WithCertificateArn(Aws::String&& value) { SetCertificateArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+     */
+    inline CreateCustomerGatewayRequest& WithCertificateArn(const char* value) { SetCertificateArn(value); return *this;}
+
+
+    /**
      * <p>The type of VPN connection that this customer gateway supports
      * (<code>ipsec.1</code>).</p>
      */
@@ -160,6 +201,55 @@ namespace Model
      * (<code>ipsec.1</code>).</p>
      */
     inline CreateCustomerGatewayRequest& WithType(GatewayType&& value) { SetType(std::move(value)); return *this;}
+
+
+    /**
+     * <p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255
+     * characters.</p>
+     */
+    inline const Aws::String& GetDeviceName() const{ return m_deviceName; }
+
+    /**
+     * <p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255
+     * characters.</p>
+     */
+    inline bool DeviceNameHasBeenSet() const { return m_deviceNameHasBeenSet; }
+
+    /**
+     * <p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255
+     * characters.</p>
+     */
+    inline void SetDeviceName(const Aws::String& value) { m_deviceNameHasBeenSet = true; m_deviceName = value; }
+
+    /**
+     * <p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255
+     * characters.</p>
+     */
+    inline void SetDeviceName(Aws::String&& value) { m_deviceNameHasBeenSet = true; m_deviceName = std::move(value); }
+
+    /**
+     * <p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255
+     * characters.</p>
+     */
+    inline void SetDeviceName(const char* value) { m_deviceNameHasBeenSet = true; m_deviceName.assign(value); }
+
+    /**
+     * <p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255
+     * characters.</p>
+     */
+    inline CreateCustomerGatewayRequest& WithDeviceName(const Aws::String& value) { SetDeviceName(value); return *this;}
+
+    /**
+     * <p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255
+     * characters.</p>
+     */
+    inline CreateCustomerGatewayRequest& WithDeviceName(Aws::String&& value) { SetDeviceName(std::move(value)); return *this;}
+
+    /**
+     * <p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255
+     * characters.</p>
+     */
+    inline CreateCustomerGatewayRequest& WithDeviceName(const char* value) { SetDeviceName(value); return *this;}
 
 
     /**
@@ -202,8 +292,14 @@ namespace Model
     Aws::String m_publicIp;
     bool m_publicIpHasBeenSet;
 
+    Aws::String m_certificateArn;
+    bool m_certificateArnHasBeenSet;
+
     GatewayType m_type;
     bool m_typeHasBeenSet;
+
+    Aws::String m_deviceName;
+    bool m_deviceNameHasBeenSet;
 
     bool m_dryRun;
     bool m_dryRunHasBeenSet;

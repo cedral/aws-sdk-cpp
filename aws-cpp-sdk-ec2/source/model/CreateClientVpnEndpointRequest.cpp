@@ -28,6 +28,8 @@ CreateClientVpnEndpointRequest::CreateClientVpnEndpointRequest() :
     m_dnsServersHasBeenSet(false),
     m_transportProtocol(TransportProtocol::NOT_SET),
     m_transportProtocolHasBeenSet(false),
+    m_vpnPort(0),
+    m_vpnPortHasBeenSet(false),
     m_descriptionHasBeenSet(false),
     m_splitTunnel(false),
     m_splitTunnelHasBeenSet(false),
@@ -35,7 +37,9 @@ CreateClientVpnEndpointRequest::CreateClientVpnEndpointRequest() :
     m_dryRunHasBeenSet(false),
     m_clientToken(Aws::Utils::UUID::RandomUUID()),
     m_clientTokenHasBeenSet(true),
-    m_tagSpecificationsHasBeenSet(false)
+    m_tagSpecificationsHasBeenSet(false),
+    m_securityGroupIdsHasBeenSet(false),
+    m_vpcIdHasBeenSet(false)
 {
 }
 
@@ -84,6 +88,11 @@ Aws::String CreateClientVpnEndpointRequest::SerializePayload() const
     ss << "TransportProtocol=" << TransportProtocolMapper::GetNameForTransportProtocol(m_transportProtocol) << "&";
   }
 
+  if(m_vpnPortHasBeenSet)
+  {
+    ss << "VpnPort=" << m_vpnPort << "&";
+  }
+
   if(m_descriptionHasBeenSet)
   {
     ss << "Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
@@ -112,6 +121,22 @@ Aws::String CreateClientVpnEndpointRequest::SerializePayload() const
       item.OutputToStream(ss, "TagSpecification.", tagSpecificationsCount, "");
       tagSpecificationsCount++;
     }
+  }
+
+  if(m_securityGroupIdsHasBeenSet)
+  {
+    unsigned securityGroupIdsCount = 1;
+    for(auto& item : m_securityGroupIds)
+    {
+      ss << "SecurityGroupId." << securityGroupIdsCount << "="
+          << StringUtils::URLEncode(item.c_str()) << "&";
+      securityGroupIdsCount++;
+    }
+  }
+
+  if(m_vpcIdHasBeenSet)
+  {
+    ss << "VpcId=" << StringUtils::URLEncode(m_vpcId.c_str()) << "&";
   }
 
   ss << "Version=2016-11-15";

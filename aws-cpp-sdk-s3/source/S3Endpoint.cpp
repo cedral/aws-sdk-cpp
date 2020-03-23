@@ -28,28 +28,63 @@ namespace S3Endpoint
 {
   static const int CN_NORTH_1_HASH = Aws::Utils::HashingUtils::HashString("cn-north-1");
   static const int CN_NORTHWEST_1_HASH = Aws::Utils::HashingUtils::HashString("cn-northwest-1");
-  
+  static const int US_ISO_EAST_1_HASH = Aws::Utils::HashingUtils::HashString("us-iso-east-1");
+  static const int US_ISOB_EAST_1_HASH = Aws::Utils::HashingUtils::HashString("us-isob-east-1");
+
   static const int FIPS_US_GOV_WEST_1_HASH = Aws::Utils::HashingUtils::HashString("fips-us-gov-west-1");
   static const int US_GOV_WEST_1_HASH = Aws::Utils::HashingUtils::HashString("us-gov-west-1");
+  static const int US_GOV_EAST_1_HASH = Aws::Utils::HashingUtils::HashString("us-gov-east-1");
   static const int US_EAST_1_HASH = Aws::Utils::HashingUtils::HashString("us-east-1");
 
-  Aws::String ForRegion(const Aws::String& regionName, bool useDualStack)
+  Aws::String ForAccessPointArn(const S3ARN& arn, const Aws::String& regionNameOverride, bool useDualStack)
+  {
+      const Aws::String& region = regionNameOverride.empty() ? arn.GetRegion() : regionNameOverride;
+      auto hash = Aws::Utils::HashingUtils::HashString(region.c_str());
+
+      Aws::StringStream ss;
+      ss << arn.GetResourceId() << "-" << arn.GetAccountId() << ".s3-accesspoint.";
+      if (useDualStack)
+      {
+          ss << "dualstack.";
+      }
+      ss << region << "." << "amazonaws.com";
+
+      if (hash == CN_NORTH_1_HASH || hash == CN_NORTHWEST_1_HASH)
+      {
+          ss << ".cn";
+      }
+
+      return ss.str();
+  }
+
+  Aws::String ForRegion(const Aws::String& regionName, bool useDualStack, bool USEast1UseRegionalEndpoint)
   {
     auto hash = Aws::Utils::HashingUtils::HashString(regionName.c_str());
-    
+
     if(!useDualStack)
-    {      
+    {
       if(hash == FIPS_US_GOV_WEST_1_HASH)
       {
         return "s3-fips-us-gov-west-1.amazonaws.com";
       }
       if(hash == US_GOV_WEST_1_HASH)
       {
-        return "s3-us-gov-west-1.amazonaws.com";
+        return "s3.us-gov-west-1.amazonaws.com";
+      }
+      if(hash == US_GOV_EAST_1_HASH)
+      {
+        return "s3.us-gov-east-1.amazonaws.com";
       }
       if(hash == US_EAST_1_HASH)
       {
-        return "s3.amazonaws.com";
+        if (USEast1UseRegionalEndpoint)
+        {
+          return "s3.us-east-1.amazonaws.com";
+        }
+        else
+        {
+          return "s3.amazonaws.com";
+        }
       }
     }
     Aws::StringStream ss;
@@ -60,17 +95,28 @@ namespace S3Endpoint
       ss << "dualstack.";
     }
 
-    ss << regionName << ".amazonaws.com";
-    
+    ss << regionName;
+
     if (hash == CN_NORTH_1_HASH || hash == CN_NORTHWEST_1_HASH)
     {
-      ss << ".cn"; 
+      ss << ".amazonaws.com.cn";
     }
-    
+    else if (hash == US_ISO_EAST_1_HASH)
+    {
+      ss << ".c2s.ic.gov";
+    }
+    else if (hash == US_ISOB_EAST_1_HASH)
+    {
+      ss << ".sc2s.sgov.gov";
+    }
+    else
+    {
+      ss << ".amazonaws.com";
+    }
+
     return ss.str();
   }
 
 } // namespace S3Endpoint
 } // namespace S3
 } // namespace Aws
-

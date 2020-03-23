@@ -37,11 +37,13 @@ CreateIntegrationRequest::CreateIntegrationRequest() :
     m_integrationUriHasBeenSet(false),
     m_passthroughBehavior(PassthroughBehavior::NOT_SET),
     m_passthroughBehaviorHasBeenSet(false),
+    m_payloadFormatVersionHasBeenSet(false),
     m_requestParametersHasBeenSet(false),
     m_requestTemplatesHasBeenSet(false),
     m_templateSelectionExpressionHasBeenSet(false),
     m_timeoutInMillis(0),
-    m_timeoutInMillisHasBeenSet(false)
+    m_timeoutInMillisHasBeenSet(false),
+    m_tlsConfigHasBeenSet(false)
 {
 }
 
@@ -99,6 +101,12 @@ Aws::String CreateIntegrationRequest::SerializePayload() const
    payload.WithString("passthroughBehavior", PassthroughBehaviorMapper::GetNameForPassthroughBehavior(m_passthroughBehavior));
   }
 
+  if(m_payloadFormatVersionHasBeenSet)
+  {
+   payload.WithString("payloadFormatVersion", m_payloadFormatVersion);
+
+  }
+
   if(m_requestParametersHasBeenSet)
   {
    JsonValue requestParametersJsonMap;
@@ -130,6 +138,12 @@ Aws::String CreateIntegrationRequest::SerializePayload() const
   if(m_timeoutInMillisHasBeenSet)
   {
    payload.WithInteger("timeoutInMillis", m_timeoutInMillis);
+
+  }
+
+  if(m_tlsConfigHasBeenSet)
+  {
+   payload.WithObject("tlsConfig", m_tlsConfig.Jsonize());
 
   }
 

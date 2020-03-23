@@ -248,6 +248,47 @@ namespace Model
 
 
     /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline const Aws::String& GetOutpostArn() const{ return m_outpostArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline bool OutpostArnHasBeenSet() const { return m_outpostArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(const Aws::String& value) { m_outpostArnHasBeenSet = true; m_outpostArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(Aws::String&& value) { m_outpostArnHasBeenSet = true; m_outpostArn = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline void SetOutpostArn(const char* value) { m_outpostArnHasBeenSet = true; m_outpostArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline Volume& WithOutpostArn(const Aws::String& value) { SetOutpostArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline Volume& WithOutpostArn(Aws::String&& value) { SetOutpostArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+     */
+    inline Volume& WithOutpostArn(const char* value) { SetOutpostArn(value); return *this;}
+
+
+    /**
      * <p>The size of the volume, in GiBs.</p>
      */
     inline int GetSize() const{ return m_size; }
@@ -548,6 +589,48 @@ namespace Model
     inline Volume& WithVolumeType(VolumeType&& value) { SetVolumeType(std::move(value)); return *this;}
 
 
+    /**
+     * <p>Indicates whether the volume was created using fast snapshot restore.</p>
+     */
+    inline bool GetFastRestored() const{ return m_fastRestored; }
+
+    /**
+     * <p>Indicates whether the volume was created using fast snapshot restore.</p>
+     */
+    inline bool FastRestoredHasBeenSet() const { return m_fastRestoredHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the volume was created using fast snapshot restore.</p>
+     */
+    inline void SetFastRestored(bool value) { m_fastRestoredHasBeenSet = true; m_fastRestored = value; }
+
+    /**
+     * <p>Indicates whether the volume was created using fast snapshot restore.</p>
+     */
+    inline Volume& WithFastRestored(bool value) { SetFastRestored(value); return *this;}
+
+
+    /**
+     * <p>Indicates whether Amazon EBS Multi-Attach is enabled.</p>
+     */
+    inline bool GetMultiAttachEnabled() const{ return m_multiAttachEnabled; }
+
+    /**
+     * <p>Indicates whether Amazon EBS Multi-Attach is enabled.</p>
+     */
+    inline bool MultiAttachEnabledHasBeenSet() const { return m_multiAttachEnabledHasBeenSet; }
+
+    /**
+     * <p>Indicates whether Amazon EBS Multi-Attach is enabled.</p>
+     */
+    inline void SetMultiAttachEnabled(bool value) { m_multiAttachEnabledHasBeenSet = true; m_multiAttachEnabled = value; }
+
+    /**
+     * <p>Indicates whether Amazon EBS Multi-Attach is enabled.</p>
+     */
+    inline Volume& WithMultiAttachEnabled(bool value) { SetMultiAttachEnabled(value); return *this;}
+
+
     
     inline const ResponseMetadata& GetResponseMetadata() const{ return m_responseMetadata; }
 
@@ -583,6 +666,9 @@ namespace Model
     Aws::String m_kmsKeyId;
     bool m_kmsKeyIdHasBeenSet;
 
+    Aws::String m_outpostArn;
+    bool m_outpostArnHasBeenSet;
+
     int m_size;
     bool m_sizeHasBeenSet;
 
@@ -603,6 +689,12 @@ namespace Model
 
     VolumeType m_volumeType;
     bool m_volumeTypeHasBeenSet;
+
+    bool m_fastRestored;
+    bool m_fastRestoredHasBeenSet;
+
+    bool m_multiAttachEnabled;
+    bool m_multiAttachEnabledHasBeenSet;
 
     ResponseMetadata m_responseMetadata;
     bool m_responseMetadataHasBeenSet;

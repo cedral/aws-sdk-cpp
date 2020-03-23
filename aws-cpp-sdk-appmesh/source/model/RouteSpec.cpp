@@ -29,13 +29,21 @@ namespace Model
 {
 
 RouteSpec::RouteSpec() : 
+    m_grpcRouteHasBeenSet(false),
+    m_http2RouteHasBeenSet(false),
     m_httpRouteHasBeenSet(false),
+    m_priority(0),
+    m_priorityHasBeenSet(false),
     m_tcpRouteHasBeenSet(false)
 {
 }
 
 RouteSpec::RouteSpec(JsonView jsonValue) : 
+    m_grpcRouteHasBeenSet(false),
+    m_http2RouteHasBeenSet(false),
     m_httpRouteHasBeenSet(false),
+    m_priority(0),
+    m_priorityHasBeenSet(false),
     m_tcpRouteHasBeenSet(false)
 {
   *this = jsonValue;
@@ -43,11 +51,32 @@ RouteSpec::RouteSpec(JsonView jsonValue) :
 
 RouteSpec& RouteSpec::operator =(JsonView jsonValue)
 {
+  if(jsonValue.ValueExists("grpcRoute"))
+  {
+    m_grpcRoute = jsonValue.GetObject("grpcRoute");
+
+    m_grpcRouteHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("http2Route"))
+  {
+    m_http2Route = jsonValue.GetObject("http2Route");
+
+    m_http2RouteHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("httpRoute"))
   {
     m_httpRoute = jsonValue.GetObject("httpRoute");
 
     m_httpRouteHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("priority"))
+  {
+    m_priority = jsonValue.GetInteger("priority");
+
+    m_priorityHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("tcpRoute"))
@@ -64,9 +93,27 @@ JsonValue RouteSpec::Jsonize() const
 {
   JsonValue payload;
 
+  if(m_grpcRouteHasBeenSet)
+  {
+   payload.WithObject("grpcRoute", m_grpcRoute.Jsonize());
+
+  }
+
+  if(m_http2RouteHasBeenSet)
+  {
+   payload.WithObject("http2Route", m_http2Route.Jsonize());
+
+  }
+
   if(m_httpRouteHasBeenSet)
   {
    payload.WithObject("httpRoute", m_httpRoute.Jsonize());
+
+  }
+
+  if(m_priorityHasBeenSet)
+  {
+   payload.WithInteger("priority", m_priority);
 
   }
 

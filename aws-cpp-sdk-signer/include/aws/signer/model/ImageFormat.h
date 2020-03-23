@@ -26,7 +26,9 @@ namespace Model
   enum class ImageFormat
   {
     NOT_SET,
-    JSON
+    JSON,
+    JSONEmbedded,
+    JSONDetached
   };
 
 namespace ImageFormatMapper

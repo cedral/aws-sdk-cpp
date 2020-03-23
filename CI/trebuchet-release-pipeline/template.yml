@@ -198,11 +198,11 @@ Parameters:
   GithubPrivateRepository:
     Type: String
     Default: <GithubPrivateRepository>
-    Description: Github private repository.
+    Description: Github private repository name, for example "aws/aws-sdk-cpp".
   GithubPublicRepository:
     Type: String
     Default: <GithubPublicRepository>
-    Description: Github private repository.
+    Description: Github public repository name, for example "aws/aws-sdk-cpp".
   GitCommitAuthorName:
     Type: String
     Default: <GitCommitAuthorName>
@@ -463,8 +463,7 @@ Resources:
       Role: !GetAtt HandleTrebuchetReleaseNotificationFunctionRole.Arn
       Runtime: python3.6
       ReservedConcurrentExecutions: 1
-      Timeout: 10
-      Code:
+      Timeout: 300
       Code:
         S3Bucket: !Ref TrebuchetReleaseS3BucketName
         S3Key: !FindInMap [ScriptLocations, Lambda, HandleTrebuchetReleaseNotificationFunction]

@@ -17,6 +17,8 @@
 #include <aws/ec2/EC2_EXPORTS.h>
 #include <aws/ec2/EC2Request.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ec2/model/TagSpecification.h>
 #include <utility>
 
 namespace Aws
@@ -27,9 +29,6 @@ namespace Model
 {
 
   /**
-   * <p>Contains the parameters for CopySnapshot.</p><p><h3>See Also:</h3>   <a
-   * href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopySnapshotRequest">AWS
-   * API Reference</a></p>
    */
   class AWS_EC2_API CopySnapshotRequest : public EC2Request
   {
@@ -613,6 +612,47 @@ namespace Model
 
 
     /**
+     * <p>The tags to apply to the new snapshot.</p>
+     */
+    inline const Aws::Vector<TagSpecification>& GetTagSpecifications() const{ return m_tagSpecifications; }
+
+    /**
+     * <p>The tags to apply to the new snapshot.</p>
+     */
+    inline bool TagSpecificationsHasBeenSet() const { return m_tagSpecificationsHasBeenSet; }
+
+    /**
+     * <p>The tags to apply to the new snapshot.</p>
+     */
+    inline void SetTagSpecifications(const Aws::Vector<TagSpecification>& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = value; }
+
+    /**
+     * <p>The tags to apply to the new snapshot.</p>
+     */
+    inline void SetTagSpecifications(Aws::Vector<TagSpecification>&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = std::move(value); }
+
+    /**
+     * <p>The tags to apply to the new snapshot.</p>
+     */
+    inline CopySnapshotRequest& WithTagSpecifications(const Aws::Vector<TagSpecification>& value) { SetTagSpecifications(value); return *this;}
+
+    /**
+     * <p>The tags to apply to the new snapshot.</p>
+     */
+    inline CopySnapshotRequest& WithTagSpecifications(Aws::Vector<TagSpecification>&& value) { SetTagSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags to apply to the new snapshot.</p>
+     */
+    inline CopySnapshotRequest& AddTagSpecifications(const TagSpecification& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The tags to apply to the new snapshot.</p>
+     */
+    inline CopySnapshotRequest& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
+
+
+    /**
      * <p>Checks whether you have the required permissions for the action, without
      * actually making the request, and provides an error response. If you have the
      * required permissions, the error response is <code>DryRunOperation</code>.
@@ -666,6 +706,9 @@ namespace Model
 
     Aws::String m_sourceSnapshotId;
     bool m_sourceSnapshotIdHasBeenSet;
+
+    Aws::Vector<TagSpecification> m_tagSpecifications;
+    bool m_tagSpecificationsHasBeenSet;
 
     bool m_dryRun;
     bool m_dryRunHasBeenSet;

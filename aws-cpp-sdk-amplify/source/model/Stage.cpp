@@ -34,6 +34,7 @@ namespace Aws
         static const int BETA_HASH = HashingUtils::HashString("BETA");
         static const int DEVELOPMENT_HASH = HashingUtils::HashString("DEVELOPMENT");
         static const int EXPERIMENTAL_HASH = HashingUtils::HashString("EXPERIMENTAL");
+        static const int PULL_REQUEST_HASH = HashingUtils::HashString("PULL_REQUEST");
 
 
         Stage GetStageForName(const Aws::String& name)
@@ -54,6 +55,10 @@ namespace Aws
           else if (hashCode == EXPERIMENTAL_HASH)
           {
             return Stage::EXPERIMENTAL;
+          }
+          else if (hashCode == PULL_REQUEST_HASH)
+          {
+            return Stage::PULL_REQUEST;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -77,6 +82,8 @@ namespace Aws
             return "DEVELOPMENT";
           case Stage::EXPERIMENTAL:
             return "EXPERIMENTAL";
+          case Stage::PULL_REQUEST:
+            return "PULL_REQUEST";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

@@ -16,8 +16,9 @@
 #pragma once
 #include <aws/ec2/EC2_EXPORTS.h>
 #include <aws/ec2/EC2Request.h>
-#include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ec2/model/TagSpecification.h>
 #include <utility>
 
 namespace Aws
@@ -81,32 +82,73 @@ namespace Model
 
 
     /**
-     * <p>Indicate whether requests from service consumers to create an endpoint to
+     * <p>Indicates whether requests from service consumers to create an endpoint to
      * your service must be accepted. To accept a request, use
      * <a>AcceptVpcEndpointConnections</a>.</p>
      */
     inline bool GetAcceptanceRequired() const{ return m_acceptanceRequired; }
 
     /**
-     * <p>Indicate whether requests from service consumers to create an endpoint to
+     * <p>Indicates whether requests from service consumers to create an endpoint to
      * your service must be accepted. To accept a request, use
      * <a>AcceptVpcEndpointConnections</a>.</p>
      */
     inline bool AcceptanceRequiredHasBeenSet() const { return m_acceptanceRequiredHasBeenSet; }
 
     /**
-     * <p>Indicate whether requests from service consumers to create an endpoint to
+     * <p>Indicates whether requests from service consumers to create an endpoint to
      * your service must be accepted. To accept a request, use
      * <a>AcceptVpcEndpointConnections</a>.</p>
      */
     inline void SetAcceptanceRequired(bool value) { m_acceptanceRequiredHasBeenSet = true; m_acceptanceRequired = value; }
 
     /**
-     * <p>Indicate whether requests from service consumers to create an endpoint to
+     * <p>Indicates whether requests from service consumers to create an endpoint to
      * your service must be accepted. To accept a request, use
      * <a>AcceptVpcEndpointConnections</a>.</p>
      */
     inline CreateVpcEndpointServiceConfigurationRequest& WithAcceptanceRequired(bool value) { SetAcceptanceRequired(value); return *this;}
+
+
+    /**
+     * <p>The private DNS name to assign to the VPC endpoint service.</p>
+     */
+    inline const Aws::String& GetPrivateDnsName() const{ return m_privateDnsName; }
+
+    /**
+     * <p>The private DNS name to assign to the VPC endpoint service.</p>
+     */
+    inline bool PrivateDnsNameHasBeenSet() const { return m_privateDnsNameHasBeenSet; }
+
+    /**
+     * <p>The private DNS name to assign to the VPC endpoint service.</p>
+     */
+    inline void SetPrivateDnsName(const Aws::String& value) { m_privateDnsNameHasBeenSet = true; m_privateDnsName = value; }
+
+    /**
+     * <p>The private DNS name to assign to the VPC endpoint service.</p>
+     */
+    inline void SetPrivateDnsName(Aws::String&& value) { m_privateDnsNameHasBeenSet = true; m_privateDnsName = std::move(value); }
+
+    /**
+     * <p>The private DNS name to assign to the VPC endpoint service.</p>
+     */
+    inline void SetPrivateDnsName(const char* value) { m_privateDnsNameHasBeenSet = true; m_privateDnsName.assign(value); }
+
+    /**
+     * <p>The private DNS name to assign to the VPC endpoint service.</p>
+     */
+    inline CreateVpcEndpointServiceConfigurationRequest& WithPrivateDnsName(const Aws::String& value) { SetPrivateDnsName(value); return *this;}
+
+    /**
+     * <p>The private DNS name to assign to the VPC endpoint service.</p>
+     */
+    inline CreateVpcEndpointServiceConfigurationRequest& WithPrivateDnsName(Aws::String&& value) { SetPrivateDnsName(std::move(value)); return *this;}
+
+    /**
+     * <p>The private DNS name to assign to the VPC endpoint service.</p>
+     */
+    inline CreateVpcEndpointServiceConfigurationRequest& WithPrivateDnsName(const char* value) { SetPrivateDnsName(value); return *this;}
 
 
     /**
@@ -165,68 +207,109 @@ namespace Model
 
 
     /**
-     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline const Aws::String& GetClientToken() const{ return m_clientToken; }
 
     /**
-     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline bool ClientTokenHasBeenSet() const { return m_clientTokenHasBeenSet; }
 
     /**
-     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(const Aws::String& value) { m_clientTokenHasBeenSet = true; m_clientToken = value; }
 
     /**
-     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(Aws::String&& value) { m_clientTokenHasBeenSet = true; m_clientToken = std::move(value); }
 
     /**
-     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline void SetClientToken(const char* value) { m_clientTokenHasBeenSet = true; m_clientToken.assign(value); }
 
     /**
-     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline CreateVpcEndpointServiceConfigurationRequest& WithClientToken(const Aws::String& value) { SetClientToken(value); return *this;}
 
     /**
-     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline CreateVpcEndpointServiceConfigurationRequest& WithClientToken(Aws::String&& value) { SetClientToken(std::move(value)); return *this;}
 
     /**
-     * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency
+     * of the request. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
      * to Ensure Idempotency</a>.</p>
      */
     inline CreateVpcEndpointServiceConfigurationRequest& WithClientToken(const char* value) { SetClientToken(value); return *this;}
+
+
+    /**
+     * <p>The tags to associate with the service.</p>
+     */
+    inline const Aws::Vector<TagSpecification>& GetTagSpecifications() const{ return m_tagSpecifications; }
+
+    /**
+     * <p>The tags to associate with the service.</p>
+     */
+    inline bool TagSpecificationsHasBeenSet() const { return m_tagSpecificationsHasBeenSet; }
+
+    /**
+     * <p>The tags to associate with the service.</p>
+     */
+    inline void SetTagSpecifications(const Aws::Vector<TagSpecification>& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = value; }
+
+    /**
+     * <p>The tags to associate with the service.</p>
+     */
+    inline void SetTagSpecifications(Aws::Vector<TagSpecification>&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = std::move(value); }
+
+    /**
+     * <p>The tags to associate with the service.</p>
+     */
+    inline CreateVpcEndpointServiceConfigurationRequest& WithTagSpecifications(const Aws::Vector<TagSpecification>& value) { SetTagSpecifications(value); return *this;}
+
+    /**
+     * <p>The tags to associate with the service.</p>
+     */
+    inline CreateVpcEndpointServiceConfigurationRequest& WithTagSpecifications(Aws::Vector<TagSpecification>&& value) { SetTagSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags to associate with the service.</p>
+     */
+    inline CreateVpcEndpointServiceConfigurationRequest& AddTagSpecifications(const TagSpecification& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The tags to associate with the service.</p>
+     */
+    inline CreateVpcEndpointServiceConfigurationRequest& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
 
   private:
 
@@ -236,11 +319,17 @@ namespace Model
     bool m_acceptanceRequired;
     bool m_acceptanceRequiredHasBeenSet;
 
+    Aws::String m_privateDnsName;
+    bool m_privateDnsNameHasBeenSet;
+
     Aws::Vector<Aws::String> m_networkLoadBalancerArns;
     bool m_networkLoadBalancerArnsHasBeenSet;
 
     Aws::String m_clientToken;
     bool m_clientTokenHasBeenSet;
+
+    Aws::Vector<TagSpecification> m_tagSpecifications;
+    bool m_tagSpecificationsHasBeenSet;
   };
 
 } // namespace Model

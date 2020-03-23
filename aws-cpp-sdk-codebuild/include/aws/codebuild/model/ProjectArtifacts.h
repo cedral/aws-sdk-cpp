@@ -54,60 +54,66 @@ namespace Model
     /**
      * <p>The type of build output artifact. Valid values include:</p> <ul> <li> <p>
      * <code>CODEPIPELINE</code>: The build project has build output generated through
-     * AWS CodePipeline.</p> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build
-     * project does not produce any build output.</p> </li> <li> <p> <code>S3</code>:
-     * The build project stores build output in Amazon Simple Storage Service (Amazon
-     * S3).</p> </li> </ul>
+     * AWS CodePipeline. </p> <note> <p>The <code>CODEPIPELINE</code> type is not
+     * supported for <code>secondaryArtifacts</code>.</p> </note> </li> <li> <p>
+     * <code>NO_ARTIFACTS</code>: The build project does not produce any build
+     * output.</p> </li> <li> <p> <code>S3</code>: The build project stores build
+     * output in Amazon Simple Storage Service (Amazon S3).</p> </li> </ul>
      */
     inline const ArtifactsType& GetType() const{ return m_type; }
 
     /**
      * <p>The type of build output artifact. Valid values include:</p> <ul> <li> <p>
      * <code>CODEPIPELINE</code>: The build project has build output generated through
-     * AWS CodePipeline.</p> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build
-     * project does not produce any build output.</p> </li> <li> <p> <code>S3</code>:
-     * The build project stores build output in Amazon Simple Storage Service (Amazon
-     * S3).</p> </li> </ul>
+     * AWS CodePipeline. </p> <note> <p>The <code>CODEPIPELINE</code> type is not
+     * supported for <code>secondaryArtifacts</code>.</p> </note> </li> <li> <p>
+     * <code>NO_ARTIFACTS</code>: The build project does not produce any build
+     * output.</p> </li> <li> <p> <code>S3</code>: The build project stores build
+     * output in Amazon Simple Storage Service (Amazon S3).</p> </li> </ul>
      */
     inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
 
     /**
      * <p>The type of build output artifact. Valid values include:</p> <ul> <li> <p>
      * <code>CODEPIPELINE</code>: The build project has build output generated through
-     * AWS CodePipeline.</p> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build
-     * project does not produce any build output.</p> </li> <li> <p> <code>S3</code>:
-     * The build project stores build output in Amazon Simple Storage Service (Amazon
-     * S3).</p> </li> </ul>
+     * AWS CodePipeline. </p> <note> <p>The <code>CODEPIPELINE</code> type is not
+     * supported for <code>secondaryArtifacts</code>.</p> </note> </li> <li> <p>
+     * <code>NO_ARTIFACTS</code>: The build project does not produce any build
+     * output.</p> </li> <li> <p> <code>S3</code>: The build project stores build
+     * output in Amazon Simple Storage Service (Amazon S3).</p> </li> </ul>
      */
     inline void SetType(const ArtifactsType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
      * <p>The type of build output artifact. Valid values include:</p> <ul> <li> <p>
      * <code>CODEPIPELINE</code>: The build project has build output generated through
-     * AWS CodePipeline.</p> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build
-     * project does not produce any build output.</p> </li> <li> <p> <code>S3</code>:
-     * The build project stores build output in Amazon Simple Storage Service (Amazon
-     * S3).</p> </li> </ul>
+     * AWS CodePipeline. </p> <note> <p>The <code>CODEPIPELINE</code> type is not
+     * supported for <code>secondaryArtifacts</code>.</p> </note> </li> <li> <p>
+     * <code>NO_ARTIFACTS</code>: The build project does not produce any build
+     * output.</p> </li> <li> <p> <code>S3</code>: The build project stores build
+     * output in Amazon Simple Storage Service (Amazon S3).</p> </li> </ul>
      */
     inline void SetType(ArtifactsType&& value) { m_typeHasBeenSet = true; m_type = std::move(value); }
 
     /**
      * <p>The type of build output artifact. Valid values include:</p> <ul> <li> <p>
      * <code>CODEPIPELINE</code>: The build project has build output generated through
-     * AWS CodePipeline.</p> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build
-     * project does not produce any build output.</p> </li> <li> <p> <code>S3</code>:
-     * The build project stores build output in Amazon Simple Storage Service (Amazon
-     * S3).</p> </li> </ul>
+     * AWS CodePipeline. </p> <note> <p>The <code>CODEPIPELINE</code> type is not
+     * supported for <code>secondaryArtifacts</code>.</p> </note> </li> <li> <p>
+     * <code>NO_ARTIFACTS</code>: The build project does not produce any build
+     * output.</p> </li> <li> <p> <code>S3</code>: The build project stores build
+     * output in Amazon Simple Storage Service (Amazon S3).</p> </li> </ul>
      */
     inline ProjectArtifacts& WithType(const ArtifactsType& value) { SetType(value); return *this;}
 
     /**
      * <p>The type of build output artifact. Valid values include:</p> <ul> <li> <p>
      * <code>CODEPIPELINE</code>: The build project has build output generated through
-     * AWS CodePipeline.</p> </li> <li> <p> <code>NO_ARTIFACTS</code>: The build
-     * project does not produce any build output.</p> </li> <li> <p> <code>S3</code>:
-     * The build project stores build output in Amazon Simple Storage Service (Amazon
-     * S3).</p> </li> </ul>
+     * AWS CodePipeline. </p> <note> <p>The <code>CODEPIPELINE</code> type is not
+     * supported for <code>secondaryArtifacts</code>.</p> </note> </li> <li> <p>
+     * <code>NO_ARTIFACTS</code>: The build project does not produce any build
+     * output.</p> </li> <li> <p> <code>S3</code>: The build project stores build
+     * output in Amazon Simple Storage Service (Amazon S3).</p> </li> </ul>
      */
     inline ProjectArtifacts& WithType(ArtifactsType&& value) { SetType(std::move(value)); return *this;}
 
@@ -766,32 +772,32 @@ namespace Model
 
 
     /**
-     * <p> If this flag is set, a name specified in the build spec file overrides the
-     * artifact name. The name specified in a build spec file is calculated at build
+     * <p> If this flag is set, a name specified in the buildspec file overrides the
+     * artifact name. The name specified in a buildspec file is calculated at build
      * time and uses the Shell Command Language. For example, you can append a date and
      * time to your artifact name so that it is always unique. </p>
      */
     inline bool GetOverrideArtifactName() const{ return m_overrideArtifactName; }
 
     /**
-     * <p> If this flag is set, a name specified in the build spec file overrides the
-     * artifact name. The name specified in a build spec file is calculated at build
+     * <p> If this flag is set, a name specified in the buildspec file overrides the
+     * artifact name. The name specified in a buildspec file is calculated at build
      * time and uses the Shell Command Language. For example, you can append a date and
      * time to your artifact name so that it is always unique. </p>
      */
     inline bool OverrideArtifactNameHasBeenSet() const { return m_overrideArtifactNameHasBeenSet; }
 
     /**
-     * <p> If this flag is set, a name specified in the build spec file overrides the
-     * artifact name. The name specified in a build spec file is calculated at build
+     * <p> If this flag is set, a name specified in the buildspec file overrides the
+     * artifact name. The name specified in a buildspec file is calculated at build
      * time and uses the Shell Command Language. For example, you can append a date and
      * time to your artifact name so that it is always unique. </p>
      */
     inline void SetOverrideArtifactName(bool value) { m_overrideArtifactNameHasBeenSet = true; m_overrideArtifactName = value; }
 
     /**
-     * <p> If this flag is set, a name specified in the build spec file overrides the
-     * artifact name. The name specified in a build spec file is calculated at build
+     * <p> If this flag is set, a name specified in the buildspec file overrides the
+     * artifact name. The name specified in a buildspec file is calculated at build
      * time and uses the Shell Command Language. For example, you can append a date and
      * time to your artifact name so that it is always unique. </p>
      */

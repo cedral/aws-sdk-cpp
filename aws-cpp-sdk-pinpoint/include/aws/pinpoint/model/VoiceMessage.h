@@ -51,156 +51,172 @@ namespace Model
 
 
     /**
-     * <p>The text script for the voice message.</p>
+     * <p>The text of the script to use for the voice message.</p>
      */
     inline const Aws::String& GetBody() const{ return m_body; }
 
     /**
-     * <p>The text script for the voice message.</p>
+     * <p>The text of the script to use for the voice message.</p>
      */
     inline bool BodyHasBeenSet() const { return m_bodyHasBeenSet; }
 
     /**
-     * <p>The text script for the voice message.</p>
+     * <p>The text of the script to use for the voice message.</p>
      */
     inline void SetBody(const Aws::String& value) { m_bodyHasBeenSet = true; m_body = value; }
 
     /**
-     * <p>The text script for the voice message.</p>
+     * <p>The text of the script to use for the voice message.</p>
      */
     inline void SetBody(Aws::String&& value) { m_bodyHasBeenSet = true; m_body = std::move(value); }
 
     /**
-     * <p>The text script for the voice message.</p>
+     * <p>The text of the script to use for the voice message.</p>
      */
     inline void SetBody(const char* value) { m_bodyHasBeenSet = true; m_body.assign(value); }
 
     /**
-     * <p>The text script for the voice message.</p>
+     * <p>The text of the script to use for the voice message.</p>
      */
     inline VoiceMessage& WithBody(const Aws::String& value) { SetBody(value); return *this;}
 
     /**
-     * <p>The text script for the voice message.</p>
+     * <p>The text of the script to use for the voice message.</p>
      */
     inline VoiceMessage& WithBody(Aws::String&& value) { SetBody(std::move(value)); return *this;}
 
     /**
-     * <p>The text script for the voice message.</p>
+     * <p>The text of the script to use for the voice message.</p>
      */
     inline VoiceMessage& WithBody(const char* value) { SetBody(value); return *this;}
 
 
     /**
-     * <p>The language to use when delivering the message. For a list of supported
-     * languages, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * <p>The code for the language to use when synthesizing the text of the message
+     * script. For a list of supported languages and the code for each one, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline const Aws::String& GetLanguageCode() const{ return m_languageCode; }
 
     /**
-     * <p>The language to use when delivering the message. For a list of supported
-     * languages, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * <p>The code for the language to use when synthesizing the text of the message
+     * script. For a list of supported languages and the code for each one, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline bool LanguageCodeHasBeenSet() const { return m_languageCodeHasBeenSet; }
 
     /**
-     * <p>The language to use when delivering the message. For a list of supported
-     * languages, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * <p>The code for the language to use when synthesizing the text of the message
+     * script. For a list of supported languages and the code for each one, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline void SetLanguageCode(const Aws::String& value) { m_languageCodeHasBeenSet = true; m_languageCode = value; }
 
     /**
-     * <p>The language to use when delivering the message. For a list of supported
-     * languages, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * <p>The code for the language to use when synthesizing the text of the message
+     * script. For a list of supported languages and the code for each one, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline void SetLanguageCode(Aws::String&& value) { m_languageCodeHasBeenSet = true; m_languageCode = std::move(value); }
 
     /**
-     * <p>The language to use when delivering the message. For a list of supported
-     * languages, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * <p>The code for the language to use when synthesizing the text of the message
+     * script. For a list of supported languages and the code for each one, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline void SetLanguageCode(const char* value) { m_languageCodeHasBeenSet = true; m_languageCode.assign(value); }
 
     /**
-     * <p>The language to use when delivering the message. For a list of supported
-     * languages, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * <p>The code for the language to use when synthesizing the text of the message
+     * script. For a list of supported languages and the code for each one, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline VoiceMessage& WithLanguageCode(const Aws::String& value) { SetLanguageCode(value); return *this;}
 
     /**
-     * <p>The language to use when delivering the message. For a list of supported
-     * languages, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * <p>The code for the language to use when synthesizing the text of the message
+     * script. For a list of supported languages and the code for each one, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline VoiceMessage& WithLanguageCode(Aws::String&& value) { SetLanguageCode(std::move(value)); return *this;}
 
     /**
-     * <p>The language to use when delivering the message. For a list of supported
-     * languages, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * <p>The code for the language to use when synthesizing the text of the message
+     * script. For a list of supported languages and the code for each one, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline VoiceMessage& WithLanguageCode(const char* value) { SetLanguageCode(value); return *this;}
 
 
     /**
-     * <p>The phone number from the pool or messaging service to send the message from.
-     * Although it isn't required, we recommend that you specify the phone number in
-     * E.164 format to ensure prompt and accurate delivery.</p>
+     * <p>The long code to send the voice message from. This value should be one of the
+     * dedicated long codes that's assigned to your AWS account. Although it isn't
+     * required, we recommend that you specify the long code in E.164 format, for
+     * example +12065550100, to ensure prompt and accurate delivery of the message.</p>
      */
     inline const Aws::String& GetOriginationNumber() const{ return m_originationNumber; }
 
     /**
-     * <p>The phone number from the pool or messaging service to send the message from.
-     * Although it isn't required, we recommend that you specify the phone number in
-     * E.164 format to ensure prompt and accurate delivery.</p>
+     * <p>The long code to send the voice message from. This value should be one of the
+     * dedicated long codes that's assigned to your AWS account. Although it isn't
+     * required, we recommend that you specify the long code in E.164 format, for
+     * example +12065550100, to ensure prompt and accurate delivery of the message.</p>
      */
     inline bool OriginationNumberHasBeenSet() const { return m_originationNumberHasBeenSet; }
 
     /**
-     * <p>The phone number from the pool or messaging service to send the message from.
-     * Although it isn't required, we recommend that you specify the phone number in
-     * E.164 format to ensure prompt and accurate delivery.</p>
+     * <p>The long code to send the voice message from. This value should be one of the
+     * dedicated long codes that's assigned to your AWS account. Although it isn't
+     * required, we recommend that you specify the long code in E.164 format, for
+     * example +12065550100, to ensure prompt and accurate delivery of the message.</p>
      */
     inline void SetOriginationNumber(const Aws::String& value) { m_originationNumberHasBeenSet = true; m_originationNumber = value; }
 
     /**
-     * <p>The phone number from the pool or messaging service to send the message from.
-     * Although it isn't required, we recommend that you specify the phone number in
-     * E.164 format to ensure prompt and accurate delivery.</p>
+     * <p>The long code to send the voice message from. This value should be one of the
+     * dedicated long codes that's assigned to your AWS account. Although it isn't
+     * required, we recommend that you specify the long code in E.164 format, for
+     * example +12065550100, to ensure prompt and accurate delivery of the message.</p>
      */
     inline void SetOriginationNumber(Aws::String&& value) { m_originationNumberHasBeenSet = true; m_originationNumber = std::move(value); }
 
     /**
-     * <p>The phone number from the pool or messaging service to send the message from.
-     * Although it isn't required, we recommend that you specify the phone number in
-     * E.164 format to ensure prompt and accurate delivery.</p>
+     * <p>The long code to send the voice message from. This value should be one of the
+     * dedicated long codes that's assigned to your AWS account. Although it isn't
+     * required, we recommend that you specify the long code in E.164 format, for
+     * example +12065550100, to ensure prompt and accurate delivery of the message.</p>
      */
     inline void SetOriginationNumber(const char* value) { m_originationNumberHasBeenSet = true; m_originationNumber.assign(value); }
 
     /**
-     * <p>The phone number from the pool or messaging service to send the message from.
-     * Although it isn't required, we recommend that you specify the phone number in
-     * E.164 format to ensure prompt and accurate delivery.</p>
+     * <p>The long code to send the voice message from. This value should be one of the
+     * dedicated long codes that's assigned to your AWS account. Although it isn't
+     * required, we recommend that you specify the long code in E.164 format, for
+     * example +12065550100, to ensure prompt and accurate delivery of the message.</p>
      */
     inline VoiceMessage& WithOriginationNumber(const Aws::String& value) { SetOriginationNumber(value); return *this;}
 
     /**
-     * <p>The phone number from the pool or messaging service to send the message from.
-     * Although it isn't required, we recommend that you specify the phone number in
-     * E.164 format to ensure prompt and accurate delivery.</p>
+     * <p>The long code to send the voice message from. This value should be one of the
+     * dedicated long codes that's assigned to your AWS account. Although it isn't
+     * required, we recommend that you specify the long code in E.164 format, for
+     * example +12065550100, to ensure prompt and accurate delivery of the message.</p>
      */
     inline VoiceMessage& WithOriginationNumber(Aws::String&& value) { SetOriginationNumber(std::move(value)); return *this;}
 
     /**
-     * <p>The phone number from the pool or messaging service to send the message from.
-     * Although it isn't required, we recommend that you specify the phone number in
-     * E.164 format to ensure prompt and accurate delivery.</p>
+     * <p>The long code to send the voice message from. This value should be one of the
+     * dedicated long codes that's assigned to your AWS account. Although it isn't
+     * required, we recommend that you specify the long code in E.164 format, for
+     * example +12065550100, to ensure prompt and accurate delivery of the message.</p>
      */
     inline VoiceMessage& WithOriginationNumber(const char* value) { SetOriginationNumber(value); return *this;}
 
@@ -280,57 +296,65 @@ namespace Model
 
     /**
      * <p>The name of the voice to use when delivering the message. For a list of
-     * supported voices, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * supported voices, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline const Aws::String& GetVoiceId() const{ return m_voiceId; }
 
     /**
      * <p>The name of the voice to use when delivering the message. For a list of
-     * supported voices, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * supported voices, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline bool VoiceIdHasBeenSet() const { return m_voiceIdHasBeenSet; }
 
     /**
      * <p>The name of the voice to use when delivering the message. For a list of
-     * supported voices, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * supported voices, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline void SetVoiceId(const Aws::String& value) { m_voiceIdHasBeenSet = true; m_voiceId = value; }
 
     /**
      * <p>The name of the voice to use when delivering the message. For a list of
-     * supported voices, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * supported voices, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline void SetVoiceId(Aws::String&& value) { m_voiceIdHasBeenSet = true; m_voiceId = std::move(value); }
 
     /**
      * <p>The name of the voice to use when delivering the message. For a list of
-     * supported voices, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * supported voices, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline void SetVoiceId(const char* value) { m_voiceIdHasBeenSet = true; m_voiceId.assign(value); }
 
     /**
      * <p>The name of the voice to use when delivering the message. For a list of
-     * supported voices, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * supported voices, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline VoiceMessage& WithVoiceId(const Aws::String& value) { SetVoiceId(value); return *this;}
 
     /**
      * <p>The name of the voice to use when delivering the message. For a list of
-     * supported voices, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * supported voices, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline VoiceMessage& WithVoiceId(Aws::String&& value) { SetVoiceId(std::move(value)); return *this;}
 
     /**
      * <p>The name of the voice to use when delivering the message. For a list of
-     * supported voices, see the <a href="AmazonPollyDG.html">Amazon Polly Developer
-     * Guide</a>.</p>
+     * supported voices, see the <a
+     * href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly
+     * Developer Guide</a>.</p>
      */
     inline VoiceMessage& WithVoiceId(const char* value) { SetVoiceId(value); return *this;}
 

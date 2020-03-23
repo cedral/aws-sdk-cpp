@@ -15,6 +15,8 @@
 
 #pragma once
 #include <aws/athena/Athena_EXPORTS.h>
+#include <aws/core/utils/memory/stl/AWSString.h>
+#include <utility>
 
 namespace Aws
 {
@@ -88,6 +90,219 @@ namespace Model
      */
     inline QueryExecutionStatistics& WithDataScannedInBytes(long long value) { SetDataScannedInBytes(value); return *this;}
 
+
+    /**
+     * <p>The location and file name of a data manifest file. The manifest file is
+     * saved to the Athena query results location in Amazon S3. The manifest file
+     * tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+     * file also tracks files that the query intended to write. The manifest is useful
+     * for identifying orphaned files resulting from a failed query. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with
+     * Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User
+     * Guide</i>.</p>
+     */
+    inline const Aws::String& GetDataManifestLocation() const{ return m_dataManifestLocation; }
+
+    /**
+     * <p>The location and file name of a data manifest file. The manifest file is
+     * saved to the Athena query results location in Amazon S3. The manifest file
+     * tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+     * file also tracks files that the query intended to write. The manifest is useful
+     * for identifying orphaned files resulting from a failed query. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with
+     * Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User
+     * Guide</i>.</p>
+     */
+    inline bool DataManifestLocationHasBeenSet() const { return m_dataManifestLocationHasBeenSet; }
+
+    /**
+     * <p>The location and file name of a data manifest file. The manifest file is
+     * saved to the Athena query results location in Amazon S3. The manifest file
+     * tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+     * file also tracks files that the query intended to write. The manifest is useful
+     * for identifying orphaned files resulting from a failed query. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with
+     * Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User
+     * Guide</i>.</p>
+     */
+    inline void SetDataManifestLocation(const Aws::String& value) { m_dataManifestLocationHasBeenSet = true; m_dataManifestLocation = value; }
+
+    /**
+     * <p>The location and file name of a data manifest file. The manifest file is
+     * saved to the Athena query results location in Amazon S3. The manifest file
+     * tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+     * file also tracks files that the query intended to write. The manifest is useful
+     * for identifying orphaned files resulting from a failed query. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with
+     * Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User
+     * Guide</i>.</p>
+     */
+    inline void SetDataManifestLocation(Aws::String&& value) { m_dataManifestLocationHasBeenSet = true; m_dataManifestLocation = std::move(value); }
+
+    /**
+     * <p>The location and file name of a data manifest file. The manifest file is
+     * saved to the Athena query results location in Amazon S3. The manifest file
+     * tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+     * file also tracks files that the query intended to write. The manifest is useful
+     * for identifying orphaned files resulting from a failed query. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with
+     * Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User
+     * Guide</i>.</p>
+     */
+    inline void SetDataManifestLocation(const char* value) { m_dataManifestLocationHasBeenSet = true; m_dataManifestLocation.assign(value); }
+
+    /**
+     * <p>The location and file name of a data manifest file. The manifest file is
+     * saved to the Athena query results location in Amazon S3. The manifest file
+     * tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+     * file also tracks files that the query intended to write. The manifest is useful
+     * for identifying orphaned files resulting from a failed query. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with
+     * Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User
+     * Guide</i>.</p>
+     */
+    inline QueryExecutionStatistics& WithDataManifestLocation(const Aws::String& value) { SetDataManifestLocation(value); return *this;}
+
+    /**
+     * <p>The location and file name of a data manifest file. The manifest file is
+     * saved to the Athena query results location in Amazon S3. The manifest file
+     * tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+     * file also tracks files that the query intended to write. The manifest is useful
+     * for identifying orphaned files resulting from a failed query. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with
+     * Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User
+     * Guide</i>.</p>
+     */
+    inline QueryExecutionStatistics& WithDataManifestLocation(Aws::String&& value) { SetDataManifestLocation(std::move(value)); return *this;}
+
+    /**
+     * <p>The location and file name of a data manifest file. The manifest file is
+     * saved to the Athena query results location in Amazon S3. The manifest file
+     * tracks files that the query wrote to Amazon S3. If the query fails, the manifest
+     * file also tracks files that the query intended to write. The manifest is useful
+     * for identifying orphaned files resulting from a failed query. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working with
+     * Query Results, Output Files, and Query History</a> in the <i>Amazon Athena User
+     * Guide</i>.</p>
+     */
+    inline QueryExecutionStatistics& WithDataManifestLocation(const char* value) { SetDataManifestLocation(value); return *this;}
+
+
+    /**
+     * <p>The number of milliseconds that Athena took to run the query.</p>
+     */
+    inline long long GetTotalExecutionTimeInMillis() const{ return m_totalExecutionTimeInMillis; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to run the query.</p>
+     */
+    inline bool TotalExecutionTimeInMillisHasBeenSet() const { return m_totalExecutionTimeInMillisHasBeenSet; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to run the query.</p>
+     */
+    inline void SetTotalExecutionTimeInMillis(long long value) { m_totalExecutionTimeInMillisHasBeenSet = true; m_totalExecutionTimeInMillis = value; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to run the query.</p>
+     */
+    inline QueryExecutionStatistics& WithTotalExecutionTimeInMillis(long long value) { SetTotalExecutionTimeInMillis(value); return *this;}
+
+
+    /**
+     * <p>The number of milliseconds that the query was in your query queue waiting for
+     * resources. Note that if transient errors occur, Athena might automatically add
+     * the query back to the queue.</p>
+     */
+    inline long long GetQueryQueueTimeInMillis() const{ return m_queryQueueTimeInMillis; }
+
+    /**
+     * <p>The number of milliseconds that the query was in your query queue waiting for
+     * resources. Note that if transient errors occur, Athena might automatically add
+     * the query back to the queue.</p>
+     */
+    inline bool QueryQueueTimeInMillisHasBeenSet() const { return m_queryQueueTimeInMillisHasBeenSet; }
+
+    /**
+     * <p>The number of milliseconds that the query was in your query queue waiting for
+     * resources. Note that if transient errors occur, Athena might automatically add
+     * the query back to the queue.</p>
+     */
+    inline void SetQueryQueueTimeInMillis(long long value) { m_queryQueueTimeInMillisHasBeenSet = true; m_queryQueueTimeInMillis = value; }
+
+    /**
+     * <p>The number of milliseconds that the query was in your query queue waiting for
+     * resources. Note that if transient errors occur, Athena might automatically add
+     * the query back to the queue.</p>
+     */
+    inline QueryExecutionStatistics& WithQueryQueueTimeInMillis(long long value) { SetQueryQueueTimeInMillis(value); return *this;}
+
+
+    /**
+     * <p>The number of milliseconds that Athena took to plan the query processing
+     * flow. This includes the time spent retrieving table partitions from the data
+     * source. Note that because the query engine performs the query planning, query
+     * planning time is a subset of engine processing time.</p>
+     */
+    inline long long GetQueryPlanningTimeInMillis() const{ return m_queryPlanningTimeInMillis; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to plan the query processing
+     * flow. This includes the time spent retrieving table partitions from the data
+     * source. Note that because the query engine performs the query planning, query
+     * planning time is a subset of engine processing time.</p>
+     */
+    inline bool QueryPlanningTimeInMillisHasBeenSet() const { return m_queryPlanningTimeInMillisHasBeenSet; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to plan the query processing
+     * flow. This includes the time spent retrieving table partitions from the data
+     * source. Note that because the query engine performs the query planning, query
+     * planning time is a subset of engine processing time.</p>
+     */
+    inline void SetQueryPlanningTimeInMillis(long long value) { m_queryPlanningTimeInMillisHasBeenSet = true; m_queryPlanningTimeInMillis = value; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to plan the query processing
+     * flow. This includes the time spent retrieving table partitions from the data
+     * source. Note that because the query engine performs the query planning, query
+     * planning time is a subset of engine processing time.</p>
+     */
+    inline QueryExecutionStatistics& WithQueryPlanningTimeInMillis(long long value) { SetQueryPlanningTimeInMillis(value); return *this;}
+
+
+    /**
+     * <p>The number of milliseconds that Athena took to finalize and publish the query
+     * results after the query engine finished running the query.</p>
+     */
+    inline long long GetServiceProcessingTimeInMillis() const{ return m_serviceProcessingTimeInMillis; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to finalize and publish the query
+     * results after the query engine finished running the query.</p>
+     */
+    inline bool ServiceProcessingTimeInMillisHasBeenSet() const { return m_serviceProcessingTimeInMillisHasBeenSet; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to finalize and publish the query
+     * results after the query engine finished running the query.</p>
+     */
+    inline void SetServiceProcessingTimeInMillis(long long value) { m_serviceProcessingTimeInMillisHasBeenSet = true; m_serviceProcessingTimeInMillis = value; }
+
+    /**
+     * <p>The number of milliseconds that Athena took to finalize and publish the query
+     * results after the query engine finished running the query.</p>
+     */
+    inline QueryExecutionStatistics& WithServiceProcessingTimeInMillis(long long value) { SetServiceProcessingTimeInMillis(value); return *this;}
+
   private:
 
     long long m_engineExecutionTimeInMillis;
@@ -95,6 +310,21 @@ namespace Model
 
     long long m_dataScannedInBytes;
     bool m_dataScannedInBytesHasBeenSet;
+
+    Aws::String m_dataManifestLocation;
+    bool m_dataManifestLocationHasBeenSet;
+
+    long long m_totalExecutionTimeInMillis;
+    bool m_totalExecutionTimeInMillisHasBeenSet;
+
+    long long m_queryQueueTimeInMillis;
+    bool m_queryQueueTimeInMillisHasBeenSet;
+
+    long long m_queryPlanningTimeInMillis;
+    bool m_queryPlanningTimeInMillisHasBeenSet;
+
+    long long m_serviceProcessingTimeInMillis;
+    bool m_serviceProcessingTimeInMillisHasBeenSet;
   };
 
 } // namespace Model

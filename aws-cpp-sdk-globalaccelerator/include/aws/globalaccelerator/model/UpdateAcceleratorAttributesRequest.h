@@ -45,50 +45,50 @@ namespace Model
 
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.
-     * Attribute is required.</p>
+     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to
+     * update.</p>
      */
     inline const Aws::String& GetAcceleratorArn() const{ return m_acceleratorArn; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.
-     * Attribute is required.</p>
+     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to
+     * update.</p>
      */
     inline bool AcceleratorArnHasBeenSet() const { return m_acceleratorArnHasBeenSet; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.
-     * Attribute is required.</p>
+     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to
+     * update.</p>
      */
     inline void SetAcceleratorArn(const Aws::String& value) { m_acceleratorArnHasBeenSet = true; m_acceleratorArn = value; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.
-     * Attribute is required.</p>
+     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to
+     * update.</p>
      */
     inline void SetAcceleratorArn(Aws::String&& value) { m_acceleratorArnHasBeenSet = true; m_acceleratorArn = std::move(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.
-     * Attribute is required.</p>
+     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to
+     * update.</p>
      */
     inline void SetAcceleratorArn(const char* value) { m_acceleratorArnHasBeenSet = true; m_acceleratorArn.assign(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.
-     * Attribute is required.</p>
+     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to
+     * update.</p>
      */
     inline UpdateAcceleratorAttributesRequest& WithAcceleratorArn(const Aws::String& value) { SetAcceleratorArn(value); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.
-     * Attribute is required.</p>
+     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to
+     * update.</p>
      */
     inline UpdateAcceleratorAttributesRequest& WithAcceleratorArn(Aws::String&& value) { SetAcceleratorArn(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to update.
-     * Attribute is required.</p>
+     * <p>The Amazon Resource Name (ARN) of the accelerator that you want to
+     * update.</p>
      */
     inline UpdateAcceleratorAttributesRequest& WithAcceleratorArn(const char* value) { SetAcceleratorArn(value); return *this;}
 
@@ -197,65 +197,81 @@ namespace Model
 
     /**
      * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs.
-     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If
-     * you don’t specify a prefix, the flow logs are stored in the root of the
-     * bucket.</p>
+     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p>
+     * <p>If you don’t specify a prefix, the flow logs are stored in the root of the
+     * bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket
+     * folder structure will include a double slash (//), like the following:</p>
+     * <p>s3-bucket_name//AWSLogs/aws_account_id</p>
      */
     inline const Aws::String& GetFlowLogsS3Prefix() const{ return m_flowLogsS3Prefix; }
 
     /**
      * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs.
-     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If
-     * you don’t specify a prefix, the flow logs are stored in the root of the
-     * bucket.</p>
+     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p>
+     * <p>If you don’t specify a prefix, the flow logs are stored in the root of the
+     * bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket
+     * folder structure will include a double slash (//), like the following:</p>
+     * <p>s3-bucket_name//AWSLogs/aws_account_id</p>
      */
     inline bool FlowLogsS3PrefixHasBeenSet() const { return m_flowLogsS3PrefixHasBeenSet; }
 
     /**
      * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs.
-     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If
-     * you don’t specify a prefix, the flow logs are stored in the root of the
-     * bucket.</p>
+     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p>
+     * <p>If you don’t specify a prefix, the flow logs are stored in the root of the
+     * bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket
+     * folder structure will include a double slash (//), like the following:</p>
+     * <p>s3-bucket_name//AWSLogs/aws_account_id</p>
      */
     inline void SetFlowLogsS3Prefix(const Aws::String& value) { m_flowLogsS3PrefixHasBeenSet = true; m_flowLogsS3Prefix = value; }
 
     /**
      * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs.
-     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If
-     * you don’t specify a prefix, the flow logs are stored in the root of the
-     * bucket.</p>
+     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p>
+     * <p>If you don’t specify a prefix, the flow logs are stored in the root of the
+     * bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket
+     * folder structure will include a double slash (//), like the following:</p>
+     * <p>s3-bucket_name//AWSLogs/aws_account_id</p>
      */
     inline void SetFlowLogsS3Prefix(Aws::String&& value) { m_flowLogsS3PrefixHasBeenSet = true; m_flowLogsS3Prefix = std::move(value); }
 
     /**
      * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs.
-     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If
-     * you don’t specify a prefix, the flow logs are stored in the root of the
-     * bucket.</p>
+     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p>
+     * <p>If you don’t specify a prefix, the flow logs are stored in the root of the
+     * bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket
+     * folder structure will include a double slash (//), like the following:</p>
+     * <p>s3-bucket_name//AWSLogs/aws_account_id</p>
      */
     inline void SetFlowLogsS3Prefix(const char* value) { m_flowLogsS3PrefixHasBeenSet = true; m_flowLogsS3Prefix.assign(value); }
 
     /**
      * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs.
-     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If
-     * you don’t specify a prefix, the flow logs are stored in the root of the
-     * bucket.</p>
+     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p>
+     * <p>If you don’t specify a prefix, the flow logs are stored in the root of the
+     * bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket
+     * folder structure will include a double slash (//), like the following:</p>
+     * <p>s3-bucket_name//AWSLogs/aws_account_id</p>
      */
     inline UpdateAcceleratorAttributesRequest& WithFlowLogsS3Prefix(const Aws::String& value) { SetFlowLogsS3Prefix(value); return *this;}
 
     /**
      * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs.
-     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If
-     * you don’t specify a prefix, the flow logs are stored in the root of the
-     * bucket.</p>
+     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p>
+     * <p>If you don’t specify a prefix, the flow logs are stored in the root of the
+     * bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket
+     * folder structure will include a double slash (//), like the following:</p>
+     * <p>s3-bucket_name//AWSLogs/aws_account_id</p>
      */
     inline UpdateAcceleratorAttributesRequest& WithFlowLogsS3Prefix(Aws::String&& value) { SetFlowLogsS3Prefix(std::move(value)); return *this;}
 
     /**
      * <p>Update the prefix for the location in the Amazon S3 bucket for the flow logs.
-     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. If
-     * you don’t specify a prefix, the flow logs are stored in the root of the
-     * bucket.</p>
+     * Attribute is required if <code>FlowLogsEnabled</code> is <code>true</code>. </p>
+     * <p>If you don’t specify a prefix, the flow logs are stored in the root of the
+     * bucket. If you specify slash (/) for the S3 bucket prefix, the log file bucket
+     * folder structure will include a double slash (//), like the following:</p>
+     * <p>s3-bucket_name//AWSLogs/aws_account_id</p>
      */
     inline UpdateAcceleratorAttributesRequest& WithFlowLogsS3Prefix(const char* value) { SetFlowLogsS3Prefix(value); return *this;}
 

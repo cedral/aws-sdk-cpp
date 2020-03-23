@@ -51,7 +51,18 @@ CopySnapshotResponse& CopySnapshotResponse::operator =(const Aws::AmazonWebServi
     XmlNode snapshotIdNode = resultNode.FirstChild("snapshotId");
     if(!snapshotIdNode.IsNull())
     {
-      m_snapshotId = snapshotIdNode.GetText();
+      m_snapshotId = Aws::Utils::Xml::DecodeEscapedXmlText(snapshotIdNode.GetText());
+    }
+    XmlNode tagsNode = resultNode.FirstChild("tagSet");
+    if(!tagsNode.IsNull())
+    {
+      XmlNode tagsMember = tagsNode.FirstChild("item");
+      while(!tagsMember.IsNull())
+      {
+        m_tags.push_back(tagsMember);
+        tagsMember = tagsMember.NextNode("item");
+      }
+
     }
   }
 

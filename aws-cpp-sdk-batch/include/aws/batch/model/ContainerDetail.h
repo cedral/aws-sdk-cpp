@@ -98,22 +98,22 @@ namespace Model
 
 
     /**
-     * <p>The number of VCPUs allocated for the job. </p>
+     * <p>The number of VCPUs allocated for the job.</p>
      */
     inline int GetVcpus() const{ return m_vcpus; }
 
     /**
-     * <p>The number of VCPUs allocated for the job. </p>
+     * <p>The number of VCPUs allocated for the job.</p>
      */
     inline bool VcpusHasBeenSet() const { return m_vcpusHasBeenSet; }
 
     /**
-     * <p>The number of VCPUs allocated for the job. </p>
+     * <p>The number of VCPUs allocated for the job.</p>
      */
     inline void SetVcpus(int value) { m_vcpusHasBeenSet = true; m_vcpus = value; }
 
     /**
-     * <p>The number of VCPUs allocated for the job. </p>
+     * <p>The number of VCPUs allocated for the job.</p>
      */
     inline ContainerDetail& WithVcpus(int value) { SetVcpus(value); return *this;}
 
@@ -140,88 +140,88 @@ namespace Model
 
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline const Aws::Vector<Aws::String>& GetCommand() const{ return m_command; }
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline bool CommandHasBeenSet() const { return m_commandHasBeenSet; }
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline void SetCommand(const Aws::Vector<Aws::String>& value) { m_commandHasBeenSet = true; m_command = value; }
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline void SetCommand(Aws::Vector<Aws::String>&& value) { m_commandHasBeenSet = true; m_command = std::move(value); }
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline ContainerDetail& WithCommand(const Aws::Vector<Aws::String>& value) { SetCommand(value); return *this;}
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline ContainerDetail& WithCommand(Aws::Vector<Aws::String>&& value) { SetCommand(std::move(value)); return *this;}
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline ContainerDetail& AddCommand(const Aws::String& value) { m_commandHasBeenSet = true; m_command.push_back(value); return *this; }
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline ContainerDetail& AddCommand(Aws::String&& value) { m_commandHasBeenSet = true; m_command.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>The command that is passed to the container. </p>
+     * <p>The command that is passed to the container.</p>
      */
     inline ContainerDetail& AddCommand(const char* value) { m_commandHasBeenSet = true; m_command.push_back(value); return *this; }
 
 
     /**
-     * <p>The Amazon Resource Name (ARN) associated with the job upon execution. </p>
+     * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
      */
     inline const Aws::String& GetJobRoleArn() const{ return m_jobRoleArn; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) associated with the job upon execution. </p>
+     * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
      */
     inline bool JobRoleArnHasBeenSet() const { return m_jobRoleArnHasBeenSet; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) associated with the job upon execution. </p>
+     * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
      */
     inline void SetJobRoleArn(const Aws::String& value) { m_jobRoleArnHasBeenSet = true; m_jobRoleArn = value; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) associated with the job upon execution. </p>
+     * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
      */
     inline void SetJobRoleArn(Aws::String&& value) { m_jobRoleArnHasBeenSet = true; m_jobRoleArn = std::move(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) associated with the job upon execution. </p>
+     * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
      */
     inline void SetJobRoleArn(const char* value) { m_jobRoleArnHasBeenSet = true; m_jobRoleArn.assign(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) associated with the job upon execution. </p>
+     * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
      */
     inline ContainerDetail& WithJobRoleArn(const Aws::String& value) { SetJobRoleArn(value); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) associated with the job upon execution. </p>
+     * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
      */
     inline ContainerDetail& WithJobRoleArn(Aws::String&& value) { SetJobRoleArn(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) associated with the job upon execution. </p>
+     * <p>The Amazon Resource Name (ARN) associated with the job upon execution.</p>
      */
     inline ContainerDetail& WithJobRoleArn(const char* value) { SetJobRoleArn(value); return *this;}
 
@@ -878,38 +878,38 @@ namespace Model
 
 
     /**
-     * <p>Linux-specific modifications that are applied to the container, such as Linux
-     * kernel capabilities.</p>
+     * <p>Linux-specific modifications that are applied to the container, such as
+     * details for device mappings.</p>
      */
     inline const LinuxParameters& GetLinuxParameters() const{ return m_linuxParameters; }
 
     /**
-     * <p>Linux-specific modifications that are applied to the container, such as Linux
-     * kernel capabilities.</p>
+     * <p>Linux-specific modifications that are applied to the container, such as
+     * details for device mappings.</p>
      */
     inline bool LinuxParametersHasBeenSet() const { return m_linuxParametersHasBeenSet; }
 
     /**
-     * <p>Linux-specific modifications that are applied to the container, such as Linux
-     * kernel capabilities.</p>
+     * <p>Linux-specific modifications that are applied to the container, such as
+     * details for device mappings.</p>
      */
     inline void SetLinuxParameters(const LinuxParameters& value) { m_linuxParametersHasBeenSet = true; m_linuxParameters = value; }
 
     /**
-     * <p>Linux-specific modifications that are applied to the container, such as Linux
-     * kernel capabilities.</p>
+     * <p>Linux-specific modifications that are applied to the container, such as
+     * details for device mappings.</p>
      */
     inline void SetLinuxParameters(LinuxParameters&& value) { m_linuxParametersHasBeenSet = true; m_linuxParameters = std::move(value); }
 
     /**
-     * <p>Linux-specific modifications that are applied to the container, such as Linux
-     * kernel capabilities.</p>
+     * <p>Linux-specific modifications that are applied to the container, such as
+     * details for device mappings.</p>
      */
     inline ContainerDetail& WithLinuxParameters(const LinuxParameters& value) { SetLinuxParameters(value); return *this;}
 
     /**
-     * <p>Linux-specific modifications that are applied to the container, such as Linux
-     * kernel capabilities.</p>
+     * <p>Linux-specific modifications that are applied to the container, such as
+     * details for device mappings.</p>
      */
     inline ContainerDetail& WithLinuxParameters(LinuxParameters&& value) { SetLinuxParameters(std::move(value)); return *this;}
 

@@ -22,6 +22,8 @@
 #include <aws/kafka/model/ConfigurationInfo.h>
 #include <aws/kafka/model/EncryptionInfo.h>
 #include <aws/kafka/model/EnhancedMonitoring.h>
+#include <aws/kafka/model/OpenMonitoringInfo.h>
+#include <aws/kafka/model/LoggingInfo.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
 
@@ -340,6 +342,49 @@ namespace Model
 
     /**
      * 
+            <p>The settings for open monitoring.</p>
+         
+     */
+    inline const OpenMonitoringInfo& GetOpenMonitoring() const{ return m_openMonitoring; }
+
+    /**
+     * 
+            <p>The settings for open monitoring.</p>
+         
+     */
+    inline bool OpenMonitoringHasBeenSet() const { return m_openMonitoringHasBeenSet; }
+
+    /**
+     * 
+            <p>The settings for open monitoring.</p>
+         
+     */
+    inline void SetOpenMonitoring(const OpenMonitoringInfo& value) { m_openMonitoringHasBeenSet = true; m_openMonitoring = value; }
+
+    /**
+     * 
+            <p>The settings for open monitoring.</p>
+         
+     */
+    inline void SetOpenMonitoring(OpenMonitoringInfo&& value) { m_openMonitoringHasBeenSet = true; m_openMonitoring = std::move(value); }
+
+    /**
+     * 
+            <p>The settings for open monitoring.</p>
+         
+     */
+    inline CreateClusterRequest& WithOpenMonitoring(const OpenMonitoringInfo& value) { SetOpenMonitoring(value); return *this;}
+
+    /**
+     * 
+            <p>The settings for open monitoring.</p>
+         
+     */
+    inline CreateClusterRequest& WithOpenMonitoring(OpenMonitoringInfo&& value) { SetOpenMonitoring(std::move(value)); return *this;}
+
+
+    /**
+     * 
             <p>The version of Apache Kafka.</p>
          
      */
@@ -393,6 +438,25 @@ namespace Model
          
      */
     inline CreateClusterRequest& WithKafkaVersion(const char* value) { SetKafkaVersion(value); return *this;}
+
+
+    
+    inline const LoggingInfo& GetLoggingInfo() const{ return m_loggingInfo; }
+
+    
+    inline bool LoggingInfoHasBeenSet() const { return m_loggingInfoHasBeenSet; }
+
+    
+    inline void SetLoggingInfo(const LoggingInfo& value) { m_loggingInfoHasBeenSet = true; m_loggingInfo = value; }
+
+    
+    inline void SetLoggingInfo(LoggingInfo&& value) { m_loggingInfoHasBeenSet = true; m_loggingInfo = std::move(value); }
+
+    
+    inline CreateClusterRequest& WithLoggingInfo(const LoggingInfo& value) { SetLoggingInfo(value); return *this;}
+
+    
+    inline CreateClusterRequest& WithLoggingInfo(LoggingInfo&& value) { SetLoggingInfo(std::move(value)); return *this;}
 
 
     /**
@@ -535,8 +599,14 @@ namespace Model
     EnhancedMonitoring m_enhancedMonitoring;
     bool m_enhancedMonitoringHasBeenSet;
 
+    OpenMonitoringInfo m_openMonitoring;
+    bool m_openMonitoringHasBeenSet;
+
     Aws::String m_kafkaVersion;
     bool m_kafkaVersionHasBeenSet;
+
+    LoggingInfo m_loggingInfo;
+    bool m_loggingInfoHasBeenSet;
 
     int m_numberOfBrokerNodes;
     bool m_numberOfBrokerNodesHasBeenSet;

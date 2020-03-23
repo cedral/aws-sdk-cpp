@@ -46,32 +46,50 @@ namespace Model
 
 
     /**
-     * <p>The association type.</p>
+     * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals
+     * that are associated with the specified resource share. Specify
+     * <code>RESOURCE</code> to list the resources that are associated with the
+     * specified resource share.</p>
      */
     inline const ResourceShareAssociationType& GetAssociationType() const{ return m_associationType; }
 
     /**
-     * <p>The association type.</p>
+     * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals
+     * that are associated with the specified resource share. Specify
+     * <code>RESOURCE</code> to list the resources that are associated with the
+     * specified resource share.</p>
      */
     inline bool AssociationTypeHasBeenSet() const { return m_associationTypeHasBeenSet; }
 
     /**
-     * <p>The association type.</p>
+     * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals
+     * that are associated with the specified resource share. Specify
+     * <code>RESOURCE</code> to list the resources that are associated with the
+     * specified resource share.</p>
      */
     inline void SetAssociationType(const ResourceShareAssociationType& value) { m_associationTypeHasBeenSet = true; m_associationType = value; }
 
     /**
-     * <p>The association type.</p>
+     * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals
+     * that are associated with the specified resource share. Specify
+     * <code>RESOURCE</code> to list the resources that are associated with the
+     * specified resource share.</p>
      */
     inline void SetAssociationType(ResourceShareAssociationType&& value) { m_associationTypeHasBeenSet = true; m_associationType = std::move(value); }
 
     /**
-     * <p>The association type.</p>
+     * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals
+     * that are associated with the specified resource share. Specify
+     * <code>RESOURCE</code> to list the resources that are associated with the
+     * specified resource share.</p>
      */
     inline GetResourceShareAssociationsRequest& WithAssociationType(const ResourceShareAssociationType& value) { SetAssociationType(value); return *this;}
 
     /**
-     * <p>The association type.</p>
+     * <p>The association type. Specify <code>PRINCIPAL</code> to list the principals
+     * that are associated with the specified resource share. Specify
+     * <code>RESOURCE</code> to list the resources that are associated with the
+     * specified resource share.</p>
      */
     inline GetResourceShareAssociationsRequest& WithAssociationType(ResourceShareAssociationType&& value) { SetAssociationType(std::move(value)); return *this;}
 
@@ -123,114 +141,130 @@ namespace Model
 
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this
+     * parameter if the association type is <code>PRINCIPAL</code>.</p>
      */
     inline const Aws::String& GetResourceArn() const{ return m_resourceArn; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this
+     * parameter if the association type is <code>PRINCIPAL</code>.</p>
      */
     inline bool ResourceArnHasBeenSet() const { return m_resourceArnHasBeenSet; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this
+     * parameter if the association type is <code>PRINCIPAL</code>.</p>
      */
     inline void SetResourceArn(const Aws::String& value) { m_resourceArnHasBeenSet = true; m_resourceArn = value; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this
+     * parameter if the association type is <code>PRINCIPAL</code>.</p>
      */
     inline void SetResourceArn(Aws::String&& value) { m_resourceArnHasBeenSet = true; m_resourceArn = std::move(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this
+     * parameter if the association type is <code>PRINCIPAL</code>.</p>
      */
     inline void SetResourceArn(const char* value) { m_resourceArnHasBeenSet = true; m_resourceArn.assign(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this
+     * parameter if the association type is <code>PRINCIPAL</code>.</p>
      */
     inline GetResourceShareAssociationsRequest& WithResourceArn(const Aws::String& value) { SetResourceArn(value); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this
+     * parameter if the association type is <code>PRINCIPAL</code>.</p>
      */
     inline GetResourceShareAssociationsRequest& WithResourceArn(Aws::String&& value) { SetResourceArn(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     * <p>The Amazon Resource Name (ARN) of the resource. You cannot specify this
+     * parameter if the association type is <code>PRINCIPAL</code>.</p>
      */
     inline GetResourceShareAssociationsRequest& WithResourceArn(const char* value) { SetResourceArn(value); return *this;}
 
 
     /**
-     * <p>The principal.</p>
+     * <p>The principal. You cannot specify this parameter if the association type is
+     * <code>RESOURCE</code>.</p>
      */
     inline const Aws::String& GetPrincipal() const{ return m_principal; }
 
     /**
-     * <p>The principal.</p>
+     * <p>The principal. You cannot specify this parameter if the association type is
+     * <code>RESOURCE</code>.</p>
      */
     inline bool PrincipalHasBeenSet() const { return m_principalHasBeenSet; }
 
     /**
-     * <p>The principal.</p>
+     * <p>The principal. You cannot specify this parameter if the association type is
+     * <code>RESOURCE</code>.</p>
      */
     inline void SetPrincipal(const Aws::String& value) { m_principalHasBeenSet = true; m_principal = value; }
 
     /**
-     * <p>The principal.</p>
+     * <p>The principal. You cannot specify this parameter if the association type is
+     * <code>RESOURCE</code>.</p>
      */
     inline void SetPrincipal(Aws::String&& value) { m_principalHasBeenSet = true; m_principal = std::move(value); }
 
     /**
-     * <p>The principal.</p>
+     * <p>The principal. You cannot specify this parameter if the association type is
+     * <code>RESOURCE</code>.</p>
      */
     inline void SetPrincipal(const char* value) { m_principalHasBeenSet = true; m_principal.assign(value); }
 
     /**
-     * <p>The principal.</p>
+     * <p>The principal. You cannot specify this parameter if the association type is
+     * <code>RESOURCE</code>.</p>
      */
     inline GetResourceShareAssociationsRequest& WithPrincipal(const Aws::String& value) { SetPrincipal(value); return *this;}
 
     /**
-     * <p>The principal.</p>
+     * <p>The principal. You cannot specify this parameter if the association type is
+     * <code>RESOURCE</code>.</p>
      */
     inline GetResourceShareAssociationsRequest& WithPrincipal(Aws::String&& value) { SetPrincipal(std::move(value)); return *this;}
 
     /**
-     * <p>The principal.</p>
+     * <p>The principal. You cannot specify this parameter if the association type is
+     * <code>RESOURCE</code>.</p>
      */
     inline GetResourceShareAssociationsRequest& WithPrincipal(const char* value) { SetPrincipal(value); return *this;}
 
 
     /**
-     * <p>The status of the association.</p>
+     * <p>The association status.</p>
      */
     inline const ResourceShareAssociationStatus& GetAssociationStatus() const{ return m_associationStatus; }
 
     /**
-     * <p>The status of the association.</p>
+     * <p>The association status.</p>
      */
     inline bool AssociationStatusHasBeenSet() const { return m_associationStatusHasBeenSet; }
 
     /**
-     * <p>The status of the association.</p>
+     * <p>The association status.</p>
      */
     inline void SetAssociationStatus(const ResourceShareAssociationStatus& value) { m_associationStatusHasBeenSet = true; m_associationStatus = value; }
 
     /**
-     * <p>The status of the association.</p>
+     * <p>The association status.</p>
      */
     inline void SetAssociationStatus(ResourceShareAssociationStatus&& value) { m_associationStatusHasBeenSet = true; m_associationStatus = std::move(value); }
 
     /**
-     * <p>The status of the association.</p>
+     * <p>The association status.</p>
      */
     inline GetResourceShareAssociationsRequest& WithAssociationStatus(const ResourceShareAssociationStatus& value) { SetAssociationStatus(value); return *this;}
 
     /**
-     * <p>The status of the association.</p>
+     * <p>The association status.</p>
      */
     inline GetResourceShareAssociationsRequest& WithAssociationStatus(ResourceShareAssociationStatus&& value) { SetAssociationStatus(std::move(value)); return *this;}
 

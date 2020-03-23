@@ -23,7 +23,6 @@ using namespace Aws::Client;
 
 bool DefaultRetryStrategy::ShouldRetry(const AWSError<CoreErrors>& error, long attemptedRetries) const
 {    
-
     if (attemptedRetries >= m_maxRetries)
         return false;
 

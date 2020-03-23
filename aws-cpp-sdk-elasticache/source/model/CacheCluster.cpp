@@ -58,6 +58,7 @@ CacheCluster::CacheCluster() :
     m_snapshotWindowHasBeenSet(false),
     m_authTokenEnabled(false),
     m_authTokenEnabledHasBeenSet(false),
+    m_authTokenLastModifiedDateHasBeenSet(false),
     m_transitEncryptionEnabled(false),
     m_transitEncryptionEnabledHasBeenSet(false),
     m_atRestEncryptionEnabled(false),
@@ -93,6 +94,7 @@ CacheCluster::CacheCluster(const XmlNode& xmlNode) :
     m_snapshotWindowHasBeenSet(false),
     m_authTokenEnabled(false),
     m_authTokenEnabledHasBeenSet(false),
+    m_authTokenLastModifiedDateHasBeenSet(false),
     m_transitEncryptionEnabled(false),
     m_transitEncryptionEnabledHasBeenSet(false),
     m_atRestEncryptionEnabled(false),
@@ -110,7 +112,7 @@ CacheCluster& CacheCluster::operator =(const XmlNode& xmlNode)
     XmlNode cacheClusterIdNode = resultNode.FirstChild("CacheClusterId");
     if(!cacheClusterIdNode.IsNull())
     {
-      m_cacheClusterId = cacheClusterIdNode.GetText();
+      m_cacheClusterId = Aws::Utils::Xml::DecodeEscapedXmlText(cacheClusterIdNode.GetText());
       m_cacheClusterIdHasBeenSet = true;
     }
     XmlNode configurationEndpointNode = resultNode.FirstChild("ConfigurationEndpoint");
@@ -122,55 +124,55 @@ CacheCluster& CacheCluster::operator =(const XmlNode& xmlNode)
     XmlNode clientDownloadLandingPageNode = resultNode.FirstChild("ClientDownloadLandingPage");
     if(!clientDownloadLandingPageNode.IsNull())
     {
-      m_clientDownloadLandingPage = clientDownloadLandingPageNode.GetText();
+      m_clientDownloadLandingPage = Aws::Utils::Xml::DecodeEscapedXmlText(clientDownloadLandingPageNode.GetText());
       m_clientDownloadLandingPageHasBeenSet = true;
     }
     XmlNode cacheNodeTypeNode = resultNode.FirstChild("CacheNodeType");
     if(!cacheNodeTypeNode.IsNull())
     {
-      m_cacheNodeType = cacheNodeTypeNode.GetText();
+      m_cacheNodeType = Aws::Utils::Xml::DecodeEscapedXmlText(cacheNodeTypeNode.GetText());
       m_cacheNodeTypeHasBeenSet = true;
     }
     XmlNode engineNode = resultNode.FirstChild("Engine");
     if(!engineNode.IsNull())
     {
-      m_engine = engineNode.GetText();
+      m_engine = Aws::Utils::Xml::DecodeEscapedXmlText(engineNode.GetText());
       m_engineHasBeenSet = true;
     }
     XmlNode engineVersionNode = resultNode.FirstChild("EngineVersion");
     if(!engineVersionNode.IsNull())
     {
-      m_engineVersion = engineVersionNode.GetText();
+      m_engineVersion = Aws::Utils::Xml::DecodeEscapedXmlText(engineVersionNode.GetText());
       m_engineVersionHasBeenSet = true;
     }
     XmlNode cacheClusterStatusNode = resultNode.FirstChild("CacheClusterStatus");
     if(!cacheClusterStatusNode.IsNull())
     {
-      m_cacheClusterStatus = cacheClusterStatusNode.GetText();
+      m_cacheClusterStatus = Aws::Utils::Xml::DecodeEscapedXmlText(cacheClusterStatusNode.GetText());
       m_cacheClusterStatusHasBeenSet = true;
     }
     XmlNode numCacheNodesNode = resultNode.FirstChild("NumCacheNodes");
     if(!numCacheNodesNode.IsNull())
     {
-      m_numCacheNodes = StringUtils::ConvertToInt32(StringUtils::Trim(numCacheNodesNode.GetText().c_str()).c_str());
+      m_numCacheNodes = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(numCacheNodesNode.GetText()).c_str()).c_str());
       m_numCacheNodesHasBeenSet = true;
     }
     XmlNode preferredAvailabilityZoneNode = resultNode.FirstChild("PreferredAvailabilityZone");
     if(!preferredAvailabilityZoneNode.IsNull())
     {
-      m_preferredAvailabilityZone = preferredAvailabilityZoneNode.GetText();
+      m_preferredAvailabilityZone = Aws::Utils::Xml::DecodeEscapedXmlText(preferredAvailabilityZoneNode.GetText());
       m_preferredAvailabilityZoneHasBeenSet = true;
     }
     XmlNode cacheClusterCreateTimeNode = resultNode.FirstChild("CacheClusterCreateTime");
     if(!cacheClusterCreateTimeNode.IsNull())
     {
-      m_cacheClusterCreateTime = DateTime(StringUtils::Trim(cacheClusterCreateTimeNode.GetText().c_str()).c_str(), DateFormat::ISO_8601);
+      m_cacheClusterCreateTime = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(cacheClusterCreateTimeNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
       m_cacheClusterCreateTimeHasBeenSet = true;
     }
     XmlNode preferredMaintenanceWindowNode = resultNode.FirstChild("PreferredMaintenanceWindow");
     if(!preferredMaintenanceWindowNode.IsNull())
     {
-      m_preferredMaintenanceWindow = preferredMaintenanceWindowNode.GetText();
+      m_preferredMaintenanceWindow = Aws::Utils::Xml::DecodeEscapedXmlText(preferredMaintenanceWindowNode.GetText());
       m_preferredMaintenanceWindowHasBeenSet = true;
     }
     XmlNode pendingModifiedValuesNode = resultNode.FirstChild("PendingModifiedValues");
@@ -206,7 +208,7 @@ CacheCluster& CacheCluster::operator =(const XmlNode& xmlNode)
     XmlNode cacheSubnetGroupNameNode = resultNode.FirstChild("CacheSubnetGroupName");
     if(!cacheSubnetGroupNameNode.IsNull())
     {
-      m_cacheSubnetGroupName = cacheSubnetGroupNameNode.GetText();
+      m_cacheSubnetGroupName = Aws::Utils::Xml::DecodeEscapedXmlText(cacheSubnetGroupNameNode.GetText());
       m_cacheSubnetGroupNameHasBeenSet = true;
     }
     XmlNode cacheNodesNode = resultNode.FirstChild("CacheNodes");
@@ -224,7 +226,7 @@ CacheCluster& CacheCluster::operator =(const XmlNode& xmlNode)
     XmlNode autoMinorVersionUpgradeNode = resultNode.FirstChild("AutoMinorVersionUpgrade");
     if(!autoMinorVersionUpgradeNode.IsNull())
     {
-      m_autoMinorVersionUpgrade = StringUtils::ConvertToBool(StringUtils::Trim(autoMinorVersionUpgradeNode.GetText().c_str()).c_str());
+      m_autoMinorVersionUpgrade = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(autoMinorVersionUpgradeNode.GetText()).c_str()).c_str());
       m_autoMinorVersionUpgradeHasBeenSet = true;
     }
     XmlNode securityGroupsNode = resultNode.FirstChild("SecurityGroups");
@@ -242,37 +244,43 @@ CacheCluster& CacheCluster::operator =(const XmlNode& xmlNode)
     XmlNode replicationGroupIdNode = resultNode.FirstChild("ReplicationGroupId");
     if(!replicationGroupIdNode.IsNull())
     {
-      m_replicationGroupId = replicationGroupIdNode.GetText();
+      m_replicationGroupId = Aws::Utils::Xml::DecodeEscapedXmlText(replicationGroupIdNode.GetText());
       m_replicationGroupIdHasBeenSet = true;
     }
     XmlNode snapshotRetentionLimitNode = resultNode.FirstChild("SnapshotRetentionLimit");
     if(!snapshotRetentionLimitNode.IsNull())
     {
-      m_snapshotRetentionLimit = StringUtils::ConvertToInt32(StringUtils::Trim(snapshotRetentionLimitNode.GetText().c_str()).c_str());
+      m_snapshotRetentionLimit = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(snapshotRetentionLimitNode.GetText()).c_str()).c_str());
       m_snapshotRetentionLimitHasBeenSet = true;
     }
     XmlNode snapshotWindowNode = resultNode.FirstChild("SnapshotWindow");
     if(!snapshotWindowNode.IsNull())
     {
-      m_snapshotWindow = snapshotWindowNode.GetText();
+      m_snapshotWindow = Aws::Utils::Xml::DecodeEscapedXmlText(snapshotWindowNode.GetText());
       m_snapshotWindowHasBeenSet = true;
     }
     XmlNode authTokenEnabledNode = resultNode.FirstChild("AuthTokenEnabled");
     if(!authTokenEnabledNode.IsNull())
     {
-      m_authTokenEnabled = StringUtils::ConvertToBool(StringUtils::Trim(authTokenEnabledNode.GetText().c_str()).c_str());
+      m_authTokenEnabled = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(authTokenEnabledNode.GetText()).c_str()).c_str());
       m_authTokenEnabledHasBeenSet = true;
+    }
+    XmlNode authTokenLastModifiedDateNode = resultNode.FirstChild("AuthTokenLastModifiedDate");
+    if(!authTokenLastModifiedDateNode.IsNull())
+    {
+      m_authTokenLastModifiedDate = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(authTokenLastModifiedDateNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
+      m_authTokenLastModifiedDateHasBeenSet = true;
     }
     XmlNode transitEncryptionEnabledNode = resultNode.FirstChild("TransitEncryptionEnabled");
     if(!transitEncryptionEnabledNode.IsNull())
     {
-      m_transitEncryptionEnabled = StringUtils::ConvertToBool(StringUtils::Trim(transitEncryptionEnabledNode.GetText().c_str()).c_str());
+      m_transitEncryptionEnabled = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(transitEncryptionEnabledNode.GetText()).c_str()).c_str());
       m_transitEncryptionEnabledHasBeenSet = true;
     }
     XmlNode atRestEncryptionEnabledNode = resultNode.FirstChild("AtRestEncryptionEnabled");
     if(!atRestEncryptionEnabledNode.IsNull())
     {
-      m_atRestEncryptionEnabled = StringUtils::ConvertToBool(StringUtils::Trim(atRestEncryptionEnabledNode.GetText().c_str()).c_str());
+      m_atRestEncryptionEnabled = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(atRestEncryptionEnabledNode.GetText()).c_str()).c_str());
       m_atRestEncryptionEnabledHasBeenSet = true;
     }
   }
@@ -423,6 +431,11 @@ void CacheCluster::OutputToStream(Aws::OStream& oStream, const char* location, u
       oStream << location << index << locationValue << ".AuthTokenEnabled=" << std::boolalpha << m_authTokenEnabled << "&";
   }
 
+  if(m_authTokenLastModifiedDateHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".AuthTokenLastModifiedDate=" << StringUtils::URLEncode(m_authTokenLastModifiedDate.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
+  }
+
   if(m_transitEncryptionEnabledHasBeenSet)
   {
       oStream << location << index << locationValue << ".TransitEncryptionEnabled=" << std::boolalpha << m_transitEncryptionEnabled << "&";
@@ -554,6 +567,10 @@ void CacheCluster::OutputToStream(Aws::OStream& oStream, const char* location) c
   if(m_authTokenEnabledHasBeenSet)
   {
       oStream << location << ".AuthTokenEnabled=" << std::boolalpha << m_authTokenEnabled << "&";
+  }
+  if(m_authTokenLastModifiedDateHasBeenSet)
+  {
+      oStream << location << ".AuthTokenLastModifiedDate=" << StringUtils::URLEncode(m_authTokenLastModifiedDate.ToGmtString(DateFormat::ISO_8601).c_str()) << "&";
   }
   if(m_transitEncryptionEnabledHasBeenSet)
   {

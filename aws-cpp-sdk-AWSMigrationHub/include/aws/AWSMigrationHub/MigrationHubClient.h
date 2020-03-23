@@ -30,6 +30,7 @@
 #include <aws/AWSMigrationHub/model/DisassociateCreatedArtifactResult.h>
 #include <aws/AWSMigrationHub/model/DisassociateDiscoveredResourceResult.h>
 #include <aws/AWSMigrationHub/model/ImportMigrationTaskResult.h>
+#include <aws/AWSMigrationHub/model/ListApplicationStatesResult.h>
 #include <aws/AWSMigrationHub/model/ListCreatedArtifactsResult.h>
 #include <aws/AWSMigrationHub/model/ListDiscoveredResourcesResult.h>
 #include <aws/AWSMigrationHub/model/ListMigrationTasksResult.h>
@@ -85,6 +86,7 @@ namespace Model
         class DisassociateCreatedArtifactRequest;
         class DisassociateDiscoveredResourceRequest;
         class ImportMigrationTaskRequest;
+        class ListApplicationStatesRequest;
         class ListCreatedArtifactsRequest;
         class ListDiscoveredResourcesRequest;
         class ListMigrationTasksRequest;
@@ -102,6 +104,7 @@ namespace Model
         typedef Aws::Utils::Outcome<DisassociateCreatedArtifactResult, Aws::Client::AWSError<MigrationHubErrors>> DisassociateCreatedArtifactOutcome;
         typedef Aws::Utils::Outcome<DisassociateDiscoveredResourceResult, Aws::Client::AWSError<MigrationHubErrors>> DisassociateDiscoveredResourceOutcome;
         typedef Aws::Utils::Outcome<ImportMigrationTaskResult, Aws::Client::AWSError<MigrationHubErrors>> ImportMigrationTaskOutcome;
+        typedef Aws::Utils::Outcome<ListApplicationStatesResult, Aws::Client::AWSError<MigrationHubErrors>> ListApplicationStatesOutcome;
         typedef Aws::Utils::Outcome<ListCreatedArtifactsResult, Aws::Client::AWSError<MigrationHubErrors>> ListCreatedArtifactsOutcome;
         typedef Aws::Utils::Outcome<ListDiscoveredResourcesResult, Aws::Client::AWSError<MigrationHubErrors>> ListDiscoveredResourcesOutcome;
         typedef Aws::Utils::Outcome<ListMigrationTasksResult, Aws::Client::AWSError<MigrationHubErrors>> ListMigrationTasksOutcome;
@@ -119,6 +122,7 @@ namespace Model
         typedef std::future<DisassociateCreatedArtifactOutcome> DisassociateCreatedArtifactOutcomeCallable;
         typedef std::future<DisassociateDiscoveredResourceOutcome> DisassociateDiscoveredResourceOutcomeCallable;
         typedef std::future<ImportMigrationTaskOutcome> ImportMigrationTaskOutcomeCallable;
+        typedef std::future<ListApplicationStatesOutcome> ListApplicationStatesOutcomeCallable;
         typedef std::future<ListCreatedArtifactsOutcome> ListCreatedArtifactsOutcomeCallable;
         typedef std::future<ListDiscoveredResourcesOutcome> ListDiscoveredResourcesOutcomeCallable;
         typedef std::future<ListMigrationTasksOutcome> ListMigrationTasksOutcomeCallable;
@@ -139,6 +143,7 @@ namespace Model
     typedef std::function<void(const MigrationHubClient*, const Model::DisassociateCreatedArtifactRequest&, const Model::DisassociateCreatedArtifactOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DisassociateCreatedArtifactResponseReceivedHandler;
     typedef std::function<void(const MigrationHubClient*, const Model::DisassociateDiscoveredResourceRequest&, const Model::DisassociateDiscoveredResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DisassociateDiscoveredResourceResponseReceivedHandler;
     typedef std::function<void(const MigrationHubClient*, const Model::ImportMigrationTaskRequest&, const Model::ImportMigrationTaskOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ImportMigrationTaskResponseReceivedHandler;
+    typedef std::function<void(const MigrationHubClient*, const Model::ListApplicationStatesRequest&, const Model::ListApplicationStatesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListApplicationStatesResponseReceivedHandler;
     typedef std::function<void(const MigrationHubClient*, const Model::ListCreatedArtifactsRequest&, const Model::ListCreatedArtifactsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListCreatedArtifactsResponseReceivedHandler;
     typedef std::function<void(const MigrationHubClient*, const Model::ListDiscoveredResourcesRequest&, const Model::ListDiscoveredResourcesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListDiscoveredResourcesResponseReceivedHandler;
     typedef std::function<void(const MigrationHubClient*, const Model::ListMigrationTasksRequest&, const Model::ListMigrationTasksOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListMigrationTasksResponseReceivedHandler;
@@ -150,7 +155,10 @@ namespace Model
   /**
    * <p>The AWS Migration Hub API methods help to obtain server and application
    * migration status and integrate your resource-specific migration tool by
-   * providing a programmatic interface to Migration Hub. </p>
+   * providing a programmatic interface to Migration Hub.</p> <p>Remember that you
+   * must set your AWS Migration Hub home region before you call any of these APIs,
+   * or a <code>HomeRegionNotSetException</code> error will be returned. Also, you
+   * must make the API calls while in your home region.</p>
    */
   class AWS_MIGRATIONHUB_API MigrationHubClient : public Aws::Client::AWSJsonClient
   {
@@ -178,7 +186,7 @@ namespace Model
 
         virtual ~MigrationHubClient();
 
-        inline virtual const char* GetServiceClientName() const override { return "mgh"; }
+        inline virtual const char* GetServiceClientName() const override { return "Migration Hub"; }
 
 
         /**
@@ -234,16 +242,16 @@ namespace Model
         virtual void AssociateCreatedArtifactAsync(const Model::AssociateCreatedArtifactRequest& request, const AssociateCreatedArtifactResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Associates a discovered resource ID from Application Discovery Service (ADS)
-         * with a migration task.</p><p><h3>See Also:</h3>   <a
+         * <p>Associates a discovered resource ID from Application Discovery Service with a
+         * migration task.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/AssociateDiscoveredResource">AWS
          * API Reference</a></p>
          */
         virtual Model::AssociateDiscoveredResourceOutcome AssociateDiscoveredResource(const Model::AssociateDiscoveredResourceRequest& request) const;
 
         /**
-         * <p>Associates a discovered resource ID from Application Discovery Service (ADS)
-         * with a migration task.</p><p><h3>See Also:</h3>   <a
+         * <p>Associates a discovered resource ID from Application Discovery Service with a
+         * migration task.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/AssociateDiscoveredResource">AWS
          * API Reference</a></p>
          *
@@ -252,8 +260,8 @@ namespace Model
         virtual Model::AssociateDiscoveredResourceOutcomeCallable AssociateDiscoveredResourceCallable(const Model::AssociateDiscoveredResourceRequest& request) const;
 
         /**
-         * <p>Associates a discovered resource ID from Application Discovery Service (ADS)
-         * with a migration task.</p><p><h3>See Also:</h3>   <a
+         * <p>Associates a discovered resource ID from Application Discovery Service with a
+         * migration task.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/AssociateDiscoveredResource">AWS
          * API Reference</a></p>
          *
@@ -312,7 +320,7 @@ namespace Model
          * artifacts).</p> </li> <li> <p>If the stream takes time to be deleted, it might
          * still show up on a <code>ListProgressUpdateStreams</code> call.</p> </li> <li>
          * <p> <code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>,
-         * <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs realted to the
+         * <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs related to the
          * tasks belonging to the stream will throw "InvalidInputException" if the stream
          * of the same name is in the process of being deleted.</p> </li> <li> <p>Once the
          * stream and all of its resources are deleted,
@@ -336,7 +344,7 @@ namespace Model
          * artifacts).</p> </li> <li> <p>If the stream takes time to be deleted, it might
          * still show up on a <code>ListProgressUpdateStreams</code> call.</p> </li> <li>
          * <p> <code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>,
-         * <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs realted to the
+         * <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs related to the
          * tasks belonging to the stream will throw "InvalidInputException" if the stream
          * of the same name is in the process of being deleted.</p> </li> <li> <p>Once the
          * stream and all of its resources are deleted,
@@ -362,7 +370,7 @@ namespace Model
          * artifacts).</p> </li> <li> <p>If the stream takes time to be deleted, it might
          * still show up on a <code>ListProgressUpdateStreams</code> call.</p> </li> <li>
          * <p> <code>CreateProgressUpdateStream</code>, <code>ImportMigrationTask</code>,
-         * <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs realted to the
+         * <code>NotifyMigrationTaskState</code>, and all Associate[*] APIs related to the
          * tasks belonging to the stream will throw "InvalidInputException" if the stream
          * of the same name is in the process of being deleted.</p> </li> <li> <p>Once the
          * stream and all of its resources are deleted,
@@ -483,16 +491,16 @@ namespace Model
         virtual void DisassociateCreatedArtifactAsync(const Model::DisassociateCreatedArtifactRequest& request, const DisassociateCreatedArtifactResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Disassociate an Application Discovery Service (ADS) discovered resource from
-         * a migration task.</p><p><h3>See Also:</h3>   <a
+         * <p>Disassociate an Application Discovery Service discovered resource from a
+         * migration task.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/DisassociateDiscoveredResource">AWS
          * API Reference</a></p>
          */
         virtual Model::DisassociateDiscoveredResourceOutcome DisassociateDiscoveredResource(const Model::DisassociateDiscoveredResourceRequest& request) const;
 
         /**
-         * <p>Disassociate an Application Discovery Service (ADS) discovered resource from
-         * a migration task.</p><p><h3>See Also:</h3>   <a
+         * <p>Disassociate an Application Discovery Service discovered resource from a
+         * migration task.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/DisassociateDiscoveredResource">AWS
          * API Reference</a></p>
          *
@@ -501,8 +509,8 @@ namespace Model
         virtual Model::DisassociateDiscoveredResourceOutcomeCallable DisassociateDiscoveredResourceCallable(const Model::DisassociateDiscoveredResourceRequest& request) const;
 
         /**
-         * <p>Disassociate an Application Discovery Service (ADS) discovered resource from
-         * a migration task.</p><p><h3>See Also:</h3>   <a
+         * <p>Disassociate an Application Discovery Service discovered resource from a
+         * migration task.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/DisassociateDiscoveredResource">AWS
          * API Reference</a></p>
          *
@@ -546,6 +554,37 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void ImportMigrationTaskAsync(const Model::ImportMigrationTaskRequest& request, const ImportMigrationTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Lists all the migration statuses for your applications. If you use the
+         * optional <code>ApplicationIds</code> parameter, only the migration statuses for
+         * those applications will be returned.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/ListApplicationStates">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::ListApplicationStatesOutcome ListApplicationStates(const Model::ListApplicationStatesRequest& request) const;
+
+        /**
+         * <p>Lists all the migration statuses for your applications. If you use the
+         * optional <code>ApplicationIds</code> parameter, only the migration statuses for
+         * those applications will be returned.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/ListApplicationStates">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::ListApplicationStatesOutcomeCallable ListApplicationStatesCallable(const Model::ListApplicationStatesRequest& request) const;
+
+        /**
+         * <p>Lists all the migration statuses for your applications. If you use the
+         * optional <code>ApplicationIds</code> parameter, only the migration statuses for
+         * those applications will be returned.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/AWSMigrationHub-2017-05-31/ListApplicationStates">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void ListApplicationStatesAsync(const Model::ListApplicationStatesRequest& request, const ListApplicationStatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Lists the created artifacts attached to a given migration task in an update
@@ -768,17 +807,17 @@ namespace Model
 
         /**
          * <p>Provides identifying details of the resource being migrated so that it can be
-         * associated in the Application Discovery Service (ADS)'s repository. This
-         * association occurs asynchronously after <code>PutResourceAttributes</code>
-         * returns.</p> <important> <ul> <li> <p>Keep in mind that subsequent calls to
+         * associated in the Application Discovery Service repository. This association
+         * occurs asynchronously after <code>PutResourceAttributes</code> returns.</p>
+         * <important> <ul> <li> <p>Keep in mind that subsequent calls to
          * PutResourceAttributes will override previously stored attributes. For example,
          * if it is first called with a MAC address, but later, it is desired to <i>add</i>
          * an IP address, it will then be required to call it with <i>both</i> the IP and
-         * MAC addresses to prevent overiding the MAC address.</p> </li> <li> <p>Note the
+         * MAC addresses to prevent overriding the MAC address.</p> </li> <li> <p>Note the
          * instructions regarding the special use case of the <a
          * href="https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList">
          * <code>ResourceAttributeList</code> </a> parameter when specifying any "VM"
-         * related value. </p> </li> </ul> </important> <note> <p>Because this is an
+         * related value.</p> </li> </ul> </important> <note> <p>Because this is an
          * asynchronous call, it will always return 200, whether an association occurs or
          * not. To confirm if an association was found based on the provided details, call
          * <code>ListDiscoveredResources</code>.</p> </note><p><h3>See Also:</h3>   <a
@@ -789,17 +828,17 @@ namespace Model
 
         /**
          * <p>Provides identifying details of the resource being migrated so that it can be
-         * associated in the Application Discovery Service (ADS)'s repository. This
-         * association occurs asynchronously after <code>PutResourceAttributes</code>
-         * returns.</p> <important> <ul> <li> <p>Keep in mind that subsequent calls to
+         * associated in the Application Discovery Service repository. This association
+         * occurs asynchronously after <code>PutResourceAttributes</code> returns.</p>
+         * <important> <ul> <li> <p>Keep in mind that subsequent calls to
          * PutResourceAttributes will override previously stored attributes. For example,
          * if it is first called with a MAC address, but later, it is desired to <i>add</i>
          * an IP address, it will then be required to call it with <i>both</i> the IP and
-         * MAC addresses to prevent overiding the MAC address.</p> </li> <li> <p>Note the
+         * MAC addresses to prevent overriding the MAC address.</p> </li> <li> <p>Note the
          * instructions regarding the special use case of the <a
          * href="https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList">
          * <code>ResourceAttributeList</code> </a> parameter when specifying any "VM"
-         * related value. </p> </li> </ul> </important> <note> <p>Because this is an
+         * related value.</p> </li> </ul> </important> <note> <p>Because this is an
          * asynchronous call, it will always return 200, whether an association occurs or
          * not. To confirm if an association was found based on the provided details, call
          * <code>ListDiscoveredResources</code>.</p> </note><p><h3>See Also:</h3>   <a
@@ -812,17 +851,17 @@ namespace Model
 
         /**
          * <p>Provides identifying details of the resource being migrated so that it can be
-         * associated in the Application Discovery Service (ADS)'s repository. This
-         * association occurs asynchronously after <code>PutResourceAttributes</code>
-         * returns.</p> <important> <ul> <li> <p>Keep in mind that subsequent calls to
+         * associated in the Application Discovery Service repository. This association
+         * occurs asynchronously after <code>PutResourceAttributes</code> returns.</p>
+         * <important> <ul> <li> <p>Keep in mind that subsequent calls to
          * PutResourceAttributes will override previously stored attributes. For example,
          * if it is first called with a MAC address, but later, it is desired to <i>add</i>
          * an IP address, it will then be required to call it with <i>both</i> the IP and
-         * MAC addresses to prevent overiding the MAC address.</p> </li> <li> <p>Note the
+         * MAC addresses to prevent overriding the MAC address.</p> </li> <li> <p>Note the
          * instructions regarding the special use case of the <a
          * href="https://docs.aws.amazon.com/migrationhub/latest/ug/API_PutResourceAttributes.html#migrationhub-PutResourceAttributes-request-ResourceAttributeList">
          * <code>ResourceAttributeList</code> </a> parameter when specifying any "VM"
-         * related value. </p> </li> </ul> </important> <note> <p>Because this is an
+         * related value.</p> </li> </ul> </important> <note> <p>Because this is an
          * asynchronous call, it will always return 200, whether an association occurs or
          * not. To confirm if an association was found based on the provided details, call
          * <code>ListDiscoveredResources</code>.</p> </note><p><h3>See Also:</h3>   <a
@@ -846,6 +885,7 @@ namespace Model
         void DisassociateCreatedArtifactAsyncHelper(const Model::DisassociateCreatedArtifactRequest& request, const DisassociateCreatedArtifactResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DisassociateDiscoveredResourceAsyncHelper(const Model::DisassociateDiscoveredResourceRequest& request, const DisassociateDiscoveredResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ImportMigrationTaskAsyncHelper(const Model::ImportMigrationTaskRequest& request, const ImportMigrationTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void ListApplicationStatesAsyncHelper(const Model::ListApplicationStatesRequest& request, const ListApplicationStatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListCreatedArtifactsAsyncHelper(const Model::ListCreatedArtifactsRequest& request, const ListCreatedArtifactsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListDiscoveredResourcesAsyncHelper(const Model::ListDiscoveredResourcesRequest& request, const ListDiscoveredResourcesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListMigrationTasksAsyncHelper(const Model::ListMigrationTasksRequest& request, const ListMigrationTasksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

@@ -26,6 +26,7 @@
 #include <aws/snowball/model/Notification.h>
 #include <aws/snowball/model/DataTransfer.h>
 #include <aws/snowball/model/JobLogs.h>
+#include <aws/snowball/model/TaxDocuments.h>
 #include <utility>
 
 namespace Aws
@@ -320,7 +321,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
      * key associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * API action in AWS KMS.</p>
      */
     inline const Aws::String& GetKmsKeyARN() const{ return m_kmsKeyARN; }
@@ -328,7 +329,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
      * key associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * API action in AWS KMS.</p>
      */
     inline bool KmsKeyARNHasBeenSet() const { return m_kmsKeyARNHasBeenSet; }
@@ -336,7 +337,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
      * key associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * API action in AWS KMS.</p>
      */
     inline void SetKmsKeyARN(const Aws::String& value) { m_kmsKeyARNHasBeenSet = true; m_kmsKeyARN = value; }
@@ -344,7 +345,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
      * key associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * API action in AWS KMS.</p>
      */
     inline void SetKmsKeyARN(Aws::String&& value) { m_kmsKeyARNHasBeenSet = true; m_kmsKeyARN = std::move(value); }
@@ -352,7 +353,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
      * key associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * API action in AWS KMS.</p>
      */
     inline void SetKmsKeyARN(const char* value) { m_kmsKeyARNHasBeenSet = true; m_kmsKeyARN.assign(value); }
@@ -360,7 +361,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
      * key associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * API action in AWS KMS.</p>
      */
     inline JobMetadata& WithKmsKeyARN(const Aws::String& value) { SetKmsKeyARN(value); return *this;}
@@ -368,7 +369,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
      * key associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * API action in AWS KMS.</p>
      */
     inline JobMetadata& WithKmsKeyARN(Aws::String&& value) { SetKmsKeyARN(std::move(value)); return *this;}
@@ -376,7 +377,7 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS KMS)
      * key associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * API action in AWS KMS.</p>
      */
     inline JobMetadata& WithKmsKeyARN(const char* value) { SetKmsKeyARN(value); return *this;}
@@ -384,56 +385,56 @@ namespace Model
 
     /**
      * <p>The role ARN associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * API action in AWS Identity and Access Management (IAM).</p>
      */
     inline const Aws::String& GetRoleARN() const{ return m_roleARN; }
 
     /**
      * <p>The role ARN associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * API action in AWS Identity and Access Management (IAM).</p>
      */
     inline bool RoleARNHasBeenSet() const { return m_roleARNHasBeenSet; }
 
     /**
      * <p>The role ARN associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * API action in AWS Identity and Access Management (IAM).</p>
      */
     inline void SetRoleARN(const Aws::String& value) { m_roleARNHasBeenSet = true; m_roleARN = value; }
 
     /**
      * <p>The role ARN associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * API action in AWS Identity and Access Management (IAM).</p>
      */
     inline void SetRoleARN(Aws::String&& value) { m_roleARNHasBeenSet = true; m_roleARN = std::move(value); }
 
     /**
      * <p>The role ARN associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * API action in AWS Identity and Access Management (IAM).</p>
      */
     inline void SetRoleARN(const char* value) { m_roleARNHasBeenSet = true; m_roleARN.assign(value); }
 
     /**
      * <p>The role ARN associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * API action in AWS Identity and Access Management (IAM).</p>
      */
     inline JobMetadata& WithRoleARN(const Aws::String& value) { SetRoleARN(value); return *this;}
 
     /**
      * <p>The role ARN associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * API action in AWS Identity and Access Management (IAM).</p>
      */
     inline JobMetadata& WithRoleARN(Aws::String&& value) { SetRoleARN(std::move(value)); return *this;}
 
     /**
      * <p>The role ARN associated with this job. This ARN was created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * API action in AWS Identity and Access Management (IAM).</p>
      */
     inline JobMetadata& WithRoleARN(const char* value) { SetRoleARN(value); return *this;}
@@ -804,6 +805,43 @@ namespace Model
      */
     inline JobMetadata& WithForwardingAddressId(const char* value) { SetForwardingAddressId(value); return *this;}
 
+
+    /**
+     * <p>The metadata associated with the tax documents required in your AWS
+     * Region.</p>
+     */
+    inline const TaxDocuments& GetTaxDocuments() const{ return m_taxDocuments; }
+
+    /**
+     * <p>The metadata associated with the tax documents required in your AWS
+     * Region.</p>
+     */
+    inline bool TaxDocumentsHasBeenSet() const { return m_taxDocumentsHasBeenSet; }
+
+    /**
+     * <p>The metadata associated with the tax documents required in your AWS
+     * Region.</p>
+     */
+    inline void SetTaxDocuments(const TaxDocuments& value) { m_taxDocumentsHasBeenSet = true; m_taxDocuments = value; }
+
+    /**
+     * <p>The metadata associated with the tax documents required in your AWS
+     * Region.</p>
+     */
+    inline void SetTaxDocuments(TaxDocuments&& value) { m_taxDocumentsHasBeenSet = true; m_taxDocuments = std::move(value); }
+
+    /**
+     * <p>The metadata associated with the tax documents required in your AWS
+     * Region.</p>
+     */
+    inline JobMetadata& WithTaxDocuments(const TaxDocuments& value) { SetTaxDocuments(value); return *this;}
+
+    /**
+     * <p>The metadata associated with the tax documents required in your AWS
+     * Region.</p>
+     */
+    inline JobMetadata& WithTaxDocuments(TaxDocuments&& value) { SetTaxDocuments(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_jobId;
@@ -856,6 +894,9 @@ namespace Model
 
     Aws::String m_forwardingAddressId;
     bool m_forwardingAddressIdHasBeenSet;
+
+    TaxDocuments m_taxDocuments;
+    bool m_taxDocumentsHasBeenSet;
   };
 
 } // namespace Model

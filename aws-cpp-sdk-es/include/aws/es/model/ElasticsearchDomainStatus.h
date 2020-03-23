@@ -25,6 +25,8 @@
 #include <aws/es/model/EncryptionAtRestOptions.h>
 #include <aws/es/model/NodeToNodeEncryptionOptions.h>
 #include <aws/es/model/ServiceSoftwareOptions.h>
+#include <aws/es/model/DomainEndpointOptions.h>
+#include <aws/es/model/AdvancedSecurityOptions.h>
 #include <aws/es/model/LogType.h>
 #include <aws/es/model/LogPublishingOption.h>
 #include <utility>
@@ -968,6 +970,74 @@ namespace Model
      */
     inline ElasticsearchDomainStatus& WithServiceSoftwareOptions(ServiceSoftwareOptions&& value) { SetServiceSoftwareOptions(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The current status of the Elasticsearch domain's endpoint options.</p>
+     */
+    inline const DomainEndpointOptions& GetDomainEndpointOptions() const{ return m_domainEndpointOptions; }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's endpoint options.</p>
+     */
+    inline bool DomainEndpointOptionsHasBeenSet() const { return m_domainEndpointOptionsHasBeenSet; }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's endpoint options.</p>
+     */
+    inline void SetDomainEndpointOptions(const DomainEndpointOptions& value) { m_domainEndpointOptionsHasBeenSet = true; m_domainEndpointOptions = value; }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's endpoint options.</p>
+     */
+    inline void SetDomainEndpointOptions(DomainEndpointOptions&& value) { m_domainEndpointOptionsHasBeenSet = true; m_domainEndpointOptions = std::move(value); }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's endpoint options.</p>
+     */
+    inline ElasticsearchDomainStatus& WithDomainEndpointOptions(const DomainEndpointOptions& value) { SetDomainEndpointOptions(value); return *this;}
+
+    /**
+     * <p>The current status of the Elasticsearch domain's endpoint options.</p>
+     */
+    inline ElasticsearchDomainStatus& WithDomainEndpointOptions(DomainEndpointOptions&& value) { SetDomainEndpointOptions(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The current status of the Elasticsearch domain's advanced security
+     * options.</p>
+     */
+    inline const AdvancedSecurityOptions& GetAdvancedSecurityOptions() const{ return m_advancedSecurityOptions; }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's advanced security
+     * options.</p>
+     */
+    inline bool AdvancedSecurityOptionsHasBeenSet() const { return m_advancedSecurityOptionsHasBeenSet; }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's advanced security
+     * options.</p>
+     */
+    inline void SetAdvancedSecurityOptions(const AdvancedSecurityOptions& value) { m_advancedSecurityOptionsHasBeenSet = true; m_advancedSecurityOptions = value; }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's advanced security
+     * options.</p>
+     */
+    inline void SetAdvancedSecurityOptions(AdvancedSecurityOptions&& value) { m_advancedSecurityOptionsHasBeenSet = true; m_advancedSecurityOptions = std::move(value); }
+
+    /**
+     * <p>The current status of the Elasticsearch domain's advanced security
+     * options.</p>
+     */
+    inline ElasticsearchDomainStatus& WithAdvancedSecurityOptions(const AdvancedSecurityOptions& value) { SetAdvancedSecurityOptions(value); return *this;}
+
+    /**
+     * <p>The current status of the Elasticsearch domain's advanced security
+     * options.</p>
+     */
+    inline ElasticsearchDomainStatus& WithAdvancedSecurityOptions(AdvancedSecurityOptions&& value) { SetAdvancedSecurityOptions(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_domainId;
@@ -1032,6 +1102,12 @@ namespace Model
 
     ServiceSoftwareOptions m_serviceSoftwareOptions;
     bool m_serviceSoftwareOptionsHasBeenSet;
+
+    DomainEndpointOptions m_domainEndpointOptions;
+    bool m_domainEndpointOptionsHasBeenSet;
+
+    AdvancedSecurityOptions m_advancedSecurityOptions;
+    bool m_advancedSecurityOptionsHasBeenSet;
   };
 
 } // namespace Model

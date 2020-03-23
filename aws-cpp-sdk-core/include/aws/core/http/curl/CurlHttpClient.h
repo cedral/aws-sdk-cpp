@@ -1,12 +1,12 @@
 /*
   * Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-  * 
+  *
   * Licensed under the Apache License, Version 2.0 (the "License").
   * You may not use this file except in compliance with the License.
   * A copy of the License is located at
-  * 
+  *
   *  http://aws.amazon.com/apache2.0
-  * 
+  *
   * or in the "license" file accompanying this file. This file is distributed
   * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
   * express or implied. See the License for the specific language governing
@@ -42,7 +42,7 @@ public:
     //Creates client, initializes curl handle if it hasn't been created already.
     CurlHttpClient(const Aws::Client::ClientConfiguration& clientConfig);
     //Makes request and receives response synchronously
-    AWS_DEPRECATED("This funciton in base class has been deprecated")
+    AWS_DEPRECATED("This function in base class has been deprecated")
     std::shared_ptr<HttpResponse> MakeRequest(HttpRequest& request, Aws::Utils::RateLimits::RateLimiterInterface* readLimiter = nullptr,
             Aws::Utils::RateLimits::RateLimiterInterface* writeLimiter = nullptr) const override;
 
@@ -74,7 +74,7 @@ private:
     static std::atomic<bool> isInit;
 
     void MakeRequestInternal(HttpRequest& request, std::shared_ptr<Standard::StandardHttpResponse>& response,
-        Aws::Utils::RateLimits::RateLimiterInterface* readLimiter, 
+        Aws::Utils::RateLimits::RateLimiterInterface* readLimiter,
         Aws::Utils::RateLimits::RateLimiterInterface* writeLimiter) const;
 
 

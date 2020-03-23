@@ -215,7 +215,7 @@ namespace Model
      * and availability for your engine, see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
      * Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from
-     * Amazon S3 is not supported on the db.t2.micro DB instance class. </p>
+     * Amazon S3 isn't supported on the db.t2.micro DB instance class. </p>
      */
     inline const Aws::String& GetDBInstanceClass() const{ return m_dBInstanceClass; }
 
@@ -226,7 +226,7 @@ namespace Model
      * and availability for your engine, see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
      * Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from
-     * Amazon S3 is not supported on the db.t2.micro DB instance class. </p>
+     * Amazon S3 isn't supported on the db.t2.micro DB instance class. </p>
      */
     inline bool DBInstanceClassHasBeenSet() const { return m_dBInstanceClassHasBeenSet; }
 
@@ -237,7 +237,7 @@ namespace Model
      * and availability for your engine, see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
      * Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from
-     * Amazon S3 is not supported on the db.t2.micro DB instance class. </p>
+     * Amazon S3 isn't supported on the db.t2.micro DB instance class. </p>
      */
     inline void SetDBInstanceClass(const Aws::String& value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass = value; }
 
@@ -248,7 +248,7 @@ namespace Model
      * and availability for your engine, see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
      * Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from
-     * Amazon S3 is not supported on the db.t2.micro DB instance class. </p>
+     * Amazon S3 isn't supported on the db.t2.micro DB instance class. </p>
      */
     inline void SetDBInstanceClass(Aws::String&& value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass = std::move(value); }
 
@@ -259,7 +259,7 @@ namespace Model
      * and availability for your engine, see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
      * Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from
-     * Amazon S3 is not supported on the db.t2.micro DB instance class. </p>
+     * Amazon S3 isn't supported on the db.t2.micro DB instance class. </p>
      */
     inline void SetDBInstanceClass(const char* value) { m_dBInstanceClassHasBeenSet = true; m_dBInstanceClass.assign(value); }
 
@@ -270,7 +270,7 @@ namespace Model
      * and availability for your engine, see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
      * Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from
-     * Amazon S3 is not supported on the db.t2.micro DB instance class. </p>
+     * Amazon S3 isn't supported on the db.t2.micro DB instance class. </p>
      */
     inline RestoreDBInstanceFromS3Request& WithDBInstanceClass(const Aws::String& value) { SetDBInstanceClass(value); return *this;}
 
@@ -281,7 +281,7 @@ namespace Model
      * and availability for your engine, see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
      * Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from
-     * Amazon S3 is not supported on the db.t2.micro DB instance class. </p>
+     * Amazon S3 isn't supported on the db.t2.micro DB instance class. </p>
      */
     inline RestoreDBInstanceFromS3Request& WithDBInstanceClass(Aws::String&& value) { SetDBInstanceClass(std::move(value)); return *this;}
 
@@ -292,7 +292,7 @@ namespace Model
      * and availability for your engine, see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
      * Instance Class</a> in the <i>Amazon RDS User Guide.</i> </p> <p>Importing from
-     * Amazon S3 is not supported on the db.t2.micro DB instance class. </p>
+     * Amazon S3 isn't supported on the db.t2.micro DB instance class. </p>
      */
     inline RestoreDBInstanceFromS3Request& WithDBInstanceClass(const char* value) { SetDBInstanceClass(value); return *this;}
 
@@ -821,58 +821,58 @@ namespace Model
 
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default parameter group for the specified engine
-     * is used. </p>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
      */
     inline const Aws::String& GetDBParameterGroupName() const{ return m_dBParameterGroupName; }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default parameter group for the specified engine
-     * is used. </p>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
      */
     inline bool DBParameterGroupNameHasBeenSet() const { return m_dBParameterGroupNameHasBeenSet; }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default parameter group for the specified engine
-     * is used. </p>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
      */
     inline void SetDBParameterGroupName(const Aws::String& value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName = value; }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default parameter group for the specified engine
-     * is used. </p>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
      */
     inline void SetDBParameterGroupName(Aws::String&& value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName = std::move(value); }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default parameter group for the specified engine
-     * is used. </p>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
      */
     inline void SetDBParameterGroupName(const char* value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName.assign(value); }
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default parameter group for the specified engine
-     * is used. </p>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
      */
     inline RestoreDBInstanceFromS3Request& WithDBParameterGroupName(const Aws::String& value) { SetDBParameterGroupName(value); return *this;}
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default parameter group for the specified engine
-     * is used. </p>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
      */
     inline RestoreDBInstanceFromS3Request& WithDBParameterGroupName(Aws::String&& value) { SetDBParameterGroupName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the DB parameter group to associate with this DB instance. If
-     * this argument is omitted, the default parameter group for the specified engine
-     * is used. </p>
+     * <p>The name of the DB parameter group to associate with this DB instance.</p>
+     * <p>If you do not specify a value for <code>DBParameterGroupName</code>, then the
+     * default <code>DBParameterGroup</code> for the specified DB engine is used.</p>
      */
     inline RestoreDBInstanceFromS3Request& WithDBParameterGroupName(const char* value) { SetDBParameterGroupName(value); return *this;}
 
@@ -1207,7 +1207,7 @@ namespace Model
     /**
      * <p>The amount of Provisioned IOPS (input/output operations per second) to
      * allocate initially for the DB instance. For information about valid Iops values,
-     * see see <a
+     * see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
      * RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS
      * User Guide.</i> </p>
@@ -1217,7 +1217,7 @@ namespace Model
     /**
      * <p>The amount of Provisioned IOPS (input/output operations per second) to
      * allocate initially for the DB instance. For information about valid Iops values,
-     * see see <a
+     * see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
      * RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS
      * User Guide.</i> </p>
@@ -1227,7 +1227,7 @@ namespace Model
     /**
      * <p>The amount of Provisioned IOPS (input/output operations per second) to
      * allocate initially for the DB instance. For information about valid Iops values,
-     * see see <a
+     * see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
      * RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS
      * User Guide.</i> </p>
@@ -1237,7 +1237,7 @@ namespace Model
     /**
      * <p>The amount of Provisioned IOPS (input/output operations per second) to
      * allocate initially for the DB instance. For information about valid Iops values,
-     * see see <a
+     * see <a
      * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
      * RDS Provisioned IOPS Storage to Improve Performance</a> in the <i>Amazon RDS
      * User Guide.</i> </p>
@@ -1306,7 +1306,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. For more information, see
      * <a>CreateDBInstance</a>.</p>
      */
@@ -1316,7 +1316,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. For more information, see
      * <a>CreateDBInstance</a>.</p>
      */
@@ -1326,7 +1326,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. For more information, see
      * <a>CreateDBInstance</a>.</p>
      */
@@ -1336,7 +1336,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. For more information, see
      * <a>CreateDBInstance</a>.</p>
      */
@@ -1776,29 +1776,45 @@ namespace Model
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline bool GetEnableIAMDatabaseAuthentication() const{ return m_enableIAMDatabaseAuthentication; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline bool EnableIAMDatabaseAuthenticationHasBeenSet() const { return m_enableIAMDatabaseAuthenticationHasBeenSet; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline void SetEnableIAMDatabaseAuthentication(bool value) { m_enableIAMDatabaseAuthenticationHasBeenSet = true; m_enableIAMDatabaseAuthentication = value; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline RestoreDBInstanceFromS3Request& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 

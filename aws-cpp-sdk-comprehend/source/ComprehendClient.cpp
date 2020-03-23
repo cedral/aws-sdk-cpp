@@ -35,13 +35,17 @@
 #include <aws/comprehend/model/BatchDetectKeyPhrasesRequest.h>
 #include <aws/comprehend/model/BatchDetectSentimentRequest.h>
 #include <aws/comprehend/model/BatchDetectSyntaxRequest.h>
+#include <aws/comprehend/model/ClassifyDocumentRequest.h>
 #include <aws/comprehend/model/CreateDocumentClassifierRequest.h>
+#include <aws/comprehend/model/CreateEndpointRequest.h>
 #include <aws/comprehend/model/CreateEntityRecognizerRequest.h>
 #include <aws/comprehend/model/DeleteDocumentClassifierRequest.h>
+#include <aws/comprehend/model/DeleteEndpointRequest.h>
 #include <aws/comprehend/model/DeleteEntityRecognizerRequest.h>
 #include <aws/comprehend/model/DescribeDocumentClassificationJobRequest.h>
 #include <aws/comprehend/model/DescribeDocumentClassifierRequest.h>
 #include <aws/comprehend/model/DescribeDominantLanguageDetectionJobRequest.h>
+#include <aws/comprehend/model/DescribeEndpointRequest.h>
 #include <aws/comprehend/model/DescribeEntitiesDetectionJobRequest.h>
 #include <aws/comprehend/model/DescribeEntityRecognizerRequest.h>
 #include <aws/comprehend/model/DescribeKeyPhrasesDetectionJobRequest.h>
@@ -55,6 +59,7 @@
 #include <aws/comprehend/model/ListDocumentClassificationJobsRequest.h>
 #include <aws/comprehend/model/ListDocumentClassifiersRequest.h>
 #include <aws/comprehend/model/ListDominantLanguageDetectionJobsRequest.h>
+#include <aws/comprehend/model/ListEndpointsRequest.h>
 #include <aws/comprehend/model/ListEntitiesDetectionJobsRequest.h>
 #include <aws/comprehend/model/ListEntityRecognizersRequest.h>
 #include <aws/comprehend/model/ListKeyPhrasesDetectionJobsRequest.h>
@@ -75,6 +80,7 @@
 #include <aws/comprehend/model/StopTrainingEntityRecognizerRequest.h>
 #include <aws/comprehend/model/TagResourceRequest.h>
 #include <aws/comprehend/model/UntagResourceRequest.h>
+#include <aws/comprehend/model/UpdateEndpointRequest.h>
 
 using namespace Aws;
 using namespace Aws::Auth;
@@ -154,7 +160,7 @@ BatchDetectDominantLanguageOutcome ComprehendClient::BatchDetectDominantLanguage
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDetectDominantLanguageOutcome(BatchDetectDominantLanguageResult(outcome.GetResult()));
@@ -189,7 +195,7 @@ BatchDetectEntitiesOutcome ComprehendClient::BatchDetectEntities(const BatchDete
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDetectEntitiesOutcome(BatchDetectEntitiesResult(outcome.GetResult()));
@@ -224,7 +230,7 @@ BatchDetectKeyPhrasesOutcome ComprehendClient::BatchDetectKeyPhrases(const Batch
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDetectKeyPhrasesOutcome(BatchDetectKeyPhrasesResult(outcome.GetResult()));
@@ -259,7 +265,7 @@ BatchDetectSentimentOutcome ComprehendClient::BatchDetectSentiment(const BatchDe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDetectSentimentOutcome(BatchDetectSentimentResult(outcome.GetResult()));
@@ -294,7 +300,7 @@ BatchDetectSyntaxOutcome ComprehendClient::BatchDetectSyntax(const BatchDetectSy
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDetectSyntaxOutcome(BatchDetectSyntaxResult(outcome.GetResult()));
@@ -323,13 +329,48 @@ void ComprehendClient::BatchDetectSyntaxAsyncHelper(const BatchDetectSyntaxReque
   handler(this, request, BatchDetectSyntax(request), context);
 }
 
+ClassifyDocumentOutcome ComprehendClient::ClassifyDocument(const ClassifyDocumentRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ClassifyDocumentOutcome(ClassifyDocumentResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ClassifyDocumentOutcome(outcome.GetError());
+  }
+}
+
+ClassifyDocumentOutcomeCallable ComprehendClient::ClassifyDocumentCallable(const ClassifyDocumentRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ClassifyDocumentOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ClassifyDocument(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ComprehendClient::ClassifyDocumentAsync(const ClassifyDocumentRequest& request, const ClassifyDocumentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ClassifyDocumentAsyncHelper( request, handler, context ); } );
+}
+
+void ComprehendClient::ClassifyDocumentAsyncHelper(const ClassifyDocumentRequest& request, const ClassifyDocumentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ClassifyDocument(request), context);
+}
+
 CreateDocumentClassifierOutcome ComprehendClient::CreateDocumentClassifier(const CreateDocumentClassifierRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDocumentClassifierOutcome(CreateDocumentClassifierResult(outcome.GetResult()));
@@ -358,13 +399,48 @@ void ComprehendClient::CreateDocumentClassifierAsyncHelper(const CreateDocumentC
   handler(this, request, CreateDocumentClassifier(request), context);
 }
 
+CreateEndpointOutcome ComprehendClient::CreateEndpoint(const CreateEndpointRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateEndpointOutcome(CreateEndpointResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateEndpointOutcome(outcome.GetError());
+  }
+}
+
+CreateEndpointOutcomeCallable ComprehendClient::CreateEndpointCallable(const CreateEndpointRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateEndpointOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateEndpoint(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ComprehendClient::CreateEndpointAsync(const CreateEndpointRequest& request, const CreateEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateEndpointAsyncHelper( request, handler, context ); } );
+}
+
+void ComprehendClient::CreateEndpointAsyncHelper(const CreateEndpointRequest& request, const CreateEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateEndpoint(request), context);
+}
+
 CreateEntityRecognizerOutcome ComprehendClient::CreateEntityRecognizer(const CreateEntityRecognizerRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateEntityRecognizerOutcome(CreateEntityRecognizerResult(outcome.GetResult()));
@@ -399,7 +475,7 @@ DeleteDocumentClassifierOutcome ComprehendClient::DeleteDocumentClassifier(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDocumentClassifierOutcome(DeleteDocumentClassifierResult(outcome.GetResult()));
@@ -428,13 +504,48 @@ void ComprehendClient::DeleteDocumentClassifierAsyncHelper(const DeleteDocumentC
   handler(this, request, DeleteDocumentClassifier(request), context);
 }
 
+DeleteEndpointOutcome ComprehendClient::DeleteEndpoint(const DeleteEndpointRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteEndpointOutcome(DeleteEndpointResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteEndpointOutcome(outcome.GetError());
+  }
+}
+
+DeleteEndpointOutcomeCallable ComprehendClient::DeleteEndpointCallable(const DeleteEndpointRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteEndpointOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteEndpoint(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ComprehendClient::DeleteEndpointAsync(const DeleteEndpointRequest& request, const DeleteEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteEndpointAsyncHelper( request, handler, context ); } );
+}
+
+void ComprehendClient::DeleteEndpointAsyncHelper(const DeleteEndpointRequest& request, const DeleteEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteEndpoint(request), context);
+}
+
 DeleteEntityRecognizerOutcome ComprehendClient::DeleteEntityRecognizer(const DeleteEntityRecognizerRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteEntityRecognizerOutcome(DeleteEntityRecognizerResult(outcome.GetResult()));
@@ -469,7 +580,7 @@ DescribeDocumentClassificationJobOutcome ComprehendClient::DescribeDocumentClass
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDocumentClassificationJobOutcome(DescribeDocumentClassificationJobResult(outcome.GetResult()));
@@ -504,7 +615,7 @@ DescribeDocumentClassifierOutcome ComprehendClient::DescribeDocumentClassifier(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDocumentClassifierOutcome(DescribeDocumentClassifierResult(outcome.GetResult()));
@@ -539,7 +650,7 @@ DescribeDominantLanguageDetectionJobOutcome ComprehendClient::DescribeDominantLa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDominantLanguageDetectionJobOutcome(DescribeDominantLanguageDetectionJobResult(outcome.GetResult()));
@@ -568,13 +679,48 @@ void ComprehendClient::DescribeDominantLanguageDetectionJobAsyncHelper(const Des
   handler(this, request, DescribeDominantLanguageDetectionJob(request), context);
 }
 
+DescribeEndpointOutcome ComprehendClient::DescribeEndpoint(const DescribeEndpointRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeEndpointOutcome(DescribeEndpointResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeEndpointOutcome(outcome.GetError());
+  }
+}
+
+DescribeEndpointOutcomeCallable ComprehendClient::DescribeEndpointCallable(const DescribeEndpointRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeEndpointOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeEndpoint(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ComprehendClient::DescribeEndpointAsync(const DescribeEndpointRequest& request, const DescribeEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeEndpointAsyncHelper( request, handler, context ); } );
+}
+
+void ComprehendClient::DescribeEndpointAsyncHelper(const DescribeEndpointRequest& request, const DescribeEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeEndpoint(request), context);
+}
+
 DescribeEntitiesDetectionJobOutcome ComprehendClient::DescribeEntitiesDetectionJob(const DescribeEntitiesDetectionJobRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEntitiesDetectionJobOutcome(DescribeEntitiesDetectionJobResult(outcome.GetResult()));
@@ -609,7 +755,7 @@ DescribeEntityRecognizerOutcome ComprehendClient::DescribeEntityRecognizer(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEntityRecognizerOutcome(DescribeEntityRecognizerResult(outcome.GetResult()));
@@ -644,7 +790,7 @@ DescribeKeyPhrasesDetectionJobOutcome ComprehendClient::DescribeKeyPhrasesDetect
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeKeyPhrasesDetectionJobOutcome(DescribeKeyPhrasesDetectionJobResult(outcome.GetResult()));
@@ -679,7 +825,7 @@ DescribeSentimentDetectionJobOutcome ComprehendClient::DescribeSentimentDetectio
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSentimentDetectionJobOutcome(DescribeSentimentDetectionJobResult(outcome.GetResult()));
@@ -714,7 +860,7 @@ DescribeTopicsDetectionJobOutcome ComprehendClient::DescribeTopicsDetectionJob(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeTopicsDetectionJobOutcome(DescribeTopicsDetectionJobResult(outcome.GetResult()));
@@ -749,7 +895,7 @@ DetectDominantLanguageOutcome ComprehendClient::DetectDominantLanguage(const Det
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectDominantLanguageOutcome(DetectDominantLanguageResult(outcome.GetResult()));
@@ -784,7 +930,7 @@ DetectEntitiesOutcome ComprehendClient::DetectEntities(const DetectEntitiesReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectEntitiesOutcome(DetectEntitiesResult(outcome.GetResult()));
@@ -819,7 +965,7 @@ DetectKeyPhrasesOutcome ComprehendClient::DetectKeyPhrases(const DetectKeyPhrase
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectKeyPhrasesOutcome(DetectKeyPhrasesResult(outcome.GetResult()));
@@ -854,7 +1000,7 @@ DetectSentimentOutcome ComprehendClient::DetectSentiment(const DetectSentimentRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectSentimentOutcome(DetectSentimentResult(outcome.GetResult()));
@@ -889,7 +1035,7 @@ DetectSyntaxOutcome ComprehendClient::DetectSyntax(const DetectSyntaxRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectSyntaxOutcome(DetectSyntaxResult(outcome.GetResult()));
@@ -924,7 +1070,7 @@ ListDocumentClassificationJobsOutcome ComprehendClient::ListDocumentClassificati
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDocumentClassificationJobsOutcome(ListDocumentClassificationJobsResult(outcome.GetResult()));
@@ -959,7 +1105,7 @@ ListDocumentClassifiersOutcome ComprehendClient::ListDocumentClassifiers(const L
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDocumentClassifiersOutcome(ListDocumentClassifiersResult(outcome.GetResult()));
@@ -994,7 +1140,7 @@ ListDominantLanguageDetectionJobsOutcome ComprehendClient::ListDominantLanguageD
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDominantLanguageDetectionJobsOutcome(ListDominantLanguageDetectionJobsResult(outcome.GetResult()));
@@ -1023,13 +1169,48 @@ void ComprehendClient::ListDominantLanguageDetectionJobsAsyncHelper(const ListDo
   handler(this, request, ListDominantLanguageDetectionJobs(request), context);
 }
 
+ListEndpointsOutcome ComprehendClient::ListEndpoints(const ListEndpointsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListEndpointsOutcome(ListEndpointsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListEndpointsOutcome(outcome.GetError());
+  }
+}
+
+ListEndpointsOutcomeCallable ComprehendClient::ListEndpointsCallable(const ListEndpointsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListEndpointsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListEndpoints(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ComprehendClient::ListEndpointsAsync(const ListEndpointsRequest& request, const ListEndpointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListEndpointsAsyncHelper( request, handler, context ); } );
+}
+
+void ComprehendClient::ListEndpointsAsyncHelper(const ListEndpointsRequest& request, const ListEndpointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListEndpoints(request), context);
+}
+
 ListEntitiesDetectionJobsOutcome ComprehendClient::ListEntitiesDetectionJobs(const ListEntitiesDetectionJobsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListEntitiesDetectionJobsOutcome(ListEntitiesDetectionJobsResult(outcome.GetResult()));
@@ -1064,7 +1245,7 @@ ListEntityRecognizersOutcome ComprehendClient::ListEntityRecognizers(const ListE
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListEntityRecognizersOutcome(ListEntityRecognizersResult(outcome.GetResult()));
@@ -1099,7 +1280,7 @@ ListKeyPhrasesDetectionJobsOutcome ComprehendClient::ListKeyPhrasesDetectionJobs
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListKeyPhrasesDetectionJobsOutcome(ListKeyPhrasesDetectionJobsResult(outcome.GetResult()));
@@ -1134,7 +1315,7 @@ ListSentimentDetectionJobsOutcome ComprehendClient::ListSentimentDetectionJobs(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSentimentDetectionJobsOutcome(ListSentimentDetectionJobsResult(outcome.GetResult()));
@@ -1169,7 +1350,7 @@ ListTagsForResourceOutcome ComprehendClient::ListTagsForResource(const ListTagsF
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -1204,7 +1385,7 @@ ListTopicsDetectionJobsOutcome ComprehendClient::ListTopicsDetectionJobs(const L
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTopicsDetectionJobsOutcome(ListTopicsDetectionJobsResult(outcome.GetResult()));
@@ -1239,7 +1420,7 @@ StartDocumentClassificationJobOutcome ComprehendClient::StartDocumentClassificat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartDocumentClassificationJobOutcome(StartDocumentClassificationJobResult(outcome.GetResult()));
@@ -1274,7 +1455,7 @@ StartDominantLanguageDetectionJobOutcome ComprehendClient::StartDominantLanguage
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartDominantLanguageDetectionJobOutcome(StartDominantLanguageDetectionJobResult(outcome.GetResult()));
@@ -1309,7 +1490,7 @@ StartEntitiesDetectionJobOutcome ComprehendClient::StartEntitiesDetectionJob(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartEntitiesDetectionJobOutcome(StartEntitiesDetectionJobResult(outcome.GetResult()));
@@ -1344,7 +1525,7 @@ StartKeyPhrasesDetectionJobOutcome ComprehendClient::StartKeyPhrasesDetectionJob
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartKeyPhrasesDetectionJobOutcome(StartKeyPhrasesDetectionJobResult(outcome.GetResult()));
@@ -1379,7 +1560,7 @@ StartSentimentDetectionJobOutcome ComprehendClient::StartSentimentDetectionJob(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartSentimentDetectionJobOutcome(StartSentimentDetectionJobResult(outcome.GetResult()));
@@ -1414,7 +1595,7 @@ StartTopicsDetectionJobOutcome ComprehendClient::StartTopicsDetectionJob(const S
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartTopicsDetectionJobOutcome(StartTopicsDetectionJobResult(outcome.GetResult()));
@@ -1449,7 +1630,7 @@ StopDominantLanguageDetectionJobOutcome ComprehendClient::StopDominantLanguageDe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopDominantLanguageDetectionJobOutcome(StopDominantLanguageDetectionJobResult(outcome.GetResult()));
@@ -1484,7 +1665,7 @@ StopEntitiesDetectionJobOutcome ComprehendClient::StopEntitiesDetectionJob(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopEntitiesDetectionJobOutcome(StopEntitiesDetectionJobResult(outcome.GetResult()));
@@ -1519,7 +1700,7 @@ StopKeyPhrasesDetectionJobOutcome ComprehendClient::StopKeyPhrasesDetectionJob(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopKeyPhrasesDetectionJobOutcome(StopKeyPhrasesDetectionJobResult(outcome.GetResult()));
@@ -1554,7 +1735,7 @@ StopSentimentDetectionJobOutcome ComprehendClient::StopSentimentDetectionJob(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopSentimentDetectionJobOutcome(StopSentimentDetectionJobResult(outcome.GetResult()));
@@ -1589,7 +1770,7 @@ StopTrainingDocumentClassifierOutcome ComprehendClient::StopTrainingDocumentClas
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopTrainingDocumentClassifierOutcome(StopTrainingDocumentClassifierResult(outcome.GetResult()));
@@ -1624,7 +1805,7 @@ StopTrainingEntityRecognizerOutcome ComprehendClient::StopTrainingEntityRecogniz
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopTrainingEntityRecognizerOutcome(StopTrainingEntityRecognizerResult(outcome.GetResult()));
@@ -1659,7 +1840,7 @@ TagResourceOutcome ComprehendClient::TagResource(const TagResourceRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -1694,7 +1875,7 @@ UntagResourceOutcome ComprehendClient::UntagResource(const UntagResourceRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -1721,5 +1902,40 @@ void ComprehendClient::UntagResourceAsync(const UntagResourceRequest& request, c
 void ComprehendClient::UntagResourceAsyncHelper(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, UntagResource(request), context);
+}
+
+UpdateEndpointOutcome ComprehendClient::UpdateEndpoint(const UpdateEndpointRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateEndpointOutcome(UpdateEndpointResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateEndpointOutcome(outcome.GetError());
+  }
+}
+
+UpdateEndpointOutcomeCallable ComprehendClient::UpdateEndpointCallable(const UpdateEndpointRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateEndpointOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateEndpoint(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ComprehendClient::UpdateEndpointAsync(const UpdateEndpointRequest& request, const UpdateEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateEndpointAsyncHelper( request, handler, context ); } );
+}
+
+void ComprehendClient::UpdateEndpointAsyncHelper(const UpdateEndpointRequest& request, const UpdateEndpointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateEndpoint(request), context);
 }
 

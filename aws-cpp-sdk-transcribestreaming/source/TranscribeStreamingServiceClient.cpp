@@ -47,7 +47,8 @@ static const char* ALLOCATION_TAG = "TranscribeStreamingServiceClient";
 
 TranscribeStreamingServiceClient::TranscribeStreamingServiceClient(const Client::ClientConfiguration& clientConfiguration) :
   BASECLASS(clientConfiguration,
-    Aws::MakeShared<Aws::Auth::DefaultAuthSignerProvider>(ALLOCATION_TAG, Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), SERVICE_NAME, clientConfiguration.region),
+    Aws::MakeShared<Aws::Auth::DefaultAuthSignerProvider>(ALLOCATION_TAG, Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG),
+        SERVICE_NAME, clientConfiguration.region),
     Aws::MakeShared<TranscribeStreamingServiceErrorMarshaller>(ALLOCATION_TAG)),
     m_executor(clientConfiguration.executor)
 {
@@ -138,21 +139,22 @@ void TranscribeStreamingServiceClient::StartStreamTranscriptionAsync(Model::Star
   auto eventEncoderStream = Aws::MakeShared<Model::AudioStream>(ALLOCATION_TAG);
   eventEncoderStream->SetSigner(GetSignerByName(Aws::Auth::EVENTSTREAM_SIGV4_SIGNER));
   request.SetAudioStream(eventEncoderStream); // this becomes the body of the request
-  Aws::Utils::Threading::Semaphore sem(0, 1);
-  request.SetRequestSignedHandler([&](const Aws::Http::HttpRequest& httpRequest) { eventEncoderStream->SetSignatureSeed(Aws::Client::GetAuthorizationHeader(httpRequest)); sem.ReleaseAll(); });
+  auto sem = Aws::MakeShared<Aws::Utils::Threading::Semaphore>(ALLOCATION_TAG, 0, 1);
+  request.SetRequestSignedHandler([eventEncoderStream, sem](const Aws::Http::HttpRequest& httpRequest) { eventEncoderStream->SetSignatureSeed(Aws::Client::GetAuthorizationHeader(httpRequest)); sem->ReleaseAll(); });
 
   m_executor->Submit([this, uri, &request, responseHandler, handlerContext] () mutable {
-      JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::EVENTSTREAM_SIGV4_SIGNER);
+      JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::EVENTSTREAM_SIGV4_SIGNER);
       if(outcome.IsSuccess())
       {
         responseHandler(this, request, StartStreamTranscriptionOutcome(NoResult()), handlerContext);
       }
       else
       {
+        request.GetAudioStream()->Close();
         responseHandler(this, request, StartStreamTranscriptionOutcome(outcome.GetError()), handlerContext);
       }
       return StartStreamTranscriptionOutcome(NoResult());
   });
-  sem.WaitOne();
+  sem->WaitOne();
   streamReadyHandler(*request.GetAudioStream());
 }

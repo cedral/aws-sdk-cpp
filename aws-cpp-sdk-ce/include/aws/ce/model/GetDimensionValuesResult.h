@@ -70,7 +70,9 @@ namespace Model
      * grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms.
      * The response for this operation includes a unit attribute.</p> </li> <li>
      * <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs,
-     * tax refunds, and credits.</p> </li> </ul> <p>If you set the context to
+     * tax refunds, and credits.</p> </li> <li> <p>RESOURCE_ID - The unique identifier
+     * of the resource. ResourceId is an opt-in feature only available for last 14 days
+     * for EC2-Compute Service.</p> </li> </ul> <p>If you set the context to
      * <code>RESERVATIONS</code>, you can use the following dimensions for
      * searching:</p> <ul> <li> <p>AZ - The Availability Zone. An example is
      * <code>us-east-1a</code>.</p> </li> <li> <p>CACHE_ENGINE - The Amazon ElastiCache
@@ -87,6 +89,16 @@ namespace Model
      * or a single Availability Zone.</p> </li> <li> <p>TAG (Coverage only) - The tags
      * that are associated with a Reserved Instance (RI).</p> </li> <li> <p>TENANCY -
      * The tenancy of a resource. Examples are shared or dedicated.</p> </li> </ul>
+     * <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the
+     * following dimensions for searching:</p> <ul> <li> <p>SAVINGS_PLANS_TYPE - Type
+     * of Savings Plans (EC2 Instance or Compute)</p> </li> <li> <p>PAYMENT_OPTION -
+     * Payment option for the given Savings Plans (for example, All Upfront)</p> </li>
+     * <li> <p>REGION - The AWS Region.</p> </li> <li> <p>INSTANCE_TYPE_FAMILY - The
+     * family of instances (For example, <code>m5</code>)</p> </li> <li>
+     * <p>LINKED_ACCOUNT - The description in the attribute map that includes the full
+     * name of the member account. The value field contains the AWS ID of the member
+     * account.</p> </li> <li> <p>SAVINGS_PLAN_ARN - The unique identifier for your
+     * Savings Plan</p> </li> </ul>
      */
     inline const Aws::Vector<DimensionValuesWithAttributes>& GetDimensionValues() const{ return m_dimensionValues; }
 
@@ -116,7 +128,9 @@ namespace Model
      * grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms.
      * The response for this operation includes a unit attribute.</p> </li> <li>
      * <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs,
-     * tax refunds, and credits.</p> </li> </ul> <p>If you set the context to
+     * tax refunds, and credits.</p> </li> <li> <p>RESOURCE_ID - The unique identifier
+     * of the resource. ResourceId is an opt-in feature only available for last 14 days
+     * for EC2-Compute Service.</p> </li> </ul> <p>If you set the context to
      * <code>RESERVATIONS</code>, you can use the following dimensions for
      * searching:</p> <ul> <li> <p>AZ - The Availability Zone. An example is
      * <code>us-east-1a</code>.</p> </li> <li> <p>CACHE_ENGINE - The Amazon ElastiCache
@@ -133,6 +147,16 @@ namespace Model
      * or a single Availability Zone.</p> </li> <li> <p>TAG (Coverage only) - The tags
      * that are associated with a Reserved Instance (RI).</p> </li> <li> <p>TENANCY -
      * The tenancy of a resource. Examples are shared or dedicated.</p> </li> </ul>
+     * <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the
+     * following dimensions for searching:</p> <ul> <li> <p>SAVINGS_PLANS_TYPE - Type
+     * of Savings Plans (EC2 Instance or Compute)</p> </li> <li> <p>PAYMENT_OPTION -
+     * Payment option for the given Savings Plans (for example, All Upfront)</p> </li>
+     * <li> <p>REGION - The AWS Region.</p> </li> <li> <p>INSTANCE_TYPE_FAMILY - The
+     * family of instances (For example, <code>m5</code>)</p> </li> <li>
+     * <p>LINKED_ACCOUNT - The description in the attribute map that includes the full
+     * name of the member account. The value field contains the AWS ID of the member
+     * account.</p> </li> <li> <p>SAVINGS_PLAN_ARN - The unique identifier for your
+     * Savings Plan</p> </li> </ul>
      */
     inline void SetDimensionValues(const Aws::Vector<DimensionValuesWithAttributes>& value) { m_dimensionValues = value; }
 
@@ -162,7 +186,9 @@ namespace Model
      * grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms.
      * The response for this operation includes a unit attribute.</p> </li> <li>
      * <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs,
-     * tax refunds, and credits.</p> </li> </ul> <p>If you set the context to
+     * tax refunds, and credits.</p> </li> <li> <p>RESOURCE_ID - The unique identifier
+     * of the resource. ResourceId is an opt-in feature only available for last 14 days
+     * for EC2-Compute Service.</p> </li> </ul> <p>If you set the context to
      * <code>RESERVATIONS</code>, you can use the following dimensions for
      * searching:</p> <ul> <li> <p>AZ - The Availability Zone. An example is
      * <code>us-east-1a</code>.</p> </li> <li> <p>CACHE_ENGINE - The Amazon ElastiCache
@@ -179,6 +205,16 @@ namespace Model
      * or a single Availability Zone.</p> </li> <li> <p>TAG (Coverage only) - The tags
      * that are associated with a Reserved Instance (RI).</p> </li> <li> <p>TENANCY -
      * The tenancy of a resource. Examples are shared or dedicated.</p> </li> </ul>
+     * <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the
+     * following dimensions for searching:</p> <ul> <li> <p>SAVINGS_PLANS_TYPE - Type
+     * of Savings Plans (EC2 Instance or Compute)</p> </li> <li> <p>PAYMENT_OPTION -
+     * Payment option for the given Savings Plans (for example, All Upfront)</p> </li>
+     * <li> <p>REGION - The AWS Region.</p> </li> <li> <p>INSTANCE_TYPE_FAMILY - The
+     * family of instances (For example, <code>m5</code>)</p> </li> <li>
+     * <p>LINKED_ACCOUNT - The description in the attribute map that includes the full
+     * name of the member account. The value field contains the AWS ID of the member
+     * account.</p> </li> <li> <p>SAVINGS_PLAN_ARN - The unique identifier for your
+     * Savings Plan</p> </li> </ul>
      */
     inline void SetDimensionValues(Aws::Vector<DimensionValuesWithAttributes>&& value) { m_dimensionValues = std::move(value); }
 
@@ -208,7 +244,9 @@ namespace Model
      * grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms.
      * The response for this operation includes a unit attribute.</p> </li> <li>
      * <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs,
-     * tax refunds, and credits.</p> </li> </ul> <p>If you set the context to
+     * tax refunds, and credits.</p> </li> <li> <p>RESOURCE_ID - The unique identifier
+     * of the resource. ResourceId is an opt-in feature only available for last 14 days
+     * for EC2-Compute Service.</p> </li> </ul> <p>If you set the context to
      * <code>RESERVATIONS</code>, you can use the following dimensions for
      * searching:</p> <ul> <li> <p>AZ - The Availability Zone. An example is
      * <code>us-east-1a</code>.</p> </li> <li> <p>CACHE_ENGINE - The Amazon ElastiCache
@@ -225,6 +263,16 @@ namespace Model
      * or a single Availability Zone.</p> </li> <li> <p>TAG (Coverage only) - The tags
      * that are associated with a Reserved Instance (RI).</p> </li> <li> <p>TENANCY -
      * The tenancy of a resource. Examples are shared or dedicated.</p> </li> </ul>
+     * <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the
+     * following dimensions for searching:</p> <ul> <li> <p>SAVINGS_PLANS_TYPE - Type
+     * of Savings Plans (EC2 Instance or Compute)</p> </li> <li> <p>PAYMENT_OPTION -
+     * Payment option for the given Savings Plans (for example, All Upfront)</p> </li>
+     * <li> <p>REGION - The AWS Region.</p> </li> <li> <p>INSTANCE_TYPE_FAMILY - The
+     * family of instances (For example, <code>m5</code>)</p> </li> <li>
+     * <p>LINKED_ACCOUNT - The description in the attribute map that includes the full
+     * name of the member account. The value field contains the AWS ID of the member
+     * account.</p> </li> <li> <p>SAVINGS_PLAN_ARN - The unique identifier for your
+     * Savings Plan</p> </li> </ul>
      */
     inline GetDimensionValuesResult& WithDimensionValues(const Aws::Vector<DimensionValuesWithAttributes>& value) { SetDimensionValues(value); return *this;}
 
@@ -254,7 +302,9 @@ namespace Model
      * grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms.
      * The response for this operation includes a unit attribute.</p> </li> <li>
      * <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs,
-     * tax refunds, and credits.</p> </li> </ul> <p>If you set the context to
+     * tax refunds, and credits.</p> </li> <li> <p>RESOURCE_ID - The unique identifier
+     * of the resource. ResourceId is an opt-in feature only available for last 14 days
+     * for EC2-Compute Service.</p> </li> </ul> <p>If you set the context to
      * <code>RESERVATIONS</code>, you can use the following dimensions for
      * searching:</p> <ul> <li> <p>AZ - The Availability Zone. An example is
      * <code>us-east-1a</code>.</p> </li> <li> <p>CACHE_ENGINE - The Amazon ElastiCache
@@ -271,6 +321,16 @@ namespace Model
      * or a single Availability Zone.</p> </li> <li> <p>TAG (Coverage only) - The tags
      * that are associated with a Reserved Instance (RI).</p> </li> <li> <p>TENANCY -
      * The tenancy of a resource. Examples are shared or dedicated.</p> </li> </ul>
+     * <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the
+     * following dimensions for searching:</p> <ul> <li> <p>SAVINGS_PLANS_TYPE - Type
+     * of Savings Plans (EC2 Instance or Compute)</p> </li> <li> <p>PAYMENT_OPTION -
+     * Payment option for the given Savings Plans (for example, All Upfront)</p> </li>
+     * <li> <p>REGION - The AWS Region.</p> </li> <li> <p>INSTANCE_TYPE_FAMILY - The
+     * family of instances (For example, <code>m5</code>)</p> </li> <li>
+     * <p>LINKED_ACCOUNT - The description in the attribute map that includes the full
+     * name of the member account. The value field contains the AWS ID of the member
+     * account.</p> </li> <li> <p>SAVINGS_PLAN_ARN - The unique identifier for your
+     * Savings Plan</p> </li> </ul>
      */
     inline GetDimensionValuesResult& WithDimensionValues(Aws::Vector<DimensionValuesWithAttributes>&& value) { SetDimensionValues(std::move(value)); return *this;}
 
@@ -300,7 +360,9 @@ namespace Model
      * grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms.
      * The response for this operation includes a unit attribute.</p> </li> <li>
      * <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs,
-     * tax refunds, and credits.</p> </li> </ul> <p>If you set the context to
+     * tax refunds, and credits.</p> </li> <li> <p>RESOURCE_ID - The unique identifier
+     * of the resource. ResourceId is an opt-in feature only available for last 14 days
+     * for EC2-Compute Service.</p> </li> </ul> <p>If you set the context to
      * <code>RESERVATIONS</code>, you can use the following dimensions for
      * searching:</p> <ul> <li> <p>AZ - The Availability Zone. An example is
      * <code>us-east-1a</code>.</p> </li> <li> <p>CACHE_ENGINE - The Amazon ElastiCache
@@ -317,6 +379,16 @@ namespace Model
      * or a single Availability Zone.</p> </li> <li> <p>TAG (Coverage only) - The tags
      * that are associated with a Reserved Instance (RI).</p> </li> <li> <p>TENANCY -
      * The tenancy of a resource. Examples are shared or dedicated.</p> </li> </ul>
+     * <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the
+     * following dimensions for searching:</p> <ul> <li> <p>SAVINGS_PLANS_TYPE - Type
+     * of Savings Plans (EC2 Instance or Compute)</p> </li> <li> <p>PAYMENT_OPTION -
+     * Payment option for the given Savings Plans (for example, All Upfront)</p> </li>
+     * <li> <p>REGION - The AWS Region.</p> </li> <li> <p>INSTANCE_TYPE_FAMILY - The
+     * family of instances (For example, <code>m5</code>)</p> </li> <li>
+     * <p>LINKED_ACCOUNT - The description in the attribute map that includes the full
+     * name of the member account. The value field contains the AWS ID of the member
+     * account.</p> </li> <li> <p>SAVINGS_PLAN_ARN - The unique identifier for your
+     * Savings Plan</p> </li> </ul>
      */
     inline GetDimensionValuesResult& AddDimensionValues(const DimensionValuesWithAttributes& value) { m_dimensionValues.push_back(value); return *this; }
 
@@ -346,7 +418,9 @@ namespace Model
      * grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms.
      * The response for this operation includes a unit attribute.</p> </li> <li>
      * <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs,
-     * tax refunds, and credits.</p> </li> </ul> <p>If you set the context to
+     * tax refunds, and credits.</p> </li> <li> <p>RESOURCE_ID - The unique identifier
+     * of the resource. ResourceId is an opt-in feature only available for last 14 days
+     * for EC2-Compute Service.</p> </li> </ul> <p>If you set the context to
      * <code>RESERVATIONS</code>, you can use the following dimensions for
      * searching:</p> <ul> <li> <p>AZ - The Availability Zone. An example is
      * <code>us-east-1a</code>.</p> </li> <li> <p>CACHE_ENGINE - The Amazon ElastiCache
@@ -363,6 +437,16 @@ namespace Model
      * or a single Availability Zone.</p> </li> <li> <p>TAG (Coverage only) - The tags
      * that are associated with a Reserved Instance (RI).</p> </li> <li> <p>TENANCY -
      * The tenancy of a resource. Examples are shared or dedicated.</p> </li> </ul>
+     * <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the
+     * following dimensions for searching:</p> <ul> <li> <p>SAVINGS_PLANS_TYPE - Type
+     * of Savings Plans (EC2 Instance or Compute)</p> </li> <li> <p>PAYMENT_OPTION -
+     * Payment option for the given Savings Plans (for example, All Upfront)</p> </li>
+     * <li> <p>REGION - The AWS Region.</p> </li> <li> <p>INSTANCE_TYPE_FAMILY - The
+     * family of instances (For example, <code>m5</code>)</p> </li> <li>
+     * <p>LINKED_ACCOUNT - The description in the attribute map that includes the full
+     * name of the member account. The value field contains the AWS ID of the member
+     * account.</p> </li> <li> <p>SAVINGS_PLAN_ARN - The unique identifier for your
+     * Savings Plan</p> </li> </ul>
      */
     inline GetDimensionValuesResult& AddDimensionValues(DimensionValuesWithAttributes&& value) { m_dimensionValues.push_back(std::move(value)); return *this; }
 

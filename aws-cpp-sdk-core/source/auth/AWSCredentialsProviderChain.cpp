@@ -14,6 +14,7 @@
   */
 
 #include <aws/core/auth/AWSCredentialsProviderChain.h>
+#include <aws/core/auth/STSCredentialsProvider.h>
 #include <aws/core/platform/Environment.h>
 #include <aws/core/utils/memory/AWSMemory.h>
 #include <aws/core/utils/StringUtils.h>
@@ -38,14 +39,15 @@ AWSCredentials AWSCredentialsProviderChain::GetAWSCredentials()
         }
     }
 
-    return AWSCredentials("", "");
+    return AWSCredentials();
 }
 
 DefaultAWSCredentialsProviderChain::DefaultAWSCredentialsProviderChain() : AWSCredentialsProviderChain()
 {
     AddProvider(Aws::MakeShared<EnvironmentAWSCredentialsProvider>(DefaultCredentialsProviderChainTag));
     AddProvider(Aws::MakeShared<ProfileConfigFileAWSCredentialsProvider>(DefaultCredentialsProviderChainTag));
- 
+    AddProvider(Aws::MakeShared<STSAssumeRoleWebIdentityCredentialsProvider>(DefaultCredentialsProviderChainTag));
+    
     //ECS TaskRole Credentials only available when ENVIRONMENT VARIABLE is set
     const auto relativeUri = Aws::Environment::GetEnv(AWS_ECS_CONTAINER_CREDENTIALS_RELATIVE_URI);
     AWS_LOGSTREAM_DEBUG(DefaultCredentialsProviderChainTag, "The environment variable value " << AWS_ECS_CONTAINER_CREDENTIALS_RELATIVE_URI

@@ -26,6 +26,7 @@
 #include <aws/rds/model/DBClusterMember.h>
 #include <aws/rds/model/VpcSecurityGroupMembership.h>
 #include <aws/rds/model/DBClusterRole.h>
+#include <aws/rds/model/DomainMembership.h>
 #include <utility>
 
 namespace Aws
@@ -65,7 +66,7 @@ namespace Model
      * <p>For all database engines except Amazon Aurora, <code>AllocatedStorage</code>
      * specifies the allocated storage size in gibibytes (GiB). For Aurora,
      * <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster
-     * storage size is not fixed, but instead automatically adjusts as needed.</p>
+     * storage size isn't fixed, but instead automatically adjusts as needed.</p>
      */
     inline int GetAllocatedStorage() const{ return m_allocatedStorage; }
 
@@ -73,7 +74,7 @@ namespace Model
      * <p>For all database engines except Amazon Aurora, <code>AllocatedStorage</code>
      * specifies the allocated storage size in gibibytes (GiB). For Aurora,
      * <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster
-     * storage size is not fixed, but instead automatically adjusts as needed.</p>
+     * storage size isn't fixed, but instead automatically adjusts as needed.</p>
      */
     inline bool AllocatedStorageHasBeenSet() const { return m_allocatedStorageHasBeenSet; }
 
@@ -81,7 +82,7 @@ namespace Model
      * <p>For all database engines except Amazon Aurora, <code>AllocatedStorage</code>
      * specifies the allocated storage size in gibibytes (GiB). For Aurora,
      * <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster
-     * storage size is not fixed, but instead automatically adjusts as needed.</p>
+     * storage size isn't fixed, but instead automatically adjusts as needed.</p>
      */
     inline void SetAllocatedStorage(int value) { m_allocatedStorageHasBeenSet = true; m_allocatedStorage = value; }
 
@@ -89,7 +90,7 @@ namespace Model
      * <p>For all database engines except Amazon Aurora, <code>AllocatedStorage</code>
      * specifies the allocated storage size in gibibytes (GiB). For Aurora,
      * <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster
-     * storage size is not fixed, but instead automatically adjusts as needed.</p>
+     * storage size isn't fixed, but instead automatically adjusts as needed.</p>
      */
     inline DBCluster& WithAllocatedStorage(int value) { SetAllocatedStorage(value); return *this;}
 
@@ -1864,49 +1865,57 @@ namespace Model
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline const Aws::String& GetEngineMode() const{ return m_engineMode; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline bool EngineModeHasBeenSet() const { return m_engineModeHasBeenSet; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline void SetEngineMode(const Aws::String& value) { m_engineModeHasBeenSet = true; m_engineMode = value; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline void SetEngineMode(Aws::String&& value) { m_engineModeHasBeenSet = true; m_engineMode = std::move(value); }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline void SetEngineMode(const char* value) { m_engineModeHasBeenSet = true; m_engineMode.assign(value); }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline DBCluster& WithEngineMode(const Aws::String& value) { SetEngineMode(value); return *this;}
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline DBCluster& WithEngineMode(Aws::String&& value) { SetEngineMode(std::move(value)); return *this;}
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline DBCluster& WithEngineMode(const char* value) { SetEngineMode(value); return *this;}
 
@@ -2225,6 +2234,55 @@ namespace Model
      */
     inline DBCluster& WithCrossAccountClone(bool value) { SetCrossAccountClone(value); return *this;}
 
+
+    /**
+     * <p>The Active Directory Domain membership records associated with the DB
+     * cluster.</p>
+     */
+    inline const Aws::Vector<DomainMembership>& GetDomainMemberships() const{ return m_domainMemberships; }
+
+    /**
+     * <p>The Active Directory Domain membership records associated with the DB
+     * cluster.</p>
+     */
+    inline bool DomainMembershipsHasBeenSet() const { return m_domainMembershipsHasBeenSet; }
+
+    /**
+     * <p>The Active Directory Domain membership records associated with the DB
+     * cluster.</p>
+     */
+    inline void SetDomainMemberships(const Aws::Vector<DomainMembership>& value) { m_domainMembershipsHasBeenSet = true; m_domainMemberships = value; }
+
+    /**
+     * <p>The Active Directory Domain membership records associated with the DB
+     * cluster.</p>
+     */
+    inline void SetDomainMemberships(Aws::Vector<DomainMembership>&& value) { m_domainMembershipsHasBeenSet = true; m_domainMemberships = std::move(value); }
+
+    /**
+     * <p>The Active Directory Domain membership records associated with the DB
+     * cluster.</p>
+     */
+    inline DBCluster& WithDomainMemberships(const Aws::Vector<DomainMembership>& value) { SetDomainMemberships(value); return *this;}
+
+    /**
+     * <p>The Active Directory Domain membership records associated with the DB
+     * cluster.</p>
+     */
+    inline DBCluster& WithDomainMemberships(Aws::Vector<DomainMembership>&& value) { SetDomainMemberships(std::move(value)); return *this;}
+
+    /**
+     * <p>The Active Directory Domain membership records associated with the DB
+     * cluster.</p>
+     */
+    inline DBCluster& AddDomainMemberships(const DomainMembership& value) { m_domainMembershipsHasBeenSet = true; m_domainMemberships.push_back(value); return *this; }
+
+    /**
+     * <p>The Active Directory Domain membership records associated with the DB
+     * cluster.</p>
+     */
+    inline DBCluster& AddDomainMemberships(DomainMembership&& value) { m_domainMembershipsHasBeenSet = true; m_domainMemberships.push_back(std::move(value)); return *this; }
+
   private:
 
     int m_allocatedStorage;
@@ -2379,6 +2437,9 @@ namespace Model
 
     bool m_crossAccountClone;
     bool m_crossAccountCloneHasBeenSet;
+
+    Aws::Vector<DomainMembership> m_domainMemberships;
+    bool m_domainMembershipsHasBeenSet;
   };
 
 } // namespace Model

@@ -47,6 +47,7 @@ static const int INVALID_PERMISSION_TYPE_HASH = HashingUtils::HashString("Invali
 static const int INCOMPATIBLE_POLICY_HASH = HashingUtils::HashString("IncompatiblePolicyException");
 static const int INVALID_ASSOCIATION_VERSION_HASH = HashingUtils::HashString("InvalidAssociationVersion");
 static const int PARAMETER_NOT_FOUND_HASH = HashingUtils::HashString("ParameterNotFound");
+static const int INVALID_DOCUMENT_TYPE_HASH = HashingUtils::HashString("InvalidDocumentType");
 static const int PARAMETER_ALREADY_EXISTS_HASH = HashingUtils::HashString("ParameterAlreadyExists");
 static const int HIERARCHY_LEVEL_LIMIT_EXCEEDED_HASH = HashingUtils::HashString("HierarchyLevelLimitExceededException");
 static const int DOCUMENT_VERSION_LIMIT_EXCEEDED_HASH = HashingUtils::HashString("DocumentVersionLimitExceeded");
@@ -122,10 +123,12 @@ static const int INVALID_FILTER_OPTION_HASH = HashingUtils::HashString("InvalidF
 static const int INVALID_ITEM_CONTENT_HASH = HashingUtils::HashString("InvalidItemContentException");
 static const int TARGET_NOT_CONNECTED_HASH = HashingUtils::HashString("TargetNotConnected");
 static const int DOCUMENT_ALREADY_EXISTS_HASH = HashingUtils::HashString("DocumentAlreadyExists");
+static const int UNSUPPORTED_CALENDAR_HASH = HashingUtils::HashString("UnsupportedCalendarException");
 static const int INVALID_DOCUMENT_VERSION_HASH = HashingUtils::HashString("InvalidDocumentVersion");
 static const int INVALID_NOTIFICATION_CONFIG_HASH = HashingUtils::HashString("InvalidNotificationConfig");
 static const int INVALID_SCHEDULE_HASH = HashingUtils::HashString("InvalidSchedule");
 static const int INVALID_ACTIVATION_ID_HASH = HashingUtils::HashString("InvalidActivationId");
+static const int RESOURCE_DATA_SYNC_CONFLICT_HASH = HashingUtils::HashString("ResourceDataSyncConflictException");
 static const int INVALID_FILTER_HASH = HashingUtils::HashString("InvalidFilter");
 static const int OPS_ITEM_INVALID_PARAMETER_HASH = HashingUtils::HashString("OpsItemInvalidParameterException");
 static const int INVALID_INVENTORY_GROUP_HASH = HashingUtils::HashString("InvalidInventoryGroupException");
@@ -218,6 +221,10 @@ AWSError<CoreErrors> GetErrorForName(const char* errorName)
   else if (hashCode == PARAMETER_NOT_FOUND_HASH)
   {
     return AWSError<CoreErrors>(static_cast<CoreErrors>(SSMErrors::PARAMETER_NOT_FOUND), false);
+  }
+  else if (hashCode == INVALID_DOCUMENT_TYPE_HASH)
+  {
+    return AWSError<CoreErrors>(static_cast<CoreErrors>(SSMErrors::INVALID_DOCUMENT_TYPE), false);
   }
   else if (hashCode == PARAMETER_ALREADY_EXISTS_HASH)
   {
@@ -519,6 +526,10 @@ AWSError<CoreErrors> GetErrorForName(const char* errorName)
   {
     return AWSError<CoreErrors>(static_cast<CoreErrors>(SSMErrors::DOCUMENT_ALREADY_EXISTS), false);
   }
+  else if (hashCode == UNSUPPORTED_CALENDAR_HASH)
+  {
+    return AWSError<CoreErrors>(static_cast<CoreErrors>(SSMErrors::UNSUPPORTED_CALENDAR), false);
+  }
   else if (hashCode == INVALID_DOCUMENT_VERSION_HASH)
   {
     return AWSError<CoreErrors>(static_cast<CoreErrors>(SSMErrors::INVALID_DOCUMENT_VERSION), false);
@@ -534,6 +545,10 @@ AWSError<CoreErrors> GetErrorForName(const char* errorName)
   else if (hashCode == INVALID_ACTIVATION_ID_HASH)
   {
     return AWSError<CoreErrors>(static_cast<CoreErrors>(SSMErrors::INVALID_ACTIVATION_ID), false);
+  }
+  else if (hashCode == RESOURCE_DATA_SYNC_CONFLICT_HASH)
+  {
+    return AWSError<CoreErrors>(static_cast<CoreErrors>(SSMErrors::RESOURCE_DATA_SYNC_CONFLICT), false);
   }
   else if (hashCode == INVALID_FILTER_HASH)
   {

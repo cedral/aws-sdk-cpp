@@ -156,6 +156,185 @@ namespace Model
      */
     inline AssociateVpcCidrBlockRequest& WithVpcId(const char* value) { SetVpcId(value); return *this;}
 
+
+    /**
+     * <p>The name of the location from which we advertise the IPV6 CIDR block. Use
+     * this parameter to limit the CiDR block to this location.</p> <p> You must set
+     * <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this
+     * parameter.</p> <p> You can have one IPv6 CIDR block association per network
+     * border group.</p>
+     */
+    inline const Aws::String& GetIpv6CidrBlockNetworkBorderGroup() const{ return m_ipv6CidrBlockNetworkBorderGroup; }
+
+    /**
+     * <p>The name of the location from which we advertise the IPV6 CIDR block. Use
+     * this parameter to limit the CiDR block to this location.</p> <p> You must set
+     * <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this
+     * parameter.</p> <p> You can have one IPv6 CIDR block association per network
+     * border group.</p>
+     */
+    inline bool Ipv6CidrBlockNetworkBorderGroupHasBeenSet() const { return m_ipv6CidrBlockNetworkBorderGroupHasBeenSet; }
+
+    /**
+     * <p>The name of the location from which we advertise the IPV6 CIDR block. Use
+     * this parameter to limit the CiDR block to this location.</p> <p> You must set
+     * <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this
+     * parameter.</p> <p> You can have one IPv6 CIDR block association per network
+     * border group.</p>
+     */
+    inline void SetIpv6CidrBlockNetworkBorderGroup(const Aws::String& value) { m_ipv6CidrBlockNetworkBorderGroupHasBeenSet = true; m_ipv6CidrBlockNetworkBorderGroup = value; }
+
+    /**
+     * <p>The name of the location from which we advertise the IPV6 CIDR block. Use
+     * this parameter to limit the CiDR block to this location.</p> <p> You must set
+     * <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this
+     * parameter.</p> <p> You can have one IPv6 CIDR block association per network
+     * border group.</p>
+     */
+    inline void SetIpv6CidrBlockNetworkBorderGroup(Aws::String&& value) { m_ipv6CidrBlockNetworkBorderGroupHasBeenSet = true; m_ipv6CidrBlockNetworkBorderGroup = std::move(value); }
+
+    /**
+     * <p>The name of the location from which we advertise the IPV6 CIDR block. Use
+     * this parameter to limit the CiDR block to this location.</p> <p> You must set
+     * <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this
+     * parameter.</p> <p> You can have one IPv6 CIDR block association per network
+     * border group.</p>
+     */
+    inline void SetIpv6CidrBlockNetworkBorderGroup(const char* value) { m_ipv6CidrBlockNetworkBorderGroupHasBeenSet = true; m_ipv6CidrBlockNetworkBorderGroup.assign(value); }
+
+    /**
+     * <p>The name of the location from which we advertise the IPV6 CIDR block. Use
+     * this parameter to limit the CiDR block to this location.</p> <p> You must set
+     * <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this
+     * parameter.</p> <p> You can have one IPv6 CIDR block association per network
+     * border group.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6CidrBlockNetworkBorderGroup(const Aws::String& value) { SetIpv6CidrBlockNetworkBorderGroup(value); return *this;}
+
+    /**
+     * <p>The name of the location from which we advertise the IPV6 CIDR block. Use
+     * this parameter to limit the CiDR block to this location.</p> <p> You must set
+     * <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this
+     * parameter.</p> <p> You can have one IPv6 CIDR block association per network
+     * border group.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6CidrBlockNetworkBorderGroup(Aws::String&& value) { SetIpv6CidrBlockNetworkBorderGroup(std::move(value)); return *this;}
+
+    /**
+     * <p>The name of the location from which we advertise the IPV6 CIDR block. Use
+     * this parameter to limit the CiDR block to this location.</p> <p> You must set
+     * <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this
+     * parameter.</p> <p> You can have one IPv6 CIDR block association per network
+     * border group.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6CidrBlockNetworkBorderGroup(const char* value) { SetIpv6CidrBlockNetworkBorderGroup(value); return *this;}
+
+
+    /**
+     * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+     * block.</p>
+     */
+    inline const Aws::String& GetIpv6Pool() const{ return m_ipv6Pool; }
+
+    /**
+     * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+     * block.</p>
+     */
+    inline bool Ipv6PoolHasBeenSet() const { return m_ipv6PoolHasBeenSet; }
+
+    /**
+     * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+     * block.</p>
+     */
+    inline void SetIpv6Pool(const Aws::String& value) { m_ipv6PoolHasBeenSet = true; m_ipv6Pool = value; }
+
+    /**
+     * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+     * block.</p>
+     */
+    inline void SetIpv6Pool(Aws::String&& value) { m_ipv6PoolHasBeenSet = true; m_ipv6Pool = std::move(value); }
+
+    /**
+     * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+     * block.</p>
+     */
+    inline void SetIpv6Pool(const char* value) { m_ipv6PoolHasBeenSet = true; m_ipv6Pool.assign(value); }
+
+    /**
+     * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+     * block.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6Pool(const Aws::String& value) { SetIpv6Pool(value); return *this;}
+
+    /**
+     * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+     * block.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6Pool(Aws::String&& value) { SetIpv6Pool(std::move(value)); return *this;}
+
+    /**
+     * <p>The ID of an IPv6 address pool from which to allocate the IPv6 CIDR
+     * block.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6Pool(const char* value) { SetIpv6Pool(value); return *this;}
+
+
+    /**
+     * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify
+     * <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR
+     * block for you, omit this parameter.</p>
+     */
+    inline const Aws::String& GetIpv6CidrBlock() const{ return m_ipv6CidrBlock; }
+
+    /**
+     * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify
+     * <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR
+     * block for you, omit this parameter.</p>
+     */
+    inline bool Ipv6CidrBlockHasBeenSet() const { return m_ipv6CidrBlockHasBeenSet; }
+
+    /**
+     * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify
+     * <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR
+     * block for you, omit this parameter.</p>
+     */
+    inline void SetIpv6CidrBlock(const Aws::String& value) { m_ipv6CidrBlockHasBeenSet = true; m_ipv6CidrBlock = value; }
+
+    /**
+     * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify
+     * <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR
+     * block for you, omit this parameter.</p>
+     */
+    inline void SetIpv6CidrBlock(Aws::String&& value) { m_ipv6CidrBlockHasBeenSet = true; m_ipv6CidrBlock = std::move(value); }
+
+    /**
+     * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify
+     * <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR
+     * block for you, omit this parameter.</p>
+     */
+    inline void SetIpv6CidrBlock(const char* value) { m_ipv6CidrBlockHasBeenSet = true; m_ipv6CidrBlock.assign(value); }
+
+    /**
+     * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify
+     * <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR
+     * block for you, omit this parameter.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6CidrBlock(const Aws::String& value) { SetIpv6CidrBlock(value); return *this;}
+
+    /**
+     * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify
+     * <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR
+     * block for you, omit this parameter.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6CidrBlock(Aws::String&& value) { SetIpv6CidrBlock(std::move(value)); return *this;}
+
+    /**
+     * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify
+     * <code>Ipv6Pool</code> in the request.</p> <p>To let Amazon choose the IPv6 CIDR
+     * block for you, omit this parameter.</p>
+     */
+    inline AssociateVpcCidrBlockRequest& WithIpv6CidrBlock(const char* value) { SetIpv6CidrBlock(value); return *this;}
+
   private:
 
     bool m_amazonProvidedIpv6CidrBlock;
@@ -166,6 +345,15 @@ namespace Model
 
     Aws::String m_vpcId;
     bool m_vpcIdHasBeenSet;
+
+    Aws::String m_ipv6CidrBlockNetworkBorderGroup;
+    bool m_ipv6CidrBlockNetworkBorderGroupHasBeenSet;
+
+    Aws::String m_ipv6Pool;
+    bool m_ipv6PoolHasBeenSet;
+
+    Aws::String m_ipv6CidrBlock;
+    bool m_ipv6CidrBlockHasBeenSet;
   };
 
 } // namespace Model

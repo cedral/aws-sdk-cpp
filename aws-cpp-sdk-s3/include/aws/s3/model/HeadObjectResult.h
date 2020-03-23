@@ -70,44 +70,44 @@ namespace Model
 
 
     /**
-     * <p/>
+     * <p>Indicates that a range of bytes was specified.</p>
      */
     inline const Aws::String& GetAcceptRanges() const{ return m_acceptRanges; }
 
     /**
-     * <p/>
+     * <p>Indicates that a range of bytes was specified.</p>
      */
     inline void SetAcceptRanges(const Aws::String& value) { m_acceptRanges = value; }
 
     /**
-     * <p/>
+     * <p>Indicates that a range of bytes was specified.</p>
      */
     inline void SetAcceptRanges(Aws::String&& value) { m_acceptRanges = std::move(value); }
 
     /**
-     * <p/>
+     * <p>Indicates that a range of bytes was specified.</p>
      */
     inline void SetAcceptRanges(const char* value) { m_acceptRanges.assign(value); }
 
     /**
-     * <p/>
+     * <p>Indicates that a range of bytes was specified.</p>
      */
     inline HeadObjectResult& WithAcceptRanges(const Aws::String& value) { SetAcceptRanges(value); return *this;}
 
     /**
-     * <p/>
+     * <p>Indicates that a range of bytes was specified.</p>
      */
     inline HeadObjectResult& WithAcceptRanges(Aws::String&& value) { SetAcceptRanges(std::move(value)); return *this;}
 
     /**
-     * <p/>
+     * <p>Indicates that a range of bytes was specified.</p>
      */
     inline HeadObjectResult& WithAcceptRanges(const char* value) { SetAcceptRanges(value); return *this;}
 
 
     /**
      * <p>If the object expiration is configured (see PUT Bucket lifecycle), the
-     * response includes this header. It includes the expiry-date and rule-id key value
+     * response includes this header. It includes the expiry-date and rule-id key-value
      * pairs providing object expiration information. The value of the rule-id is URL
      * encoded.</p>
      */
@@ -115,7 +115,7 @@ namespace Model
 
     /**
      * <p>If the object expiration is configured (see PUT Bucket lifecycle), the
-     * response includes this header. It includes the expiry-date and rule-id key value
+     * response includes this header. It includes the expiry-date and rule-id key-value
      * pairs providing object expiration information. The value of the rule-id is URL
      * encoded.</p>
      */
@@ -123,7 +123,7 @@ namespace Model
 
     /**
      * <p>If the object expiration is configured (see PUT Bucket lifecycle), the
-     * response includes this header. It includes the expiry-date and rule-id key value
+     * response includes this header. It includes the expiry-date and rule-id key-value
      * pairs providing object expiration information. The value of the rule-id is URL
      * encoded.</p>
      */
@@ -131,7 +131,7 @@ namespace Model
 
     /**
      * <p>If the object expiration is configured (see PUT Bucket lifecycle), the
-     * response includes this header. It includes the expiry-date and rule-id key value
+     * response includes this header. It includes the expiry-date and rule-id key-value
      * pairs providing object expiration information. The value of the rule-id is URL
      * encoded.</p>
      */
@@ -139,7 +139,7 @@ namespace Model
 
     /**
      * <p>If the object expiration is configured (see PUT Bucket lifecycle), the
-     * response includes this header. It includes the expiry-date and rule-id key value
+     * response includes this header. It includes the expiry-date and rule-id key-value
      * pairs providing object expiration information. The value of the rule-id is URL
      * encoded.</p>
      */
@@ -147,7 +147,7 @@ namespace Model
 
     /**
      * <p>If the object expiration is configured (see PUT Bucket lifecycle), the
-     * response includes this header. It includes the expiry-date and rule-id key value
+     * response includes this header. It includes the expiry-date and rule-id key-value
      * pairs providing object expiration information. The value of the rule-id is URL
      * encoded.</p>
      */
@@ -155,7 +155,7 @@ namespace Model
 
     /**
      * <p>If the object expiration is configured (see PUT Bucket lifecycle), the
-     * response includes this header. It includes the expiry-date and rule-id key value
+     * response includes this header. It includes the expiry-date and rule-id key-value
      * pairs providing object expiration information. The value of the rule-id is URL
      * encoded.</p>
      */
@@ -163,44 +163,107 @@ namespace Model
 
 
     /**
-     * <p>Provides information about object restoration operation and expiration time
-     * of the restored object copy.</p>
+     * <p>If the object is an archived object (an object whose storage class is
+     * GLACIER), the response includes this header if either the archive restoration is
+     * in progress (see <a>RestoreObject</a> or an archive copy is already
+     * restored.</p> <p> If an archive copy is already restored, the header value
+     * indicates when Amazon S3 is scheduled to delete the object copy. For
+     * example:</p> <p> <code>x-amz-restore: ongoing-request="false", expiry-date="Fri,
+     * 23 Dec 2012 00:00:00 GMT"</code> </p> <p>If the object restoration is in
+     * progress, the header returns the value <code>ongoing-request="true"</code>.</p>
+     * <p>For more information about archiving objects, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning
+     * Objects: General Considerations</a>.</p>
      */
     inline const Aws::String& GetRestore() const{ return m_restore; }
 
     /**
-     * <p>Provides information about object restoration operation and expiration time
-     * of the restored object copy.</p>
+     * <p>If the object is an archived object (an object whose storage class is
+     * GLACIER), the response includes this header if either the archive restoration is
+     * in progress (see <a>RestoreObject</a> or an archive copy is already
+     * restored.</p> <p> If an archive copy is already restored, the header value
+     * indicates when Amazon S3 is scheduled to delete the object copy. For
+     * example:</p> <p> <code>x-amz-restore: ongoing-request="false", expiry-date="Fri,
+     * 23 Dec 2012 00:00:00 GMT"</code> </p> <p>If the object restoration is in
+     * progress, the header returns the value <code>ongoing-request="true"</code>.</p>
+     * <p>For more information about archiving objects, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning
+     * Objects: General Considerations</a>.</p>
      */
     inline void SetRestore(const Aws::String& value) { m_restore = value; }
 
     /**
-     * <p>Provides information about object restoration operation and expiration time
-     * of the restored object copy.</p>
+     * <p>If the object is an archived object (an object whose storage class is
+     * GLACIER), the response includes this header if either the archive restoration is
+     * in progress (see <a>RestoreObject</a> or an archive copy is already
+     * restored.</p> <p> If an archive copy is already restored, the header value
+     * indicates when Amazon S3 is scheduled to delete the object copy. For
+     * example:</p> <p> <code>x-amz-restore: ongoing-request="false", expiry-date="Fri,
+     * 23 Dec 2012 00:00:00 GMT"</code> </p> <p>If the object restoration is in
+     * progress, the header returns the value <code>ongoing-request="true"</code>.</p>
+     * <p>For more information about archiving objects, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning
+     * Objects: General Considerations</a>.</p>
      */
     inline void SetRestore(Aws::String&& value) { m_restore = std::move(value); }
 
     /**
-     * <p>Provides information about object restoration operation and expiration time
-     * of the restored object copy.</p>
+     * <p>If the object is an archived object (an object whose storage class is
+     * GLACIER), the response includes this header if either the archive restoration is
+     * in progress (see <a>RestoreObject</a> or an archive copy is already
+     * restored.</p> <p> If an archive copy is already restored, the header value
+     * indicates when Amazon S3 is scheduled to delete the object copy. For
+     * example:</p> <p> <code>x-amz-restore: ongoing-request="false", expiry-date="Fri,
+     * 23 Dec 2012 00:00:00 GMT"</code> </p> <p>If the object restoration is in
+     * progress, the header returns the value <code>ongoing-request="true"</code>.</p>
+     * <p>For more information about archiving objects, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning
+     * Objects: General Considerations</a>.</p>
      */
     inline void SetRestore(const char* value) { m_restore.assign(value); }
 
     /**
-     * <p>Provides information about object restoration operation and expiration time
-     * of the restored object copy.</p>
+     * <p>If the object is an archived object (an object whose storage class is
+     * GLACIER), the response includes this header if either the archive restoration is
+     * in progress (see <a>RestoreObject</a> or an archive copy is already
+     * restored.</p> <p> If an archive copy is already restored, the header value
+     * indicates when Amazon S3 is scheduled to delete the object copy. For
+     * example:</p> <p> <code>x-amz-restore: ongoing-request="false", expiry-date="Fri,
+     * 23 Dec 2012 00:00:00 GMT"</code> </p> <p>If the object restoration is in
+     * progress, the header returns the value <code>ongoing-request="true"</code>.</p>
+     * <p>For more information about archiving objects, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning
+     * Objects: General Considerations</a>.</p>
      */
     inline HeadObjectResult& WithRestore(const Aws::String& value) { SetRestore(value); return *this;}
 
     /**
-     * <p>Provides information about object restoration operation and expiration time
-     * of the restored object copy.</p>
+     * <p>If the object is an archived object (an object whose storage class is
+     * GLACIER), the response includes this header if either the archive restoration is
+     * in progress (see <a>RestoreObject</a> or an archive copy is already
+     * restored.</p> <p> If an archive copy is already restored, the header value
+     * indicates when Amazon S3 is scheduled to delete the object copy. For
+     * example:</p> <p> <code>x-amz-restore: ongoing-request="false", expiry-date="Fri,
+     * 23 Dec 2012 00:00:00 GMT"</code> </p> <p>If the object restoration is in
+     * progress, the header returns the value <code>ongoing-request="true"</code>.</p>
+     * <p>For more information about archiving objects, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning
+     * Objects: General Considerations</a>.</p>
      */
     inline HeadObjectResult& WithRestore(Aws::String&& value) { SetRestore(std::move(value)); return *this;}
 
     /**
-     * <p>Provides information about object restoration operation and expiration time
-     * of the restored object copy.</p>
+     * <p>If the object is an archived object (an object whose storage class is
+     * GLACIER), the response includes this header if either the archive restoration is
+     * in progress (see <a>RestoreObject</a> or an archive copy is already
+     * restored.</p> <p> If an archive copy is already restored, the header value
+     * indicates when Amazon S3 is scheduled to delete the object copy. For
+     * example:</p> <p> <code>x-amz-restore: ongoing-request="false", expiry-date="Fri,
+     * 23 Dec 2012 00:00:00 GMT"</code> </p> <p>If the object restoration is in
+     * progress, the header returns the value <code>ongoing-request="true"</code>.</p>
+     * <p>For more information about archiving objects, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning
+     * Objects: General Considerations</a>.</p>
      */
     inline HeadObjectResult& WithRestore(const char* value) { SetRestore(value); return *this;}
 
@@ -249,68 +312,71 @@ namespace Model
 
     /**
      * <p>An ETag is an opaque identifier assigned by a web server to a specific
-     * version of a resource found at a URL</p>
+     * version of a resource found at a URL.</p>
      */
     inline const Aws::String& GetETag() const{ return m_eTag; }
 
     /**
      * <p>An ETag is an opaque identifier assigned by a web server to a specific
-     * version of a resource found at a URL</p>
+     * version of a resource found at a URL.</p>
      */
     inline void SetETag(const Aws::String& value) { m_eTag = value; }
 
     /**
      * <p>An ETag is an opaque identifier assigned by a web server to a specific
-     * version of a resource found at a URL</p>
+     * version of a resource found at a URL.</p>
      */
     inline void SetETag(Aws::String&& value) { m_eTag = std::move(value); }
 
     /**
      * <p>An ETag is an opaque identifier assigned by a web server to a specific
-     * version of a resource found at a URL</p>
+     * version of a resource found at a URL.</p>
      */
     inline void SetETag(const char* value) { m_eTag.assign(value); }
 
     /**
      * <p>An ETag is an opaque identifier assigned by a web server to a specific
-     * version of a resource found at a URL</p>
+     * version of a resource found at a URL.</p>
      */
     inline HeadObjectResult& WithETag(const Aws::String& value) { SetETag(value); return *this;}
 
     /**
      * <p>An ETag is an opaque identifier assigned by a web server to a specific
-     * version of a resource found at a URL</p>
+     * version of a resource found at a URL.</p>
      */
     inline HeadObjectResult& WithETag(Aws::String&& value) { SetETag(std::move(value)); return *this;}
 
     /**
      * <p>An ETag is an opaque identifier assigned by a web server to a specific
-     * version of a resource found at a URL</p>
+     * version of a resource found at a URL.</p>
      */
     inline HeadObjectResult& WithETag(const char* value) { SetETag(value); return *this;}
 
 
     /**
-     * <p>This is set to the number of metadata entries not returned in x-amz-meta
-     * headers. This can happen if you create metadata using an API like SOAP that
-     * supports more flexible metadata than the REST API. For example, using SOAP, you
-     * can create metadata whose values are not legal HTTP headers.</p>
+     * <p>This is set to the number of metadata entries not returned in
+     * <code>x-amz-meta</code> headers. This can happen if you create metadata using an
+     * API like SOAP that supports more flexible metadata than the REST API. For
+     * example, using SOAP, you can create metadata whose values are not legal HTTP
+     * headers.</p>
      */
     inline int GetMissingMeta() const{ return m_missingMeta; }
 
     /**
-     * <p>This is set to the number of metadata entries not returned in x-amz-meta
-     * headers. This can happen if you create metadata using an API like SOAP that
-     * supports more flexible metadata than the REST API. For example, using SOAP, you
-     * can create metadata whose values are not legal HTTP headers.</p>
+     * <p>This is set to the number of metadata entries not returned in
+     * <code>x-amz-meta</code> headers. This can happen if you create metadata using an
+     * API like SOAP that supports more flexible metadata than the REST API. For
+     * example, using SOAP, you can create metadata whose values are not legal HTTP
+     * headers.</p>
      */
     inline void SetMissingMeta(int value) { m_missingMeta = value; }
 
     /**
-     * <p>This is set to the number of metadata entries not returned in x-amz-meta
-     * headers. This can happen if you create metadata using an API like SOAP that
-     * supports more flexible metadata than the REST API. For example, using SOAP, you
-     * can create metadata whose values are not legal HTTP headers.</p>
+     * <p>This is set to the number of metadata entries not returned in
+     * <code>x-amz-meta</code> headers. This can happen if you create metadata using an
+     * API like SOAP that supports more flexible metadata than the REST API. For
+     * example, using SOAP, you can create metadata whose values are not legal HTTP
+     * headers.</p>
      */
     inline HeadObjectResult& WithMissingMeta(int value) { SetMissingMeta(value); return *this;}
 
@@ -622,32 +688,42 @@ namespace Model
 
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If the object is stored using server-side encryption either with an AWS KMS
+     * customer master key (CMK) or an Amazon S3-managed encryption key, the response
+     * includes this header with the value of the server-side encryption algorithm used
+     * when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
      */
     inline const ServerSideEncryption& GetServerSideEncryption() const{ return m_serverSideEncryption; }
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If the object is stored using server-side encryption either with an AWS KMS
+     * customer master key (CMK) or an Amazon S3-managed encryption key, the response
+     * includes this header with the value of the server-side encryption algorithm used
+     * when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
      */
     inline void SetServerSideEncryption(const ServerSideEncryption& value) { m_serverSideEncryption = value; }
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If the object is stored using server-side encryption either with an AWS KMS
+     * customer master key (CMK) or an Amazon S3-managed encryption key, the response
+     * includes this header with the value of the server-side encryption algorithm used
+     * when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
      */
     inline void SetServerSideEncryption(ServerSideEncryption&& value) { m_serverSideEncryption = std::move(value); }
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If the object is stored using server-side encryption either with an AWS KMS
+     * customer master key (CMK) or an Amazon S3-managed encryption key, the response
+     * includes this header with the value of the server-side encryption algorithm used
+     * when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
      */
     inline HeadObjectResult& WithServerSideEncryption(const ServerSideEncryption& value) { SetServerSideEncryption(value); return *this;}
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If the object is stored using server-side encryption either with an AWS KMS
+     * customer master key (CMK) or an Amazon S3-managed encryption key, the response
+     * includes this header with the value of the server-side encryption algorithm used
+     * when storing this object in Amazon S3 (for example, AES256, aws:kms).</p>
      */
     inline HeadObjectResult& WithServerSideEncryption(ServerSideEncryption&& value) { SetServerSideEncryption(std::move(value)); return *this;}
 
@@ -765,119 +841,146 @@ namespace Model
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline const Aws::String& GetSSECustomerKeyMD5() const{ return m_sSECustomerKeyMD5; }
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline void SetSSECustomerKeyMD5(const Aws::String& value) { m_sSECustomerKeyMD5 = value; }
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline void SetSSECustomerKeyMD5(Aws::String&& value) { m_sSECustomerKeyMD5 = std::move(value); }
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline void SetSSECustomerKeyMD5(const char* value) { m_sSECustomerKeyMD5.assign(value); }
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline HeadObjectResult& WithSSECustomerKeyMD5(const Aws::String& value) { SetSSECustomerKeyMD5(value); return *this;}
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline HeadObjectResult& WithSSECustomerKeyMD5(Aws::String&& value) { SetSSECustomerKeyMD5(std::move(value)); return *this;}
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline HeadObjectResult& WithSSECustomerKeyMD5(const char* value) { SetSSECustomerKeyMD5(value); return *this;}
 
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+     * symmetric customer managed customer master key (CMK) that was used for the
+     * object.</p>
      */
     inline const Aws::String& GetSSEKMSKeyId() const{ return m_sSEKMSKeyId; }
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+     * symmetric customer managed customer master key (CMK) that was used for the
+     * object.</p>
      */
     inline void SetSSEKMSKeyId(const Aws::String& value) { m_sSEKMSKeyId = value; }
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+     * symmetric customer managed customer master key (CMK) that was used for the
+     * object.</p>
      */
     inline void SetSSEKMSKeyId(Aws::String&& value) { m_sSEKMSKeyId = std::move(value); }
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+     * symmetric customer managed customer master key (CMK) that was used for the
+     * object.</p>
      */
     inline void SetSSEKMSKeyId(const char* value) { m_sSEKMSKeyId.assign(value); }
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+     * symmetric customer managed customer master key (CMK) that was used for the
+     * object.</p>
      */
     inline HeadObjectResult& WithSSEKMSKeyId(const Aws::String& value) { SetSSEKMSKeyId(value); return *this;}
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+     * symmetric customer managed customer master key (CMK) that was used for the
+     * object.</p>
      */
     inline HeadObjectResult& WithSSEKMSKeyId(Aws::String&& value) { SetSSEKMSKeyId(std::move(value)); return *this;}
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If present, specifies the ID of the AWS Key Management Service (AWS KMS)
+     * symmetric customer managed customer master key (CMK) that was used for the
+     * object.</p>
      */
     inline HeadObjectResult& WithSSEKMSKeyId(const char* value) { SetSSEKMSKeyId(value); return *this;}
 
 
     /**
-     * <p/>
+     * <p>Provides storage class information of the object. Amazon S3 returns this
+     * header for all objects except for Standard storage class objects.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+     * Classes</a>.</p>
      */
     inline const StorageClass& GetStorageClass() const{ return m_storageClass; }
 
     /**
-     * <p/>
+     * <p>Provides storage class information of the object. Amazon S3 returns this
+     * header for all objects except for Standard storage class objects.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+     * Classes</a>.</p>
      */
     inline void SetStorageClass(const StorageClass& value) { m_storageClass = value; }
 
     /**
-     * <p/>
+     * <p>Provides storage class information of the object. Amazon S3 returns this
+     * header for all objects except for Standard storage class objects.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+     * Classes</a>.</p>
      */
     inline void SetStorageClass(StorageClass&& value) { m_storageClass = std::move(value); }
 
     /**
-     * <p/>
+     * <p>Provides storage class information of the object. Amazon S3 returns this
+     * header for all objects except for Standard storage class objects.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+     * Classes</a>.</p>
      */
     inline HeadObjectResult& WithStorageClass(const StorageClass& value) { SetStorageClass(value); return *this;}
 
     /**
-     * <p/>
+     * <p>Provides storage class information of the object. Amazon S3 returns this
+     * header for all objects except for Standard storage class objects.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+     * Classes</a>.</p>
      */
     inline HeadObjectResult& WithStorageClass(StorageClass&& value) { SetStorageClass(std::move(value)); return *this;}
 
@@ -899,27 +1002,127 @@ namespace Model
 
 
     /**
-     * <p/>
+     * <p>Amazon S3 can return this header if your request involves a bucket that is
+     * either a source or destination in a replication rule.</p> <p>In replication, you
+     * have a source bucket on which you configure replication and destination bucket
+     * where Amazon S3 stores object replicas. When you request an object
+     * (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these
+     * buckets, Amazon S3 will return the <code>x-amz-replication-status</code> header
+     * in the response as follows:</p> <ul> <li> <p>If requesting an object from the
+     * source bucket — Amazon S3 will return the <code>x-amz-replication-status</code>
+     * header if the object in your request is eligible for replication.</p> <p> For
+     * example, suppose that in your replication configuration, you specify object
+     * prefix <code>TaxDocs</code> requesting Amazon S3 to replicate objects with key
+     * prefix <code>TaxDocs</code>. Any objects you upload with this key name prefix,
+     * for example <code>TaxDocs/document1.pdf</code>, are eligible for replication.
+     * For any object request with this key name prefix, Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value PENDING, COMPLETED or
+     * FAILED indicating object replication status.</p> </li> <li> <p>If requesting an
+     * object from the destination bucket — Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value REPLICA if the object in
+     * your request is a replica that Amazon S3 created.</p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p>
      */
     inline const ReplicationStatus& GetReplicationStatus() const{ return m_replicationStatus; }
 
     /**
-     * <p/>
+     * <p>Amazon S3 can return this header if your request involves a bucket that is
+     * either a source or destination in a replication rule.</p> <p>In replication, you
+     * have a source bucket on which you configure replication and destination bucket
+     * where Amazon S3 stores object replicas. When you request an object
+     * (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these
+     * buckets, Amazon S3 will return the <code>x-amz-replication-status</code> header
+     * in the response as follows:</p> <ul> <li> <p>If requesting an object from the
+     * source bucket — Amazon S3 will return the <code>x-amz-replication-status</code>
+     * header if the object in your request is eligible for replication.</p> <p> For
+     * example, suppose that in your replication configuration, you specify object
+     * prefix <code>TaxDocs</code> requesting Amazon S3 to replicate objects with key
+     * prefix <code>TaxDocs</code>. Any objects you upload with this key name prefix,
+     * for example <code>TaxDocs/document1.pdf</code>, are eligible for replication.
+     * For any object request with this key name prefix, Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value PENDING, COMPLETED or
+     * FAILED indicating object replication status.</p> </li> <li> <p>If requesting an
+     * object from the destination bucket — Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value REPLICA if the object in
+     * your request is a replica that Amazon S3 created.</p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p>
      */
     inline void SetReplicationStatus(const ReplicationStatus& value) { m_replicationStatus = value; }
 
     /**
-     * <p/>
+     * <p>Amazon S3 can return this header if your request involves a bucket that is
+     * either a source or destination in a replication rule.</p> <p>In replication, you
+     * have a source bucket on which you configure replication and destination bucket
+     * where Amazon S3 stores object replicas. When you request an object
+     * (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these
+     * buckets, Amazon S3 will return the <code>x-amz-replication-status</code> header
+     * in the response as follows:</p> <ul> <li> <p>If requesting an object from the
+     * source bucket — Amazon S3 will return the <code>x-amz-replication-status</code>
+     * header if the object in your request is eligible for replication.</p> <p> For
+     * example, suppose that in your replication configuration, you specify object
+     * prefix <code>TaxDocs</code> requesting Amazon S3 to replicate objects with key
+     * prefix <code>TaxDocs</code>. Any objects you upload with this key name prefix,
+     * for example <code>TaxDocs/document1.pdf</code>, are eligible for replication.
+     * For any object request with this key name prefix, Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value PENDING, COMPLETED or
+     * FAILED indicating object replication status.</p> </li> <li> <p>If requesting an
+     * object from the destination bucket — Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value REPLICA if the object in
+     * your request is a replica that Amazon S3 created.</p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p>
      */
     inline void SetReplicationStatus(ReplicationStatus&& value) { m_replicationStatus = std::move(value); }
 
     /**
-     * <p/>
+     * <p>Amazon S3 can return this header if your request involves a bucket that is
+     * either a source or destination in a replication rule.</p> <p>In replication, you
+     * have a source bucket on which you configure replication and destination bucket
+     * where Amazon S3 stores object replicas. When you request an object
+     * (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these
+     * buckets, Amazon S3 will return the <code>x-amz-replication-status</code> header
+     * in the response as follows:</p> <ul> <li> <p>If requesting an object from the
+     * source bucket — Amazon S3 will return the <code>x-amz-replication-status</code>
+     * header if the object in your request is eligible for replication.</p> <p> For
+     * example, suppose that in your replication configuration, you specify object
+     * prefix <code>TaxDocs</code> requesting Amazon S3 to replicate objects with key
+     * prefix <code>TaxDocs</code>. Any objects you upload with this key name prefix,
+     * for example <code>TaxDocs/document1.pdf</code>, are eligible for replication.
+     * For any object request with this key name prefix, Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value PENDING, COMPLETED or
+     * FAILED indicating object replication status.</p> </li> <li> <p>If requesting an
+     * object from the destination bucket — Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value REPLICA if the object in
+     * your request is a replica that Amazon S3 created.</p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p>
      */
     inline HeadObjectResult& WithReplicationStatus(const ReplicationStatus& value) { SetReplicationStatus(value); return *this;}
 
     /**
-     * <p/>
+     * <p>Amazon S3 can return this header if your request involves a bucket that is
+     * either a source or destination in a replication rule.</p> <p>In replication, you
+     * have a source bucket on which you configure replication and destination bucket
+     * where Amazon S3 stores object replicas. When you request an object
+     * (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these
+     * buckets, Amazon S3 will return the <code>x-amz-replication-status</code> header
+     * in the response as follows:</p> <ul> <li> <p>If requesting an object from the
+     * source bucket — Amazon S3 will return the <code>x-amz-replication-status</code>
+     * header if the object in your request is eligible for replication.</p> <p> For
+     * example, suppose that in your replication configuration, you specify object
+     * prefix <code>TaxDocs</code> requesting Amazon S3 to replicate objects with key
+     * prefix <code>TaxDocs</code>. Any objects you upload with this key name prefix,
+     * for example <code>TaxDocs/document1.pdf</code>, are eligible for replication.
+     * For any object request with this key name prefix, Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value PENDING, COMPLETED or
+     * FAILED indicating object replication status.</p> </li> <li> <p>If requesting an
+     * object from the destination bucket — Amazon S3 will return the
+     * <code>x-amz-replication-status</code> header with value REPLICA if the object in
+     * your request is a replica that Amazon S3 created.</p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p>
      */
     inline HeadObjectResult& WithReplicationStatus(ReplicationStatus&& value) { SetReplicationStatus(std::move(value)); return *this;}
 
@@ -941,79 +1144,139 @@ namespace Model
 
 
     /**
-     * <p>The object lock mode currently in place for this object.</p>
+     * <p>The Object Lock mode, if any, that's in effect for this object. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission. For more information about S3 Object Lock, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>. </p>
      */
     inline const ObjectLockMode& GetObjectLockMode() const{ return m_objectLockMode; }
 
     /**
-     * <p>The object lock mode currently in place for this object.</p>
+     * <p>The Object Lock mode, if any, that's in effect for this object. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission. For more information about S3 Object Lock, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>. </p>
      */
     inline void SetObjectLockMode(const ObjectLockMode& value) { m_objectLockMode = value; }
 
     /**
-     * <p>The object lock mode currently in place for this object.</p>
+     * <p>The Object Lock mode, if any, that's in effect for this object. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission. For more information about S3 Object Lock, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>. </p>
      */
     inline void SetObjectLockMode(ObjectLockMode&& value) { m_objectLockMode = std::move(value); }
 
     /**
-     * <p>The object lock mode currently in place for this object.</p>
+     * <p>The Object Lock mode, if any, that's in effect for this object. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission. For more information about S3 Object Lock, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>. </p>
      */
     inline HeadObjectResult& WithObjectLockMode(const ObjectLockMode& value) { SetObjectLockMode(value); return *this;}
 
     /**
-     * <p>The object lock mode currently in place for this object.</p>
+     * <p>The Object Lock mode, if any, that's in effect for this object. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission. For more information about S3 Object Lock, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>. </p>
      */
     inline HeadObjectResult& WithObjectLockMode(ObjectLockMode&& value) { SetObjectLockMode(std::move(value)); return *this;}
 
 
     /**
-     * <p>The date and time when this object's object lock expires.</p>
+     * <p>The date and time when the Object Lock retention period expires. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission.</p>
      */
     inline const Aws::Utils::DateTime& GetObjectLockRetainUntilDate() const{ return m_objectLockRetainUntilDate; }
 
     /**
-     * <p>The date and time when this object's object lock expires.</p>
+     * <p>The date and time when the Object Lock retention period expires. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission.</p>
      */
     inline void SetObjectLockRetainUntilDate(const Aws::Utils::DateTime& value) { m_objectLockRetainUntilDate = value; }
 
     /**
-     * <p>The date and time when this object's object lock expires.</p>
+     * <p>The date and time when the Object Lock retention period expires. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission.</p>
      */
     inline void SetObjectLockRetainUntilDate(Aws::Utils::DateTime&& value) { m_objectLockRetainUntilDate = std::move(value); }
 
     /**
-     * <p>The date and time when this object's object lock expires.</p>
+     * <p>The date and time when the Object Lock retention period expires. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission.</p>
      */
     inline HeadObjectResult& WithObjectLockRetainUntilDate(const Aws::Utils::DateTime& value) { SetObjectLockRetainUntilDate(value); return *this;}
 
     /**
-     * <p>The date and time when this object's object lock expires.</p>
+     * <p>The date and time when the Object Lock retention period expires. This header
+     * is only returned if the requester has the <code>s3:GetObjectRetention</code>
+     * permission.</p>
      */
     inline HeadObjectResult& WithObjectLockRetainUntilDate(Aws::Utils::DateTime&& value) { SetObjectLockRetainUntilDate(std::move(value)); return *this;}
 
 
     /**
-     * <p>The Legal Hold status for the specified object.</p>
+     * <p>Specifies whether a legal hold is in effect for this object. This header is
+     * only returned if the requester has the <code>s3:GetObjectLegalHold</code>
+     * permission. This header is not returned if the specified version of this object
+     * has never had a legal hold applied. For more information about S3 Object Lock,
+     * see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>.</p>
      */
     inline const ObjectLockLegalHoldStatus& GetObjectLockLegalHoldStatus() const{ return m_objectLockLegalHoldStatus; }
 
     /**
-     * <p>The Legal Hold status for the specified object.</p>
+     * <p>Specifies whether a legal hold is in effect for this object. This header is
+     * only returned if the requester has the <code>s3:GetObjectLegalHold</code>
+     * permission. This header is not returned if the specified version of this object
+     * has never had a legal hold applied. For more information about S3 Object Lock,
+     * see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>.</p>
      */
     inline void SetObjectLockLegalHoldStatus(const ObjectLockLegalHoldStatus& value) { m_objectLockLegalHoldStatus = value; }
 
     /**
-     * <p>The Legal Hold status for the specified object.</p>
+     * <p>Specifies whether a legal hold is in effect for this object. This header is
+     * only returned if the requester has the <code>s3:GetObjectLegalHold</code>
+     * permission. This header is not returned if the specified version of this object
+     * has never had a legal hold applied. For more information about S3 Object Lock,
+     * see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>.</p>
      */
     inline void SetObjectLockLegalHoldStatus(ObjectLockLegalHoldStatus&& value) { m_objectLockLegalHoldStatus = std::move(value); }
 
     /**
-     * <p>The Legal Hold status for the specified object.</p>
+     * <p>Specifies whether a legal hold is in effect for this object. This header is
+     * only returned if the requester has the <code>s3:GetObjectLegalHold</code>
+     * permission. This header is not returned if the specified version of this object
+     * has never had a legal hold applied. For more information about S3 Object Lock,
+     * see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>.</p>
      */
     inline HeadObjectResult& WithObjectLockLegalHoldStatus(const ObjectLockLegalHoldStatus& value) { SetObjectLockLegalHoldStatus(value); return *this;}
 
     /**
-     * <p>The Legal Hold status for the specified object.</p>
+     * <p>Specifies whether a legal hold is in effect for this object. This header is
+     * only returned if the requester has the <code>s3:GetObjectLegalHold</code>
+     * permission. This header is not returned if the specified version of this object
+     * has never had a legal hold applied. For more information about S3 Object Lock,
+     * see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object
+     * Lock</a>.</p>
      */
     inline HeadObjectResult& WithObjectLockLegalHoldStatus(ObjectLockLegalHoldStatus&& value) { SetObjectLockLegalHoldStatus(std::move(value)); return *this;}
 

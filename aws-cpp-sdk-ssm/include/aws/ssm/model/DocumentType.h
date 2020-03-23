@@ -30,7 +30,11 @@ namespace Model
     Policy,
     Automation,
     Session,
-    Package
+    Package,
+    ApplicationConfiguration,
+    ApplicationConfigurationSchema,
+    DeploymentStrategy,
+    ChangeCalendar
   };
 
 namespace DocumentTypeMapper

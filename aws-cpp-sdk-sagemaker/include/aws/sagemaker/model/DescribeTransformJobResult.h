@@ -24,6 +24,7 @@
 #include <aws/sagemaker/model/TransformResources.h>
 #include <aws/core/utils/DateTime.h>
 #include <aws/sagemaker/model/DataProcessing.h>
+#include <aws/sagemaker/model/ExperimentConfig.h>
 #include <utility>
 
 namespace Aws
@@ -157,7 +158,7 @@ namespace Model
      * <p>If the transform job failed, <code>FailureReason</code> describes why it
      * failed. A transform job creates a log file, which includes error messages, and
      * stores it as an Amazon S3 object. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
      * Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
      */
     inline const Aws::String& GetFailureReason() const{ return m_failureReason; }
@@ -166,7 +167,7 @@ namespace Model
      * <p>If the transform job failed, <code>FailureReason</code> describes why it
      * failed. A transform job creates a log file, which includes error messages, and
      * stores it as an Amazon S3 object. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
      * Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
      */
     inline void SetFailureReason(const Aws::String& value) { m_failureReason = value; }
@@ -175,7 +176,7 @@ namespace Model
      * <p>If the transform job failed, <code>FailureReason</code> describes why it
      * failed. A transform job creates a log file, which includes error messages, and
      * stores it as an Amazon S3 object. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
      * Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
      */
     inline void SetFailureReason(Aws::String&& value) { m_failureReason = std::move(value); }
@@ -184,7 +185,7 @@ namespace Model
      * <p>If the transform job failed, <code>FailureReason</code> describes why it
      * failed. A transform job creates a log file, which includes error messages, and
      * stores it as an Amazon S3 object. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
      * Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
      */
     inline void SetFailureReason(const char* value) { m_failureReason.assign(value); }
@@ -193,7 +194,7 @@ namespace Model
      * <p>If the transform job failed, <code>FailureReason</code> describes why it
      * failed. A transform job creates a log file, which includes error messages, and
      * stores it as an Amazon S3 object. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
      * Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
      */
     inline DescribeTransformJobResult& WithFailureReason(const Aws::String& value) { SetFailureReason(value); return *this;}
@@ -202,7 +203,7 @@ namespace Model
      * <p>If the transform job failed, <code>FailureReason</code> describes why it
      * failed. A transform job creates a log file, which includes error messages, and
      * stores it as an Amazon S3 object. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
      * Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
      */
     inline DescribeTransformJobResult& WithFailureReason(Aws::String&& value) { SetFailureReason(std::move(value)); return *this;}
@@ -211,7 +212,7 @@ namespace Model
      * <p>If the transform job failed, <code>FailureReason</code> describes why it
      * failed. A transform job creates a log file, which includes error messages, and
      * stores it as an Amazon S3 object. For more information, see <a
-     * href="http://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
+     * href="https://docs.aws.amazon.com/sagemaker/latest/dg/logging-cloudwatch.html">Log
      * Amazon SageMaker Events with Amazon CloudWatch</a>.</p>
      */
     inline DescribeTransformJobResult& WithFailureReason(const char* value) { SetFailureReason(value); return *this;}
@@ -641,6 +642,42 @@ namespace Model
     inline DescribeTransformJobResult& WithLabelingJobArn(const char* value) { SetLabelingJobArn(value); return *this;}
 
 
+    /**
+     * <p/>
+     */
+    inline const Aws::String& GetAutoMLJobArn() const{ return m_autoMLJobArn; }
+
+    /**
+     * <p/>
+     */
+    inline void SetAutoMLJobArn(const Aws::String& value) { m_autoMLJobArn = value; }
+
+    /**
+     * <p/>
+     */
+    inline void SetAutoMLJobArn(Aws::String&& value) { m_autoMLJobArn = std::move(value); }
+
+    /**
+     * <p/>
+     */
+    inline void SetAutoMLJobArn(const char* value) { m_autoMLJobArn.assign(value); }
+
+    /**
+     * <p/>
+     */
+    inline DescribeTransformJobResult& WithAutoMLJobArn(const Aws::String& value) { SetAutoMLJobArn(value); return *this;}
+
+    /**
+     * <p/>
+     */
+    inline DescribeTransformJobResult& WithAutoMLJobArn(Aws::String&& value) { SetAutoMLJobArn(std::move(value)); return *this;}
+
+    /**
+     * <p/>
+     */
+    inline DescribeTransformJobResult& WithAutoMLJobArn(const char* value) { SetAutoMLJobArn(value); return *this;}
+
+
     
     inline const DataProcessing& GetDataProcessing() const{ return m_dataProcessing; }
 
@@ -655,6 +692,22 @@ namespace Model
 
     
     inline DescribeTransformJobResult& WithDataProcessing(DataProcessing&& value) { SetDataProcessing(std::move(value)); return *this;}
+
+
+    
+    inline const ExperimentConfig& GetExperimentConfig() const{ return m_experimentConfig; }
+
+    
+    inline void SetExperimentConfig(const ExperimentConfig& value) { m_experimentConfig = value; }
+
+    
+    inline void SetExperimentConfig(ExperimentConfig&& value) { m_experimentConfig = std::move(value); }
+
+    
+    inline DescribeTransformJobResult& WithExperimentConfig(const ExperimentConfig& value) { SetExperimentConfig(value); return *this;}
+
+    
+    inline DescribeTransformJobResult& WithExperimentConfig(ExperimentConfig&& value) { SetExperimentConfig(std::move(value)); return *this;}
 
   private:
 
@@ -690,7 +743,11 @@ namespace Model
 
     Aws::String m_labelingJobArn;
 
+    Aws::String m_autoMLJobArn;
+
     DataProcessing m_dataProcessing;
+
+    ExperimentConfig m_experimentConfig;
   };
 
 } // namespace Model

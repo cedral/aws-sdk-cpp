@@ -45,10 +45,14 @@ ClientVpnEndpoint::ClientVpnEndpoint() :
     m_vpnProtocolHasBeenSet(false),
     m_transportProtocol(TransportProtocol::NOT_SET),
     m_transportProtocolHasBeenSet(false),
+    m_vpnPort(0),
+    m_vpnPortHasBeenSet(false),
     m_serverCertificateArnHasBeenSet(false),
     m_authenticationOptionsHasBeenSet(false),
     m_connectionLogOptionsHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_securityGroupIdsHasBeenSet(false),
+    m_vpcIdHasBeenSet(false)
 {
 }
 
@@ -67,10 +71,14 @@ ClientVpnEndpoint::ClientVpnEndpoint(const XmlNode& xmlNode) :
     m_vpnProtocolHasBeenSet(false),
     m_transportProtocol(TransportProtocol::NOT_SET),
     m_transportProtocolHasBeenSet(false),
+    m_vpnPort(0),
+    m_vpnPortHasBeenSet(false),
     m_serverCertificateArnHasBeenSet(false),
     m_authenticationOptionsHasBeenSet(false),
     m_connectionLogOptionsHasBeenSet(false),
-    m_tagsHasBeenSet(false)
+    m_tagsHasBeenSet(false),
+    m_securityGroupIdsHasBeenSet(false),
+    m_vpcIdHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -84,13 +92,13 @@ ClientVpnEndpoint& ClientVpnEndpoint::operator =(const XmlNode& xmlNode)
     XmlNode clientVpnEndpointIdNode = resultNode.FirstChild("clientVpnEndpointId");
     if(!clientVpnEndpointIdNode.IsNull())
     {
-      m_clientVpnEndpointId = clientVpnEndpointIdNode.GetText();
+      m_clientVpnEndpointId = Aws::Utils::Xml::DecodeEscapedXmlText(clientVpnEndpointIdNode.GetText());
       m_clientVpnEndpointIdHasBeenSet = true;
     }
     XmlNode descriptionNode = resultNode.FirstChild("description");
     if(!descriptionNode.IsNull())
     {
-      m_description = descriptionNode.GetText();
+      m_description = Aws::Utils::Xml::DecodeEscapedXmlText(descriptionNode.GetText());
       m_descriptionHasBeenSet = true;
     }
     XmlNode statusNode = resultNode.FirstChild("status");
@@ -102,25 +110,25 @@ ClientVpnEndpoint& ClientVpnEndpoint::operator =(const XmlNode& xmlNode)
     XmlNode creationTimeNode = resultNode.FirstChild("creationTime");
     if(!creationTimeNode.IsNull())
     {
-      m_creationTime = creationTimeNode.GetText();
+      m_creationTime = Aws::Utils::Xml::DecodeEscapedXmlText(creationTimeNode.GetText());
       m_creationTimeHasBeenSet = true;
     }
     XmlNode deletionTimeNode = resultNode.FirstChild("deletionTime");
     if(!deletionTimeNode.IsNull())
     {
-      m_deletionTime = deletionTimeNode.GetText();
+      m_deletionTime = Aws::Utils::Xml::DecodeEscapedXmlText(deletionTimeNode.GetText());
       m_deletionTimeHasBeenSet = true;
     }
     XmlNode dnsNameNode = resultNode.FirstChild("dnsName");
     if(!dnsNameNode.IsNull())
     {
-      m_dnsName = dnsNameNode.GetText();
+      m_dnsName = Aws::Utils::Xml::DecodeEscapedXmlText(dnsNameNode.GetText());
       m_dnsNameHasBeenSet = true;
     }
     XmlNode clientCidrBlockNode = resultNode.FirstChild("clientCidrBlock");
     if(!clientCidrBlockNode.IsNull())
     {
-      m_clientCidrBlock = clientCidrBlockNode.GetText();
+      m_clientCidrBlock = Aws::Utils::Xml::DecodeEscapedXmlText(clientCidrBlockNode.GetText());
       m_clientCidrBlockHasBeenSet = true;
     }
     XmlNode dnsServersNode = resultNode.FirstChild("dnsServer");
@@ -138,25 +146,31 @@ ClientVpnEndpoint& ClientVpnEndpoint::operator =(const XmlNode& xmlNode)
     XmlNode splitTunnelNode = resultNode.FirstChild("splitTunnel");
     if(!splitTunnelNode.IsNull())
     {
-      m_splitTunnel = StringUtils::ConvertToBool(StringUtils::Trim(splitTunnelNode.GetText().c_str()).c_str());
+      m_splitTunnel = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(splitTunnelNode.GetText()).c_str()).c_str());
       m_splitTunnelHasBeenSet = true;
     }
     XmlNode vpnProtocolNode = resultNode.FirstChild("vpnProtocol");
     if(!vpnProtocolNode.IsNull())
     {
-      m_vpnProtocol = VpnProtocolMapper::GetVpnProtocolForName(StringUtils::Trim(vpnProtocolNode.GetText().c_str()).c_str());
+      m_vpnProtocol = VpnProtocolMapper::GetVpnProtocolForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(vpnProtocolNode.GetText()).c_str()).c_str());
       m_vpnProtocolHasBeenSet = true;
     }
     XmlNode transportProtocolNode = resultNode.FirstChild("transportProtocol");
     if(!transportProtocolNode.IsNull())
     {
-      m_transportProtocol = TransportProtocolMapper::GetTransportProtocolForName(StringUtils::Trim(transportProtocolNode.GetText().c_str()).c_str());
+      m_transportProtocol = TransportProtocolMapper::GetTransportProtocolForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(transportProtocolNode.GetText()).c_str()).c_str());
       m_transportProtocolHasBeenSet = true;
+    }
+    XmlNode vpnPortNode = resultNode.FirstChild("vpnPort");
+    if(!vpnPortNode.IsNull())
+    {
+      m_vpnPort = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(vpnPortNode.GetText()).c_str()).c_str());
+      m_vpnPortHasBeenSet = true;
     }
     XmlNode serverCertificateArnNode = resultNode.FirstChild("serverCertificateArn");
     if(!serverCertificateArnNode.IsNull())
     {
-      m_serverCertificateArn = serverCertificateArnNode.GetText();
+      m_serverCertificateArn = Aws::Utils::Xml::DecodeEscapedXmlText(serverCertificateArnNode.GetText());
       m_serverCertificateArnHasBeenSet = true;
     }
     XmlNode authenticationOptionsNode = resultNode.FirstChild("authenticationOptions");
@@ -188,6 +202,24 @@ ClientVpnEndpoint& ClientVpnEndpoint::operator =(const XmlNode& xmlNode)
       }
 
       m_tagsHasBeenSet = true;
+    }
+    XmlNode securityGroupIdsNode = resultNode.FirstChild("securityGroupIdSet");
+    if(!securityGroupIdsNode.IsNull())
+    {
+      XmlNode securityGroupIdsMember = securityGroupIdsNode.FirstChild("item");
+      while(!securityGroupIdsMember.IsNull())
+      {
+        m_securityGroupIds.push_back(securityGroupIdsMember.GetText());
+        securityGroupIdsMember = securityGroupIdsMember.NextNode("item");
+      }
+
+      m_securityGroupIdsHasBeenSet = true;
+    }
+    XmlNode vpcIdNode = resultNode.FirstChild("vpcId");
+    if(!vpcIdNode.IsNull())
+    {
+      m_vpcId = Aws::Utils::Xml::DecodeEscapedXmlText(vpcIdNode.GetText());
+      m_vpcIdHasBeenSet = true;
     }
   }
 
@@ -257,6 +289,11 @@ void ClientVpnEndpoint::OutputToStream(Aws::OStream& oStream, const char* locati
       oStream << location << index << locationValue << ".TransportProtocol=" << TransportProtocolMapper::GetNameForTransportProtocol(m_transportProtocol) << "&";
   }
 
+  if(m_vpnPortHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".VpnPort=" << m_vpnPort << "&";
+  }
+
   if(m_serverCertificateArnHasBeenSet)
   {
       oStream << location << index << locationValue << ".ServerCertificateArn=" << StringUtils::URLEncode(m_serverCertificateArn.c_str()) << "&";
@@ -289,6 +326,20 @@ void ClientVpnEndpoint::OutputToStream(Aws::OStream& oStream, const char* locati
         tagsSs << location << index << locationValue << ".TagSet." << tagsIdx++;
         item.OutputToStream(oStream, tagsSs.str().c_str());
       }
+  }
+
+  if(m_securityGroupIdsHasBeenSet)
+  {
+      unsigned securityGroupIdsIdx = 1;
+      for(auto& item : m_securityGroupIds)
+      {
+        oStream << location << index << locationValue << ".SecurityGroupIdSet." << securityGroupIdsIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
+      }
+  }
+
+  if(m_vpcIdHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".VpcId=" << StringUtils::URLEncode(m_vpcId.c_str()) << "&";
   }
 
 }
@@ -345,6 +396,10 @@ void ClientVpnEndpoint::OutputToStream(Aws::OStream& oStream, const char* locati
   {
       oStream << location << ".TransportProtocol=" << TransportProtocolMapper::GetNameForTransportProtocol(m_transportProtocol) << "&";
   }
+  if(m_vpnPortHasBeenSet)
+  {
+      oStream << location << ".VpnPort=" << m_vpnPort << "&";
+  }
   if(m_serverCertificateArnHasBeenSet)
   {
       oStream << location << ".ServerCertificateArn=" << StringUtils::URLEncode(m_serverCertificateArn.c_str()) << "&";
@@ -374,6 +429,18 @@ void ClientVpnEndpoint::OutputToStream(Aws::OStream& oStream, const char* locati
         tagsSs << location <<  ".TagSet." << tagsIdx++;
         item.OutputToStream(oStream, tagsSs.str().c_str());
       }
+  }
+  if(m_securityGroupIdsHasBeenSet)
+  {
+      unsigned securityGroupIdsIdx = 1;
+      for(auto& item : m_securityGroupIds)
+      {
+        oStream << location << ".SecurityGroupIdSet." << securityGroupIdsIdx++ << "=" << StringUtils::URLEncode(item.c_str()) << "&";
+      }
+  }
+  if(m_vpcIdHasBeenSet)
+  {
+      oStream << location << ".VpcId=" << StringUtils::URLEncode(m_vpcId.c_str()) << "&";
   }
 }
 

@@ -34,6 +34,7 @@ CreateDBInstanceReadReplicaRequest::CreateDBInstanceReadReplicaRequest() :
     m_iops(0),
     m_iopsHasBeenSet(false),
     m_optionGroupNameHasBeenSet(false),
+    m_dBParameterGroupNameHasBeenSet(false),
     m_publiclyAccessible(false),
     m_publiclyAccessibleHasBeenSet(false),
     m_tagsHasBeenSet(false),
@@ -59,7 +60,9 @@ CreateDBInstanceReadReplicaRequest::CreateDBInstanceReadReplicaRequest() :
     m_useDefaultProcessorFeatures(false),
     m_useDefaultProcessorFeaturesHasBeenSet(false),
     m_deletionProtection(false),
-    m_deletionProtectionHasBeenSet(false)
+    m_deletionProtectionHasBeenSet(false),
+    m_domainHasBeenSet(false),
+    m_domainIAMRoleNameHasBeenSet(false)
 {
 }
 
@@ -110,6 +113,11 @@ Aws::String CreateDBInstanceReadReplicaRequest::SerializePayload() const
   if(m_optionGroupNameHasBeenSet)
   {
     ss << "OptionGroupName=" << StringUtils::URLEncode(m_optionGroupName.c_str()) << "&";
+  }
+
+  if(m_dBParameterGroupNameHasBeenSet)
+  {
+    ss << "DBParameterGroupName=" << StringUtils::URLEncode(m_dBParameterGroupName.c_str()) << "&";
   }
 
   if(m_publiclyAccessibleHasBeenSet)
@@ -222,6 +230,16 @@ Aws::String CreateDBInstanceReadReplicaRequest::SerializePayload() const
   if(m_deletionProtectionHasBeenSet)
   {
     ss << "DeletionProtection=" << std::boolalpha << m_deletionProtection << "&";
+  }
+
+  if(m_domainHasBeenSet)
+  {
+    ss << "Domain=" << StringUtils::URLEncode(m_domain.c_str()) << "&";
+  }
+
+  if(m_domainIAMRoleNameHasBeenSet)
+  {
+    ss << "DomainIAMRoleName=" << StringUtils::URLEncode(m_domainIAMRoleName.c_str()) << "&";
   }
 
   ss << "Version=2014-10-31";

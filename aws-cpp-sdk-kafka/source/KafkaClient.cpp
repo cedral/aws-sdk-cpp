@@ -42,12 +42,15 @@
 #include <aws/kafka/model/ListClustersRequest.h>
 #include <aws/kafka/model/ListConfigurationRevisionsRequest.h>
 #include <aws/kafka/model/ListConfigurationsRequest.h>
+#include <aws/kafka/model/ListKafkaVersionsRequest.h>
 #include <aws/kafka/model/ListNodesRequest.h>
 #include <aws/kafka/model/ListTagsForResourceRequest.h>
 #include <aws/kafka/model/TagResourceRequest.h>
 #include <aws/kafka/model/UntagResourceRequest.h>
+#include <aws/kafka/model/UpdateBrokerCountRequest.h>
 #include <aws/kafka/model/UpdateBrokerStorageRequest.h>
 #include <aws/kafka/model/UpdateClusterConfigurationRequest.h>
+#include <aws/kafka/model/UpdateMonitoringRequest.h>
 
 using namespace Aws;
 using namespace Aws::Auth;
@@ -127,7 +130,7 @@ CreateClusterOutcome KafkaClient::CreateCluster(const CreateClusterRequest& requ
   Aws::StringStream ss;
   ss << "/v1/clusters";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateClusterOutcome(CreateClusterResult(outcome.GetResult()));
@@ -162,7 +165,7 @@ CreateConfigurationOutcome KafkaClient::CreateConfiguration(const CreateConfigur
   Aws::StringStream ss;
   ss << "/v1/configurations";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateConfigurationOutcome(CreateConfigurationResult(outcome.GetResult()));
@@ -203,7 +206,7 @@ DeleteClusterOutcome KafkaClient::DeleteCluster(const DeleteClusterRequest& requ
   ss << "/v1/clusters/";
   ss << request.GetClusterArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteClusterOutcome(DeleteClusterResult(outcome.GetResult()));
@@ -244,7 +247,7 @@ DescribeClusterOutcome KafkaClient::DescribeCluster(const DescribeClusterRequest
   ss << "/v1/clusters/";
   ss << request.GetClusterArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeClusterOutcome(DescribeClusterResult(outcome.GetResult()));
@@ -285,7 +288,7 @@ DescribeClusterOperationOutcome KafkaClient::DescribeClusterOperation(const Desc
   ss << "/v1/operations/";
   ss << request.GetClusterOperationArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeClusterOperationOutcome(DescribeClusterOperationResult(outcome.GetResult()));
@@ -326,7 +329,7 @@ DescribeConfigurationOutcome KafkaClient::DescribeConfiguration(const DescribeCo
   ss << "/v1/configurations/";
   ss << request.GetArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeConfigurationOutcome(DescribeConfigurationResult(outcome.GetResult()));
@@ -374,7 +377,7 @@ DescribeConfigurationRevisionOutcome KafkaClient::DescribeConfigurationRevision(
   ss << "/revisions/";
   ss << request.GetRevision();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeConfigurationRevisionOutcome(DescribeConfigurationRevisionResult(outcome.GetResult()));
@@ -416,7 +419,7 @@ GetBootstrapBrokersOutcome KafkaClient::GetBootstrapBrokers(const GetBootstrapBr
   ss << request.GetClusterArn();
   ss << "/bootstrap-brokers";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBootstrapBrokersOutcome(GetBootstrapBrokersResult(outcome.GetResult()));
@@ -458,7 +461,7 @@ ListClusterOperationsOutcome KafkaClient::ListClusterOperations(const ListCluste
   ss << request.GetClusterArn();
   ss << "/operations";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListClusterOperationsOutcome(ListClusterOperationsResult(outcome.GetResult()));
@@ -493,7 +496,7 @@ ListClustersOutcome KafkaClient::ListClusters(const ListClustersRequest& request
   Aws::StringStream ss;
   ss << "/v1/clusters";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListClustersOutcome(ListClustersResult(outcome.GetResult()));
@@ -535,7 +538,7 @@ ListConfigurationRevisionsOutcome KafkaClient::ListConfigurationRevisions(const 
   ss << request.GetArn();
   ss << "/revisions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListConfigurationRevisionsOutcome(ListConfigurationRevisionsResult(outcome.GetResult()));
@@ -570,7 +573,7 @@ ListConfigurationsOutcome KafkaClient::ListConfigurations(const ListConfiguratio
   Aws::StringStream ss;
   ss << "/v1/configurations";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListConfigurationsOutcome(ListConfigurationsResult(outcome.GetResult()));
@@ -599,6 +602,41 @@ void KafkaClient::ListConfigurationsAsyncHelper(const ListConfigurationsRequest&
   handler(this, request, ListConfigurations(request), context);
 }
 
+ListKafkaVersionsOutcome KafkaClient::ListKafkaVersions(const ListKafkaVersionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/kafka-versions";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListKafkaVersionsOutcome(ListKafkaVersionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListKafkaVersionsOutcome(outcome.GetError());
+  }
+}
+
+ListKafkaVersionsOutcomeCallable KafkaClient::ListKafkaVersionsCallable(const ListKafkaVersionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListKafkaVersionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListKafkaVersions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KafkaClient::ListKafkaVersionsAsync(const ListKafkaVersionsRequest& request, const ListKafkaVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListKafkaVersionsAsyncHelper( request, handler, context ); } );
+}
+
+void KafkaClient::ListKafkaVersionsAsyncHelper(const ListKafkaVersionsRequest& request, const ListKafkaVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListKafkaVersions(request), context);
+}
+
 ListNodesOutcome KafkaClient::ListNodes(const ListNodesRequest& request) const
 {
   if (!request.ClusterArnHasBeenSet())
@@ -612,7 +650,7 @@ ListNodesOutcome KafkaClient::ListNodes(const ListNodesRequest& request) const
   ss << request.GetClusterArn();
   ss << "/nodes";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListNodesOutcome(ListNodesResult(outcome.GetResult()));
@@ -653,7 +691,7 @@ ListTagsForResourceOutcome KafkaClient::ListTagsForResource(const ListTagsForRes
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -694,7 +732,7 @@ TagResourceOutcome KafkaClient::TagResource(const TagResourceRequest& request) c
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(NoResult());
@@ -740,7 +778,7 @@ UntagResourceOutcome KafkaClient::UntagResource(const UntagResourceRequest& requ
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(NoResult());
@@ -769,6 +807,48 @@ void KafkaClient::UntagResourceAsyncHelper(const UntagResourceRequest& request, 
   handler(this, request, UntagResource(request), context);
 }
 
+UpdateBrokerCountOutcome KafkaClient::UpdateBrokerCount(const UpdateBrokerCountRequest& request) const
+{
+  if (!request.ClusterArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateBrokerCount", "Required field: ClusterArn, is not set");
+    return UpdateBrokerCountOutcome(Aws::Client::AWSError<KafkaErrors>(KafkaErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ClusterArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/clusters/";
+  ss << request.GetClusterArn();
+  ss << "/nodes/count";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateBrokerCountOutcome(UpdateBrokerCountResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateBrokerCountOutcome(outcome.GetError());
+  }
+}
+
+UpdateBrokerCountOutcomeCallable KafkaClient::UpdateBrokerCountCallable(const UpdateBrokerCountRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateBrokerCountOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateBrokerCount(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KafkaClient::UpdateBrokerCountAsync(const UpdateBrokerCountRequest& request, const UpdateBrokerCountResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateBrokerCountAsyncHelper( request, handler, context ); } );
+}
+
+void KafkaClient::UpdateBrokerCountAsyncHelper(const UpdateBrokerCountRequest& request, const UpdateBrokerCountResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateBrokerCount(request), context);
+}
+
 UpdateBrokerStorageOutcome KafkaClient::UpdateBrokerStorage(const UpdateBrokerStorageRequest& request) const
 {
   if (!request.ClusterArnHasBeenSet())
@@ -782,7 +862,7 @@ UpdateBrokerStorageOutcome KafkaClient::UpdateBrokerStorage(const UpdateBrokerSt
   ss << request.GetClusterArn();
   ss << "/nodes/storage";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateBrokerStorageOutcome(UpdateBrokerStorageResult(outcome.GetResult()));
@@ -824,7 +904,7 @@ UpdateClusterConfigurationOutcome KafkaClient::UpdateClusterConfiguration(const 
   ss << request.GetClusterArn();
   ss << "/configuration";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateClusterConfigurationOutcome(UpdateClusterConfigurationResult(outcome.GetResult()));
@@ -851,5 +931,47 @@ void KafkaClient::UpdateClusterConfigurationAsync(const UpdateClusterConfigurati
 void KafkaClient::UpdateClusterConfigurationAsyncHelper(const UpdateClusterConfigurationRequest& request, const UpdateClusterConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, UpdateClusterConfiguration(request), context);
+}
+
+UpdateMonitoringOutcome KafkaClient::UpdateMonitoring(const UpdateMonitoringRequest& request) const
+{
+  if (!request.ClusterArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateMonitoring", "Required field: ClusterArn, is not set");
+    return UpdateMonitoringOutcome(Aws::Client::AWSError<KafkaErrors>(KafkaErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ClusterArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/clusters/";
+  ss << request.GetClusterArn();
+  ss << "/monitoring";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateMonitoringOutcome(UpdateMonitoringResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateMonitoringOutcome(outcome.GetError());
+  }
+}
+
+UpdateMonitoringOutcomeCallable KafkaClient::UpdateMonitoringCallable(const UpdateMonitoringRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateMonitoringOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateMonitoring(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KafkaClient::UpdateMonitoringAsync(const UpdateMonitoringRequest& request, const UpdateMonitoringResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateMonitoringAsyncHelper( request, handler, context ); } );
+}
+
+void KafkaClient::UpdateMonitoringAsyncHelper(const UpdateMonitoringRequest& request, const UpdateMonitoringResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateMonitoring(request), context);
 }
 

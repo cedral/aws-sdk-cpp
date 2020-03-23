@@ -32,9 +32,15 @@
 #include <aws/pinpoint/PinpointErrorMarshaller.h>
 #include <aws/pinpoint/model/CreateAppRequest.h>
 #include <aws/pinpoint/model/CreateCampaignRequest.h>
+#include <aws/pinpoint/model/CreateEmailTemplateRequest.h>
 #include <aws/pinpoint/model/CreateExportJobRequest.h>
 #include <aws/pinpoint/model/CreateImportJobRequest.h>
+#include <aws/pinpoint/model/CreateJourneyRequest.h>
+#include <aws/pinpoint/model/CreatePushTemplateRequest.h>
+#include <aws/pinpoint/model/CreateRecommenderConfigurationRequest.h>
 #include <aws/pinpoint/model/CreateSegmentRequest.h>
+#include <aws/pinpoint/model/CreateSmsTemplateRequest.h>
+#include <aws/pinpoint/model/CreateVoiceTemplateRequest.h>
 #include <aws/pinpoint/model/DeleteAdmChannelRequest.h>
 #include <aws/pinpoint/model/DeleteApnsChannelRequest.h>
 #include <aws/pinpoint/model/DeleteApnsSandboxChannelRequest.h>
@@ -44,13 +50,19 @@
 #include <aws/pinpoint/model/DeleteBaiduChannelRequest.h>
 #include <aws/pinpoint/model/DeleteCampaignRequest.h>
 #include <aws/pinpoint/model/DeleteEmailChannelRequest.h>
+#include <aws/pinpoint/model/DeleteEmailTemplateRequest.h>
 #include <aws/pinpoint/model/DeleteEndpointRequest.h>
 #include <aws/pinpoint/model/DeleteEventStreamRequest.h>
 #include <aws/pinpoint/model/DeleteGcmChannelRequest.h>
+#include <aws/pinpoint/model/DeleteJourneyRequest.h>
+#include <aws/pinpoint/model/DeletePushTemplateRequest.h>
+#include <aws/pinpoint/model/DeleteRecommenderConfigurationRequest.h>
 #include <aws/pinpoint/model/DeleteSegmentRequest.h>
 #include <aws/pinpoint/model/DeleteSmsChannelRequest.h>
+#include <aws/pinpoint/model/DeleteSmsTemplateRequest.h>
 #include <aws/pinpoint/model/DeleteUserEndpointsRequest.h>
 #include <aws/pinpoint/model/DeleteVoiceChannelRequest.h>
+#include <aws/pinpoint/model/DeleteVoiceTemplateRequest.h>
 #include <aws/pinpoint/model/GetAdmChannelRequest.h>
 #include <aws/pinpoint/model/GetApnsChannelRequest.h>
 #include <aws/pinpoint/model/GetApnsSandboxChannelRequest.h>
@@ -69,6 +81,7 @@
 #include <aws/pinpoint/model/GetCampaignsRequest.h>
 #include <aws/pinpoint/model/GetChannelsRequest.h>
 #include <aws/pinpoint/model/GetEmailChannelRequest.h>
+#include <aws/pinpoint/model/GetEmailTemplateRequest.h>
 #include <aws/pinpoint/model/GetEndpointRequest.h>
 #include <aws/pinpoint/model/GetEventStreamRequest.h>
 #include <aws/pinpoint/model/GetExportJobRequest.h>
@@ -76,6 +89,13 @@
 #include <aws/pinpoint/model/GetGcmChannelRequest.h>
 #include <aws/pinpoint/model/GetImportJobRequest.h>
 #include <aws/pinpoint/model/GetImportJobsRequest.h>
+#include <aws/pinpoint/model/GetJourneyRequest.h>
+#include <aws/pinpoint/model/GetJourneyDateRangeKpiRequest.h>
+#include <aws/pinpoint/model/GetJourneyExecutionActivityMetricsRequest.h>
+#include <aws/pinpoint/model/GetJourneyExecutionMetricsRequest.h>
+#include <aws/pinpoint/model/GetPushTemplateRequest.h>
+#include <aws/pinpoint/model/GetRecommenderConfigurationRequest.h>
+#include <aws/pinpoint/model/GetRecommenderConfigurationsRequest.h>
 #include <aws/pinpoint/model/GetSegmentRequest.h>
 #include <aws/pinpoint/model/GetSegmentExportJobsRequest.h>
 #include <aws/pinpoint/model/GetSegmentImportJobsRequest.h>
@@ -83,9 +103,14 @@
 #include <aws/pinpoint/model/GetSegmentVersionsRequest.h>
 #include <aws/pinpoint/model/GetSegmentsRequest.h>
 #include <aws/pinpoint/model/GetSmsChannelRequest.h>
+#include <aws/pinpoint/model/GetSmsTemplateRequest.h>
 #include <aws/pinpoint/model/GetUserEndpointsRequest.h>
 #include <aws/pinpoint/model/GetVoiceChannelRequest.h>
+#include <aws/pinpoint/model/GetVoiceTemplateRequest.h>
+#include <aws/pinpoint/model/ListJourneysRequest.h>
 #include <aws/pinpoint/model/ListTagsForResourceRequest.h>
+#include <aws/pinpoint/model/ListTemplateVersionsRequest.h>
+#include <aws/pinpoint/model/ListTemplatesRequest.h>
 #include <aws/pinpoint/model/PhoneNumberValidateRequest.h>
 #include <aws/pinpoint/model/PutEventStreamRequest.h>
 #include <aws/pinpoint/model/PutEventsRequest.h>
@@ -103,12 +128,20 @@
 #include <aws/pinpoint/model/UpdateBaiduChannelRequest.h>
 #include <aws/pinpoint/model/UpdateCampaignRequest.h>
 #include <aws/pinpoint/model/UpdateEmailChannelRequest.h>
+#include <aws/pinpoint/model/UpdateEmailTemplateRequest.h>
 #include <aws/pinpoint/model/UpdateEndpointRequest.h>
 #include <aws/pinpoint/model/UpdateEndpointsBatchRequest.h>
 #include <aws/pinpoint/model/UpdateGcmChannelRequest.h>
+#include <aws/pinpoint/model/UpdateJourneyRequest.h>
+#include <aws/pinpoint/model/UpdateJourneyStateRequest.h>
+#include <aws/pinpoint/model/UpdatePushTemplateRequest.h>
+#include <aws/pinpoint/model/UpdateRecommenderConfigurationRequest.h>
 #include <aws/pinpoint/model/UpdateSegmentRequest.h>
 #include <aws/pinpoint/model/UpdateSmsChannelRequest.h>
+#include <aws/pinpoint/model/UpdateSmsTemplateRequest.h>
+#include <aws/pinpoint/model/UpdateTemplateActiveVersionRequest.h>
 #include <aws/pinpoint/model/UpdateVoiceChannelRequest.h>
+#include <aws/pinpoint/model/UpdateVoiceTemplateRequest.h>
 
 using namespace Aws;
 using namespace Aws::Auth;
@@ -188,7 +221,7 @@ CreateAppOutcome PinpointClient::CreateApp(const CreateAppRequest& request) cons
   Aws::StringStream ss;
   ss << "/v1/apps";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAppOutcome(CreateAppResult(outcome.GetResult()));
@@ -230,7 +263,7 @@ CreateCampaignOutcome PinpointClient::CreateCampaign(const CreateCampaignRequest
   ss << request.GetApplicationId();
   ss << "/campaigns";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateCampaignOutcome(CreateCampaignResult(outcome.GetResult()));
@@ -259,6 +292,48 @@ void PinpointClient::CreateCampaignAsyncHelper(const CreateCampaignRequest& requ
   handler(this, request, CreateCampaign(request), context);
 }
 
+CreateEmailTemplateOutcome PinpointClient::CreateEmailTemplate(const CreateEmailTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateEmailTemplate", "Required field: TemplateName, is not set");
+    return CreateEmailTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/email";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateEmailTemplateOutcome(CreateEmailTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateEmailTemplateOutcome(outcome.GetError());
+  }
+}
+
+CreateEmailTemplateOutcomeCallable PinpointClient::CreateEmailTemplateCallable(const CreateEmailTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateEmailTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateEmailTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::CreateEmailTemplateAsync(const CreateEmailTemplateRequest& request, const CreateEmailTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateEmailTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::CreateEmailTemplateAsyncHelper(const CreateEmailTemplateRequest& request, const CreateEmailTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateEmailTemplate(request), context);
+}
+
 CreateExportJobOutcome PinpointClient::CreateExportJob(const CreateExportJobRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -272,7 +347,7 @@ CreateExportJobOutcome PinpointClient::CreateExportJob(const CreateExportJobRequ
   ss << request.GetApplicationId();
   ss << "/jobs/export";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateExportJobOutcome(CreateExportJobResult(outcome.GetResult()));
@@ -314,7 +389,7 @@ CreateImportJobOutcome PinpointClient::CreateImportJob(const CreateImportJobRequ
   ss << request.GetApplicationId();
   ss << "/jobs/import";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateImportJobOutcome(CreateImportJobResult(outcome.GetResult()));
@@ -343,6 +418,125 @@ void PinpointClient::CreateImportJobAsyncHelper(const CreateImportJobRequest& re
   handler(this, request, CreateImportJob(request), context);
 }
 
+CreateJourneyOutcome PinpointClient::CreateJourney(const CreateJourneyRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateJourney", "Required field: ApplicationId, is not set");
+    return CreateJourneyOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateJourneyOutcome(CreateJourneyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateJourneyOutcome(outcome.GetError());
+  }
+}
+
+CreateJourneyOutcomeCallable PinpointClient::CreateJourneyCallable(const CreateJourneyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateJourneyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateJourney(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::CreateJourneyAsync(const CreateJourneyRequest& request, const CreateJourneyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateJourneyAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::CreateJourneyAsyncHelper(const CreateJourneyRequest& request, const CreateJourneyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateJourney(request), context);
+}
+
+CreatePushTemplateOutcome PinpointClient::CreatePushTemplate(const CreatePushTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreatePushTemplate", "Required field: TemplateName, is not set");
+    return CreatePushTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/push";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreatePushTemplateOutcome(CreatePushTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreatePushTemplateOutcome(outcome.GetError());
+  }
+}
+
+CreatePushTemplateOutcomeCallable PinpointClient::CreatePushTemplateCallable(const CreatePushTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreatePushTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreatePushTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::CreatePushTemplateAsync(const CreatePushTemplateRequest& request, const CreatePushTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreatePushTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::CreatePushTemplateAsyncHelper(const CreatePushTemplateRequest& request, const CreatePushTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreatePushTemplate(request), context);
+}
+
+CreateRecommenderConfigurationOutcome PinpointClient::CreateRecommenderConfiguration(const CreateRecommenderConfigurationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/recommenders";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateRecommenderConfigurationOutcome(CreateRecommenderConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateRecommenderConfigurationOutcome(outcome.GetError());
+  }
+}
+
+CreateRecommenderConfigurationOutcomeCallable PinpointClient::CreateRecommenderConfigurationCallable(const CreateRecommenderConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateRecommenderConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateRecommenderConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::CreateRecommenderConfigurationAsync(const CreateRecommenderConfigurationRequest& request, const CreateRecommenderConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateRecommenderConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::CreateRecommenderConfigurationAsyncHelper(const CreateRecommenderConfigurationRequest& request, const CreateRecommenderConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateRecommenderConfiguration(request), context);
+}
+
 CreateSegmentOutcome PinpointClient::CreateSegment(const CreateSegmentRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -356,7 +550,7 @@ CreateSegmentOutcome PinpointClient::CreateSegment(const CreateSegmentRequest& r
   ss << request.GetApplicationId();
   ss << "/segments";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSegmentOutcome(CreateSegmentResult(outcome.GetResult()));
@@ -385,6 +579,90 @@ void PinpointClient::CreateSegmentAsyncHelper(const CreateSegmentRequest& reques
   handler(this, request, CreateSegment(request), context);
 }
 
+CreateSmsTemplateOutcome PinpointClient::CreateSmsTemplate(const CreateSmsTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateSmsTemplate", "Required field: TemplateName, is not set");
+    return CreateSmsTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/sms";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateSmsTemplateOutcome(CreateSmsTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateSmsTemplateOutcome(outcome.GetError());
+  }
+}
+
+CreateSmsTemplateOutcomeCallable PinpointClient::CreateSmsTemplateCallable(const CreateSmsTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateSmsTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateSmsTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::CreateSmsTemplateAsync(const CreateSmsTemplateRequest& request, const CreateSmsTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateSmsTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::CreateSmsTemplateAsyncHelper(const CreateSmsTemplateRequest& request, const CreateSmsTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateSmsTemplate(request), context);
+}
+
+CreateVoiceTemplateOutcome PinpointClient::CreateVoiceTemplate(const CreateVoiceTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateVoiceTemplate", "Required field: TemplateName, is not set");
+    return CreateVoiceTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/voice";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateVoiceTemplateOutcome(CreateVoiceTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateVoiceTemplateOutcome(outcome.GetError());
+  }
+}
+
+CreateVoiceTemplateOutcomeCallable PinpointClient::CreateVoiceTemplateCallable(const CreateVoiceTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateVoiceTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateVoiceTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::CreateVoiceTemplateAsync(const CreateVoiceTemplateRequest& request, const CreateVoiceTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateVoiceTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::CreateVoiceTemplateAsyncHelper(const CreateVoiceTemplateRequest& request, const CreateVoiceTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateVoiceTemplate(request), context);
+}
+
 DeleteAdmChannelOutcome PinpointClient::DeleteAdmChannel(const DeleteAdmChannelRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -398,7 +676,7 @@ DeleteAdmChannelOutcome PinpointClient::DeleteAdmChannel(const DeleteAdmChannelR
   ss << request.GetApplicationId();
   ss << "/channels/adm";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAdmChannelOutcome(DeleteAdmChannelResult(outcome.GetResult()));
@@ -440,7 +718,7 @@ DeleteApnsChannelOutcome PinpointClient::DeleteApnsChannel(const DeleteApnsChann
   ss << request.GetApplicationId();
   ss << "/channels/apns";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApnsChannelOutcome(DeleteApnsChannelResult(outcome.GetResult()));
@@ -482,7 +760,7 @@ DeleteApnsSandboxChannelOutcome PinpointClient::DeleteApnsSandboxChannel(const D
   ss << request.GetApplicationId();
   ss << "/channels/apns_sandbox";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApnsSandboxChannelOutcome(DeleteApnsSandboxChannelResult(outcome.GetResult()));
@@ -524,7 +802,7 @@ DeleteApnsVoipChannelOutcome PinpointClient::DeleteApnsVoipChannel(const DeleteA
   ss << request.GetApplicationId();
   ss << "/channels/apns_voip";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApnsVoipChannelOutcome(DeleteApnsVoipChannelResult(outcome.GetResult()));
@@ -566,7 +844,7 @@ DeleteApnsVoipSandboxChannelOutcome PinpointClient::DeleteApnsVoipSandboxChannel
   ss << request.GetApplicationId();
   ss << "/channels/apns_voip_sandbox";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApnsVoipSandboxChannelOutcome(DeleteApnsVoipSandboxChannelResult(outcome.GetResult()));
@@ -607,7 +885,7 @@ DeleteAppOutcome PinpointClient::DeleteApp(const DeleteAppRequest& request) cons
   ss << "/v1/apps/";
   ss << request.GetApplicationId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAppOutcome(DeleteAppResult(outcome.GetResult()));
@@ -649,7 +927,7 @@ DeleteBaiduChannelOutcome PinpointClient::DeleteBaiduChannel(const DeleteBaiduCh
   ss << request.GetApplicationId();
   ss << "/channels/baidu";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBaiduChannelOutcome(DeleteBaiduChannelResult(outcome.GetResult()));
@@ -697,7 +975,7 @@ DeleteCampaignOutcome PinpointClient::DeleteCampaign(const DeleteCampaignRequest
   ss << "/campaigns/";
   ss << request.GetCampaignId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteCampaignOutcome(DeleteCampaignResult(outcome.GetResult()));
@@ -739,7 +1017,7 @@ DeleteEmailChannelOutcome PinpointClient::DeleteEmailChannel(const DeleteEmailCh
   ss << request.GetApplicationId();
   ss << "/channels/email";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteEmailChannelOutcome(DeleteEmailChannelResult(outcome.GetResult()));
@@ -768,6 +1046,48 @@ void PinpointClient::DeleteEmailChannelAsyncHelper(const DeleteEmailChannelReque
   handler(this, request, DeleteEmailChannel(request), context);
 }
 
+DeleteEmailTemplateOutcome PinpointClient::DeleteEmailTemplate(const DeleteEmailTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteEmailTemplate", "Required field: TemplateName, is not set");
+    return DeleteEmailTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/email";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteEmailTemplateOutcome(DeleteEmailTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteEmailTemplateOutcome(outcome.GetError());
+  }
+}
+
+DeleteEmailTemplateOutcomeCallable PinpointClient::DeleteEmailTemplateCallable(const DeleteEmailTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteEmailTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteEmailTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::DeleteEmailTemplateAsync(const DeleteEmailTemplateRequest& request, const DeleteEmailTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteEmailTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::DeleteEmailTemplateAsyncHelper(const DeleteEmailTemplateRequest& request, const DeleteEmailTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteEmailTemplate(request), context);
+}
+
 DeleteEndpointOutcome PinpointClient::DeleteEndpoint(const DeleteEndpointRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -787,7 +1107,7 @@ DeleteEndpointOutcome PinpointClient::DeleteEndpoint(const DeleteEndpointRequest
   ss << "/endpoints/";
   ss << request.GetEndpointId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteEndpointOutcome(DeleteEndpointResult(outcome.GetResult()));
@@ -829,7 +1149,7 @@ DeleteEventStreamOutcome PinpointClient::DeleteEventStream(const DeleteEventStre
   ss << request.GetApplicationId();
   ss << "/eventstream";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteEventStreamOutcome(DeleteEventStreamResult(outcome.GetResult()));
@@ -871,7 +1191,7 @@ DeleteGcmChannelOutcome PinpointClient::DeleteGcmChannel(const DeleteGcmChannelR
   ss << request.GetApplicationId();
   ss << "/channels/gcm";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteGcmChannelOutcome(DeleteGcmChannelResult(outcome.GetResult()));
@@ -900,6 +1220,137 @@ void PinpointClient::DeleteGcmChannelAsyncHelper(const DeleteGcmChannelRequest& 
   handler(this, request, DeleteGcmChannel(request), context);
 }
 
+DeleteJourneyOutcome PinpointClient::DeleteJourney(const DeleteJourneyRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteJourney", "Required field: ApplicationId, is not set");
+    return DeleteJourneyOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  if (!request.JourneyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteJourney", "Required field: JourneyId, is not set");
+    return DeleteJourneyOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JourneyId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys/";
+  ss << request.GetJourneyId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteJourneyOutcome(DeleteJourneyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteJourneyOutcome(outcome.GetError());
+  }
+}
+
+DeleteJourneyOutcomeCallable PinpointClient::DeleteJourneyCallable(const DeleteJourneyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteJourneyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteJourney(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::DeleteJourneyAsync(const DeleteJourneyRequest& request, const DeleteJourneyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteJourneyAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::DeleteJourneyAsyncHelper(const DeleteJourneyRequest& request, const DeleteJourneyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteJourney(request), context);
+}
+
+DeletePushTemplateOutcome PinpointClient::DeletePushTemplate(const DeletePushTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeletePushTemplate", "Required field: TemplateName, is not set");
+    return DeletePushTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/push";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeletePushTemplateOutcome(DeletePushTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeletePushTemplateOutcome(outcome.GetError());
+  }
+}
+
+DeletePushTemplateOutcomeCallable PinpointClient::DeletePushTemplateCallable(const DeletePushTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeletePushTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeletePushTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::DeletePushTemplateAsync(const DeletePushTemplateRequest& request, const DeletePushTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeletePushTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::DeletePushTemplateAsyncHelper(const DeletePushTemplateRequest& request, const DeletePushTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeletePushTemplate(request), context);
+}
+
+DeleteRecommenderConfigurationOutcome PinpointClient::DeleteRecommenderConfiguration(const DeleteRecommenderConfigurationRequest& request) const
+{
+  if (!request.RecommenderIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRecommenderConfiguration", "Required field: RecommenderId, is not set");
+    return DeleteRecommenderConfigurationOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RecommenderId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/recommenders/";
+  ss << request.GetRecommenderId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteRecommenderConfigurationOutcome(DeleteRecommenderConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteRecommenderConfigurationOutcome(outcome.GetError());
+  }
+}
+
+DeleteRecommenderConfigurationOutcomeCallable PinpointClient::DeleteRecommenderConfigurationCallable(const DeleteRecommenderConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteRecommenderConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteRecommenderConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::DeleteRecommenderConfigurationAsync(const DeleteRecommenderConfigurationRequest& request, const DeleteRecommenderConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteRecommenderConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::DeleteRecommenderConfigurationAsyncHelper(const DeleteRecommenderConfigurationRequest& request, const DeleteRecommenderConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteRecommenderConfiguration(request), context);
+}
+
 DeleteSegmentOutcome PinpointClient::DeleteSegment(const DeleteSegmentRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -919,7 +1370,7 @@ DeleteSegmentOutcome PinpointClient::DeleteSegment(const DeleteSegmentRequest& r
   ss << "/segments/";
   ss << request.GetSegmentId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSegmentOutcome(DeleteSegmentResult(outcome.GetResult()));
@@ -961,7 +1412,7 @@ DeleteSmsChannelOutcome PinpointClient::DeleteSmsChannel(const DeleteSmsChannelR
   ss << request.GetApplicationId();
   ss << "/channels/sms";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSmsChannelOutcome(DeleteSmsChannelResult(outcome.GetResult()));
@@ -990,6 +1441,48 @@ void PinpointClient::DeleteSmsChannelAsyncHelper(const DeleteSmsChannelRequest& 
   handler(this, request, DeleteSmsChannel(request), context);
 }
 
+DeleteSmsTemplateOutcome PinpointClient::DeleteSmsTemplate(const DeleteSmsTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteSmsTemplate", "Required field: TemplateName, is not set");
+    return DeleteSmsTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/sms";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteSmsTemplateOutcome(DeleteSmsTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteSmsTemplateOutcome(outcome.GetError());
+  }
+}
+
+DeleteSmsTemplateOutcomeCallable PinpointClient::DeleteSmsTemplateCallable(const DeleteSmsTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteSmsTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteSmsTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::DeleteSmsTemplateAsync(const DeleteSmsTemplateRequest& request, const DeleteSmsTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteSmsTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::DeleteSmsTemplateAsyncHelper(const DeleteSmsTemplateRequest& request, const DeleteSmsTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteSmsTemplate(request), context);
+}
+
 DeleteUserEndpointsOutcome PinpointClient::DeleteUserEndpoints(const DeleteUserEndpointsRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -1009,7 +1502,7 @@ DeleteUserEndpointsOutcome PinpointClient::DeleteUserEndpoints(const DeleteUserE
   ss << "/users/";
   ss << request.GetUserId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteUserEndpointsOutcome(DeleteUserEndpointsResult(outcome.GetResult()));
@@ -1051,7 +1544,7 @@ DeleteVoiceChannelOutcome PinpointClient::DeleteVoiceChannel(const DeleteVoiceCh
   ss << request.GetApplicationId();
   ss << "/channels/voice";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteVoiceChannelOutcome(DeleteVoiceChannelResult(outcome.GetResult()));
@@ -1080,6 +1573,48 @@ void PinpointClient::DeleteVoiceChannelAsyncHelper(const DeleteVoiceChannelReque
   handler(this, request, DeleteVoiceChannel(request), context);
 }
 
+DeleteVoiceTemplateOutcome PinpointClient::DeleteVoiceTemplate(const DeleteVoiceTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteVoiceTemplate", "Required field: TemplateName, is not set");
+    return DeleteVoiceTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/voice";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteVoiceTemplateOutcome(DeleteVoiceTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteVoiceTemplateOutcome(outcome.GetError());
+  }
+}
+
+DeleteVoiceTemplateOutcomeCallable PinpointClient::DeleteVoiceTemplateCallable(const DeleteVoiceTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteVoiceTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteVoiceTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::DeleteVoiceTemplateAsync(const DeleteVoiceTemplateRequest& request, const DeleteVoiceTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteVoiceTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::DeleteVoiceTemplateAsyncHelper(const DeleteVoiceTemplateRequest& request, const DeleteVoiceTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteVoiceTemplate(request), context);
+}
+
 GetAdmChannelOutcome PinpointClient::GetAdmChannel(const GetAdmChannelRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -1093,7 +1628,7 @@ GetAdmChannelOutcome PinpointClient::GetAdmChannel(const GetAdmChannelRequest& r
   ss << request.GetApplicationId();
   ss << "/channels/adm";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAdmChannelOutcome(GetAdmChannelResult(outcome.GetResult()));
@@ -1135,7 +1670,7 @@ GetApnsChannelOutcome PinpointClient::GetApnsChannel(const GetApnsChannelRequest
   ss << request.GetApplicationId();
   ss << "/channels/apns";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApnsChannelOutcome(GetApnsChannelResult(outcome.GetResult()));
@@ -1177,7 +1712,7 @@ GetApnsSandboxChannelOutcome PinpointClient::GetApnsSandboxChannel(const GetApns
   ss << request.GetApplicationId();
   ss << "/channels/apns_sandbox";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApnsSandboxChannelOutcome(GetApnsSandboxChannelResult(outcome.GetResult()));
@@ -1219,7 +1754,7 @@ GetApnsVoipChannelOutcome PinpointClient::GetApnsVoipChannel(const GetApnsVoipCh
   ss << request.GetApplicationId();
   ss << "/channels/apns_voip";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApnsVoipChannelOutcome(GetApnsVoipChannelResult(outcome.GetResult()));
@@ -1261,7 +1796,7 @@ GetApnsVoipSandboxChannelOutcome PinpointClient::GetApnsVoipSandboxChannel(const
   ss << request.GetApplicationId();
   ss << "/channels/apns_voip_sandbox";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApnsVoipSandboxChannelOutcome(GetApnsVoipSandboxChannelResult(outcome.GetResult()));
@@ -1302,7 +1837,7 @@ GetAppOutcome PinpointClient::GetApp(const GetAppRequest& request) const
   ss << "/v1/apps/";
   ss << request.GetApplicationId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAppOutcome(GetAppResult(outcome.GetResult()));
@@ -1350,7 +1885,7 @@ GetApplicationDateRangeKpiOutcome PinpointClient::GetApplicationDateRangeKpi(con
   ss << "/kpis/daterange/";
   ss << request.GetKpiName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApplicationDateRangeKpiOutcome(GetApplicationDateRangeKpiResult(outcome.GetResult()));
@@ -1392,7 +1927,7 @@ GetApplicationSettingsOutcome PinpointClient::GetApplicationSettings(const GetAp
   ss << request.GetApplicationId();
   ss << "/settings";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApplicationSettingsOutcome(GetApplicationSettingsResult(outcome.GetResult()));
@@ -1427,7 +1962,7 @@ GetAppsOutcome PinpointClient::GetApps(const GetAppsRequest& request) const
   Aws::StringStream ss;
   ss << "/v1/apps";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAppsOutcome(GetAppsResult(outcome.GetResult()));
@@ -1469,7 +2004,7 @@ GetBaiduChannelOutcome PinpointClient::GetBaiduChannel(const GetBaiduChannelRequ
   ss << request.GetApplicationId();
   ss << "/channels/baidu";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBaiduChannelOutcome(GetBaiduChannelResult(outcome.GetResult()));
@@ -1517,7 +2052,7 @@ GetCampaignOutcome PinpointClient::GetCampaign(const GetCampaignRequest& request
   ss << "/campaigns/";
   ss << request.GetCampaignId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCampaignOutcome(GetCampaignResult(outcome.GetResult()));
@@ -1566,7 +2101,7 @@ GetCampaignActivitiesOutcome PinpointClient::GetCampaignActivities(const GetCamp
   ss << request.GetCampaignId();
   ss << "/activities";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCampaignActivitiesOutcome(GetCampaignActivitiesResult(outcome.GetResult()));
@@ -1621,7 +2156,7 @@ GetCampaignDateRangeKpiOutcome PinpointClient::GetCampaignDateRangeKpi(const Get
   ss << "/kpis/daterange/";
   ss << request.GetKpiName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCampaignDateRangeKpiOutcome(GetCampaignDateRangeKpiResult(outcome.GetResult()));
@@ -1676,7 +2211,7 @@ GetCampaignVersionOutcome PinpointClient::GetCampaignVersion(const GetCampaignVe
   ss << "/versions/";
   ss << request.GetVersion();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCampaignVersionOutcome(GetCampaignVersionResult(outcome.GetResult()));
@@ -1725,7 +2260,7 @@ GetCampaignVersionsOutcome PinpointClient::GetCampaignVersions(const GetCampaign
   ss << request.GetCampaignId();
   ss << "/versions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCampaignVersionsOutcome(GetCampaignVersionsResult(outcome.GetResult()));
@@ -1767,7 +2302,7 @@ GetCampaignsOutcome PinpointClient::GetCampaigns(const GetCampaignsRequest& requ
   ss << request.GetApplicationId();
   ss << "/campaigns";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCampaignsOutcome(GetCampaignsResult(outcome.GetResult()));
@@ -1809,7 +2344,7 @@ GetChannelsOutcome PinpointClient::GetChannels(const GetChannelsRequest& request
   ss << request.GetApplicationId();
   ss << "/channels";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetChannelsOutcome(GetChannelsResult(outcome.GetResult()));
@@ -1851,7 +2386,7 @@ GetEmailChannelOutcome PinpointClient::GetEmailChannel(const GetEmailChannelRequ
   ss << request.GetApplicationId();
   ss << "/channels/email";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetEmailChannelOutcome(GetEmailChannelResult(outcome.GetResult()));
@@ -1880,6 +2415,48 @@ void PinpointClient::GetEmailChannelAsyncHelper(const GetEmailChannelRequest& re
   handler(this, request, GetEmailChannel(request), context);
 }
 
+GetEmailTemplateOutcome PinpointClient::GetEmailTemplate(const GetEmailTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetEmailTemplate", "Required field: TemplateName, is not set");
+    return GetEmailTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/email";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetEmailTemplateOutcome(GetEmailTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetEmailTemplateOutcome(outcome.GetError());
+  }
+}
+
+GetEmailTemplateOutcomeCallable PinpointClient::GetEmailTemplateCallable(const GetEmailTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetEmailTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetEmailTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetEmailTemplateAsync(const GetEmailTemplateRequest& request, const GetEmailTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetEmailTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetEmailTemplateAsyncHelper(const GetEmailTemplateRequest& request, const GetEmailTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetEmailTemplate(request), context);
+}
+
 GetEndpointOutcome PinpointClient::GetEndpoint(const GetEndpointRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -1899,7 +2476,7 @@ GetEndpointOutcome PinpointClient::GetEndpoint(const GetEndpointRequest& request
   ss << "/endpoints/";
   ss << request.GetEndpointId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetEndpointOutcome(GetEndpointResult(outcome.GetResult()));
@@ -1941,7 +2518,7 @@ GetEventStreamOutcome PinpointClient::GetEventStream(const GetEventStreamRequest
   ss << request.GetApplicationId();
   ss << "/eventstream";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetEventStreamOutcome(GetEventStreamResult(outcome.GetResult()));
@@ -1989,7 +2566,7 @@ GetExportJobOutcome PinpointClient::GetExportJob(const GetExportJobRequest& requ
   ss << "/jobs/export/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetExportJobOutcome(GetExportJobResult(outcome.GetResult()));
@@ -2031,7 +2608,7 @@ GetExportJobsOutcome PinpointClient::GetExportJobs(const GetExportJobsRequest& r
   ss << request.GetApplicationId();
   ss << "/jobs/export";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetExportJobsOutcome(GetExportJobsResult(outcome.GetResult()));
@@ -2073,7 +2650,7 @@ GetGcmChannelOutcome PinpointClient::GetGcmChannel(const GetGcmChannelRequest& r
   ss << request.GetApplicationId();
   ss << "/channels/gcm";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetGcmChannelOutcome(GetGcmChannelResult(outcome.GetResult()));
@@ -2121,7 +2698,7 @@ GetImportJobOutcome PinpointClient::GetImportJob(const GetImportJobRequest& requ
   ss << "/jobs/import/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetImportJobOutcome(GetImportJobResult(outcome.GetResult()));
@@ -2163,7 +2740,7 @@ GetImportJobsOutcome PinpointClient::GetImportJobs(const GetImportJobsRequest& r
   ss << request.GetApplicationId();
   ss << "/jobs/import";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetImportJobsOutcome(GetImportJobsResult(outcome.GetResult()));
@@ -2192,6 +2769,332 @@ void PinpointClient::GetImportJobsAsyncHelper(const GetImportJobsRequest& reques
   handler(this, request, GetImportJobs(request), context);
 }
 
+GetJourneyOutcome PinpointClient::GetJourney(const GetJourneyRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourney", "Required field: ApplicationId, is not set");
+    return GetJourneyOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  if (!request.JourneyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourney", "Required field: JourneyId, is not set");
+    return GetJourneyOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JourneyId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys/";
+  ss << request.GetJourneyId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetJourneyOutcome(GetJourneyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetJourneyOutcome(outcome.GetError());
+  }
+}
+
+GetJourneyOutcomeCallable PinpointClient::GetJourneyCallable(const GetJourneyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetJourneyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetJourney(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetJourneyAsync(const GetJourneyRequest& request, const GetJourneyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetJourneyAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetJourneyAsyncHelper(const GetJourneyRequest& request, const GetJourneyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetJourney(request), context);
+}
+
+GetJourneyDateRangeKpiOutcome PinpointClient::GetJourneyDateRangeKpi(const GetJourneyDateRangeKpiRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourneyDateRangeKpi", "Required field: ApplicationId, is not set");
+    return GetJourneyDateRangeKpiOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  if (!request.JourneyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourneyDateRangeKpi", "Required field: JourneyId, is not set");
+    return GetJourneyDateRangeKpiOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JourneyId]", false));
+  }
+  if (!request.KpiNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourneyDateRangeKpi", "Required field: KpiName, is not set");
+    return GetJourneyDateRangeKpiOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [KpiName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys/";
+  ss << request.GetJourneyId();
+  ss << "/kpis/daterange/";
+  ss << request.GetKpiName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetJourneyDateRangeKpiOutcome(GetJourneyDateRangeKpiResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetJourneyDateRangeKpiOutcome(outcome.GetError());
+  }
+}
+
+GetJourneyDateRangeKpiOutcomeCallable PinpointClient::GetJourneyDateRangeKpiCallable(const GetJourneyDateRangeKpiRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetJourneyDateRangeKpiOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetJourneyDateRangeKpi(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetJourneyDateRangeKpiAsync(const GetJourneyDateRangeKpiRequest& request, const GetJourneyDateRangeKpiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetJourneyDateRangeKpiAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetJourneyDateRangeKpiAsyncHelper(const GetJourneyDateRangeKpiRequest& request, const GetJourneyDateRangeKpiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetJourneyDateRangeKpi(request), context);
+}
+
+GetJourneyExecutionActivityMetricsOutcome PinpointClient::GetJourneyExecutionActivityMetrics(const GetJourneyExecutionActivityMetricsRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourneyExecutionActivityMetrics", "Required field: ApplicationId, is not set");
+    return GetJourneyExecutionActivityMetricsOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  if (!request.JourneyActivityIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourneyExecutionActivityMetrics", "Required field: JourneyActivityId, is not set");
+    return GetJourneyExecutionActivityMetricsOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JourneyActivityId]", false));
+  }
+  if (!request.JourneyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourneyExecutionActivityMetrics", "Required field: JourneyId, is not set");
+    return GetJourneyExecutionActivityMetricsOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JourneyId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys/";
+  ss << request.GetJourneyId();
+  ss << "/activities/";
+  ss << request.GetJourneyActivityId();
+  ss << "/execution-metrics";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetJourneyExecutionActivityMetricsOutcome(GetJourneyExecutionActivityMetricsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetJourneyExecutionActivityMetricsOutcome(outcome.GetError());
+  }
+}
+
+GetJourneyExecutionActivityMetricsOutcomeCallable PinpointClient::GetJourneyExecutionActivityMetricsCallable(const GetJourneyExecutionActivityMetricsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetJourneyExecutionActivityMetricsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetJourneyExecutionActivityMetrics(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetJourneyExecutionActivityMetricsAsync(const GetJourneyExecutionActivityMetricsRequest& request, const GetJourneyExecutionActivityMetricsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetJourneyExecutionActivityMetricsAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetJourneyExecutionActivityMetricsAsyncHelper(const GetJourneyExecutionActivityMetricsRequest& request, const GetJourneyExecutionActivityMetricsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetJourneyExecutionActivityMetrics(request), context);
+}
+
+GetJourneyExecutionMetricsOutcome PinpointClient::GetJourneyExecutionMetrics(const GetJourneyExecutionMetricsRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourneyExecutionMetrics", "Required field: ApplicationId, is not set");
+    return GetJourneyExecutionMetricsOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  if (!request.JourneyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJourneyExecutionMetrics", "Required field: JourneyId, is not set");
+    return GetJourneyExecutionMetricsOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JourneyId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys/";
+  ss << request.GetJourneyId();
+  ss << "/execution-metrics";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetJourneyExecutionMetricsOutcome(GetJourneyExecutionMetricsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetJourneyExecutionMetricsOutcome(outcome.GetError());
+  }
+}
+
+GetJourneyExecutionMetricsOutcomeCallable PinpointClient::GetJourneyExecutionMetricsCallable(const GetJourneyExecutionMetricsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetJourneyExecutionMetricsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetJourneyExecutionMetrics(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetJourneyExecutionMetricsAsync(const GetJourneyExecutionMetricsRequest& request, const GetJourneyExecutionMetricsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetJourneyExecutionMetricsAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetJourneyExecutionMetricsAsyncHelper(const GetJourneyExecutionMetricsRequest& request, const GetJourneyExecutionMetricsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetJourneyExecutionMetrics(request), context);
+}
+
+GetPushTemplateOutcome PinpointClient::GetPushTemplate(const GetPushTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetPushTemplate", "Required field: TemplateName, is not set");
+    return GetPushTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/push";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetPushTemplateOutcome(GetPushTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetPushTemplateOutcome(outcome.GetError());
+  }
+}
+
+GetPushTemplateOutcomeCallable PinpointClient::GetPushTemplateCallable(const GetPushTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetPushTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetPushTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetPushTemplateAsync(const GetPushTemplateRequest& request, const GetPushTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetPushTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetPushTemplateAsyncHelper(const GetPushTemplateRequest& request, const GetPushTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetPushTemplate(request), context);
+}
+
+GetRecommenderConfigurationOutcome PinpointClient::GetRecommenderConfiguration(const GetRecommenderConfigurationRequest& request) const
+{
+  if (!request.RecommenderIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetRecommenderConfiguration", "Required field: RecommenderId, is not set");
+    return GetRecommenderConfigurationOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RecommenderId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/recommenders/";
+  ss << request.GetRecommenderId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetRecommenderConfigurationOutcome(GetRecommenderConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetRecommenderConfigurationOutcome(outcome.GetError());
+  }
+}
+
+GetRecommenderConfigurationOutcomeCallable PinpointClient::GetRecommenderConfigurationCallable(const GetRecommenderConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetRecommenderConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetRecommenderConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetRecommenderConfigurationAsync(const GetRecommenderConfigurationRequest& request, const GetRecommenderConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetRecommenderConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetRecommenderConfigurationAsyncHelper(const GetRecommenderConfigurationRequest& request, const GetRecommenderConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetRecommenderConfiguration(request), context);
+}
+
+GetRecommenderConfigurationsOutcome PinpointClient::GetRecommenderConfigurations(const GetRecommenderConfigurationsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/recommenders";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetRecommenderConfigurationsOutcome(GetRecommenderConfigurationsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetRecommenderConfigurationsOutcome(outcome.GetError());
+  }
+}
+
+GetRecommenderConfigurationsOutcomeCallable PinpointClient::GetRecommenderConfigurationsCallable(const GetRecommenderConfigurationsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetRecommenderConfigurationsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetRecommenderConfigurations(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetRecommenderConfigurationsAsync(const GetRecommenderConfigurationsRequest& request, const GetRecommenderConfigurationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetRecommenderConfigurationsAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetRecommenderConfigurationsAsyncHelper(const GetRecommenderConfigurationsRequest& request, const GetRecommenderConfigurationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetRecommenderConfigurations(request), context);
+}
+
 GetSegmentOutcome PinpointClient::GetSegment(const GetSegmentRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -2211,7 +3114,7 @@ GetSegmentOutcome PinpointClient::GetSegment(const GetSegmentRequest& request) c
   ss << "/segments/";
   ss << request.GetSegmentId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSegmentOutcome(GetSegmentResult(outcome.GetResult()));
@@ -2260,7 +3163,7 @@ GetSegmentExportJobsOutcome PinpointClient::GetSegmentExportJobs(const GetSegmen
   ss << request.GetSegmentId();
   ss << "/jobs/export";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSegmentExportJobsOutcome(GetSegmentExportJobsResult(outcome.GetResult()));
@@ -2309,7 +3212,7 @@ GetSegmentImportJobsOutcome PinpointClient::GetSegmentImportJobs(const GetSegmen
   ss << request.GetSegmentId();
   ss << "/jobs/import";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSegmentImportJobsOutcome(GetSegmentImportJobsResult(outcome.GetResult()));
@@ -2364,7 +3267,7 @@ GetSegmentVersionOutcome PinpointClient::GetSegmentVersion(const GetSegmentVersi
   ss << "/versions/";
   ss << request.GetVersion();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSegmentVersionOutcome(GetSegmentVersionResult(outcome.GetResult()));
@@ -2413,7 +3316,7 @@ GetSegmentVersionsOutcome PinpointClient::GetSegmentVersions(const GetSegmentVer
   ss << request.GetSegmentId();
   ss << "/versions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSegmentVersionsOutcome(GetSegmentVersionsResult(outcome.GetResult()));
@@ -2455,7 +3358,7 @@ GetSegmentsOutcome PinpointClient::GetSegments(const GetSegmentsRequest& request
   ss << request.GetApplicationId();
   ss << "/segments";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSegmentsOutcome(GetSegmentsResult(outcome.GetResult()));
@@ -2497,7 +3400,7 @@ GetSmsChannelOutcome PinpointClient::GetSmsChannel(const GetSmsChannelRequest& r
   ss << request.GetApplicationId();
   ss << "/channels/sms";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSmsChannelOutcome(GetSmsChannelResult(outcome.GetResult()));
@@ -2526,6 +3429,48 @@ void PinpointClient::GetSmsChannelAsyncHelper(const GetSmsChannelRequest& reques
   handler(this, request, GetSmsChannel(request), context);
 }
 
+GetSmsTemplateOutcome PinpointClient::GetSmsTemplate(const GetSmsTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetSmsTemplate", "Required field: TemplateName, is not set");
+    return GetSmsTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/sms";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetSmsTemplateOutcome(GetSmsTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetSmsTemplateOutcome(outcome.GetError());
+  }
+}
+
+GetSmsTemplateOutcomeCallable PinpointClient::GetSmsTemplateCallable(const GetSmsTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetSmsTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetSmsTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetSmsTemplateAsync(const GetSmsTemplateRequest& request, const GetSmsTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetSmsTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetSmsTemplateAsyncHelper(const GetSmsTemplateRequest& request, const GetSmsTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetSmsTemplate(request), context);
+}
+
 GetUserEndpointsOutcome PinpointClient::GetUserEndpoints(const GetUserEndpointsRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -2545,7 +3490,7 @@ GetUserEndpointsOutcome PinpointClient::GetUserEndpoints(const GetUserEndpointsR
   ss << "/users/";
   ss << request.GetUserId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetUserEndpointsOutcome(GetUserEndpointsResult(outcome.GetResult()));
@@ -2587,7 +3532,7 @@ GetVoiceChannelOutcome PinpointClient::GetVoiceChannel(const GetVoiceChannelRequ
   ss << request.GetApplicationId();
   ss << "/channels/voice";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetVoiceChannelOutcome(GetVoiceChannelResult(outcome.GetResult()));
@@ -2616,6 +3561,90 @@ void PinpointClient::GetVoiceChannelAsyncHelper(const GetVoiceChannelRequest& re
   handler(this, request, GetVoiceChannel(request), context);
 }
 
+GetVoiceTemplateOutcome PinpointClient::GetVoiceTemplate(const GetVoiceTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetVoiceTemplate", "Required field: TemplateName, is not set");
+    return GetVoiceTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/voice";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetVoiceTemplateOutcome(GetVoiceTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetVoiceTemplateOutcome(outcome.GetError());
+  }
+}
+
+GetVoiceTemplateOutcomeCallable PinpointClient::GetVoiceTemplateCallable(const GetVoiceTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetVoiceTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetVoiceTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::GetVoiceTemplateAsync(const GetVoiceTemplateRequest& request, const GetVoiceTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetVoiceTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::GetVoiceTemplateAsyncHelper(const GetVoiceTemplateRequest& request, const GetVoiceTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetVoiceTemplate(request), context);
+}
+
+ListJourneysOutcome PinpointClient::ListJourneys(const ListJourneysRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListJourneys", "Required field: ApplicationId, is not set");
+    return ListJourneysOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListJourneysOutcome(ListJourneysResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListJourneysOutcome(outcome.GetError());
+  }
+}
+
+ListJourneysOutcomeCallable PinpointClient::ListJourneysCallable(const ListJourneysRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListJourneysOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListJourneys(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::ListJourneysAsync(const ListJourneysRequest& request, const ListJourneysResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListJourneysAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::ListJourneysAsyncHelper(const ListJourneysRequest& request, const ListJourneysResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListJourneys(request), context);
+}
+
 ListTagsForResourceOutcome PinpointClient::ListTagsForResource(const ListTagsForResourceRequest& request) const
 {
   if (!request.ResourceArnHasBeenSet())
@@ -2628,7 +3657,7 @@ ListTagsForResourceOutcome PinpointClient::ListTagsForResource(const ListTagsFor
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -2657,13 +3686,97 @@ void PinpointClient::ListTagsForResourceAsyncHelper(const ListTagsForResourceReq
   handler(this, request, ListTagsForResource(request), context);
 }
 
+ListTemplateVersionsOutcome PinpointClient::ListTemplateVersions(const ListTemplateVersionsRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListTemplateVersions", "Required field: TemplateName, is not set");
+    return ListTemplateVersionsOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  if (!request.TemplateTypeHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListTemplateVersions", "Required field: TemplateType, is not set");
+    return ListTemplateVersionsOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateType]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/";
+  ss << request.GetTemplateType();
+  ss << "/versions";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTemplateVersionsOutcome(ListTemplateVersionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTemplateVersionsOutcome(outcome.GetError());
+  }
+}
+
+ListTemplateVersionsOutcomeCallable PinpointClient::ListTemplateVersionsCallable(const ListTemplateVersionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTemplateVersionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTemplateVersions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::ListTemplateVersionsAsync(const ListTemplateVersionsRequest& request, const ListTemplateVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTemplateVersionsAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::ListTemplateVersionsAsyncHelper(const ListTemplateVersionsRequest& request, const ListTemplateVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTemplateVersions(request), context);
+}
+
+ListTemplatesOutcome PinpointClient::ListTemplates(const ListTemplatesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTemplatesOutcome(ListTemplatesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTemplatesOutcome(outcome.GetError());
+  }
+}
+
+ListTemplatesOutcomeCallable PinpointClient::ListTemplatesCallable(const ListTemplatesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTemplatesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTemplates(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::ListTemplatesAsync(const ListTemplatesRequest& request, const ListTemplatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTemplatesAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::ListTemplatesAsyncHelper(const ListTemplatesRequest& request, const ListTemplatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTemplates(request), context);
+}
+
 PhoneNumberValidateOutcome PinpointClient::PhoneNumberValidate(const PhoneNumberValidateRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v1/phone/number/validate";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PhoneNumberValidateOutcome(PhoneNumberValidateResult(outcome.GetResult()));
@@ -2705,7 +3818,7 @@ PutEventStreamOutcome PinpointClient::PutEventStream(const PutEventStreamRequest
   ss << request.GetApplicationId();
   ss << "/eventstream";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutEventStreamOutcome(PutEventStreamResult(outcome.GetResult()));
@@ -2747,7 +3860,7 @@ PutEventsOutcome PinpointClient::PutEvents(const PutEventsRequest& request) cons
   ss << request.GetApplicationId();
   ss << "/events";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutEventsOutcome(PutEventsResult(outcome.GetResult()));
@@ -2795,7 +3908,7 @@ RemoveAttributesOutcome PinpointClient::RemoveAttributes(const RemoveAttributesR
   ss << "/attributes/";
   ss << request.GetAttributeType();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RemoveAttributesOutcome(RemoveAttributesResult(outcome.GetResult()));
@@ -2837,7 +3950,7 @@ SendMessagesOutcome PinpointClient::SendMessages(const SendMessagesRequest& requ
   ss << request.GetApplicationId();
   ss << "/messages";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SendMessagesOutcome(SendMessagesResult(outcome.GetResult()));
@@ -2879,7 +3992,7 @@ SendUsersMessagesOutcome PinpointClient::SendUsersMessages(const SendUsersMessag
   ss << request.GetApplicationId();
   ss << "/users-messages";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SendUsersMessagesOutcome(SendUsersMessagesResult(outcome.GetResult()));
@@ -2920,7 +4033,7 @@ TagResourceOutcome PinpointClient::TagResource(const TagResourceRequest& request
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(NoResult());
@@ -2966,7 +4079,7 @@ UntagResourceOutcome PinpointClient::UntagResource(const UntagResourceRequest& r
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(NoResult());
@@ -3008,7 +4121,7 @@ UpdateAdmChannelOutcome PinpointClient::UpdateAdmChannel(const UpdateAdmChannelR
   ss << request.GetApplicationId();
   ss << "/channels/adm";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAdmChannelOutcome(UpdateAdmChannelResult(outcome.GetResult()));
@@ -3050,7 +4163,7 @@ UpdateApnsChannelOutcome PinpointClient::UpdateApnsChannel(const UpdateApnsChann
   ss << request.GetApplicationId();
   ss << "/channels/apns";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApnsChannelOutcome(UpdateApnsChannelResult(outcome.GetResult()));
@@ -3092,7 +4205,7 @@ UpdateApnsSandboxChannelOutcome PinpointClient::UpdateApnsSandboxChannel(const U
   ss << request.GetApplicationId();
   ss << "/channels/apns_sandbox";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApnsSandboxChannelOutcome(UpdateApnsSandboxChannelResult(outcome.GetResult()));
@@ -3134,7 +4247,7 @@ UpdateApnsVoipChannelOutcome PinpointClient::UpdateApnsVoipChannel(const UpdateA
   ss << request.GetApplicationId();
   ss << "/channels/apns_voip";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApnsVoipChannelOutcome(UpdateApnsVoipChannelResult(outcome.GetResult()));
@@ -3176,7 +4289,7 @@ UpdateApnsVoipSandboxChannelOutcome PinpointClient::UpdateApnsVoipSandboxChannel
   ss << request.GetApplicationId();
   ss << "/channels/apns_voip_sandbox";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApnsVoipSandboxChannelOutcome(UpdateApnsVoipSandboxChannelResult(outcome.GetResult()));
@@ -3218,7 +4331,7 @@ UpdateApplicationSettingsOutcome PinpointClient::UpdateApplicationSettings(const
   ss << request.GetApplicationId();
   ss << "/settings";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApplicationSettingsOutcome(UpdateApplicationSettingsResult(outcome.GetResult()));
@@ -3260,7 +4373,7 @@ UpdateBaiduChannelOutcome PinpointClient::UpdateBaiduChannel(const UpdateBaiduCh
   ss << request.GetApplicationId();
   ss << "/channels/baidu";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateBaiduChannelOutcome(UpdateBaiduChannelResult(outcome.GetResult()));
@@ -3308,7 +4421,7 @@ UpdateCampaignOutcome PinpointClient::UpdateCampaign(const UpdateCampaignRequest
   ss << "/campaigns/";
   ss << request.GetCampaignId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateCampaignOutcome(UpdateCampaignResult(outcome.GetResult()));
@@ -3350,7 +4463,7 @@ UpdateEmailChannelOutcome PinpointClient::UpdateEmailChannel(const UpdateEmailCh
   ss << request.GetApplicationId();
   ss << "/channels/email";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateEmailChannelOutcome(UpdateEmailChannelResult(outcome.GetResult()));
@@ -3379,6 +4492,48 @@ void PinpointClient::UpdateEmailChannelAsyncHelper(const UpdateEmailChannelReque
   handler(this, request, UpdateEmailChannel(request), context);
 }
 
+UpdateEmailTemplateOutcome PinpointClient::UpdateEmailTemplate(const UpdateEmailTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateEmailTemplate", "Required field: TemplateName, is not set");
+    return UpdateEmailTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/email";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateEmailTemplateOutcome(UpdateEmailTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateEmailTemplateOutcome(outcome.GetError());
+  }
+}
+
+UpdateEmailTemplateOutcomeCallable PinpointClient::UpdateEmailTemplateCallable(const UpdateEmailTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateEmailTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateEmailTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::UpdateEmailTemplateAsync(const UpdateEmailTemplateRequest& request, const UpdateEmailTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateEmailTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::UpdateEmailTemplateAsyncHelper(const UpdateEmailTemplateRequest& request, const UpdateEmailTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateEmailTemplate(request), context);
+}
+
 UpdateEndpointOutcome PinpointClient::UpdateEndpoint(const UpdateEndpointRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -3398,7 +4553,7 @@ UpdateEndpointOutcome PinpointClient::UpdateEndpoint(const UpdateEndpointRequest
   ss << "/endpoints/";
   ss << request.GetEndpointId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateEndpointOutcome(UpdateEndpointResult(outcome.GetResult()));
@@ -3440,7 +4595,7 @@ UpdateEndpointsBatchOutcome PinpointClient::UpdateEndpointsBatch(const UpdateEnd
   ss << request.GetApplicationId();
   ss << "/endpoints";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateEndpointsBatchOutcome(UpdateEndpointsBatchResult(outcome.GetResult()));
@@ -3482,7 +4637,7 @@ UpdateGcmChannelOutcome PinpointClient::UpdateGcmChannel(const UpdateGcmChannelR
   ss << request.GetApplicationId();
   ss << "/channels/gcm";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateGcmChannelOutcome(UpdateGcmChannelResult(outcome.GetResult()));
@@ -3511,6 +4666,186 @@ void PinpointClient::UpdateGcmChannelAsyncHelper(const UpdateGcmChannelRequest& 
   handler(this, request, UpdateGcmChannel(request), context);
 }
 
+UpdateJourneyOutcome PinpointClient::UpdateJourney(const UpdateJourneyRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateJourney", "Required field: ApplicationId, is not set");
+    return UpdateJourneyOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  if (!request.JourneyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateJourney", "Required field: JourneyId, is not set");
+    return UpdateJourneyOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JourneyId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys/";
+  ss << request.GetJourneyId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateJourneyOutcome(UpdateJourneyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateJourneyOutcome(outcome.GetError());
+  }
+}
+
+UpdateJourneyOutcomeCallable PinpointClient::UpdateJourneyCallable(const UpdateJourneyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateJourneyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateJourney(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::UpdateJourneyAsync(const UpdateJourneyRequest& request, const UpdateJourneyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateJourneyAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::UpdateJourneyAsyncHelper(const UpdateJourneyRequest& request, const UpdateJourneyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateJourney(request), context);
+}
+
+UpdateJourneyStateOutcome PinpointClient::UpdateJourneyState(const UpdateJourneyStateRequest& request) const
+{
+  if (!request.ApplicationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateJourneyState", "Required field: ApplicationId, is not set");
+    return UpdateJourneyStateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApplicationId]", false));
+  }
+  if (!request.JourneyIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateJourneyState", "Required field: JourneyId, is not set");
+    return UpdateJourneyStateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JourneyId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apps/";
+  ss << request.GetApplicationId();
+  ss << "/journeys/";
+  ss << request.GetJourneyId();
+  ss << "/state";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateJourneyStateOutcome(UpdateJourneyStateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateJourneyStateOutcome(outcome.GetError());
+  }
+}
+
+UpdateJourneyStateOutcomeCallable PinpointClient::UpdateJourneyStateCallable(const UpdateJourneyStateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateJourneyStateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateJourneyState(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::UpdateJourneyStateAsync(const UpdateJourneyStateRequest& request, const UpdateJourneyStateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateJourneyStateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::UpdateJourneyStateAsyncHelper(const UpdateJourneyStateRequest& request, const UpdateJourneyStateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateJourneyState(request), context);
+}
+
+UpdatePushTemplateOutcome PinpointClient::UpdatePushTemplate(const UpdatePushTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdatePushTemplate", "Required field: TemplateName, is not set");
+    return UpdatePushTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/push";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdatePushTemplateOutcome(UpdatePushTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdatePushTemplateOutcome(outcome.GetError());
+  }
+}
+
+UpdatePushTemplateOutcomeCallable PinpointClient::UpdatePushTemplateCallable(const UpdatePushTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdatePushTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdatePushTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::UpdatePushTemplateAsync(const UpdatePushTemplateRequest& request, const UpdatePushTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdatePushTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::UpdatePushTemplateAsyncHelper(const UpdatePushTemplateRequest& request, const UpdatePushTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdatePushTemplate(request), context);
+}
+
+UpdateRecommenderConfigurationOutcome PinpointClient::UpdateRecommenderConfiguration(const UpdateRecommenderConfigurationRequest& request) const
+{
+  if (!request.RecommenderIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateRecommenderConfiguration", "Required field: RecommenderId, is not set");
+    return UpdateRecommenderConfigurationOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RecommenderId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/recommenders/";
+  ss << request.GetRecommenderId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateRecommenderConfigurationOutcome(UpdateRecommenderConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateRecommenderConfigurationOutcome(outcome.GetError());
+  }
+}
+
+UpdateRecommenderConfigurationOutcomeCallable PinpointClient::UpdateRecommenderConfigurationCallable(const UpdateRecommenderConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateRecommenderConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateRecommenderConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::UpdateRecommenderConfigurationAsync(const UpdateRecommenderConfigurationRequest& request, const UpdateRecommenderConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateRecommenderConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::UpdateRecommenderConfigurationAsyncHelper(const UpdateRecommenderConfigurationRequest& request, const UpdateRecommenderConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateRecommenderConfiguration(request), context);
+}
+
 UpdateSegmentOutcome PinpointClient::UpdateSegment(const UpdateSegmentRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -3530,7 +4865,7 @@ UpdateSegmentOutcome PinpointClient::UpdateSegment(const UpdateSegmentRequest& r
   ss << "/segments/";
   ss << request.GetSegmentId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateSegmentOutcome(UpdateSegmentResult(outcome.GetResult()));
@@ -3572,7 +4907,7 @@ UpdateSmsChannelOutcome PinpointClient::UpdateSmsChannel(const UpdateSmsChannelR
   ss << request.GetApplicationId();
   ss << "/channels/sms";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateSmsChannelOutcome(UpdateSmsChannelResult(outcome.GetResult()));
@@ -3601,6 +4936,97 @@ void PinpointClient::UpdateSmsChannelAsyncHelper(const UpdateSmsChannelRequest& 
   handler(this, request, UpdateSmsChannel(request), context);
 }
 
+UpdateSmsTemplateOutcome PinpointClient::UpdateSmsTemplate(const UpdateSmsTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateSmsTemplate", "Required field: TemplateName, is not set");
+    return UpdateSmsTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/sms";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateSmsTemplateOutcome(UpdateSmsTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateSmsTemplateOutcome(outcome.GetError());
+  }
+}
+
+UpdateSmsTemplateOutcomeCallable PinpointClient::UpdateSmsTemplateCallable(const UpdateSmsTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateSmsTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateSmsTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::UpdateSmsTemplateAsync(const UpdateSmsTemplateRequest& request, const UpdateSmsTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateSmsTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::UpdateSmsTemplateAsyncHelper(const UpdateSmsTemplateRequest& request, const UpdateSmsTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateSmsTemplate(request), context);
+}
+
+UpdateTemplateActiveVersionOutcome PinpointClient::UpdateTemplateActiveVersion(const UpdateTemplateActiveVersionRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateTemplateActiveVersion", "Required field: TemplateName, is not set");
+    return UpdateTemplateActiveVersionOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  if (!request.TemplateTypeHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateTemplateActiveVersion", "Required field: TemplateType, is not set");
+    return UpdateTemplateActiveVersionOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateType]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/";
+  ss << request.GetTemplateType();
+  ss << "/active-version";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateTemplateActiveVersionOutcome(UpdateTemplateActiveVersionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateTemplateActiveVersionOutcome(outcome.GetError());
+  }
+}
+
+UpdateTemplateActiveVersionOutcomeCallable PinpointClient::UpdateTemplateActiveVersionCallable(const UpdateTemplateActiveVersionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateTemplateActiveVersionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateTemplateActiveVersion(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::UpdateTemplateActiveVersionAsync(const UpdateTemplateActiveVersionRequest& request, const UpdateTemplateActiveVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateTemplateActiveVersionAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::UpdateTemplateActiveVersionAsyncHelper(const UpdateTemplateActiveVersionRequest& request, const UpdateTemplateActiveVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateTemplateActiveVersion(request), context);
+}
+
 UpdateVoiceChannelOutcome PinpointClient::UpdateVoiceChannel(const UpdateVoiceChannelRequest& request) const
 {
   if (!request.ApplicationIdHasBeenSet())
@@ -3614,7 +5040,7 @@ UpdateVoiceChannelOutcome PinpointClient::UpdateVoiceChannel(const UpdateVoiceCh
   ss << request.GetApplicationId();
   ss << "/channels/voice";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateVoiceChannelOutcome(UpdateVoiceChannelResult(outcome.GetResult()));
@@ -3641,5 +5067,47 @@ void PinpointClient::UpdateVoiceChannelAsync(const UpdateVoiceChannelRequest& re
 void PinpointClient::UpdateVoiceChannelAsyncHelper(const UpdateVoiceChannelRequest& request, const UpdateVoiceChannelResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, UpdateVoiceChannel(request), context);
+}
+
+UpdateVoiceTemplateOutcome PinpointClient::UpdateVoiceTemplate(const UpdateVoiceTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateVoiceTemplate", "Required field: TemplateName, is not set");
+    return UpdateVoiceTemplateOutcome(Aws::Client::AWSError<PinpointErrors>(PinpointErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/templates/";
+  ss << request.GetTemplateName();
+  ss << "/voice";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateVoiceTemplateOutcome(UpdateVoiceTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateVoiceTemplateOutcome(outcome.GetError());
+  }
+}
+
+UpdateVoiceTemplateOutcomeCallable PinpointClient::UpdateVoiceTemplateCallable(const UpdateVoiceTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateVoiceTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateVoiceTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void PinpointClient::UpdateVoiceTemplateAsync(const UpdateVoiceTemplateRequest& request, const UpdateVoiceTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateVoiceTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void PinpointClient::UpdateVoiceTemplateAsyncHelper(const UpdateVoiceTemplateRequest& request, const UpdateVoiceTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateVoiceTemplate(request), context);
 }
 

@@ -32,13 +32,15 @@ namespace Model
 
 EgressOnlyInternetGateway::EgressOnlyInternetGateway() : 
     m_attachmentsHasBeenSet(false),
-    m_egressOnlyInternetGatewayIdHasBeenSet(false)
+    m_egressOnlyInternetGatewayIdHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
 EgressOnlyInternetGateway::EgressOnlyInternetGateway(const XmlNode& xmlNode) : 
     m_attachmentsHasBeenSet(false),
-    m_egressOnlyInternetGatewayIdHasBeenSet(false)
+    m_egressOnlyInternetGatewayIdHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -64,8 +66,20 @@ EgressOnlyInternetGateway& EgressOnlyInternetGateway::operator =(const XmlNode& 
     XmlNode egressOnlyInternetGatewayIdNode = resultNode.FirstChild("egressOnlyInternetGatewayId");
     if(!egressOnlyInternetGatewayIdNode.IsNull())
     {
-      m_egressOnlyInternetGatewayId = egressOnlyInternetGatewayIdNode.GetText();
+      m_egressOnlyInternetGatewayId = Aws::Utils::Xml::DecodeEscapedXmlText(egressOnlyInternetGatewayIdNode.GetText());
       m_egressOnlyInternetGatewayIdHasBeenSet = true;
+    }
+    XmlNode tagsNode = resultNode.FirstChild("tagSet");
+    if(!tagsNode.IsNull())
+    {
+      XmlNode tagsMember = tagsNode.FirstChild("item");
+      while(!tagsMember.IsNull())
+      {
+        m_tags.push_back(tagsMember);
+        tagsMember = tagsMember.NextNode("item");
+      }
+
+      m_tagsHasBeenSet = true;
     }
   }
 
@@ -90,6 +104,17 @@ void EgressOnlyInternetGateway::OutputToStream(Aws::OStream& oStream, const char
       oStream << location << index << locationValue << ".EgressOnlyInternetGatewayId=" << StringUtils::URLEncode(m_egressOnlyInternetGatewayId.c_str()) << "&";
   }
 
+  if(m_tagsHasBeenSet)
+  {
+      unsigned tagsIdx = 1;
+      for(auto& item : m_tags)
+      {
+        Aws::StringStream tagsSs;
+        tagsSs << location << index << locationValue << ".TagSet." << tagsIdx++;
+        item.OutputToStream(oStream, tagsSs.str().c_str());
+      }
+  }
+
 }
 
 void EgressOnlyInternetGateway::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -107,6 +132,16 @@ void EgressOnlyInternetGateway::OutputToStream(Aws::OStream& oStream, const char
   if(m_egressOnlyInternetGatewayIdHasBeenSet)
   {
       oStream << location << ".EgressOnlyInternetGatewayId=" << StringUtils::URLEncode(m_egressOnlyInternetGatewayId.c_str()) << "&";
+  }
+  if(m_tagsHasBeenSet)
+  {
+      unsigned tagsIdx = 1;
+      for(auto& item : m_tags)
+      {
+        Aws::StringStream tagsSs;
+        tagsSs << location <<  ".TagSet." << tagsIdx++;
+        item.OutputToStream(oStream, tagsSs.str().c_str());
+      }
   }
 }
 

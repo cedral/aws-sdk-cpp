@@ -29,6 +29,9 @@ namespace Model
 {
 
 HyperParameterTrainingJobDefinition::HyperParameterTrainingJobDefinition() : 
+    m_definitionNameHasBeenSet(false),
+    m_tuningObjectiveHasBeenSet(false),
+    m_hyperParameterRangesHasBeenSet(false),
     m_staticHyperParametersHasBeenSet(false),
     m_algorithmSpecificationHasBeenSet(false),
     m_roleArnHasBeenSet(false),
@@ -40,11 +43,17 @@ HyperParameterTrainingJobDefinition::HyperParameterTrainingJobDefinition() :
     m_enableNetworkIsolation(false),
     m_enableNetworkIsolationHasBeenSet(false),
     m_enableInterContainerTrafficEncryption(false),
-    m_enableInterContainerTrafficEncryptionHasBeenSet(false)
+    m_enableInterContainerTrafficEncryptionHasBeenSet(false),
+    m_enableManagedSpotTraining(false),
+    m_enableManagedSpotTrainingHasBeenSet(false),
+    m_checkpointConfigHasBeenSet(false)
 {
 }
 
 HyperParameterTrainingJobDefinition::HyperParameterTrainingJobDefinition(JsonView jsonValue) : 
+    m_definitionNameHasBeenSet(false),
+    m_tuningObjectiveHasBeenSet(false),
+    m_hyperParameterRangesHasBeenSet(false),
     m_staticHyperParametersHasBeenSet(false),
     m_algorithmSpecificationHasBeenSet(false),
     m_roleArnHasBeenSet(false),
@@ -56,13 +65,37 @@ HyperParameterTrainingJobDefinition::HyperParameterTrainingJobDefinition(JsonVie
     m_enableNetworkIsolation(false),
     m_enableNetworkIsolationHasBeenSet(false),
     m_enableInterContainerTrafficEncryption(false),
-    m_enableInterContainerTrafficEncryptionHasBeenSet(false)
+    m_enableInterContainerTrafficEncryptionHasBeenSet(false),
+    m_enableManagedSpotTraining(false),
+    m_enableManagedSpotTrainingHasBeenSet(false),
+    m_checkpointConfigHasBeenSet(false)
 {
   *this = jsonValue;
 }
 
 HyperParameterTrainingJobDefinition& HyperParameterTrainingJobDefinition::operator =(JsonView jsonValue)
 {
+  if(jsonValue.ValueExists("DefinitionName"))
+  {
+    m_definitionName = jsonValue.GetString("DefinitionName");
+
+    m_definitionNameHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("TuningObjective"))
+  {
+    m_tuningObjective = jsonValue.GetObject("TuningObjective");
+
+    m_tuningObjectiveHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("HyperParameterRanges"))
+  {
+    m_hyperParameterRanges = jsonValue.GetObject("HyperParameterRanges");
+
+    m_hyperParameterRangesHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("StaticHyperParameters"))
   {
     Aws::Map<Aws::String, JsonView> staticHyperParametersJsonMap = jsonValue.GetObject("StaticHyperParameters").GetAllObjects();
@@ -139,12 +172,44 @@ HyperParameterTrainingJobDefinition& HyperParameterTrainingJobDefinition::operat
     m_enableInterContainerTrafficEncryptionHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("EnableManagedSpotTraining"))
+  {
+    m_enableManagedSpotTraining = jsonValue.GetBool("EnableManagedSpotTraining");
+
+    m_enableManagedSpotTrainingHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("CheckpointConfig"))
+  {
+    m_checkpointConfig = jsonValue.GetObject("CheckpointConfig");
+
+    m_checkpointConfigHasBeenSet = true;
+  }
+
   return *this;
 }
 
 JsonValue HyperParameterTrainingJobDefinition::Jsonize() const
 {
   JsonValue payload;
+
+  if(m_definitionNameHasBeenSet)
+  {
+   payload.WithString("DefinitionName", m_definitionName);
+
+  }
+
+  if(m_tuningObjectiveHasBeenSet)
+  {
+   payload.WithObject("TuningObjective", m_tuningObjective.Jsonize());
+
+  }
+
+  if(m_hyperParameterRangesHasBeenSet)
+  {
+   payload.WithObject("HyperParameterRanges", m_hyperParameterRanges.Jsonize());
+
+  }
 
   if(m_staticHyperParametersHasBeenSet)
   {
@@ -213,6 +278,18 @@ JsonValue HyperParameterTrainingJobDefinition::Jsonize() const
   if(m_enableInterContainerTrafficEncryptionHasBeenSet)
   {
    payload.WithBool("EnableInterContainerTrafficEncryption", m_enableInterContainerTrafficEncryption);
+
+  }
+
+  if(m_enableManagedSpotTrainingHasBeenSet)
+  {
+   payload.WithBool("EnableManagedSpotTraining", m_enableManagedSpotTraining);
+
+  }
+
+  if(m_checkpointConfigHasBeenSet)
+  {
+   payload.WithObject("CheckpointConfig", m_checkpointConfig.Jsonize());
 
   }
 

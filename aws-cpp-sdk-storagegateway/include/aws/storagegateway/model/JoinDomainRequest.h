@@ -51,56 +51,56 @@ namespace Model
     /**
      * <p>The Amazon Resource Name (ARN) of the gateway. Use the
      * <code>ListGateways</code> operation to return a list of gateways for your
-     * account and region.</p>
+     * account and AWS Region.</p>
      */
     inline const Aws::String& GetGatewayARN() const{ return m_gatewayARN; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the gateway. Use the
      * <code>ListGateways</code> operation to return a list of gateways for your
-     * account and region.</p>
+     * account and AWS Region.</p>
      */
     inline bool GatewayARNHasBeenSet() const { return m_gatewayARNHasBeenSet; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the gateway. Use the
      * <code>ListGateways</code> operation to return a list of gateways for your
-     * account and region.</p>
+     * account and AWS Region.</p>
      */
     inline void SetGatewayARN(const Aws::String& value) { m_gatewayARNHasBeenSet = true; m_gatewayARN = value; }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the gateway. Use the
      * <code>ListGateways</code> operation to return a list of gateways for your
-     * account and region.</p>
+     * account and AWS Region.</p>
      */
     inline void SetGatewayARN(Aws::String&& value) { m_gatewayARNHasBeenSet = true; m_gatewayARN = std::move(value); }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the gateway. Use the
      * <code>ListGateways</code> operation to return a list of gateways for your
-     * account and region.</p>
+     * account and AWS Region.</p>
      */
     inline void SetGatewayARN(const char* value) { m_gatewayARNHasBeenSet = true; m_gatewayARN.assign(value); }
 
     /**
      * <p>The Amazon Resource Name (ARN) of the gateway. Use the
      * <code>ListGateways</code> operation to return a list of gateways for your
-     * account and region.</p>
+     * account and AWS Region.</p>
      */
     inline JoinDomainRequest& WithGatewayARN(const Aws::String& value) { SetGatewayARN(value); return *this;}
 
     /**
      * <p>The Amazon Resource Name (ARN) of the gateway. Use the
      * <code>ListGateways</code> operation to return a list of gateways for your
-     * account and region.</p>
+     * account and AWS Region.</p>
      */
     inline JoinDomainRequest& WithGatewayARN(Aws::String&& value) { SetGatewayARN(std::move(value)); return *this;}
 
     /**
      * <p>The Amazon Resource Name (ARN) of the gateway. Use the
      * <code>ListGateways</code> operation to return a list of gateways for your
-     * account and region.</p>
+     * account and AWS Region.</p>
      */
     inline JoinDomainRequest& WithGatewayARN(const char* value) { SetGatewayARN(value); return *this;}
 
@@ -147,56 +147,56 @@ namespace Model
 
 
     /**
-     * <p>The organizational unit (OU) is a container with an Active Directory that can
+     * <p>The organizational unit (OU) is a container in an Active Directory that can
      * hold users, groups, computers, and other OUs and this parameter specifies the OU
      * that the gateway will join within the AD domain.</p>
      */
     inline const Aws::String& GetOrganizationalUnit() const{ return m_organizationalUnit; }
 
     /**
-     * <p>The organizational unit (OU) is a container with an Active Directory that can
+     * <p>The organizational unit (OU) is a container in an Active Directory that can
      * hold users, groups, computers, and other OUs and this parameter specifies the OU
      * that the gateway will join within the AD domain.</p>
      */
     inline bool OrganizationalUnitHasBeenSet() const { return m_organizationalUnitHasBeenSet; }
 
     /**
-     * <p>The organizational unit (OU) is a container with an Active Directory that can
+     * <p>The organizational unit (OU) is a container in an Active Directory that can
      * hold users, groups, computers, and other OUs and this parameter specifies the OU
      * that the gateway will join within the AD domain.</p>
      */
     inline void SetOrganizationalUnit(const Aws::String& value) { m_organizationalUnitHasBeenSet = true; m_organizationalUnit = value; }
 
     /**
-     * <p>The organizational unit (OU) is a container with an Active Directory that can
+     * <p>The organizational unit (OU) is a container in an Active Directory that can
      * hold users, groups, computers, and other OUs and this parameter specifies the OU
      * that the gateway will join within the AD domain.</p>
      */
     inline void SetOrganizationalUnit(Aws::String&& value) { m_organizationalUnitHasBeenSet = true; m_organizationalUnit = std::move(value); }
 
     /**
-     * <p>The organizational unit (OU) is a container with an Active Directory that can
+     * <p>The organizational unit (OU) is a container in an Active Directory that can
      * hold users, groups, computers, and other OUs and this parameter specifies the OU
      * that the gateway will join within the AD domain.</p>
      */
     inline void SetOrganizationalUnit(const char* value) { m_organizationalUnitHasBeenSet = true; m_organizationalUnit.assign(value); }
 
     /**
-     * <p>The organizational unit (OU) is a container with an Active Directory that can
+     * <p>The organizational unit (OU) is a container in an Active Directory that can
      * hold users, groups, computers, and other OUs and this parameter specifies the OU
      * that the gateway will join within the AD domain.</p>
      */
     inline JoinDomainRequest& WithOrganizationalUnit(const Aws::String& value) { SetOrganizationalUnit(value); return *this;}
 
     /**
-     * <p>The organizational unit (OU) is a container with an Active Directory that can
+     * <p>The organizational unit (OU) is a container in an Active Directory that can
      * hold users, groups, computers, and other OUs and this parameter specifies the OU
      * that the gateway will join within the AD domain.</p>
      */
     inline JoinDomainRequest& WithOrganizationalUnit(Aws::String&& value) { SetOrganizationalUnit(std::move(value)); return *this;}
 
     /**
-     * <p>The organizational unit (OU) is a container with an Active Directory that can
+     * <p>The organizational unit (OU) is a container in an Active Directory that can
      * hold users, groups, computers, and other OUs and this parameter specifies the OU
      * that the gateway will join within the AD domain.</p>
      */
@@ -268,50 +268,99 @@ namespace Model
 
 
     /**
+     * <p>Specifies the time in seconds, in which the <code>JoinDomain</code> operation
+     * must complete. The default is 20 seconds.</p>
+     */
+    inline int GetTimeoutInSeconds() const{ return m_timeoutInSeconds; }
+
+    /**
+     * <p>Specifies the time in seconds, in which the <code>JoinDomain</code> operation
+     * must complete. The default is 20 seconds.</p>
+     */
+    inline bool TimeoutInSecondsHasBeenSet() const { return m_timeoutInSecondsHasBeenSet; }
+
+    /**
+     * <p>Specifies the time in seconds, in which the <code>JoinDomain</code> operation
+     * must complete. The default is 20 seconds.</p>
+     */
+    inline void SetTimeoutInSeconds(int value) { m_timeoutInSecondsHasBeenSet = true; m_timeoutInSeconds = value; }
+
+    /**
+     * <p>Specifies the time in seconds, in which the <code>JoinDomain</code> operation
+     * must complete. The default is 20 seconds.</p>
+     */
+    inline JoinDomainRequest& WithTimeoutInSeconds(int value) { SetTimeoutInSeconds(value); return *this;}
+
+
+    /**
      * <p>Sets the user name of user who has permission to add the gateway to the
-     * Active Directory domain.</p>
+     * Active Directory domain. The domain user account should be enabled to join
+     * computers to the domain. For example, you can use the domain administrator
+     * account or an account with delegated permissions to join computers to the
+     * domain.</p>
      */
     inline const Aws::String& GetUserName() const{ return m_userName; }
 
     /**
      * <p>Sets the user name of user who has permission to add the gateway to the
-     * Active Directory domain.</p>
+     * Active Directory domain. The domain user account should be enabled to join
+     * computers to the domain. For example, you can use the domain administrator
+     * account or an account with delegated permissions to join computers to the
+     * domain.</p>
      */
     inline bool UserNameHasBeenSet() const { return m_userNameHasBeenSet; }
 
     /**
      * <p>Sets the user name of user who has permission to add the gateway to the
-     * Active Directory domain.</p>
+     * Active Directory domain. The domain user account should be enabled to join
+     * computers to the domain. For example, you can use the domain administrator
+     * account or an account with delegated permissions to join computers to the
+     * domain.</p>
      */
     inline void SetUserName(const Aws::String& value) { m_userNameHasBeenSet = true; m_userName = value; }
 
     /**
      * <p>Sets the user name of user who has permission to add the gateway to the
-     * Active Directory domain.</p>
+     * Active Directory domain. The domain user account should be enabled to join
+     * computers to the domain. For example, you can use the domain administrator
+     * account or an account with delegated permissions to join computers to the
+     * domain.</p>
      */
     inline void SetUserName(Aws::String&& value) { m_userNameHasBeenSet = true; m_userName = std::move(value); }
 
     /**
      * <p>Sets the user name of user who has permission to add the gateway to the
-     * Active Directory domain.</p>
+     * Active Directory domain. The domain user account should be enabled to join
+     * computers to the domain. For example, you can use the domain administrator
+     * account or an account with delegated permissions to join computers to the
+     * domain.</p>
      */
     inline void SetUserName(const char* value) { m_userNameHasBeenSet = true; m_userName.assign(value); }
 
     /**
      * <p>Sets the user name of user who has permission to add the gateway to the
-     * Active Directory domain.</p>
+     * Active Directory domain. The domain user account should be enabled to join
+     * computers to the domain. For example, you can use the domain administrator
+     * account or an account with delegated permissions to join computers to the
+     * domain.</p>
      */
     inline JoinDomainRequest& WithUserName(const Aws::String& value) { SetUserName(value); return *this;}
 
     /**
      * <p>Sets the user name of user who has permission to add the gateway to the
-     * Active Directory domain.</p>
+     * Active Directory domain. The domain user account should be enabled to join
+     * computers to the domain. For example, you can use the domain administrator
+     * account or an account with delegated permissions to join computers to the
+     * domain.</p>
      */
     inline JoinDomainRequest& WithUserName(Aws::String&& value) { SetUserName(std::move(value)); return *this;}
 
     /**
      * <p>Sets the user name of user who has permission to add the gateway to the
-     * Active Directory domain.</p>
+     * Active Directory domain. The domain user account should be enabled to join
+     * computers to the domain. For example, you can use the domain administrator
+     * account or an account with delegated permissions to join computers to the
+     * domain.</p>
      */
     inline JoinDomainRequest& WithUserName(const char* value) { SetUserName(value); return *this;}
 
@@ -377,6 +426,9 @@ namespace Model
 
     Aws::Vector<Aws::String> m_domainControllers;
     bool m_domainControllersHasBeenSet;
+
+    int m_timeoutInSeconds;
+    bool m_timeoutInSecondsHasBeenSet;
 
     Aws::String m_userName;
     bool m_userNameHasBeenSet;

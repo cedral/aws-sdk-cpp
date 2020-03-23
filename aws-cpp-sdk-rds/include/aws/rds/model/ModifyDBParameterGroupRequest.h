@@ -53,49 +53,57 @@ namespace Model
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
-     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     * supplied, must match the name of an existing <code>DBParameterGroup</code>.</p>
+     * </li> </ul>
      */
     inline const Aws::String& GetDBParameterGroupName() const{ return m_dBParameterGroupName; }
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
-     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     * supplied, must match the name of an existing <code>DBParameterGroup</code>.</p>
+     * </li> </ul>
      */
     inline bool DBParameterGroupNameHasBeenSet() const { return m_dBParameterGroupNameHasBeenSet; }
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
-     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     * supplied, must match the name of an existing <code>DBParameterGroup</code>.</p>
+     * </li> </ul>
      */
     inline void SetDBParameterGroupName(const Aws::String& value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName = value; }
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
-     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     * supplied, must match the name of an existing <code>DBParameterGroup</code>.</p>
+     * </li> </ul>
      */
     inline void SetDBParameterGroupName(Aws::String&& value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName = std::move(value); }
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
-     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     * supplied, must match the name of an existing <code>DBParameterGroup</code>.</p>
+     * </li> </ul>
      */
     inline void SetDBParameterGroupName(const char* value) { m_dBParameterGroupNameHasBeenSet = true; m_dBParameterGroupName.assign(value); }
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
-     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     * supplied, must match the name of an existing <code>DBParameterGroup</code>.</p>
+     * </li> </ul>
      */
     inline ModifyDBParameterGroupRequest& WithDBParameterGroupName(const Aws::String& value) { SetDBParameterGroupName(value); return *this;}
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
-     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     * supplied, must match the name of an existing <code>DBParameterGroup</code>.</p>
+     * </li> </ul>
      */
     inline ModifyDBParameterGroupRequest& WithDBParameterGroupName(Aws::String&& value) { SetDBParameterGroupName(std::move(value)); return *this;}
 
     /**
      * <p>The name of the DB parameter group.</p> <p>Constraints:</p> <ul> <li> <p>If
-     * supplied, must match the name of an existing DBParameterGroup.</p> </li> </ul>
+     * supplied, must match the name of an existing <code>DBParameterGroup</code>.</p>
+     * </li> </ul>
      */
     inline ModifyDBParameterGroupRequest& WithDBParameterGroupName(const char* value) { SetDBParameterGroupName(value); return *this;}
 
@@ -103,8 +111,8 @@ namespace Model
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter
      * update. At least one parameter name, value, and apply method must be supplied;
-     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
-     * a single request.</p> <p>Valid Values (for the application method):
+     * later arguments are optional. A maximum of 20 parameters can be modified in a
+     * single request.</p> <p>Valid Values (for the application method):
      * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
      * value with dynamic parameters only. You can use the pending-reboot value for
      * both dynamic and static parameters, and changes are applied when you reboot the
@@ -115,8 +123,8 @@ namespace Model
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter
      * update. At least one parameter name, value, and apply method must be supplied;
-     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
-     * a single request.</p> <p>Valid Values (for the application method):
+     * later arguments are optional. A maximum of 20 parameters can be modified in a
+     * single request.</p> <p>Valid Values (for the application method):
      * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
      * value with dynamic parameters only. You can use the pending-reboot value for
      * both dynamic and static parameters, and changes are applied when you reboot the
@@ -127,8 +135,8 @@ namespace Model
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter
      * update. At least one parameter name, value, and apply method must be supplied;
-     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
-     * a single request.</p> <p>Valid Values (for the application method):
+     * later arguments are optional. A maximum of 20 parameters can be modified in a
+     * single request.</p> <p>Valid Values (for the application method):
      * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
      * value with dynamic parameters only. You can use the pending-reboot value for
      * both dynamic and static parameters, and changes are applied when you reboot the
@@ -139,8 +147,8 @@ namespace Model
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter
      * update. At least one parameter name, value, and apply method must be supplied;
-     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
-     * a single request.</p> <p>Valid Values (for the application method):
+     * later arguments are optional. A maximum of 20 parameters can be modified in a
+     * single request.</p> <p>Valid Values (for the application method):
      * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
      * value with dynamic parameters only. You can use the pending-reboot value for
      * both dynamic and static parameters, and changes are applied when you reboot the
@@ -151,8 +159,8 @@ namespace Model
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter
      * update. At least one parameter name, value, and apply method must be supplied;
-     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
-     * a single request.</p> <p>Valid Values (for the application method):
+     * later arguments are optional. A maximum of 20 parameters can be modified in a
+     * single request.</p> <p>Valid Values (for the application method):
      * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
      * value with dynamic parameters only. You can use the pending-reboot value for
      * both dynamic and static parameters, and changes are applied when you reboot the
@@ -163,8 +171,8 @@ namespace Model
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter
      * update. At least one parameter name, value, and apply method must be supplied;
-     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
-     * a single request.</p> <p>Valid Values (for the application method):
+     * later arguments are optional. A maximum of 20 parameters can be modified in a
+     * single request.</p> <p>Valid Values (for the application method):
      * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
      * value with dynamic parameters only. You can use the pending-reboot value for
      * both dynamic and static parameters, and changes are applied when you reboot the
@@ -175,8 +183,8 @@ namespace Model
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter
      * update. At least one parameter name, value, and apply method must be supplied;
-     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
-     * a single request.</p> <p>Valid Values (for the application method):
+     * later arguments are optional. A maximum of 20 parameters can be modified in a
+     * single request.</p> <p>Valid Values (for the application method):
      * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
      * value with dynamic parameters only. You can use the pending-reboot value for
      * both dynamic and static parameters, and changes are applied when you reboot the
@@ -187,8 +195,8 @@ namespace Model
     /**
      * <p>An array of parameter names, values, and the apply method for the parameter
      * update. At least one parameter name, value, and apply method must be supplied;
-     * subsequent arguments are optional. A maximum of 20 parameters can be modified in
-     * a single request.</p> <p>Valid Values (for the application method):
+     * later arguments are optional. A maximum of 20 parameters can be modified in a
+     * single request.</p> <p>Valid Values (for the application method):
      * <code>immediate | pending-reboot</code> </p> <note> <p>You can use the immediate
      * value with dynamic parameters only. You can use the pending-reboot value for
      * both dynamic and static parameters, and changes are applied when you reboot the

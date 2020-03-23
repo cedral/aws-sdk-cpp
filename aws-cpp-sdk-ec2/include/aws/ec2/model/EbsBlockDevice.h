@@ -51,22 +51,38 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+     * <p>Indicates whether the EBS volume is deleted on instance termination. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving
+     * Amazon EBS Volumes on Instance Termination</a> in the Amazon Elastic Compute
+     * Cloud User Guide.</p>
      */
     inline bool GetDeleteOnTermination() const{ return m_deleteOnTermination; }
 
     /**
-     * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+     * <p>Indicates whether the EBS volume is deleted on instance termination. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving
+     * Amazon EBS Volumes on Instance Termination</a> in the Amazon Elastic Compute
+     * Cloud User Guide.</p>
      */
     inline bool DeleteOnTerminationHasBeenSet() const { return m_deleteOnTerminationHasBeenSet; }
 
     /**
-     * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+     * <p>Indicates whether the EBS volume is deleted on instance termination. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving
+     * Amazon EBS Volumes on Instance Termination</a> in the Amazon Elastic Compute
+     * Cloud User Guide.</p>
      */
     inline void SetDeleteOnTermination(bool value) { m_deleteOnTerminationHasBeenSet = true; m_deleteOnTermination = value; }
 
     /**
-     * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
+     * <p>Indicates whether the EBS volume is deleted on instance termination. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#preserving-volumes-on-termination">Preserving
+     * Amazon EBS Volumes on Instance Termination</a> in the Amazon Elastic Compute
+     * Cloud User Guide.</p>
      */
     inline EbsBlockDevice& WithDeleteOnTermination(bool value) { SetDeleteOnTermination(value); return *this;}
 
@@ -247,105 +263,52 @@ namespace Model
 
 
     /**
-     * <p>The volume type. If you set the type to <code>io1</code>, you must also set
-     * the <b>Iops</b> property.</p> <p>Default: <code>standard</code> </p>
+     * <p>The volume type. If you set the type to <code>io1</code>, you must also
+     * specify the <b>Iops</b> parameter. If you set the type to <code>gp2</code>,
+     * <code>st1</code>, <code>sc1</code>, or <code>standard</code>, you must omit the
+     * <b>Iops</b> parameter.</p> <p>Default: <code>gp2</code> </p>
      */
     inline const VolumeType& GetVolumeType() const{ return m_volumeType; }
 
     /**
-     * <p>The volume type. If you set the type to <code>io1</code>, you must also set
-     * the <b>Iops</b> property.</p> <p>Default: <code>standard</code> </p>
+     * <p>The volume type. If you set the type to <code>io1</code>, you must also
+     * specify the <b>Iops</b> parameter. If you set the type to <code>gp2</code>,
+     * <code>st1</code>, <code>sc1</code>, or <code>standard</code>, you must omit the
+     * <b>Iops</b> parameter.</p> <p>Default: <code>gp2</code> </p>
      */
     inline bool VolumeTypeHasBeenSet() const { return m_volumeTypeHasBeenSet; }
 
     /**
-     * <p>The volume type. If you set the type to <code>io1</code>, you must also set
-     * the <b>Iops</b> property.</p> <p>Default: <code>standard</code> </p>
+     * <p>The volume type. If you set the type to <code>io1</code>, you must also
+     * specify the <b>Iops</b> parameter. If you set the type to <code>gp2</code>,
+     * <code>st1</code>, <code>sc1</code>, or <code>standard</code>, you must omit the
+     * <b>Iops</b> parameter.</p> <p>Default: <code>gp2</code> </p>
      */
     inline void SetVolumeType(const VolumeType& value) { m_volumeTypeHasBeenSet = true; m_volumeType = value; }
 
     /**
-     * <p>The volume type. If you set the type to <code>io1</code>, you must also set
-     * the <b>Iops</b> property.</p> <p>Default: <code>standard</code> </p>
+     * <p>The volume type. If you set the type to <code>io1</code>, you must also
+     * specify the <b>Iops</b> parameter. If you set the type to <code>gp2</code>,
+     * <code>st1</code>, <code>sc1</code>, or <code>standard</code>, you must omit the
+     * <b>Iops</b> parameter.</p> <p>Default: <code>gp2</code> </p>
      */
     inline void SetVolumeType(VolumeType&& value) { m_volumeTypeHasBeenSet = true; m_volumeType = std::move(value); }
 
     /**
-     * <p>The volume type. If you set the type to <code>io1</code>, you must also set
-     * the <b>Iops</b> property.</p> <p>Default: <code>standard</code> </p>
+     * <p>The volume type. If you set the type to <code>io1</code>, you must also
+     * specify the <b>Iops</b> parameter. If you set the type to <code>gp2</code>,
+     * <code>st1</code>, <code>sc1</code>, or <code>standard</code>, you must omit the
+     * <b>Iops</b> parameter.</p> <p>Default: <code>gp2</code> </p>
      */
     inline EbsBlockDevice& WithVolumeType(const VolumeType& value) { SetVolumeType(value); return *this;}
 
     /**
-     * <p>The volume type. If you set the type to <code>io1</code>, you must also set
-     * the <b>Iops</b> property.</p> <p>Default: <code>standard</code> </p>
+     * <p>The volume type. If you set the type to <code>io1</code>, you must also
+     * specify the <b>Iops</b> parameter. If you set the type to <code>gp2</code>,
+     * <code>st1</code>, <code>sc1</code>, or <code>standard</code>, you must omit the
+     * <b>Iops</b> parameter.</p> <p>Default: <code>gp2</code> </p>
      */
     inline EbsBlockDevice& WithVolumeType(VolumeType&& value) { SetVolumeType(std::move(value)); return *this;}
-
-
-    /**
-     * <p>Indicates whether the encryption state of an EBS volume is changed while
-     * being restored from a backing snapshot. The effect of setting the encryption
-     * state to <code>true</code> depends on the volume origin (new or from a
-     * snapshot), starting encryption state, ownership, and whether encryption by
-     * default is enabled. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon
-     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>In no case can you remove encryption from an encrypted volume.</p>
-     * <p>Encrypted volumes can only be attached to instances that support Amazon EBS
-     * encryption. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
-     * Instance Types</a>.</p>
-     */
-    inline bool GetEncrypted() const{ return m_encrypted; }
-
-    /**
-     * <p>Indicates whether the encryption state of an EBS volume is changed while
-     * being restored from a backing snapshot. The effect of setting the encryption
-     * state to <code>true</code> depends on the volume origin (new or from a
-     * snapshot), starting encryption state, ownership, and whether encryption by
-     * default is enabled. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon
-     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>In no case can you remove encryption from an encrypted volume.</p>
-     * <p>Encrypted volumes can only be attached to instances that support Amazon EBS
-     * encryption. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
-     * Instance Types</a>.</p>
-     */
-    inline bool EncryptedHasBeenSet() const { return m_encryptedHasBeenSet; }
-
-    /**
-     * <p>Indicates whether the encryption state of an EBS volume is changed while
-     * being restored from a backing snapshot. The effect of setting the encryption
-     * state to <code>true</code> depends on the volume origin (new or from a
-     * snapshot), starting encryption state, ownership, and whether encryption by
-     * default is enabled. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon
-     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>In no case can you remove encryption from an encrypted volume.</p>
-     * <p>Encrypted volumes can only be attached to instances that support Amazon EBS
-     * encryption. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
-     * Instance Types</a>.</p>
-     */
-    inline void SetEncrypted(bool value) { m_encryptedHasBeenSet = true; m_encrypted = value; }
-
-    /**
-     * <p>Indicates whether the encryption state of an EBS volume is changed while
-     * being restored from a backing snapshot. The effect of setting the encryption
-     * state to <code>true</code> depends on the volume origin (new or from a
-     * snapshot), starting encryption state, ownership, and whether encryption by
-     * default is enabled. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon
-     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-     * <p>In no case can you remove encryption from an encrypted volume.</p>
-     * <p>Encrypted volumes can only be attached to instances that support Amazon EBS
-     * encryption. For more information, see <a
-     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
-     * Instance Types</a>.</p>
-     */
-    inline EbsBlockDevice& WithEncrypted(bool value) { SetEncrypted(value); return *this;}
 
 
     /**
@@ -444,6 +407,71 @@ namespace Model
      */
     inline EbsBlockDevice& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
+
+    /**
+     * <p>Indicates whether the encryption state of an EBS volume is changed while
+     * being restored from a backing snapshot. The effect of setting the encryption
+     * state to <code>true</code> depends on the volume origin (new or from a
+     * snapshot), starting encryption state, ownership, and whether encryption by
+     * default is enabled. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon
+     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>In no case can you remove encryption from an encrypted volume.</p>
+     * <p>Encrypted volumes can only be attached to instances that support Amazon EBS
+     * encryption. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+     * Instance Types</a>.</p> <p>This parameter is not returned by .</p>
+     */
+    inline bool GetEncrypted() const{ return m_encrypted; }
+
+    /**
+     * <p>Indicates whether the encryption state of an EBS volume is changed while
+     * being restored from a backing snapshot. The effect of setting the encryption
+     * state to <code>true</code> depends on the volume origin (new or from a
+     * snapshot), starting encryption state, ownership, and whether encryption by
+     * default is enabled. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon
+     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>In no case can you remove encryption from an encrypted volume.</p>
+     * <p>Encrypted volumes can only be attached to instances that support Amazon EBS
+     * encryption. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+     * Instance Types</a>.</p> <p>This parameter is not returned by .</p>
+     */
+    inline bool EncryptedHasBeenSet() const { return m_encryptedHasBeenSet; }
+
+    /**
+     * <p>Indicates whether the encryption state of an EBS volume is changed while
+     * being restored from a backing snapshot. The effect of setting the encryption
+     * state to <code>true</code> depends on the volume origin (new or from a
+     * snapshot), starting encryption state, ownership, and whether encryption by
+     * default is enabled. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon
+     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>In no case can you remove encryption from an encrypted volume.</p>
+     * <p>Encrypted volumes can only be attached to instances that support Amazon EBS
+     * encryption. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+     * Instance Types</a>.</p> <p>This parameter is not returned by .</p>
+     */
+    inline void SetEncrypted(bool value) { m_encryptedHasBeenSet = true; m_encrypted = value; }
+
+    /**
+     * <p>Indicates whether the encryption state of an EBS volume is changed while
+     * being restored from a backing snapshot. The effect of setting the encryption
+     * state to <code>true</code> depends on the volume origin (new or from a
+     * snapshot), starting encryption state, ownership, and whether encryption by
+     * default is enabled. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon
+     * EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+     * <p>In no case can you remove encryption from an encrypted volume.</p>
+     * <p>Encrypted volumes can only be attached to instances that support Amazon EBS
+     * encryption. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+     * Instance Types</a>.</p> <p>This parameter is not returned by .</p>
+     */
+    inline EbsBlockDevice& WithEncrypted(bool value) { SetEncrypted(value); return *this;}
+
   private:
 
     bool m_deleteOnTermination;
@@ -461,11 +489,11 @@ namespace Model
     VolumeType m_volumeType;
     bool m_volumeTypeHasBeenSet;
 
-    bool m_encrypted;
-    bool m_encryptedHasBeenSet;
-
     Aws::String m_kmsKeyId;
     bool m_kmsKeyIdHasBeenSet;
+
+    bool m_encrypted;
+    bool m_encryptedHasBeenSet;
   };
 
 } // namespace Model

@@ -43,6 +43,7 @@
 #include <aws/organizations/model/DeletePolicyRequest.h>
 #include <aws/organizations/model/DescribeAccountRequest.h>
 #include <aws/organizations/model/DescribeCreateAccountStatusRequest.h>
+#include <aws/organizations/model/DescribeEffectivePolicyRequest.h>
 #include <aws/organizations/model/DescribeHandshakeRequest.h>
 #include <aws/organizations/model/DescribeOrganizationalUnitRequest.h>
 #include <aws/organizations/model/DescribePolicyRequest.h>
@@ -152,7 +153,7 @@ AcceptHandshakeOutcome OrganizationsClient::AcceptHandshake(const AcceptHandshak
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AcceptHandshakeOutcome(AcceptHandshakeResult(outcome.GetResult()));
@@ -187,7 +188,7 @@ AttachPolicyOutcome OrganizationsClient::AttachPolicy(const AttachPolicyRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AttachPolicyOutcome(NoResult());
@@ -222,7 +223,7 @@ CancelHandshakeOutcome OrganizationsClient::CancelHandshake(const CancelHandshak
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelHandshakeOutcome(CancelHandshakeResult(outcome.GetResult()));
@@ -257,7 +258,7 @@ CreateAccountOutcome OrganizationsClient::CreateAccount(const CreateAccountReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAccountOutcome(CreateAccountResult(outcome.GetResult()));
@@ -292,7 +293,7 @@ CreateGovCloudAccountOutcome OrganizationsClient::CreateGovCloudAccount(const Cr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateGovCloudAccountOutcome(CreateGovCloudAccountResult(outcome.GetResult()));
@@ -327,7 +328,7 @@ CreateOrganizationOutcome OrganizationsClient::CreateOrganization(const CreateOr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateOrganizationOutcome(CreateOrganizationResult(outcome.GetResult()));
@@ -362,7 +363,7 @@ CreateOrganizationalUnitOutcome OrganizationsClient::CreateOrganizationalUnit(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateOrganizationalUnitOutcome(CreateOrganizationalUnitResult(outcome.GetResult()));
@@ -397,7 +398,7 @@ CreatePolicyOutcome OrganizationsClient::CreatePolicy(const CreatePolicyRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreatePolicyOutcome(CreatePolicyResult(outcome.GetResult()));
@@ -432,7 +433,7 @@ DeclineHandshakeOutcome OrganizationsClient::DeclineHandshake(const DeclineHands
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeclineHandshakeOutcome(DeclineHandshakeResult(outcome.GetResult()));
@@ -465,7 +466,7 @@ DeleteOrganizationOutcome OrganizationsClient::DeleteOrganization() const
 {
   Aws::StringStream ss;
   ss << m_uri << "/";
-  JsonOutcome outcome = MakeRequest(ss.str(), HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER, "DeleteOrganization");
+  JsonOutcome outcome = MakeRequest(ss.str(), Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER, "DeleteOrganization");
   if(outcome.IsSuccess())
   {
     return DeleteOrganizationOutcome(NoResult());
@@ -500,7 +501,7 @@ DeleteOrganizationalUnitOutcome OrganizationsClient::DeleteOrganizationalUnit(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteOrganizationalUnitOutcome(NoResult());
@@ -535,7 +536,7 @@ DeletePolicyOutcome OrganizationsClient::DeletePolicy(const DeletePolicyRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeletePolicyOutcome(NoResult());
@@ -570,7 +571,7 @@ DescribeAccountOutcome OrganizationsClient::DescribeAccount(const DescribeAccoun
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAccountOutcome(DescribeAccountResult(outcome.GetResult()));
@@ -605,7 +606,7 @@ DescribeCreateAccountStatusOutcome OrganizationsClient::DescribeCreateAccountSta
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeCreateAccountStatusOutcome(DescribeCreateAccountStatusResult(outcome.GetResult()));
@@ -634,13 +635,48 @@ void OrganizationsClient::DescribeCreateAccountStatusAsyncHelper(const DescribeC
   handler(this, request, DescribeCreateAccountStatus(request), context);
 }
 
+DescribeEffectivePolicyOutcome OrganizationsClient::DescribeEffectivePolicy(const DescribeEffectivePolicyRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeEffectivePolicyOutcome(DescribeEffectivePolicyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeEffectivePolicyOutcome(outcome.GetError());
+  }
+}
+
+DescribeEffectivePolicyOutcomeCallable OrganizationsClient::DescribeEffectivePolicyCallable(const DescribeEffectivePolicyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeEffectivePolicyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeEffectivePolicy(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void OrganizationsClient::DescribeEffectivePolicyAsync(const DescribeEffectivePolicyRequest& request, const DescribeEffectivePolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeEffectivePolicyAsyncHelper( request, handler, context ); } );
+}
+
+void OrganizationsClient::DescribeEffectivePolicyAsyncHelper(const DescribeEffectivePolicyRequest& request, const DescribeEffectivePolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeEffectivePolicy(request), context);
+}
+
 DescribeHandshakeOutcome OrganizationsClient::DescribeHandshake(const DescribeHandshakeRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeHandshakeOutcome(DescribeHandshakeResult(outcome.GetResult()));
@@ -673,7 +709,7 @@ DescribeOrganizationOutcome OrganizationsClient::DescribeOrganization() const
 {
   Aws::StringStream ss;
   ss << m_uri << "/";
-  JsonOutcome outcome = MakeRequest(ss.str(), HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER, "DescribeOrganization");
+  JsonOutcome outcome = MakeRequest(ss.str(), Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER, "DescribeOrganization");
   if(outcome.IsSuccess())
   {
     return DescribeOrganizationOutcome(DescribeOrganizationResult(outcome.GetResult()));
@@ -708,7 +744,7 @@ DescribeOrganizationalUnitOutcome OrganizationsClient::DescribeOrganizationalUni
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeOrganizationalUnitOutcome(DescribeOrganizationalUnitResult(outcome.GetResult()));
@@ -743,7 +779,7 @@ DescribePolicyOutcome OrganizationsClient::DescribePolicy(const DescribePolicyRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribePolicyOutcome(DescribePolicyResult(outcome.GetResult()));
@@ -778,7 +814,7 @@ DetachPolicyOutcome OrganizationsClient::DetachPolicy(const DetachPolicyRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetachPolicyOutcome(NoResult());
@@ -813,7 +849,7 @@ DisableAWSServiceAccessOutcome OrganizationsClient::DisableAWSServiceAccess(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisableAWSServiceAccessOutcome(NoResult());
@@ -848,7 +884,7 @@ DisablePolicyTypeOutcome OrganizationsClient::DisablePolicyType(const DisablePol
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisablePolicyTypeOutcome(DisablePolicyTypeResult(outcome.GetResult()));
@@ -883,7 +919,7 @@ EnableAWSServiceAccessOutcome OrganizationsClient::EnableAWSServiceAccess(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EnableAWSServiceAccessOutcome(NoResult());
@@ -918,7 +954,7 @@ EnableAllFeaturesOutcome OrganizationsClient::EnableAllFeatures(const EnableAllF
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EnableAllFeaturesOutcome(EnableAllFeaturesResult(outcome.GetResult()));
@@ -953,7 +989,7 @@ EnablePolicyTypeOutcome OrganizationsClient::EnablePolicyType(const EnablePolicy
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EnablePolicyTypeOutcome(EnablePolicyTypeResult(outcome.GetResult()));
@@ -988,7 +1024,7 @@ InviteAccountToOrganizationOutcome OrganizationsClient::InviteAccountToOrganizat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return InviteAccountToOrganizationOutcome(InviteAccountToOrganizationResult(outcome.GetResult()));
@@ -1021,7 +1057,7 @@ LeaveOrganizationOutcome OrganizationsClient::LeaveOrganization() const
 {
   Aws::StringStream ss;
   ss << m_uri << "/";
-  JsonOutcome outcome = MakeRequest(ss.str(), HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER, "LeaveOrganization");
+  JsonOutcome outcome = MakeRequest(ss.str(), Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER, "LeaveOrganization");
   if(outcome.IsSuccess())
   {
     return LeaveOrganizationOutcome(NoResult());
@@ -1056,7 +1092,7 @@ ListAWSServiceAccessForOrganizationOutcome OrganizationsClient::ListAWSServiceAc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAWSServiceAccessForOrganizationOutcome(ListAWSServiceAccessForOrganizationResult(outcome.GetResult()));
@@ -1091,7 +1127,7 @@ ListAccountsOutcome OrganizationsClient::ListAccounts(const ListAccountsRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAccountsOutcome(ListAccountsResult(outcome.GetResult()));
@@ -1126,7 +1162,7 @@ ListAccountsForParentOutcome OrganizationsClient::ListAccountsForParent(const Li
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAccountsForParentOutcome(ListAccountsForParentResult(outcome.GetResult()));
@@ -1161,7 +1197,7 @@ ListChildrenOutcome OrganizationsClient::ListChildren(const ListChildrenRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListChildrenOutcome(ListChildrenResult(outcome.GetResult()));
@@ -1196,7 +1232,7 @@ ListCreateAccountStatusOutcome OrganizationsClient::ListCreateAccountStatus(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCreateAccountStatusOutcome(ListCreateAccountStatusResult(outcome.GetResult()));
@@ -1231,7 +1267,7 @@ ListHandshakesForAccountOutcome OrganizationsClient::ListHandshakesForAccount(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListHandshakesForAccountOutcome(ListHandshakesForAccountResult(outcome.GetResult()));
@@ -1266,7 +1302,7 @@ ListHandshakesForOrganizationOutcome OrganizationsClient::ListHandshakesForOrgan
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListHandshakesForOrganizationOutcome(ListHandshakesForOrganizationResult(outcome.GetResult()));
@@ -1301,7 +1337,7 @@ ListOrganizationalUnitsForParentOutcome OrganizationsClient::ListOrganizationalU
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListOrganizationalUnitsForParentOutcome(ListOrganizationalUnitsForParentResult(outcome.GetResult()));
@@ -1336,7 +1372,7 @@ ListParentsOutcome OrganizationsClient::ListParents(const ListParentsRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListParentsOutcome(ListParentsResult(outcome.GetResult()));
@@ -1371,7 +1407,7 @@ ListPoliciesOutcome OrganizationsClient::ListPolicies(const ListPoliciesRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListPoliciesOutcome(ListPoliciesResult(outcome.GetResult()));
@@ -1406,7 +1442,7 @@ ListPoliciesForTargetOutcome OrganizationsClient::ListPoliciesForTarget(const Li
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListPoliciesForTargetOutcome(ListPoliciesForTargetResult(outcome.GetResult()));
@@ -1441,7 +1477,7 @@ ListRootsOutcome OrganizationsClient::ListRoots(const ListRootsRequest& request)
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListRootsOutcome(ListRootsResult(outcome.GetResult()));
@@ -1476,7 +1512,7 @@ ListTagsForResourceOutcome OrganizationsClient::ListTagsForResource(const ListTa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -1511,7 +1547,7 @@ ListTargetsForPolicyOutcome OrganizationsClient::ListTargetsForPolicy(const List
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTargetsForPolicyOutcome(ListTargetsForPolicyResult(outcome.GetResult()));
@@ -1546,7 +1582,7 @@ MoveAccountOutcome OrganizationsClient::MoveAccount(const MoveAccountRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return MoveAccountOutcome(NoResult());
@@ -1581,7 +1617,7 @@ RemoveAccountFromOrganizationOutcome OrganizationsClient::RemoveAccountFromOrgan
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RemoveAccountFromOrganizationOutcome(NoResult());
@@ -1616,7 +1652,7 @@ TagResourceOutcome OrganizationsClient::TagResource(const TagResourceRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(NoResult());
@@ -1651,7 +1687,7 @@ UntagResourceOutcome OrganizationsClient::UntagResource(const UntagResourceReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(NoResult());
@@ -1686,7 +1722,7 @@ UpdateOrganizationalUnitOutcome OrganizationsClient::UpdateOrganizationalUnit(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateOrganizationalUnitOutcome(UpdateOrganizationalUnitResult(outcome.GetResult()));
@@ -1721,7 +1757,7 @@ UpdatePolicyOutcome OrganizationsClient::UpdatePolicy(const UpdatePolicyRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdatePolicyOutcome(UpdatePolicyResult(outcome.GetResult()));

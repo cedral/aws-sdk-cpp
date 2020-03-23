@@ -32,12 +32,17 @@
 #include <aws/rekognition/RekognitionErrorMarshaller.h>
 #include <aws/rekognition/model/CompareFacesRequest.h>
 #include <aws/rekognition/model/CreateCollectionRequest.h>
+#include <aws/rekognition/model/CreateProjectRequest.h>
+#include <aws/rekognition/model/CreateProjectVersionRequest.h>
 #include <aws/rekognition/model/CreateStreamProcessorRequest.h>
 #include <aws/rekognition/model/DeleteCollectionRequest.h>
 #include <aws/rekognition/model/DeleteFacesRequest.h>
 #include <aws/rekognition/model/DeleteStreamProcessorRequest.h>
 #include <aws/rekognition/model/DescribeCollectionRequest.h>
+#include <aws/rekognition/model/DescribeProjectVersionsRequest.h>
+#include <aws/rekognition/model/DescribeProjectsRequest.h>
 #include <aws/rekognition/model/DescribeStreamProcessorRequest.h>
+#include <aws/rekognition/model/DetectCustomLabelsRequest.h>
 #include <aws/rekognition/model/DetectFacesRequest.h>
 #include <aws/rekognition/model/DetectLabelsRequest.h>
 #include <aws/rekognition/model/DetectModerationLabelsRequest.h>
@@ -49,6 +54,7 @@
 #include <aws/rekognition/model/GetFaceSearchRequest.h>
 #include <aws/rekognition/model/GetLabelDetectionRequest.h>
 #include <aws/rekognition/model/GetPersonTrackingRequest.h>
+#include <aws/rekognition/model/GetTextDetectionRequest.h>
 #include <aws/rekognition/model/IndexFacesRequest.h>
 #include <aws/rekognition/model/ListCollectionsRequest.h>
 #include <aws/rekognition/model/ListFacesRequest.h>
@@ -62,7 +68,10 @@
 #include <aws/rekognition/model/StartFaceSearchRequest.h>
 #include <aws/rekognition/model/StartLabelDetectionRequest.h>
 #include <aws/rekognition/model/StartPersonTrackingRequest.h>
+#include <aws/rekognition/model/StartProjectVersionRequest.h>
 #include <aws/rekognition/model/StartStreamProcessorRequest.h>
+#include <aws/rekognition/model/StartTextDetectionRequest.h>
+#include <aws/rekognition/model/StopProjectVersionRequest.h>
 #include <aws/rekognition/model/StopStreamProcessorRequest.h>
 
 using namespace Aws;
@@ -143,7 +152,7 @@ CompareFacesOutcome RekognitionClient::CompareFaces(const CompareFacesRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CompareFacesOutcome(CompareFacesResult(outcome.GetResult()));
@@ -178,7 +187,7 @@ CreateCollectionOutcome RekognitionClient::CreateCollection(const CreateCollecti
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateCollectionOutcome(CreateCollectionResult(outcome.GetResult()));
@@ -207,13 +216,83 @@ void RekognitionClient::CreateCollectionAsyncHelper(const CreateCollectionReques
   handler(this, request, CreateCollection(request), context);
 }
 
+CreateProjectOutcome RekognitionClient::CreateProject(const CreateProjectRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateProjectOutcome(CreateProjectResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateProjectOutcome(outcome.GetError());
+  }
+}
+
+CreateProjectOutcomeCallable RekognitionClient::CreateProjectCallable(const CreateProjectRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateProjectOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateProject(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::CreateProjectAsync(const CreateProjectRequest& request, const CreateProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateProjectAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::CreateProjectAsyncHelper(const CreateProjectRequest& request, const CreateProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateProject(request), context);
+}
+
+CreateProjectVersionOutcome RekognitionClient::CreateProjectVersion(const CreateProjectVersionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateProjectVersionOutcome(CreateProjectVersionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateProjectVersionOutcome(outcome.GetError());
+  }
+}
+
+CreateProjectVersionOutcomeCallable RekognitionClient::CreateProjectVersionCallable(const CreateProjectVersionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateProjectVersionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateProjectVersion(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::CreateProjectVersionAsync(const CreateProjectVersionRequest& request, const CreateProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateProjectVersionAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::CreateProjectVersionAsyncHelper(const CreateProjectVersionRequest& request, const CreateProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateProjectVersion(request), context);
+}
+
 CreateStreamProcessorOutcome RekognitionClient::CreateStreamProcessor(const CreateStreamProcessorRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateStreamProcessorOutcome(CreateStreamProcessorResult(outcome.GetResult()));
@@ -248,7 +327,7 @@ DeleteCollectionOutcome RekognitionClient::DeleteCollection(const DeleteCollecti
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteCollectionOutcome(DeleteCollectionResult(outcome.GetResult()));
@@ -283,7 +362,7 @@ DeleteFacesOutcome RekognitionClient::DeleteFaces(const DeleteFacesRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteFacesOutcome(DeleteFacesResult(outcome.GetResult()));
@@ -318,7 +397,7 @@ DeleteStreamProcessorOutcome RekognitionClient::DeleteStreamProcessor(const Dele
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteStreamProcessorOutcome(DeleteStreamProcessorResult(outcome.GetResult()));
@@ -353,7 +432,7 @@ DescribeCollectionOutcome RekognitionClient::DescribeCollection(const DescribeCo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeCollectionOutcome(DescribeCollectionResult(outcome.GetResult()));
@@ -382,13 +461,83 @@ void RekognitionClient::DescribeCollectionAsyncHelper(const DescribeCollectionRe
   handler(this, request, DescribeCollection(request), context);
 }
 
+DescribeProjectVersionsOutcome RekognitionClient::DescribeProjectVersions(const DescribeProjectVersionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeProjectVersionsOutcome(DescribeProjectVersionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeProjectVersionsOutcome(outcome.GetError());
+  }
+}
+
+DescribeProjectVersionsOutcomeCallable RekognitionClient::DescribeProjectVersionsCallable(const DescribeProjectVersionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeProjectVersionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeProjectVersions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::DescribeProjectVersionsAsync(const DescribeProjectVersionsRequest& request, const DescribeProjectVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeProjectVersionsAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::DescribeProjectVersionsAsyncHelper(const DescribeProjectVersionsRequest& request, const DescribeProjectVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeProjectVersions(request), context);
+}
+
+DescribeProjectsOutcome RekognitionClient::DescribeProjects(const DescribeProjectsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeProjectsOutcome(DescribeProjectsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeProjectsOutcome(outcome.GetError());
+  }
+}
+
+DescribeProjectsOutcomeCallable RekognitionClient::DescribeProjectsCallable(const DescribeProjectsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeProjectsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeProjects(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::DescribeProjectsAsync(const DescribeProjectsRequest& request, const DescribeProjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeProjectsAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::DescribeProjectsAsyncHelper(const DescribeProjectsRequest& request, const DescribeProjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeProjects(request), context);
+}
+
 DescribeStreamProcessorOutcome RekognitionClient::DescribeStreamProcessor(const DescribeStreamProcessorRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeStreamProcessorOutcome(DescribeStreamProcessorResult(outcome.GetResult()));
@@ -417,13 +566,48 @@ void RekognitionClient::DescribeStreamProcessorAsyncHelper(const DescribeStreamP
   handler(this, request, DescribeStreamProcessor(request), context);
 }
 
+DetectCustomLabelsOutcome RekognitionClient::DetectCustomLabels(const DetectCustomLabelsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DetectCustomLabelsOutcome(DetectCustomLabelsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DetectCustomLabelsOutcome(outcome.GetError());
+  }
+}
+
+DetectCustomLabelsOutcomeCallable RekognitionClient::DetectCustomLabelsCallable(const DetectCustomLabelsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DetectCustomLabelsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DetectCustomLabels(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::DetectCustomLabelsAsync(const DetectCustomLabelsRequest& request, const DetectCustomLabelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DetectCustomLabelsAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::DetectCustomLabelsAsyncHelper(const DetectCustomLabelsRequest& request, const DetectCustomLabelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DetectCustomLabels(request), context);
+}
+
 DetectFacesOutcome RekognitionClient::DetectFaces(const DetectFacesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectFacesOutcome(DetectFacesResult(outcome.GetResult()));
@@ -458,7 +642,7 @@ DetectLabelsOutcome RekognitionClient::DetectLabels(const DetectLabelsRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectLabelsOutcome(DetectLabelsResult(outcome.GetResult()));
@@ -493,7 +677,7 @@ DetectModerationLabelsOutcome RekognitionClient::DetectModerationLabels(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectModerationLabelsOutcome(DetectModerationLabelsResult(outcome.GetResult()));
@@ -528,7 +712,7 @@ DetectTextOutcome RekognitionClient::DetectText(const DetectTextRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetectTextOutcome(DetectTextResult(outcome.GetResult()));
@@ -563,7 +747,7 @@ GetCelebrityInfoOutcome RekognitionClient::GetCelebrityInfo(const GetCelebrityIn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCelebrityInfoOutcome(GetCelebrityInfoResult(outcome.GetResult()));
@@ -598,7 +782,7 @@ GetCelebrityRecognitionOutcome RekognitionClient::GetCelebrityRecognition(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCelebrityRecognitionOutcome(GetCelebrityRecognitionResult(outcome.GetResult()));
@@ -633,7 +817,7 @@ GetContentModerationOutcome RekognitionClient::GetContentModeration(const GetCon
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetContentModerationOutcome(GetContentModerationResult(outcome.GetResult()));
@@ -668,7 +852,7 @@ GetFaceDetectionOutcome RekognitionClient::GetFaceDetection(const GetFaceDetecti
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetFaceDetectionOutcome(GetFaceDetectionResult(outcome.GetResult()));
@@ -703,7 +887,7 @@ GetFaceSearchOutcome RekognitionClient::GetFaceSearch(const GetFaceSearchRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetFaceSearchOutcome(GetFaceSearchResult(outcome.GetResult()));
@@ -738,7 +922,7 @@ GetLabelDetectionOutcome RekognitionClient::GetLabelDetection(const GetLabelDete
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetLabelDetectionOutcome(GetLabelDetectionResult(outcome.GetResult()));
@@ -773,7 +957,7 @@ GetPersonTrackingOutcome RekognitionClient::GetPersonTracking(const GetPersonTra
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetPersonTrackingOutcome(GetPersonTrackingResult(outcome.GetResult()));
@@ -802,13 +986,48 @@ void RekognitionClient::GetPersonTrackingAsyncHelper(const GetPersonTrackingRequ
   handler(this, request, GetPersonTracking(request), context);
 }
 
+GetTextDetectionOutcome RekognitionClient::GetTextDetection(const GetTextDetectionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetTextDetectionOutcome(GetTextDetectionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetTextDetectionOutcome(outcome.GetError());
+  }
+}
+
+GetTextDetectionOutcomeCallable RekognitionClient::GetTextDetectionCallable(const GetTextDetectionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetTextDetectionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetTextDetection(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::GetTextDetectionAsync(const GetTextDetectionRequest& request, const GetTextDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetTextDetectionAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::GetTextDetectionAsyncHelper(const GetTextDetectionRequest& request, const GetTextDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetTextDetection(request), context);
+}
+
 IndexFacesOutcome RekognitionClient::IndexFaces(const IndexFacesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return IndexFacesOutcome(IndexFacesResult(outcome.GetResult()));
@@ -843,7 +1062,7 @@ ListCollectionsOutcome RekognitionClient::ListCollections(const ListCollectionsR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCollectionsOutcome(ListCollectionsResult(outcome.GetResult()));
@@ -878,7 +1097,7 @@ ListFacesOutcome RekognitionClient::ListFaces(const ListFacesRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListFacesOutcome(ListFacesResult(outcome.GetResult()));
@@ -913,7 +1132,7 @@ ListStreamProcessorsOutcome RekognitionClient::ListStreamProcessors(const ListSt
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListStreamProcessorsOutcome(ListStreamProcessorsResult(outcome.GetResult()));
@@ -948,7 +1167,7 @@ RecognizeCelebritiesOutcome RekognitionClient::RecognizeCelebrities(const Recogn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RecognizeCelebritiesOutcome(RecognizeCelebritiesResult(outcome.GetResult()));
@@ -983,7 +1202,7 @@ SearchFacesOutcome RekognitionClient::SearchFaces(const SearchFacesRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SearchFacesOutcome(SearchFacesResult(outcome.GetResult()));
@@ -1018,7 +1237,7 @@ SearchFacesByImageOutcome RekognitionClient::SearchFacesByImage(const SearchFace
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SearchFacesByImageOutcome(SearchFacesByImageResult(outcome.GetResult()));
@@ -1053,7 +1272,7 @@ StartCelebrityRecognitionOutcome RekognitionClient::StartCelebrityRecognition(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartCelebrityRecognitionOutcome(StartCelebrityRecognitionResult(outcome.GetResult()));
@@ -1088,7 +1307,7 @@ StartContentModerationOutcome RekognitionClient::StartContentModeration(const St
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartContentModerationOutcome(StartContentModerationResult(outcome.GetResult()));
@@ -1123,7 +1342,7 @@ StartFaceDetectionOutcome RekognitionClient::StartFaceDetection(const StartFaceD
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartFaceDetectionOutcome(StartFaceDetectionResult(outcome.GetResult()));
@@ -1158,7 +1377,7 @@ StartFaceSearchOutcome RekognitionClient::StartFaceSearch(const StartFaceSearchR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartFaceSearchOutcome(StartFaceSearchResult(outcome.GetResult()));
@@ -1193,7 +1412,7 @@ StartLabelDetectionOutcome RekognitionClient::StartLabelDetection(const StartLab
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartLabelDetectionOutcome(StartLabelDetectionResult(outcome.GetResult()));
@@ -1228,7 +1447,7 @@ StartPersonTrackingOutcome RekognitionClient::StartPersonTracking(const StartPer
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartPersonTrackingOutcome(StartPersonTrackingResult(outcome.GetResult()));
@@ -1257,13 +1476,48 @@ void RekognitionClient::StartPersonTrackingAsyncHelper(const StartPersonTracking
   handler(this, request, StartPersonTracking(request), context);
 }
 
+StartProjectVersionOutcome RekognitionClient::StartProjectVersion(const StartProjectVersionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartProjectVersionOutcome(StartProjectVersionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartProjectVersionOutcome(outcome.GetError());
+  }
+}
+
+StartProjectVersionOutcomeCallable RekognitionClient::StartProjectVersionCallable(const StartProjectVersionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartProjectVersionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartProjectVersion(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::StartProjectVersionAsync(const StartProjectVersionRequest& request, const StartProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartProjectVersionAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::StartProjectVersionAsyncHelper(const StartProjectVersionRequest& request, const StartProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartProjectVersion(request), context);
+}
+
 StartStreamProcessorOutcome RekognitionClient::StartStreamProcessor(const StartStreamProcessorRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartStreamProcessorOutcome(StartStreamProcessorResult(outcome.GetResult()));
@@ -1292,13 +1546,83 @@ void RekognitionClient::StartStreamProcessorAsyncHelper(const StartStreamProcess
   handler(this, request, StartStreamProcessor(request), context);
 }
 
+StartTextDetectionOutcome RekognitionClient::StartTextDetection(const StartTextDetectionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartTextDetectionOutcome(StartTextDetectionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartTextDetectionOutcome(outcome.GetError());
+  }
+}
+
+StartTextDetectionOutcomeCallable RekognitionClient::StartTextDetectionCallable(const StartTextDetectionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartTextDetectionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartTextDetection(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::StartTextDetectionAsync(const StartTextDetectionRequest& request, const StartTextDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartTextDetectionAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::StartTextDetectionAsyncHelper(const StartTextDetectionRequest& request, const StartTextDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartTextDetection(request), context);
+}
+
+StopProjectVersionOutcome RekognitionClient::StopProjectVersion(const StopProjectVersionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StopProjectVersionOutcome(StopProjectVersionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StopProjectVersionOutcome(outcome.GetError());
+  }
+}
+
+StopProjectVersionOutcomeCallable RekognitionClient::StopProjectVersionCallable(const StopProjectVersionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StopProjectVersionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StopProjectVersion(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void RekognitionClient::StopProjectVersionAsync(const StopProjectVersionRequest& request, const StopProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StopProjectVersionAsyncHelper( request, handler, context ); } );
+}
+
+void RekognitionClient::StopProjectVersionAsyncHelper(const StopProjectVersionRequest& request, const StopProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StopProjectVersion(request), context);
+}
+
 StopStreamProcessorOutcome RekognitionClient::StopStreamProcessor(const StopStreamProcessorRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopStreamProcessorOutcome(StopStreamProcessorResult(outcome.GetResult()));

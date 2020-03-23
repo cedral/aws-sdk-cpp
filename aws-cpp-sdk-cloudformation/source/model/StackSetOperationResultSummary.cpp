@@ -36,7 +36,8 @@ StackSetOperationResultSummary::StackSetOperationResultSummary() :
     m_status(StackSetOperationResultStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_statusReasonHasBeenSet(false),
-    m_accountGateResultHasBeenSet(false)
+    m_accountGateResultHasBeenSet(false),
+    m_organizationalUnitIdHasBeenSet(false)
 {
 }
 
@@ -46,7 +47,8 @@ StackSetOperationResultSummary::StackSetOperationResultSummary(const XmlNode& xm
     m_status(StackSetOperationResultStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_statusReasonHasBeenSet(false),
-    m_accountGateResultHasBeenSet(false)
+    m_accountGateResultHasBeenSet(false),
+    m_organizationalUnitIdHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -60,25 +62,25 @@ StackSetOperationResultSummary& StackSetOperationResultSummary::operator =(const
     XmlNode accountNode = resultNode.FirstChild("Account");
     if(!accountNode.IsNull())
     {
-      m_account = accountNode.GetText();
+      m_account = Aws::Utils::Xml::DecodeEscapedXmlText(accountNode.GetText());
       m_accountHasBeenSet = true;
     }
     XmlNode regionNode = resultNode.FirstChild("Region");
     if(!regionNode.IsNull())
     {
-      m_region = regionNode.GetText();
+      m_region = Aws::Utils::Xml::DecodeEscapedXmlText(regionNode.GetText());
       m_regionHasBeenSet = true;
     }
     XmlNode statusNode = resultNode.FirstChild("Status");
     if(!statusNode.IsNull())
     {
-      m_status = StackSetOperationResultStatusMapper::GetStackSetOperationResultStatusForName(StringUtils::Trim(statusNode.GetText().c_str()).c_str());
+      m_status = StackSetOperationResultStatusMapper::GetStackSetOperationResultStatusForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(statusNode.GetText()).c_str()).c_str());
       m_statusHasBeenSet = true;
     }
     XmlNode statusReasonNode = resultNode.FirstChild("StatusReason");
     if(!statusReasonNode.IsNull())
     {
-      m_statusReason = statusReasonNode.GetText();
+      m_statusReason = Aws::Utils::Xml::DecodeEscapedXmlText(statusReasonNode.GetText());
       m_statusReasonHasBeenSet = true;
     }
     XmlNode accountGateResultNode = resultNode.FirstChild("AccountGateResult");
@@ -86,6 +88,12 @@ StackSetOperationResultSummary& StackSetOperationResultSummary::operator =(const
     {
       m_accountGateResult = accountGateResultNode;
       m_accountGateResultHasBeenSet = true;
+    }
+    XmlNode organizationalUnitIdNode = resultNode.FirstChild("OrganizationalUnitId");
+    if(!organizationalUnitIdNode.IsNull())
+    {
+      m_organizationalUnitId = Aws::Utils::Xml::DecodeEscapedXmlText(organizationalUnitIdNode.GetText());
+      m_organizationalUnitIdHasBeenSet = true;
     }
   }
 
@@ -121,6 +129,11 @@ void StackSetOperationResultSummary::OutputToStream(Aws::OStream& oStream, const
       m_accountGateResult.OutputToStream(oStream, accountGateResultLocationAndMemberSs.str().c_str());
   }
 
+  if(m_organizationalUnitIdHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".OrganizationalUnitId=" << StringUtils::URLEncode(m_organizationalUnitId.c_str()) << "&";
+  }
+
 }
 
 void StackSetOperationResultSummary::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -146,6 +159,10 @@ void StackSetOperationResultSummary::OutputToStream(Aws::OStream& oStream, const
       Aws::String accountGateResultLocationAndMember(location);
       accountGateResultLocationAndMember += ".AccountGateResult";
       m_accountGateResult.OutputToStream(oStream, accountGateResultLocationAndMember.c_str());
+  }
+  if(m_organizationalUnitIdHasBeenSet)
+  {
+      oStream << location << ".OrganizationalUnitId=" << StringUtils::URLEncode(m_organizationalUnitId.c_str()) << "&";
   }
 }
 

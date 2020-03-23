@@ -45,80 +45,80 @@ namespace Model
 
 
     /**
-     * <p>A list of <code>StandardsSubscriptions</code> objects that include
+     * <p>The list of <code>StandardsSubscriptions</code> objects that include
      * information about the enabled standards.</p>
      */
     inline const Aws::Vector<StandardsSubscription>& GetStandardsSubscriptions() const{ return m_standardsSubscriptions; }
 
     /**
-     * <p>A list of <code>StandardsSubscriptions</code> objects that include
+     * <p>The list of <code>StandardsSubscriptions</code> objects that include
      * information about the enabled standards.</p>
      */
     inline void SetStandardsSubscriptions(const Aws::Vector<StandardsSubscription>& value) { m_standardsSubscriptions = value; }
 
     /**
-     * <p>A list of <code>StandardsSubscriptions</code> objects that include
+     * <p>The list of <code>StandardsSubscriptions</code> objects that include
      * information about the enabled standards.</p>
      */
     inline void SetStandardsSubscriptions(Aws::Vector<StandardsSubscription>&& value) { m_standardsSubscriptions = std::move(value); }
 
     /**
-     * <p>A list of <code>StandardsSubscriptions</code> objects that include
+     * <p>The list of <code>StandardsSubscriptions</code> objects that include
      * information about the enabled standards.</p>
      */
     inline GetEnabledStandardsResult& WithStandardsSubscriptions(const Aws::Vector<StandardsSubscription>& value) { SetStandardsSubscriptions(value); return *this;}
 
     /**
-     * <p>A list of <code>StandardsSubscriptions</code> objects that include
+     * <p>The list of <code>StandardsSubscriptions</code> objects that include
      * information about the enabled standards.</p>
      */
     inline GetEnabledStandardsResult& WithStandardsSubscriptions(Aws::Vector<StandardsSubscription>&& value) { SetStandardsSubscriptions(std::move(value)); return *this;}
 
     /**
-     * <p>A list of <code>StandardsSubscriptions</code> objects that include
+     * <p>The list of <code>StandardsSubscriptions</code> objects that include
      * information about the enabled standards.</p>
      */
     inline GetEnabledStandardsResult& AddStandardsSubscriptions(const StandardsSubscription& value) { m_standardsSubscriptions.push_back(value); return *this; }
 
     /**
-     * <p>A list of <code>StandardsSubscriptions</code> objects that include
+     * <p>The list of <code>StandardsSubscriptions</code> objects that include
      * information about the enabled standards.</p>
      */
     inline GetEnabledStandardsResult& AddStandardsSubscriptions(StandardsSubscription&& value) { m_standardsSubscriptions.push_back(std::move(value)); return *this; }
 
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline const Aws::String& GetNextToken() const{ return m_nextToken; }
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline void SetNextToken(const Aws::String& value) { m_nextToken = value; }
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline void SetNextToken(Aws::String&& value) { m_nextToken = std::move(value); }
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline void SetNextToken(const char* value) { m_nextToken.assign(value); }
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline GetEnabledStandardsResult& WithNextToken(const Aws::String& value) { SetNextToken(value); return *this;}
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline GetEnabledStandardsResult& WithNextToken(Aws::String&& value) { SetNextToken(std::move(value)); return *this;}
 
     /**
-     * <p>The token that is required for pagination.</p>
+     * <p>The pagination token to use to request the next page of results.</p>
      */
     inline GetEnabledStandardsResult& WithNextToken(const char* value) { SetNextToken(value); return *this;}
 

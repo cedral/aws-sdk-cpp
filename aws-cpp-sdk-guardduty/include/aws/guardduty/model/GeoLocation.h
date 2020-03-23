@@ -31,6 +31,12 @@ namespace GuardDuty
 namespace Model
 {
 
+  /**
+   * <p>Contains information about the location of the remote IP
+   * address.</p><p><h3>See Also:</h3>   <a
+   * href="http://docs.aws.amazon.com/goto/WebAPI/guardduty-2017-11-28/GeoLocation">AWS
+   * API Reference</a></p>
+   */
   class AWS_GUARDDUTY_API GeoLocation
   {
   public:

@@ -23,6 +23,7 @@
 #include <aws/pinpoint/model/MessageConfiguration.h>
 #include <aws/pinpoint/model/Schedule.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
+#include <aws/pinpoint/model/TemplateConfiguration.h>
 #include <aws/pinpoint/model/TreatmentResource.h>
 #include <utility>
 
@@ -188,42 +189,42 @@ namespace Model
 
 
     /**
-     * <p>The date, ISO 8601 format, when the campaign was created.</p>
+     * <p>The date, in ISO 8601 format, when the campaign was created.</p>
      */
     inline const Aws::String& GetCreationDate() const{ return m_creationDate; }
 
     /**
-     * <p>The date, ISO 8601 format, when the campaign was created.</p>
+     * <p>The date, in ISO 8601 format, when the campaign was created.</p>
      */
     inline bool CreationDateHasBeenSet() const { return m_creationDateHasBeenSet; }
 
     /**
-     * <p>The date, ISO 8601 format, when the campaign was created.</p>
+     * <p>The date, in ISO 8601 format, when the campaign was created.</p>
      */
     inline void SetCreationDate(const Aws::String& value) { m_creationDateHasBeenSet = true; m_creationDate = value; }
 
     /**
-     * <p>The date, ISO 8601 format, when the campaign was created.</p>
+     * <p>The date, in ISO 8601 format, when the campaign was created.</p>
      */
     inline void SetCreationDate(Aws::String&& value) { m_creationDateHasBeenSet = true; m_creationDate = std::move(value); }
 
     /**
-     * <p>The date, ISO 8601 format, when the campaign was created.</p>
+     * <p>The date, in ISO 8601 format, when the campaign was created.</p>
      */
     inline void SetCreationDate(const char* value) { m_creationDateHasBeenSet = true; m_creationDate.assign(value); }
 
     /**
-     * <p>The date, ISO 8601 format, when the campaign was created.</p>
+     * <p>The date, in ISO 8601 format, when the campaign was created.</p>
      */
     inline CampaignResponse& WithCreationDate(const Aws::String& value) { SetCreationDate(value); return *this;}
 
     /**
-     * <p>The date, ISO 8601 format, when the campaign was created.</p>
+     * <p>The date, in ISO 8601 format, when the campaign was created.</p>
      */
     inline CampaignResponse& WithCreationDate(Aws::String&& value) { SetCreationDate(std::move(value)); return *this;}
 
     /**
-     * <p>The date, ISO 8601 format, when the campaign was created.</p>
+     * <p>The date, in ISO 8601 format, when the campaign was created.</p>
      */
     inline CampaignResponse& WithCreationDate(const char* value) { SetCreationDate(value); return *this;}
 
@@ -809,6 +810,37 @@ namespace Model
 
 
     /**
+     * <p>The message template that’s used for the campaign.</p>
+     */
+    inline const TemplateConfiguration& GetTemplateConfiguration() const{ return m_templateConfiguration; }
+
+    /**
+     * <p>The message template that’s used for the campaign.</p>
+     */
+    inline bool TemplateConfigurationHasBeenSet() const { return m_templateConfigurationHasBeenSet; }
+
+    /**
+     * <p>The message template that’s used for the campaign.</p>
+     */
+    inline void SetTemplateConfiguration(const TemplateConfiguration& value) { m_templateConfigurationHasBeenSet = true; m_templateConfiguration = value; }
+
+    /**
+     * <p>The message template that’s used for the campaign.</p>
+     */
+    inline void SetTemplateConfiguration(TemplateConfiguration&& value) { m_templateConfigurationHasBeenSet = true; m_templateConfiguration = std::move(value); }
+
+    /**
+     * <p>The message template that’s used for the campaign.</p>
+     */
+    inline CampaignResponse& WithTemplateConfiguration(const TemplateConfiguration& value) { SetTemplateConfiguration(value); return *this;}
+
+    /**
+     * <p>The message template that’s used for the campaign.</p>
+     */
+    inline CampaignResponse& WithTemplateConfiguration(TemplateConfiguration&& value) { SetTemplateConfiguration(std::move(value)); return *this;}
+
+
+    /**
      * <p>The custom description of a variation of the campaign that's used for A/B
      * testing.</p>
      */
@@ -984,6 +1016,9 @@ namespace Model
 
     Aws::Map<Aws::String, Aws::String> m_tags;
     bool m_tagsHasBeenSet;
+
+    TemplateConfiguration m_templateConfiguration;
+    bool m_templateConfigurationHasBeenSet;
 
     Aws::String m_treatmentDescription;
     bool m_treatmentDescriptionHasBeenSet;

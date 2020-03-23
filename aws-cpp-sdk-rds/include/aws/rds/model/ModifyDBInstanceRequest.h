@@ -257,7 +257,7 @@ namespace Model
 
     /**
      * <p>The new DB subnet group for the DB instance. You can use this parameter to
-     * move your DB instance to a different VPC. If your DB instance is not in a VPC,
+     * move your DB instance to a different VPC. If your DB instance isn't in a VPC,
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
@@ -272,7 +272,7 @@ namespace Model
 
     /**
      * <p>The new DB subnet group for the DB instance. You can use this parameter to
-     * move your DB instance to a different VPC. If your DB instance is not in a VPC,
+     * move your DB instance to a different VPC. If your DB instance isn't in a VPC,
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
@@ -287,7 +287,7 @@ namespace Model
 
     /**
      * <p>The new DB subnet group for the DB instance. You can use this parameter to
-     * move your DB instance to a different VPC. If your DB instance is not in a VPC,
+     * move your DB instance to a different VPC. If your DB instance isn't in a VPC,
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
@@ -302,7 +302,7 @@ namespace Model
 
     /**
      * <p>The new DB subnet group for the DB instance. You can use this parameter to
-     * move your DB instance to a different VPC. If your DB instance is not in a VPC,
+     * move your DB instance to a different VPC. If your DB instance isn't in a VPC,
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
@@ -317,7 +317,7 @@ namespace Model
 
     /**
      * <p>The new DB subnet group for the DB instance. You can use this parameter to
-     * move your DB instance to a different VPC. If your DB instance is not in a VPC,
+     * move your DB instance to a different VPC. If your DB instance isn't in a VPC,
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
@@ -332,7 +332,7 @@ namespace Model
 
     /**
      * <p>The new DB subnet group for the DB instance. You can use this parameter to
-     * move your DB instance to a different VPC. If your DB instance is not in a VPC,
+     * move your DB instance to a different VPC. If your DB instance isn't in a VPC,
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
@@ -347,7 +347,7 @@ namespace Model
 
     /**
      * <p>The new DB subnet group for the DB instance. You can use this parameter to
-     * move your DB instance to a different VPC. If your DB instance is not in a VPC,
+     * move your DB instance to a different VPC. If your DB instance isn't in a VPC,
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
@@ -362,7 +362,7 @@ namespace Model
 
     /**
      * <p>The new DB subnet group for the DB instance. You can use this parameter to
-     * move your DB instance to a different VPC. If your DB instance is not in a VPC,
+     * move your DB instance to a different VPC. If your DB instance isn't in a VPC,
      * you can also use this parameter to move your DB instance into a VPC. For more
      * information, see <a
      * href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
@@ -2099,66 +2099,154 @@ namespace Model
 
 
     /**
-     * <p>The Active Directory Domain to move the instance to. Specify
+     * <p>The Active Directory directory ID to move the DB instance to. Specify
      * <code>none</code> to remove the instance from its current domain. The domain
-     * must be created prior to this operation. Currently only a Microsoft SQL Server
-     * instance can be created in a Active Directory Domain. </p>
+     * must be created prior to this operation. Currently, only Microsoft SQL Server
+     * and Oracle DB instances can be created in an Active Directory Domain. </p>
+     * <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline const Aws::String& GetDomain() const{ return m_domain; }
 
     /**
-     * <p>The Active Directory Domain to move the instance to. Specify
+     * <p>The Active Directory directory ID to move the DB instance to. Specify
      * <code>none</code> to remove the instance from its current domain. The domain
-     * must be created prior to this operation. Currently only a Microsoft SQL Server
-     * instance can be created in a Active Directory Domain. </p>
+     * must be created prior to this operation. Currently, only Microsoft SQL Server
+     * and Oracle DB instances can be created in an Active Directory Domain. </p>
+     * <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
 
     /**
-     * <p>The Active Directory Domain to move the instance to. Specify
+     * <p>The Active Directory directory ID to move the DB instance to. Specify
      * <code>none</code> to remove the instance from its current domain. The domain
-     * must be created prior to this operation. Currently only a Microsoft SQL Server
-     * instance can be created in a Active Directory Domain. </p>
+     * must be created prior to this operation. Currently, only Microsoft SQL Server
+     * and Oracle DB instances can be created in an Active Directory Domain. </p>
+     * <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline void SetDomain(const Aws::String& value) { m_domainHasBeenSet = true; m_domain = value; }
 
     /**
-     * <p>The Active Directory Domain to move the instance to. Specify
+     * <p>The Active Directory directory ID to move the DB instance to. Specify
      * <code>none</code> to remove the instance from its current domain. The domain
-     * must be created prior to this operation. Currently only a Microsoft SQL Server
-     * instance can be created in a Active Directory Domain. </p>
+     * must be created prior to this operation. Currently, only Microsoft SQL Server
+     * and Oracle DB instances can be created in an Active Directory Domain. </p>
+     * <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline void SetDomain(Aws::String&& value) { m_domainHasBeenSet = true; m_domain = std::move(value); }
 
     /**
-     * <p>The Active Directory Domain to move the instance to. Specify
+     * <p>The Active Directory directory ID to move the DB instance to. Specify
      * <code>none</code> to remove the instance from its current domain. The domain
-     * must be created prior to this operation. Currently only a Microsoft SQL Server
-     * instance can be created in a Active Directory Domain. </p>
+     * must be created prior to this operation. Currently, only Microsoft SQL Server
+     * and Oracle DB instances can be created in an Active Directory Domain. </p>
+     * <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline void SetDomain(const char* value) { m_domainHasBeenSet = true; m_domain.assign(value); }
 
     /**
-     * <p>The Active Directory Domain to move the instance to. Specify
+     * <p>The Active Directory directory ID to move the DB instance to. Specify
      * <code>none</code> to remove the instance from its current domain. The domain
-     * must be created prior to this operation. Currently only a Microsoft SQL Server
-     * instance can be created in a Active Directory Domain. </p>
+     * must be created prior to this operation. Currently, only Microsoft SQL Server
+     * and Oracle DB instances can be created in an Active Directory Domain. </p>
+     * <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline ModifyDBInstanceRequest& WithDomain(const Aws::String& value) { SetDomain(value); return *this;}
 
     /**
-     * <p>The Active Directory Domain to move the instance to. Specify
+     * <p>The Active Directory directory ID to move the DB instance to. Specify
      * <code>none</code> to remove the instance from its current domain. The domain
-     * must be created prior to this operation. Currently only a Microsoft SQL Server
-     * instance can be created in a Active Directory Domain. </p>
+     * must be created prior to this operation. Currently, only Microsoft SQL Server
+     * and Oracle DB instances can be created in an Active Directory Domain. </p>
+     * <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline ModifyDBInstanceRequest& WithDomain(Aws::String&& value) { SetDomain(std::move(value)); return *this;}
 
     /**
-     * <p>The Active Directory Domain to move the instance to. Specify
+     * <p>The Active Directory directory ID to move the DB instance to. Specify
      * <code>none</code> to remove the instance from its current domain. The domain
-     * must be created prior to this operation. Currently only a Microsoft SQL Server
-     * instance can be created in a Active Directory Domain. </p>
+     * must be created prior to this operation. Currently, only Microsoft SQL Server
+     * and Oracle DB instances can be created in an Active Directory Domain. </p>
+     * <p>For Microsoft SQL Server DB instances, Amazon RDS can use Windows
+     * Authentication to authenticate users that connect to the DB instance. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_SQLServerWinAuth.html">
+     * Using Windows Authentication with an Amazon RDS DB Instance Running Microsoft
+     * SQL Server</a> in the <i>Amazon RDS User Guide</i>.</p> <p>For Oracle DB
+     * instances, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-kerberos.html">
+     * Using Kerberos Authentication with Amazon RDS for Oracle</a> in the <i>Amazon
+     * RDS User Guide</i>.</p>
      */
     inline ModifyDBInstanceRequest& WithDomain(const char* value) { SetDomain(value); return *this;}
 
@@ -2322,7 +2410,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. </p> <p> <code>PubliclyAccessible</code>
      * only applies to DB instances in a VPC. The DB instance must be part of a public
      * subnet and <code>PubliclyAccessible</code> must be enabled for it to be publicly
@@ -2336,7 +2424,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. </p> <p> <code>PubliclyAccessible</code>
      * only applies to DB instances in a VPC. The DB instance must be part of a public
      * subnet and <code>PubliclyAccessible</code> must be enabled for it to be publicly
@@ -2350,7 +2438,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. </p> <p> <code>PubliclyAccessible</code>
      * only applies to DB instances in a VPC. The DB instance must be part of a public
      * subnet and <code>PubliclyAccessible</code> must be enabled for it to be publicly
@@ -2364,7 +2452,7 @@ namespace Model
      * <p>A value that indicates whether the DB instance is publicly accessible. When
      * the DB instance is publicly accessible, it is an Internet-facing instance with a
      * publicly resolvable DNS name, which resolves to a public IP address. When the DB
-     * instance is not publicly accessible, it is an internal instance with a DNS name
+     * instance isn't publicly accessible, it is an internal instance with a DNS name
      * that resolves to a private IP address. </p> <p> <code>PubliclyAccessible</code>
      * only applies to DB instances in a VPC. The DB instance must be part of a public
      * subnet and <code>PubliclyAccessible</code> must be enabled for it to be publicly
@@ -2564,49 +2652,45 @@ namespace Model
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p> <p>You can enable IAM database authentication for the following
-     * database engines</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. Mapping
-     * AWS IAM accounts to database accounts is managed by the DB cluster. For more
-     * information, see <code>ModifyDBCluster</code>.</p> <p> <b>MySQL</b> </p> <ul>
-     * <li> <p>For MySQL 5.6, minor version 5.6.34 or higher</p> </li> <li> <p>For
-     * MySQL 5.7, minor version 5.7.16 or higher</p> </li> </ul>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline bool GetEnableIAMDatabaseAuthentication() const{ return m_enableIAMDatabaseAuthentication; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p> <p>You can enable IAM database authentication for the following
-     * database engines</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. Mapping
-     * AWS IAM accounts to database accounts is managed by the DB cluster. For more
-     * information, see <code>ModifyDBCluster</code>.</p> <p> <b>MySQL</b> </p> <ul>
-     * <li> <p>For MySQL 5.6, minor version 5.6.34 or higher</p> </li> <li> <p>For
-     * MySQL 5.7, minor version 5.7.16 or higher</p> </li> </ul>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline bool EnableIAMDatabaseAuthenticationHasBeenSet() const { return m_enableIAMDatabaseAuthenticationHasBeenSet; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p> <p>You can enable IAM database authentication for the following
-     * database engines</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. Mapping
-     * AWS IAM accounts to database accounts is managed by the DB cluster. For more
-     * information, see <code>ModifyDBCluster</code>.</p> <p> <b>MySQL</b> </p> <ul>
-     * <li> <p>For MySQL 5.6, minor version 5.6.34 or higher</p> </li> <li> <p>For
-     * MySQL 5.7, minor version 5.7.16 or higher</p> </li> </ul>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline void SetEnableIAMDatabaseAuthentication(bool value) { m_enableIAMDatabaseAuthenticationHasBeenSet = true; m_enableIAMDatabaseAuthentication = value; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
-     * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p> <p>You can enable IAM database authentication for the following
-     * database engines</p> <p> <b>Amazon Aurora</b> </p> <p>Not applicable. Mapping
-     * AWS IAM accounts to database accounts is managed by the DB cluster. For more
-     * information, see <code>ModifyDBCluster</code>.</p> <p> <b>MySQL</b> </p> <ul>
-     * <li> <p>For MySQL 5.6, minor version 5.6.34 or higher</p> </li> <li> <p>For
-     * MySQL 5.7, minor version 5.7.16 or higher</p> </li> </ul>
+     * Management (IAM) accounts to database accounts. By default, mapping is disabled.
+     * For information about the supported DB engines, see <a>CreateDBInstance</a>.</p>
+     * <p>For more information about IAM database authentication, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication for MySQL and PostgreSQL</a> in the <i>Amazon RDS
+     * User Guide.</i> </p>
      */
     inline ModifyDBInstanceRequest& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 
@@ -2944,6 +3028,87 @@ namespace Model
      */
     inline ModifyDBInstanceRequest& WithMaxAllocatedStorage(int value) { SetMaxAllocatedStorage(value); return *this;}
 
+
+    /**
+     * <p>A value that indicates whether the DB instance is restarted when you rotate
+     * your SSL/TLS certificate.</p> <p>By default, the DB instance is restarted when
+     * you rotate your SSL/TLS certificate. The certificate is not updated until the DB
+     * instance is restarted.</p> <important> <p>Set this parameter only if you are
+     * <i>not</i> using SSL/TLS to connect to the DB instance.</p> </important> <p>If
+     * you are using SSL/TLS to connect to the DB instance, follow the appropriate
+     * instructions for your DB engine to rotate your SSL/TLS certificate:</p> <ul>
+     * <li> <p>For more information about rotating your SSL/TLS certificate for RDS DB
+     * engines, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+     * Rotating Your SSL/TLS Certificate.</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * </li> <li> <p>For more information about rotating your SSL/TLS certificate for
+     * Aurora DB engines, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+     * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul>
+     */
+    inline bool GetCertificateRotationRestart() const{ return m_certificateRotationRestart; }
+
+    /**
+     * <p>A value that indicates whether the DB instance is restarted when you rotate
+     * your SSL/TLS certificate.</p> <p>By default, the DB instance is restarted when
+     * you rotate your SSL/TLS certificate. The certificate is not updated until the DB
+     * instance is restarted.</p> <important> <p>Set this parameter only if you are
+     * <i>not</i> using SSL/TLS to connect to the DB instance.</p> </important> <p>If
+     * you are using SSL/TLS to connect to the DB instance, follow the appropriate
+     * instructions for your DB engine to rotate your SSL/TLS certificate:</p> <ul>
+     * <li> <p>For more information about rotating your SSL/TLS certificate for RDS DB
+     * engines, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+     * Rotating Your SSL/TLS Certificate.</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * </li> <li> <p>For more information about rotating your SSL/TLS certificate for
+     * Aurora DB engines, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+     * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul>
+     */
+    inline bool CertificateRotationRestartHasBeenSet() const { return m_certificateRotationRestartHasBeenSet; }
+
+    /**
+     * <p>A value that indicates whether the DB instance is restarted when you rotate
+     * your SSL/TLS certificate.</p> <p>By default, the DB instance is restarted when
+     * you rotate your SSL/TLS certificate. The certificate is not updated until the DB
+     * instance is restarted.</p> <important> <p>Set this parameter only if you are
+     * <i>not</i> using SSL/TLS to connect to the DB instance.</p> </important> <p>If
+     * you are using SSL/TLS to connect to the DB instance, follow the appropriate
+     * instructions for your DB engine to rotate your SSL/TLS certificate:</p> <ul>
+     * <li> <p>For more information about rotating your SSL/TLS certificate for RDS DB
+     * engines, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+     * Rotating Your SSL/TLS Certificate.</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * </li> <li> <p>For more information about rotating your SSL/TLS certificate for
+     * Aurora DB engines, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+     * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul>
+     */
+    inline void SetCertificateRotationRestart(bool value) { m_certificateRotationRestartHasBeenSet = true; m_certificateRotationRestart = value; }
+
+    /**
+     * <p>A value that indicates whether the DB instance is restarted when you rotate
+     * your SSL/TLS certificate.</p> <p>By default, the DB instance is restarted when
+     * you rotate your SSL/TLS certificate. The certificate is not updated until the DB
+     * instance is restarted.</p> <important> <p>Set this parameter only if you are
+     * <i>not</i> using SSL/TLS to connect to the DB instance.</p> </important> <p>If
+     * you are using SSL/TLS to connect to the DB instance, follow the appropriate
+     * instructions for your DB engine to rotate your SSL/TLS certificate:</p> <ul>
+     * <li> <p>For more information about rotating your SSL/TLS certificate for RDS DB
+     * engines, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+     * Rotating Your SSL/TLS Certificate.</a> in the <i>Amazon RDS User Guide.</i> </p>
+     * </li> <li> <p>For more information about rotating your SSL/TLS certificate for
+     * Aurora DB engines, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html">
+     * Rotating Your SSL/TLS Certificate</a> in the <i>Amazon Aurora User Guide.</i>
+     * </p> </li> </ul>
+     */
+    inline ModifyDBInstanceRequest& WithCertificateRotationRestart(bool value) { SetCertificateRotationRestart(value); return *this;}
+
   private:
 
     Aws::String m_dBInstanceIdentifier;
@@ -3068,6 +3233,9 @@ namespace Model
 
     int m_maxAllocatedStorage;
     bool m_maxAllocatedStorageHasBeenSet;
+
+    bool m_certificateRotationRestart;
+    bool m_certificateRotationRestartHasBeenSet;
   };
 
 } // namespace Model

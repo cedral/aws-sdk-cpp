@@ -124,76 +124,79 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether the returned list of inventory configurations is truncated
-     * in this response. A value of true indicates that the list is truncated.</p>
+     * <p>Tells whether the returned list of inventory configurations is complete. A
+     * value of true indicates that the list is not complete and the
+     * NextContinuationToken is provided for a subsequent request.</p>
      */
     inline bool GetIsTruncated() const{ return m_isTruncated; }
 
     /**
-     * <p>Indicates whether the returned list of inventory configurations is truncated
-     * in this response. A value of true indicates that the list is truncated.</p>
+     * <p>Tells whether the returned list of inventory configurations is complete. A
+     * value of true indicates that the list is not complete and the
+     * NextContinuationToken is provided for a subsequent request.</p>
      */
     inline void SetIsTruncated(bool value) { m_isTruncated = value; }
 
     /**
-     * <p>Indicates whether the returned list of inventory configurations is truncated
-     * in this response. A value of true indicates that the list is truncated.</p>
+     * <p>Tells whether the returned list of inventory configurations is complete. A
+     * value of true indicates that the list is not complete and the
+     * NextContinuationToken is provided for a subsequent request.</p>
      */
     inline ListBucketInventoryConfigurationsResult& WithIsTruncated(bool value) { SetIsTruncated(value); return *this;}
 
 
     /**
      * <p>The marker used to continue this inventory configuration listing. Use the
-     * NextContinuationToken from this response to continue the listing in a subsequent
-     * request. The continuation token is an opaque value that Amazon S3
+     * <code>NextContinuationToken</code> from this response to continue the listing in
+     * a subsequent request. The continuation token is an opaque value that Amazon S3
      * understands.</p>
      */
     inline const Aws::String& GetNextContinuationToken() const{ return m_nextContinuationToken; }
 
     /**
      * <p>The marker used to continue this inventory configuration listing. Use the
-     * NextContinuationToken from this response to continue the listing in a subsequent
-     * request. The continuation token is an opaque value that Amazon S3
+     * <code>NextContinuationToken</code> from this response to continue the listing in
+     * a subsequent request. The continuation token is an opaque value that Amazon S3
      * understands.</p>
      */
     inline void SetNextContinuationToken(const Aws::String& value) { m_nextContinuationToken = value; }
 
     /**
      * <p>The marker used to continue this inventory configuration listing. Use the
-     * NextContinuationToken from this response to continue the listing in a subsequent
-     * request. The continuation token is an opaque value that Amazon S3
+     * <code>NextContinuationToken</code> from this response to continue the listing in
+     * a subsequent request. The continuation token is an opaque value that Amazon S3
      * understands.</p>
      */
     inline void SetNextContinuationToken(Aws::String&& value) { m_nextContinuationToken = std::move(value); }
 
     /**
      * <p>The marker used to continue this inventory configuration listing. Use the
-     * NextContinuationToken from this response to continue the listing in a subsequent
-     * request. The continuation token is an opaque value that Amazon S3
+     * <code>NextContinuationToken</code> from this response to continue the listing in
+     * a subsequent request. The continuation token is an opaque value that Amazon S3
      * understands.</p>
      */
     inline void SetNextContinuationToken(const char* value) { m_nextContinuationToken.assign(value); }
 
     /**
      * <p>The marker used to continue this inventory configuration listing. Use the
-     * NextContinuationToken from this response to continue the listing in a subsequent
-     * request. The continuation token is an opaque value that Amazon S3
+     * <code>NextContinuationToken</code> from this response to continue the listing in
+     * a subsequent request. The continuation token is an opaque value that Amazon S3
      * understands.</p>
      */
     inline ListBucketInventoryConfigurationsResult& WithNextContinuationToken(const Aws::String& value) { SetNextContinuationToken(value); return *this;}
 
     /**
      * <p>The marker used to continue this inventory configuration listing. Use the
-     * NextContinuationToken from this response to continue the listing in a subsequent
-     * request. The continuation token is an opaque value that Amazon S3
+     * <code>NextContinuationToken</code> from this response to continue the listing in
+     * a subsequent request. The continuation token is an opaque value that Amazon S3
      * understands.</p>
      */
     inline ListBucketInventoryConfigurationsResult& WithNextContinuationToken(Aws::String&& value) { SetNextContinuationToken(std::move(value)); return *this;}
 
     /**
      * <p>The marker used to continue this inventory configuration listing. Use the
-     * NextContinuationToken from this response to continue the listing in a subsequent
-     * request. The continuation token is an opaque value that Amazon S3
+     * <code>NextContinuationToken</code> from this response to continue the listing in
+     * a subsequent request. The continuation token is an opaque value that Amazon S3
      * understands.</p>
      */
     inline ListBucketInventoryConfigurationsResult& WithNextContinuationToken(const char* value) { SetNextContinuationToken(value); return *this;}

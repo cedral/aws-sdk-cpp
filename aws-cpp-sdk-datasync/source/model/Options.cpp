@@ -31,6 +31,8 @@ namespace Model
 Options::Options() : 
     m_verifyMode(VerifyMode::NOT_SET),
     m_verifyModeHasBeenSet(false),
+    m_overwriteMode(OverwriteMode::NOT_SET),
+    m_overwriteModeHasBeenSet(false),
     m_atime(Atime::NOT_SET),
     m_atimeHasBeenSet(false),
     m_mtime(Mtime::NOT_SET),
@@ -46,13 +48,19 @@ Options::Options() :
     m_posixPermissions(PosixPermissions::NOT_SET),
     m_posixPermissionsHasBeenSet(false),
     m_bytesPerSecond(0),
-    m_bytesPerSecondHasBeenSet(false)
+    m_bytesPerSecondHasBeenSet(false),
+    m_taskQueueing(TaskQueueing::NOT_SET),
+    m_taskQueueingHasBeenSet(false),
+    m_logLevel(LogLevel::NOT_SET),
+    m_logLevelHasBeenSet(false)
 {
 }
 
 Options::Options(JsonView jsonValue) : 
     m_verifyMode(VerifyMode::NOT_SET),
     m_verifyModeHasBeenSet(false),
+    m_overwriteMode(OverwriteMode::NOT_SET),
+    m_overwriteModeHasBeenSet(false),
     m_atime(Atime::NOT_SET),
     m_atimeHasBeenSet(false),
     m_mtime(Mtime::NOT_SET),
@@ -68,7 +76,11 @@ Options::Options(JsonView jsonValue) :
     m_posixPermissions(PosixPermissions::NOT_SET),
     m_posixPermissionsHasBeenSet(false),
     m_bytesPerSecond(0),
-    m_bytesPerSecondHasBeenSet(false)
+    m_bytesPerSecondHasBeenSet(false),
+    m_taskQueueing(TaskQueueing::NOT_SET),
+    m_taskQueueingHasBeenSet(false),
+    m_logLevel(LogLevel::NOT_SET),
+    m_logLevelHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -80,6 +92,13 @@ Options& Options::operator =(JsonView jsonValue)
     m_verifyMode = VerifyModeMapper::GetVerifyModeForName(jsonValue.GetString("VerifyMode"));
 
     m_verifyModeHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("OverwriteMode"))
+  {
+    m_overwriteMode = OverwriteModeMapper::GetOverwriteModeForName(jsonValue.GetString("OverwriteMode"));
+
+    m_overwriteModeHasBeenSet = true;
   }
 
   if(jsonValue.ValueExists("Atime"))
@@ -138,6 +157,20 @@ Options& Options::operator =(JsonView jsonValue)
     m_bytesPerSecondHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("TaskQueueing"))
+  {
+    m_taskQueueing = TaskQueueingMapper::GetTaskQueueingForName(jsonValue.GetString("TaskQueueing"));
+
+    m_taskQueueingHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("LogLevel"))
+  {
+    m_logLevel = LogLevelMapper::GetLogLevelForName(jsonValue.GetString("LogLevel"));
+
+    m_logLevelHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -148,6 +181,11 @@ JsonValue Options::Jsonize() const
   if(m_verifyModeHasBeenSet)
   {
    payload.WithString("VerifyMode", VerifyModeMapper::GetNameForVerifyMode(m_verifyMode));
+  }
+
+  if(m_overwriteModeHasBeenSet)
+  {
+   payload.WithString("OverwriteMode", OverwriteModeMapper::GetNameForOverwriteMode(m_overwriteMode));
   }
 
   if(m_atimeHasBeenSet)
@@ -189,6 +227,16 @@ JsonValue Options::Jsonize() const
   {
    payload.WithInt64("BytesPerSecond", m_bytesPerSecond);
 
+  }
+
+  if(m_taskQueueingHasBeenSet)
+  {
+   payload.WithString("TaskQueueing", TaskQueueingMapper::GetNameForTaskQueueing(m_taskQueueing));
+  }
+
+  if(m_logLevelHasBeenSet)
+  {
+   payload.WithString("LogLevel", LogLevelMapper::GetNameForLogLevel(m_logLevel));
   }
 
   return payload;

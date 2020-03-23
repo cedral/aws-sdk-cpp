@@ -28,6 +28,7 @@
 #include <aws/ec2/model/LaunchTemplateCpuOptionsRequest.h>
 #include <aws/ec2/model/LaunchTemplateCapacityReservationSpecificationRequest.h>
 #include <aws/ec2/model/LaunchTemplateHibernationOptionsRequest.h>
+#include <aws/ec2/model/LaunchTemplateInstanceMetadataOptionsRequest.h>
 #include <aws/ec2/model/LaunchTemplateBlockDeviceMappingRequest.h>
 #include <aws/ec2/model/LaunchTemplateInstanceNetworkInterfaceSpecificationRequest.h>
 #include <aws/ec2/model/LaunchTemplateTagSpecificationRequest.h>
@@ -209,82 +210,42 @@ namespace Model
 
 
     /**
-     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
-     * an encryption value as arguments for block-device mapping results in an error.
-     * This is because only blank volumes can be encrypted on start, and these are not
-     * created from a snapshot. If a snapshot is the basis for the volume, it contains
-     * data by definition and its encryption status cannot be changed using this
-     * action.</p> </important>
+     * <p>The block device mapping.</p>
      */
     inline const Aws::Vector<LaunchTemplateBlockDeviceMappingRequest>& GetBlockDeviceMappings() const{ return m_blockDeviceMappings; }
 
     /**
-     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
-     * an encryption value as arguments for block-device mapping results in an error.
-     * This is because only blank volumes can be encrypted on start, and these are not
-     * created from a snapshot. If a snapshot is the basis for the volume, it contains
-     * data by definition and its encryption status cannot be changed using this
-     * action.</p> </important>
+     * <p>The block device mapping.</p>
      */
     inline bool BlockDeviceMappingsHasBeenSet() const { return m_blockDeviceMappingsHasBeenSet; }
 
     /**
-     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
-     * an encryption value as arguments for block-device mapping results in an error.
-     * This is because only blank volumes can be encrypted on start, and these are not
-     * created from a snapshot. If a snapshot is the basis for the volume, it contains
-     * data by definition and its encryption status cannot be changed using this
-     * action.</p> </important>
+     * <p>The block device mapping.</p>
      */
     inline void SetBlockDeviceMappings(const Aws::Vector<LaunchTemplateBlockDeviceMappingRequest>& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = value; }
 
     /**
-     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
-     * an encryption value as arguments for block-device mapping results in an error.
-     * This is because only blank volumes can be encrypted on start, and these are not
-     * created from a snapshot. If a snapshot is the basis for the volume, it contains
-     * data by definition and its encryption status cannot be changed using this
-     * action.</p> </important>
+     * <p>The block device mapping.</p>
      */
     inline void SetBlockDeviceMappings(Aws::Vector<LaunchTemplateBlockDeviceMappingRequest>&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings = std::move(value); }
 
     /**
-     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
-     * an encryption value as arguments for block-device mapping results in an error.
-     * This is because only blank volumes can be encrypted on start, and these are not
-     * created from a snapshot. If a snapshot is the basis for the volume, it contains
-     * data by definition and its encryption status cannot be changed using this
-     * action.</p> </important>
+     * <p>The block device mapping.</p>
      */
     inline RequestLaunchTemplateData& WithBlockDeviceMappings(const Aws::Vector<LaunchTemplateBlockDeviceMappingRequest>& value) { SetBlockDeviceMappings(value); return *this;}
 
     /**
-     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
-     * an encryption value as arguments for block-device mapping results in an error.
-     * This is because only blank volumes can be encrypted on start, and these are not
-     * created from a snapshot. If a snapshot is the basis for the volume, it contains
-     * data by definition and its encryption status cannot be changed using this
-     * action.</p> </important>
+     * <p>The block device mapping.</p>
      */
     inline RequestLaunchTemplateData& WithBlockDeviceMappings(Aws::Vector<LaunchTemplateBlockDeviceMappingRequest>&& value) { SetBlockDeviceMappings(std::move(value)); return *this;}
 
     /**
-     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
-     * an encryption value as arguments for block-device mapping results in an error.
-     * This is because only blank volumes can be encrypted on start, and these are not
-     * created from a snapshot. If a snapshot is the basis for the volume, it contains
-     * data by definition and its encryption status cannot be changed using this
-     * action.</p> </important>
+     * <p>The block device mapping.</p>
      */
     inline RequestLaunchTemplateData& AddBlockDeviceMappings(const LaunchTemplateBlockDeviceMappingRequest& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(value); return *this; }
 
     /**
-     * <p>The block device mapping.</p> <important> <p>Supplying both a snapshot ID and
-     * an encryption value as arguments for block-device mapping results in an error.
-     * This is because only blank volumes can be encrypted on start, and these are not
-     * created from a snapshot. If a snapshot is the basis for the volume, it contains
-     * data by definition and its encryption status cannot be changed using this
-     * action.</p> </important>
+     * <p>The block device mapping.</p>
      */
     inline RequestLaunchTemplateData& AddBlockDeviceMappings(LaunchTemplateBlockDeviceMappingRequest&& value) { m_blockDeviceMappingsHasBeenSet = true; m_blockDeviceMappings.push_back(std::move(value)); return *this; }
 
@@ -1312,8 +1273,7 @@ namespace Model
      * <p>Indicates whether an instance is enabled for hibernation. This parameter is
      * valid only if the instance meets the <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
-     * prerequisites</a>. Hibernation is currently supported only for Amazon Linux. For
-     * more information, see <a
+     * prerequisites</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
      * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
@@ -1323,8 +1283,7 @@ namespace Model
      * <p>Indicates whether an instance is enabled for hibernation. This parameter is
      * valid only if the instance meets the <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
-     * prerequisites</a>. Hibernation is currently supported only for Amazon Linux. For
-     * more information, see <a
+     * prerequisites</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
      * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
@@ -1334,8 +1293,7 @@ namespace Model
      * <p>Indicates whether an instance is enabled for hibernation. This parameter is
      * valid only if the instance meets the <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
-     * prerequisites</a>. Hibernation is currently supported only for Amazon Linux. For
-     * more information, see <a
+     * prerequisites</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
      * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
@@ -1345,8 +1303,7 @@ namespace Model
      * <p>Indicates whether an instance is enabled for hibernation. This parameter is
      * valid only if the instance meets the <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
-     * prerequisites</a>. Hibernation is currently supported only for Amazon Linux. For
-     * more information, see <a
+     * prerequisites</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
      * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
@@ -1356,8 +1313,7 @@ namespace Model
      * <p>Indicates whether an instance is enabled for hibernation. This parameter is
      * valid only if the instance meets the <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
-     * prerequisites</a>. Hibernation is currently supported only for Amazon Linux. For
-     * more information, see <a
+     * prerequisites</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
      * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
@@ -1367,12 +1323,60 @@ namespace Model
      * <p>Indicates whether an instance is enabled for hibernation. This parameter is
      * valid only if the instance meets the <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation
-     * prerequisites</a>. Hibernation is currently supported only for Amazon Linux. For
-     * more information, see <a
+     * prerequisites</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
      * Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
      */
     inline RequestLaunchTemplateData& WithHibernationOptions(LaunchTemplateHibernationOptionsRequest&& value) { SetHibernationOptions(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline const LaunchTemplateInstanceMetadataOptionsRequest& GetMetadataOptions() const{ return m_metadataOptions; }
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline bool MetadataOptionsHasBeenSet() const { return m_metadataOptionsHasBeenSet; }
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline void SetMetadataOptions(const LaunchTemplateInstanceMetadataOptionsRequest& value) { m_metadataOptionsHasBeenSet = true; m_metadataOptions = value; }
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline void SetMetadataOptions(LaunchTemplateInstanceMetadataOptionsRequest&& value) { m_metadataOptionsHasBeenSet = true; m_metadataOptions = std::move(value); }
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline RequestLaunchTemplateData& WithMetadataOptions(const LaunchTemplateInstanceMetadataOptionsRequest& value) { SetMetadataOptions(value); return *this;}
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User
+     * Guide</i>.</p>
+     */
+    inline RequestLaunchTemplateData& WithMetadataOptions(LaunchTemplateInstanceMetadataOptionsRequest&& value) { SetMetadataOptions(std::move(value)); return *this;}
 
   private:
 
@@ -1450,6 +1454,9 @@ namespace Model
 
     LaunchTemplateHibernationOptionsRequest m_hibernationOptions;
     bool m_hibernationOptionsHasBeenSet;
+
+    LaunchTemplateInstanceMetadataOptionsRequest m_metadataOptions;
+    bool m_metadataOptionsHasBeenSet;
   };
 
 } // namespace Model

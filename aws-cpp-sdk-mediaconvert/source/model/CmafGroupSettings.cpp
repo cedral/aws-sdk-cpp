@@ -29,6 +29,7 @@ namespace Model
 {
 
 CmafGroupSettings::CmafGroupSettings() : 
+    m_additionalManifestsHasBeenSet(false),
     m_baseUrlHasBeenSet(false),
     m_clientCache(CmafClientCache::NOT_SET),
     m_clientCacheHasBeenSet(false),
@@ -47,6 +48,8 @@ CmafGroupSettings::CmafGroupSettings() :
     m_minBufferTimeHasBeenSet(false),
     m_minFinalSegmentLength(0.0),
     m_minFinalSegmentLengthHasBeenSet(false),
+    m_mpdProfile(CmafMpdProfile::NOT_SET),
+    m_mpdProfileHasBeenSet(false),
     m_segmentControl(CmafSegmentControl::NOT_SET),
     m_segmentControlHasBeenSet(false),
     m_segmentLength(0),
@@ -56,11 +59,14 @@ CmafGroupSettings::CmafGroupSettings() :
     m_writeDashManifest(CmafWriteDASHManifest::NOT_SET),
     m_writeDashManifestHasBeenSet(false),
     m_writeHlsManifest(CmafWriteHLSManifest::NOT_SET),
-    m_writeHlsManifestHasBeenSet(false)
+    m_writeHlsManifestHasBeenSet(false),
+    m_writeSegmentTimelineInRepresentation(CmafWriteSegmentTimelineInRepresentation::NOT_SET),
+    m_writeSegmentTimelineInRepresentationHasBeenSet(false)
 {
 }
 
 CmafGroupSettings::CmafGroupSettings(JsonView jsonValue) : 
+    m_additionalManifestsHasBeenSet(false),
     m_baseUrlHasBeenSet(false),
     m_clientCache(CmafClientCache::NOT_SET),
     m_clientCacheHasBeenSet(false),
@@ -79,6 +85,8 @@ CmafGroupSettings::CmafGroupSettings(JsonView jsonValue) :
     m_minBufferTimeHasBeenSet(false),
     m_minFinalSegmentLength(0.0),
     m_minFinalSegmentLengthHasBeenSet(false),
+    m_mpdProfile(CmafMpdProfile::NOT_SET),
+    m_mpdProfileHasBeenSet(false),
     m_segmentControl(CmafSegmentControl::NOT_SET),
     m_segmentControlHasBeenSet(false),
     m_segmentLength(0),
@@ -88,13 +96,25 @@ CmafGroupSettings::CmafGroupSettings(JsonView jsonValue) :
     m_writeDashManifest(CmafWriteDASHManifest::NOT_SET),
     m_writeDashManifestHasBeenSet(false),
     m_writeHlsManifest(CmafWriteHLSManifest::NOT_SET),
-    m_writeHlsManifestHasBeenSet(false)
+    m_writeHlsManifestHasBeenSet(false),
+    m_writeSegmentTimelineInRepresentation(CmafWriteSegmentTimelineInRepresentation::NOT_SET),
+    m_writeSegmentTimelineInRepresentationHasBeenSet(false)
 {
   *this = jsonValue;
 }
 
 CmafGroupSettings& CmafGroupSettings::operator =(JsonView jsonValue)
 {
+  if(jsonValue.ValueExists("additionalManifests"))
+  {
+    Array<JsonView> additionalManifestsJsonList = jsonValue.GetArray("additionalManifests");
+    for(unsigned additionalManifestsIndex = 0; additionalManifestsIndex < additionalManifestsJsonList.GetLength(); ++additionalManifestsIndex)
+    {
+      m_additionalManifests.push_back(additionalManifestsJsonList[additionalManifestsIndex].AsObject());
+    }
+    m_additionalManifestsHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("baseUrl"))
   {
     m_baseUrl = jsonValue.GetString("baseUrl");
@@ -172,6 +192,13 @@ CmafGroupSettings& CmafGroupSettings::operator =(JsonView jsonValue)
     m_minFinalSegmentLengthHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("mpdProfile"))
+  {
+    m_mpdProfile = CmafMpdProfileMapper::GetCmafMpdProfileForName(jsonValue.GetString("mpdProfile"));
+
+    m_mpdProfileHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("segmentControl"))
   {
     m_segmentControl = CmafSegmentControlMapper::GetCmafSegmentControlForName(jsonValue.GetString("segmentControl"));
@@ -207,12 +234,30 @@ CmafGroupSettings& CmafGroupSettings::operator =(JsonView jsonValue)
     m_writeHlsManifestHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("writeSegmentTimelineInRepresentation"))
+  {
+    m_writeSegmentTimelineInRepresentation = CmafWriteSegmentTimelineInRepresentationMapper::GetCmafWriteSegmentTimelineInRepresentationForName(jsonValue.GetString("writeSegmentTimelineInRepresentation"));
+
+    m_writeSegmentTimelineInRepresentationHasBeenSet = true;
+  }
+
   return *this;
 }
 
 JsonValue CmafGroupSettings::Jsonize() const
 {
   JsonValue payload;
+
+  if(m_additionalManifestsHasBeenSet)
+  {
+   Array<JsonValue> additionalManifestsJsonList(m_additionalManifests.size());
+   for(unsigned additionalManifestsIndex = 0; additionalManifestsIndex < additionalManifestsJsonList.GetLength(); ++additionalManifestsIndex)
+   {
+     additionalManifestsJsonList[additionalManifestsIndex].AsObject(m_additionalManifests[additionalManifestsIndex].Jsonize());
+   }
+   payload.WithArray("additionalManifests", std::move(additionalManifestsJsonList));
+
+  }
 
   if(m_baseUrlHasBeenSet)
   {
@@ -276,6 +321,11 @@ JsonValue CmafGroupSettings::Jsonize() const
 
   }
 
+  if(m_mpdProfileHasBeenSet)
+  {
+   payload.WithString("mpdProfile", CmafMpdProfileMapper::GetNameForCmafMpdProfile(m_mpdProfile));
+  }
+
   if(m_segmentControlHasBeenSet)
   {
    payload.WithString("segmentControl", CmafSegmentControlMapper::GetNameForCmafSegmentControl(m_segmentControl));
@@ -300,6 +350,11 @@ JsonValue CmafGroupSettings::Jsonize() const
   if(m_writeHlsManifestHasBeenSet)
   {
    payload.WithString("writeHlsManifest", CmafWriteHLSManifestMapper::GetNameForCmafWriteHLSManifest(m_writeHlsManifest));
+  }
+
+  if(m_writeSegmentTimelineInRepresentationHasBeenSet)
+  {
+   payload.WithString("writeSegmentTimelineInRepresentation", CmafWriteSegmentTimelineInRepresentationMapper::GetNameForCmafWriteSegmentTimelineInRepresentation(m_writeSegmentTimelineInRepresentation));
   }
 
   return payload;

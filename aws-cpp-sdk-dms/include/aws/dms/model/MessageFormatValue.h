@@ -26,7 +26,8 @@ namespace Model
   enum class MessageFormatValue
   {
     NOT_SET,
-    json
+    json,
+    json_unformatted
   };
 
 namespace MessageFormatValueMapper

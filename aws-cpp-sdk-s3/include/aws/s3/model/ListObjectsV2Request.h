@@ -54,42 +54,114 @@ namespace Model
 
 
     /**
-     * <p>Name of the bucket to list.</p>
+     * <p>Bucket name to list. </p> <p>When using this API with an access point, you
+     * must direct requests to the access point hostname. The access point hostname
+     * takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
 
     /**
-     * <p>Name of the bucket to list.</p>
+     * <p>Bucket name to list. </p> <p>When using this API with an access point, you
+     * must direct requests to the access point hostname. The access point hostname
+     * takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
-     * <p>Name of the bucket to list.</p>
+     * <p>Bucket name to list. </p> <p>When using this API with an access point, you
+     * must direct requests to the access point hostname. The access point hostname
+     * takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline void SetBucket(const Aws::String& value) { m_bucketHasBeenSet = true; m_bucket = value; }
 
     /**
-     * <p>Name of the bucket to list.</p>
+     * <p>Bucket name to list. </p> <p>When using this API with an access point, you
+     * must direct requests to the access point hostname. The access point hostname
+     * takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline void SetBucket(Aws::String&& value) { m_bucketHasBeenSet = true; m_bucket = std::move(value); }
 
     /**
-     * <p>Name of the bucket to list.</p>
+     * <p>Bucket name to list. </p> <p>When using this API with an access point, you
+     * must direct requests to the access point hostname. The access point hostname
+     * takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline void SetBucket(const char* value) { m_bucketHasBeenSet = true; m_bucket.assign(value); }
 
     /**
-     * <p>Name of the bucket to list.</p>
+     * <p>Bucket name to list. </p> <p>When using this API with an access point, you
+     * must direct requests to the access point hostname. The access point hostname
+     * takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline ListObjectsV2Request& WithBucket(const Aws::String& value) { SetBucket(value); return *this;}
 
     /**
-     * <p>Name of the bucket to list.</p>
+     * <p>Bucket name to list. </p> <p>When using this API with an access point, you
+     * must direct requests to the access point hostname. The access point hostname
+     * takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline ListObjectsV2Request& WithBucket(Aws::String&& value) { SetBucket(std::move(value)); return *this;}
 
     /**
-     * <p>Name of the bucket to list.</p>
+     * <p>Bucket name to list. </p> <p>When using this API with an access point, you
+     * must direct requests to the access point hostname. The access point hostname
+     * takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline ListObjectsV2Request& WithBucket(const char* value) { SetBucket(value); return *this;}
 
@@ -235,56 +307,56 @@ namespace Model
     /**
      * <p>ContinuationToken indicates Amazon S3 that the list is being continued on
      * this bucket with a token. ContinuationToken is obfuscated and is not a real
-     * key</p>
+     * key.</p>
      */
     inline const Aws::String& GetContinuationToken() const{ return m_continuationToken; }
 
     /**
      * <p>ContinuationToken indicates Amazon S3 that the list is being continued on
      * this bucket with a token. ContinuationToken is obfuscated and is not a real
-     * key</p>
+     * key.</p>
      */
     inline bool ContinuationTokenHasBeenSet() const { return m_continuationTokenHasBeenSet; }
 
     /**
      * <p>ContinuationToken indicates Amazon S3 that the list is being continued on
      * this bucket with a token. ContinuationToken is obfuscated and is not a real
-     * key</p>
+     * key.</p>
      */
     inline void SetContinuationToken(const Aws::String& value) { m_continuationTokenHasBeenSet = true; m_continuationToken = value; }
 
     /**
      * <p>ContinuationToken indicates Amazon S3 that the list is being continued on
      * this bucket with a token. ContinuationToken is obfuscated and is not a real
-     * key</p>
+     * key.</p>
      */
     inline void SetContinuationToken(Aws::String&& value) { m_continuationTokenHasBeenSet = true; m_continuationToken = std::move(value); }
 
     /**
      * <p>ContinuationToken indicates Amazon S3 that the list is being continued on
      * this bucket with a token. ContinuationToken is obfuscated and is not a real
-     * key</p>
+     * key.</p>
      */
     inline void SetContinuationToken(const char* value) { m_continuationTokenHasBeenSet = true; m_continuationToken.assign(value); }
 
     /**
      * <p>ContinuationToken indicates Amazon S3 that the list is being continued on
      * this bucket with a token. ContinuationToken is obfuscated and is not a real
-     * key</p>
+     * key.</p>
      */
     inline ListObjectsV2Request& WithContinuationToken(const Aws::String& value) { SetContinuationToken(value); return *this;}
 
     /**
      * <p>ContinuationToken indicates Amazon S3 that the list is being continued on
      * this bucket with a token. ContinuationToken is obfuscated and is not a real
-     * key</p>
+     * key.</p>
      */
     inline ListObjectsV2Request& WithContinuationToken(Aws::String&& value) { SetContinuationToken(std::move(value)); return *this;}
 
     /**
      * <p>ContinuationToken indicates Amazon S3 that the list is being continued on
      * this bucket with a token. ContinuationToken is obfuscated and is not a real
-     * key</p>
+     * key.</p>
      */
     inline ListObjectsV2Request& WithContinuationToken(const char* value) { SetContinuationToken(value); return *this;}
 
@@ -292,28 +364,28 @@ namespace Model
     /**
      * <p>The owner field is not present in listV2 by default, if you want to return
      * owner field with each key in the result then set the fetch owner field to
-     * true</p>
+     * true.</p>
      */
     inline bool GetFetchOwner() const{ return m_fetchOwner; }
 
     /**
      * <p>The owner field is not present in listV2 by default, if you want to return
      * owner field with each key in the result then set the fetch owner field to
-     * true</p>
+     * true.</p>
      */
     inline bool FetchOwnerHasBeenSet() const { return m_fetchOwnerHasBeenSet; }
 
     /**
      * <p>The owner field is not present in listV2 by default, if you want to return
      * owner field with each key in the result then set the fetch owner field to
-     * true</p>
+     * true.</p>
      */
     inline void SetFetchOwner(bool value) { m_fetchOwnerHasBeenSet = true; m_fetchOwner = value; }
 
     /**
      * <p>The owner field is not present in listV2 by default, if you want to return
      * owner field with each key in the result then set the fetch owner field to
-     * true</p>
+     * true.</p>
      */
     inline ListObjectsV2Request& WithFetchOwner(bool value) { SetFetchOwner(value); return *this;}
 
@@ -321,56 +393,56 @@ namespace Model
     /**
      * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
      * starts listing after this specified key. StartAfter can be any key in the
-     * bucket</p>
+     * bucket.</p>
      */
     inline const Aws::String& GetStartAfter() const{ return m_startAfter; }
 
     /**
      * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
      * starts listing after this specified key. StartAfter can be any key in the
-     * bucket</p>
+     * bucket.</p>
      */
     inline bool StartAfterHasBeenSet() const { return m_startAfterHasBeenSet; }
 
     /**
      * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
      * starts listing after this specified key. StartAfter can be any key in the
-     * bucket</p>
+     * bucket.</p>
      */
     inline void SetStartAfter(const Aws::String& value) { m_startAfterHasBeenSet = true; m_startAfter = value; }
 
     /**
      * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
      * starts listing after this specified key. StartAfter can be any key in the
-     * bucket</p>
+     * bucket.</p>
      */
     inline void SetStartAfter(Aws::String&& value) { m_startAfterHasBeenSet = true; m_startAfter = std::move(value); }
 
     /**
      * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
      * starts listing after this specified key. StartAfter can be any key in the
-     * bucket</p>
+     * bucket.</p>
      */
     inline void SetStartAfter(const char* value) { m_startAfterHasBeenSet = true; m_startAfter.assign(value); }
 
     /**
      * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
      * starts listing after this specified key. StartAfter can be any key in the
-     * bucket</p>
+     * bucket.</p>
      */
     inline ListObjectsV2Request& WithStartAfter(const Aws::String& value) { SetStartAfter(value); return *this;}
 
     /**
      * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
      * starts listing after this specified key. StartAfter can be any key in the
-     * bucket</p>
+     * bucket.</p>
      */
     inline ListObjectsV2Request& WithStartAfter(Aws::String&& value) { SetStartAfter(std::move(value)); return *this;}
 
     /**
      * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3
      * starts listing after this specified key. StartAfter can be any key in the
-     * bucket</p>
+     * bucket.</p>
      */
     inline ListObjectsV2Request& WithStartAfter(const char* value) { SetStartAfter(value); return *this;}
 

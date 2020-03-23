@@ -27,6 +27,7 @@ namespace Model
   {
     NOT_SET,
     FRAME_CAPTURE,
+    AV1,
     H_264,
     H_265,
     MPEG2,

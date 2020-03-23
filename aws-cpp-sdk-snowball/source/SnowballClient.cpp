@@ -42,6 +42,7 @@
 #include <aws/snowball/model/GetJobManifestRequest.h>
 #include <aws/snowball/model/GetJobUnlockCodeRequest.h>
 #include <aws/snowball/model/GetSnowballUsageRequest.h>
+#include <aws/snowball/model/GetSoftwareUpdatesRequest.h>
 #include <aws/snowball/model/ListClusterJobsRequest.h>
 #include <aws/snowball/model/ListClustersRequest.h>
 #include <aws/snowball/model/ListCompatibleImagesRequest.h>
@@ -127,7 +128,7 @@ CancelClusterOutcome SnowballClient::CancelCluster(const CancelClusterRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelClusterOutcome(CancelClusterResult(outcome.GetResult()));
@@ -162,7 +163,7 @@ CancelJobOutcome SnowballClient::CancelJob(const CancelJobRequest& request) cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelJobOutcome(CancelJobResult(outcome.GetResult()));
@@ -197,7 +198,7 @@ CreateAddressOutcome SnowballClient::CreateAddress(const CreateAddressRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAddressOutcome(CreateAddressResult(outcome.GetResult()));
@@ -232,7 +233,7 @@ CreateClusterOutcome SnowballClient::CreateCluster(const CreateClusterRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateClusterOutcome(CreateClusterResult(outcome.GetResult()));
@@ -267,7 +268,7 @@ CreateJobOutcome SnowballClient::CreateJob(const CreateJobRequest& request) cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateJobOutcome(CreateJobResult(outcome.GetResult()));
@@ -302,7 +303,7 @@ DescribeAddressOutcome SnowballClient::DescribeAddress(const DescribeAddressRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAddressOutcome(DescribeAddressResult(outcome.GetResult()));
@@ -337,7 +338,7 @@ DescribeAddressesOutcome SnowballClient::DescribeAddresses(const DescribeAddress
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAddressesOutcome(DescribeAddressesResult(outcome.GetResult()));
@@ -372,7 +373,7 @@ DescribeClusterOutcome SnowballClient::DescribeCluster(const DescribeClusterRequ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeClusterOutcome(DescribeClusterResult(outcome.GetResult()));
@@ -407,7 +408,7 @@ DescribeJobOutcome SnowballClient::DescribeJob(const DescribeJobRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeJobOutcome(DescribeJobResult(outcome.GetResult()));
@@ -442,7 +443,7 @@ GetJobManifestOutcome SnowballClient::GetJobManifest(const GetJobManifestRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobManifestOutcome(GetJobManifestResult(outcome.GetResult()));
@@ -477,7 +478,7 @@ GetJobUnlockCodeOutcome SnowballClient::GetJobUnlockCode(const GetJobUnlockCodeR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobUnlockCodeOutcome(GetJobUnlockCodeResult(outcome.GetResult()));
@@ -512,7 +513,7 @@ GetSnowballUsageOutcome SnowballClient::GetSnowballUsage(const GetSnowballUsageR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSnowballUsageOutcome(GetSnowballUsageResult(outcome.GetResult()));
@@ -541,13 +542,48 @@ void SnowballClient::GetSnowballUsageAsyncHelper(const GetSnowballUsageRequest& 
   handler(this, request, GetSnowballUsage(request), context);
 }
 
+GetSoftwareUpdatesOutcome SnowballClient::GetSoftwareUpdates(const GetSoftwareUpdatesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetSoftwareUpdatesOutcome(GetSoftwareUpdatesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetSoftwareUpdatesOutcome(outcome.GetError());
+  }
+}
+
+GetSoftwareUpdatesOutcomeCallable SnowballClient::GetSoftwareUpdatesCallable(const GetSoftwareUpdatesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetSoftwareUpdatesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetSoftwareUpdates(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void SnowballClient::GetSoftwareUpdatesAsync(const GetSoftwareUpdatesRequest& request, const GetSoftwareUpdatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetSoftwareUpdatesAsyncHelper( request, handler, context ); } );
+}
+
+void SnowballClient::GetSoftwareUpdatesAsyncHelper(const GetSoftwareUpdatesRequest& request, const GetSoftwareUpdatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetSoftwareUpdates(request), context);
+}
+
 ListClusterJobsOutcome SnowballClient::ListClusterJobs(const ListClusterJobsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListClusterJobsOutcome(ListClusterJobsResult(outcome.GetResult()));
@@ -582,7 +618,7 @@ ListClustersOutcome SnowballClient::ListClusters(const ListClustersRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListClustersOutcome(ListClustersResult(outcome.GetResult()));
@@ -617,7 +653,7 @@ ListCompatibleImagesOutcome SnowballClient::ListCompatibleImages(const ListCompa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCompatibleImagesOutcome(ListCompatibleImagesResult(outcome.GetResult()));
@@ -652,7 +688,7 @@ ListJobsOutcome SnowballClient::ListJobs(const ListJobsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListJobsOutcome(ListJobsResult(outcome.GetResult()));
@@ -687,7 +723,7 @@ UpdateClusterOutcome SnowballClient::UpdateCluster(const UpdateClusterRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateClusterOutcome(UpdateClusterResult(outcome.GetResult()));
@@ -722,7 +758,7 @@ UpdateJobOutcome SnowballClient::UpdateJob(const UpdateJobRequest& request) cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateJobOutcome(UpdateJobResult(outcome.GetResult()));

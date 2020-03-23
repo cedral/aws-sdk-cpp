@@ -32,13 +32,15 @@ namespace Model
 
 LoadBalancerAddress::LoadBalancerAddress() : 
     m_ipAddressHasBeenSet(false),
-    m_allocationIdHasBeenSet(false)
+    m_allocationIdHasBeenSet(false),
+    m_privateIPv4AddressHasBeenSet(false)
 {
 }
 
 LoadBalancerAddress::LoadBalancerAddress(const XmlNode& xmlNode) : 
     m_ipAddressHasBeenSet(false),
-    m_allocationIdHasBeenSet(false)
+    m_allocationIdHasBeenSet(false),
+    m_privateIPv4AddressHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -52,14 +54,20 @@ LoadBalancerAddress& LoadBalancerAddress::operator =(const XmlNode& xmlNode)
     XmlNode ipAddressNode = resultNode.FirstChild("IpAddress");
     if(!ipAddressNode.IsNull())
     {
-      m_ipAddress = ipAddressNode.GetText();
+      m_ipAddress = Aws::Utils::Xml::DecodeEscapedXmlText(ipAddressNode.GetText());
       m_ipAddressHasBeenSet = true;
     }
     XmlNode allocationIdNode = resultNode.FirstChild("AllocationId");
     if(!allocationIdNode.IsNull())
     {
-      m_allocationId = allocationIdNode.GetText();
+      m_allocationId = Aws::Utils::Xml::DecodeEscapedXmlText(allocationIdNode.GetText());
       m_allocationIdHasBeenSet = true;
+    }
+    XmlNode privateIPv4AddressNode = resultNode.FirstChild("PrivateIPv4Address");
+    if(!privateIPv4AddressNode.IsNull())
+    {
+      m_privateIPv4Address = Aws::Utils::Xml::DecodeEscapedXmlText(privateIPv4AddressNode.GetText());
+      m_privateIPv4AddressHasBeenSet = true;
     }
   }
 
@@ -78,6 +86,11 @@ void LoadBalancerAddress::OutputToStream(Aws::OStream& oStream, const char* loca
       oStream << location << index << locationValue << ".AllocationId=" << StringUtils::URLEncode(m_allocationId.c_str()) << "&";
   }
 
+  if(m_privateIPv4AddressHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".PrivateIPv4Address=" << StringUtils::URLEncode(m_privateIPv4Address.c_str()) << "&";
+  }
+
 }
 
 void LoadBalancerAddress::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -89,6 +102,10 @@ void LoadBalancerAddress::OutputToStream(Aws::OStream& oStream, const char* loca
   if(m_allocationIdHasBeenSet)
   {
       oStream << location << ".AllocationId=" << StringUtils::URLEncode(m_allocationId.c_str()) << "&";
+  }
+  if(m_privateIPv4AddressHasBeenSet)
+  {
+      oStream << location << ".PrivateIPv4Address=" << StringUtils::URLEncode(m_privateIPv4Address.c_str()) << "&";
   }
 }
 

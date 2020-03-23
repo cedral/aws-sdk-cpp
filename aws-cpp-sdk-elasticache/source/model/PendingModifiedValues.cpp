@@ -35,7 +35,9 @@ PendingModifiedValues::PendingModifiedValues() :
     m_numCacheNodesHasBeenSet(false),
     m_cacheNodeIdsToRemoveHasBeenSet(false),
     m_engineVersionHasBeenSet(false),
-    m_cacheNodeTypeHasBeenSet(false)
+    m_cacheNodeTypeHasBeenSet(false),
+    m_authTokenStatus(AuthTokenUpdateStatus::NOT_SET),
+    m_authTokenStatusHasBeenSet(false)
 {
 }
 
@@ -44,7 +46,9 @@ PendingModifiedValues::PendingModifiedValues(const XmlNode& xmlNode) :
     m_numCacheNodesHasBeenSet(false),
     m_cacheNodeIdsToRemoveHasBeenSet(false),
     m_engineVersionHasBeenSet(false),
-    m_cacheNodeTypeHasBeenSet(false)
+    m_cacheNodeTypeHasBeenSet(false),
+    m_authTokenStatus(AuthTokenUpdateStatus::NOT_SET),
+    m_authTokenStatusHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -58,7 +62,7 @@ PendingModifiedValues& PendingModifiedValues::operator =(const XmlNode& xmlNode)
     XmlNode numCacheNodesNode = resultNode.FirstChild("NumCacheNodes");
     if(!numCacheNodesNode.IsNull())
     {
-      m_numCacheNodes = StringUtils::ConvertToInt32(StringUtils::Trim(numCacheNodesNode.GetText().c_str()).c_str());
+      m_numCacheNodes = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(numCacheNodesNode.GetText()).c_str()).c_str());
       m_numCacheNodesHasBeenSet = true;
     }
     XmlNode cacheNodeIdsToRemoveNode = resultNode.FirstChild("CacheNodeIdsToRemove");
@@ -76,14 +80,20 @@ PendingModifiedValues& PendingModifiedValues::operator =(const XmlNode& xmlNode)
     XmlNode engineVersionNode = resultNode.FirstChild("EngineVersion");
     if(!engineVersionNode.IsNull())
     {
-      m_engineVersion = engineVersionNode.GetText();
+      m_engineVersion = Aws::Utils::Xml::DecodeEscapedXmlText(engineVersionNode.GetText());
       m_engineVersionHasBeenSet = true;
     }
     XmlNode cacheNodeTypeNode = resultNode.FirstChild("CacheNodeType");
     if(!cacheNodeTypeNode.IsNull())
     {
-      m_cacheNodeType = cacheNodeTypeNode.GetText();
+      m_cacheNodeType = Aws::Utils::Xml::DecodeEscapedXmlText(cacheNodeTypeNode.GetText());
       m_cacheNodeTypeHasBeenSet = true;
+    }
+    XmlNode authTokenStatusNode = resultNode.FirstChild("AuthTokenStatus");
+    if(!authTokenStatusNode.IsNull())
+    {
+      m_authTokenStatus = AuthTokenUpdateStatusMapper::GetAuthTokenUpdateStatusForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(authTokenStatusNode.GetText()).c_str()).c_str());
+      m_authTokenStatusHasBeenSet = true;
     }
   }
 
@@ -116,6 +126,11 @@ void PendingModifiedValues::OutputToStream(Aws::OStream& oStream, const char* lo
       oStream << location << index << locationValue << ".CacheNodeType=" << StringUtils::URLEncode(m_cacheNodeType.c_str()) << "&";
   }
 
+  if(m_authTokenStatusHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".AuthTokenStatus=" << AuthTokenUpdateStatusMapper::GetNameForAuthTokenUpdateStatus(m_authTokenStatus) << "&";
+  }
+
 }
 
 void PendingModifiedValues::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -139,6 +154,10 @@ void PendingModifiedValues::OutputToStream(Aws::OStream& oStream, const char* lo
   if(m_cacheNodeTypeHasBeenSet)
   {
       oStream << location << ".CacheNodeType=" << StringUtils::URLEncode(m_cacheNodeType.c_str()) << "&";
+  }
+  if(m_authTokenStatusHasBeenSet)
+  {
+      oStream << location << ".AuthTokenStatus=" << AuthTokenUpdateStatusMapper::GetNameForAuthTokenUpdateStatus(m_authTokenStatus) << "&";
   }
 }
 

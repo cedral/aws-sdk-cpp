@@ -276,7 +276,7 @@ namespace Model
      * must be a time in Universal Coordinated Time (UTC) format</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be before the latest restorable time for
      * the DB instance</p> </li> <li> <p>Must be specified if
-     * <code>UseLatestRestorableTime</code> parameter is not provided</p> </li> <li>
+     * <code>UseLatestRestorableTime</code> parameter isn't provided</p> </li> <li>
      * <p>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is
      * enabled</p> </li> <li> <p>Can't be specified if the <code>RestoreType</code>
      * parameter is <code>copy-on-write</code> </p> </li> </ul> <p>Example:
@@ -289,7 +289,7 @@ namespace Model
      * must be a time in Universal Coordinated Time (UTC) format</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be before the latest restorable time for
      * the DB instance</p> </li> <li> <p>Must be specified if
-     * <code>UseLatestRestorableTime</code> parameter is not provided</p> </li> <li>
+     * <code>UseLatestRestorableTime</code> parameter isn't provided</p> </li> <li>
      * <p>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is
      * enabled</p> </li> <li> <p>Can't be specified if the <code>RestoreType</code>
      * parameter is <code>copy-on-write</code> </p> </li> </ul> <p>Example:
@@ -302,7 +302,7 @@ namespace Model
      * must be a time in Universal Coordinated Time (UTC) format</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be before the latest restorable time for
      * the DB instance</p> </li> <li> <p>Must be specified if
-     * <code>UseLatestRestorableTime</code> parameter is not provided</p> </li> <li>
+     * <code>UseLatestRestorableTime</code> parameter isn't provided</p> </li> <li>
      * <p>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is
      * enabled</p> </li> <li> <p>Can't be specified if the <code>RestoreType</code>
      * parameter is <code>copy-on-write</code> </p> </li> </ul> <p>Example:
@@ -315,7 +315,7 @@ namespace Model
      * must be a time in Universal Coordinated Time (UTC) format</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be before the latest restorable time for
      * the DB instance</p> </li> <li> <p>Must be specified if
-     * <code>UseLatestRestorableTime</code> parameter is not provided</p> </li> <li>
+     * <code>UseLatestRestorableTime</code> parameter isn't provided</p> </li> <li>
      * <p>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is
      * enabled</p> </li> <li> <p>Can't be specified if the <code>RestoreType</code>
      * parameter is <code>copy-on-write</code> </p> </li> </ul> <p>Example:
@@ -328,7 +328,7 @@ namespace Model
      * must be a time in Universal Coordinated Time (UTC) format</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be before the latest restorable time for
      * the DB instance</p> </li> <li> <p>Must be specified if
-     * <code>UseLatestRestorableTime</code> parameter is not provided</p> </li> <li>
+     * <code>UseLatestRestorableTime</code> parameter isn't provided</p> </li> <li>
      * <p>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is
      * enabled</p> </li> <li> <p>Can't be specified if the <code>RestoreType</code>
      * parameter is <code>copy-on-write</code> </p> </li> </ul> <p>Example:
@@ -341,7 +341,7 @@ namespace Model
      * must be a time in Universal Coordinated Time (UTC) format</p>
      * <p>Constraints:</p> <ul> <li> <p>Must be before the latest restorable time for
      * the DB instance</p> </li> <li> <p>Must be specified if
-     * <code>UseLatestRestorableTime</code> parameter is not provided</p> </li> <li>
+     * <code>UseLatestRestorableTime</code> parameter isn't provided</p> </li> <li>
      * <p>Can't be specified if the <code>UseLatestRestorableTime</code> parameter is
      * enabled</p> </li> <li> <p>Can't be specified if the <code>RestoreType</code>
      * parameter is <code>copy-on-write</code> </p> </li> </ul> <p>Example:
@@ -352,7 +352,7 @@ namespace Model
 
     /**
      * <p>A value that indicates whether to restore the DB cluster to the latest
-     * restorable backup time. By default, the DB cluster is not restored to the latest
+     * restorable backup time. By default, the DB cluster isn't restored to the latest
      * restorable backup time. </p> <p>Constraints: Can't be specified if
      * <code>RestoreToTime</code> parameter is provided.</p>
      */
@@ -360,7 +360,7 @@ namespace Model
 
     /**
      * <p>A value that indicates whether to restore the DB cluster to the latest
-     * restorable backup time. By default, the DB cluster is not restored to the latest
+     * restorable backup time. By default, the DB cluster isn't restored to the latest
      * restorable backup time. </p> <p>Constraints: Can't be specified if
      * <code>RestoreToTime</code> parameter is provided.</p>
      */
@@ -368,7 +368,7 @@ namespace Model
 
     /**
      * <p>A value that indicates whether to restore the DB cluster to the latest
-     * restorable backup time. By default, the DB cluster is not restored to the latest
+     * restorable backup time. By default, the DB cluster isn't restored to the latest
      * restorable backup time. </p> <p>Constraints: Can't be specified if
      * <code>RestoreToTime</code> parameter is provided.</p>
      */
@@ -376,7 +376,7 @@ namespace Model
 
     /**
      * <p>A value that indicates whether to restore the DB cluster to the latest
-     * restorable backup time. By default, the DB cluster is not restored to the latest
+     * restorable backup time. By default, the DB cluster isn't restored to the latest
      * restorable backup time. </p> <p>Constraints: Can't be specified if
      * <code>RestoreToTime</code> parameter is provided.</p>
      */
@@ -594,9 +594,9 @@ namespace Model
      * the <code>KmsKeyId</code> parameter, then the following occurs:</p> <ul> <li>
      * <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted
      * using the KMS key that was used to encrypt the source DB cluster.</p> </li> <li>
-     * <p>If the DB cluster is not encrypted, then the restored DB cluster is not
+     * <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't
      * encrypted.</p> </li> </ul> <p>If <code>DBClusterIdentifier</code> refers to a DB
-     * cluster that is not encrypted, then the restore request is rejected.</p>
+     * cluster that isn't encrypted, then the restore request is rejected.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
 
@@ -613,9 +613,9 @@ namespace Model
      * the <code>KmsKeyId</code> parameter, then the following occurs:</p> <ul> <li>
      * <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted
      * using the KMS key that was used to encrypt the source DB cluster.</p> </li> <li>
-     * <p>If the DB cluster is not encrypted, then the restored DB cluster is not
+     * <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't
      * encrypted.</p> </li> </ul> <p>If <code>DBClusterIdentifier</code> refers to a DB
-     * cluster that is not encrypted, then the restore request is rejected.</p>
+     * cluster that isn't encrypted, then the restore request is rejected.</p>
      */
     inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
 
@@ -632,9 +632,9 @@ namespace Model
      * the <code>KmsKeyId</code> parameter, then the following occurs:</p> <ul> <li>
      * <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted
      * using the KMS key that was used to encrypt the source DB cluster.</p> </li> <li>
-     * <p>If the DB cluster is not encrypted, then the restored DB cluster is not
+     * <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't
      * encrypted.</p> </li> </ul> <p>If <code>DBClusterIdentifier</code> refers to a DB
-     * cluster that is not encrypted, then the restore request is rejected.</p>
+     * cluster that isn't encrypted, then the restore request is rejected.</p>
      */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
 
@@ -651,9 +651,9 @@ namespace Model
      * the <code>KmsKeyId</code> parameter, then the following occurs:</p> <ul> <li>
      * <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted
      * using the KMS key that was used to encrypt the source DB cluster.</p> </li> <li>
-     * <p>If the DB cluster is not encrypted, then the restored DB cluster is not
+     * <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't
      * encrypted.</p> </li> </ul> <p>If <code>DBClusterIdentifier</code> refers to a DB
-     * cluster that is not encrypted, then the restore request is rejected.</p>
+     * cluster that isn't encrypted, then the restore request is rejected.</p>
      */
     inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = std::move(value); }
 
@@ -670,9 +670,9 @@ namespace Model
      * the <code>KmsKeyId</code> parameter, then the following occurs:</p> <ul> <li>
      * <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted
      * using the KMS key that was used to encrypt the source DB cluster.</p> </li> <li>
-     * <p>If the DB cluster is not encrypted, then the restored DB cluster is not
+     * <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't
      * encrypted.</p> </li> </ul> <p>If <code>DBClusterIdentifier</code> refers to a DB
-     * cluster that is not encrypted, then the restore request is rejected.</p>
+     * cluster that isn't encrypted, then the restore request is rejected.</p>
      */
     inline void SetKmsKeyId(const char* value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId.assign(value); }
 
@@ -689,9 +689,9 @@ namespace Model
      * the <code>KmsKeyId</code> parameter, then the following occurs:</p> <ul> <li>
      * <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted
      * using the KMS key that was used to encrypt the source DB cluster.</p> </li> <li>
-     * <p>If the DB cluster is not encrypted, then the restored DB cluster is not
+     * <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't
      * encrypted.</p> </li> </ul> <p>If <code>DBClusterIdentifier</code> refers to a DB
-     * cluster that is not encrypted, then the restore request is rejected.</p>
+     * cluster that isn't encrypted, then the restore request is rejected.</p>
      */
     inline RestoreDBClusterToPointInTimeRequest& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
 
@@ -708,9 +708,9 @@ namespace Model
      * the <code>KmsKeyId</code> parameter, then the following occurs:</p> <ul> <li>
      * <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted
      * using the KMS key that was used to encrypt the source DB cluster.</p> </li> <li>
-     * <p>If the DB cluster is not encrypted, then the restored DB cluster is not
+     * <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't
      * encrypted.</p> </li> </ul> <p>If <code>DBClusterIdentifier</code> refers to a DB
-     * cluster that is not encrypted, then the restore request is rejected.</p>
+     * cluster that isn't encrypted, then the restore request is rejected.</p>
      */
     inline RestoreDBClusterToPointInTimeRequest& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
 
@@ -727,9 +727,9 @@ namespace Model
      * the <code>KmsKeyId</code> parameter, then the following occurs:</p> <ul> <li>
      * <p>If the DB cluster is encrypted, then the restored DB cluster is encrypted
      * using the KMS key that was used to encrypt the source DB cluster.</p> </li> <li>
-     * <p>If the DB cluster is not encrypted, then the restored DB cluster is not
+     * <p>If the DB cluster isn't encrypted, then the restored DB cluster isn't
      * encrypted.</p> </li> </ul> <p>If <code>DBClusterIdentifier</code> refers to a DB
-     * cluster that is not encrypted, then the restore request is rejected.</p>
+     * cluster that isn't encrypted, then the restore request is rejected.</p>
      */
     inline RestoreDBClusterToPointInTimeRequest& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
@@ -737,28 +737,36 @@ namespace Model
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool GetEnableIAMDatabaseAuthentication() const{ return m_enableIAMDatabaseAuthentication; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool EnableIAMDatabaseAuthenticationHasBeenSet() const { return m_enableIAMDatabaseAuthenticationHasBeenSet; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline void SetEnableIAMDatabaseAuthentication(bool value) { m_enableIAMDatabaseAuthenticationHasBeenSet = true; m_enableIAMDatabaseAuthentication = value; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline RestoreDBClusterToPointInTimeRequest& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 
@@ -1025,6 +1033,144 @@ namespace Model
      */
     inline RestoreDBClusterToPointInTimeRequest& WithCopyTagsToSnapshot(bool value) { SetCopyTagsToSnapshot(value); return *this;}
 
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(const Aws::String& value) { m_domainHasBeenSet = true; m_domain = value; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(Aws::String&& value) { m_domainHasBeenSet = true; m_domain = std::move(value); }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(const char* value) { m_domainHasBeenSet = true; m_domain.assign(value); }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline RestoreDBClusterToPointInTimeRequest& WithDomain(const Aws::String& value) { SetDomain(value); return *this;}
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline RestoreDBClusterToPointInTimeRequest& WithDomain(Aws::String&& value) { SetDomain(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline RestoreDBClusterToPointInTimeRequest& WithDomain(const char* value) { SetDomain(value); return *this;}
+
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline const Aws::String& GetDomainIAMRoleName() const{ return m_domainIAMRoleName; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline bool DomainIAMRoleNameHasBeenSet() const { return m_domainIAMRoleNameHasBeenSet; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const Aws::String& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = value; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(Aws::String&& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = std::move(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const char* value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName.assign(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterToPointInTimeRequest& WithDomainIAMRoleName(const Aws::String& value) { SetDomainIAMRoleName(value); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterToPointInTimeRequest& WithDomainIAMRoleName(Aws::String&& value) { SetDomainIAMRoleName(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterToPointInTimeRequest& WithDomainIAMRoleName(const char* value) { SetDomainIAMRoleName(value); return *this;}
+
   private:
 
     Aws::String m_dBClusterIdentifier;
@@ -1077,6 +1223,12 @@ namespace Model
 
     bool m_copyTagsToSnapshot;
     bool m_copyTagsToSnapshotHasBeenSet;
+
+    Aws::String m_domain;
+    bool m_domainHasBeenSet;
+
+    Aws::String m_domainIAMRoleName;
+    bool m_domainIAMRoleNameHasBeenSet;
   };
 
 } // namespace Model

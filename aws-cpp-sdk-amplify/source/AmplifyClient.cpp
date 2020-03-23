@@ -31,21 +31,28 @@
 #include <aws/amplify/AmplifyEndpoint.h>
 #include <aws/amplify/AmplifyErrorMarshaller.h>
 #include <aws/amplify/model/CreateAppRequest.h>
+#include <aws/amplify/model/CreateBackendEnvironmentRequest.h>
 #include <aws/amplify/model/CreateBranchRequest.h>
 #include <aws/amplify/model/CreateDeploymentRequest.h>
 #include <aws/amplify/model/CreateDomainAssociationRequest.h>
 #include <aws/amplify/model/CreateWebhookRequest.h>
 #include <aws/amplify/model/DeleteAppRequest.h>
+#include <aws/amplify/model/DeleteBackendEnvironmentRequest.h>
 #include <aws/amplify/model/DeleteBranchRequest.h>
 #include <aws/amplify/model/DeleteDomainAssociationRequest.h>
 #include <aws/amplify/model/DeleteJobRequest.h>
 #include <aws/amplify/model/DeleteWebhookRequest.h>
+#include <aws/amplify/model/GenerateAccessLogsRequest.h>
 #include <aws/amplify/model/GetAppRequest.h>
+#include <aws/amplify/model/GetArtifactUrlRequest.h>
+#include <aws/amplify/model/GetBackendEnvironmentRequest.h>
 #include <aws/amplify/model/GetBranchRequest.h>
 #include <aws/amplify/model/GetDomainAssociationRequest.h>
 #include <aws/amplify/model/GetJobRequest.h>
 #include <aws/amplify/model/GetWebhookRequest.h>
 #include <aws/amplify/model/ListAppsRequest.h>
+#include <aws/amplify/model/ListArtifactsRequest.h>
+#include <aws/amplify/model/ListBackendEnvironmentsRequest.h>
 #include <aws/amplify/model/ListBranchesRequest.h>
 #include <aws/amplify/model/ListDomainAssociationsRequest.h>
 #include <aws/amplify/model/ListJobsRequest.h>
@@ -139,7 +146,7 @@ CreateAppOutcome AmplifyClient::CreateApp(const CreateAppRequest& request) const
   Aws::StringStream ss;
   ss << "/apps";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAppOutcome(CreateAppResult(outcome.GetResult()));
@@ -168,6 +175,48 @@ void AmplifyClient::CreateAppAsyncHelper(const CreateAppRequest& request, const 
   handler(this, request, CreateApp(request), context);
 }
 
+CreateBackendEnvironmentOutcome AmplifyClient::CreateBackendEnvironment(const CreateBackendEnvironmentRequest& request) const
+{
+  if (!request.AppIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateBackendEnvironment", "Required field: AppId, is not set");
+    return CreateBackendEnvironmentOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AppId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/apps/";
+  ss << request.GetAppId();
+  ss << "/backendenvironments";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateBackendEnvironmentOutcome(CreateBackendEnvironmentResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateBackendEnvironmentOutcome(outcome.GetError());
+  }
+}
+
+CreateBackendEnvironmentOutcomeCallable AmplifyClient::CreateBackendEnvironmentCallable(const CreateBackendEnvironmentRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateBackendEnvironmentOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateBackendEnvironment(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AmplifyClient::CreateBackendEnvironmentAsync(const CreateBackendEnvironmentRequest& request, const CreateBackendEnvironmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateBackendEnvironmentAsyncHelper( request, handler, context ); } );
+}
+
+void AmplifyClient::CreateBackendEnvironmentAsyncHelper(const CreateBackendEnvironmentRequest& request, const CreateBackendEnvironmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateBackendEnvironment(request), context);
+}
+
 CreateBranchOutcome AmplifyClient::CreateBranch(const CreateBranchRequest& request) const
 {
   if (!request.AppIdHasBeenSet())
@@ -181,7 +230,7 @@ CreateBranchOutcome AmplifyClient::CreateBranch(const CreateBranchRequest& reque
   ss << request.GetAppId();
   ss << "/branches";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateBranchOutcome(CreateBranchResult(outcome.GetResult()));
@@ -230,7 +279,7 @@ CreateDeploymentOutcome AmplifyClient::CreateDeployment(const CreateDeploymentRe
   ss << request.GetBranchName();
   ss << "/deployments";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDeploymentOutcome(CreateDeploymentResult(outcome.GetResult()));
@@ -272,7 +321,7 @@ CreateDomainAssociationOutcome AmplifyClient::CreateDomainAssociation(const Crea
   ss << request.GetAppId();
   ss << "/domains";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDomainAssociationOutcome(CreateDomainAssociationResult(outcome.GetResult()));
@@ -314,7 +363,7 @@ CreateWebhookOutcome AmplifyClient::CreateWebhook(const CreateWebhookRequest& re
   ss << request.GetAppId();
   ss << "/webhooks";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateWebhookOutcome(CreateWebhookResult(outcome.GetResult()));
@@ -355,7 +404,7 @@ DeleteAppOutcome AmplifyClient::DeleteApp(const DeleteAppRequest& request) const
   ss << "/apps/";
   ss << request.GetAppId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAppOutcome(DeleteAppResult(outcome.GetResult()));
@@ -384,6 +433,54 @@ void AmplifyClient::DeleteAppAsyncHelper(const DeleteAppRequest& request, const 
   handler(this, request, DeleteApp(request), context);
 }
 
+DeleteBackendEnvironmentOutcome AmplifyClient::DeleteBackendEnvironment(const DeleteBackendEnvironmentRequest& request) const
+{
+  if (!request.AppIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteBackendEnvironment", "Required field: AppId, is not set");
+    return DeleteBackendEnvironmentOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AppId]", false));
+  }
+  if (!request.EnvironmentNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteBackendEnvironment", "Required field: EnvironmentName, is not set");
+    return DeleteBackendEnvironmentOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [EnvironmentName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/apps/";
+  ss << request.GetAppId();
+  ss << "/backendenvironments/";
+  ss << request.GetEnvironmentName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteBackendEnvironmentOutcome(DeleteBackendEnvironmentResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteBackendEnvironmentOutcome(outcome.GetError());
+  }
+}
+
+DeleteBackendEnvironmentOutcomeCallable AmplifyClient::DeleteBackendEnvironmentCallable(const DeleteBackendEnvironmentRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteBackendEnvironmentOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteBackendEnvironment(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AmplifyClient::DeleteBackendEnvironmentAsync(const DeleteBackendEnvironmentRequest& request, const DeleteBackendEnvironmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteBackendEnvironmentAsyncHelper( request, handler, context ); } );
+}
+
+void AmplifyClient::DeleteBackendEnvironmentAsyncHelper(const DeleteBackendEnvironmentRequest& request, const DeleteBackendEnvironmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteBackendEnvironment(request), context);
+}
+
 DeleteBranchOutcome AmplifyClient::DeleteBranch(const DeleteBranchRequest& request) const
 {
   if (!request.AppIdHasBeenSet())
@@ -403,7 +500,7 @@ DeleteBranchOutcome AmplifyClient::DeleteBranch(const DeleteBranchRequest& reque
   ss << "/branches/";
   ss << request.GetBranchName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBranchOutcome(DeleteBranchResult(outcome.GetResult()));
@@ -451,7 +548,7 @@ DeleteDomainAssociationOutcome AmplifyClient::DeleteDomainAssociation(const Dele
   ss << "/domains/";
   ss << request.GetDomainName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDomainAssociationOutcome(DeleteDomainAssociationResult(outcome.GetResult()));
@@ -506,7 +603,7 @@ DeleteJobOutcome AmplifyClient::DeleteJob(const DeleteJobRequest& request) const
   ss << "/jobs/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteJobOutcome(DeleteJobResult(outcome.GetResult()));
@@ -547,7 +644,7 @@ DeleteWebhookOutcome AmplifyClient::DeleteWebhook(const DeleteWebhookRequest& re
   ss << "/webhooks/";
   ss << request.GetWebhookId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteWebhookOutcome(DeleteWebhookResult(outcome.GetResult()));
@@ -576,6 +673,48 @@ void AmplifyClient::DeleteWebhookAsyncHelper(const DeleteWebhookRequest& request
   handler(this, request, DeleteWebhook(request), context);
 }
 
+GenerateAccessLogsOutcome AmplifyClient::GenerateAccessLogs(const GenerateAccessLogsRequest& request) const
+{
+  if (!request.AppIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GenerateAccessLogs", "Required field: AppId, is not set");
+    return GenerateAccessLogsOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AppId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/apps/";
+  ss << request.GetAppId();
+  ss << "/accesslogs";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GenerateAccessLogsOutcome(GenerateAccessLogsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GenerateAccessLogsOutcome(outcome.GetError());
+  }
+}
+
+GenerateAccessLogsOutcomeCallable AmplifyClient::GenerateAccessLogsCallable(const GenerateAccessLogsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GenerateAccessLogsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GenerateAccessLogs(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AmplifyClient::GenerateAccessLogsAsync(const GenerateAccessLogsRequest& request, const GenerateAccessLogsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GenerateAccessLogsAsyncHelper( request, handler, context ); } );
+}
+
+void AmplifyClient::GenerateAccessLogsAsyncHelper(const GenerateAccessLogsRequest& request, const GenerateAccessLogsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GenerateAccessLogs(request), context);
+}
+
 GetAppOutcome AmplifyClient::GetApp(const GetAppRequest& request) const
 {
   if (!request.AppIdHasBeenSet())
@@ -588,7 +727,7 @@ GetAppOutcome AmplifyClient::GetApp(const GetAppRequest& request) const
   ss << "/apps/";
   ss << request.GetAppId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAppOutcome(GetAppResult(outcome.GetResult()));
@@ -617,6 +756,95 @@ void AmplifyClient::GetAppAsyncHelper(const GetAppRequest& request, const GetApp
   handler(this, request, GetApp(request), context);
 }
 
+GetArtifactUrlOutcome AmplifyClient::GetArtifactUrl(const GetArtifactUrlRequest& request) const
+{
+  if (!request.ArtifactIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetArtifactUrl", "Required field: ArtifactId, is not set");
+    return GetArtifactUrlOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ArtifactId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/artifacts/";
+  ss << request.GetArtifactId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetArtifactUrlOutcome(GetArtifactUrlResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetArtifactUrlOutcome(outcome.GetError());
+  }
+}
+
+GetArtifactUrlOutcomeCallable AmplifyClient::GetArtifactUrlCallable(const GetArtifactUrlRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetArtifactUrlOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetArtifactUrl(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AmplifyClient::GetArtifactUrlAsync(const GetArtifactUrlRequest& request, const GetArtifactUrlResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetArtifactUrlAsyncHelper( request, handler, context ); } );
+}
+
+void AmplifyClient::GetArtifactUrlAsyncHelper(const GetArtifactUrlRequest& request, const GetArtifactUrlResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetArtifactUrl(request), context);
+}
+
+GetBackendEnvironmentOutcome AmplifyClient::GetBackendEnvironment(const GetBackendEnvironmentRequest& request) const
+{
+  if (!request.AppIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetBackendEnvironment", "Required field: AppId, is not set");
+    return GetBackendEnvironmentOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AppId]", false));
+  }
+  if (!request.EnvironmentNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetBackendEnvironment", "Required field: EnvironmentName, is not set");
+    return GetBackendEnvironmentOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [EnvironmentName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/apps/";
+  ss << request.GetAppId();
+  ss << "/backendenvironments/";
+  ss << request.GetEnvironmentName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetBackendEnvironmentOutcome(GetBackendEnvironmentResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetBackendEnvironmentOutcome(outcome.GetError());
+  }
+}
+
+GetBackendEnvironmentOutcomeCallable AmplifyClient::GetBackendEnvironmentCallable(const GetBackendEnvironmentRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetBackendEnvironmentOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetBackendEnvironment(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AmplifyClient::GetBackendEnvironmentAsync(const GetBackendEnvironmentRequest& request, const GetBackendEnvironmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetBackendEnvironmentAsyncHelper( request, handler, context ); } );
+}
+
+void AmplifyClient::GetBackendEnvironmentAsyncHelper(const GetBackendEnvironmentRequest& request, const GetBackendEnvironmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetBackendEnvironment(request), context);
+}
+
 GetBranchOutcome AmplifyClient::GetBranch(const GetBranchRequest& request) const
 {
   if (!request.AppIdHasBeenSet())
@@ -636,7 +864,7 @@ GetBranchOutcome AmplifyClient::GetBranch(const GetBranchRequest& request) const
   ss << "/branches/";
   ss << request.GetBranchName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBranchOutcome(GetBranchResult(outcome.GetResult()));
@@ -684,7 +912,7 @@ GetDomainAssociationOutcome AmplifyClient::GetDomainAssociation(const GetDomainA
   ss << "/domains/";
   ss << request.GetDomainName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDomainAssociationOutcome(GetDomainAssociationResult(outcome.GetResult()));
@@ -739,7 +967,7 @@ GetJobOutcome AmplifyClient::GetJob(const GetJobRequest& request) const
   ss << "/jobs/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobOutcome(GetJobResult(outcome.GetResult()));
@@ -780,7 +1008,7 @@ GetWebhookOutcome AmplifyClient::GetWebhook(const GetWebhookRequest& request) co
   ss << "/webhooks/";
   ss << request.GetWebhookId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetWebhookOutcome(GetWebhookResult(outcome.GetResult()));
@@ -815,7 +1043,7 @@ ListAppsOutcome AmplifyClient::ListApps(const ListAppsRequest& request) const
   Aws::StringStream ss;
   ss << "/apps";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAppsOutcome(ListAppsResult(outcome.GetResult()));
@@ -844,6 +1072,104 @@ void AmplifyClient::ListAppsAsyncHelper(const ListAppsRequest& request, const Li
   handler(this, request, ListApps(request), context);
 }
 
+ListArtifactsOutcome AmplifyClient::ListArtifacts(const ListArtifactsRequest& request) const
+{
+  if (!request.AppIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListArtifacts", "Required field: AppId, is not set");
+    return ListArtifactsOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AppId]", false));
+  }
+  if (!request.BranchNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListArtifacts", "Required field: BranchName, is not set");
+    return ListArtifactsOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [BranchName]", false));
+  }
+  if (!request.JobIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListArtifacts", "Required field: JobId, is not set");
+    return ListArtifactsOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JobId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/apps/";
+  ss << request.GetAppId();
+  ss << "/branches/";
+  ss << request.GetBranchName();
+  ss << "/jobs/";
+  ss << request.GetJobId();
+  ss << "/artifacts";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListArtifactsOutcome(ListArtifactsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListArtifactsOutcome(outcome.GetError());
+  }
+}
+
+ListArtifactsOutcomeCallable AmplifyClient::ListArtifactsCallable(const ListArtifactsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListArtifactsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListArtifacts(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AmplifyClient::ListArtifactsAsync(const ListArtifactsRequest& request, const ListArtifactsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListArtifactsAsyncHelper( request, handler, context ); } );
+}
+
+void AmplifyClient::ListArtifactsAsyncHelper(const ListArtifactsRequest& request, const ListArtifactsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListArtifacts(request), context);
+}
+
+ListBackendEnvironmentsOutcome AmplifyClient::ListBackendEnvironments(const ListBackendEnvironmentsRequest& request) const
+{
+  if (!request.AppIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListBackendEnvironments", "Required field: AppId, is not set");
+    return ListBackendEnvironmentsOutcome(Aws::Client::AWSError<AmplifyErrors>(AmplifyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AppId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/apps/";
+  ss << request.GetAppId();
+  ss << "/backendenvironments";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListBackendEnvironmentsOutcome(ListBackendEnvironmentsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListBackendEnvironmentsOutcome(outcome.GetError());
+  }
+}
+
+ListBackendEnvironmentsOutcomeCallable AmplifyClient::ListBackendEnvironmentsCallable(const ListBackendEnvironmentsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListBackendEnvironmentsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListBackendEnvironments(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AmplifyClient::ListBackendEnvironmentsAsync(const ListBackendEnvironmentsRequest& request, const ListBackendEnvironmentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListBackendEnvironmentsAsyncHelper( request, handler, context ); } );
+}
+
+void AmplifyClient::ListBackendEnvironmentsAsyncHelper(const ListBackendEnvironmentsRequest& request, const ListBackendEnvironmentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListBackendEnvironments(request), context);
+}
+
 ListBranchesOutcome AmplifyClient::ListBranches(const ListBranchesRequest& request) const
 {
   if (!request.AppIdHasBeenSet())
@@ -857,7 +1183,7 @@ ListBranchesOutcome AmplifyClient::ListBranches(const ListBranchesRequest& reque
   ss << request.GetAppId();
   ss << "/branches";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListBranchesOutcome(ListBranchesResult(outcome.GetResult()));
@@ -899,7 +1225,7 @@ ListDomainAssociationsOutcome AmplifyClient::ListDomainAssociations(const ListDo
   ss << request.GetAppId();
   ss << "/domains";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDomainAssociationsOutcome(ListDomainAssociationsResult(outcome.GetResult()));
@@ -948,7 +1274,7 @@ ListJobsOutcome AmplifyClient::ListJobs(const ListJobsRequest& request) const
   ss << request.GetBranchName();
   ss << "/jobs";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListJobsOutcome(ListJobsResult(outcome.GetResult()));
@@ -989,7 +1315,7 @@ ListTagsForResourceOutcome AmplifyClient::ListTagsForResource(const ListTagsForR
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -1031,7 +1357,7 @@ ListWebhooksOutcome AmplifyClient::ListWebhooks(const ListWebhooksRequest& reque
   ss << request.GetAppId();
   ss << "/webhooks";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListWebhooksOutcome(ListWebhooksResult(outcome.GetResult()));
@@ -1080,7 +1406,7 @@ StartDeploymentOutcome AmplifyClient::StartDeployment(const StartDeploymentReque
   ss << request.GetBranchName();
   ss << "/deployments/start";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartDeploymentOutcome(StartDeploymentResult(outcome.GetResult()));
@@ -1129,7 +1455,7 @@ StartJobOutcome AmplifyClient::StartJob(const StartJobRequest& request) const
   ss << request.GetBranchName();
   ss << "/jobs";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartJobOutcome(StartJobResult(outcome.GetResult()));
@@ -1185,7 +1511,7 @@ StopJobOutcome AmplifyClient::StopJob(const StopJobRequest& request) const
   ss << request.GetJobId();
   ss << "/stop";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopJobOutcome(StopJobResult(outcome.GetResult()));
@@ -1226,7 +1552,7 @@ TagResourceOutcome AmplifyClient::TagResource(const TagResourceRequest& request)
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -1272,7 +1598,7 @@ UntagResourceOutcome AmplifyClient::UntagResource(const UntagResourceRequest& re
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -1313,7 +1639,7 @@ UpdateAppOutcome AmplifyClient::UpdateApp(const UpdateAppRequest& request) const
   ss << "/apps/";
   ss << request.GetAppId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAppOutcome(UpdateAppResult(outcome.GetResult()));
@@ -1361,7 +1687,7 @@ UpdateBranchOutcome AmplifyClient::UpdateBranch(const UpdateBranchRequest& reque
   ss << "/branches/";
   ss << request.GetBranchName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateBranchOutcome(UpdateBranchResult(outcome.GetResult()));
@@ -1409,7 +1735,7 @@ UpdateDomainAssociationOutcome AmplifyClient::UpdateDomainAssociation(const Upda
   ss << "/domains/";
   ss << request.GetDomainName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDomainAssociationOutcome(UpdateDomainAssociationResult(outcome.GetResult()));
@@ -1450,7 +1776,7 @@ UpdateWebhookOutcome AmplifyClient::UpdateWebhook(const UpdateWebhookRequest& re
   ss << "/webhooks/";
   ss << request.GetWebhookId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateWebhookOutcome(UpdateWebhookResult(outcome.GetResult()));

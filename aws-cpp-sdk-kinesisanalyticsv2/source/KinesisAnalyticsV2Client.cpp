@@ -35,6 +35,7 @@
 #include <aws/kinesisanalyticsv2/model/AddApplicationInputProcessingConfigurationRequest.h>
 #include <aws/kinesisanalyticsv2/model/AddApplicationOutputRequest.h>
 #include <aws/kinesisanalyticsv2/model/AddApplicationReferenceDataSourceRequest.h>
+#include <aws/kinesisanalyticsv2/model/AddApplicationVpcConfigurationRequest.h>
 #include <aws/kinesisanalyticsv2/model/CreateApplicationRequest.h>
 #include <aws/kinesisanalyticsv2/model/CreateApplicationSnapshotRequest.h>
 #include <aws/kinesisanalyticsv2/model/DeleteApplicationRequest.h>
@@ -43,6 +44,7 @@
 #include <aws/kinesisanalyticsv2/model/DeleteApplicationOutputRequest.h>
 #include <aws/kinesisanalyticsv2/model/DeleteApplicationReferenceDataSourceRequest.h>
 #include <aws/kinesisanalyticsv2/model/DeleteApplicationSnapshotRequest.h>
+#include <aws/kinesisanalyticsv2/model/DeleteApplicationVpcConfigurationRequest.h>
 #include <aws/kinesisanalyticsv2/model/DescribeApplicationRequest.h>
 #include <aws/kinesisanalyticsv2/model/DescribeApplicationSnapshotRequest.h>
 #include <aws/kinesisanalyticsv2/model/DiscoverInputSchemaRequest.h>
@@ -133,7 +135,7 @@ AddApplicationCloudWatchLoggingOptionOutcome KinesisAnalyticsV2Client::AddApplic
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddApplicationCloudWatchLoggingOptionOutcome(AddApplicationCloudWatchLoggingOptionResult(outcome.GetResult()));
@@ -168,7 +170,7 @@ AddApplicationInputOutcome KinesisAnalyticsV2Client::AddApplicationInput(const A
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddApplicationInputOutcome(AddApplicationInputResult(outcome.GetResult()));
@@ -203,7 +205,7 @@ AddApplicationInputProcessingConfigurationOutcome KinesisAnalyticsV2Client::AddA
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddApplicationInputProcessingConfigurationOutcome(AddApplicationInputProcessingConfigurationResult(outcome.GetResult()));
@@ -238,7 +240,7 @@ AddApplicationOutputOutcome KinesisAnalyticsV2Client::AddApplicationOutput(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddApplicationOutputOutcome(AddApplicationOutputResult(outcome.GetResult()));
@@ -273,7 +275,7 @@ AddApplicationReferenceDataSourceOutcome KinesisAnalyticsV2Client::AddApplicatio
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddApplicationReferenceDataSourceOutcome(AddApplicationReferenceDataSourceResult(outcome.GetResult()));
@@ -302,13 +304,48 @@ void KinesisAnalyticsV2Client::AddApplicationReferenceDataSourceAsyncHelper(cons
   handler(this, request, AddApplicationReferenceDataSource(request), context);
 }
 
+AddApplicationVpcConfigurationOutcome KinesisAnalyticsV2Client::AddApplicationVpcConfiguration(const AddApplicationVpcConfigurationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return AddApplicationVpcConfigurationOutcome(AddApplicationVpcConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return AddApplicationVpcConfigurationOutcome(outcome.GetError());
+  }
+}
+
+AddApplicationVpcConfigurationOutcomeCallable KinesisAnalyticsV2Client::AddApplicationVpcConfigurationCallable(const AddApplicationVpcConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< AddApplicationVpcConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->AddApplicationVpcConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KinesisAnalyticsV2Client::AddApplicationVpcConfigurationAsync(const AddApplicationVpcConfigurationRequest& request, const AddApplicationVpcConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->AddApplicationVpcConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void KinesisAnalyticsV2Client::AddApplicationVpcConfigurationAsyncHelper(const AddApplicationVpcConfigurationRequest& request, const AddApplicationVpcConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, AddApplicationVpcConfiguration(request), context);
+}
+
 CreateApplicationOutcome KinesisAnalyticsV2Client::CreateApplication(const CreateApplicationRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateApplicationOutcome(CreateApplicationResult(outcome.GetResult()));
@@ -343,7 +380,7 @@ CreateApplicationSnapshotOutcome KinesisAnalyticsV2Client::CreateApplicationSnap
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateApplicationSnapshotOutcome(CreateApplicationSnapshotResult(outcome.GetResult()));
@@ -378,7 +415,7 @@ DeleteApplicationOutcome KinesisAnalyticsV2Client::DeleteApplication(const Delet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApplicationOutcome(DeleteApplicationResult(outcome.GetResult()));
@@ -413,7 +450,7 @@ DeleteApplicationCloudWatchLoggingOptionOutcome KinesisAnalyticsV2Client::Delete
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApplicationCloudWatchLoggingOptionOutcome(DeleteApplicationCloudWatchLoggingOptionResult(outcome.GetResult()));
@@ -448,7 +485,7 @@ DeleteApplicationInputProcessingConfigurationOutcome KinesisAnalyticsV2Client::D
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApplicationInputProcessingConfigurationOutcome(DeleteApplicationInputProcessingConfigurationResult(outcome.GetResult()));
@@ -483,7 +520,7 @@ DeleteApplicationOutputOutcome KinesisAnalyticsV2Client::DeleteApplicationOutput
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApplicationOutputOutcome(DeleteApplicationOutputResult(outcome.GetResult()));
@@ -518,7 +555,7 @@ DeleteApplicationReferenceDataSourceOutcome KinesisAnalyticsV2Client::DeleteAppl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApplicationReferenceDataSourceOutcome(DeleteApplicationReferenceDataSourceResult(outcome.GetResult()));
@@ -553,7 +590,7 @@ DeleteApplicationSnapshotOutcome KinesisAnalyticsV2Client::DeleteApplicationSnap
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApplicationSnapshotOutcome(DeleteApplicationSnapshotResult(outcome.GetResult()));
@@ -582,13 +619,48 @@ void KinesisAnalyticsV2Client::DeleteApplicationSnapshotAsyncHelper(const Delete
   handler(this, request, DeleteApplicationSnapshot(request), context);
 }
 
+DeleteApplicationVpcConfigurationOutcome KinesisAnalyticsV2Client::DeleteApplicationVpcConfiguration(const DeleteApplicationVpcConfigurationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteApplicationVpcConfigurationOutcome(DeleteApplicationVpcConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteApplicationVpcConfigurationOutcome(outcome.GetError());
+  }
+}
+
+DeleteApplicationVpcConfigurationOutcomeCallable KinesisAnalyticsV2Client::DeleteApplicationVpcConfigurationCallable(const DeleteApplicationVpcConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteApplicationVpcConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteApplicationVpcConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KinesisAnalyticsV2Client::DeleteApplicationVpcConfigurationAsync(const DeleteApplicationVpcConfigurationRequest& request, const DeleteApplicationVpcConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteApplicationVpcConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void KinesisAnalyticsV2Client::DeleteApplicationVpcConfigurationAsyncHelper(const DeleteApplicationVpcConfigurationRequest& request, const DeleteApplicationVpcConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteApplicationVpcConfiguration(request), context);
+}
+
 DescribeApplicationOutcome KinesisAnalyticsV2Client::DescribeApplication(const DescribeApplicationRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeApplicationOutcome(DescribeApplicationResult(outcome.GetResult()));
@@ -623,7 +695,7 @@ DescribeApplicationSnapshotOutcome KinesisAnalyticsV2Client::DescribeApplication
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeApplicationSnapshotOutcome(DescribeApplicationSnapshotResult(outcome.GetResult()));
@@ -658,7 +730,7 @@ DiscoverInputSchemaOutcome KinesisAnalyticsV2Client::DiscoverInputSchema(const D
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DiscoverInputSchemaOutcome(DiscoverInputSchemaResult(outcome.GetResult()));
@@ -693,7 +765,7 @@ ListApplicationSnapshotsOutcome KinesisAnalyticsV2Client::ListApplicationSnapsho
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListApplicationSnapshotsOutcome(ListApplicationSnapshotsResult(outcome.GetResult()));
@@ -728,7 +800,7 @@ ListApplicationsOutcome KinesisAnalyticsV2Client::ListApplications(const ListApp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListApplicationsOutcome(ListApplicationsResult(outcome.GetResult()));
@@ -763,7 +835,7 @@ ListTagsForResourceOutcome KinesisAnalyticsV2Client::ListTagsForResource(const L
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -798,7 +870,7 @@ StartApplicationOutcome KinesisAnalyticsV2Client::StartApplication(const StartAp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartApplicationOutcome(StartApplicationResult(outcome.GetResult()));
@@ -833,7 +905,7 @@ StopApplicationOutcome KinesisAnalyticsV2Client::StopApplication(const StopAppli
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopApplicationOutcome(StopApplicationResult(outcome.GetResult()));
@@ -868,7 +940,7 @@ TagResourceOutcome KinesisAnalyticsV2Client::TagResource(const TagResourceReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -903,7 +975,7 @@ UntagResourceOutcome KinesisAnalyticsV2Client::UntagResource(const UntagResource
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -938,7 +1010,7 @@ UpdateApplicationOutcome KinesisAnalyticsV2Client::UpdateApplication(const Updat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApplicationOutcome(UpdateApplicationResult(outcome.GetResult()));

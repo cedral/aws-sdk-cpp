@@ -32,7 +32,11 @@ MutableClusterInfo::MutableClusterInfo() :
     m_brokerEBSVolumeInfoHasBeenSet(false),
     m_configurationInfoHasBeenSet(false),
     m_numberOfBrokerNodes(0),
-    m_numberOfBrokerNodesHasBeenSet(false)
+    m_numberOfBrokerNodesHasBeenSet(false),
+    m_enhancedMonitoring(EnhancedMonitoring::NOT_SET),
+    m_enhancedMonitoringHasBeenSet(false),
+    m_openMonitoringHasBeenSet(false),
+    m_loggingInfoHasBeenSet(false)
 {
 }
 
@@ -40,7 +44,11 @@ MutableClusterInfo::MutableClusterInfo(JsonView jsonValue) :
     m_brokerEBSVolumeInfoHasBeenSet(false),
     m_configurationInfoHasBeenSet(false),
     m_numberOfBrokerNodes(0),
-    m_numberOfBrokerNodesHasBeenSet(false)
+    m_numberOfBrokerNodesHasBeenSet(false),
+    m_enhancedMonitoring(EnhancedMonitoring::NOT_SET),
+    m_enhancedMonitoringHasBeenSet(false),
+    m_openMonitoringHasBeenSet(false),
+    m_loggingInfoHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -71,6 +79,27 @@ MutableClusterInfo& MutableClusterInfo::operator =(JsonView jsonValue)
     m_numberOfBrokerNodesHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("enhancedMonitoring"))
+  {
+    m_enhancedMonitoring = EnhancedMonitoringMapper::GetEnhancedMonitoringForName(jsonValue.GetString("enhancedMonitoring"));
+
+    m_enhancedMonitoringHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("openMonitoring"))
+  {
+    m_openMonitoring = jsonValue.GetObject("openMonitoring");
+
+    m_openMonitoringHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("loggingInfo"))
+  {
+    m_loggingInfo = jsonValue.GetObject("loggingInfo");
+
+    m_loggingInfoHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -98,6 +127,23 @@ JsonValue MutableClusterInfo::Jsonize() const
   if(m_numberOfBrokerNodesHasBeenSet)
   {
    payload.WithInteger("numberOfBrokerNodes", m_numberOfBrokerNodes);
+
+  }
+
+  if(m_enhancedMonitoringHasBeenSet)
+  {
+   payload.WithString("enhancedMonitoring", EnhancedMonitoringMapper::GetNameForEnhancedMonitoring(m_enhancedMonitoring));
+  }
+
+  if(m_openMonitoringHasBeenSet)
+  {
+   payload.WithObject("openMonitoring", m_openMonitoring.Jsonize());
+
+  }
+
+  if(m_loggingInfoHasBeenSet)
+  {
+   payload.WithObject("loggingInfo", m_loggingInfo.Jsonize());
 
   }
 

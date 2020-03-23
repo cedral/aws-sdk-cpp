@@ -53,38 +53,80 @@ namespace Model
 
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowest-price</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the EC2 Fleet.</p> <p>If the allocation strategy is
+     * <code>lowest-price</code>, EC2 Fleet launches instances from the Spot Instance
+     * pools with the lowest price. This is the default allocation strategy.</p> <p>If
+     * the allocation strategy is <code>diversified</code>, EC2 Fleet launches
+     * instances from all of the Spot Instance pools that you specify.</p> <p>If the
+     * allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
+     * instances from Spot Instance pools with optimal capacity for the number of
+     * instances that are launching.</p>
      */
     inline const SpotAllocationStrategy& GetAllocationStrategy() const{ return m_allocationStrategy; }
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowest-price</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the EC2 Fleet.</p> <p>If the allocation strategy is
+     * <code>lowest-price</code>, EC2 Fleet launches instances from the Spot Instance
+     * pools with the lowest price. This is the default allocation strategy.</p> <p>If
+     * the allocation strategy is <code>diversified</code>, EC2 Fleet launches
+     * instances from all of the Spot Instance pools that you specify.</p> <p>If the
+     * allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
+     * instances from Spot Instance pools with optimal capacity for the number of
+     * instances that are launching.</p>
      */
     inline bool AllocationStrategyHasBeenSet() const { return m_allocationStrategyHasBeenSet; }
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowest-price</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the EC2 Fleet.</p> <p>If the allocation strategy is
+     * <code>lowest-price</code>, EC2 Fleet launches instances from the Spot Instance
+     * pools with the lowest price. This is the default allocation strategy.</p> <p>If
+     * the allocation strategy is <code>diversified</code>, EC2 Fleet launches
+     * instances from all of the Spot Instance pools that you specify.</p> <p>If the
+     * allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
+     * instances from Spot Instance pools with optimal capacity for the number of
+     * instances that are launching.</p>
      */
     inline void SetAllocationStrategy(const SpotAllocationStrategy& value) { m_allocationStrategyHasBeenSet = true; m_allocationStrategy = value; }
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowest-price</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the EC2 Fleet.</p> <p>If the allocation strategy is
+     * <code>lowest-price</code>, EC2 Fleet launches instances from the Spot Instance
+     * pools with the lowest price. This is the default allocation strategy.</p> <p>If
+     * the allocation strategy is <code>diversified</code>, EC2 Fleet launches
+     * instances from all of the Spot Instance pools that you specify.</p> <p>If the
+     * allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
+     * instances from Spot Instance pools with optimal capacity for the number of
+     * instances that are launching.</p>
      */
     inline void SetAllocationStrategy(SpotAllocationStrategy&& value) { m_allocationStrategyHasBeenSet = true; m_allocationStrategy = std::move(value); }
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowest-price</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the EC2 Fleet.</p> <p>If the allocation strategy is
+     * <code>lowest-price</code>, EC2 Fleet launches instances from the Spot Instance
+     * pools with the lowest price. This is the default allocation strategy.</p> <p>If
+     * the allocation strategy is <code>diversified</code>, EC2 Fleet launches
+     * instances from all of the Spot Instance pools that you specify.</p> <p>If the
+     * allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
+     * instances from Spot Instance pools with optimal capacity for the number of
+     * instances that are launching.</p>
      */
     inline SpotOptions& WithAllocationStrategy(const SpotAllocationStrategy& value) { SetAllocationStrategy(value); return *this;}
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowest-price</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the EC2 Fleet.</p> <p>If the allocation strategy is
+     * <code>lowest-price</code>, EC2 Fleet launches instances from the Spot Instance
+     * pools with the lowest price. This is the default allocation strategy.</p> <p>If
+     * the allocation strategy is <code>diversified</code>, EC2 Fleet launches
+     * instances from all of the Spot Instance pools that you specify.</p> <p>If the
+     * allocation strategy is <code>capacity-optimized</code>, EC2 Fleet launches
+     * instances from Spot Instance pools with optimal capacity for the number of
+     * instances that are launching.</p>
      */
     inline SpotOptions& WithAllocationStrategy(SpotAllocationStrategy&& value) { SetAllocationStrategy(std::move(value)); return *this;}
 
@@ -128,7 +170,7 @@ namespace Model
 
     /**
      * <p>The number of Spot pools across which to allocate your target Spot capacity.
-     * Valid only when <b>AllocationStrategy</b> is set to <code>lowestPrice</code>.
+     * Valid only when <b>AllocationStrategy</b> is set to <code>lowest-price</code>.
      * EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot
      * capacity across the number of Spot pools that you specify.</p>
      */
@@ -136,7 +178,7 @@ namespace Model
 
     /**
      * <p>The number of Spot pools across which to allocate your target Spot capacity.
-     * Valid only when <b>AllocationStrategy</b> is set to <code>lowestPrice</code>.
+     * Valid only when <b>AllocationStrategy</b> is set to <code>lowest-price</code>.
      * EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot
      * capacity across the number of Spot pools that you specify.</p>
      */
@@ -144,7 +186,7 @@ namespace Model
 
     /**
      * <p>The number of Spot pools across which to allocate your target Spot capacity.
-     * Valid only when <b>AllocationStrategy</b> is set to <code>lowestPrice</code>.
+     * Valid only when <b>AllocationStrategy</b> is set to <code>lowest-price</code>.
      * EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot
      * capacity across the number of Spot pools that you specify.</p>
      */
@@ -152,7 +194,7 @@ namespace Model
 
     /**
      * <p>The number of Spot pools across which to allocate your target Spot capacity.
-     * Valid only when <b>AllocationStrategy</b> is set to <code>lowestPrice</code>.
+     * Valid only when <b>AllocationStrategy</b> is set to <code>lowest-price</code>.
      * EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot
      * capacity across the number of Spot pools that you specify.</p>
      */
@@ -161,50 +203,54 @@ namespace Model
 
     /**
      * <p>Indicates that the fleet uses a single instance type to launch all Spot
-     * Instances in the fleet.</p>
+     * Instances in the fleet. Supported only for fleets of type
+     * <code>instant</code>.</p>
      */
     inline bool GetSingleInstanceType() const{ return m_singleInstanceType; }
 
     /**
      * <p>Indicates that the fleet uses a single instance type to launch all Spot
-     * Instances in the fleet.</p>
+     * Instances in the fleet. Supported only for fleets of type
+     * <code>instant</code>.</p>
      */
     inline bool SingleInstanceTypeHasBeenSet() const { return m_singleInstanceTypeHasBeenSet; }
 
     /**
      * <p>Indicates that the fleet uses a single instance type to launch all Spot
-     * Instances in the fleet.</p>
+     * Instances in the fleet. Supported only for fleets of type
+     * <code>instant</code>.</p>
      */
     inline void SetSingleInstanceType(bool value) { m_singleInstanceTypeHasBeenSet = true; m_singleInstanceType = value; }
 
     /**
      * <p>Indicates that the fleet uses a single instance type to launch all Spot
-     * Instances in the fleet.</p>
+     * Instances in the fleet. Supported only for fleets of type
+     * <code>instant</code>.</p>
      */
     inline SpotOptions& WithSingleInstanceType(bool value) { SetSingleInstanceType(value); return *this;}
 
 
     /**
      * <p>Indicates that the fleet launches all Spot Instances into a single
-     * Availability Zone.</p>
+     * Availability Zone. Supported only for fleets of type <code>instant</code>.</p>
      */
     inline bool GetSingleAvailabilityZone() const{ return m_singleAvailabilityZone; }
 
     /**
      * <p>Indicates that the fleet launches all Spot Instances into a single
-     * Availability Zone.</p>
+     * Availability Zone. Supported only for fleets of type <code>instant</code>.</p>
      */
     inline bool SingleAvailabilityZoneHasBeenSet() const { return m_singleAvailabilityZoneHasBeenSet; }
 
     /**
      * <p>Indicates that the fleet launches all Spot Instances into a single
-     * Availability Zone.</p>
+     * Availability Zone. Supported only for fleets of type <code>instant</code>.</p>
      */
     inline void SetSingleAvailabilityZone(bool value) { m_singleAvailabilityZoneHasBeenSet = true; m_singleAvailabilityZone = value; }
 
     /**
      * <p>Indicates that the fleet launches all Spot Instances into a single
-     * Availability Zone.</p>
+     * Availability Zone. Supported only for fleets of type <code>instant</code>.</p>
      */
     inline SpotOptions& WithSingleAvailabilityZone(bool value) { SetSingleAvailabilityZone(value); return *this;}
 

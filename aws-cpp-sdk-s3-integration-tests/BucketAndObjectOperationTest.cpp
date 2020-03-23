@@ -14,23 +14,32 @@
 */
 
 #include <aws/external/gtest.h>
-#include <aws/testing/ProxyConfig.h>
+#include <aws/core/auth/AWSCredentialsProviderChain.h>
 #include <aws/core/client/ClientConfiguration.h>
 #include <aws/core/client/CoreErrors.h>
-#include <aws/core/auth/AWSCredentialsProviderChain.h>
-#include <aws/core/platform/Platform.h>
-#include <aws/core/utils/Outcome.h>
-#include <aws/s3/S3Client.h>
+#include <aws/core/client/RetryStrategy.h>
+#include <aws/core/http/HttpClientFactory.h>
+#include <aws/core/http/HttpClient.h>
+#include <aws/core/utils/crypto/Cipher.h>
+#include <aws/core/utils/crypto/Factories.h>
+#include <aws/core/utils/DateTime.h>
+#include <aws/core/utils/HashingUtils.h>
+#include <aws/core/utils/memory/stl/AWSStringStream.h>
 #include <aws/core/utils/ratelimiter/DefaultRateLimiter.h>
+#include <aws/core/utils/StringUtils.h>
+#include <aws/core/utils/threading/Executor.h>
+#include <aws/core/utils/UUID.h>
+#include <aws/core/utils/Outcome.h>
+#include <aws/core/platform/Environment.h>
+#include <aws/core/platform/Platform.h>
+#include <aws/s3/S3Client.h>
+#include <aws/s3/S3ARN.h>
+#include <aws/s3/S3Endpoint.h>
 #include <aws/s3/model/DeleteBucketRequest.h>
 #include <aws/s3/model/CreateBucketRequest.h>
 #include <aws/s3/model/HeadBucketRequest.h>
 #include <aws/s3/model/PutObjectRequest.h>
 #include <aws/s3/model/CopyObjectRequest.h>
-#include <aws/core/utils/memory/stl/AWSStringStream.h>
-#include <aws/core/utils/HashingUtils.h>
-#include <aws/core/utils/StringUtils.h>
-#include <aws/core/utils/UUID.h>
 #include <aws/s3/model/GetObjectRequest.h>
 #include <aws/s3/model/DeleteObjectRequest.h>
 #include <aws/s3/model/HeadObjectRequest.h>
@@ -40,16 +49,9 @@
 #include <aws/s3/model/ListObjectsRequest.h>
 #include <aws/s3/model/GetBucketLocationRequest.h>
 #include <aws/s3/model/SelectObjectContentRequest.h>
-#include <aws/core/utils/DateTime.h>
-#include <aws/core/http/HttpClientFactory.h>
-#include <aws/core/http/HttpClient.h>
-#include <aws/core/client/RetryStrategy.h>
-#include <aws/core/utils/threading/Executor.h>
+#include <aws/testing/ProxyConfig.h>
 #include <aws/testing/platform/PlatformTesting.h>
 #include <aws/testing/TestingEnvironment.h>
-#include <aws/core/utils/crypto/Factories.h>
-#include <aws/core/utils/crypto/Cipher.h>
-#include <aws/core/utils/HashingUtils.h>
 #include <fstream>
 
 #ifdef _WIN32
@@ -160,19 +162,19 @@ namespace
                 config.proxyPort = PROXY_PORT;
             }
 
-            Client = Aws::MakeShared<S3Client>(ALLOCATION_TAG, 
-                    Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), config, 
-                        AWSAuthV4Signer::PayloadSigningPolicy::Never /*signPayloads*/, true /*useVirtualAddressing*/);
+            Client = Aws::MakeShared<S3Client>(ALLOCATION_TAG,
+                    Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), config,
+                        AWSAuthV4Signer::PayloadSigningPolicy::Never /*signPayloads*/, true /*useVirtualAddressing*/, Aws::S3::US_EAST_1_REGIONAL_ENDPOINT_OPTION::LEGACY);
             config.region = Aws::Region::US_WEST_2;
             config.useDualStack = true;
-            oregonClient = Aws::MakeShared<S3Client>(ALLOCATION_TAG, 
-                    Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), config, 
+            oregonClient = Aws::MakeShared<S3Client>(ALLOCATION_TAG,
+                    Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), config,
                         AWSAuthV4Signer::PayloadSigningPolicy::Never /*signPayloads*/, true /*useVirtualAddressing*/);
             m_HttpClient = Aws::Http::CreateHttpClient(config);
 
             config.retryStrategy = Aws::MakeShared<RetryFiveTimesRetryStrategy>(ALLOCATION_TAG);
-            retryClient = Aws::MakeShared<S3Client>(ALLOCATION_TAG, 
-                    Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), config, 
+            retryClient = Aws::MakeShared<S3Client>(ALLOCATION_TAG,
+                    Aws::MakeShared<DefaultAWSCredentialsProviderChain>(ALLOCATION_TAG), config,
                         AWSAuthV4Signer::PayloadSigningPolicy::Never /*signPayloads*/, true /*useVirtualAddressing*/);
         }
 
@@ -413,7 +415,7 @@ namespace
             std::shared_ptr<HttpRequest> deleteRequest = CreateHttpRequest(presignedUrlDelete, HttpMethod::HTTP_DELETE, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
             std::shared_ptr<HttpResponse> deleteResponse = m_HttpClient->MakeRequest(deleteRequest);
             ASSERT_EQ(HttpResponseCode::NO_CONTENT, deleteResponse->GetResponseCode());
-            WaitForBucketToEmpty(fullBucketName); 
+            WaitForBucketToEmpty(fullBucketName);
         }
 
         void DoTestObjectOperationsWithPresignedUrlsWithSSEC(bool withCustomizedHeaders)
@@ -424,7 +426,7 @@ namespace
             objectStream->flush();
 
             ByteBuffer sseKey(32);
-            for (int i = 0; i < 32; i++) 
+            for (int i = 0; i < 32; i++)
             {
                 sseKey[i] = 'a';
             }
@@ -436,14 +438,14 @@ namespace
                 collections.emplace("TestKey2", "TestVal2");
                 presignedUrlPut = Client->GeneratePresignedUrlWithSSEC(fullBucketName, TEST_OBJ_KEY, HttpMethod::HTTP_PUT, collections, HashingUtils::Base64Encode(sseKey));
             }
-            else 
+            else
             {
                 presignedUrlPut = Client->GeneratePresignedUrlWithSSEC(fullBucketName, TEST_OBJ_KEY, HttpMethod::HTTP_PUT, HashingUtils::Base64Encode(sseKey));
             }
 
             std::shared_ptr<HttpRequest> putRequest = CreateHttpRequest(presignedUrlPut, HttpMethod::HTTP_PUT, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
             putRequest->AddContentBody(objectStream);
-            putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION_CUSTOMER_ALGORITHM, 
+            putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION_CUSTOMER_ALGORITHM,
                     Aws::S3::Model::ServerSideEncryptionMapper::GetNameForServerSideEncryption(Aws::S3::Model::ServerSideEncryption::AES256));
             putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION_CUSTOMER_KEY, HashingUtils::Base64Encode(sseKey));
             Aws::String strBuffer(reinterpret_cast<char*>(sseKey.GetUnderlyingData()), sseKey.GetLength());
@@ -453,7 +455,7 @@ namespace
                 ASSERT_NE(presignedUrlPut.find("testkey1"), std::string::npos);
                 ASSERT_NE(presignedUrlPut.find("testkey2"), std::string::npos);
                 putRequest->SetHeaderValue("TestKey1", "TestVal1");
-                putRequest->SetHeaderValue("TestKey2", "TestVal2");       
+                putRequest->SetHeaderValue("TestKey2", "TestVal2");
             }
 
             Aws::StringStream intConverter;
@@ -469,7 +471,7 @@ namespace
             // Test GetObject with SSEC Presigned Url
             Aws::String presignedUrlGet = Client->GeneratePresignedUrlWithSSEC(fullBucketName, TEST_OBJ_KEY, HttpMethod::HTTP_GET, HashingUtils::Base64Encode(sseKey));
             std::shared_ptr<HttpRequest> getRequest = CreateHttpRequest(presignedUrlGet, HttpMethod::HTTP_GET, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
-            getRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION_CUSTOMER_ALGORITHM, 
+            getRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION_CUSTOMER_ALGORITHM,
                     Aws::S3::Model::ServerSideEncryptionMapper::GetNameForServerSideEncryption(Aws::S3::Model::ServerSideEncryption::AES256));
             getRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION_CUSTOMER_KEY, HashingUtils::Base64Encode(sseKey));
             getRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION_CUSTOMER_KEY_MD5, HashingUtils::Base64Encode(HashingUtils::CalculateMD5(strBuffer)));
@@ -560,7 +562,7 @@ namespace
         auto&& getOutcome = getCallable.get();
         Client->EnableRequestProcessing();
 
-        ASSERT_FALSE(getOutcome.IsSuccess());        
+        ASSERT_FALSE(getOutcome.IsSuccess());
     }
 
     TEST_F(BucketAndObjectOperationTest, TestBucketOperationsErrorWithMissingRequiredFields)
@@ -704,6 +706,21 @@ namespace
         ASSERT_STREQ(ss.str().c_str(), putObjectOutcome.GetResult().GetETag().c_str());
 
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_OBJ_KEY));
+        GetObjectRequest getObjectAsyncRequest;
+        getObjectAsyncRequest.WithBucket(fullBucketName).WithKey(TEST_OBJ_KEY);
+        Aws::Utils::Threading::Semaphore sem(0, 1);
+        auto getObjectCallback = [&](const S3Client *client, const GetObjectRequest &request,
+                                    GetObjectOutcome outcome, const std::shared_ptr<const AsyncCallerContext> &) {
+            ASSERT_TRUE(client);
+            ASSERT_TRUE(outcome.IsSuccess());
+            ss.str("");
+            ss << outcome.GetResult().GetBody().rdbuf();
+            ASSERT_STREQ("Test Object", ss.str().c_str());
+            ASSERT_STREQ("TestObjectKey", request.GetKey().c_str());
+            sem.ReleaseAll();
+        };
+        Client->GetObjectAsync(getObjectAsyncRequest, getObjectCallback, nullptr);
+        sem.WaitOne();
 
         GetObjectRequest getObjectRequest;
         getObjectRequest.SetBucket(fullBucketName);
@@ -836,7 +853,7 @@ namespace
         Aws::String fullBucketName = PreparePresignedUrlTest();
         Aws::String presignedUrlPut = Client->GeneratePresignedUrlWithSSES3(fullBucketName, TEST_OBJ_KEY, HttpMethod::HTTP_PUT);
         std::shared_ptr<HttpRequest> putRequest = CreateHttpRequest(presignedUrlPut, HttpMethod::HTTP_PUT, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
-        putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION, 
+        putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION,
                 Aws::S3::Model::ServerSideEncryptionMapper::GetNameForServerSideEncryption(Aws::S3::Model::ServerSideEncryption::AES256));
         DoPresignedUrlTest(fullBucketName, putRequest);
         CleanUpPresignedUrlTest();
@@ -851,7 +868,7 @@ namespace
 
         Aws::String presignedUrlPut = Client->GeneratePresignedUrlWithSSES3(fullBucketName, TEST_OBJ_KEY, HttpMethod::HTTP_PUT, collections);
         std::shared_ptr<HttpRequest> putRequest = CreateHttpRequest(presignedUrlPut, HttpMethod::HTTP_PUT, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
-        putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION, 
+        putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION,
                 Aws::S3::Model::ServerSideEncryptionMapper::GetNameForServerSideEncryption(Aws::S3::Model::ServerSideEncryption::AES256));
         ASSERT_NE(presignedUrlPut.find("testkey1"), std::string::npos);
         ASSERT_NE(presignedUrlPut.find("testkey2"), std::string::npos);
@@ -866,12 +883,12 @@ namespace
         Aws::String fullBucketName = PreparePresignedUrlTest();
         Aws::String presignedUrlPut = Client->GeneratePresignedUrlWithSSEKMS(fullBucketName, TEST_OBJ_KEY, HttpMethod::HTTP_PUT); //Using default KMS key in this AWS account
         std::shared_ptr<HttpRequest> putRequest = CreateHttpRequest(presignedUrlPut, HttpMethod::HTTP_PUT, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
-        putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION, 
+        putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION,
                 Aws::S3::Model::ServerSideEncryptionMapper::GetNameForServerSideEncryption(Aws::S3::Model::ServerSideEncryption::aws_kms));
         DoPresignedUrlTest(fullBucketName, putRequest);
         CleanUpPresignedUrlTest();
     }
-    
+
 
     TEST_F(BucketAndObjectOperationTest, TestObjectOperationsWithPresignedUrlsWithSSEKMSAndCustomizedHeaders)
     {
@@ -882,7 +899,7 @@ namespace
 
         Aws::String presignedUrlPut = Client->GeneratePresignedUrlWithSSEKMS(fullBucketName, TEST_OBJ_KEY, HttpMethod::HTTP_PUT, collections); //Using default KMS key in this AWS account
         std::shared_ptr<HttpRequest> putRequest = CreateHttpRequest(presignedUrlPut, HttpMethod::HTTP_PUT, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
-        putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION, 
+        putRequest->SetHeaderValue(Aws::S3::SSEHeaders::SERVER_SIDE_ENCRYPTION,
                 Aws::S3::Model::ServerSideEncryptionMapper::GetNameForServerSideEncryption(Aws::S3::Model::ServerSideEncryption::aws_kms));
         ASSERT_NE(presignedUrlPut.find("testkey1"), std::string::npos);
         ASSERT_NE(presignedUrlPut.find("testkey2"), std::string::npos);
@@ -1035,7 +1052,7 @@ namespace
         getObjectRequest2.SetBucket(fullBucketName);
         getObjectRequest2.SetKey(multipartKeyName);
         getObjectRequest2.SetResponseStreamFactory(
-            [=](){ 
+            [=](){
                 // NOTE: If using an FStream in order to download a file from S3 to a physical file, then we need to specify
                 // the filemode "std::ios_base::out | std::ios_base::in | std::ios_base::trunc" --
                 // If the file transfer fails, then the error stream from the httpRequest is written to the file instead of the
@@ -1046,7 +1063,7 @@ namespace
                 // The 'truncate' is required to ensure that if the file download IS successful, then it can be written to the
                 // FStream (if ::trunc is not specified, then the FStream.write fails for some unknown reason)
 
-                return Aws::New<Aws::FStream>(ALLOCATION_TAG, TestFileName.c_str(), std::ios_base::out | std::ios_base::in | std::ios_base::trunc); 
+                return Aws::New<Aws::FStream>(ALLOCATION_TAG, TestFileName.c_str(), std::ios_base::out | std::ios_base::in | std::ios_base::trunc);
             }
         );
 
@@ -1263,7 +1280,7 @@ namespace
 
         PutObjectRequest putObjectRequest;
         putObjectRequest.SetBucket(fullBucketName);
-        
+
         std::shared_ptr<Aws::IOStream> objectStream = Aws::MakeShared<Aws::StringStream>(ALLOCATION_TAG);
         *objectStream << "Name,Number\nAlice,1\nBob,2";
         Aws::String firstColumn = "Name\nAlice\nBob\n";
@@ -1277,13 +1294,13 @@ namespace
 
         PutObjectOutcome putObjectOutcome = Client->PutObject(putObjectRequest);
         ASSERT_TRUE(putObjectOutcome.IsSuccess());
-        
+
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_EVENT_STREAM_OBJ_KEY));
 
         SelectObjectContentRequest selectObjectContentRequest;
         selectObjectContentRequest.SetBucket(fullBucketName);
         selectObjectContentRequest.SetKey(TEST_EVENT_STREAM_OBJ_KEY);
-        
+
         selectObjectContentRequest.SetExpressionType(ExpressionType::SQL);
 
         selectObjectContentRequest.SetExpression("select s._1 from S3Object s");
@@ -1339,7 +1356,7 @@ namespace
 
         PutObjectRequest putObjectRequest;
         putObjectRequest.SetBucket(fullBucketName);
-        
+
         std::shared_ptr<Aws::IOStream> objectStream = Aws::MakeShared<Aws::StringStream>(ALLOCATION_TAG);
         *objectStream << "Name,Number\nAlice,1\nBob,2";
         Aws::String firstColumn = "Name\nAlice\nBob\n";
@@ -1353,13 +1370,13 @@ namespace
 
         PutObjectOutcome putObjectOutcome = Client->PutObject(putObjectRequest);
         ASSERT_TRUE(putObjectOutcome.IsSuccess());
-        
+
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_EVENT_STREAM_OBJ_KEY));
 
         SelectObjectContentRequest selectObjectContentRequest;
         selectObjectContentRequest.SetBucket(fullBucketName);
         selectObjectContentRequest.SetKey("ANonExistenceKey");
-        
+
         selectObjectContentRequest.SetExpressionType(ExpressionType::SQL);
 
         selectObjectContentRequest.SetExpression("select s._1 from S3Object s");
@@ -1412,7 +1429,7 @@ namespace
 
         PutObjectRequest putObjectRequest;
         putObjectRequest.SetBucket(fullBucketName);
-            
+
         std::shared_ptr<Aws::IOStream> objectStream = Aws::MakeShared<Aws::StringStream>(ALLOCATION_TAG);
         *objectStream << "Name,Number\n";
         for (int i = 0; i < 1000000; i++)
@@ -1429,7 +1446,7 @@ namespace
 
         PutObjectOutcome putObjectOutcome = Client->PutObject(putObjectRequest);
         ASSERT_TRUE(putObjectOutcome.IsSuccess());
-            
+
         ASSERT_TRUE(WaitForObjectToPropagate(fullBucketName, TEST_EVENT_STREAM_OBJ_KEY));
 
         SelectObjectContentRequest selectObjectContentRequest;
@@ -1479,7 +1496,7 @@ namespace
         SelectObjectContentRequest selectObjectContentRequest;
         selectObjectContentRequest.SetBucket("adskflaklfakl");
         selectObjectContentRequest.SetKey(TEST_EVENT_STREAM_OBJ_KEY);
-        
+
         selectObjectContentRequest.SetExpressionType(ExpressionType::SQL);
 
         selectObjectContentRequest.SetExpression("select s._1 from S3Object s");
@@ -1569,4 +1586,73 @@ namespace
 
         ASSERT_TRUE(isErrorEventReceived);
     }
+
+    TEST_F(BucketAndObjectOperationTest, TestS3AccessPointARNValidation)
+    {
+        // The followings are examples for valid S3 ARN:
+        ASSERT_TRUE(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:endpoint").Validate().IsSuccess());
+        ASSERT_TRUE(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint/endpoint").Validate().IsSuccess());
+        // Pseudo region in client configuration
+        ASSERT_TRUE(S3ARN("arn:aws:s3:us-gov-west-1:123456789120:accesspoint:endpoint").Validate("fips-us-gov-west-1").IsSuccess());
+        ASSERT_TRUE(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:endpoint").Validate("us-east-1-fips").IsSuccess());
+
+        // The followings are examples for invalid S3 ARN:
+        // S3ARN partition
+        // Invalid partition: cn-aws
+        ASSERT_FALSE(S3ARN("arn:cn-aws:s3:us-east-1:123456789120:accesspoint:endpoint").Validate().IsSuccess());
+        // Empty partition name
+        ASSERT_FALSE(S3ARN("arn::s3:us-east-1:123456789120:accesspoint:endpoint").Validate().IsSuccess());
+
+        // S3ARN service
+        // Invalid service: EC2
+        ASSERT_FALSE(S3ARN("arn:aws:ec2:us-east-1:123456789120:accesspoint:endpoint").Validate().IsSuccess());
+        // Empty service name
+        ASSERT_FALSE(S3ARN("arn:aws::us-east-1:123456789120:accesspoint:endpoint").Validate().IsSuccess());
+
+        // S3ARN region
+        // Cross region ARN when useArnRegion = false
+        ASSERT_FALSE(S3ARN("arn:aws:s3:us-west-1:123456789120:accesspoint:endpoint").Validate("us-east-1").IsSuccess());
+        // Invalid region name with upper case
+        ASSERT_FALSE(S3ARN("arn:aws:S3:us-east-1:123456789120:accesspoint:endpoint").Validate().IsSuccess());
+        // Empty region name
+        ASSERT_FALSE(S3ARN("arn:aws:s3::123456789120:accesspoint:endpoint").Validate().IsSuccess());
+
+        // S3ARN account id
+        // Invalid account ID with non RFC 3986 Host label
+        ASSERT_FALSE(S3ARN("arn:aws:s3:us-east-1:12345.678912:accesspoint:endpoint").Validate().IsSuccess());
+        // Empty account ID
+        ASSERT_FALSE(S3ARN("arn:aws:s3:us-east-1::accesspoint:endpoint").Validate().IsSuccess());
+
+        // S3ARN resource type
+        // Invalid resource type: bucket_name
+        ASSERT_FALSE(S3ARN("arn:aws:s3:us-east-1:123456789120:bucket_name:bucket").Validate().IsSuccess());
+        // Empty resource ID
+        ASSERT_FALSE(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:").Validate().IsSuccess());
+        // Invalid resource ID with non RFC 3986 Host label
+        ASSERT_FALSE(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:endpoint.1").Validate().IsSuccess());
+        ASSERT_FALSE(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:*").Validate().IsSuccess());
+        // Invalid resource ID with qualifier, namely, the third part of the resource segments.
+        ASSERT_FALSE(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:bucket:qualifier").Validate().IsSuccess());
+    }
+
+    TEST_F(BucketAndObjectOperationTest, TestS3EndpointForAccessPointARN)
+    {
+        ASSERT_STREQ("endpoint-123456789120.s3-accesspoint.us-east-1.amazonaws.com",
+            S3Endpoint::ForAccessPointArn(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:endpoint"), "", false).c_str());
+        ASSERT_STREQ("endpoint-123456789120.s3-accesspoint.us-east-1.amazonaws.com",
+            S3Endpoint::ForAccessPointArn(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint/endpoint"), "", false).c_str());
+        ASSERT_STREQ("endpoint-123456789120.s3-accesspoint.dualstack.us-east-1.amazonaws.com",
+            S3Endpoint::ForAccessPointArn(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:endpoint"), "", true).c_str());
+        ASSERT_STREQ("endpoint-123456789120.s3-accesspoint.cn-north-1.amazonaws.com.cn",
+            S3Endpoint::ForAccessPointArn(S3ARN("arn:aws-cn:s3:cn-north-1:123456789120:accesspoint:endpoint"), "", false).c_str());
+        ASSERT_STREQ("endpoint-123456789120.s3-accesspoint.dualstack.cn-north-1.amazonaws.com.cn",
+            S3Endpoint::ForAccessPointArn(S3ARN("arn:aws-cn:s3:cn-north-1:123456789120:accesspoint:endpoint"), "", true).c_str());
+        ASSERT_STREQ("endpoint-123456789120.s3-accesspoint.us-east-1-fips.amazonaws.com",
+            S3Endpoint::ForAccessPointArn(S3ARN("arn:aws:s3:us-east-1:123456789120:accesspoint:endpoint"), "us-east-1-fips", false).c_str());
+        ASSERT_STREQ("endpoint-123456789120.s3-accesspoint.fips-us-gov-west-1.amazonaws.com",
+            S3Endpoint::ForAccessPointArn(S3ARN("arn:aws-us-gov:s3:us-gov-west-1:123456789120:accesspoint:endpoint"), "fips-us-gov-west-1", false).c_str());
+        ASSERT_STREQ("endpoint-123456789120.s3-accesspoint.dualstack.fips-us-gov-west-1.amazonaws.com",
+            S3Endpoint::ForAccessPointArn(S3ARN("arn:aws-us-gov:s3:us-gov-west-1:123456789120:accesspoint:endpoint"), "fips-us-gov-west-1", true).c_str());
+    }
+
 }

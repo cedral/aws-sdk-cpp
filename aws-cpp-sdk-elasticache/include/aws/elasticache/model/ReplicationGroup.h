@@ -17,10 +17,12 @@
 #include <aws/elasticache/ElastiCache_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSStreamFwd.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/elasticache/model/GlobalReplicationGroupInfo.h>
 #include <aws/elasticache/model/ReplicationGroupPendingModifiedValues.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/elasticache/model/AutomaticFailoverStatus.h>
 #include <aws/elasticache/model/Endpoint.h>
+#include <aws/core/utils/DateTime.h>
 #include <aws/elasticache/model/NodeGroup.h>
 #include <utility>
 
@@ -135,6 +137,43 @@ namespace Model
      * <p>The user supplied description of the replication group.</p>
      */
     inline ReplicationGroup& WithDescription(const char* value) { SetDescription(value); return *this;}
+
+
+    /**
+     * <p>The name of the Global Datastore and role of this replication group in the
+     * Global Datastore.</p>
+     */
+    inline const GlobalReplicationGroupInfo& GetGlobalReplicationGroupInfo() const{ return m_globalReplicationGroupInfo; }
+
+    /**
+     * <p>The name of the Global Datastore and role of this replication group in the
+     * Global Datastore.</p>
+     */
+    inline bool GlobalReplicationGroupInfoHasBeenSet() const { return m_globalReplicationGroupInfoHasBeenSet; }
+
+    /**
+     * <p>The name of the Global Datastore and role of this replication group in the
+     * Global Datastore.</p>
+     */
+    inline void SetGlobalReplicationGroupInfo(const GlobalReplicationGroupInfo& value) { m_globalReplicationGroupInfoHasBeenSet = true; m_globalReplicationGroupInfo = value; }
+
+    /**
+     * <p>The name of the Global Datastore and role of this replication group in the
+     * Global Datastore.</p>
+     */
+    inline void SetGlobalReplicationGroupInfo(GlobalReplicationGroupInfo&& value) { m_globalReplicationGroupInfoHasBeenSet = true; m_globalReplicationGroupInfo = std::move(value); }
+
+    /**
+     * <p>The name of the Global Datastore and role of this replication group in the
+     * Global Datastore.</p>
+     */
+    inline ReplicationGroup& WithGlobalReplicationGroupInfo(const GlobalReplicationGroupInfo& value) { SetGlobalReplicationGroupInfo(value); return *this;}
+
+    /**
+     * <p>The name of the Global Datastore and role of this replication group in the
+     * Global Datastore.</p>
+     */
+    inline ReplicationGroup& WithGlobalReplicationGroupInfo(GlobalReplicationGroupInfo&& value) { SetGlobalReplicationGroupInfo(std::move(value)); return *this;}
 
 
     /**
@@ -710,6 +749,37 @@ namespace Model
 
 
     /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline const Aws::Utils::DateTime& GetAuthTokenLastModifiedDate() const{ return m_authTokenLastModifiedDate; }
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline bool AuthTokenLastModifiedDateHasBeenSet() const { return m_authTokenLastModifiedDateHasBeenSet; }
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline void SetAuthTokenLastModifiedDate(const Aws::Utils::DateTime& value) { m_authTokenLastModifiedDateHasBeenSet = true; m_authTokenLastModifiedDate = value; }
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline void SetAuthTokenLastModifiedDate(Aws::Utils::DateTime&& value) { m_authTokenLastModifiedDateHasBeenSet = true; m_authTokenLastModifiedDate = std::move(value); }
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline ReplicationGroup& WithAuthTokenLastModifiedDate(const Aws::Utils::DateTime& value) { SetAuthTokenLastModifiedDate(value); return *this;}
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline ReplicationGroup& WithAuthTokenLastModifiedDate(Aws::Utils::DateTime&& value) { SetAuthTokenLastModifiedDate(std::move(value)); return *this;}
+
+
+    /**
      * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
      * <p>You cannot modify the value of <code>TransitEncryptionEnabled</code> after
      * the cluster is created. To enable in-transit encryption on a cluster you must
@@ -798,6 +868,47 @@ namespace Model
      */
     inline ReplicationGroup& WithAtRestEncryptionEnabled(bool value) { SetAtRestEncryptionEnabled(value); return *this;}
 
+
+    /**
+     * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+     */
+    inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
+
+    /**
+     * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+     */
+    inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+     */
+    inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
+
+    /**
+     * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+     */
+    inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = std::move(value); }
+
+    /**
+     * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+     */
+    inline void SetKmsKeyId(const char* value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId.assign(value); }
+
+    /**
+     * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+     */
+    inline ReplicationGroup& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
+
+    /**
+     * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+     */
+    inline ReplicationGroup& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
+
+    /**
+     * <p>The ID of the KMS key used to encrypt the disk in the cluster.</p>
+     */
+    inline ReplicationGroup& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
+
   private:
 
     Aws::String m_replicationGroupId;
@@ -805,6 +916,9 @@ namespace Model
 
     Aws::String m_description;
     bool m_descriptionHasBeenSet;
+
+    GlobalReplicationGroupInfo m_globalReplicationGroupInfo;
+    bool m_globalReplicationGroupInfoHasBeenSet;
 
     Aws::String m_status;
     bool m_statusHasBeenSet;
@@ -842,11 +956,17 @@ namespace Model
     bool m_authTokenEnabled;
     bool m_authTokenEnabledHasBeenSet;
 
+    Aws::Utils::DateTime m_authTokenLastModifiedDate;
+    bool m_authTokenLastModifiedDateHasBeenSet;
+
     bool m_transitEncryptionEnabled;
     bool m_transitEncryptionEnabledHasBeenSet;
 
     bool m_atRestEncryptionEnabled;
     bool m_atRestEncryptionEnabledHasBeenSet;
+
+    Aws::String m_kmsKeyId;
+    bool m_kmsKeyIdHasBeenSet;
   };
 
 } // namespace Model

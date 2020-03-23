@@ -108,6 +108,12 @@ DescribeSimulationJobResult& DescribeSimulationJobResult::operator =(const Aws::
 
   }
 
+  if(jsonValue.ValueExists("loggingConfig"))
+  {
+    m_loggingConfig = jsonValue.GetObject("loggingConfig");
+
+  }
+
   if(jsonValue.ValueExists("maxJobDurationInSeconds"))
   {
     m_maxJobDurationInSeconds = jsonValue.GetInt64("maxJobDurationInSeconds");
@@ -144,6 +150,15 @@ DescribeSimulationJobResult& DescribeSimulationJobResult::operator =(const Aws::
     }
   }
 
+  if(jsonValue.ValueExists("dataSources"))
+  {
+    Array<JsonView> dataSourcesJsonList = jsonValue.GetArray("dataSources");
+    for(unsigned dataSourcesIndex = 0; dataSourcesIndex < dataSourcesJsonList.GetLength(); ++dataSourcesIndex)
+    {
+      m_dataSources.push_back(dataSourcesJsonList[dataSourcesIndex].AsObject());
+    }
+  }
+
   if(jsonValue.ValueExists("tags"))
   {
     Aws::Map<Aws::String, JsonView> tagsJsonMap = jsonValue.GetObject("tags").GetAllObjects();
@@ -156,6 +171,12 @@ DescribeSimulationJobResult& DescribeSimulationJobResult::operator =(const Aws::
   if(jsonValue.ValueExists("vpcConfig"))
   {
     m_vpcConfig = jsonValue.GetObject("vpcConfig");
+
+  }
+
+  if(jsonValue.ValueExists("networkInterface"))
+  {
+    m_networkInterface = jsonValue.GetObject("networkInterface");
 
   }
 

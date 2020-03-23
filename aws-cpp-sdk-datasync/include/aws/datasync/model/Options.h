@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/datasync/DataSync_EXPORTS.h>
 #include <aws/datasync/model/VerifyMode.h>
+#include <aws/datasync/model/OverwriteMode.h>
 #include <aws/datasync/model/Atime.h>
 #include <aws/datasync/model/Mtime.h>
 #include <aws/datasync/model/Uid.h>
@@ -23,6 +24,8 @@
 #include <aws/datasync/model/PreserveDeletedFiles.h>
 #include <aws/datasync/model/PreserveDevices.h>
 #include <aws/datasync/model/PosixPermissions.h>
+#include <aws/datasync/model/TaskQueueing.h>
+#include <aws/datasync/model/LogLevel.h>
 #include <utility>
 
 namespace Aws
@@ -66,8 +69,9 @@ namespace Model
      * <p>A value that determines whether a data integrity verification should be
      * performed at the end of a task execution after all data and metadata have been
      * transferred. </p> <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
-     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p> <p>NONE:
-     * Skip verification.</p>
+     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p>
+     * <p>ONLY_FILES_TRANSFERRED: Perform verification on only files that were
+     * transferred.</p> <p>NONE: Skip verification.</p>
      */
     inline const VerifyMode& GetVerifyMode() const{ return m_verifyMode; }
 
@@ -75,8 +79,9 @@ namespace Model
      * <p>A value that determines whether a data integrity verification should be
      * performed at the end of a task execution after all data and metadata have been
      * transferred. </p> <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
-     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p> <p>NONE:
-     * Skip verification.</p>
+     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p>
+     * <p>ONLY_FILES_TRANSFERRED: Perform verification on only files that were
+     * transferred.</p> <p>NONE: Skip verification.</p>
      */
     inline bool VerifyModeHasBeenSet() const { return m_verifyModeHasBeenSet; }
 
@@ -84,8 +89,9 @@ namespace Model
      * <p>A value that determines whether a data integrity verification should be
      * performed at the end of a task execution after all data and metadata have been
      * transferred. </p> <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
-     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p> <p>NONE:
-     * Skip verification.</p>
+     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p>
+     * <p>ONLY_FILES_TRANSFERRED: Perform verification on only files that were
+     * transferred.</p> <p>NONE: Skip verification.</p>
      */
     inline void SetVerifyMode(const VerifyMode& value) { m_verifyModeHasBeenSet = true; m_verifyMode = value; }
 
@@ -93,8 +99,9 @@ namespace Model
      * <p>A value that determines whether a data integrity verification should be
      * performed at the end of a task execution after all data and metadata have been
      * transferred. </p> <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
-     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p> <p>NONE:
-     * Skip verification.</p>
+     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p>
+     * <p>ONLY_FILES_TRANSFERRED: Perform verification on only files that were
+     * transferred.</p> <p>NONE: Skip verification.</p>
      */
     inline void SetVerifyMode(VerifyMode&& value) { m_verifyModeHasBeenSet = true; m_verifyMode = std::move(value); }
 
@@ -102,8 +109,9 @@ namespace Model
      * <p>A value that determines whether a data integrity verification should be
      * performed at the end of a task execution after all data and metadata have been
      * transferred. </p> <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
-     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p> <p>NONE:
-     * Skip verification.</p>
+     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p>
+     * <p>ONLY_FILES_TRANSFERRED: Perform verification on only files that were
+     * transferred.</p> <p>NONE: Skip verification.</p>
      */
     inline Options& WithVerifyMode(const VerifyMode& value) { SetVerifyMode(value); return *this;}
 
@@ -111,10 +119,84 @@ namespace Model
      * <p>A value that determines whether a data integrity verification should be
      * performed at the end of a task execution after all data and metadata have been
      * transferred. </p> <p>Default value: POINT_IN_TIME_CONSISTENT.</p>
-     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p> <p>NONE:
-     * Skip verification.</p>
+     * <p>POINT_IN_TIME_CONSISTENT: Perform verification (recommended). </p>
+     * <p>ONLY_FILES_TRANSFERRED: Perform verification on only files that were
+     * transferred.</p> <p>NONE: Skip verification.</p>
      */
     inline Options& WithVerifyMode(VerifyMode&& value) { SetVerifyMode(std::move(value)); return *this;}
+
+
+    /**
+     * <p>A value that determines whether files at the destination should be
+     * overwritten or preserved when copying files. If set to <code>NEVER</code> a
+     * destination file will not be replaced by a source file, even if the destination
+     * file differs from the source file. If you modify files in the destination and
+     * you sync the files, you can use this value to protect against overwriting those
+     * changes. </p> <p>Some storage classes have specific behaviors that can affect
+     * your S3 storage cost. For detailed information, see <a>using-storage-classes</a>
+     * in the <i>AWS DataSync User Guide</i>.</p>
+     */
+    inline const OverwriteMode& GetOverwriteMode() const{ return m_overwriteMode; }
+
+    /**
+     * <p>A value that determines whether files at the destination should be
+     * overwritten or preserved when copying files. If set to <code>NEVER</code> a
+     * destination file will not be replaced by a source file, even if the destination
+     * file differs from the source file. If you modify files in the destination and
+     * you sync the files, you can use this value to protect against overwriting those
+     * changes. </p> <p>Some storage classes have specific behaviors that can affect
+     * your S3 storage cost. For detailed information, see <a>using-storage-classes</a>
+     * in the <i>AWS DataSync User Guide</i>.</p>
+     */
+    inline bool OverwriteModeHasBeenSet() const { return m_overwriteModeHasBeenSet; }
+
+    /**
+     * <p>A value that determines whether files at the destination should be
+     * overwritten or preserved when copying files. If set to <code>NEVER</code> a
+     * destination file will not be replaced by a source file, even if the destination
+     * file differs from the source file. If you modify files in the destination and
+     * you sync the files, you can use this value to protect against overwriting those
+     * changes. </p> <p>Some storage classes have specific behaviors that can affect
+     * your S3 storage cost. For detailed information, see <a>using-storage-classes</a>
+     * in the <i>AWS DataSync User Guide</i>.</p>
+     */
+    inline void SetOverwriteMode(const OverwriteMode& value) { m_overwriteModeHasBeenSet = true; m_overwriteMode = value; }
+
+    /**
+     * <p>A value that determines whether files at the destination should be
+     * overwritten or preserved when copying files. If set to <code>NEVER</code> a
+     * destination file will not be replaced by a source file, even if the destination
+     * file differs from the source file. If you modify files in the destination and
+     * you sync the files, you can use this value to protect against overwriting those
+     * changes. </p> <p>Some storage classes have specific behaviors that can affect
+     * your S3 storage cost. For detailed information, see <a>using-storage-classes</a>
+     * in the <i>AWS DataSync User Guide</i>.</p>
+     */
+    inline void SetOverwriteMode(OverwriteMode&& value) { m_overwriteModeHasBeenSet = true; m_overwriteMode = std::move(value); }
+
+    /**
+     * <p>A value that determines whether files at the destination should be
+     * overwritten or preserved when copying files. If set to <code>NEVER</code> a
+     * destination file will not be replaced by a source file, even if the destination
+     * file differs from the source file. If you modify files in the destination and
+     * you sync the files, you can use this value to protect against overwriting those
+     * changes. </p> <p>Some storage classes have specific behaviors that can affect
+     * your S3 storage cost. For detailed information, see <a>using-storage-classes</a>
+     * in the <i>AWS DataSync User Guide</i>.</p>
+     */
+    inline Options& WithOverwriteMode(const OverwriteMode& value) { SetOverwriteMode(value); return *this;}
+
+    /**
+     * <p>A value that determines whether files at the destination should be
+     * overwritten or preserved when copying files. If set to <code>NEVER</code> a
+     * destination file will not be replaced by a source file, even if the destination
+     * file differs from the source file. If you modify files in the destination and
+     * you sync the files, you can use this value to protect against overwriting those
+     * changes. </p> <p>Some storage classes have specific behaviors that can affect
+     * your S3 storage cost. For detailed information, see <a>using-storage-classes</a>
+     * in the <i>AWS DataSync User Guide</i>.</p>
+     */
+    inline Options& WithOverwriteMode(OverwriteMode&& value) { SetOverwriteMode(std::move(value)); return *this;}
 
 
     /**
@@ -375,49 +457,73 @@ namespace Model
 
     /**
      * <p>A value that specifies whether files in the destination that don't exist in
-     * the source file system should be preserved. </p> <p>Default value: PRESERVE.</p>
-     * <p>PRESERVE: Ignore such destination files (recommended). </p> <p>REMOVE: Delete
-     * destination files that aren’t present in the source.</p>
+     * the source file system should be preserved. This option can affect your storage
+     * cost. If your task deletes objects, you might incur minimum storage duration
+     * charges for certain storage classes. For detailed information, see
+     * <a>using-storage-classes</a> in the <i>AWS DataSync User Guide</i>.</p>
+     * <p>Default value: PRESERVE.</p> <p>PRESERVE: Ignore such destination files
+     * (recommended). </p> <p>REMOVE: Delete destination files that aren’t present in
+     * the source.</p>
      */
     inline const PreserveDeletedFiles& GetPreserveDeletedFiles() const{ return m_preserveDeletedFiles; }
 
     /**
      * <p>A value that specifies whether files in the destination that don't exist in
-     * the source file system should be preserved. </p> <p>Default value: PRESERVE.</p>
-     * <p>PRESERVE: Ignore such destination files (recommended). </p> <p>REMOVE: Delete
-     * destination files that aren’t present in the source.</p>
+     * the source file system should be preserved. This option can affect your storage
+     * cost. If your task deletes objects, you might incur minimum storage duration
+     * charges for certain storage classes. For detailed information, see
+     * <a>using-storage-classes</a> in the <i>AWS DataSync User Guide</i>.</p>
+     * <p>Default value: PRESERVE.</p> <p>PRESERVE: Ignore such destination files
+     * (recommended). </p> <p>REMOVE: Delete destination files that aren’t present in
+     * the source.</p>
      */
     inline bool PreserveDeletedFilesHasBeenSet() const { return m_preserveDeletedFilesHasBeenSet; }
 
     /**
      * <p>A value that specifies whether files in the destination that don't exist in
-     * the source file system should be preserved. </p> <p>Default value: PRESERVE.</p>
-     * <p>PRESERVE: Ignore such destination files (recommended). </p> <p>REMOVE: Delete
-     * destination files that aren’t present in the source.</p>
+     * the source file system should be preserved. This option can affect your storage
+     * cost. If your task deletes objects, you might incur minimum storage duration
+     * charges for certain storage classes. For detailed information, see
+     * <a>using-storage-classes</a> in the <i>AWS DataSync User Guide</i>.</p>
+     * <p>Default value: PRESERVE.</p> <p>PRESERVE: Ignore such destination files
+     * (recommended). </p> <p>REMOVE: Delete destination files that aren’t present in
+     * the source.</p>
      */
     inline void SetPreserveDeletedFiles(const PreserveDeletedFiles& value) { m_preserveDeletedFilesHasBeenSet = true; m_preserveDeletedFiles = value; }
 
     /**
      * <p>A value that specifies whether files in the destination that don't exist in
-     * the source file system should be preserved. </p> <p>Default value: PRESERVE.</p>
-     * <p>PRESERVE: Ignore such destination files (recommended). </p> <p>REMOVE: Delete
-     * destination files that aren’t present in the source.</p>
+     * the source file system should be preserved. This option can affect your storage
+     * cost. If your task deletes objects, you might incur minimum storage duration
+     * charges for certain storage classes. For detailed information, see
+     * <a>using-storage-classes</a> in the <i>AWS DataSync User Guide</i>.</p>
+     * <p>Default value: PRESERVE.</p> <p>PRESERVE: Ignore such destination files
+     * (recommended). </p> <p>REMOVE: Delete destination files that aren’t present in
+     * the source.</p>
      */
     inline void SetPreserveDeletedFiles(PreserveDeletedFiles&& value) { m_preserveDeletedFilesHasBeenSet = true; m_preserveDeletedFiles = std::move(value); }
 
     /**
      * <p>A value that specifies whether files in the destination that don't exist in
-     * the source file system should be preserved. </p> <p>Default value: PRESERVE.</p>
-     * <p>PRESERVE: Ignore such destination files (recommended). </p> <p>REMOVE: Delete
-     * destination files that aren’t present in the source.</p>
+     * the source file system should be preserved. This option can affect your storage
+     * cost. If your task deletes objects, you might incur minimum storage duration
+     * charges for certain storage classes. For detailed information, see
+     * <a>using-storage-classes</a> in the <i>AWS DataSync User Guide</i>.</p>
+     * <p>Default value: PRESERVE.</p> <p>PRESERVE: Ignore such destination files
+     * (recommended). </p> <p>REMOVE: Delete destination files that aren’t present in
+     * the source.</p>
      */
     inline Options& WithPreserveDeletedFiles(const PreserveDeletedFiles& value) { SetPreserveDeletedFiles(value); return *this;}
 
     /**
      * <p>A value that specifies whether files in the destination that don't exist in
-     * the source file system should be preserved. </p> <p>Default value: PRESERVE.</p>
-     * <p>PRESERVE: Ignore such destination files (recommended). </p> <p>REMOVE: Delete
-     * destination files that aren’t present in the source.</p>
+     * the source file system should be preserved. This option can affect your storage
+     * cost. If your task deletes objects, you might incur minimum storage duration
+     * charges for certain storage classes. For detailed information, see
+     * <a>using-storage-classes</a> in the <i>AWS DataSync User Guide</i>.</p>
+     * <p>Default value: PRESERVE.</p> <p>PRESERVE: Ignore such destination files
+     * (recommended). </p> <p>REMOVE: Delete destination files that aren’t present in
+     * the source.</p>
      */
     inline Options& WithPreserveDeletedFiles(PreserveDeletedFiles&& value) { SetPreserveDeletedFiles(std::move(value)); return *this;}
 
@@ -578,10 +684,123 @@ namespace Model
      */
     inline Options& WithBytesPerSecond(long long value) { SetBytesPerSecond(value); return *this;}
 
+
+    /**
+     * <p>A value that determines whether tasks should be queued before executing the
+     * tasks. If set to <code>ENABLED</code>, the tasks will be queued. The default is
+     * <code>ENABLED</code>.</p> <p>If you use the same agent to run multiple tasks you
+     * can enable the tasks to run in series. For more information see
+     * <a>queue-task-execution</a>.</p>
+     */
+    inline const TaskQueueing& GetTaskQueueing() const{ return m_taskQueueing; }
+
+    /**
+     * <p>A value that determines whether tasks should be queued before executing the
+     * tasks. If set to <code>ENABLED</code>, the tasks will be queued. The default is
+     * <code>ENABLED</code>.</p> <p>If you use the same agent to run multiple tasks you
+     * can enable the tasks to run in series. For more information see
+     * <a>queue-task-execution</a>.</p>
+     */
+    inline bool TaskQueueingHasBeenSet() const { return m_taskQueueingHasBeenSet; }
+
+    /**
+     * <p>A value that determines whether tasks should be queued before executing the
+     * tasks. If set to <code>ENABLED</code>, the tasks will be queued. The default is
+     * <code>ENABLED</code>.</p> <p>If you use the same agent to run multiple tasks you
+     * can enable the tasks to run in series. For more information see
+     * <a>queue-task-execution</a>.</p>
+     */
+    inline void SetTaskQueueing(const TaskQueueing& value) { m_taskQueueingHasBeenSet = true; m_taskQueueing = value; }
+
+    /**
+     * <p>A value that determines whether tasks should be queued before executing the
+     * tasks. If set to <code>ENABLED</code>, the tasks will be queued. The default is
+     * <code>ENABLED</code>.</p> <p>If you use the same agent to run multiple tasks you
+     * can enable the tasks to run in series. For more information see
+     * <a>queue-task-execution</a>.</p>
+     */
+    inline void SetTaskQueueing(TaskQueueing&& value) { m_taskQueueingHasBeenSet = true; m_taskQueueing = std::move(value); }
+
+    /**
+     * <p>A value that determines whether tasks should be queued before executing the
+     * tasks. If set to <code>ENABLED</code>, the tasks will be queued. The default is
+     * <code>ENABLED</code>.</p> <p>If you use the same agent to run multiple tasks you
+     * can enable the tasks to run in series. For more information see
+     * <a>queue-task-execution</a>.</p>
+     */
+    inline Options& WithTaskQueueing(const TaskQueueing& value) { SetTaskQueueing(value); return *this;}
+
+    /**
+     * <p>A value that determines whether tasks should be queued before executing the
+     * tasks. If set to <code>ENABLED</code>, the tasks will be queued. The default is
+     * <code>ENABLED</code>.</p> <p>If you use the same agent to run multiple tasks you
+     * can enable the tasks to run in series. For more information see
+     * <a>queue-task-execution</a>.</p>
+     */
+    inline Options& WithTaskQueueing(TaskQueueing&& value) { SetTaskQueueing(std::move(value)); return *this;}
+
+
+    /**
+     * <p>A value that determines the type of logs DataSync will deliver to your AWS
+     * CloudWatch Logs file. If set to <code>OFF</code>, no logs will be delivered.
+     * <code>BASIC</code> will deliver a few logs per transfer operation and
+     * <code>TRANSFER</code> will deliver a verbose log that contains logs for every
+     * file that is transferred.</p>
+     */
+    inline const LogLevel& GetLogLevel() const{ return m_logLevel; }
+
+    /**
+     * <p>A value that determines the type of logs DataSync will deliver to your AWS
+     * CloudWatch Logs file. If set to <code>OFF</code>, no logs will be delivered.
+     * <code>BASIC</code> will deliver a few logs per transfer operation and
+     * <code>TRANSFER</code> will deliver a verbose log that contains logs for every
+     * file that is transferred.</p>
+     */
+    inline bool LogLevelHasBeenSet() const { return m_logLevelHasBeenSet; }
+
+    /**
+     * <p>A value that determines the type of logs DataSync will deliver to your AWS
+     * CloudWatch Logs file. If set to <code>OFF</code>, no logs will be delivered.
+     * <code>BASIC</code> will deliver a few logs per transfer operation and
+     * <code>TRANSFER</code> will deliver a verbose log that contains logs for every
+     * file that is transferred.</p>
+     */
+    inline void SetLogLevel(const LogLevel& value) { m_logLevelHasBeenSet = true; m_logLevel = value; }
+
+    /**
+     * <p>A value that determines the type of logs DataSync will deliver to your AWS
+     * CloudWatch Logs file. If set to <code>OFF</code>, no logs will be delivered.
+     * <code>BASIC</code> will deliver a few logs per transfer operation and
+     * <code>TRANSFER</code> will deliver a verbose log that contains logs for every
+     * file that is transferred.</p>
+     */
+    inline void SetLogLevel(LogLevel&& value) { m_logLevelHasBeenSet = true; m_logLevel = std::move(value); }
+
+    /**
+     * <p>A value that determines the type of logs DataSync will deliver to your AWS
+     * CloudWatch Logs file. If set to <code>OFF</code>, no logs will be delivered.
+     * <code>BASIC</code> will deliver a few logs per transfer operation and
+     * <code>TRANSFER</code> will deliver a verbose log that contains logs for every
+     * file that is transferred.</p>
+     */
+    inline Options& WithLogLevel(const LogLevel& value) { SetLogLevel(value); return *this;}
+
+    /**
+     * <p>A value that determines the type of logs DataSync will deliver to your AWS
+     * CloudWatch Logs file. If set to <code>OFF</code>, no logs will be delivered.
+     * <code>BASIC</code> will deliver a few logs per transfer operation and
+     * <code>TRANSFER</code> will deliver a verbose log that contains logs for every
+     * file that is transferred.</p>
+     */
+    inline Options& WithLogLevel(LogLevel&& value) { SetLogLevel(std::move(value)); return *this;}
+
   private:
 
     VerifyMode m_verifyMode;
     bool m_verifyModeHasBeenSet;
+
+    OverwriteMode m_overwriteMode;
+    bool m_overwriteModeHasBeenSet;
 
     Atime m_atime;
     bool m_atimeHasBeenSet;
@@ -606,6 +825,12 @@ namespace Model
 
     long long m_bytesPerSecond;
     bool m_bytesPerSecondHasBeenSet;
+
+    TaskQueueing m_taskQueueing;
+    bool m_taskQueueingHasBeenSet;
+
+    LogLevel m_logLevel;
+    bool m_logLevelHasBeenSet;
   };
 
 } // namespace Model

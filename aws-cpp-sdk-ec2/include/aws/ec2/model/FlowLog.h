@@ -20,6 +20,8 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/ec2/model/TrafficType.h>
 #include <aws/ec2/model/LogDestinationType.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ec2/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -566,6 +568,133 @@ namespace Model
      */
     inline FlowLog& WithLogDestination(const char* value) { SetLogDestination(value); return *this;}
 
+
+    /**
+     * <p>The format of the flow log record.</p>
+     */
+    inline const Aws::String& GetLogFormat() const{ return m_logFormat; }
+
+    /**
+     * <p>The format of the flow log record.</p>
+     */
+    inline bool LogFormatHasBeenSet() const { return m_logFormatHasBeenSet; }
+
+    /**
+     * <p>The format of the flow log record.</p>
+     */
+    inline void SetLogFormat(const Aws::String& value) { m_logFormatHasBeenSet = true; m_logFormat = value; }
+
+    /**
+     * <p>The format of the flow log record.</p>
+     */
+    inline void SetLogFormat(Aws::String&& value) { m_logFormatHasBeenSet = true; m_logFormat = std::move(value); }
+
+    /**
+     * <p>The format of the flow log record.</p>
+     */
+    inline void SetLogFormat(const char* value) { m_logFormatHasBeenSet = true; m_logFormat.assign(value); }
+
+    /**
+     * <p>The format of the flow log record.</p>
+     */
+    inline FlowLog& WithLogFormat(const Aws::String& value) { SetLogFormat(value); return *this;}
+
+    /**
+     * <p>The format of the flow log record.</p>
+     */
+    inline FlowLog& WithLogFormat(Aws::String&& value) { SetLogFormat(std::move(value)); return *this;}
+
+    /**
+     * <p>The format of the flow log record.</p>
+     */
+    inline FlowLog& WithLogFormat(const char* value) { SetLogFormat(value); return *this;}
+
+
+    /**
+     * <p>The tags for the flow log.</p>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The tags for the flow log.</p>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The tags for the flow log.</p>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The tags for the flow log.</p>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The tags for the flow log.</p>
+     */
+    inline FlowLog& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The tags for the flow log.</p>
+     */
+    inline FlowLog& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The tags for the flow log.</p>
+     */
+    inline FlowLog& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>The tags for the flow log.</p>
+     */
+    inline FlowLog& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The maximum interval of time, in seconds, during which a flow of packets is
+     * captured and aggregated into a flow log record.</p> <p>When a network interface
+     * is attached to a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instance</a>, the aggregation interval is always 60 seconds (1 minute) or less,
+     * regardless of the specified value.</p> <p>Valid Values: <code>60</code> |
+     * <code>600</code> </p>
+     */
+    inline int GetMaxAggregationInterval() const{ return m_maxAggregationInterval; }
+
+    /**
+     * <p>The maximum interval of time, in seconds, during which a flow of packets is
+     * captured and aggregated into a flow log record.</p> <p>When a network interface
+     * is attached to a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instance</a>, the aggregation interval is always 60 seconds (1 minute) or less,
+     * regardless of the specified value.</p> <p>Valid Values: <code>60</code> |
+     * <code>600</code> </p>
+     */
+    inline bool MaxAggregationIntervalHasBeenSet() const { return m_maxAggregationIntervalHasBeenSet; }
+
+    /**
+     * <p>The maximum interval of time, in seconds, during which a flow of packets is
+     * captured and aggregated into a flow log record.</p> <p>When a network interface
+     * is attached to a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instance</a>, the aggregation interval is always 60 seconds (1 minute) or less,
+     * regardless of the specified value.</p> <p>Valid Values: <code>60</code> |
+     * <code>600</code> </p>
+     */
+    inline void SetMaxAggregationInterval(int value) { m_maxAggregationIntervalHasBeenSet = true; m_maxAggregationInterval = value; }
+
+    /**
+     * <p>The maximum interval of time, in seconds, during which a flow of packets is
+     * captured and aggregated into a flow log record.</p> <p>When a network interface
+     * is attached to a <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+     * instance</a>, the aggregation interval is always 60 seconds (1 minute) or less,
+     * regardless of the specified value.</p> <p>Valid Values: <code>60</code> |
+     * <code>600</code> </p>
+     */
+    inline FlowLog& WithMaxAggregationInterval(int value) { SetMaxAggregationInterval(value); return *this;}
+
   private:
 
     Aws::Utils::DateTime m_creationTime;
@@ -600,6 +729,15 @@ namespace Model
 
     Aws::String m_logDestination;
     bool m_logDestinationHasBeenSet;
+
+    Aws::String m_logFormat;
+    bool m_logFormatHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
+
+    int m_maxAggregationInterval;
+    bool m_maxAggregationIntervalHasBeenSet;
   };
 
 } // namespace Model

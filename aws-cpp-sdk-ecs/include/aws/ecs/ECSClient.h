@@ -21,6 +21,7 @@
 #include <aws/core/client/AWSClient.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/json/JsonSerializer.h>
+#include <aws/ecs/model/CreateCapacityProviderResult.h>
 #include <aws/ecs/model/CreateClusterResult.h>
 #include <aws/ecs/model/CreateServiceResult.h>
 #include <aws/ecs/model/CreateTaskSetResult.h>
@@ -31,6 +32,7 @@
 #include <aws/ecs/model/DeleteTaskSetResult.h>
 #include <aws/ecs/model/DeregisterContainerInstanceResult.h>
 #include <aws/ecs/model/DeregisterTaskDefinitionResult.h>
+#include <aws/ecs/model/DescribeCapacityProvidersResult.h>
 #include <aws/ecs/model/DescribeClustersResult.h>
 #include <aws/ecs/model/DescribeContainerInstancesResult.h>
 #include <aws/ecs/model/DescribeServicesResult.h>
@@ -50,6 +52,7 @@
 #include <aws/ecs/model/PutAccountSettingResult.h>
 #include <aws/ecs/model/PutAccountSettingDefaultResult.h>
 #include <aws/ecs/model/PutAttributesResult.h>
+#include <aws/ecs/model/PutClusterCapacityProvidersResult.h>
 #include <aws/ecs/model/RegisterContainerInstanceResult.h>
 #include <aws/ecs/model/RegisterTaskDefinitionResult.h>
 #include <aws/ecs/model/RunTaskResult.h>
@@ -60,6 +63,7 @@
 #include <aws/ecs/model/SubmitTaskStateChangeResult.h>
 #include <aws/ecs/model/TagResourceResult.h>
 #include <aws/ecs/model/UntagResourceResult.h>
+#include <aws/ecs/model/UpdateClusterSettingsResult.h>
 #include <aws/ecs/model/UpdateContainerAgentResult.h>
 #include <aws/ecs/model/UpdateContainerInstancesStateResult.h>
 #include <aws/ecs/model/UpdateServiceResult.h>
@@ -104,6 +108,7 @@ namespace ECS
 
 namespace Model
 {
+        class CreateCapacityProviderRequest;
         class CreateClusterRequest;
         class CreateServiceRequest;
         class CreateTaskSetRequest;
@@ -114,6 +119,7 @@ namespace Model
         class DeleteTaskSetRequest;
         class DeregisterContainerInstanceRequest;
         class DeregisterTaskDefinitionRequest;
+        class DescribeCapacityProvidersRequest;
         class DescribeClustersRequest;
         class DescribeContainerInstancesRequest;
         class DescribeServicesRequest;
@@ -133,6 +139,7 @@ namespace Model
         class PutAccountSettingRequest;
         class PutAccountSettingDefaultRequest;
         class PutAttributesRequest;
+        class PutClusterCapacityProvidersRequest;
         class RegisterContainerInstanceRequest;
         class RegisterTaskDefinitionRequest;
         class RunTaskRequest;
@@ -143,12 +150,14 @@ namespace Model
         class SubmitTaskStateChangeRequest;
         class TagResourceRequest;
         class UntagResourceRequest;
+        class UpdateClusterSettingsRequest;
         class UpdateContainerAgentRequest;
         class UpdateContainerInstancesStateRequest;
         class UpdateServiceRequest;
         class UpdateServicePrimaryTaskSetRequest;
         class UpdateTaskSetRequest;
 
+        typedef Aws::Utils::Outcome<CreateCapacityProviderResult, Aws::Client::AWSError<ECSErrors>> CreateCapacityProviderOutcome;
         typedef Aws::Utils::Outcome<CreateClusterResult, Aws::Client::AWSError<ECSErrors>> CreateClusterOutcome;
         typedef Aws::Utils::Outcome<CreateServiceResult, Aws::Client::AWSError<ECSErrors>> CreateServiceOutcome;
         typedef Aws::Utils::Outcome<CreateTaskSetResult, Aws::Client::AWSError<ECSErrors>> CreateTaskSetOutcome;
@@ -159,6 +168,7 @@ namespace Model
         typedef Aws::Utils::Outcome<DeleteTaskSetResult, Aws::Client::AWSError<ECSErrors>> DeleteTaskSetOutcome;
         typedef Aws::Utils::Outcome<DeregisterContainerInstanceResult, Aws::Client::AWSError<ECSErrors>> DeregisterContainerInstanceOutcome;
         typedef Aws::Utils::Outcome<DeregisterTaskDefinitionResult, Aws::Client::AWSError<ECSErrors>> DeregisterTaskDefinitionOutcome;
+        typedef Aws::Utils::Outcome<DescribeCapacityProvidersResult, Aws::Client::AWSError<ECSErrors>> DescribeCapacityProvidersOutcome;
         typedef Aws::Utils::Outcome<DescribeClustersResult, Aws::Client::AWSError<ECSErrors>> DescribeClustersOutcome;
         typedef Aws::Utils::Outcome<DescribeContainerInstancesResult, Aws::Client::AWSError<ECSErrors>> DescribeContainerInstancesOutcome;
         typedef Aws::Utils::Outcome<DescribeServicesResult, Aws::Client::AWSError<ECSErrors>> DescribeServicesOutcome;
@@ -178,6 +188,7 @@ namespace Model
         typedef Aws::Utils::Outcome<PutAccountSettingResult, Aws::Client::AWSError<ECSErrors>> PutAccountSettingOutcome;
         typedef Aws::Utils::Outcome<PutAccountSettingDefaultResult, Aws::Client::AWSError<ECSErrors>> PutAccountSettingDefaultOutcome;
         typedef Aws::Utils::Outcome<PutAttributesResult, Aws::Client::AWSError<ECSErrors>> PutAttributesOutcome;
+        typedef Aws::Utils::Outcome<PutClusterCapacityProvidersResult, Aws::Client::AWSError<ECSErrors>> PutClusterCapacityProvidersOutcome;
         typedef Aws::Utils::Outcome<RegisterContainerInstanceResult, Aws::Client::AWSError<ECSErrors>> RegisterContainerInstanceOutcome;
         typedef Aws::Utils::Outcome<RegisterTaskDefinitionResult, Aws::Client::AWSError<ECSErrors>> RegisterTaskDefinitionOutcome;
         typedef Aws::Utils::Outcome<RunTaskResult, Aws::Client::AWSError<ECSErrors>> RunTaskOutcome;
@@ -188,12 +199,14 @@ namespace Model
         typedef Aws::Utils::Outcome<SubmitTaskStateChangeResult, Aws::Client::AWSError<ECSErrors>> SubmitTaskStateChangeOutcome;
         typedef Aws::Utils::Outcome<TagResourceResult, Aws::Client::AWSError<ECSErrors>> TagResourceOutcome;
         typedef Aws::Utils::Outcome<UntagResourceResult, Aws::Client::AWSError<ECSErrors>> UntagResourceOutcome;
+        typedef Aws::Utils::Outcome<UpdateClusterSettingsResult, Aws::Client::AWSError<ECSErrors>> UpdateClusterSettingsOutcome;
         typedef Aws::Utils::Outcome<UpdateContainerAgentResult, Aws::Client::AWSError<ECSErrors>> UpdateContainerAgentOutcome;
         typedef Aws::Utils::Outcome<UpdateContainerInstancesStateResult, Aws::Client::AWSError<ECSErrors>> UpdateContainerInstancesStateOutcome;
         typedef Aws::Utils::Outcome<UpdateServiceResult, Aws::Client::AWSError<ECSErrors>> UpdateServiceOutcome;
         typedef Aws::Utils::Outcome<UpdateServicePrimaryTaskSetResult, Aws::Client::AWSError<ECSErrors>> UpdateServicePrimaryTaskSetOutcome;
         typedef Aws::Utils::Outcome<UpdateTaskSetResult, Aws::Client::AWSError<ECSErrors>> UpdateTaskSetOutcome;
 
+        typedef std::future<CreateCapacityProviderOutcome> CreateCapacityProviderOutcomeCallable;
         typedef std::future<CreateClusterOutcome> CreateClusterOutcomeCallable;
         typedef std::future<CreateServiceOutcome> CreateServiceOutcomeCallable;
         typedef std::future<CreateTaskSetOutcome> CreateTaskSetOutcomeCallable;
@@ -204,6 +217,7 @@ namespace Model
         typedef std::future<DeleteTaskSetOutcome> DeleteTaskSetOutcomeCallable;
         typedef std::future<DeregisterContainerInstanceOutcome> DeregisterContainerInstanceOutcomeCallable;
         typedef std::future<DeregisterTaskDefinitionOutcome> DeregisterTaskDefinitionOutcomeCallable;
+        typedef std::future<DescribeCapacityProvidersOutcome> DescribeCapacityProvidersOutcomeCallable;
         typedef std::future<DescribeClustersOutcome> DescribeClustersOutcomeCallable;
         typedef std::future<DescribeContainerInstancesOutcome> DescribeContainerInstancesOutcomeCallable;
         typedef std::future<DescribeServicesOutcome> DescribeServicesOutcomeCallable;
@@ -223,6 +237,7 @@ namespace Model
         typedef std::future<PutAccountSettingOutcome> PutAccountSettingOutcomeCallable;
         typedef std::future<PutAccountSettingDefaultOutcome> PutAccountSettingDefaultOutcomeCallable;
         typedef std::future<PutAttributesOutcome> PutAttributesOutcomeCallable;
+        typedef std::future<PutClusterCapacityProvidersOutcome> PutClusterCapacityProvidersOutcomeCallable;
         typedef std::future<RegisterContainerInstanceOutcome> RegisterContainerInstanceOutcomeCallable;
         typedef std::future<RegisterTaskDefinitionOutcome> RegisterTaskDefinitionOutcomeCallable;
         typedef std::future<RunTaskOutcome> RunTaskOutcomeCallable;
@@ -233,6 +248,7 @@ namespace Model
         typedef std::future<SubmitTaskStateChangeOutcome> SubmitTaskStateChangeOutcomeCallable;
         typedef std::future<TagResourceOutcome> TagResourceOutcomeCallable;
         typedef std::future<UntagResourceOutcome> UntagResourceOutcomeCallable;
+        typedef std::future<UpdateClusterSettingsOutcome> UpdateClusterSettingsOutcomeCallable;
         typedef std::future<UpdateContainerAgentOutcome> UpdateContainerAgentOutcomeCallable;
         typedef std::future<UpdateContainerInstancesStateOutcome> UpdateContainerInstancesStateOutcomeCallable;
         typedef std::future<UpdateServiceOutcome> UpdateServiceOutcomeCallable;
@@ -242,6 +258,7 @@ namespace Model
 
   class ECSClient;
 
+    typedef std::function<void(const ECSClient*, const Model::CreateCapacityProviderRequest&, const Model::CreateCapacityProviderOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateCapacityProviderResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::CreateClusterRequest&, const Model::CreateClusterOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateClusterResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::CreateServiceRequest&, const Model::CreateServiceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateServiceResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::CreateTaskSetRequest&, const Model::CreateTaskSetOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateTaskSetResponseReceivedHandler;
@@ -252,6 +269,7 @@ namespace Model
     typedef std::function<void(const ECSClient*, const Model::DeleteTaskSetRequest&, const Model::DeleteTaskSetOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteTaskSetResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::DeregisterContainerInstanceRequest&, const Model::DeregisterContainerInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeregisterContainerInstanceResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::DeregisterTaskDefinitionRequest&, const Model::DeregisterTaskDefinitionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeregisterTaskDefinitionResponseReceivedHandler;
+    typedef std::function<void(const ECSClient*, const Model::DescribeCapacityProvidersRequest&, const Model::DescribeCapacityProvidersOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeCapacityProvidersResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::DescribeClustersRequest&, const Model::DescribeClustersOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeClustersResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::DescribeContainerInstancesRequest&, const Model::DescribeContainerInstancesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeContainerInstancesResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::DescribeServicesRequest&, const Model::DescribeServicesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeServicesResponseReceivedHandler;
@@ -271,6 +289,7 @@ namespace Model
     typedef std::function<void(const ECSClient*, const Model::PutAccountSettingRequest&, const Model::PutAccountSettingOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutAccountSettingResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::PutAccountSettingDefaultRequest&, const Model::PutAccountSettingDefaultOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutAccountSettingDefaultResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::PutAttributesRequest&, const Model::PutAttributesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutAttributesResponseReceivedHandler;
+    typedef std::function<void(const ECSClient*, const Model::PutClusterCapacityProvidersRequest&, const Model::PutClusterCapacityProvidersOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > PutClusterCapacityProvidersResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::RegisterContainerInstanceRequest&, const Model::RegisterContainerInstanceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RegisterContainerInstanceResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::RegisterTaskDefinitionRequest&, const Model::RegisterTaskDefinitionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RegisterTaskDefinitionResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::RunTaskRequest&, const Model::RunTaskOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > RunTaskResponseReceivedHandler;
@@ -281,6 +300,7 @@ namespace Model
     typedef std::function<void(const ECSClient*, const Model::SubmitTaskStateChangeRequest&, const Model::SubmitTaskStateChangeOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > SubmitTaskStateChangeResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::TagResourceRequest&, const Model::TagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > TagResourceResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::UntagResourceRequest&, const Model::UntagResourceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UntagResourceResponseReceivedHandler;
+    typedef std::function<void(const ECSClient*, const Model::UpdateClusterSettingsRequest&, const Model::UpdateClusterSettingsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateClusterSettingsResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::UpdateContainerAgentRequest&, const Model::UpdateContainerAgentOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateContainerAgentResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::UpdateContainerInstancesStateRequest&, const Model::UpdateContainerInstancesStateOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateContainerInstancesStateResponseReceivedHandler;
     typedef std::function<void(const ECSClient*, const Model::UpdateServiceRequest&, const Model::UpdateServiceOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > UpdateServiceResponseReceivedHandler;
@@ -336,11 +356,54 @@ namespace Model
 
 
         /**
+         * <p>Creates a new capacity provider. Capacity providers are associated with an
+         * Amazon ECS cluster and are used in capacity provider strategies to facilitate
+         * cluster auto scaling.</p> <p>Only capacity providers using an Auto Scaling group
+         * can be created. Amazon ECS tasks on AWS Fargate use the <code>FARGATE</code> and
+         * <code>FARGATE_SPOT</code> capacity providers which are already created and
+         * available to all accounts in Regions supported by AWS Fargate.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/CreateCapacityProvider">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CreateCapacityProviderOutcome CreateCapacityProvider(const Model::CreateCapacityProviderRequest& request) const;
+
+        /**
+         * <p>Creates a new capacity provider. Capacity providers are associated with an
+         * Amazon ECS cluster and are used in capacity provider strategies to facilitate
+         * cluster auto scaling.</p> <p>Only capacity providers using an Auto Scaling group
+         * can be created. Amazon ECS tasks on AWS Fargate use the <code>FARGATE</code> and
+         * <code>FARGATE_SPOT</code> capacity providers which are already created and
+         * available to all accounts in Regions supported by AWS Fargate.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/CreateCapacityProvider">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CreateCapacityProviderOutcomeCallable CreateCapacityProviderCallable(const Model::CreateCapacityProviderRequest& request) const;
+
+        /**
+         * <p>Creates a new capacity provider. Capacity providers are associated with an
+         * Amazon ECS cluster and are used in capacity provider strategies to facilitate
+         * cluster auto scaling.</p> <p>Only capacity providers using an Auto Scaling group
+         * can be created. Amazon ECS tasks on AWS Fargate use the <code>FARGATE</code> and
+         * <code>FARGATE_SPOT</code> capacity providers which are already created and
+         * available to all accounts in Regions supported by AWS Fargate.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/CreateCapacityProvider">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CreateCapacityProviderAsync(const Model::CreateCapacityProviderRequest& request, const CreateCapacityProviderResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Creates a new Amazon ECS cluster. By default, your account receives a
          * <code>default</code> cluster when you launch your first container instance.
          * However, you can create your own cluster with a unique name with the
          * <code>CreateCluster</code> action.</p> <note> <p>When you call the
-         * <a>CreateCluster</a> API operation, Amazon ECS attempts to create the
+         * <a>CreateCluster</a> API operation, Amazon ECS attempts to create the Amazon ECS
          * service-linked role for your account so that required resources in other AWS
          * services can be managed on your behalf. However, if the IAM user that makes the
          * call does not have permissions to create the service-linked role, it is not
@@ -358,7 +421,7 @@ namespace Model
          * <code>default</code> cluster when you launch your first container instance.
          * However, you can create your own cluster with a unique name with the
          * <code>CreateCluster</code> action.</p> <note> <p>When you call the
-         * <a>CreateCluster</a> API operation, Amazon ECS attempts to create the
+         * <a>CreateCluster</a> API operation, Amazon ECS attempts to create the Amazon ECS
          * service-linked role for your account so that required resources in other AWS
          * services can be managed on your behalf. However, if the IAM user that makes the
          * call does not have permissions to create the service-linked role, it is not
@@ -378,7 +441,7 @@ namespace Model
          * <code>default</code> cluster when you launch your first container instance.
          * However, you can create your own cluster with a unique name with the
          * <code>CreateCluster</code> action.</p> <note> <p>When you call the
-         * <a>CreateCluster</a> API operation, Amazon ECS attempts to create the
+         * <a>CreateCluster</a> API operation, Amazon ECS attempts to create the Amazon ECS
          * service-linked role for your account so that required resources in other AWS
          * services can be managed on your behalf. However, if the IAM user that makes the
          * call does not have permissions to create the service-linked role, it is not
@@ -396,12 +459,12 @@ namespace Model
         /**
          * <p>Runs and maintains a desired number of tasks from a specified task
          * definition. If the number of tasks running in a service drops below the
-         * <code>desiredCount</code>, Amazon ECS spawns another copy of the task in the
-         * specified cluster. To update an existing service, see <a>UpdateService</a>.</p>
-         * <p>In addition to maintaining the desired count of tasks in your service, you
-         * can optionally run your service behind a load balancer. The load balancer
-         * distributes traffic across the tasks that are associated with the service. For
-         * more information, see <a
+         * <code>desiredCount</code>, Amazon ECS runs another copy of the task in the
+         * specified cluster. To update an existing service, see the UpdateService
+         * action.</p> <p>In addition to maintaining the desired count of tasks in your
+         * service, you can optionally run your service behind one or more load balancers.
+         * The load balancers distribute traffic across the tasks that are associated with
+         * the service. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
          * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
          * Guide</i>.</p> <p>Tasks for services that <i>do not</i> use a load balancer are
@@ -493,12 +556,12 @@ namespace Model
         /**
          * <p>Runs and maintains a desired number of tasks from a specified task
          * definition. If the number of tasks running in a service drops below the
-         * <code>desiredCount</code>, Amazon ECS spawns another copy of the task in the
-         * specified cluster. To update an existing service, see <a>UpdateService</a>.</p>
-         * <p>In addition to maintaining the desired count of tasks in your service, you
-         * can optionally run your service behind a load balancer. The load balancer
-         * distributes traffic across the tasks that are associated with the service. For
-         * more information, see <a
+         * <code>desiredCount</code>, Amazon ECS runs another copy of the task in the
+         * specified cluster. To update an existing service, see the UpdateService
+         * action.</p> <p>In addition to maintaining the desired count of tasks in your
+         * service, you can optionally run your service behind one or more load balancers.
+         * The load balancers distribute traffic across the tasks that are associated with
+         * the service. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
          * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
          * Guide</i>.</p> <p>Tasks for services that <i>do not</i> use a load balancer are
@@ -592,12 +655,12 @@ namespace Model
         /**
          * <p>Runs and maintains a desired number of tasks from a specified task
          * definition. If the number of tasks running in a service drops below the
-         * <code>desiredCount</code>, Amazon ECS spawns another copy of the task in the
-         * specified cluster. To update an existing service, see <a>UpdateService</a>.</p>
-         * <p>In addition to maintaining the desired count of tasks in your service, you
-         * can optionally run your service behind a load balancer. The load balancer
-         * distributes traffic across the tasks that are associated with the service. For
-         * more information, see <a
+         * <code>desiredCount</code>, Amazon ECS runs another copy of the task in the
+         * specified cluster. To update an existing service, see the UpdateService
+         * action.</p> <p>In addition to maintaining the desired count of tasks in your
+         * service, you can optionally run your service behind one or more load balancers.
+         * The load balancers distribute traffic across the tasks that are associated with
+         * the service. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
          * Load Balancing</a> in the <i>Amazon Elastic Container Service Developer
          * Guide</i>.</p> <p>Tasks for services that <i>do not</i> use a load balancer are
@@ -785,20 +848,30 @@ namespace Model
         virtual void DeleteAttributesAsync(const Model::DeleteAttributesRequest& request, const DeleteAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deletes the specified cluster. You must deregister all container instances
-         * from this cluster before you may delete it. You can list the container instances
-         * in a cluster with <a>ListContainerInstances</a> and deregister them with
-         * <a>DeregisterContainerInstance</a>.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes the specified cluster. The cluster will transition to the
+         * <code>INACTIVE</code> state. Clusters with an <code>INACTIVE</code> status may
+         * remain discoverable in your account for a period of time. However, this behavior
+         * is subject to change in the future, so you should not rely on
+         * <code>INACTIVE</code> clusters persisting.</p> <p>You must deregister all
+         * container instances from this cluster before you may delete it. You can list the
+         * container instances in a cluster with <a>ListContainerInstances</a> and
+         * deregister them with <a>DeregisterContainerInstance</a>.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DeleteCluster">AWS
          * API Reference</a></p>
          */
         virtual Model::DeleteClusterOutcome DeleteCluster(const Model::DeleteClusterRequest& request) const;
 
         /**
-         * <p>Deletes the specified cluster. You must deregister all container instances
-         * from this cluster before you may delete it. You can list the container instances
-         * in a cluster with <a>ListContainerInstances</a> and deregister them with
-         * <a>DeregisterContainerInstance</a>.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes the specified cluster. The cluster will transition to the
+         * <code>INACTIVE</code> state. Clusters with an <code>INACTIVE</code> status may
+         * remain discoverable in your account for a period of time. However, this behavior
+         * is subject to change in the future, so you should not rely on
+         * <code>INACTIVE</code> clusters persisting.</p> <p>You must deregister all
+         * container instances from this cluster before you may delete it. You can list the
+         * container instances in a cluster with <a>ListContainerInstances</a> and
+         * deregister them with <a>DeregisterContainerInstance</a>.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DeleteCluster">AWS
          * API Reference</a></p>
          *
@@ -807,10 +880,15 @@ namespace Model
         virtual Model::DeleteClusterOutcomeCallable DeleteClusterCallable(const Model::DeleteClusterRequest& request) const;
 
         /**
-         * <p>Deletes the specified cluster. You must deregister all container instances
-         * from this cluster before you may delete it. You can list the container instances
-         * in a cluster with <a>ListContainerInstances</a> and deregister them with
-         * <a>DeregisterContainerInstance</a>.</p><p><h3>See Also:</h3>   <a
+         * <p>Deletes the specified cluster. The cluster will transition to the
+         * <code>INACTIVE</code> state. Clusters with an <code>INACTIVE</code> status may
+         * remain discoverable in your account for a period of time. However, this behavior
+         * is subject to change in the future, so you should not rely on
+         * <code>INACTIVE</code> clusters persisting.</p> <p>You must deregister all
+         * container instances from this cluster before you may delete it. You can list the
+         * container instances in a cluster with <a>ListContainerInstances</a> and
+         * deregister them with <a>DeregisterContainerInstance</a>.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DeleteCluster">AWS
          * API Reference</a></p>
          *
@@ -826,8 +904,9 @@ namespace Model
          * <a>UpdateService</a>.</p> <note> <p>When you delete a service, if there are
          * still running tasks that require cleanup, the service status moves from
          * <code>ACTIVE</code> to <code>DRAINING</code>, and the service is no longer
-         * visible in the console or in the <a>ListServices</a> API operation. After the
-         * tasks have stopped, then the service status moves from <code>DRAINING</code> to
+         * visible in the console or in the <a>ListServices</a> API operation. After all
+         * tasks have transitioned to either <code>STOPPING</code> or <code>STOPPED</code>
+         * status, the service status moves from <code>DRAINING</code> to
          * <code>INACTIVE</code>. Services in the <code>DRAINING</code> or
          * <code>INACTIVE</code> status can still be viewed with the
          * <a>DescribeServices</a> API operation. However, in the future,
@@ -850,8 +929,9 @@ namespace Model
          * <a>UpdateService</a>.</p> <note> <p>When you delete a service, if there are
          * still running tasks that require cleanup, the service status moves from
          * <code>ACTIVE</code> to <code>DRAINING</code>, and the service is no longer
-         * visible in the console or in the <a>ListServices</a> API operation. After the
-         * tasks have stopped, then the service status moves from <code>DRAINING</code> to
+         * visible in the console or in the <a>ListServices</a> API operation. After all
+         * tasks have transitioned to either <code>STOPPING</code> or <code>STOPPED</code>
+         * status, the service status moves from <code>DRAINING</code> to
          * <code>INACTIVE</code>. Services in the <code>DRAINING</code> or
          * <code>INACTIVE</code> status can still be viewed with the
          * <a>DescribeServices</a> API operation. However, in the future,
@@ -876,8 +956,9 @@ namespace Model
          * <a>UpdateService</a>.</p> <note> <p>When you delete a service, if there are
          * still running tasks that require cleanup, the service status moves from
          * <code>ACTIVE</code> to <code>DRAINING</code>, and the service is no longer
-         * visible in the console or in the <a>ListServices</a> API operation. After the
-         * tasks have stopped, then the service status moves from <code>DRAINING</code> to
+         * visible in the console or in the <a>ListServices</a> API operation. After all
+         * tasks have transitioned to either <code>STOPPING</code> or <code>STOPPED</code>
+         * status, the service status moves from <code>DRAINING</code> to
          * <code>INACTIVE</code>. Services in the <code>DRAINING</code> or
          * <code>INACTIVE</code> status can still be viewed with the
          * <a>DescribeServices</a> API operation. However, in the future,
@@ -1058,6 +1139,34 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void DeregisterTaskDefinitionAsync(const Model::DeregisterTaskDefinitionRequest& request, const DeregisterTaskDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Describes one or more of your capacity providers.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DescribeCapacityProviders">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeCapacityProvidersOutcome DescribeCapacityProviders(const Model::DescribeCapacityProvidersRequest& request) const;
+
+        /**
+         * <p>Describes one or more of your capacity providers.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DescribeCapacityProviders">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeCapacityProvidersOutcomeCallable DescribeCapacityProvidersCallable(const Model::DescribeCapacityProvidersRequest& request) const;
+
+        /**
+         * <p>Describes one or more of your capacity providers.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/DescribeCapacityProviders">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeCapacityProvidersAsync(const Model::DescribeCapacityProvidersRequest& request, const DescribeCapacityProvidersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Describes one or more of your clusters.</p><p><h3>See Also:</h3>   <a
@@ -1592,10 +1701,10 @@ namespace Model
         virtual void ListTasksAsync(const Model::ListTasksRequest& request, const ListTasksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Modifies an account setting. If you change the account setting for the root
-         * user, the default settings for all of the IAM users and roles for which no
-         * individual account setting has been specified are reset. For more information,
-         * see <a
+         * <p>Modifies an account setting. Account settings are set on a per-Region
+         * basis.</p> <p>If you change the account setting for the root user, the default
+         * settings for all of the IAM users and roles for which no individual account
+         * setting has been specified are reset. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
          * Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
          * <p>When <code>serviceLongArnFormat</code>, <code>taskLongArnFormat</code>, or
@@ -1627,10 +1736,10 @@ namespace Model
         virtual Model::PutAccountSettingOutcome PutAccountSetting(const Model::PutAccountSettingRequest& request) const;
 
         /**
-         * <p>Modifies an account setting. If you change the account setting for the root
-         * user, the default settings for all of the IAM users and roles for which no
-         * individual account setting has been specified are reset. For more information,
-         * see <a
+         * <p>Modifies an account setting. Account settings are set on a per-Region
+         * basis.</p> <p>If you change the account setting for the root user, the default
+         * settings for all of the IAM users and roles for which no individual account
+         * setting has been specified are reset. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
          * Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
          * <p>When <code>serviceLongArnFormat</code>, <code>taskLongArnFormat</code>, or
@@ -1664,10 +1773,10 @@ namespace Model
         virtual Model::PutAccountSettingOutcomeCallable PutAccountSettingCallable(const Model::PutAccountSettingRequest& request) const;
 
         /**
-         * <p>Modifies an account setting. If you change the account setting for the root
-         * user, the default settings for all of the IAM users and roles for which no
-         * individual account setting has been specified are reset. For more information,
-         * see <a
+         * <p>Modifies an account setting. Account settings are set on a per-Region
+         * basis.</p> <p>If you change the account setting for the root user, the default
+         * settings for all of the IAM users and roles for which no individual account
+         * setting has been specified are reset. For more information, see <a
          * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
          * Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
          * <p>When <code>serviceLongArnFormat</code>, <code>taskLongArnFormat</code>, or
@@ -1702,7 +1811,8 @@ namespace Model
 
         /**
          * <p>Modifies an account setting for all IAM users on an account for whom no
-         * individual account setting has been specified.</p><p><h3>See Also:</h3>   <a
+         * individual account setting has been specified. Account settings are set on a
+         * per-Region basis.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/PutAccountSettingDefault">AWS
          * API Reference</a></p>
          */
@@ -1710,7 +1820,8 @@ namespace Model
 
         /**
          * <p>Modifies an account setting for all IAM users on an account for whom no
-         * individual account setting has been specified.</p><p><h3>See Also:</h3>   <a
+         * individual account setting has been specified. Account settings are set on a
+         * per-Region basis.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/PutAccountSettingDefault">AWS
          * API Reference</a></p>
          *
@@ -1720,7 +1831,8 @@ namespace Model
 
         /**
          * <p>Modifies an account setting for all IAM users on an account for whom no
-         * individual account setting has been specified.</p><p><h3>See Also:</h3>   <a
+         * individual account setting has been specified. Account settings are set on a
+         * per-Region basis.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/PutAccountSettingDefault">AWS
          * API Reference</a></p>
          *
@@ -1770,6 +1882,70 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void PutAttributesAsync(const Model::PutAttributesRequest& request, const PutAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Modifies the available capacity providers and the default capacity provider
+         * strategy for a cluster.</p> <p>You must specify both the available capacity
+         * providers and a default capacity provider strategy for the cluster. If the
+         * specified cluster has existing capacity providers associated with it, you must
+         * specify all existing capacity providers in addition to any new ones you want to
+         * add. Any existing capacity providers associated with a cluster that are omitted
+         * from a <a>PutClusterCapacityProviders</a> API call will be disassociated with
+         * the cluster. You can only disassociate an existing capacity provider from a
+         * cluster if it's not being used by any existing tasks.</p> <p>When creating a
+         * service or running a task on a cluster, if no capacity provider or launch type
+         * is specified, then the cluster's default capacity provider strategy is used. It
+         * is recommended to define a default capacity provider strategy for your cluster,
+         * however you may specify an empty array (<code>[]</code>) to bypass defining a
+         * default strategy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/PutClusterCapacityProviders">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::PutClusterCapacityProvidersOutcome PutClusterCapacityProviders(const Model::PutClusterCapacityProvidersRequest& request) const;
+
+        /**
+         * <p>Modifies the available capacity providers and the default capacity provider
+         * strategy for a cluster.</p> <p>You must specify both the available capacity
+         * providers and a default capacity provider strategy for the cluster. If the
+         * specified cluster has existing capacity providers associated with it, you must
+         * specify all existing capacity providers in addition to any new ones you want to
+         * add. Any existing capacity providers associated with a cluster that are omitted
+         * from a <a>PutClusterCapacityProviders</a> API call will be disassociated with
+         * the cluster. You can only disassociate an existing capacity provider from a
+         * cluster if it's not being used by any existing tasks.</p> <p>When creating a
+         * service or running a task on a cluster, if no capacity provider or launch type
+         * is specified, then the cluster's default capacity provider strategy is used. It
+         * is recommended to define a default capacity provider strategy for your cluster,
+         * however you may specify an empty array (<code>[]</code>) to bypass defining a
+         * default strategy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/PutClusterCapacityProviders">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::PutClusterCapacityProvidersOutcomeCallable PutClusterCapacityProvidersCallable(const Model::PutClusterCapacityProvidersRequest& request) const;
+
+        /**
+         * <p>Modifies the available capacity providers and the default capacity provider
+         * strategy for a cluster.</p> <p>You must specify both the available capacity
+         * providers and a default capacity provider strategy for the cluster. If the
+         * specified cluster has existing capacity providers associated with it, you must
+         * specify all existing capacity providers in addition to any new ones you want to
+         * add. Any existing capacity providers associated with a cluster that are omitted
+         * from a <a>PutClusterCapacityProviders</a> API call will be disassociated with
+         * the cluster. You can only disassociate an existing capacity provider from a
+         * cluster if it's not being used by any existing tasks.</p> <p>When creating a
+         * service or running a task on a cluster, if no capacity provider or launch type
+         * is specified, then the cluster's default capacity provider strategy is used. It
+         * is recommended to define a default capacity provider strategy for your cluster,
+         * however you may specify an empty array (<code>[]</code>) to bypass defining a
+         * default strategy.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/PutClusterCapacityProviders">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void PutClusterCapacityProvidersAsync(const Model::PutClusterCapacityProvidersRequest& request, const PutClusterCapacityProvidersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <note> <p>This action is only used by the Amazon ECS agent, and it is not
@@ -2242,6 +2418,31 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void UntagResourceAsync(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Modifies the settings to use for a cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/UpdateClusterSettings">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::UpdateClusterSettingsOutcome UpdateClusterSettings(const Model::UpdateClusterSettingsRequest& request) const;
+
+        /**
+         * <p>Modifies the settings to use for a cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/UpdateClusterSettings">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::UpdateClusterSettingsOutcomeCallable UpdateClusterSettingsCallable(const Model::UpdateClusterSettingsRequest& request) const;
+
+        /**
+         * <p>Modifies the settings to use for a cluster.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/UpdateClusterSettings">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void UpdateClusterSettingsAsync(const Model::UpdateClusterSettingsRequest& request, const UpdateClusterSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Updates the Amazon ECS container agent on a specified container instance.
@@ -2777,6 +2978,7 @@ namespace Model
       void OverrideEndpoint(const Aws::String& endpoint);
     private:
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
+        void CreateCapacityProviderAsyncHelper(const Model::CreateCapacityProviderRequest& request, const CreateCapacityProviderResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateClusterAsyncHelper(const Model::CreateClusterRequest& request, const CreateClusterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateServiceAsyncHelper(const Model::CreateServiceRequest& request, const CreateServiceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateTaskSetAsyncHelper(const Model::CreateTaskSetRequest& request, const CreateTaskSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -2787,6 +2989,7 @@ namespace Model
         void DeleteTaskSetAsyncHelper(const Model::DeleteTaskSetRequest& request, const DeleteTaskSetResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeregisterContainerInstanceAsyncHelper(const Model::DeregisterContainerInstanceRequest& request, const DeregisterContainerInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeregisterTaskDefinitionAsyncHelper(const Model::DeregisterTaskDefinitionRequest& request, const DeregisterTaskDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeCapacityProvidersAsyncHelper(const Model::DescribeCapacityProvidersRequest& request, const DescribeCapacityProvidersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeClustersAsyncHelper(const Model::DescribeClustersRequest& request, const DescribeClustersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeContainerInstancesAsyncHelper(const Model::DescribeContainerInstancesRequest& request, const DescribeContainerInstancesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeServicesAsyncHelper(const Model::DescribeServicesRequest& request, const DescribeServicesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -2806,6 +3009,7 @@ namespace Model
         void PutAccountSettingAsyncHelper(const Model::PutAccountSettingRequest& request, const PutAccountSettingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutAccountSettingDefaultAsyncHelper(const Model::PutAccountSettingDefaultRequest& request, const PutAccountSettingDefaultResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void PutAttributesAsyncHelper(const Model::PutAttributesRequest& request, const PutAttributesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void PutClusterCapacityProvidersAsyncHelper(const Model::PutClusterCapacityProvidersRequest& request, const PutClusterCapacityProvidersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RegisterContainerInstanceAsyncHelper(const Model::RegisterContainerInstanceRequest& request, const RegisterContainerInstanceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RegisterTaskDefinitionAsyncHelper(const Model::RegisterTaskDefinitionRequest& request, const RegisterTaskDefinitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void RunTaskAsyncHelper(const Model::RunTaskRequest& request, const RunTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -2816,6 +3020,7 @@ namespace Model
         void SubmitTaskStateChangeAsyncHelper(const Model::SubmitTaskStateChangeRequest& request, const SubmitTaskStateChangeResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void TagResourceAsyncHelper(const Model::TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UntagResourceAsyncHelper(const Model::UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void UpdateClusterSettingsAsyncHelper(const Model::UpdateClusterSettingsRequest& request, const UpdateClusterSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateContainerAgentAsyncHelper(const Model::UpdateContainerAgentRequest& request, const UpdateContainerAgentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateContainerInstancesStateAsyncHelper(const Model::UpdateContainerInstancesStateRequest& request, const UpdateContainerInstancesStateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void UpdateServiceAsyncHelper(const Model::UpdateServiceRequest& request, const UpdateServiceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;

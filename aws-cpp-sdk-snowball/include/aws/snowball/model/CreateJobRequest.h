@@ -23,6 +23,7 @@
 #include <aws/snowball/model/ShippingOption.h>
 #include <aws/snowball/model/Notification.h>
 #include <aws/snowball/model/SnowballType.h>
+#include <aws/snowball/model/TaxDocuments.h>
 #include <utility>
 
 namespace Aws
@@ -247,7 +248,7 @@ namespace Model
     /**
      * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
      * <code>KmsKeyARN</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * AWS Key Management Service (KMS) API action.</p>
      */
     inline const Aws::String& GetKmsKeyARN() const{ return m_kmsKeyARN; }
@@ -255,7 +256,7 @@ namespace Model
     /**
      * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
      * <code>KmsKeyARN</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * AWS Key Management Service (KMS) API action.</p>
      */
     inline bool KmsKeyARNHasBeenSet() const { return m_kmsKeyARNHasBeenSet; }
@@ -263,7 +264,7 @@ namespace Model
     /**
      * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
      * <code>KmsKeyARN</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * AWS Key Management Service (KMS) API action.</p>
      */
     inline void SetKmsKeyARN(const Aws::String& value) { m_kmsKeyARNHasBeenSet = true; m_kmsKeyARN = value; }
@@ -271,7 +272,7 @@ namespace Model
     /**
      * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
      * <code>KmsKeyARN</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * AWS Key Management Service (KMS) API action.</p>
      */
     inline void SetKmsKeyARN(Aws::String&& value) { m_kmsKeyARNHasBeenSet = true; m_kmsKeyARN = std::move(value); }
@@ -279,7 +280,7 @@ namespace Model
     /**
      * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
      * <code>KmsKeyARN</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * AWS Key Management Service (KMS) API action.</p>
      */
     inline void SetKmsKeyARN(const char* value) { m_kmsKeyARNHasBeenSet = true; m_kmsKeyARN.assign(value); }
@@ -287,7 +288,7 @@ namespace Model
     /**
      * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
      * <code>KmsKeyARN</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * AWS Key Management Service (KMS) API action.</p>
      */
     inline CreateJobRequest& WithKmsKeyARN(const Aws::String& value) { SetKmsKeyARN(value); return *this;}
@@ -295,7 +296,7 @@ namespace Model
     /**
      * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
      * <code>KmsKeyARN</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * AWS Key Management Service (KMS) API action.</p>
      */
     inline CreateJobRequest& WithKmsKeyARN(Aws::String&& value) { SetKmsKeyARN(std::move(value)); return *this;}
@@ -303,7 +304,7 @@ namespace Model
     /**
      * <p>The <code>KmsKeyARN</code> that you want to associate with this job.
      * <code>KmsKeyARN</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
+     * href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html">CreateKey</a>
      * AWS Key Management Service (KMS) API action.</p>
      */
     inline CreateJobRequest& WithKmsKeyARN(const char* value) { SetKmsKeyARN(value); return *this;}
@@ -312,7 +313,7 @@ namespace Model
     /**
      * <p>The <code>RoleARN</code> that you want to associate with this job.
      * <code>RoleArn</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * AWS Identity and Access Management (IAM) API action.</p>
      */
     inline const Aws::String& GetRoleARN() const{ return m_roleARN; }
@@ -320,7 +321,7 @@ namespace Model
     /**
      * <p>The <code>RoleARN</code> that you want to associate with this job.
      * <code>RoleArn</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * AWS Identity and Access Management (IAM) API action.</p>
      */
     inline bool RoleARNHasBeenSet() const { return m_roleARNHasBeenSet; }
@@ -328,7 +329,7 @@ namespace Model
     /**
      * <p>The <code>RoleARN</code> that you want to associate with this job.
      * <code>RoleArn</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * AWS Identity and Access Management (IAM) API action.</p>
      */
     inline void SetRoleARN(const Aws::String& value) { m_roleARNHasBeenSet = true; m_roleARN = value; }
@@ -336,7 +337,7 @@ namespace Model
     /**
      * <p>The <code>RoleARN</code> that you want to associate with this job.
      * <code>RoleArn</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * AWS Identity and Access Management (IAM) API action.</p>
      */
     inline void SetRoleARN(Aws::String&& value) { m_roleARNHasBeenSet = true; m_roleARN = std::move(value); }
@@ -344,7 +345,7 @@ namespace Model
     /**
      * <p>The <code>RoleARN</code> that you want to associate with this job.
      * <code>RoleArn</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * AWS Identity and Access Management (IAM) API action.</p>
      */
     inline void SetRoleARN(const char* value) { m_roleARNHasBeenSet = true; m_roleARN.assign(value); }
@@ -352,7 +353,7 @@ namespace Model
     /**
      * <p>The <code>RoleARN</code> that you want to associate with this job.
      * <code>RoleArn</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * AWS Identity and Access Management (IAM) API action.</p>
      */
     inline CreateJobRequest& WithRoleARN(const Aws::String& value) { SetRoleARN(value); return *this;}
@@ -360,7 +361,7 @@ namespace Model
     /**
      * <p>The <code>RoleARN</code> that you want to associate with this job.
      * <code>RoleArn</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * AWS Identity and Access Management (IAM) API action.</p>
      */
     inline CreateJobRequest& WithRoleARN(Aws::String&& value) { SetRoleARN(std::move(value)); return *this;}
@@ -368,7 +369,7 @@ namespace Model
     /**
      * <p>The <code>RoleARN</code> that you want to associate with this job.
      * <code>RoleArn</code>s are created using the <a
-     * href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
+     * href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html">CreateRole</a>
      * AWS Identity and Access Management (IAM) API action.</p>
      */
     inline CreateJobRequest& WithRoleARN(const char* value) { SetRoleARN(value); return *this;}
@@ -603,44 +604,56 @@ namespace Model
 
 
     /**
-     * <p>The type of AWS Snowball device to use for this job. The only supported
-     * device types for cluster jobs are <code>EDGE</code>, <code>EDGE_C</code>, and
-     * <code>EDGE_CG</code>.</p>
+     * <p>The type of AWS Snowball device to use for this job. Currently, the only
+     * supported device type for cluster jobs is <code>EDGE</code>.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
+     * Edge Device Options</a> in the Snowball Edge Developer Guide.</p>
      */
     inline const SnowballType& GetSnowballType() const{ return m_snowballType; }
 
     /**
-     * <p>The type of AWS Snowball device to use for this job. The only supported
-     * device types for cluster jobs are <code>EDGE</code>, <code>EDGE_C</code>, and
-     * <code>EDGE_CG</code>.</p>
+     * <p>The type of AWS Snowball device to use for this job. Currently, the only
+     * supported device type for cluster jobs is <code>EDGE</code>.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
+     * Edge Device Options</a> in the Snowball Edge Developer Guide.</p>
      */
     inline bool SnowballTypeHasBeenSet() const { return m_snowballTypeHasBeenSet; }
 
     /**
-     * <p>The type of AWS Snowball device to use for this job. The only supported
-     * device types for cluster jobs are <code>EDGE</code>, <code>EDGE_C</code>, and
-     * <code>EDGE_CG</code>.</p>
+     * <p>The type of AWS Snowball device to use for this job. Currently, the only
+     * supported device type for cluster jobs is <code>EDGE</code>.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
+     * Edge Device Options</a> in the Snowball Edge Developer Guide.</p>
      */
     inline void SetSnowballType(const SnowballType& value) { m_snowballTypeHasBeenSet = true; m_snowballType = value; }
 
     /**
-     * <p>The type of AWS Snowball device to use for this job. The only supported
-     * device types for cluster jobs are <code>EDGE</code>, <code>EDGE_C</code>, and
-     * <code>EDGE_CG</code>.</p>
+     * <p>The type of AWS Snowball device to use for this job. Currently, the only
+     * supported device type for cluster jobs is <code>EDGE</code>.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
+     * Edge Device Options</a> in the Snowball Edge Developer Guide.</p>
      */
     inline void SetSnowballType(SnowballType&& value) { m_snowballTypeHasBeenSet = true; m_snowballType = std::move(value); }
 
     /**
-     * <p>The type of AWS Snowball device to use for this job. The only supported
-     * device types for cluster jobs are <code>EDGE</code>, <code>EDGE_C</code>, and
-     * <code>EDGE_CG</code>.</p>
+     * <p>The type of AWS Snowball device to use for this job. Currently, the only
+     * supported device type for cluster jobs is <code>EDGE</code>.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
+     * Edge Device Options</a> in the Snowball Edge Developer Guide.</p>
      */
     inline CreateJobRequest& WithSnowballType(const SnowballType& value) { SetSnowballType(value); return *this;}
 
     /**
-     * <p>The type of AWS Snowball device to use for this job. The only supported
-     * device types for cluster jobs are <code>EDGE</code>, <code>EDGE_C</code>, and
-     * <code>EDGE_CG</code>.</p>
+     * <p>The type of AWS Snowball device to use for this job. Currently, the only
+     * supported device type for cluster jobs is <code>EDGE</code>.</p> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/snowball/latest/developer-guide/device-differences.html">Snowball
+     * Edge Device Options</a> in the Snowball Edge Developer Guide.</p>
      */
     inline CreateJobRequest& WithSnowballType(SnowballType&& value) { SetSnowballType(std::move(value)); return *this;}
 
@@ -693,6 +706,37 @@ namespace Model
      */
     inline CreateJobRequest& WithForwardingAddressId(const char* value) { SetForwardingAddressId(value); return *this;}
 
+
+    /**
+     * <p>The tax documents required in your AWS Region.</p>
+     */
+    inline const TaxDocuments& GetTaxDocuments() const{ return m_taxDocuments; }
+
+    /**
+     * <p>The tax documents required in your AWS Region.</p>
+     */
+    inline bool TaxDocumentsHasBeenSet() const { return m_taxDocumentsHasBeenSet; }
+
+    /**
+     * <p>The tax documents required in your AWS Region.</p>
+     */
+    inline void SetTaxDocuments(const TaxDocuments& value) { m_taxDocumentsHasBeenSet = true; m_taxDocuments = value; }
+
+    /**
+     * <p>The tax documents required in your AWS Region.</p>
+     */
+    inline void SetTaxDocuments(TaxDocuments&& value) { m_taxDocumentsHasBeenSet = true; m_taxDocuments = std::move(value); }
+
+    /**
+     * <p>The tax documents required in your AWS Region.</p>
+     */
+    inline CreateJobRequest& WithTaxDocuments(const TaxDocuments& value) { SetTaxDocuments(value); return *this;}
+
+    /**
+     * <p>The tax documents required in your AWS Region.</p>
+     */
+    inline CreateJobRequest& WithTaxDocuments(TaxDocuments&& value) { SetTaxDocuments(std::move(value)); return *this;}
+
   private:
 
     JobType m_jobType;
@@ -730,6 +774,9 @@ namespace Model
 
     Aws::String m_forwardingAddressId;
     bool m_forwardingAddressIdHasBeenSet;
+
+    TaxDocuments m_taxDocuments;
+    bool m_taxDocumentsHasBeenSet;
   };
 
 } // namespace Model

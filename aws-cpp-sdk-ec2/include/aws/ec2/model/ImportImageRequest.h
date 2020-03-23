@@ -20,6 +20,7 @@
 #include <aws/ec2/model/ClientData.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/ec2/model/ImageDiskContainer.h>
+#include <aws/ec2/model/ImportImageLicenseConfigurationRequest.h>
 #include <utility>
 
 namespace Aws
@@ -368,8 +369,8 @@ namespace Model
 
 
     /**
-     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) to use when creating the encrypted AMI. This parameter is only
+     * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer
+     * master key (CMK) to use when creating the encrypted AMI. This parameter is only
      * required if you want to use a non-default CMK; if this parameter is not
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
@@ -391,13 +392,14 @@ namespace Model
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the Region that the AMI is being copied to.</p>
+     * CMK must exist in the Region that the AMI is being copied to.</p> <p>Amazon EBS
+     * does not support asymmetric CMKs.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
 
     /**
-     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) to use when creating the encrypted AMI. This parameter is only
+     * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer
+     * master key (CMK) to use when creating the encrypted AMI. This parameter is only
      * required if you want to use a non-default CMK; if this parameter is not
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
@@ -419,13 +421,14 @@ namespace Model
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the Region that the AMI is being copied to.</p>
+     * CMK must exist in the Region that the AMI is being copied to.</p> <p>Amazon EBS
+     * does not support asymmetric CMKs.</p>
      */
     inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
 
     /**
-     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) to use when creating the encrypted AMI. This parameter is only
+     * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer
+     * master key (CMK) to use when creating the encrypted AMI. This parameter is only
      * required if you want to use a non-default CMK; if this parameter is not
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
@@ -447,13 +450,14 @@ namespace Model
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the Region that the AMI is being copied to.</p>
+     * CMK must exist in the Region that the AMI is being copied to.</p> <p>Amazon EBS
+     * does not support asymmetric CMKs.</p>
      */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
 
     /**
-     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) to use when creating the encrypted AMI. This parameter is only
+     * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer
+     * master key (CMK) to use when creating the encrypted AMI. This parameter is only
      * required if you want to use a non-default CMK; if this parameter is not
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
@@ -475,13 +479,14 @@ namespace Model
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the Region that the AMI is being copied to.</p>
+     * CMK must exist in the Region that the AMI is being copied to.</p> <p>Amazon EBS
+     * does not support asymmetric CMKs.</p>
      */
     inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = std::move(value); }
 
     /**
-     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) to use when creating the encrypted AMI. This parameter is only
+     * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer
+     * master key (CMK) to use when creating the encrypted AMI. This parameter is only
      * required if you want to use a non-default CMK; if this parameter is not
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
@@ -503,13 +508,14 @@ namespace Model
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the Region that the AMI is being copied to.</p>
+     * CMK must exist in the Region that the AMI is being copied to.</p> <p>Amazon EBS
+     * does not support asymmetric CMKs.</p>
      */
     inline void SetKmsKeyId(const char* value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId.assign(value); }
 
     /**
-     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) to use when creating the encrypted AMI. This parameter is only
+     * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer
+     * master key (CMK) to use when creating the encrypted AMI. This parameter is only
      * required if you want to use a non-default CMK; if this parameter is not
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
@@ -531,13 +537,14 @@ namespace Model
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the Region that the AMI is being copied to.</p>
+     * CMK must exist in the Region that the AMI is being copied to.</p> <p>Amazon EBS
+     * does not support asymmetric CMKs.</p>
      */
     inline ImportImageRequest& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
 
     /**
-     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) to use when creating the encrypted AMI. This parameter is only
+     * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer
+     * master key (CMK) to use when creating the encrypted AMI. This parameter is only
      * required if you want to use a non-default CMK; if this parameter is not
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
@@ -559,13 +566,14 @@ namespace Model
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the Region that the AMI is being copied to.</p>
+     * CMK must exist in the Region that the AMI is being copied to.</p> <p>Amazon EBS
+     * does not support asymmetric CMKs.</p>
      */
     inline ImportImageRequest& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
 
     /**
-     * <p>An identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) to use when creating the encrypted AMI. This parameter is only
+     * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer
+     * master key (CMK) to use when creating the encrypted AMI. This parameter is only
      * required if you want to use a non-default CMK; if this parameter is not
      * specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
      * specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK
@@ -587,7 +595,8 @@ namespace Model
      * </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the
      * action you call may appear to complete even though you provided an invalid
      * identifier. This action will eventually report failure. </p> <p>The specified
-     * CMK must exist in the Region that the AMI is being copied to.</p>
+     * CMK must exist in the Region that the AMI is being copied to.</p> <p>Amazon EBS
+     * does not support asymmetric CMKs.</p>
      */
     inline ImportImageRequest& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
@@ -786,6 +795,47 @@ namespace Model
      */
     inline ImportImageRequest& WithRoleName(const char* value) { SetRoleName(value); return *this;}
 
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline const Aws::Vector<ImportImageLicenseConfigurationRequest>& GetLicenseSpecifications() const{ return m_licenseSpecifications; }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline bool LicenseSpecificationsHasBeenSet() const { return m_licenseSpecificationsHasBeenSet; }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline void SetLicenseSpecifications(const Aws::Vector<ImportImageLicenseConfigurationRequest>& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications = value; }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline void SetLicenseSpecifications(Aws::Vector<ImportImageLicenseConfigurationRequest>&& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications = std::move(value); }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline ImportImageRequest& WithLicenseSpecifications(const Aws::Vector<ImportImageLicenseConfigurationRequest>& value) { SetLicenseSpecifications(value); return *this;}
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline ImportImageRequest& WithLicenseSpecifications(Aws::Vector<ImportImageLicenseConfigurationRequest>&& value) { SetLicenseSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline ImportImageRequest& AddLicenseSpecifications(const ImportImageLicenseConfigurationRequest& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline ImportImageRequest& AddLicenseSpecifications(ImportImageLicenseConfigurationRequest&& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_architecture;
@@ -823,6 +873,9 @@ namespace Model
 
     Aws::String m_roleName;
     bool m_roleNameHasBeenSet;
+
+    Aws::Vector<ImportImageLicenseConfigurationRequest> m_licenseSpecifications;
+    bool m_licenseSpecificationsHasBeenSet;
   };
 
 } // namespace Model

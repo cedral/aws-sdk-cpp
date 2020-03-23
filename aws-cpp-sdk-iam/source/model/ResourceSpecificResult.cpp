@@ -36,7 +36,8 @@ ResourceSpecificResult::ResourceSpecificResult() :
     m_evalResourceDecisionHasBeenSet(false),
     m_matchedStatementsHasBeenSet(false),
     m_missingContextValuesHasBeenSet(false),
-    m_evalDecisionDetailsHasBeenSet(false)
+    m_evalDecisionDetailsHasBeenSet(false),
+    m_permissionsBoundaryDecisionDetailHasBeenSet(false)
 {
 }
 
@@ -46,7 +47,8 @@ ResourceSpecificResult::ResourceSpecificResult(const XmlNode& xmlNode) :
     m_evalResourceDecisionHasBeenSet(false),
     m_matchedStatementsHasBeenSet(false),
     m_missingContextValuesHasBeenSet(false),
-    m_evalDecisionDetailsHasBeenSet(false)
+    m_evalDecisionDetailsHasBeenSet(false),
+    m_permissionsBoundaryDecisionDetailHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -60,13 +62,13 @@ ResourceSpecificResult& ResourceSpecificResult::operator =(const XmlNode& xmlNod
     XmlNode evalResourceNameNode = resultNode.FirstChild("EvalResourceName");
     if(!evalResourceNameNode.IsNull())
     {
-      m_evalResourceName = evalResourceNameNode.GetText();
+      m_evalResourceName = Aws::Utils::Xml::DecodeEscapedXmlText(evalResourceNameNode.GetText());
       m_evalResourceNameHasBeenSet = true;
     }
     XmlNode evalResourceDecisionNode = resultNode.FirstChild("EvalResourceDecision");
     if(!evalResourceDecisionNode.IsNull())
     {
-      m_evalResourceDecision = PolicyEvaluationDecisionTypeMapper::GetPolicyEvaluationDecisionTypeForName(StringUtils::Trim(evalResourceDecisionNode.GetText().c_str()).c_str());
+      m_evalResourceDecision = PolicyEvaluationDecisionTypeMapper::GetPolicyEvaluationDecisionTypeForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(evalResourceDecisionNode.GetText()).c_str()).c_str());
       m_evalResourceDecisionHasBeenSet = true;
     }
     XmlNode matchedStatementsNode = resultNode.FirstChild("MatchedStatements");
@@ -108,6 +110,12 @@ ResourceSpecificResult& ResourceSpecificResult::operator =(const XmlNode& xmlNod
       }
 
       m_evalDecisionDetailsHasBeenSet = true;
+    }
+    XmlNode permissionsBoundaryDecisionDetailNode = resultNode.FirstChild("PermissionsBoundaryDecisionDetail");
+    if(!permissionsBoundaryDecisionDetailNode.IsNull())
+    {
+      m_permissionsBoundaryDecisionDetail = permissionsBoundaryDecisionDetailNode;
+      m_permissionsBoundaryDecisionDetailHasBeenSet = true;
     }
   }
 
@@ -159,6 +167,13 @@ void ResourceSpecificResult::OutputToStream(Aws::OStream& oStream, const char* l
       }
   }
 
+  if(m_permissionsBoundaryDecisionDetailHasBeenSet)
+  {
+      Aws::StringStream permissionsBoundaryDecisionDetailLocationAndMemberSs;
+      permissionsBoundaryDecisionDetailLocationAndMemberSs << location << index << locationValue << ".PermissionsBoundaryDecisionDetail";
+      m_permissionsBoundaryDecisionDetail.OutputToStream(oStream, permissionsBoundaryDecisionDetailLocationAndMemberSs.str().c_str());
+  }
+
 }
 
 void ResourceSpecificResult::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -201,6 +216,12 @@ void ResourceSpecificResult::OutputToStream(Aws::OStream& oStream, const char* l
         evalDecisionDetailsIdx++;
       }
 
+  }
+  if(m_permissionsBoundaryDecisionDetailHasBeenSet)
+  {
+      Aws::String permissionsBoundaryDecisionDetailLocationAndMember(location);
+      permissionsBoundaryDecisionDetailLocationAndMember += ".PermissionsBoundaryDecisionDetail";
+      m_permissionsBoundaryDecisionDetail.OutputToStream(oStream, permissionsBoundaryDecisionDetailLocationAndMember.c_str());
   }
 }
 

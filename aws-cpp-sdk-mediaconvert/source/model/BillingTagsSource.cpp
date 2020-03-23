@@ -33,6 +33,7 @@ namespace Aws
         static const int QUEUE_HASH = HashingUtils::HashString("QUEUE");
         static const int PRESET_HASH = HashingUtils::HashString("PRESET");
         static const int JOB_TEMPLATE_HASH = HashingUtils::HashString("JOB_TEMPLATE");
+        static const int JOB_HASH = HashingUtils::HashString("JOB");
 
 
         BillingTagsSource GetBillingTagsSourceForName(const Aws::String& name)
@@ -49,6 +50,10 @@ namespace Aws
           else if (hashCode == JOB_TEMPLATE_HASH)
           {
             return BillingTagsSource::JOB_TEMPLATE;
+          }
+          else if (hashCode == JOB_HASH)
+          {
+            return BillingTagsSource::JOB;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -70,6 +75,8 @@ namespace Aws
             return "PRESET";
           case BillingTagsSource::JOB_TEMPLATE:
             return "JOB_TEMPLATE";
+          case BillingTagsSource::JOB:
+            return "JOB";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

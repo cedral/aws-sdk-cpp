@@ -35,7 +35,7 @@ namespace Model
 
   /**
    * <p>A member of an Amazon QuickSight group. Currently, group members must be
-   * users. Groups can't be members of another group. </p><p><h3>See Also:</h3>   <a
+   * users. Groups can't be members of another group. .</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/quicksight-2018-04-01/GroupMember">AWS
    * API Reference</a></p>
    */

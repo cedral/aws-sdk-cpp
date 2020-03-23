@@ -97,58 +97,50 @@ namespace Model
 
 
     /**
-     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens (-), and must not begin or
-     * end with a hyphen.</p>
+     * <p>The name of the accelerator. The name must contain only alphanumeric
+     * characters or hyphens (-), and must not begin or end with a hyphen.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
-     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens (-), and must not begin or
-     * end with a hyphen.</p>
+     * <p>The name of the accelerator. The name must contain only alphanumeric
+     * characters or hyphens (-), and must not begin or end with a hyphen.</p>
      */
     inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
-     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens (-), and must not begin or
-     * end with a hyphen.</p>
+     * <p>The name of the accelerator. The name must contain only alphanumeric
+     * characters or hyphens (-), and must not begin or end with a hyphen.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
-     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens (-), and must not begin or
-     * end with a hyphen.</p>
+     * <p>The name of the accelerator. The name must contain only alphanumeric
+     * characters or hyphens (-), and must not begin or end with a hyphen.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
     /**
-     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens (-), and must not begin or
-     * end with a hyphen.</p>
+     * <p>The name of the accelerator. The name must contain only alphanumeric
+     * characters or hyphens (-), and must not begin or end with a hyphen.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
     /**
-     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens (-), and must not begin or
-     * end with a hyphen.</p>
+     * <p>The name of the accelerator. The name must contain only alphanumeric
+     * characters or hyphens (-), and must not begin or end with a hyphen.</p>
      */
     inline Accelerator& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
-     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens (-), and must not begin or
-     * end with a hyphen.</p>
+     * <p>The name of the accelerator. The name must contain only alphanumeric
+     * characters or hyphens (-), and must not begin or end with a hyphen.</p>
      */
     inline Accelerator& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
     /**
-     * <p>The name of the accelerator. The name can have a maximum of 32 characters,
-     * must contain only alphanumeric characters or hyphens (-), and must not begin or
-     * end with a hyphen.</p>
+     * <p>The name of the accelerator. The name must contain only alphanumeric
+     * characters or hyphens (-), and must not begin or end with a hyphen.</p>
      */
     inline Accelerator& WithName(const char* value) { SetName(value); return *this;}
 
@@ -185,28 +177,28 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether theaccelerator is enabled. The value is true or false. The
+     * <p>Indicates whether the accelerator is enabled. The value is true or false. The
      * default value is true. </p> <p>If the value is set to true, the accelerator
      * cannot be deleted. If set to false, accelerator can be deleted.</p>
      */
     inline bool GetEnabled() const{ return m_enabled; }
 
     /**
-     * <p>Indicates whether theaccelerator is enabled. The value is true or false. The
+     * <p>Indicates whether the accelerator is enabled. The value is true or false. The
      * default value is true. </p> <p>If the value is set to true, the accelerator
      * cannot be deleted. If set to false, accelerator can be deleted.</p>
      */
     inline bool EnabledHasBeenSet() const { return m_enabledHasBeenSet; }
 
     /**
-     * <p>Indicates whether theaccelerator is enabled. The value is true or false. The
+     * <p>Indicates whether the accelerator is enabled. The value is true or false. The
      * default value is true. </p> <p>If the value is set to true, the accelerator
      * cannot be deleted. If set to false, accelerator can be deleted.</p>
      */
     inline void SetEnabled(bool value) { m_enabledHasBeenSet = true; m_enabled = value; }
 
     /**
-     * <p>Indicates whether theaccelerator is enabled. The value is true or false. The
+     * <p>Indicates whether the accelerator is enabled. The value is true or false. The
      * default value is true. </p> <p>If the value is set to true, the accelerator
      * cannot be deleted. If set to false, accelerator can be deleted.</p>
      */
@@ -214,44 +206,157 @@ namespace Model
 
 
     /**
-     * <p>IP address set associated with the accelerator.</p>
+     * <p>The static IP addresses that Global Accelerator associates with the
+     * accelerator.</p>
      */
     inline const Aws::Vector<IpSet>& GetIpSets() const{ return m_ipSets; }
 
     /**
-     * <p>IP address set associated with the accelerator.</p>
+     * <p>The static IP addresses that Global Accelerator associates with the
+     * accelerator.</p>
      */
     inline bool IpSetsHasBeenSet() const { return m_ipSetsHasBeenSet; }
 
     /**
-     * <p>IP address set associated with the accelerator.</p>
+     * <p>The static IP addresses that Global Accelerator associates with the
+     * accelerator.</p>
      */
     inline void SetIpSets(const Aws::Vector<IpSet>& value) { m_ipSetsHasBeenSet = true; m_ipSets = value; }
 
     /**
-     * <p>IP address set associated with the accelerator.</p>
+     * <p>The static IP addresses that Global Accelerator associates with the
+     * accelerator.</p>
      */
     inline void SetIpSets(Aws::Vector<IpSet>&& value) { m_ipSetsHasBeenSet = true; m_ipSets = std::move(value); }
 
     /**
-     * <p>IP address set associated with the accelerator.</p>
+     * <p>The static IP addresses that Global Accelerator associates with the
+     * accelerator.</p>
      */
     inline Accelerator& WithIpSets(const Aws::Vector<IpSet>& value) { SetIpSets(value); return *this;}
 
     /**
-     * <p>IP address set associated with the accelerator.</p>
+     * <p>The static IP addresses that Global Accelerator associates with the
+     * accelerator.</p>
      */
     inline Accelerator& WithIpSets(Aws::Vector<IpSet>&& value) { SetIpSets(std::move(value)); return *this;}
 
     /**
-     * <p>IP address set associated with the accelerator.</p>
+     * <p>The static IP addresses that Global Accelerator associates with the
+     * accelerator.</p>
      */
     inline Accelerator& AddIpSets(const IpSet& value) { m_ipSetsHasBeenSet = true; m_ipSets.push_back(value); return *this; }
 
     /**
-     * <p>IP address set associated with the accelerator.</p>
+     * <p>The static IP addresses that Global Accelerator associates with the
+     * accelerator.</p>
      */
     inline Accelerator& AddIpSets(IpSet&& value) { m_ipSetsHasBeenSet = true; m_ipSets.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The Domain Name System (DNS) name that Global Accelerator creates that points
+     * to your accelerator's static IP addresses. </p> <p>The naming convention for the
+     * DNS name is the following: A lowercase letter a, followed by a 16-bit random hex
+     * string, followed by .awsglobalaccelerator.com. For example:
+     * a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about
+     * the default DNS name, see <a
+     * href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+     * Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global
+     * Accelerator Developer Guide</i>.</p>
+     */
+    inline const Aws::String& GetDnsName() const{ return m_dnsName; }
+
+    /**
+     * <p>The Domain Name System (DNS) name that Global Accelerator creates that points
+     * to your accelerator's static IP addresses. </p> <p>The naming convention for the
+     * DNS name is the following: A lowercase letter a, followed by a 16-bit random hex
+     * string, followed by .awsglobalaccelerator.com. For example:
+     * a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about
+     * the default DNS name, see <a
+     * href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+     * Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global
+     * Accelerator Developer Guide</i>.</p>
+     */
+    inline bool DnsNameHasBeenSet() const { return m_dnsNameHasBeenSet; }
+
+    /**
+     * <p>The Domain Name System (DNS) name that Global Accelerator creates that points
+     * to your accelerator's static IP addresses. </p> <p>The naming convention for the
+     * DNS name is the following: A lowercase letter a, followed by a 16-bit random hex
+     * string, followed by .awsglobalaccelerator.com. For example:
+     * a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about
+     * the default DNS name, see <a
+     * href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+     * Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global
+     * Accelerator Developer Guide</i>.</p>
+     */
+    inline void SetDnsName(const Aws::String& value) { m_dnsNameHasBeenSet = true; m_dnsName = value; }
+
+    /**
+     * <p>The Domain Name System (DNS) name that Global Accelerator creates that points
+     * to your accelerator's static IP addresses. </p> <p>The naming convention for the
+     * DNS name is the following: A lowercase letter a, followed by a 16-bit random hex
+     * string, followed by .awsglobalaccelerator.com. For example:
+     * a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about
+     * the default DNS name, see <a
+     * href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+     * Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global
+     * Accelerator Developer Guide</i>.</p>
+     */
+    inline void SetDnsName(Aws::String&& value) { m_dnsNameHasBeenSet = true; m_dnsName = std::move(value); }
+
+    /**
+     * <p>The Domain Name System (DNS) name that Global Accelerator creates that points
+     * to your accelerator's static IP addresses. </p> <p>The naming convention for the
+     * DNS name is the following: A lowercase letter a, followed by a 16-bit random hex
+     * string, followed by .awsglobalaccelerator.com. For example:
+     * a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about
+     * the default DNS name, see <a
+     * href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+     * Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global
+     * Accelerator Developer Guide</i>.</p>
+     */
+    inline void SetDnsName(const char* value) { m_dnsNameHasBeenSet = true; m_dnsName.assign(value); }
+
+    /**
+     * <p>The Domain Name System (DNS) name that Global Accelerator creates that points
+     * to your accelerator's static IP addresses. </p> <p>The naming convention for the
+     * DNS name is the following: A lowercase letter a, followed by a 16-bit random hex
+     * string, followed by .awsglobalaccelerator.com. For example:
+     * a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about
+     * the default DNS name, see <a
+     * href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+     * Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global
+     * Accelerator Developer Guide</i>.</p>
+     */
+    inline Accelerator& WithDnsName(const Aws::String& value) { SetDnsName(value); return *this;}
+
+    /**
+     * <p>The Domain Name System (DNS) name that Global Accelerator creates that points
+     * to your accelerator's static IP addresses. </p> <p>The naming convention for the
+     * DNS name is the following: A lowercase letter a, followed by a 16-bit random hex
+     * string, followed by .awsglobalaccelerator.com. For example:
+     * a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about
+     * the default DNS name, see <a
+     * href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+     * Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global
+     * Accelerator Developer Guide</i>.</p>
+     */
+    inline Accelerator& WithDnsName(Aws::String&& value) { SetDnsName(std::move(value)); return *this;}
+
+    /**
+     * <p>The Domain Name System (DNS) name that Global Accelerator creates that points
+     * to your accelerator's static IP addresses. </p> <p>The naming convention for the
+     * DNS name is the following: A lowercase letter a, followed by a 16-bit random hex
+     * string, followed by .awsglobalaccelerator.com. For example:
+     * a1234567890abcdef.awsglobalaccelerator.com.</p> <p>For more information about
+     * the default DNS name, see <a
+     * href="https://docs.aws.amazon.com/global-accelerator/latest/dg/about-accelerators.html#about-accelerators.dns-addressing">
+     * Support for DNS Addressing in Global Accelerator</a> in the <i>AWS Global
+     * Accelerator Developer Guide</i>.</p>
+     */
+    inline Accelerator& WithDnsName(const char* value) { SetDnsName(value); return *this;}
 
 
     /**
@@ -362,6 +467,9 @@ namespace Model
 
     Aws::Vector<IpSet> m_ipSets;
     bool m_ipSetsHasBeenSet;
+
+    Aws::String m_dnsName;
+    bool m_dnsNameHasBeenSet;
 
     AcceleratorStatus m_status;
     bool m_statusHasBeenSet;

@@ -33,6 +33,7 @@ namespace Model
 OnDemandOptions::OnDemandOptions() : 
     m_allocationStrategy(FleetOnDemandAllocationStrategy::NOT_SET),
     m_allocationStrategyHasBeenSet(false),
+    m_capacityReservationOptionsHasBeenSet(false),
     m_singleInstanceType(false),
     m_singleInstanceTypeHasBeenSet(false),
     m_singleAvailabilityZone(false),
@@ -46,6 +47,7 @@ OnDemandOptions::OnDemandOptions() :
 OnDemandOptions::OnDemandOptions(const XmlNode& xmlNode) : 
     m_allocationStrategy(FleetOnDemandAllocationStrategy::NOT_SET),
     m_allocationStrategyHasBeenSet(false),
+    m_capacityReservationOptionsHasBeenSet(false),
     m_singleInstanceType(false),
     m_singleInstanceTypeHasBeenSet(false),
     m_singleAvailabilityZone(false),
@@ -66,31 +68,37 @@ OnDemandOptions& OnDemandOptions::operator =(const XmlNode& xmlNode)
     XmlNode allocationStrategyNode = resultNode.FirstChild("allocationStrategy");
     if(!allocationStrategyNode.IsNull())
     {
-      m_allocationStrategy = FleetOnDemandAllocationStrategyMapper::GetFleetOnDemandAllocationStrategyForName(StringUtils::Trim(allocationStrategyNode.GetText().c_str()).c_str());
+      m_allocationStrategy = FleetOnDemandAllocationStrategyMapper::GetFleetOnDemandAllocationStrategyForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(allocationStrategyNode.GetText()).c_str()).c_str());
       m_allocationStrategyHasBeenSet = true;
+    }
+    XmlNode capacityReservationOptionsNode = resultNode.FirstChild("capacityReservationOptions");
+    if(!capacityReservationOptionsNode.IsNull())
+    {
+      m_capacityReservationOptions = capacityReservationOptionsNode;
+      m_capacityReservationOptionsHasBeenSet = true;
     }
     XmlNode singleInstanceTypeNode = resultNode.FirstChild("singleInstanceType");
     if(!singleInstanceTypeNode.IsNull())
     {
-      m_singleInstanceType = StringUtils::ConvertToBool(StringUtils::Trim(singleInstanceTypeNode.GetText().c_str()).c_str());
+      m_singleInstanceType = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(singleInstanceTypeNode.GetText()).c_str()).c_str());
       m_singleInstanceTypeHasBeenSet = true;
     }
     XmlNode singleAvailabilityZoneNode = resultNode.FirstChild("singleAvailabilityZone");
     if(!singleAvailabilityZoneNode.IsNull())
     {
-      m_singleAvailabilityZone = StringUtils::ConvertToBool(StringUtils::Trim(singleAvailabilityZoneNode.GetText().c_str()).c_str());
+      m_singleAvailabilityZone = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(singleAvailabilityZoneNode.GetText()).c_str()).c_str());
       m_singleAvailabilityZoneHasBeenSet = true;
     }
     XmlNode minTargetCapacityNode = resultNode.FirstChild("minTargetCapacity");
     if(!minTargetCapacityNode.IsNull())
     {
-      m_minTargetCapacity = StringUtils::ConvertToInt32(StringUtils::Trim(minTargetCapacityNode.GetText().c_str()).c_str());
+      m_minTargetCapacity = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(minTargetCapacityNode.GetText()).c_str()).c_str());
       m_minTargetCapacityHasBeenSet = true;
     }
     XmlNode maxTotalPriceNode = resultNode.FirstChild("maxTotalPrice");
     if(!maxTotalPriceNode.IsNull())
     {
-      m_maxTotalPrice = maxTotalPriceNode.GetText();
+      m_maxTotalPrice = Aws::Utils::Xml::DecodeEscapedXmlText(maxTotalPriceNode.GetText());
       m_maxTotalPriceHasBeenSet = true;
     }
   }
@@ -103,6 +111,13 @@ void OnDemandOptions::OutputToStream(Aws::OStream& oStream, const char* location
   if(m_allocationStrategyHasBeenSet)
   {
       oStream << location << index << locationValue << ".AllocationStrategy=" << FleetOnDemandAllocationStrategyMapper::GetNameForFleetOnDemandAllocationStrategy(m_allocationStrategy) << "&";
+  }
+
+  if(m_capacityReservationOptionsHasBeenSet)
+  {
+      Aws::StringStream capacityReservationOptionsLocationAndMemberSs;
+      capacityReservationOptionsLocationAndMemberSs << location << index << locationValue << ".CapacityReservationOptions";
+      m_capacityReservationOptions.OutputToStream(oStream, capacityReservationOptionsLocationAndMemberSs.str().c_str());
   }
 
   if(m_singleInstanceTypeHasBeenSet)
@@ -132,6 +147,12 @@ void OnDemandOptions::OutputToStream(Aws::OStream& oStream, const char* location
   if(m_allocationStrategyHasBeenSet)
   {
       oStream << location << ".AllocationStrategy=" << FleetOnDemandAllocationStrategyMapper::GetNameForFleetOnDemandAllocationStrategy(m_allocationStrategy) << "&";
+  }
+  if(m_capacityReservationOptionsHasBeenSet)
+  {
+      Aws::String capacityReservationOptionsLocationAndMember(location);
+      capacityReservationOptionsLocationAndMember += ".CapacityReservationOptions";
+      m_capacityReservationOptions.OutputToStream(oStream, capacityReservationOptionsLocationAndMember.c_str());
   }
   if(m_singleInstanceTypeHasBeenSet)
   {

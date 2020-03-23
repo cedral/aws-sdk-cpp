@@ -34,14 +34,17 @@ namespace Model
     RobotDeploymentNoResponse,
     RobotAgentConnectionTimeout,
     GreengrassDeploymentFailed,
+    InvalidGreengrassGroup,
     MissingRobotArchitecture,
     MissingRobotApplicationArchitecture,
     MissingRobotDeploymentResource,
     GreengrassGroupVersionDoesNotExist,
+    LambdaDeleted,
     ExtractingBundleFailure,
     PreLaunchFileFailure,
     PostLaunchFileFailure,
     BadPermissionError,
+    DownloadConditionFailed,
     InternalServerError
   };
 

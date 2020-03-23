@@ -151,57 +151,49 @@ namespace Model
 
     /**
      * <p>A policy to attach to the endpoint that controls access to the service. The
-     * policy must be in valid JSON format. If this parameter is not specified, we
-     * attach a default policy that allows full access to the service.</p>
+     * policy must be in valid JSON format.</p>
      */
     inline const Aws::String& GetPolicyDocument() const{ return m_policyDocument; }
 
     /**
      * <p>A policy to attach to the endpoint that controls access to the service. The
-     * policy must be in valid JSON format. If this parameter is not specified, we
-     * attach a default policy that allows full access to the service.</p>
+     * policy must be in valid JSON format.</p>
      */
     inline bool PolicyDocumentHasBeenSet() const { return m_policyDocumentHasBeenSet; }
 
     /**
      * <p>A policy to attach to the endpoint that controls access to the service. The
-     * policy must be in valid JSON format. If this parameter is not specified, we
-     * attach a default policy that allows full access to the service.</p>
+     * policy must be in valid JSON format.</p>
      */
     inline void SetPolicyDocument(const Aws::String& value) { m_policyDocumentHasBeenSet = true; m_policyDocument = value; }
 
     /**
      * <p>A policy to attach to the endpoint that controls access to the service. The
-     * policy must be in valid JSON format. If this parameter is not specified, we
-     * attach a default policy that allows full access to the service.</p>
+     * policy must be in valid JSON format.</p>
      */
     inline void SetPolicyDocument(Aws::String&& value) { m_policyDocumentHasBeenSet = true; m_policyDocument = std::move(value); }
 
     /**
      * <p>A policy to attach to the endpoint that controls access to the service. The
-     * policy must be in valid JSON format. If this parameter is not specified, we
-     * attach a default policy that allows full access to the service.</p>
+     * policy must be in valid JSON format.</p>
      */
     inline void SetPolicyDocument(const char* value) { m_policyDocumentHasBeenSet = true; m_policyDocument.assign(value); }
 
     /**
      * <p>A policy to attach to the endpoint that controls access to the service. The
-     * policy must be in valid JSON format. If this parameter is not specified, we
-     * attach a default policy that allows full access to the service.</p>
+     * policy must be in valid JSON format.</p>
      */
     inline ModifyVpcEndpointRequest& WithPolicyDocument(const Aws::String& value) { SetPolicyDocument(value); return *this;}
 
     /**
      * <p>A policy to attach to the endpoint that controls access to the service. The
-     * policy must be in valid JSON format. If this parameter is not specified, we
-     * attach a default policy that allows full access to the service.</p>
+     * policy must be in valid JSON format.</p>
      */
     inline ModifyVpcEndpointRequest& WithPolicyDocument(Aws::String&& value) { SetPolicyDocument(std::move(value)); return *this;}
 
     /**
      * <p>A policy to attach to the endpoint that controls access to the service. The
-     * policy must be in valid JSON format. If this parameter is not specified, we
-     * attach a default policy that allows full access to the service.</p>
+     * policy must be in valid JSON format.</p>
      */
     inline ModifyVpcEndpointRequest& WithPolicyDocument(const char* value) { SetPolicyDocument(value); return *this;}
 
@@ -537,25 +529,25 @@ namespace Model
 
 
     /**
-     * <p>(Interface endpoint) Indicate whether a private hosted zone is associated
+     * <p>(Interface endpoint) Indicates whether a private hosted zone is associated
      * with the VPC.</p>
      */
     inline bool GetPrivateDnsEnabled() const{ return m_privateDnsEnabled; }
 
     /**
-     * <p>(Interface endpoint) Indicate whether a private hosted zone is associated
+     * <p>(Interface endpoint) Indicates whether a private hosted zone is associated
      * with the VPC.</p>
      */
     inline bool PrivateDnsEnabledHasBeenSet() const { return m_privateDnsEnabledHasBeenSet; }
 
     /**
-     * <p>(Interface endpoint) Indicate whether a private hosted zone is associated
+     * <p>(Interface endpoint) Indicates whether a private hosted zone is associated
      * with the VPC.</p>
      */
     inline void SetPrivateDnsEnabled(bool value) { m_privateDnsEnabledHasBeenSet = true; m_privateDnsEnabled = value; }
 
     /**
-     * <p>(Interface endpoint) Indicate whether a private hosted zone is associated
+     * <p>(Interface endpoint) Indicates whether a private hosted zone is associated
      * with the VPC.</p>
      */
     inline ModifyVpcEndpointRequest& WithPrivateDnsEnabled(bool value) { SetPrivateDnsEnabled(value); return *this;}

@@ -15,6 +15,7 @@
 
 #pragma once
 #include <aws/mediaconvert/MediaConvert_EXPORTS.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/mediaconvert/model/CmafClientCache.h>
 #include <aws/mediaconvert/model/CmafCodecSpecification.h>
@@ -22,10 +23,13 @@
 #include <aws/mediaconvert/model/CmafEncryptionSettings.h>
 #include <aws/mediaconvert/model/CmafManifestCompression.h>
 #include <aws/mediaconvert/model/CmafManifestDurationFormat.h>
+#include <aws/mediaconvert/model/CmafMpdProfile.h>
 #include <aws/mediaconvert/model/CmafSegmentControl.h>
 #include <aws/mediaconvert/model/CmafStreamInfResolution.h>
 #include <aws/mediaconvert/model/CmafWriteDASHManifest.h>
 #include <aws/mediaconvert/model/CmafWriteHLSManifest.h>
+#include <aws/mediaconvert/model/CmafWriteSegmentTimelineInRepresentation.h>
+#include <aws/mediaconvert/model/CmafAdditionalManifest.h>
 #include <utility>
 
 namespace Aws
@@ -57,6 +61,87 @@ namespace Model
     CmafGroupSettings(Aws::Utils::Json::JsonView jsonValue);
     CmafGroupSettings& operator=(Aws::Utils::Json::JsonView jsonValue);
     Aws::Utils::Json::JsonValue Jsonize() const;
+
+
+    /**
+     * By default, the service creates one top-level .m3u8 HLS manifest and one top
+     * -level .mpd DASH manifest for each CMAF output group in your job. These default
+     * manifests reference every output in the output group. To create additional
+     * top-level manifests that reference a subset of the outputs in the output group,
+     * specify a list of them here. For each additional manifest that you specify, the
+     * service creates one HLS manifest and one DASH manifest.
+     */
+    inline const Aws::Vector<CmafAdditionalManifest>& GetAdditionalManifests() const{ return m_additionalManifests; }
+
+    /**
+     * By default, the service creates one top-level .m3u8 HLS manifest and one top
+     * -level .mpd DASH manifest for each CMAF output group in your job. These default
+     * manifests reference every output in the output group. To create additional
+     * top-level manifests that reference a subset of the outputs in the output group,
+     * specify a list of them here. For each additional manifest that you specify, the
+     * service creates one HLS manifest and one DASH manifest.
+     */
+    inline bool AdditionalManifestsHasBeenSet() const { return m_additionalManifestsHasBeenSet; }
+
+    /**
+     * By default, the service creates one top-level .m3u8 HLS manifest and one top
+     * -level .mpd DASH manifest for each CMAF output group in your job. These default
+     * manifests reference every output in the output group. To create additional
+     * top-level manifests that reference a subset of the outputs in the output group,
+     * specify a list of them here. For each additional manifest that you specify, the
+     * service creates one HLS manifest and one DASH manifest.
+     */
+    inline void SetAdditionalManifests(const Aws::Vector<CmafAdditionalManifest>& value) { m_additionalManifestsHasBeenSet = true; m_additionalManifests = value; }
+
+    /**
+     * By default, the service creates one top-level .m3u8 HLS manifest and one top
+     * -level .mpd DASH manifest for each CMAF output group in your job. These default
+     * manifests reference every output in the output group. To create additional
+     * top-level manifests that reference a subset of the outputs in the output group,
+     * specify a list of them here. For each additional manifest that you specify, the
+     * service creates one HLS manifest and one DASH manifest.
+     */
+    inline void SetAdditionalManifests(Aws::Vector<CmafAdditionalManifest>&& value) { m_additionalManifestsHasBeenSet = true; m_additionalManifests = std::move(value); }
+
+    /**
+     * By default, the service creates one top-level .m3u8 HLS manifest and one top
+     * -level .mpd DASH manifest for each CMAF output group in your job. These default
+     * manifests reference every output in the output group. To create additional
+     * top-level manifests that reference a subset of the outputs in the output group,
+     * specify a list of them here. For each additional manifest that you specify, the
+     * service creates one HLS manifest and one DASH manifest.
+     */
+    inline CmafGroupSettings& WithAdditionalManifests(const Aws::Vector<CmafAdditionalManifest>& value) { SetAdditionalManifests(value); return *this;}
+
+    /**
+     * By default, the service creates one top-level .m3u8 HLS manifest and one top
+     * -level .mpd DASH manifest for each CMAF output group in your job. These default
+     * manifests reference every output in the output group. To create additional
+     * top-level manifests that reference a subset of the outputs in the output group,
+     * specify a list of them here. For each additional manifest that you specify, the
+     * service creates one HLS manifest and one DASH manifest.
+     */
+    inline CmafGroupSettings& WithAdditionalManifests(Aws::Vector<CmafAdditionalManifest>&& value) { SetAdditionalManifests(std::move(value)); return *this;}
+
+    /**
+     * By default, the service creates one top-level .m3u8 HLS manifest and one top
+     * -level .mpd DASH manifest for each CMAF output group in your job. These default
+     * manifests reference every output in the output group. To create additional
+     * top-level manifests that reference a subset of the outputs in the output group,
+     * specify a list of them here. For each additional manifest that you specify, the
+     * service creates one HLS manifest and one DASH manifest.
+     */
+    inline CmafGroupSettings& AddAdditionalManifests(const CmafAdditionalManifest& value) { m_additionalManifestsHasBeenSet = true; m_additionalManifests.push_back(value); return *this; }
+
+    /**
+     * By default, the service creates one top-level .m3u8 HLS manifest and one top
+     * -level .mpd DASH manifest for each CMAF output group in your job. These default
+     * manifests reference every output in the output group. To create additional
+     * top-level manifests that reference a subset of the outputs in the output group,
+     * specify a list of them here. For each additional manifest that you specify, the
+     * service creates one HLS manifest and one DASH manifest.
+     */
+    inline CmafGroupSettings& AddAdditionalManifests(CmafAdditionalManifest&& value) { m_additionalManifestsHasBeenSet = true; m_additionalManifests.push_back(std::move(value)); return *this; }
 
 
     /**
@@ -527,6 +612,73 @@ namespace Model
 
 
     /**
+     * Specify whether your DASH profile is on-demand or main. When you choose Main
+     * profile (MAIN_PROFILE), the service signals 
+     * urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you
+     * choose On-demand (ON_DEMAND_PROFILE), the service signals
+     * urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose
+     * On-demand, you must also set the output group setting Segment control
+     * (SegmentControl) to Single file (SINGLE_FILE).
+     */
+    inline const CmafMpdProfile& GetMpdProfile() const{ return m_mpdProfile; }
+
+    /**
+     * Specify whether your DASH profile is on-demand or main. When you choose Main
+     * profile (MAIN_PROFILE), the service signals 
+     * urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you
+     * choose On-demand (ON_DEMAND_PROFILE), the service signals
+     * urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose
+     * On-demand, you must also set the output group setting Segment control
+     * (SegmentControl) to Single file (SINGLE_FILE).
+     */
+    inline bool MpdProfileHasBeenSet() const { return m_mpdProfileHasBeenSet; }
+
+    /**
+     * Specify whether your DASH profile is on-demand or main. When you choose Main
+     * profile (MAIN_PROFILE), the service signals 
+     * urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you
+     * choose On-demand (ON_DEMAND_PROFILE), the service signals
+     * urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose
+     * On-demand, you must also set the output group setting Segment control
+     * (SegmentControl) to Single file (SINGLE_FILE).
+     */
+    inline void SetMpdProfile(const CmafMpdProfile& value) { m_mpdProfileHasBeenSet = true; m_mpdProfile = value; }
+
+    /**
+     * Specify whether your DASH profile is on-demand or main. When you choose Main
+     * profile (MAIN_PROFILE), the service signals 
+     * urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you
+     * choose On-demand (ON_DEMAND_PROFILE), the service signals
+     * urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose
+     * On-demand, you must also set the output group setting Segment control
+     * (SegmentControl) to Single file (SINGLE_FILE).
+     */
+    inline void SetMpdProfile(CmafMpdProfile&& value) { m_mpdProfileHasBeenSet = true; m_mpdProfile = std::move(value); }
+
+    /**
+     * Specify whether your DASH profile is on-demand or main. When you choose Main
+     * profile (MAIN_PROFILE), the service signals 
+     * urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you
+     * choose On-demand (ON_DEMAND_PROFILE), the service signals
+     * urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose
+     * On-demand, you must also set the output group setting Segment control
+     * (SegmentControl) to Single file (SINGLE_FILE).
+     */
+    inline CmafGroupSettings& WithMpdProfile(const CmafMpdProfile& value) { SetMpdProfile(value); return *this;}
+
+    /**
+     * Specify whether your DASH profile is on-demand or main. When you choose Main
+     * profile (MAIN_PROFILE), the service signals 
+     * urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you
+     * choose On-demand (ON_DEMAND_PROFILE), the service signals
+     * urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose
+     * On-demand, you must also set the output group setting Segment control
+     * (SegmentControl) to Single file (SINGLE_FILE).
+     */
+    inline CmafGroupSettings& WithMpdProfile(CmafMpdProfile&& value) { SetMpdProfile(std::move(value)); return *this;}
+
+
+    /**
      * When set to SINGLE_FILE, a single output file is generated, which is internally
      * segmented using the Fragment Length and Segment Length. When set to
      * SEGMENTED_FILES, separate segment files will be created.
@@ -716,7 +868,77 @@ namespace Model
      */
     inline CmafGroupSettings& WithWriteHlsManifest(CmafWriteHLSManifest&& value) { SetWriteHlsManifest(std::move(value)); return *this;}
 
+
+    /**
+     * When you enable Precise segment duration in DASH manifests
+     * (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment
+     * durations. The segment duration information appears inside the SegmentTimeline
+     * element, inside SegmentTemplate at the Representation level. When this feature
+     * isn't enabled, the segment durations in your DASH manifest are approximate. The
+     * segment duration information appears in the duration attribute of the
+     * SegmentTemplate element.
+     */
+    inline const CmafWriteSegmentTimelineInRepresentation& GetWriteSegmentTimelineInRepresentation() const{ return m_writeSegmentTimelineInRepresentation; }
+
+    /**
+     * When you enable Precise segment duration in DASH manifests
+     * (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment
+     * durations. The segment duration information appears inside the SegmentTimeline
+     * element, inside SegmentTemplate at the Representation level. When this feature
+     * isn't enabled, the segment durations in your DASH manifest are approximate. The
+     * segment duration information appears in the duration attribute of the
+     * SegmentTemplate element.
+     */
+    inline bool WriteSegmentTimelineInRepresentationHasBeenSet() const { return m_writeSegmentTimelineInRepresentationHasBeenSet; }
+
+    /**
+     * When you enable Precise segment duration in DASH manifests
+     * (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment
+     * durations. The segment duration information appears inside the SegmentTimeline
+     * element, inside SegmentTemplate at the Representation level. When this feature
+     * isn't enabled, the segment durations in your DASH manifest are approximate. The
+     * segment duration information appears in the duration attribute of the
+     * SegmentTemplate element.
+     */
+    inline void SetWriteSegmentTimelineInRepresentation(const CmafWriteSegmentTimelineInRepresentation& value) { m_writeSegmentTimelineInRepresentationHasBeenSet = true; m_writeSegmentTimelineInRepresentation = value; }
+
+    /**
+     * When you enable Precise segment duration in DASH manifests
+     * (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment
+     * durations. The segment duration information appears inside the SegmentTimeline
+     * element, inside SegmentTemplate at the Representation level. When this feature
+     * isn't enabled, the segment durations in your DASH manifest are approximate. The
+     * segment duration information appears in the duration attribute of the
+     * SegmentTemplate element.
+     */
+    inline void SetWriteSegmentTimelineInRepresentation(CmafWriteSegmentTimelineInRepresentation&& value) { m_writeSegmentTimelineInRepresentationHasBeenSet = true; m_writeSegmentTimelineInRepresentation = std::move(value); }
+
+    /**
+     * When you enable Precise segment duration in DASH manifests
+     * (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment
+     * durations. The segment duration information appears inside the SegmentTimeline
+     * element, inside SegmentTemplate at the Representation level. When this feature
+     * isn't enabled, the segment durations in your DASH manifest are approximate. The
+     * segment duration information appears in the duration attribute of the
+     * SegmentTemplate element.
+     */
+    inline CmafGroupSettings& WithWriteSegmentTimelineInRepresentation(const CmafWriteSegmentTimelineInRepresentation& value) { SetWriteSegmentTimelineInRepresentation(value); return *this;}
+
+    /**
+     * When you enable Precise segment duration in DASH manifests
+     * (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment
+     * durations. The segment duration information appears inside the SegmentTimeline
+     * element, inside SegmentTemplate at the Representation level. When this feature
+     * isn't enabled, the segment durations in your DASH manifest are approximate. The
+     * segment duration information appears in the duration attribute of the
+     * SegmentTemplate element.
+     */
+    inline CmafGroupSettings& WithWriteSegmentTimelineInRepresentation(CmafWriteSegmentTimelineInRepresentation&& value) { SetWriteSegmentTimelineInRepresentation(std::move(value)); return *this;}
+
   private:
+
+    Aws::Vector<CmafAdditionalManifest> m_additionalManifests;
+    bool m_additionalManifestsHasBeenSet;
 
     Aws::String m_baseUrl;
     bool m_baseUrlHasBeenSet;
@@ -751,6 +973,9 @@ namespace Model
     double m_minFinalSegmentLength;
     bool m_minFinalSegmentLengthHasBeenSet;
 
+    CmafMpdProfile m_mpdProfile;
+    bool m_mpdProfileHasBeenSet;
+
     CmafSegmentControl m_segmentControl;
     bool m_segmentControlHasBeenSet;
 
@@ -765,6 +990,9 @@ namespace Model
 
     CmafWriteHLSManifest m_writeHlsManifest;
     bool m_writeHlsManifestHasBeenSet;
+
+    CmafWriteSegmentTimelineInRepresentation m_writeSegmentTimelineInRepresentation;
+    bool m_writeSegmentTimelineInRepresentationHasBeenSet;
   };
 
 } // namespace Model

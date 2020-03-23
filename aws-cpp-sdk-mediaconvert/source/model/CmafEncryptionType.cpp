@@ -31,6 +31,7 @@ namespace Aws
       {
 
         static const int SAMPLE_AES_HASH = HashingUtils::HashString("SAMPLE_AES");
+        static const int AES_CTR_HASH = HashingUtils::HashString("AES_CTR");
 
 
         CmafEncryptionType GetCmafEncryptionTypeForName(const Aws::String& name)
@@ -39,6 +40,10 @@ namespace Aws
           if (hashCode == SAMPLE_AES_HASH)
           {
             return CmafEncryptionType::SAMPLE_AES;
+          }
+          else if (hashCode == AES_CTR_HASH)
+          {
+            return CmafEncryptionType::AES_CTR;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -56,6 +61,8 @@ namespace Aws
           {
           case CmafEncryptionType::SAMPLE_AES:
             return "SAMPLE_AES";
+          case CmafEncryptionType::AES_CTR:
+            return "AES_CTR";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

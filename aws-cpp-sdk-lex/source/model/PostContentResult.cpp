@@ -37,12 +37,14 @@ PostContentResult::PostContentResult(PostContentResult&& toMove) :
     m_intentName(std::move(toMove.m_intentName)),
     m_slots(std::move(toMove.m_slots)),
     m_sessionAttributes(std::move(toMove.m_sessionAttributes)),
+    m_sentimentResponse(std::move(toMove.m_sentimentResponse)),
     m_message(std::move(toMove.m_message)),
     m_messageFormat(toMove.m_messageFormat),
     m_dialogState(toMove.m_dialogState),
     m_slotToElicit(std::move(toMove.m_slotToElicit)),
     m_inputTranscript(std::move(toMove.m_inputTranscript)),
-    m_audioStream(std::move(toMove.m_audioStream))
+    m_audioStream(std::move(toMove.m_audioStream)),
+    m_sessionId(std::move(toMove.m_sessionId))
 {
 }
 
@@ -57,12 +59,14 @@ PostContentResult& PostContentResult::operator=(PostContentResult&& toMove)
    m_intentName = std::move(toMove.m_intentName);
    m_slots = std::move(toMove.m_slots);
    m_sessionAttributes = std::move(toMove.m_sessionAttributes);
+   m_sentimentResponse = std::move(toMove.m_sentimentResponse);
    m_message = std::move(toMove.m_message);
    m_messageFormat = toMove.m_messageFormat;
    m_dialogState = toMove.m_dialogState;
    m_slotToElicit = std::move(toMove.m_slotToElicit);
    m_inputTranscript = std::move(toMove.m_inputTranscript);
    m_audioStream = std::move(toMove.m_audioStream);
+   m_sessionId = std::move(toMove.m_sessionId);
 
    return *this;
 }
@@ -103,6 +107,12 @@ PostContentResult& PostContentResult::operator =(Aws::AmazonWebServiceResult<Res
     m_sessionAttributes = sessionAttributesIter->second;
   }
 
+  const auto& sentimentResponseIter = headers.find("x-amz-lex-sentiment");
+  if(sentimentResponseIter != headers.end())
+  {
+    m_sentimentResponse = sentimentResponseIter->second;
+  }
+
   const auto& messageIter = headers.find("x-amz-lex-message");
   if(messageIter != headers.end())
   {
@@ -131,6 +141,12 @@ PostContentResult& PostContentResult::operator =(Aws::AmazonWebServiceResult<Res
   if(inputTranscriptIter != headers.end())
   {
     m_inputTranscript = inputTranscriptIter->second;
+  }
+
+  const auto& sessionIdIter = headers.find("x-amz-lex-session-id");
+  if(sessionIdIter != headers.end())
+  {
+    m_sessionId = sessionIdIter->second;
   }
 
    return *this;

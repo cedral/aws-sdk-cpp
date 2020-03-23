@@ -37,14 +37,17 @@ namespace Model
     image,
     instance,
     internet_gateway,
+    key_pair,
     launch_template,
     natgateway,
     network_acl,
     network_interface,
+    placement_group,
     reserved_instances,
     route_table,
     security_group,
     snapshot,
+    spot_fleet_request,
     spot_instances_request,
     subnet,
     traffic_mirror_filter,
@@ -52,12 +55,14 @@ namespace Model
     traffic_mirror_target,
     transit_gateway,
     transit_gateway_attachment,
+    transit_gateway_multicast_domain,
     transit_gateway_route_table,
     volume,
     vpc,
     vpc_peering_connection,
     vpn_connection,
-    vpn_gateway
+    vpn_gateway,
+    vpc_flow_log
   };
 
 namespace ResourceTypeMapper

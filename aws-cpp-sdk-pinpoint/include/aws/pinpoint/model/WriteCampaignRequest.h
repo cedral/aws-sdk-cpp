@@ -22,6 +22,7 @@
 #include <aws/pinpoint/model/MessageConfiguration.h>
 #include <aws/pinpoint/model/Schedule.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
+#include <aws/pinpoint/model/TemplateConfiguration.h>
 #include <aws/pinpoint/model/WriteTreatmentResource.h>
 #include <utility>
 
@@ -105,42 +106,42 @@ namespace Model
 
 
     /**
-     * <p>The custom description of the campaign.</p>
+     * <p>A custom description of the campaign.</p>
      */
     inline const Aws::String& GetDescription() const{ return m_description; }
 
     /**
-     * <p>The custom description of the campaign.</p>
+     * <p>A custom description of the campaign.</p>
      */
     inline bool DescriptionHasBeenSet() const { return m_descriptionHasBeenSet; }
 
     /**
-     * <p>The custom description of the campaign.</p>
+     * <p>A custom description of the campaign.</p>
      */
     inline void SetDescription(const Aws::String& value) { m_descriptionHasBeenSet = true; m_description = value; }
 
     /**
-     * <p>The custom description of the campaign.</p>
+     * <p>A custom description of the campaign.</p>
      */
     inline void SetDescription(Aws::String&& value) { m_descriptionHasBeenSet = true; m_description = std::move(value); }
 
     /**
-     * <p>The custom description of the campaign.</p>
+     * <p>A custom description of the campaign.</p>
      */
     inline void SetDescription(const char* value) { m_descriptionHasBeenSet = true; m_description.assign(value); }
 
     /**
-     * <p>The custom description of the campaign.</p>
+     * <p>A custom description of the campaign.</p>
      */
     inline WriteCampaignRequest& WithDescription(const Aws::String& value) { SetDescription(value); return *this;}
 
     /**
-     * <p>The custom description of the campaign.</p>
+     * <p>A custom description of the campaign.</p>
      */
     inline WriteCampaignRequest& WithDescription(Aws::String&& value) { SetDescription(std::move(value)); return *this;}
 
     /**
-     * <p>The custom description of the campaign.</p>
+     * <p>A custom description of the campaign.</p>
      */
     inline WriteCampaignRequest& WithDescription(const char* value) { SetDescription(value); return *this;}
 
@@ -295,42 +296,42 @@ namespace Model
 
 
     /**
-     * <p>The custom name of the campaign.</p>
+     * <p>A custom name for the campaign.</p>
      */
     inline const Aws::String& GetName() const{ return m_name; }
 
     /**
-     * <p>The custom name of the campaign.</p>
+     * <p>A custom name for the campaign.</p>
      */
     inline bool NameHasBeenSet() const { return m_nameHasBeenSet; }
 
     /**
-     * <p>The custom name of the campaign.</p>
+     * <p>A custom name for the campaign.</p>
      */
     inline void SetName(const Aws::String& value) { m_nameHasBeenSet = true; m_name = value; }
 
     /**
-     * <p>The custom name of the campaign.</p>
+     * <p>A custom name for the campaign.</p>
      */
     inline void SetName(Aws::String&& value) { m_nameHasBeenSet = true; m_name = std::move(value); }
 
     /**
-     * <p>The custom name of the campaign.</p>
+     * <p>A custom name for the campaign.</p>
      */
     inline void SetName(const char* value) { m_nameHasBeenSet = true; m_name.assign(value); }
 
     /**
-     * <p>The custom name of the campaign.</p>
+     * <p>A custom name for the campaign.</p>
      */
     inline WriteCampaignRequest& WithName(const Aws::String& value) { SetName(value); return *this;}
 
     /**
-     * <p>The custom name of the campaign.</p>
+     * <p>A custom name for the campaign.</p>
      */
     inline WriteCampaignRequest& WithName(Aws::String&& value) { SetName(std::move(value)); return *this;}
 
     /**
-     * <p>The custom name of the campaign.</p>
+     * <p>A custom name for the campaign.</p>
      */
     inline WriteCampaignRequest& WithName(const char* value) { SetName(value); return *this;}
 
@@ -521,91 +522,122 @@ namespace Model
 
 
     /**
-     * <p>The custom description of a variation of the campaign to use for A/B
+     * <p>The message template to use for the campaign.</p>
+     */
+    inline const TemplateConfiguration& GetTemplateConfiguration() const{ return m_templateConfiguration; }
+
+    /**
+     * <p>The message template to use for the campaign.</p>
+     */
+    inline bool TemplateConfigurationHasBeenSet() const { return m_templateConfigurationHasBeenSet; }
+
+    /**
+     * <p>The message template to use for the campaign.</p>
+     */
+    inline void SetTemplateConfiguration(const TemplateConfiguration& value) { m_templateConfigurationHasBeenSet = true; m_templateConfiguration = value; }
+
+    /**
+     * <p>The message template to use for the campaign.</p>
+     */
+    inline void SetTemplateConfiguration(TemplateConfiguration&& value) { m_templateConfigurationHasBeenSet = true; m_templateConfiguration = std::move(value); }
+
+    /**
+     * <p>The message template to use for the campaign.</p>
+     */
+    inline WriteCampaignRequest& WithTemplateConfiguration(const TemplateConfiguration& value) { SetTemplateConfiguration(value); return *this;}
+
+    /**
+     * <p>The message template to use for the campaign.</p>
+     */
+    inline WriteCampaignRequest& WithTemplateConfiguration(TemplateConfiguration&& value) { SetTemplateConfiguration(std::move(value)); return *this;}
+
+
+    /**
+     * <p>A custom description of a variation of the campaign to use for A/B
      * testing.</p>
      */
     inline const Aws::String& GetTreatmentDescription() const{ return m_treatmentDescription; }
 
     /**
-     * <p>The custom description of a variation of the campaign to use for A/B
+     * <p>A custom description of a variation of the campaign to use for A/B
      * testing.</p>
      */
     inline bool TreatmentDescriptionHasBeenSet() const { return m_treatmentDescriptionHasBeenSet; }
 
     /**
-     * <p>The custom description of a variation of the campaign to use for A/B
+     * <p>A custom description of a variation of the campaign to use for A/B
      * testing.</p>
      */
     inline void SetTreatmentDescription(const Aws::String& value) { m_treatmentDescriptionHasBeenSet = true; m_treatmentDescription = value; }
 
     /**
-     * <p>The custom description of a variation of the campaign to use for A/B
+     * <p>A custom description of a variation of the campaign to use for A/B
      * testing.</p>
      */
     inline void SetTreatmentDescription(Aws::String&& value) { m_treatmentDescriptionHasBeenSet = true; m_treatmentDescription = std::move(value); }
 
     /**
-     * <p>The custom description of a variation of the campaign to use for A/B
+     * <p>A custom description of a variation of the campaign to use for A/B
      * testing.</p>
      */
     inline void SetTreatmentDescription(const char* value) { m_treatmentDescriptionHasBeenSet = true; m_treatmentDescription.assign(value); }
 
     /**
-     * <p>The custom description of a variation of the campaign to use for A/B
+     * <p>A custom description of a variation of the campaign to use for A/B
      * testing.</p>
      */
     inline WriteCampaignRequest& WithTreatmentDescription(const Aws::String& value) { SetTreatmentDescription(value); return *this;}
 
     /**
-     * <p>The custom description of a variation of the campaign to use for A/B
+     * <p>A custom description of a variation of the campaign to use for A/B
      * testing.</p>
      */
     inline WriteCampaignRequest& WithTreatmentDescription(Aws::String&& value) { SetTreatmentDescription(std::move(value)); return *this;}
 
     /**
-     * <p>The custom description of a variation of the campaign to use for A/B
+     * <p>A custom description of a variation of the campaign to use for A/B
      * testing.</p>
      */
     inline WriteCampaignRequest& WithTreatmentDescription(const char* value) { SetTreatmentDescription(value); return *this;}
 
 
     /**
-     * <p>The custom name of a variation of the campaign to use for A/B testing.</p>
+     * <p>A custom name for a variation of the campaign to use for A/B testing.</p>
      */
     inline const Aws::String& GetTreatmentName() const{ return m_treatmentName; }
 
     /**
-     * <p>The custom name of a variation of the campaign to use for A/B testing.</p>
+     * <p>A custom name for a variation of the campaign to use for A/B testing.</p>
      */
     inline bool TreatmentNameHasBeenSet() const { return m_treatmentNameHasBeenSet; }
 
     /**
-     * <p>The custom name of a variation of the campaign to use for A/B testing.</p>
+     * <p>A custom name for a variation of the campaign to use for A/B testing.</p>
      */
     inline void SetTreatmentName(const Aws::String& value) { m_treatmentNameHasBeenSet = true; m_treatmentName = value; }
 
     /**
-     * <p>The custom name of a variation of the campaign to use for A/B testing.</p>
+     * <p>A custom name for a variation of the campaign to use for A/B testing.</p>
      */
     inline void SetTreatmentName(Aws::String&& value) { m_treatmentNameHasBeenSet = true; m_treatmentName = std::move(value); }
 
     /**
-     * <p>The custom name of a variation of the campaign to use for A/B testing.</p>
+     * <p>A custom name for a variation of the campaign to use for A/B testing.</p>
      */
     inline void SetTreatmentName(const char* value) { m_treatmentNameHasBeenSet = true; m_treatmentName.assign(value); }
 
     /**
-     * <p>The custom name of a variation of the campaign to use for A/B testing.</p>
+     * <p>A custom name for a variation of the campaign to use for A/B testing.</p>
      */
     inline WriteCampaignRequest& WithTreatmentName(const Aws::String& value) { SetTreatmentName(value); return *this;}
 
     /**
-     * <p>The custom name of a variation of the campaign to use for A/B testing.</p>
+     * <p>A custom name for a variation of the campaign to use for A/B testing.</p>
      */
     inline WriteCampaignRequest& WithTreatmentName(Aws::String&& value) { SetTreatmentName(std::move(value)); return *this;}
 
     /**
-     * <p>The custom name of a variation of the campaign to use for A/B testing.</p>
+     * <p>A custom name for a variation of the campaign to use for A/B testing.</p>
      */
     inline WriteCampaignRequest& WithTreatmentName(const char* value) { SetTreatmentName(value); return *this;}
 
@@ -646,6 +678,9 @@ namespace Model
 
     Aws::Map<Aws::String, Aws::String> m_tags;
     bool m_tagsHasBeenSet;
+
+    TemplateConfiguration m_templateConfiguration;
+    bool m_templateConfigurationHasBeenSet;
 
     Aws::String m_treatmentDescription;
     bool m_treatmentDescriptionHasBeenSet;

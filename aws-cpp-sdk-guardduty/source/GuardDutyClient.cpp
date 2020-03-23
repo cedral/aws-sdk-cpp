@@ -36,6 +36,7 @@
 #include <aws/guardduty/model/CreateFilterRequest.h>
 #include <aws/guardduty/model/CreateIPSetRequest.h>
 #include <aws/guardduty/model/CreateMembersRequest.h>
+#include <aws/guardduty/model/CreatePublishingDestinationRequest.h>
 #include <aws/guardduty/model/CreateSampleFindingsRequest.h>
 #include <aws/guardduty/model/CreateThreatIntelSetRequest.h>
 #include <aws/guardduty/model/DeclineInvitationsRequest.h>
@@ -44,7 +45,9 @@
 #include <aws/guardduty/model/DeleteIPSetRequest.h>
 #include <aws/guardduty/model/DeleteInvitationsRequest.h>
 #include <aws/guardduty/model/DeleteMembersRequest.h>
+#include <aws/guardduty/model/DeletePublishingDestinationRequest.h>
 #include <aws/guardduty/model/DeleteThreatIntelSetRequest.h>
+#include <aws/guardduty/model/DescribePublishingDestinationRequest.h>
 #include <aws/guardduty/model/DisassociateFromMasterAccountRequest.h>
 #include <aws/guardduty/model/DisassociateMembersRequest.h>
 #include <aws/guardduty/model/GetDetectorRequest.h>
@@ -63,6 +66,7 @@
 #include <aws/guardduty/model/ListIPSetsRequest.h>
 #include <aws/guardduty/model/ListInvitationsRequest.h>
 #include <aws/guardduty/model/ListMembersRequest.h>
+#include <aws/guardduty/model/ListPublishingDestinationsRequest.h>
 #include <aws/guardduty/model/ListTagsForResourceRequest.h>
 #include <aws/guardduty/model/ListThreatIntelSetsRequest.h>
 #include <aws/guardduty/model/StartMonitoringMembersRequest.h>
@@ -74,6 +78,7 @@
 #include <aws/guardduty/model/UpdateFilterRequest.h>
 #include <aws/guardduty/model/UpdateFindingsFeedbackRequest.h>
 #include <aws/guardduty/model/UpdateIPSetRequest.h>
+#include <aws/guardduty/model/UpdatePublishingDestinationRequest.h>
 #include <aws/guardduty/model/UpdateThreatIntelSetRequest.h>
 
 using namespace Aws;
@@ -161,7 +166,7 @@ AcceptInvitationOutcome GuardDutyClient::AcceptInvitation(const AcceptInvitation
   ss << request.GetDetectorId();
   ss << "/master";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AcceptInvitationOutcome(AcceptInvitationResult(outcome.GetResult()));
@@ -203,7 +208,7 @@ ArchiveFindingsOutcome GuardDutyClient::ArchiveFindings(const ArchiveFindingsReq
   ss << request.GetDetectorId();
   ss << "/findings/archive";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ArchiveFindingsOutcome(ArchiveFindingsResult(outcome.GetResult()));
@@ -238,7 +243,7 @@ CreateDetectorOutcome GuardDutyClient::CreateDetector(const CreateDetectorReques
   Aws::StringStream ss;
   ss << "/detector";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDetectorOutcome(CreateDetectorResult(outcome.GetResult()));
@@ -280,7 +285,7 @@ CreateFilterOutcome GuardDutyClient::CreateFilter(const CreateFilterRequest& req
   ss << request.GetDetectorId();
   ss << "/filter";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateFilterOutcome(CreateFilterResult(outcome.GetResult()));
@@ -322,7 +327,7 @@ CreateIPSetOutcome GuardDutyClient::CreateIPSet(const CreateIPSetRequest& reques
   ss << request.GetDetectorId();
   ss << "/ipset";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateIPSetOutcome(CreateIPSetResult(outcome.GetResult()));
@@ -364,7 +369,7 @@ CreateMembersOutcome GuardDutyClient::CreateMembers(const CreateMembersRequest& 
   ss << request.GetDetectorId();
   ss << "/member";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateMembersOutcome(CreateMembersResult(outcome.GetResult()));
@@ -393,6 +398,48 @@ void GuardDutyClient::CreateMembersAsyncHelper(const CreateMembersRequest& reque
   handler(this, request, CreateMembers(request), context);
 }
 
+CreatePublishingDestinationOutcome GuardDutyClient::CreatePublishingDestination(const CreatePublishingDestinationRequest& request) const
+{
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreatePublishingDestination", "Required field: DetectorId, is not set");
+    return CreatePublishingDestinationOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/detector/";
+  ss << request.GetDetectorId();
+  ss << "/publishingDestination";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreatePublishingDestinationOutcome(CreatePublishingDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreatePublishingDestinationOutcome(outcome.GetError());
+  }
+}
+
+CreatePublishingDestinationOutcomeCallable GuardDutyClient::CreatePublishingDestinationCallable(const CreatePublishingDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreatePublishingDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreatePublishingDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GuardDutyClient::CreatePublishingDestinationAsync(const CreatePublishingDestinationRequest& request, const CreatePublishingDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreatePublishingDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void GuardDutyClient::CreatePublishingDestinationAsyncHelper(const CreatePublishingDestinationRequest& request, const CreatePublishingDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreatePublishingDestination(request), context);
+}
+
 CreateSampleFindingsOutcome GuardDutyClient::CreateSampleFindings(const CreateSampleFindingsRequest& request) const
 {
   if (!request.DetectorIdHasBeenSet())
@@ -406,7 +453,7 @@ CreateSampleFindingsOutcome GuardDutyClient::CreateSampleFindings(const CreateSa
   ss << request.GetDetectorId();
   ss << "/findings/create";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSampleFindingsOutcome(CreateSampleFindingsResult(outcome.GetResult()));
@@ -448,7 +495,7 @@ CreateThreatIntelSetOutcome GuardDutyClient::CreateThreatIntelSet(const CreateTh
   ss << request.GetDetectorId();
   ss << "/threatintelset";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateThreatIntelSetOutcome(CreateThreatIntelSetResult(outcome.GetResult()));
@@ -483,7 +530,7 @@ DeclineInvitationsOutcome GuardDutyClient::DeclineInvitations(const DeclineInvit
   Aws::StringStream ss;
   ss << "/invitation/decline";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeclineInvitationsOutcome(DeclineInvitationsResult(outcome.GetResult()));
@@ -524,7 +571,7 @@ DeleteDetectorOutcome GuardDutyClient::DeleteDetector(const DeleteDetectorReques
   ss << "/detector/";
   ss << request.GetDetectorId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDetectorOutcome(DeleteDetectorResult(outcome.GetResult()));
@@ -572,7 +619,7 @@ DeleteFilterOutcome GuardDutyClient::DeleteFilter(const DeleteFilterRequest& req
   ss << "/filter/";
   ss << request.GetFilterName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteFilterOutcome(DeleteFilterResult(outcome.GetResult()));
@@ -620,7 +667,7 @@ DeleteIPSetOutcome GuardDutyClient::DeleteIPSet(const DeleteIPSetRequest& reques
   ss << "/ipset/";
   ss << request.GetIpSetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteIPSetOutcome(DeleteIPSetResult(outcome.GetResult()));
@@ -655,7 +702,7 @@ DeleteInvitationsOutcome GuardDutyClient::DeleteInvitations(const DeleteInvitati
   Aws::StringStream ss;
   ss << "/invitation/delete";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteInvitationsOutcome(DeleteInvitationsResult(outcome.GetResult()));
@@ -697,7 +744,7 @@ DeleteMembersOutcome GuardDutyClient::DeleteMembers(const DeleteMembersRequest& 
   ss << request.GetDetectorId();
   ss << "/member/delete";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteMembersOutcome(DeleteMembersResult(outcome.GetResult()));
@@ -726,6 +773,54 @@ void GuardDutyClient::DeleteMembersAsyncHelper(const DeleteMembersRequest& reque
   handler(this, request, DeleteMembers(request), context);
 }
 
+DeletePublishingDestinationOutcome GuardDutyClient::DeletePublishingDestination(const DeletePublishingDestinationRequest& request) const
+{
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeletePublishingDestination", "Required field: DetectorId, is not set");
+    return DeletePublishingDestinationOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.DestinationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeletePublishingDestination", "Required field: DestinationId, is not set");
+    return DeletePublishingDestinationOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DestinationId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/detector/";
+  ss << request.GetDetectorId();
+  ss << "/publishingDestination/";
+  ss << request.GetDestinationId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeletePublishingDestinationOutcome(DeletePublishingDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeletePublishingDestinationOutcome(outcome.GetError());
+  }
+}
+
+DeletePublishingDestinationOutcomeCallable GuardDutyClient::DeletePublishingDestinationCallable(const DeletePublishingDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeletePublishingDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeletePublishingDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GuardDutyClient::DeletePublishingDestinationAsync(const DeletePublishingDestinationRequest& request, const DeletePublishingDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeletePublishingDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void GuardDutyClient::DeletePublishingDestinationAsyncHelper(const DeletePublishingDestinationRequest& request, const DeletePublishingDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeletePublishingDestination(request), context);
+}
+
 DeleteThreatIntelSetOutcome GuardDutyClient::DeleteThreatIntelSet(const DeleteThreatIntelSetRequest& request) const
 {
   if (!request.DetectorIdHasBeenSet())
@@ -745,7 +840,7 @@ DeleteThreatIntelSetOutcome GuardDutyClient::DeleteThreatIntelSet(const DeleteTh
   ss << "/threatintelset/";
   ss << request.GetThreatIntelSetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteThreatIntelSetOutcome(DeleteThreatIntelSetResult(outcome.GetResult()));
@@ -774,6 +869,54 @@ void GuardDutyClient::DeleteThreatIntelSetAsyncHelper(const DeleteThreatIntelSet
   handler(this, request, DeleteThreatIntelSet(request), context);
 }
 
+DescribePublishingDestinationOutcome GuardDutyClient::DescribePublishingDestination(const DescribePublishingDestinationRequest& request) const
+{
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribePublishingDestination", "Required field: DetectorId, is not set");
+    return DescribePublishingDestinationOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.DestinationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribePublishingDestination", "Required field: DestinationId, is not set");
+    return DescribePublishingDestinationOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DestinationId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/detector/";
+  ss << request.GetDetectorId();
+  ss << "/publishingDestination/";
+  ss << request.GetDestinationId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribePublishingDestinationOutcome(DescribePublishingDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribePublishingDestinationOutcome(outcome.GetError());
+  }
+}
+
+DescribePublishingDestinationOutcomeCallable GuardDutyClient::DescribePublishingDestinationCallable(const DescribePublishingDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribePublishingDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribePublishingDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GuardDutyClient::DescribePublishingDestinationAsync(const DescribePublishingDestinationRequest& request, const DescribePublishingDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribePublishingDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void GuardDutyClient::DescribePublishingDestinationAsyncHelper(const DescribePublishingDestinationRequest& request, const DescribePublishingDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribePublishingDestination(request), context);
+}
+
 DisassociateFromMasterAccountOutcome GuardDutyClient::DisassociateFromMasterAccount(const DisassociateFromMasterAccountRequest& request) const
 {
   if (!request.DetectorIdHasBeenSet())
@@ -787,7 +930,7 @@ DisassociateFromMasterAccountOutcome GuardDutyClient::DisassociateFromMasterAcco
   ss << request.GetDetectorId();
   ss << "/master/disassociate";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisassociateFromMasterAccountOutcome(DisassociateFromMasterAccountResult(outcome.GetResult()));
@@ -829,7 +972,7 @@ DisassociateMembersOutcome GuardDutyClient::DisassociateMembers(const Disassocia
   ss << request.GetDetectorId();
   ss << "/member/disassociate";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisassociateMembersOutcome(DisassociateMembersResult(outcome.GetResult()));
@@ -870,7 +1013,7 @@ GetDetectorOutcome GuardDutyClient::GetDetector(const GetDetectorRequest& reques
   ss << "/detector/";
   ss << request.GetDetectorId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDetectorOutcome(GetDetectorResult(outcome.GetResult()));
@@ -918,7 +1061,7 @@ GetFilterOutcome GuardDutyClient::GetFilter(const GetFilterRequest& request) con
   ss << "/filter/";
   ss << request.GetFilterName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetFilterOutcome(GetFilterResult(outcome.GetResult()));
@@ -960,7 +1103,7 @@ GetFindingsOutcome GuardDutyClient::GetFindings(const GetFindingsRequest& reques
   ss << request.GetDetectorId();
   ss << "/findings/get";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetFindingsOutcome(GetFindingsResult(outcome.GetResult()));
@@ -1002,7 +1145,7 @@ GetFindingsStatisticsOutcome GuardDutyClient::GetFindingsStatistics(const GetFin
   ss << request.GetDetectorId();
   ss << "/findings/statistics";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetFindingsStatisticsOutcome(GetFindingsStatisticsResult(outcome.GetResult()));
@@ -1050,7 +1193,7 @@ GetIPSetOutcome GuardDutyClient::GetIPSet(const GetIPSetRequest& request) const
   ss << "/ipset/";
   ss << request.GetIpSetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIPSetOutcome(GetIPSetResult(outcome.GetResult()));
@@ -1085,7 +1228,7 @@ GetInvitationsCountOutcome GuardDutyClient::GetInvitationsCount(const GetInvitat
   Aws::StringStream ss;
   ss << "/invitation/count";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetInvitationsCountOutcome(GetInvitationsCountResult(outcome.GetResult()));
@@ -1127,7 +1270,7 @@ GetMasterAccountOutcome GuardDutyClient::GetMasterAccount(const GetMasterAccount
   ss << request.GetDetectorId();
   ss << "/master";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetMasterAccountOutcome(GetMasterAccountResult(outcome.GetResult()));
@@ -1169,7 +1312,7 @@ GetMembersOutcome GuardDutyClient::GetMembers(const GetMembersRequest& request) 
   ss << request.GetDetectorId();
   ss << "/member/get";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetMembersOutcome(GetMembersResult(outcome.GetResult()));
@@ -1217,7 +1360,7 @@ GetThreatIntelSetOutcome GuardDutyClient::GetThreatIntelSet(const GetThreatIntel
   ss << "/threatintelset/";
   ss << request.GetThreatIntelSetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetThreatIntelSetOutcome(GetThreatIntelSetResult(outcome.GetResult()));
@@ -1259,7 +1402,7 @@ InviteMembersOutcome GuardDutyClient::InviteMembers(const InviteMembersRequest& 
   ss << request.GetDetectorId();
   ss << "/member/invite";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return InviteMembersOutcome(InviteMembersResult(outcome.GetResult()));
@@ -1294,7 +1437,7 @@ ListDetectorsOutcome GuardDutyClient::ListDetectors(const ListDetectorsRequest& 
   Aws::StringStream ss;
   ss << "/detector";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDetectorsOutcome(ListDetectorsResult(outcome.GetResult()));
@@ -1336,7 +1479,7 @@ ListFiltersOutcome GuardDutyClient::ListFilters(const ListFiltersRequest& reques
   ss << request.GetDetectorId();
   ss << "/filter";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListFiltersOutcome(ListFiltersResult(outcome.GetResult()));
@@ -1378,7 +1521,7 @@ ListFindingsOutcome GuardDutyClient::ListFindings(const ListFindingsRequest& req
   ss << request.GetDetectorId();
   ss << "/findings";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListFindingsOutcome(ListFindingsResult(outcome.GetResult()));
@@ -1420,7 +1563,7 @@ ListIPSetsOutcome GuardDutyClient::ListIPSets(const ListIPSetsRequest& request) 
   ss << request.GetDetectorId();
   ss << "/ipset";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListIPSetsOutcome(ListIPSetsResult(outcome.GetResult()));
@@ -1455,7 +1598,7 @@ ListInvitationsOutcome GuardDutyClient::ListInvitations(const ListInvitationsReq
   Aws::StringStream ss;
   ss << "/invitation";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListInvitationsOutcome(ListInvitationsResult(outcome.GetResult()));
@@ -1497,7 +1640,7 @@ ListMembersOutcome GuardDutyClient::ListMembers(const ListMembersRequest& reques
   ss << request.GetDetectorId();
   ss << "/member";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListMembersOutcome(ListMembersResult(outcome.GetResult()));
@@ -1526,6 +1669,48 @@ void GuardDutyClient::ListMembersAsyncHelper(const ListMembersRequest& request, 
   handler(this, request, ListMembers(request), context);
 }
 
+ListPublishingDestinationsOutcome GuardDutyClient::ListPublishingDestinations(const ListPublishingDestinationsRequest& request) const
+{
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListPublishingDestinations", "Required field: DetectorId, is not set");
+    return ListPublishingDestinationsOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/detector/";
+  ss << request.GetDetectorId();
+  ss << "/publishingDestination";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListPublishingDestinationsOutcome(ListPublishingDestinationsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListPublishingDestinationsOutcome(outcome.GetError());
+  }
+}
+
+ListPublishingDestinationsOutcomeCallable GuardDutyClient::ListPublishingDestinationsCallable(const ListPublishingDestinationsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListPublishingDestinationsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListPublishingDestinations(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GuardDutyClient::ListPublishingDestinationsAsync(const ListPublishingDestinationsRequest& request, const ListPublishingDestinationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListPublishingDestinationsAsyncHelper( request, handler, context ); } );
+}
+
+void GuardDutyClient::ListPublishingDestinationsAsyncHelper(const ListPublishingDestinationsRequest& request, const ListPublishingDestinationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListPublishingDestinations(request), context);
+}
+
 ListTagsForResourceOutcome GuardDutyClient::ListTagsForResource(const ListTagsForResourceRequest& request) const
 {
   if (!request.ResourceArnHasBeenSet())
@@ -1538,7 +1723,7 @@ ListTagsForResourceOutcome GuardDutyClient::ListTagsForResource(const ListTagsFo
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -1580,7 +1765,7 @@ ListThreatIntelSetsOutcome GuardDutyClient::ListThreatIntelSets(const ListThreat
   ss << request.GetDetectorId();
   ss << "/threatintelset";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThreatIntelSetsOutcome(ListThreatIntelSetsResult(outcome.GetResult()));
@@ -1622,7 +1807,7 @@ StartMonitoringMembersOutcome GuardDutyClient::StartMonitoringMembers(const Star
   ss << request.GetDetectorId();
   ss << "/member/start";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartMonitoringMembersOutcome(StartMonitoringMembersResult(outcome.GetResult()));
@@ -1664,7 +1849,7 @@ StopMonitoringMembersOutcome GuardDutyClient::StopMonitoringMembers(const StopMo
   ss << request.GetDetectorId();
   ss << "/member/stop";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopMonitoringMembersOutcome(StopMonitoringMembersResult(outcome.GetResult()));
@@ -1705,7 +1890,7 @@ TagResourceOutcome GuardDutyClient::TagResource(const TagResourceRequest& reques
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -1747,7 +1932,7 @@ UnarchiveFindingsOutcome GuardDutyClient::UnarchiveFindings(const UnarchiveFindi
   ss << request.GetDetectorId();
   ss << "/findings/unarchive";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UnarchiveFindingsOutcome(UnarchiveFindingsResult(outcome.GetResult()));
@@ -1793,7 +1978,7 @@ UntagResourceOutcome GuardDutyClient::UntagResource(const UntagResourceRequest& 
   ss << "/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -1834,7 +2019,7 @@ UpdateDetectorOutcome GuardDutyClient::UpdateDetector(const UpdateDetectorReques
   ss << "/detector/";
   ss << request.GetDetectorId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDetectorOutcome(UpdateDetectorResult(outcome.GetResult()));
@@ -1882,7 +2067,7 @@ UpdateFilterOutcome GuardDutyClient::UpdateFilter(const UpdateFilterRequest& req
   ss << "/filter/";
   ss << request.GetFilterName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateFilterOutcome(UpdateFilterResult(outcome.GetResult()));
@@ -1924,7 +2109,7 @@ UpdateFindingsFeedbackOutcome GuardDutyClient::UpdateFindingsFeedback(const Upda
   ss << request.GetDetectorId();
   ss << "/findings/feedback";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateFindingsFeedbackOutcome(UpdateFindingsFeedbackResult(outcome.GetResult()));
@@ -1972,7 +2157,7 @@ UpdateIPSetOutcome GuardDutyClient::UpdateIPSet(const UpdateIPSetRequest& reques
   ss << "/ipset/";
   ss << request.GetIpSetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateIPSetOutcome(UpdateIPSetResult(outcome.GetResult()));
@@ -2001,6 +2186,54 @@ void GuardDutyClient::UpdateIPSetAsyncHelper(const UpdateIPSetRequest& request, 
   handler(this, request, UpdateIPSet(request), context);
 }
 
+UpdatePublishingDestinationOutcome GuardDutyClient::UpdatePublishingDestination(const UpdatePublishingDestinationRequest& request) const
+{
+  if (!request.DetectorIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdatePublishingDestination", "Required field: DetectorId, is not set");
+    return UpdatePublishingDestinationOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DetectorId]", false));
+  }
+  if (!request.DestinationIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdatePublishingDestination", "Required field: DestinationId, is not set");
+    return UpdatePublishingDestinationOutcome(Aws::Client::AWSError<GuardDutyErrors>(GuardDutyErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DestinationId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/detector/";
+  ss << request.GetDetectorId();
+  ss << "/publishingDestination/";
+  ss << request.GetDestinationId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdatePublishingDestinationOutcome(UpdatePublishingDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdatePublishingDestinationOutcome(outcome.GetError());
+  }
+}
+
+UpdatePublishingDestinationOutcomeCallable GuardDutyClient::UpdatePublishingDestinationCallable(const UpdatePublishingDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdatePublishingDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdatePublishingDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GuardDutyClient::UpdatePublishingDestinationAsync(const UpdatePublishingDestinationRequest& request, const UpdatePublishingDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdatePublishingDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void GuardDutyClient::UpdatePublishingDestinationAsyncHelper(const UpdatePublishingDestinationRequest& request, const UpdatePublishingDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdatePublishingDestination(request), context);
+}
+
 UpdateThreatIntelSetOutcome GuardDutyClient::UpdateThreatIntelSet(const UpdateThreatIntelSetRequest& request) const
 {
   if (!request.DetectorIdHasBeenSet())
@@ -2020,7 +2253,7 @@ UpdateThreatIntelSetOutcome GuardDutyClient::UpdateThreatIntelSet(const UpdateTh
   ss << "/threatintelset/";
   ss << request.GetThreatIntelSetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateThreatIntelSetOutcome(UpdateThreatIntelSetResult(outcome.GetResult()));

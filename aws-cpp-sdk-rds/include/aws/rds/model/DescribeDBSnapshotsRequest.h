@@ -54,7 +54,7 @@ namespace Model
     /**
      * <p>The ID of the DB instance to retrieve the list of DB snapshots for. This
      * parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-     * This parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
+     * This parameter isn't case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
      * supplied, must match the identifier of an existing DBInstance.</p> </li> </ul>
      */
     inline const Aws::String& GetDBInstanceIdentifier() const{ return m_dBInstanceIdentifier; }
@@ -62,7 +62,7 @@ namespace Model
     /**
      * <p>The ID of the DB instance to retrieve the list of DB snapshots for. This
      * parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-     * This parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
+     * This parameter isn't case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
      * supplied, must match the identifier of an existing DBInstance.</p> </li> </ul>
      */
     inline bool DBInstanceIdentifierHasBeenSet() const { return m_dBInstanceIdentifierHasBeenSet; }
@@ -70,7 +70,7 @@ namespace Model
     /**
      * <p>The ID of the DB instance to retrieve the list of DB snapshots for. This
      * parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-     * This parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
+     * This parameter isn't case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
      * supplied, must match the identifier of an existing DBInstance.</p> </li> </ul>
      */
     inline void SetDBInstanceIdentifier(const Aws::String& value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier = value; }
@@ -78,7 +78,7 @@ namespace Model
     /**
      * <p>The ID of the DB instance to retrieve the list of DB snapshots for. This
      * parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-     * This parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
+     * This parameter isn't case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
      * supplied, must match the identifier of an existing DBInstance.</p> </li> </ul>
      */
     inline void SetDBInstanceIdentifier(Aws::String&& value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier = std::move(value); }
@@ -86,7 +86,7 @@ namespace Model
     /**
      * <p>The ID of the DB instance to retrieve the list of DB snapshots for. This
      * parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-     * This parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
+     * This parameter isn't case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
      * supplied, must match the identifier of an existing DBInstance.</p> </li> </ul>
      */
     inline void SetDBInstanceIdentifier(const char* value) { m_dBInstanceIdentifierHasBeenSet = true; m_dBInstanceIdentifier.assign(value); }
@@ -94,7 +94,7 @@ namespace Model
     /**
      * <p>The ID of the DB instance to retrieve the list of DB snapshots for. This
      * parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-     * This parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
+     * This parameter isn't case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
      * supplied, must match the identifier of an existing DBInstance.</p> </li> </ul>
      */
     inline DescribeDBSnapshotsRequest& WithDBInstanceIdentifier(const Aws::String& value) { SetDBInstanceIdentifier(value); return *this;}
@@ -102,7 +102,7 @@ namespace Model
     /**
      * <p>The ID of the DB instance to retrieve the list of DB snapshots for. This
      * parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-     * This parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
+     * This parameter isn't case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
      * supplied, must match the identifier of an existing DBInstance.</p> </li> </ul>
      */
     inline DescribeDBSnapshotsRequest& WithDBInstanceIdentifier(Aws::String&& value) { SetDBInstanceIdentifier(std::move(value)); return *this;}
@@ -110,7 +110,7 @@ namespace Model
     /**
      * <p>The ID of the DB instance to retrieve the list of DB snapshots for. This
      * parameter can't be used in conjunction with <code>DBSnapshotIdentifier</code>.
-     * This parameter is not case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
+     * This parameter isn't case-sensitive. </p> <p>Constraints:</p> <ul> <li> <p>If
      * supplied, must match the identifier of an existing DBInstance.</p> </li> </ul>
      */
     inline DescribeDBSnapshotsRequest& WithDBInstanceIdentifier(const char* value) { SetDBInstanceIdentifier(value); return *this;}
@@ -415,42 +415,98 @@ namespace Model
 
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-instance-id</code> - Accepts DB
+     * instance identifiers and DB instance Amazon Resource Names (ARNs).</p> </li>
+     * <li> <p> <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+     * </li> <li> <p> <code>dbi-resource-id</code> - Accepts identifiers of source DB
+     * instances.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of database
+     * engines.</p> </li> </ul>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-instance-id</code> - Accepts DB
+     * instance identifiers and DB instance Amazon Resource Names (ARNs).</p> </li>
+     * <li> <p> <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+     * </li> <li> <p> <code>dbi-resource-id</code> - Accepts identifiers of source DB
+     * instances.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of database
+     * engines.</p> </li> </ul>
      */
     inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-instance-id</code> - Accepts DB
+     * instance identifiers and DB instance Amazon Resource Names (ARNs).</p> </li>
+     * <li> <p> <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+     * </li> <li> <p> <code>dbi-resource-id</code> - Accepts identifiers of source DB
+     * instances.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of database
+     * engines.</p> </li> </ul>
      */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-instance-id</code> - Accepts DB
+     * instance identifiers and DB instance Amazon Resource Names (ARNs).</p> </li>
+     * <li> <p> <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+     * </li> <li> <p> <code>dbi-resource-id</code> - Accepts identifiers of source DB
+     * instances.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of database
+     * engines.</p> </li> </ul>
      */
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-instance-id</code> - Accepts DB
+     * instance identifiers and DB instance Amazon Resource Names (ARNs).</p> </li>
+     * <li> <p> <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+     * </li> <li> <p> <code>dbi-resource-id</code> - Accepts identifiers of source DB
+     * instances.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of database
+     * engines.</p> </li> </ul>
      */
     inline DescribeDBSnapshotsRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-instance-id</code> - Accepts DB
+     * instance identifiers and DB instance Amazon Resource Names (ARNs).</p> </li>
+     * <li> <p> <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+     * </li> <li> <p> <code>dbi-resource-id</code> - Accepts identifiers of source DB
+     * instances.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of database
+     * engines.</p> </li> </ul>
      */
     inline DescribeDBSnapshotsRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-instance-id</code> - Accepts DB
+     * instance identifiers and DB instance Amazon Resource Names (ARNs).</p> </li>
+     * <li> <p> <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+     * </li> <li> <p> <code>dbi-resource-id</code> - Accepts identifiers of source DB
+     * instances.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of database
+     * engines.</p> </li> </ul>
      */
     inline DescribeDBSnapshotsRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>A filter that specifies one or more DB snapshots to describe.</p>
+     * <p>Supported filters:</p> <ul> <li> <p> <code>db-instance-id</code> - Accepts DB
+     * instance identifiers and DB instance Amazon Resource Names (ARNs).</p> </li>
+     * <li> <p> <code>db-snapshot-id</code> - Accepts DB snapshot identifiers.</p>
+     * </li> <li> <p> <code>dbi-resource-id</code> - Accepts identifiers of source DB
+     * instances.</p> </li> <li> <p> <code>snapshot-type</code> - Accepts types of DB
+     * snapshots.</p> </li> <li> <p> <code>engine</code> - Accepts names of database
+     * engines.</p> </li> </ul>
      */
     inline DescribeDBSnapshotsRequest& AddFilters(Filter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
 
@@ -458,32 +514,36 @@ namespace Model
     /**
      * <p> The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
-     * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * called a marker is included in the response so that you can retrieve the
+     * remaining results. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum
+     * 100.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
 
     /**
      * <p> The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
-     * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * called a marker is included in the response so that you can retrieve the
+     * remaining results. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum
+     * 100.</p>
      */
     inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
 
     /**
      * <p> The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
-     * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * called a marker is included in the response so that you can retrieve the
+     * remaining results. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum
+     * 100.</p>
      */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
 
     /**
      * <p> The maximum number of records to include in the response. If more records
      * exist than the specified <code>MaxRecords</code> value, a pagination token
-     * called a marker is included in the response so that the remaining results can be
-     * retrieved. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
+     * called a marker is included in the response so that you can retrieve the
+     * remaining results. </p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum
+     * 100.</p>
      */
     inline DescribeDBSnapshotsRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
 

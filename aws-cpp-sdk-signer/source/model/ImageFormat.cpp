@@ -31,6 +31,8 @@ namespace Aws
       {
 
         static const int JSON_HASH = HashingUtils::HashString("JSON");
+        static const int JSONEmbedded_HASH = HashingUtils::HashString("JSONEmbedded");
+        static const int JSONDetached_HASH = HashingUtils::HashString("JSONDetached");
 
 
         ImageFormat GetImageFormatForName(const Aws::String& name)
@@ -39,6 +41,14 @@ namespace Aws
           if (hashCode == JSON_HASH)
           {
             return ImageFormat::JSON;
+          }
+          else if (hashCode == JSONEmbedded_HASH)
+          {
+            return ImageFormat::JSONEmbedded;
+          }
+          else if (hashCode == JSONDetached_HASH)
+          {
+            return ImageFormat::JSONDetached;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -56,6 +66,10 @@ namespace Aws
           {
           case ImageFormat::JSON:
             return "JSON";
+          case ImageFormat::JSONEmbedded:
+            return "JSONEmbedded";
+          case ImageFormat::JSONDetached:
+            return "JSONDetached";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

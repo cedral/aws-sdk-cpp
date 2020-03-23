@@ -23,6 +23,7 @@ using namespace Aws::Utils;
 CreateReplicationGroupRequest::CreateReplicationGroupRequest() : 
     m_replicationGroupIdHasBeenSet(false),
     m_replicationGroupDescriptionHasBeenSet(false),
+    m_globalReplicationGroupIdHasBeenSet(false),
     m_primaryClusterIdHasBeenSet(false),
     m_automaticFailoverEnabled(false),
     m_automaticFailoverEnabledHasBeenSet(false),
@@ -57,7 +58,8 @@ CreateReplicationGroupRequest::CreateReplicationGroupRequest() :
     m_transitEncryptionEnabled(false),
     m_transitEncryptionEnabledHasBeenSet(false),
     m_atRestEncryptionEnabled(false),
-    m_atRestEncryptionEnabledHasBeenSet(false)
+    m_atRestEncryptionEnabledHasBeenSet(false),
+    m_kmsKeyIdHasBeenSet(false)
 {
 }
 
@@ -73,6 +75,11 @@ Aws::String CreateReplicationGroupRequest::SerializePayload() const
   if(m_replicationGroupDescriptionHasBeenSet)
   {
     ss << "ReplicationGroupDescription=" << StringUtils::URLEncode(m_replicationGroupDescription.c_str()) << "&";
+  }
+
+  if(m_globalReplicationGroupIdHasBeenSet)
+  {
+    ss << "GlobalReplicationGroupId=" << StringUtils::URLEncode(m_globalReplicationGroupId.c_str()) << "&";
   }
 
   if(m_primaryClusterIdHasBeenSet)
@@ -237,6 +244,11 @@ Aws::String CreateReplicationGroupRequest::SerializePayload() const
   if(m_atRestEncryptionEnabledHasBeenSet)
   {
     ss << "AtRestEncryptionEnabled=" << std::boolalpha << m_atRestEncryptionEnabled << "&";
+  }
+
+  if(m_kmsKeyIdHasBeenSet)
+  {
+    ss << "KmsKeyId=" << StringUtils::URLEncode(m_kmsKeyId.c_str()) << "&";
   }
 
   ss << "Version=2015-02-02";

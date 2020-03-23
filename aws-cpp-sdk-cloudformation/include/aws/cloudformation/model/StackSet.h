@@ -19,6 +19,9 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/cloudformation/model/StackSetStatus.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/cloudformation/model/StackSetDriftDetectionDetails.h>
+#include <aws/cloudformation/model/AutoDeployment.h>
+#include <aws/cloudformation/model/PermissionModels.h>
 #include <aws/cloudformation/model/Parameter.h>
 #include <aws/cloudformation/model/Capability.h>
 #include <aws/cloudformation/model/Tag.h>
@@ -626,6 +629,253 @@ namespace Model
      */
     inline StackSet& WithExecutionRoleName(const char* value) { SetExecutionRoleName(value); return *this;}
 
+
+    /**
+     * <p>Detailed information about the drift status of the stack set.</p> <p>For
+     * stack sets, contains information about the last <i>completed</i> drift operation
+     * performed on the stack set. Information about drift operations currently in
+     * progress is not included.</p>
+     */
+    inline const StackSetDriftDetectionDetails& GetStackSetDriftDetectionDetails() const{ return m_stackSetDriftDetectionDetails; }
+
+    /**
+     * <p>Detailed information about the drift status of the stack set.</p> <p>For
+     * stack sets, contains information about the last <i>completed</i> drift operation
+     * performed on the stack set. Information about drift operations currently in
+     * progress is not included.</p>
+     */
+    inline bool StackSetDriftDetectionDetailsHasBeenSet() const { return m_stackSetDriftDetectionDetailsHasBeenSet; }
+
+    /**
+     * <p>Detailed information about the drift status of the stack set.</p> <p>For
+     * stack sets, contains information about the last <i>completed</i> drift operation
+     * performed on the stack set. Information about drift operations currently in
+     * progress is not included.</p>
+     */
+    inline void SetStackSetDriftDetectionDetails(const StackSetDriftDetectionDetails& value) { m_stackSetDriftDetectionDetailsHasBeenSet = true; m_stackSetDriftDetectionDetails = value; }
+
+    /**
+     * <p>Detailed information about the drift status of the stack set.</p> <p>For
+     * stack sets, contains information about the last <i>completed</i> drift operation
+     * performed on the stack set. Information about drift operations currently in
+     * progress is not included.</p>
+     */
+    inline void SetStackSetDriftDetectionDetails(StackSetDriftDetectionDetails&& value) { m_stackSetDriftDetectionDetailsHasBeenSet = true; m_stackSetDriftDetectionDetails = std::move(value); }
+
+    /**
+     * <p>Detailed information about the drift status of the stack set.</p> <p>For
+     * stack sets, contains information about the last <i>completed</i> drift operation
+     * performed on the stack set. Information about drift operations currently in
+     * progress is not included.</p>
+     */
+    inline StackSet& WithStackSetDriftDetectionDetails(const StackSetDriftDetectionDetails& value) { SetStackSetDriftDetectionDetails(value); return *this;}
+
+    /**
+     * <p>Detailed information about the drift status of the stack set.</p> <p>For
+     * stack sets, contains information about the last <i>completed</i> drift operation
+     * performed on the stack set. Information about drift operations currently in
+     * progress is not included.</p>
+     */
+    inline StackSet& WithStackSetDriftDetectionDetails(StackSetDriftDetectionDetails&& value) { SetStackSetDriftDetectionDetails(std::move(value)); return *this;}
+
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] Describes whether StackSets
+     * automatically deploys to AWS Organizations accounts that are added to a target
+     * organization or organizational unit (OU).</p>
+     */
+    inline const AutoDeployment& GetAutoDeployment() const{ return m_autoDeployment; }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] Describes whether StackSets
+     * automatically deploys to AWS Organizations accounts that are added to a target
+     * organization or organizational unit (OU).</p>
+     */
+    inline bool AutoDeploymentHasBeenSet() const { return m_autoDeploymentHasBeenSet; }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] Describes whether StackSets
+     * automatically deploys to AWS Organizations accounts that are added to a target
+     * organization or organizational unit (OU).</p>
+     */
+    inline void SetAutoDeployment(const AutoDeployment& value) { m_autoDeploymentHasBeenSet = true; m_autoDeployment = value; }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] Describes whether StackSets
+     * automatically deploys to AWS Organizations accounts that are added to a target
+     * organization or organizational unit (OU).</p>
+     */
+    inline void SetAutoDeployment(AutoDeployment&& value) { m_autoDeploymentHasBeenSet = true; m_autoDeployment = std::move(value); }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] Describes whether StackSets
+     * automatically deploys to AWS Organizations accounts that are added to a target
+     * organization or organizational unit (OU).</p>
+     */
+    inline StackSet& WithAutoDeployment(const AutoDeployment& value) { SetAutoDeployment(value); return *this;}
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] Describes whether StackSets
+     * automatically deploys to AWS Organizations accounts that are added to a target
+     * organization or organizational unit (OU).</p>
+     */
+    inline StackSet& WithAutoDeployment(AutoDeployment&& value) { SetAutoDeployment(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Describes how the IAM roles required for stack set operations are
+     * created.</p> <ul> <li> <p>With <code>self-managed</code> permissions, you must
+     * create the administrator and execution roles required to deploy to target
+     * accounts. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+     * Self-Managed Stack Set Permissions</a>.</p> </li> <li> <p>With
+     * <code>service-managed</code> permissions, StackSets automatically creates the
+     * IAM roles required to deploy to accounts managed by AWS Organizations. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+     * Service-Managed Stack Set Permissions</a>.</p> </li> </ul>
+     */
+    inline const PermissionModels& GetPermissionModel() const{ return m_permissionModel; }
+
+    /**
+     * <p>Describes how the IAM roles required for stack set operations are
+     * created.</p> <ul> <li> <p>With <code>self-managed</code> permissions, you must
+     * create the administrator and execution roles required to deploy to target
+     * accounts. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+     * Self-Managed Stack Set Permissions</a>.</p> </li> <li> <p>With
+     * <code>service-managed</code> permissions, StackSets automatically creates the
+     * IAM roles required to deploy to accounts managed by AWS Organizations. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+     * Service-Managed Stack Set Permissions</a>.</p> </li> </ul>
+     */
+    inline bool PermissionModelHasBeenSet() const { return m_permissionModelHasBeenSet; }
+
+    /**
+     * <p>Describes how the IAM roles required for stack set operations are
+     * created.</p> <ul> <li> <p>With <code>self-managed</code> permissions, you must
+     * create the administrator and execution roles required to deploy to target
+     * accounts. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+     * Self-Managed Stack Set Permissions</a>.</p> </li> <li> <p>With
+     * <code>service-managed</code> permissions, StackSets automatically creates the
+     * IAM roles required to deploy to accounts managed by AWS Organizations. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+     * Service-Managed Stack Set Permissions</a>.</p> </li> </ul>
+     */
+    inline void SetPermissionModel(const PermissionModels& value) { m_permissionModelHasBeenSet = true; m_permissionModel = value; }
+
+    /**
+     * <p>Describes how the IAM roles required for stack set operations are
+     * created.</p> <ul> <li> <p>With <code>self-managed</code> permissions, you must
+     * create the administrator and execution roles required to deploy to target
+     * accounts. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+     * Self-Managed Stack Set Permissions</a>.</p> </li> <li> <p>With
+     * <code>service-managed</code> permissions, StackSets automatically creates the
+     * IAM roles required to deploy to accounts managed by AWS Organizations. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+     * Service-Managed Stack Set Permissions</a>.</p> </li> </ul>
+     */
+    inline void SetPermissionModel(PermissionModels&& value) { m_permissionModelHasBeenSet = true; m_permissionModel = std::move(value); }
+
+    /**
+     * <p>Describes how the IAM roles required for stack set operations are
+     * created.</p> <ul> <li> <p>With <code>self-managed</code> permissions, you must
+     * create the administrator and execution roles required to deploy to target
+     * accounts. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+     * Self-Managed Stack Set Permissions</a>.</p> </li> <li> <p>With
+     * <code>service-managed</code> permissions, StackSets automatically creates the
+     * IAM roles required to deploy to accounts managed by AWS Organizations. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+     * Service-Managed Stack Set Permissions</a>.</p> </li> </ul>
+     */
+    inline StackSet& WithPermissionModel(const PermissionModels& value) { SetPermissionModel(value); return *this;}
+
+    /**
+     * <p>Describes how the IAM roles required for stack set operations are
+     * created.</p> <ul> <li> <p>With <code>self-managed</code> permissions, you must
+     * create the administrator and execution roles required to deploy to target
+     * accounts. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant
+     * Self-Managed Stack Set Permissions</a>.</p> </li> <li> <p>With
+     * <code>service-managed</code> permissions, StackSets automatically creates the
+     * IAM roles required to deploy to accounts managed by AWS Organizations. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant
+     * Service-Managed Stack Set Permissions</a>.</p> </li> </ul>
+     */
+    inline StackSet& WithPermissionModel(PermissionModels&& value) { SetPermissionModel(std::move(value)); return *this;}
+
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline const Aws::Vector<Aws::String>& GetOrganizationalUnitIds() const{ return m_organizationalUnitIds; }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline bool OrganizationalUnitIdsHasBeenSet() const { return m_organizationalUnitIdsHasBeenSet; }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline void SetOrganizationalUnitIds(const Aws::Vector<Aws::String>& value) { m_organizationalUnitIdsHasBeenSet = true; m_organizationalUnitIds = value; }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline void SetOrganizationalUnitIds(Aws::Vector<Aws::String>&& value) { m_organizationalUnitIdsHasBeenSet = true; m_organizationalUnitIds = std::move(value); }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline StackSet& WithOrganizationalUnitIds(const Aws::Vector<Aws::String>& value) { SetOrganizationalUnitIds(value); return *this;}
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline StackSet& WithOrganizationalUnitIds(Aws::Vector<Aws::String>&& value) { SetOrganizationalUnitIds(std::move(value)); return *this;}
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline StackSet& AddOrganizationalUnitIds(const Aws::String& value) { m_organizationalUnitIdsHasBeenSet = true; m_organizationalUnitIds.push_back(value); return *this; }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline StackSet& AddOrganizationalUnitIds(Aws::String&& value) { m_organizationalUnitIdsHasBeenSet = true; m_organizationalUnitIds.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p>[<code>Service-managed</code> permissions] The organization root ID or
+     * organizational unit (OUs) IDs to which stacks in your stack set have been
+     * deployed.</p>
+     */
+    inline StackSet& AddOrganizationalUnitIds(const char* value) { m_organizationalUnitIdsHasBeenSet = true; m_organizationalUnitIds.push_back(value); return *this; }
+
   private:
 
     Aws::String m_stackSetName;
@@ -660,6 +910,18 @@ namespace Model
 
     Aws::String m_executionRoleName;
     bool m_executionRoleNameHasBeenSet;
+
+    StackSetDriftDetectionDetails m_stackSetDriftDetectionDetails;
+    bool m_stackSetDriftDetectionDetailsHasBeenSet;
+
+    AutoDeployment m_autoDeployment;
+    bool m_autoDeploymentHasBeenSet;
+
+    PermissionModels m_permissionModel;
+    bool m_permissionModelHasBeenSet;
+
+    Aws::Vector<Aws::String> m_organizationalUnitIds;
+    bool m_organizationalUnitIdsHasBeenSet;
   };
 
 } // namespace Model

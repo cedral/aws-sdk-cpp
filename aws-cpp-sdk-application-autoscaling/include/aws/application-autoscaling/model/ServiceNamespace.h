@@ -33,7 +33,9 @@ namespace Model
     dynamodb,
     rds,
     sagemaker,
-    custom_resource
+    custom_resource,
+    comprehend,
+    lambda
   };
 
 namespace ServiceNamespaceMapper

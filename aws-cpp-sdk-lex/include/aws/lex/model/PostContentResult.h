@@ -130,14 +130,15 @@ namespace Model
 
     /**
      * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from
-     * the user input during the conversation.</p> <p>Amazon Lex creates a resolution
-     * list containing likely values for a slot. The value that it returns is
-     * determined by the <code>valueSelectionStrategy</code> selected when the slot
-     * type was created or updated. If <code>valueSelectionStrategy</code> is set to
-     * <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the
-     * user value is similar to the slot values. If <code>valueSelectionStrategy</code>
-     * is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the
-     * resolution list or, if there is no resolution list, null. If you don't specify a
+     * the user input during the conversation. The field is base-64 encoded.</p>
+     * <p>Amazon Lex creates a resolution list containing likely values for a slot. The
+     * value that it returns is determined by the <code>valueSelectionStrategy</code>
+     * selected when the slot type was created or updated. If
+     * <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the
+     * value provided by the user is returned, if the user value is similar to the slot
+     * values. If <code>valueSelectionStrategy</code> is set to
+     * <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution
+     * list or, if there is no resolution list, null. If you don't specify a
      * <code>valueSelectionStrategy</code>, the default is
      * <code>ORIGINAL_VALUE</code>.</p>
      */
@@ -145,14 +146,15 @@ namespace Model
 
     /**
      * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from
-     * the user input during the conversation.</p> <p>Amazon Lex creates a resolution
-     * list containing likely values for a slot. The value that it returns is
-     * determined by the <code>valueSelectionStrategy</code> selected when the slot
-     * type was created or updated. If <code>valueSelectionStrategy</code> is set to
-     * <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the
-     * user value is similar to the slot values. If <code>valueSelectionStrategy</code>
-     * is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the
-     * resolution list or, if there is no resolution list, null. If you don't specify a
+     * the user input during the conversation. The field is base-64 encoded.</p>
+     * <p>Amazon Lex creates a resolution list containing likely values for a slot. The
+     * value that it returns is determined by the <code>valueSelectionStrategy</code>
+     * selected when the slot type was created or updated. If
+     * <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the
+     * value provided by the user is returned, if the user value is similar to the slot
+     * values. If <code>valueSelectionStrategy</code> is set to
+     * <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution
+     * list or, if there is no resolution list, null. If you don't specify a
      * <code>valueSelectionStrategy</code>, the default is
      * <code>ORIGINAL_VALUE</code>.</p>
      */
@@ -160,14 +162,15 @@ namespace Model
 
     /**
      * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from
-     * the user input during the conversation.</p> <p>Amazon Lex creates a resolution
-     * list containing likely values for a slot. The value that it returns is
-     * determined by the <code>valueSelectionStrategy</code> selected when the slot
-     * type was created or updated. If <code>valueSelectionStrategy</code> is set to
-     * <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the
-     * user value is similar to the slot values. If <code>valueSelectionStrategy</code>
-     * is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the
-     * resolution list or, if there is no resolution list, null. If you don't specify a
+     * the user input during the conversation. The field is base-64 encoded.</p>
+     * <p>Amazon Lex creates a resolution list containing likely values for a slot. The
+     * value that it returns is determined by the <code>valueSelectionStrategy</code>
+     * selected when the slot type was created or updated. If
+     * <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the
+     * value provided by the user is returned, if the user value is similar to the slot
+     * values. If <code>valueSelectionStrategy</code> is set to
+     * <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution
+     * list or, if there is no resolution list, null. If you don't specify a
      * <code>valueSelectionStrategy</code>, the default is
      * <code>ORIGINAL_VALUE</code>.</p>
      */
@@ -175,14 +178,15 @@ namespace Model
 
     /**
      * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from
-     * the user input during the conversation.</p> <p>Amazon Lex creates a resolution
-     * list containing likely values for a slot. The value that it returns is
-     * determined by the <code>valueSelectionStrategy</code> selected when the slot
-     * type was created or updated. If <code>valueSelectionStrategy</code> is set to
-     * <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the
-     * user value is similar to the slot values. If <code>valueSelectionStrategy</code>
-     * is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the
-     * resolution list or, if there is no resolution list, null. If you don't specify a
+     * the user input during the conversation. The field is base-64 encoded.</p>
+     * <p>Amazon Lex creates a resolution list containing likely values for a slot. The
+     * value that it returns is determined by the <code>valueSelectionStrategy</code>
+     * selected when the slot type was created or updated. If
+     * <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the
+     * value provided by the user is returned, if the user value is similar to the slot
+     * values. If <code>valueSelectionStrategy</code> is set to
+     * <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution
+     * list or, if there is no resolution list, null. If you don't specify a
      * <code>valueSelectionStrategy</code>, the default is
      * <code>ORIGINAL_VALUE</code>.</p>
      */
@@ -190,14 +194,15 @@ namespace Model
 
     /**
      * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from
-     * the user input during the conversation.</p> <p>Amazon Lex creates a resolution
-     * list containing likely values for a slot. The value that it returns is
-     * determined by the <code>valueSelectionStrategy</code> selected when the slot
-     * type was created or updated. If <code>valueSelectionStrategy</code> is set to
-     * <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the
-     * user value is similar to the slot values. If <code>valueSelectionStrategy</code>
-     * is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the
-     * resolution list or, if there is no resolution list, null. If you don't specify a
+     * the user input during the conversation. The field is base-64 encoded.</p>
+     * <p>Amazon Lex creates a resolution list containing likely values for a slot. The
+     * value that it returns is determined by the <code>valueSelectionStrategy</code>
+     * selected when the slot type was created or updated. If
+     * <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the
+     * value provided by the user is returned, if the user value is similar to the slot
+     * values. If <code>valueSelectionStrategy</code> is set to
+     * <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution
+     * list or, if there is no resolution list, null. If you don't specify a
      * <code>valueSelectionStrategy</code>, the default is
      * <code>ORIGINAL_VALUE</code>.</p>
      */
@@ -205,14 +210,15 @@ namespace Model
 
     /**
      * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from
-     * the user input during the conversation.</p> <p>Amazon Lex creates a resolution
-     * list containing likely values for a slot. The value that it returns is
-     * determined by the <code>valueSelectionStrategy</code> selected when the slot
-     * type was created or updated. If <code>valueSelectionStrategy</code> is set to
-     * <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the
-     * user value is similar to the slot values. If <code>valueSelectionStrategy</code>
-     * is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the
-     * resolution list or, if there is no resolution list, null. If you don't specify a
+     * the user input during the conversation. The field is base-64 encoded.</p>
+     * <p>Amazon Lex creates a resolution list containing likely values for a slot. The
+     * value that it returns is determined by the <code>valueSelectionStrategy</code>
+     * selected when the slot type was created or updated. If
+     * <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the
+     * value provided by the user is returned, if the user value is similar to the slot
+     * values. If <code>valueSelectionStrategy</code> is set to
+     * <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution
+     * list or, if there is no resolution list, null. If you don't specify a
      * <code>valueSelectionStrategy</code>, the default is
      * <code>ORIGINAL_VALUE</code>.</p>
      */
@@ -220,14 +226,15 @@ namespace Model
 
     /**
      * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected from
-     * the user input during the conversation.</p> <p>Amazon Lex creates a resolution
-     * list containing likely values for a slot. The value that it returns is
-     * determined by the <code>valueSelectionStrategy</code> selected when the slot
-     * type was created or updated. If <code>valueSelectionStrategy</code> is set to
-     * <code>ORIGINAL_VALUE</code>, the value provided by the user is returned, if the
-     * user value is similar to the slot values. If <code>valueSelectionStrategy</code>
-     * is set to <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the
-     * resolution list or, if there is no resolution list, null. If you don't specify a
+     * the user input during the conversation. The field is base-64 encoded.</p>
+     * <p>Amazon Lex creates a resolution list containing likely values for a slot. The
+     * value that it returns is determined by the <code>valueSelectionStrategy</code>
+     * selected when the slot type was created or updated. If
+     * <code>valueSelectionStrategy</code> is set to <code>ORIGINAL_VALUE</code>, the
+     * value provided by the user is returned, if the user value is similar to the slot
+     * values. If <code>valueSelectionStrategy</code> is set to
+     * <code>TOP_RESOLUTION</code> Amazon Lex returns the first value in the resolution
+     * list or, if there is no resolution list, null. If you don't specify a
      * <code>valueSelectionStrategy</code>, the default is
      * <code>ORIGINAL_VALUE</code>.</p>
      */
@@ -278,10 +285,60 @@ namespace Model
 
 
     /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline const Aws::String& GetSentimentResponse() const{ return m_sentimentResponse; }
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline void SetSentimentResponse(const Aws::String& value) { m_sentimentResponse = value; }
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline void SetSentimentResponse(Aws::String&& value) { m_sentimentResponse = std::move(value); }
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline void SetSentimentResponse(const char* value) { m_sentimentResponse.assign(value); }
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline PostContentResult& WithSentimentResponse(const Aws::String& value) { SetSentimentResponse(value); return *this;}
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline PostContentResult& WithSentimentResponse(Aws::String&& value) { SetSentimentResponse(std::move(value)); return *this;}
+
+    /**
+     * <p>The sentiment expressed in and utterance.</p> <p>When the bot is configured
+     * to send utterances to Amazon Comprehend for sentiment analysis, this field
+     * contains the result of the analysis.</p>
+     */
+    inline PostContentResult& WithSentimentResponse(const char* value) { SetSentimentResponse(value); return *this;}
+
+
+    /**
      * <p>The message to convey to the user. The message can come from the bot's
      * configuration or from a Lambda function.</p> <p>If the intent is not configured
      * with a Lambda function, or if the Lambda function returned <code>Delegate</code>
-     * as the <code>dialogAction.type</code> its response, Amazon Lex decides on the
+     * as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the
      * next course of action and selects an appropriate message from the bot's
      * configuration based on the current interaction context. For example, if Amazon
      * Lex isn't able to understand user input, it uses a clarification prompt
@@ -298,7 +355,7 @@ namespace Model
      * <p>The message to convey to the user. The message can come from the bot's
      * configuration or from a Lambda function.</p> <p>If the intent is not configured
      * with a Lambda function, or if the Lambda function returned <code>Delegate</code>
-     * as the <code>dialogAction.type</code> its response, Amazon Lex decides on the
+     * as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the
      * next course of action and selects an appropriate message from the bot's
      * configuration based on the current interaction context. For example, if Amazon
      * Lex isn't able to understand user input, it uses a clarification prompt
@@ -315,7 +372,7 @@ namespace Model
      * <p>The message to convey to the user. The message can come from the bot's
      * configuration or from a Lambda function.</p> <p>If the intent is not configured
      * with a Lambda function, or if the Lambda function returned <code>Delegate</code>
-     * as the <code>dialogAction.type</code> its response, Amazon Lex decides on the
+     * as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the
      * next course of action and selects an appropriate message from the bot's
      * configuration based on the current interaction context. For example, if Amazon
      * Lex isn't able to understand user input, it uses a clarification prompt
@@ -332,7 +389,7 @@ namespace Model
      * <p>The message to convey to the user. The message can come from the bot's
      * configuration or from a Lambda function.</p> <p>If the intent is not configured
      * with a Lambda function, or if the Lambda function returned <code>Delegate</code>
-     * as the <code>dialogAction.type</code> its response, Amazon Lex decides on the
+     * as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the
      * next course of action and selects an appropriate message from the bot's
      * configuration based on the current interaction context. For example, if Amazon
      * Lex isn't able to understand user input, it uses a clarification prompt
@@ -349,7 +406,7 @@ namespace Model
      * <p>The message to convey to the user. The message can come from the bot's
      * configuration or from a Lambda function.</p> <p>If the intent is not configured
      * with a Lambda function, or if the Lambda function returned <code>Delegate</code>
-     * as the <code>dialogAction.type</code> its response, Amazon Lex decides on the
+     * as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the
      * next course of action and selects an appropriate message from the bot's
      * configuration based on the current interaction context. For example, if Amazon
      * Lex isn't able to understand user input, it uses a clarification prompt
@@ -366,7 +423,7 @@ namespace Model
      * <p>The message to convey to the user. The message can come from the bot's
      * configuration or from a Lambda function.</p> <p>If the intent is not configured
      * with a Lambda function, or if the Lambda function returned <code>Delegate</code>
-     * as the <code>dialogAction.type</code> its response, Amazon Lex decides on the
+     * as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the
      * next course of action and selects an appropriate message from the bot's
      * configuration based on the current interaction context. For example, if Amazon
      * Lex isn't able to understand user input, it uses a clarification prompt
@@ -383,7 +440,7 @@ namespace Model
      * <p>The message to convey to the user. The message can come from the bot's
      * configuration or from a Lambda function.</p> <p>If the intent is not configured
      * with a Lambda function, or if the Lambda function returned <code>Delegate</code>
-     * as the <code>dialogAction.type</code> its response, Amazon Lex decides on the
+     * as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the
      * next course of action and selects an appropriate message from the bot's
      * configuration based on the current interaction context. For example, if Amazon
      * Lex isn't able to understand user input, it uses a clarification prompt
@@ -748,6 +805,42 @@ namespace Model
      */
     inline void ReplaceBody(Aws::IOStream* body) { m_audioStream = Aws::Utils::Stream::ResponseStream(body); }
 
+
+    /**
+     * <p>The unique identifier for the session.</p>
+     */
+    inline const Aws::String& GetSessionId() const{ return m_sessionId; }
+
+    /**
+     * <p>The unique identifier for the session.</p>
+     */
+    inline void SetSessionId(const Aws::String& value) { m_sessionId = value; }
+
+    /**
+     * <p>The unique identifier for the session.</p>
+     */
+    inline void SetSessionId(Aws::String&& value) { m_sessionId = std::move(value); }
+
+    /**
+     * <p>The unique identifier for the session.</p>
+     */
+    inline void SetSessionId(const char* value) { m_sessionId.assign(value); }
+
+    /**
+     * <p>The unique identifier for the session.</p>
+     */
+    inline PostContentResult& WithSessionId(const Aws::String& value) { SetSessionId(value); return *this;}
+
+    /**
+     * <p>The unique identifier for the session.</p>
+     */
+    inline PostContentResult& WithSessionId(Aws::String&& value) { SetSessionId(std::move(value)); return *this;}
+
+    /**
+     * <p>The unique identifier for the session.</p>
+     */
+    inline PostContentResult& WithSessionId(const char* value) { SetSessionId(value); return *this;}
+
   private:
 
     Aws::String m_contentType;
@@ -757,6 +850,8 @@ namespace Model
     Aws::String m_slots;
 
     Aws::String m_sessionAttributes;
+
+    Aws::String m_sentimentResponse;
 
     Aws::String m_message;
 
@@ -769,6 +864,8 @@ namespace Model
     Aws::String m_inputTranscript;
 
   Aws::Utils::Stream::ResponseStream m_audioStream;
+
+    Aws::String m_sessionId;
   };
 
 } // namespace Model

@@ -25,6 +25,7 @@
 #include <aws/mq/model/EngineType.h>
 #include <aws/mq/model/LogsSummary.h>
 #include <aws/mq/model/WeeklyStartTime.h>
+#include <aws/mq/model/BrokerStorageType.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/mq/model/BrokerInstance.h>
 #include <aws/mq/model/UserSummary.h>
@@ -589,6 +590,97 @@ namespace Model
 
 
     /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline const Aws::String& GetPendingHostInstanceType() const{ return m_pendingHostInstanceType; }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline void SetPendingHostInstanceType(const Aws::String& value) { m_pendingHostInstanceType = value; }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline void SetPendingHostInstanceType(Aws::String&& value) { m_pendingHostInstanceType = std::move(value); }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline void SetPendingHostInstanceType(const char* value) { m_pendingHostInstanceType.assign(value); }
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline DescribeBrokerResult& WithPendingHostInstanceType(const Aws::String& value) { SetPendingHostInstanceType(value); return *this;}
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline DescribeBrokerResult& WithPendingHostInstanceType(Aws::String&& value) { SetPendingHostInstanceType(std::move(value)); return *this;}
+
+    /**
+     * The host instance type of the broker to upgrade to. For a list of supported
+     * instance types, see
+     * https://docs.aws.amazon.com/amazon-mq/latest/developer-guide//broker.html#broker-instance-types
+     */
+    inline DescribeBrokerResult& WithPendingHostInstanceType(const char* value) { SetPendingHostInstanceType(value); return *this;}
+
+
+    /**
+     * The list of pending security groups to authorize connections to brokers.
+     */
+    inline const Aws::Vector<Aws::String>& GetPendingSecurityGroups() const{ return m_pendingSecurityGroups; }
+
+    /**
+     * The list of pending security groups to authorize connections to brokers.
+     */
+    inline void SetPendingSecurityGroups(const Aws::Vector<Aws::String>& value) { m_pendingSecurityGroups = value; }
+
+    /**
+     * The list of pending security groups to authorize connections to brokers.
+     */
+    inline void SetPendingSecurityGroups(Aws::Vector<Aws::String>&& value) { m_pendingSecurityGroups = std::move(value); }
+
+    /**
+     * The list of pending security groups to authorize connections to brokers.
+     */
+    inline DescribeBrokerResult& WithPendingSecurityGroups(const Aws::Vector<Aws::String>& value) { SetPendingSecurityGroups(value); return *this;}
+
+    /**
+     * The list of pending security groups to authorize connections to brokers.
+     */
+    inline DescribeBrokerResult& WithPendingSecurityGroups(Aws::Vector<Aws::String>&& value) { SetPendingSecurityGroups(std::move(value)); return *this;}
+
+    /**
+     * The list of pending security groups to authorize connections to brokers.
+     */
+    inline DescribeBrokerResult& AddPendingSecurityGroups(const Aws::String& value) { m_pendingSecurityGroups.push_back(value); return *this; }
+
+    /**
+     * The list of pending security groups to authorize connections to brokers.
+     */
+    inline DescribeBrokerResult& AddPendingSecurityGroups(Aws::String&& value) { m_pendingSecurityGroups.push_back(std::move(value)); return *this; }
+
+    /**
+     * The list of pending security groups to authorize connections to brokers.
+     */
+    inline DescribeBrokerResult& AddPendingSecurityGroups(const char* value) { m_pendingSecurityGroups.push_back(value); return *this; }
+
+
+    /**
      * Required. Enables connections from applications outside of the VPC that hosts
      * the broker's subnets.
      */
@@ -608,52 +700,78 @@ namespace Model
 
 
     /**
-     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
      * to brokers.
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroups() const{ return m_securityGroups; }
 
     /**
-     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
      * to brokers.
      */
     inline void SetSecurityGroups(const Aws::Vector<Aws::String>& value) { m_securityGroups = value; }
 
     /**
-     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
      * to brokers.
      */
     inline void SetSecurityGroups(Aws::Vector<Aws::String>&& value) { m_securityGroups = std::move(value); }
 
     /**
-     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
      * to brokers.
      */
     inline DescribeBrokerResult& WithSecurityGroups(const Aws::Vector<Aws::String>& value) { SetSecurityGroups(value); return *this;}
 
     /**
-     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
      * to brokers.
      */
     inline DescribeBrokerResult& WithSecurityGroups(Aws::Vector<Aws::String>&& value) { SetSecurityGroups(std::move(value)); return *this;}
 
     /**
-     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
      * to brokers.
      */
     inline DescribeBrokerResult& AddSecurityGroups(const Aws::String& value) { m_securityGroups.push_back(value); return *this; }
 
     /**
-     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
      * to brokers.
      */
     inline DescribeBrokerResult& AddSecurityGroups(Aws::String&& value) { m_securityGroups.push_back(std::move(value)); return *this; }
 
     /**
-     * Required. The list of rules (1 minimum, 125 maximum) that authorize connections
+     * The list of security groups (1 minimum, 5 maximum) that authorizes connections
      * to brokers.
      */
     inline DescribeBrokerResult& AddSecurityGroups(const char* value) { m_securityGroups.push_back(value); return *this; }
+
+
+    /**
+     * The broker's storage type.
+     */
+    inline const BrokerStorageType& GetStorageType() const{ return m_storageType; }
+
+    /**
+     * The broker's storage type.
+     */
+    inline void SetStorageType(const BrokerStorageType& value) { m_storageType = value; }
+
+    /**
+     * The broker's storage type.
+     */
+    inline void SetStorageType(BrokerStorageType&& value) { m_storageType = std::move(value); }
+
+    /**
+     * The broker's storage type.
+     */
+    inline DescribeBrokerResult& WithStorageType(const BrokerStorageType& value) { SetStorageType(value); return *this;}
+
+    /**
+     * The broker's storage type.
+     */
+    inline DescribeBrokerResult& WithStorageType(BrokerStorageType&& value) { SetStorageType(std::move(value)); return *this;}
 
 
     /**
@@ -851,9 +969,15 @@ namespace Model
 
     Aws::String m_pendingEngineVersion;
 
+    Aws::String m_pendingHostInstanceType;
+
+    Aws::Vector<Aws::String> m_pendingSecurityGroups;
+
     bool m_publiclyAccessible;
 
     Aws::Vector<Aws::String> m_securityGroups;
+
+    BrokerStorageType m_storageType;
 
     Aws::Vector<Aws::String> m_subnetIds;
 

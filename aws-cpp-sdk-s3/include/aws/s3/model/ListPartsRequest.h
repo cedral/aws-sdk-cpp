@@ -53,83 +53,155 @@ namespace Model
 
 
     /**
-     * <p/>
+     * <p>Name of the bucket to which the parts are being uploaded. </p> <p>When using
+     * this API with an access point, you must direct requests to the access point
+     * hostname. The access point hostname takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline const Aws::String& GetBucket() const{ return m_bucket; }
 
     /**
-     * <p/>
+     * <p>Name of the bucket to which the parts are being uploaded. </p> <p>When using
+     * this API with an access point, you must direct requests to the access point
+     * hostname. The access point hostname takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline bool BucketHasBeenSet() const { return m_bucketHasBeenSet; }
 
     /**
-     * <p/>
+     * <p>Name of the bucket to which the parts are being uploaded. </p> <p>When using
+     * this API with an access point, you must direct requests to the access point
+     * hostname. The access point hostname takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline void SetBucket(const Aws::String& value) { m_bucketHasBeenSet = true; m_bucket = value; }
 
     /**
-     * <p/>
+     * <p>Name of the bucket to which the parts are being uploaded. </p> <p>When using
+     * this API with an access point, you must direct requests to the access point
+     * hostname. The access point hostname takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline void SetBucket(Aws::String&& value) { m_bucketHasBeenSet = true; m_bucket = std::move(value); }
 
     /**
-     * <p/>
+     * <p>Name of the bucket to which the parts are being uploaded. </p> <p>When using
+     * this API with an access point, you must direct requests to the access point
+     * hostname. The access point hostname takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline void SetBucket(const char* value) { m_bucketHasBeenSet = true; m_bucket.assign(value); }
 
     /**
-     * <p/>
+     * <p>Name of the bucket to which the parts are being uploaded. </p> <p>When using
+     * this API with an access point, you must direct requests to the access point
+     * hostname. The access point hostname takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline ListPartsRequest& WithBucket(const Aws::String& value) { SetBucket(value); return *this;}
 
     /**
-     * <p/>
+     * <p>Name of the bucket to which the parts are being uploaded. </p> <p>When using
+     * this API with an access point, you must direct requests to the access point
+     * hostname. The access point hostname takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline ListPartsRequest& WithBucket(Aws::String&& value) { SetBucket(std::move(value)); return *this;}
 
     /**
-     * <p/>
+     * <p>Name of the bucket to which the parts are being uploaded. </p> <p>When using
+     * this API with an access point, you must direct requests to the access point
+     * hostname. The access point hostname takes the form
+     * <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com.
+     * When using this operation using an access point through the AWS SDKs, you
+     * provide the access point ARN in place of the bucket name. For more information
+     * about access point ARNs, see <a
+     * href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html">Using
+     * Access Points</a> in the <i>Amazon Simple Storage Service Developer
+     * Guide</i>.</p>
      */
     inline ListPartsRequest& WithBucket(const char* value) { SetBucket(value); return *this;}
 
 
     /**
-     * <p/>
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     inline const Aws::String& GetKey() const{ return m_key; }
 
     /**
-     * <p/>
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     inline bool KeyHasBeenSet() const { return m_keyHasBeenSet; }
 
     /**
-     * <p/>
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     inline void SetKey(const Aws::String& value) { m_keyHasBeenSet = true; m_key = value; }
 
     /**
-     * <p/>
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     inline void SetKey(Aws::String&& value) { m_keyHasBeenSet = true; m_key = std::move(value); }
 
     /**
-     * <p/>
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     inline void SetKey(const char* value) { m_keyHasBeenSet = true; m_key.assign(value); }
 
     /**
-     * <p/>
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     inline ListPartsRequest& WithKey(const Aws::String& value) { SetKey(value); return *this;}
 
     /**
-     * <p/>
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     inline ListPartsRequest& WithKey(Aws::String&& value) { SetKey(std::move(value)); return *this;}
 
     /**
-     * <p/>
+     * <p>Object key for which the multipart upload was initiated.</p>
      */
     inline ListPartsRequest& WithKey(const char* value) { SetKey(value); return *this;}
 

@@ -41,17 +41,23 @@
 #include <aws/apigatewayv2/model/CreateRouteRequest.h>
 #include <aws/apigatewayv2/model/CreateRouteResponseRequest.h>
 #include <aws/apigatewayv2/model/CreateStageRequest.h>
+#include <aws/apigatewayv2/model/CreateVpcLinkRequest.h>
+#include <aws/apigatewayv2/model/DeleteAccessLogSettingsRequest.h>
 #include <aws/apigatewayv2/model/DeleteApiRequest.h>
 #include <aws/apigatewayv2/model/DeleteApiMappingRequest.h>
 #include <aws/apigatewayv2/model/DeleteAuthorizerRequest.h>
+#include <aws/apigatewayv2/model/DeleteCorsConfigurationRequest.h>
 #include <aws/apigatewayv2/model/DeleteDeploymentRequest.h>
 #include <aws/apigatewayv2/model/DeleteDomainNameRequest.h>
 #include <aws/apigatewayv2/model/DeleteIntegrationRequest.h>
 #include <aws/apigatewayv2/model/DeleteIntegrationResponseRequest.h>
 #include <aws/apigatewayv2/model/DeleteModelRequest.h>
 #include <aws/apigatewayv2/model/DeleteRouteRequest.h>
+#include <aws/apigatewayv2/model/DeleteRouteRequestParameterRequest.h>
 #include <aws/apigatewayv2/model/DeleteRouteResponseRequest.h>
+#include <aws/apigatewayv2/model/DeleteRouteSettingsRequest.h>
 #include <aws/apigatewayv2/model/DeleteStageRequest.h>
+#include <aws/apigatewayv2/model/DeleteVpcLinkRequest.h>
 #include <aws/apigatewayv2/model/GetApiRequest.h>
 #include <aws/apigatewayv2/model/GetApiMappingRequest.h>
 #include <aws/apigatewayv2/model/GetApiMappingsRequest.h>
@@ -76,6 +82,10 @@
 #include <aws/apigatewayv2/model/GetStageRequest.h>
 #include <aws/apigatewayv2/model/GetStagesRequest.h>
 #include <aws/apigatewayv2/model/GetTagsRequest.h>
+#include <aws/apigatewayv2/model/GetVpcLinkRequest.h>
+#include <aws/apigatewayv2/model/GetVpcLinksRequest.h>
+#include <aws/apigatewayv2/model/ImportApiRequest.h>
+#include <aws/apigatewayv2/model/ReimportApiRequest.h>
 #include <aws/apigatewayv2/model/TagResourceRequest.h>
 #include <aws/apigatewayv2/model/UntagResourceRequest.h>
 #include <aws/apigatewayv2/model/UpdateApiRequest.h>
@@ -89,6 +99,7 @@
 #include <aws/apigatewayv2/model/UpdateRouteRequest.h>
 #include <aws/apigatewayv2/model/UpdateRouteResponseRequest.h>
 #include <aws/apigatewayv2/model/UpdateStageRequest.h>
+#include <aws/apigatewayv2/model/UpdateVpcLinkRequest.h>
 
 using namespace Aws;
 using namespace Aws::Auth;
@@ -168,7 +179,7 @@ CreateApiOutcome ApiGatewayV2Client::CreateApi(const CreateApiRequest& request) 
   Aws::StringStream ss;
   ss << "/v2/apis";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateApiOutcome(CreateApiResult(outcome.GetResult()));
@@ -210,7 +221,7 @@ CreateApiMappingOutcome ApiGatewayV2Client::CreateApiMapping(const CreateApiMapp
   ss << request.GetDomainName();
   ss << "/apimappings";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateApiMappingOutcome(CreateApiMappingResult(outcome.GetResult()));
@@ -252,7 +263,7 @@ CreateAuthorizerOutcome ApiGatewayV2Client::CreateAuthorizer(const CreateAuthori
   ss << request.GetApiId();
   ss << "/authorizers";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAuthorizerOutcome(CreateAuthorizerResult(outcome.GetResult()));
@@ -294,7 +305,7 @@ CreateDeploymentOutcome ApiGatewayV2Client::CreateDeployment(const CreateDeploym
   ss << request.GetApiId();
   ss << "/deployments";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDeploymentOutcome(CreateDeploymentResult(outcome.GetResult()));
@@ -329,7 +340,7 @@ CreateDomainNameOutcome ApiGatewayV2Client::CreateDomainName(const CreateDomainN
   Aws::StringStream ss;
   ss << "/v2/domainnames";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDomainNameOutcome(CreateDomainNameResult(outcome.GetResult()));
@@ -371,7 +382,7 @@ CreateIntegrationOutcome ApiGatewayV2Client::CreateIntegration(const CreateInteg
   ss << request.GetApiId();
   ss << "/integrations";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateIntegrationOutcome(CreateIntegrationResult(outcome.GetResult()));
@@ -420,7 +431,7 @@ CreateIntegrationResponseOutcome ApiGatewayV2Client::CreateIntegrationResponse(c
   ss << request.GetIntegrationId();
   ss << "/integrationresponses";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateIntegrationResponseOutcome(CreateIntegrationResponseResult(outcome.GetResult()));
@@ -462,7 +473,7 @@ CreateModelOutcome ApiGatewayV2Client::CreateModel(const CreateModelRequest& req
   ss << request.GetApiId();
   ss << "/models";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateModelOutcome(CreateModelResult(outcome.GetResult()));
@@ -504,7 +515,7 @@ CreateRouteOutcome ApiGatewayV2Client::CreateRoute(const CreateRouteRequest& req
   ss << request.GetApiId();
   ss << "/routes";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateRouteOutcome(CreateRouteResult(outcome.GetResult()));
@@ -553,7 +564,7 @@ CreateRouteResponseOutcome ApiGatewayV2Client::CreateRouteResponse(const CreateR
   ss << request.GetRouteId();
   ss << "/routeresponses";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateRouteResponseOutcome(CreateRouteResponseResult(outcome.GetResult()));
@@ -595,7 +606,7 @@ CreateStageOutcome ApiGatewayV2Client::CreateStage(const CreateStageRequest& req
   ss << request.GetApiId();
   ss << "/stages";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateStageOutcome(CreateStageResult(outcome.GetResult()));
@@ -624,6 +635,90 @@ void ApiGatewayV2Client::CreateStageAsyncHelper(const CreateStageRequest& reques
   handler(this, request, CreateStage(request), context);
 }
 
+CreateVpcLinkOutcome ApiGatewayV2Client::CreateVpcLink(const CreateVpcLinkRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/vpclinks";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateVpcLinkOutcome(CreateVpcLinkResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateVpcLinkOutcome(outcome.GetError());
+  }
+}
+
+CreateVpcLinkOutcomeCallable ApiGatewayV2Client::CreateVpcLinkCallable(const CreateVpcLinkRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateVpcLinkOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateVpcLink(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::CreateVpcLinkAsync(const CreateVpcLinkRequest& request, const CreateVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateVpcLinkAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::CreateVpcLinkAsyncHelper(const CreateVpcLinkRequest& request, const CreateVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateVpcLink(request), context);
+}
+
+DeleteAccessLogSettingsOutcome ApiGatewayV2Client::DeleteAccessLogSettings(const DeleteAccessLogSettingsRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteAccessLogSettings", "Required field: ApiId, is not set");
+    return DeleteAccessLogSettingsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.StageNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteAccessLogSettings", "Required field: StageName, is not set");
+    return DeleteAccessLogSettingsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/apis/";
+  ss << request.GetApiId();
+  ss << "/stages/";
+  ss << request.GetStageName();
+  ss << "/accesslogsettings";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteAccessLogSettingsOutcome(NoResult());
+  }
+  else
+  {
+    return DeleteAccessLogSettingsOutcome(outcome.GetError());
+  }
+}
+
+DeleteAccessLogSettingsOutcomeCallable ApiGatewayV2Client::DeleteAccessLogSettingsCallable(const DeleteAccessLogSettingsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteAccessLogSettingsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteAccessLogSettings(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::DeleteAccessLogSettingsAsync(const DeleteAccessLogSettingsRequest& request, const DeleteAccessLogSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteAccessLogSettingsAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::DeleteAccessLogSettingsAsyncHelper(const DeleteAccessLogSettingsRequest& request, const DeleteAccessLogSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteAccessLogSettings(request), context);
+}
+
 DeleteApiOutcome ApiGatewayV2Client::DeleteApi(const DeleteApiRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -636,7 +731,7 @@ DeleteApiOutcome ApiGatewayV2Client::DeleteApi(const DeleteApiRequest& request) 
   ss << "/v2/apis/";
   ss << request.GetApiId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApiOutcome(NoResult());
@@ -684,7 +779,7 @@ DeleteApiMappingOutcome ApiGatewayV2Client::DeleteApiMapping(const DeleteApiMapp
   ss << "/apimappings/";
   ss << request.GetApiMappingId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApiMappingOutcome(NoResult());
@@ -732,7 +827,7 @@ DeleteAuthorizerOutcome ApiGatewayV2Client::DeleteAuthorizer(const DeleteAuthori
   ss << "/authorizers/";
   ss << request.GetAuthorizerId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAuthorizerOutcome(NoResult());
@@ -761,6 +856,48 @@ void ApiGatewayV2Client::DeleteAuthorizerAsyncHelper(const DeleteAuthorizerReque
   handler(this, request, DeleteAuthorizer(request), context);
 }
 
+DeleteCorsConfigurationOutcome ApiGatewayV2Client::DeleteCorsConfiguration(const DeleteCorsConfigurationRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteCorsConfiguration", "Required field: ApiId, is not set");
+    return DeleteCorsConfigurationOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/apis/";
+  ss << request.GetApiId();
+  ss << "/cors";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteCorsConfigurationOutcome(NoResult());
+  }
+  else
+  {
+    return DeleteCorsConfigurationOutcome(outcome.GetError());
+  }
+}
+
+DeleteCorsConfigurationOutcomeCallable ApiGatewayV2Client::DeleteCorsConfigurationCallable(const DeleteCorsConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteCorsConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteCorsConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::DeleteCorsConfigurationAsync(const DeleteCorsConfigurationRequest& request, const DeleteCorsConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteCorsConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::DeleteCorsConfigurationAsyncHelper(const DeleteCorsConfigurationRequest& request, const DeleteCorsConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteCorsConfiguration(request), context);
+}
+
 DeleteDeploymentOutcome ApiGatewayV2Client::DeleteDeployment(const DeleteDeploymentRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -780,7 +917,7 @@ DeleteDeploymentOutcome ApiGatewayV2Client::DeleteDeployment(const DeleteDeploym
   ss << "/deployments/";
   ss << request.GetDeploymentId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDeploymentOutcome(NoResult());
@@ -821,7 +958,7 @@ DeleteDomainNameOutcome ApiGatewayV2Client::DeleteDomainName(const DeleteDomainN
   ss << "/v2/domainnames/";
   ss << request.GetDomainName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDomainNameOutcome(NoResult());
@@ -869,7 +1006,7 @@ DeleteIntegrationOutcome ApiGatewayV2Client::DeleteIntegration(const DeleteInteg
   ss << "/integrations/";
   ss << request.GetIntegrationId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteIntegrationOutcome(NoResult());
@@ -924,7 +1061,7 @@ DeleteIntegrationResponseOutcome ApiGatewayV2Client::DeleteIntegrationResponse(c
   ss << "/integrationresponses/";
   ss << request.GetIntegrationResponseId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteIntegrationResponseOutcome(NoResult());
@@ -972,7 +1109,7 @@ DeleteModelOutcome ApiGatewayV2Client::DeleteModel(const DeleteModelRequest& req
   ss << "/models/";
   ss << request.GetModelId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteModelOutcome(NoResult());
@@ -1020,7 +1157,7 @@ DeleteRouteOutcome ApiGatewayV2Client::DeleteRoute(const DeleteRouteRequest& req
   ss << "/routes/";
   ss << request.GetRouteId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRouteOutcome(NoResult());
@@ -1049,6 +1186,61 @@ void ApiGatewayV2Client::DeleteRouteAsyncHelper(const DeleteRouteRequest& reques
   handler(this, request, DeleteRoute(request), context);
 }
 
+DeleteRouteRequestParameterOutcome ApiGatewayV2Client::DeleteRouteRequestParameter(const DeleteRouteRequestParameterRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteRequestParameter", "Required field: ApiId, is not set");
+    return DeleteRouteRequestParameterOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RequestParameterKeyHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteRequestParameter", "Required field: RequestParameterKey, is not set");
+    return DeleteRouteRequestParameterOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RequestParameterKey]", false));
+  }
+  if (!request.RouteIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteRequestParameter", "Required field: RouteId, is not set");
+    return DeleteRouteRequestParameterOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/apis/";
+  ss << request.GetApiId();
+  ss << "/routes/";
+  ss << request.GetRouteId();
+  ss << "/requestparameters/";
+  ss << request.GetRequestParameterKey();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteRouteRequestParameterOutcome(NoResult());
+  }
+  else
+  {
+    return DeleteRouteRequestParameterOutcome(outcome.GetError());
+  }
+}
+
+DeleteRouteRequestParameterOutcomeCallable ApiGatewayV2Client::DeleteRouteRequestParameterCallable(const DeleteRouteRequestParameterRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteRouteRequestParameterOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteRouteRequestParameter(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::DeleteRouteRequestParameterAsync(const DeleteRouteRequestParameterRequest& request, const DeleteRouteRequestParameterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteRouteRequestParameterAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::DeleteRouteRequestParameterAsyncHelper(const DeleteRouteRequestParameterRequest& request, const DeleteRouteRequestParameterResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteRouteRequestParameter(request), context);
+}
+
 DeleteRouteResponseOutcome ApiGatewayV2Client::DeleteRouteResponse(const DeleteRouteResponseRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -1075,7 +1267,7 @@ DeleteRouteResponseOutcome ApiGatewayV2Client::DeleteRouteResponse(const DeleteR
   ss << "/routeresponses/";
   ss << request.GetRouteResponseId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRouteResponseOutcome(NoResult());
@@ -1104,6 +1296,61 @@ void ApiGatewayV2Client::DeleteRouteResponseAsyncHelper(const DeleteRouteRespons
   handler(this, request, DeleteRouteResponse(request), context);
 }
 
+DeleteRouteSettingsOutcome ApiGatewayV2Client::DeleteRouteSettings(const DeleteRouteSettingsRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteSettings", "Required field: ApiId, is not set");
+    return DeleteRouteSettingsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  if (!request.RouteKeyHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteSettings", "Required field: RouteKey, is not set");
+    return DeleteRouteSettingsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [RouteKey]", false));
+  }
+  if (!request.StageNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteRouteSettings", "Required field: StageName, is not set");
+    return DeleteRouteSettingsOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StageName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/apis/";
+  ss << request.GetApiId();
+  ss << "/stages/";
+  ss << request.GetStageName();
+  ss << "/routesettings/";
+  ss << request.GetRouteKey();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteRouteSettingsOutcome(NoResult());
+  }
+  else
+  {
+    return DeleteRouteSettingsOutcome(outcome.GetError());
+  }
+}
+
+DeleteRouteSettingsOutcomeCallable ApiGatewayV2Client::DeleteRouteSettingsCallable(const DeleteRouteSettingsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteRouteSettingsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteRouteSettings(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::DeleteRouteSettingsAsync(const DeleteRouteSettingsRequest& request, const DeleteRouteSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteRouteSettingsAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::DeleteRouteSettingsAsyncHelper(const DeleteRouteSettingsRequest& request, const DeleteRouteSettingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteRouteSettings(request), context);
+}
+
 DeleteStageOutcome ApiGatewayV2Client::DeleteStage(const DeleteStageRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -1123,7 +1370,7 @@ DeleteStageOutcome ApiGatewayV2Client::DeleteStage(const DeleteStageRequest& req
   ss << "/stages/";
   ss << request.GetStageName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteStageOutcome(NoResult());
@@ -1152,6 +1399,47 @@ void ApiGatewayV2Client::DeleteStageAsyncHelper(const DeleteStageRequest& reques
   handler(this, request, DeleteStage(request), context);
 }
 
+DeleteVpcLinkOutcome ApiGatewayV2Client::DeleteVpcLink(const DeleteVpcLinkRequest& request) const
+{
+  if (!request.VpcLinkIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteVpcLink", "Required field: VpcLinkId, is not set");
+    return DeleteVpcLinkOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [VpcLinkId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/vpclinks/";
+  ss << request.GetVpcLinkId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteVpcLinkOutcome(DeleteVpcLinkResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteVpcLinkOutcome(outcome.GetError());
+  }
+}
+
+DeleteVpcLinkOutcomeCallable ApiGatewayV2Client::DeleteVpcLinkCallable(const DeleteVpcLinkRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteVpcLinkOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteVpcLink(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::DeleteVpcLinkAsync(const DeleteVpcLinkRequest& request, const DeleteVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteVpcLinkAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::DeleteVpcLinkAsyncHelper(const DeleteVpcLinkRequest& request, const DeleteVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteVpcLink(request), context);
+}
+
 GetApiOutcome ApiGatewayV2Client::GetApi(const GetApiRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -1164,7 +1452,7 @@ GetApiOutcome ApiGatewayV2Client::GetApi(const GetApiRequest& request) const
   ss << "/v2/apis/";
   ss << request.GetApiId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApiOutcome(GetApiResult(outcome.GetResult()));
@@ -1212,7 +1500,7 @@ GetApiMappingOutcome ApiGatewayV2Client::GetApiMapping(const GetApiMappingReques
   ss << "/apimappings/";
   ss << request.GetApiMappingId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApiMappingOutcome(GetApiMappingResult(outcome.GetResult()));
@@ -1254,7 +1542,7 @@ GetApiMappingsOutcome ApiGatewayV2Client::GetApiMappings(const GetApiMappingsReq
   ss << request.GetDomainName();
   ss << "/apimappings";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApiMappingsOutcome(GetApiMappingsResult(outcome.GetResult()));
@@ -1289,7 +1577,7 @@ GetApisOutcome ApiGatewayV2Client::GetApis(const GetApisRequest& request) const
   Aws::StringStream ss;
   ss << "/v2/apis";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetApisOutcome(GetApisResult(outcome.GetResult()));
@@ -1337,7 +1625,7 @@ GetAuthorizerOutcome ApiGatewayV2Client::GetAuthorizer(const GetAuthorizerReques
   ss << "/authorizers/";
   ss << request.GetAuthorizerId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAuthorizerOutcome(GetAuthorizerResult(outcome.GetResult()));
@@ -1379,7 +1667,7 @@ GetAuthorizersOutcome ApiGatewayV2Client::GetAuthorizers(const GetAuthorizersReq
   ss << request.GetApiId();
   ss << "/authorizers";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAuthorizersOutcome(GetAuthorizersResult(outcome.GetResult()));
@@ -1427,7 +1715,7 @@ GetDeploymentOutcome ApiGatewayV2Client::GetDeployment(const GetDeploymentReques
   ss << "/deployments/";
   ss << request.GetDeploymentId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDeploymentOutcome(GetDeploymentResult(outcome.GetResult()));
@@ -1469,7 +1757,7 @@ GetDeploymentsOutcome ApiGatewayV2Client::GetDeployments(const GetDeploymentsReq
   ss << request.GetApiId();
   ss << "/deployments";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDeploymentsOutcome(GetDeploymentsResult(outcome.GetResult()));
@@ -1510,7 +1798,7 @@ GetDomainNameOutcome ApiGatewayV2Client::GetDomainName(const GetDomainNameReques
   ss << "/v2/domainnames/";
   ss << request.GetDomainName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDomainNameOutcome(GetDomainNameResult(outcome.GetResult()));
@@ -1545,7 +1833,7 @@ GetDomainNamesOutcome ApiGatewayV2Client::GetDomainNames(const GetDomainNamesReq
   Aws::StringStream ss;
   ss << "/v2/domainnames";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDomainNamesOutcome(GetDomainNamesResult(outcome.GetResult()));
@@ -1593,7 +1881,7 @@ GetIntegrationOutcome ApiGatewayV2Client::GetIntegration(const GetIntegrationReq
   ss << "/integrations/";
   ss << request.GetIntegrationId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIntegrationOutcome(GetIntegrationResult(outcome.GetResult()));
@@ -1648,7 +1936,7 @@ GetIntegrationResponseOutcome ApiGatewayV2Client::GetIntegrationResponse(const G
   ss << "/integrationresponses/";
   ss << request.GetIntegrationResponseId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIntegrationResponseOutcome(GetIntegrationResponseResult(outcome.GetResult()));
@@ -1697,7 +1985,7 @@ GetIntegrationResponsesOutcome ApiGatewayV2Client::GetIntegrationResponses(const
   ss << request.GetIntegrationId();
   ss << "/integrationresponses";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIntegrationResponsesOutcome(GetIntegrationResponsesResult(outcome.GetResult()));
@@ -1739,7 +2027,7 @@ GetIntegrationsOutcome ApiGatewayV2Client::GetIntegrations(const GetIntegrations
   ss << request.GetApiId();
   ss << "/integrations";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIntegrationsOutcome(GetIntegrationsResult(outcome.GetResult()));
@@ -1787,7 +2075,7 @@ GetModelOutcome ApiGatewayV2Client::GetModel(const GetModelRequest& request) con
   ss << "/models/";
   ss << request.GetModelId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetModelOutcome(GetModelResult(outcome.GetResult()));
@@ -1836,7 +2124,7 @@ GetModelTemplateOutcome ApiGatewayV2Client::GetModelTemplate(const GetModelTempl
   ss << request.GetModelId();
   ss << "/template";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetModelTemplateOutcome(GetModelTemplateResult(outcome.GetResult()));
@@ -1878,7 +2166,7 @@ GetModelsOutcome ApiGatewayV2Client::GetModels(const GetModelsRequest& request) 
   ss << request.GetApiId();
   ss << "/models";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetModelsOutcome(GetModelsResult(outcome.GetResult()));
@@ -1926,7 +2214,7 @@ GetRouteOutcome ApiGatewayV2Client::GetRoute(const GetRouteRequest& request) con
   ss << "/routes/";
   ss << request.GetRouteId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRouteOutcome(GetRouteResult(outcome.GetResult()));
@@ -1981,7 +2269,7 @@ GetRouteResponseOutcome ApiGatewayV2Client::GetRouteResponse(const GetRouteRespo
   ss << "/routeresponses/";
   ss << request.GetRouteResponseId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRouteResponseOutcome(GetRouteResponseResult(outcome.GetResult()));
@@ -2030,7 +2318,7 @@ GetRouteResponsesOutcome ApiGatewayV2Client::GetRouteResponses(const GetRouteRes
   ss << request.GetRouteId();
   ss << "/routeresponses";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRouteResponsesOutcome(GetRouteResponsesResult(outcome.GetResult()));
@@ -2072,7 +2360,7 @@ GetRoutesOutcome ApiGatewayV2Client::GetRoutes(const GetRoutesRequest& request) 
   ss << request.GetApiId();
   ss << "/routes";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRoutesOutcome(GetRoutesResult(outcome.GetResult()));
@@ -2120,7 +2408,7 @@ GetStageOutcome ApiGatewayV2Client::GetStage(const GetStageRequest& request) con
   ss << "/stages/";
   ss << request.GetStageName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetStageOutcome(GetStageResult(outcome.GetResult()));
@@ -2162,7 +2450,7 @@ GetStagesOutcome ApiGatewayV2Client::GetStages(const GetStagesRequest& request) 
   ss << request.GetApiId();
   ss << "/stages";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetStagesOutcome(GetStagesResult(outcome.GetResult()));
@@ -2203,7 +2491,7 @@ GetTagsOutcome ApiGatewayV2Client::GetTags(const GetTagsRequest& request) const
   ss << "/v2/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTagsOutcome(GetTagsResult(outcome.GetResult()));
@@ -2232,6 +2520,158 @@ void ApiGatewayV2Client::GetTagsAsyncHelper(const GetTagsRequest& request, const
   handler(this, request, GetTags(request), context);
 }
 
+GetVpcLinkOutcome ApiGatewayV2Client::GetVpcLink(const GetVpcLinkRequest& request) const
+{
+  if (!request.VpcLinkIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetVpcLink", "Required field: VpcLinkId, is not set");
+    return GetVpcLinkOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [VpcLinkId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/vpclinks/";
+  ss << request.GetVpcLinkId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetVpcLinkOutcome(GetVpcLinkResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetVpcLinkOutcome(outcome.GetError());
+  }
+}
+
+GetVpcLinkOutcomeCallable ApiGatewayV2Client::GetVpcLinkCallable(const GetVpcLinkRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetVpcLinkOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetVpcLink(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::GetVpcLinkAsync(const GetVpcLinkRequest& request, const GetVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetVpcLinkAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::GetVpcLinkAsyncHelper(const GetVpcLinkRequest& request, const GetVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetVpcLink(request), context);
+}
+
+GetVpcLinksOutcome ApiGatewayV2Client::GetVpcLinks(const GetVpcLinksRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/vpclinks";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetVpcLinksOutcome(GetVpcLinksResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetVpcLinksOutcome(outcome.GetError());
+  }
+}
+
+GetVpcLinksOutcomeCallable ApiGatewayV2Client::GetVpcLinksCallable(const GetVpcLinksRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetVpcLinksOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetVpcLinks(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::GetVpcLinksAsync(const GetVpcLinksRequest& request, const GetVpcLinksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetVpcLinksAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::GetVpcLinksAsyncHelper(const GetVpcLinksRequest& request, const GetVpcLinksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetVpcLinks(request), context);
+}
+
+ImportApiOutcome ApiGatewayV2Client::ImportApi(const ImportApiRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/apis";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ImportApiOutcome(ImportApiResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ImportApiOutcome(outcome.GetError());
+  }
+}
+
+ImportApiOutcomeCallable ApiGatewayV2Client::ImportApiCallable(const ImportApiRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ImportApiOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ImportApi(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::ImportApiAsync(const ImportApiRequest& request, const ImportApiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ImportApiAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::ImportApiAsyncHelper(const ImportApiRequest& request, const ImportApiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ImportApi(request), context);
+}
+
+ReimportApiOutcome ApiGatewayV2Client::ReimportApi(const ReimportApiRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ReimportApi", "Required field: ApiId, is not set");
+    return ReimportApiOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/apis/";
+  ss << request.GetApiId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ReimportApiOutcome(ReimportApiResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ReimportApiOutcome(outcome.GetError());
+  }
+}
+
+ReimportApiOutcomeCallable ApiGatewayV2Client::ReimportApiCallable(const ReimportApiRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ReimportApiOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ReimportApi(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::ReimportApiAsync(const ReimportApiRequest& request, const ReimportApiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ReimportApiAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::ReimportApiAsyncHelper(const ReimportApiRequest& request, const ReimportApiResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ReimportApi(request), context);
+}
+
 TagResourceOutcome ApiGatewayV2Client::TagResource(const TagResourceRequest& request) const
 {
   if (!request.ResourceArnHasBeenSet())
@@ -2244,7 +2684,7 @@ TagResourceOutcome ApiGatewayV2Client::TagResource(const TagResourceRequest& req
   ss << "/v2/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -2290,7 +2730,7 @@ UntagResourceOutcome ApiGatewayV2Client::UntagResource(const UntagResourceReques
   ss << "/v2/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(NoResult());
@@ -2331,7 +2771,7 @@ UpdateApiOutcome ApiGatewayV2Client::UpdateApi(const UpdateApiRequest& request) 
   ss << "/v2/apis/";
   ss << request.GetApiId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApiOutcome(UpdateApiResult(outcome.GetResult()));
@@ -2379,7 +2819,7 @@ UpdateApiMappingOutcome ApiGatewayV2Client::UpdateApiMapping(const UpdateApiMapp
   ss << "/apimappings/";
   ss << request.GetApiMappingId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApiMappingOutcome(UpdateApiMappingResult(outcome.GetResult()));
@@ -2427,7 +2867,7 @@ UpdateAuthorizerOutcome ApiGatewayV2Client::UpdateAuthorizer(const UpdateAuthori
   ss << "/authorizers/";
   ss << request.GetAuthorizerId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAuthorizerOutcome(UpdateAuthorizerResult(outcome.GetResult()));
@@ -2475,7 +2915,7 @@ UpdateDeploymentOutcome ApiGatewayV2Client::UpdateDeployment(const UpdateDeploym
   ss << "/deployments/";
   ss << request.GetDeploymentId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDeploymentOutcome(UpdateDeploymentResult(outcome.GetResult()));
@@ -2516,7 +2956,7 @@ UpdateDomainNameOutcome ApiGatewayV2Client::UpdateDomainName(const UpdateDomainN
   ss << "/v2/domainnames/";
   ss << request.GetDomainName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDomainNameOutcome(UpdateDomainNameResult(outcome.GetResult()));
@@ -2564,7 +3004,7 @@ UpdateIntegrationOutcome ApiGatewayV2Client::UpdateIntegration(const UpdateInteg
   ss << "/integrations/";
   ss << request.GetIntegrationId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateIntegrationOutcome(UpdateIntegrationResult(outcome.GetResult()));
@@ -2619,7 +3059,7 @@ UpdateIntegrationResponseOutcome ApiGatewayV2Client::UpdateIntegrationResponse(c
   ss << "/integrationresponses/";
   ss << request.GetIntegrationResponseId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateIntegrationResponseOutcome(UpdateIntegrationResponseResult(outcome.GetResult()));
@@ -2667,7 +3107,7 @@ UpdateModelOutcome ApiGatewayV2Client::UpdateModel(const UpdateModelRequest& req
   ss << "/models/";
   ss << request.GetModelId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateModelOutcome(UpdateModelResult(outcome.GetResult()));
@@ -2715,7 +3155,7 @@ UpdateRouteOutcome ApiGatewayV2Client::UpdateRoute(const UpdateRouteRequest& req
   ss << "/routes/";
   ss << request.GetRouteId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateRouteOutcome(UpdateRouteResult(outcome.GetResult()));
@@ -2770,7 +3210,7 @@ UpdateRouteResponseOutcome ApiGatewayV2Client::UpdateRouteResponse(const UpdateR
   ss << "/routeresponses/";
   ss << request.GetRouteResponseId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateRouteResponseOutcome(UpdateRouteResponseResult(outcome.GetResult()));
@@ -2818,7 +3258,7 @@ UpdateStageOutcome ApiGatewayV2Client::UpdateStage(const UpdateStageRequest& req
   ss << "/stages/";
   ss << request.GetStageName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateStageOutcome(UpdateStageResult(outcome.GetResult()));
@@ -2845,5 +3285,46 @@ void ApiGatewayV2Client::UpdateStageAsync(const UpdateStageRequest& request, con
 void ApiGatewayV2Client::UpdateStageAsyncHelper(const UpdateStageRequest& request, const UpdateStageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, UpdateStage(request), context);
+}
+
+UpdateVpcLinkOutcome ApiGatewayV2Client::UpdateVpcLink(const UpdateVpcLinkRequest& request) const
+{
+  if (!request.VpcLinkIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateVpcLink", "Required field: VpcLinkId, is not set");
+    return UpdateVpcLinkOutcome(Aws::Client::AWSError<ApiGatewayV2Errors>(ApiGatewayV2Errors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [VpcLinkId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v2/vpclinks/";
+  ss << request.GetVpcLinkId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateVpcLinkOutcome(UpdateVpcLinkResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateVpcLinkOutcome(outcome.GetError());
+  }
+}
+
+UpdateVpcLinkOutcomeCallable ApiGatewayV2Client::UpdateVpcLinkCallable(const UpdateVpcLinkRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateVpcLinkOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateVpcLink(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void ApiGatewayV2Client::UpdateVpcLinkAsync(const UpdateVpcLinkRequest& request, const UpdateVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateVpcLinkAsyncHelper( request, handler, context ); } );
+}
+
+void ApiGatewayV2Client::UpdateVpcLinkAsyncHelper(const UpdateVpcLinkRequest& request, const UpdateVpcLinkResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateVpcLink(request), context);
 }
 

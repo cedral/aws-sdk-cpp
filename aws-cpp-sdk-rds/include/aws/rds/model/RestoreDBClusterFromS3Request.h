@@ -530,58 +530,154 @@ namespace Model
 
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
-     * <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
-     * <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
-     * <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(const Aws::String& value) { m_engineVersionHasBeenSet = true; m_engineVersion = value; }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
-     * <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(Aws::String&& value) { m_engineVersionHasBeenSet = true; m_engineVersion = std::move(value); }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
-     * <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(const char* value) { m_engineVersionHasBeenSet = true; m_engineVersion.assign(value); }
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
-     * <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline RestoreDBClusterFromS3Request& WithEngineVersion(const Aws::String& value) { SetEngineVersion(value); return *this;}
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
-     * <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline RestoreDBClusterFromS3Request& WithEngineVersion(Aws::String&& value) { SetEngineVersion(std::move(value)); return *this;}
 
     /**
-     * <p>The version number of the database engine to use.</p> <p> <b>Aurora MySQL</b>
-     * </p> <p>Example: <code>5.6.10a</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
-     * <p>Example: <code>9.6.3</code> </p>
+     * <p>The version number of the database engine to use.</p> <p>To list all of the
+     * available engine versions for <code>aurora</code> (for MySQL 5.6-compatible
+     * Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p> <b>Aurora MySQL</b> </p>
+     * <p>Example: <code>5.6.10a</code>, <code>5.6.mysql_aurora.1.19.2</code>,
+     * <code>5.7.12</code>, <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora
+     * PostgreSQL</b> </p> <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline RestoreDBClusterFromS3Request& WithEngineVersion(const char* value) { SetEngineVersion(value); return *this;}
 
@@ -1170,28 +1266,36 @@ namespace Model
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool GetEnableIAMDatabaseAuthentication() const{ return m_enableIAMDatabaseAuthentication; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool EnableIAMDatabaseAuthenticationHasBeenSet() const { return m_enableIAMDatabaseAuthenticationHasBeenSet; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline void SetEnableIAMDatabaseAuthentication(bool value) { m_enableIAMDatabaseAuthenticationHasBeenSet = true; m_enableIAMDatabaseAuthentication = value; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline RestoreDBClusterFromS3Request& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 
@@ -1646,6 +1750,144 @@ namespace Model
      */
     inline RestoreDBClusterFromS3Request& WithCopyTagsToSnapshot(bool value) { SetCopyTagsToSnapshot(value); return *this;}
 
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(const Aws::String& value) { m_domainHasBeenSet = true; m_domain = value; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(Aws::String&& value) { m_domainHasBeenSet = true; m_domain = std::move(value); }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline void SetDomain(const char* value) { m_domainHasBeenSet = true; m_domain.assign(value); }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline RestoreDBClusterFromS3Request& WithDomain(const Aws::String& value) { SetDomain(value); return *this;}
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline RestoreDBClusterFromS3Request& WithDomain(Aws::String&& value) { SetDomain(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p> <p> For Amazon Aurora DB
+     * clusters, Amazon RDS can use Kerberos Authentication to authenticate users that
+     * connect to the DB cluster. For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurmysql-kerberos.html">Using
+     * Kerberos Authentication for Aurora MySQL</a> in the <i>Amazon Aurora User
+     * Guide</i>. </p>
+     */
+    inline RestoreDBClusterFromS3Request& WithDomain(const char* value) { SetDomain(value); return *this;}
+
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline const Aws::String& GetDomainIAMRoleName() const{ return m_domainIAMRoleName; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline bool DomainIAMRoleNameHasBeenSet() const { return m_domainIAMRoleNameHasBeenSet; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const Aws::String& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = value; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(Aws::String&& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = std::move(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const char* value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName.assign(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterFromS3Request& WithDomainIAMRoleName(const Aws::String& value) { SetDomainIAMRoleName(value); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterFromS3Request& WithDomainIAMRoleName(Aws::String&& value) { SetDomainIAMRoleName(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterFromS3Request& WithDomainIAMRoleName(const char* value) { SetDomainIAMRoleName(value); return *this;}
+
   private:
 
     Aws::Vector<Aws::String> m_availabilityZones;
@@ -1734,6 +1976,12 @@ namespace Model
 
     bool m_copyTagsToSnapshot;
     bool m_copyTagsToSnapshotHasBeenSet;
+
+    Aws::String m_domain;
+    bool m_domainHasBeenSet;
+
+    Aws::String m_domainIAMRoleName;
+    bool m_domainIAMRoleNameHasBeenSet;
   };
 
 } // namespace Model

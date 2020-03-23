@@ -34,7 +34,9 @@ PipelineExecutionSummary::PipelineExecutionSummary() :
     m_statusHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_lastUpdateTimeHasBeenSet(false),
-    m_sourceRevisionsHasBeenSet(false)
+    m_sourceRevisionsHasBeenSet(false),
+    m_triggerHasBeenSet(false),
+    m_stopTriggerHasBeenSet(false)
 {
 }
 
@@ -44,7 +46,9 @@ PipelineExecutionSummary::PipelineExecutionSummary(JsonView jsonValue) :
     m_statusHasBeenSet(false),
     m_startTimeHasBeenSet(false),
     m_lastUpdateTimeHasBeenSet(false),
-    m_sourceRevisionsHasBeenSet(false)
+    m_sourceRevisionsHasBeenSet(false),
+    m_triggerHasBeenSet(false),
+    m_stopTriggerHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -89,6 +93,20 @@ PipelineExecutionSummary& PipelineExecutionSummary::operator =(JsonView jsonValu
     m_sourceRevisionsHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("trigger"))
+  {
+    m_trigger = jsonValue.GetObject("trigger");
+
+    m_triggerHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("stopTrigger"))
+  {
+    m_stopTrigger = jsonValue.GetObject("stopTrigger");
+
+    m_stopTriggerHasBeenSet = true;
+  }
+
   return *this;
 }
 
@@ -125,6 +143,18 @@ JsonValue PipelineExecutionSummary::Jsonize() const
      sourceRevisionsJsonList[sourceRevisionsIndex].AsObject(m_sourceRevisions[sourceRevisionsIndex].Jsonize());
    }
    payload.WithArray("sourceRevisions", std::move(sourceRevisionsJsonList));
+
+  }
+
+  if(m_triggerHasBeenSet)
+  {
+   payload.WithObject("trigger", m_trigger.Jsonize());
+
+  }
+
+  if(m_stopTriggerHasBeenSet)
+  {
+   payload.WithObject("stopTrigger", m_stopTrigger.Jsonize());
 
   }
 

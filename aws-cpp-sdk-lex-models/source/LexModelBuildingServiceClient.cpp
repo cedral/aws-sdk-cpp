@@ -61,11 +61,14 @@
 #include <aws/lex-models/model/GetSlotTypeVersionsRequest.h>
 #include <aws/lex-models/model/GetSlotTypesRequest.h>
 #include <aws/lex-models/model/GetUtterancesViewRequest.h>
+#include <aws/lex-models/model/ListTagsForResourceRequest.h>
 #include <aws/lex-models/model/PutBotRequest.h>
 #include <aws/lex-models/model/PutBotAliasRequest.h>
 #include <aws/lex-models/model/PutIntentRequest.h>
 #include <aws/lex-models/model/PutSlotTypeRequest.h>
 #include <aws/lex-models/model/StartImportRequest.h>
+#include <aws/lex-models/model/TagResourceRequest.h>
+#include <aws/lex-models/model/UntagResourceRequest.h>
 
 using namespace Aws;
 using namespace Aws::Auth;
@@ -152,7 +155,7 @@ CreateBotVersionOutcome LexModelBuildingServiceClient::CreateBotVersion(const Cr
   ss << request.GetName();
   ss << "/versions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateBotVersionOutcome(CreateBotVersionResult(outcome.GetResult()));
@@ -194,7 +197,7 @@ CreateIntentVersionOutcome LexModelBuildingServiceClient::CreateIntentVersion(co
   ss << request.GetName();
   ss << "/versions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateIntentVersionOutcome(CreateIntentVersionResult(outcome.GetResult()));
@@ -236,7 +239,7 @@ CreateSlotTypeVersionOutcome LexModelBuildingServiceClient::CreateSlotTypeVersio
   ss << request.GetName();
   ss << "/versions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSlotTypeVersionOutcome(CreateSlotTypeVersionResult(outcome.GetResult()));
@@ -277,7 +280,7 @@ DeleteBotOutcome LexModelBuildingServiceClient::DeleteBot(const DeleteBotRequest
   ss << "/bots/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBotOutcome(NoResult());
@@ -325,7 +328,7 @@ DeleteBotAliasOutcome LexModelBuildingServiceClient::DeleteBotAlias(const Delete
   ss << "/aliases/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBotAliasOutcome(NoResult());
@@ -380,7 +383,7 @@ DeleteBotChannelAssociationOutcome LexModelBuildingServiceClient::DeleteBotChann
   ss << "/channels/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBotChannelAssociationOutcome(NoResult());
@@ -428,7 +431,7 @@ DeleteBotVersionOutcome LexModelBuildingServiceClient::DeleteBotVersion(const De
   ss << "/versions/";
   ss << request.GetVersion();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBotVersionOutcome(NoResult());
@@ -469,7 +472,7 @@ DeleteIntentOutcome LexModelBuildingServiceClient::DeleteIntent(const DeleteInte
   ss << "/intents/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteIntentOutcome(NoResult());
@@ -517,7 +520,7 @@ DeleteIntentVersionOutcome LexModelBuildingServiceClient::DeleteIntentVersion(co
   ss << "/versions/";
   ss << request.GetVersion();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteIntentVersionOutcome(NoResult());
@@ -558,7 +561,7 @@ DeleteSlotTypeOutcome LexModelBuildingServiceClient::DeleteSlotType(const Delete
   ss << "/slottypes/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSlotTypeOutcome(NoResult());
@@ -606,7 +609,7 @@ DeleteSlotTypeVersionOutcome LexModelBuildingServiceClient::DeleteSlotTypeVersio
   ss << "/version/";
   ss << request.GetVersion();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSlotTypeVersionOutcome(NoResult());
@@ -654,7 +657,7 @@ DeleteUtterancesOutcome LexModelBuildingServiceClient::DeleteUtterances(const De
   ss << "/utterances/";
   ss << request.GetUserId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteUtterancesOutcome(NoResult());
@@ -702,7 +705,7 @@ GetBotOutcome LexModelBuildingServiceClient::GetBot(const GetBotRequest& request
   ss << "/versions/";
   ss << request.GetVersionOrAlias();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBotOutcome(GetBotResult(outcome.GetResult()));
@@ -750,7 +753,7 @@ GetBotAliasOutcome LexModelBuildingServiceClient::GetBotAlias(const GetBotAliasR
   ss << "/aliases/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBotAliasOutcome(GetBotAliasResult(outcome.GetResult()));
@@ -792,7 +795,7 @@ GetBotAliasesOutcome LexModelBuildingServiceClient::GetBotAliases(const GetBotAl
   ss << request.GetBotName();
   ss << "/aliases/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBotAliasesOutcome(GetBotAliasesResult(outcome.GetResult()));
@@ -847,7 +850,7 @@ GetBotChannelAssociationOutcome LexModelBuildingServiceClient::GetBotChannelAsso
   ss << "/channels/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBotChannelAssociationOutcome(GetBotChannelAssociationResult(outcome.GetResult()));
@@ -896,7 +899,7 @@ GetBotChannelAssociationsOutcome LexModelBuildingServiceClient::GetBotChannelAss
   ss << request.GetBotAlias();
   ss << "/channels/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBotChannelAssociationsOutcome(GetBotChannelAssociationsResult(outcome.GetResult()));
@@ -938,7 +941,7 @@ GetBotVersionsOutcome LexModelBuildingServiceClient::GetBotVersions(const GetBot
   ss << request.GetName();
   ss << "/versions/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBotVersionsOutcome(GetBotVersionsResult(outcome.GetResult()));
@@ -973,7 +976,7 @@ GetBotsOutcome LexModelBuildingServiceClient::GetBots(const GetBotsRequest& requ
   Aws::StringStream ss;
   ss << "/bots/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBotsOutcome(GetBotsResult(outcome.GetResult()));
@@ -1014,7 +1017,7 @@ GetBuiltinIntentOutcome LexModelBuildingServiceClient::GetBuiltinIntent(const Ge
   ss << "/builtins/intents/";
   ss << request.GetSignature();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBuiltinIntentOutcome(GetBuiltinIntentResult(outcome.GetResult()));
@@ -1049,7 +1052,7 @@ GetBuiltinIntentsOutcome LexModelBuildingServiceClient::GetBuiltinIntents(const 
   Aws::StringStream ss;
   ss << "/builtins/intents/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBuiltinIntentsOutcome(GetBuiltinIntentsResult(outcome.GetResult()));
@@ -1084,7 +1087,7 @@ GetBuiltinSlotTypesOutcome LexModelBuildingServiceClient::GetBuiltinSlotTypes(co
   Aws::StringStream ss;
   ss << "/builtins/slottypes/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetBuiltinSlotTypesOutcome(GetBuiltinSlotTypesResult(outcome.GetResult()));
@@ -1139,7 +1142,7 @@ GetExportOutcome LexModelBuildingServiceClient::GetExport(const GetExportRequest
   Aws::StringStream ss;
   ss << "/exports/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetExportOutcome(GetExportResult(outcome.GetResult()));
@@ -1180,7 +1183,7 @@ GetImportOutcome LexModelBuildingServiceClient::GetImport(const GetImportRequest
   ss << "/imports/";
   ss << request.GetImportId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetImportOutcome(GetImportResult(outcome.GetResult()));
@@ -1228,7 +1231,7 @@ GetIntentOutcome LexModelBuildingServiceClient::GetIntent(const GetIntentRequest
   ss << "/versions/";
   ss << request.GetVersion();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIntentOutcome(GetIntentResult(outcome.GetResult()));
@@ -1270,7 +1273,7 @@ GetIntentVersionsOutcome LexModelBuildingServiceClient::GetIntentVersions(const 
   ss << request.GetName();
   ss << "/versions/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIntentVersionsOutcome(GetIntentVersionsResult(outcome.GetResult()));
@@ -1305,7 +1308,7 @@ GetIntentsOutcome LexModelBuildingServiceClient::GetIntents(const GetIntentsRequ
   Aws::StringStream ss;
   ss << "/intents/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIntentsOutcome(GetIntentsResult(outcome.GetResult()));
@@ -1353,7 +1356,7 @@ GetSlotTypeOutcome LexModelBuildingServiceClient::GetSlotType(const GetSlotTypeR
   ss << "/versions/";
   ss << request.GetVersion();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSlotTypeOutcome(GetSlotTypeResult(outcome.GetResult()));
@@ -1395,7 +1398,7 @@ GetSlotTypeVersionsOutcome LexModelBuildingServiceClient::GetSlotTypeVersions(co
   ss << request.GetName();
   ss << "/versions/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSlotTypeVersionsOutcome(GetSlotTypeVersionsResult(outcome.GetResult()));
@@ -1430,7 +1433,7 @@ GetSlotTypesOutcome LexModelBuildingServiceClient::GetSlotTypes(const GetSlotTyp
   Aws::StringStream ss;
   ss << "/slottypes/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSlotTypesOutcome(GetSlotTypesResult(outcome.GetResult()));
@@ -1484,7 +1487,7 @@ GetUtterancesViewOutcome LexModelBuildingServiceClient::GetUtterancesView(const 
   uri.SetPath(uri.GetPath() + ss.str());
   ss.str("?view=aggregation");
   uri.SetQueryString(ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetUtterancesViewOutcome(GetUtterancesViewResult(outcome.GetResult()));
@@ -1513,6 +1516,47 @@ void LexModelBuildingServiceClient::GetUtterancesViewAsyncHelper(const GetUttera
   handler(this, request, GetUtterancesView(request), context);
 }
 
+ListTagsForResourceOutcome LexModelBuildingServiceClient::ListTagsForResource(const ListTagsForResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListTagsForResource", "Required field: ResourceArn, is not set");
+    return ListTagsForResourceOutcome(Aws::Client::AWSError<LexModelBuildingServiceErrors>(LexModelBuildingServiceErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTagsForResourceOutcome(outcome.GetError());
+  }
+}
+
+ListTagsForResourceOutcomeCallable LexModelBuildingServiceClient::ListTagsForResourceCallable(const ListTagsForResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTagsForResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTagsForResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void LexModelBuildingServiceClient::ListTagsForResourceAsync(const ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTagsForResourceAsyncHelper( request, handler, context ); } );
+}
+
+void LexModelBuildingServiceClient::ListTagsForResourceAsyncHelper(const ListTagsForResourceRequest& request, const ListTagsForResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTagsForResource(request), context);
+}
+
 PutBotOutcome LexModelBuildingServiceClient::PutBot(const PutBotRequest& request) const
 {
   if (!request.NameHasBeenSet())
@@ -1526,7 +1570,7 @@ PutBotOutcome LexModelBuildingServiceClient::PutBot(const PutBotRequest& request
   ss << request.GetName();
   ss << "/versions/$LATEST";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutBotOutcome(PutBotResult(outcome.GetResult()));
@@ -1574,7 +1618,7 @@ PutBotAliasOutcome LexModelBuildingServiceClient::PutBotAlias(const PutBotAliasR
   ss << "/aliases/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutBotAliasOutcome(PutBotAliasResult(outcome.GetResult()));
@@ -1616,7 +1660,7 @@ PutIntentOutcome LexModelBuildingServiceClient::PutIntent(const PutIntentRequest
   ss << request.GetName();
   ss << "/versions/$LATEST";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutIntentOutcome(PutIntentResult(outcome.GetResult()));
@@ -1658,7 +1702,7 @@ PutSlotTypeOutcome LexModelBuildingServiceClient::PutSlotType(const PutSlotTypeR
   ss << request.GetName();
   ss << "/versions/$LATEST";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutSlotTypeOutcome(PutSlotTypeResult(outcome.GetResult()));
@@ -1693,7 +1737,7 @@ StartImportOutcome LexModelBuildingServiceClient::StartImport(const StartImportR
   Aws::StringStream ss;
   ss << "/imports/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartImportOutcome(StartImportResult(outcome.GetResult()));
@@ -1720,5 +1764,92 @@ void LexModelBuildingServiceClient::StartImportAsync(const StartImportRequest& r
 void LexModelBuildingServiceClient::StartImportAsyncHelper(const StartImportRequest& request, const StartImportResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, StartImport(request), context);
+}
+
+TagResourceOutcome LexModelBuildingServiceClient::TagResource(const TagResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("TagResource", "Required field: ResourceArn, is not set");
+    return TagResourceOutcome(Aws::Client::AWSError<LexModelBuildingServiceErrors>(LexModelBuildingServiceErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return TagResourceOutcome(outcome.GetError());
+  }
+}
+
+TagResourceOutcomeCallable LexModelBuildingServiceClient::TagResourceCallable(const TagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< TagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->TagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void LexModelBuildingServiceClient::TagResourceAsync(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->TagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void LexModelBuildingServiceClient::TagResourceAsyncHelper(const TagResourceRequest& request, const TagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, TagResource(request), context);
+}
+
+UntagResourceOutcome LexModelBuildingServiceClient::UntagResource(const UntagResourceRequest& request) const
+{
+  if (!request.ResourceArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UntagResource", "Required field: ResourceArn, is not set");
+    return UntagResourceOutcome(Aws::Client::AWSError<LexModelBuildingServiceErrors>(LexModelBuildingServiceErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ResourceArn]", false));
+  }
+  if (!request.TagKeysHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UntagResource", "Required field: TagKeys, is not set");
+    return UntagResourceOutcome(Aws::Client::AWSError<LexModelBuildingServiceErrors>(LexModelBuildingServiceErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TagKeys]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/tags/";
+  ss << request.GetResourceArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UntagResourceOutcome(outcome.GetError());
+  }
+}
+
+UntagResourceOutcomeCallable LexModelBuildingServiceClient::UntagResourceCallable(const UntagResourceRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UntagResourceOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UntagResource(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void LexModelBuildingServiceClient::UntagResourceAsync(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UntagResourceAsyncHelper( request, handler, context ); } );
+}
+
+void LexModelBuildingServiceClient::UntagResourceAsyncHelper(const UntagResourceRequest& request, const UntagResourceResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UntagResource(request), context);
 }
 

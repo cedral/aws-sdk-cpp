@@ -446,7 +446,7 @@ namespace Model
          * queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are
          * terminated when you delete a job queue.</p> <p>It is not necessary to
          * disassociate compute environments from a queue before submitting a
-         * <code>DeleteJobQueue</code> request. </p><p><h3>See Also:</h3>   <a
+         * <code>DeleteJobQueue</code> request.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/DeleteJobQueue">AWS
          * API Reference</a></p>
          */
@@ -457,7 +457,7 @@ namespace Model
          * queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are
          * terminated when you delete a job queue.</p> <p>It is not necessary to
          * disassociate compute environments from a queue before submitting a
-         * <code>DeleteJobQueue</code> request. </p><p><h3>See Also:</h3>   <a
+         * <code>DeleteJobQueue</code> request.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/DeleteJobQueue">AWS
          * API Reference</a></p>
          *
@@ -470,7 +470,7 @@ namespace Model
          * queue with the <a>UpdateJobQueue</a> operation. All jobs in the queue are
          * terminated when you delete a job queue.</p> <p>It is not necessary to
          * disassociate compute environments from a queue before submitting a
-         * <code>DeleteJobQueue</code> request. </p><p><h3>See Also:</h3>   <a
+         * <code>DeleteJobQueue</code> request.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/DeleteJobQueue">AWS
          * API Reference</a></p>
          *
@@ -479,14 +479,16 @@ namespace Model
         virtual void DeleteJobQueueAsync(const Model::DeleteJobQueueRequest& request, const DeleteJobQueueResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Deregisters an AWS Batch job definition.</p><p><h3>See Also:</h3>   <a
+         * <p>Deregisters an AWS Batch job definition. Job definitions will be permanently
+         * deleted after 180 days.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/DeregisterJobDefinition">AWS
          * API Reference</a></p>
          */
         virtual Model::DeregisterJobDefinitionOutcome DeregisterJobDefinition(const Model::DeregisterJobDefinitionRequest& request) const;
 
         /**
-         * <p>Deregisters an AWS Batch job definition.</p><p><h3>See Also:</h3>   <a
+         * <p>Deregisters an AWS Batch job definition. Job definitions will be permanently
+         * deleted after 180 days.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/DeregisterJobDefinition">AWS
          * API Reference</a></p>
          *
@@ -495,7 +497,8 @@ namespace Model
         virtual Model::DeregisterJobDefinitionOutcomeCallable DeregisterJobDefinitionCallable(const Model::DeregisterJobDefinitionRequest& request) const;
 
         /**
-         * <p>Deregisters an AWS Batch job definition.</p><p><h3>See Also:</h3>   <a
+         * <p>Deregisters an AWS Batch job definition. Job definitions will be permanently
+         * deleted after 180 days.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/DeregisterJobDefinition">AWS
          * API Reference</a></p>
          *
@@ -665,14 +668,14 @@ namespace Model
         virtual void ListJobsAsync(const Model::ListJobsRequest& request, const ListJobsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Registers an AWS Batch job definition. </p><p><h3>See Also:</h3>   <a
+         * <p>Registers an AWS Batch job definition.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/RegisterJobDefinition">AWS
          * API Reference</a></p>
          */
         virtual Model::RegisterJobDefinitionOutcome RegisterJobDefinition(const Model::RegisterJobDefinitionRequest& request) const;
 
         /**
-         * <p>Registers an AWS Batch job definition. </p><p><h3>See Also:</h3>   <a
+         * <p>Registers an AWS Batch job definition.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/RegisterJobDefinition">AWS
          * API Reference</a></p>
          *
@@ -681,7 +684,7 @@ namespace Model
         virtual Model::RegisterJobDefinitionOutcomeCallable RegisterJobDefinitionCallable(const Model::RegisterJobDefinitionRequest& request) const;
 
         /**
-         * <p>Registers an AWS Batch job definition. </p><p><h3>See Also:</h3>   <a
+         * <p>Registers an AWS Batch job definition.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/RegisterJobDefinition">AWS
          * API Reference</a></p>
          *
@@ -691,8 +694,8 @@ namespace Model
 
         /**
          * <p>Submits an AWS Batch job from a job definition. Parameters specified during
-         * <a>SubmitJob</a> override parameters defined in the job definition.
-         * </p><p><h3>See Also:</h3>   <a
+         * <a>SubmitJob</a> override parameters defined in the job
+         * definition.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/SubmitJob">AWS API
          * Reference</a></p>
          */
@@ -700,8 +703,8 @@ namespace Model
 
         /**
          * <p>Submits an AWS Batch job from a job definition. Parameters specified during
-         * <a>SubmitJob</a> override parameters defined in the job definition.
-         * </p><p><h3>See Also:</h3>   <a
+         * <a>SubmitJob</a> override parameters defined in the job
+         * definition.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/SubmitJob">AWS API
          * Reference</a></p>
          *
@@ -711,8 +714,8 @@ namespace Model
 
         /**
          * <p>Submits an AWS Batch job from a job definition. Parameters specified during
-         * <a>SubmitJob</a> override parameters defined in the job definition.
-         * </p><p><h3>See Also:</h3>   <a
+         * <a>SubmitJob</a> override parameters defined in the job
+         * definition.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/batch-2016-08-10/SubmitJob">AWS API
          * Reference</a></p>
          *

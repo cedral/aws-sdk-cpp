@@ -30,11 +30,22 @@
 #include <aws/s3control/S3ControlClient.h>
 #include <aws/s3control/S3ControlEndpoint.h>
 #include <aws/s3control/S3ControlErrorMarshaller.h>
+#include <aws/s3control/model/CreateAccessPointRequest.h>
 #include <aws/s3control/model/CreateJobRequest.h>
+#include <aws/s3control/model/DeleteAccessPointRequest.h>
+#include <aws/s3control/model/DeleteAccessPointPolicyRequest.h>
+#include <aws/s3control/model/DeleteJobTaggingRequest.h>
 #include <aws/s3control/model/DeletePublicAccessBlockRequest.h>
 #include <aws/s3control/model/DescribeJobRequest.h>
+#include <aws/s3control/model/GetAccessPointRequest.h>
+#include <aws/s3control/model/GetAccessPointPolicyRequest.h>
+#include <aws/s3control/model/GetAccessPointPolicyStatusRequest.h>
+#include <aws/s3control/model/GetJobTaggingRequest.h>
 #include <aws/s3control/model/GetPublicAccessBlockRequest.h>
+#include <aws/s3control/model/ListAccessPointsRequest.h>
 #include <aws/s3control/model/ListJobsRequest.h>
+#include <aws/s3control/model/PutAccessPointPolicyRequest.h>
+#include <aws/s3control/model/PutJobTaggingRequest.h>
 #include <aws/s3control/model/PutPublicAccessBlockRequest.h>
 #include <aws/s3control/model/UpdateJobPriorityRequest.h>
 #include <aws/s3control/model/UpdateJobStatusRequest.h>
@@ -120,6 +131,57 @@ void S3ControlClient::OverrideEndpoint(const Aws::String& endpoint)
   }
 }
 
+CreateAccessPointOutcome S3ControlClient::CreateAccessPoint(const CreateAccessPointRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateAccessPoint", "Required field: AccountId, is not set");
+    return CreateAccessPointOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateAccessPoint", "Required field: Name, is not set");
+    return CreateAccessPointOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return CreateAccessPointOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/accesspoint/";
+  ss << request.GetName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT);
+  if(outcome.IsSuccess())
+  {
+    return CreateAccessPointOutcome(NoResult());
+  }
+  else
+  {
+    return CreateAccessPointOutcome(outcome.GetError());
+  }
+}
+
+CreateAccessPointOutcomeCallable S3ControlClient::CreateAccessPointCallable(const CreateAccessPointRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateAccessPointOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateAccessPoint(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::CreateAccessPointAsync(const CreateAccessPointRequest& request, const CreateAccessPointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateAccessPointAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::CreateAccessPointAsyncHelper(const CreateAccessPointRequest& request, const CreateAccessPointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateAccessPoint(request), context);
+}
+
 CreateJobOutcome S3ControlClient::CreateJob(const CreateJobRequest& request) const
 {
   if (!request.AccountIdHasBeenSet())
@@ -136,7 +198,7 @@ CreateJobOutcome S3ControlClient::CreateJob(const CreateJobRequest& request) con
   Aws::StringStream ss;
   ss << "/v20180820/jobs";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateJobOutcome(CreateJobResult(outcome.GetResult()));
@@ -165,6 +227,161 @@ void S3ControlClient::CreateJobAsyncHelper(const CreateJobRequest& request, cons
   handler(this, request, CreateJob(request), context);
 }
 
+DeleteAccessPointOutcome S3ControlClient::DeleteAccessPoint(const DeleteAccessPointRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteAccessPoint", "Required field: AccountId, is not set");
+    return DeleteAccessPointOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteAccessPoint", "Required field: Name, is not set");
+    return DeleteAccessPointOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return DeleteAccessPointOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/accesspoint/";
+  ss << request.GetName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE);
+  if(outcome.IsSuccess())
+  {
+    return DeleteAccessPointOutcome(NoResult());
+  }
+  else
+  {
+    return DeleteAccessPointOutcome(outcome.GetError());
+  }
+}
+
+DeleteAccessPointOutcomeCallable S3ControlClient::DeleteAccessPointCallable(const DeleteAccessPointRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteAccessPointOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteAccessPoint(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::DeleteAccessPointAsync(const DeleteAccessPointRequest& request, const DeleteAccessPointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteAccessPointAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::DeleteAccessPointAsyncHelper(const DeleteAccessPointRequest& request, const DeleteAccessPointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteAccessPoint(request), context);
+}
+
+DeleteAccessPointPolicyOutcome S3ControlClient::DeleteAccessPointPolicy(const DeleteAccessPointPolicyRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteAccessPointPolicy", "Required field: AccountId, is not set");
+    return DeleteAccessPointPolicyOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteAccessPointPolicy", "Required field: Name, is not set");
+    return DeleteAccessPointPolicyOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return DeleteAccessPointPolicyOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/accesspoint/";
+  ss << request.GetName();
+  ss << "/policy";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE);
+  if(outcome.IsSuccess())
+  {
+    return DeleteAccessPointPolicyOutcome(NoResult());
+  }
+  else
+  {
+    return DeleteAccessPointPolicyOutcome(outcome.GetError());
+  }
+}
+
+DeleteAccessPointPolicyOutcomeCallable S3ControlClient::DeleteAccessPointPolicyCallable(const DeleteAccessPointPolicyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteAccessPointPolicyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteAccessPointPolicy(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::DeleteAccessPointPolicyAsync(const DeleteAccessPointPolicyRequest& request, const DeleteAccessPointPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteAccessPointPolicyAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::DeleteAccessPointPolicyAsyncHelper(const DeleteAccessPointPolicyRequest& request, const DeleteAccessPointPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteAccessPointPolicy(request), context);
+}
+
+DeleteJobTaggingOutcome S3ControlClient::DeleteJobTagging(const DeleteJobTaggingRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteJobTagging", "Required field: AccountId, is not set");
+    return DeleteJobTaggingOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.JobIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteJobTagging", "Required field: JobId, is not set");
+    return DeleteJobTaggingOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JobId]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return DeleteJobTaggingOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/jobs/";
+  ss << request.GetJobId();
+  ss << "/tagging";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE);
+  if(outcome.IsSuccess())
+  {
+    return DeleteJobTaggingOutcome(DeleteJobTaggingResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteJobTaggingOutcome(outcome.GetError());
+  }
+}
+
+DeleteJobTaggingOutcomeCallable S3ControlClient::DeleteJobTaggingCallable(const DeleteJobTaggingRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteJobTaggingOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteJobTagging(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::DeleteJobTaggingAsync(const DeleteJobTaggingRequest& request, const DeleteJobTaggingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteJobTaggingAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::DeleteJobTaggingAsyncHelper(const DeleteJobTaggingRequest& request, const DeleteJobTaggingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteJobTagging(request), context);
+}
+
 DeletePublicAccessBlockOutcome S3ControlClient::DeletePublicAccessBlock(const DeletePublicAccessBlockRequest& request) const
 {
   if (!request.AccountIdHasBeenSet())
@@ -181,7 +398,7 @@ DeletePublicAccessBlockOutcome S3ControlClient::DeletePublicAccessBlock(const De
   Aws::StringStream ss;
   ss << "/v20180820/configuration/publicAccessBlock";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE);
   if(outcome.IsSuccess())
   {
     return DeletePublicAccessBlockOutcome(NoResult());
@@ -232,7 +449,7 @@ DescribeJobOutcome S3ControlClient::DescribeJob(const DescribeJobRequest& reques
   ss << "/v20180820/jobs/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET);
   if(outcome.IsSuccess())
   {
     return DescribeJobOutcome(DescribeJobResult(outcome.GetResult()));
@@ -261,6 +478,213 @@ void S3ControlClient::DescribeJobAsyncHelper(const DescribeJobRequest& request, 
   handler(this, request, DescribeJob(request), context);
 }
 
+GetAccessPointOutcome S3ControlClient::GetAccessPoint(const GetAccessPointRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAccessPoint", "Required field: AccountId, is not set");
+    return GetAccessPointOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAccessPoint", "Required field: Name, is not set");
+    return GetAccessPointOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return GetAccessPointOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/accesspoint/";
+  ss << request.GetName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET);
+  if(outcome.IsSuccess())
+  {
+    return GetAccessPointOutcome(GetAccessPointResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetAccessPointOutcome(outcome.GetError());
+  }
+}
+
+GetAccessPointOutcomeCallable S3ControlClient::GetAccessPointCallable(const GetAccessPointRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetAccessPointOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetAccessPoint(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::GetAccessPointAsync(const GetAccessPointRequest& request, const GetAccessPointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetAccessPointAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::GetAccessPointAsyncHelper(const GetAccessPointRequest& request, const GetAccessPointResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetAccessPoint(request), context);
+}
+
+GetAccessPointPolicyOutcome S3ControlClient::GetAccessPointPolicy(const GetAccessPointPolicyRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAccessPointPolicy", "Required field: AccountId, is not set");
+    return GetAccessPointPolicyOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAccessPointPolicy", "Required field: Name, is not set");
+    return GetAccessPointPolicyOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return GetAccessPointPolicyOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/accesspoint/";
+  ss << request.GetName();
+  ss << "/policy";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET);
+  if(outcome.IsSuccess())
+  {
+    return GetAccessPointPolicyOutcome(GetAccessPointPolicyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetAccessPointPolicyOutcome(outcome.GetError());
+  }
+}
+
+GetAccessPointPolicyOutcomeCallable S3ControlClient::GetAccessPointPolicyCallable(const GetAccessPointPolicyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetAccessPointPolicyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetAccessPointPolicy(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::GetAccessPointPolicyAsync(const GetAccessPointPolicyRequest& request, const GetAccessPointPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetAccessPointPolicyAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::GetAccessPointPolicyAsyncHelper(const GetAccessPointPolicyRequest& request, const GetAccessPointPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetAccessPointPolicy(request), context);
+}
+
+GetAccessPointPolicyStatusOutcome S3ControlClient::GetAccessPointPolicyStatus(const GetAccessPointPolicyStatusRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAccessPointPolicyStatus", "Required field: AccountId, is not set");
+    return GetAccessPointPolicyStatusOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetAccessPointPolicyStatus", "Required field: Name, is not set");
+    return GetAccessPointPolicyStatusOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return GetAccessPointPolicyStatusOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/accesspoint/";
+  ss << request.GetName();
+  ss << "/policyStatus";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET);
+  if(outcome.IsSuccess())
+  {
+    return GetAccessPointPolicyStatusOutcome(GetAccessPointPolicyStatusResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetAccessPointPolicyStatusOutcome(outcome.GetError());
+  }
+}
+
+GetAccessPointPolicyStatusOutcomeCallable S3ControlClient::GetAccessPointPolicyStatusCallable(const GetAccessPointPolicyStatusRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetAccessPointPolicyStatusOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetAccessPointPolicyStatus(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::GetAccessPointPolicyStatusAsync(const GetAccessPointPolicyStatusRequest& request, const GetAccessPointPolicyStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetAccessPointPolicyStatusAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::GetAccessPointPolicyStatusAsyncHelper(const GetAccessPointPolicyStatusRequest& request, const GetAccessPointPolicyStatusResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetAccessPointPolicyStatus(request), context);
+}
+
+GetJobTaggingOutcome S3ControlClient::GetJobTagging(const GetJobTaggingRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJobTagging", "Required field: AccountId, is not set");
+    return GetJobTaggingOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.JobIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetJobTagging", "Required field: JobId, is not set");
+    return GetJobTaggingOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JobId]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return GetJobTaggingOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/jobs/";
+  ss << request.GetJobId();
+  ss << "/tagging";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET);
+  if(outcome.IsSuccess())
+  {
+    return GetJobTaggingOutcome(GetJobTaggingResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetJobTaggingOutcome(outcome.GetError());
+  }
+}
+
+GetJobTaggingOutcomeCallable S3ControlClient::GetJobTaggingCallable(const GetJobTaggingRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetJobTaggingOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetJobTagging(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::GetJobTaggingAsync(const GetJobTaggingRequest& request, const GetJobTaggingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetJobTaggingAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::GetJobTaggingAsyncHelper(const GetJobTaggingRequest& request, const GetJobTaggingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetJobTagging(request), context);
+}
+
 GetPublicAccessBlockOutcome S3ControlClient::GetPublicAccessBlock(const GetPublicAccessBlockRequest& request) const
 {
   if (!request.AccountIdHasBeenSet())
@@ -277,7 +701,7 @@ GetPublicAccessBlockOutcome S3ControlClient::GetPublicAccessBlock(const GetPubli
   Aws::StringStream ss;
   ss << "/v20180820/configuration/publicAccessBlock";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET);
   if(outcome.IsSuccess())
   {
     return GetPublicAccessBlockOutcome(GetPublicAccessBlockResult(outcome.GetResult()));
@@ -306,6 +730,51 @@ void S3ControlClient::GetPublicAccessBlockAsyncHelper(const GetPublicAccessBlock
   handler(this, request, GetPublicAccessBlock(request), context);
 }
 
+ListAccessPointsOutcome S3ControlClient::ListAccessPoints(const ListAccessPointsRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListAccessPoints", "Required field: AccountId, is not set");
+    return ListAccessPointsOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return ListAccessPointsOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/accesspoint";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET);
+  if(outcome.IsSuccess())
+  {
+    return ListAccessPointsOutcome(ListAccessPointsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListAccessPointsOutcome(outcome.GetError());
+  }
+}
+
+ListAccessPointsOutcomeCallable S3ControlClient::ListAccessPointsCallable(const ListAccessPointsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListAccessPointsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListAccessPoints(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::ListAccessPointsAsync(const ListAccessPointsRequest& request, const ListAccessPointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListAccessPointsAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::ListAccessPointsAsyncHelper(const ListAccessPointsRequest& request, const ListAccessPointsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListAccessPoints(request), context);
+}
+
 ListJobsOutcome S3ControlClient::ListJobs(const ListJobsRequest& request) const
 {
   if (!request.AccountIdHasBeenSet())
@@ -322,7 +791,7 @@ ListJobsOutcome S3ControlClient::ListJobs(const ListJobsRequest& request) const
   Aws::StringStream ss;
   ss << "/v20180820/jobs";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET);
   if(outcome.IsSuccess())
   {
     return ListJobsOutcome(ListJobsResult(outcome.GetResult()));
@@ -351,6 +820,110 @@ void S3ControlClient::ListJobsAsyncHelper(const ListJobsRequest& request, const 
   handler(this, request, ListJobs(request), context);
 }
 
+PutAccessPointPolicyOutcome S3ControlClient::PutAccessPointPolicy(const PutAccessPointPolicyRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("PutAccessPointPolicy", "Required field: AccountId, is not set");
+    return PutAccessPointPolicyOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.NameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("PutAccessPointPolicy", "Required field: Name, is not set");
+    return PutAccessPointPolicyOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Name]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return PutAccessPointPolicyOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/accesspoint/";
+  ss << request.GetName();
+  ss << "/policy";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT);
+  if(outcome.IsSuccess())
+  {
+    return PutAccessPointPolicyOutcome(NoResult());
+  }
+  else
+  {
+    return PutAccessPointPolicyOutcome(outcome.GetError());
+  }
+}
+
+PutAccessPointPolicyOutcomeCallable S3ControlClient::PutAccessPointPolicyCallable(const PutAccessPointPolicyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< PutAccessPointPolicyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->PutAccessPointPolicy(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::PutAccessPointPolicyAsync(const PutAccessPointPolicyRequest& request, const PutAccessPointPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->PutAccessPointPolicyAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::PutAccessPointPolicyAsyncHelper(const PutAccessPointPolicyRequest& request, const PutAccessPointPolicyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, PutAccessPointPolicy(request), context);
+}
+
+PutJobTaggingOutcome S3ControlClient::PutJobTagging(const PutJobTaggingRequest& request) const
+{
+  if (!request.AccountIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("PutJobTagging", "Required field: AccountId, is not set");
+    return PutJobTaggingOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [AccountId]", false));
+  }
+  if (!request.JobIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("PutJobTagging", "Required field: JobId, is not set");
+    return PutJobTaggingOutcome(Aws::Client::AWSError<S3ControlErrors>(S3ControlErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [JobId]", false));
+  }
+  Aws::String endpointString(ComputeEndpointString(request.GetAccountId()));
+  if (endpointString.empty())
+  {
+      return PutJobTaggingOutcome(AWSError<CoreErrors>(CoreErrors::VALIDATION, "", "Account ID provided is not a valid [RFC 1123 2.1] host domain name label.", false/*retryable*/));
+  }
+  Aws::Http::URI uri = endpointString;
+  Aws::StringStream ss;
+  ss << "/v20180820/jobs/";
+  ss << request.GetJobId();
+  ss << "/tagging";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT);
+  if(outcome.IsSuccess())
+  {
+    return PutJobTaggingOutcome(PutJobTaggingResult(outcome.GetResult()));
+  }
+  else
+  {
+    return PutJobTaggingOutcome(outcome.GetError());
+  }
+}
+
+PutJobTaggingOutcomeCallable S3ControlClient::PutJobTaggingCallable(const PutJobTaggingRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< PutJobTaggingOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->PutJobTagging(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void S3ControlClient::PutJobTaggingAsync(const PutJobTaggingRequest& request, const PutJobTaggingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->PutJobTaggingAsyncHelper( request, handler, context ); } );
+}
+
+void S3ControlClient::PutJobTaggingAsyncHelper(const PutJobTaggingRequest& request, const PutJobTaggingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, PutJobTagging(request), context);
+}
+
 PutPublicAccessBlockOutcome S3ControlClient::PutPublicAccessBlock(const PutPublicAccessBlockRequest& request) const
 {
   if (!request.AccountIdHasBeenSet())
@@ -367,7 +940,7 @@ PutPublicAccessBlockOutcome S3ControlClient::PutPublicAccessBlock(const PutPubli
   Aws::StringStream ss;
   ss << "/v20180820/configuration/publicAccessBlock";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT);
   if(outcome.IsSuccess())
   {
     return PutPublicAccessBlockOutcome(NoResult());
@@ -424,7 +997,7 @@ UpdateJobPriorityOutcome S3ControlClient::UpdateJobPriority(const UpdateJobPrior
   ss << request.GetJobId();
   ss << "/priority";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return UpdateJobPriorityOutcome(UpdateJobPriorityResult(outcome.GetResult()));
@@ -481,7 +1054,7 @@ UpdateJobStatusOutcome S3ControlClient::UpdateJobStatus(const UpdateJobStatusReq
   ss << request.GetJobId();
   ss << "/status";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return UpdateJobStatusOutcome(UpdateJobStatusResult(outcome.GetResult()));

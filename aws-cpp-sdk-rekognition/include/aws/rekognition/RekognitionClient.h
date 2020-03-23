@@ -23,12 +23,17 @@
 #include <aws/core/utils/json/JsonSerializer.h>
 #include <aws/rekognition/model/CompareFacesResult.h>
 #include <aws/rekognition/model/CreateCollectionResult.h>
+#include <aws/rekognition/model/CreateProjectResult.h>
+#include <aws/rekognition/model/CreateProjectVersionResult.h>
 #include <aws/rekognition/model/CreateStreamProcessorResult.h>
 #include <aws/rekognition/model/DeleteCollectionResult.h>
 #include <aws/rekognition/model/DeleteFacesResult.h>
 #include <aws/rekognition/model/DeleteStreamProcessorResult.h>
 #include <aws/rekognition/model/DescribeCollectionResult.h>
+#include <aws/rekognition/model/DescribeProjectVersionsResult.h>
+#include <aws/rekognition/model/DescribeProjectsResult.h>
 #include <aws/rekognition/model/DescribeStreamProcessorResult.h>
+#include <aws/rekognition/model/DetectCustomLabelsResult.h>
 #include <aws/rekognition/model/DetectFacesResult.h>
 #include <aws/rekognition/model/DetectLabelsResult.h>
 #include <aws/rekognition/model/DetectModerationLabelsResult.h>
@@ -40,6 +45,7 @@
 #include <aws/rekognition/model/GetFaceSearchResult.h>
 #include <aws/rekognition/model/GetLabelDetectionResult.h>
 #include <aws/rekognition/model/GetPersonTrackingResult.h>
+#include <aws/rekognition/model/GetTextDetectionResult.h>
 #include <aws/rekognition/model/IndexFacesResult.h>
 #include <aws/rekognition/model/ListCollectionsResult.h>
 #include <aws/rekognition/model/ListFacesResult.h>
@@ -53,7 +59,10 @@
 #include <aws/rekognition/model/StartFaceSearchResult.h>
 #include <aws/rekognition/model/StartLabelDetectionResult.h>
 #include <aws/rekognition/model/StartPersonTrackingResult.h>
+#include <aws/rekognition/model/StartProjectVersionResult.h>
 #include <aws/rekognition/model/StartStreamProcessorResult.h>
+#include <aws/rekognition/model/StartTextDetectionResult.h>
+#include <aws/rekognition/model/StopProjectVersionResult.h>
 #include <aws/rekognition/model/StopStreamProcessorResult.h>
 #include <aws/core/client/AsyncCallerContext.h>
 #include <aws/core/http/HttpTypes.h>
@@ -96,12 +105,17 @@ namespace Model
 {
         class CompareFacesRequest;
         class CreateCollectionRequest;
+        class CreateProjectRequest;
+        class CreateProjectVersionRequest;
         class CreateStreamProcessorRequest;
         class DeleteCollectionRequest;
         class DeleteFacesRequest;
         class DeleteStreamProcessorRequest;
         class DescribeCollectionRequest;
+        class DescribeProjectVersionsRequest;
+        class DescribeProjectsRequest;
         class DescribeStreamProcessorRequest;
+        class DetectCustomLabelsRequest;
         class DetectFacesRequest;
         class DetectLabelsRequest;
         class DetectModerationLabelsRequest;
@@ -113,6 +127,7 @@ namespace Model
         class GetFaceSearchRequest;
         class GetLabelDetectionRequest;
         class GetPersonTrackingRequest;
+        class GetTextDetectionRequest;
         class IndexFacesRequest;
         class ListCollectionsRequest;
         class ListFacesRequest;
@@ -126,17 +141,25 @@ namespace Model
         class StartFaceSearchRequest;
         class StartLabelDetectionRequest;
         class StartPersonTrackingRequest;
+        class StartProjectVersionRequest;
         class StartStreamProcessorRequest;
+        class StartTextDetectionRequest;
+        class StopProjectVersionRequest;
         class StopStreamProcessorRequest;
 
         typedef Aws::Utils::Outcome<CompareFacesResult, Aws::Client::AWSError<RekognitionErrors>> CompareFacesOutcome;
         typedef Aws::Utils::Outcome<CreateCollectionResult, Aws::Client::AWSError<RekognitionErrors>> CreateCollectionOutcome;
+        typedef Aws::Utils::Outcome<CreateProjectResult, Aws::Client::AWSError<RekognitionErrors>> CreateProjectOutcome;
+        typedef Aws::Utils::Outcome<CreateProjectVersionResult, Aws::Client::AWSError<RekognitionErrors>> CreateProjectVersionOutcome;
         typedef Aws::Utils::Outcome<CreateStreamProcessorResult, Aws::Client::AWSError<RekognitionErrors>> CreateStreamProcessorOutcome;
         typedef Aws::Utils::Outcome<DeleteCollectionResult, Aws::Client::AWSError<RekognitionErrors>> DeleteCollectionOutcome;
         typedef Aws::Utils::Outcome<DeleteFacesResult, Aws::Client::AWSError<RekognitionErrors>> DeleteFacesOutcome;
         typedef Aws::Utils::Outcome<DeleteStreamProcessorResult, Aws::Client::AWSError<RekognitionErrors>> DeleteStreamProcessorOutcome;
         typedef Aws::Utils::Outcome<DescribeCollectionResult, Aws::Client::AWSError<RekognitionErrors>> DescribeCollectionOutcome;
+        typedef Aws::Utils::Outcome<DescribeProjectVersionsResult, Aws::Client::AWSError<RekognitionErrors>> DescribeProjectVersionsOutcome;
+        typedef Aws::Utils::Outcome<DescribeProjectsResult, Aws::Client::AWSError<RekognitionErrors>> DescribeProjectsOutcome;
         typedef Aws::Utils::Outcome<DescribeStreamProcessorResult, Aws::Client::AWSError<RekognitionErrors>> DescribeStreamProcessorOutcome;
+        typedef Aws::Utils::Outcome<DetectCustomLabelsResult, Aws::Client::AWSError<RekognitionErrors>> DetectCustomLabelsOutcome;
         typedef Aws::Utils::Outcome<DetectFacesResult, Aws::Client::AWSError<RekognitionErrors>> DetectFacesOutcome;
         typedef Aws::Utils::Outcome<DetectLabelsResult, Aws::Client::AWSError<RekognitionErrors>> DetectLabelsOutcome;
         typedef Aws::Utils::Outcome<DetectModerationLabelsResult, Aws::Client::AWSError<RekognitionErrors>> DetectModerationLabelsOutcome;
@@ -148,6 +171,7 @@ namespace Model
         typedef Aws::Utils::Outcome<GetFaceSearchResult, Aws::Client::AWSError<RekognitionErrors>> GetFaceSearchOutcome;
         typedef Aws::Utils::Outcome<GetLabelDetectionResult, Aws::Client::AWSError<RekognitionErrors>> GetLabelDetectionOutcome;
         typedef Aws::Utils::Outcome<GetPersonTrackingResult, Aws::Client::AWSError<RekognitionErrors>> GetPersonTrackingOutcome;
+        typedef Aws::Utils::Outcome<GetTextDetectionResult, Aws::Client::AWSError<RekognitionErrors>> GetTextDetectionOutcome;
         typedef Aws::Utils::Outcome<IndexFacesResult, Aws::Client::AWSError<RekognitionErrors>> IndexFacesOutcome;
         typedef Aws::Utils::Outcome<ListCollectionsResult, Aws::Client::AWSError<RekognitionErrors>> ListCollectionsOutcome;
         typedef Aws::Utils::Outcome<ListFacesResult, Aws::Client::AWSError<RekognitionErrors>> ListFacesOutcome;
@@ -161,17 +185,25 @@ namespace Model
         typedef Aws::Utils::Outcome<StartFaceSearchResult, Aws::Client::AWSError<RekognitionErrors>> StartFaceSearchOutcome;
         typedef Aws::Utils::Outcome<StartLabelDetectionResult, Aws::Client::AWSError<RekognitionErrors>> StartLabelDetectionOutcome;
         typedef Aws::Utils::Outcome<StartPersonTrackingResult, Aws::Client::AWSError<RekognitionErrors>> StartPersonTrackingOutcome;
+        typedef Aws::Utils::Outcome<StartProjectVersionResult, Aws::Client::AWSError<RekognitionErrors>> StartProjectVersionOutcome;
         typedef Aws::Utils::Outcome<StartStreamProcessorResult, Aws::Client::AWSError<RekognitionErrors>> StartStreamProcessorOutcome;
+        typedef Aws::Utils::Outcome<StartTextDetectionResult, Aws::Client::AWSError<RekognitionErrors>> StartTextDetectionOutcome;
+        typedef Aws::Utils::Outcome<StopProjectVersionResult, Aws::Client::AWSError<RekognitionErrors>> StopProjectVersionOutcome;
         typedef Aws::Utils::Outcome<StopStreamProcessorResult, Aws::Client::AWSError<RekognitionErrors>> StopStreamProcessorOutcome;
 
         typedef std::future<CompareFacesOutcome> CompareFacesOutcomeCallable;
         typedef std::future<CreateCollectionOutcome> CreateCollectionOutcomeCallable;
+        typedef std::future<CreateProjectOutcome> CreateProjectOutcomeCallable;
+        typedef std::future<CreateProjectVersionOutcome> CreateProjectVersionOutcomeCallable;
         typedef std::future<CreateStreamProcessorOutcome> CreateStreamProcessorOutcomeCallable;
         typedef std::future<DeleteCollectionOutcome> DeleteCollectionOutcomeCallable;
         typedef std::future<DeleteFacesOutcome> DeleteFacesOutcomeCallable;
         typedef std::future<DeleteStreamProcessorOutcome> DeleteStreamProcessorOutcomeCallable;
         typedef std::future<DescribeCollectionOutcome> DescribeCollectionOutcomeCallable;
+        typedef std::future<DescribeProjectVersionsOutcome> DescribeProjectVersionsOutcomeCallable;
+        typedef std::future<DescribeProjectsOutcome> DescribeProjectsOutcomeCallable;
         typedef std::future<DescribeStreamProcessorOutcome> DescribeStreamProcessorOutcomeCallable;
+        typedef std::future<DetectCustomLabelsOutcome> DetectCustomLabelsOutcomeCallable;
         typedef std::future<DetectFacesOutcome> DetectFacesOutcomeCallable;
         typedef std::future<DetectLabelsOutcome> DetectLabelsOutcomeCallable;
         typedef std::future<DetectModerationLabelsOutcome> DetectModerationLabelsOutcomeCallable;
@@ -183,6 +215,7 @@ namespace Model
         typedef std::future<GetFaceSearchOutcome> GetFaceSearchOutcomeCallable;
         typedef std::future<GetLabelDetectionOutcome> GetLabelDetectionOutcomeCallable;
         typedef std::future<GetPersonTrackingOutcome> GetPersonTrackingOutcomeCallable;
+        typedef std::future<GetTextDetectionOutcome> GetTextDetectionOutcomeCallable;
         typedef std::future<IndexFacesOutcome> IndexFacesOutcomeCallable;
         typedef std::future<ListCollectionsOutcome> ListCollectionsOutcomeCallable;
         typedef std::future<ListFacesOutcome> ListFacesOutcomeCallable;
@@ -196,7 +229,10 @@ namespace Model
         typedef std::future<StartFaceSearchOutcome> StartFaceSearchOutcomeCallable;
         typedef std::future<StartLabelDetectionOutcome> StartLabelDetectionOutcomeCallable;
         typedef std::future<StartPersonTrackingOutcome> StartPersonTrackingOutcomeCallable;
+        typedef std::future<StartProjectVersionOutcome> StartProjectVersionOutcomeCallable;
         typedef std::future<StartStreamProcessorOutcome> StartStreamProcessorOutcomeCallable;
+        typedef std::future<StartTextDetectionOutcome> StartTextDetectionOutcomeCallable;
+        typedef std::future<StopProjectVersionOutcome> StopProjectVersionOutcomeCallable;
         typedef std::future<StopStreamProcessorOutcome> StopStreamProcessorOutcomeCallable;
 } // namespace Model
 
@@ -204,12 +240,17 @@ namespace Model
 
     typedef std::function<void(const RekognitionClient*, const Model::CompareFacesRequest&, const Model::CompareFacesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CompareFacesResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::CreateCollectionRequest&, const Model::CreateCollectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateCollectionResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::CreateProjectRequest&, const Model::CreateProjectOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateProjectResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::CreateProjectVersionRequest&, const Model::CreateProjectVersionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateProjectVersionResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::CreateStreamProcessorRequest&, const Model::CreateStreamProcessorOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > CreateStreamProcessorResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::DeleteCollectionRequest&, const Model::DeleteCollectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteCollectionResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::DeleteFacesRequest&, const Model::DeleteFacesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteFacesResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::DeleteStreamProcessorRequest&, const Model::DeleteStreamProcessorOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DeleteStreamProcessorResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::DescribeCollectionRequest&, const Model::DescribeCollectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeCollectionResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::DescribeProjectVersionsRequest&, const Model::DescribeProjectVersionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeProjectVersionsResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::DescribeProjectsRequest&, const Model::DescribeProjectsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeProjectsResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::DescribeStreamProcessorRequest&, const Model::DescribeStreamProcessorOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DescribeStreamProcessorResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::DetectCustomLabelsRequest&, const Model::DetectCustomLabelsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DetectCustomLabelsResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::DetectFacesRequest&, const Model::DetectFacesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DetectFacesResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::DetectLabelsRequest&, const Model::DetectLabelsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DetectLabelsResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::DetectModerationLabelsRequest&, const Model::DetectModerationLabelsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > DetectModerationLabelsResponseReceivedHandler;
@@ -221,6 +262,7 @@ namespace Model
     typedef std::function<void(const RekognitionClient*, const Model::GetFaceSearchRequest&, const Model::GetFaceSearchOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetFaceSearchResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::GetLabelDetectionRequest&, const Model::GetLabelDetectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetLabelDetectionResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::GetPersonTrackingRequest&, const Model::GetPersonTrackingOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetPersonTrackingResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::GetTextDetectionRequest&, const Model::GetTextDetectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > GetTextDetectionResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::IndexFacesRequest&, const Model::IndexFacesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > IndexFacesResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::ListCollectionsRequest&, const Model::ListCollectionsOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListCollectionsResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::ListFacesRequest&, const Model::ListFacesOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > ListFacesResponseReceivedHandler;
@@ -234,7 +276,10 @@ namespace Model
     typedef std::function<void(const RekognitionClient*, const Model::StartFaceSearchRequest&, const Model::StartFaceSearchOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartFaceSearchResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::StartLabelDetectionRequest&, const Model::StartLabelDetectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartLabelDetectionResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::StartPersonTrackingRequest&, const Model::StartPersonTrackingOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartPersonTrackingResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::StartProjectVersionRequest&, const Model::StartProjectVersionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartProjectVersionResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::StartStreamProcessorRequest&, const Model::StartStreamProcessorOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartStreamProcessorResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::StartTextDetectionRequest&, const Model::StartTextDetectionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StartTextDetectionResponseReceivedHandler;
+    typedef std::function<void(const RekognitionClient*, const Model::StopProjectVersionRequest&, const Model::StopProjectVersionOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopProjectVersionResponseReceivedHandler;
     typedef std::function<void(const RekognitionClient*, const Model::StopStreamProcessorRequest&, const Model::StopStreamProcessorOutcome&, const std::shared_ptr<const Aws::Client::AsyncCallerContext>&) > StopStreamProcessorResponseReceivedHandler;
 
   /**
@@ -290,16 +335,26 @@ namespace Model
          * source image. For each face, it returns a bounding box, confidence value,
          * landmarks, pose details, and quality. The response also returns information
          * about the face in the source image, including the bounding box of the face and
-         * confidence value.</p> <p>If the image doesn't contain Exif metadata,
-         * <code>CompareFaces</code> returns orientation information for the source and
-         * target images. Use these values to display the images with the correct image
-         * orientation.</p> <p>If no faces are detected in the source or target images,
-         * <code>CompareFaces</code> returns an <code>InvalidParameterException</code>
-         * error. </p> <note> <p> This is a stateless API operation. That is, data returned
-         * by this operation doesn't persist.</p> </note> <p>For an example, see Comparing
-         * Faces in Images in the Amazon Rekognition Developer Guide.</p> <p>This operation
-         * requires permissions to perform the <code>rekognition:CompareFaces</code>
-         * action.</p><p><h3>See Also:</h3>   <a
+         * confidence value.</p> <p>The <code>QualityFilter</code> input parameter allows
+         * you to filter out detected faces that don’t meet a required quality bar. The
+         * quality bar is based on a variety of common use cases. Use
+         * <code>QualityFilter</code> to set the quality bar by specifying
+         * <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want
+         * to filter detected faces, specify <code>NONE</code>. The default value is
+         * <code>NONE</code>. </p> <note> <p>To use quality filtering, you need a
+         * collection associated with version 3 of the face model or higher. To get the
+         * version of the face model associated with a collection, call
+         * <a>DescribeCollection</a>. </p> </note> <p>If the image doesn't contain Exif
+         * metadata, <code>CompareFaces</code> returns orientation information for the
+         * source and target images. Use these values to display the images with the
+         * correct image orientation.</p> <p>If no faces are detected in the source or
+         * target images, <code>CompareFaces</code> returns an
+         * <code>InvalidParameterException</code> error. </p> <note> <p> This is a
+         * stateless API operation. That is, data returned by this operation doesn't
+         * persist.</p> </note> <p>For an example, see Comparing Faces in Images in the
+         * Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions
+         * to perform the <code>rekognition:CompareFaces</code> action.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CompareFaces">AWS
          * API Reference</a></p>
          */
@@ -326,16 +381,26 @@ namespace Model
          * source image. For each face, it returns a bounding box, confidence value,
          * landmarks, pose details, and quality. The response also returns information
          * about the face in the source image, including the bounding box of the face and
-         * confidence value.</p> <p>If the image doesn't contain Exif metadata,
-         * <code>CompareFaces</code> returns orientation information for the source and
-         * target images. Use these values to display the images with the correct image
-         * orientation.</p> <p>If no faces are detected in the source or target images,
-         * <code>CompareFaces</code> returns an <code>InvalidParameterException</code>
-         * error. </p> <note> <p> This is a stateless API operation. That is, data returned
-         * by this operation doesn't persist.</p> </note> <p>For an example, see Comparing
-         * Faces in Images in the Amazon Rekognition Developer Guide.</p> <p>This operation
-         * requires permissions to perform the <code>rekognition:CompareFaces</code>
-         * action.</p><p><h3>See Also:</h3>   <a
+         * confidence value.</p> <p>The <code>QualityFilter</code> input parameter allows
+         * you to filter out detected faces that don’t meet a required quality bar. The
+         * quality bar is based on a variety of common use cases. Use
+         * <code>QualityFilter</code> to set the quality bar by specifying
+         * <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want
+         * to filter detected faces, specify <code>NONE</code>. The default value is
+         * <code>NONE</code>. </p> <note> <p>To use quality filtering, you need a
+         * collection associated with version 3 of the face model or higher. To get the
+         * version of the face model associated with a collection, call
+         * <a>DescribeCollection</a>. </p> </note> <p>If the image doesn't contain Exif
+         * metadata, <code>CompareFaces</code> returns orientation information for the
+         * source and target images. Use these values to display the images with the
+         * correct image orientation.</p> <p>If no faces are detected in the source or
+         * target images, <code>CompareFaces</code> returns an
+         * <code>InvalidParameterException</code> error. </p> <note> <p> This is a
+         * stateless API operation. That is, data returned by this operation doesn't
+         * persist.</p> </note> <p>For an example, see Comparing Faces in Images in the
+         * Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions
+         * to perform the <code>rekognition:CompareFaces</code> action.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CompareFaces">AWS
          * API Reference</a></p>
          *
@@ -364,16 +429,26 @@ namespace Model
          * source image. For each face, it returns a bounding box, confidence value,
          * landmarks, pose details, and quality. The response also returns information
          * about the face in the source image, including the bounding box of the face and
-         * confidence value.</p> <p>If the image doesn't contain Exif metadata,
-         * <code>CompareFaces</code> returns orientation information for the source and
-         * target images. Use these values to display the images with the correct image
-         * orientation.</p> <p>If no faces are detected in the source or target images,
-         * <code>CompareFaces</code> returns an <code>InvalidParameterException</code>
-         * error. </p> <note> <p> This is a stateless API operation. That is, data returned
-         * by this operation doesn't persist.</p> </note> <p>For an example, see Comparing
-         * Faces in Images in the Amazon Rekognition Developer Guide.</p> <p>This operation
-         * requires permissions to perform the <code>rekognition:CompareFaces</code>
-         * action.</p><p><h3>See Also:</h3>   <a
+         * confidence value.</p> <p>The <code>QualityFilter</code> input parameter allows
+         * you to filter out detected faces that don’t meet a required quality bar. The
+         * quality bar is based on a variety of common use cases. Use
+         * <code>QualityFilter</code> to set the quality bar by specifying
+         * <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want
+         * to filter detected faces, specify <code>NONE</code>. The default value is
+         * <code>NONE</code>. </p> <note> <p>To use quality filtering, you need a
+         * collection associated with version 3 of the face model or higher. To get the
+         * version of the face model associated with a collection, call
+         * <a>DescribeCollection</a>. </p> </note> <p>If the image doesn't contain Exif
+         * metadata, <code>CompareFaces</code> returns orientation information for the
+         * source and target images. Use these values to display the images with the
+         * correct image orientation.</p> <p>If no faces are detected in the source or
+         * target images, <code>CompareFaces</code> returns an
+         * <code>InvalidParameterException</code> error. </p> <note> <p> This is a
+         * stateless API operation. That is, data returned by this operation doesn't
+         * persist.</p> </note> <p>For an example, see Comparing Faces in Images in the
+         * Amazon Rekognition Developer Guide.</p> <p>This operation requires permissions
+         * to perform the <code>rekognition:CompareFaces</code> action.</p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CompareFaces">AWS
          * API Reference</a></p>
          *
@@ -432,6 +507,101 @@ namespace Model
          * Queues the request into a thread executor and triggers associated callback when operation has finished.
          */
         virtual void CreateCollectionAsync(const Model::CreateCollectionRequest& request, const CreateCollectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a
+         * logical grouping of resources (images, Labels, models) and operations (training,
+         * evaluation and detection). </p> <p>This operation requires permissions to
+         * perform the <code>rekognition:CreateProject</code> action.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CreateProject">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CreateProjectOutcome CreateProject(const Model::CreateProjectRequest& request) const;
+
+        /**
+         * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a
+         * logical grouping of resources (images, Labels, models) and operations (training,
+         * evaluation and detection). </p> <p>This operation requires permissions to
+         * perform the <code>rekognition:CreateProject</code> action.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CreateProject">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CreateProjectOutcomeCallable CreateProjectCallable(const Model::CreateProjectRequest& request) const;
+
+        /**
+         * <p>Creates a new Amazon Rekognition Custom Labels project. A project is a
+         * logical grouping of resources (images, Labels, models) and operations (training,
+         * evaluation and detection). </p> <p>This operation requires permissions to
+         * perform the <code>rekognition:CreateProject</code> action.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CreateProject">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CreateProjectAsync(const Model::CreateProjectRequest& request, const CreateProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Creates a new version of a model and begins training. Models are managed as
+         * part of an Amazon Rekognition Custom Labels project. You can specify one
+         * training dataset and one testing dataset. The response from
+         * <code>CreateProjectVersion</code> is an Amazon Resource Name (ARN) for the
+         * version of the model. </p> <p>Training takes a while to complete. You can get
+         * the current status by calling <a>DescribeProjectVersions</a>.</p> <p>Once
+         * training has successfully completed, call <a>DescribeProjectVersions</a> to get
+         * the training results and evaluate the model. </p> <p>After evaluating the model,
+         * you start the model by calling <a>StartProjectVersion</a>.</p> <p>This operation
+         * requires permissions to perform the
+         * <code>rekognition:CreateProjectVersion</code> action.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CreateProjectVersion">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::CreateProjectVersionOutcome CreateProjectVersion(const Model::CreateProjectVersionRequest& request) const;
+
+        /**
+         * <p>Creates a new version of a model and begins training. Models are managed as
+         * part of an Amazon Rekognition Custom Labels project. You can specify one
+         * training dataset and one testing dataset. The response from
+         * <code>CreateProjectVersion</code> is an Amazon Resource Name (ARN) for the
+         * version of the model. </p> <p>Training takes a while to complete. You can get
+         * the current status by calling <a>DescribeProjectVersions</a>.</p> <p>Once
+         * training has successfully completed, call <a>DescribeProjectVersions</a> to get
+         * the training results and evaluate the model. </p> <p>After evaluating the model,
+         * you start the model by calling <a>StartProjectVersion</a>.</p> <p>This operation
+         * requires permissions to perform the
+         * <code>rekognition:CreateProjectVersion</code> action.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CreateProjectVersion">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::CreateProjectVersionOutcomeCallable CreateProjectVersionCallable(const Model::CreateProjectVersionRequest& request) const;
+
+        /**
+         * <p>Creates a new version of a model and begins training. Models are managed as
+         * part of an Amazon Rekognition Custom Labels project. You can specify one
+         * training dataset and one testing dataset. The response from
+         * <code>CreateProjectVersion</code> is an Amazon Resource Name (ARN) for the
+         * version of the model. </p> <p>Training takes a while to complete. You can get
+         * the current status by calling <a>DescribeProjectVersions</a>.</p> <p>Once
+         * training has successfully completed, call <a>DescribeProjectVersions</a> to get
+         * the training results and evaluate the model. </p> <p>After evaluating the model,
+         * you start the model by calling <a>StartProjectVersion</a>.</p> <p>This operation
+         * requires permissions to perform the
+         * <code>rekognition:CreateProjectVersion</code> action.</p><p><h3>See Also:</h3>  
+         * <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CreateProjectVersion">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void CreateProjectVersionAsync(const Model::CreateProjectVersionRequest& request, const CreateProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
          * <p>Creates an Amazon Rekognition stream processor that you can use to detect and
@@ -640,6 +810,77 @@ namespace Model
         virtual void DescribeCollectionAsync(const Model::DescribeCollectionRequest& request, const DescribeCollectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Lists and describes the models in an Amazon Rekognition Custom Labels
+         * project. You can specify up to 10 model versions in
+         * <code>ProjectVersionArns</code>. If you don't specify a value, descriptions for
+         * all models are returned.</p> <p>This operation requires permissions to perform
+         * the <code>rekognition:DescribeProjectVersions</code> action.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DescribeProjectVersions">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeProjectVersionsOutcome DescribeProjectVersions(const Model::DescribeProjectVersionsRequest& request) const;
+
+        /**
+         * <p>Lists and describes the models in an Amazon Rekognition Custom Labels
+         * project. You can specify up to 10 model versions in
+         * <code>ProjectVersionArns</code>. If you don't specify a value, descriptions for
+         * all models are returned.</p> <p>This operation requires permissions to perform
+         * the <code>rekognition:DescribeProjectVersions</code> action.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DescribeProjectVersions">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeProjectVersionsOutcomeCallable DescribeProjectVersionsCallable(const Model::DescribeProjectVersionsRequest& request) const;
+
+        /**
+         * <p>Lists and describes the models in an Amazon Rekognition Custom Labels
+         * project. You can specify up to 10 model versions in
+         * <code>ProjectVersionArns</code>. If you don't specify a value, descriptions for
+         * all models are returned.</p> <p>This operation requires permissions to perform
+         * the <code>rekognition:DescribeProjectVersions</code> action.</p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DescribeProjectVersions">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeProjectVersionsAsync(const Model::DescribeProjectVersionsRequest& request, const DescribeProjectVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Lists and gets information about your Amazon Rekognition Custom Labels
+         * projects.</p> <p>This operation requires permissions to perform the
+         * <code>rekognition:DescribeProjects</code> action.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DescribeProjects">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DescribeProjectsOutcome DescribeProjects(const Model::DescribeProjectsRequest& request) const;
+
+        /**
+         * <p>Lists and gets information about your Amazon Rekognition Custom Labels
+         * projects.</p> <p>This operation requires permissions to perform the
+         * <code>rekognition:DescribeProjects</code> action.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DescribeProjects">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DescribeProjectsOutcomeCallable DescribeProjectsCallable(const Model::DescribeProjectsRequest& request) const;
+
+        /**
+         * <p>Lists and gets information about your Amazon Rekognition Custom Labels
+         * projects.</p> <p>This operation requires permissions to perform the
+         * <code>rekognition:DescribeProjects</code> action.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DescribeProjects">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DescribeProjectsAsync(const Model::DescribeProjectsRequest& request, const DescribeProjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Provides information about a stream processor created by
          * <a>CreateStreamProcessor</a>. You can get information about the input and output
          * streams, the input parameters for the face recognition being performed, and the
@@ -674,21 +915,119 @@ namespace Model
         virtual void DescribeStreamProcessorAsync(const Model::DescribeStreamProcessorRequest& request, const DescribeStreamProcessorResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Detects custom labels in a supplied image by using an Amazon Rekognition
+         * Custom Labels model. </p> <p>You specify which version of a model version to use
+         * by using the <code>ProjectVersionArn</code> input parameter. </p> <p>You pass
+         * the input image as base64-encoded image bytes or as a reference to an image in
+         * an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
+         * operations, passing image bytes is not supported. The image must be either a PNG
+         * or JPEG formatted file. </p> <p> For each object that the model version detects
+         * on an image, the API returns a (<code>CustomLabel</code>) object in an array
+         * (<code>CustomLabels</code>). Each <code>CustomLabel</code> object provides the
+         * label name (<code>Name</code>), the level of confidence that the image contains
+         * the object (<code>Confidence</code>), and object location information, if it
+         * exists, for the label on the image (<code>Geometry</code>). </p> <p>During
+         * training model calculates a threshold value that determines if a prediction for
+         * a label is true. By default, <code>DetectCustomLabels</code> doesn't return
+         * labels whose confidence value is below the model's calculated threshold value.
+         * To filter labels that are returned, specify a value for
+         * <code>MinConfidence</code> that is higher than the model's calculated threshold.
+         * You can get the model's calculated threshold from the model's training results
+         * shown in the Amazon Rekognition Custom Labels console. To get all labels,
+         * regardless of confidence, specify a <code>MinConfidence</code> value of 0. </p>
+         * <p>You can also add the <code>MaxResults</code> parameter to limit the number of
+         * labels returned. </p> <p>This is a stateless API operation. That is, the
+         * operation does not persist any data.</p> <p>This operation requires permissions
+         * to perform the <code>rekognition:DetectCustomLabels</code> action.
+         * </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectCustomLabels">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::DetectCustomLabelsOutcome DetectCustomLabels(const Model::DetectCustomLabelsRequest& request) const;
+
+        /**
+         * <p>Detects custom labels in a supplied image by using an Amazon Rekognition
+         * Custom Labels model. </p> <p>You specify which version of a model version to use
+         * by using the <code>ProjectVersionArn</code> input parameter. </p> <p>You pass
+         * the input image as base64-encoded image bytes or as a reference to an image in
+         * an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
+         * operations, passing image bytes is not supported. The image must be either a PNG
+         * or JPEG formatted file. </p> <p> For each object that the model version detects
+         * on an image, the API returns a (<code>CustomLabel</code>) object in an array
+         * (<code>CustomLabels</code>). Each <code>CustomLabel</code> object provides the
+         * label name (<code>Name</code>), the level of confidence that the image contains
+         * the object (<code>Confidence</code>), and object location information, if it
+         * exists, for the label on the image (<code>Geometry</code>). </p> <p>During
+         * training model calculates a threshold value that determines if a prediction for
+         * a label is true. By default, <code>DetectCustomLabels</code> doesn't return
+         * labels whose confidence value is below the model's calculated threshold value.
+         * To filter labels that are returned, specify a value for
+         * <code>MinConfidence</code> that is higher than the model's calculated threshold.
+         * You can get the model's calculated threshold from the model's training results
+         * shown in the Amazon Rekognition Custom Labels console. To get all labels,
+         * regardless of confidence, specify a <code>MinConfidence</code> value of 0. </p>
+         * <p>You can also add the <code>MaxResults</code> parameter to limit the number of
+         * labels returned. </p> <p>This is a stateless API operation. That is, the
+         * operation does not persist any data.</p> <p>This operation requires permissions
+         * to perform the <code>rekognition:DetectCustomLabels</code> action.
+         * </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectCustomLabels">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::DetectCustomLabelsOutcomeCallable DetectCustomLabelsCallable(const Model::DetectCustomLabelsRequest& request) const;
+
+        /**
+         * <p>Detects custom labels in a supplied image by using an Amazon Rekognition
+         * Custom Labels model. </p> <p>You specify which version of a model version to use
+         * by using the <code>ProjectVersionArn</code> input parameter. </p> <p>You pass
+         * the input image as base64-encoded image bytes or as a reference to an image in
+         * an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition
+         * operations, passing image bytes is not supported. The image must be either a PNG
+         * or JPEG formatted file. </p> <p> For each object that the model version detects
+         * on an image, the API returns a (<code>CustomLabel</code>) object in an array
+         * (<code>CustomLabels</code>). Each <code>CustomLabel</code> object provides the
+         * label name (<code>Name</code>), the level of confidence that the image contains
+         * the object (<code>Confidence</code>), and object location information, if it
+         * exists, for the label on the image (<code>Geometry</code>). </p> <p>During
+         * training model calculates a threshold value that determines if a prediction for
+         * a label is true. By default, <code>DetectCustomLabels</code> doesn't return
+         * labels whose confidence value is below the model's calculated threshold value.
+         * To filter labels that are returned, specify a value for
+         * <code>MinConfidence</code> that is higher than the model's calculated threshold.
+         * You can get the model's calculated threshold from the model's training results
+         * shown in the Amazon Rekognition Custom Labels console. To get all labels,
+         * regardless of confidence, specify a <code>MinConfidence</code> value of 0. </p>
+         * <p>You can also add the <code>MaxResults</code> parameter to limit the number of
+         * labels returned. </p> <p>This is a stateless API operation. That is, the
+         * operation does not persist any data.</p> <p>This operation requires permissions
+         * to perform the <code>rekognition:DetectCustomLabels</code> action.
+         * </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectCustomLabels">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void DetectCustomLabelsAsync(const Model::DetectCustomLabelsRequest& request, const DetectCustomLabelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Detects faces within an image that is provided as input.</p> <p>
          * <code>DetectFaces</code> detects the 100 largest faces in the image. For each
          * face detected, the operation returns face details. These details include a
          * bounding box of the face, a confidence value (that the bounding box contains a
          * face), and a fixed set of attributes such as facial landmarks (for example,
-         * coordinates of eye and mouth), gender, presence of beard, sunglasses, and so on.
-         * </p> <p>The face-detection algorithm is most effective on frontal faces. For
+         * coordinates of eye and mouth), presence of beard, sunglasses, and so on. </p>
+         * <p>The face-detection algorithm is most effective on frontal faces. For
          * non-frontal or obscured faces, the algorithm might not detect the faces or might
          * detect faces with lower confidence. </p> <p>You pass the input image either as
          * base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket.
-         * If you use the to call Amazon Rekognition operations, passing image bytes is not
-         * supported. The image must be either a PNG or JPEG formatted file. </p> <note>
-         * <p>This is a stateless API operation. That is, the operation does not persist
-         * any data.</p> </note> <p>This operation requires permissions to perform the
-         * <code>rekognition:DetectFaces</code> action. </p><p><h3>See Also:</h3>   <a
+         * If you use the AWS CLI to call Amazon Rekognition operations, passing image
+         * bytes is not supported. The image must be either a PNG or JPEG formatted file.
+         * </p> <note> <p>This is a stateless API operation. That is, the operation does
+         * not persist any data.</p> </note> <p>This operation requires permissions to
+         * perform the <code>rekognition:DetectFaces</code> action. </p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectFaces">AWS
          * API Reference</a></p>
          */
@@ -700,16 +1039,17 @@ namespace Model
          * face detected, the operation returns face details. These details include a
          * bounding box of the face, a confidence value (that the bounding box contains a
          * face), and a fixed set of attributes such as facial landmarks (for example,
-         * coordinates of eye and mouth), gender, presence of beard, sunglasses, and so on.
-         * </p> <p>The face-detection algorithm is most effective on frontal faces. For
+         * coordinates of eye and mouth), presence of beard, sunglasses, and so on. </p>
+         * <p>The face-detection algorithm is most effective on frontal faces. For
          * non-frontal or obscured faces, the algorithm might not detect the faces or might
          * detect faces with lower confidence. </p> <p>You pass the input image either as
          * base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket.
-         * If you use the to call Amazon Rekognition operations, passing image bytes is not
-         * supported. The image must be either a PNG or JPEG formatted file. </p> <note>
-         * <p>This is a stateless API operation. That is, the operation does not persist
-         * any data.</p> </note> <p>This operation requires permissions to perform the
-         * <code>rekognition:DetectFaces</code> action. </p><p><h3>See Also:</h3>   <a
+         * If you use the AWS CLI to call Amazon Rekognition operations, passing image
+         * bytes is not supported. The image must be either a PNG or JPEG formatted file.
+         * </p> <note> <p>This is a stateless API operation. That is, the operation does
+         * not persist any data.</p> </note> <p>This operation requires permissions to
+         * perform the <code>rekognition:DetectFaces</code> action. </p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectFaces">AWS
          * API Reference</a></p>
          *
@@ -723,16 +1063,17 @@ namespace Model
          * face detected, the operation returns face details. These details include a
          * bounding box of the face, a confidence value (that the bounding box contains a
          * face), and a fixed set of attributes such as facial landmarks (for example,
-         * coordinates of eye and mouth), gender, presence of beard, sunglasses, and so on.
-         * </p> <p>The face-detection algorithm is most effective on frontal faces. For
+         * coordinates of eye and mouth), presence of beard, sunglasses, and so on. </p>
+         * <p>The face-detection algorithm is most effective on frontal faces. For
          * non-frontal or obscured faces, the algorithm might not detect the faces or might
          * detect faces with lower confidence. </p> <p>You pass the input image either as
          * base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket.
-         * If you use the to call Amazon Rekognition operations, passing image bytes is not
-         * supported. The image must be either a PNG or JPEG formatted file. </p> <note>
-         * <p>This is a stateless API operation. That is, the operation does not persist
-         * any data.</p> </note> <p>This operation requires permissions to perform the
-         * <code>rekognition:DetectFaces</code> action. </p><p><h3>See Also:</h3>   <a
+         * If you use the AWS CLI to call Amazon Rekognition operations, passing image
+         * bytes is not supported. The image must be either a PNG or JPEG formatted file.
+         * </p> <note> <p>This is a stateless API operation. That is, the operation does
+         * not persist any data.</p> </note> <p>This operation requires permissions to
+         * perform the <code>rekognition:DetectFaces</code> action. </p><p><h3>See
+         * Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectFaces">AWS
          * API Reference</a></p>
          *
@@ -901,36 +1242,34 @@ namespace Model
         virtual void DetectLabelsAsync(const Model::DetectLabelsRequest& request, const DetectLabelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Detects explicit or suggestive adult content in a specified JPEG or PNG
-         * format image. Use <code>DetectModerationLabels</code> to moderate images
-         * depending on your requirements. For example, you might want to filter images
-         * that contain nudity, but not images containing suggestive content.</p> <p>To
-         * filter images, use the labels returned by <code>DetectModerationLabels</code> to
-         * determine which types of content are appropriate.</p> <p>For information about
-         * moderation labels, see Detecting Unsafe Content in the Amazon Rekognition
-         * Developer Guide.</p> <p>You pass the input image either as base64-encoded image
-         * bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS
-         * CLI to call Amazon Rekognition operations, passing image bytes is not supported.
-         * The image must be either a PNG or JPEG formatted file. </p><p><h3>See Also:</h3>
-         * <a
+         * <p>Detects unsafe content in a specified JPEG or PNG format image. Use
+         * <code>DetectModerationLabels</code> to moderate images depending on your
+         * requirements. For example, you might want to filter images that contain nudity,
+         * but not images containing suggestive content.</p> <p>To filter images, use the
+         * labels returned by <code>DetectModerationLabels</code> to determine which types
+         * of content are appropriate.</p> <p>For information about moderation labels, see
+         * Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p> <p>You
+         * pass the input image either as base64-encoded image bytes or as a reference to
+         * an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon
+         * Rekognition operations, passing image bytes is not supported. The image must be
+         * either a PNG or JPEG formatted file. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectModerationLabels">AWS
          * API Reference</a></p>
          */
         virtual Model::DetectModerationLabelsOutcome DetectModerationLabels(const Model::DetectModerationLabelsRequest& request) const;
 
         /**
-         * <p>Detects explicit or suggestive adult content in a specified JPEG or PNG
-         * format image. Use <code>DetectModerationLabels</code> to moderate images
-         * depending on your requirements. For example, you might want to filter images
-         * that contain nudity, but not images containing suggestive content.</p> <p>To
-         * filter images, use the labels returned by <code>DetectModerationLabels</code> to
-         * determine which types of content are appropriate.</p> <p>For information about
-         * moderation labels, see Detecting Unsafe Content in the Amazon Rekognition
-         * Developer Guide.</p> <p>You pass the input image either as base64-encoded image
-         * bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS
-         * CLI to call Amazon Rekognition operations, passing image bytes is not supported.
-         * The image must be either a PNG or JPEG formatted file. </p><p><h3>See Also:</h3>
-         * <a
+         * <p>Detects unsafe content in a specified JPEG or PNG format image. Use
+         * <code>DetectModerationLabels</code> to moderate images depending on your
+         * requirements. For example, you might want to filter images that contain nudity,
+         * but not images containing suggestive content.</p> <p>To filter images, use the
+         * labels returned by <code>DetectModerationLabels</code> to determine which types
+         * of content are appropriate.</p> <p>For information about moderation labels, see
+         * Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p> <p>You
+         * pass the input image either as base64-encoded image bytes or as a reference to
+         * an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon
+         * Rekognition operations, passing image bytes is not supported. The image must be
+         * either a PNG or JPEG formatted file. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectModerationLabels">AWS
          * API Reference</a></p>
          *
@@ -939,18 +1278,17 @@ namespace Model
         virtual Model::DetectModerationLabelsOutcomeCallable DetectModerationLabelsCallable(const Model::DetectModerationLabelsRequest& request) const;
 
         /**
-         * <p>Detects explicit or suggestive adult content in a specified JPEG or PNG
-         * format image. Use <code>DetectModerationLabels</code> to moderate images
-         * depending on your requirements. For example, you might want to filter images
-         * that contain nudity, but not images containing suggestive content.</p> <p>To
-         * filter images, use the labels returned by <code>DetectModerationLabels</code> to
-         * determine which types of content are appropriate.</p> <p>For information about
-         * moderation labels, see Detecting Unsafe Content in the Amazon Rekognition
-         * Developer Guide.</p> <p>You pass the input image either as base64-encoded image
-         * bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS
-         * CLI to call Amazon Rekognition operations, passing image bytes is not supported.
-         * The image must be either a PNG or JPEG formatted file. </p><p><h3>See Also:</h3>
-         * <a
+         * <p>Detects unsafe content in a specified JPEG or PNG format image. Use
+         * <code>DetectModerationLabels</code> to moderate images depending on your
+         * requirements. For example, you might want to filter images that contain nudity,
+         * but not images containing suggestive content.</p> <p>To filter images, use the
+         * labels returned by <code>DetectModerationLabels</code> to determine which types
+         * of content are appropriate.</p> <p>For information about moderation labels, see
+         * Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p> <p>You
+         * pass the input image either as base64-encoded image bytes or as a reference to
+         * an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon
+         * Rekognition operations, passing image bytes is not supported. The image must be
+         * either a PNG or JPEG formatted file. </p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectModerationLabels">AWS
          * API Reference</a></p>
          *
@@ -1238,21 +1576,21 @@ namespace Model
         virtual void GetCelebrityRecognitionAsync(const Model::GetCelebrityRecognitionRequest& request, const GetCelebrityRecognitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Gets the content moderation analysis results for a Amazon Rekognition Video
-         * analysis started by <a>StartContentModeration</a>.</p> <p>Content moderation
+         * <p>Gets the unsafe content analysis results for a Amazon Rekognition Video
+         * analysis started by <a>StartContentModeration</a>.</p> <p>Unsafe content
          * analysis of a video is an asynchronous operation. You start analysis by calling
          * <a>StartContentModeration</a> which returns a job identifier
          * (<code>JobId</code>). When analysis finishes, Amazon Rekognition Video publishes
          * a completion status to the Amazon Simple Notification Service topic registered
          * in the initial call to <code>StartContentModeration</code>. To get the results
-         * of the content moderation analysis, first check that the status value published
-         * to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
+         * of the unsafe content analysis, first check that the status value published to
+         * the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
          * <code>GetContentModeration</code> and pass the job identifier
          * (<code>JobId</code>) from the initial call to
          * <code>StartContentModeration</code>. </p> <p>For more information, see Working
          * with Stored Videos in the Amazon Rekognition Devlopers Guide.</p> <p>
-         * <code>GetContentModeration</code> returns detected content moderation labels,
-         * and the time they are detected, in an array, <code>ModerationLabels</code>, of
+         * <code>GetContentModeration</code> returns detected unsafe content labels, and
+         * the time they are detected, in an array, <code>ModerationLabels</code>, of
          * <a>ContentModerationDetection</a> objects. </p> <p>By default, the moderated
          * labels are returned sorted by time, in milliseconds from the start of the video.
          * You can also sort them by moderated label by specifying <code>NAME</code> for
@@ -1274,21 +1612,21 @@ namespace Model
         virtual Model::GetContentModerationOutcome GetContentModeration(const Model::GetContentModerationRequest& request) const;
 
         /**
-         * <p>Gets the content moderation analysis results for a Amazon Rekognition Video
-         * analysis started by <a>StartContentModeration</a>.</p> <p>Content moderation
+         * <p>Gets the unsafe content analysis results for a Amazon Rekognition Video
+         * analysis started by <a>StartContentModeration</a>.</p> <p>Unsafe content
          * analysis of a video is an asynchronous operation. You start analysis by calling
          * <a>StartContentModeration</a> which returns a job identifier
          * (<code>JobId</code>). When analysis finishes, Amazon Rekognition Video publishes
          * a completion status to the Amazon Simple Notification Service topic registered
          * in the initial call to <code>StartContentModeration</code>. To get the results
-         * of the content moderation analysis, first check that the status value published
-         * to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
+         * of the unsafe content analysis, first check that the status value published to
+         * the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
          * <code>GetContentModeration</code> and pass the job identifier
          * (<code>JobId</code>) from the initial call to
          * <code>StartContentModeration</code>. </p> <p>For more information, see Working
          * with Stored Videos in the Amazon Rekognition Devlopers Guide.</p> <p>
-         * <code>GetContentModeration</code> returns detected content moderation labels,
-         * and the time they are detected, in an array, <code>ModerationLabels</code>, of
+         * <code>GetContentModeration</code> returns detected unsafe content labels, and
+         * the time they are detected, in an array, <code>ModerationLabels</code>, of
          * <a>ContentModerationDetection</a> objects. </p> <p>By default, the moderated
          * labels are returned sorted by time, in milliseconds from the start of the video.
          * You can also sort them by moderated label by specifying <code>NAME</code> for
@@ -1312,21 +1650,21 @@ namespace Model
         virtual Model::GetContentModerationOutcomeCallable GetContentModerationCallable(const Model::GetContentModerationRequest& request) const;
 
         /**
-         * <p>Gets the content moderation analysis results for a Amazon Rekognition Video
-         * analysis started by <a>StartContentModeration</a>.</p> <p>Content moderation
+         * <p>Gets the unsafe content analysis results for a Amazon Rekognition Video
+         * analysis started by <a>StartContentModeration</a>.</p> <p>Unsafe content
          * analysis of a video is an asynchronous operation. You start analysis by calling
          * <a>StartContentModeration</a> which returns a job identifier
          * (<code>JobId</code>). When analysis finishes, Amazon Rekognition Video publishes
          * a completion status to the Amazon Simple Notification Service topic registered
          * in the initial call to <code>StartContentModeration</code>. To get the results
-         * of the content moderation analysis, first check that the status value published
-         * to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
+         * of the unsafe content analysis, first check that the status value published to
+         * the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
          * <code>GetContentModeration</code> and pass the job identifier
          * (<code>JobId</code>) from the initial call to
          * <code>StartContentModeration</code>. </p> <p>For more information, see Working
          * with Stored Videos in the Amazon Rekognition Devlopers Guide.</p> <p>
-         * <code>GetContentModeration</code> returns detected content moderation labels,
-         * and the time they are detected, in an array, <code>ModerationLabels</code>, of
+         * <code>GetContentModeration</code> returns detected unsafe content labels, and
+         * the time they are detected, in an array, <code>ModerationLabels</code>, of
          * <a>ContentModerationDetection</a> objects. </p> <p>By default, the moderated
          * labels are returned sorted by time, in milliseconds from the start of the video.
          * You can also sort them by moderated label by specifying <code>NAME</code> for
@@ -1738,6 +2076,100 @@ namespace Model
         virtual void GetPersonTrackingAsync(const Model::GetPersonTrackingRequest& request, const GetPersonTrackingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Gets the text detection results of a Amazon Rekognition Video analysis
+         * started by <a>StartTextDetection</a>.</p> <p>Text detection with Amazon
+         * Rekognition Video is an asynchronous operation. You start text detection by
+         * calling <a>StartTextDetection</a> which returns a job identifier
+         * (<code>JobId</code>) When the text detection operation finishes, Amazon
+         * Rekognition publishes a completion status to the Amazon Simple Notification
+         * Service topic registered in the initial call to <code>StartTextDetection</code>.
+         * To get the results of the text detection operation, first check that the status
+         * value published to the Amazon SNS topic is <code>SUCCEEDED</code>. if so, call
+         * <code>GetTextDetection</code> and pass the job identifier (<code>JobId</code>)
+         * from the initial call of <code>StartLabelDetection</code>.</p> <p>
+         * <code>GetTextDetection</code> returns an array of detected text
+         * (<code>TextDetections</code>) sorted by the time the text was detected, up to 50
+         * words per frame of video.</p> <p>Each element of the array includes the detected
+         * text, the precentage confidence in the acuracy of the detected text, the time
+         * the text was detected, bounding box information for where the text was located,
+         * and unique identifiers for words and their lines.</p> <p>Use MaxResults
+         * parameter to limit the number of text detections returned. If there are more
+         * results than specified in <code>MaxResults</code>, the value of
+         * <code>NextToken</code> in the operation response contains a pagination token for
+         * getting the next set of results. To get the next page of results, call
+         * <code>GetTextDetection</code> and populate the <code>NextToken</code> request
+         * parameter with the token value returned from the previous call to
+         * <code>GetTextDetection</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetTextDetection">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::GetTextDetectionOutcome GetTextDetection(const Model::GetTextDetectionRequest& request) const;
+
+        /**
+         * <p>Gets the text detection results of a Amazon Rekognition Video analysis
+         * started by <a>StartTextDetection</a>.</p> <p>Text detection with Amazon
+         * Rekognition Video is an asynchronous operation. You start text detection by
+         * calling <a>StartTextDetection</a> which returns a job identifier
+         * (<code>JobId</code>) When the text detection operation finishes, Amazon
+         * Rekognition publishes a completion status to the Amazon Simple Notification
+         * Service topic registered in the initial call to <code>StartTextDetection</code>.
+         * To get the results of the text detection operation, first check that the status
+         * value published to the Amazon SNS topic is <code>SUCCEEDED</code>. if so, call
+         * <code>GetTextDetection</code> and pass the job identifier (<code>JobId</code>)
+         * from the initial call of <code>StartLabelDetection</code>.</p> <p>
+         * <code>GetTextDetection</code> returns an array of detected text
+         * (<code>TextDetections</code>) sorted by the time the text was detected, up to 50
+         * words per frame of video.</p> <p>Each element of the array includes the detected
+         * text, the precentage confidence in the acuracy of the detected text, the time
+         * the text was detected, bounding box information for where the text was located,
+         * and unique identifiers for words and their lines.</p> <p>Use MaxResults
+         * parameter to limit the number of text detections returned. If there are more
+         * results than specified in <code>MaxResults</code>, the value of
+         * <code>NextToken</code> in the operation response contains a pagination token for
+         * getting the next set of results. To get the next page of results, call
+         * <code>GetTextDetection</code> and populate the <code>NextToken</code> request
+         * parameter with the token value returned from the previous call to
+         * <code>GetTextDetection</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetTextDetection">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::GetTextDetectionOutcomeCallable GetTextDetectionCallable(const Model::GetTextDetectionRequest& request) const;
+
+        /**
+         * <p>Gets the text detection results of a Amazon Rekognition Video analysis
+         * started by <a>StartTextDetection</a>.</p> <p>Text detection with Amazon
+         * Rekognition Video is an asynchronous operation. You start text detection by
+         * calling <a>StartTextDetection</a> which returns a job identifier
+         * (<code>JobId</code>) When the text detection operation finishes, Amazon
+         * Rekognition publishes a completion status to the Amazon Simple Notification
+         * Service topic registered in the initial call to <code>StartTextDetection</code>.
+         * To get the results of the text detection operation, first check that the status
+         * value published to the Amazon SNS topic is <code>SUCCEEDED</code>. if so, call
+         * <code>GetTextDetection</code> and pass the job identifier (<code>JobId</code>)
+         * from the initial call of <code>StartLabelDetection</code>.</p> <p>
+         * <code>GetTextDetection</code> returns an array of detected text
+         * (<code>TextDetections</code>) sorted by the time the text was detected, up to 50
+         * words per frame of video.</p> <p>Each element of the array includes the detected
+         * text, the precentage confidence in the acuracy of the detected text, the time
+         * the text was detected, bounding box information for where the text was located,
+         * and unique identifiers for words and their lines.</p> <p>Use MaxResults
+         * parameter to limit the number of text detections returned. If there are more
+         * results than specified in <code>MaxResults</code>, the value of
+         * <code>NextToken</code> in the operation response contains a pagination token for
+         * getting the next set of results. To get the next page of results, call
+         * <code>GetTextDetection</code> and populate the <code>NextToken</code> request
+         * parameter with the token value returned from the previous call to
+         * <code>GetTextDetection</code>.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetTextDetection">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void GetTextDetectionAsync(const Model::GetTextDetectionRequest& request, const GetTextDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Detects faces in the input image and adds them to the specified collection.
          * </p> <p>Amazon Rekognition doesn't save the actual faces that are detected.
          * Instead, the underlying detection algorithm first detects the faces in the input
@@ -1767,34 +2199,35 @@ namespace Model
          * when you want to index the largest faces in an image and don't want to index
          * smaller faces, such as those belonging to people standing in the background.</p>
          * <p>The <code>QualityFilter</code> input parameter allows you to filter out
-         * detected faces that don’t meet the required quality bar chosen by Amazon
-         * Rekognition. The quality bar is based on a variety of common use cases. By
-         * default, <code>IndexFaces</code> filters detected faces. You can also explicitly
-         * filter detected faces by specifying <code>AUTO</code> for the value of
-         * <code>QualityFilter</code>. If you do not want to filter detected faces, specify
-         * <code>NONE</code>. </p> <note> <p>To use quality filtering, you need a
-         * collection associated with version 3 of the face model. To get the version of
-         * the face model associated with a collection, call <a>DescribeCollection</a>.
-         * </p> </note> <p>Information about faces detected in an image, but not indexed,
-         * is returned in an array of <a>UnindexedFace</a> objects,
-         * <code>UnindexedFaces</code>. Faces aren't indexed for reasons such as:</p> <ul>
-         * <li> <p>The number of faces detected exceeds the value of the
-         * <code>MaxFaces</code> request parameter.</p> </li> <li> <p>The face is too small
-         * compared to the image dimensions.</p> </li> <li> <p>The face is too blurry.</p>
-         * </li> <li> <p>The image is too dark.</p> </li> <li> <p>The face has an extreme
-         * pose.</p> </li> </ul> <p>In response, the <code>IndexFaces</code> operation
-         * returns an array of metadata for all detected faces, <code>FaceRecords</code>.
-         * This includes: </p> <ul> <li> <p>The bounding box, <code>BoundingBox</code>, of
-         * the detected face. </p> </li> <li> <p>A confidence value,
-         * <code>Confidence</code>, which indicates the confidence that the bounding box
-         * contains a face.</p> </li> <li> <p>A face ID, <code>FaceId</code>, assigned by
-         * the service for each face that's detected and stored.</p> </li> <li> <p>An image
-         * ID, <code>ImageId</code>, assigned by the service for the input image.</p> </li>
-         * </ul> <p>If you request all facial attributes (by using the
-         * <code>detectionAttributes</code> parameter), Amazon Rekognition returns detailed
-         * facial attributes, such as facial landmarks (for example, location of eye and
-         * mouth) and other facial attributes like gender. If you provide the same image,
-         * specify the same collection, and use the same external ID in the
+         * detected faces that don’t meet a required quality bar. The quality bar is based
+         * on a variety of common use cases. By default, <code>IndexFaces</code> chooses
+         * the quality bar that's used to filter faces. You can also explicitly choose the
+         * quality bar. Use <code>QualityFilter</code>, to set the quality bar by
+         * specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you
+         * do not want to filter detected faces, specify <code>NONE</code>. </p> <note>
+         * <p>To use quality filtering, you need a collection associated with version 3 of
+         * the face model or higher. To get the version of the face model associated with a
+         * collection, call <a>DescribeCollection</a>. </p> </note> <p>Information about
+         * faces detected in an image, but not indexed, is returned in an array of
+         * <a>UnindexedFace</a> objects, <code>UnindexedFaces</code>. Faces aren't indexed
+         * for reasons such as:</p> <ul> <li> <p>The number of faces detected exceeds the
+         * value of the <code>MaxFaces</code> request parameter.</p> </li> <li> <p>The face
+         * is too small compared to the image dimensions.</p> </li> <li> <p>The face is too
+         * blurry.</p> </li> <li> <p>The image is too dark.</p> </li> <li> <p>The face has
+         * an extreme pose.</p> </li> <li> <p>The face doesn’t have enough detail to be
+         * suitable for face search.</p> </li> </ul> <p>In response, the
+         * <code>IndexFaces</code> operation returns an array of metadata for all detected
+         * faces, <code>FaceRecords</code>. This includes: </p> <ul> <li> <p>The bounding
+         * box, <code>BoundingBox</code>, of the detected face. </p> </li> <li> <p>A
+         * confidence value, <code>Confidence</code>, which indicates the confidence that
+         * the bounding box contains a face.</p> </li> <li> <p>A face ID,
+         * <code>FaceId</code>, assigned by the service for each face that's detected and
+         * stored.</p> </li> <li> <p>An image ID, <code>ImageId</code>, assigned by the
+         * service for the input image.</p> </li> </ul> <p>If you request all facial
+         * attributes (by using the <code>detectionAttributes</code> parameter), Amazon
+         * Rekognition returns detailed facial attributes, such as facial landmarks (for
+         * example, location of eye and mouth) and other facial attributes. If you provide
+         * the same image, specify the same collection, and use the same external ID in the
          * <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
          * face metadata.</p> <p/> <p>The input image is passed either as base64-encoded
          * image bytes, or as a reference to an image in an Amazon S3 bucket. If you use
@@ -1837,34 +2270,35 @@ namespace Model
          * when you want to index the largest faces in an image and don't want to index
          * smaller faces, such as those belonging to people standing in the background.</p>
          * <p>The <code>QualityFilter</code> input parameter allows you to filter out
-         * detected faces that don’t meet the required quality bar chosen by Amazon
-         * Rekognition. The quality bar is based on a variety of common use cases. By
-         * default, <code>IndexFaces</code> filters detected faces. You can also explicitly
-         * filter detected faces by specifying <code>AUTO</code> for the value of
-         * <code>QualityFilter</code>. If you do not want to filter detected faces, specify
-         * <code>NONE</code>. </p> <note> <p>To use quality filtering, you need a
-         * collection associated with version 3 of the face model. To get the version of
-         * the face model associated with a collection, call <a>DescribeCollection</a>.
-         * </p> </note> <p>Information about faces detected in an image, but not indexed,
-         * is returned in an array of <a>UnindexedFace</a> objects,
-         * <code>UnindexedFaces</code>. Faces aren't indexed for reasons such as:</p> <ul>
-         * <li> <p>The number of faces detected exceeds the value of the
-         * <code>MaxFaces</code> request parameter.</p> </li> <li> <p>The face is too small
-         * compared to the image dimensions.</p> </li> <li> <p>The face is too blurry.</p>
-         * </li> <li> <p>The image is too dark.</p> </li> <li> <p>The face has an extreme
-         * pose.</p> </li> </ul> <p>In response, the <code>IndexFaces</code> operation
-         * returns an array of metadata for all detected faces, <code>FaceRecords</code>.
-         * This includes: </p> <ul> <li> <p>The bounding box, <code>BoundingBox</code>, of
-         * the detected face. </p> </li> <li> <p>A confidence value,
-         * <code>Confidence</code>, which indicates the confidence that the bounding box
-         * contains a face.</p> </li> <li> <p>A face ID, <code>FaceId</code>, assigned by
-         * the service for each face that's detected and stored.</p> </li> <li> <p>An image
-         * ID, <code>ImageId</code>, assigned by the service for the input image.</p> </li>
-         * </ul> <p>If you request all facial attributes (by using the
-         * <code>detectionAttributes</code> parameter), Amazon Rekognition returns detailed
-         * facial attributes, such as facial landmarks (for example, location of eye and
-         * mouth) and other facial attributes like gender. If you provide the same image,
-         * specify the same collection, and use the same external ID in the
+         * detected faces that don’t meet a required quality bar. The quality bar is based
+         * on a variety of common use cases. By default, <code>IndexFaces</code> chooses
+         * the quality bar that's used to filter faces. You can also explicitly choose the
+         * quality bar. Use <code>QualityFilter</code>, to set the quality bar by
+         * specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you
+         * do not want to filter detected faces, specify <code>NONE</code>. </p> <note>
+         * <p>To use quality filtering, you need a collection associated with version 3 of
+         * the face model or higher. To get the version of the face model associated with a
+         * collection, call <a>DescribeCollection</a>. </p> </note> <p>Information about
+         * faces detected in an image, but not indexed, is returned in an array of
+         * <a>UnindexedFace</a> objects, <code>UnindexedFaces</code>. Faces aren't indexed
+         * for reasons such as:</p> <ul> <li> <p>The number of faces detected exceeds the
+         * value of the <code>MaxFaces</code> request parameter.</p> </li> <li> <p>The face
+         * is too small compared to the image dimensions.</p> </li> <li> <p>The face is too
+         * blurry.</p> </li> <li> <p>The image is too dark.</p> </li> <li> <p>The face has
+         * an extreme pose.</p> </li> <li> <p>The face doesn’t have enough detail to be
+         * suitable for face search.</p> </li> </ul> <p>In response, the
+         * <code>IndexFaces</code> operation returns an array of metadata for all detected
+         * faces, <code>FaceRecords</code>. This includes: </p> <ul> <li> <p>The bounding
+         * box, <code>BoundingBox</code>, of the detected face. </p> </li> <li> <p>A
+         * confidence value, <code>Confidence</code>, which indicates the confidence that
+         * the bounding box contains a face.</p> </li> <li> <p>A face ID,
+         * <code>FaceId</code>, assigned by the service for each face that's detected and
+         * stored.</p> </li> <li> <p>An image ID, <code>ImageId</code>, assigned by the
+         * service for the input image.</p> </li> </ul> <p>If you request all facial
+         * attributes (by using the <code>detectionAttributes</code> parameter), Amazon
+         * Rekognition returns detailed facial attributes, such as facial landmarks (for
+         * example, location of eye and mouth) and other facial attributes. If you provide
+         * the same image, specify the same collection, and use the same external ID in the
          * <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
          * face metadata.</p> <p/> <p>The input image is passed either as base64-encoded
          * image bytes, or as a reference to an image in an Amazon S3 bucket. If you use
@@ -1909,34 +2343,35 @@ namespace Model
          * when you want to index the largest faces in an image and don't want to index
          * smaller faces, such as those belonging to people standing in the background.</p>
          * <p>The <code>QualityFilter</code> input parameter allows you to filter out
-         * detected faces that don’t meet the required quality bar chosen by Amazon
-         * Rekognition. The quality bar is based on a variety of common use cases. By
-         * default, <code>IndexFaces</code> filters detected faces. You can also explicitly
-         * filter detected faces by specifying <code>AUTO</code> for the value of
-         * <code>QualityFilter</code>. If you do not want to filter detected faces, specify
-         * <code>NONE</code>. </p> <note> <p>To use quality filtering, you need a
-         * collection associated with version 3 of the face model. To get the version of
-         * the face model associated with a collection, call <a>DescribeCollection</a>.
-         * </p> </note> <p>Information about faces detected in an image, but not indexed,
-         * is returned in an array of <a>UnindexedFace</a> objects,
-         * <code>UnindexedFaces</code>. Faces aren't indexed for reasons such as:</p> <ul>
-         * <li> <p>The number of faces detected exceeds the value of the
-         * <code>MaxFaces</code> request parameter.</p> </li> <li> <p>The face is too small
-         * compared to the image dimensions.</p> </li> <li> <p>The face is too blurry.</p>
-         * </li> <li> <p>The image is too dark.</p> </li> <li> <p>The face has an extreme
-         * pose.</p> </li> </ul> <p>In response, the <code>IndexFaces</code> operation
-         * returns an array of metadata for all detected faces, <code>FaceRecords</code>.
-         * This includes: </p> <ul> <li> <p>The bounding box, <code>BoundingBox</code>, of
-         * the detected face. </p> </li> <li> <p>A confidence value,
-         * <code>Confidence</code>, which indicates the confidence that the bounding box
-         * contains a face.</p> </li> <li> <p>A face ID, <code>FaceId</code>, assigned by
-         * the service for each face that's detected and stored.</p> </li> <li> <p>An image
-         * ID, <code>ImageId</code>, assigned by the service for the input image.</p> </li>
-         * </ul> <p>If you request all facial attributes (by using the
-         * <code>detectionAttributes</code> parameter), Amazon Rekognition returns detailed
-         * facial attributes, such as facial landmarks (for example, location of eye and
-         * mouth) and other facial attributes like gender. If you provide the same image,
-         * specify the same collection, and use the same external ID in the
+         * detected faces that don’t meet a required quality bar. The quality bar is based
+         * on a variety of common use cases. By default, <code>IndexFaces</code> chooses
+         * the quality bar that's used to filter faces. You can also explicitly choose the
+         * quality bar. Use <code>QualityFilter</code>, to set the quality bar by
+         * specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you
+         * do not want to filter detected faces, specify <code>NONE</code>. </p> <note>
+         * <p>To use quality filtering, you need a collection associated with version 3 of
+         * the face model or higher. To get the version of the face model associated with a
+         * collection, call <a>DescribeCollection</a>. </p> </note> <p>Information about
+         * faces detected in an image, but not indexed, is returned in an array of
+         * <a>UnindexedFace</a> objects, <code>UnindexedFaces</code>. Faces aren't indexed
+         * for reasons such as:</p> <ul> <li> <p>The number of faces detected exceeds the
+         * value of the <code>MaxFaces</code> request parameter.</p> </li> <li> <p>The face
+         * is too small compared to the image dimensions.</p> </li> <li> <p>The face is too
+         * blurry.</p> </li> <li> <p>The image is too dark.</p> </li> <li> <p>The face has
+         * an extreme pose.</p> </li> <li> <p>The face doesn’t have enough detail to be
+         * suitable for face search.</p> </li> </ul> <p>In response, the
+         * <code>IndexFaces</code> operation returns an array of metadata for all detected
+         * faces, <code>FaceRecords</code>. This includes: </p> <ul> <li> <p>The bounding
+         * box, <code>BoundingBox</code>, of the detected face. </p> </li> <li> <p>A
+         * confidence value, <code>Confidence</code>, which indicates the confidence that
+         * the bounding box contains a face.</p> </li> <li> <p>A face ID,
+         * <code>FaceId</code>, assigned by the service for each face that's detected and
+         * stored.</p> </li> <li> <p>An image ID, <code>ImageId</code>, assigned by the
+         * service for the input image.</p> </li> </ul> <p>If you request all facial
+         * attributes (by using the <code>detectionAttributes</code> parameter), Amazon
+         * Rekognition returns detailed facial attributes, such as facial landmarks (for
+         * example, location of eye and mouth) and other facial attributes. If you provide
+         * the same image, specify the same collection, and use the same external ID in the
          * <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
          * face metadata.</p> <p/> <p>The input image is passed either as base64-encoded
          * image bytes, or as a reference to an image in an Amazon S3 bucket. If you use
@@ -2241,7 +2676,16 @@ namespace Model
          * returns the bounding box (and a confidence level that the bounding box contains
          * a face) of the face that Amazon Rekognition used for the input image. </p>
          * <p>For an example, Searching for a Face Using an Image in the Amazon Rekognition
-         * Developer Guide.</p> <p>This operation requires permissions to perform the
+         * Developer Guide.</p> <p>The <code>QualityFilter</code> input parameter allows
+         * you to filter out detected faces that don’t meet a required quality bar. The
+         * quality bar is based on a variety of common use cases. Use
+         * <code>QualityFilter</code> to set the quality bar for filtering by specifying
+         * <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want
+         * to filter detected faces, specify <code>NONE</code>. The default value is
+         * <code>NONE</code>.</p> <note> <p>To use quality filtering, you need a collection
+         * associated with version 3 of the face model or higher. To get the version of the
+         * face model associated with a collection, call <a>DescribeCollection</a>. </p>
+         * </note> <p>This operation requires permissions to perform the
          * <code>rekognition:SearchFacesByImage</code> action.</p><p><h3>See Also:</h3>  
          * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/SearchFacesByImage">AWS
@@ -2270,7 +2714,16 @@ namespace Model
          * returns the bounding box (and a confidence level that the bounding box contains
          * a face) of the face that Amazon Rekognition used for the input image. </p>
          * <p>For an example, Searching for a Face Using an Image in the Amazon Rekognition
-         * Developer Guide.</p> <p>This operation requires permissions to perform the
+         * Developer Guide.</p> <p>The <code>QualityFilter</code> input parameter allows
+         * you to filter out detected faces that don’t meet a required quality bar. The
+         * quality bar is based on a variety of common use cases. Use
+         * <code>QualityFilter</code> to set the quality bar for filtering by specifying
+         * <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want
+         * to filter detected faces, specify <code>NONE</code>. The default value is
+         * <code>NONE</code>.</p> <note> <p>To use quality filtering, you need a collection
+         * associated with version 3 of the face model or higher. To get the version of the
+         * face model associated with a collection, call <a>DescribeCollection</a>. </p>
+         * </note> <p>This operation requires permissions to perform the
          * <code>rekognition:SearchFacesByImage</code> action.</p><p><h3>See Also:</h3>  
          * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/SearchFacesByImage">AWS
@@ -2301,7 +2754,16 @@ namespace Model
          * returns the bounding box (and a confidence level that the bounding box contains
          * a face) of the face that Amazon Rekognition used for the input image. </p>
          * <p>For an example, Searching for a Face Using an Image in the Amazon Rekognition
-         * Developer Guide.</p> <p>This operation requires permissions to perform the
+         * Developer Guide.</p> <p>The <code>QualityFilter</code> input parameter allows
+         * you to filter out detected faces that don’t meet a required quality bar. The
+         * quality bar is based on a variety of common use cases. Use
+         * <code>QualityFilter</code> to set the quality bar for filtering by specifying
+         * <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want
+         * to filter detected faces, specify <code>NONE</code>. The default value is
+         * <code>NONE</code>.</p> <note> <p>To use quality filtering, you need a collection
+         * associated with version 3 of the face model or higher. To get the version of the
+         * face model associated with a collection, call <a>DescribeCollection</a>. </p>
+         * </note> <p>This operation requires permissions to perform the
          * <code>rekognition:SearchFacesByImage</code> action.</p><p><h3>See Also:</h3>  
          * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/SearchFacesByImage">AWS
@@ -2376,16 +2838,16 @@ namespace Model
         virtual void StartCelebrityRecognitionAsync(const Model::StartCelebrityRecognitionRequest& request, const StartCelebrityRecognitionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p> Starts asynchronous detection of explicit or suggestive adult content in a
-         * stored video.</p> <p>Amazon Rekognition Video can moderate content in a video
-         * stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
-         * the filename of the video. <code>StartContentModeration</code> returns a job
-         * identifier (<code>JobId</code>) which you use to get the results of the
-         * analysis. When content moderation analysis is finished, Amazon Rekognition Video
-         * publishes a completion status to the Amazon Simple Notification Service topic
-         * that you specify in <code>NotificationChannel</code>.</p> <p>To get the results
-         * of the content moderation analysis, first check that the status value published
-         * to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
+         * <p> Starts asynchronous detection of unsafe content in a stored video.</p>
+         * <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon
+         * S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the
+         * video. <code>StartContentModeration</code> returns a job identifier
+         * (<code>JobId</code>) which you use to get the results of the analysis. When
+         * unsafe content analysis is finished, Amazon Rekognition Video publishes a
+         * completion status to the Amazon Simple Notification Service topic that you
+         * specify in <code>NotificationChannel</code>.</p> <p>To get the results of the
+         * unsafe content analysis, first check that the status value published to the
+         * Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
          * <a>GetContentModeration</a> and pass the job identifier (<code>JobId</code>)
          * from the initial call to <code>StartContentModeration</code>. </p> <p>For more
          * information, see Detecting Unsafe Content in the Amazon Rekognition Developer
@@ -2396,16 +2858,16 @@ namespace Model
         virtual Model::StartContentModerationOutcome StartContentModeration(const Model::StartContentModerationRequest& request) const;
 
         /**
-         * <p> Starts asynchronous detection of explicit or suggestive adult content in a
-         * stored video.</p> <p>Amazon Rekognition Video can moderate content in a video
-         * stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
-         * the filename of the video. <code>StartContentModeration</code> returns a job
-         * identifier (<code>JobId</code>) which you use to get the results of the
-         * analysis. When content moderation analysis is finished, Amazon Rekognition Video
-         * publishes a completion status to the Amazon Simple Notification Service topic
-         * that you specify in <code>NotificationChannel</code>.</p> <p>To get the results
-         * of the content moderation analysis, first check that the status value published
-         * to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
+         * <p> Starts asynchronous detection of unsafe content in a stored video.</p>
+         * <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon
+         * S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the
+         * video. <code>StartContentModeration</code> returns a job identifier
+         * (<code>JobId</code>) which you use to get the results of the analysis. When
+         * unsafe content analysis is finished, Amazon Rekognition Video publishes a
+         * completion status to the Amazon Simple Notification Service topic that you
+         * specify in <code>NotificationChannel</code>.</p> <p>To get the results of the
+         * unsafe content analysis, first check that the status value published to the
+         * Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
          * <a>GetContentModeration</a> and pass the job identifier (<code>JobId</code>)
          * from the initial call to <code>StartContentModeration</code>. </p> <p>For more
          * information, see Detecting Unsafe Content in the Amazon Rekognition Developer
@@ -2418,16 +2880,16 @@ namespace Model
         virtual Model::StartContentModerationOutcomeCallable StartContentModerationCallable(const Model::StartContentModerationRequest& request) const;
 
         /**
-         * <p> Starts asynchronous detection of explicit or suggestive adult content in a
-         * stored video.</p> <p>Amazon Rekognition Video can moderate content in a video
-         * stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and
-         * the filename of the video. <code>StartContentModeration</code> returns a job
-         * identifier (<code>JobId</code>) which you use to get the results of the
-         * analysis. When content moderation analysis is finished, Amazon Rekognition Video
-         * publishes a completion status to the Amazon Simple Notification Service topic
-         * that you specify in <code>NotificationChannel</code>.</p> <p>To get the results
-         * of the content moderation analysis, first check that the status value published
-         * to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
+         * <p> Starts asynchronous detection of unsafe content in a stored video.</p>
+         * <p>Amazon Rekognition Video can moderate content in a video stored in an Amazon
+         * S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the
+         * video. <code>StartContentModeration</code> returns a job identifier
+         * (<code>JobId</code>) which you use to get the results of the analysis. When
+         * unsafe content analysis is finished, Amazon Rekognition Video publishes a
+         * completion status to the Amazon Simple Notification Service topic that you
+         * specify in <code>NotificationChannel</code>.</p> <p>To get the results of the
+         * unsafe content analysis, first check that the status value published to the
+         * Amazon SNS topic is <code>SUCCEEDED</code>. If so, call
          * <a>GetContentModeration</a> and pass the job identifier (<code>JobId</code>)
          * from the initial call to <code>StartContentModeration</code>. </p> <p>For more
          * information, see Detecting Unsafe Content in the Amazon Rekognition Developer
@@ -2693,6 +3155,52 @@ namespace Model
         virtual void StartPersonTrackingAsync(const Model::StartPersonTrackingRequest& request, const StartPersonTrackingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Starts the running of the version of a model. Starting a model takes a while
+         * to complete. To check the current state of the model, use
+         * <a>DescribeProjectVersions</a>.</p> <p>Once the model is running, you can detect
+         * custom labels in new images by calling <a>DetectCustomLabels</a>.</p> <note>
+         * <p>You are charged for the amount of time that the model is running. To stop a
+         * running model, call <a>StopProjectVersion</a>.</p> </note> <p>This operation
+         * requires permissions to perform the <code>rekognition:StartProjectVersion</code>
+         * action.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartProjectVersion">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::StartProjectVersionOutcome StartProjectVersion(const Model::StartProjectVersionRequest& request) const;
+
+        /**
+         * <p>Starts the running of the version of a model. Starting a model takes a while
+         * to complete. To check the current state of the model, use
+         * <a>DescribeProjectVersions</a>.</p> <p>Once the model is running, you can detect
+         * custom labels in new images by calling <a>DetectCustomLabels</a>.</p> <note>
+         * <p>You are charged for the amount of time that the model is running. To stop a
+         * running model, call <a>StopProjectVersion</a>.</p> </note> <p>This operation
+         * requires permissions to perform the <code>rekognition:StartProjectVersion</code>
+         * action.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartProjectVersion">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::StartProjectVersionOutcomeCallable StartProjectVersionCallable(const Model::StartProjectVersionRequest& request) const;
+
+        /**
+         * <p>Starts the running of the version of a model. Starting a model takes a while
+         * to complete. To check the current state of the model, use
+         * <a>DescribeProjectVersions</a>.</p> <p>Once the model is running, you can detect
+         * custom labels in new images by calling <a>DetectCustomLabels</a>.</p> <note>
+         * <p>You are charged for the amount of time that the model is running. To stop a
+         * running model, call <a>StopProjectVersion</a>.</p> </note> <p>This operation
+         * requires permissions to perform the <code>rekognition:StartProjectVersion</code>
+         * action.</p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartProjectVersion">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void StartProjectVersionAsync(const Model::StartProjectVersionRequest& request, const StartProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Starts processing a stream processor. You create a stream processor by
          * calling <a>CreateStreamProcessor</a>. To tell <code>StartStreamProcessor</code>
          * which stream processor to start, use the value of the <code>Name</code> field
@@ -2730,6 +3238,95 @@ namespace Model
         virtual void StartStreamProcessorAsync(const Model::StartStreamProcessorRequest& request, const StartStreamProcessorResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
+         * <p>Starts asynchronous detection of text in a stored video.</p> <p>Amazon
+         * Rekognition Video can detect text in a video stored in an Amazon S3 bucket. Use
+         * <a>Video</a> to specify the bucket name and the filename of the video.
+         * <code>StartTextDetection</code> returns a job identifier (<code>JobId</code>)
+         * which you use to get the results of the operation. When text detection is
+         * finished, Amazon Rekognition Video publishes a completion status to the Amazon
+         * Simple Notification Service topic that you specify in
+         * <code>NotificationChannel</code>.</p> <p>To get the results of the text
+         * detection operation, first check that the status value published to the Amazon
+         * SNS topic is <code>SUCCEEDED</code>. if so, call <a>GetTextDetection</a> and
+         * pass the job identifier (<code>JobId</code>) from the initial call to
+         * <code>StartTextDetection</code>. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartTextDetection">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::StartTextDetectionOutcome StartTextDetection(const Model::StartTextDetectionRequest& request) const;
+
+        /**
+         * <p>Starts asynchronous detection of text in a stored video.</p> <p>Amazon
+         * Rekognition Video can detect text in a video stored in an Amazon S3 bucket. Use
+         * <a>Video</a> to specify the bucket name and the filename of the video.
+         * <code>StartTextDetection</code> returns a job identifier (<code>JobId</code>)
+         * which you use to get the results of the operation. When text detection is
+         * finished, Amazon Rekognition Video publishes a completion status to the Amazon
+         * Simple Notification Service topic that you specify in
+         * <code>NotificationChannel</code>.</p> <p>To get the results of the text
+         * detection operation, first check that the status value published to the Amazon
+         * SNS topic is <code>SUCCEEDED</code>. if so, call <a>GetTextDetection</a> and
+         * pass the job identifier (<code>JobId</code>) from the initial call to
+         * <code>StartTextDetection</code>. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartTextDetection">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::StartTextDetectionOutcomeCallable StartTextDetectionCallable(const Model::StartTextDetectionRequest& request) const;
+
+        /**
+         * <p>Starts asynchronous detection of text in a stored video.</p> <p>Amazon
+         * Rekognition Video can detect text in a video stored in an Amazon S3 bucket. Use
+         * <a>Video</a> to specify the bucket name and the filename of the video.
+         * <code>StartTextDetection</code> returns a job identifier (<code>JobId</code>)
+         * which you use to get the results of the operation. When text detection is
+         * finished, Amazon Rekognition Video publishes a completion status to the Amazon
+         * Simple Notification Service topic that you specify in
+         * <code>NotificationChannel</code>.</p> <p>To get the results of the text
+         * detection operation, first check that the status value published to the Amazon
+         * SNS topic is <code>SUCCEEDED</code>. if so, call <a>GetTextDetection</a> and
+         * pass the job identifier (<code>JobId</code>) from the initial call to
+         * <code>StartTextDetection</code>. </p><p><h3>See Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartTextDetection">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void StartTextDetectionAsync(const Model::StartTextDetectionRequest& request, const StartTextDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
+         * <p>Stops a running model. The operation might take a while to complete. To check
+         * the current status, call <a>DescribeProjectVersions</a>. </p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StopProjectVersion">AWS
+         * API Reference</a></p>
+         */
+        virtual Model::StopProjectVersionOutcome StopProjectVersion(const Model::StopProjectVersionRequest& request) const;
+
+        /**
+         * <p>Stops a running model. The operation might take a while to complete. To check
+         * the current status, call <a>DescribeProjectVersions</a>. </p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StopProjectVersion">AWS
+         * API Reference</a></p>
+         *
+         * returns a future to the operation so that it can be executed in parallel to other requests.
+         */
+        virtual Model::StopProjectVersionOutcomeCallable StopProjectVersionCallable(const Model::StopProjectVersionRequest& request) const;
+
+        /**
+         * <p>Stops a running model. The operation might take a while to complete. To check
+         * the current status, call <a>DescribeProjectVersions</a>. </p><p><h3>See
+         * Also:</h3>   <a
+         * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StopProjectVersion">AWS
+         * API Reference</a></p>
+         *
+         * Queues the request into a thread executor and triggers associated callback when operation has finished.
+         */
+        virtual void StopProjectVersionAsync(const Model::StopProjectVersionRequest& request, const StopProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
+
+        /**
          * <p>Stops a running stream processor that was created by
          * <a>CreateStreamProcessor</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StopStreamProcessor">AWS
@@ -2763,12 +3360,17 @@ namespace Model
       void init(const Aws::Client::ClientConfiguration& clientConfiguration);
         void CompareFacesAsyncHelper(const Model::CompareFacesRequest& request, const CompareFacesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateCollectionAsyncHelper(const Model::CreateCollectionRequest& request, const CreateCollectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CreateProjectAsyncHelper(const Model::CreateProjectRequest& request, const CreateProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void CreateProjectVersionAsyncHelper(const Model::CreateProjectVersionRequest& request, const CreateProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void CreateStreamProcessorAsyncHelper(const Model::CreateStreamProcessorRequest& request, const CreateStreamProcessorResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteCollectionAsyncHelper(const Model::DeleteCollectionRequest& request, const DeleteCollectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteFacesAsyncHelper(const Model::DeleteFacesRequest& request, const DeleteFacesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DeleteStreamProcessorAsyncHelper(const Model::DeleteStreamProcessorRequest& request, const DeleteStreamProcessorResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeCollectionAsyncHelper(const Model::DescribeCollectionRequest& request, const DescribeCollectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeProjectVersionsAsyncHelper(const Model::DescribeProjectVersionsRequest& request, const DescribeProjectVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DescribeProjectsAsyncHelper(const Model::DescribeProjectsRequest& request, const DescribeProjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DescribeStreamProcessorAsyncHelper(const Model::DescribeStreamProcessorRequest& request, const DescribeStreamProcessorResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void DetectCustomLabelsAsyncHelper(const Model::DetectCustomLabelsRequest& request, const DetectCustomLabelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DetectFacesAsyncHelper(const Model::DetectFacesRequest& request, const DetectFacesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DetectLabelsAsyncHelper(const Model::DetectLabelsRequest& request, const DetectLabelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void DetectModerationLabelsAsyncHelper(const Model::DetectModerationLabelsRequest& request, const DetectModerationLabelsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -2780,6 +3382,7 @@ namespace Model
         void GetFaceSearchAsyncHelper(const Model::GetFaceSearchRequest& request, const GetFaceSearchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetLabelDetectionAsyncHelper(const Model::GetLabelDetectionRequest& request, const GetLabelDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void GetPersonTrackingAsyncHelper(const Model::GetPersonTrackingRequest& request, const GetPersonTrackingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void GetTextDetectionAsyncHelper(const Model::GetTextDetectionRequest& request, const GetTextDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void IndexFacesAsyncHelper(const Model::IndexFacesRequest& request, const IndexFacesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListCollectionsAsyncHelper(const Model::ListCollectionsRequest& request, const ListCollectionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void ListFacesAsyncHelper(const Model::ListFacesRequest& request, const ListFacesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
@@ -2793,7 +3396,10 @@ namespace Model
         void StartFaceSearchAsyncHelper(const Model::StartFaceSearchRequest& request, const StartFaceSearchResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartLabelDetectionAsyncHelper(const Model::StartLabelDetectionRequest& request, const StartLabelDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartPersonTrackingAsyncHelper(const Model::StartPersonTrackingRequest& request, const StartPersonTrackingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void StartProjectVersionAsyncHelper(const Model::StartProjectVersionRequest& request, const StartProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StartStreamProcessorAsyncHelper(const Model::StartStreamProcessorRequest& request, const StartStreamProcessorResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void StartTextDetectionAsyncHelper(const Model::StartTextDetectionRequest& request, const StartTextDetectionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
+        void StopProjectVersionAsyncHelper(const Model::StopProjectVersionRequest& request, const StopProjectVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
         void StopStreamProcessorAsyncHelper(const Model::StopStreamProcessorRequest& request, const StopStreamProcessorResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const;
 
       Aws::String m_uri;

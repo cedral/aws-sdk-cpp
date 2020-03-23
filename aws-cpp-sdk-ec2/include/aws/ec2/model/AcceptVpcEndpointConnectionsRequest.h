@@ -81,42 +81,42 @@ namespace Model
 
 
     /**
-     * <p>The ID of the endpoint service.</p>
+     * <p>The ID of the VPC endpoint service.</p>
      */
     inline const Aws::String& GetServiceId() const{ return m_serviceId; }
 
     /**
-     * <p>The ID of the endpoint service.</p>
+     * <p>The ID of the VPC endpoint service.</p>
      */
     inline bool ServiceIdHasBeenSet() const { return m_serviceIdHasBeenSet; }
 
     /**
-     * <p>The ID of the endpoint service.</p>
+     * <p>The ID of the VPC endpoint service.</p>
      */
     inline void SetServiceId(const Aws::String& value) { m_serviceIdHasBeenSet = true; m_serviceId = value; }
 
     /**
-     * <p>The ID of the endpoint service.</p>
+     * <p>The ID of the VPC endpoint service.</p>
      */
     inline void SetServiceId(Aws::String&& value) { m_serviceIdHasBeenSet = true; m_serviceId = std::move(value); }
 
     /**
-     * <p>The ID of the endpoint service.</p>
+     * <p>The ID of the VPC endpoint service.</p>
      */
     inline void SetServiceId(const char* value) { m_serviceIdHasBeenSet = true; m_serviceId.assign(value); }
 
     /**
-     * <p>The ID of the endpoint service.</p>
+     * <p>The ID of the VPC endpoint service.</p>
      */
     inline AcceptVpcEndpointConnectionsRequest& WithServiceId(const Aws::String& value) { SetServiceId(value); return *this;}
 
     /**
-     * <p>The ID of the endpoint service.</p>
+     * <p>The ID of the VPC endpoint service.</p>
      */
     inline AcceptVpcEndpointConnectionsRequest& WithServiceId(Aws::String&& value) { SetServiceId(std::move(value)); return *this;}
 
     /**
-     * <p>The ID of the endpoint service.</p>
+     * <p>The ID of the VPC endpoint service.</p>
      */
     inline AcceptVpcEndpointConnectionsRequest& WithServiceId(const char* value) { SetServiceId(value); return *this;}
 

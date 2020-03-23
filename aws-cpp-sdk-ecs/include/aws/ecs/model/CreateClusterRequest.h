@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/ecs/model/Tag.h>
 #include <aws/ecs/model/ClusterSetting.h>
+#include <aws/ecs/model/CapacityProviderStrategyItem.h>
 #include <utility>
 
 namespace Aws
@@ -107,64 +108,160 @@ namespace Model
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline CreateClusterRequest& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline CreateClusterRequest& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline CreateClusterRequest& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline CreateClusterRequest& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
@@ -233,6 +330,319 @@ namespace Model
      */
     inline CreateClusterRequest& AddSettings(ClusterSetting&& value) { m_settingsHasBeenSet = true; m_settings.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline const Aws::Vector<Aws::String>& GetCapacityProviders() const{ return m_capacityProviders; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline bool CapacityProvidersHasBeenSet() const { return m_capacityProvidersHasBeenSet; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline void SetCapacityProviders(const Aws::Vector<Aws::String>& value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders = value; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline void SetCapacityProviders(Aws::Vector<Aws::String>&& value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders = std::move(value); }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateClusterRequest& WithCapacityProviders(const Aws::Vector<Aws::String>& value) { SetCapacityProviders(value); return *this;}
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateClusterRequest& WithCapacityProviders(Aws::Vector<Aws::String>&& value) { SetCapacityProviders(std::move(value)); return *this;}
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateClusterRequest& AddCapacityProviders(const Aws::String& value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders.push_back(value); return *this; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateClusterRequest& AddCapacityProviders(Aws::String&& value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p>The short name or full Amazon Resource Name (ARN) of one or more capacity
+     * providers to associate with the cluster.</p> <p>If specifying a capacity
+     * provider that uses an Auto Scaling group, the capacity provider must already be
+     * created and not already associated with another cluster. New capacity providers
+     * can be created with the <a>CreateCapacityProvider</a> API operation.</p> <p>To
+     * use a AWS Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>The <a>PutClusterCapacityProviders</a> API operation is used to
+     * update the list of available capacity providers for a cluster after the cluster
+     * is created.</p>
+     */
+    inline CreateClusterRequest& AddCapacityProviders(const char* value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders.push_back(value); return *this; }
+
+
+    /**
+     * <p>The capacity provider strategy to use by default for the cluster.</p> <p>When
+     * creating a service or running a task on a cluster, if no capacity provider or
+     * launch type is specified then the default capacity provider strategy for the
+     * cluster is used.</p> <p>A capacity provider strategy consists of one or more
+     * capacity providers along with the <code>base</code> and <code>weight</code> to
+     * assign to them. A capacity provider must be associated with the cluster to be
+     * used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a> API
+     * is used to associate a capacity provider with a cluster. Only capacity providers
+     * with an <code>ACTIVE</code> or <code>UPDATING</code> status can be used.</p>
+     * <p>If specifying a capacity provider that uses an Auto Scaling group, the
+     * capacity provider must already be created. New capacity providers can be created
+     * with the <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS
+     * Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>If a default capacity provider strategy is not defined for a
+     * cluster during creation, it can be defined later with the
+     * <a>PutClusterCapacityProviders</a> API operation.</p>
+     */
+    inline const Aws::Vector<CapacityProviderStrategyItem>& GetDefaultCapacityProviderStrategy() const{ return m_defaultCapacityProviderStrategy; }
+
+    /**
+     * <p>The capacity provider strategy to use by default for the cluster.</p> <p>When
+     * creating a service or running a task on a cluster, if no capacity provider or
+     * launch type is specified then the default capacity provider strategy for the
+     * cluster is used.</p> <p>A capacity provider strategy consists of one or more
+     * capacity providers along with the <code>base</code> and <code>weight</code> to
+     * assign to them. A capacity provider must be associated with the cluster to be
+     * used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a> API
+     * is used to associate a capacity provider with a cluster. Only capacity providers
+     * with an <code>ACTIVE</code> or <code>UPDATING</code> status can be used.</p>
+     * <p>If specifying a capacity provider that uses an Auto Scaling group, the
+     * capacity provider must already be created. New capacity providers can be created
+     * with the <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS
+     * Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>If a default capacity provider strategy is not defined for a
+     * cluster during creation, it can be defined later with the
+     * <a>PutClusterCapacityProviders</a> API operation.</p>
+     */
+    inline bool DefaultCapacityProviderStrategyHasBeenSet() const { return m_defaultCapacityProviderStrategyHasBeenSet; }
+
+    /**
+     * <p>The capacity provider strategy to use by default for the cluster.</p> <p>When
+     * creating a service or running a task on a cluster, if no capacity provider or
+     * launch type is specified then the default capacity provider strategy for the
+     * cluster is used.</p> <p>A capacity provider strategy consists of one or more
+     * capacity providers along with the <code>base</code> and <code>weight</code> to
+     * assign to them. A capacity provider must be associated with the cluster to be
+     * used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a> API
+     * is used to associate a capacity provider with a cluster. Only capacity providers
+     * with an <code>ACTIVE</code> or <code>UPDATING</code> status can be used.</p>
+     * <p>If specifying a capacity provider that uses an Auto Scaling group, the
+     * capacity provider must already be created. New capacity providers can be created
+     * with the <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS
+     * Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>If a default capacity provider strategy is not defined for a
+     * cluster during creation, it can be defined later with the
+     * <a>PutClusterCapacityProviders</a> API operation.</p>
+     */
+    inline void SetDefaultCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { m_defaultCapacityProviderStrategyHasBeenSet = true; m_defaultCapacityProviderStrategy = value; }
+
+    /**
+     * <p>The capacity provider strategy to use by default for the cluster.</p> <p>When
+     * creating a service or running a task on a cluster, if no capacity provider or
+     * launch type is specified then the default capacity provider strategy for the
+     * cluster is used.</p> <p>A capacity provider strategy consists of one or more
+     * capacity providers along with the <code>base</code> and <code>weight</code> to
+     * assign to them. A capacity provider must be associated with the cluster to be
+     * used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a> API
+     * is used to associate a capacity provider with a cluster. Only capacity providers
+     * with an <code>ACTIVE</code> or <code>UPDATING</code> status can be used.</p>
+     * <p>If specifying a capacity provider that uses an Auto Scaling group, the
+     * capacity provider must already be created. New capacity providers can be created
+     * with the <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS
+     * Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>If a default capacity provider strategy is not defined for a
+     * cluster during creation, it can be defined later with the
+     * <a>PutClusterCapacityProviders</a> API operation.</p>
+     */
+    inline void SetDefaultCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { m_defaultCapacityProviderStrategyHasBeenSet = true; m_defaultCapacityProviderStrategy = std::move(value); }
+
+    /**
+     * <p>The capacity provider strategy to use by default for the cluster.</p> <p>When
+     * creating a service or running a task on a cluster, if no capacity provider or
+     * launch type is specified then the default capacity provider strategy for the
+     * cluster is used.</p> <p>A capacity provider strategy consists of one or more
+     * capacity providers along with the <code>base</code> and <code>weight</code> to
+     * assign to them. A capacity provider must be associated with the cluster to be
+     * used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a> API
+     * is used to associate a capacity provider with a cluster. Only capacity providers
+     * with an <code>ACTIVE</code> or <code>UPDATING</code> status can be used.</p>
+     * <p>If specifying a capacity provider that uses an Auto Scaling group, the
+     * capacity provider must already be created. New capacity providers can be created
+     * with the <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS
+     * Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>If a default capacity provider strategy is not defined for a
+     * cluster during creation, it can be defined later with the
+     * <a>PutClusterCapacityProviders</a> API operation.</p>
+     */
+    inline CreateClusterRequest& WithDefaultCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { SetDefaultCapacityProviderStrategy(value); return *this;}
+
+    /**
+     * <p>The capacity provider strategy to use by default for the cluster.</p> <p>When
+     * creating a service or running a task on a cluster, if no capacity provider or
+     * launch type is specified then the default capacity provider strategy for the
+     * cluster is used.</p> <p>A capacity provider strategy consists of one or more
+     * capacity providers along with the <code>base</code> and <code>weight</code> to
+     * assign to them. A capacity provider must be associated with the cluster to be
+     * used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a> API
+     * is used to associate a capacity provider with a cluster. Only capacity providers
+     * with an <code>ACTIVE</code> or <code>UPDATING</code> status can be used.</p>
+     * <p>If specifying a capacity provider that uses an Auto Scaling group, the
+     * capacity provider must already be created. New capacity providers can be created
+     * with the <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS
+     * Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>If a default capacity provider strategy is not defined for a
+     * cluster during creation, it can be defined later with the
+     * <a>PutClusterCapacityProviders</a> API operation.</p>
+     */
+    inline CreateClusterRequest& WithDefaultCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { SetDefaultCapacityProviderStrategy(std::move(value)); return *this;}
+
+    /**
+     * <p>The capacity provider strategy to use by default for the cluster.</p> <p>When
+     * creating a service or running a task on a cluster, if no capacity provider or
+     * launch type is specified then the default capacity provider strategy for the
+     * cluster is used.</p> <p>A capacity provider strategy consists of one or more
+     * capacity providers along with the <code>base</code> and <code>weight</code> to
+     * assign to them. A capacity provider must be associated with the cluster to be
+     * used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a> API
+     * is used to associate a capacity provider with a cluster. Only capacity providers
+     * with an <code>ACTIVE</code> or <code>UPDATING</code> status can be used.</p>
+     * <p>If specifying a capacity provider that uses an Auto Scaling group, the
+     * capacity provider must already be created. New capacity providers can be created
+     * with the <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS
+     * Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>If a default capacity provider strategy is not defined for a
+     * cluster during creation, it can be defined later with the
+     * <a>PutClusterCapacityProviders</a> API operation.</p>
+     */
+    inline CreateClusterRequest& AddDefaultCapacityProviderStrategy(const CapacityProviderStrategyItem& value) { m_defaultCapacityProviderStrategyHasBeenSet = true; m_defaultCapacityProviderStrategy.push_back(value); return *this; }
+
+    /**
+     * <p>The capacity provider strategy to use by default for the cluster.</p> <p>When
+     * creating a service or running a task on a cluster, if no capacity provider or
+     * launch type is specified then the default capacity provider strategy for the
+     * cluster is used.</p> <p>A capacity provider strategy consists of one or more
+     * capacity providers along with the <code>base</code> and <code>weight</code> to
+     * assign to them. A capacity provider must be associated with the cluster to be
+     * used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a> API
+     * is used to associate a capacity provider with a cluster. Only capacity providers
+     * with an <code>ACTIVE</code> or <code>UPDATING</code> status can be used.</p>
+     * <p>If specifying a capacity provider that uses an Auto Scaling group, the
+     * capacity provider must already be created. New capacity providers can be created
+     * with the <a>CreateCapacityProvider</a> API operation.</p> <p>To use a AWS
+     * Fargate capacity provider, specify either the <code>FARGATE</code> or
+     * <code>FARGATE_SPOT</code> capacity providers. The AWS Fargate capacity providers
+     * are available to all accounts and only need to be associated with a cluster to
+     * be used.</p> <p>If a default capacity provider strategy is not defined for a
+     * cluster during creation, it can be defined later with the
+     * <a>PutClusterCapacityProviders</a> API operation.</p>
+     */
+    inline CreateClusterRequest& AddDefaultCapacityProviderStrategy(CapacityProviderStrategyItem&& value) { m_defaultCapacityProviderStrategyHasBeenSet = true; m_defaultCapacityProviderStrategy.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_clusterName;
@@ -243,6 +653,12 @@ namespace Model
 
     Aws::Vector<ClusterSetting> m_settings;
     bool m_settingsHasBeenSet;
+
+    Aws::Vector<Aws::String> m_capacityProviders;
+    bool m_capacityProvidersHasBeenSet;
+
+    Aws::Vector<CapacityProviderStrategyItem> m_defaultCapacityProviderStrategy;
+    bool m_defaultCapacityProviderStrategyHasBeenSet;
   };
 
 } // namespace Model

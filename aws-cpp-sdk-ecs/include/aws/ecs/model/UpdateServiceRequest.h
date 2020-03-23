@@ -17,8 +17,12 @@
 #include <aws/ecs/ECS_EXPORTS.h>
 #include <aws/ecs/ECSRequest.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
+#include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/ecs/model/DeploymentConfiguration.h>
 #include <aws/ecs/model/NetworkConfiguration.h>
+#include <aws/ecs/model/CapacityProviderStrategyItem.h>
+#include <aws/ecs/model/PlacementConstraint.h>
+#include <aws/ecs/model/PlacementStrategy.h>
 #include <utility>
 
 namespace Aws
@@ -251,6 +255,79 @@ namespace Model
 
 
     /**
+     * <p>The capacity provider strategy to update the service to use.</p> <p>If the
+     * service is using the default capacity provider strategy for the cluster, the
+     * service can be updated to use one or more capacity providers. However, when a
+     * service is using a non-default capacity provider strategy, the service cannot be
+     * updated to use the cluster's default capacity provider strategy.</p> <p/>
+     */
+    inline const Aws::Vector<CapacityProviderStrategyItem>& GetCapacityProviderStrategy() const{ return m_capacityProviderStrategy; }
+
+    /**
+     * <p>The capacity provider strategy to update the service to use.</p> <p>If the
+     * service is using the default capacity provider strategy for the cluster, the
+     * service can be updated to use one or more capacity providers. However, when a
+     * service is using a non-default capacity provider strategy, the service cannot be
+     * updated to use the cluster's default capacity provider strategy.</p> <p/>
+     */
+    inline bool CapacityProviderStrategyHasBeenSet() const { return m_capacityProviderStrategyHasBeenSet; }
+
+    /**
+     * <p>The capacity provider strategy to update the service to use.</p> <p>If the
+     * service is using the default capacity provider strategy for the cluster, the
+     * service can be updated to use one or more capacity providers. However, when a
+     * service is using a non-default capacity provider strategy, the service cannot be
+     * updated to use the cluster's default capacity provider strategy.</p> <p/>
+     */
+    inline void SetCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy = value; }
+
+    /**
+     * <p>The capacity provider strategy to update the service to use.</p> <p>If the
+     * service is using the default capacity provider strategy for the cluster, the
+     * service can be updated to use one or more capacity providers. However, when a
+     * service is using a non-default capacity provider strategy, the service cannot be
+     * updated to use the cluster's default capacity provider strategy.</p> <p/>
+     */
+    inline void SetCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy = std::move(value); }
+
+    /**
+     * <p>The capacity provider strategy to update the service to use.</p> <p>If the
+     * service is using the default capacity provider strategy for the cluster, the
+     * service can be updated to use one or more capacity providers. However, when a
+     * service is using a non-default capacity provider strategy, the service cannot be
+     * updated to use the cluster's default capacity provider strategy.</p> <p/>
+     */
+    inline UpdateServiceRequest& WithCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { SetCapacityProviderStrategy(value); return *this;}
+
+    /**
+     * <p>The capacity provider strategy to update the service to use.</p> <p>If the
+     * service is using the default capacity provider strategy for the cluster, the
+     * service can be updated to use one or more capacity providers. However, when a
+     * service is using a non-default capacity provider strategy, the service cannot be
+     * updated to use the cluster's default capacity provider strategy.</p> <p/>
+     */
+    inline UpdateServiceRequest& WithCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { SetCapacityProviderStrategy(std::move(value)); return *this;}
+
+    /**
+     * <p>The capacity provider strategy to update the service to use.</p> <p>If the
+     * service is using the default capacity provider strategy for the cluster, the
+     * service can be updated to use one or more capacity providers. However, when a
+     * service is using a non-default capacity provider strategy, the service cannot be
+     * updated to use the cluster's default capacity provider strategy.</p> <p/>
+     */
+    inline UpdateServiceRequest& AddCapacityProviderStrategy(const CapacityProviderStrategyItem& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy.push_back(value); return *this; }
+
+    /**
+     * <p>The capacity provider strategy to update the service to use.</p> <p>If the
+     * service is using the default capacity provider strategy for the cluster, the
+     * service can be updated to use one or more capacity providers. However, when a
+     * service is using a non-default capacity provider strategy, the service cannot be
+     * updated to use the cluster's default capacity provider strategy.</p> <p/>
+     */
+    inline UpdateServiceRequest& AddCapacityProviderStrategy(CapacityProviderStrategyItem&& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy.push_back(std::move(value)); return *this; }
+
+
+    /**
      * <p>Optional deployment parameters that control how many tasks run during the
      * deployment and the ordering of stopping and starting tasks.</p>
      */
@@ -287,102 +364,200 @@ namespace Model
     inline UpdateServiceRequest& WithDeploymentConfiguration(DeploymentConfiguration&& value) { SetDeploymentConfiguration(std::move(value)); return *this;}
 
 
-    /**
-     * <p>The network configuration for the service. This parameter is required for
-     * task definitions that use the <code>awsvpc</code> network mode to receive their
-     * own elastic network interface, and it is not supported for other network modes.
-     * For more information, see <a
-     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
-     * Networking</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <note> <p>Updating a service to add a subnet to a list of
-     * existing subnets does not trigger a service deployment. For example, if your
-     * network configuration change is to keep the existing subnets and simply add
-     * another subnet to the network configuration, this does not trigger a new service
-     * deployment.</p> </note>
-     */
+    
     inline const NetworkConfiguration& GetNetworkConfiguration() const{ return m_networkConfiguration; }
 
-    /**
-     * <p>The network configuration for the service. This parameter is required for
-     * task definitions that use the <code>awsvpc</code> network mode to receive their
-     * own elastic network interface, and it is not supported for other network modes.
-     * For more information, see <a
-     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
-     * Networking</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <note> <p>Updating a service to add a subnet to a list of
-     * existing subnets does not trigger a service deployment. For example, if your
-     * network configuration change is to keep the existing subnets and simply add
-     * another subnet to the network configuration, this does not trigger a new service
-     * deployment.</p> </note>
-     */
+    
     inline bool NetworkConfigurationHasBeenSet() const { return m_networkConfigurationHasBeenSet; }
 
-    /**
-     * <p>The network configuration for the service. This parameter is required for
-     * task definitions that use the <code>awsvpc</code> network mode to receive their
-     * own elastic network interface, and it is not supported for other network modes.
-     * For more information, see <a
-     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
-     * Networking</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <note> <p>Updating a service to add a subnet to a list of
-     * existing subnets does not trigger a service deployment. For example, if your
-     * network configuration change is to keep the existing subnets and simply add
-     * another subnet to the network configuration, this does not trigger a new service
-     * deployment.</p> </note>
-     */
+    
     inline void SetNetworkConfiguration(const NetworkConfiguration& value) { m_networkConfigurationHasBeenSet = true; m_networkConfiguration = value; }
 
-    /**
-     * <p>The network configuration for the service. This parameter is required for
-     * task definitions that use the <code>awsvpc</code> network mode to receive their
-     * own elastic network interface, and it is not supported for other network modes.
-     * For more information, see <a
-     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
-     * Networking</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <note> <p>Updating a service to add a subnet to a list of
-     * existing subnets does not trigger a service deployment. For example, if your
-     * network configuration change is to keep the existing subnets and simply add
-     * another subnet to the network configuration, this does not trigger a new service
-     * deployment.</p> </note>
-     */
+    
     inline void SetNetworkConfiguration(NetworkConfiguration&& value) { m_networkConfigurationHasBeenSet = true; m_networkConfiguration = std::move(value); }
 
-    /**
-     * <p>The network configuration for the service. This parameter is required for
-     * task definitions that use the <code>awsvpc</code> network mode to receive their
-     * own elastic network interface, and it is not supported for other network modes.
-     * For more information, see <a
-     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
-     * Networking</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <note> <p>Updating a service to add a subnet to a list of
-     * existing subnets does not trigger a service deployment. For example, if your
-     * network configuration change is to keep the existing subnets and simply add
-     * another subnet to the network configuration, this does not trigger a new service
-     * deployment.</p> </note>
-     */
+    
     inline UpdateServiceRequest& WithNetworkConfiguration(const NetworkConfiguration& value) { SetNetworkConfiguration(value); return *this;}
 
-    /**
-     * <p>The network configuration for the service. This parameter is required for
-     * task definitions that use the <code>awsvpc</code> network mode to receive their
-     * own elastic network interface, and it is not supported for other network modes.
-     * For more information, see <a
-     * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
-     * Networking</a> in the <i>Amazon Elastic Container Service Developer
-     * Guide</i>.</p> <note> <p>Updating a service to add a subnet to a list of
-     * existing subnets does not trigger a service deployment. For example, if your
-     * network configuration change is to keep the existing subnets and simply add
-     * another subnet to the network configuration, this does not trigger a new service
-     * deployment.</p> </note>
-     */
+    
     inline UpdateServiceRequest& WithNetworkConfiguration(NetworkConfiguration&& value) { SetNetworkConfiguration(std::move(value)); return *this;}
 
 
     /**
+     * <p>An array of task placement constraint objects to update the service to use.
+     * If no value is specified, the existing placement constraints for the service
+     * will remain unchanged. If this value is specified, it will override any existing
+     * placement constraints defined for the service. To remove all existing placement
+     * constraints, specify an empty array.</p> <p>You can specify a maximum of 10
+     * constraints per task (this limit includes constraints in the task definition and
+     * those specified at runtime).</p>
+     */
+    inline const Aws::Vector<PlacementConstraint>& GetPlacementConstraints() const{ return m_placementConstraints; }
+
+    /**
+     * <p>An array of task placement constraint objects to update the service to use.
+     * If no value is specified, the existing placement constraints for the service
+     * will remain unchanged. If this value is specified, it will override any existing
+     * placement constraints defined for the service. To remove all existing placement
+     * constraints, specify an empty array.</p> <p>You can specify a maximum of 10
+     * constraints per task (this limit includes constraints in the task definition and
+     * those specified at runtime).</p>
+     */
+    inline bool PlacementConstraintsHasBeenSet() const { return m_placementConstraintsHasBeenSet; }
+
+    /**
+     * <p>An array of task placement constraint objects to update the service to use.
+     * If no value is specified, the existing placement constraints for the service
+     * will remain unchanged. If this value is specified, it will override any existing
+     * placement constraints defined for the service. To remove all existing placement
+     * constraints, specify an empty array.</p> <p>You can specify a maximum of 10
+     * constraints per task (this limit includes constraints in the task definition and
+     * those specified at runtime).</p>
+     */
+    inline void SetPlacementConstraints(const Aws::Vector<PlacementConstraint>& value) { m_placementConstraintsHasBeenSet = true; m_placementConstraints = value; }
+
+    /**
+     * <p>An array of task placement constraint objects to update the service to use.
+     * If no value is specified, the existing placement constraints for the service
+     * will remain unchanged. If this value is specified, it will override any existing
+     * placement constraints defined for the service. To remove all existing placement
+     * constraints, specify an empty array.</p> <p>You can specify a maximum of 10
+     * constraints per task (this limit includes constraints in the task definition and
+     * those specified at runtime).</p>
+     */
+    inline void SetPlacementConstraints(Aws::Vector<PlacementConstraint>&& value) { m_placementConstraintsHasBeenSet = true; m_placementConstraints = std::move(value); }
+
+    /**
+     * <p>An array of task placement constraint objects to update the service to use.
+     * If no value is specified, the existing placement constraints for the service
+     * will remain unchanged. If this value is specified, it will override any existing
+     * placement constraints defined for the service. To remove all existing placement
+     * constraints, specify an empty array.</p> <p>You can specify a maximum of 10
+     * constraints per task (this limit includes constraints in the task definition and
+     * those specified at runtime).</p>
+     */
+    inline UpdateServiceRequest& WithPlacementConstraints(const Aws::Vector<PlacementConstraint>& value) { SetPlacementConstraints(value); return *this;}
+
+    /**
+     * <p>An array of task placement constraint objects to update the service to use.
+     * If no value is specified, the existing placement constraints for the service
+     * will remain unchanged. If this value is specified, it will override any existing
+     * placement constraints defined for the service. To remove all existing placement
+     * constraints, specify an empty array.</p> <p>You can specify a maximum of 10
+     * constraints per task (this limit includes constraints in the task definition and
+     * those specified at runtime).</p>
+     */
+    inline UpdateServiceRequest& WithPlacementConstraints(Aws::Vector<PlacementConstraint>&& value) { SetPlacementConstraints(std::move(value)); return *this;}
+
+    /**
+     * <p>An array of task placement constraint objects to update the service to use.
+     * If no value is specified, the existing placement constraints for the service
+     * will remain unchanged. If this value is specified, it will override any existing
+     * placement constraints defined for the service. To remove all existing placement
+     * constraints, specify an empty array.</p> <p>You can specify a maximum of 10
+     * constraints per task (this limit includes constraints in the task definition and
+     * those specified at runtime).</p>
+     */
+    inline UpdateServiceRequest& AddPlacementConstraints(const PlacementConstraint& value) { m_placementConstraintsHasBeenSet = true; m_placementConstraints.push_back(value); return *this; }
+
+    /**
+     * <p>An array of task placement constraint objects to update the service to use.
+     * If no value is specified, the existing placement constraints for the service
+     * will remain unchanged. If this value is specified, it will override any existing
+     * placement constraints defined for the service. To remove all existing placement
+     * constraints, specify an empty array.</p> <p>You can specify a maximum of 10
+     * constraints per task (this limit includes constraints in the task definition and
+     * those specified at runtime).</p>
+     */
+    inline UpdateServiceRequest& AddPlacementConstraints(PlacementConstraint&& value) { m_placementConstraintsHasBeenSet = true; m_placementConstraints.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The task placement strategy objects to update the service to use. If no value
+     * is specified, the existing placement strategy for the service will remain
+     * unchanged. If this value is specified, it will override the existing placement
+     * strategy defined for the service. To remove an existing placement strategy,
+     * specify an empty object.</p> <p>You can specify a maximum of five strategy rules
+     * per service.</p>
+     */
+    inline const Aws::Vector<PlacementStrategy>& GetPlacementStrategy() const{ return m_placementStrategy; }
+
+    /**
+     * <p>The task placement strategy objects to update the service to use. If no value
+     * is specified, the existing placement strategy for the service will remain
+     * unchanged. If this value is specified, it will override the existing placement
+     * strategy defined for the service. To remove an existing placement strategy,
+     * specify an empty object.</p> <p>You can specify a maximum of five strategy rules
+     * per service.</p>
+     */
+    inline bool PlacementStrategyHasBeenSet() const { return m_placementStrategyHasBeenSet; }
+
+    /**
+     * <p>The task placement strategy objects to update the service to use. If no value
+     * is specified, the existing placement strategy for the service will remain
+     * unchanged. If this value is specified, it will override the existing placement
+     * strategy defined for the service. To remove an existing placement strategy,
+     * specify an empty object.</p> <p>You can specify a maximum of five strategy rules
+     * per service.</p>
+     */
+    inline void SetPlacementStrategy(const Aws::Vector<PlacementStrategy>& value) { m_placementStrategyHasBeenSet = true; m_placementStrategy = value; }
+
+    /**
+     * <p>The task placement strategy objects to update the service to use. If no value
+     * is specified, the existing placement strategy for the service will remain
+     * unchanged. If this value is specified, it will override the existing placement
+     * strategy defined for the service. To remove an existing placement strategy,
+     * specify an empty object.</p> <p>You can specify a maximum of five strategy rules
+     * per service.</p>
+     */
+    inline void SetPlacementStrategy(Aws::Vector<PlacementStrategy>&& value) { m_placementStrategyHasBeenSet = true; m_placementStrategy = std::move(value); }
+
+    /**
+     * <p>The task placement strategy objects to update the service to use. If no value
+     * is specified, the existing placement strategy for the service will remain
+     * unchanged. If this value is specified, it will override the existing placement
+     * strategy defined for the service. To remove an existing placement strategy,
+     * specify an empty object.</p> <p>You can specify a maximum of five strategy rules
+     * per service.</p>
+     */
+    inline UpdateServiceRequest& WithPlacementStrategy(const Aws::Vector<PlacementStrategy>& value) { SetPlacementStrategy(value); return *this;}
+
+    /**
+     * <p>The task placement strategy objects to update the service to use. If no value
+     * is specified, the existing placement strategy for the service will remain
+     * unchanged. If this value is specified, it will override the existing placement
+     * strategy defined for the service. To remove an existing placement strategy,
+     * specify an empty object.</p> <p>You can specify a maximum of five strategy rules
+     * per service.</p>
+     */
+    inline UpdateServiceRequest& WithPlacementStrategy(Aws::Vector<PlacementStrategy>&& value) { SetPlacementStrategy(std::move(value)); return *this;}
+
+    /**
+     * <p>The task placement strategy objects to update the service to use. If no value
+     * is specified, the existing placement strategy for the service will remain
+     * unchanged. If this value is specified, it will override the existing placement
+     * strategy defined for the service. To remove an existing placement strategy,
+     * specify an empty object.</p> <p>You can specify a maximum of five strategy rules
+     * per service.</p>
+     */
+    inline UpdateServiceRequest& AddPlacementStrategy(const PlacementStrategy& value) { m_placementStrategyHasBeenSet = true; m_placementStrategy.push_back(value); return *this; }
+
+    /**
+     * <p>The task placement strategy objects to update the service to use. If no value
+     * is specified, the existing placement strategy for the service will remain
+     * unchanged. If this value is specified, it will override the existing placement
+     * strategy defined for the service. To remove an existing placement strategy,
+     * specify an empty object.</p> <p>You can specify a maximum of five strategy rules
+     * per service.</p>
+     */
+    inline UpdateServiceRequest& AddPlacementStrategy(PlacementStrategy&& value) { m_placementStrategyHasBeenSet = true; m_placementStrategy.push_back(std::move(value)); return *this; }
+
+
+    /**
      * <p>The platform version on which your tasks in the service are running. A
-     * platform version is only specified for tasks using the Fargate launch type. If
-     * one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
+     * platform version is only specified for tasks using the Fargate launch type. If a
+     * platform version is not specified, the <code>LATEST</code> platform version is
+     * used by default. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
@@ -391,9 +566,9 @@ namespace Model
 
     /**
      * <p>The platform version on which your tasks in the service are running. A
-     * platform version is only specified for tasks using the Fargate launch type. If
-     * one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
+     * platform version is only specified for tasks using the Fargate launch type. If a
+     * platform version is not specified, the <code>LATEST</code> platform version is
+     * used by default. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
@@ -402,9 +577,9 @@ namespace Model
 
     /**
      * <p>The platform version on which your tasks in the service are running. A
-     * platform version is only specified for tasks using the Fargate launch type. If
-     * one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
+     * platform version is only specified for tasks using the Fargate launch type. If a
+     * platform version is not specified, the <code>LATEST</code> platform version is
+     * used by default. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
@@ -413,9 +588,9 @@ namespace Model
 
     /**
      * <p>The platform version on which your tasks in the service are running. A
-     * platform version is only specified for tasks using the Fargate launch type. If
-     * one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
+     * platform version is only specified for tasks using the Fargate launch type. If a
+     * platform version is not specified, the <code>LATEST</code> platform version is
+     * used by default. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
@@ -424,9 +599,9 @@ namespace Model
 
     /**
      * <p>The platform version on which your tasks in the service are running. A
-     * platform version is only specified for tasks using the Fargate launch type. If
-     * one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
+     * platform version is only specified for tasks using the Fargate launch type. If a
+     * platform version is not specified, the <code>LATEST</code> platform version is
+     * used by default. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
@@ -435,9 +610,9 @@ namespace Model
 
     /**
      * <p>The platform version on which your tasks in the service are running. A
-     * platform version is only specified for tasks using the Fargate launch type. If
-     * one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
+     * platform version is only specified for tasks using the Fargate launch type. If a
+     * platform version is not specified, the <code>LATEST</code> platform version is
+     * used by default. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
@@ -446,9 +621,9 @@ namespace Model
 
     /**
      * <p>The platform version on which your tasks in the service are running. A
-     * platform version is only specified for tasks using the Fargate launch type. If
-     * one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
+     * platform version is only specified for tasks using the Fargate launch type. If a
+     * platform version is not specified, the <code>LATEST</code> platform version is
+     * used by default. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
@@ -457,9 +632,9 @@ namespace Model
 
     /**
      * <p>The platform version on which your tasks in the service are running. A
-     * platform version is only specified for tasks using the Fargate launch type. If
-     * one is not specified, the <code>LATEST</code> platform version is used by
-     * default. For more information, see <a
+     * platform version is only specified for tasks using the Fargate launch type. If a
+     * platform version is not specified, the <code>LATEST</code> platform version is
+     * used by default. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
      * Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service
      * Developer Guide</i>.</p>
@@ -510,10 +685,10 @@ namespace Model
      * first started. This is only valid if your service is configured to use a load
      * balancer. If your service's tasks take a while to start and respond to Elastic
      * Load Balancing health checks, you can specify a health check grace period of up
-     * to 1,800 seconds. During that time, the ECS service scheduler ignores the
-     * Elastic Load Balancing health check status. This grace period can prevent the
-     * ECS service scheduler from marking tasks as unhealthy and stopping them before
-     * they have time to come up.</p>
+     * to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler
+     * ignores the Elastic Load Balancing health check status. This grace period can
+     * prevent the ECS service scheduler from marking tasks as unhealthy and stopping
+     * them before they have time to come up.</p>
      */
     inline int GetHealthCheckGracePeriodSeconds() const{ return m_healthCheckGracePeriodSeconds; }
 
@@ -523,10 +698,10 @@ namespace Model
      * first started. This is only valid if your service is configured to use a load
      * balancer. If your service's tasks take a while to start and respond to Elastic
      * Load Balancing health checks, you can specify a health check grace period of up
-     * to 1,800 seconds. During that time, the ECS service scheduler ignores the
-     * Elastic Load Balancing health check status. This grace period can prevent the
-     * ECS service scheduler from marking tasks as unhealthy and stopping them before
-     * they have time to come up.</p>
+     * to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler
+     * ignores the Elastic Load Balancing health check status. This grace period can
+     * prevent the ECS service scheduler from marking tasks as unhealthy and stopping
+     * them before they have time to come up.</p>
      */
     inline bool HealthCheckGracePeriodSecondsHasBeenSet() const { return m_healthCheckGracePeriodSecondsHasBeenSet; }
 
@@ -536,10 +711,10 @@ namespace Model
      * first started. This is only valid if your service is configured to use a load
      * balancer. If your service's tasks take a while to start and respond to Elastic
      * Load Balancing health checks, you can specify a health check grace period of up
-     * to 1,800 seconds. During that time, the ECS service scheduler ignores the
-     * Elastic Load Balancing health check status. This grace period can prevent the
-     * ECS service scheduler from marking tasks as unhealthy and stopping them before
-     * they have time to come up.</p>
+     * to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler
+     * ignores the Elastic Load Balancing health check status. This grace period can
+     * prevent the ECS service scheduler from marking tasks as unhealthy and stopping
+     * them before they have time to come up.</p>
      */
     inline void SetHealthCheckGracePeriodSeconds(int value) { m_healthCheckGracePeriodSecondsHasBeenSet = true; m_healthCheckGracePeriodSeconds = value; }
 
@@ -549,10 +724,10 @@ namespace Model
      * first started. This is only valid if your service is configured to use a load
      * balancer. If your service's tasks take a while to start and respond to Elastic
      * Load Balancing health checks, you can specify a health check grace period of up
-     * to 1,800 seconds. During that time, the ECS service scheduler ignores the
-     * Elastic Load Balancing health check status. This grace period can prevent the
-     * ECS service scheduler from marking tasks as unhealthy and stopping them before
-     * they have time to come up.</p>
+     * to 2,147,483,647 seconds. During that time, the Amazon ECS service scheduler
+     * ignores the Elastic Load Balancing health check status. This grace period can
+     * prevent the ECS service scheduler from marking tasks as unhealthy and stopping
+     * them before they have time to come up.</p>
      */
     inline UpdateServiceRequest& WithHealthCheckGracePeriodSeconds(int value) { SetHealthCheckGracePeriodSeconds(value); return *this;}
 
@@ -570,11 +745,20 @@ namespace Model
     Aws::String m_taskDefinition;
     bool m_taskDefinitionHasBeenSet;
 
+    Aws::Vector<CapacityProviderStrategyItem> m_capacityProviderStrategy;
+    bool m_capacityProviderStrategyHasBeenSet;
+
     DeploymentConfiguration m_deploymentConfiguration;
     bool m_deploymentConfigurationHasBeenSet;
 
     NetworkConfiguration m_networkConfiguration;
     bool m_networkConfigurationHasBeenSet;
+
+    Aws::Vector<PlacementConstraint> m_placementConstraints;
+    bool m_placementConstraintsHasBeenSet;
+
+    Aws::Vector<PlacementStrategy> m_placementStrategy;
+    bool m_placementStrategyHasBeenSet;
 
     Aws::String m_platformVersion;
     bool m_platformVersionHasBeenSet;

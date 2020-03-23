@@ -27,6 +27,7 @@ using namespace Aws::Utils;
 using namespace Aws;
 
 UpdateIntegrationResult::UpdateIntegrationResult() : 
+    m_apiGatewayManaged(false),
     m_connectionType(ConnectionType::NOT_SET),
     m_contentHandlingStrategy(ContentHandlingStrategy::NOT_SET),
     m_integrationType(IntegrationType::NOT_SET),
@@ -36,6 +37,7 @@ UpdateIntegrationResult::UpdateIntegrationResult() :
 }
 
 UpdateIntegrationResult::UpdateIntegrationResult(const Aws::AmazonWebServiceResult<JsonValue>& result) : 
+    m_apiGatewayManaged(false),
     m_connectionType(ConnectionType::NOT_SET),
     m_contentHandlingStrategy(ContentHandlingStrategy::NOT_SET),
     m_integrationType(IntegrationType::NOT_SET),
@@ -48,6 +50,12 @@ UpdateIntegrationResult::UpdateIntegrationResult(const Aws::AmazonWebServiceResu
 UpdateIntegrationResult& UpdateIntegrationResult::operator =(const Aws::AmazonWebServiceResult<JsonValue>& result)
 {
   JsonView jsonValue = result.GetPayload().View();
+  if(jsonValue.ValueExists("apiGatewayManaged"))
+  {
+    m_apiGatewayManaged = jsonValue.GetBool("apiGatewayManaged");
+
+  }
+
   if(jsonValue.ValueExists("connectionId"))
   {
     m_connectionId = jsonValue.GetString("connectionId");
@@ -114,6 +122,12 @@ UpdateIntegrationResult& UpdateIntegrationResult::operator =(const Aws::AmazonWe
 
   }
 
+  if(jsonValue.ValueExists("payloadFormatVersion"))
+  {
+    m_payloadFormatVersion = jsonValue.GetString("payloadFormatVersion");
+
+  }
+
   if(jsonValue.ValueExists("requestParameters"))
   {
     Aws::Map<Aws::String, JsonView> requestParametersJsonMap = jsonValue.GetObject("requestParameters").GetAllObjects();
@@ -141,6 +155,12 @@ UpdateIntegrationResult& UpdateIntegrationResult::operator =(const Aws::AmazonWe
   if(jsonValue.ValueExists("timeoutInMillis"))
   {
     m_timeoutInMillis = jsonValue.GetInteger("timeoutInMillis");
+
+  }
+
+  if(jsonValue.ValueExists("tlsConfig"))
+  {
+    m_tlsConfig = jsonValue.GetObject("tlsConfig");
 
   }
 

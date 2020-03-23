@@ -15,6 +15,8 @@
 
 #pragma once
 #include <aws/robomaker/RoboMaker_EXPORTS.h>
+#include <aws/robomaker/model/S3Object.h>
+#include <utility>
 
 namespace Aws
 {
@@ -90,6 +92,62 @@ namespace Model
      */
     inline DeploymentConfig& WithFailureThresholdPercentage(int value) { SetFailureThresholdPercentage(value); return *this;}
 
+
+    /**
+     * <p>The amount of time, in seconds, to wait for deployment to a single robot to
+     * complete. Choose a time between 1 minute and 7 days. The default is 5 hours.</p>
+     */
+    inline long long GetRobotDeploymentTimeoutInSeconds() const{ return m_robotDeploymentTimeoutInSeconds; }
+
+    /**
+     * <p>The amount of time, in seconds, to wait for deployment to a single robot to
+     * complete. Choose a time between 1 minute and 7 days. The default is 5 hours.</p>
+     */
+    inline bool RobotDeploymentTimeoutInSecondsHasBeenSet() const { return m_robotDeploymentTimeoutInSecondsHasBeenSet; }
+
+    /**
+     * <p>The amount of time, in seconds, to wait for deployment to a single robot to
+     * complete. Choose a time between 1 minute and 7 days. The default is 5 hours.</p>
+     */
+    inline void SetRobotDeploymentTimeoutInSeconds(long long value) { m_robotDeploymentTimeoutInSecondsHasBeenSet = true; m_robotDeploymentTimeoutInSeconds = value; }
+
+    /**
+     * <p>The amount of time, in seconds, to wait for deployment to a single robot to
+     * complete. Choose a time between 1 minute and 7 days. The default is 5 hours.</p>
+     */
+    inline DeploymentConfig& WithRobotDeploymentTimeoutInSeconds(long long value) { SetRobotDeploymentTimeoutInSeconds(value); return *this;}
+
+
+    /**
+     * <p>The download condition file.</p>
+     */
+    inline const S3Object& GetDownloadConditionFile() const{ return m_downloadConditionFile; }
+
+    /**
+     * <p>The download condition file.</p>
+     */
+    inline bool DownloadConditionFileHasBeenSet() const { return m_downloadConditionFileHasBeenSet; }
+
+    /**
+     * <p>The download condition file.</p>
+     */
+    inline void SetDownloadConditionFile(const S3Object& value) { m_downloadConditionFileHasBeenSet = true; m_downloadConditionFile = value; }
+
+    /**
+     * <p>The download condition file.</p>
+     */
+    inline void SetDownloadConditionFile(S3Object&& value) { m_downloadConditionFileHasBeenSet = true; m_downloadConditionFile = std::move(value); }
+
+    /**
+     * <p>The download condition file.</p>
+     */
+    inline DeploymentConfig& WithDownloadConditionFile(const S3Object& value) { SetDownloadConditionFile(value); return *this;}
+
+    /**
+     * <p>The download condition file.</p>
+     */
+    inline DeploymentConfig& WithDownloadConditionFile(S3Object&& value) { SetDownloadConditionFile(std::move(value)); return *this;}
+
   private:
 
     int m_concurrentDeploymentPercentage;
@@ -97,6 +155,12 @@ namespace Model
 
     int m_failureThresholdPercentage;
     bool m_failureThresholdPercentageHasBeenSet;
+
+    long long m_robotDeploymentTimeoutInSeconds;
+    bool m_robotDeploymentTimeoutInSecondsHasBeenSet;
+
+    S3Object m_downloadConditionFile;
+    bool m_downloadConditionFileHasBeenSet;
   };
 
 } // namespace Model

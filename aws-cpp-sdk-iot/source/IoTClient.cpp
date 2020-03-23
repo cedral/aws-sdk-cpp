@@ -37,20 +37,27 @@
 #include <aws/iot/model/AttachPolicyRequest.h>
 #include <aws/iot/model/AttachSecurityProfileRequest.h>
 #include <aws/iot/model/AttachThingPrincipalRequest.h>
+#include <aws/iot/model/CancelAuditMitigationActionsTaskRequest.h>
 #include <aws/iot/model/CancelAuditTaskRequest.h>
 #include <aws/iot/model/CancelCertificateTransferRequest.h>
 #include <aws/iot/model/CancelJobRequest.h>
 #include <aws/iot/model/CancelJobExecutionRequest.h>
 #include <aws/iot/model/ClearDefaultAuthorizerRequest.h>
+#include <aws/iot/model/ConfirmTopicRuleDestinationRequest.h>
 #include <aws/iot/model/CreateAuthorizerRequest.h>
 #include <aws/iot/model/CreateBillingGroupRequest.h>
 #include <aws/iot/model/CreateCertificateFromCsrRequest.h>
+#include <aws/iot/model/CreateDomainConfigurationRequest.h>
 #include <aws/iot/model/CreateDynamicThingGroupRequest.h>
 #include <aws/iot/model/CreateJobRequest.h>
 #include <aws/iot/model/CreateKeysAndCertificateRequest.h>
+#include <aws/iot/model/CreateMitigationActionRequest.h>
 #include <aws/iot/model/CreateOTAUpdateRequest.h>
 #include <aws/iot/model/CreatePolicyRequest.h>
 #include <aws/iot/model/CreatePolicyVersionRequest.h>
+#include <aws/iot/model/CreateProvisioningClaimRequest.h>
+#include <aws/iot/model/CreateProvisioningTemplateRequest.h>
+#include <aws/iot/model/CreateProvisioningTemplateVersionRequest.h>
 #include <aws/iot/model/CreateRoleAliasRequest.h>
 #include <aws/iot/model/CreateScheduledAuditRequest.h>
 #include <aws/iot/model/CreateSecurityProfileRequest.h>
@@ -59,17 +66,22 @@
 #include <aws/iot/model/CreateThingGroupRequest.h>
 #include <aws/iot/model/CreateThingTypeRequest.h>
 #include <aws/iot/model/CreateTopicRuleRequest.h>
+#include <aws/iot/model/CreateTopicRuleDestinationRequest.h>
 #include <aws/iot/model/DeleteAccountAuditConfigurationRequest.h>
 #include <aws/iot/model/DeleteAuthorizerRequest.h>
 #include <aws/iot/model/DeleteBillingGroupRequest.h>
 #include <aws/iot/model/DeleteCACertificateRequest.h>
 #include <aws/iot/model/DeleteCertificateRequest.h>
+#include <aws/iot/model/DeleteDomainConfigurationRequest.h>
 #include <aws/iot/model/DeleteDynamicThingGroupRequest.h>
 #include <aws/iot/model/DeleteJobRequest.h>
 #include <aws/iot/model/DeleteJobExecutionRequest.h>
+#include <aws/iot/model/DeleteMitigationActionRequest.h>
 #include <aws/iot/model/DeleteOTAUpdateRequest.h>
 #include <aws/iot/model/DeletePolicyRequest.h>
 #include <aws/iot/model/DeletePolicyVersionRequest.h>
+#include <aws/iot/model/DeleteProvisioningTemplateRequest.h>
+#include <aws/iot/model/DeleteProvisioningTemplateVersionRequest.h>
 #include <aws/iot/model/DeleteRegistrationCodeRequest.h>
 #include <aws/iot/model/DeleteRoleAliasRequest.h>
 #include <aws/iot/model/DeleteScheduledAuditRequest.h>
@@ -79,20 +91,27 @@
 #include <aws/iot/model/DeleteThingGroupRequest.h>
 #include <aws/iot/model/DeleteThingTypeRequest.h>
 #include <aws/iot/model/DeleteTopicRuleRequest.h>
+#include <aws/iot/model/DeleteTopicRuleDestinationRequest.h>
 #include <aws/iot/model/DeleteV2LoggingLevelRequest.h>
 #include <aws/iot/model/DeprecateThingTypeRequest.h>
 #include <aws/iot/model/DescribeAccountAuditConfigurationRequest.h>
+#include <aws/iot/model/DescribeAuditFindingRequest.h>
+#include <aws/iot/model/DescribeAuditMitigationActionsTaskRequest.h>
 #include <aws/iot/model/DescribeAuditTaskRequest.h>
 #include <aws/iot/model/DescribeAuthorizerRequest.h>
 #include <aws/iot/model/DescribeBillingGroupRequest.h>
 #include <aws/iot/model/DescribeCACertificateRequest.h>
 #include <aws/iot/model/DescribeCertificateRequest.h>
 #include <aws/iot/model/DescribeDefaultAuthorizerRequest.h>
+#include <aws/iot/model/DescribeDomainConfigurationRequest.h>
 #include <aws/iot/model/DescribeEndpointRequest.h>
 #include <aws/iot/model/DescribeEventConfigurationsRequest.h>
 #include <aws/iot/model/DescribeIndexRequest.h>
 #include <aws/iot/model/DescribeJobRequest.h>
 #include <aws/iot/model/DescribeJobExecutionRequest.h>
+#include <aws/iot/model/DescribeMitigationActionRequest.h>
+#include <aws/iot/model/DescribeProvisioningTemplateRequest.h>
+#include <aws/iot/model/DescribeProvisioningTemplateVersionRequest.h>
 #include <aws/iot/model/DescribeRoleAliasRequest.h>
 #include <aws/iot/model/DescribeScheduledAuditRequest.h>
 #include <aws/iot/model/DescribeSecurityProfileRequest.h>
@@ -106,35 +125,44 @@
 #include <aws/iot/model/DetachThingPrincipalRequest.h>
 #include <aws/iot/model/DisableTopicRuleRequest.h>
 #include <aws/iot/model/EnableTopicRuleRequest.h>
+#include <aws/iot/model/GetCardinalityRequest.h>
 #include <aws/iot/model/GetEffectivePoliciesRequest.h>
 #include <aws/iot/model/GetIndexingConfigurationRequest.h>
 #include <aws/iot/model/GetJobDocumentRequest.h>
 #include <aws/iot/model/GetLoggingOptionsRequest.h>
 #include <aws/iot/model/GetOTAUpdateRequest.h>
+#include <aws/iot/model/GetPercentilesRequest.h>
 #include <aws/iot/model/GetPolicyRequest.h>
 #include <aws/iot/model/GetPolicyVersionRequest.h>
 #include <aws/iot/model/GetRegistrationCodeRequest.h>
 #include <aws/iot/model/GetStatisticsRequest.h>
 #include <aws/iot/model/GetTopicRuleRequest.h>
+#include <aws/iot/model/GetTopicRuleDestinationRequest.h>
 #include <aws/iot/model/GetV2LoggingOptionsRequest.h>
 #include <aws/iot/model/ListActiveViolationsRequest.h>
 #include <aws/iot/model/ListAttachedPoliciesRequest.h>
 #include <aws/iot/model/ListAuditFindingsRequest.h>
+#include <aws/iot/model/ListAuditMitigationActionsExecutionsRequest.h>
+#include <aws/iot/model/ListAuditMitigationActionsTasksRequest.h>
 #include <aws/iot/model/ListAuditTasksRequest.h>
 #include <aws/iot/model/ListAuthorizersRequest.h>
 #include <aws/iot/model/ListBillingGroupsRequest.h>
 #include <aws/iot/model/ListCACertificatesRequest.h>
 #include <aws/iot/model/ListCertificatesRequest.h>
 #include <aws/iot/model/ListCertificatesByCARequest.h>
+#include <aws/iot/model/ListDomainConfigurationsRequest.h>
 #include <aws/iot/model/ListIndicesRequest.h>
 #include <aws/iot/model/ListJobExecutionsForJobRequest.h>
 #include <aws/iot/model/ListJobExecutionsForThingRequest.h>
 #include <aws/iot/model/ListJobsRequest.h>
+#include <aws/iot/model/ListMitigationActionsRequest.h>
 #include <aws/iot/model/ListOTAUpdatesRequest.h>
 #include <aws/iot/model/ListOutgoingCertificatesRequest.h>
 #include <aws/iot/model/ListPoliciesRequest.h>
 #include <aws/iot/model/ListPolicyVersionsRequest.h>
 #include <aws/iot/model/ListPrincipalThingsRequest.h>
+#include <aws/iot/model/ListProvisioningTemplateVersionsRequest.h>
+#include <aws/iot/model/ListProvisioningTemplatesRequest.h>
 #include <aws/iot/model/ListRoleAliasesRequest.h>
 #include <aws/iot/model/ListScheduledAuditsRequest.h>
 #include <aws/iot/model/ListSecurityProfilesRequest.h>
@@ -152,6 +180,7 @@
 #include <aws/iot/model/ListThingsRequest.h>
 #include <aws/iot/model/ListThingsInBillingGroupRequest.h>
 #include <aws/iot/model/ListThingsInThingGroupRequest.h>
+#include <aws/iot/model/ListTopicRuleDestinationsRequest.h>
 #include <aws/iot/model/ListTopicRulesRequest.h>
 #include <aws/iot/model/ListV2LoggingLevelsRequest.h>
 #include <aws/iot/model/ListViolationEventsRequest.h>
@@ -168,6 +197,7 @@
 #include <aws/iot/model/SetLoggingOptionsRequest.h>
 #include <aws/iot/model/SetV2LoggingLevelRequest.h>
 #include <aws/iot/model/SetV2LoggingOptionsRequest.h>
+#include <aws/iot/model/StartAuditMitigationActionsTaskRequest.h>
 #include <aws/iot/model/StartOnDemandAuditTaskRequest.h>
 #include <aws/iot/model/StartThingRegistrationTaskRequest.h>
 #include <aws/iot/model/StopThingRegistrationTaskRequest.h>
@@ -181,10 +211,13 @@
 #include <aws/iot/model/UpdateBillingGroupRequest.h>
 #include <aws/iot/model/UpdateCACertificateRequest.h>
 #include <aws/iot/model/UpdateCertificateRequest.h>
+#include <aws/iot/model/UpdateDomainConfigurationRequest.h>
 #include <aws/iot/model/UpdateDynamicThingGroupRequest.h>
 #include <aws/iot/model/UpdateEventConfigurationsRequest.h>
 #include <aws/iot/model/UpdateIndexingConfigurationRequest.h>
 #include <aws/iot/model/UpdateJobRequest.h>
+#include <aws/iot/model/UpdateMitigationActionRequest.h>
+#include <aws/iot/model/UpdateProvisioningTemplateRequest.h>
 #include <aws/iot/model/UpdateRoleAliasRequest.h>
 #include <aws/iot/model/UpdateScheduledAuditRequest.h>
 #include <aws/iot/model/UpdateSecurityProfileRequest.h>
@@ -192,6 +225,7 @@
 #include <aws/iot/model/UpdateThingRequest.h>
 #include <aws/iot/model/UpdateThingGroupRequest.h>
 #include <aws/iot/model/UpdateThingGroupsForThingRequest.h>
+#include <aws/iot/model/UpdateTopicRuleDestinationRequest.h>
 #include <aws/iot/model/ValidateSecurityProfileBehaviorsRequest.h>
 
 using namespace Aws;
@@ -278,7 +312,7 @@ AcceptCertificateTransferOutcome IoTClient::AcceptCertificateTransfer(const Acce
   ss << "/accept-certificate-transfer/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AcceptCertificateTransferOutcome(NoResult());
@@ -313,7 +347,7 @@ AddThingToBillingGroupOutcome IoTClient::AddThingToBillingGroup(const AddThingTo
   Aws::StringStream ss;
   ss << "/billing-groups/addThingToBillingGroup";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddThingToBillingGroupOutcome(AddThingToBillingGroupResult(outcome.GetResult()));
@@ -348,7 +382,7 @@ AddThingToThingGroupOutcome IoTClient::AddThingToThingGroup(const AddThingToThin
   Aws::StringStream ss;
   ss << "/thing-groups/addThingToThingGroup";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddThingToThingGroupOutcome(AddThingToThingGroupResult(outcome.GetResult()));
@@ -390,7 +424,7 @@ AssociateTargetsWithJobOutcome IoTClient::AssociateTargetsWithJob(const Associat
   ss << request.GetJobId();
   ss << "/targets";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AssociateTargetsWithJobOutcome(AssociateTargetsWithJobResult(outcome.GetResult()));
@@ -431,7 +465,7 @@ AttachPolicyOutcome IoTClient::AttachPolicy(const AttachPolicyRequest& request) 
   ss << "/target-policies/";
   ss << request.GetPolicyName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AttachPolicyOutcome(NoResult());
@@ -478,7 +512,7 @@ AttachSecurityProfileOutcome IoTClient::AttachSecurityProfile(const AttachSecuri
   ss << request.GetSecurityProfileName();
   ss << "/targets";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AttachSecurityProfileOutcome(AttachSecurityProfileResult(outcome.GetResult()));
@@ -525,7 +559,7 @@ AttachThingPrincipalOutcome IoTClient::AttachThingPrincipal(const AttachThingPri
   ss << request.GetThingName();
   ss << "/principals";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AttachThingPrincipalOutcome(AttachThingPrincipalResult(outcome.GetResult()));
@@ -554,6 +588,48 @@ void IoTClient::AttachThingPrincipalAsyncHelper(const AttachThingPrincipalReques
   handler(this, request, AttachThingPrincipal(request), context);
 }
 
+CancelAuditMitigationActionsTaskOutcome IoTClient::CancelAuditMitigationActionsTask(const CancelAuditMitigationActionsTaskRequest& request) const
+{
+  if (!request.TaskIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CancelAuditMitigationActionsTask", "Required field: TaskId, is not set");
+    return CancelAuditMitigationActionsTaskOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TaskId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/audit/mitigationactions/tasks/";
+  ss << request.GetTaskId();
+  ss << "/cancel";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CancelAuditMitigationActionsTaskOutcome(CancelAuditMitigationActionsTaskResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CancelAuditMitigationActionsTaskOutcome(outcome.GetError());
+  }
+}
+
+CancelAuditMitigationActionsTaskOutcomeCallable IoTClient::CancelAuditMitigationActionsTaskCallable(const CancelAuditMitigationActionsTaskRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CancelAuditMitigationActionsTaskOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CancelAuditMitigationActionsTask(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::CancelAuditMitigationActionsTaskAsync(const CancelAuditMitigationActionsTaskRequest& request, const CancelAuditMitigationActionsTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CancelAuditMitigationActionsTaskAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::CancelAuditMitigationActionsTaskAsyncHelper(const CancelAuditMitigationActionsTaskRequest& request, const CancelAuditMitigationActionsTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CancelAuditMitigationActionsTask(request), context);
+}
+
 CancelAuditTaskOutcome IoTClient::CancelAuditTask(const CancelAuditTaskRequest& request) const
 {
   if (!request.TaskIdHasBeenSet())
@@ -567,7 +643,7 @@ CancelAuditTaskOutcome IoTClient::CancelAuditTask(const CancelAuditTaskRequest& 
   ss << request.GetTaskId();
   ss << "/cancel";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelAuditTaskOutcome(CancelAuditTaskResult(outcome.GetResult()));
@@ -608,7 +684,7 @@ CancelCertificateTransferOutcome IoTClient::CancelCertificateTransfer(const Canc
   ss << "/cancel-certificate-transfer/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelCertificateTransferOutcome(NoResult());
@@ -650,7 +726,7 @@ CancelJobOutcome IoTClient::CancelJob(const CancelJobRequest& request) const
   ss << request.GetJobId();
   ss << "/cancel";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelJobOutcome(CancelJobResult(outcome.GetResult()));
@@ -699,7 +775,7 @@ CancelJobExecutionOutcome IoTClient::CancelJobExecution(const CancelJobExecution
   ss << request.GetJobId();
   ss << "/cancel";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelJobExecutionOutcome(NoResult());
@@ -734,7 +810,7 @@ ClearDefaultAuthorizerOutcome IoTClient::ClearDefaultAuthorizer(const ClearDefau
   Aws::StringStream ss;
   ss << "/default-authorizer";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ClearDefaultAuthorizerOutcome(ClearDefaultAuthorizerResult(outcome.GetResult()));
@@ -763,6 +839,47 @@ void IoTClient::ClearDefaultAuthorizerAsyncHelper(const ClearDefaultAuthorizerRe
   handler(this, request, ClearDefaultAuthorizer(request), context);
 }
 
+ConfirmTopicRuleDestinationOutcome IoTClient::ConfirmTopicRuleDestination(const ConfirmTopicRuleDestinationRequest& request) const
+{
+  if (!request.ConfirmationTokenHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ConfirmTopicRuleDestination", "Required field: ConfirmationToken, is not set");
+    return ConfirmTopicRuleDestinationOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ConfirmationToken]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/confirmdestination/";
+  ss << request.GetConfirmationToken();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ConfirmTopicRuleDestinationOutcome(ConfirmTopicRuleDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ConfirmTopicRuleDestinationOutcome(outcome.GetError());
+  }
+}
+
+ConfirmTopicRuleDestinationOutcomeCallable IoTClient::ConfirmTopicRuleDestinationCallable(const ConfirmTopicRuleDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ConfirmTopicRuleDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ConfirmTopicRuleDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::ConfirmTopicRuleDestinationAsync(const ConfirmTopicRuleDestinationRequest& request, const ConfirmTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ConfirmTopicRuleDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::ConfirmTopicRuleDestinationAsyncHelper(const ConfirmTopicRuleDestinationRequest& request, const ConfirmTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ConfirmTopicRuleDestination(request), context);
+}
+
 CreateAuthorizerOutcome IoTClient::CreateAuthorizer(const CreateAuthorizerRequest& request) const
 {
   if (!request.AuthorizerNameHasBeenSet())
@@ -775,7 +892,7 @@ CreateAuthorizerOutcome IoTClient::CreateAuthorizer(const CreateAuthorizerReques
   ss << "/authorizer/";
   ss << request.GetAuthorizerName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAuthorizerOutcome(CreateAuthorizerResult(outcome.GetResult()));
@@ -816,7 +933,7 @@ CreateBillingGroupOutcome IoTClient::CreateBillingGroup(const CreateBillingGroup
   ss << "/billing-groups/";
   ss << request.GetBillingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateBillingGroupOutcome(CreateBillingGroupResult(outcome.GetResult()));
@@ -851,7 +968,7 @@ CreateCertificateFromCsrOutcome IoTClient::CreateCertificateFromCsr(const Create
   Aws::StringStream ss;
   ss << "/certificates";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateCertificateFromCsrOutcome(CreateCertificateFromCsrResult(outcome.GetResult()));
@@ -880,6 +997,47 @@ void IoTClient::CreateCertificateFromCsrAsyncHelper(const CreateCertificateFromC
   handler(this, request, CreateCertificateFromCsr(request), context);
 }
 
+CreateDomainConfigurationOutcome IoTClient::CreateDomainConfiguration(const CreateDomainConfigurationRequest& request) const
+{
+  if (!request.DomainConfigurationNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateDomainConfiguration", "Required field: DomainConfigurationName, is not set");
+    return CreateDomainConfigurationOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainConfigurationName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/domainConfigurations/";
+  ss << request.GetDomainConfigurationName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateDomainConfigurationOutcome(CreateDomainConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateDomainConfigurationOutcome(outcome.GetError());
+  }
+}
+
+CreateDomainConfigurationOutcomeCallable IoTClient::CreateDomainConfigurationCallable(const CreateDomainConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateDomainConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateDomainConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::CreateDomainConfigurationAsync(const CreateDomainConfigurationRequest& request, const CreateDomainConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateDomainConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::CreateDomainConfigurationAsyncHelper(const CreateDomainConfigurationRequest& request, const CreateDomainConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateDomainConfiguration(request), context);
+}
+
 CreateDynamicThingGroupOutcome IoTClient::CreateDynamicThingGroup(const CreateDynamicThingGroupRequest& request) const
 {
   if (!request.ThingGroupNameHasBeenSet())
@@ -892,7 +1050,7 @@ CreateDynamicThingGroupOutcome IoTClient::CreateDynamicThingGroup(const CreateDy
   ss << "/dynamic-thing-groups/";
   ss << request.GetThingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDynamicThingGroupOutcome(CreateDynamicThingGroupResult(outcome.GetResult()));
@@ -933,7 +1091,7 @@ CreateJobOutcome IoTClient::CreateJob(const CreateJobRequest& request) const
   ss << "/jobs/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateJobOutcome(CreateJobResult(outcome.GetResult()));
@@ -968,7 +1126,7 @@ CreateKeysAndCertificateOutcome IoTClient::CreateKeysAndCertificate(const Create
   Aws::StringStream ss;
   ss << "/keys-and-certificate";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateKeysAndCertificateOutcome(CreateKeysAndCertificateResult(outcome.GetResult()));
@@ -997,6 +1155,47 @@ void IoTClient::CreateKeysAndCertificateAsyncHelper(const CreateKeysAndCertifica
   handler(this, request, CreateKeysAndCertificate(request), context);
 }
 
+CreateMitigationActionOutcome IoTClient::CreateMitigationAction(const CreateMitigationActionRequest& request) const
+{
+  if (!request.ActionNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateMitigationAction", "Required field: ActionName, is not set");
+    return CreateMitigationActionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ActionName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/mitigationactions/actions/";
+  ss << request.GetActionName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateMitigationActionOutcome(CreateMitigationActionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateMitigationActionOutcome(outcome.GetError());
+  }
+}
+
+CreateMitigationActionOutcomeCallable IoTClient::CreateMitigationActionCallable(const CreateMitigationActionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateMitigationActionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateMitigationAction(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::CreateMitigationActionAsync(const CreateMitigationActionRequest& request, const CreateMitigationActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateMitigationActionAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::CreateMitigationActionAsyncHelper(const CreateMitigationActionRequest& request, const CreateMitigationActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateMitigationAction(request), context);
+}
+
 CreateOTAUpdateOutcome IoTClient::CreateOTAUpdate(const CreateOTAUpdateRequest& request) const
 {
   if (!request.OtaUpdateIdHasBeenSet())
@@ -1009,7 +1208,7 @@ CreateOTAUpdateOutcome IoTClient::CreateOTAUpdate(const CreateOTAUpdateRequest& 
   ss << "/otaUpdates/";
   ss << request.GetOtaUpdateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateOTAUpdateOutcome(CreateOTAUpdateResult(outcome.GetResult()));
@@ -1050,7 +1249,7 @@ CreatePolicyOutcome IoTClient::CreatePolicy(const CreatePolicyRequest& request) 
   ss << "/policies/";
   ss << request.GetPolicyName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreatePolicyOutcome(CreatePolicyResult(outcome.GetResult()));
@@ -1092,7 +1291,7 @@ CreatePolicyVersionOutcome IoTClient::CreatePolicyVersion(const CreatePolicyVers
   ss << request.GetPolicyName();
   ss << "/version";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreatePolicyVersionOutcome(CreatePolicyVersionResult(outcome.GetResult()));
@@ -1121,6 +1320,125 @@ void IoTClient::CreatePolicyVersionAsyncHelper(const CreatePolicyVersionRequest&
   handler(this, request, CreatePolicyVersion(request), context);
 }
 
+CreateProvisioningClaimOutcome IoTClient::CreateProvisioningClaim(const CreateProvisioningClaimRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateProvisioningClaim", "Required field: TemplateName, is not set");
+    return CreateProvisioningClaimOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates/";
+  ss << request.GetTemplateName();
+  ss << "/provisioning-claim";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateProvisioningClaimOutcome(CreateProvisioningClaimResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateProvisioningClaimOutcome(outcome.GetError());
+  }
+}
+
+CreateProvisioningClaimOutcomeCallable IoTClient::CreateProvisioningClaimCallable(const CreateProvisioningClaimRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateProvisioningClaimOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateProvisioningClaim(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::CreateProvisioningClaimAsync(const CreateProvisioningClaimRequest& request, const CreateProvisioningClaimResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateProvisioningClaimAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::CreateProvisioningClaimAsyncHelper(const CreateProvisioningClaimRequest& request, const CreateProvisioningClaimResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateProvisioningClaim(request), context);
+}
+
+CreateProvisioningTemplateOutcome IoTClient::CreateProvisioningTemplate(const CreateProvisioningTemplateRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateProvisioningTemplateOutcome(CreateProvisioningTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateProvisioningTemplateOutcome(outcome.GetError());
+  }
+}
+
+CreateProvisioningTemplateOutcomeCallable IoTClient::CreateProvisioningTemplateCallable(const CreateProvisioningTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateProvisioningTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateProvisioningTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::CreateProvisioningTemplateAsync(const CreateProvisioningTemplateRequest& request, const CreateProvisioningTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateProvisioningTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::CreateProvisioningTemplateAsyncHelper(const CreateProvisioningTemplateRequest& request, const CreateProvisioningTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateProvisioningTemplate(request), context);
+}
+
+CreateProvisioningTemplateVersionOutcome IoTClient::CreateProvisioningTemplateVersion(const CreateProvisioningTemplateVersionRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateProvisioningTemplateVersion", "Required field: TemplateName, is not set");
+    return CreateProvisioningTemplateVersionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates/";
+  ss << request.GetTemplateName();
+  ss << "/versions";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateProvisioningTemplateVersionOutcome(CreateProvisioningTemplateVersionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateProvisioningTemplateVersionOutcome(outcome.GetError());
+  }
+}
+
+CreateProvisioningTemplateVersionOutcomeCallable IoTClient::CreateProvisioningTemplateVersionCallable(const CreateProvisioningTemplateVersionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateProvisioningTemplateVersionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateProvisioningTemplateVersion(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::CreateProvisioningTemplateVersionAsync(const CreateProvisioningTemplateVersionRequest& request, const CreateProvisioningTemplateVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateProvisioningTemplateVersionAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::CreateProvisioningTemplateVersionAsyncHelper(const CreateProvisioningTemplateVersionRequest& request, const CreateProvisioningTemplateVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateProvisioningTemplateVersion(request), context);
+}
+
 CreateRoleAliasOutcome IoTClient::CreateRoleAlias(const CreateRoleAliasRequest& request) const
 {
   if (!request.RoleAliasHasBeenSet())
@@ -1133,7 +1451,7 @@ CreateRoleAliasOutcome IoTClient::CreateRoleAlias(const CreateRoleAliasRequest& 
   ss << "/role-aliases/";
   ss << request.GetRoleAlias();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateRoleAliasOutcome(CreateRoleAliasResult(outcome.GetResult()));
@@ -1174,7 +1492,7 @@ CreateScheduledAuditOutcome IoTClient::CreateScheduledAudit(const CreateSchedule
   ss << "/audit/scheduledaudits/";
   ss << request.GetScheduledAuditName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateScheduledAuditOutcome(CreateScheduledAuditResult(outcome.GetResult()));
@@ -1215,7 +1533,7 @@ CreateSecurityProfileOutcome IoTClient::CreateSecurityProfile(const CreateSecuri
   ss << "/security-profiles/";
   ss << request.GetSecurityProfileName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSecurityProfileOutcome(CreateSecurityProfileResult(outcome.GetResult()));
@@ -1256,7 +1574,7 @@ CreateStreamOutcome IoTClient::CreateStream(const CreateStreamRequest& request) 
   ss << "/streams/";
   ss << request.GetStreamId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateStreamOutcome(CreateStreamResult(outcome.GetResult()));
@@ -1297,7 +1615,7 @@ CreateThingOutcome IoTClient::CreateThing(const CreateThingRequest& request) con
   ss << "/things/";
   ss << request.GetThingName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateThingOutcome(CreateThingResult(outcome.GetResult()));
@@ -1338,7 +1656,7 @@ CreateThingGroupOutcome IoTClient::CreateThingGroup(const CreateThingGroupReques
   ss << "/thing-groups/";
   ss << request.GetThingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateThingGroupOutcome(CreateThingGroupResult(outcome.GetResult()));
@@ -1379,7 +1697,7 @@ CreateThingTypeOutcome IoTClient::CreateThingType(const CreateThingTypeRequest& 
   ss << "/thing-types/";
   ss << request.GetThingTypeName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateThingTypeOutcome(CreateThingTypeResult(outcome.GetResult()));
@@ -1420,7 +1738,7 @@ CreateTopicRuleOutcome IoTClient::CreateTopicRule(const CreateTopicRuleRequest& 
   ss << "/rules/";
   ss << request.GetRuleName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateTopicRuleOutcome(NoResult());
@@ -1449,13 +1767,48 @@ void IoTClient::CreateTopicRuleAsyncHelper(const CreateTopicRuleRequest& request
   handler(this, request, CreateTopicRule(request), context);
 }
 
+CreateTopicRuleDestinationOutcome IoTClient::CreateTopicRuleDestination(const CreateTopicRuleDestinationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/destinations";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateTopicRuleDestinationOutcome(CreateTopicRuleDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateTopicRuleDestinationOutcome(outcome.GetError());
+  }
+}
+
+CreateTopicRuleDestinationOutcomeCallable IoTClient::CreateTopicRuleDestinationCallable(const CreateTopicRuleDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateTopicRuleDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateTopicRuleDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::CreateTopicRuleDestinationAsync(const CreateTopicRuleDestinationRequest& request, const CreateTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateTopicRuleDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::CreateTopicRuleDestinationAsyncHelper(const CreateTopicRuleDestinationRequest& request, const CreateTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateTopicRuleDestination(request), context);
+}
+
 DeleteAccountAuditConfigurationOutcome IoTClient::DeleteAccountAuditConfiguration(const DeleteAccountAuditConfigurationRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/audit/configuration";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAccountAuditConfigurationOutcome(DeleteAccountAuditConfigurationResult(outcome.GetResult()));
@@ -1496,7 +1849,7 @@ DeleteAuthorizerOutcome IoTClient::DeleteAuthorizer(const DeleteAuthorizerReques
   ss << "/authorizer/";
   ss << request.GetAuthorizerName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAuthorizerOutcome(DeleteAuthorizerResult(outcome.GetResult()));
@@ -1537,7 +1890,7 @@ DeleteBillingGroupOutcome IoTClient::DeleteBillingGroup(const DeleteBillingGroup
   ss << "/billing-groups/";
   ss << request.GetBillingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBillingGroupOutcome(DeleteBillingGroupResult(outcome.GetResult()));
@@ -1578,7 +1931,7 @@ DeleteCACertificateOutcome IoTClient::DeleteCACertificate(const DeleteCACertific
   ss << "/cacertificate/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteCACertificateOutcome(DeleteCACertificateResult(outcome.GetResult()));
@@ -1619,7 +1972,7 @@ DeleteCertificateOutcome IoTClient::DeleteCertificate(const DeleteCertificateReq
   ss << "/certificates/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteCertificateOutcome(NoResult());
@@ -1648,6 +2001,47 @@ void IoTClient::DeleteCertificateAsyncHelper(const DeleteCertificateRequest& req
   handler(this, request, DeleteCertificate(request), context);
 }
 
+DeleteDomainConfigurationOutcome IoTClient::DeleteDomainConfiguration(const DeleteDomainConfigurationRequest& request) const
+{
+  if (!request.DomainConfigurationNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteDomainConfiguration", "Required field: DomainConfigurationName, is not set");
+    return DeleteDomainConfigurationOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainConfigurationName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/domainConfigurations/";
+  ss << request.GetDomainConfigurationName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteDomainConfigurationOutcome(DeleteDomainConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteDomainConfigurationOutcome(outcome.GetError());
+  }
+}
+
+DeleteDomainConfigurationOutcomeCallable IoTClient::DeleteDomainConfigurationCallable(const DeleteDomainConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteDomainConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteDomainConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DeleteDomainConfigurationAsync(const DeleteDomainConfigurationRequest& request, const DeleteDomainConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteDomainConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DeleteDomainConfigurationAsyncHelper(const DeleteDomainConfigurationRequest& request, const DeleteDomainConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteDomainConfiguration(request), context);
+}
+
 DeleteDynamicThingGroupOutcome IoTClient::DeleteDynamicThingGroup(const DeleteDynamicThingGroupRequest& request) const
 {
   if (!request.ThingGroupNameHasBeenSet())
@@ -1660,7 +2054,7 @@ DeleteDynamicThingGroupOutcome IoTClient::DeleteDynamicThingGroup(const DeleteDy
   ss << "/dynamic-thing-groups/";
   ss << request.GetThingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDynamicThingGroupOutcome(DeleteDynamicThingGroupResult(outcome.GetResult()));
@@ -1701,7 +2095,7 @@ DeleteJobOutcome IoTClient::DeleteJob(const DeleteJobRequest& request) const
   ss << "/jobs/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteJobOutcome(NoResult());
@@ -1756,7 +2150,7 @@ DeleteJobExecutionOutcome IoTClient::DeleteJobExecution(const DeleteJobExecution
   ss << "/executionNumber/";
   ss << request.GetExecutionNumber();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteJobExecutionOutcome(NoResult());
@@ -1785,6 +2179,47 @@ void IoTClient::DeleteJobExecutionAsyncHelper(const DeleteJobExecutionRequest& r
   handler(this, request, DeleteJobExecution(request), context);
 }
 
+DeleteMitigationActionOutcome IoTClient::DeleteMitigationAction(const DeleteMitigationActionRequest& request) const
+{
+  if (!request.ActionNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteMitigationAction", "Required field: ActionName, is not set");
+    return DeleteMitigationActionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ActionName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/mitigationactions/actions/";
+  ss << request.GetActionName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteMitigationActionOutcome(DeleteMitigationActionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteMitigationActionOutcome(outcome.GetError());
+  }
+}
+
+DeleteMitigationActionOutcomeCallable IoTClient::DeleteMitigationActionCallable(const DeleteMitigationActionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteMitigationActionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteMitigationAction(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DeleteMitigationActionAsync(const DeleteMitigationActionRequest& request, const DeleteMitigationActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteMitigationActionAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DeleteMitigationActionAsyncHelper(const DeleteMitigationActionRequest& request, const DeleteMitigationActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteMitigationAction(request), context);
+}
+
 DeleteOTAUpdateOutcome IoTClient::DeleteOTAUpdate(const DeleteOTAUpdateRequest& request) const
 {
   if (!request.OtaUpdateIdHasBeenSet())
@@ -1797,7 +2232,7 @@ DeleteOTAUpdateOutcome IoTClient::DeleteOTAUpdate(const DeleteOTAUpdateRequest& 
   ss << "/otaUpdates/";
   ss << request.GetOtaUpdateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteOTAUpdateOutcome(DeleteOTAUpdateResult(outcome.GetResult()));
@@ -1838,7 +2273,7 @@ DeletePolicyOutcome IoTClient::DeletePolicy(const DeletePolicyRequest& request) 
   ss << "/policies/";
   ss << request.GetPolicyName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeletePolicyOutcome(NoResult());
@@ -1886,7 +2321,7 @@ DeletePolicyVersionOutcome IoTClient::DeletePolicyVersion(const DeletePolicyVers
   ss << "/version/";
   ss << request.GetPolicyVersionId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeletePolicyVersionOutcome(NoResult());
@@ -1915,13 +2350,102 @@ void IoTClient::DeletePolicyVersionAsyncHelper(const DeletePolicyVersionRequest&
   handler(this, request, DeletePolicyVersion(request), context);
 }
 
+DeleteProvisioningTemplateOutcome IoTClient::DeleteProvisioningTemplate(const DeleteProvisioningTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteProvisioningTemplate", "Required field: TemplateName, is not set");
+    return DeleteProvisioningTemplateOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates/";
+  ss << request.GetTemplateName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteProvisioningTemplateOutcome(DeleteProvisioningTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteProvisioningTemplateOutcome(outcome.GetError());
+  }
+}
+
+DeleteProvisioningTemplateOutcomeCallable IoTClient::DeleteProvisioningTemplateCallable(const DeleteProvisioningTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteProvisioningTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteProvisioningTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DeleteProvisioningTemplateAsync(const DeleteProvisioningTemplateRequest& request, const DeleteProvisioningTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteProvisioningTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DeleteProvisioningTemplateAsyncHelper(const DeleteProvisioningTemplateRequest& request, const DeleteProvisioningTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteProvisioningTemplate(request), context);
+}
+
+DeleteProvisioningTemplateVersionOutcome IoTClient::DeleteProvisioningTemplateVersion(const DeleteProvisioningTemplateVersionRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteProvisioningTemplateVersion", "Required field: TemplateName, is not set");
+    return DeleteProvisioningTemplateVersionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  if (!request.VersionIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteProvisioningTemplateVersion", "Required field: VersionId, is not set");
+    return DeleteProvisioningTemplateVersionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [VersionId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates/";
+  ss << request.GetTemplateName();
+  ss << "/versions/";
+  ss << request.GetVersionId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteProvisioningTemplateVersionOutcome(DeleteProvisioningTemplateVersionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteProvisioningTemplateVersionOutcome(outcome.GetError());
+  }
+}
+
+DeleteProvisioningTemplateVersionOutcomeCallable IoTClient::DeleteProvisioningTemplateVersionCallable(const DeleteProvisioningTemplateVersionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteProvisioningTemplateVersionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteProvisioningTemplateVersion(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DeleteProvisioningTemplateVersionAsync(const DeleteProvisioningTemplateVersionRequest& request, const DeleteProvisioningTemplateVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteProvisioningTemplateVersionAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DeleteProvisioningTemplateVersionAsyncHelper(const DeleteProvisioningTemplateVersionRequest& request, const DeleteProvisioningTemplateVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteProvisioningTemplateVersion(request), context);
+}
+
 DeleteRegistrationCodeOutcome IoTClient::DeleteRegistrationCode(const DeleteRegistrationCodeRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/registrationcode";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRegistrationCodeOutcome(DeleteRegistrationCodeResult(outcome.GetResult()));
@@ -1962,7 +2486,7 @@ DeleteRoleAliasOutcome IoTClient::DeleteRoleAlias(const DeleteRoleAliasRequest& 
   ss << "/role-aliases/";
   ss << request.GetRoleAlias();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRoleAliasOutcome(DeleteRoleAliasResult(outcome.GetResult()));
@@ -2003,7 +2527,7 @@ DeleteScheduledAuditOutcome IoTClient::DeleteScheduledAudit(const DeleteSchedule
   ss << "/audit/scheduledaudits/";
   ss << request.GetScheduledAuditName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteScheduledAuditOutcome(DeleteScheduledAuditResult(outcome.GetResult()));
@@ -2044,7 +2568,7 @@ DeleteSecurityProfileOutcome IoTClient::DeleteSecurityProfile(const DeleteSecuri
   ss << "/security-profiles/";
   ss << request.GetSecurityProfileName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSecurityProfileOutcome(DeleteSecurityProfileResult(outcome.GetResult()));
@@ -2085,7 +2609,7 @@ DeleteStreamOutcome IoTClient::DeleteStream(const DeleteStreamRequest& request) 
   ss << "/streams/";
   ss << request.GetStreamId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteStreamOutcome(DeleteStreamResult(outcome.GetResult()));
@@ -2126,7 +2650,7 @@ DeleteThingOutcome IoTClient::DeleteThing(const DeleteThingRequest& request) con
   ss << "/things/";
   ss << request.GetThingName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteThingOutcome(DeleteThingResult(outcome.GetResult()));
@@ -2167,7 +2691,7 @@ DeleteThingGroupOutcome IoTClient::DeleteThingGroup(const DeleteThingGroupReques
   ss << "/thing-groups/";
   ss << request.GetThingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteThingGroupOutcome(DeleteThingGroupResult(outcome.GetResult()));
@@ -2208,7 +2732,7 @@ DeleteThingTypeOutcome IoTClient::DeleteThingType(const DeleteThingTypeRequest& 
   ss << "/thing-types/";
   ss << request.GetThingTypeName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteThingTypeOutcome(DeleteThingTypeResult(outcome.GetResult()));
@@ -2249,7 +2773,7 @@ DeleteTopicRuleOutcome IoTClient::DeleteTopicRule(const DeleteTopicRuleRequest& 
   ss << "/rules/";
   ss << request.GetRuleName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTopicRuleOutcome(NoResult());
@@ -2278,6 +2802,47 @@ void IoTClient::DeleteTopicRuleAsyncHelper(const DeleteTopicRuleRequest& request
   handler(this, request, DeleteTopicRule(request), context);
 }
 
+DeleteTopicRuleDestinationOutcome IoTClient::DeleteTopicRuleDestination(const DeleteTopicRuleDestinationRequest& request) const
+{
+  if (!request.ArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteTopicRuleDestination", "Required field: Arn, is not set");
+    return DeleteTopicRuleDestinationOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/destinations/";
+  ss << request.GetArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteTopicRuleDestinationOutcome(DeleteTopicRuleDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteTopicRuleDestinationOutcome(outcome.GetError());
+  }
+}
+
+DeleteTopicRuleDestinationOutcomeCallable IoTClient::DeleteTopicRuleDestinationCallable(const DeleteTopicRuleDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteTopicRuleDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteTopicRuleDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DeleteTopicRuleDestinationAsync(const DeleteTopicRuleDestinationRequest& request, const DeleteTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteTopicRuleDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DeleteTopicRuleDestinationAsyncHelper(const DeleteTopicRuleDestinationRequest& request, const DeleteTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteTopicRuleDestination(request), context);
+}
+
 DeleteV2LoggingLevelOutcome IoTClient::DeleteV2LoggingLevel(const DeleteV2LoggingLevelRequest& request) const
 {
   if (!request.TargetTypeHasBeenSet())
@@ -2294,7 +2859,7 @@ DeleteV2LoggingLevelOutcome IoTClient::DeleteV2LoggingLevel(const DeleteV2Loggin
   Aws::StringStream ss;
   ss << "/v2LoggingLevel";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteV2LoggingLevelOutcome(NoResult());
@@ -2336,7 +2901,7 @@ DeprecateThingTypeOutcome IoTClient::DeprecateThingType(const DeprecateThingType
   ss << request.GetThingTypeName();
   ss << "/deprecate";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeprecateThingTypeOutcome(DeprecateThingTypeResult(outcome.GetResult()));
@@ -2371,7 +2936,7 @@ DescribeAccountAuditConfigurationOutcome IoTClient::DescribeAccountAuditConfigur
   Aws::StringStream ss;
   ss << "/audit/configuration";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAccountAuditConfigurationOutcome(DescribeAccountAuditConfigurationResult(outcome.GetResult()));
@@ -2400,6 +2965,88 @@ void IoTClient::DescribeAccountAuditConfigurationAsyncHelper(const DescribeAccou
   handler(this, request, DescribeAccountAuditConfiguration(request), context);
 }
 
+DescribeAuditFindingOutcome IoTClient::DescribeAuditFinding(const DescribeAuditFindingRequest& request) const
+{
+  if (!request.FindingIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeAuditFinding", "Required field: FindingId, is not set");
+    return DescribeAuditFindingOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [FindingId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/audit/findings/";
+  ss << request.GetFindingId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeAuditFindingOutcome(DescribeAuditFindingResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeAuditFindingOutcome(outcome.GetError());
+  }
+}
+
+DescribeAuditFindingOutcomeCallable IoTClient::DescribeAuditFindingCallable(const DescribeAuditFindingRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeAuditFindingOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeAuditFinding(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DescribeAuditFindingAsync(const DescribeAuditFindingRequest& request, const DescribeAuditFindingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeAuditFindingAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DescribeAuditFindingAsyncHelper(const DescribeAuditFindingRequest& request, const DescribeAuditFindingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeAuditFinding(request), context);
+}
+
+DescribeAuditMitigationActionsTaskOutcome IoTClient::DescribeAuditMitigationActionsTask(const DescribeAuditMitigationActionsTaskRequest& request) const
+{
+  if (!request.TaskIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeAuditMitigationActionsTask", "Required field: TaskId, is not set");
+    return DescribeAuditMitigationActionsTaskOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TaskId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/audit/mitigationactions/tasks/";
+  ss << request.GetTaskId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeAuditMitigationActionsTaskOutcome(DescribeAuditMitigationActionsTaskResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeAuditMitigationActionsTaskOutcome(outcome.GetError());
+  }
+}
+
+DescribeAuditMitigationActionsTaskOutcomeCallable IoTClient::DescribeAuditMitigationActionsTaskCallable(const DescribeAuditMitigationActionsTaskRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeAuditMitigationActionsTaskOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeAuditMitigationActionsTask(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DescribeAuditMitigationActionsTaskAsync(const DescribeAuditMitigationActionsTaskRequest& request, const DescribeAuditMitigationActionsTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeAuditMitigationActionsTaskAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DescribeAuditMitigationActionsTaskAsyncHelper(const DescribeAuditMitigationActionsTaskRequest& request, const DescribeAuditMitigationActionsTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeAuditMitigationActionsTask(request), context);
+}
+
 DescribeAuditTaskOutcome IoTClient::DescribeAuditTask(const DescribeAuditTaskRequest& request) const
 {
   if (!request.TaskIdHasBeenSet())
@@ -2412,7 +3059,7 @@ DescribeAuditTaskOutcome IoTClient::DescribeAuditTask(const DescribeAuditTaskReq
   ss << "/audit/tasks/";
   ss << request.GetTaskId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAuditTaskOutcome(DescribeAuditTaskResult(outcome.GetResult()));
@@ -2453,7 +3100,7 @@ DescribeAuthorizerOutcome IoTClient::DescribeAuthorizer(const DescribeAuthorizer
   ss << "/authorizer/";
   ss << request.GetAuthorizerName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAuthorizerOutcome(DescribeAuthorizerResult(outcome.GetResult()));
@@ -2494,7 +3141,7 @@ DescribeBillingGroupOutcome IoTClient::DescribeBillingGroup(const DescribeBillin
   ss << "/billing-groups/";
   ss << request.GetBillingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeBillingGroupOutcome(DescribeBillingGroupResult(outcome.GetResult()));
@@ -2535,7 +3182,7 @@ DescribeCACertificateOutcome IoTClient::DescribeCACertificate(const DescribeCACe
   ss << "/cacertificate/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeCACertificateOutcome(DescribeCACertificateResult(outcome.GetResult()));
@@ -2576,7 +3223,7 @@ DescribeCertificateOutcome IoTClient::DescribeCertificate(const DescribeCertific
   ss << "/certificates/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeCertificateOutcome(DescribeCertificateResult(outcome.GetResult()));
@@ -2611,7 +3258,7 @@ DescribeDefaultAuthorizerOutcome IoTClient::DescribeDefaultAuthorizer(const Desc
   Aws::StringStream ss;
   ss << "/default-authorizer";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDefaultAuthorizerOutcome(DescribeDefaultAuthorizerResult(outcome.GetResult()));
@@ -2640,13 +3287,54 @@ void IoTClient::DescribeDefaultAuthorizerAsyncHelper(const DescribeDefaultAuthor
   handler(this, request, DescribeDefaultAuthorizer(request), context);
 }
 
+DescribeDomainConfigurationOutcome IoTClient::DescribeDomainConfiguration(const DescribeDomainConfigurationRequest& request) const
+{
+  if (!request.DomainConfigurationNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeDomainConfiguration", "Required field: DomainConfigurationName, is not set");
+    return DescribeDomainConfigurationOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainConfigurationName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/domainConfigurations/";
+  ss << request.GetDomainConfigurationName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeDomainConfigurationOutcome(DescribeDomainConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeDomainConfigurationOutcome(outcome.GetError());
+  }
+}
+
+DescribeDomainConfigurationOutcomeCallable IoTClient::DescribeDomainConfigurationCallable(const DescribeDomainConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeDomainConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeDomainConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DescribeDomainConfigurationAsync(const DescribeDomainConfigurationRequest& request, const DescribeDomainConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeDomainConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DescribeDomainConfigurationAsyncHelper(const DescribeDomainConfigurationRequest& request, const DescribeDomainConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeDomainConfiguration(request), context);
+}
+
 DescribeEndpointOutcome IoTClient::DescribeEndpoint(const DescribeEndpointRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/endpoint";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEndpointOutcome(DescribeEndpointResult(outcome.GetResult()));
@@ -2681,7 +3369,7 @@ DescribeEventConfigurationsOutcome IoTClient::DescribeEventConfigurations(const 
   Aws::StringStream ss;
   ss << "/event-configurations";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEventConfigurationsOutcome(DescribeEventConfigurationsResult(outcome.GetResult()));
@@ -2722,7 +3410,7 @@ DescribeIndexOutcome IoTClient::DescribeIndex(const DescribeIndexRequest& reques
   ss << "/indices/";
   ss << request.GetIndexName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeIndexOutcome(DescribeIndexResult(outcome.GetResult()));
@@ -2763,7 +3451,7 @@ DescribeJobOutcome IoTClient::DescribeJob(const DescribeJobRequest& request) con
   ss << "/jobs/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeJobOutcome(DescribeJobResult(outcome.GetResult()));
@@ -2811,7 +3499,7 @@ DescribeJobExecutionOutcome IoTClient::DescribeJobExecution(const DescribeJobExe
   ss << "/jobs/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeJobExecutionOutcome(DescribeJobExecutionResult(outcome.GetResult()));
@@ -2840,6 +3528,136 @@ void IoTClient::DescribeJobExecutionAsyncHelper(const DescribeJobExecutionReques
   handler(this, request, DescribeJobExecution(request), context);
 }
 
+DescribeMitigationActionOutcome IoTClient::DescribeMitigationAction(const DescribeMitigationActionRequest& request) const
+{
+  if (!request.ActionNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeMitigationAction", "Required field: ActionName, is not set");
+    return DescribeMitigationActionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ActionName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/mitigationactions/actions/";
+  ss << request.GetActionName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeMitigationActionOutcome(DescribeMitigationActionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeMitigationActionOutcome(outcome.GetError());
+  }
+}
+
+DescribeMitigationActionOutcomeCallable IoTClient::DescribeMitigationActionCallable(const DescribeMitigationActionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeMitigationActionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeMitigationAction(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DescribeMitigationActionAsync(const DescribeMitigationActionRequest& request, const DescribeMitigationActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeMitigationActionAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DescribeMitigationActionAsyncHelper(const DescribeMitigationActionRequest& request, const DescribeMitigationActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeMitigationAction(request), context);
+}
+
+DescribeProvisioningTemplateOutcome IoTClient::DescribeProvisioningTemplate(const DescribeProvisioningTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeProvisioningTemplate", "Required field: TemplateName, is not set");
+    return DescribeProvisioningTemplateOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates/";
+  ss << request.GetTemplateName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeProvisioningTemplateOutcome(DescribeProvisioningTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeProvisioningTemplateOutcome(outcome.GetError());
+  }
+}
+
+DescribeProvisioningTemplateOutcomeCallable IoTClient::DescribeProvisioningTemplateCallable(const DescribeProvisioningTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeProvisioningTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeProvisioningTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DescribeProvisioningTemplateAsync(const DescribeProvisioningTemplateRequest& request, const DescribeProvisioningTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeProvisioningTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DescribeProvisioningTemplateAsyncHelper(const DescribeProvisioningTemplateRequest& request, const DescribeProvisioningTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeProvisioningTemplate(request), context);
+}
+
+DescribeProvisioningTemplateVersionOutcome IoTClient::DescribeProvisioningTemplateVersion(const DescribeProvisioningTemplateVersionRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeProvisioningTemplateVersion", "Required field: TemplateName, is not set");
+    return DescribeProvisioningTemplateVersionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  if (!request.VersionIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DescribeProvisioningTemplateVersion", "Required field: VersionId, is not set");
+    return DescribeProvisioningTemplateVersionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [VersionId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates/";
+  ss << request.GetTemplateName();
+  ss << "/versions/";
+  ss << request.GetVersionId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeProvisioningTemplateVersionOutcome(DescribeProvisioningTemplateVersionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeProvisioningTemplateVersionOutcome(outcome.GetError());
+  }
+}
+
+DescribeProvisioningTemplateVersionOutcomeCallable IoTClient::DescribeProvisioningTemplateVersionCallable(const DescribeProvisioningTemplateVersionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeProvisioningTemplateVersionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeProvisioningTemplateVersion(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::DescribeProvisioningTemplateVersionAsync(const DescribeProvisioningTemplateVersionRequest& request, const DescribeProvisioningTemplateVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeProvisioningTemplateVersionAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::DescribeProvisioningTemplateVersionAsyncHelper(const DescribeProvisioningTemplateVersionRequest& request, const DescribeProvisioningTemplateVersionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeProvisioningTemplateVersion(request), context);
+}
+
 DescribeRoleAliasOutcome IoTClient::DescribeRoleAlias(const DescribeRoleAliasRequest& request) const
 {
   if (!request.RoleAliasHasBeenSet())
@@ -2852,7 +3670,7 @@ DescribeRoleAliasOutcome IoTClient::DescribeRoleAlias(const DescribeRoleAliasReq
   ss << "/role-aliases/";
   ss << request.GetRoleAlias();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeRoleAliasOutcome(DescribeRoleAliasResult(outcome.GetResult()));
@@ -2893,7 +3711,7 @@ DescribeScheduledAuditOutcome IoTClient::DescribeScheduledAudit(const DescribeSc
   ss << "/audit/scheduledaudits/";
   ss << request.GetScheduledAuditName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeScheduledAuditOutcome(DescribeScheduledAuditResult(outcome.GetResult()));
@@ -2934,7 +3752,7 @@ DescribeSecurityProfileOutcome IoTClient::DescribeSecurityProfile(const Describe
   ss << "/security-profiles/";
   ss << request.GetSecurityProfileName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSecurityProfileOutcome(DescribeSecurityProfileResult(outcome.GetResult()));
@@ -2975,7 +3793,7 @@ DescribeStreamOutcome IoTClient::DescribeStream(const DescribeStreamRequest& req
   ss << "/streams/";
   ss << request.GetStreamId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeStreamOutcome(DescribeStreamResult(outcome.GetResult()));
@@ -3016,7 +3834,7 @@ DescribeThingOutcome IoTClient::DescribeThing(const DescribeThingRequest& reques
   ss << "/things/";
   ss << request.GetThingName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeThingOutcome(DescribeThingResult(outcome.GetResult()));
@@ -3057,7 +3875,7 @@ DescribeThingGroupOutcome IoTClient::DescribeThingGroup(const DescribeThingGroup
   ss << "/thing-groups/";
   ss << request.GetThingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeThingGroupOutcome(DescribeThingGroupResult(outcome.GetResult()));
@@ -3098,7 +3916,7 @@ DescribeThingRegistrationTaskOutcome IoTClient::DescribeThingRegistrationTask(co
   ss << "/thing-registration-tasks/";
   ss << request.GetTaskId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeThingRegistrationTaskOutcome(DescribeThingRegistrationTaskResult(outcome.GetResult()));
@@ -3139,7 +3957,7 @@ DescribeThingTypeOutcome IoTClient::DescribeThingType(const DescribeThingTypeReq
   ss << "/thing-types/";
   ss << request.GetThingTypeName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeThingTypeOutcome(DescribeThingTypeResult(outcome.GetResult()));
@@ -3180,7 +3998,7 @@ DetachPolicyOutcome IoTClient::DetachPolicy(const DetachPolicyRequest& request) 
   ss << "/target-policies/";
   ss << request.GetPolicyName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetachPolicyOutcome(NoResult());
@@ -3227,7 +4045,7 @@ DetachSecurityProfileOutcome IoTClient::DetachSecurityProfile(const DetachSecuri
   ss << request.GetSecurityProfileName();
   ss << "/targets";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetachSecurityProfileOutcome(DetachSecurityProfileResult(outcome.GetResult()));
@@ -3274,7 +4092,7 @@ DetachThingPrincipalOutcome IoTClient::DetachThingPrincipal(const DetachThingPri
   ss << request.GetThingName();
   ss << "/principals";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DetachThingPrincipalOutcome(DetachThingPrincipalResult(outcome.GetResult()));
@@ -3316,7 +4134,7 @@ DisableTopicRuleOutcome IoTClient::DisableTopicRule(const DisableTopicRuleReques
   ss << request.GetRuleName();
   ss << "/disable";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisableTopicRuleOutcome(NoResult());
@@ -3358,7 +4176,7 @@ EnableTopicRuleOutcome IoTClient::EnableTopicRule(const EnableTopicRuleRequest& 
   ss << request.GetRuleName();
   ss << "/enable";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EnableTopicRuleOutcome(NoResult());
@@ -3387,13 +4205,48 @@ void IoTClient::EnableTopicRuleAsyncHelper(const EnableTopicRuleRequest& request
   handler(this, request, EnableTopicRule(request), context);
 }
 
+GetCardinalityOutcome IoTClient::GetCardinality(const GetCardinalityRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/indices/cardinality";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetCardinalityOutcome(GetCardinalityResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetCardinalityOutcome(outcome.GetError());
+  }
+}
+
+GetCardinalityOutcomeCallable IoTClient::GetCardinalityCallable(const GetCardinalityRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetCardinalityOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetCardinality(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::GetCardinalityAsync(const GetCardinalityRequest& request, const GetCardinalityResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetCardinalityAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::GetCardinalityAsyncHelper(const GetCardinalityRequest& request, const GetCardinalityResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetCardinality(request), context);
+}
+
 GetEffectivePoliciesOutcome IoTClient::GetEffectivePolicies(const GetEffectivePoliciesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/effective-policies";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetEffectivePoliciesOutcome(GetEffectivePoliciesResult(outcome.GetResult()));
@@ -3428,7 +4281,7 @@ GetIndexingConfigurationOutcome IoTClient::GetIndexingConfiguration(const GetInd
   Aws::StringStream ss;
   ss << "/indexing/config";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetIndexingConfigurationOutcome(GetIndexingConfigurationResult(outcome.GetResult()));
@@ -3470,7 +4323,7 @@ GetJobDocumentOutcome IoTClient::GetJobDocument(const GetJobDocumentRequest& req
   ss << request.GetJobId();
   ss << "/job-document";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobDocumentOutcome(GetJobDocumentResult(outcome.GetResult()));
@@ -3505,7 +4358,7 @@ GetLoggingOptionsOutcome IoTClient::GetLoggingOptions(const GetLoggingOptionsReq
   Aws::StringStream ss;
   ss << "/loggingOptions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetLoggingOptionsOutcome(GetLoggingOptionsResult(outcome.GetResult()));
@@ -3546,7 +4399,7 @@ GetOTAUpdateOutcome IoTClient::GetOTAUpdate(const GetOTAUpdateRequest& request) 
   ss << "/otaUpdates/";
   ss << request.GetOtaUpdateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetOTAUpdateOutcome(GetOTAUpdateResult(outcome.GetResult()));
@@ -3575,6 +4428,41 @@ void IoTClient::GetOTAUpdateAsyncHelper(const GetOTAUpdateRequest& request, cons
   handler(this, request, GetOTAUpdate(request), context);
 }
 
+GetPercentilesOutcome IoTClient::GetPercentiles(const GetPercentilesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/indices/percentiles";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetPercentilesOutcome(GetPercentilesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetPercentilesOutcome(outcome.GetError());
+  }
+}
+
+GetPercentilesOutcomeCallable IoTClient::GetPercentilesCallable(const GetPercentilesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetPercentilesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetPercentiles(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::GetPercentilesAsync(const GetPercentilesRequest& request, const GetPercentilesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetPercentilesAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::GetPercentilesAsyncHelper(const GetPercentilesRequest& request, const GetPercentilesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetPercentiles(request), context);
+}
+
 GetPolicyOutcome IoTClient::GetPolicy(const GetPolicyRequest& request) const
 {
   if (!request.PolicyNameHasBeenSet())
@@ -3587,7 +4475,7 @@ GetPolicyOutcome IoTClient::GetPolicy(const GetPolicyRequest& request) const
   ss << "/policies/";
   ss << request.GetPolicyName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetPolicyOutcome(GetPolicyResult(outcome.GetResult()));
@@ -3635,7 +4523,7 @@ GetPolicyVersionOutcome IoTClient::GetPolicyVersion(const GetPolicyVersionReques
   ss << "/version/";
   ss << request.GetPolicyVersionId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetPolicyVersionOutcome(GetPolicyVersionResult(outcome.GetResult()));
@@ -3670,7 +4558,7 @@ GetRegistrationCodeOutcome IoTClient::GetRegistrationCode(const GetRegistrationC
   Aws::StringStream ss;
   ss << "/registrationcode";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRegistrationCodeOutcome(GetRegistrationCodeResult(outcome.GetResult()));
@@ -3705,7 +4593,7 @@ GetStatisticsOutcome IoTClient::GetStatistics(const GetStatisticsRequest& reques
   Aws::StringStream ss;
   ss << "/indices/statistics";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetStatisticsOutcome(GetStatisticsResult(outcome.GetResult()));
@@ -3746,7 +4634,7 @@ GetTopicRuleOutcome IoTClient::GetTopicRule(const GetTopicRuleRequest& request) 
   ss << "/rules/";
   ss << request.GetRuleName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTopicRuleOutcome(GetTopicRuleResult(outcome.GetResult()));
@@ -3775,13 +4663,54 @@ void IoTClient::GetTopicRuleAsyncHelper(const GetTopicRuleRequest& request, cons
   handler(this, request, GetTopicRule(request), context);
 }
 
+GetTopicRuleDestinationOutcome IoTClient::GetTopicRuleDestination(const GetTopicRuleDestinationRequest& request) const
+{
+  if (!request.ArnHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetTopicRuleDestination", "Required field: Arn, is not set");
+    return GetTopicRuleDestinationOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [Arn]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/destinations/";
+  ss << request.GetArn();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetTopicRuleDestinationOutcome(GetTopicRuleDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetTopicRuleDestinationOutcome(outcome.GetError());
+  }
+}
+
+GetTopicRuleDestinationOutcomeCallable IoTClient::GetTopicRuleDestinationCallable(const GetTopicRuleDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetTopicRuleDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetTopicRuleDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::GetTopicRuleDestinationAsync(const GetTopicRuleDestinationRequest& request, const GetTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetTopicRuleDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::GetTopicRuleDestinationAsyncHelper(const GetTopicRuleDestinationRequest& request, const GetTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetTopicRuleDestination(request), context);
+}
+
 GetV2LoggingOptionsOutcome IoTClient::GetV2LoggingOptions(const GetV2LoggingOptionsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/v2LoggingOptions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetV2LoggingOptionsOutcome(GetV2LoggingOptionsResult(outcome.GetResult()));
@@ -3816,7 +4745,7 @@ ListActiveViolationsOutcome IoTClient::ListActiveViolations(const ListActiveViol
   Aws::StringStream ss;
   ss << "/active-violations";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListActiveViolationsOutcome(ListActiveViolationsResult(outcome.GetResult()));
@@ -3857,7 +4786,7 @@ ListAttachedPoliciesOutcome IoTClient::ListAttachedPolicies(const ListAttachedPo
   ss << "/attached-policies/";
   ss << request.GetTarget();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAttachedPoliciesOutcome(ListAttachedPoliciesResult(outcome.GetResult()));
@@ -3892,7 +4821,7 @@ ListAuditFindingsOutcome IoTClient::ListAuditFindings(const ListAuditFindingsReq
   Aws::StringStream ss;
   ss << "/audit/findings";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAuditFindingsOutcome(ListAuditFindingsResult(outcome.GetResult()));
@@ -3921,6 +4850,96 @@ void IoTClient::ListAuditFindingsAsyncHelper(const ListAuditFindingsRequest& req
   handler(this, request, ListAuditFindings(request), context);
 }
 
+ListAuditMitigationActionsExecutionsOutcome IoTClient::ListAuditMitigationActionsExecutions(const ListAuditMitigationActionsExecutionsRequest& request) const
+{
+  if (!request.TaskIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListAuditMitigationActionsExecutions", "Required field: TaskId, is not set");
+    return ListAuditMitigationActionsExecutionsOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TaskId]", false));
+  }
+  if (!request.FindingIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListAuditMitigationActionsExecutions", "Required field: FindingId, is not set");
+    return ListAuditMitigationActionsExecutionsOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [FindingId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/audit/mitigationactions/executions";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListAuditMitigationActionsExecutionsOutcome(ListAuditMitigationActionsExecutionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListAuditMitigationActionsExecutionsOutcome(outcome.GetError());
+  }
+}
+
+ListAuditMitigationActionsExecutionsOutcomeCallable IoTClient::ListAuditMitigationActionsExecutionsCallable(const ListAuditMitigationActionsExecutionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListAuditMitigationActionsExecutionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListAuditMitigationActionsExecutions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::ListAuditMitigationActionsExecutionsAsync(const ListAuditMitigationActionsExecutionsRequest& request, const ListAuditMitigationActionsExecutionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListAuditMitigationActionsExecutionsAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::ListAuditMitigationActionsExecutionsAsyncHelper(const ListAuditMitigationActionsExecutionsRequest& request, const ListAuditMitigationActionsExecutionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListAuditMitigationActionsExecutions(request), context);
+}
+
+ListAuditMitigationActionsTasksOutcome IoTClient::ListAuditMitigationActionsTasks(const ListAuditMitigationActionsTasksRequest& request) const
+{
+  if (!request.StartTimeHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListAuditMitigationActionsTasks", "Required field: StartTime, is not set");
+    return ListAuditMitigationActionsTasksOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [StartTime]", false));
+  }
+  if (!request.EndTimeHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListAuditMitigationActionsTasks", "Required field: EndTime, is not set");
+    return ListAuditMitigationActionsTasksOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [EndTime]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/audit/mitigationactions/tasks";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListAuditMitigationActionsTasksOutcome(ListAuditMitigationActionsTasksResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListAuditMitigationActionsTasksOutcome(outcome.GetError());
+  }
+}
+
+ListAuditMitigationActionsTasksOutcomeCallable IoTClient::ListAuditMitigationActionsTasksCallable(const ListAuditMitigationActionsTasksRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListAuditMitigationActionsTasksOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListAuditMitigationActionsTasks(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::ListAuditMitigationActionsTasksAsync(const ListAuditMitigationActionsTasksRequest& request, const ListAuditMitigationActionsTasksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListAuditMitigationActionsTasksAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::ListAuditMitigationActionsTasksAsyncHelper(const ListAuditMitigationActionsTasksRequest& request, const ListAuditMitigationActionsTasksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListAuditMitigationActionsTasks(request), context);
+}
+
 ListAuditTasksOutcome IoTClient::ListAuditTasks(const ListAuditTasksRequest& request) const
 {
   if (!request.StartTimeHasBeenSet())
@@ -3937,7 +4956,7 @@ ListAuditTasksOutcome IoTClient::ListAuditTasks(const ListAuditTasksRequest& req
   Aws::StringStream ss;
   ss << "/audit/tasks";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAuditTasksOutcome(ListAuditTasksResult(outcome.GetResult()));
@@ -3972,7 +4991,7 @@ ListAuthorizersOutcome IoTClient::ListAuthorizers(const ListAuthorizersRequest& 
   Aws::StringStream ss;
   ss << "/authorizers/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAuthorizersOutcome(ListAuthorizersResult(outcome.GetResult()));
@@ -4007,7 +5026,7 @@ ListBillingGroupsOutcome IoTClient::ListBillingGroups(const ListBillingGroupsReq
   Aws::StringStream ss;
   ss << "/billing-groups";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListBillingGroupsOutcome(ListBillingGroupsResult(outcome.GetResult()));
@@ -4042,7 +5061,7 @@ ListCACertificatesOutcome IoTClient::ListCACertificates(const ListCACertificates
   Aws::StringStream ss;
   ss << "/cacertificates";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCACertificatesOutcome(ListCACertificatesResult(outcome.GetResult()));
@@ -4077,7 +5096,7 @@ ListCertificatesOutcome IoTClient::ListCertificates(const ListCertificatesReques
   Aws::StringStream ss;
   ss << "/certificates";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCertificatesOutcome(ListCertificatesResult(outcome.GetResult()));
@@ -4118,7 +5137,7 @@ ListCertificatesByCAOutcome IoTClient::ListCertificatesByCA(const ListCertificat
   ss << "/certificates-by-ca/";
   ss << request.GetCaCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCertificatesByCAOutcome(ListCertificatesByCAResult(outcome.GetResult()));
@@ -4147,13 +5166,48 @@ void IoTClient::ListCertificatesByCAAsyncHelper(const ListCertificatesByCAReques
   handler(this, request, ListCertificatesByCA(request), context);
 }
 
+ListDomainConfigurationsOutcome IoTClient::ListDomainConfigurations(const ListDomainConfigurationsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/domainConfigurations";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListDomainConfigurationsOutcome(ListDomainConfigurationsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListDomainConfigurationsOutcome(outcome.GetError());
+  }
+}
+
+ListDomainConfigurationsOutcomeCallable IoTClient::ListDomainConfigurationsCallable(const ListDomainConfigurationsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListDomainConfigurationsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListDomainConfigurations(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::ListDomainConfigurationsAsync(const ListDomainConfigurationsRequest& request, const ListDomainConfigurationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListDomainConfigurationsAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::ListDomainConfigurationsAsyncHelper(const ListDomainConfigurationsRequest& request, const ListDomainConfigurationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListDomainConfigurations(request), context);
+}
+
 ListIndicesOutcome IoTClient::ListIndices(const ListIndicesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/indices";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListIndicesOutcome(ListIndicesResult(outcome.GetResult()));
@@ -4195,7 +5249,7 @@ ListJobExecutionsForJobOutcome IoTClient::ListJobExecutionsForJob(const ListJobE
   ss << request.GetJobId();
   ss << "/things";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListJobExecutionsForJobOutcome(ListJobExecutionsForJobResult(outcome.GetResult()));
@@ -4237,7 +5291,7 @@ ListJobExecutionsForThingOutcome IoTClient::ListJobExecutionsForThing(const List
   ss << request.GetThingName();
   ss << "/jobs";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListJobExecutionsForThingOutcome(ListJobExecutionsForThingResult(outcome.GetResult()));
@@ -4272,7 +5326,7 @@ ListJobsOutcome IoTClient::ListJobs(const ListJobsRequest& request) const
   Aws::StringStream ss;
   ss << "/jobs";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListJobsOutcome(ListJobsResult(outcome.GetResult()));
@@ -4301,13 +5355,48 @@ void IoTClient::ListJobsAsyncHelper(const ListJobsRequest& request, const ListJo
   handler(this, request, ListJobs(request), context);
 }
 
+ListMitigationActionsOutcome IoTClient::ListMitigationActions(const ListMitigationActionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/mitigationactions/actions";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListMitigationActionsOutcome(ListMitigationActionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListMitigationActionsOutcome(outcome.GetError());
+  }
+}
+
+ListMitigationActionsOutcomeCallable IoTClient::ListMitigationActionsCallable(const ListMitigationActionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListMitigationActionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListMitigationActions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::ListMitigationActionsAsync(const ListMitigationActionsRequest& request, const ListMitigationActionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListMitigationActionsAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::ListMitigationActionsAsyncHelper(const ListMitigationActionsRequest& request, const ListMitigationActionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListMitigationActions(request), context);
+}
+
 ListOTAUpdatesOutcome IoTClient::ListOTAUpdates(const ListOTAUpdatesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/otaUpdates";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListOTAUpdatesOutcome(ListOTAUpdatesResult(outcome.GetResult()));
@@ -4342,7 +5431,7 @@ ListOutgoingCertificatesOutcome IoTClient::ListOutgoingCertificates(const ListOu
   Aws::StringStream ss;
   ss << "/certificates-out-going";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListOutgoingCertificatesOutcome(ListOutgoingCertificatesResult(outcome.GetResult()));
@@ -4377,7 +5466,7 @@ ListPoliciesOutcome IoTClient::ListPolicies(const ListPoliciesRequest& request) 
   Aws::StringStream ss;
   ss << "/policies";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListPoliciesOutcome(ListPoliciesResult(outcome.GetResult()));
@@ -4419,7 +5508,7 @@ ListPolicyVersionsOutcome IoTClient::ListPolicyVersions(const ListPolicyVersions
   ss << request.GetPolicyName();
   ss << "/version";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListPolicyVersionsOutcome(ListPolicyVersionsResult(outcome.GetResult()));
@@ -4459,7 +5548,7 @@ ListPrincipalThingsOutcome IoTClient::ListPrincipalThings(const ListPrincipalThi
   Aws::StringStream ss;
   ss << "/principals/things";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListPrincipalThingsOutcome(ListPrincipalThingsResult(outcome.GetResult()));
@@ -4488,13 +5577,90 @@ void IoTClient::ListPrincipalThingsAsyncHelper(const ListPrincipalThingsRequest&
   handler(this, request, ListPrincipalThings(request), context);
 }
 
+ListProvisioningTemplateVersionsOutcome IoTClient::ListProvisioningTemplateVersions(const ListProvisioningTemplateVersionsRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("ListProvisioningTemplateVersions", "Required field: TemplateName, is not set");
+    return ListProvisioningTemplateVersionsOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates/";
+  ss << request.GetTemplateName();
+  ss << "/versions";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListProvisioningTemplateVersionsOutcome(ListProvisioningTemplateVersionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListProvisioningTemplateVersionsOutcome(outcome.GetError());
+  }
+}
+
+ListProvisioningTemplateVersionsOutcomeCallable IoTClient::ListProvisioningTemplateVersionsCallable(const ListProvisioningTemplateVersionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListProvisioningTemplateVersionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListProvisioningTemplateVersions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::ListProvisioningTemplateVersionsAsync(const ListProvisioningTemplateVersionsRequest& request, const ListProvisioningTemplateVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListProvisioningTemplateVersionsAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::ListProvisioningTemplateVersionsAsyncHelper(const ListProvisioningTemplateVersionsRequest& request, const ListProvisioningTemplateVersionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListProvisioningTemplateVersions(request), context);
+}
+
+ListProvisioningTemplatesOutcome IoTClient::ListProvisioningTemplates(const ListProvisioningTemplatesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListProvisioningTemplatesOutcome(ListProvisioningTemplatesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListProvisioningTemplatesOutcome(outcome.GetError());
+  }
+}
+
+ListProvisioningTemplatesOutcomeCallable IoTClient::ListProvisioningTemplatesCallable(const ListProvisioningTemplatesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListProvisioningTemplatesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListProvisioningTemplates(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::ListProvisioningTemplatesAsync(const ListProvisioningTemplatesRequest& request, const ListProvisioningTemplatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListProvisioningTemplatesAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::ListProvisioningTemplatesAsyncHelper(const ListProvisioningTemplatesRequest& request, const ListProvisioningTemplatesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListProvisioningTemplates(request), context);
+}
+
 ListRoleAliasesOutcome IoTClient::ListRoleAliases(const ListRoleAliasesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/role-aliases";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListRoleAliasesOutcome(ListRoleAliasesResult(outcome.GetResult()));
@@ -4529,7 +5695,7 @@ ListScheduledAuditsOutcome IoTClient::ListScheduledAudits(const ListScheduledAud
   Aws::StringStream ss;
   ss << "/audit/scheduledaudits";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListScheduledAuditsOutcome(ListScheduledAuditsResult(outcome.GetResult()));
@@ -4564,7 +5730,7 @@ ListSecurityProfilesOutcome IoTClient::ListSecurityProfiles(const ListSecurityPr
   Aws::StringStream ss;
   ss << "/security-profiles";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSecurityProfilesOutcome(ListSecurityProfilesResult(outcome.GetResult()));
@@ -4604,7 +5770,7 @@ ListSecurityProfilesForTargetOutcome IoTClient::ListSecurityProfilesForTarget(co
   Aws::StringStream ss;
   ss << "/security-profiles-for-target";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSecurityProfilesForTargetOutcome(ListSecurityProfilesForTargetResult(outcome.GetResult()));
@@ -4639,7 +5805,7 @@ ListStreamsOutcome IoTClient::ListStreams(const ListStreamsRequest& request) con
   Aws::StringStream ss;
   ss << "/streams";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListStreamsOutcome(ListStreamsResult(outcome.GetResult()));
@@ -4679,7 +5845,7 @@ ListTagsForResourceOutcome IoTClient::ListTagsForResource(const ListTagsForResou
   Aws::StringStream ss;
   ss << "/tags";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -4720,7 +5886,7 @@ ListTargetsForPolicyOutcome IoTClient::ListTargetsForPolicy(const ListTargetsFor
   ss << "/policy-targets/";
   ss << request.GetPolicyName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTargetsForPolicyOutcome(ListTargetsForPolicyResult(outcome.GetResult()));
@@ -4762,7 +5928,7 @@ ListTargetsForSecurityProfileOutcome IoTClient::ListTargetsForSecurityProfile(co
   ss << request.GetSecurityProfileName();
   ss << "/targets";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTargetsForSecurityProfileOutcome(ListTargetsForSecurityProfileResult(outcome.GetResult()));
@@ -4797,7 +5963,7 @@ ListThingGroupsOutcome IoTClient::ListThingGroups(const ListThingGroupsRequest& 
   Aws::StringStream ss;
   ss << "/thing-groups";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingGroupsOutcome(ListThingGroupsResult(outcome.GetResult()));
@@ -4839,7 +6005,7 @@ ListThingGroupsForThingOutcome IoTClient::ListThingGroupsForThing(const ListThin
   ss << request.GetThingName();
   ss << "/thing-groups";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingGroupsForThingOutcome(ListThingGroupsForThingResult(outcome.GetResult()));
@@ -4881,7 +6047,7 @@ ListThingPrincipalsOutcome IoTClient::ListThingPrincipals(const ListThingPrincip
   ss << request.GetThingName();
   ss << "/principals";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingPrincipalsOutcome(ListThingPrincipalsResult(outcome.GetResult()));
@@ -4928,7 +6094,7 @@ ListThingRegistrationTaskReportsOutcome IoTClient::ListThingRegistrationTaskRepo
   ss << request.GetTaskId();
   ss << "/reports";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingRegistrationTaskReportsOutcome(ListThingRegistrationTaskReportsResult(outcome.GetResult()));
@@ -4963,7 +6129,7 @@ ListThingRegistrationTasksOutcome IoTClient::ListThingRegistrationTasks(const Li
   Aws::StringStream ss;
   ss << "/thing-registration-tasks";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingRegistrationTasksOutcome(ListThingRegistrationTasksResult(outcome.GetResult()));
@@ -4998,7 +6164,7 @@ ListThingTypesOutcome IoTClient::ListThingTypes(const ListThingTypesRequest& req
   Aws::StringStream ss;
   ss << "/thing-types";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingTypesOutcome(ListThingTypesResult(outcome.GetResult()));
@@ -5033,7 +6199,7 @@ ListThingsOutcome IoTClient::ListThings(const ListThingsRequest& request) const
   Aws::StringStream ss;
   ss << "/things";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingsOutcome(ListThingsResult(outcome.GetResult()));
@@ -5075,7 +6241,7 @@ ListThingsInBillingGroupOutcome IoTClient::ListThingsInBillingGroup(const ListTh
   ss << request.GetBillingGroupName();
   ss << "/things";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingsInBillingGroupOutcome(ListThingsInBillingGroupResult(outcome.GetResult()));
@@ -5117,7 +6283,7 @@ ListThingsInThingGroupOutcome IoTClient::ListThingsInThingGroup(const ListThings
   ss << request.GetThingGroupName();
   ss << "/things";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListThingsInThingGroupOutcome(ListThingsInThingGroupResult(outcome.GetResult()));
@@ -5146,13 +6312,48 @@ void IoTClient::ListThingsInThingGroupAsyncHelper(const ListThingsInThingGroupRe
   handler(this, request, ListThingsInThingGroup(request), context);
 }
 
+ListTopicRuleDestinationsOutcome IoTClient::ListTopicRuleDestinations(const ListTopicRuleDestinationsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/destinations";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTopicRuleDestinationsOutcome(ListTopicRuleDestinationsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTopicRuleDestinationsOutcome(outcome.GetError());
+  }
+}
+
+ListTopicRuleDestinationsOutcomeCallable IoTClient::ListTopicRuleDestinationsCallable(const ListTopicRuleDestinationsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTopicRuleDestinationsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTopicRuleDestinations(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::ListTopicRuleDestinationsAsync(const ListTopicRuleDestinationsRequest& request, const ListTopicRuleDestinationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTopicRuleDestinationsAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::ListTopicRuleDestinationsAsyncHelper(const ListTopicRuleDestinationsRequest& request, const ListTopicRuleDestinationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTopicRuleDestinations(request), context);
+}
+
 ListTopicRulesOutcome IoTClient::ListTopicRules(const ListTopicRulesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/rules";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTopicRulesOutcome(ListTopicRulesResult(outcome.GetResult()));
@@ -5187,7 +6388,7 @@ ListV2LoggingLevelsOutcome IoTClient::ListV2LoggingLevels(const ListV2LoggingLev
   Aws::StringStream ss;
   ss << "/v2LoggingLevel";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListV2LoggingLevelsOutcome(ListV2LoggingLevelsResult(outcome.GetResult()));
@@ -5232,7 +6433,7 @@ ListViolationEventsOutcome IoTClient::ListViolationEvents(const ListViolationEve
   Aws::StringStream ss;
   ss << "/violation-events";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListViolationEventsOutcome(ListViolationEventsResult(outcome.GetResult()));
@@ -5267,7 +6468,7 @@ RegisterCACertificateOutcome IoTClient::RegisterCACertificate(const RegisterCACe
   Aws::StringStream ss;
   ss << "/cacertificate";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterCACertificateOutcome(RegisterCACertificateResult(outcome.GetResult()));
@@ -5302,7 +6503,7 @@ RegisterCertificateOutcome IoTClient::RegisterCertificate(const RegisterCertific
   Aws::StringStream ss;
   ss << "/certificate/register";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterCertificateOutcome(RegisterCertificateResult(outcome.GetResult()));
@@ -5337,7 +6538,7 @@ RegisterThingOutcome IoTClient::RegisterThing(const RegisterThingRequest& reques
   Aws::StringStream ss;
   ss << "/things";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterThingOutcome(RegisterThingResult(outcome.GetResult()));
@@ -5378,7 +6579,7 @@ RejectCertificateTransferOutcome IoTClient::RejectCertificateTransfer(const Reje
   ss << "/reject-certificate-transfer/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RejectCertificateTransferOutcome(NoResult());
@@ -5413,7 +6614,7 @@ RemoveThingFromBillingGroupOutcome IoTClient::RemoveThingFromBillingGroup(const 
   Aws::StringStream ss;
   ss << "/billing-groups/removeThingFromBillingGroup";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RemoveThingFromBillingGroupOutcome(RemoveThingFromBillingGroupResult(outcome.GetResult()));
@@ -5448,7 +6649,7 @@ RemoveThingFromThingGroupOutcome IoTClient::RemoveThingFromThingGroup(const Remo
   Aws::StringStream ss;
   ss << "/thing-groups/removeThingFromThingGroup";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RemoveThingFromThingGroupOutcome(RemoveThingFromThingGroupResult(outcome.GetResult()));
@@ -5489,7 +6690,7 @@ ReplaceTopicRuleOutcome IoTClient::ReplaceTopicRule(const ReplaceTopicRuleReques
   ss << "/rules/";
   ss << request.GetRuleName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ReplaceTopicRuleOutcome(NoResult());
@@ -5524,7 +6725,7 @@ SearchIndexOutcome IoTClient::SearchIndex(const SearchIndexRequest& request) con
   Aws::StringStream ss;
   ss << "/indices/search";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SearchIndexOutcome(SearchIndexResult(outcome.GetResult()));
@@ -5559,7 +6760,7 @@ SetDefaultAuthorizerOutcome IoTClient::SetDefaultAuthorizer(const SetDefaultAuth
   Aws::StringStream ss;
   ss << "/default-authorizer";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SetDefaultAuthorizerOutcome(SetDefaultAuthorizerResult(outcome.GetResult()));
@@ -5607,7 +6808,7 @@ SetDefaultPolicyVersionOutcome IoTClient::SetDefaultPolicyVersion(const SetDefau
   ss << "/version/";
   ss << request.GetPolicyVersionId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SetDefaultPolicyVersionOutcome(NoResult());
@@ -5642,7 +6843,7 @@ SetLoggingOptionsOutcome IoTClient::SetLoggingOptions(const SetLoggingOptionsReq
   Aws::StringStream ss;
   ss << "/loggingOptions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SetLoggingOptionsOutcome(NoResult());
@@ -5677,7 +6878,7 @@ SetV2LoggingLevelOutcome IoTClient::SetV2LoggingLevel(const SetV2LoggingLevelReq
   Aws::StringStream ss;
   ss << "/v2LoggingLevel";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SetV2LoggingLevelOutcome(NoResult());
@@ -5712,7 +6913,7 @@ SetV2LoggingOptionsOutcome IoTClient::SetV2LoggingOptions(const SetV2LoggingOpti
   Aws::StringStream ss;
   ss << "/v2LoggingOptions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SetV2LoggingOptionsOutcome(NoResult());
@@ -5741,13 +6942,54 @@ void IoTClient::SetV2LoggingOptionsAsyncHelper(const SetV2LoggingOptionsRequest&
   handler(this, request, SetV2LoggingOptions(request), context);
 }
 
+StartAuditMitigationActionsTaskOutcome IoTClient::StartAuditMitigationActionsTask(const StartAuditMitigationActionsTaskRequest& request) const
+{
+  if (!request.TaskIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("StartAuditMitigationActionsTask", "Required field: TaskId, is not set");
+    return StartAuditMitigationActionsTaskOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TaskId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/audit/mitigationactions/tasks/";
+  ss << request.GetTaskId();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartAuditMitigationActionsTaskOutcome(StartAuditMitigationActionsTaskResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartAuditMitigationActionsTaskOutcome(outcome.GetError());
+  }
+}
+
+StartAuditMitigationActionsTaskOutcomeCallable IoTClient::StartAuditMitigationActionsTaskCallable(const StartAuditMitigationActionsTaskRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartAuditMitigationActionsTaskOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartAuditMitigationActionsTask(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::StartAuditMitigationActionsTaskAsync(const StartAuditMitigationActionsTaskRequest& request, const StartAuditMitigationActionsTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartAuditMitigationActionsTaskAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::StartAuditMitigationActionsTaskAsyncHelper(const StartAuditMitigationActionsTaskRequest& request, const StartAuditMitigationActionsTaskResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartAuditMitigationActionsTask(request), context);
+}
+
 StartOnDemandAuditTaskOutcome IoTClient::StartOnDemandAuditTask(const StartOnDemandAuditTaskRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/audit/tasks";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartOnDemandAuditTaskOutcome(StartOnDemandAuditTaskResult(outcome.GetResult()));
@@ -5782,7 +7024,7 @@ StartThingRegistrationTaskOutcome IoTClient::StartThingRegistrationTask(const St
   Aws::StringStream ss;
   ss << "/thing-registration-tasks";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartThingRegistrationTaskOutcome(StartThingRegistrationTaskResult(outcome.GetResult()));
@@ -5824,7 +7066,7 @@ StopThingRegistrationTaskOutcome IoTClient::StopThingRegistrationTask(const Stop
   ss << request.GetTaskId();
   ss << "/cancel";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopThingRegistrationTaskOutcome(StopThingRegistrationTaskResult(outcome.GetResult()));
@@ -5859,7 +7101,7 @@ TagResourceOutcome IoTClient::TagResource(const TagResourceRequest& request) con
   Aws::StringStream ss;
   ss << "/tags";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -5894,7 +7136,7 @@ TestAuthorizationOutcome IoTClient::TestAuthorization(const TestAuthorizationReq
   Aws::StringStream ss;
   ss << "/test-authorization";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TestAuthorizationOutcome(TestAuthorizationResult(outcome.GetResult()));
@@ -5936,7 +7178,7 @@ TestInvokeAuthorizerOutcome IoTClient::TestInvokeAuthorizer(const TestInvokeAuth
   ss << request.GetAuthorizerName();
   ss << "/test";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TestInvokeAuthorizerOutcome(TestInvokeAuthorizerResult(outcome.GetResult()));
@@ -5982,7 +7224,7 @@ TransferCertificateOutcome IoTClient::TransferCertificate(const TransferCertific
   ss << "/transfer-certificate/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TransferCertificateOutcome(TransferCertificateResult(outcome.GetResult()));
@@ -6017,7 +7259,7 @@ UntagResourceOutcome IoTClient::UntagResource(const UntagResourceRequest& reques
   Aws::StringStream ss;
   ss << "/untag";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -6052,7 +7294,7 @@ UpdateAccountAuditConfigurationOutcome IoTClient::UpdateAccountAuditConfiguratio
   Aws::StringStream ss;
   ss << "/audit/configuration";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAccountAuditConfigurationOutcome(UpdateAccountAuditConfigurationResult(outcome.GetResult()));
@@ -6093,7 +7335,7 @@ UpdateAuthorizerOutcome IoTClient::UpdateAuthorizer(const UpdateAuthorizerReques
   ss << "/authorizer/";
   ss << request.GetAuthorizerName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAuthorizerOutcome(UpdateAuthorizerResult(outcome.GetResult()));
@@ -6134,7 +7376,7 @@ UpdateBillingGroupOutcome IoTClient::UpdateBillingGroup(const UpdateBillingGroup
   ss << "/billing-groups/";
   ss << request.GetBillingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateBillingGroupOutcome(UpdateBillingGroupResult(outcome.GetResult()));
@@ -6175,7 +7417,7 @@ UpdateCACertificateOutcome IoTClient::UpdateCACertificate(const UpdateCACertific
   ss << "/cacertificate/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateCACertificateOutcome(NoResult());
@@ -6221,7 +7463,7 @@ UpdateCertificateOutcome IoTClient::UpdateCertificate(const UpdateCertificateReq
   ss << "/certificates/";
   ss << request.GetCertificateId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateCertificateOutcome(NoResult());
@@ -6250,6 +7492,47 @@ void IoTClient::UpdateCertificateAsyncHelper(const UpdateCertificateRequest& req
   handler(this, request, UpdateCertificate(request), context);
 }
 
+UpdateDomainConfigurationOutcome IoTClient::UpdateDomainConfiguration(const UpdateDomainConfigurationRequest& request) const
+{
+  if (!request.DomainConfigurationNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateDomainConfiguration", "Required field: DomainConfigurationName, is not set");
+    return UpdateDomainConfigurationOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [DomainConfigurationName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/domainConfigurations/";
+  ss << request.GetDomainConfigurationName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateDomainConfigurationOutcome(UpdateDomainConfigurationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateDomainConfigurationOutcome(outcome.GetError());
+  }
+}
+
+UpdateDomainConfigurationOutcomeCallable IoTClient::UpdateDomainConfigurationCallable(const UpdateDomainConfigurationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateDomainConfigurationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateDomainConfiguration(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::UpdateDomainConfigurationAsync(const UpdateDomainConfigurationRequest& request, const UpdateDomainConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateDomainConfigurationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::UpdateDomainConfigurationAsyncHelper(const UpdateDomainConfigurationRequest& request, const UpdateDomainConfigurationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateDomainConfiguration(request), context);
+}
+
 UpdateDynamicThingGroupOutcome IoTClient::UpdateDynamicThingGroup(const UpdateDynamicThingGroupRequest& request) const
 {
   if (!request.ThingGroupNameHasBeenSet())
@@ -6262,7 +7545,7 @@ UpdateDynamicThingGroupOutcome IoTClient::UpdateDynamicThingGroup(const UpdateDy
   ss << "/dynamic-thing-groups/";
   ss << request.GetThingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDynamicThingGroupOutcome(UpdateDynamicThingGroupResult(outcome.GetResult()));
@@ -6297,7 +7580,7 @@ UpdateEventConfigurationsOutcome IoTClient::UpdateEventConfigurations(const Upda
   Aws::StringStream ss;
   ss << "/event-configurations";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateEventConfigurationsOutcome(UpdateEventConfigurationsResult(outcome.GetResult()));
@@ -6332,7 +7615,7 @@ UpdateIndexingConfigurationOutcome IoTClient::UpdateIndexingConfiguration(const 
   Aws::StringStream ss;
   ss << "/indexing/config";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateIndexingConfigurationOutcome(UpdateIndexingConfigurationResult(outcome.GetResult()));
@@ -6373,7 +7656,7 @@ UpdateJobOutcome IoTClient::UpdateJob(const UpdateJobRequest& request) const
   ss << "/jobs/";
   ss << request.GetJobId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateJobOutcome(NoResult());
@@ -6402,6 +7685,88 @@ void IoTClient::UpdateJobAsyncHelper(const UpdateJobRequest& request, const Upda
   handler(this, request, UpdateJob(request), context);
 }
 
+UpdateMitigationActionOutcome IoTClient::UpdateMitigationAction(const UpdateMitigationActionRequest& request) const
+{
+  if (!request.ActionNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateMitigationAction", "Required field: ActionName, is not set");
+    return UpdateMitigationActionOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ActionName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/mitigationactions/actions/";
+  ss << request.GetActionName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateMitigationActionOutcome(UpdateMitigationActionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateMitigationActionOutcome(outcome.GetError());
+  }
+}
+
+UpdateMitigationActionOutcomeCallable IoTClient::UpdateMitigationActionCallable(const UpdateMitigationActionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateMitigationActionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateMitigationAction(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::UpdateMitigationActionAsync(const UpdateMitigationActionRequest& request, const UpdateMitigationActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateMitigationActionAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::UpdateMitigationActionAsyncHelper(const UpdateMitigationActionRequest& request, const UpdateMitigationActionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateMitigationAction(request), context);
+}
+
+UpdateProvisioningTemplateOutcome IoTClient::UpdateProvisioningTemplate(const UpdateProvisioningTemplateRequest& request) const
+{
+  if (!request.TemplateNameHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateProvisioningTemplate", "Required field: TemplateName, is not set");
+    return UpdateProvisioningTemplateOutcome(Aws::Client::AWSError<IoTErrors>(IoTErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [TemplateName]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/provisioning-templates/";
+  ss << request.GetTemplateName();
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateProvisioningTemplateOutcome(UpdateProvisioningTemplateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateProvisioningTemplateOutcome(outcome.GetError());
+  }
+}
+
+UpdateProvisioningTemplateOutcomeCallable IoTClient::UpdateProvisioningTemplateCallable(const UpdateProvisioningTemplateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateProvisioningTemplateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateProvisioningTemplate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::UpdateProvisioningTemplateAsync(const UpdateProvisioningTemplateRequest& request, const UpdateProvisioningTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateProvisioningTemplateAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::UpdateProvisioningTemplateAsyncHelper(const UpdateProvisioningTemplateRequest& request, const UpdateProvisioningTemplateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateProvisioningTemplate(request), context);
+}
+
 UpdateRoleAliasOutcome IoTClient::UpdateRoleAlias(const UpdateRoleAliasRequest& request) const
 {
   if (!request.RoleAliasHasBeenSet())
@@ -6414,7 +7779,7 @@ UpdateRoleAliasOutcome IoTClient::UpdateRoleAlias(const UpdateRoleAliasRequest& 
   ss << "/role-aliases/";
   ss << request.GetRoleAlias();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateRoleAliasOutcome(UpdateRoleAliasResult(outcome.GetResult()));
@@ -6455,7 +7820,7 @@ UpdateScheduledAuditOutcome IoTClient::UpdateScheduledAudit(const UpdateSchedule
   ss << "/audit/scheduledaudits/";
   ss << request.GetScheduledAuditName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateScheduledAuditOutcome(UpdateScheduledAuditResult(outcome.GetResult()));
@@ -6496,7 +7861,7 @@ UpdateSecurityProfileOutcome IoTClient::UpdateSecurityProfile(const UpdateSecuri
   ss << "/security-profiles/";
   ss << request.GetSecurityProfileName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateSecurityProfileOutcome(UpdateSecurityProfileResult(outcome.GetResult()));
@@ -6537,7 +7902,7 @@ UpdateStreamOutcome IoTClient::UpdateStream(const UpdateStreamRequest& request) 
   ss << "/streams/";
   ss << request.GetStreamId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateStreamOutcome(UpdateStreamResult(outcome.GetResult()));
@@ -6578,7 +7943,7 @@ UpdateThingOutcome IoTClient::UpdateThing(const UpdateThingRequest& request) con
   ss << "/things/";
   ss << request.GetThingName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateThingOutcome(UpdateThingResult(outcome.GetResult()));
@@ -6619,7 +7984,7 @@ UpdateThingGroupOutcome IoTClient::UpdateThingGroup(const UpdateThingGroupReques
   ss << "/thing-groups/";
   ss << request.GetThingGroupName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateThingGroupOutcome(UpdateThingGroupResult(outcome.GetResult()));
@@ -6654,7 +8019,7 @@ UpdateThingGroupsForThingOutcome IoTClient::UpdateThingGroupsForThing(const Upda
   Aws::StringStream ss;
   ss << "/thing-groups/updateThingGroupsForThing";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PUT, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateThingGroupsForThingOutcome(UpdateThingGroupsForThingResult(outcome.GetResult()));
@@ -6683,13 +8048,48 @@ void IoTClient::UpdateThingGroupsForThingAsyncHelper(const UpdateThingGroupsForT
   handler(this, request, UpdateThingGroupsForThing(request), context);
 }
 
+UpdateTopicRuleDestinationOutcome IoTClient::UpdateTopicRuleDestination(const UpdateTopicRuleDestinationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/destinations";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_PATCH, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateTopicRuleDestinationOutcome(UpdateTopicRuleDestinationResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateTopicRuleDestinationOutcome(outcome.GetError());
+  }
+}
+
+UpdateTopicRuleDestinationOutcomeCallable IoTClient::UpdateTopicRuleDestinationCallable(const UpdateTopicRuleDestinationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateTopicRuleDestinationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateTopicRuleDestination(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void IoTClient::UpdateTopicRuleDestinationAsync(const UpdateTopicRuleDestinationRequest& request, const UpdateTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateTopicRuleDestinationAsyncHelper( request, handler, context ); } );
+}
+
+void IoTClient::UpdateTopicRuleDestinationAsyncHelper(const UpdateTopicRuleDestinationRequest& request, const UpdateTopicRuleDestinationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateTopicRuleDestination(request), context);
+}
+
 ValidateSecurityProfileBehaviorsOutcome IoTClient::ValidateSecurityProfileBehaviors(const ValidateSecurityProfileBehaviorsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/security-profile-behaviors/validate";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ValidateSecurityProfileBehaviorsOutcome(ValidateSecurityProfileBehaviorsResult(outcome.GetResult()));

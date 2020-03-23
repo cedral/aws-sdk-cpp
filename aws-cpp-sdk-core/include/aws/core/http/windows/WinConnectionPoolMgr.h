@@ -47,14 +47,14 @@ namespace Aws
             virtual ~WinConnectionPoolMgr();
 
             /*
-            * Aquires a connection for host and port from pool, or adds connections to pool until pool has reached max size
+            * Acquires a connection for host and port from pool, or adds connections to pool until pool has reached max size
             * If no connections are available and the pool is at its maximum size, then this call will block until connections
             * become available.
             */
-            void* AquireConnectionForHost(const Aws::String& host, uint16_t port);
+            void* AcquireConnectionForHost(const Aws::String& host, uint16_t port);
 
             /*
-            * Releases a connection to host and port back to the pool, if another thread is blocked in Aquire, then the top queued item
+            * Releases a connection to host and port back to the pool, if another thread is blocked in Acquire, then the top queued item
             * will be returned a connection and signaled to continue.
             */
             void ReleaseConnectionForHost(const Aws::String& host, unsigned port, void* connection);

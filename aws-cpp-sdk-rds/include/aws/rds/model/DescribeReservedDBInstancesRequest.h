@@ -387,42 +387,99 @@ namespace Model
 
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>The lease identifier filter value. Specify this parameter to show only the
+     * reservation that matches the specified lease ID.</p> <note> <p>AWS Support might
+     * request the lease ID for an issue related to a reserved DB instance.</p> </note>
+     */
+    inline const Aws::String& GetLeaseId() const{ return m_leaseId; }
+
+    /**
+     * <p>The lease identifier filter value. Specify this parameter to show only the
+     * reservation that matches the specified lease ID.</p> <note> <p>AWS Support might
+     * request the lease ID for an issue related to a reserved DB instance.</p> </note>
+     */
+    inline bool LeaseIdHasBeenSet() const { return m_leaseIdHasBeenSet; }
+
+    /**
+     * <p>The lease identifier filter value. Specify this parameter to show only the
+     * reservation that matches the specified lease ID.</p> <note> <p>AWS Support might
+     * request the lease ID for an issue related to a reserved DB instance.</p> </note>
+     */
+    inline void SetLeaseId(const Aws::String& value) { m_leaseIdHasBeenSet = true; m_leaseId = value; }
+
+    /**
+     * <p>The lease identifier filter value. Specify this parameter to show only the
+     * reservation that matches the specified lease ID.</p> <note> <p>AWS Support might
+     * request the lease ID for an issue related to a reserved DB instance.</p> </note>
+     */
+    inline void SetLeaseId(Aws::String&& value) { m_leaseIdHasBeenSet = true; m_leaseId = std::move(value); }
+
+    /**
+     * <p>The lease identifier filter value. Specify this parameter to show only the
+     * reservation that matches the specified lease ID.</p> <note> <p>AWS Support might
+     * request the lease ID for an issue related to a reserved DB instance.</p> </note>
+     */
+    inline void SetLeaseId(const char* value) { m_leaseIdHasBeenSet = true; m_leaseId.assign(value); }
+
+    /**
+     * <p>The lease identifier filter value. Specify this parameter to show only the
+     * reservation that matches the specified lease ID.</p> <note> <p>AWS Support might
+     * request the lease ID for an issue related to a reserved DB instance.</p> </note>
+     */
+    inline DescribeReservedDBInstancesRequest& WithLeaseId(const Aws::String& value) { SetLeaseId(value); return *this;}
+
+    /**
+     * <p>The lease identifier filter value. Specify this parameter to show only the
+     * reservation that matches the specified lease ID.</p> <note> <p>AWS Support might
+     * request the lease ID for an issue related to a reserved DB instance.</p> </note>
+     */
+    inline DescribeReservedDBInstancesRequest& WithLeaseId(Aws::String&& value) { SetLeaseId(std::move(value)); return *this;}
+
+    /**
+     * <p>The lease identifier filter value. Specify this parameter to show only the
+     * reservation that matches the specified lease ID.</p> <note> <p>AWS Support might
+     * request the lease ID for an issue related to a reserved DB instance.</p> </note>
+     */
+    inline DescribeReservedDBInstancesRequest& WithLeaseId(const char* value) { SetLeaseId(value); return *this;}
+
+
+    /**
+     * <p>This parameter isn't currently supported.</p>
      */
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>This parameter isn't currently supported.</p>
      */
     inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>This parameter isn't currently supported.</p>
      */
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>This parameter isn't currently supported.</p>
      */
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>This parameter isn't currently supported.</p>
      */
     inline DescribeReservedDBInstancesRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>This parameter isn't currently supported.</p>
      */
     inline DescribeReservedDBInstancesRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>This parameter isn't currently supported.</p>
      */
     inline DescribeReservedDBInstancesRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
-     * <p>This parameter is not currently supported.</p>
+     * <p>This parameter isn't currently supported.</p>
      */
     inline DescribeReservedDBInstancesRequest& AddFilters(Filter&& value) { m_filtersHasBeenSet = true; m_filters.push_back(std::move(value)); return *this; }
 
@@ -430,7 +487,7 @@ namespace Model
     /**
      * <p> The maximum number of records to include in the response. If more than the
      * <code>MaxRecords</code> value is available, a pagination token called a marker
-     * is included in the response so that the following results can be retrieved. </p>
+     * is included in the response so you can retrieve the remaining results. </p>
      * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline int GetMaxRecords() const{ return m_maxRecords; }
@@ -438,7 +495,7 @@ namespace Model
     /**
      * <p> The maximum number of records to include in the response. If more than the
      * <code>MaxRecords</code> value is available, a pagination token called a marker
-     * is included in the response so that the following results can be retrieved. </p>
+     * is included in the response so you can retrieve the remaining results. </p>
      * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline bool MaxRecordsHasBeenSet() const { return m_maxRecordsHasBeenSet; }
@@ -446,7 +503,7 @@ namespace Model
     /**
      * <p> The maximum number of records to include in the response. If more than the
      * <code>MaxRecords</code> value is available, a pagination token called a marker
-     * is included in the response so that the following results can be retrieved. </p>
+     * is included in the response so you can retrieve the remaining results. </p>
      * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline void SetMaxRecords(int value) { m_maxRecordsHasBeenSet = true; m_maxRecords = value; }
@@ -454,7 +511,7 @@ namespace Model
     /**
      * <p> The maximum number of records to include in the response. If more than the
      * <code>MaxRecords</code> value is available, a pagination token called a marker
-     * is included in the response so that the following results can be retrieved. </p>
+     * is included in the response so you can retrieve the remaining results. </p>
      * <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
      */
     inline DescribeReservedDBInstancesRequest& WithMaxRecords(int value) { SetMaxRecords(value); return *this;}
@@ -538,6 +595,9 @@ namespace Model
 
     bool m_multiAZ;
     bool m_multiAZHasBeenSet;
+
+    Aws::String m_leaseId;
+    bool m_leaseIdHasBeenSet;
 
     Aws::Vector<Filter> m_filters;
     bool m_filtersHasBeenSet;

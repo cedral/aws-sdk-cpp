@@ -30,18 +30,22 @@
 #include <aws/appsync/AppSyncClient.h>
 #include <aws/appsync/AppSyncEndpoint.h>
 #include <aws/appsync/AppSyncErrorMarshaller.h>
+#include <aws/appsync/model/CreateApiCacheRequest.h>
 #include <aws/appsync/model/CreateApiKeyRequest.h>
 #include <aws/appsync/model/CreateDataSourceRequest.h>
 #include <aws/appsync/model/CreateFunctionRequest.h>
 #include <aws/appsync/model/CreateGraphqlApiRequest.h>
 #include <aws/appsync/model/CreateResolverRequest.h>
 #include <aws/appsync/model/CreateTypeRequest.h>
+#include <aws/appsync/model/DeleteApiCacheRequest.h>
 #include <aws/appsync/model/DeleteApiKeyRequest.h>
 #include <aws/appsync/model/DeleteDataSourceRequest.h>
 #include <aws/appsync/model/DeleteFunctionRequest.h>
 #include <aws/appsync/model/DeleteGraphqlApiRequest.h>
 #include <aws/appsync/model/DeleteResolverRequest.h>
 #include <aws/appsync/model/DeleteTypeRequest.h>
+#include <aws/appsync/model/FlushApiCacheRequest.h>
+#include <aws/appsync/model/GetApiCacheRequest.h>
 #include <aws/appsync/model/GetDataSourceRequest.h>
 #include <aws/appsync/model/GetFunctionRequest.h>
 #include <aws/appsync/model/GetGraphqlApiRequest.h>
@@ -60,6 +64,7 @@
 #include <aws/appsync/model/StartSchemaCreationRequest.h>
 #include <aws/appsync/model/TagResourceRequest.h>
 #include <aws/appsync/model/UntagResourceRequest.h>
+#include <aws/appsync/model/UpdateApiCacheRequest.h>
 #include <aws/appsync/model/UpdateApiKeyRequest.h>
 #include <aws/appsync/model/UpdateDataSourceRequest.h>
 #include <aws/appsync/model/UpdateFunctionRequest.h>
@@ -139,6 +144,48 @@ void AppSyncClient::OverrideEndpoint(const Aws::String& endpoint)
   }
 }
 
+CreateApiCacheOutcome AppSyncClient::CreateApiCache(const CreateApiCacheRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("CreateApiCache", "Required field: ApiId, is not set");
+    return CreateApiCacheOutcome(Aws::Client::AWSError<AppSyncErrors>(AppSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apis/";
+  ss << request.GetApiId();
+  ss << "/ApiCaches";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateApiCacheOutcome(CreateApiCacheResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateApiCacheOutcome(outcome.GetError());
+  }
+}
+
+CreateApiCacheOutcomeCallable AppSyncClient::CreateApiCacheCallable(const CreateApiCacheRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateApiCacheOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateApiCache(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AppSyncClient::CreateApiCacheAsync(const CreateApiCacheRequest& request, const CreateApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateApiCacheAsyncHelper( request, handler, context ); } );
+}
+
+void AppSyncClient::CreateApiCacheAsyncHelper(const CreateApiCacheRequest& request, const CreateApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateApiCache(request), context);
+}
+
 CreateApiKeyOutcome AppSyncClient::CreateApiKey(const CreateApiKeyRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -152,7 +199,7 @@ CreateApiKeyOutcome AppSyncClient::CreateApiKey(const CreateApiKeyRequest& reque
   ss << request.GetApiId();
   ss << "/apikeys";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateApiKeyOutcome(CreateApiKeyResult(outcome.GetResult()));
@@ -194,7 +241,7 @@ CreateDataSourceOutcome AppSyncClient::CreateDataSource(const CreateDataSourceRe
   ss << request.GetApiId();
   ss << "/datasources";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDataSourceOutcome(CreateDataSourceResult(outcome.GetResult()));
@@ -236,7 +283,7 @@ CreateFunctionOutcome AppSyncClient::CreateFunction(const CreateFunctionRequest&
   ss << request.GetApiId();
   ss << "/functions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateFunctionOutcome(CreateFunctionResult(outcome.GetResult()));
@@ -271,7 +318,7 @@ CreateGraphqlApiOutcome AppSyncClient::CreateGraphqlApi(const CreateGraphqlApiRe
   Aws::StringStream ss;
   ss << "/v1/apis";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateGraphqlApiOutcome(CreateGraphqlApiResult(outcome.GetResult()));
@@ -320,7 +367,7 @@ CreateResolverOutcome AppSyncClient::CreateResolver(const CreateResolverRequest&
   ss << request.GetTypeName();
   ss << "/resolvers";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateResolverOutcome(CreateResolverResult(outcome.GetResult()));
@@ -362,7 +409,7 @@ CreateTypeOutcome AppSyncClient::CreateType(const CreateTypeRequest& request) co
   ss << request.GetApiId();
   ss << "/types";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateTypeOutcome(CreateTypeResult(outcome.GetResult()));
@@ -391,6 +438,48 @@ void AppSyncClient::CreateTypeAsyncHelper(const CreateTypeRequest& request, cons
   handler(this, request, CreateType(request), context);
 }
 
+DeleteApiCacheOutcome AppSyncClient::DeleteApiCache(const DeleteApiCacheRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("DeleteApiCache", "Required field: ApiId, is not set");
+    return DeleteApiCacheOutcome(Aws::Client::AWSError<AppSyncErrors>(AppSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apis/";
+  ss << request.GetApiId();
+  ss << "/ApiCaches";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteApiCacheOutcome(DeleteApiCacheResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteApiCacheOutcome(outcome.GetError());
+  }
+}
+
+DeleteApiCacheOutcomeCallable AppSyncClient::DeleteApiCacheCallable(const DeleteApiCacheRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteApiCacheOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteApiCache(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AppSyncClient::DeleteApiCacheAsync(const DeleteApiCacheRequest& request, const DeleteApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteApiCacheAsyncHelper( request, handler, context ); } );
+}
+
+void AppSyncClient::DeleteApiCacheAsyncHelper(const DeleteApiCacheRequest& request, const DeleteApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteApiCache(request), context);
+}
+
 DeleteApiKeyOutcome AppSyncClient::DeleteApiKey(const DeleteApiKeyRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -410,7 +499,7 @@ DeleteApiKeyOutcome AppSyncClient::DeleteApiKey(const DeleteApiKeyRequest& reque
   ss << "/apikeys/";
   ss << request.GetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteApiKeyOutcome(DeleteApiKeyResult(outcome.GetResult()));
@@ -458,7 +547,7 @@ DeleteDataSourceOutcome AppSyncClient::DeleteDataSource(const DeleteDataSourceRe
   ss << "/datasources/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDataSourceOutcome(DeleteDataSourceResult(outcome.GetResult()));
@@ -506,7 +595,7 @@ DeleteFunctionOutcome AppSyncClient::DeleteFunction(const DeleteFunctionRequest&
   ss << "/functions/";
   ss << request.GetFunctionId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteFunctionOutcome(DeleteFunctionResult(outcome.GetResult()));
@@ -547,7 +636,7 @@ DeleteGraphqlApiOutcome AppSyncClient::DeleteGraphqlApi(const DeleteGraphqlApiRe
   ss << "/v1/apis/";
   ss << request.GetApiId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteGraphqlApiOutcome(DeleteGraphqlApiResult(outcome.GetResult()));
@@ -602,7 +691,7 @@ DeleteResolverOutcome AppSyncClient::DeleteResolver(const DeleteResolverRequest&
   ss << "/resolvers/";
   ss << request.GetFieldName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteResolverOutcome(DeleteResolverResult(outcome.GetResult()));
@@ -650,7 +739,7 @@ DeleteTypeOutcome AppSyncClient::DeleteType(const DeleteTypeRequest& request) co
   ss << "/types/";
   ss << request.GetTypeName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTypeOutcome(DeleteTypeResult(outcome.GetResult()));
@@ -679,6 +768,90 @@ void AppSyncClient::DeleteTypeAsyncHelper(const DeleteTypeRequest& request, cons
   handler(this, request, DeleteType(request), context);
 }
 
+FlushApiCacheOutcome AppSyncClient::FlushApiCache(const FlushApiCacheRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("FlushApiCache", "Required field: ApiId, is not set");
+    return FlushApiCacheOutcome(Aws::Client::AWSError<AppSyncErrors>(AppSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apis/";
+  ss << request.GetApiId();
+  ss << "/FlushCache";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return FlushApiCacheOutcome(FlushApiCacheResult(outcome.GetResult()));
+  }
+  else
+  {
+    return FlushApiCacheOutcome(outcome.GetError());
+  }
+}
+
+FlushApiCacheOutcomeCallable AppSyncClient::FlushApiCacheCallable(const FlushApiCacheRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< FlushApiCacheOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->FlushApiCache(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AppSyncClient::FlushApiCacheAsync(const FlushApiCacheRequest& request, const FlushApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->FlushApiCacheAsyncHelper( request, handler, context ); } );
+}
+
+void AppSyncClient::FlushApiCacheAsyncHelper(const FlushApiCacheRequest& request, const FlushApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, FlushApiCache(request), context);
+}
+
+GetApiCacheOutcome AppSyncClient::GetApiCache(const GetApiCacheRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("GetApiCache", "Required field: ApiId, is not set");
+    return GetApiCacheOutcome(Aws::Client::AWSError<AppSyncErrors>(AppSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apis/";
+  ss << request.GetApiId();
+  ss << "/ApiCaches";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetApiCacheOutcome(GetApiCacheResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetApiCacheOutcome(outcome.GetError());
+  }
+}
+
+GetApiCacheOutcomeCallable AppSyncClient::GetApiCacheCallable(const GetApiCacheRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetApiCacheOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetApiCache(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AppSyncClient::GetApiCacheAsync(const GetApiCacheRequest& request, const GetApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetApiCacheAsyncHelper( request, handler, context ); } );
+}
+
+void AppSyncClient::GetApiCacheAsyncHelper(const GetApiCacheRequest& request, const GetApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetApiCache(request), context);
+}
+
 GetDataSourceOutcome AppSyncClient::GetDataSource(const GetDataSourceRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -698,7 +871,7 @@ GetDataSourceOutcome AppSyncClient::GetDataSource(const GetDataSourceRequest& re
   ss << "/datasources/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDataSourceOutcome(GetDataSourceResult(outcome.GetResult()));
@@ -746,7 +919,7 @@ GetFunctionOutcome AppSyncClient::GetFunction(const GetFunctionRequest& request)
   ss << "/functions/";
   ss << request.GetFunctionId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetFunctionOutcome(GetFunctionResult(outcome.GetResult()));
@@ -787,7 +960,7 @@ GetGraphqlApiOutcome AppSyncClient::GetGraphqlApi(const GetGraphqlApiRequest& re
   ss << "/v1/apis/";
   ss << request.GetApiId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetGraphqlApiOutcome(GetGraphqlApiResult(outcome.GetResult()));
@@ -834,7 +1007,7 @@ GetIntrospectionSchemaOutcome AppSyncClient::GetIntrospectionSchema(const GetInt
   ss << request.GetApiId();
   ss << "/schema";
   uri.SetPath(uri.GetPath() + ss.str());
-  StreamOutcome outcome = MakeRequestWithUnparsedResponse(uri, request, HttpMethod::HTTP_GET);
+  StreamOutcome outcome = MakeRequestWithUnparsedResponse(uri, request, Aws::Http::HttpMethod::HTTP_GET);
   if(outcome.IsSuccess())
   {
     return GetIntrospectionSchemaOutcome(GetIntrospectionSchemaResult(outcome.GetResultWithOwnership()));
@@ -889,7 +1062,7 @@ GetResolverOutcome AppSyncClient::GetResolver(const GetResolverRequest& request)
   ss << "/resolvers/";
   ss << request.GetFieldName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetResolverOutcome(GetResolverResult(outcome.GetResult()));
@@ -931,7 +1104,7 @@ GetSchemaCreationStatusOutcome AppSyncClient::GetSchemaCreationStatus(const GetS
   ss << request.GetApiId();
   ss << "/schemacreation";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSchemaCreationStatusOutcome(GetSchemaCreationStatusResult(outcome.GetResult()));
@@ -984,7 +1157,7 @@ GetTypeOutcome AppSyncClient::GetType(const GetTypeRequest& request) const
   ss << "/types/";
   ss << request.GetTypeName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTypeOutcome(GetTypeResult(outcome.GetResult()));
@@ -1026,7 +1199,7 @@ ListApiKeysOutcome AppSyncClient::ListApiKeys(const ListApiKeysRequest& request)
   ss << request.GetApiId();
   ss << "/apikeys";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListApiKeysOutcome(ListApiKeysResult(outcome.GetResult()));
@@ -1068,7 +1241,7 @@ ListDataSourcesOutcome AppSyncClient::ListDataSources(const ListDataSourcesReque
   ss << request.GetApiId();
   ss << "/datasources";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDataSourcesOutcome(ListDataSourcesResult(outcome.GetResult()));
@@ -1110,7 +1283,7 @@ ListFunctionsOutcome AppSyncClient::ListFunctions(const ListFunctionsRequest& re
   ss << request.GetApiId();
   ss << "/functions";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListFunctionsOutcome(ListFunctionsResult(outcome.GetResult()));
@@ -1145,7 +1318,7 @@ ListGraphqlApisOutcome AppSyncClient::ListGraphqlApis(const ListGraphqlApisReque
   Aws::StringStream ss;
   ss << "/v1/apis";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListGraphqlApisOutcome(ListGraphqlApisResult(outcome.GetResult()));
@@ -1194,7 +1367,7 @@ ListResolversOutcome AppSyncClient::ListResolvers(const ListResolversRequest& re
   ss << request.GetTypeName();
   ss << "/resolvers";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListResolversOutcome(ListResolversResult(outcome.GetResult()));
@@ -1243,7 +1416,7 @@ ListResolversByFunctionOutcome AppSyncClient::ListResolversByFunction(const List
   ss << request.GetFunctionId();
   ss << "/resolvers";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListResolversByFunctionOutcome(ListResolversByFunctionResult(outcome.GetResult()));
@@ -1284,7 +1457,7 @@ ListTagsForResourceOutcome AppSyncClient::ListTagsForResource(const ListTagsForR
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -1331,7 +1504,7 @@ ListTypesOutcome AppSyncClient::ListTypes(const ListTypesRequest& request) const
   ss << request.GetApiId();
   ss << "/types";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_GET, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTypesOutcome(ListTypesResult(outcome.GetResult()));
@@ -1373,7 +1546,7 @@ StartSchemaCreationOutcome AppSyncClient::StartSchemaCreation(const StartSchemaC
   ss << request.GetApiId();
   ss << "/schemacreation";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartSchemaCreationOutcome(StartSchemaCreationResult(outcome.GetResult()));
@@ -1414,7 +1587,7 @@ TagResourceOutcome AppSyncClient::TagResource(const TagResourceRequest& request)
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -1460,7 +1633,7 @@ UntagResourceOutcome AppSyncClient::UntagResource(const UntagResourceRequest& re
   ss << "/v1/tags/";
   ss << request.GetResourceArn();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_DELETE, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -1489,6 +1662,48 @@ void AppSyncClient::UntagResourceAsyncHelper(const UntagResourceRequest& request
   handler(this, request, UntagResource(request), context);
 }
 
+UpdateApiCacheOutcome AppSyncClient::UpdateApiCache(const UpdateApiCacheRequest& request) const
+{
+  if (!request.ApiIdHasBeenSet())
+  {
+    AWS_LOGSTREAM_ERROR("UpdateApiCache", "Required field: ApiId, is not set");
+    return UpdateApiCacheOutcome(Aws::Client::AWSError<AppSyncErrors>(AppSyncErrors::MISSING_PARAMETER, "MISSING_PARAMETER", "Missing required field [ApiId]", false));
+  }
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/v1/apis/";
+  ss << request.GetApiId();
+  ss << "/ApiCaches/update";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateApiCacheOutcome(UpdateApiCacheResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateApiCacheOutcome(outcome.GetError());
+  }
+}
+
+UpdateApiCacheOutcomeCallable AppSyncClient::UpdateApiCacheCallable(const UpdateApiCacheRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateApiCacheOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateApiCache(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void AppSyncClient::UpdateApiCacheAsync(const UpdateApiCacheRequest& request, const UpdateApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateApiCacheAsyncHelper( request, handler, context ); } );
+}
+
+void AppSyncClient::UpdateApiCacheAsyncHelper(const UpdateApiCacheRequest& request, const UpdateApiCacheResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateApiCache(request), context);
+}
+
 UpdateApiKeyOutcome AppSyncClient::UpdateApiKey(const UpdateApiKeyRequest& request) const
 {
   if (!request.ApiIdHasBeenSet())
@@ -1508,7 +1723,7 @@ UpdateApiKeyOutcome AppSyncClient::UpdateApiKey(const UpdateApiKeyRequest& reque
   ss << "/apikeys/";
   ss << request.GetId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateApiKeyOutcome(UpdateApiKeyResult(outcome.GetResult()));
@@ -1556,7 +1771,7 @@ UpdateDataSourceOutcome AppSyncClient::UpdateDataSource(const UpdateDataSourceRe
   ss << "/datasources/";
   ss << request.GetName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDataSourceOutcome(UpdateDataSourceResult(outcome.GetResult()));
@@ -1604,7 +1819,7 @@ UpdateFunctionOutcome AppSyncClient::UpdateFunction(const UpdateFunctionRequest&
   ss << "/functions/";
   ss << request.GetFunctionId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateFunctionOutcome(UpdateFunctionResult(outcome.GetResult()));
@@ -1645,7 +1860,7 @@ UpdateGraphqlApiOutcome AppSyncClient::UpdateGraphqlApi(const UpdateGraphqlApiRe
   ss << "/v1/apis/";
   ss << request.GetApiId();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateGraphqlApiOutcome(UpdateGraphqlApiResult(outcome.GetResult()));
@@ -1700,7 +1915,7 @@ UpdateResolverOutcome AppSyncClient::UpdateResolver(const UpdateResolverRequest&
   ss << "/resolvers/";
   ss << request.GetFieldName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateResolverOutcome(UpdateResolverResult(outcome.GetResult()));
@@ -1748,7 +1963,7 @@ UpdateTypeOutcome AppSyncClient::UpdateType(const UpdateTypeRequest& request) co
   ss << "/types/";
   ss << request.GetTypeName();
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateTypeOutcome(UpdateTypeResult(outcome.GetResult()));

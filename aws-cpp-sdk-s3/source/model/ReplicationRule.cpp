@@ -38,6 +38,7 @@ ReplicationRule::ReplicationRule() :
     m_status(ReplicationRuleStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_sourceSelectionCriteriaHasBeenSet(false),
+    m_existingObjectReplicationHasBeenSet(false),
     m_destinationHasBeenSet(false),
     m_deleteMarkerReplicationHasBeenSet(false)
 {
@@ -51,6 +52,7 @@ ReplicationRule::ReplicationRule(const XmlNode& xmlNode) :
     m_status(ReplicationRuleStatus::NOT_SET),
     m_statusHasBeenSet(false),
     m_sourceSelectionCriteriaHasBeenSet(false),
+    m_existingObjectReplicationHasBeenSet(false),
     m_destinationHasBeenSet(false),
     m_deleteMarkerReplicationHasBeenSet(false)
 {
@@ -66,13 +68,13 @@ ReplicationRule& ReplicationRule::operator =(const XmlNode& xmlNode)
     XmlNode iDNode = resultNode.FirstChild("ID");
     if(!iDNode.IsNull())
     {
-      m_iD = iDNode.GetText();
+      m_iD = Aws::Utils::Xml::DecodeEscapedXmlText(iDNode.GetText());
       m_iDHasBeenSet = true;
     }
     XmlNode priorityNode = resultNode.FirstChild("Priority");
     if(!priorityNode.IsNull())
     {
-      m_priority = StringUtils::ConvertToInt32(StringUtils::Trim(priorityNode.GetText().c_str()).c_str());
+      m_priority = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(priorityNode.GetText()).c_str()).c_str());
       m_priorityHasBeenSet = true;
     }
     XmlNode filterNode = resultNode.FirstChild("Filter");
@@ -84,7 +86,7 @@ ReplicationRule& ReplicationRule::operator =(const XmlNode& xmlNode)
     XmlNode statusNode = resultNode.FirstChild("Status");
     if(!statusNode.IsNull())
     {
-      m_status = ReplicationRuleStatusMapper::GetReplicationRuleStatusForName(StringUtils::Trim(statusNode.GetText().c_str()).c_str());
+      m_status = ReplicationRuleStatusMapper::GetReplicationRuleStatusForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(statusNode.GetText()).c_str()).c_str());
       m_statusHasBeenSet = true;
     }
     XmlNode sourceSelectionCriteriaNode = resultNode.FirstChild("SourceSelectionCriteria");
@@ -92,6 +94,12 @@ ReplicationRule& ReplicationRule::operator =(const XmlNode& xmlNode)
     {
       m_sourceSelectionCriteria = sourceSelectionCriteriaNode;
       m_sourceSelectionCriteriaHasBeenSet = true;
+    }
+    XmlNode existingObjectReplicationNode = resultNode.FirstChild("ExistingObjectReplication");
+    if(!existingObjectReplicationNode.IsNull())
+    {
+      m_existingObjectReplication = existingObjectReplicationNode;
+      m_existingObjectReplicationHasBeenSet = true;
     }
     XmlNode destinationNode = resultNode.FirstChild("Destination");
     if(!destinationNode.IsNull())
@@ -143,6 +151,12 @@ void ReplicationRule::AddToNode(XmlNode& parentNode) const
   {
    XmlNode sourceSelectionCriteriaNode = parentNode.CreateChildElement("SourceSelectionCriteria");
    m_sourceSelectionCriteria.AddToNode(sourceSelectionCriteriaNode);
+  }
+
+  if(m_existingObjectReplicationHasBeenSet)
+  {
+   XmlNode existingObjectReplicationNode = parentNode.CreateChildElement("ExistingObjectReplication");
+   m_existingObjectReplication.AddToNode(existingObjectReplicationNode);
   }
 
   if(m_destinationHasBeenSet)

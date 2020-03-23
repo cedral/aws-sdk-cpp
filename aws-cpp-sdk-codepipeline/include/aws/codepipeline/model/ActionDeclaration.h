@@ -95,32 +95,32 @@ namespace Model
 
 
     /**
-     * <p>The configuration information for the action type.</p>
+     * <p>Specifies the action type and the provider of the action.</p>
      */
     inline const ActionTypeId& GetActionTypeId() const{ return m_actionTypeId; }
 
     /**
-     * <p>The configuration information for the action type.</p>
+     * <p>Specifies the action type and the provider of the action.</p>
      */
     inline bool ActionTypeIdHasBeenSet() const { return m_actionTypeIdHasBeenSet; }
 
     /**
-     * <p>The configuration information for the action type.</p>
+     * <p>Specifies the action type and the provider of the action.</p>
      */
     inline void SetActionTypeId(const ActionTypeId& value) { m_actionTypeIdHasBeenSet = true; m_actionTypeId = value; }
 
     /**
-     * <p>The configuration information for the action type.</p>
+     * <p>Specifies the action type and the provider of the action.</p>
      */
     inline void SetActionTypeId(ActionTypeId&& value) { m_actionTypeIdHasBeenSet = true; m_actionTypeId = std::move(value); }
 
     /**
-     * <p>The configuration information for the action type.</p>
+     * <p>Specifies the action type and the provider of the action.</p>
      */
     inline ActionDeclaration& WithActionTypeId(const ActionTypeId& value) { SetActionTypeId(value); return *this;}
 
     /**
-     * <p>The configuration information for the action type.</p>
+     * <p>Specifies the action type and the provider of the action.</p>
      */
     inline ActionDeclaration& WithActionTypeId(ActionTypeId&& value) { SetActionTypeId(std::move(value)); return *this;}
 
@@ -147,67 +147,236 @@ namespace Model
 
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetConfiguration() const{ return m_configuration; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline bool ConfigurationHasBeenSet() const { return m_configurationHasBeenSet; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline void SetConfiguration(const Aws::Map<Aws::String, Aws::String>& value) { m_configurationHasBeenSet = true; m_configuration = value; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline void SetConfiguration(Aws::Map<Aws::String, Aws::String>&& value) { m_configurationHasBeenSet = true; m_configuration = std::move(value); }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& WithConfiguration(const Aws::Map<Aws::String, Aws::String>& value) { SetConfiguration(value); return *this;}
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& WithConfiguration(Aws::Map<Aws::String, Aws::String>&& value) { SetConfiguration(std::move(value)); return *this;}
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& AddConfiguration(const Aws::String& key, const Aws::String& value) { m_configurationHasBeenSet = true; m_configuration.emplace(key, value); return *this; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& AddConfiguration(Aws::String&& key, const Aws::String& value) { m_configurationHasBeenSet = true; m_configuration.emplace(std::move(key), value); return *this; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& AddConfiguration(const Aws::String& key, Aws::String&& value) { m_configurationHasBeenSet = true; m_configuration.emplace(key, std::move(value)); return *this; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& AddConfiguration(Aws::String&& key, Aws::String&& value) { m_configurationHasBeenSet = true; m_configuration.emplace(std::move(key), std::move(value)); return *this; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& AddConfiguration(const char* key, Aws::String&& value) { m_configurationHasBeenSet = true; m_configuration.emplace(key, std::move(value)); return *this; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& AddConfiguration(Aws::String&& key, const char* value) { m_configurationHasBeenSet = true; m_configuration.emplace(std::move(key), value); return *this; }
 
     /**
-     * <p>The action declaration's configuration.</p>
+     * <p>The action's configuration. These are key-value pairs that specify input
+     * values for an action. For more information, see <a
+     * href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements">Action
+     * Structure Requirements in CodePipeline</a>. For the list of configuration
+     * properties for the AWS CloudFormation action type in CodePipeline, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-action-reference.html">Configuration
+     * Properties Reference</a> in the <i>AWS CloudFormation User Guide</i>. For
+     * template snippets with examples, see <a
+     * href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-parameter-override-functions.html">Using
+     * Parameter Override Functions with CodePipeline Pipelines</a> in the <i>AWS
+     * CloudFormation User Guide</i>.</p> <p>The values can be represented in either
+     * JSON or YAML format. For example, the JSON configuration item format is as
+     * follows: </p> <p> <i>JSON:</i> </p> <p> <code>"Configuration" : { Key : Value
+     * },</code> </p>
      */
     inline ActionDeclaration& AddConfiguration(const char* key, const char* value) { m_configurationHasBeenSet = true; m_configuration.emplace(key, value); return *this; }
 
@@ -311,50 +480,50 @@ namespace Model
 
 
     /**
-     * <p>The ARN of the IAM service role that will perform the declared action. This
-     * is assumed through the roleArn for the pipeline.</p>
+     * <p>The ARN of the IAM service role that performs the declared action. This is
+     * assumed through the roleArn for the pipeline.</p>
      */
     inline const Aws::String& GetRoleArn() const{ return m_roleArn; }
 
     /**
-     * <p>The ARN of the IAM service role that will perform the declared action. This
-     * is assumed through the roleArn for the pipeline.</p>
+     * <p>The ARN of the IAM service role that performs the declared action. This is
+     * assumed through the roleArn for the pipeline.</p>
      */
     inline bool RoleArnHasBeenSet() const { return m_roleArnHasBeenSet; }
 
     /**
-     * <p>The ARN of the IAM service role that will perform the declared action. This
-     * is assumed through the roleArn for the pipeline.</p>
+     * <p>The ARN of the IAM service role that performs the declared action. This is
+     * assumed through the roleArn for the pipeline.</p>
      */
     inline void SetRoleArn(const Aws::String& value) { m_roleArnHasBeenSet = true; m_roleArn = value; }
 
     /**
-     * <p>The ARN of the IAM service role that will perform the declared action. This
-     * is assumed through the roleArn for the pipeline.</p>
+     * <p>The ARN of the IAM service role that performs the declared action. This is
+     * assumed through the roleArn for the pipeline.</p>
      */
     inline void SetRoleArn(Aws::String&& value) { m_roleArnHasBeenSet = true; m_roleArn = std::move(value); }
 
     /**
-     * <p>The ARN of the IAM service role that will perform the declared action. This
-     * is assumed through the roleArn for the pipeline.</p>
+     * <p>The ARN of the IAM service role that performs the declared action. This is
+     * assumed through the roleArn for the pipeline.</p>
      */
     inline void SetRoleArn(const char* value) { m_roleArnHasBeenSet = true; m_roleArn.assign(value); }
 
     /**
-     * <p>The ARN of the IAM service role that will perform the declared action. This
-     * is assumed through the roleArn for the pipeline.</p>
+     * <p>The ARN of the IAM service role that performs the declared action. This is
+     * assumed through the roleArn for the pipeline.</p>
      */
     inline ActionDeclaration& WithRoleArn(const Aws::String& value) { SetRoleArn(value); return *this;}
 
     /**
-     * <p>The ARN of the IAM service role that will perform the declared action. This
-     * is assumed through the roleArn for the pipeline.</p>
+     * <p>The ARN of the IAM service role that performs the declared action. This is
+     * assumed through the roleArn for the pipeline.</p>
      */
     inline ActionDeclaration& WithRoleArn(Aws::String&& value) { SetRoleArn(std::move(value)); return *this;}
 
     /**
-     * <p>The ARN of the IAM service role that will perform the declared action. This
-     * is assumed through the roleArn for the pipeline.</p>
+     * <p>The ARN of the IAM service role that performs the declared action. This is
+     * assumed through the roleArn for the pipeline.</p>
      */
     inline ActionDeclaration& WithRoleArn(const char* value) { SetRoleArn(value); return *this;}
 
@@ -399,6 +568,55 @@ namespace Model
      */
     inline ActionDeclaration& WithRegion(const char* value) { SetRegion(value); return *this;}
 
+
+    /**
+     * <p>The variable namespace associated with the action. All variables produced as
+     * output by this action fall under this namespace.</p>
+     */
+    inline const Aws::String& GetNamespace() const{ return m_namespace; }
+
+    /**
+     * <p>The variable namespace associated with the action. All variables produced as
+     * output by this action fall under this namespace.</p>
+     */
+    inline bool NamespaceHasBeenSet() const { return m_namespaceHasBeenSet; }
+
+    /**
+     * <p>The variable namespace associated with the action. All variables produced as
+     * output by this action fall under this namespace.</p>
+     */
+    inline void SetNamespace(const Aws::String& value) { m_namespaceHasBeenSet = true; m_namespace = value; }
+
+    /**
+     * <p>The variable namespace associated with the action. All variables produced as
+     * output by this action fall under this namespace.</p>
+     */
+    inline void SetNamespace(Aws::String&& value) { m_namespaceHasBeenSet = true; m_namespace = std::move(value); }
+
+    /**
+     * <p>The variable namespace associated with the action. All variables produced as
+     * output by this action fall under this namespace.</p>
+     */
+    inline void SetNamespace(const char* value) { m_namespaceHasBeenSet = true; m_namespace.assign(value); }
+
+    /**
+     * <p>The variable namespace associated with the action. All variables produced as
+     * output by this action fall under this namespace.</p>
+     */
+    inline ActionDeclaration& WithNamespace(const Aws::String& value) { SetNamespace(value); return *this;}
+
+    /**
+     * <p>The variable namespace associated with the action. All variables produced as
+     * output by this action fall under this namespace.</p>
+     */
+    inline ActionDeclaration& WithNamespace(Aws::String&& value) { SetNamespace(std::move(value)); return *this;}
+
+    /**
+     * <p>The variable namespace associated with the action. All variables produced as
+     * output by this action fall under this namespace.</p>
+     */
+    inline ActionDeclaration& WithNamespace(const char* value) { SetNamespace(value); return *this;}
+
   private:
 
     Aws::String m_name;
@@ -424,6 +642,9 @@ namespace Model
 
     Aws::String m_region;
     bool m_regionHasBeenSet;
+
+    Aws::String m_namespace;
+    bool m_namespaceHasBeenSet;
   };
 
 } // namespace Model

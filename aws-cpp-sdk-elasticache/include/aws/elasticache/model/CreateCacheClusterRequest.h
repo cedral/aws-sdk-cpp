@@ -56,7 +56,7 @@ namespace Model
     /**
      * <p>The node group (shard) identifier. This parameter is stored as a lowercase
      * string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1
-     * to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
+     * to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
      * must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain
      * two consecutive hyphens.</p> </li> </ul>
      */
@@ -65,7 +65,7 @@ namespace Model
     /**
      * <p>The node group (shard) identifier. This parameter is stored as a lowercase
      * string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1
-     * to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
+     * to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
      * must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain
      * two consecutive hyphens.</p> </li> </ul>
      */
@@ -74,7 +74,7 @@ namespace Model
     /**
      * <p>The node group (shard) identifier. This parameter is stored as a lowercase
      * string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1
-     * to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
+     * to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
      * must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain
      * two consecutive hyphens.</p> </li> </ul>
      */
@@ -83,7 +83,7 @@ namespace Model
     /**
      * <p>The node group (shard) identifier. This parameter is stored as a lowercase
      * string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1
-     * to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
+     * to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
      * must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain
      * two consecutive hyphens.</p> </li> </ul>
      */
@@ -92,7 +92,7 @@ namespace Model
     /**
      * <p>The node group (shard) identifier. This parameter is stored as a lowercase
      * string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1
-     * to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
+     * to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
      * must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain
      * two consecutive hyphens.</p> </li> </ul>
      */
@@ -101,7 +101,7 @@ namespace Model
     /**
      * <p>The node group (shard) identifier. This parameter is stored as a lowercase
      * string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1
-     * to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
+     * to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
      * must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain
      * two consecutive hyphens.</p> </li> </ul>
      */
@@ -110,7 +110,7 @@ namespace Model
     /**
      * <p>The node group (shard) identifier. This parameter is stored as a lowercase
      * string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1
-     * to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
+     * to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
      * must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain
      * two consecutive hyphens.</p> </li> </ul>
      */
@@ -119,7 +119,7 @@ namespace Model
     /**
      * <p>The node group (shard) identifier. This parameter is stored as a lowercase
      * string.</p> <p> <b>Constraints:</b> </p> <ul> <li> <p>A name must contain from 1
-     * to 20 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
+     * to 50 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character
      * must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain
      * two consecutive hyphens.</p> </li> </ul>
      */
@@ -531,7 +531,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -577,7 +579,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -623,7 +627,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -669,7 +675,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -715,7 +723,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -761,7 +771,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -807,7 +819,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -853,7 +867,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -1867,8 +1883,9 @@ namespace Model
      * <p> <b>Reserved parameter.</b> The password used to access a password protected
      * server.</p> <p>Password constraints:</p> <ul> <li> <p>Must be only printable
      * ASCII characters.</p> </li> <li> <p>Must be at least 16 characters and no more
-     * than 128 characters in length.</p> </li> <li> <p>Cannot contain any of the
-     * following characters: '/', '"', or '@'. </p> </li> </ul> <p>For more
+     * than 128 characters in length.</p> </li> <li> <p>The only permitted printable
+     * special characters are !, &amp;, #, $, ^, &lt;, &gt;, and -. Other printable
+     * special characters cannot be used in the AUTH token.</p> </li> </ul> <p>For more
      * information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at
      * http://redis.io/commands/AUTH.</p>
      */
@@ -1878,8 +1895,9 @@ namespace Model
      * <p> <b>Reserved parameter.</b> The password used to access a password protected
      * server.</p> <p>Password constraints:</p> <ul> <li> <p>Must be only printable
      * ASCII characters.</p> </li> <li> <p>Must be at least 16 characters and no more
-     * than 128 characters in length.</p> </li> <li> <p>Cannot contain any of the
-     * following characters: '/', '"', or '@'. </p> </li> </ul> <p>For more
+     * than 128 characters in length.</p> </li> <li> <p>The only permitted printable
+     * special characters are !, &amp;, #, $, ^, &lt;, &gt;, and -. Other printable
+     * special characters cannot be used in the AUTH token.</p> </li> </ul> <p>For more
      * information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at
      * http://redis.io/commands/AUTH.</p>
      */
@@ -1889,8 +1907,9 @@ namespace Model
      * <p> <b>Reserved parameter.</b> The password used to access a password protected
      * server.</p> <p>Password constraints:</p> <ul> <li> <p>Must be only printable
      * ASCII characters.</p> </li> <li> <p>Must be at least 16 characters and no more
-     * than 128 characters in length.</p> </li> <li> <p>Cannot contain any of the
-     * following characters: '/', '"', or '@'. </p> </li> </ul> <p>For more
+     * than 128 characters in length.</p> </li> <li> <p>The only permitted printable
+     * special characters are !, &amp;, #, $, ^, &lt;, &gt;, and -. Other printable
+     * special characters cannot be used in the AUTH token.</p> </li> </ul> <p>For more
      * information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at
      * http://redis.io/commands/AUTH.</p>
      */
@@ -1900,8 +1919,9 @@ namespace Model
      * <p> <b>Reserved parameter.</b> The password used to access a password protected
      * server.</p> <p>Password constraints:</p> <ul> <li> <p>Must be only printable
      * ASCII characters.</p> </li> <li> <p>Must be at least 16 characters and no more
-     * than 128 characters in length.</p> </li> <li> <p>Cannot contain any of the
-     * following characters: '/', '"', or '@'. </p> </li> </ul> <p>For more
+     * than 128 characters in length.</p> </li> <li> <p>The only permitted printable
+     * special characters are !, &amp;, #, $, ^, &lt;, &gt;, and -. Other printable
+     * special characters cannot be used in the AUTH token.</p> </li> </ul> <p>For more
      * information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at
      * http://redis.io/commands/AUTH.</p>
      */
@@ -1911,8 +1931,9 @@ namespace Model
      * <p> <b>Reserved parameter.</b> The password used to access a password protected
      * server.</p> <p>Password constraints:</p> <ul> <li> <p>Must be only printable
      * ASCII characters.</p> </li> <li> <p>Must be at least 16 characters and no more
-     * than 128 characters in length.</p> </li> <li> <p>Cannot contain any of the
-     * following characters: '/', '"', or '@'. </p> </li> </ul> <p>For more
+     * than 128 characters in length.</p> </li> <li> <p>The only permitted printable
+     * special characters are !, &amp;, #, $, ^, &lt;, &gt;, and -. Other printable
+     * special characters cannot be used in the AUTH token.</p> </li> </ul> <p>For more
      * information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at
      * http://redis.io/commands/AUTH.</p>
      */
@@ -1922,8 +1943,9 @@ namespace Model
      * <p> <b>Reserved parameter.</b> The password used to access a password protected
      * server.</p> <p>Password constraints:</p> <ul> <li> <p>Must be only printable
      * ASCII characters.</p> </li> <li> <p>Must be at least 16 characters and no more
-     * than 128 characters in length.</p> </li> <li> <p>Cannot contain any of the
-     * following characters: '/', '"', or '@'. </p> </li> </ul> <p>For more
+     * than 128 characters in length.</p> </li> <li> <p>The only permitted printable
+     * special characters are !, &amp;, #, $, ^, &lt;, &gt;, and -. Other printable
+     * special characters cannot be used in the AUTH token.</p> </li> </ul> <p>For more
      * information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at
      * http://redis.io/commands/AUTH.</p>
      */
@@ -1933,8 +1955,9 @@ namespace Model
      * <p> <b>Reserved parameter.</b> The password used to access a password protected
      * server.</p> <p>Password constraints:</p> <ul> <li> <p>Must be only printable
      * ASCII characters.</p> </li> <li> <p>Must be at least 16 characters and no more
-     * than 128 characters in length.</p> </li> <li> <p>Cannot contain any of the
-     * following characters: '/', '"', or '@'. </p> </li> </ul> <p>For more
+     * than 128 characters in length.</p> </li> <li> <p>The only permitted printable
+     * special characters are !, &amp;, #, $, ^, &lt;, &gt;, and -. Other printable
+     * special characters cannot be used in the AUTH token.</p> </li> </ul> <p>For more
      * information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at
      * http://redis.io/commands/AUTH.</p>
      */
@@ -1944,8 +1967,9 @@ namespace Model
      * <p> <b>Reserved parameter.</b> The password used to access a password protected
      * server.</p> <p>Password constraints:</p> <ul> <li> <p>Must be only printable
      * ASCII characters.</p> </li> <li> <p>Must be at least 16 characters and no more
-     * than 128 characters in length.</p> </li> <li> <p>Cannot contain any of the
-     * following characters: '/', '"', or '@'. </p> </li> </ul> <p>For more
+     * than 128 characters in length.</p> </li> <li> <p>The only permitted printable
+     * special characters are !, &amp;, #, $, ^, &lt;, &gt;, and -. Other printable
+     * special characters cannot be used in the AUTH token.</p> </li> </ul> <p>For more
      * information, see <a href="http://redis.io/commands/AUTH">AUTH password</a> at
      * http://redis.io/commands/AUTH.</p>
      */

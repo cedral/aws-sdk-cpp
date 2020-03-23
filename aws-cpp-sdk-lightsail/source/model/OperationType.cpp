@@ -75,6 +75,16 @@ namespace Aws
         static const int StartRelationalDatabase_HASH = HashingUtils::HashString("StartRelationalDatabase");
         static const int RebootRelationalDatabase_HASH = HashingUtils::HashString("RebootRelationalDatabase");
         static const int StopRelationalDatabase_HASH = HashingUtils::HashString("StopRelationalDatabase");
+        static const int EnableAddOn_HASH = HashingUtils::HashString("EnableAddOn");
+        static const int DisableAddOn_HASH = HashingUtils::HashString("DisableAddOn");
+        static const int PutAlarm_HASH = HashingUtils::HashString("PutAlarm");
+        static const int GetAlarms_HASH = HashingUtils::HashString("GetAlarms");
+        static const int DeleteAlarm_HASH = HashingUtils::HashString("DeleteAlarm");
+        static const int TestAlarm_HASH = HashingUtils::HashString("TestAlarm");
+        static const int CreateContactMethod_HASH = HashingUtils::HashString("CreateContactMethod");
+        static const int GetContactMethods_HASH = HashingUtils::HashString("GetContactMethods");
+        static const int SendContactMethodVerification_HASH = HashingUtils::HashString("SendContactMethodVerification");
+        static const int DeleteContactMethod_HASH = HashingUtils::HashString("DeleteContactMethod");
 
 
         OperationType GetOperationTypeForName(const Aws::String& name)
@@ -260,6 +270,46 @@ namespace Aws
           {
             return OperationType::StopRelationalDatabase;
           }
+          else if (hashCode == EnableAddOn_HASH)
+          {
+            return OperationType::EnableAddOn;
+          }
+          else if (hashCode == DisableAddOn_HASH)
+          {
+            return OperationType::DisableAddOn;
+          }
+          else if (hashCode == PutAlarm_HASH)
+          {
+            return OperationType::PutAlarm;
+          }
+          else if (hashCode == GetAlarms_HASH)
+          {
+            return OperationType::GetAlarms;
+          }
+          else if (hashCode == DeleteAlarm_HASH)
+          {
+            return OperationType::DeleteAlarm;
+          }
+          else if (hashCode == TestAlarm_HASH)
+          {
+            return OperationType::TestAlarm;
+          }
+          else if (hashCode == CreateContactMethod_HASH)
+          {
+            return OperationType::CreateContactMethod;
+          }
+          else if (hashCode == GetContactMethods_HASH)
+          {
+            return OperationType::GetContactMethods;
+          }
+          else if (hashCode == SendContactMethodVerification_HASH)
+          {
+            return OperationType::SendContactMethodVerification;
+          }
+          else if (hashCode == DeleteContactMethod_HASH)
+          {
+            return OperationType::DeleteContactMethod;
+          }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
           {
@@ -364,6 +414,26 @@ namespace Aws
             return "RebootRelationalDatabase";
           case OperationType::StopRelationalDatabase:
             return "StopRelationalDatabase";
+          case OperationType::EnableAddOn:
+            return "EnableAddOn";
+          case OperationType::DisableAddOn:
+            return "DisableAddOn";
+          case OperationType::PutAlarm:
+            return "PutAlarm";
+          case OperationType::GetAlarms:
+            return "GetAlarms";
+          case OperationType::DeleteAlarm:
+            return "DeleteAlarm";
+          case OperationType::TestAlarm:
+            return "TestAlarm";
+          case OperationType::CreateContactMethod:
+            return "CreateContactMethod";
+          case OperationType::GetContactMethods:
+            return "GetContactMethods";
+          case OperationType::SendContactMethodVerification:
+            return "SendContactMethodVerification";
+          case OperationType::DeleteContactMethod:
+            return "DeleteContactMethod";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

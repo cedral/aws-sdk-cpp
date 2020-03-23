@@ -33,14 +33,18 @@ namespace Model
 CacheParameterGroup::CacheParameterGroup() : 
     m_cacheParameterGroupNameHasBeenSet(false),
     m_cacheParameterGroupFamilyHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_descriptionHasBeenSet(false),
+    m_isGlobal(false),
+    m_isGlobalHasBeenSet(false)
 {
 }
 
 CacheParameterGroup::CacheParameterGroup(const XmlNode& xmlNode) : 
     m_cacheParameterGroupNameHasBeenSet(false),
     m_cacheParameterGroupFamilyHasBeenSet(false),
-    m_descriptionHasBeenSet(false)
+    m_descriptionHasBeenSet(false),
+    m_isGlobal(false),
+    m_isGlobalHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -54,20 +58,26 @@ CacheParameterGroup& CacheParameterGroup::operator =(const XmlNode& xmlNode)
     XmlNode cacheParameterGroupNameNode = resultNode.FirstChild("CacheParameterGroupName");
     if(!cacheParameterGroupNameNode.IsNull())
     {
-      m_cacheParameterGroupName = cacheParameterGroupNameNode.GetText();
+      m_cacheParameterGroupName = Aws::Utils::Xml::DecodeEscapedXmlText(cacheParameterGroupNameNode.GetText());
       m_cacheParameterGroupNameHasBeenSet = true;
     }
     XmlNode cacheParameterGroupFamilyNode = resultNode.FirstChild("CacheParameterGroupFamily");
     if(!cacheParameterGroupFamilyNode.IsNull())
     {
-      m_cacheParameterGroupFamily = cacheParameterGroupFamilyNode.GetText();
+      m_cacheParameterGroupFamily = Aws::Utils::Xml::DecodeEscapedXmlText(cacheParameterGroupFamilyNode.GetText());
       m_cacheParameterGroupFamilyHasBeenSet = true;
     }
     XmlNode descriptionNode = resultNode.FirstChild("Description");
     if(!descriptionNode.IsNull())
     {
-      m_description = descriptionNode.GetText();
+      m_description = Aws::Utils::Xml::DecodeEscapedXmlText(descriptionNode.GetText());
       m_descriptionHasBeenSet = true;
+    }
+    XmlNode isGlobalNode = resultNode.FirstChild("IsGlobal");
+    if(!isGlobalNode.IsNull())
+    {
+      m_isGlobal = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(isGlobalNode.GetText()).c_str()).c_str());
+      m_isGlobalHasBeenSet = true;
     }
   }
 
@@ -91,6 +101,11 @@ void CacheParameterGroup::OutputToStream(Aws::OStream& oStream, const char* loca
       oStream << location << index << locationValue << ".Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
   }
 
+  if(m_isGlobalHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".IsGlobal=" << std::boolalpha << m_isGlobal << "&";
+  }
+
 }
 
 void CacheParameterGroup::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -106,6 +121,10 @@ void CacheParameterGroup::OutputToStream(Aws::OStream& oStream, const char* loca
   if(m_descriptionHasBeenSet)
   {
       oStream << location << ".Description=" << StringUtils::URLEncode(m_description.c_str()) << "&";
+  }
+  if(m_isGlobalHasBeenSet)
+  {
+      oStream << location << ".IsGlobal=" << std::boolalpha << m_isGlobal << "&";
   }
 }
 

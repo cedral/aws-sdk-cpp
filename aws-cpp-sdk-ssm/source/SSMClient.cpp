@@ -87,6 +87,7 @@
 #include <aws/ssm/model/DescribePatchPropertiesRequest.h>
 #include <aws/ssm/model/DescribeSessionsRequest.h>
 #include <aws/ssm/model/GetAutomationExecutionRequest.h>
+#include <aws/ssm/model/GetCalendarStateRequest.h>
 #include <aws/ssm/model/GetCommandInvocationRequest.h>
 #include <aws/ssm/model/GetConnectionStatusRequest.h>
 #include <aws/ssm/model/GetDefaultPatchBaselineRequest.h>
@@ -149,6 +150,7 @@
 #include <aws/ssm/model/UpdateManagedInstanceRoleRequest.h>
 #include <aws/ssm/model/UpdateOpsItemRequest.h>
 #include <aws/ssm/model/UpdatePatchBaselineRequest.h>
+#include <aws/ssm/model/UpdateResourceDataSyncRequest.h>
 #include <aws/ssm/model/UpdateServiceSettingRequest.h>
 
 using namespace Aws;
@@ -229,7 +231,7 @@ AddTagsToResourceOutcome SSMClient::AddTagsToResource(const AddTagsToResourceReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return AddTagsToResourceOutcome(AddTagsToResourceResult(outcome.GetResult()));
@@ -264,7 +266,7 @@ CancelCommandOutcome SSMClient::CancelCommand(const CancelCommandRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelCommandOutcome(CancelCommandResult(outcome.GetResult()));
@@ -299,7 +301,7 @@ CancelMaintenanceWindowExecutionOutcome SSMClient::CancelMaintenanceWindowExecut
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelMaintenanceWindowExecutionOutcome(CancelMaintenanceWindowExecutionResult(outcome.GetResult()));
@@ -334,7 +336,7 @@ CreateActivationOutcome SSMClient::CreateActivation(const CreateActivationReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateActivationOutcome(CreateActivationResult(outcome.GetResult()));
@@ -369,7 +371,7 @@ CreateAssociationOutcome SSMClient::CreateAssociation(const CreateAssociationReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAssociationOutcome(CreateAssociationResult(outcome.GetResult()));
@@ -404,7 +406,7 @@ CreateAssociationBatchOutcome SSMClient::CreateAssociationBatch(const CreateAsso
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAssociationBatchOutcome(CreateAssociationBatchResult(outcome.GetResult()));
@@ -439,7 +441,7 @@ CreateDocumentOutcome SSMClient::CreateDocument(const CreateDocumentRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDocumentOutcome(CreateDocumentResult(outcome.GetResult()));
@@ -474,7 +476,7 @@ CreateMaintenanceWindowOutcome SSMClient::CreateMaintenanceWindow(const CreateMa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateMaintenanceWindowOutcome(CreateMaintenanceWindowResult(outcome.GetResult()));
@@ -509,7 +511,7 @@ CreateOpsItemOutcome SSMClient::CreateOpsItem(const CreateOpsItemRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateOpsItemOutcome(CreateOpsItemResult(outcome.GetResult()));
@@ -544,7 +546,7 @@ CreatePatchBaselineOutcome SSMClient::CreatePatchBaseline(const CreatePatchBasel
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreatePatchBaselineOutcome(CreatePatchBaselineResult(outcome.GetResult()));
@@ -579,7 +581,7 @@ CreateResourceDataSyncOutcome SSMClient::CreateResourceDataSync(const CreateReso
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateResourceDataSyncOutcome(CreateResourceDataSyncResult(outcome.GetResult()));
@@ -614,7 +616,7 @@ DeleteActivationOutcome SSMClient::DeleteActivation(const DeleteActivationReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteActivationOutcome(DeleteActivationResult(outcome.GetResult()));
@@ -649,7 +651,7 @@ DeleteAssociationOutcome SSMClient::DeleteAssociation(const DeleteAssociationReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAssociationOutcome(DeleteAssociationResult(outcome.GetResult()));
@@ -684,7 +686,7 @@ DeleteDocumentOutcome SSMClient::DeleteDocument(const DeleteDocumentRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDocumentOutcome(DeleteDocumentResult(outcome.GetResult()));
@@ -719,7 +721,7 @@ DeleteInventoryOutcome SSMClient::DeleteInventory(const DeleteInventoryRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteInventoryOutcome(DeleteInventoryResult(outcome.GetResult()));
@@ -754,7 +756,7 @@ DeleteMaintenanceWindowOutcome SSMClient::DeleteMaintenanceWindow(const DeleteMa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteMaintenanceWindowOutcome(DeleteMaintenanceWindowResult(outcome.GetResult()));
@@ -789,7 +791,7 @@ DeleteParameterOutcome SSMClient::DeleteParameter(const DeleteParameterRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteParameterOutcome(DeleteParameterResult(outcome.GetResult()));
@@ -824,7 +826,7 @@ DeleteParametersOutcome SSMClient::DeleteParameters(const DeleteParametersReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteParametersOutcome(DeleteParametersResult(outcome.GetResult()));
@@ -859,7 +861,7 @@ DeletePatchBaselineOutcome SSMClient::DeletePatchBaseline(const DeletePatchBasel
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeletePatchBaselineOutcome(DeletePatchBaselineResult(outcome.GetResult()));
@@ -894,7 +896,7 @@ DeleteResourceDataSyncOutcome SSMClient::DeleteResourceDataSync(const DeleteReso
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteResourceDataSyncOutcome(DeleteResourceDataSyncResult(outcome.GetResult()));
@@ -929,7 +931,7 @@ DeregisterManagedInstanceOutcome SSMClient::DeregisterManagedInstance(const Dere
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeregisterManagedInstanceOutcome(DeregisterManagedInstanceResult(outcome.GetResult()));
@@ -964,7 +966,7 @@ DeregisterPatchBaselineForPatchGroupOutcome SSMClient::DeregisterPatchBaselineFo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeregisterPatchBaselineForPatchGroupOutcome(DeregisterPatchBaselineForPatchGroupResult(outcome.GetResult()));
@@ -999,7 +1001,7 @@ DeregisterTargetFromMaintenanceWindowOutcome SSMClient::DeregisterTargetFromMain
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeregisterTargetFromMaintenanceWindowOutcome(DeregisterTargetFromMaintenanceWindowResult(outcome.GetResult()));
@@ -1034,7 +1036,7 @@ DeregisterTaskFromMaintenanceWindowOutcome SSMClient::DeregisterTaskFromMaintena
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeregisterTaskFromMaintenanceWindowOutcome(DeregisterTaskFromMaintenanceWindowResult(outcome.GetResult()));
@@ -1069,7 +1071,7 @@ DescribeActivationsOutcome SSMClient::DescribeActivations(const DescribeActivati
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeActivationsOutcome(DescribeActivationsResult(outcome.GetResult()));
@@ -1104,7 +1106,7 @@ DescribeAssociationOutcome SSMClient::DescribeAssociation(const DescribeAssociat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAssociationOutcome(DescribeAssociationResult(outcome.GetResult()));
@@ -1139,7 +1141,7 @@ DescribeAssociationExecutionTargetsOutcome SSMClient::DescribeAssociationExecuti
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAssociationExecutionTargetsOutcome(DescribeAssociationExecutionTargetsResult(outcome.GetResult()));
@@ -1174,7 +1176,7 @@ DescribeAssociationExecutionsOutcome SSMClient::DescribeAssociationExecutions(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAssociationExecutionsOutcome(DescribeAssociationExecutionsResult(outcome.GetResult()));
@@ -1209,7 +1211,7 @@ DescribeAutomationExecutionsOutcome SSMClient::DescribeAutomationExecutions(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAutomationExecutionsOutcome(DescribeAutomationExecutionsResult(outcome.GetResult()));
@@ -1244,7 +1246,7 @@ DescribeAutomationStepExecutionsOutcome SSMClient::DescribeAutomationStepExecuti
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAutomationStepExecutionsOutcome(DescribeAutomationStepExecutionsResult(outcome.GetResult()));
@@ -1279,7 +1281,7 @@ DescribeAvailablePatchesOutcome SSMClient::DescribeAvailablePatches(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeAvailablePatchesOutcome(DescribeAvailablePatchesResult(outcome.GetResult()));
@@ -1314,7 +1316,7 @@ DescribeDocumentOutcome SSMClient::DescribeDocument(const DescribeDocumentReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDocumentOutcome(DescribeDocumentResult(outcome.GetResult()));
@@ -1349,7 +1351,7 @@ DescribeDocumentPermissionOutcome SSMClient::DescribeDocumentPermission(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeDocumentPermissionOutcome(DescribeDocumentPermissionResult(outcome.GetResult()));
@@ -1384,7 +1386,7 @@ DescribeEffectiveInstanceAssociationsOutcome SSMClient::DescribeEffectiveInstanc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEffectiveInstanceAssociationsOutcome(DescribeEffectiveInstanceAssociationsResult(outcome.GetResult()));
@@ -1419,7 +1421,7 @@ DescribeEffectivePatchesForPatchBaselineOutcome SSMClient::DescribeEffectivePatc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEffectivePatchesForPatchBaselineOutcome(DescribeEffectivePatchesForPatchBaselineResult(outcome.GetResult()));
@@ -1454,7 +1456,7 @@ DescribeInstanceAssociationsStatusOutcome SSMClient::DescribeInstanceAssociation
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeInstanceAssociationsStatusOutcome(DescribeInstanceAssociationsStatusResult(outcome.GetResult()));
@@ -1489,7 +1491,7 @@ DescribeInstanceInformationOutcome SSMClient::DescribeInstanceInformation(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeInstanceInformationOutcome(DescribeInstanceInformationResult(outcome.GetResult()));
@@ -1524,7 +1526,7 @@ DescribeInstancePatchStatesOutcome SSMClient::DescribeInstancePatchStates(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeInstancePatchStatesOutcome(DescribeInstancePatchStatesResult(outcome.GetResult()));
@@ -1559,7 +1561,7 @@ DescribeInstancePatchStatesForPatchGroupOutcome SSMClient::DescribeInstancePatch
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeInstancePatchStatesForPatchGroupOutcome(DescribeInstancePatchStatesForPatchGroupResult(outcome.GetResult()));
@@ -1594,7 +1596,7 @@ DescribeInstancePatchesOutcome SSMClient::DescribeInstancePatches(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeInstancePatchesOutcome(DescribeInstancePatchesResult(outcome.GetResult()));
@@ -1629,7 +1631,7 @@ DescribeInventoryDeletionsOutcome SSMClient::DescribeInventoryDeletions(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeInventoryDeletionsOutcome(DescribeInventoryDeletionsResult(outcome.GetResult()));
@@ -1664,7 +1666,7 @@ DescribeMaintenanceWindowExecutionTaskInvocationsOutcome SSMClient::DescribeMain
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMaintenanceWindowExecutionTaskInvocationsOutcome(DescribeMaintenanceWindowExecutionTaskInvocationsResult(outcome.GetResult()));
@@ -1699,7 +1701,7 @@ DescribeMaintenanceWindowExecutionTasksOutcome SSMClient::DescribeMaintenanceWin
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMaintenanceWindowExecutionTasksOutcome(DescribeMaintenanceWindowExecutionTasksResult(outcome.GetResult()));
@@ -1734,7 +1736,7 @@ DescribeMaintenanceWindowExecutionsOutcome SSMClient::DescribeMaintenanceWindowE
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMaintenanceWindowExecutionsOutcome(DescribeMaintenanceWindowExecutionsResult(outcome.GetResult()));
@@ -1769,7 +1771,7 @@ DescribeMaintenanceWindowScheduleOutcome SSMClient::DescribeMaintenanceWindowSch
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMaintenanceWindowScheduleOutcome(DescribeMaintenanceWindowScheduleResult(outcome.GetResult()));
@@ -1804,7 +1806,7 @@ DescribeMaintenanceWindowTargetsOutcome SSMClient::DescribeMaintenanceWindowTarg
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMaintenanceWindowTargetsOutcome(DescribeMaintenanceWindowTargetsResult(outcome.GetResult()));
@@ -1839,7 +1841,7 @@ DescribeMaintenanceWindowTasksOutcome SSMClient::DescribeMaintenanceWindowTasks(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMaintenanceWindowTasksOutcome(DescribeMaintenanceWindowTasksResult(outcome.GetResult()));
@@ -1874,7 +1876,7 @@ DescribeMaintenanceWindowsOutcome SSMClient::DescribeMaintenanceWindows(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMaintenanceWindowsOutcome(DescribeMaintenanceWindowsResult(outcome.GetResult()));
@@ -1909,7 +1911,7 @@ DescribeMaintenanceWindowsForTargetOutcome SSMClient::DescribeMaintenanceWindows
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeMaintenanceWindowsForTargetOutcome(DescribeMaintenanceWindowsForTargetResult(outcome.GetResult()));
@@ -1944,7 +1946,7 @@ DescribeOpsItemsOutcome SSMClient::DescribeOpsItems(const DescribeOpsItemsReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeOpsItemsOutcome(DescribeOpsItemsResult(outcome.GetResult()));
@@ -1979,7 +1981,7 @@ DescribeParametersOutcome SSMClient::DescribeParameters(const DescribeParameters
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeParametersOutcome(DescribeParametersResult(outcome.GetResult()));
@@ -2014,7 +2016,7 @@ DescribePatchBaselinesOutcome SSMClient::DescribePatchBaselines(const DescribePa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribePatchBaselinesOutcome(DescribePatchBaselinesResult(outcome.GetResult()));
@@ -2049,7 +2051,7 @@ DescribePatchGroupStateOutcome SSMClient::DescribePatchGroupState(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribePatchGroupStateOutcome(DescribePatchGroupStateResult(outcome.GetResult()));
@@ -2084,7 +2086,7 @@ DescribePatchGroupsOutcome SSMClient::DescribePatchGroups(const DescribePatchGro
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribePatchGroupsOutcome(DescribePatchGroupsResult(outcome.GetResult()));
@@ -2119,7 +2121,7 @@ DescribePatchPropertiesOutcome SSMClient::DescribePatchProperties(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribePatchPropertiesOutcome(DescribePatchPropertiesResult(outcome.GetResult()));
@@ -2154,7 +2156,7 @@ DescribeSessionsOutcome SSMClient::DescribeSessions(const DescribeSessionsReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeSessionsOutcome(DescribeSessionsResult(outcome.GetResult()));
@@ -2189,7 +2191,7 @@ GetAutomationExecutionOutcome SSMClient::GetAutomationExecution(const GetAutomat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAutomationExecutionOutcome(GetAutomationExecutionResult(outcome.GetResult()));
@@ -2218,13 +2220,48 @@ void SSMClient::GetAutomationExecutionAsyncHelper(const GetAutomationExecutionRe
   handler(this, request, GetAutomationExecution(request), context);
 }
 
+GetCalendarStateOutcome SSMClient::GetCalendarState(const GetCalendarStateRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetCalendarStateOutcome(GetCalendarStateResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetCalendarStateOutcome(outcome.GetError());
+  }
+}
+
+GetCalendarStateOutcomeCallable SSMClient::GetCalendarStateCallable(const GetCalendarStateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetCalendarStateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetCalendarState(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void SSMClient::GetCalendarStateAsync(const GetCalendarStateRequest& request, const GetCalendarStateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetCalendarStateAsyncHelper( request, handler, context ); } );
+}
+
+void SSMClient::GetCalendarStateAsyncHelper(const GetCalendarStateRequest& request, const GetCalendarStateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetCalendarState(request), context);
+}
+
 GetCommandInvocationOutcome SSMClient::GetCommandInvocation(const GetCommandInvocationRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCommandInvocationOutcome(GetCommandInvocationResult(outcome.GetResult()));
@@ -2259,7 +2296,7 @@ GetConnectionStatusOutcome SSMClient::GetConnectionStatus(const GetConnectionSta
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetConnectionStatusOutcome(GetConnectionStatusResult(outcome.GetResult()));
@@ -2294,7 +2331,7 @@ GetDefaultPatchBaselineOutcome SSMClient::GetDefaultPatchBaseline(const GetDefau
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDefaultPatchBaselineOutcome(GetDefaultPatchBaselineResult(outcome.GetResult()));
@@ -2329,7 +2366,7 @@ GetDeployablePatchSnapshotForInstanceOutcome SSMClient::GetDeployablePatchSnapsh
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDeployablePatchSnapshotForInstanceOutcome(GetDeployablePatchSnapshotForInstanceResult(outcome.GetResult()));
@@ -2364,7 +2401,7 @@ GetDocumentOutcome SSMClient::GetDocument(const GetDocumentRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDocumentOutcome(GetDocumentResult(outcome.GetResult()));
@@ -2399,7 +2436,7 @@ GetInventoryOutcome SSMClient::GetInventory(const GetInventoryRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetInventoryOutcome(GetInventoryResult(outcome.GetResult()));
@@ -2434,7 +2471,7 @@ GetInventorySchemaOutcome SSMClient::GetInventorySchema(const GetInventorySchema
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetInventorySchemaOutcome(GetInventorySchemaResult(outcome.GetResult()));
@@ -2469,7 +2506,7 @@ GetMaintenanceWindowOutcome SSMClient::GetMaintenanceWindow(const GetMaintenance
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetMaintenanceWindowOutcome(GetMaintenanceWindowResult(outcome.GetResult()));
@@ -2504,7 +2541,7 @@ GetMaintenanceWindowExecutionOutcome SSMClient::GetMaintenanceWindowExecution(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetMaintenanceWindowExecutionOutcome(GetMaintenanceWindowExecutionResult(outcome.GetResult()));
@@ -2539,7 +2576,7 @@ GetMaintenanceWindowExecutionTaskOutcome SSMClient::GetMaintenanceWindowExecutio
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetMaintenanceWindowExecutionTaskOutcome(GetMaintenanceWindowExecutionTaskResult(outcome.GetResult()));
@@ -2574,7 +2611,7 @@ GetMaintenanceWindowExecutionTaskInvocationOutcome SSMClient::GetMaintenanceWind
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetMaintenanceWindowExecutionTaskInvocationOutcome(GetMaintenanceWindowExecutionTaskInvocationResult(outcome.GetResult()));
@@ -2609,7 +2646,7 @@ GetMaintenanceWindowTaskOutcome SSMClient::GetMaintenanceWindowTask(const GetMai
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetMaintenanceWindowTaskOutcome(GetMaintenanceWindowTaskResult(outcome.GetResult()));
@@ -2644,7 +2681,7 @@ GetOpsItemOutcome SSMClient::GetOpsItem(const GetOpsItemRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetOpsItemOutcome(GetOpsItemResult(outcome.GetResult()));
@@ -2679,7 +2716,7 @@ GetOpsSummaryOutcome SSMClient::GetOpsSummary(const GetOpsSummaryRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetOpsSummaryOutcome(GetOpsSummaryResult(outcome.GetResult()));
@@ -2714,7 +2751,7 @@ GetParameterOutcome SSMClient::GetParameter(const GetParameterRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetParameterOutcome(GetParameterResult(outcome.GetResult()));
@@ -2749,7 +2786,7 @@ GetParameterHistoryOutcome SSMClient::GetParameterHistory(const GetParameterHist
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetParameterHistoryOutcome(GetParameterHistoryResult(outcome.GetResult()));
@@ -2784,7 +2821,7 @@ GetParametersOutcome SSMClient::GetParameters(const GetParametersRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetParametersOutcome(GetParametersResult(outcome.GetResult()));
@@ -2819,7 +2856,7 @@ GetParametersByPathOutcome SSMClient::GetParametersByPath(const GetParametersByP
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetParametersByPathOutcome(GetParametersByPathResult(outcome.GetResult()));
@@ -2854,7 +2891,7 @@ GetPatchBaselineOutcome SSMClient::GetPatchBaseline(const GetPatchBaselineReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetPatchBaselineOutcome(GetPatchBaselineResult(outcome.GetResult()));
@@ -2889,7 +2926,7 @@ GetPatchBaselineForPatchGroupOutcome SSMClient::GetPatchBaselineForPatchGroup(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetPatchBaselineForPatchGroupOutcome(GetPatchBaselineForPatchGroupResult(outcome.GetResult()));
@@ -2924,7 +2961,7 @@ GetServiceSettingOutcome SSMClient::GetServiceSetting(const GetServiceSettingReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetServiceSettingOutcome(GetServiceSettingResult(outcome.GetResult()));
@@ -2959,7 +2996,7 @@ LabelParameterVersionOutcome SSMClient::LabelParameterVersion(const LabelParamet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return LabelParameterVersionOutcome(LabelParameterVersionResult(outcome.GetResult()));
@@ -2994,7 +3031,7 @@ ListAssociationVersionsOutcome SSMClient::ListAssociationVersions(const ListAsso
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAssociationVersionsOutcome(ListAssociationVersionsResult(outcome.GetResult()));
@@ -3029,7 +3066,7 @@ ListAssociationsOutcome SSMClient::ListAssociations(const ListAssociationsReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAssociationsOutcome(ListAssociationsResult(outcome.GetResult()));
@@ -3064,7 +3101,7 @@ ListCommandInvocationsOutcome SSMClient::ListCommandInvocations(const ListComman
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCommandInvocationsOutcome(ListCommandInvocationsResult(outcome.GetResult()));
@@ -3099,7 +3136,7 @@ ListCommandsOutcome SSMClient::ListCommands(const ListCommandsRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCommandsOutcome(ListCommandsResult(outcome.GetResult()));
@@ -3134,7 +3171,7 @@ ListComplianceItemsOutcome SSMClient::ListComplianceItems(const ListComplianceIt
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListComplianceItemsOutcome(ListComplianceItemsResult(outcome.GetResult()));
@@ -3169,7 +3206,7 @@ ListComplianceSummariesOutcome SSMClient::ListComplianceSummaries(const ListComp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListComplianceSummariesOutcome(ListComplianceSummariesResult(outcome.GetResult()));
@@ -3204,7 +3241,7 @@ ListDocumentVersionsOutcome SSMClient::ListDocumentVersions(const ListDocumentVe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDocumentVersionsOutcome(ListDocumentVersionsResult(outcome.GetResult()));
@@ -3239,7 +3276,7 @@ ListDocumentsOutcome SSMClient::ListDocuments(const ListDocumentsRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDocumentsOutcome(ListDocumentsResult(outcome.GetResult()));
@@ -3274,7 +3311,7 @@ ListInventoryEntriesOutcome SSMClient::ListInventoryEntries(const ListInventoryE
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListInventoryEntriesOutcome(ListInventoryEntriesResult(outcome.GetResult()));
@@ -3309,7 +3346,7 @@ ListResourceComplianceSummariesOutcome SSMClient::ListResourceComplianceSummarie
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListResourceComplianceSummariesOutcome(ListResourceComplianceSummariesResult(outcome.GetResult()));
@@ -3344,7 +3381,7 @@ ListResourceDataSyncOutcome SSMClient::ListResourceDataSync(const ListResourceDa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListResourceDataSyncOutcome(ListResourceDataSyncResult(outcome.GetResult()));
@@ -3379,7 +3416,7 @@ ListTagsForResourceOutcome SSMClient::ListTagsForResource(const ListTagsForResou
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -3414,7 +3451,7 @@ ModifyDocumentPermissionOutcome SSMClient::ModifyDocumentPermission(const Modify
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ModifyDocumentPermissionOutcome(ModifyDocumentPermissionResult(outcome.GetResult()));
@@ -3449,7 +3486,7 @@ PutComplianceItemsOutcome SSMClient::PutComplianceItems(const PutComplianceItems
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutComplianceItemsOutcome(PutComplianceItemsResult(outcome.GetResult()));
@@ -3484,7 +3521,7 @@ PutInventoryOutcome SSMClient::PutInventory(const PutInventoryRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutInventoryOutcome(PutInventoryResult(outcome.GetResult()));
@@ -3519,7 +3556,7 @@ PutParameterOutcome SSMClient::PutParameter(const PutParameterRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutParameterOutcome(PutParameterResult(outcome.GetResult()));
@@ -3554,7 +3591,7 @@ RegisterDefaultPatchBaselineOutcome SSMClient::RegisterDefaultPatchBaseline(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterDefaultPatchBaselineOutcome(RegisterDefaultPatchBaselineResult(outcome.GetResult()));
@@ -3589,7 +3626,7 @@ RegisterPatchBaselineForPatchGroupOutcome SSMClient::RegisterPatchBaselineForPat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterPatchBaselineForPatchGroupOutcome(RegisterPatchBaselineForPatchGroupResult(outcome.GetResult()));
@@ -3624,7 +3661,7 @@ RegisterTargetWithMaintenanceWindowOutcome SSMClient::RegisterTargetWithMaintena
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterTargetWithMaintenanceWindowOutcome(RegisterTargetWithMaintenanceWindowResult(outcome.GetResult()));
@@ -3659,7 +3696,7 @@ RegisterTaskWithMaintenanceWindowOutcome SSMClient::RegisterTaskWithMaintenanceW
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RegisterTaskWithMaintenanceWindowOutcome(RegisterTaskWithMaintenanceWindowResult(outcome.GetResult()));
@@ -3694,7 +3731,7 @@ RemoveTagsFromResourceOutcome SSMClient::RemoveTagsFromResource(const RemoveTags
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RemoveTagsFromResourceOutcome(RemoveTagsFromResourceResult(outcome.GetResult()));
@@ -3729,7 +3766,7 @@ ResetServiceSettingOutcome SSMClient::ResetServiceSetting(const ResetServiceSett
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ResetServiceSettingOutcome(ResetServiceSettingResult(outcome.GetResult()));
@@ -3764,7 +3801,7 @@ ResumeSessionOutcome SSMClient::ResumeSession(const ResumeSessionRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ResumeSessionOutcome(ResumeSessionResult(outcome.GetResult()));
@@ -3799,7 +3836,7 @@ SendAutomationSignalOutcome SSMClient::SendAutomationSignal(const SendAutomation
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SendAutomationSignalOutcome(SendAutomationSignalResult(outcome.GetResult()));
@@ -3834,7 +3871,7 @@ SendCommandOutcome SSMClient::SendCommand(const SendCommandRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return SendCommandOutcome(SendCommandResult(outcome.GetResult()));
@@ -3869,7 +3906,7 @@ StartAssociationsOnceOutcome SSMClient::StartAssociationsOnce(const StartAssocia
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartAssociationsOnceOutcome(StartAssociationsOnceResult(outcome.GetResult()));
@@ -3904,7 +3941,7 @@ StartAutomationExecutionOutcome SSMClient::StartAutomationExecution(const StartA
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartAutomationExecutionOutcome(StartAutomationExecutionResult(outcome.GetResult()));
@@ -3939,7 +3976,7 @@ StartSessionOutcome SSMClient::StartSession(const StartSessionRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartSessionOutcome(StartSessionResult(outcome.GetResult()));
@@ -3974,7 +4011,7 @@ StopAutomationExecutionOutcome SSMClient::StopAutomationExecution(const StopAuto
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopAutomationExecutionOutcome(StopAutomationExecutionResult(outcome.GetResult()));
@@ -4009,7 +4046,7 @@ TerminateSessionOutcome SSMClient::TerminateSession(const TerminateSessionReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TerminateSessionOutcome(TerminateSessionResult(outcome.GetResult()));
@@ -4044,7 +4081,7 @@ UpdateAssociationOutcome SSMClient::UpdateAssociation(const UpdateAssociationReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAssociationOutcome(UpdateAssociationResult(outcome.GetResult()));
@@ -4079,7 +4116,7 @@ UpdateAssociationStatusOutcome SSMClient::UpdateAssociationStatus(const UpdateAs
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAssociationStatusOutcome(UpdateAssociationStatusResult(outcome.GetResult()));
@@ -4114,7 +4151,7 @@ UpdateDocumentOutcome SSMClient::UpdateDocument(const UpdateDocumentRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDocumentOutcome(UpdateDocumentResult(outcome.GetResult()));
@@ -4149,7 +4186,7 @@ UpdateDocumentDefaultVersionOutcome SSMClient::UpdateDocumentDefaultVersion(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDocumentDefaultVersionOutcome(UpdateDocumentDefaultVersionResult(outcome.GetResult()));
@@ -4184,7 +4221,7 @@ UpdateMaintenanceWindowOutcome SSMClient::UpdateMaintenanceWindow(const UpdateMa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateMaintenanceWindowOutcome(UpdateMaintenanceWindowResult(outcome.GetResult()));
@@ -4219,7 +4256,7 @@ UpdateMaintenanceWindowTargetOutcome SSMClient::UpdateMaintenanceWindowTarget(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateMaintenanceWindowTargetOutcome(UpdateMaintenanceWindowTargetResult(outcome.GetResult()));
@@ -4254,7 +4291,7 @@ UpdateMaintenanceWindowTaskOutcome SSMClient::UpdateMaintenanceWindowTask(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateMaintenanceWindowTaskOutcome(UpdateMaintenanceWindowTaskResult(outcome.GetResult()));
@@ -4289,7 +4326,7 @@ UpdateManagedInstanceRoleOutcome SSMClient::UpdateManagedInstanceRole(const Upda
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateManagedInstanceRoleOutcome(UpdateManagedInstanceRoleResult(outcome.GetResult()));
@@ -4324,7 +4361,7 @@ UpdateOpsItemOutcome SSMClient::UpdateOpsItem(const UpdateOpsItemRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateOpsItemOutcome(UpdateOpsItemResult(outcome.GetResult()));
@@ -4359,7 +4396,7 @@ UpdatePatchBaselineOutcome SSMClient::UpdatePatchBaseline(const UpdatePatchBasel
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdatePatchBaselineOutcome(UpdatePatchBaselineResult(outcome.GetResult()));
@@ -4388,13 +4425,48 @@ void SSMClient::UpdatePatchBaselineAsyncHelper(const UpdatePatchBaselineRequest&
   handler(this, request, UpdatePatchBaseline(request), context);
 }
 
+UpdateResourceDataSyncOutcome SSMClient::UpdateResourceDataSync(const UpdateResourceDataSyncRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateResourceDataSyncOutcome(UpdateResourceDataSyncResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateResourceDataSyncOutcome(outcome.GetError());
+  }
+}
+
+UpdateResourceDataSyncOutcomeCallable SSMClient::UpdateResourceDataSyncCallable(const UpdateResourceDataSyncRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateResourceDataSyncOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateResourceDataSync(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void SSMClient::UpdateResourceDataSyncAsync(const UpdateResourceDataSyncRequest& request, const UpdateResourceDataSyncResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateResourceDataSyncAsyncHelper( request, handler, context ); } );
+}
+
+void SSMClient::UpdateResourceDataSyncAsyncHelper(const UpdateResourceDataSyncRequest& request, const UpdateResourceDataSyncResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateResourceDataSync(request), context);
+}
+
 UpdateServiceSettingOutcome SSMClient::UpdateServiceSetting(const UpdateServiceSettingRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateServiceSettingOutcome(UpdateServiceSettingResult(outcome.GetResult()));

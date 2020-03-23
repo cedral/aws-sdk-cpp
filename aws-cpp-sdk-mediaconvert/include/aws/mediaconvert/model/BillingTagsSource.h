@@ -28,7 +28,8 @@ namespace Model
     NOT_SET,
     QUEUE,
     PRESET,
-    JOB_TEMPLATE
+    JOB_TEMPLATE,
+    JOB
   };
 
 namespace BillingTagsSourceMapper

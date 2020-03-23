@@ -38,6 +38,7 @@ EvaluationResult::EvaluationResult() :
     m_matchedStatementsHasBeenSet(false),
     m_missingContextValuesHasBeenSet(false),
     m_organizationsDecisionDetailHasBeenSet(false),
+    m_permissionsBoundaryDecisionDetailHasBeenSet(false),
     m_evalDecisionDetailsHasBeenSet(false),
     m_resourceSpecificResultsHasBeenSet(false)
 {
@@ -51,6 +52,7 @@ EvaluationResult::EvaluationResult(const XmlNode& xmlNode) :
     m_matchedStatementsHasBeenSet(false),
     m_missingContextValuesHasBeenSet(false),
     m_organizationsDecisionDetailHasBeenSet(false),
+    m_permissionsBoundaryDecisionDetailHasBeenSet(false),
     m_evalDecisionDetailsHasBeenSet(false),
     m_resourceSpecificResultsHasBeenSet(false)
 {
@@ -66,19 +68,19 @@ EvaluationResult& EvaluationResult::operator =(const XmlNode& xmlNode)
     XmlNode evalActionNameNode = resultNode.FirstChild("EvalActionName");
     if(!evalActionNameNode.IsNull())
     {
-      m_evalActionName = evalActionNameNode.GetText();
+      m_evalActionName = Aws::Utils::Xml::DecodeEscapedXmlText(evalActionNameNode.GetText());
       m_evalActionNameHasBeenSet = true;
     }
     XmlNode evalResourceNameNode = resultNode.FirstChild("EvalResourceName");
     if(!evalResourceNameNode.IsNull())
     {
-      m_evalResourceName = evalResourceNameNode.GetText();
+      m_evalResourceName = Aws::Utils::Xml::DecodeEscapedXmlText(evalResourceNameNode.GetText());
       m_evalResourceNameHasBeenSet = true;
     }
     XmlNode evalDecisionNode = resultNode.FirstChild("EvalDecision");
     if(!evalDecisionNode.IsNull())
     {
-      m_evalDecision = PolicyEvaluationDecisionTypeMapper::GetPolicyEvaluationDecisionTypeForName(StringUtils::Trim(evalDecisionNode.GetText().c_str()).c_str());
+      m_evalDecision = PolicyEvaluationDecisionTypeMapper::GetPolicyEvaluationDecisionTypeForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(evalDecisionNode.GetText()).c_str()).c_str());
       m_evalDecisionHasBeenSet = true;
     }
     XmlNode matchedStatementsNode = resultNode.FirstChild("MatchedStatements");
@@ -110,6 +112,12 @@ EvaluationResult& EvaluationResult::operator =(const XmlNode& xmlNode)
     {
       m_organizationsDecisionDetail = organizationsDecisionDetailNode;
       m_organizationsDecisionDetailHasBeenSet = true;
+    }
+    XmlNode permissionsBoundaryDecisionDetailNode = resultNode.FirstChild("PermissionsBoundaryDecisionDetail");
+    if(!permissionsBoundaryDecisionDetailNode.IsNull())
+    {
+      m_permissionsBoundaryDecisionDetail = permissionsBoundaryDecisionDetailNode;
+      m_permissionsBoundaryDecisionDetailHasBeenSet = true;
     }
     XmlNode evalDecisionDetailsNode = resultNode.FirstChild("EvalDecisionDetails");
 
@@ -188,6 +196,13 @@ void EvaluationResult::OutputToStream(Aws::OStream& oStream, const char* locatio
       m_organizationsDecisionDetail.OutputToStream(oStream, organizationsDecisionDetailLocationAndMemberSs.str().c_str());
   }
 
+  if(m_permissionsBoundaryDecisionDetailHasBeenSet)
+  {
+      Aws::StringStream permissionsBoundaryDecisionDetailLocationAndMemberSs;
+      permissionsBoundaryDecisionDetailLocationAndMemberSs << location << index << locationValue << ".PermissionsBoundaryDecisionDetail";
+      m_permissionsBoundaryDecisionDetail.OutputToStream(oStream, permissionsBoundaryDecisionDetailLocationAndMemberSs.str().c_str());
+  }
+
   if(m_evalDecisionDetailsHasBeenSet)
   {
       unsigned evalDecisionDetailsIdx = 1;
@@ -251,6 +266,12 @@ void EvaluationResult::OutputToStream(Aws::OStream& oStream, const char* locatio
       Aws::String organizationsDecisionDetailLocationAndMember(location);
       organizationsDecisionDetailLocationAndMember += ".OrganizationsDecisionDetail";
       m_organizationsDecisionDetail.OutputToStream(oStream, organizationsDecisionDetailLocationAndMember.c_str());
+  }
+  if(m_permissionsBoundaryDecisionDetailHasBeenSet)
+  {
+      Aws::String permissionsBoundaryDecisionDetailLocationAndMember(location);
+      permissionsBoundaryDecisionDetailLocationAndMember += ".PermissionsBoundaryDecisionDetail";
+      m_permissionsBoundaryDecisionDetail.OutputToStream(oStream, permissionsBoundaryDecisionDetailLocationAndMember.c_str());
   }
   if(m_evalDecisionDetailsHasBeenSet)
   {

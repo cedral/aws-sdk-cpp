@@ -1,12 +1,12 @@
 /*
   * Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-  * 
+  *
   * Licensed under the Apache License, Version 2.0 (the "License").
   * You may not use this file except in compliance with the License.
   * A copy of the License is located at
-  * 
+  *
   *  http://aws.amazon.com/apache2.0
-  * 
+  *
   * or in the "license" file accompanying this file. This file is distributed
   * on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
   * express or implied. See the License for the specific language governing
@@ -133,8 +133,8 @@ static char* strdup_callback(const char* str)
 struct CurlWriteCallbackContext
 {
     CurlWriteCallbackContext(const CurlHttpClient* client,
-                             HttpRequest* request, 
-                             HttpResponse* response, 
+                             HttpRequest* request,
+                             HttpResponse* response,
                              Aws::Utils::RateLimits::RateLimiterInterface* rateLimiter) :
         m_client(client),
         m_request(request),
@@ -361,7 +361,9 @@ void CurlHttpClient::InitGlobalState()
 {
     if (!isInit)
     {
-        AWS_LOGSTREAM_INFO(CURL_HTTP_CLIENT_TAG, "Initializing Curl library");
+        auto curlVersionData = curl_version_info(CURLVERSION_NOW);
+        AWS_LOGSTREAM_INFO(CURL_HTTP_CLIENT_TAG, "Initializing Curl library with version: " << curlVersionData->version
+            << ", ssl version: " << curlVersionData->ssl_version);
         isInit = true;
 #ifdef AWS_CUSTOM_MEMORY_MANAGEMENT
         curl_global_init_mem(CURL_GLOBAL_ALL, &malloc_callback, &free_callback, &realloc_callback, &strdup_callback, &calloc_callback);
@@ -427,7 +429,7 @@ int CurlDebugCallback(CURL *handle, curl_infotype type, char *data, size_t size,
 
 
 CurlHttpClient::CurlHttpClient(const ClientConfiguration& clientConfig) :
-    Base(),   
+    Base(),
     m_curlHandleContainer(clientConfig.maxConnections, clientConfig.httpRequestTimeoutMs, clientConfig.connectTimeoutMs, clientConfig.enableTcpKeepAlive,
                           clientConfig.tcpKeepAliveIntervalMs, clientConfig.requestTimeoutMs, clientConfig.lowSpeedLimit),
     m_isUsingProxy(!clientConfig.proxyHost.empty()), m_proxyUserName(clientConfig.proxyUserName),
@@ -436,16 +438,16 @@ CurlHttpClient::CurlHttpClient(const ClientConfiguration& clientConfig) :
     m_proxySSLKeyPath(clientConfig.proxySSLKeyPath), m_proxySSLKeyType(clientConfig.proxySSLKeyType),
     m_proxyKeyPasswd(clientConfig.proxySSLKeyPassword),
     m_proxyPort(clientConfig.proxyPort), m_verifySSL(clientConfig.verifySSL), m_caPath(clientConfig.caPath),
-    m_caFile(clientConfig.caFile), 
+    m_caFile(clientConfig.caFile),
     m_disableExpectHeader(clientConfig.disableExpectHeader),
     m_allowRedirects(clientConfig.followRedirects)
 {
 }
 
 
-void CurlHttpClient::MakeRequestInternal(HttpRequest& request, 
+void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
         std::shared_ptr<StandardHttpResponse>& response,
-        Aws::Utils::RateLimits::RateLimiterInterface* readLimiter, 
+        Aws::Utils::RateLimits::RateLimiterInterface* readLimiter,
         Aws::Utils::RateLimits::RateLimiterInterface* writeLimiter) const
 {
     URI uri = request.GetUri();
@@ -471,7 +473,7 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
         AWS_LOGSTREAM_TRACE(CURL_HTTP_CLIENT_TAG, headerString);
         headers = curl_slist_append(headers, headerString.c_str());
     }
-    
+
     if (!request.HasHeader(Http::TRANSFER_ENCODING_HEADER))
     {
         headers = curl_slist_append(headers, "transfer-encoding:");
@@ -611,13 +613,17 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
         bool shouldContinueRequest = ContinueRequest(request);
         if (curlResponseCode != CURLE_OK && shouldContinueRequest)
         {
-            response = nullptr;
+            response->SetClientErrorType(CoreErrors::NETWORK_CONNECTION);
+            Aws::StringStream ss;
+            ss << "curlCode: " << curlResponseCode << ", " << curl_easy_strerror(curlResponseCode);
+            response->SetClientErrorMessage(ss.str());
             AWS_LOGSTREAM_ERROR(CURL_HTTP_CLIENT_TAG, "Curl returned error code " << curlResponseCode
                     << " - " << curl_easy_strerror(curlResponseCode));
         }
         else if(!shouldContinueRequest)
         {
-            response->SetResponseCode(HttpResponseCode::REQUEST_NOT_MADE);
+            response->SetClientErrorType(CoreErrors::USER_CANCELLED);
+            response->SetClientErrorMessage("Request cancelled by user's continuation handler");
         }
         else
         {
@@ -644,7 +650,8 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
                 AWS_LOGSTREAM_TRACE(CURL_HTTP_CLIENT_TAG, "Response body length: " << numBytesResponseReceived);
                 if (StringUtils::ConvertToInt64(contentLength.c_str()) != numBytesResponseReceived)
                 {
-                    response = nullptr;
+                    response->SetClientErrorType(CoreErrors::NETWORK_CONNECTION);
+                    response->SetClientErrorMessage("Response body length doesn't match the content-length header.");
                     AWS_LOGSTREAM_ERROR(CURL_HTTP_CLIENT_TAG, "Response body length doesn't match the content-length header.");
                 }
             }
@@ -659,7 +666,7 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
             request.AddRequestMetric(GetHttpClientMetricNameByType(HttpClientMetricsType::DnsLatency), static_cast<int64_t>(timep * 1000));// to milliseconds
         }
 
-        ret = curl_easy_getinfo(connectionHandle, CURLINFO_STARTTRANSFER_TIME, &timep); // Connect Latency 
+        ret = curl_easy_getinfo(connectionHandle, CURLINFO_STARTTRANSFER_TIME, &timep); // Connect Latency
         if (ret == CURLE_OK)
         {
             request.AddRequestMetric(GetHttpClientMetricNameByType(HttpClientMetricsType::ConnectLatency), static_cast<int64_t>(timep * 1000));
@@ -677,13 +684,16 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
         {
             request.SetResolvedRemoteHost(ip);
         }
-
-        m_curlHandleContainer.ReleaseCurlHandle(connectionHandle);
-        //go ahead and flush the response body stream
-        if(response)
+        if (curlResponseCode != CURLE_OK)
         {
-            response->GetResponseBody().flush();
+            m_curlHandleContainer.DestroyCurlHandle(connectionHandle);
         }
+        else
+        {
+            m_curlHandleContainer.ReleaseCurlHandle(connectionHandle);
+        }
+        //go ahead and flush the response body stream
+        response->GetResponseBody().flush();
         request.AddRequestMetric(GetHttpClientMetricNameByType(HttpClientMetricsType::RequestLatency), (DateTime::Now() - startTransmissionTime).count());
     }
 
@@ -693,7 +703,7 @@ void CurlHttpClient::MakeRequestInternal(HttpRequest& request,
     }
 }
 
-std::shared_ptr<HttpResponse> CurlHttpClient::MakeRequest(HttpRequest& request, 
+std::shared_ptr<HttpResponse> CurlHttpClient::MakeRequest(HttpRequest& request,
         Aws::Utils::RateLimits::RateLimiterInterface* readLimiter,
         Aws::Utils::RateLimits::RateLimiterInterface* writeLimiter) const
 {

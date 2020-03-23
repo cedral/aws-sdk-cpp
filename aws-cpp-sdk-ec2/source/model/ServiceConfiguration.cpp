@@ -44,6 +44,7 @@ ServiceConfiguration::ServiceConfiguration() :
     m_networkLoadBalancerArnsHasBeenSet(false),
     m_baseEndpointDnsNamesHasBeenSet(false),
     m_privateDnsNameHasBeenSet(false),
+    m_privateDnsNameConfigurationHasBeenSet(false),
     m_tagsHasBeenSet(false)
 {
 }
@@ -62,6 +63,7 @@ ServiceConfiguration::ServiceConfiguration(const XmlNode& xmlNode) :
     m_networkLoadBalancerArnsHasBeenSet(false),
     m_baseEndpointDnsNamesHasBeenSet(false),
     m_privateDnsNameHasBeenSet(false),
+    m_privateDnsNameConfigurationHasBeenSet(false),
     m_tagsHasBeenSet(false)
 {
   *this = xmlNode;
@@ -88,19 +90,19 @@ ServiceConfiguration& ServiceConfiguration::operator =(const XmlNode& xmlNode)
     XmlNode serviceIdNode = resultNode.FirstChild("serviceId");
     if(!serviceIdNode.IsNull())
     {
-      m_serviceId = serviceIdNode.GetText();
+      m_serviceId = Aws::Utils::Xml::DecodeEscapedXmlText(serviceIdNode.GetText());
       m_serviceIdHasBeenSet = true;
     }
     XmlNode serviceNameNode = resultNode.FirstChild("serviceName");
     if(!serviceNameNode.IsNull())
     {
-      m_serviceName = serviceNameNode.GetText();
+      m_serviceName = Aws::Utils::Xml::DecodeEscapedXmlText(serviceNameNode.GetText());
       m_serviceNameHasBeenSet = true;
     }
     XmlNode serviceStateNode = resultNode.FirstChild("serviceState");
     if(!serviceStateNode.IsNull())
     {
-      m_serviceState = ServiceStateMapper::GetServiceStateForName(StringUtils::Trim(serviceStateNode.GetText().c_str()).c_str());
+      m_serviceState = ServiceStateMapper::GetServiceStateForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(serviceStateNode.GetText()).c_str()).c_str());
       m_serviceStateHasBeenSet = true;
     }
     XmlNode availabilityZonesNode = resultNode.FirstChild("availabilityZoneSet");
@@ -118,13 +120,13 @@ ServiceConfiguration& ServiceConfiguration::operator =(const XmlNode& xmlNode)
     XmlNode acceptanceRequiredNode = resultNode.FirstChild("acceptanceRequired");
     if(!acceptanceRequiredNode.IsNull())
     {
-      m_acceptanceRequired = StringUtils::ConvertToBool(StringUtils::Trim(acceptanceRequiredNode.GetText().c_str()).c_str());
+      m_acceptanceRequired = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(acceptanceRequiredNode.GetText()).c_str()).c_str());
       m_acceptanceRequiredHasBeenSet = true;
     }
     XmlNode managesVpcEndpointsNode = resultNode.FirstChild("managesVpcEndpoints");
     if(!managesVpcEndpointsNode.IsNull())
     {
-      m_managesVpcEndpoints = StringUtils::ConvertToBool(StringUtils::Trim(managesVpcEndpointsNode.GetText().c_str()).c_str());
+      m_managesVpcEndpoints = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(managesVpcEndpointsNode.GetText()).c_str()).c_str());
       m_managesVpcEndpointsHasBeenSet = true;
     }
     XmlNode networkLoadBalancerArnsNode = resultNode.FirstChild("networkLoadBalancerArnSet");
@@ -154,8 +156,14 @@ ServiceConfiguration& ServiceConfiguration::operator =(const XmlNode& xmlNode)
     XmlNode privateDnsNameNode = resultNode.FirstChild("privateDnsName");
     if(!privateDnsNameNode.IsNull())
     {
-      m_privateDnsName = privateDnsNameNode.GetText();
+      m_privateDnsName = Aws::Utils::Xml::DecodeEscapedXmlText(privateDnsNameNode.GetText());
       m_privateDnsNameHasBeenSet = true;
+    }
+    XmlNode privateDnsNameConfigurationNode = resultNode.FirstChild("privateDnsNameConfiguration");
+    if(!privateDnsNameConfigurationNode.IsNull())
+    {
+      m_privateDnsNameConfiguration = privateDnsNameConfigurationNode;
+      m_privateDnsNameConfigurationHasBeenSet = true;
     }
     XmlNode tagsNode = resultNode.FirstChild("tagSet");
     if(!tagsNode.IsNull())
@@ -244,6 +252,13 @@ void ServiceConfiguration::OutputToStream(Aws::OStream& oStream, const char* loc
       oStream << location << index << locationValue << ".PrivateDnsName=" << StringUtils::URLEncode(m_privateDnsName.c_str()) << "&";
   }
 
+  if(m_privateDnsNameConfigurationHasBeenSet)
+  {
+      Aws::StringStream privateDnsNameConfigurationLocationAndMemberSs;
+      privateDnsNameConfigurationLocationAndMemberSs << location << index << locationValue << ".PrivateDnsNameConfiguration";
+      m_privateDnsNameConfiguration.OutputToStream(oStream, privateDnsNameConfigurationLocationAndMemberSs.str().c_str());
+  }
+
   if(m_tagsHasBeenSet)
   {
       unsigned tagsIdx = 1;
@@ -316,6 +331,12 @@ void ServiceConfiguration::OutputToStream(Aws::OStream& oStream, const char* loc
   if(m_privateDnsNameHasBeenSet)
   {
       oStream << location << ".PrivateDnsName=" << StringUtils::URLEncode(m_privateDnsName.c_str()) << "&";
+  }
+  if(m_privateDnsNameConfigurationHasBeenSet)
+  {
+      Aws::String privateDnsNameConfigurationLocationAndMember(location);
+      privateDnsNameConfigurationLocationAndMember += ".PrivateDnsNameConfiguration";
+      m_privateDnsNameConfiguration.OutputToStream(oStream, privateDnsNameConfigurationLocationAndMember.c_str());
   }
   if(m_tagsHasBeenSet)
   {

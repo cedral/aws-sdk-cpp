@@ -313,13 +313,13 @@ namespace Model
 
         /**
          * <p>Exports a private certificate issued by a private certificate authority (CA)
-         * for use anywhere. You can export the certificate, the certificate chain, and the
-         * encrypted private key associated with the public key embedded in the
-         * certificate. You must store the private key securely. The private key is a 2048
-         * bit RSA key. You must provide a passphrase for the private key when exporting
-         * it. You can use the following OpenSSL command to decrypt it later. Provide the
-         * passphrase when prompted. </p> <p> <code>openssl rsa -in encrypted_key.pem -out
-         * decrypted_key.pem</code> </p><p><h3>See Also:</h3>   <a
+         * for use anywhere. The exported file contains the certificate, the certificate
+         * chain, and the encrypted private 2048-bit RSA key associated with the public key
+         * that is embedded in the certificate. For security, you must assign a passphrase
+         * for the private key when exporting it. </p> <p>For information about exporting
+         * and formatting a certificate using the ACM console or CLI, see <a
+         * href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html">Export
+         * a Private Certificate</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ExportCertificate">AWS
          * API Reference</a></p>
          */
@@ -327,13 +327,13 @@ namespace Model
 
         /**
          * <p>Exports a private certificate issued by a private certificate authority (CA)
-         * for use anywhere. You can export the certificate, the certificate chain, and the
-         * encrypted private key associated with the public key embedded in the
-         * certificate. You must store the private key securely. The private key is a 2048
-         * bit RSA key. You must provide a passphrase for the private key when exporting
-         * it. You can use the following OpenSSL command to decrypt it later. Provide the
-         * passphrase when prompted. </p> <p> <code>openssl rsa -in encrypted_key.pem -out
-         * decrypted_key.pem</code> </p><p><h3>See Also:</h3>   <a
+         * for use anywhere. The exported file contains the certificate, the certificate
+         * chain, and the encrypted private 2048-bit RSA key associated with the public key
+         * that is embedded in the certificate. For security, you must assign a passphrase
+         * for the private key when exporting it. </p> <p>For information about exporting
+         * and formatting a certificate using the ACM console or CLI, see <a
+         * href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html">Export
+         * a Private Certificate</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ExportCertificate">AWS
          * API Reference</a></p>
          *
@@ -343,13 +343,13 @@ namespace Model
 
         /**
          * <p>Exports a private certificate issued by a private certificate authority (CA)
-         * for use anywhere. You can export the certificate, the certificate chain, and the
-         * encrypted private key associated with the public key embedded in the
-         * certificate. You must store the private key securely. The private key is a 2048
-         * bit RSA key. You must provide a passphrase for the private key when exporting
-         * it. You can use the following OpenSSL command to decrypt it later. Provide the
-         * passphrase when prompted. </p> <p> <code>openssl rsa -in encrypted_key.pem -out
-         * decrypted_key.pem</code> </p><p><h3>See Also:</h3>   <a
+         * for use anywhere. The exported file contains the certificate, the certificate
+         * chain, and the encrypted private 2048-bit RSA key associated with the public key
+         * that is embedded in the certificate. For security, you must assign a passphrase
+         * for the private key when exporting it. </p> <p>For information about exporting
+         * and formatting a certificate using the ACM console or CLI, see <a
+         * href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-export-private.html">Export
+         * a Private Certificate</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ExportCertificate">AWS
          * API Reference</a></p>
          *
@@ -358,24 +358,26 @@ namespace Model
         virtual void ExportCertificateAsync(const Model::ExportCertificateRequest& request, const ExportCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context = nullptr) const;
 
         /**
-         * <p>Retrieves a certificate specified by an ARN and its certificate chain . The
-         * chain is an ordered list of certificates that contains the end entity
-         * certificate, intermediate certificates of subordinate CAs, and the root
-         * certificate in that order. The certificate and certificate chain are base64
-         * encoded. If you want to decode the certificate to see the individual fields, you
-         * can use OpenSSL.</p><p><h3>See Also:</h3>   <a
+         * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain
+         * consists of the certificate of the issuing CA and the intermediate certificates
+         * of any other subordinate CAs. All of the certificates are base64 encoded. You
+         * can use <a
+         * href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to
+         * decode the certificates and inspect individual fields.</p><p><h3>See Also:</h3> 
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">AWS
          * API Reference</a></p>
          */
         virtual Model::GetCertificateOutcome GetCertificate(const Model::GetCertificateRequest& request) const;
 
         /**
-         * <p>Retrieves a certificate specified by an ARN and its certificate chain . The
-         * chain is an ordered list of certificates that contains the end entity
-         * certificate, intermediate certificates of subordinate CAs, and the root
-         * certificate in that order. The certificate and certificate chain are base64
-         * encoded. If you want to decode the certificate to see the individual fields, you
-         * can use OpenSSL.</p><p><h3>See Also:</h3>   <a
+         * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain
+         * consists of the certificate of the issuing CA and the intermediate certificates
+         * of any other subordinate CAs. All of the certificates are base64 encoded. You
+         * can use <a
+         * href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to
+         * decode the certificates and inspect individual fields.</p><p><h3>See Also:</h3> 
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">AWS
          * API Reference</a></p>
          *
@@ -384,12 +386,13 @@ namespace Model
         virtual Model::GetCertificateOutcomeCallable GetCertificateCallable(const Model::GetCertificateRequest& request) const;
 
         /**
-         * <p>Retrieves a certificate specified by an ARN and its certificate chain . The
-         * chain is an ordered list of certificates that contains the end entity
-         * certificate, intermediate certificates of subordinate CAs, and the root
-         * certificate in that order. The certificate and certificate chain are base64
-         * encoded. If you want to decode the certificate to see the individual fields, you
-         * can use OpenSSL.</p><p><h3>See Also:</h3>   <a
+         * <p>Retrieves an Amazon-issued certificate and its certificate chain. The chain
+         * consists of the certificate of the issuing CA and the intermediate certificates
+         * of any other subordinate CAs. All of the certificates are base64 encoded. You
+         * can use <a
+         * href="https://wiki.openssl.org/index.php/Command_Line_Utilities">OpenSSL</a> to
+         * decode the certificates and inspect individual fields.</p><p><h3>See Also:</h3> 
+         * <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">AWS
          * API Reference</a></p>
          *
@@ -424,17 +427,20 @@ namespace Model
          * <code>Issuer</code> field must not be empty.</p> </li> <li> <p>The OCSP
          * authority URL, if present, must not exceed 1000 characters.</p> </li> <li> <p>To
          * import a new certificate, omit the <code>CertificateArn</code> argument. Include
-         * this argument only when you want to replace a previously imported
-         * certificate.</p> </li> <li> <p>When you import a certificate by using the CLI,
-         * you must specify the certificate, the certificate chain, and the private key by
-         * their file names preceded by <code>file://</code>. For example, you can specify
-         * a certificate saved in the <code>C:\temp</code> folder as
+         * this argument only when you want to replace a previously imported certifica</p>
+         * </li> <li> <p>When you import a certificate by using the CLI, you must specify
+         * the certificate, the certificate chain, and the private key by their file names
+         * preceded by <code>file://</code>. For example, you can specify a certificate
+         * saved in the <code>C:\temp</code> folder as
          * <code>file://C:\temp\certificate_to_import.pem</code>. If you are making an HTTP
          * or HTTPS Query request, include these arguments as BLOBs. </p> </li> <li>
          * <p>When you import a certificate by using an SDK, you must specify the
          * certificate, the certificate chain, and the private key files in the manner
-         * required by the programming language you're using. </p> </li> </ul> <p>This
-         * operation returns the <a
+         * required by the programming language you're using. </p> </li> <li> <p>The
+         * cryptographic algorithm of an imported certificate must match the algorithm of
+         * the signing CA. For example, if the signing CA key type is RSA, then the
+         * certificate key type must also be RSA.</p> </li> </ul> <p>This operation returns
+         * the <a
          * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
          * Resource Name (ARN)</a> of the imported certificate.</p><p><h3>See Also:</h3>  
          * <a
@@ -470,17 +476,20 @@ namespace Model
          * <code>Issuer</code> field must not be empty.</p> </li> <li> <p>The OCSP
          * authority URL, if present, must not exceed 1000 characters.</p> </li> <li> <p>To
          * import a new certificate, omit the <code>CertificateArn</code> argument. Include
-         * this argument only when you want to replace a previously imported
-         * certificate.</p> </li> <li> <p>When you import a certificate by using the CLI,
-         * you must specify the certificate, the certificate chain, and the private key by
-         * their file names preceded by <code>file://</code>. For example, you can specify
-         * a certificate saved in the <code>C:\temp</code> folder as
+         * this argument only when you want to replace a previously imported certifica</p>
+         * </li> <li> <p>When you import a certificate by using the CLI, you must specify
+         * the certificate, the certificate chain, and the private key by their file names
+         * preceded by <code>file://</code>. For example, you can specify a certificate
+         * saved in the <code>C:\temp</code> folder as
          * <code>file://C:\temp\certificate_to_import.pem</code>. If you are making an HTTP
          * or HTTPS Query request, include these arguments as BLOBs. </p> </li> <li>
          * <p>When you import a certificate by using an SDK, you must specify the
          * certificate, the certificate chain, and the private key files in the manner
-         * required by the programming language you're using. </p> </li> </ul> <p>This
-         * operation returns the <a
+         * required by the programming language you're using. </p> </li> <li> <p>The
+         * cryptographic algorithm of an imported certificate must match the algorithm of
+         * the signing CA. For example, if the signing CA key type is RSA, then the
+         * certificate key type must also be RSA.</p> </li> </ul> <p>This operation returns
+         * the <a
          * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
          * Resource Name (ARN)</a> of the imported certificate.</p><p><h3>See Also:</h3>  
          * <a
@@ -518,17 +527,20 @@ namespace Model
          * <code>Issuer</code> field must not be empty.</p> </li> <li> <p>The OCSP
          * authority URL, if present, must not exceed 1000 characters.</p> </li> <li> <p>To
          * import a new certificate, omit the <code>CertificateArn</code> argument. Include
-         * this argument only when you want to replace a previously imported
-         * certificate.</p> </li> <li> <p>When you import a certificate by using the CLI,
-         * you must specify the certificate, the certificate chain, and the private key by
-         * their file names preceded by <code>file://</code>. For example, you can specify
-         * a certificate saved in the <code>C:\temp</code> folder as
+         * this argument only when you want to replace a previously imported certifica</p>
+         * </li> <li> <p>When you import a certificate by using the CLI, you must specify
+         * the certificate, the certificate chain, and the private key by their file names
+         * preceded by <code>file://</code>. For example, you can specify a certificate
+         * saved in the <code>C:\temp</code> folder as
          * <code>file://C:\temp\certificate_to_import.pem</code>. If you are making an HTTP
          * or HTTPS Query request, include these arguments as BLOBs. </p> </li> <li>
          * <p>When you import a certificate by using an SDK, you must specify the
          * certificate, the certificate chain, and the private key files in the manner
-         * required by the programming language you're using. </p> </li> </ul> <p>This
-         * operation returns the <a
+         * required by the programming language you're using. </p> </li> <li> <p>The
+         * cryptographic algorithm of an imported certificate must match the algorithm of
+         * the signing CA. For example, if the signing CA key type is RSA, then the
+         * certificate key type must also be RSA.</p> </li> </ul> <p>This operation returns
+         * the <a
          * href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
          * Resource Name (ARN)</a> of the imported certificate.</p><p><h3>See Also:</h3>  
          * <a
@@ -542,7 +554,9 @@ namespace Model
         /**
          * <p>Retrieves a list of certificate ARNs and domain names. You can request that
          * only certificates that match a specific status be listed. You can also filter by
-         * specific attributes of the certificate. </p><p><h3>See Also:</h3>   <a
+         * specific attributes of the certificate. Default filtering returns only
+         * <code>RSA_2048</code> certificates. For more information, see
+         * <a>Filters</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListCertificates">AWS
          * API Reference</a></p>
          */
@@ -551,7 +565,9 @@ namespace Model
         /**
          * <p>Retrieves a list of certificate ARNs and domain names. You can request that
          * only certificates that match a specific status be listed. You can also filter by
-         * specific attributes of the certificate. </p><p><h3>See Also:</h3>   <a
+         * specific attributes of the certificate. Default filtering returns only
+         * <code>RSA_2048</code> certificates. For more information, see
+         * <a>Filters</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListCertificates">AWS
          * API Reference</a></p>
          *
@@ -562,7 +578,9 @@ namespace Model
         /**
          * <p>Retrieves a list of certificate ARNs and domain names. You can request that
          * only certificates that match a specific status be listed. You can also filter by
-         * specific attributes of the certificate. </p><p><h3>See Also:</h3>   <a
+         * specific attributes of the certificate. Default filtering returns only
+         * <code>RSA_2048</code> certificates. For more information, see
+         * <a>Filters</a>.</p><p><h3>See Also:</h3>   <a
          * href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListCertificates">AWS
          * API Reference</a></p>
          *

@@ -152,6 +152,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US East (Ohio) (us-east-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -160,6 +170,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US West (Oregon) (us-west-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -168,6 +188,34 @@ namespace Model
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Canada (Central) (ca-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>EU (Ireland) (eu-west-1):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -176,6 +224,52 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU (London) (eu-west-2):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code> </p>
+     * </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU Frankfurt (eu-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>Asia Pacific (Tokyo) (ap-northeast-1):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
@@ -185,7 +279,73 @@ namespace Model
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-1):</b> </p> <ul>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Seoul) (ap-northeast-2):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Mumbai) (ap-south-1):</b> </p> <ul> <li>
+     * <p> <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Singapore) (ap-southeast-1):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-2):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
      * </p> </li> <li> <p>
@@ -194,6 +354,16 @@ namespace Model
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul>
      */
     inline const Aws::String& GetPreHumanTaskLambdaArn() const{ return m_preHumanTaskLambdaArn; }
@@ -212,6 +382,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US East (Ohio) (us-east-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -220,6 +400,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US West (Oregon) (us-west-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -228,6 +418,34 @@ namespace Model
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Canada (Central) (ca-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>EU (Ireland) (eu-west-1):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -236,6 +454,52 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU (London) (eu-west-2):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code> </p>
+     * </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU Frankfurt (eu-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>Asia Pacific (Tokyo) (ap-northeast-1):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
@@ -245,7 +509,73 @@ namespace Model
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-1):</b> </p> <ul>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Seoul) (ap-northeast-2):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Mumbai) (ap-south-1):</b> </p> <ul> <li>
+     * <p> <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Singapore) (ap-southeast-1):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-2):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
      * </p> </li> <li> <p>
@@ -254,6 +584,16 @@ namespace Model
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul>
      */
     inline bool PreHumanTaskLambdaArnHasBeenSet() const { return m_preHumanTaskLambdaArnHasBeenSet; }
@@ -272,6 +612,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US East (Ohio) (us-east-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -280,6 +630,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US West (Oregon) (us-west-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -288,6 +648,34 @@ namespace Model
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Canada (Central) (ca-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>EU (Ireland) (eu-west-1):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -296,6 +684,52 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU (London) (eu-west-2):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code> </p>
+     * </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU Frankfurt (eu-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>Asia Pacific (Tokyo) (ap-northeast-1):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
@@ -305,7 +739,73 @@ namespace Model
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-1):</b> </p> <ul>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Seoul) (ap-northeast-2):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Mumbai) (ap-south-1):</b> </p> <ul> <li>
+     * <p> <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Singapore) (ap-southeast-1):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-2):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
      * </p> </li> <li> <p>
@@ -314,6 +814,16 @@ namespace Model
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul>
      */
     inline void SetPreHumanTaskLambdaArn(const Aws::String& value) { m_preHumanTaskLambdaArnHasBeenSet = true; m_preHumanTaskLambdaArn = value; }
@@ -332,6 +842,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US East (Ohio) (us-east-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -340,6 +860,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US West (Oregon) (us-west-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -348,6 +878,34 @@ namespace Model
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Canada (Central) (ca-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>EU (Ireland) (eu-west-1):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -356,6 +914,52 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU (London) (eu-west-2):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code> </p>
+     * </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU Frankfurt (eu-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>Asia Pacific (Tokyo) (ap-northeast-1):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
@@ -365,7 +969,73 @@ namespace Model
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-1):</b> </p> <ul>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Seoul) (ap-northeast-2):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Mumbai) (ap-south-1):</b> </p> <ul> <li>
+     * <p> <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Singapore) (ap-southeast-1):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-2):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
      * </p> </li> <li> <p>
@@ -374,6 +1044,16 @@ namespace Model
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul>
      */
     inline void SetPreHumanTaskLambdaArn(Aws::String&& value) { m_preHumanTaskLambdaArnHasBeenSet = true; m_preHumanTaskLambdaArn = std::move(value); }
@@ -392,6 +1072,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US East (Ohio) (us-east-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -400,6 +1090,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US West (Oregon) (us-west-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -408,6 +1108,34 @@ namespace Model
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Canada (Central) (ca-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>EU (Ireland) (eu-west-1):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -416,6 +1144,52 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU (London) (eu-west-2):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code> </p>
+     * </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU Frankfurt (eu-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>Asia Pacific (Tokyo) (ap-northeast-1):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
@@ -425,7 +1199,73 @@ namespace Model
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-1):</b> </p> <ul>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Seoul) (ap-northeast-2):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Mumbai) (ap-south-1):</b> </p> <ul> <li>
+     * <p> <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Singapore) (ap-southeast-1):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-2):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
      * </p> </li> <li> <p>
@@ -434,6 +1274,16 @@ namespace Model
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul>
      */
     inline void SetPreHumanTaskLambdaArn(const char* value) { m_preHumanTaskLambdaArnHasBeenSet = true; m_preHumanTaskLambdaArn.assign(value); }
@@ -452,6 +1302,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US East (Ohio) (us-east-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -460,6 +1320,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US West (Oregon) (us-west-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -468,6 +1338,34 @@ namespace Model
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Canada (Central) (ca-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>EU (Ireland) (eu-west-1):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -476,6 +1374,52 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU (London) (eu-west-2):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code> </p>
+     * </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU Frankfurt (eu-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>Asia Pacific (Tokyo) (ap-northeast-1):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
@@ -485,7 +1429,73 @@ namespace Model
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-1):</b> </p> <ul>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Seoul) (ap-northeast-2):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Mumbai) (ap-south-1):</b> </p> <ul> <li>
+     * <p> <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Singapore) (ap-southeast-1):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-2):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
      * </p> </li> <li> <p>
@@ -494,6 +1504,16 @@ namespace Model
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul>
      */
     inline HumanTaskConfig& WithPreHumanTaskLambdaArn(const Aws::String& value) { SetPreHumanTaskLambdaArn(value); return *this;}
@@ -512,6 +1532,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US East (Ohio) (us-east-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -520,6 +1550,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US West (Oregon) (us-west-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -528,6 +1568,34 @@ namespace Model
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Canada (Central) (ca-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>EU (Ireland) (eu-west-1):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -536,6 +1604,52 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU (London) (eu-west-2):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code> </p>
+     * </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU Frankfurt (eu-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>Asia Pacific (Tokyo) (ap-northeast-1):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
@@ -545,7 +1659,73 @@ namespace Model
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-1):</b> </p> <ul>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Seoul) (ap-northeast-2):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Mumbai) (ap-south-1):</b> </p> <ul> <li>
+     * <p> <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Singapore) (ap-southeast-1):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-2):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
      * </p> </li> <li> <p>
@@ -554,6 +1734,16 @@ namespace Model
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul>
      */
     inline HumanTaskConfig& WithPreHumanTaskLambdaArn(Aws::String&& value) { SetPreHumanTaskLambdaArn(std::move(value)); return *this;}
@@ -572,6 +1762,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US East (Ohio) (us-east-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -580,6 +1780,16 @@ namespace Model
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>US West (Oregon) (us-west-2):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -588,6 +1798,34 @@ namespace Model
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Canada (Central) (ca-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>EU (Ireland) (eu-west-1):</b> </p> <ul> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code> </p>
      * </li> <li> <p>
@@ -596,6 +1834,52 @@ namespace Model
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU (London) (eu-west-2):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code> </p>
+     * </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>EU Frankfurt (eu-central-1):</b> </p> <ul> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul> <p> <b>Asia Pacific (Tokyo) (ap-northeast-1):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
@@ -605,7 +1889,73 @@ namespace Model
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-1):</b> </p> <ul>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Seoul) (ap-northeast-2):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Mumbai) (ap-south-1):</b> </p> <ul> <li>
+     * <p> <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Singapore) (ap-southeast-1):</b> </p> <ul>
+     * <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+     * </p> </li> </ul> <p> <b>Asia Pacific (Sydney) (ap-southeast-2):</b> </p> <ul>
      * <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
      * </p> </li> <li> <p>
@@ -614,6 +1964,16 @@ namespace Model
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
      * </p> </li> <li> <p>
      * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+     * </p> </li> <li> <p>
+     * <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
      * </p> </li> </ul>
      */
     inline HumanTaskConfig& WithPreHumanTaskLambdaArn(const char* value) { SetPreHumanTaskLambdaArn(value); return *this;}
@@ -799,55 +2159,63 @@ namespace Model
 
 
     /**
-     * <p>The length of time that a task remains available for labelling by human
-     * workers.</p>
+     * <p>The length of time that a task remains available for labeling by human
+     * workers. <b>If you choose the Amazon Mechanical Turk workforce, the maximum is
+     * 12 hours (43200)</b>. The default value is 864000 seconds (1 day). For private
+     * and vendor workforces, the maximum is as listed.</p>
      */
     inline int GetTaskAvailabilityLifetimeInSeconds() const{ return m_taskAvailabilityLifetimeInSeconds; }
 
     /**
-     * <p>The length of time that a task remains available for labelling by human
-     * workers.</p>
+     * <p>The length of time that a task remains available for labeling by human
+     * workers. <b>If you choose the Amazon Mechanical Turk workforce, the maximum is
+     * 12 hours (43200)</b>. The default value is 864000 seconds (1 day). For private
+     * and vendor workforces, the maximum is as listed.</p>
      */
     inline bool TaskAvailabilityLifetimeInSecondsHasBeenSet() const { return m_taskAvailabilityLifetimeInSecondsHasBeenSet; }
 
     /**
-     * <p>The length of time that a task remains available for labelling by human
-     * workers.</p>
+     * <p>The length of time that a task remains available for labeling by human
+     * workers. <b>If you choose the Amazon Mechanical Turk workforce, the maximum is
+     * 12 hours (43200)</b>. The default value is 864000 seconds (1 day). For private
+     * and vendor workforces, the maximum is as listed.</p>
      */
     inline void SetTaskAvailabilityLifetimeInSeconds(int value) { m_taskAvailabilityLifetimeInSecondsHasBeenSet = true; m_taskAvailabilityLifetimeInSeconds = value; }
 
     /**
-     * <p>The length of time that a task remains available for labelling by human
-     * workers.</p>
+     * <p>The length of time that a task remains available for labeling by human
+     * workers. <b>If you choose the Amazon Mechanical Turk workforce, the maximum is
+     * 12 hours (43200)</b>. The default value is 864000 seconds (1 day). For private
+     * and vendor workforces, the maximum is as listed.</p>
      */
     inline HumanTaskConfig& WithTaskAvailabilityLifetimeInSeconds(int value) { SetTaskAvailabilityLifetimeInSeconds(value); return *this;}
 
 
     /**
      * <p>Defines the maximum number of data objects that can be labeled by human
-     * workers at the same time. Each object may have more than one worker at one
-     * time.</p>
+     * workers at the same time. Also referred to as batch size. Each object may have
+     * more than one worker at one time. The default value is 1000 objects.</p>
      */
     inline int GetMaxConcurrentTaskCount() const{ return m_maxConcurrentTaskCount; }
 
     /**
      * <p>Defines the maximum number of data objects that can be labeled by human
-     * workers at the same time. Each object may have more than one worker at one
-     * time.</p>
+     * workers at the same time. Also referred to as batch size. Each object may have
+     * more than one worker at one time. The default value is 1000 objects.</p>
      */
     inline bool MaxConcurrentTaskCountHasBeenSet() const { return m_maxConcurrentTaskCountHasBeenSet; }
 
     /**
      * <p>Defines the maximum number of data objects that can be labeled by human
-     * workers at the same time. Each object may have more than one worker at one
-     * time.</p>
+     * workers at the same time. Also referred to as batch size. Each object may have
+     * more than one worker at one time. The default value is 1000 objects.</p>
      */
     inline void SetMaxConcurrentTaskCount(int value) { m_maxConcurrentTaskCountHasBeenSet = true; m_maxConcurrentTaskCount = value; }
 
     /**
      * <p>Defines the maximum number of data objects that can be labeled by human
-     * workers at the same time. Each object may have more than one worker at one
-     * time.</p>
+     * workers at the same time. Also referred to as batch size. Each object may have
+     * more than one worker at one time. The default value is 1000 objects.</p>
      */
     inline HumanTaskConfig& WithMaxConcurrentTaskCount(int value) { SetMaxConcurrentTaskCount(value); return *this;}
 
@@ -884,32 +2252,38 @@ namespace Model
 
 
     /**
-     * <p>The price that you pay for each task performed by a public worker.</p>
+     * <p>The price that you pay for each task performed by an Amazon Mechanical Turk
+     * worker.</p>
      */
     inline const PublicWorkforceTaskPrice& GetPublicWorkforceTaskPrice() const{ return m_publicWorkforceTaskPrice; }
 
     /**
-     * <p>The price that you pay for each task performed by a public worker.</p>
+     * <p>The price that you pay for each task performed by an Amazon Mechanical Turk
+     * worker.</p>
      */
     inline bool PublicWorkforceTaskPriceHasBeenSet() const { return m_publicWorkforceTaskPriceHasBeenSet; }
 
     /**
-     * <p>The price that you pay for each task performed by a public worker.</p>
+     * <p>The price that you pay for each task performed by an Amazon Mechanical Turk
+     * worker.</p>
      */
     inline void SetPublicWorkforceTaskPrice(const PublicWorkforceTaskPrice& value) { m_publicWorkforceTaskPriceHasBeenSet = true; m_publicWorkforceTaskPrice = value; }
 
     /**
-     * <p>The price that you pay for each task performed by a public worker.</p>
+     * <p>The price that you pay for each task performed by an Amazon Mechanical Turk
+     * worker.</p>
      */
     inline void SetPublicWorkforceTaskPrice(PublicWorkforceTaskPrice&& value) { m_publicWorkforceTaskPriceHasBeenSet = true; m_publicWorkforceTaskPrice = std::move(value); }
 
     /**
-     * <p>The price that you pay for each task performed by a public worker.</p>
+     * <p>The price that you pay for each task performed by an Amazon Mechanical Turk
+     * worker.</p>
      */
     inline HumanTaskConfig& WithPublicWorkforceTaskPrice(const PublicWorkforceTaskPrice& value) { SetPublicWorkforceTaskPrice(value); return *this;}
 
     /**
-     * <p>The price that you pay for each task performed by a public worker.</p>
+     * <p>The price that you pay for each task performed by an Amazon Mechanical Turk
+     * worker.</p>
      */
     inline HumanTaskConfig& WithPublicWorkforceTaskPrice(PublicWorkforceTaskPrice&& value) { SetPublicWorkforceTaskPrice(std::move(value)); return *this;}
 

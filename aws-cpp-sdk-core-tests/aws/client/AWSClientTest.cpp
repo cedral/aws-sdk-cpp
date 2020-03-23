@@ -29,6 +29,12 @@
 #include <aws/core/auth/AWSCredentialsProvider.h>
 #include <aws/core/platform/Environment.h>
 #include <fstream>
+#include <thread>
+
+using namespace Aws;
+using namespace Aws::Client;
+using namespace Aws::Http;
+using namespace Aws::Http::Standard;
 
 using Aws::Utils::DateTime;
 using Aws::Utils::DateFormat;
@@ -70,7 +76,7 @@ protected:
         ClientConfiguration config;
         config.scheme = Scheme::HTTP;
         config.connectTimeoutMs = 30000;
-        config.requestTimeoutMs = 30000;           
+        config.requestTimeoutMs = 30000;
         auto countedRetryStrategy = Aws::MakeShared<CountedRetryStrategy>(ALLOCATION_TAG);
         config.retryStrategy = std::static_pointer_cast<DefaultRetryStrategy>(countedRetryStrategy);
 
@@ -93,7 +99,7 @@ protected:
 
     void QueueMockResponse(HttpResponseCode code, const HeaderValueCollection& headers)
     {
-        auto httpRequest = CreateHttpRequest(URI("http://www.uri.com/path/to/res"), 
+        auto httpRequest = CreateHttpRequest(URI("http://www.uri.com/path/to/res"),
                 HttpMethod::HTTP_GET, Aws::Utils::Stream::DefaultResponseStreamFactoryMethod);
         auto httpResponse = Aws::MakeShared<StandardHttpResponse>(ALLOCATION_TAG, httpRequest);
         httpResponse->SetResponseCode(code);
@@ -182,13 +188,13 @@ TEST_F(AWSClientTestSuite, TestClockSkewConsecutiveRequests)
     outcome = client->MakeRequest(request);
     ASSERT_FALSE(outcome.IsSuccess()); // should _not_ attempt to adjust clock skew and retry the request.
     ASSERT_EQ(HttpResponseCode::FORBIDDEN, outcome.GetError().GetResponseCode());
-    ASSERT_EQ(0, client->GetRequestAttemptedRetries()); 
+    ASSERT_EQ(0, client->GetRequestAttemptedRetries());
 }
 
 TEST_F(AWSClientTestSuite, TestClockChangesAfterSkewHasBeenSet)
 {
-    // after making a request with a skewed clock, the client adjusts for the client's clock skew. However, 
-    // later the client's clock is corrected via NTP for example or skewed even further. 
+    // after making a request with a skewed clock, the client adjusts for the client's clock skew. However,
+    // later the client's clock is corrected via NTP for example or skewed even further.
     // The skew should reflect the clock's changes.
 
     // make an initial request so that a skew adjustment is set
@@ -209,7 +215,7 @@ TEST_F(AWSClientTestSuite, TestClockChangesAfterSkewHasBeenSet)
     QueueMockResponse(HttpResponseCode::FORBIDDEN, responseHeaders);
     QueueMockResponse(HttpResponseCode::FORBIDDEN, responseHeaders);
     outcome = client->MakeRequest(request);
-    ASSERT_FALSE(outcome.IsSuccess()); 
+    ASSERT_FALSE(outcome.IsSuccess());
     ASSERT_EQ(1, client->GetRequestAttemptedRetries());
 
     // make another request with the clock in sync with the server
@@ -218,7 +224,7 @@ TEST_F(AWSClientTestSuite, TestClockChangesAfterSkewHasBeenSet)
     QueueMockResponse(HttpResponseCode::FORBIDDEN, responseHeaders);
     QueueMockResponse(HttpResponseCode::FORBIDDEN, responseHeaders);
     outcome = client->MakeRequest(request);
-    ASSERT_FALSE(outcome.IsSuccess()); 
+    ASSERT_FALSE(outcome.IsSuccess());
     ASSERT_EQ(1, client->GetRequestAttemptedRetries());
 }
 
@@ -313,7 +319,7 @@ TEST(AWSClientTest, TestBuildHttpRequestWithHeadersAndBody)
 
     Aws::StringStream contentLengthExpected;
     contentLengthExpected << ss->str().length();
-    ASSERT_EQ(contentLengthExpected.str(), finalHeaders[Http::CONTENT_LENGTH_HEADER]);  
+    ASSERT_EQ(contentLengthExpected.str(), finalHeaders[Http::CONTENT_LENGTH_HEADER]);
 }
 
 TEST(AWSClientTest, TestHostHeaderWithNonStandardHttpPort)
@@ -360,7 +366,9 @@ TEST(AWSClientTest, TestOverflowContainer)
 TEST_F(AWSConfigTestSuite, TestClientConfigurationWithNonExistentProfile)
 {
     // create a config file with profile named Dijkstra
-    Aws::String configFileName = Aws::Auth::GetConfigProfileFilename() + "Test";
+    Aws::StringStream ss;
+    ss << Aws::Auth::GetConfigProfileFilename() + "_blah" << std::this_thread::get_id();
+    Aws::String configFileName = ss.str();
     Aws::Environment::SetEnv("AWS_CONFIG_FILE", configFileName.c_str(), 1/*overwrite*/);
 
     Aws::OFStream configFileNew(configFileName.c_str(), Aws::OFStream::out | Aws::OFStream::trunc);
@@ -369,9 +377,11 @@ TEST_F(AWSConfigTestSuite, TestClientConfigurationWithNonExistentProfile)
 
     configFileNew.flush();
     configFileNew.close();
+    Aws::Config::ReloadCachedConfigFile();
 
     Aws::Client::ClientConfiguration config("Edsger");
     EXPECT_EQ(Aws::Region::US_EAST_1, config.region);
+    EXPECT_STREQ("default", config.profileName.c_str());
 
     // cleanup
     Aws::Environment::UnSetEnv("AWS_CONFIG_FILE");
@@ -381,16 +391,20 @@ TEST_F(AWSConfigTestSuite, TestClientConfigurationWithNonExistentProfile)
 TEST_F(AWSConfigTestSuite, TestClientConfigurationWithNonExistentConfigFile)
 {
     Aws::Environment::SetEnv("AWS_CONFIG_FILE", "WhatAreTheChances", 1/*overwrite*/);
+    Aws::Config::ReloadCachedConfigFile();
 
     Aws::Client::ClientConfiguration config("default");
     EXPECT_EQ(Aws::Region::US_EAST_1, config.region);
+    EXPECT_STREQ("default", config.profileName.c_str());
     Aws::Environment::UnSetEnv("AWS_CONFIG_FILE");
 }
 
 TEST_F(AWSConfigTestSuite, TestClientConfigurationSetsRegionToProfile)
 {
     // create a config file with profile named Dijkstra
-    Aws::String configFileName = Aws::Auth::GetConfigProfileFilename() + "Test";
+    Aws::StringStream ss;
+    ss << Aws::Auth::GetConfigProfileFilename() + "_blah" << std::this_thread::get_id();
+    Aws::String configFileName = ss.str();
     Aws::Environment::SetEnv("AWS_CONFIG_FILE", configFileName.c_str(), 1/*overwrite*/);
 
     Aws::OFStream configFileNew(configFileName.c_str(), Aws::OFStream::out | Aws::OFStream::trunc);
@@ -399,9 +413,11 @@ TEST_F(AWSConfigTestSuite, TestClientConfigurationSetsRegionToProfile)
 
     configFileNew.flush();
     configFileNew.close();
+    Aws::Config::ReloadCachedConfigFile();
 
     Aws::Client::ClientConfiguration config("Dijkstra");
     EXPECT_EQ(Aws::Region::US_WEST_2, config.region);
+    EXPECT_STREQ("Dijkstra", config.profileName.c_str());
 
     // cleanup
     Aws::Environment::UnSetEnv("AWS_CONFIG_FILE");

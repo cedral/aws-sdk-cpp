@@ -31,7 +31,9 @@ UpdateElasticsearchDomainConfigRequest::UpdateElasticsearchDomainConfigRequest()
     m_cognitoOptionsHasBeenSet(false),
     m_advancedOptionsHasBeenSet(false),
     m_accessPoliciesHasBeenSet(false),
-    m_logPublishingOptionsHasBeenSet(false)
+    m_logPublishingOptionsHasBeenSet(false),
+    m_domainEndpointOptionsHasBeenSet(false),
+    m_advancedSecurityOptionsHasBeenSet(false)
 {
 }
 
@@ -94,6 +96,18 @@ Aws::String UpdateElasticsearchDomainConfigRequest::SerializePayload() const
      logPublishingOptionsJsonMap.WithObject(LogTypeMapper::GetNameForLogType(logPublishingOptionsItem.first), logPublishingOptionsItem.second.Jsonize());
    }
    payload.WithObject("LogPublishingOptions", std::move(logPublishingOptionsJsonMap));
+
+  }
+
+  if(m_domainEndpointOptionsHasBeenSet)
+  {
+   payload.WithObject("DomainEndpointOptions", m_domainEndpointOptions.Jsonize());
+
+  }
+
+  if(m_advancedSecurityOptionsHasBeenSet)
+  {
+   payload.WithObject("AdvancedSecurityOptions", m_advancedSecurityOptions.Jsonize());
 
   }
 

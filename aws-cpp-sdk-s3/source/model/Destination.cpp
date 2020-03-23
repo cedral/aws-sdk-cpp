@@ -36,7 +36,9 @@ Destination::Destination() :
     m_storageClass(StorageClass::NOT_SET),
     m_storageClassHasBeenSet(false),
     m_accessControlTranslationHasBeenSet(false),
-    m_encryptionConfigurationHasBeenSet(false)
+    m_encryptionConfigurationHasBeenSet(false),
+    m_replicationTimeHasBeenSet(false),
+    m_metricsHasBeenSet(false)
 {
 }
 
@@ -46,7 +48,9 @@ Destination::Destination(const XmlNode& xmlNode) :
     m_storageClass(StorageClass::NOT_SET),
     m_storageClassHasBeenSet(false),
     m_accessControlTranslationHasBeenSet(false),
-    m_encryptionConfigurationHasBeenSet(false)
+    m_encryptionConfigurationHasBeenSet(false),
+    m_replicationTimeHasBeenSet(false),
+    m_metricsHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -60,19 +64,19 @@ Destination& Destination::operator =(const XmlNode& xmlNode)
     XmlNode bucketNode = resultNode.FirstChild("Bucket");
     if(!bucketNode.IsNull())
     {
-      m_bucket = bucketNode.GetText();
+      m_bucket = Aws::Utils::Xml::DecodeEscapedXmlText(bucketNode.GetText());
       m_bucketHasBeenSet = true;
     }
     XmlNode accountNode = resultNode.FirstChild("Account");
     if(!accountNode.IsNull())
     {
-      m_account = accountNode.GetText();
+      m_account = Aws::Utils::Xml::DecodeEscapedXmlText(accountNode.GetText());
       m_accountHasBeenSet = true;
     }
     XmlNode storageClassNode = resultNode.FirstChild("StorageClass");
     if(!storageClassNode.IsNull())
     {
-      m_storageClass = StorageClassMapper::GetStorageClassForName(StringUtils::Trim(storageClassNode.GetText().c_str()).c_str());
+      m_storageClass = StorageClassMapper::GetStorageClassForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(storageClassNode.GetText()).c_str()).c_str());
       m_storageClassHasBeenSet = true;
     }
     XmlNode accessControlTranslationNode = resultNode.FirstChild("AccessControlTranslation");
@@ -86,6 +90,18 @@ Destination& Destination::operator =(const XmlNode& xmlNode)
     {
       m_encryptionConfiguration = encryptionConfigurationNode;
       m_encryptionConfigurationHasBeenSet = true;
+    }
+    XmlNode replicationTimeNode = resultNode.FirstChild("ReplicationTime");
+    if(!replicationTimeNode.IsNull())
+    {
+      m_replicationTime = replicationTimeNode;
+      m_replicationTimeHasBeenSet = true;
+    }
+    XmlNode metricsNode = resultNode.FirstChild("Metrics");
+    if(!metricsNode.IsNull())
+    {
+      m_metrics = metricsNode;
+      m_metricsHasBeenSet = true;
     }
   }
 
@@ -123,6 +139,18 @@ void Destination::AddToNode(XmlNode& parentNode) const
   {
    XmlNode encryptionConfigurationNode = parentNode.CreateChildElement("EncryptionConfiguration");
    m_encryptionConfiguration.AddToNode(encryptionConfigurationNode);
+  }
+
+  if(m_replicationTimeHasBeenSet)
+  {
+   XmlNode replicationTimeNode = parentNode.CreateChildElement("ReplicationTime");
+   m_replicationTime.AddToNode(replicationTimeNode);
+  }
+
+  if(m_metricsHasBeenSet)
+  {
+   XmlNode metricsNode = parentNode.CreateChildElement("Metrics");
+   m_metrics.AddToNode(metricsNode);
   }
 
 }

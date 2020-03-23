@@ -29,6 +29,7 @@
 #include <aws/ec2/model/CpuOptionsRequest.h>
 #include <aws/ec2/model/CapacityReservationSpecification.h>
 #include <aws/ec2/model/HibernationOptionsRequest.h>
+#include <aws/ec2/model/InstanceMetadataOptionsRequest.h>
 #include <aws/ec2/model/BlockDeviceMapping.h>
 #include <aws/ec2/model/InstanceIpv6Address.h>
 #include <aws/ec2/model/InstanceNetworkInterfaceSpecification.h>
@@ -1076,7 +1077,8 @@ namespace Model
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * the request. If you do not specify a client token, a randomly generated token is
+     * used for the request to ensure idempotency.</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>
      */
@@ -1084,7 +1086,8 @@ namespace Model
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * the request. If you do not specify a client token, a randomly generated token is
+     * used for the request to ensure idempotency.</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>
      */
@@ -1092,7 +1095,8 @@ namespace Model
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * the request. If you do not specify a client token, a randomly generated token is
+     * used for the request to ensure idempotency.</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>
      */
@@ -1100,7 +1104,8 @@ namespace Model
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * the request. If you do not specify a client token, a randomly generated token is
+     * used for the request to ensure idempotency.</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>
      */
@@ -1108,7 +1113,8 @@ namespace Model
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * the request. If you do not specify a client token, a randomly generated token is
+     * used for the request to ensure idempotency.</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>
      */
@@ -1116,7 +1122,8 @@ namespace Model
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * the request. If you do not specify a client token, a randomly generated token is
+     * used for the request to ensure idempotency.</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>
      */
@@ -1124,7 +1131,8 @@ namespace Model
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * the request. If you do not specify a client token, a randomly generated token is
+     * used for the request to ensure idempotency.</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>
      */
@@ -1132,7 +1140,8 @@ namespace Model
 
     /**
      * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of
-     * the request. For more information, see <a
+     * the request. If you do not specify a client token, a randomly generated token is
+     * used for the request to ensure idempotency.</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
      * Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>
      */
@@ -1788,80 +1797,80 @@ namespace Model
 
 
     /**
-     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
-     * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a
+     * <p>The credit option for CPU usage of the burstable performance instance. Valid
+     * values are <code>standard</code> and <code>unlimited</code>. To change this
+     * attribute after launch, use <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
      * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
-     * <code>unlimited</code> (T3 instances)</p>
+     * <code>unlimited</code> (T3/T3a instances)</p>
      */
     inline const CreditSpecificationRequest& GetCreditSpecification() const{ return m_creditSpecification; }
 
     /**
-     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
-     * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a
+     * <p>The credit option for CPU usage of the burstable performance instance. Valid
+     * values are <code>standard</code> and <code>unlimited</code>. To change this
+     * attribute after launch, use <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
      * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
-     * <code>unlimited</code> (T3 instances)</p>
+     * <code>unlimited</code> (T3/T3a instances)</p>
      */
     inline bool CreditSpecificationHasBeenSet() const { return m_creditSpecificationHasBeenSet; }
 
     /**
-     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
-     * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a
+     * <p>The credit option for CPU usage of the burstable performance instance. Valid
+     * values are <code>standard</code> and <code>unlimited</code>. To change this
+     * attribute after launch, use <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
      * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
-     * <code>unlimited</code> (T3 instances)</p>
+     * <code>unlimited</code> (T3/T3a instances)</p>
      */
     inline void SetCreditSpecification(const CreditSpecificationRequest& value) { m_creditSpecificationHasBeenSet = true; m_creditSpecification = value; }
 
     /**
-     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
-     * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a
+     * <p>The credit option for CPU usage of the burstable performance instance. Valid
+     * values are <code>standard</code> and <code>unlimited</code>. To change this
+     * attribute after launch, use <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
      * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
-     * <code>unlimited</code> (T3 instances)</p>
+     * <code>unlimited</code> (T3/T3a instances)</p>
      */
     inline void SetCreditSpecification(CreditSpecificationRequest&& value) { m_creditSpecificationHasBeenSet = true; m_creditSpecification = std::move(value); }
 
     /**
-     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
-     * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a
+     * <p>The credit option for CPU usage of the burstable performance instance. Valid
+     * values are <code>standard</code> and <code>unlimited</code>. To change this
+     * attribute after launch, use <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
      * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
-     * <code>unlimited</code> (T3 instances)</p>
+     * <code>unlimited</code> (T3/T3a instances)</p>
      */
     inline RunInstancesRequest& WithCreditSpecification(const CreditSpecificationRequest& value) { SetCreditSpecification(value); return *this;}
 
     /**
-     * <p>The credit option for CPU usage of the T2 or T3 instance. Valid values are
-     * <code>standard</code> and <code>unlimited</code>. To change this attribute after
-     * launch, use <a
+     * <p>The credit option for CPU usage of the burstable performance instance. Valid
+     * values are <code>standard</code> and <code>unlimited</code>. To change this
+     * attribute after launch, use <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
      * ModifyInstanceCreditSpecification</a>. For more information, see <a
      * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
      * Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User
      * Guide</i>.</p> <p>Default: <code>standard</code> (T2 instances) or
-     * <code>unlimited</code> (T3 instances)</p>
+     * <code>unlimited</code> (T3/T3a instances)</p>
      */
     inline RunInstancesRequest& WithCreditSpecification(CreditSpecificationRequest&& value) { SetCreditSpecification(std::move(value)); return *this;}
 
@@ -2047,6 +2056,49 @@ namespace Model
      */
     inline RunInstancesRequest& AddLicenseSpecifications(LicenseConfigurationRequest&& value) { m_licenseSpecificationsHasBeenSet = true; m_licenseSpecifications.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a>.</p>
+     */
+    inline const InstanceMetadataOptionsRequest& GetMetadataOptions() const{ return m_metadataOptions; }
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a>.</p>
+     */
+    inline bool MetadataOptionsHasBeenSet() const { return m_metadataOptionsHasBeenSet; }
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a>.</p>
+     */
+    inline void SetMetadataOptions(const InstanceMetadataOptionsRequest& value) { m_metadataOptionsHasBeenSet = true; m_metadataOptions = value; }
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a>.</p>
+     */
+    inline void SetMetadataOptions(InstanceMetadataOptionsRequest&& value) { m_metadataOptionsHasBeenSet = true; m_metadataOptions = std::move(value); }
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a>.</p>
+     */
+    inline RunInstancesRequest& WithMetadataOptions(const InstanceMetadataOptionsRequest& value) { SetMetadataOptions(value); return *this;}
+
+    /**
+     * <p>The metadata options for the instance. For more information, see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+     * Metadata and User Data</a>.</p>
+     */
+    inline RunInstancesRequest& WithMetadataOptions(InstanceMetadataOptionsRequest&& value) { SetMetadataOptions(std::move(value)); return *this;}
+
   private:
 
     Aws::Vector<BlockDeviceMapping> m_blockDeviceMappings;
@@ -2153,6 +2205,9 @@ namespace Model
 
     Aws::Vector<LicenseConfigurationRequest> m_licenseSpecifications;
     bool m_licenseSpecificationsHasBeenSet;
+
+    InstanceMetadataOptionsRequest m_metadataOptions;
+    bool m_metadataOptionsHasBeenSet;
   };
 
 } // namespace Model

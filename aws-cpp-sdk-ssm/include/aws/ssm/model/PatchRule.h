@@ -17,6 +17,7 @@
 #include <aws/ssm/SSM_EXPORTS.h>
 #include <aws/ssm/model/PatchFilterGroup.h>
 #include <aws/ssm/model/PatchComplianceLevel.h>
+#include <aws/core/utils/memory/stl/AWSString.h>
 #include <utility>
 
 namespace Aws
@@ -156,6 +157,47 @@ namespace Model
 
 
     /**
+     * <p>Example API</p>
+     */
+    inline const Aws::String& GetApproveUntilDate() const{ return m_approveUntilDate; }
+
+    /**
+     * <p>Example API</p>
+     */
+    inline bool ApproveUntilDateHasBeenSet() const { return m_approveUntilDateHasBeenSet; }
+
+    /**
+     * <p>Example API</p>
+     */
+    inline void SetApproveUntilDate(const Aws::String& value) { m_approveUntilDateHasBeenSet = true; m_approveUntilDate = value; }
+
+    /**
+     * <p>Example API</p>
+     */
+    inline void SetApproveUntilDate(Aws::String&& value) { m_approveUntilDateHasBeenSet = true; m_approveUntilDate = std::move(value); }
+
+    /**
+     * <p>Example API</p>
+     */
+    inline void SetApproveUntilDate(const char* value) { m_approveUntilDateHasBeenSet = true; m_approveUntilDate.assign(value); }
+
+    /**
+     * <p>Example API</p>
+     */
+    inline PatchRule& WithApproveUntilDate(const Aws::String& value) { SetApproveUntilDate(value); return *this;}
+
+    /**
+     * <p>Example API</p>
+     */
+    inline PatchRule& WithApproveUntilDate(Aws::String&& value) { SetApproveUntilDate(std::move(value)); return *this;}
+
+    /**
+     * <p>Example API</p>
+     */
+    inline PatchRule& WithApproveUntilDate(const char* value) { SetApproveUntilDate(value); return *this;}
+
+
+    /**
      * <p>For instances identified by the approval rule filters, enables a patch
      * baseline to apply non-security updates available in the specified repository.
      * The default value is 'false'. Applies to Linux instances only.</p>
@@ -193,6 +235,9 @@ namespace Model
 
     int m_approveAfterDays;
     bool m_approveAfterDaysHasBeenSet;
+
+    Aws::String m_approveUntilDate;
+    bool m_approveUntilDateHasBeenSet;
 
     bool m_enableNonSecurity;
     bool m_enableNonSecurityHasBeenSet;

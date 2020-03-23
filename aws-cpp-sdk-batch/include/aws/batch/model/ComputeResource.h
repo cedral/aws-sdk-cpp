@@ -16,6 +16,7 @@
 #pragma once
 #include <aws/batch/Batch_EXPORTS.h>
 #include <aws/batch/model/CRType.h>
+#include <aws/batch/model/CRAllocationStrategy.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
@@ -53,108 +54,241 @@ namespace Model
 
 
     /**
-     * <p>The type of compute environment: EC2 or SPOT.</p>
+     * <p>The type of compute environment: <code>EC2</code> or <code>SPOT</code>.</p>
      */
     inline const CRType& GetType() const{ return m_type; }
 
     /**
-     * <p>The type of compute environment: EC2 or SPOT.</p>
+     * <p>The type of compute environment: <code>EC2</code> or <code>SPOT</code>.</p>
      */
     inline bool TypeHasBeenSet() const { return m_typeHasBeenSet; }
 
     /**
-     * <p>The type of compute environment: EC2 or SPOT.</p>
+     * <p>The type of compute environment: <code>EC2</code> or <code>SPOT</code>.</p>
      */
     inline void SetType(const CRType& value) { m_typeHasBeenSet = true; m_type = value; }
 
     /**
-     * <p>The type of compute environment: EC2 or SPOT.</p>
+     * <p>The type of compute environment: <code>EC2</code> or <code>SPOT</code>.</p>
      */
     inline void SetType(CRType&& value) { m_typeHasBeenSet = true; m_type = std::move(value); }
 
     /**
-     * <p>The type of compute environment: EC2 or SPOT.</p>
+     * <p>The type of compute environment: <code>EC2</code> or <code>SPOT</code>.</p>
      */
     inline ComputeResource& WithType(const CRType& value) { SetType(value); return *this;}
 
     /**
-     * <p>The type of compute environment: EC2 or SPOT.</p>
+     * <p>The type of compute environment: <code>EC2</code> or <code>SPOT</code>.</p>
      */
     inline ComputeResource& WithType(CRType&& value) { SetType(std::move(value)); return *this;}
 
 
     /**
-     * <p>The minimum number of EC2 vCPUs that an environment should maintain (even if
-     * the compute environment is <code>DISABLED</code>). </p>
+     * <p>The allocation strategy to use for the compute resource in case not enough
+     * instances of the best fitting instance type can be allocated. This could be due
+     * to availability of the instance type in the region or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+     * EC2 service limits</a>. If this is not specified, the default is
+     * <code>BEST_FIT</code>, which will use only the best fitting instance type,
+     * waiting for additional capacity if it's not available. This allocation strategy
+     * keeps costs lower but can limit scaling. If you are using Spot Fleets with
+     * <code>BEST_FIT</code> then the Spot Fleet IAM Role must be specified.
+     * <code>BEST_FIT_PROGRESSIVE</code> will select additional instance types that are
+     * large enough to meet the requirements of the jobs in the queue, with a
+     * preference for instance types with a lower cost per vCPU.
+     * <code>SPOT_CAPACITY_OPTIMIZED</code> is only available for Spot Instance compute
+     * resources and will select additional instance types that are large enough to
+     * meet the requirements of the jobs in the queue, with a preference for instance
+     * types that are less likely to be interrupted. For more information, see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+     * ">Allocation Strategies</a> in the <i>AWS Batch User Guide</i>.</p>
+     */
+    inline const CRAllocationStrategy& GetAllocationStrategy() const{ return m_allocationStrategy; }
+
+    /**
+     * <p>The allocation strategy to use for the compute resource in case not enough
+     * instances of the best fitting instance type can be allocated. This could be due
+     * to availability of the instance type in the region or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+     * EC2 service limits</a>. If this is not specified, the default is
+     * <code>BEST_FIT</code>, which will use only the best fitting instance type,
+     * waiting for additional capacity if it's not available. This allocation strategy
+     * keeps costs lower but can limit scaling. If you are using Spot Fleets with
+     * <code>BEST_FIT</code> then the Spot Fleet IAM Role must be specified.
+     * <code>BEST_FIT_PROGRESSIVE</code> will select additional instance types that are
+     * large enough to meet the requirements of the jobs in the queue, with a
+     * preference for instance types with a lower cost per vCPU.
+     * <code>SPOT_CAPACITY_OPTIMIZED</code> is only available for Spot Instance compute
+     * resources and will select additional instance types that are large enough to
+     * meet the requirements of the jobs in the queue, with a preference for instance
+     * types that are less likely to be interrupted. For more information, see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+     * ">Allocation Strategies</a> in the <i>AWS Batch User Guide</i>.</p>
+     */
+    inline bool AllocationStrategyHasBeenSet() const { return m_allocationStrategyHasBeenSet; }
+
+    /**
+     * <p>The allocation strategy to use for the compute resource in case not enough
+     * instances of the best fitting instance type can be allocated. This could be due
+     * to availability of the instance type in the region or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+     * EC2 service limits</a>. If this is not specified, the default is
+     * <code>BEST_FIT</code>, which will use only the best fitting instance type,
+     * waiting for additional capacity if it's not available. This allocation strategy
+     * keeps costs lower but can limit scaling. If you are using Spot Fleets with
+     * <code>BEST_FIT</code> then the Spot Fleet IAM Role must be specified.
+     * <code>BEST_FIT_PROGRESSIVE</code> will select additional instance types that are
+     * large enough to meet the requirements of the jobs in the queue, with a
+     * preference for instance types with a lower cost per vCPU.
+     * <code>SPOT_CAPACITY_OPTIMIZED</code> is only available for Spot Instance compute
+     * resources and will select additional instance types that are large enough to
+     * meet the requirements of the jobs in the queue, with a preference for instance
+     * types that are less likely to be interrupted. For more information, see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+     * ">Allocation Strategies</a> in the <i>AWS Batch User Guide</i>.</p>
+     */
+    inline void SetAllocationStrategy(const CRAllocationStrategy& value) { m_allocationStrategyHasBeenSet = true; m_allocationStrategy = value; }
+
+    /**
+     * <p>The allocation strategy to use for the compute resource in case not enough
+     * instances of the best fitting instance type can be allocated. This could be due
+     * to availability of the instance type in the region or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+     * EC2 service limits</a>. If this is not specified, the default is
+     * <code>BEST_FIT</code>, which will use only the best fitting instance type,
+     * waiting for additional capacity if it's not available. This allocation strategy
+     * keeps costs lower but can limit scaling. If you are using Spot Fleets with
+     * <code>BEST_FIT</code> then the Spot Fleet IAM Role must be specified.
+     * <code>BEST_FIT_PROGRESSIVE</code> will select additional instance types that are
+     * large enough to meet the requirements of the jobs in the queue, with a
+     * preference for instance types with a lower cost per vCPU.
+     * <code>SPOT_CAPACITY_OPTIMIZED</code> is only available for Spot Instance compute
+     * resources and will select additional instance types that are large enough to
+     * meet the requirements of the jobs in the queue, with a preference for instance
+     * types that are less likely to be interrupted. For more information, see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+     * ">Allocation Strategies</a> in the <i>AWS Batch User Guide</i>.</p>
+     */
+    inline void SetAllocationStrategy(CRAllocationStrategy&& value) { m_allocationStrategyHasBeenSet = true; m_allocationStrategy = std::move(value); }
+
+    /**
+     * <p>The allocation strategy to use for the compute resource in case not enough
+     * instances of the best fitting instance type can be allocated. This could be due
+     * to availability of the instance type in the region or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+     * EC2 service limits</a>. If this is not specified, the default is
+     * <code>BEST_FIT</code>, which will use only the best fitting instance type,
+     * waiting for additional capacity if it's not available. This allocation strategy
+     * keeps costs lower but can limit scaling. If you are using Spot Fleets with
+     * <code>BEST_FIT</code> then the Spot Fleet IAM Role must be specified.
+     * <code>BEST_FIT_PROGRESSIVE</code> will select additional instance types that are
+     * large enough to meet the requirements of the jobs in the queue, with a
+     * preference for instance types with a lower cost per vCPU.
+     * <code>SPOT_CAPACITY_OPTIMIZED</code> is only available for Spot Instance compute
+     * resources and will select additional instance types that are large enough to
+     * meet the requirements of the jobs in the queue, with a preference for instance
+     * types that are less likely to be interrupted. For more information, see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+     * ">Allocation Strategies</a> in the <i>AWS Batch User Guide</i>.</p>
+     */
+    inline ComputeResource& WithAllocationStrategy(const CRAllocationStrategy& value) { SetAllocationStrategy(value); return *this;}
+
+    /**
+     * <p>The allocation strategy to use for the compute resource in case not enough
+     * instances of the best fitting instance type can be allocated. This could be due
+     * to availability of the instance type in the region or <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+     * EC2 service limits</a>. If this is not specified, the default is
+     * <code>BEST_FIT</code>, which will use only the best fitting instance type,
+     * waiting for additional capacity if it's not available. This allocation strategy
+     * keeps costs lower but can limit scaling. If you are using Spot Fleets with
+     * <code>BEST_FIT</code> then the Spot Fleet IAM Role must be specified.
+     * <code>BEST_FIT_PROGRESSIVE</code> will select additional instance types that are
+     * large enough to meet the requirements of the jobs in the queue, with a
+     * preference for instance types with a lower cost per vCPU.
+     * <code>SPOT_CAPACITY_OPTIMIZED</code> is only available for Spot Instance compute
+     * resources and will select additional instance types that are large enough to
+     * meet the requirements of the jobs in the queue, with a preference for instance
+     * types that are less likely to be interrupted. For more information, see <a
+     * href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html
+     * ">Allocation Strategies</a> in the <i>AWS Batch User Guide</i>.</p>
+     */
+    inline ComputeResource& WithAllocationStrategy(CRAllocationStrategy&& value) { SetAllocationStrategy(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain
+     * (even if the compute environment is <code>DISABLED</code>).</p>
      */
     inline int GetMinvCpus() const{ return m_minvCpus; }
 
     /**
-     * <p>The minimum number of EC2 vCPUs that an environment should maintain (even if
-     * the compute environment is <code>DISABLED</code>). </p>
+     * <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain
+     * (even if the compute environment is <code>DISABLED</code>).</p>
      */
     inline bool MinvCpusHasBeenSet() const { return m_minvCpusHasBeenSet; }
 
     /**
-     * <p>The minimum number of EC2 vCPUs that an environment should maintain (even if
-     * the compute environment is <code>DISABLED</code>). </p>
+     * <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain
+     * (even if the compute environment is <code>DISABLED</code>).</p>
      */
     inline void SetMinvCpus(int value) { m_minvCpusHasBeenSet = true; m_minvCpus = value; }
 
     /**
-     * <p>The minimum number of EC2 vCPUs that an environment should maintain (even if
-     * the compute environment is <code>DISABLED</code>). </p>
+     * <p>The minimum number of Amazon EC2 vCPUs that an environment should maintain
+     * (even if the compute environment is <code>DISABLED</code>).</p>
      */
     inline ComputeResource& WithMinvCpus(int value) { SetMinvCpus(value); return *this;}
 
 
     /**
-     * <p>The maximum number of EC2 vCPUs that an environment can reach. </p>
+     * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
      */
     inline int GetMaxvCpus() const{ return m_maxvCpus; }
 
     /**
-     * <p>The maximum number of EC2 vCPUs that an environment can reach. </p>
+     * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
      */
     inline bool MaxvCpusHasBeenSet() const { return m_maxvCpusHasBeenSet; }
 
     /**
-     * <p>The maximum number of EC2 vCPUs that an environment can reach. </p>
+     * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
      */
     inline void SetMaxvCpus(int value) { m_maxvCpusHasBeenSet = true; m_maxvCpus = value; }
 
     /**
-     * <p>The maximum number of EC2 vCPUs that an environment can reach. </p>
+     * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
      */
     inline ComputeResource& WithMaxvCpus(int value) { SetMaxvCpus(value); return *this;}
 
 
     /**
-     * <p>The desired number of EC2 vCPUS in the compute environment. </p>
+     * <p>The desired number of Amazon EC2 vCPUS in the compute environment.</p>
      */
     inline int GetDesiredvCpus() const{ return m_desiredvCpus; }
 
     /**
-     * <p>The desired number of EC2 vCPUS in the compute environment. </p>
+     * <p>The desired number of Amazon EC2 vCPUS in the compute environment.</p>
      */
     inline bool DesiredvCpusHasBeenSet() const { return m_desiredvCpusHasBeenSet; }
 
     /**
-     * <p>The desired number of EC2 vCPUS in the compute environment. </p>
+     * <p>The desired number of Amazon EC2 vCPUS in the compute environment.</p>
      */
     inline void SetDesiredvCpus(int value) { m_desiredvCpusHasBeenSet = true; m_desiredvCpus = value; }
 
     /**
-     * <p>The desired number of EC2 vCPUS in the compute environment. </p>
+     * <p>The desired number of Amazon EC2 vCPUS in the compute environment.</p>
      */
     inline ComputeResource& WithDesiredvCpus(int value) { SetDesiredvCpus(value); return *this;}
 
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -162,9 +296,9 @@ namespace Model
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -172,9 +306,9 @@ namespace Model
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -182,9 +316,9 @@ namespace Model
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -192,9 +326,9 @@ namespace Model
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -202,9 +336,9 @@ namespace Model
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -212,9 +346,9 @@ namespace Model
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -222,9 +356,9 @@ namespace Model
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -232,9 +366,9 @@ namespace Model
 
     /**
      * <p>The instances types that may be launched. You can specify instance families
-     * to launch any instance type within those families (for example, <code>c4</code>
+     * to launch any instance type within those families (for example, <code>c5</code>
      * or <code>p3</code>), or you can specify specific sizes within a family (such as
-     * <code>c4.8xlarge</code>). You can also choose <code>optimal</code> to pick
+     * <code>c5.8xlarge</code>). You can also choose <code>optimal</code> to pick
      * instance types (from the C, M, and R instance families) on the fly that match
      * the demand of your job queues.</p>
      */
@@ -364,104 +498,140 @@ namespace Model
 
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline const Aws::Vector<Aws::String>& GetSecurityGroupIds() const{ return m_securityGroupIds; }
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline bool SecurityGroupIdsHasBeenSet() const { return m_securityGroupIdsHasBeenSet; }
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline void SetSecurityGroupIds(const Aws::Vector<Aws::String>& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = value; }
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline void SetSecurityGroupIds(Aws::Vector<Aws::String>&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = std::move(value); }
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline ComputeResource& WithSecurityGroupIds(const Aws::Vector<Aws::String>& value) { SetSecurityGroupIds(value); return *this;}
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline ComputeResource& WithSecurityGroupIds(Aws::Vector<Aws::String>&& value) { SetSecurityGroupIds(std::move(value)); return *this;}
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline ComputeResource& AddSecurityGroupIds(const Aws::String& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline ComputeResource& AddSecurityGroupIds(Aws::String&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(std::move(value)); return *this; }
 
     /**
-     * <p>The EC2 security group that is associated with instances launched in the
-     * compute environment. </p>
+     * <p>The Amazon EC2 security groups associated with instances launched in the
+     * compute environment. One or more security groups must be specified, either in
+     * <code>securityGroupIds</code> or using a launch template referenced in
+     * <code>launchTemplate</code>. If security groups are specified using both
+     * <code>securityGroupIds</code> and <code>launchTemplate</code>, the values in
+     * <code>securityGroupIds</code> will be used.</p>
      */
     inline ComputeResource& AddSecurityGroupIds(const char* value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
 
 
     /**
-     * <p>The EC2 key pair that is used for instances launched in the compute
+     * <p>The Amazon EC2 key pair that is used for instances launched in the compute
      * environment.</p>
      */
     inline const Aws::String& GetEc2KeyPair() const{ return m_ec2KeyPair; }
 
     /**
-     * <p>The EC2 key pair that is used for instances launched in the compute
+     * <p>The Amazon EC2 key pair that is used for instances launched in the compute
      * environment.</p>
      */
     inline bool Ec2KeyPairHasBeenSet() const { return m_ec2KeyPairHasBeenSet; }
 
     /**
-     * <p>The EC2 key pair that is used for instances launched in the compute
+     * <p>The Amazon EC2 key pair that is used for instances launched in the compute
      * environment.</p>
      */
     inline void SetEc2KeyPair(const Aws::String& value) { m_ec2KeyPairHasBeenSet = true; m_ec2KeyPair = value; }
 
     /**
-     * <p>The EC2 key pair that is used for instances launched in the compute
+     * <p>The Amazon EC2 key pair that is used for instances launched in the compute
      * environment.</p>
      */
     inline void SetEc2KeyPair(Aws::String&& value) { m_ec2KeyPairHasBeenSet = true; m_ec2KeyPair = std::move(value); }
 
     /**
-     * <p>The EC2 key pair that is used for instances launched in the compute
+     * <p>The Amazon EC2 key pair that is used for instances launched in the compute
      * environment.</p>
      */
     inline void SetEc2KeyPair(const char* value) { m_ec2KeyPairHasBeenSet = true; m_ec2KeyPair.assign(value); }
 
     /**
-     * <p>The EC2 key pair that is used for instances launched in the compute
+     * <p>The Amazon EC2 key pair that is used for instances launched in the compute
      * environment.</p>
      */
     inline ComputeResource& WithEc2KeyPair(const Aws::String& value) { SetEc2KeyPair(value); return *this;}
 
     /**
-     * <p>The EC2 key pair that is used for instances launched in the compute
+     * <p>The Amazon EC2 key pair that is used for instances launched in the compute
      * environment.</p>
      */
     inline ComputeResource& WithEc2KeyPair(Aws::String&& value) { SetEc2KeyPair(std::move(value)); return *this;}
 
     /**
-     * <p>The EC2 key pair that is used for instances launched in the compute
+     * <p>The Amazon EC2 key pair that is used for instances launched in the compute
      * environment.</p>
      */
     inline ComputeResource& WithEc2KeyPair(const char* value) { SetEc2KeyPair(value); return *this;}
@@ -762,9 +932,9 @@ namespace Model
      * <p>The maximum percentage that a Spot Instance price can be when compared with
      * the On-Demand price for that instance type before instances are launched. For
      * example, if your maximum percentage is 20%, then the Spot price must be below
-     * 20% of the current On-Demand price for that EC2 instance. You always pay the
-     * lowest (market) price and never more than your maximum percentage. If you leave
-     * this field empty, the default value is 100% of the On-Demand price.</p>
+     * 20% of the current On-Demand price for that Amazon EC2 instance. You always pay
+     * the lowest (market) price and never more than your maximum percentage. If you
+     * leave this field empty, the default value is 100% of the On-Demand price.</p>
      */
     inline int GetBidPercentage() const{ return m_bidPercentage; }
 
@@ -772,9 +942,9 @@ namespace Model
      * <p>The maximum percentage that a Spot Instance price can be when compared with
      * the On-Demand price for that instance type before instances are launched. For
      * example, if your maximum percentage is 20%, then the Spot price must be below
-     * 20% of the current On-Demand price for that EC2 instance. You always pay the
-     * lowest (market) price and never more than your maximum percentage. If you leave
-     * this field empty, the default value is 100% of the On-Demand price.</p>
+     * 20% of the current On-Demand price for that Amazon EC2 instance. You always pay
+     * the lowest (market) price and never more than your maximum percentage. If you
+     * leave this field empty, the default value is 100% of the On-Demand price.</p>
      */
     inline bool BidPercentageHasBeenSet() const { return m_bidPercentageHasBeenSet; }
 
@@ -782,9 +952,9 @@ namespace Model
      * <p>The maximum percentage that a Spot Instance price can be when compared with
      * the On-Demand price for that instance type before instances are launched. For
      * example, if your maximum percentage is 20%, then the Spot price must be below
-     * 20% of the current On-Demand price for that EC2 instance. You always pay the
-     * lowest (market) price and never more than your maximum percentage. If you leave
-     * this field empty, the default value is 100% of the On-Demand price.</p>
+     * 20% of the current On-Demand price for that Amazon EC2 instance. You always pay
+     * the lowest (market) price and never more than your maximum percentage. If you
+     * leave this field empty, the default value is 100% of the On-Demand price.</p>
      */
     inline void SetBidPercentage(int value) { m_bidPercentageHasBeenSet = true; m_bidPercentage = value; }
 
@@ -792,16 +962,18 @@ namespace Model
      * <p>The maximum percentage that a Spot Instance price can be when compared with
      * the On-Demand price for that instance type before instances are launched. For
      * example, if your maximum percentage is 20%, then the Spot price must be below
-     * 20% of the current On-Demand price for that EC2 instance. You always pay the
-     * lowest (market) price and never more than your maximum percentage. If you leave
-     * this field empty, the default value is 100% of the On-Demand price.</p>
+     * 20% of the current On-Demand price for that Amazon EC2 instance. You always pay
+     * the lowest (market) price and never more than your maximum percentage. If you
+     * leave this field empty, the default value is 100% of the On-Demand price.</p>
      */
     inline ComputeResource& WithBidPercentage(int value) { SetBidPercentage(value); return *this;}
 
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
-     * to a <code>SPOT</code> compute environment. For more information, see <a
+     * to a <code>SPOT</code> compute environment. This role is required if the
+     * allocation strategy set to <code>BEST_FIT</code> or if the allocation strategy
+     * is not specified. For more information, see <a
      * href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
      * EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</p>
      */
@@ -809,7 +981,9 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
-     * to a <code>SPOT</code> compute environment. For more information, see <a
+     * to a <code>SPOT</code> compute environment. This role is required if the
+     * allocation strategy set to <code>BEST_FIT</code> or if the allocation strategy
+     * is not specified. For more information, see <a
      * href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
      * EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</p>
      */
@@ -817,7 +991,9 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
-     * to a <code>SPOT</code> compute environment. For more information, see <a
+     * to a <code>SPOT</code> compute environment. This role is required if the
+     * allocation strategy set to <code>BEST_FIT</code> or if the allocation strategy
+     * is not specified. For more information, see <a
      * href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
      * EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</p>
      */
@@ -825,7 +1001,9 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
-     * to a <code>SPOT</code> compute environment. For more information, see <a
+     * to a <code>SPOT</code> compute environment. This role is required if the
+     * allocation strategy set to <code>BEST_FIT</code> or if the allocation strategy
+     * is not specified. For more information, see <a
      * href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
      * EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</p>
      */
@@ -833,7 +1011,9 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
-     * to a <code>SPOT</code> compute environment. For more information, see <a
+     * to a <code>SPOT</code> compute environment. This role is required if the
+     * allocation strategy set to <code>BEST_FIT</code> or if the allocation strategy
+     * is not specified. For more information, see <a
      * href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
      * EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</p>
      */
@@ -841,7 +1021,9 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
-     * to a <code>SPOT</code> compute environment. For more information, see <a
+     * to a <code>SPOT</code> compute environment. This role is required if the
+     * allocation strategy set to <code>BEST_FIT</code> or if the allocation strategy
+     * is not specified. For more information, see <a
      * href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
      * EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</p>
      */
@@ -849,7 +1031,9 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
-     * to a <code>SPOT</code> compute environment. For more information, see <a
+     * to a <code>SPOT</code> compute environment. This role is required if the
+     * allocation strategy set to <code>BEST_FIT</code> or if the allocation strategy
+     * is not specified. For more information, see <a
      * href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
      * EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</p>
      */
@@ -857,7 +1041,9 @@ namespace Model
 
     /**
      * <p>The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied
-     * to a <code>SPOT</code> compute environment. For more information, see <a
+     * to a <code>SPOT</code> compute environment. This role is required if the
+     * allocation strategy set to <code>BEST_FIT</code> or if the allocation strategy
+     * is not specified. For more information, see <a
      * href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon
      * EC2 Spot Fleet Role</a> in the <i>AWS Batch User Guide</i>.</p>
      */
@@ -934,6 +1120,9 @@ namespace Model
 
     CRType m_type;
     bool m_typeHasBeenSet;
+
+    CRAllocationStrategy m_allocationStrategy;
+    bool m_allocationStrategyHasBeenSet;
 
     int m_minvCpus;
     bool m_minvCpusHasBeenSet;

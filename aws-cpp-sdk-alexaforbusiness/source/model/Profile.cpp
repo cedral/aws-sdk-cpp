@@ -41,13 +41,15 @@ Profile::Profile() :
     m_temperatureUnitHasBeenSet(false),
     m_wakeWord(WakeWord::NOT_SET),
     m_wakeWordHasBeenSet(false),
+    m_localeHasBeenSet(false),
     m_setupModeDisabled(false),
     m_setupModeDisabledHasBeenSet(false),
     m_maxVolumeLimit(0),
     m_maxVolumeLimitHasBeenSet(false),
     m_pSTNEnabled(false),
     m_pSTNEnabledHasBeenSet(false),
-    m_addressBookArnHasBeenSet(false)
+    m_addressBookArnHasBeenSet(false),
+    m_meetingRoomConfigurationHasBeenSet(false)
 {
 }
 
@@ -64,13 +66,15 @@ Profile::Profile(JsonView jsonValue) :
     m_temperatureUnitHasBeenSet(false),
     m_wakeWord(WakeWord::NOT_SET),
     m_wakeWordHasBeenSet(false),
+    m_localeHasBeenSet(false),
     m_setupModeDisabled(false),
     m_setupModeDisabledHasBeenSet(false),
     m_maxVolumeLimit(0),
     m_maxVolumeLimitHasBeenSet(false),
     m_pSTNEnabled(false),
     m_pSTNEnabledHasBeenSet(false),
-    m_addressBookArnHasBeenSet(false)
+    m_addressBookArnHasBeenSet(false),
+    m_meetingRoomConfigurationHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -133,6 +137,13 @@ Profile& Profile::operator =(JsonView jsonValue)
     m_wakeWordHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("Locale"))
+  {
+    m_locale = jsonValue.GetString("Locale");
+
+    m_localeHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("SetupModeDisabled"))
   {
     m_setupModeDisabled = jsonValue.GetBool("SetupModeDisabled");
@@ -159,6 +170,13 @@ Profile& Profile::operator =(JsonView jsonValue)
     m_addressBookArn = jsonValue.GetString("AddressBookArn");
 
     m_addressBookArnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("MeetingRoomConfiguration"))
+  {
+    m_meetingRoomConfiguration = jsonValue.GetObject("MeetingRoomConfiguration");
+
+    m_meetingRoomConfigurationHasBeenSet = true;
   }
 
   return *this;
@@ -213,6 +231,12 @@ JsonValue Profile::Jsonize() const
    payload.WithString("WakeWord", WakeWordMapper::GetNameForWakeWord(m_wakeWord));
   }
 
+  if(m_localeHasBeenSet)
+  {
+   payload.WithString("Locale", m_locale);
+
+  }
+
   if(m_setupModeDisabledHasBeenSet)
   {
    payload.WithBool("SetupModeDisabled", m_setupModeDisabled);
@@ -234,6 +258,12 @@ JsonValue Profile::Jsonize() const
   if(m_addressBookArnHasBeenSet)
   {
    payload.WithString("AddressBookArn", m_addressBookArn);
+
+  }
+
+  if(m_meetingRoomConfigurationHasBeenSet)
+  {
+   payload.WithObject("MeetingRoomConfiguration", m_meetingRoomConfiguration.Jsonize());
 
   }
 

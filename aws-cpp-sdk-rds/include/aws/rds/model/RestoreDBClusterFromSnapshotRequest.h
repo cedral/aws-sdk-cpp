@@ -319,42 +319,170 @@ namespace Model
 
 
     /**
-     * <p>The version of the database engine to use for the new DB cluster.</p>
+     * <p>The version of the database engine to use for the new DB cluster.</p> <p>To
+     * list all of the available engine versions for <code>aurora</code> (for MySQL
+     * 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <note> <p>If you aren't using the
+     * default engine version, then you must specify the engine version.</p> </note>
+     * <p> <b>Aurora MySQL</b> </p> <p>Example: <code>5.6.10a</code>,
+     * <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
+     * <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
+     * <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline const Aws::String& GetEngineVersion() const{ return m_engineVersion; }
 
     /**
-     * <p>The version of the database engine to use for the new DB cluster.</p>
+     * <p>The version of the database engine to use for the new DB cluster.</p> <p>To
+     * list all of the available engine versions for <code>aurora</code> (for MySQL
+     * 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <note> <p>If you aren't using the
+     * default engine version, then you must specify the engine version.</p> </note>
+     * <p> <b>Aurora MySQL</b> </p> <p>Example: <code>5.6.10a</code>,
+     * <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
+     * <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
+     * <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline bool EngineVersionHasBeenSet() const { return m_engineVersionHasBeenSet; }
 
     /**
-     * <p>The version of the database engine to use for the new DB cluster.</p>
+     * <p>The version of the database engine to use for the new DB cluster.</p> <p>To
+     * list all of the available engine versions for <code>aurora</code> (for MySQL
+     * 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <note> <p>If you aren't using the
+     * default engine version, then you must specify the engine version.</p> </note>
+     * <p> <b>Aurora MySQL</b> </p> <p>Example: <code>5.6.10a</code>,
+     * <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
+     * <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
+     * <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(const Aws::String& value) { m_engineVersionHasBeenSet = true; m_engineVersion = value; }
 
     /**
-     * <p>The version of the database engine to use for the new DB cluster.</p>
+     * <p>The version of the database engine to use for the new DB cluster.</p> <p>To
+     * list all of the available engine versions for <code>aurora</code> (for MySQL
+     * 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <note> <p>If you aren't using the
+     * default engine version, then you must specify the engine version.</p> </note>
+     * <p> <b>Aurora MySQL</b> </p> <p>Example: <code>5.6.10a</code>,
+     * <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
+     * <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
+     * <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(Aws::String&& value) { m_engineVersionHasBeenSet = true; m_engineVersion = std::move(value); }
 
     /**
-     * <p>The version of the database engine to use for the new DB cluster.</p>
+     * <p>The version of the database engine to use for the new DB cluster.</p> <p>To
+     * list all of the available engine versions for <code>aurora</code> (for MySQL
+     * 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <note> <p>If you aren't using the
+     * default engine version, then you must specify the engine version.</p> </note>
+     * <p> <b>Aurora MySQL</b> </p> <p>Example: <code>5.6.10a</code>,
+     * <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
+     * <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
+     * <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline void SetEngineVersion(const char* value) { m_engineVersionHasBeenSet = true; m_engineVersion.assign(value); }
 
     /**
-     * <p>The version of the database engine to use for the new DB cluster.</p>
+     * <p>The version of the database engine to use for the new DB cluster.</p> <p>To
+     * list all of the available engine versions for <code>aurora</code> (for MySQL
+     * 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <note> <p>If you aren't using the
+     * default engine version, then you must specify the engine version.</p> </note>
+     * <p> <b>Aurora MySQL</b> </p> <p>Example: <code>5.6.10a</code>,
+     * <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
+     * <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
+     * <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithEngineVersion(const Aws::String& value) { SetEngineVersion(value); return *this;}
 
     /**
-     * <p>The version of the database engine to use for the new DB cluster.</p>
+     * <p>The version of the database engine to use for the new DB cluster.</p> <p>To
+     * list all of the available engine versions for <code>aurora</code> (for MySQL
+     * 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <note> <p>If you aren't using the
+     * default engine version, then you must specify the engine version.</p> </note>
+     * <p> <b>Aurora MySQL</b> </p> <p>Example: <code>5.6.10a</code>,
+     * <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
+     * <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
+     * <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithEngineVersion(Aws::String&& value) { SetEngineVersion(std::move(value)); return *this;}
 
     /**
-     * <p>The version of the database engine to use for the new DB cluster.</p>
+     * <p>The version of the database engine to use for the new DB cluster.</p> <p>To
+     * list all of the available engine versions for <code>aurora</code> (for MySQL
+     * 5.6-compatible Aurora), use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <p>To list all of the available
+     * engine versions for <code>aurora-mysql</code> (for MySQL 5.7-compatible Aurora),
+     * use the following command:</p> <p> <code>aws rds describe-db-engine-versions
+     * --engine aurora-mysql --query "DBEngineVersions[].EngineVersion"</code> </p>
+     * <p>To list all of the available engine versions for
+     * <code>aurora-postgresql</code>, use the following command:</p> <p> <code>aws rds
+     * describe-db-engine-versions --engine aurora-postgresql --query
+     * "DBEngineVersions[].EngineVersion"</code> </p> <note> <p>If you aren't using the
+     * default engine version, then you must specify the engine version.</p> </note>
+     * <p> <b>Aurora MySQL</b> </p> <p>Example: <code>5.6.10a</code>,
+     * <code>5.6.mysql_aurora.1.19.2</code>, <code>5.7.12</code>,
+     * <code>5.7.mysql_aurora.2.04.5</code> </p> <p> <b>Aurora PostgreSQL</b> </p>
+     * <p>Example: <code>9.6.3</code>, <code>10.7</code> </p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithEngineVersion(const char* value) { SetEngineVersion(value); return *this;}
 
@@ -625,8 +753,8 @@ namespace Model
      * the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is
      * encrypted, then the restored DB cluster is encrypted using the KMS key that was
      * used to encrypt the DB snapshot or DB cluster snapshot.</p> </li> <li> <p>If the
-     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-     * encrypted, then the restored DB cluster is not encrypted.</p> </li> </ul>
+     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+     * encrypted, then the restored DB cluster isn't encrypted.</p> </li> </ul>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
 
@@ -641,8 +769,8 @@ namespace Model
      * the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is
      * encrypted, then the restored DB cluster is encrypted using the KMS key that was
      * used to encrypt the DB snapshot or DB cluster snapshot.</p> </li> <li> <p>If the
-     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-     * encrypted, then the restored DB cluster is not encrypted.</p> </li> </ul>
+     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+     * encrypted, then the restored DB cluster isn't encrypted.</p> </li> </ul>
      */
     inline bool KmsKeyIdHasBeenSet() const { return m_kmsKeyIdHasBeenSet; }
 
@@ -657,8 +785,8 @@ namespace Model
      * the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is
      * encrypted, then the restored DB cluster is encrypted using the KMS key that was
      * used to encrypt the DB snapshot or DB cluster snapshot.</p> </li> <li> <p>If the
-     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-     * encrypted, then the restored DB cluster is not encrypted.</p> </li> </ul>
+     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+     * encrypted, then the restored DB cluster isn't encrypted.</p> </li> </ul>
      */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = value; }
 
@@ -673,8 +801,8 @@ namespace Model
      * the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is
      * encrypted, then the restored DB cluster is encrypted using the KMS key that was
      * used to encrypt the DB snapshot or DB cluster snapshot.</p> </li> <li> <p>If the
-     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-     * encrypted, then the restored DB cluster is not encrypted.</p> </li> </ul>
+     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+     * encrypted, then the restored DB cluster isn't encrypted.</p> </li> </ul>
      */
     inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId = std::move(value); }
 
@@ -689,8 +817,8 @@ namespace Model
      * the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is
      * encrypted, then the restored DB cluster is encrypted using the KMS key that was
      * used to encrypt the DB snapshot or DB cluster snapshot.</p> </li> <li> <p>If the
-     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-     * encrypted, then the restored DB cluster is not encrypted.</p> </li> </ul>
+     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+     * encrypted, then the restored DB cluster isn't encrypted.</p> </li> </ul>
      */
     inline void SetKmsKeyId(const char* value) { m_kmsKeyIdHasBeenSet = true; m_kmsKeyId.assign(value); }
 
@@ -705,8 +833,8 @@ namespace Model
      * the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is
      * encrypted, then the restored DB cluster is encrypted using the KMS key that was
      * used to encrypt the DB snapshot or DB cluster snapshot.</p> </li> <li> <p>If the
-     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-     * encrypted, then the restored DB cluster is not encrypted.</p> </li> </ul>
+     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+     * encrypted, then the restored DB cluster isn't encrypted.</p> </li> </ul>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
 
@@ -721,8 +849,8 @@ namespace Model
      * the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is
      * encrypted, then the restored DB cluster is encrypted using the KMS key that was
      * used to encrypt the DB snapshot or DB cluster snapshot.</p> </li> <li> <p>If the
-     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-     * encrypted, then the restored DB cluster is not encrypted.</p> </li> </ul>
+     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+     * encrypted, then the restored DB cluster isn't encrypted.</p> </li> </ul>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
 
@@ -737,8 +865,8 @@ namespace Model
      * the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is
      * encrypted, then the restored DB cluster is encrypted using the KMS key that was
      * used to encrypt the DB snapshot or DB cluster snapshot.</p> </li> <li> <p>If the
-     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
-     * encrypted, then the restored DB cluster is not encrypted.</p> </li> </ul>
+     * DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> isn't
+     * encrypted, then the restored DB cluster isn't encrypted.</p> </li> </ul>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
@@ -746,28 +874,36 @@ namespace Model
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool GetEnableIAMDatabaseAuthentication() const{ return m_enableIAMDatabaseAuthentication; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline bool EnableIAMDatabaseAuthenticationHasBeenSet() const { return m_enableIAMDatabaseAuthenticationHasBeenSet; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline void SetEnableIAMDatabaseAuthentication(bool value) { m_enableIAMDatabaseAuthenticationHasBeenSet = true; m_enableIAMDatabaseAuthentication = value; }
 
     /**
      * <p>A value that indicates whether to enable mapping of AWS Identity and Access
      * Management (IAM) accounts to database accounts. By default, mapping is
-     * disabled.</p>
+     * disabled.</p> <p>For more information, see <a
+     * href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.IAMDBAuth.html">
+     * IAM Database Authentication</a> in the <i>Amazon Aurora User Guide.</i> </p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithEnableIAMDatabaseAuthentication(bool value) { SetEnableIAMDatabaseAuthentication(value); return *this;}
 
@@ -894,49 +1030,57 @@ namespace Model
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline const Aws::String& GetEngineMode() const{ return m_engineMode; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline bool EngineModeHasBeenSet() const { return m_engineModeHasBeenSet; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline void SetEngineMode(const Aws::String& value) { m_engineModeHasBeenSet = true; m_engineMode = value; }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline void SetEngineMode(Aws::String&& value) { m_engineModeHasBeenSet = true; m_engineMode = std::move(value); }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline void SetEngineMode(const char* value) { m_engineModeHasBeenSet = true; m_engineMode.assign(value); }
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithEngineMode(const Aws::String& value) { SetEngineMode(value); return *this;}
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithEngineMode(Aws::String&& value) { SetEngineMode(std::move(value)); return *this;}
 
     /**
      * <p>The DB engine mode of the DB cluster, either <code>provisioned</code>,
-     * <code>serverless</code>, or <code>parallelquery</code>.</p>
+     * <code>serverless</code>, <code>parallelquery</code>, <code>global</code>, or
+     * <code>multimaster</code>.</p>
      */
     inline RestoreDBClusterFromSnapshotRequest& WithEngineMode(const char* value) { SetEngineMode(value); return *this;}
 
@@ -1120,6 +1264,104 @@ namespace Model
      */
     inline RestoreDBClusterFromSnapshotRequest& WithCopyTagsToSnapshot(bool value) { SetCopyTagsToSnapshot(value); return *this;}
 
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p>
+     */
+    inline const Aws::String& GetDomain() const{ return m_domain; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p>
+     */
+    inline bool DomainHasBeenSet() const { return m_domainHasBeenSet; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p>
+     */
+    inline void SetDomain(const Aws::String& value) { m_domainHasBeenSet = true; m_domain = value; }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p>
+     */
+    inline void SetDomain(Aws::String&& value) { m_domainHasBeenSet = true; m_domain = std::move(value); }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p>
+     */
+    inline void SetDomain(const char* value) { m_domainHasBeenSet = true; m_domain.assign(value); }
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDomain(const Aws::String& value) { SetDomain(value); return *this;}
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDomain(Aws::String&& value) { SetDomain(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the Active Directory directory ID to restore the DB cluster in. The
+     * domain must be created prior to this operation. </p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDomain(const char* value) { SetDomain(value); return *this;}
+
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline const Aws::String& GetDomainIAMRoleName() const{ return m_domainIAMRoleName; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline bool DomainIAMRoleNameHasBeenSet() const { return m_domainIAMRoleNameHasBeenSet; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const Aws::String& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = value; }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(Aws::String&& value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName = std::move(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline void SetDomainIAMRoleName(const char* value) { m_domainIAMRoleNameHasBeenSet = true; m_domainIAMRoleName.assign(value); }
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDomainIAMRoleName(const Aws::String& value) { SetDomainIAMRoleName(value); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDomainIAMRoleName(Aws::String&& value) { SetDomainIAMRoleName(std::move(value)); return *this;}
+
+    /**
+     * <p>Specify the name of the IAM role to be used when making API calls to the
+     * Directory Service.</p>
+     */
+    inline RestoreDBClusterFromSnapshotRequest& WithDomainIAMRoleName(const char* value) { SetDomainIAMRoleName(value); return *this;}
+
   private:
 
     Aws::Vector<Aws::String> m_availabilityZones;
@@ -1181,6 +1423,12 @@ namespace Model
 
     bool m_copyTagsToSnapshot;
     bool m_copyTagsToSnapshotHasBeenSet;
+
+    Aws::String m_domain;
+    bool m_domainHasBeenSet;
+
+    Aws::String m_domainIAMRoleName;
+    bool m_domainIAMRoleNameHasBeenSet;
   };
 
 } // namespace Model

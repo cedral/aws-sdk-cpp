@@ -295,72 +295,63 @@ namespace Model
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline const Aws::Vector<Aws::String>& GetDnsServers() const{ return m_dnsServers; }
 
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline bool DnsServersHasBeenSet() const { return m_dnsServersHasBeenSet; }
 
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline void SetDnsServers(const Aws::Vector<Aws::String>& value) { m_dnsServersHasBeenSet = true; m_dnsServers = value; }
 
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline void SetDnsServers(Aws::Vector<Aws::String>&& value) { m_dnsServersHasBeenSet = true; m_dnsServers = std::move(value); }
 
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline CreateClientVpnEndpointRequest& WithDnsServers(const Aws::Vector<Aws::String>& value) { SetDnsServers(value); return *this;}
 
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline CreateClientVpnEndpointRequest& WithDnsServers(Aws::Vector<Aws::String>&& value) { SetDnsServers(std::move(value)); return *this;}
 
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline CreateClientVpnEndpointRequest& AddDnsServers(const Aws::String& value) { m_dnsServersHasBeenSet = true; m_dnsServers.push_back(value); return *this; }
 
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline CreateClientVpnEndpointRequest& AddDnsServers(Aws::String&& value) { m_dnsServersHasBeenSet = true; m_dnsServers.push_back(std::move(value)); return *this; }
 
     /**
      * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN
      * endpoint can have up to two DNS servers. If no DNS server is specified, the DNS
-     * address of the VPC that is to be associated with Client VPN endpoint is used as
-     * the DNS server.</p>
+     * address configured on the device is used for the DNS server.</p>
      */
     inline CreateClientVpnEndpointRequest& AddDnsServers(const char* value) { m_dnsServersHasBeenSet = true; m_dnsServers.push_back(value); return *this; }
 
@@ -400,6 +391,35 @@ namespace Model
      * <code>udp</code> </p>
      */
     inline CreateClientVpnEndpointRequest& WithTransportProtocol(TransportProtocol&& value) { SetTransportProtocol(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The port number to assign to the Client VPN endpoint for TCP and UDP
+     * traffic.</p> <p>Valid Values: <code>443</code> | <code>1194</code> </p>
+     * <p>Default Value: <code>443</code> </p>
+     */
+    inline int GetVpnPort() const{ return m_vpnPort; }
+
+    /**
+     * <p>The port number to assign to the Client VPN endpoint for TCP and UDP
+     * traffic.</p> <p>Valid Values: <code>443</code> | <code>1194</code> </p>
+     * <p>Default Value: <code>443</code> </p>
+     */
+    inline bool VpnPortHasBeenSet() const { return m_vpnPortHasBeenSet; }
+
+    /**
+     * <p>The port number to assign to the Client VPN endpoint for TCP and UDP
+     * traffic.</p> <p>Valid Values: <code>443</code> | <code>1194</code> </p>
+     * <p>Default Value: <code>443</code> </p>
+     */
+    inline void SetVpnPort(int value) { m_vpnPortHasBeenSet = true; m_vpnPort = value; }
+
+    /**
+     * <p>The port number to assign to the Client VPN endpoint for TCP and UDP
+     * traffic.</p> <p>Valid Values: <code>443</code> | <code>1194</code> </p>
+     * <p>Default Value: <code>443</code> </p>
+     */
+    inline CreateClientVpnEndpointRequest& WithVpnPort(int value) { SetVpnPort(value); return *this;}
 
 
     /**
@@ -444,9 +464,9 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint
-     * endpoint.</p> <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-     * <p>For information about split-tunnel VPN endpoints, see <a
+     * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.</p>
+     * <p>By default, split-tunnel on a VPN endpoint is disabled.</p> <p>For
+     * information about split-tunnel VPN endpoints, see <a
      * href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel
      * AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator
      * Guide</i>.</p>
@@ -454,9 +474,9 @@ namespace Model
     inline bool GetSplitTunnel() const{ return m_splitTunnel; }
 
     /**
-     * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint
-     * endpoint.</p> <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-     * <p>For information about split-tunnel VPN endpoints, see <a
+     * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.</p>
+     * <p>By default, split-tunnel on a VPN endpoint is disabled.</p> <p>For
+     * information about split-tunnel VPN endpoints, see <a
      * href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel
      * AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator
      * Guide</i>.</p>
@@ -464,9 +484,9 @@ namespace Model
     inline bool SplitTunnelHasBeenSet() const { return m_splitTunnelHasBeenSet; }
 
     /**
-     * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint
-     * endpoint.</p> <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-     * <p>For information about split-tunnel VPN endpoints, see <a
+     * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.</p>
+     * <p>By default, split-tunnel on a VPN endpoint is disabled.</p> <p>For
+     * information about split-tunnel VPN endpoints, see <a
      * href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel
      * AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator
      * Guide</i>.</p>
@@ -474,9 +494,9 @@ namespace Model
     inline void SetSplitTunnel(bool value) { m_splitTunnelHasBeenSet = true; m_splitTunnel = value; }
 
     /**
-     * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint
-     * endpoint.</p> <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-     * <p>For information about split-tunnel VPN endpoints, see <a
+     * <p>Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.</p>
+     * <p>By default, split-tunnel on a VPN endpoint is disabled.</p> <p>For
+     * information about split-tunnel VPN endpoints, see <a
      * href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-Tunnel
      * AWS Client VPN Endpoint</a> in the <i>AWS Client VPN Administrator
      * Guide</i>.</p>
@@ -622,6 +642,118 @@ namespace Model
      */
     inline CreateClientVpnEndpointRequest& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline const Aws::Vector<Aws::String>& GetSecurityGroupIds() const{ return m_securityGroupIds; }
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline bool SecurityGroupIdsHasBeenSet() const { return m_securityGroupIdsHasBeenSet; }
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline void SetSecurityGroupIds(const Aws::Vector<Aws::String>& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = value; }
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline void SetSecurityGroupIds(Aws::Vector<Aws::String>&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds = std::move(value); }
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline CreateClientVpnEndpointRequest& WithSecurityGroupIds(const Aws::Vector<Aws::String>& value) { SetSecurityGroupIds(value); return *this;}
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline CreateClientVpnEndpointRequest& WithSecurityGroupIds(Aws::Vector<Aws::String>&& value) { SetSecurityGroupIds(std::move(value)); return *this;}
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline CreateClientVpnEndpointRequest& AddSecurityGroupIds(const Aws::String& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline CreateClientVpnEndpointRequest& AddSecurityGroupIds(Aws::String&& value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p>The IDs of one or more security groups to apply to the target network. You
+     * must also specify the ID of the VPC that contains the security groups.</p>
+     */
+    inline CreateClientVpnEndpointRequest& AddSecurityGroupIds(const char* value) { m_securityGroupIdsHasBeenSet = true; m_securityGroupIds.push_back(value); return *this; }
+
+
+    /**
+     * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security
+     * group IDs are specified in the request, the default security group for the VPC
+     * is applied.</p>
+     */
+    inline const Aws::String& GetVpcId() const{ return m_vpcId; }
+
+    /**
+     * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security
+     * group IDs are specified in the request, the default security group for the VPC
+     * is applied.</p>
+     */
+    inline bool VpcIdHasBeenSet() const { return m_vpcIdHasBeenSet; }
+
+    /**
+     * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security
+     * group IDs are specified in the request, the default security group for the VPC
+     * is applied.</p>
+     */
+    inline void SetVpcId(const Aws::String& value) { m_vpcIdHasBeenSet = true; m_vpcId = value; }
+
+    /**
+     * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security
+     * group IDs are specified in the request, the default security group for the VPC
+     * is applied.</p>
+     */
+    inline void SetVpcId(Aws::String&& value) { m_vpcIdHasBeenSet = true; m_vpcId = std::move(value); }
+
+    /**
+     * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security
+     * group IDs are specified in the request, the default security group for the VPC
+     * is applied.</p>
+     */
+    inline void SetVpcId(const char* value) { m_vpcIdHasBeenSet = true; m_vpcId.assign(value); }
+
+    /**
+     * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security
+     * group IDs are specified in the request, the default security group for the VPC
+     * is applied.</p>
+     */
+    inline CreateClientVpnEndpointRequest& WithVpcId(const Aws::String& value) { SetVpcId(value); return *this;}
+
+    /**
+     * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security
+     * group IDs are specified in the request, the default security group for the VPC
+     * is applied.</p>
+     */
+    inline CreateClientVpnEndpointRequest& WithVpcId(Aws::String&& value) { SetVpcId(std::move(value)); return *this;}
+
+    /**
+     * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security
+     * group IDs are specified in the request, the default security group for the VPC
+     * is applied.</p>
+     */
+    inline CreateClientVpnEndpointRequest& WithVpcId(const char* value) { SetVpcId(value); return *this;}
+
   private:
 
     Aws::String m_clientCidrBlock;
@@ -642,6 +774,9 @@ namespace Model
     TransportProtocol m_transportProtocol;
     bool m_transportProtocolHasBeenSet;
 
+    int m_vpnPort;
+    bool m_vpnPortHasBeenSet;
+
     Aws::String m_description;
     bool m_descriptionHasBeenSet;
 
@@ -656,6 +791,12 @@ namespace Model
 
     Aws::Vector<TagSpecification> m_tagSpecifications;
     bool m_tagSpecificationsHasBeenSet;
+
+    Aws::Vector<Aws::String> m_securityGroupIds;
+    bool m_securityGroupIdsHasBeenSet;
+
+    Aws::String m_vpcId;
+    bool m_vpcIdHasBeenSet;
   };
 
 } // namespace Model

@@ -39,7 +39,8 @@ Placement::Placement() :
     m_hostIdHasBeenSet(false),
     m_tenancy(Tenancy::NOT_SET),
     m_tenancyHasBeenSet(false),
-    m_spreadDomainHasBeenSet(false)
+    m_spreadDomainHasBeenSet(false),
+    m_hostResourceGroupArnHasBeenSet(false)
 {
 }
 
@@ -52,7 +53,8 @@ Placement::Placement(const XmlNode& xmlNode) :
     m_hostIdHasBeenSet(false),
     m_tenancy(Tenancy::NOT_SET),
     m_tenancyHasBeenSet(false),
-    m_spreadDomainHasBeenSet(false)
+    m_spreadDomainHasBeenSet(false),
+    m_hostResourceGroupArnHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -66,44 +68,50 @@ Placement& Placement::operator =(const XmlNode& xmlNode)
     XmlNode availabilityZoneNode = resultNode.FirstChild("availabilityZone");
     if(!availabilityZoneNode.IsNull())
     {
-      m_availabilityZone = availabilityZoneNode.GetText();
+      m_availabilityZone = Aws::Utils::Xml::DecodeEscapedXmlText(availabilityZoneNode.GetText());
       m_availabilityZoneHasBeenSet = true;
     }
     XmlNode affinityNode = resultNode.FirstChild("affinity");
     if(!affinityNode.IsNull())
     {
-      m_affinity = affinityNode.GetText();
+      m_affinity = Aws::Utils::Xml::DecodeEscapedXmlText(affinityNode.GetText());
       m_affinityHasBeenSet = true;
     }
     XmlNode groupNameNode = resultNode.FirstChild("groupName");
     if(!groupNameNode.IsNull())
     {
-      m_groupName = groupNameNode.GetText();
+      m_groupName = Aws::Utils::Xml::DecodeEscapedXmlText(groupNameNode.GetText());
       m_groupNameHasBeenSet = true;
     }
     XmlNode partitionNumberNode = resultNode.FirstChild("partitionNumber");
     if(!partitionNumberNode.IsNull())
     {
-      m_partitionNumber = StringUtils::ConvertToInt32(StringUtils::Trim(partitionNumberNode.GetText().c_str()).c_str());
+      m_partitionNumber = StringUtils::ConvertToInt32(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(partitionNumberNode.GetText()).c_str()).c_str());
       m_partitionNumberHasBeenSet = true;
     }
     XmlNode hostIdNode = resultNode.FirstChild("hostId");
     if(!hostIdNode.IsNull())
     {
-      m_hostId = hostIdNode.GetText();
+      m_hostId = Aws::Utils::Xml::DecodeEscapedXmlText(hostIdNode.GetText());
       m_hostIdHasBeenSet = true;
     }
     XmlNode tenancyNode = resultNode.FirstChild("tenancy");
     if(!tenancyNode.IsNull())
     {
-      m_tenancy = TenancyMapper::GetTenancyForName(StringUtils::Trim(tenancyNode.GetText().c_str()).c_str());
+      m_tenancy = TenancyMapper::GetTenancyForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(tenancyNode.GetText()).c_str()).c_str());
       m_tenancyHasBeenSet = true;
     }
     XmlNode spreadDomainNode = resultNode.FirstChild("spreadDomain");
     if(!spreadDomainNode.IsNull())
     {
-      m_spreadDomain = spreadDomainNode.GetText();
+      m_spreadDomain = Aws::Utils::Xml::DecodeEscapedXmlText(spreadDomainNode.GetText());
       m_spreadDomainHasBeenSet = true;
+    }
+    XmlNode hostResourceGroupArnNode = resultNode.FirstChild("hostResourceGroupArn");
+    if(!hostResourceGroupArnNode.IsNull())
+    {
+      m_hostResourceGroupArn = Aws::Utils::Xml::DecodeEscapedXmlText(hostResourceGroupArnNode.GetText());
+      m_hostResourceGroupArnHasBeenSet = true;
     }
   }
 
@@ -147,6 +155,11 @@ void Placement::OutputToStream(Aws::OStream& oStream, const char* location, unsi
       oStream << location << index << locationValue << ".SpreadDomain=" << StringUtils::URLEncode(m_spreadDomain.c_str()) << "&";
   }
 
+  if(m_hostResourceGroupArnHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".HostResourceGroupArn=" << StringUtils::URLEncode(m_hostResourceGroupArn.c_str()) << "&";
+  }
+
 }
 
 void Placement::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -178,6 +191,10 @@ void Placement::OutputToStream(Aws::OStream& oStream, const char* location) cons
   if(m_spreadDomainHasBeenSet)
   {
       oStream << location << ".SpreadDomain=" << StringUtils::URLEncode(m_spreadDomain.c_str()) << "&";
+  }
+  if(m_hostResourceGroupArnHasBeenSet)
+  {
+      oStream << location << ".HostResourceGroupArn=" << StringUtils::URLEncode(m_hostResourceGroupArn.c_str()) << "&";
   }
 }
 

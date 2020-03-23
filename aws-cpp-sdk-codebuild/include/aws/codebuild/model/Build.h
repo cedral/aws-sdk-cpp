@@ -28,6 +28,8 @@
 #include <aws/codebuild/model/NetworkInterface.h>
 #include <aws/codebuild/model/BuildPhase.h>
 #include <aws/codebuild/model/ProjectSourceVersion.h>
+#include <aws/codebuild/model/ExportedEnvironmentVariable.h>
+#include <aws/codebuild/model/ProjectFileSystemLocation.h>
 #include <utility>
 
 namespace Aws
@@ -139,6 +141,39 @@ namespace Model
      * <p>The Amazon Resource Name (ARN) of the build.</p>
      */
     inline Build& WithArn(const char* value) { SetArn(value); return *this;}
+
+
+    /**
+     * <p>The number of the build. For each project, the <code>buildNumber</code> of
+     * its first build is <code>1</code>. The <code>buildNumber</code> of each
+     * subsequent build is incremented by <code>1</code>. If a build is deleted, the
+     * <code>buildNumber</code> of other builds does not change.</p>
+     */
+    inline long long GetBuildNumber() const{ return m_buildNumber; }
+
+    /**
+     * <p>The number of the build. For each project, the <code>buildNumber</code> of
+     * its first build is <code>1</code>. The <code>buildNumber</code> of each
+     * subsequent build is incremented by <code>1</code>. If a build is deleted, the
+     * <code>buildNumber</code> of other builds does not change.</p>
+     */
+    inline bool BuildNumberHasBeenSet() const { return m_buildNumberHasBeenSet; }
+
+    /**
+     * <p>The number of the build. For each project, the <code>buildNumber</code> of
+     * its first build is <code>1</code>. The <code>buildNumber</code> of each
+     * subsequent build is incremented by <code>1</code>. If a build is deleted, the
+     * <code>buildNumber</code> of other builds does not change.</p>
+     */
+    inline void SetBuildNumber(long long value) { m_buildNumberHasBeenSet = true; m_buildNumber = value; }
+
+    /**
+     * <p>The number of the build. For each project, the <code>buildNumber</code> of
+     * its first build is <code>1</code>. The <code>buildNumber</code> of each
+     * subsequent build is incremented by <code>1</code>. If a build is deleted, the
+     * <code>buildNumber</code> of other builds does not change.</p>
+     */
+    inline Build& WithBuildNumber(long long value) { SetBuildNumber(value); return *this;}
 
 
     /**
@@ -624,144 +659,144 @@ namespace Model
     /**
      * <p> An array of <code>ProjectSourceVersion</code> objects. Each
      * <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS
-     * CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID,
-     * pull request ID, branch name, or tag name that corresponds to the version of the
-     * source code you want to build. If a pull request ID is specified, it must use
-     * the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If
-     * a branch name is specified, the branch's HEAD commit ID is used. If not
-     * specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For
-     * Bitbucket: the commit ID, branch name, or tag name that corresponds to the
-     * version of the source code you want to build. If a branch name is specified, the
-     * branch's HEAD commit ID is used. If not specified, the default branch's HEAD
-     * commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon
-     * S3): the version ID of the object that represents the build input ZIP file to
-     * use.</p> </li> </ul>
+     * CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For
+     * GitHub: the commit ID, pull request ID, branch name, or tag name that
+     * corresponds to the version of the source code you want to build. If a pull
+     * request ID is specified, it must use the format <code>pr/pull-request-ID</code>
+     * (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
+     * used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name
+     * that corresponds to the version of the source code you want to build. If a
+     * branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     * the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple
+     * Storage Service (Amazon S3): the version ID of the object that represents the
+     * build input ZIP file to use.</p> </li> </ul>
      */
     inline const Aws::Vector<ProjectSourceVersion>& GetSecondarySourceVersions() const{ return m_secondarySourceVersions; }
 
     /**
      * <p> An array of <code>ProjectSourceVersion</code> objects. Each
      * <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS
-     * CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID,
-     * pull request ID, branch name, or tag name that corresponds to the version of the
-     * source code you want to build. If a pull request ID is specified, it must use
-     * the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If
-     * a branch name is specified, the branch's HEAD commit ID is used. If not
-     * specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For
-     * Bitbucket: the commit ID, branch name, or tag name that corresponds to the
-     * version of the source code you want to build. If a branch name is specified, the
-     * branch's HEAD commit ID is used. If not specified, the default branch's HEAD
-     * commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon
-     * S3): the version ID of the object that represents the build input ZIP file to
-     * use.</p> </li> </ul>
+     * CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For
+     * GitHub: the commit ID, pull request ID, branch name, or tag name that
+     * corresponds to the version of the source code you want to build. If a pull
+     * request ID is specified, it must use the format <code>pr/pull-request-ID</code>
+     * (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
+     * used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name
+     * that corresponds to the version of the source code you want to build. If a
+     * branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     * the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple
+     * Storage Service (Amazon S3): the version ID of the object that represents the
+     * build input ZIP file to use.</p> </li> </ul>
      */
     inline bool SecondarySourceVersionsHasBeenSet() const { return m_secondarySourceVersionsHasBeenSet; }
 
     /**
      * <p> An array of <code>ProjectSourceVersion</code> objects. Each
      * <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS
-     * CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID,
-     * pull request ID, branch name, or tag name that corresponds to the version of the
-     * source code you want to build. If a pull request ID is specified, it must use
-     * the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If
-     * a branch name is specified, the branch's HEAD commit ID is used. If not
-     * specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For
-     * Bitbucket: the commit ID, branch name, or tag name that corresponds to the
-     * version of the source code you want to build. If a branch name is specified, the
-     * branch's HEAD commit ID is used. If not specified, the default branch's HEAD
-     * commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon
-     * S3): the version ID of the object that represents the build input ZIP file to
-     * use.</p> </li> </ul>
+     * CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For
+     * GitHub: the commit ID, pull request ID, branch name, or tag name that
+     * corresponds to the version of the source code you want to build. If a pull
+     * request ID is specified, it must use the format <code>pr/pull-request-ID</code>
+     * (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
+     * used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name
+     * that corresponds to the version of the source code you want to build. If a
+     * branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     * the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple
+     * Storage Service (Amazon S3): the version ID of the object that represents the
+     * build input ZIP file to use.</p> </li> </ul>
      */
     inline void SetSecondarySourceVersions(const Aws::Vector<ProjectSourceVersion>& value) { m_secondarySourceVersionsHasBeenSet = true; m_secondarySourceVersions = value; }
 
     /**
      * <p> An array of <code>ProjectSourceVersion</code> objects. Each
      * <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS
-     * CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID,
-     * pull request ID, branch name, or tag name that corresponds to the version of the
-     * source code you want to build. If a pull request ID is specified, it must use
-     * the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If
-     * a branch name is specified, the branch's HEAD commit ID is used. If not
-     * specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For
-     * Bitbucket: the commit ID, branch name, or tag name that corresponds to the
-     * version of the source code you want to build. If a branch name is specified, the
-     * branch's HEAD commit ID is used. If not specified, the default branch's HEAD
-     * commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon
-     * S3): the version ID of the object that represents the build input ZIP file to
-     * use.</p> </li> </ul>
+     * CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For
+     * GitHub: the commit ID, pull request ID, branch name, or tag name that
+     * corresponds to the version of the source code you want to build. If a pull
+     * request ID is specified, it must use the format <code>pr/pull-request-ID</code>
+     * (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
+     * used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name
+     * that corresponds to the version of the source code you want to build. If a
+     * branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     * the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple
+     * Storage Service (Amazon S3): the version ID of the object that represents the
+     * build input ZIP file to use.</p> </li> </ul>
      */
     inline void SetSecondarySourceVersions(Aws::Vector<ProjectSourceVersion>&& value) { m_secondarySourceVersionsHasBeenSet = true; m_secondarySourceVersions = std::move(value); }
 
     /**
      * <p> An array of <code>ProjectSourceVersion</code> objects. Each
      * <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS
-     * CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID,
-     * pull request ID, branch name, or tag name that corresponds to the version of the
-     * source code you want to build. If a pull request ID is specified, it must use
-     * the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If
-     * a branch name is specified, the branch's HEAD commit ID is used. If not
-     * specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For
-     * Bitbucket: the commit ID, branch name, or tag name that corresponds to the
-     * version of the source code you want to build. If a branch name is specified, the
-     * branch's HEAD commit ID is used. If not specified, the default branch's HEAD
-     * commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon
-     * S3): the version ID of the object that represents the build input ZIP file to
-     * use.</p> </li> </ul>
+     * CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For
+     * GitHub: the commit ID, pull request ID, branch name, or tag name that
+     * corresponds to the version of the source code you want to build. If a pull
+     * request ID is specified, it must use the format <code>pr/pull-request-ID</code>
+     * (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
+     * used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name
+     * that corresponds to the version of the source code you want to build. If a
+     * branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     * the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple
+     * Storage Service (Amazon S3): the version ID of the object that represents the
+     * build input ZIP file to use.</p> </li> </ul>
      */
     inline Build& WithSecondarySourceVersions(const Aws::Vector<ProjectSourceVersion>& value) { SetSecondarySourceVersions(value); return *this;}
 
     /**
      * <p> An array of <code>ProjectSourceVersion</code> objects. Each
      * <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS
-     * CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID,
-     * pull request ID, branch name, or tag name that corresponds to the version of the
-     * source code you want to build. If a pull request ID is specified, it must use
-     * the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If
-     * a branch name is specified, the branch's HEAD commit ID is used. If not
-     * specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For
-     * Bitbucket: the commit ID, branch name, or tag name that corresponds to the
-     * version of the source code you want to build. If a branch name is specified, the
-     * branch's HEAD commit ID is used. If not specified, the default branch's HEAD
-     * commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon
-     * S3): the version ID of the object that represents the build input ZIP file to
-     * use.</p> </li> </ul>
+     * CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For
+     * GitHub: the commit ID, pull request ID, branch name, or tag name that
+     * corresponds to the version of the source code you want to build. If a pull
+     * request ID is specified, it must use the format <code>pr/pull-request-ID</code>
+     * (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
+     * used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name
+     * that corresponds to the version of the source code you want to build. If a
+     * branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     * the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple
+     * Storage Service (Amazon S3): the version ID of the object that represents the
+     * build input ZIP file to use.</p> </li> </ul>
      */
     inline Build& WithSecondarySourceVersions(Aws::Vector<ProjectSourceVersion>&& value) { SetSecondarySourceVersions(std::move(value)); return *this;}
 
     /**
      * <p> An array of <code>ProjectSourceVersion</code> objects. Each
      * <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS
-     * CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID,
-     * pull request ID, branch name, or tag name that corresponds to the version of the
-     * source code you want to build. If a pull request ID is specified, it must use
-     * the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If
-     * a branch name is specified, the branch's HEAD commit ID is used. If not
-     * specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For
-     * Bitbucket: the commit ID, branch name, or tag name that corresponds to the
-     * version of the source code you want to build. If a branch name is specified, the
-     * branch's HEAD commit ID is used. If not specified, the default branch's HEAD
-     * commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon
-     * S3): the version ID of the object that represents the build input ZIP file to
-     * use.</p> </li> </ul>
+     * CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For
+     * GitHub: the commit ID, pull request ID, branch name, or tag name that
+     * corresponds to the version of the source code you want to build. If a pull
+     * request ID is specified, it must use the format <code>pr/pull-request-ID</code>
+     * (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
+     * used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name
+     * that corresponds to the version of the source code you want to build. If a
+     * branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     * the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple
+     * Storage Service (Amazon S3): the version ID of the object that represents the
+     * build input ZIP file to use.</p> </li> </ul>
      */
     inline Build& AddSecondarySourceVersions(const ProjectSourceVersion& value) { m_secondarySourceVersionsHasBeenSet = true; m_secondarySourceVersions.push_back(value); return *this; }
 
     /**
      * <p> An array of <code>ProjectSourceVersion</code> objects. Each
      * <code>ProjectSourceVersion</code> must be one of: </p> <ul> <li> <p>For AWS
-     * CodeCommit: the commit ID to use.</p> </li> <li> <p>For GitHub: the commit ID,
-     * pull request ID, branch name, or tag name that corresponds to the version of the
-     * source code you want to build. If a pull request ID is specified, it must use
-     * the format <code>pr/pull-request-ID</code> (for example, <code>pr/25</code>). If
-     * a branch name is specified, the branch's HEAD commit ID is used. If not
-     * specified, the default branch's HEAD commit ID is used.</p> </li> <li> <p>For
-     * Bitbucket: the commit ID, branch name, or tag name that corresponds to the
-     * version of the source code you want to build. If a branch name is specified, the
-     * branch's HEAD commit ID is used. If not specified, the default branch's HEAD
-     * commit ID is used.</p> </li> <li> <p>For Amazon Simple Storage Service (Amazon
-     * S3): the version ID of the object that represents the build input ZIP file to
-     * use.</p> </li> </ul>
+     * CodeCommit: the commit ID, branch, or Git tag to use.</p> </li> <li> <p>For
+     * GitHub: the commit ID, pull request ID, branch name, or tag name that
+     * corresponds to the version of the source code you want to build. If a pull
+     * request ID is specified, it must use the format <code>pr/pull-request-ID</code>
+     * (for example, <code>pr/25</code>). If a branch name is specified, the branch's
+     * HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is
+     * used.</p> </li> <li> <p>For Bitbucket: the commit ID, branch name, or tag name
+     * that corresponds to the version of the source code you want to build. If a
+     * branch name is specified, the branch's HEAD commit ID is used. If not specified,
+     * the default branch's HEAD commit ID is used.</p> </li> <li> <p>For Amazon Simple
+     * Storage Service (Amazon S3): the version ID of the object that represents the
+     * build input ZIP file to use.</p> </li> </ul>
      */
     inline Build& AddSecondarySourceVersions(ProjectSourceVersion&& value) { m_secondarySourceVersionsHasBeenSet = true; m_secondarySourceVersions.push_back(std::move(value)); return *this; }
 
@@ -1292,6 +1327,166 @@ namespace Model
      */
     inline Build& WithEncryptionKey(const char* value) { SetEncryptionKey(value); return *this;}
 
+
+    /**
+     * <p> A list of exported environment variables for this build. </p>
+     */
+    inline const Aws::Vector<ExportedEnvironmentVariable>& GetExportedEnvironmentVariables() const{ return m_exportedEnvironmentVariables; }
+
+    /**
+     * <p> A list of exported environment variables for this build. </p>
+     */
+    inline bool ExportedEnvironmentVariablesHasBeenSet() const { return m_exportedEnvironmentVariablesHasBeenSet; }
+
+    /**
+     * <p> A list of exported environment variables for this build. </p>
+     */
+    inline void SetExportedEnvironmentVariables(const Aws::Vector<ExportedEnvironmentVariable>& value) { m_exportedEnvironmentVariablesHasBeenSet = true; m_exportedEnvironmentVariables = value; }
+
+    /**
+     * <p> A list of exported environment variables for this build. </p>
+     */
+    inline void SetExportedEnvironmentVariables(Aws::Vector<ExportedEnvironmentVariable>&& value) { m_exportedEnvironmentVariablesHasBeenSet = true; m_exportedEnvironmentVariables = std::move(value); }
+
+    /**
+     * <p> A list of exported environment variables for this build. </p>
+     */
+    inline Build& WithExportedEnvironmentVariables(const Aws::Vector<ExportedEnvironmentVariable>& value) { SetExportedEnvironmentVariables(value); return *this;}
+
+    /**
+     * <p> A list of exported environment variables for this build. </p>
+     */
+    inline Build& WithExportedEnvironmentVariables(Aws::Vector<ExportedEnvironmentVariable>&& value) { SetExportedEnvironmentVariables(std::move(value)); return *this;}
+
+    /**
+     * <p> A list of exported environment variables for this build. </p>
+     */
+    inline Build& AddExportedEnvironmentVariables(const ExportedEnvironmentVariable& value) { m_exportedEnvironmentVariablesHasBeenSet = true; m_exportedEnvironmentVariables.push_back(value); return *this; }
+
+    /**
+     * <p> A list of exported environment variables for this build. </p>
+     */
+    inline Build& AddExportedEnvironmentVariables(ExportedEnvironmentVariable&& value) { m_exportedEnvironmentVariablesHasBeenSet = true; m_exportedEnvironmentVariables.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline const Aws::Vector<Aws::String>& GetReportArns() const{ return m_reportArns; }
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline bool ReportArnsHasBeenSet() const { return m_reportArnsHasBeenSet; }
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline void SetReportArns(const Aws::Vector<Aws::String>& value) { m_reportArnsHasBeenSet = true; m_reportArns = value; }
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline void SetReportArns(Aws::Vector<Aws::String>&& value) { m_reportArnsHasBeenSet = true; m_reportArns = std::move(value); }
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline Build& WithReportArns(const Aws::Vector<Aws::String>& value) { SetReportArns(value); return *this;}
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline Build& WithReportArns(Aws::Vector<Aws::String>&& value) { SetReportArns(std::move(value)); return *this;}
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline Build& AddReportArns(const Aws::String& value) { m_reportArnsHasBeenSet = true; m_reportArns.push_back(value); return *this; }
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline Build& AddReportArns(Aws::String&& value) { m_reportArnsHasBeenSet = true; m_reportArns.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p> An array of the ARNs associated with this build's reports. </p>
+     */
+    inline Build& AddReportArns(const char* value) { m_reportArnsHasBeenSet = true; m_reportArns.push_back(value); return *this; }
+
+
+    /**
+     * <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild
+     * build project. A <code>ProjectFileSystemLocation</code> object specifies the
+     * <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+     * <code>mountPoint</code>, and <code>type</code> of a file system created using
+     * Amazon Elastic File System. </p>
+     */
+    inline const Aws::Vector<ProjectFileSystemLocation>& GetFileSystemLocations() const{ return m_fileSystemLocations; }
+
+    /**
+     * <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild
+     * build project. A <code>ProjectFileSystemLocation</code> object specifies the
+     * <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+     * <code>mountPoint</code>, and <code>type</code> of a file system created using
+     * Amazon Elastic File System. </p>
+     */
+    inline bool FileSystemLocationsHasBeenSet() const { return m_fileSystemLocationsHasBeenSet; }
+
+    /**
+     * <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild
+     * build project. A <code>ProjectFileSystemLocation</code> object specifies the
+     * <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+     * <code>mountPoint</code>, and <code>type</code> of a file system created using
+     * Amazon Elastic File System. </p>
+     */
+    inline void SetFileSystemLocations(const Aws::Vector<ProjectFileSystemLocation>& value) { m_fileSystemLocationsHasBeenSet = true; m_fileSystemLocations = value; }
+
+    /**
+     * <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild
+     * build project. A <code>ProjectFileSystemLocation</code> object specifies the
+     * <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+     * <code>mountPoint</code>, and <code>type</code> of a file system created using
+     * Amazon Elastic File System. </p>
+     */
+    inline void SetFileSystemLocations(Aws::Vector<ProjectFileSystemLocation>&& value) { m_fileSystemLocationsHasBeenSet = true; m_fileSystemLocations = std::move(value); }
+
+    /**
+     * <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild
+     * build project. A <code>ProjectFileSystemLocation</code> object specifies the
+     * <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+     * <code>mountPoint</code>, and <code>type</code> of a file system created using
+     * Amazon Elastic File System. </p>
+     */
+    inline Build& WithFileSystemLocations(const Aws::Vector<ProjectFileSystemLocation>& value) { SetFileSystemLocations(value); return *this;}
+
+    /**
+     * <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild
+     * build project. A <code>ProjectFileSystemLocation</code> object specifies the
+     * <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+     * <code>mountPoint</code>, and <code>type</code> of a file system created using
+     * Amazon Elastic File System. </p>
+     */
+    inline Build& WithFileSystemLocations(Aws::Vector<ProjectFileSystemLocation>&& value) { SetFileSystemLocations(std::move(value)); return *this;}
+
+    /**
+     * <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild
+     * build project. A <code>ProjectFileSystemLocation</code> object specifies the
+     * <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+     * <code>mountPoint</code>, and <code>type</code> of a file system created using
+     * Amazon Elastic File System. </p>
+     */
+    inline Build& AddFileSystemLocations(const ProjectFileSystemLocation& value) { m_fileSystemLocationsHasBeenSet = true; m_fileSystemLocations.push_back(value); return *this; }
+
+    /**
+     * <p> An array of <code>ProjectFileSystemLocation</code> objects for a CodeBuild
+     * build project. A <code>ProjectFileSystemLocation</code> object specifies the
+     * <code>identifier</code>, <code>location</code>, <code>mountOptions</code>,
+     * <code>mountPoint</code>, and <code>type</code> of a file system created using
+     * Amazon Elastic File System. </p>
+     */
+    inline Build& AddFileSystemLocations(ProjectFileSystemLocation&& value) { m_fileSystemLocationsHasBeenSet = true; m_fileSystemLocations.push_back(std::move(value)); return *this; }
+
   private:
 
     Aws::String m_id;
@@ -1299,6 +1494,9 @@ namespace Model
 
     Aws::String m_arn;
     bool m_arnHasBeenSet;
+
+    long long m_buildNumber;
+    bool m_buildNumberHasBeenSet;
 
     Aws::Utils::DateTime m_startTime;
     bool m_startTimeHasBeenSet;
@@ -1371,6 +1569,15 @@ namespace Model
 
     Aws::String m_encryptionKey;
     bool m_encryptionKeyHasBeenSet;
+
+    Aws::Vector<ExportedEnvironmentVariable> m_exportedEnvironmentVariables;
+    bool m_exportedEnvironmentVariablesHasBeenSet;
+
+    Aws::Vector<Aws::String> m_reportArns;
+    bool m_reportArnsHasBeenSet;
+
+    Aws::Vector<ProjectFileSystemLocation> m_fileSystemLocations;
+    bool m_fileSystemLocationsHasBeenSet;
   };
 
 } // namespace Model

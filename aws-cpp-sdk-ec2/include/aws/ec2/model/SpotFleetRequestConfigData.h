@@ -27,6 +27,7 @@
 #include <aws/ec2/model/LoadBalancersConfig.h>
 #include <aws/ec2/model/SpotFleetLaunchSpecification.h>
 #include <aws/ec2/model/LaunchTemplateConfig.h>
+#include <aws/ec2/model/TagSpecification.h>
 #include <utility>
 
 namespace Aws
@@ -61,38 +62,80 @@ namespace Model
 
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowestPrice</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the Spot Fleet request.</p> <p>If the allocation
+     * strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the
+     * Spot Instance pools with the lowest price. This is the default allocation
+     * strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot
+     * Fleet launches instances from all the Spot Instance pools that you specify.</p>
+     * <p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
+     * launches instances from Spot Instance pools with optimal capacity for the number
+     * of instances that are launching.</p>
      */
     inline const AllocationStrategy& GetAllocationStrategy() const{ return m_allocationStrategy; }
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowestPrice</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the Spot Fleet request.</p> <p>If the allocation
+     * strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the
+     * Spot Instance pools with the lowest price. This is the default allocation
+     * strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot
+     * Fleet launches instances from all the Spot Instance pools that you specify.</p>
+     * <p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
+     * launches instances from Spot Instance pools with optimal capacity for the number
+     * of instances that are launching.</p>
      */
     inline bool AllocationStrategyHasBeenSet() const { return m_allocationStrategyHasBeenSet; }
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowestPrice</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the Spot Fleet request.</p> <p>If the allocation
+     * strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the
+     * Spot Instance pools with the lowest price. This is the default allocation
+     * strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot
+     * Fleet launches instances from all the Spot Instance pools that you specify.</p>
+     * <p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
+     * launches instances from Spot Instance pools with optimal capacity for the number
+     * of instances that are launching.</p>
      */
     inline void SetAllocationStrategy(const AllocationStrategy& value) { m_allocationStrategyHasBeenSet = true; m_allocationStrategy = value; }
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowestPrice</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the Spot Fleet request.</p> <p>If the allocation
+     * strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the
+     * Spot Instance pools with the lowest price. This is the default allocation
+     * strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot
+     * Fleet launches instances from all the Spot Instance pools that you specify.</p>
+     * <p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
+     * launches instances from Spot Instance pools with optimal capacity for the number
+     * of instances that are launching.</p>
      */
     inline void SetAllocationStrategy(AllocationStrategy&& value) { m_allocationStrategyHasBeenSet = true; m_allocationStrategy = std::move(value); }
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowestPrice</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the Spot Fleet request.</p> <p>If the allocation
+     * strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the
+     * Spot Instance pools with the lowest price. This is the default allocation
+     * strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot
+     * Fleet launches instances from all the Spot Instance pools that you specify.</p>
+     * <p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
+     * launches instances from Spot Instance pools with optimal capacity for the number
+     * of instances that are launching.</p>
      */
     inline SpotFleetRequestConfigData& WithAllocationStrategy(const AllocationStrategy& value) { SetAllocationStrategy(value); return *this;}
 
     /**
-     * <p>Indicates how to allocate the target capacity across the Spot pools specified
-     * by the Spot Fleet request. The default is <code>lowestPrice</code>.</p>
+     * <p>Indicates how to allocate the target Spot Instance capacity across the Spot
+     * Instance pools specified by the Spot Fleet request.</p> <p>If the allocation
+     * strategy is <code>lowestPrice</code>, Spot Fleet launches instances from the
+     * Spot Instance pools with the lowest price. This is the default allocation
+     * strategy.</p> <p>If the allocation strategy is <code>diversified</code>, Spot
+     * Fleet launches instances from all the Spot Instance pools that you specify.</p>
+     * <p>If the allocation strategy is <code>capacityOptimized</code>, Spot Fleet
+     * launches instances from Spot Instance pools with optimal capacity for the number
+     * of instances that are launching.</p>
      */
     inline SpotFleetRequestConfigData& WithAllocationStrategy(AllocationStrategy&& value) { SetAllocationStrategy(std::move(value)); return *this;}
 
@@ -1231,6 +1274,143 @@ namespace Model
      */
     inline SpotFleetRequestConfigData& WithInstancePoolsToUseCount(int value) { SetInstancePoolsToUseCount(value); return *this;}
 
+
+    /**
+     * <p>The key-value pair for tagging the Spot Fleet request on creation. The value
+     * for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise
+     * the Spot Fleet request fails. To tag instances at launch, specify the tags in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+     * template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+     * <code>SpotFleetTagSpecification</code> </a> (valid only if you use
+     * <code>LaunchSpecifications</code>). For information about tagging after launch,
+     * see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+     * Your Resources</a>.</p>
+     */
+    inline const Aws::Vector<TagSpecification>& GetTagSpecifications() const{ return m_tagSpecifications; }
+
+    /**
+     * <p>The key-value pair for tagging the Spot Fleet request on creation. The value
+     * for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise
+     * the Spot Fleet request fails. To tag instances at launch, specify the tags in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+     * template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+     * <code>SpotFleetTagSpecification</code> </a> (valid only if you use
+     * <code>LaunchSpecifications</code>). For information about tagging after launch,
+     * see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+     * Your Resources</a>.</p>
+     */
+    inline bool TagSpecificationsHasBeenSet() const { return m_tagSpecificationsHasBeenSet; }
+
+    /**
+     * <p>The key-value pair for tagging the Spot Fleet request on creation. The value
+     * for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise
+     * the Spot Fleet request fails. To tag instances at launch, specify the tags in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+     * template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+     * <code>SpotFleetTagSpecification</code> </a> (valid only if you use
+     * <code>LaunchSpecifications</code>). For information about tagging after launch,
+     * see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+     * Your Resources</a>.</p>
+     */
+    inline void SetTagSpecifications(const Aws::Vector<TagSpecification>& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = value; }
+
+    /**
+     * <p>The key-value pair for tagging the Spot Fleet request on creation. The value
+     * for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise
+     * the Spot Fleet request fails. To tag instances at launch, specify the tags in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+     * template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+     * <code>SpotFleetTagSpecification</code> </a> (valid only if you use
+     * <code>LaunchSpecifications</code>). For information about tagging after launch,
+     * see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+     * Your Resources</a>.</p>
+     */
+    inline void SetTagSpecifications(Aws::Vector<TagSpecification>&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications = std::move(value); }
+
+    /**
+     * <p>The key-value pair for tagging the Spot Fleet request on creation. The value
+     * for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise
+     * the Spot Fleet request fails. To tag instances at launch, specify the tags in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+     * template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+     * <code>SpotFleetTagSpecification</code> </a> (valid only if you use
+     * <code>LaunchSpecifications</code>). For information about tagging after launch,
+     * see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+     * Your Resources</a>.</p>
+     */
+    inline SpotFleetRequestConfigData& WithTagSpecifications(const Aws::Vector<TagSpecification>& value) { SetTagSpecifications(value); return *this;}
+
+    /**
+     * <p>The key-value pair for tagging the Spot Fleet request on creation. The value
+     * for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise
+     * the Spot Fleet request fails. To tag instances at launch, specify the tags in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+     * template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+     * <code>SpotFleetTagSpecification</code> </a> (valid only if you use
+     * <code>LaunchSpecifications</code>). For information about tagging after launch,
+     * see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+     * Your Resources</a>.</p>
+     */
+    inline SpotFleetRequestConfigData& WithTagSpecifications(Aws::Vector<TagSpecification>&& value) { SetTagSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The key-value pair for tagging the Spot Fleet request on creation. The value
+     * for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise
+     * the Spot Fleet request fails. To tag instances at launch, specify the tags in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+     * template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+     * <code>SpotFleetTagSpecification</code> </a> (valid only if you use
+     * <code>LaunchSpecifications</code>). For information about tagging after launch,
+     * see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+     * Your Resources</a>.</p>
+     */
+    inline SpotFleetRequestConfigData& AddTagSpecifications(const TagSpecification& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The key-value pair for tagging the Spot Fleet request on creation. The value
+     * for <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise
+     * the Spot Fleet request fails. To tag instances at launch, specify the tags in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+     * template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+     * the <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+     * <code>SpotFleetTagSpecification</code> </a> (valid only if you use
+     * <code>LaunchSpecifications</code>). For information about tagging after launch,
+     * see <a
+     * href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging
+     * Your Resources</a>.</p>
+     */
+    inline SpotFleetRequestConfigData& AddTagSpecifications(TagSpecification&& value) { m_tagSpecificationsHasBeenSet = true; m_tagSpecifications.push_back(std::move(value)); return *this; }
+
   private:
 
     AllocationStrategy m_allocationStrategy;
@@ -1298,6 +1478,9 @@ namespace Model
 
     int m_instancePoolsToUseCount;
     bool m_instancePoolsToUseCountHasBeenSet;
+
+    Aws::Vector<TagSpecification> m_tagSpecifications;
+    bool m_tagSpecificationsHasBeenSet;
   };
 
 } // namespace Model

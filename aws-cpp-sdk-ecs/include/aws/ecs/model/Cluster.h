@@ -20,6 +20,8 @@
 #include <aws/ecs/model/KeyValuePair.h>
 #include <aws/ecs/model/Tag.h>
 #include <aws/ecs/model/ClusterSetting.h>
+#include <aws/ecs/model/CapacityProviderStrategyItem.h>
+#include <aws/ecs/model/Attachment.h>
 #include <utility>
 
 namespace Aws
@@ -169,66 +171,146 @@ namespace Model
 
 
     /**
-     * <p>The status of the cluster. The valid values are <code>ACTIVE</code> or
-     * <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register
-     * container instances with the cluster and the associated instances can accept
-     * tasks.</p>
+     * <p>The status of the cluster. The following are the possible states that will be
+     * returned.</p> <dl> <dt>ACTIVE</dt> <dd> <p>The cluster is ready to accept tasks
+     * and if applicable you can register container instances with the cluster.</p>
+     * </dd> <dt>PROVISIONING</dt> <dd> <p>The cluster has capacity providers
+     * associated with it and the resources needed for the capacity provider are being
+     * created.</p> </dd> <dt>DEPROVISIONING</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * are being deleted.</p> </dd> <dt>FAILED</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * have failed to create.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The cluster has been
+     * deleted. Clusters with an <code>INACTIVE</code> status may remain discoverable
+     * in your account for a period of time. However, this behavior is subject to
+     * change in the future, so you should not rely on <code>INACTIVE</code> clusters
+     * persisting.</p> </dd> </dl>
      */
     inline const Aws::String& GetStatus() const{ return m_status; }
 
     /**
-     * <p>The status of the cluster. The valid values are <code>ACTIVE</code> or
-     * <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register
-     * container instances with the cluster and the associated instances can accept
-     * tasks.</p>
+     * <p>The status of the cluster. The following are the possible states that will be
+     * returned.</p> <dl> <dt>ACTIVE</dt> <dd> <p>The cluster is ready to accept tasks
+     * and if applicable you can register container instances with the cluster.</p>
+     * </dd> <dt>PROVISIONING</dt> <dd> <p>The cluster has capacity providers
+     * associated with it and the resources needed for the capacity provider are being
+     * created.</p> </dd> <dt>DEPROVISIONING</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * are being deleted.</p> </dd> <dt>FAILED</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * have failed to create.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The cluster has been
+     * deleted. Clusters with an <code>INACTIVE</code> status may remain discoverable
+     * in your account for a period of time. However, this behavior is subject to
+     * change in the future, so you should not rely on <code>INACTIVE</code> clusters
+     * persisting.</p> </dd> </dl>
      */
     inline bool StatusHasBeenSet() const { return m_statusHasBeenSet; }
 
     /**
-     * <p>The status of the cluster. The valid values are <code>ACTIVE</code> or
-     * <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register
-     * container instances with the cluster and the associated instances can accept
-     * tasks.</p>
+     * <p>The status of the cluster. The following are the possible states that will be
+     * returned.</p> <dl> <dt>ACTIVE</dt> <dd> <p>The cluster is ready to accept tasks
+     * and if applicable you can register container instances with the cluster.</p>
+     * </dd> <dt>PROVISIONING</dt> <dd> <p>The cluster has capacity providers
+     * associated with it and the resources needed for the capacity provider are being
+     * created.</p> </dd> <dt>DEPROVISIONING</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * are being deleted.</p> </dd> <dt>FAILED</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * have failed to create.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The cluster has been
+     * deleted. Clusters with an <code>INACTIVE</code> status may remain discoverable
+     * in your account for a period of time. However, this behavior is subject to
+     * change in the future, so you should not rely on <code>INACTIVE</code> clusters
+     * persisting.</p> </dd> </dl>
      */
     inline void SetStatus(const Aws::String& value) { m_statusHasBeenSet = true; m_status = value; }
 
     /**
-     * <p>The status of the cluster. The valid values are <code>ACTIVE</code> or
-     * <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register
-     * container instances with the cluster and the associated instances can accept
-     * tasks.</p>
+     * <p>The status of the cluster. The following are the possible states that will be
+     * returned.</p> <dl> <dt>ACTIVE</dt> <dd> <p>The cluster is ready to accept tasks
+     * and if applicable you can register container instances with the cluster.</p>
+     * </dd> <dt>PROVISIONING</dt> <dd> <p>The cluster has capacity providers
+     * associated with it and the resources needed for the capacity provider are being
+     * created.</p> </dd> <dt>DEPROVISIONING</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * are being deleted.</p> </dd> <dt>FAILED</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * have failed to create.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The cluster has been
+     * deleted. Clusters with an <code>INACTIVE</code> status may remain discoverable
+     * in your account for a period of time. However, this behavior is subject to
+     * change in the future, so you should not rely on <code>INACTIVE</code> clusters
+     * persisting.</p> </dd> </dl>
      */
     inline void SetStatus(Aws::String&& value) { m_statusHasBeenSet = true; m_status = std::move(value); }
 
     /**
-     * <p>The status of the cluster. The valid values are <code>ACTIVE</code> or
-     * <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register
-     * container instances with the cluster and the associated instances can accept
-     * tasks.</p>
+     * <p>The status of the cluster. The following are the possible states that will be
+     * returned.</p> <dl> <dt>ACTIVE</dt> <dd> <p>The cluster is ready to accept tasks
+     * and if applicable you can register container instances with the cluster.</p>
+     * </dd> <dt>PROVISIONING</dt> <dd> <p>The cluster has capacity providers
+     * associated with it and the resources needed for the capacity provider are being
+     * created.</p> </dd> <dt>DEPROVISIONING</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * are being deleted.</p> </dd> <dt>FAILED</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * have failed to create.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The cluster has been
+     * deleted. Clusters with an <code>INACTIVE</code> status may remain discoverable
+     * in your account for a period of time. However, this behavior is subject to
+     * change in the future, so you should not rely on <code>INACTIVE</code> clusters
+     * persisting.</p> </dd> </dl>
      */
     inline void SetStatus(const char* value) { m_statusHasBeenSet = true; m_status.assign(value); }
 
     /**
-     * <p>The status of the cluster. The valid values are <code>ACTIVE</code> or
-     * <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register
-     * container instances with the cluster and the associated instances can accept
-     * tasks.</p>
+     * <p>The status of the cluster. The following are the possible states that will be
+     * returned.</p> <dl> <dt>ACTIVE</dt> <dd> <p>The cluster is ready to accept tasks
+     * and if applicable you can register container instances with the cluster.</p>
+     * </dd> <dt>PROVISIONING</dt> <dd> <p>The cluster has capacity providers
+     * associated with it and the resources needed for the capacity provider are being
+     * created.</p> </dd> <dt>DEPROVISIONING</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * are being deleted.</p> </dd> <dt>FAILED</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * have failed to create.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The cluster has been
+     * deleted. Clusters with an <code>INACTIVE</code> status may remain discoverable
+     * in your account for a period of time. However, this behavior is subject to
+     * change in the future, so you should not rely on <code>INACTIVE</code> clusters
+     * persisting.</p> </dd> </dl>
      */
     inline Cluster& WithStatus(const Aws::String& value) { SetStatus(value); return *this;}
 
     /**
-     * <p>The status of the cluster. The valid values are <code>ACTIVE</code> or
-     * <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register
-     * container instances with the cluster and the associated instances can accept
-     * tasks.</p>
+     * <p>The status of the cluster. The following are the possible states that will be
+     * returned.</p> <dl> <dt>ACTIVE</dt> <dd> <p>The cluster is ready to accept tasks
+     * and if applicable you can register container instances with the cluster.</p>
+     * </dd> <dt>PROVISIONING</dt> <dd> <p>The cluster has capacity providers
+     * associated with it and the resources needed for the capacity provider are being
+     * created.</p> </dd> <dt>DEPROVISIONING</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * are being deleted.</p> </dd> <dt>FAILED</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * have failed to create.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The cluster has been
+     * deleted. Clusters with an <code>INACTIVE</code> status may remain discoverable
+     * in your account for a period of time. However, this behavior is subject to
+     * change in the future, so you should not rely on <code>INACTIVE</code> clusters
+     * persisting.</p> </dd> </dl>
      */
     inline Cluster& WithStatus(Aws::String&& value) { SetStatus(std::move(value)); return *this;}
 
     /**
-     * <p>The status of the cluster. The valid values are <code>ACTIVE</code> or
-     * <code>INACTIVE</code>. <code>ACTIVE</code> indicates that you can register
-     * container instances with the cluster and the associated instances can accept
-     * tasks.</p>
+     * <p>The status of the cluster. The following are the possible states that will be
+     * returned.</p> <dl> <dt>ACTIVE</dt> <dd> <p>The cluster is ready to accept tasks
+     * and if applicable you can register container instances with the cluster.</p>
+     * </dd> <dt>PROVISIONING</dt> <dd> <p>The cluster has capacity providers
+     * associated with it and the resources needed for the capacity provider are being
+     * created.</p> </dd> <dt>DEPROVISIONING</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * are being deleted.</p> </dd> <dt>FAILED</dt> <dd> <p>The cluster has capacity
+     * providers associated with it and the resources needed for the capacity provider
+     * have failed to create.</p> </dd> <dt>INACTIVE</dt> <dd> <p>The cluster has been
+     * deleted. Clusters with an <code>INACTIVE</code> status may remain discoverable
+     * in your account for a period of time. However, this behavior is subject to
+     * change in the future, so you should not rely on <code>INACTIVE</code> clusters
+     * persisting.</p> </dd> </dl>
      */
     inline Cluster& WithStatus(const char* value) { SetStatus(value); return *this;}
 
@@ -433,64 +515,160 @@ namespace Model
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline Cluster& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline Cluster& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline Cluster& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
 
     /**
      * <p>The metadata that you apply to the cluster to help you categorize and
      * organize them. Each tag consists of a key and an optional value, both of which
-     * you define. Tag keys can have a maximum character length of 128 characters, and
-     * tag values can have a maximum length of 256 characters.</p>
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
      */
     inline Cluster& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
@@ -543,6 +721,255 @@ namespace Model
      */
     inline Cluster& AddSettings(ClusterSetting&& value) { m_settingsHasBeenSet = true; m_settings.push_back(std::move(value)); return *this; }
 
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline const Aws::Vector<Aws::String>& GetCapacityProviders() const{ return m_capacityProviders; }
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline bool CapacityProvidersHasBeenSet() const { return m_capacityProvidersHasBeenSet; }
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline void SetCapacityProviders(const Aws::Vector<Aws::String>& value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders = value; }
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline void SetCapacityProviders(Aws::Vector<Aws::String>&& value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders = std::move(value); }
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline Cluster& WithCapacityProviders(const Aws::Vector<Aws::String>& value) { SetCapacityProviders(value); return *this;}
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline Cluster& WithCapacityProviders(Aws::Vector<Aws::String>&& value) { SetCapacityProviders(std::move(value)); return *this;}
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline Cluster& AddCapacityProviders(const Aws::String& value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders.push_back(value); return *this; }
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline Cluster& AddCapacityProviders(Aws::String&& value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p>The capacity providers associated with the cluster.</p>
+     */
+    inline Cluster& AddCapacityProviders(const char* value) { m_capacityProvidersHasBeenSet = true; m_capacityProviders.push_back(value); return *this; }
+
+
+    /**
+     * <p>The default capacity provider strategy for the cluster. When services or
+     * tasks are run in the cluster with no launch type or capacity provider strategy
+     * specified, the default capacity provider strategy is used.</p>
+     */
+    inline const Aws::Vector<CapacityProviderStrategyItem>& GetDefaultCapacityProviderStrategy() const{ return m_defaultCapacityProviderStrategy; }
+
+    /**
+     * <p>The default capacity provider strategy for the cluster. When services or
+     * tasks are run in the cluster with no launch type or capacity provider strategy
+     * specified, the default capacity provider strategy is used.</p>
+     */
+    inline bool DefaultCapacityProviderStrategyHasBeenSet() const { return m_defaultCapacityProviderStrategyHasBeenSet; }
+
+    /**
+     * <p>The default capacity provider strategy for the cluster. When services or
+     * tasks are run in the cluster with no launch type or capacity provider strategy
+     * specified, the default capacity provider strategy is used.</p>
+     */
+    inline void SetDefaultCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { m_defaultCapacityProviderStrategyHasBeenSet = true; m_defaultCapacityProviderStrategy = value; }
+
+    /**
+     * <p>The default capacity provider strategy for the cluster. When services or
+     * tasks are run in the cluster with no launch type or capacity provider strategy
+     * specified, the default capacity provider strategy is used.</p>
+     */
+    inline void SetDefaultCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { m_defaultCapacityProviderStrategyHasBeenSet = true; m_defaultCapacityProviderStrategy = std::move(value); }
+
+    /**
+     * <p>The default capacity provider strategy for the cluster. When services or
+     * tasks are run in the cluster with no launch type or capacity provider strategy
+     * specified, the default capacity provider strategy is used.</p>
+     */
+    inline Cluster& WithDefaultCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { SetDefaultCapacityProviderStrategy(value); return *this;}
+
+    /**
+     * <p>The default capacity provider strategy for the cluster. When services or
+     * tasks are run in the cluster with no launch type or capacity provider strategy
+     * specified, the default capacity provider strategy is used.</p>
+     */
+    inline Cluster& WithDefaultCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { SetDefaultCapacityProviderStrategy(std::move(value)); return *this;}
+
+    /**
+     * <p>The default capacity provider strategy for the cluster. When services or
+     * tasks are run in the cluster with no launch type or capacity provider strategy
+     * specified, the default capacity provider strategy is used.</p>
+     */
+    inline Cluster& AddDefaultCapacityProviderStrategy(const CapacityProviderStrategyItem& value) { m_defaultCapacityProviderStrategyHasBeenSet = true; m_defaultCapacityProviderStrategy.push_back(value); return *this; }
+
+    /**
+     * <p>The default capacity provider strategy for the cluster. When services or
+     * tasks are run in the cluster with no launch type or capacity provider strategy
+     * specified, the default capacity provider strategy is used.</p>
+     */
+    inline Cluster& AddDefaultCapacityProviderStrategy(CapacityProviderStrategyItem&& value) { m_defaultCapacityProviderStrategyHasBeenSet = true; m_defaultCapacityProviderStrategy.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The resources attached to a cluster. When using a capacity provider with a
+     * cluster, the Auto Scaling plan that is created will be returned as a cluster
+     * attachment.</p>
+     */
+    inline const Aws::Vector<Attachment>& GetAttachments() const{ return m_attachments; }
+
+    /**
+     * <p>The resources attached to a cluster. When using a capacity provider with a
+     * cluster, the Auto Scaling plan that is created will be returned as a cluster
+     * attachment.</p>
+     */
+    inline bool AttachmentsHasBeenSet() const { return m_attachmentsHasBeenSet; }
+
+    /**
+     * <p>The resources attached to a cluster. When using a capacity provider with a
+     * cluster, the Auto Scaling plan that is created will be returned as a cluster
+     * attachment.</p>
+     */
+    inline void SetAttachments(const Aws::Vector<Attachment>& value) { m_attachmentsHasBeenSet = true; m_attachments = value; }
+
+    /**
+     * <p>The resources attached to a cluster. When using a capacity provider with a
+     * cluster, the Auto Scaling plan that is created will be returned as a cluster
+     * attachment.</p>
+     */
+    inline void SetAttachments(Aws::Vector<Attachment>&& value) { m_attachmentsHasBeenSet = true; m_attachments = std::move(value); }
+
+    /**
+     * <p>The resources attached to a cluster. When using a capacity provider with a
+     * cluster, the Auto Scaling plan that is created will be returned as a cluster
+     * attachment.</p>
+     */
+    inline Cluster& WithAttachments(const Aws::Vector<Attachment>& value) { SetAttachments(value); return *this;}
+
+    /**
+     * <p>The resources attached to a cluster. When using a capacity provider with a
+     * cluster, the Auto Scaling plan that is created will be returned as a cluster
+     * attachment.</p>
+     */
+    inline Cluster& WithAttachments(Aws::Vector<Attachment>&& value) { SetAttachments(std::move(value)); return *this;}
+
+    /**
+     * <p>The resources attached to a cluster. When using a capacity provider with a
+     * cluster, the Auto Scaling plan that is created will be returned as a cluster
+     * attachment.</p>
+     */
+    inline Cluster& AddAttachments(const Attachment& value) { m_attachmentsHasBeenSet = true; m_attachments.push_back(value); return *this; }
+
+    /**
+     * <p>The resources attached to a cluster. When using a capacity provider with a
+     * cluster, the Auto Scaling plan that is created will be returned as a cluster
+     * attachment.</p>
+     */
+    inline Cluster& AddAttachments(Attachment&& value) { m_attachmentsHasBeenSet = true; m_attachments.push_back(std::move(value)); return *this; }
+
+
+    /**
+     * <p>The status of the capacity providers associated with the cluster. The
+     * following are the states that will be returned:</p> <dl>
+     * <dt>UPDATE_IN_PROGRESS</dt> <dd> <p>The available capacity providers for the
+     * cluster are updating. This occurs when the Auto Scaling plan is provisioning or
+     * deprovisioning.</p> </dd> <dt>UPDATE_COMPLETE</dt> <dd> <p>The capacity
+     * providers have successfully updated.</p> </dd> <dt>UPDATE_FAILED</dt> <dd>
+     * <p>The capacity provider updates failed.</p> </dd> </dl>
+     */
+    inline const Aws::String& GetAttachmentsStatus() const{ return m_attachmentsStatus; }
+
+    /**
+     * <p>The status of the capacity providers associated with the cluster. The
+     * following are the states that will be returned:</p> <dl>
+     * <dt>UPDATE_IN_PROGRESS</dt> <dd> <p>The available capacity providers for the
+     * cluster are updating. This occurs when the Auto Scaling plan is provisioning or
+     * deprovisioning.</p> </dd> <dt>UPDATE_COMPLETE</dt> <dd> <p>The capacity
+     * providers have successfully updated.</p> </dd> <dt>UPDATE_FAILED</dt> <dd>
+     * <p>The capacity provider updates failed.</p> </dd> </dl>
+     */
+    inline bool AttachmentsStatusHasBeenSet() const { return m_attachmentsStatusHasBeenSet; }
+
+    /**
+     * <p>The status of the capacity providers associated with the cluster. The
+     * following are the states that will be returned:</p> <dl>
+     * <dt>UPDATE_IN_PROGRESS</dt> <dd> <p>The available capacity providers for the
+     * cluster are updating. This occurs when the Auto Scaling plan is provisioning or
+     * deprovisioning.</p> </dd> <dt>UPDATE_COMPLETE</dt> <dd> <p>The capacity
+     * providers have successfully updated.</p> </dd> <dt>UPDATE_FAILED</dt> <dd>
+     * <p>The capacity provider updates failed.</p> </dd> </dl>
+     */
+    inline void SetAttachmentsStatus(const Aws::String& value) { m_attachmentsStatusHasBeenSet = true; m_attachmentsStatus = value; }
+
+    /**
+     * <p>The status of the capacity providers associated with the cluster. The
+     * following are the states that will be returned:</p> <dl>
+     * <dt>UPDATE_IN_PROGRESS</dt> <dd> <p>The available capacity providers for the
+     * cluster are updating. This occurs when the Auto Scaling plan is provisioning or
+     * deprovisioning.</p> </dd> <dt>UPDATE_COMPLETE</dt> <dd> <p>The capacity
+     * providers have successfully updated.</p> </dd> <dt>UPDATE_FAILED</dt> <dd>
+     * <p>The capacity provider updates failed.</p> </dd> </dl>
+     */
+    inline void SetAttachmentsStatus(Aws::String&& value) { m_attachmentsStatusHasBeenSet = true; m_attachmentsStatus = std::move(value); }
+
+    /**
+     * <p>The status of the capacity providers associated with the cluster. The
+     * following are the states that will be returned:</p> <dl>
+     * <dt>UPDATE_IN_PROGRESS</dt> <dd> <p>The available capacity providers for the
+     * cluster are updating. This occurs when the Auto Scaling plan is provisioning or
+     * deprovisioning.</p> </dd> <dt>UPDATE_COMPLETE</dt> <dd> <p>The capacity
+     * providers have successfully updated.</p> </dd> <dt>UPDATE_FAILED</dt> <dd>
+     * <p>The capacity provider updates failed.</p> </dd> </dl>
+     */
+    inline void SetAttachmentsStatus(const char* value) { m_attachmentsStatusHasBeenSet = true; m_attachmentsStatus.assign(value); }
+
+    /**
+     * <p>The status of the capacity providers associated with the cluster. The
+     * following are the states that will be returned:</p> <dl>
+     * <dt>UPDATE_IN_PROGRESS</dt> <dd> <p>The available capacity providers for the
+     * cluster are updating. This occurs when the Auto Scaling plan is provisioning or
+     * deprovisioning.</p> </dd> <dt>UPDATE_COMPLETE</dt> <dd> <p>The capacity
+     * providers have successfully updated.</p> </dd> <dt>UPDATE_FAILED</dt> <dd>
+     * <p>The capacity provider updates failed.</p> </dd> </dl>
+     */
+    inline Cluster& WithAttachmentsStatus(const Aws::String& value) { SetAttachmentsStatus(value); return *this;}
+
+    /**
+     * <p>The status of the capacity providers associated with the cluster. The
+     * following are the states that will be returned:</p> <dl>
+     * <dt>UPDATE_IN_PROGRESS</dt> <dd> <p>The available capacity providers for the
+     * cluster are updating. This occurs when the Auto Scaling plan is provisioning or
+     * deprovisioning.</p> </dd> <dt>UPDATE_COMPLETE</dt> <dd> <p>The capacity
+     * providers have successfully updated.</p> </dd> <dt>UPDATE_FAILED</dt> <dd>
+     * <p>The capacity provider updates failed.</p> </dd> </dl>
+     */
+    inline Cluster& WithAttachmentsStatus(Aws::String&& value) { SetAttachmentsStatus(std::move(value)); return *this;}
+
+    /**
+     * <p>The status of the capacity providers associated with the cluster. The
+     * following are the states that will be returned:</p> <dl>
+     * <dt>UPDATE_IN_PROGRESS</dt> <dd> <p>The available capacity providers for the
+     * cluster are updating. This occurs when the Auto Scaling plan is provisioning or
+     * deprovisioning.</p> </dd> <dt>UPDATE_COMPLETE</dt> <dd> <p>The capacity
+     * providers have successfully updated.</p> </dd> <dt>UPDATE_FAILED</dt> <dd>
+     * <p>The capacity provider updates failed.</p> </dd> </dl>
+     */
+    inline Cluster& WithAttachmentsStatus(const char* value) { SetAttachmentsStatus(value); return *this;}
+
   private:
 
     Aws::String m_clusterArn;
@@ -574,6 +1001,18 @@ namespace Model
 
     Aws::Vector<ClusterSetting> m_settings;
     bool m_settingsHasBeenSet;
+
+    Aws::Vector<Aws::String> m_capacityProviders;
+    bool m_capacityProvidersHasBeenSet;
+
+    Aws::Vector<CapacityProviderStrategyItem> m_defaultCapacityProviderStrategy;
+    bool m_defaultCapacityProviderStrategyHasBeenSet;
+
+    Aws::Vector<Attachment> m_attachments;
+    bool m_attachmentsHasBeenSet;
+
+    Aws::String m_attachmentsStatus;
+    bool m_attachmentsStatusHasBeenSet;
   };
 
 } // namespace Model

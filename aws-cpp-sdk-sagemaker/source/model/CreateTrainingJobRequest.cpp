@@ -36,7 +36,14 @@ CreateTrainingJobRequest::CreateTrainingJobRequest() :
     m_enableNetworkIsolation(false),
     m_enableNetworkIsolationHasBeenSet(false),
     m_enableInterContainerTrafficEncryption(false),
-    m_enableInterContainerTrafficEncryptionHasBeenSet(false)
+    m_enableInterContainerTrafficEncryptionHasBeenSet(false),
+    m_enableManagedSpotTraining(false),
+    m_enableManagedSpotTrainingHasBeenSet(false),
+    m_checkpointConfigHasBeenSet(false),
+    m_debugHookConfigHasBeenSet(false),
+    m_debugRuleConfigurationsHasBeenSet(false),
+    m_tensorBoardOutputConfigHasBeenSet(false),
+    m_experimentConfigHasBeenSet(false)
 {
 }
 
@@ -128,6 +135,47 @@ Aws::String CreateTrainingJobRequest::SerializePayload() const
   if(m_enableInterContainerTrafficEncryptionHasBeenSet)
   {
    payload.WithBool("EnableInterContainerTrafficEncryption", m_enableInterContainerTrafficEncryption);
+
+  }
+
+  if(m_enableManagedSpotTrainingHasBeenSet)
+  {
+   payload.WithBool("EnableManagedSpotTraining", m_enableManagedSpotTraining);
+
+  }
+
+  if(m_checkpointConfigHasBeenSet)
+  {
+   payload.WithObject("CheckpointConfig", m_checkpointConfig.Jsonize());
+
+  }
+
+  if(m_debugHookConfigHasBeenSet)
+  {
+   payload.WithObject("DebugHookConfig", m_debugHookConfig.Jsonize());
+
+  }
+
+  if(m_debugRuleConfigurationsHasBeenSet)
+  {
+   Array<JsonValue> debugRuleConfigurationsJsonList(m_debugRuleConfigurations.size());
+   for(unsigned debugRuleConfigurationsIndex = 0; debugRuleConfigurationsIndex < debugRuleConfigurationsJsonList.GetLength(); ++debugRuleConfigurationsIndex)
+   {
+     debugRuleConfigurationsJsonList[debugRuleConfigurationsIndex].AsObject(m_debugRuleConfigurations[debugRuleConfigurationsIndex].Jsonize());
+   }
+   payload.WithArray("DebugRuleConfigurations", std::move(debugRuleConfigurationsJsonList));
+
+  }
+
+  if(m_tensorBoardOutputConfigHasBeenSet)
+  {
+   payload.WithObject("TensorBoardOutputConfig", m_tensorBoardOutputConfig.Jsonize());
+
+  }
+
+  if(m_experimentConfigHasBeenSet)
+  {
+   payload.WithObject("ExperimentConfig", m_experimentConfig.Jsonize());
 
   }
 

@@ -59,7 +59,8 @@ ResponseLaunchTemplateData::ResponseLaunchTemplateData() :
     m_cpuOptionsHasBeenSet(false),
     m_capacityReservationSpecificationHasBeenSet(false),
     m_licenseSpecificationsHasBeenSet(false),
-    m_hibernationOptionsHasBeenSet(false)
+    m_hibernationOptionsHasBeenSet(false),
+    m_metadataOptionsHasBeenSet(false)
 {
 }
 
@@ -92,7 +93,8 @@ ResponseLaunchTemplateData::ResponseLaunchTemplateData(const XmlNode& xmlNode) :
     m_cpuOptionsHasBeenSet(false),
     m_capacityReservationSpecificationHasBeenSet(false),
     m_licenseSpecificationsHasBeenSet(false),
-    m_hibernationOptionsHasBeenSet(false)
+    m_hibernationOptionsHasBeenSet(false),
+    m_metadataOptionsHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -106,13 +108,13 @@ ResponseLaunchTemplateData& ResponseLaunchTemplateData::operator =(const XmlNode
     XmlNode kernelIdNode = resultNode.FirstChild("kernelId");
     if(!kernelIdNode.IsNull())
     {
-      m_kernelId = kernelIdNode.GetText();
+      m_kernelId = Aws::Utils::Xml::DecodeEscapedXmlText(kernelIdNode.GetText());
       m_kernelIdHasBeenSet = true;
     }
     XmlNode ebsOptimizedNode = resultNode.FirstChild("ebsOptimized");
     if(!ebsOptimizedNode.IsNull())
     {
-      m_ebsOptimized = StringUtils::ConvertToBool(StringUtils::Trim(ebsOptimizedNode.GetText().c_str()).c_str());
+      m_ebsOptimized = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(ebsOptimizedNode.GetText()).c_str()).c_str());
       m_ebsOptimizedHasBeenSet = true;
     }
     XmlNode iamInstanceProfileNode = resultNode.FirstChild("iamInstanceProfile");
@@ -148,19 +150,19 @@ ResponseLaunchTemplateData& ResponseLaunchTemplateData::operator =(const XmlNode
     XmlNode imageIdNode = resultNode.FirstChild("imageId");
     if(!imageIdNode.IsNull())
     {
-      m_imageId = imageIdNode.GetText();
+      m_imageId = Aws::Utils::Xml::DecodeEscapedXmlText(imageIdNode.GetText());
       m_imageIdHasBeenSet = true;
     }
     XmlNode instanceTypeNode = resultNode.FirstChild("instanceType");
     if(!instanceTypeNode.IsNull())
     {
-      m_instanceType = InstanceTypeMapper::GetInstanceTypeForName(StringUtils::Trim(instanceTypeNode.GetText().c_str()).c_str());
+      m_instanceType = InstanceTypeMapper::GetInstanceTypeForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(instanceTypeNode.GetText()).c_str()).c_str());
       m_instanceTypeHasBeenSet = true;
     }
     XmlNode keyNameNode = resultNode.FirstChild("keyName");
     if(!keyNameNode.IsNull())
     {
-      m_keyName = keyNameNode.GetText();
+      m_keyName = Aws::Utils::Xml::DecodeEscapedXmlText(keyNameNode.GetText());
       m_keyNameHasBeenSet = true;
     }
     XmlNode monitoringNode = resultNode.FirstChild("monitoring");
@@ -178,25 +180,25 @@ ResponseLaunchTemplateData& ResponseLaunchTemplateData::operator =(const XmlNode
     XmlNode ramDiskIdNode = resultNode.FirstChild("ramDiskId");
     if(!ramDiskIdNode.IsNull())
     {
-      m_ramDiskId = ramDiskIdNode.GetText();
+      m_ramDiskId = Aws::Utils::Xml::DecodeEscapedXmlText(ramDiskIdNode.GetText());
       m_ramDiskIdHasBeenSet = true;
     }
     XmlNode disableApiTerminationNode = resultNode.FirstChild("disableApiTermination");
     if(!disableApiTerminationNode.IsNull())
     {
-      m_disableApiTermination = StringUtils::ConvertToBool(StringUtils::Trim(disableApiTerminationNode.GetText().c_str()).c_str());
+      m_disableApiTermination = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(disableApiTerminationNode.GetText()).c_str()).c_str());
       m_disableApiTerminationHasBeenSet = true;
     }
     XmlNode instanceInitiatedShutdownBehaviorNode = resultNode.FirstChild("instanceInitiatedShutdownBehavior");
     if(!instanceInitiatedShutdownBehaviorNode.IsNull())
     {
-      m_instanceInitiatedShutdownBehavior = ShutdownBehaviorMapper::GetShutdownBehaviorForName(StringUtils::Trim(instanceInitiatedShutdownBehaviorNode.GetText().c_str()).c_str());
+      m_instanceInitiatedShutdownBehavior = ShutdownBehaviorMapper::GetShutdownBehaviorForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(instanceInitiatedShutdownBehaviorNode.GetText()).c_str()).c_str());
       m_instanceInitiatedShutdownBehaviorHasBeenSet = true;
     }
     XmlNode userDataNode = resultNode.FirstChild("userData");
     if(!userDataNode.IsNull())
     {
-      m_userData = userDataNode.GetText();
+      m_userData = Aws::Utils::Xml::DecodeEscapedXmlText(userDataNode.GetText());
       m_userDataHasBeenSet = true;
     }
     XmlNode tagSpecificationsNode = resultNode.FirstChild("tagSpecificationSet");
@@ -300,6 +302,12 @@ ResponseLaunchTemplateData& ResponseLaunchTemplateData::operator =(const XmlNode
     {
       m_hibernationOptions = hibernationOptionsNode;
       m_hibernationOptionsHasBeenSet = true;
+    }
+    XmlNode metadataOptionsNode = resultNode.FirstChild("metadataOptions");
+    if(!metadataOptionsNode.IsNull())
+    {
+      m_metadataOptions = metadataOptionsNode;
+      m_metadataOptionsHasBeenSet = true;
     }
   }
 
@@ -493,6 +501,13 @@ void ResponseLaunchTemplateData::OutputToStream(Aws::OStream& oStream, const cha
       m_hibernationOptions.OutputToStream(oStream, hibernationOptionsLocationAndMemberSs.str().c_str());
   }
 
+  if(m_metadataOptionsHasBeenSet)
+  {
+      Aws::StringStream metadataOptionsLocationAndMemberSs;
+      metadataOptionsLocationAndMemberSs << location << index << locationValue << ".MetadataOptions";
+      m_metadataOptions.OutputToStream(oStream, metadataOptionsLocationAndMemberSs.str().c_str());
+  }
+
 }
 
 void ResponseLaunchTemplateData::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -656,6 +671,12 @@ void ResponseLaunchTemplateData::OutputToStream(Aws::OStream& oStream, const cha
       Aws::String hibernationOptionsLocationAndMember(location);
       hibernationOptionsLocationAndMember += ".HibernationOptions";
       m_hibernationOptions.OutputToStream(oStream, hibernationOptionsLocationAndMember.c_str());
+  }
+  if(m_metadataOptionsHasBeenSet)
+  {
+      Aws::String metadataOptionsLocationAndMember(location);
+      metadataOptionsLocationAndMember += ".MetadataOptions";
+      m_metadataOptions.OutputToStream(oStream, metadataOptionsLocationAndMember.c_str());
   }
 }
 

@@ -59,11 +59,11 @@ namespace Model
      * delivering the message to the endpoint address. Amazon Pinpoint won't attempt to
      * send the message again.</p></li>   <li><p>SUCCESSFUL - The message was
      * successfully delivered to the endpoint address.</p></li>
-     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint will
-     * attempt to deliver the message again later.</p></li> <li><p>THROTTLED - Amazon
-     * Pinpoint throttled the operation to send the message to the endpoint
-     * address.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the
-     * timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
+     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't
+     * attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint
+     * throttled the operation to send the message to the endpoint address.</p></li>
+     * <li><p>TIMEOUT - The message couldn't be sent within the timeout
+     * period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
      * occurred.</p></li></ul>
      */
     inline const DeliveryStatus& GetDeliveryStatus() const{ return m_deliveryStatus; }
@@ -78,11 +78,11 @@ namespace Model
      * delivering the message to the endpoint address. Amazon Pinpoint won't attempt to
      * send the message again.</p></li>   <li><p>SUCCESSFUL - The message was
      * successfully delivered to the endpoint address.</p></li>
-     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint will
-     * attempt to deliver the message again later.</p></li> <li><p>THROTTLED - Amazon
-     * Pinpoint throttled the operation to send the message to the endpoint
-     * address.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the
-     * timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
+     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't
+     * attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint
+     * throttled the operation to send the message to the endpoint address.</p></li>
+     * <li><p>TIMEOUT - The message couldn't be sent within the timeout
+     * period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
      * occurred.</p></li></ul>
      */
     inline bool DeliveryStatusHasBeenSet() const { return m_deliveryStatusHasBeenSet; }
@@ -97,11 +97,11 @@ namespace Model
      * delivering the message to the endpoint address. Amazon Pinpoint won't attempt to
      * send the message again.</p></li>   <li><p>SUCCESSFUL - The message was
      * successfully delivered to the endpoint address.</p></li>
-     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint will
-     * attempt to deliver the message again later.</p></li> <li><p>THROTTLED - Amazon
-     * Pinpoint throttled the operation to send the message to the endpoint
-     * address.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the
-     * timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
+     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't
+     * attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint
+     * throttled the operation to send the message to the endpoint address.</p></li>
+     * <li><p>TIMEOUT - The message couldn't be sent within the timeout
+     * period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
      * occurred.</p></li></ul>
      */
     inline void SetDeliveryStatus(const DeliveryStatus& value) { m_deliveryStatusHasBeenSet = true; m_deliveryStatus = value; }
@@ -116,11 +116,11 @@ namespace Model
      * delivering the message to the endpoint address. Amazon Pinpoint won't attempt to
      * send the message again.</p></li>   <li><p>SUCCESSFUL - The message was
      * successfully delivered to the endpoint address.</p></li>
-     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint will
-     * attempt to deliver the message again later.</p></li> <li><p>THROTTLED - Amazon
-     * Pinpoint throttled the operation to send the message to the endpoint
-     * address.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the
-     * timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
+     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't
+     * attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint
+     * throttled the operation to send the message to the endpoint address.</p></li>
+     * <li><p>TIMEOUT - The message couldn't be sent within the timeout
+     * period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
      * occurred.</p></li></ul>
      */
     inline void SetDeliveryStatus(DeliveryStatus&& value) { m_deliveryStatusHasBeenSet = true; m_deliveryStatus = std::move(value); }
@@ -135,11 +135,11 @@ namespace Model
      * delivering the message to the endpoint address. Amazon Pinpoint won't attempt to
      * send the message again.</p></li>   <li><p>SUCCESSFUL - The message was
      * successfully delivered to the endpoint address.</p></li>
-     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint will
-     * attempt to deliver the message again later.</p></li> <li><p>THROTTLED - Amazon
-     * Pinpoint throttled the operation to send the message to the endpoint
-     * address.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the
-     * timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
+     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't
+     * attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint
+     * throttled the operation to send the message to the endpoint address.</p></li>
+     * <li><p>TIMEOUT - The message couldn't be sent within the timeout
+     * period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
      * occurred.</p></li></ul>
      */
     inline MessageResult& WithDeliveryStatus(const DeliveryStatus& value) { SetDeliveryStatus(value); return *this;}
@@ -154,11 +154,11 @@ namespace Model
      * delivering the message to the endpoint address. Amazon Pinpoint won't attempt to
      * send the message again.</p></li>   <li><p>SUCCESSFUL - The message was
      * successfully delivered to the endpoint address.</p></li>
-     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint will
-     * attempt to deliver the message again later.</p></li> <li><p>THROTTLED - Amazon
-     * Pinpoint throttled the operation to send the message to the endpoint
-     * address.</p></li> <li><p>TIMEOUT - The message couldn't be sent within the
-     * timeout period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
+     * <li><p>TEMPORARY_FAILURE - A temporary error occurred. Amazon Pinpoint won't
+     * attempt to send the message again.</p></li> <li><p>THROTTLED - Amazon Pinpoint
+     * throttled the operation to send the message to the endpoint address.</p></li>
+     * <li><p>TIMEOUT - The message couldn't be sent within the timeout
+     * period.</p></li> <li><p>UNKNOWN_FAILURE - An unknown error
      * occurred.</p></li></ul>
      */
     inline MessageResult& WithDeliveryStatus(DeliveryStatus&& value) { SetDeliveryStatus(std::move(value)); return *this;}
@@ -269,49 +269,57 @@ namespace Model
 
     /**
      * <p>For push notifications that are sent through the GCM channel, specifies
-     * whether the token was updated as part of delivering the message.</p>
+     * whether the endpoint's device registration token was updated as part of
+     * delivering the message.</p>
      */
     inline const Aws::String& GetUpdatedToken() const{ return m_updatedToken; }
 
     /**
      * <p>For push notifications that are sent through the GCM channel, specifies
-     * whether the token was updated as part of delivering the message.</p>
+     * whether the endpoint's device registration token was updated as part of
+     * delivering the message.</p>
      */
     inline bool UpdatedTokenHasBeenSet() const { return m_updatedTokenHasBeenSet; }
 
     /**
      * <p>For push notifications that are sent through the GCM channel, specifies
-     * whether the token was updated as part of delivering the message.</p>
+     * whether the endpoint's device registration token was updated as part of
+     * delivering the message.</p>
      */
     inline void SetUpdatedToken(const Aws::String& value) { m_updatedTokenHasBeenSet = true; m_updatedToken = value; }
 
     /**
      * <p>For push notifications that are sent through the GCM channel, specifies
-     * whether the token was updated as part of delivering the message.</p>
+     * whether the endpoint's device registration token was updated as part of
+     * delivering the message.</p>
      */
     inline void SetUpdatedToken(Aws::String&& value) { m_updatedTokenHasBeenSet = true; m_updatedToken = std::move(value); }
 
     /**
      * <p>For push notifications that are sent through the GCM channel, specifies
-     * whether the token was updated as part of delivering the message.</p>
+     * whether the endpoint's device registration token was updated as part of
+     * delivering the message.</p>
      */
     inline void SetUpdatedToken(const char* value) { m_updatedTokenHasBeenSet = true; m_updatedToken.assign(value); }
 
     /**
      * <p>For push notifications that are sent through the GCM channel, specifies
-     * whether the token was updated as part of delivering the message.</p>
+     * whether the endpoint's device registration token was updated as part of
+     * delivering the message.</p>
      */
     inline MessageResult& WithUpdatedToken(const Aws::String& value) { SetUpdatedToken(value); return *this;}
 
     /**
      * <p>For push notifications that are sent through the GCM channel, specifies
-     * whether the token was updated as part of delivering the message.</p>
+     * whether the endpoint's device registration token was updated as part of
+     * delivering the message.</p>
      */
     inline MessageResult& WithUpdatedToken(Aws::String&& value) { SetUpdatedToken(std::move(value)); return *this;}
 
     /**
      * <p>For push notifications that are sent through the GCM channel, specifies
-     * whether the token was updated as part of delivering the message.</p>
+     * whether the endpoint's device registration token was updated as part of
+     * delivering the message.</p>
      */
     inline MessageResult& WithUpdatedToken(const char* value) { SetUpdatedToken(value); return *this;}
 

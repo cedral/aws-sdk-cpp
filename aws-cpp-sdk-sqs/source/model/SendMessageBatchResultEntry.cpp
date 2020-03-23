@@ -35,6 +35,7 @@ SendMessageBatchResultEntry::SendMessageBatchResultEntry() :
     m_messageIdHasBeenSet(false),
     m_mD5OfMessageBodyHasBeenSet(false),
     m_mD5OfMessageAttributesHasBeenSet(false),
+    m_mD5OfMessageSystemAttributesHasBeenSet(false),
     m_sequenceNumberHasBeenSet(false)
 {
 }
@@ -44,6 +45,7 @@ SendMessageBatchResultEntry::SendMessageBatchResultEntry(const XmlNode& xmlNode)
     m_messageIdHasBeenSet(false),
     m_mD5OfMessageBodyHasBeenSet(false),
     m_mD5OfMessageAttributesHasBeenSet(false),
+    m_mD5OfMessageSystemAttributesHasBeenSet(false),
     m_sequenceNumberHasBeenSet(false)
 {
   *this = xmlNode;
@@ -58,31 +60,37 @@ SendMessageBatchResultEntry& SendMessageBatchResultEntry::operator =(const XmlNo
     XmlNode idNode = resultNode.FirstChild("Id");
     if(!idNode.IsNull())
     {
-      m_id = idNode.GetText();
+      m_id = Aws::Utils::Xml::DecodeEscapedXmlText(idNode.GetText());
       m_idHasBeenSet = true;
     }
     XmlNode messageIdNode = resultNode.FirstChild("MessageId");
     if(!messageIdNode.IsNull())
     {
-      m_messageId = messageIdNode.GetText();
+      m_messageId = Aws::Utils::Xml::DecodeEscapedXmlText(messageIdNode.GetText());
       m_messageIdHasBeenSet = true;
     }
     XmlNode mD5OfMessageBodyNode = resultNode.FirstChild("MD5OfMessageBody");
     if(!mD5OfMessageBodyNode.IsNull())
     {
-      m_mD5OfMessageBody = mD5OfMessageBodyNode.GetText();
+      m_mD5OfMessageBody = Aws::Utils::Xml::DecodeEscapedXmlText(mD5OfMessageBodyNode.GetText());
       m_mD5OfMessageBodyHasBeenSet = true;
     }
     XmlNode mD5OfMessageAttributesNode = resultNode.FirstChild("MD5OfMessageAttributes");
     if(!mD5OfMessageAttributesNode.IsNull())
     {
-      m_mD5OfMessageAttributes = mD5OfMessageAttributesNode.GetText();
+      m_mD5OfMessageAttributes = Aws::Utils::Xml::DecodeEscapedXmlText(mD5OfMessageAttributesNode.GetText());
       m_mD5OfMessageAttributesHasBeenSet = true;
+    }
+    XmlNode mD5OfMessageSystemAttributesNode = resultNode.FirstChild("MD5OfMessageSystemAttributes");
+    if(!mD5OfMessageSystemAttributesNode.IsNull())
+    {
+      m_mD5OfMessageSystemAttributes = Aws::Utils::Xml::DecodeEscapedXmlText(mD5OfMessageSystemAttributesNode.GetText());
+      m_mD5OfMessageSystemAttributesHasBeenSet = true;
     }
     XmlNode sequenceNumberNode = resultNode.FirstChild("SequenceNumber");
     if(!sequenceNumberNode.IsNull())
     {
-      m_sequenceNumber = sequenceNumberNode.GetText();
+      m_sequenceNumber = Aws::Utils::Xml::DecodeEscapedXmlText(sequenceNumberNode.GetText());
       m_sequenceNumberHasBeenSet = true;
     }
   }
@@ -112,6 +120,11 @@ void SendMessageBatchResultEntry::OutputToStream(Aws::OStream& oStream, const ch
       oStream << location << index << locationValue << ".MD5OfMessageAttributes=" << StringUtils::URLEncode(m_mD5OfMessageAttributes.c_str()) << "&";
   }
 
+  if(m_mD5OfMessageSystemAttributesHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".MD5OfMessageSystemAttributes=" << StringUtils::URLEncode(m_mD5OfMessageSystemAttributes.c_str()) << "&";
+  }
+
   if(m_sequenceNumberHasBeenSet)
   {
       oStream << location << index << locationValue << ".SequenceNumber=" << StringUtils::URLEncode(m_sequenceNumber.c_str()) << "&";
@@ -136,6 +149,10 @@ void SendMessageBatchResultEntry::OutputToStream(Aws::OStream& oStream, const ch
   if(m_mD5OfMessageAttributesHasBeenSet)
   {
       oStream << location << ".MD5OfMessageAttributes=" << StringUtils::URLEncode(m_mD5OfMessageAttributes.c_str()) << "&";
+  }
+  if(m_mD5OfMessageSystemAttributesHasBeenSet)
+  {
+      oStream << location << ".MD5OfMessageSystemAttributes=" << StringUtils::URLEncode(m_mD5OfMessageSystemAttributes.c_str()) << "&";
   }
   if(m_sequenceNumberHasBeenSet)
   {

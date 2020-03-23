@@ -30,7 +30,8 @@ namespace Model
     SUCCEEDED,
     FAILED,
     STOPPING,
-    STOPPED
+    STOPPED,
+    QUEUED
   };
 
 namespace StackSetOperationStatusMapper

@@ -17,6 +17,7 @@
 #include <aws/pinpoint/Pinpoint_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <aws/pinpoint/model/DirectMessageConfiguration.h>
+#include <aws/pinpoint/model/TemplateConfiguration.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/pinpoint/model/AddressConfiguration.h>
 #include <aws/pinpoint/model/EndpointSendConfiguration.h>
@@ -38,8 +39,8 @@ namespace Model
 {
 
   /**
-   * <p>Specifies the objects that define configuration and other settings for a
-   * message.</p><p><h3>See Also:</h3>   <a
+   * <p>Specifies the configuration and other settings for a message.</p><p><h3>See
+   * Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/pinpoint-2016-12-01/MessageRequest">AWS
    * API Reference</a></p>
    */
@@ -351,40 +352,71 @@ namespace Model
 
 
     /**
-     * <p>The set of properties that defines the configuration settings for the
-     * message.</p>
+     * <p>The settings and content for the default message and any default messages
+     * that you defined for specific channels.</p>
      */
     inline const DirectMessageConfiguration& GetMessageConfiguration() const{ return m_messageConfiguration; }
 
     /**
-     * <p>The set of properties that defines the configuration settings for the
-     * message.</p>
+     * <p>The settings and content for the default message and any default messages
+     * that you defined for specific channels.</p>
      */
     inline bool MessageConfigurationHasBeenSet() const { return m_messageConfigurationHasBeenSet; }
 
     /**
-     * <p>The set of properties that defines the configuration settings for the
-     * message.</p>
+     * <p>The settings and content for the default message and any default messages
+     * that you defined for specific channels.</p>
      */
     inline void SetMessageConfiguration(const DirectMessageConfiguration& value) { m_messageConfigurationHasBeenSet = true; m_messageConfiguration = value; }
 
     /**
-     * <p>The set of properties that defines the configuration settings for the
-     * message.</p>
+     * <p>The settings and content for the default message and any default messages
+     * that you defined for specific channels.</p>
      */
     inline void SetMessageConfiguration(DirectMessageConfiguration&& value) { m_messageConfigurationHasBeenSet = true; m_messageConfiguration = std::move(value); }
 
     /**
-     * <p>The set of properties that defines the configuration settings for the
-     * message.</p>
+     * <p>The settings and content for the default message and any default messages
+     * that you defined for specific channels.</p>
      */
     inline MessageRequest& WithMessageConfiguration(const DirectMessageConfiguration& value) { SetMessageConfiguration(value); return *this;}
 
     /**
-     * <p>The set of properties that defines the configuration settings for the
-     * message.</p>
+     * <p>The settings and content for the default message and any default messages
+     * that you defined for specific channels.</p>
      */
     inline MessageRequest& WithMessageConfiguration(DirectMessageConfiguration&& value) { SetMessageConfiguration(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The message template to use for the message.</p>
+     */
+    inline const TemplateConfiguration& GetTemplateConfiguration() const{ return m_templateConfiguration; }
+
+    /**
+     * <p>The message template to use for the message.</p>
+     */
+    inline bool TemplateConfigurationHasBeenSet() const { return m_templateConfigurationHasBeenSet; }
+
+    /**
+     * <p>The message template to use for the message.</p>
+     */
+    inline void SetTemplateConfiguration(const TemplateConfiguration& value) { m_templateConfigurationHasBeenSet = true; m_templateConfiguration = value; }
+
+    /**
+     * <p>The message template to use for the message.</p>
+     */
+    inline void SetTemplateConfiguration(TemplateConfiguration&& value) { m_templateConfigurationHasBeenSet = true; m_templateConfiguration = std::move(value); }
+
+    /**
+     * <p>The message template to use for the message.</p>
+     */
+    inline MessageRequest& WithTemplateConfiguration(const TemplateConfiguration& value) { SetTemplateConfiguration(value); return *this;}
+
+    /**
+     * <p>The message template to use for the message.</p>
+     */
+    inline MessageRequest& WithTemplateConfiguration(TemplateConfiguration&& value) { SetTemplateConfiguration(std::move(value)); return *this;}
 
 
     /**
@@ -448,6 +480,9 @@ namespace Model
 
     DirectMessageConfiguration m_messageConfiguration;
     bool m_messageConfigurationHasBeenSet;
+
+    TemplateConfiguration m_templateConfiguration;
+    bool m_templateConfigurationHasBeenSet;
 
     Aws::String m_traceId;
     bool m_traceIdHasBeenSet;

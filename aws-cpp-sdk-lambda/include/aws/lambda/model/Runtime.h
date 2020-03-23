@@ -31,16 +31,20 @@ namespace Model
     nodejs6_10,
     nodejs8_10,
     nodejs10_x,
+    nodejs12_x,
     java8,
+    java11,
     python2_7,
     python3_6,
     python3_7,
+    python3_8,
     dotnetcore1_0,
     dotnetcore2_0,
     dotnetcore2_1,
     nodejs4_3_edge,
     go1_x,
     ruby2_5,
+    ruby2_7,
     provided
   };
 

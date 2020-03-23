@@ -34,8 +34,8 @@ namespace Model
 {
 
   /**
-   * <p>Sends information about the detector model instance and the event which
-   * triggered the action to an AWS SQS queue.</p><p><h3>See Also:</h3>   <a
+   * <p>Sends information about the detector model instance and the event that
+   * triggered the action to an Amazon SQS queue.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/iotevents-2018-07-27/SqsAction">AWS
    * API Reference</a></p>
    */
@@ -90,26 +90,26 @@ namespace Model
 
 
     /**
-     * <p>Set this to TRUE if you want the data to be Base-64 encoded before it is
-     * written to the queue. Otherwise, set this to FALSE.</p>
+     * <p>Set this to TRUE if you want the data to be base-64 encoded before it is
+     * written to the queue.</p>
      */
     inline bool GetUseBase64() const{ return m_useBase64; }
 
     /**
-     * <p>Set this to TRUE if you want the data to be Base-64 encoded before it is
-     * written to the queue. Otherwise, set this to FALSE.</p>
+     * <p>Set this to TRUE if you want the data to be base-64 encoded before it is
+     * written to the queue.</p>
      */
     inline bool UseBase64HasBeenSet() const { return m_useBase64HasBeenSet; }
 
     /**
-     * <p>Set this to TRUE if you want the data to be Base-64 encoded before it is
-     * written to the queue. Otherwise, set this to FALSE.</p>
+     * <p>Set this to TRUE if you want the data to be base-64 encoded before it is
+     * written to the queue.</p>
      */
     inline void SetUseBase64(bool value) { m_useBase64HasBeenSet = true; m_useBase64 = value; }
 
     /**
-     * <p>Set this to TRUE if you want the data to be Base-64 encoded before it is
-     * written to the queue. Otherwise, set this to FALSE.</p>
+     * <p>Set this to TRUE if you want the data to be base-64 encoded before it is
+     * written to the queue.</p>
      */
     inline SqsAction& WithUseBase64(bool value) { SetUseBase64(value); return *this;}
 

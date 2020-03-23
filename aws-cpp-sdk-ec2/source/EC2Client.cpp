@@ -31,6 +31,7 @@
 #include <aws/ec2/EC2Endpoint.h>
 #include <aws/ec2/EC2ErrorMarshaller.h>
 #include <aws/ec2/model/AcceptReservedInstancesExchangeQuoteRequest.h>
+#include <aws/ec2/model/AcceptTransitGatewayPeeringAttachmentRequest.h>
 #include <aws/ec2/model/AcceptTransitGatewayVpcAttachmentRequest.h>
 #include <aws/ec2/model/AcceptVpcEndpointConnectionsRequest.h>
 #include <aws/ec2/model/AcceptVpcPeeringConnectionRequest.h>
@@ -46,6 +47,7 @@
 #include <aws/ec2/model/AssociateIamInstanceProfileRequest.h>
 #include <aws/ec2/model/AssociateRouteTableRequest.h>
 #include <aws/ec2/model/AssociateSubnetCidrBlockRequest.h>
+#include <aws/ec2/model/AssociateTransitGatewayMulticastDomainRequest.h>
 #include <aws/ec2/model/AssociateTransitGatewayRouteTableRequest.h>
 #include <aws/ec2/model/AssociateVpcCidrBlockRequest.h>
 #include <aws/ec2/model/AttachClassicLinkVpcRequest.h>
@@ -86,6 +88,8 @@
 #include <aws/ec2/model/CreateKeyPairRequest.h>
 #include <aws/ec2/model/CreateLaunchTemplateRequest.h>
 #include <aws/ec2/model/CreateLaunchTemplateVersionRequest.h>
+#include <aws/ec2/model/CreateLocalGatewayRouteRequest.h>
+#include <aws/ec2/model/CreateLocalGatewayRouteTableVpcAssociationRequest.h>
 #include <aws/ec2/model/CreateNatGatewayRequest.h>
 #include <aws/ec2/model/CreateNetworkAclRequest.h>
 #include <aws/ec2/model/CreateNetworkAclEntryRequest.h>
@@ -106,6 +110,8 @@
 #include <aws/ec2/model/CreateTrafficMirrorSessionRequest.h>
 #include <aws/ec2/model/CreateTrafficMirrorTargetRequest.h>
 #include <aws/ec2/model/CreateTransitGatewayRequest.h>
+#include <aws/ec2/model/CreateTransitGatewayMulticastDomainRequest.h>
+#include <aws/ec2/model/CreateTransitGatewayPeeringAttachmentRequest.h>
 #include <aws/ec2/model/CreateTransitGatewayRouteRequest.h>
 #include <aws/ec2/model/CreateTransitGatewayRouteTableRequest.h>
 #include <aws/ec2/model/CreateTransitGatewayVpcAttachmentRequest.h>
@@ -130,12 +136,15 @@
 #include <aws/ec2/model/DeleteKeyPairRequest.h>
 #include <aws/ec2/model/DeleteLaunchTemplateRequest.h>
 #include <aws/ec2/model/DeleteLaunchTemplateVersionsRequest.h>
+#include <aws/ec2/model/DeleteLocalGatewayRouteRequest.h>
+#include <aws/ec2/model/DeleteLocalGatewayRouteTableVpcAssociationRequest.h>
 #include <aws/ec2/model/DeleteNatGatewayRequest.h>
 #include <aws/ec2/model/DeleteNetworkAclRequest.h>
 #include <aws/ec2/model/DeleteNetworkAclEntryRequest.h>
 #include <aws/ec2/model/DeleteNetworkInterfaceRequest.h>
 #include <aws/ec2/model/DeleteNetworkInterfacePermissionRequest.h>
 #include <aws/ec2/model/DeletePlacementGroupRequest.h>
+#include <aws/ec2/model/DeleteQueuedReservedInstancesRequest.h>
 #include <aws/ec2/model/DeleteRouteRequest.h>
 #include <aws/ec2/model/DeleteRouteTableRequest.h>
 #include <aws/ec2/model/DeleteSecurityGroupRequest.h>
@@ -148,6 +157,8 @@
 #include <aws/ec2/model/DeleteTrafficMirrorSessionRequest.h>
 #include <aws/ec2/model/DeleteTrafficMirrorTargetRequest.h>
 #include <aws/ec2/model/DeleteTransitGatewayRequest.h>
+#include <aws/ec2/model/DeleteTransitGatewayMulticastDomainRequest.h>
+#include <aws/ec2/model/DeleteTransitGatewayPeeringAttachmentRequest.h>
 #include <aws/ec2/model/DeleteTransitGatewayRouteRequest.h>
 #include <aws/ec2/model/DeleteTransitGatewayRouteTableRequest.h>
 #include <aws/ec2/model/DeleteTransitGatewayVpcAttachmentRequest.h>
@@ -162,6 +173,8 @@
 #include <aws/ec2/model/DeleteVpnGatewayRequest.h>
 #include <aws/ec2/model/DeprovisionByoipCidrRequest.h>
 #include <aws/ec2/model/DeregisterImageRequest.h>
+#include <aws/ec2/model/DeregisterTransitGatewayMulticastGroupMembersRequest.h>
+#include <aws/ec2/model/DeregisterTransitGatewayMulticastGroupSourcesRequest.h>
 #include <aws/ec2/model/DescribeAccountAttributesRequest.h>
 #include <aws/ec2/model/DescribeAddressesRequest.h>
 #include <aws/ec2/model/DescribeAggregateIdFormatRequest.h>
@@ -175,12 +188,15 @@
 #include <aws/ec2/model/DescribeClientVpnEndpointsRequest.h>
 #include <aws/ec2/model/DescribeClientVpnRoutesRequest.h>
 #include <aws/ec2/model/DescribeClientVpnTargetNetworksRequest.h>
+#include <aws/ec2/model/DescribeCoipPoolsRequest.h>
 #include <aws/ec2/model/DescribeConversionTasksRequest.h>
 #include <aws/ec2/model/DescribeCustomerGatewaysRequest.h>
 #include <aws/ec2/model/DescribeDhcpOptionsRequest.h>
 #include <aws/ec2/model/DescribeEgressOnlyInternetGatewaysRequest.h>
 #include <aws/ec2/model/DescribeElasticGpusRequest.h>
+#include <aws/ec2/model/DescribeExportImageTasksRequest.h>
 #include <aws/ec2/model/DescribeExportTasksRequest.h>
+#include <aws/ec2/model/DescribeFastSnapshotRestoresRequest.h>
 #include <aws/ec2/model/DescribeFleetHistoryRequest.h>
 #include <aws/ec2/model/DescribeFleetInstancesRequest.h>
 #include <aws/ec2/model/DescribeFleetsRequest.h>
@@ -200,11 +216,20 @@
 #include <aws/ec2/model/DescribeInstanceAttributeRequest.h>
 #include <aws/ec2/model/DescribeInstanceCreditSpecificationsRequest.h>
 #include <aws/ec2/model/DescribeInstanceStatusRequest.h>
+#include <aws/ec2/model/DescribeInstanceTypeOfferingsRequest.h>
+#include <aws/ec2/model/DescribeInstanceTypesRequest.h>
 #include <aws/ec2/model/DescribeInstancesRequest.h>
 #include <aws/ec2/model/DescribeInternetGatewaysRequest.h>
+#include <aws/ec2/model/DescribeIpv6PoolsRequest.h>
 #include <aws/ec2/model/DescribeKeyPairsRequest.h>
 #include <aws/ec2/model/DescribeLaunchTemplateVersionsRequest.h>
 #include <aws/ec2/model/DescribeLaunchTemplatesRequest.h>
+#include <aws/ec2/model/DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest.h>
+#include <aws/ec2/model/DescribeLocalGatewayRouteTableVpcAssociationsRequest.h>
+#include <aws/ec2/model/DescribeLocalGatewayRouteTablesRequest.h>
+#include <aws/ec2/model/DescribeLocalGatewayVirtualInterfaceGroupsRequest.h>
+#include <aws/ec2/model/DescribeLocalGatewayVirtualInterfacesRequest.h>
+#include <aws/ec2/model/DescribeLocalGatewaysRequest.h>
 #include <aws/ec2/model/DescribeMovingAddressesRequest.h>
 #include <aws/ec2/model/DescribeNatGatewaysRequest.h>
 #include <aws/ec2/model/DescribeNetworkAclsRequest.h>
@@ -240,6 +265,8 @@
 #include <aws/ec2/model/DescribeTrafficMirrorSessionsRequest.h>
 #include <aws/ec2/model/DescribeTrafficMirrorTargetsRequest.h>
 #include <aws/ec2/model/DescribeTransitGatewayAttachmentsRequest.h>
+#include <aws/ec2/model/DescribeTransitGatewayMulticastDomainsRequest.h>
+#include <aws/ec2/model/DescribeTransitGatewayPeeringAttachmentsRequest.h>
 #include <aws/ec2/model/DescribeTransitGatewayRouteTablesRequest.h>
 #include <aws/ec2/model/DescribeTransitGatewayVpcAttachmentsRequest.h>
 #include <aws/ec2/model/DescribeTransitGatewaysRequest.h>
@@ -266,6 +293,7 @@
 #include <aws/ec2/model/DetachVolumeRequest.h>
 #include <aws/ec2/model/DetachVpnGatewayRequest.h>
 #include <aws/ec2/model/DisableEbsEncryptionByDefaultRequest.h>
+#include <aws/ec2/model/DisableFastSnapshotRestoresRequest.h>
 #include <aws/ec2/model/DisableTransitGatewayRouteTablePropagationRequest.h>
 #include <aws/ec2/model/DisableVgwRoutePropagationRequest.h>
 #include <aws/ec2/model/DisableVpcClassicLinkRequest.h>
@@ -275,9 +303,11 @@
 #include <aws/ec2/model/DisassociateIamInstanceProfileRequest.h>
 #include <aws/ec2/model/DisassociateRouteTableRequest.h>
 #include <aws/ec2/model/DisassociateSubnetCidrBlockRequest.h>
+#include <aws/ec2/model/DisassociateTransitGatewayMulticastDomainRequest.h>
 #include <aws/ec2/model/DisassociateTransitGatewayRouteTableRequest.h>
 #include <aws/ec2/model/DisassociateVpcCidrBlockRequest.h>
 #include <aws/ec2/model/EnableEbsEncryptionByDefaultRequest.h>
+#include <aws/ec2/model/EnableFastSnapshotRestoresRequest.h>
 #include <aws/ec2/model/EnableTransitGatewayRouteTablePropagationRequest.h>
 #include <aws/ec2/model/EnableVgwRoutePropagationRequest.h>
 #include <aws/ec2/model/EnableVolumeIORequest.h>
@@ -285,10 +315,14 @@
 #include <aws/ec2/model/EnableVpcClassicLinkDnsSupportRequest.h>
 #include <aws/ec2/model/ExportClientVpnClientCertificateRevocationListRequest.h>
 #include <aws/ec2/model/ExportClientVpnClientConfigurationRequest.h>
+#include <aws/ec2/model/ExportImageRequest.h>
 #include <aws/ec2/model/ExportTransitGatewayRoutesRequest.h>
+#include <aws/ec2/model/GetAssociatedIpv6PoolCidrsRequest.h>
 #include <aws/ec2/model/GetCapacityReservationUsageRequest.h>
+#include <aws/ec2/model/GetCoipPoolUsageRequest.h>
 #include <aws/ec2/model/GetConsoleOutputRequest.h>
 #include <aws/ec2/model/GetConsoleScreenshotRequest.h>
+#include <aws/ec2/model/GetDefaultCreditSpecificationRequest.h>
 #include <aws/ec2/model/GetEbsDefaultKmsKeyIdRequest.h>
 #include <aws/ec2/model/GetEbsEncryptionByDefaultRequest.h>
 #include <aws/ec2/model/GetHostReservationPurchasePreviewRequest.h>
@@ -296,6 +330,7 @@
 #include <aws/ec2/model/GetPasswordDataRequest.h>
 #include <aws/ec2/model/GetReservedInstancesExchangeQuoteRequest.h>
 #include <aws/ec2/model/GetTransitGatewayAttachmentPropagationsRequest.h>
+#include <aws/ec2/model/GetTransitGatewayMulticastDomainAssociationsRequest.h>
 #include <aws/ec2/model/GetTransitGatewayRouteTableAssociationsRequest.h>
 #include <aws/ec2/model/GetTransitGatewayRouteTablePropagationsRequest.h>
 #include <aws/ec2/model/ImportClientVpnClientCertificateRevocationListRequest.h>
@@ -304,8 +339,10 @@
 #include <aws/ec2/model/ImportKeyPairRequest.h>
 #include <aws/ec2/model/ImportSnapshotRequest.h>
 #include <aws/ec2/model/ImportVolumeRequest.h>
+#include <aws/ec2/model/ModifyAvailabilityZoneGroupRequest.h>
 #include <aws/ec2/model/ModifyCapacityReservationRequest.h>
 #include <aws/ec2/model/ModifyClientVpnEndpointRequest.h>
+#include <aws/ec2/model/ModifyDefaultCreditSpecificationRequest.h>
 #include <aws/ec2/model/ModifyEbsDefaultKmsKeyIdRequest.h>
 #include <aws/ec2/model/ModifyFleetRequest.h>
 #include <aws/ec2/model/ModifyFpgaImageAttributeRequest.h>
@@ -317,6 +354,7 @@
 #include <aws/ec2/model/ModifyInstanceCapacityReservationAttributesRequest.h>
 #include <aws/ec2/model/ModifyInstanceCreditSpecificationRequest.h>
 #include <aws/ec2/model/ModifyInstanceEventStartTimeRequest.h>
+#include <aws/ec2/model/ModifyInstanceMetadataOptionsRequest.h>
 #include <aws/ec2/model/ModifyInstancePlacementRequest.h>
 #include <aws/ec2/model/ModifyLaunchTemplateRequest.h>
 #include <aws/ec2/model/ModifyNetworkInterfaceAttributeRequest.h>
@@ -338,6 +376,8 @@
 #include <aws/ec2/model/ModifyVpcPeeringConnectionOptionsRequest.h>
 #include <aws/ec2/model/ModifyVpcTenancyRequest.h>
 #include <aws/ec2/model/ModifyVpnConnectionRequest.h>
+#include <aws/ec2/model/ModifyVpnTunnelCertificateRequest.h>
+#include <aws/ec2/model/ModifyVpnTunnelOptionsRequest.h>
 #include <aws/ec2/model/MonitorInstancesRequest.h>
 #include <aws/ec2/model/MoveAddressToVpcRequest.h>
 #include <aws/ec2/model/ProvisionByoipCidrRequest.h>
@@ -346,6 +386,9 @@
 #include <aws/ec2/model/PurchaseScheduledInstancesRequest.h>
 #include <aws/ec2/model/RebootInstancesRequest.h>
 #include <aws/ec2/model/RegisterImageRequest.h>
+#include <aws/ec2/model/RegisterTransitGatewayMulticastGroupMembersRequest.h>
+#include <aws/ec2/model/RegisterTransitGatewayMulticastGroupSourcesRequest.h>
+#include <aws/ec2/model/RejectTransitGatewayPeeringAttachmentRequest.h>
 #include <aws/ec2/model/RejectTransitGatewayVpcAttachmentRequest.h>
 #include <aws/ec2/model/RejectVpcEndpointConnectionsRequest.h>
 #include <aws/ec2/model/RejectVpcPeeringConnectionRequest.h>
@@ -372,8 +415,12 @@
 #include <aws/ec2/model/RevokeSecurityGroupIngressRequest.h>
 #include <aws/ec2/model/RunInstancesRequest.h>
 #include <aws/ec2/model/RunScheduledInstancesRequest.h>
+#include <aws/ec2/model/SearchLocalGatewayRoutesRequest.h>
+#include <aws/ec2/model/SearchTransitGatewayMulticastGroupsRequest.h>
 #include <aws/ec2/model/SearchTransitGatewayRoutesRequest.h>
+#include <aws/ec2/model/SendDiagnosticInterruptRequest.h>
 #include <aws/ec2/model/StartInstancesRequest.h>
+#include <aws/ec2/model/StartVpcEndpointServicePrivateDnsVerificationRequest.h>
 #include <aws/ec2/model/StopInstancesRequest.h>
 #include <aws/ec2/model/TerminateClientVpnConnectionsRequest.h>
 #include <aws/ec2/model/TerminateInstancesRequest.h>
@@ -463,7 +510,7 @@ AcceptReservedInstancesExchangeQuoteOutcome EC2Client::AcceptReservedInstancesEx
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AcceptReservedInstancesExchangeQuoteOutcome(AcceptReservedInstancesExchangeQuoteResponse(outcome.GetResult()));
@@ -492,13 +539,48 @@ void EC2Client::AcceptReservedInstancesExchangeQuoteAsyncHelper(const AcceptRese
   handler(this, request, AcceptReservedInstancesExchangeQuote(request), context);
 }
 
+AcceptTransitGatewayPeeringAttachmentOutcome EC2Client::AcceptTransitGatewayPeeringAttachment(const AcceptTransitGatewayPeeringAttachmentRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return AcceptTransitGatewayPeeringAttachmentOutcome(AcceptTransitGatewayPeeringAttachmentResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return AcceptTransitGatewayPeeringAttachmentOutcome(outcome.GetError());
+  }
+}
+
+AcceptTransitGatewayPeeringAttachmentOutcomeCallable EC2Client::AcceptTransitGatewayPeeringAttachmentCallable(const AcceptTransitGatewayPeeringAttachmentRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< AcceptTransitGatewayPeeringAttachmentOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->AcceptTransitGatewayPeeringAttachment(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::AcceptTransitGatewayPeeringAttachmentAsync(const AcceptTransitGatewayPeeringAttachmentRequest& request, const AcceptTransitGatewayPeeringAttachmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->AcceptTransitGatewayPeeringAttachmentAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::AcceptTransitGatewayPeeringAttachmentAsyncHelper(const AcceptTransitGatewayPeeringAttachmentRequest& request, const AcceptTransitGatewayPeeringAttachmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, AcceptTransitGatewayPeeringAttachment(request), context);
+}
+
 AcceptTransitGatewayVpcAttachmentOutcome EC2Client::AcceptTransitGatewayVpcAttachment(const AcceptTransitGatewayVpcAttachmentRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AcceptTransitGatewayVpcAttachmentOutcome(AcceptTransitGatewayVpcAttachmentResponse(outcome.GetResult()));
@@ -533,7 +615,7 @@ AcceptVpcEndpointConnectionsOutcome EC2Client::AcceptVpcEndpointConnections(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AcceptVpcEndpointConnectionsOutcome(AcceptVpcEndpointConnectionsResponse(outcome.GetResult()));
@@ -568,7 +650,7 @@ AcceptVpcPeeringConnectionOutcome EC2Client::AcceptVpcPeeringConnection(const Ac
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AcceptVpcPeeringConnectionOutcome(AcceptVpcPeeringConnectionResponse(outcome.GetResult()));
@@ -603,7 +685,7 @@ AdvertiseByoipCidrOutcome EC2Client::AdvertiseByoipCidr(const AdvertiseByoipCidr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AdvertiseByoipCidrOutcome(AdvertiseByoipCidrResponse(outcome.GetResult()));
@@ -638,7 +720,7 @@ AllocateAddressOutcome EC2Client::AllocateAddress(const AllocateAddressRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AllocateAddressOutcome(AllocateAddressResponse(outcome.GetResult()));
@@ -673,7 +755,7 @@ AllocateHostsOutcome EC2Client::AllocateHosts(const AllocateHostsRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AllocateHostsOutcome(AllocateHostsResponse(outcome.GetResult()));
@@ -708,7 +790,7 @@ ApplySecurityGroupsToClientVpnTargetNetworkOutcome EC2Client::ApplySecurityGroup
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ApplySecurityGroupsToClientVpnTargetNetworkOutcome(ApplySecurityGroupsToClientVpnTargetNetworkResponse(outcome.GetResult()));
@@ -743,7 +825,7 @@ AssignIpv6AddressesOutcome EC2Client::AssignIpv6Addresses(const AssignIpv6Addres
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssignIpv6AddressesOutcome(AssignIpv6AddressesResponse(outcome.GetResult()));
@@ -778,7 +860,7 @@ AssignPrivateIpAddressesOutcome EC2Client::AssignPrivateIpAddresses(const Assign
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssignPrivateIpAddressesOutcome(AssignPrivateIpAddressesResponse(outcome.GetResult()));
@@ -813,7 +895,7 @@ AssociateAddressOutcome EC2Client::AssociateAddress(const AssociateAddressReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssociateAddressOutcome(AssociateAddressResponse(outcome.GetResult()));
@@ -848,7 +930,7 @@ AssociateClientVpnTargetNetworkOutcome EC2Client::AssociateClientVpnTargetNetwor
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssociateClientVpnTargetNetworkOutcome(AssociateClientVpnTargetNetworkResponse(outcome.GetResult()));
@@ -883,7 +965,7 @@ AssociateDhcpOptionsOutcome EC2Client::AssociateDhcpOptions(const AssociateDhcpO
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssociateDhcpOptionsOutcome(NoResult());
@@ -918,7 +1000,7 @@ AssociateIamInstanceProfileOutcome EC2Client::AssociateIamInstanceProfile(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssociateIamInstanceProfileOutcome(AssociateIamInstanceProfileResponse(outcome.GetResult()));
@@ -953,7 +1035,7 @@ AssociateRouteTableOutcome EC2Client::AssociateRouteTable(const AssociateRouteTa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssociateRouteTableOutcome(AssociateRouteTableResponse(outcome.GetResult()));
@@ -988,7 +1070,7 @@ AssociateSubnetCidrBlockOutcome EC2Client::AssociateSubnetCidrBlock(const Associ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssociateSubnetCidrBlockOutcome(AssociateSubnetCidrBlockResponse(outcome.GetResult()));
@@ -1017,13 +1099,48 @@ void EC2Client::AssociateSubnetCidrBlockAsyncHelper(const AssociateSubnetCidrBlo
   handler(this, request, AssociateSubnetCidrBlock(request), context);
 }
 
+AssociateTransitGatewayMulticastDomainOutcome EC2Client::AssociateTransitGatewayMulticastDomain(const AssociateTransitGatewayMulticastDomainRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return AssociateTransitGatewayMulticastDomainOutcome(AssociateTransitGatewayMulticastDomainResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return AssociateTransitGatewayMulticastDomainOutcome(outcome.GetError());
+  }
+}
+
+AssociateTransitGatewayMulticastDomainOutcomeCallable EC2Client::AssociateTransitGatewayMulticastDomainCallable(const AssociateTransitGatewayMulticastDomainRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< AssociateTransitGatewayMulticastDomainOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->AssociateTransitGatewayMulticastDomain(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::AssociateTransitGatewayMulticastDomainAsync(const AssociateTransitGatewayMulticastDomainRequest& request, const AssociateTransitGatewayMulticastDomainResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->AssociateTransitGatewayMulticastDomainAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::AssociateTransitGatewayMulticastDomainAsyncHelper(const AssociateTransitGatewayMulticastDomainRequest& request, const AssociateTransitGatewayMulticastDomainResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, AssociateTransitGatewayMulticastDomain(request), context);
+}
+
 AssociateTransitGatewayRouteTableOutcome EC2Client::AssociateTransitGatewayRouteTable(const AssociateTransitGatewayRouteTableRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssociateTransitGatewayRouteTableOutcome(AssociateTransitGatewayRouteTableResponse(outcome.GetResult()));
@@ -1058,7 +1175,7 @@ AssociateVpcCidrBlockOutcome EC2Client::AssociateVpcCidrBlock(const AssociateVpc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AssociateVpcCidrBlockOutcome(AssociateVpcCidrBlockResponse(outcome.GetResult()));
@@ -1093,7 +1210,7 @@ AttachClassicLinkVpcOutcome EC2Client::AttachClassicLinkVpc(const AttachClassicL
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AttachClassicLinkVpcOutcome(AttachClassicLinkVpcResponse(outcome.GetResult()));
@@ -1128,7 +1245,7 @@ AttachInternetGatewayOutcome EC2Client::AttachInternetGateway(const AttachIntern
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AttachInternetGatewayOutcome(NoResult());
@@ -1163,7 +1280,7 @@ AttachNetworkInterfaceOutcome EC2Client::AttachNetworkInterface(const AttachNetw
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AttachNetworkInterfaceOutcome(AttachNetworkInterfaceResponse(outcome.GetResult()));
@@ -1198,7 +1315,7 @@ AttachVolumeOutcome EC2Client::AttachVolume(const AttachVolumeRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AttachVolumeOutcome(AttachVolumeResponse(outcome.GetResult()));
@@ -1233,7 +1350,7 @@ AttachVpnGatewayOutcome EC2Client::AttachVpnGateway(const AttachVpnGatewayReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AttachVpnGatewayOutcome(AttachVpnGatewayResponse(outcome.GetResult()));
@@ -1268,7 +1385,7 @@ AuthorizeClientVpnIngressOutcome EC2Client::AuthorizeClientVpnIngress(const Auth
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AuthorizeClientVpnIngressOutcome(AuthorizeClientVpnIngressResponse(outcome.GetResult()));
@@ -1303,7 +1420,7 @@ AuthorizeSecurityGroupEgressOutcome EC2Client::AuthorizeSecurityGroupEgress(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AuthorizeSecurityGroupEgressOutcome(NoResult());
@@ -1338,7 +1455,7 @@ AuthorizeSecurityGroupIngressOutcome EC2Client::AuthorizeSecurityGroupIngress(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return AuthorizeSecurityGroupIngressOutcome(NoResult());
@@ -1373,7 +1490,7 @@ BundleInstanceOutcome EC2Client::BundleInstance(const BundleInstanceRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return BundleInstanceOutcome(BundleInstanceResponse(outcome.GetResult()));
@@ -1408,7 +1525,7 @@ CancelBundleTaskOutcome EC2Client::CancelBundleTask(const CancelBundleTaskReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CancelBundleTaskOutcome(CancelBundleTaskResponse(outcome.GetResult()));
@@ -1443,7 +1560,7 @@ CancelCapacityReservationOutcome EC2Client::CancelCapacityReservation(const Canc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CancelCapacityReservationOutcome(CancelCapacityReservationResponse(outcome.GetResult()));
@@ -1478,7 +1595,7 @@ CancelConversionTaskOutcome EC2Client::CancelConversionTask(const CancelConversi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CancelConversionTaskOutcome(NoResult());
@@ -1513,7 +1630,7 @@ CancelExportTaskOutcome EC2Client::CancelExportTask(const CancelExportTaskReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CancelExportTaskOutcome(NoResult());
@@ -1548,7 +1665,7 @@ CancelImportTaskOutcome EC2Client::CancelImportTask(const CancelImportTaskReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CancelImportTaskOutcome(CancelImportTaskResponse(outcome.GetResult()));
@@ -1583,7 +1700,7 @@ CancelReservedInstancesListingOutcome EC2Client::CancelReservedInstancesListing(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CancelReservedInstancesListingOutcome(CancelReservedInstancesListingResponse(outcome.GetResult()));
@@ -1618,7 +1735,7 @@ CancelSpotFleetRequestsOutcome EC2Client::CancelSpotFleetRequests(const CancelSp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CancelSpotFleetRequestsOutcome(CancelSpotFleetRequestsResponse(outcome.GetResult()));
@@ -1653,7 +1770,7 @@ CancelSpotInstanceRequestsOutcome EC2Client::CancelSpotInstanceRequests(const Ca
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CancelSpotInstanceRequestsOutcome(CancelSpotInstanceRequestsResponse(outcome.GetResult()));
@@ -1688,7 +1805,7 @@ ConfirmProductInstanceOutcome EC2Client::ConfirmProductInstance(const ConfirmPro
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ConfirmProductInstanceOutcome(ConfirmProductInstanceResponse(outcome.GetResult()));
@@ -1723,7 +1840,7 @@ CopyFpgaImageOutcome EC2Client::CopyFpgaImage(const CopyFpgaImageRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CopyFpgaImageOutcome(CopyFpgaImageResponse(outcome.GetResult()));
@@ -1758,7 +1875,7 @@ CopyImageOutcome EC2Client::CopyImage(const CopyImageRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CopyImageOutcome(CopyImageResponse(outcome.GetResult()));
@@ -1793,7 +1910,7 @@ CopySnapshotOutcome EC2Client::CopySnapshot(const CopySnapshotRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CopySnapshotOutcome(CopySnapshotResponse(outcome.GetResult()));
@@ -1828,7 +1945,7 @@ CreateCapacityReservationOutcome EC2Client::CreateCapacityReservation(const Crea
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateCapacityReservationOutcome(CreateCapacityReservationResponse(outcome.GetResult()));
@@ -1863,7 +1980,7 @@ CreateClientVpnEndpointOutcome EC2Client::CreateClientVpnEndpoint(const CreateCl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateClientVpnEndpointOutcome(CreateClientVpnEndpointResponse(outcome.GetResult()));
@@ -1898,7 +2015,7 @@ CreateClientVpnRouteOutcome EC2Client::CreateClientVpnRoute(const CreateClientVp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateClientVpnRouteOutcome(CreateClientVpnRouteResponse(outcome.GetResult()));
@@ -1933,7 +2050,7 @@ CreateCustomerGatewayOutcome EC2Client::CreateCustomerGateway(const CreateCustom
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateCustomerGatewayOutcome(CreateCustomerGatewayResponse(outcome.GetResult()));
@@ -1968,7 +2085,7 @@ CreateDefaultSubnetOutcome EC2Client::CreateDefaultSubnet(const CreateDefaultSub
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateDefaultSubnetOutcome(CreateDefaultSubnetResponse(outcome.GetResult()));
@@ -2003,7 +2120,7 @@ CreateDefaultVpcOutcome EC2Client::CreateDefaultVpc(const CreateDefaultVpcReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateDefaultVpcOutcome(CreateDefaultVpcResponse(outcome.GetResult()));
@@ -2038,7 +2155,7 @@ CreateDhcpOptionsOutcome EC2Client::CreateDhcpOptions(const CreateDhcpOptionsReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateDhcpOptionsOutcome(CreateDhcpOptionsResponse(outcome.GetResult()));
@@ -2073,7 +2190,7 @@ CreateEgressOnlyInternetGatewayOutcome EC2Client::CreateEgressOnlyInternetGatewa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateEgressOnlyInternetGatewayOutcome(CreateEgressOnlyInternetGatewayResponse(outcome.GetResult()));
@@ -2108,7 +2225,7 @@ CreateFleetOutcome EC2Client::CreateFleet(const CreateFleetRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateFleetOutcome(CreateFleetResponse(outcome.GetResult()));
@@ -2143,7 +2260,7 @@ CreateFlowLogsOutcome EC2Client::CreateFlowLogs(const CreateFlowLogsRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateFlowLogsOutcome(CreateFlowLogsResponse(outcome.GetResult()));
@@ -2178,7 +2295,7 @@ CreateFpgaImageOutcome EC2Client::CreateFpgaImage(const CreateFpgaImageRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateFpgaImageOutcome(CreateFpgaImageResponse(outcome.GetResult()));
@@ -2213,7 +2330,7 @@ CreateImageOutcome EC2Client::CreateImage(const CreateImageRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateImageOutcome(CreateImageResponse(outcome.GetResult()));
@@ -2248,7 +2365,7 @@ CreateInstanceExportTaskOutcome EC2Client::CreateInstanceExportTask(const Create
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateInstanceExportTaskOutcome(CreateInstanceExportTaskResponse(outcome.GetResult()));
@@ -2283,7 +2400,7 @@ CreateInternetGatewayOutcome EC2Client::CreateInternetGateway(const CreateIntern
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateInternetGatewayOutcome(CreateInternetGatewayResponse(outcome.GetResult()));
@@ -2318,7 +2435,7 @@ CreateKeyPairOutcome EC2Client::CreateKeyPair(const CreateKeyPairRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateKeyPairOutcome(CreateKeyPairResponse(outcome.GetResult()));
@@ -2353,7 +2470,7 @@ CreateLaunchTemplateOutcome EC2Client::CreateLaunchTemplate(const CreateLaunchTe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateLaunchTemplateOutcome(CreateLaunchTemplateResponse(outcome.GetResult()));
@@ -2388,7 +2505,7 @@ CreateLaunchTemplateVersionOutcome EC2Client::CreateLaunchTemplateVersion(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateLaunchTemplateVersionOutcome(CreateLaunchTemplateVersionResponse(outcome.GetResult()));
@@ -2417,13 +2534,83 @@ void EC2Client::CreateLaunchTemplateVersionAsyncHelper(const CreateLaunchTemplat
   handler(this, request, CreateLaunchTemplateVersion(request), context);
 }
 
+CreateLocalGatewayRouteOutcome EC2Client::CreateLocalGatewayRoute(const CreateLocalGatewayRouteRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return CreateLocalGatewayRouteOutcome(CreateLocalGatewayRouteResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateLocalGatewayRouteOutcome(outcome.GetError());
+  }
+}
+
+CreateLocalGatewayRouteOutcomeCallable EC2Client::CreateLocalGatewayRouteCallable(const CreateLocalGatewayRouteRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateLocalGatewayRouteOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateLocalGatewayRoute(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::CreateLocalGatewayRouteAsync(const CreateLocalGatewayRouteRequest& request, const CreateLocalGatewayRouteResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateLocalGatewayRouteAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::CreateLocalGatewayRouteAsyncHelper(const CreateLocalGatewayRouteRequest& request, const CreateLocalGatewayRouteResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateLocalGatewayRoute(request), context);
+}
+
+CreateLocalGatewayRouteTableVpcAssociationOutcome EC2Client::CreateLocalGatewayRouteTableVpcAssociation(const CreateLocalGatewayRouteTableVpcAssociationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return CreateLocalGatewayRouteTableVpcAssociationOutcome(CreateLocalGatewayRouteTableVpcAssociationResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateLocalGatewayRouteTableVpcAssociationOutcome(outcome.GetError());
+  }
+}
+
+CreateLocalGatewayRouteTableVpcAssociationOutcomeCallable EC2Client::CreateLocalGatewayRouteTableVpcAssociationCallable(const CreateLocalGatewayRouteTableVpcAssociationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateLocalGatewayRouteTableVpcAssociationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateLocalGatewayRouteTableVpcAssociation(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::CreateLocalGatewayRouteTableVpcAssociationAsync(const CreateLocalGatewayRouteTableVpcAssociationRequest& request, const CreateLocalGatewayRouteTableVpcAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateLocalGatewayRouteTableVpcAssociationAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::CreateLocalGatewayRouteTableVpcAssociationAsyncHelper(const CreateLocalGatewayRouteTableVpcAssociationRequest& request, const CreateLocalGatewayRouteTableVpcAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateLocalGatewayRouteTableVpcAssociation(request), context);
+}
+
 CreateNatGatewayOutcome EC2Client::CreateNatGateway(const CreateNatGatewayRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateNatGatewayOutcome(CreateNatGatewayResponse(outcome.GetResult()));
@@ -2458,7 +2645,7 @@ CreateNetworkAclOutcome EC2Client::CreateNetworkAcl(const CreateNetworkAclReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateNetworkAclOutcome(CreateNetworkAclResponse(outcome.GetResult()));
@@ -2493,7 +2680,7 @@ CreateNetworkAclEntryOutcome EC2Client::CreateNetworkAclEntry(const CreateNetwor
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateNetworkAclEntryOutcome(NoResult());
@@ -2528,7 +2715,7 @@ CreateNetworkInterfaceOutcome EC2Client::CreateNetworkInterface(const CreateNetw
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateNetworkInterfaceOutcome(CreateNetworkInterfaceResponse(outcome.GetResult()));
@@ -2563,7 +2750,7 @@ CreateNetworkInterfacePermissionOutcome EC2Client::CreateNetworkInterfacePermiss
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateNetworkInterfacePermissionOutcome(CreateNetworkInterfacePermissionResponse(outcome.GetResult()));
@@ -2598,7 +2785,7 @@ CreatePlacementGroupOutcome EC2Client::CreatePlacementGroup(const CreatePlacemen
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreatePlacementGroupOutcome(NoResult());
@@ -2633,7 +2820,7 @@ CreateReservedInstancesListingOutcome EC2Client::CreateReservedInstancesListing(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateReservedInstancesListingOutcome(CreateReservedInstancesListingResponse(outcome.GetResult()));
@@ -2668,7 +2855,7 @@ CreateRouteOutcome EC2Client::CreateRoute(const CreateRouteRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateRouteOutcome(CreateRouteResponse(outcome.GetResult()));
@@ -2703,7 +2890,7 @@ CreateRouteTableOutcome EC2Client::CreateRouteTable(const CreateRouteTableReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateRouteTableOutcome(CreateRouteTableResponse(outcome.GetResult()));
@@ -2738,7 +2925,7 @@ CreateSecurityGroupOutcome EC2Client::CreateSecurityGroup(const CreateSecurityGr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateSecurityGroupOutcome(CreateSecurityGroupResponse(outcome.GetResult()));
@@ -2773,7 +2960,7 @@ CreateSnapshotOutcome EC2Client::CreateSnapshot(const CreateSnapshotRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateSnapshotOutcome(CreateSnapshotResponse(outcome.GetResult()));
@@ -2808,7 +2995,7 @@ CreateSnapshotsOutcome EC2Client::CreateSnapshots(const CreateSnapshotsRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateSnapshotsOutcome(CreateSnapshotsResponse(outcome.GetResult()));
@@ -2843,7 +3030,7 @@ CreateSpotDatafeedSubscriptionOutcome EC2Client::CreateSpotDatafeedSubscription(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateSpotDatafeedSubscriptionOutcome(CreateSpotDatafeedSubscriptionResponse(outcome.GetResult()));
@@ -2878,7 +3065,7 @@ CreateSubnetOutcome EC2Client::CreateSubnet(const CreateSubnetRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateSubnetOutcome(CreateSubnetResponse(outcome.GetResult()));
@@ -2913,7 +3100,7 @@ CreateTagsOutcome EC2Client::CreateTags(const CreateTagsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTagsOutcome(NoResult());
@@ -2948,7 +3135,7 @@ CreateTrafficMirrorFilterOutcome EC2Client::CreateTrafficMirrorFilter(const Crea
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTrafficMirrorFilterOutcome(CreateTrafficMirrorFilterResponse(outcome.GetResult()));
@@ -2983,7 +3170,7 @@ CreateTrafficMirrorFilterRuleOutcome EC2Client::CreateTrafficMirrorFilterRule(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTrafficMirrorFilterRuleOutcome(CreateTrafficMirrorFilterRuleResponse(outcome.GetResult()));
@@ -3018,7 +3205,7 @@ CreateTrafficMirrorSessionOutcome EC2Client::CreateTrafficMirrorSession(const Cr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTrafficMirrorSessionOutcome(CreateTrafficMirrorSessionResponse(outcome.GetResult()));
@@ -3053,7 +3240,7 @@ CreateTrafficMirrorTargetOutcome EC2Client::CreateTrafficMirrorTarget(const Crea
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTrafficMirrorTargetOutcome(CreateTrafficMirrorTargetResponse(outcome.GetResult()));
@@ -3088,7 +3275,7 @@ CreateTransitGatewayOutcome EC2Client::CreateTransitGateway(const CreateTransitG
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTransitGatewayOutcome(CreateTransitGatewayResponse(outcome.GetResult()));
@@ -3117,13 +3304,83 @@ void EC2Client::CreateTransitGatewayAsyncHelper(const CreateTransitGatewayReques
   handler(this, request, CreateTransitGateway(request), context);
 }
 
+CreateTransitGatewayMulticastDomainOutcome EC2Client::CreateTransitGatewayMulticastDomain(const CreateTransitGatewayMulticastDomainRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return CreateTransitGatewayMulticastDomainOutcome(CreateTransitGatewayMulticastDomainResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateTransitGatewayMulticastDomainOutcome(outcome.GetError());
+  }
+}
+
+CreateTransitGatewayMulticastDomainOutcomeCallable EC2Client::CreateTransitGatewayMulticastDomainCallable(const CreateTransitGatewayMulticastDomainRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateTransitGatewayMulticastDomainOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateTransitGatewayMulticastDomain(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::CreateTransitGatewayMulticastDomainAsync(const CreateTransitGatewayMulticastDomainRequest& request, const CreateTransitGatewayMulticastDomainResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateTransitGatewayMulticastDomainAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::CreateTransitGatewayMulticastDomainAsyncHelper(const CreateTransitGatewayMulticastDomainRequest& request, const CreateTransitGatewayMulticastDomainResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateTransitGatewayMulticastDomain(request), context);
+}
+
+CreateTransitGatewayPeeringAttachmentOutcome EC2Client::CreateTransitGatewayPeeringAttachment(const CreateTransitGatewayPeeringAttachmentRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return CreateTransitGatewayPeeringAttachmentOutcome(CreateTransitGatewayPeeringAttachmentResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateTransitGatewayPeeringAttachmentOutcome(outcome.GetError());
+  }
+}
+
+CreateTransitGatewayPeeringAttachmentOutcomeCallable EC2Client::CreateTransitGatewayPeeringAttachmentCallable(const CreateTransitGatewayPeeringAttachmentRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateTransitGatewayPeeringAttachmentOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateTransitGatewayPeeringAttachment(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::CreateTransitGatewayPeeringAttachmentAsync(const CreateTransitGatewayPeeringAttachmentRequest& request, const CreateTransitGatewayPeeringAttachmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateTransitGatewayPeeringAttachmentAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::CreateTransitGatewayPeeringAttachmentAsyncHelper(const CreateTransitGatewayPeeringAttachmentRequest& request, const CreateTransitGatewayPeeringAttachmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateTransitGatewayPeeringAttachment(request), context);
+}
+
 CreateTransitGatewayRouteOutcome EC2Client::CreateTransitGatewayRoute(const CreateTransitGatewayRouteRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTransitGatewayRouteOutcome(CreateTransitGatewayRouteResponse(outcome.GetResult()));
@@ -3158,7 +3415,7 @@ CreateTransitGatewayRouteTableOutcome EC2Client::CreateTransitGatewayRouteTable(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTransitGatewayRouteTableOutcome(CreateTransitGatewayRouteTableResponse(outcome.GetResult()));
@@ -3193,7 +3450,7 @@ CreateTransitGatewayVpcAttachmentOutcome EC2Client::CreateTransitGatewayVpcAttac
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateTransitGatewayVpcAttachmentOutcome(CreateTransitGatewayVpcAttachmentResponse(outcome.GetResult()));
@@ -3228,7 +3485,7 @@ CreateVolumeOutcome EC2Client::CreateVolume(const CreateVolumeRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVolumeOutcome(CreateVolumeResponse(outcome.GetResult()));
@@ -3263,7 +3520,7 @@ CreateVpcOutcome EC2Client::CreateVpc(const CreateVpcRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVpcOutcome(CreateVpcResponse(outcome.GetResult()));
@@ -3298,7 +3555,7 @@ CreateVpcEndpointOutcome EC2Client::CreateVpcEndpoint(const CreateVpcEndpointReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVpcEndpointOutcome(CreateVpcEndpointResponse(outcome.GetResult()));
@@ -3333,7 +3590,7 @@ CreateVpcEndpointConnectionNotificationOutcome EC2Client::CreateVpcEndpointConne
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVpcEndpointConnectionNotificationOutcome(CreateVpcEndpointConnectionNotificationResponse(outcome.GetResult()));
@@ -3368,7 +3625,7 @@ CreateVpcEndpointServiceConfigurationOutcome EC2Client::CreateVpcEndpointService
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVpcEndpointServiceConfigurationOutcome(CreateVpcEndpointServiceConfigurationResponse(outcome.GetResult()));
@@ -3403,7 +3660,7 @@ CreateVpcPeeringConnectionOutcome EC2Client::CreateVpcPeeringConnection(const Cr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVpcPeeringConnectionOutcome(CreateVpcPeeringConnectionResponse(outcome.GetResult()));
@@ -3438,7 +3695,7 @@ CreateVpnConnectionOutcome EC2Client::CreateVpnConnection(const CreateVpnConnect
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVpnConnectionOutcome(CreateVpnConnectionResponse(outcome.GetResult()));
@@ -3473,7 +3730,7 @@ CreateVpnConnectionRouteOutcome EC2Client::CreateVpnConnectionRoute(const Create
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVpnConnectionRouteOutcome(NoResult());
@@ -3508,7 +3765,7 @@ CreateVpnGatewayOutcome EC2Client::CreateVpnGateway(const CreateVpnGatewayReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return CreateVpnGatewayOutcome(CreateVpnGatewayResponse(outcome.GetResult()));
@@ -3543,7 +3800,7 @@ DeleteClientVpnEndpointOutcome EC2Client::DeleteClientVpnEndpoint(const DeleteCl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteClientVpnEndpointOutcome(DeleteClientVpnEndpointResponse(outcome.GetResult()));
@@ -3578,7 +3835,7 @@ DeleteClientVpnRouteOutcome EC2Client::DeleteClientVpnRoute(const DeleteClientVp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteClientVpnRouteOutcome(DeleteClientVpnRouteResponse(outcome.GetResult()));
@@ -3613,7 +3870,7 @@ DeleteCustomerGatewayOutcome EC2Client::DeleteCustomerGateway(const DeleteCustom
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteCustomerGatewayOutcome(NoResult());
@@ -3648,7 +3905,7 @@ DeleteDhcpOptionsOutcome EC2Client::DeleteDhcpOptions(const DeleteDhcpOptionsReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteDhcpOptionsOutcome(NoResult());
@@ -3683,7 +3940,7 @@ DeleteEgressOnlyInternetGatewayOutcome EC2Client::DeleteEgressOnlyInternetGatewa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteEgressOnlyInternetGatewayOutcome(DeleteEgressOnlyInternetGatewayResponse(outcome.GetResult()));
@@ -3718,7 +3975,7 @@ DeleteFleetsOutcome EC2Client::DeleteFleets(const DeleteFleetsRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteFleetsOutcome(DeleteFleetsResponse(outcome.GetResult()));
@@ -3753,7 +4010,7 @@ DeleteFlowLogsOutcome EC2Client::DeleteFlowLogs(const DeleteFlowLogsRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteFlowLogsOutcome(DeleteFlowLogsResponse(outcome.GetResult()));
@@ -3788,7 +4045,7 @@ DeleteFpgaImageOutcome EC2Client::DeleteFpgaImage(const DeleteFpgaImageRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteFpgaImageOutcome(DeleteFpgaImageResponse(outcome.GetResult()));
@@ -3823,7 +4080,7 @@ DeleteInternetGatewayOutcome EC2Client::DeleteInternetGateway(const DeleteIntern
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteInternetGatewayOutcome(NoResult());
@@ -3858,7 +4115,7 @@ DeleteKeyPairOutcome EC2Client::DeleteKeyPair(const DeleteKeyPairRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteKeyPairOutcome(NoResult());
@@ -3893,7 +4150,7 @@ DeleteLaunchTemplateOutcome EC2Client::DeleteLaunchTemplate(const DeleteLaunchTe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteLaunchTemplateOutcome(DeleteLaunchTemplateResponse(outcome.GetResult()));
@@ -3928,7 +4185,7 @@ DeleteLaunchTemplateVersionsOutcome EC2Client::DeleteLaunchTemplateVersions(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteLaunchTemplateVersionsOutcome(DeleteLaunchTemplateVersionsResponse(outcome.GetResult()));
@@ -3957,13 +4214,83 @@ void EC2Client::DeleteLaunchTemplateVersionsAsyncHelper(const DeleteLaunchTempla
   handler(this, request, DeleteLaunchTemplateVersions(request), context);
 }
 
+DeleteLocalGatewayRouteOutcome EC2Client::DeleteLocalGatewayRoute(const DeleteLocalGatewayRouteRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DeleteLocalGatewayRouteOutcome(DeleteLocalGatewayRouteResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteLocalGatewayRouteOutcome(outcome.GetError());
+  }
+}
+
+DeleteLocalGatewayRouteOutcomeCallable EC2Client::DeleteLocalGatewayRouteCallable(const DeleteLocalGatewayRouteRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteLocalGatewayRouteOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteLocalGatewayRoute(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DeleteLocalGatewayRouteAsync(const DeleteLocalGatewayRouteRequest& request, const DeleteLocalGatewayRouteResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteLocalGatewayRouteAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DeleteLocalGatewayRouteAsyncHelper(const DeleteLocalGatewayRouteRequest& request, const DeleteLocalGatewayRouteResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteLocalGatewayRoute(request), context);
+}
+
+DeleteLocalGatewayRouteTableVpcAssociationOutcome EC2Client::DeleteLocalGatewayRouteTableVpcAssociation(const DeleteLocalGatewayRouteTableVpcAssociationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DeleteLocalGatewayRouteTableVpcAssociationOutcome(DeleteLocalGatewayRouteTableVpcAssociationResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteLocalGatewayRouteTableVpcAssociationOutcome(outcome.GetError());
+  }
+}
+
+DeleteLocalGatewayRouteTableVpcAssociationOutcomeCallable EC2Client::DeleteLocalGatewayRouteTableVpcAssociationCallable(const DeleteLocalGatewayRouteTableVpcAssociationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteLocalGatewayRouteTableVpcAssociationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteLocalGatewayRouteTableVpcAssociation(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DeleteLocalGatewayRouteTableVpcAssociationAsync(const DeleteLocalGatewayRouteTableVpcAssociationRequest& request, const DeleteLocalGatewayRouteTableVpcAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteLocalGatewayRouteTableVpcAssociationAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DeleteLocalGatewayRouteTableVpcAssociationAsyncHelper(const DeleteLocalGatewayRouteTableVpcAssociationRequest& request, const DeleteLocalGatewayRouteTableVpcAssociationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteLocalGatewayRouteTableVpcAssociation(request), context);
+}
+
 DeleteNatGatewayOutcome EC2Client::DeleteNatGateway(const DeleteNatGatewayRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteNatGatewayOutcome(DeleteNatGatewayResponse(outcome.GetResult()));
@@ -3998,7 +4325,7 @@ DeleteNetworkAclOutcome EC2Client::DeleteNetworkAcl(const DeleteNetworkAclReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteNetworkAclOutcome(NoResult());
@@ -4033,7 +4360,7 @@ DeleteNetworkAclEntryOutcome EC2Client::DeleteNetworkAclEntry(const DeleteNetwor
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteNetworkAclEntryOutcome(NoResult());
@@ -4068,7 +4395,7 @@ DeleteNetworkInterfaceOutcome EC2Client::DeleteNetworkInterface(const DeleteNetw
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteNetworkInterfaceOutcome(NoResult());
@@ -4103,7 +4430,7 @@ DeleteNetworkInterfacePermissionOutcome EC2Client::DeleteNetworkInterfacePermiss
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteNetworkInterfacePermissionOutcome(DeleteNetworkInterfacePermissionResponse(outcome.GetResult()));
@@ -4138,7 +4465,7 @@ DeletePlacementGroupOutcome EC2Client::DeletePlacementGroup(const DeletePlacemen
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeletePlacementGroupOutcome(NoResult());
@@ -4167,13 +4494,48 @@ void EC2Client::DeletePlacementGroupAsyncHelper(const DeletePlacementGroupReques
   handler(this, request, DeletePlacementGroup(request), context);
 }
 
+DeleteQueuedReservedInstancesOutcome EC2Client::DeleteQueuedReservedInstances(const DeleteQueuedReservedInstancesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DeleteQueuedReservedInstancesOutcome(DeleteQueuedReservedInstancesResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteQueuedReservedInstancesOutcome(outcome.GetError());
+  }
+}
+
+DeleteQueuedReservedInstancesOutcomeCallable EC2Client::DeleteQueuedReservedInstancesCallable(const DeleteQueuedReservedInstancesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteQueuedReservedInstancesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteQueuedReservedInstances(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DeleteQueuedReservedInstancesAsync(const DeleteQueuedReservedInstancesRequest& request, const DeleteQueuedReservedInstancesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteQueuedReservedInstancesAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DeleteQueuedReservedInstancesAsyncHelper(const DeleteQueuedReservedInstancesRequest& request, const DeleteQueuedReservedInstancesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteQueuedReservedInstances(request), context);
+}
+
 DeleteRouteOutcome EC2Client::DeleteRoute(const DeleteRouteRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteRouteOutcome(NoResult());
@@ -4208,7 +4570,7 @@ DeleteRouteTableOutcome EC2Client::DeleteRouteTable(const DeleteRouteTableReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteRouteTableOutcome(NoResult());
@@ -4243,7 +4605,7 @@ DeleteSecurityGroupOutcome EC2Client::DeleteSecurityGroup(const DeleteSecurityGr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteSecurityGroupOutcome(NoResult());
@@ -4278,7 +4640,7 @@ DeleteSnapshotOutcome EC2Client::DeleteSnapshot(const DeleteSnapshotRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteSnapshotOutcome(NoResult());
@@ -4313,7 +4675,7 @@ DeleteSpotDatafeedSubscriptionOutcome EC2Client::DeleteSpotDatafeedSubscription(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteSpotDatafeedSubscriptionOutcome(NoResult());
@@ -4348,7 +4710,7 @@ DeleteSubnetOutcome EC2Client::DeleteSubnet(const DeleteSubnetRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteSubnetOutcome(NoResult());
@@ -4383,7 +4745,7 @@ DeleteTagsOutcome EC2Client::DeleteTags(const DeleteTagsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTagsOutcome(NoResult());
@@ -4418,7 +4780,7 @@ DeleteTrafficMirrorFilterOutcome EC2Client::DeleteTrafficMirrorFilter(const Dele
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTrafficMirrorFilterOutcome(DeleteTrafficMirrorFilterResponse(outcome.GetResult()));
@@ -4453,7 +4815,7 @@ DeleteTrafficMirrorFilterRuleOutcome EC2Client::DeleteTrafficMirrorFilterRule(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTrafficMirrorFilterRuleOutcome(DeleteTrafficMirrorFilterRuleResponse(outcome.GetResult()));
@@ -4488,7 +4850,7 @@ DeleteTrafficMirrorSessionOutcome EC2Client::DeleteTrafficMirrorSession(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTrafficMirrorSessionOutcome(DeleteTrafficMirrorSessionResponse(outcome.GetResult()));
@@ -4523,7 +4885,7 @@ DeleteTrafficMirrorTargetOutcome EC2Client::DeleteTrafficMirrorTarget(const Dele
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTrafficMirrorTargetOutcome(DeleteTrafficMirrorTargetResponse(outcome.GetResult()));
@@ -4558,7 +4920,7 @@ DeleteTransitGatewayOutcome EC2Client::DeleteTransitGateway(const DeleteTransitG
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTransitGatewayOutcome(DeleteTransitGatewayResponse(outcome.GetResult()));
@@ -4587,13 +4949,83 @@ void EC2Client::DeleteTransitGatewayAsyncHelper(const DeleteTransitGatewayReques
   handler(this, request, DeleteTransitGateway(request), context);
 }
 
+DeleteTransitGatewayMulticastDomainOutcome EC2Client::DeleteTransitGatewayMulticastDomain(const DeleteTransitGatewayMulticastDomainRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DeleteTransitGatewayMulticastDomainOutcome(DeleteTransitGatewayMulticastDomainResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteTransitGatewayMulticastDomainOutcome(outcome.GetError());
+  }
+}
+
+DeleteTransitGatewayMulticastDomainOutcomeCallable EC2Client::DeleteTransitGatewayMulticastDomainCallable(const DeleteTransitGatewayMulticastDomainRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteTransitGatewayMulticastDomainOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteTransitGatewayMulticastDomain(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DeleteTransitGatewayMulticastDomainAsync(const DeleteTransitGatewayMulticastDomainRequest& request, const DeleteTransitGatewayMulticastDomainResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteTransitGatewayMulticastDomainAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DeleteTransitGatewayMulticastDomainAsyncHelper(const DeleteTransitGatewayMulticastDomainRequest& request, const DeleteTransitGatewayMulticastDomainResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteTransitGatewayMulticastDomain(request), context);
+}
+
+DeleteTransitGatewayPeeringAttachmentOutcome EC2Client::DeleteTransitGatewayPeeringAttachment(const DeleteTransitGatewayPeeringAttachmentRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DeleteTransitGatewayPeeringAttachmentOutcome(DeleteTransitGatewayPeeringAttachmentResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteTransitGatewayPeeringAttachmentOutcome(outcome.GetError());
+  }
+}
+
+DeleteTransitGatewayPeeringAttachmentOutcomeCallable EC2Client::DeleteTransitGatewayPeeringAttachmentCallable(const DeleteTransitGatewayPeeringAttachmentRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteTransitGatewayPeeringAttachmentOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteTransitGatewayPeeringAttachment(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DeleteTransitGatewayPeeringAttachmentAsync(const DeleteTransitGatewayPeeringAttachmentRequest& request, const DeleteTransitGatewayPeeringAttachmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteTransitGatewayPeeringAttachmentAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DeleteTransitGatewayPeeringAttachmentAsyncHelper(const DeleteTransitGatewayPeeringAttachmentRequest& request, const DeleteTransitGatewayPeeringAttachmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteTransitGatewayPeeringAttachment(request), context);
+}
+
 DeleteTransitGatewayRouteOutcome EC2Client::DeleteTransitGatewayRoute(const DeleteTransitGatewayRouteRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTransitGatewayRouteOutcome(DeleteTransitGatewayRouteResponse(outcome.GetResult()));
@@ -4628,7 +5060,7 @@ DeleteTransitGatewayRouteTableOutcome EC2Client::DeleteTransitGatewayRouteTable(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTransitGatewayRouteTableOutcome(DeleteTransitGatewayRouteTableResponse(outcome.GetResult()));
@@ -4663,7 +5095,7 @@ DeleteTransitGatewayVpcAttachmentOutcome EC2Client::DeleteTransitGatewayVpcAttac
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteTransitGatewayVpcAttachmentOutcome(DeleteTransitGatewayVpcAttachmentResponse(outcome.GetResult()));
@@ -4698,7 +5130,7 @@ DeleteVolumeOutcome EC2Client::DeleteVolume(const DeleteVolumeRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVolumeOutcome(NoResult());
@@ -4733,7 +5165,7 @@ DeleteVpcOutcome EC2Client::DeleteVpc(const DeleteVpcRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVpcOutcome(NoResult());
@@ -4768,7 +5200,7 @@ DeleteVpcEndpointConnectionNotificationsOutcome EC2Client::DeleteVpcEndpointConn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVpcEndpointConnectionNotificationsOutcome(DeleteVpcEndpointConnectionNotificationsResponse(outcome.GetResult()));
@@ -4803,7 +5235,7 @@ DeleteVpcEndpointServiceConfigurationsOutcome EC2Client::DeleteVpcEndpointServic
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVpcEndpointServiceConfigurationsOutcome(DeleteVpcEndpointServiceConfigurationsResponse(outcome.GetResult()));
@@ -4838,7 +5270,7 @@ DeleteVpcEndpointsOutcome EC2Client::DeleteVpcEndpoints(const DeleteVpcEndpoints
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVpcEndpointsOutcome(DeleteVpcEndpointsResponse(outcome.GetResult()));
@@ -4873,7 +5305,7 @@ DeleteVpcPeeringConnectionOutcome EC2Client::DeleteVpcPeeringConnection(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVpcPeeringConnectionOutcome(DeleteVpcPeeringConnectionResponse(outcome.GetResult()));
@@ -4908,7 +5340,7 @@ DeleteVpnConnectionOutcome EC2Client::DeleteVpnConnection(const DeleteVpnConnect
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVpnConnectionOutcome(NoResult());
@@ -4943,7 +5375,7 @@ DeleteVpnConnectionRouteOutcome EC2Client::DeleteVpnConnectionRoute(const Delete
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVpnConnectionRouteOutcome(NoResult());
@@ -4978,7 +5410,7 @@ DeleteVpnGatewayOutcome EC2Client::DeleteVpnGateway(const DeleteVpnGatewayReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeleteVpnGatewayOutcome(NoResult());
@@ -5013,7 +5445,7 @@ DeprovisionByoipCidrOutcome EC2Client::DeprovisionByoipCidr(const DeprovisionByo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeprovisionByoipCidrOutcome(DeprovisionByoipCidrResponse(outcome.GetResult()));
@@ -5048,7 +5480,7 @@ DeregisterImageOutcome EC2Client::DeregisterImage(const DeregisterImageRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DeregisterImageOutcome(NoResult());
@@ -5077,13 +5509,83 @@ void EC2Client::DeregisterImageAsyncHelper(const DeregisterImageRequest& request
   handler(this, request, DeregisterImage(request), context);
 }
 
+DeregisterTransitGatewayMulticastGroupMembersOutcome EC2Client::DeregisterTransitGatewayMulticastGroupMembers(const DeregisterTransitGatewayMulticastGroupMembersRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DeregisterTransitGatewayMulticastGroupMembersOutcome(DeregisterTransitGatewayMulticastGroupMembersResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DeregisterTransitGatewayMulticastGroupMembersOutcome(outcome.GetError());
+  }
+}
+
+DeregisterTransitGatewayMulticastGroupMembersOutcomeCallable EC2Client::DeregisterTransitGatewayMulticastGroupMembersCallable(const DeregisterTransitGatewayMulticastGroupMembersRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeregisterTransitGatewayMulticastGroupMembersOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeregisterTransitGatewayMulticastGroupMembers(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DeregisterTransitGatewayMulticastGroupMembersAsync(const DeregisterTransitGatewayMulticastGroupMembersRequest& request, const DeregisterTransitGatewayMulticastGroupMembersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeregisterTransitGatewayMulticastGroupMembersAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DeregisterTransitGatewayMulticastGroupMembersAsyncHelper(const DeregisterTransitGatewayMulticastGroupMembersRequest& request, const DeregisterTransitGatewayMulticastGroupMembersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeregisterTransitGatewayMulticastGroupMembers(request), context);
+}
+
+DeregisterTransitGatewayMulticastGroupSourcesOutcome EC2Client::DeregisterTransitGatewayMulticastGroupSources(const DeregisterTransitGatewayMulticastGroupSourcesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DeregisterTransitGatewayMulticastGroupSourcesOutcome(DeregisterTransitGatewayMulticastGroupSourcesResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DeregisterTransitGatewayMulticastGroupSourcesOutcome(outcome.GetError());
+  }
+}
+
+DeregisterTransitGatewayMulticastGroupSourcesOutcomeCallable EC2Client::DeregisterTransitGatewayMulticastGroupSourcesCallable(const DeregisterTransitGatewayMulticastGroupSourcesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeregisterTransitGatewayMulticastGroupSourcesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeregisterTransitGatewayMulticastGroupSources(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DeregisterTransitGatewayMulticastGroupSourcesAsync(const DeregisterTransitGatewayMulticastGroupSourcesRequest& request, const DeregisterTransitGatewayMulticastGroupSourcesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeregisterTransitGatewayMulticastGroupSourcesAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DeregisterTransitGatewayMulticastGroupSourcesAsyncHelper(const DeregisterTransitGatewayMulticastGroupSourcesRequest& request, const DeregisterTransitGatewayMulticastGroupSourcesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeregisterTransitGatewayMulticastGroupSources(request), context);
+}
+
 DescribeAccountAttributesOutcome EC2Client::DescribeAccountAttributes(const DescribeAccountAttributesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeAccountAttributesOutcome(DescribeAccountAttributesResponse(outcome.GetResult()));
@@ -5118,7 +5620,7 @@ DescribeAddressesOutcome EC2Client::DescribeAddresses(const DescribeAddressesReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeAddressesOutcome(DescribeAddressesResponse(outcome.GetResult()));
@@ -5153,7 +5655,7 @@ DescribeAggregateIdFormatOutcome EC2Client::DescribeAggregateIdFormat(const Desc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeAggregateIdFormatOutcome(DescribeAggregateIdFormatResponse(outcome.GetResult()));
@@ -5188,7 +5690,7 @@ DescribeAvailabilityZonesOutcome EC2Client::DescribeAvailabilityZones(const Desc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeAvailabilityZonesOutcome(DescribeAvailabilityZonesResponse(outcome.GetResult()));
@@ -5223,7 +5725,7 @@ DescribeBundleTasksOutcome EC2Client::DescribeBundleTasks(const DescribeBundleTa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeBundleTasksOutcome(DescribeBundleTasksResponse(outcome.GetResult()));
@@ -5258,7 +5760,7 @@ DescribeByoipCidrsOutcome EC2Client::DescribeByoipCidrs(const DescribeByoipCidrs
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeByoipCidrsOutcome(DescribeByoipCidrsResponse(outcome.GetResult()));
@@ -5293,7 +5795,7 @@ DescribeCapacityReservationsOutcome EC2Client::DescribeCapacityReservations(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeCapacityReservationsOutcome(DescribeCapacityReservationsResponse(outcome.GetResult()));
@@ -5328,7 +5830,7 @@ DescribeClassicLinkInstancesOutcome EC2Client::DescribeClassicLinkInstances(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeClassicLinkInstancesOutcome(DescribeClassicLinkInstancesResponse(outcome.GetResult()));
@@ -5363,7 +5865,7 @@ DescribeClientVpnAuthorizationRulesOutcome EC2Client::DescribeClientVpnAuthoriza
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeClientVpnAuthorizationRulesOutcome(DescribeClientVpnAuthorizationRulesResponse(outcome.GetResult()));
@@ -5398,7 +5900,7 @@ DescribeClientVpnConnectionsOutcome EC2Client::DescribeClientVpnConnections(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeClientVpnConnectionsOutcome(DescribeClientVpnConnectionsResponse(outcome.GetResult()));
@@ -5433,7 +5935,7 @@ DescribeClientVpnEndpointsOutcome EC2Client::DescribeClientVpnEndpoints(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeClientVpnEndpointsOutcome(DescribeClientVpnEndpointsResponse(outcome.GetResult()));
@@ -5468,7 +5970,7 @@ DescribeClientVpnRoutesOutcome EC2Client::DescribeClientVpnRoutes(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeClientVpnRoutesOutcome(DescribeClientVpnRoutesResponse(outcome.GetResult()));
@@ -5503,7 +6005,7 @@ DescribeClientVpnTargetNetworksOutcome EC2Client::DescribeClientVpnTargetNetwork
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeClientVpnTargetNetworksOutcome(DescribeClientVpnTargetNetworksResponse(outcome.GetResult()));
@@ -5532,13 +6034,48 @@ void EC2Client::DescribeClientVpnTargetNetworksAsyncHelper(const DescribeClientV
   handler(this, request, DescribeClientVpnTargetNetworks(request), context);
 }
 
+DescribeCoipPoolsOutcome EC2Client::DescribeCoipPools(const DescribeCoipPoolsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeCoipPoolsOutcome(DescribeCoipPoolsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeCoipPoolsOutcome(outcome.GetError());
+  }
+}
+
+DescribeCoipPoolsOutcomeCallable EC2Client::DescribeCoipPoolsCallable(const DescribeCoipPoolsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeCoipPoolsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeCoipPools(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeCoipPoolsAsync(const DescribeCoipPoolsRequest& request, const DescribeCoipPoolsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeCoipPoolsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeCoipPoolsAsyncHelper(const DescribeCoipPoolsRequest& request, const DescribeCoipPoolsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeCoipPools(request), context);
+}
+
 DescribeConversionTasksOutcome EC2Client::DescribeConversionTasks(const DescribeConversionTasksRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeConversionTasksOutcome(DescribeConversionTasksResponse(outcome.GetResult()));
@@ -5573,7 +6110,7 @@ DescribeCustomerGatewaysOutcome EC2Client::DescribeCustomerGateways(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeCustomerGatewaysOutcome(DescribeCustomerGatewaysResponse(outcome.GetResult()));
@@ -5608,7 +6145,7 @@ DescribeDhcpOptionsOutcome EC2Client::DescribeDhcpOptions(const DescribeDhcpOpti
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeDhcpOptionsOutcome(DescribeDhcpOptionsResponse(outcome.GetResult()));
@@ -5643,7 +6180,7 @@ DescribeEgressOnlyInternetGatewaysOutcome EC2Client::DescribeEgressOnlyInternetG
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeEgressOnlyInternetGatewaysOutcome(DescribeEgressOnlyInternetGatewaysResponse(outcome.GetResult()));
@@ -5678,7 +6215,7 @@ DescribeElasticGpusOutcome EC2Client::DescribeElasticGpus(const DescribeElasticG
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeElasticGpusOutcome(DescribeElasticGpusResponse(outcome.GetResult()));
@@ -5707,13 +6244,48 @@ void EC2Client::DescribeElasticGpusAsyncHelper(const DescribeElasticGpusRequest&
   handler(this, request, DescribeElasticGpus(request), context);
 }
 
+DescribeExportImageTasksOutcome EC2Client::DescribeExportImageTasks(const DescribeExportImageTasksRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeExportImageTasksOutcome(DescribeExportImageTasksResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeExportImageTasksOutcome(outcome.GetError());
+  }
+}
+
+DescribeExportImageTasksOutcomeCallable EC2Client::DescribeExportImageTasksCallable(const DescribeExportImageTasksRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeExportImageTasksOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeExportImageTasks(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeExportImageTasksAsync(const DescribeExportImageTasksRequest& request, const DescribeExportImageTasksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeExportImageTasksAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeExportImageTasksAsyncHelper(const DescribeExportImageTasksRequest& request, const DescribeExportImageTasksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeExportImageTasks(request), context);
+}
+
 DescribeExportTasksOutcome EC2Client::DescribeExportTasks(const DescribeExportTasksRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeExportTasksOutcome(DescribeExportTasksResponse(outcome.GetResult()));
@@ -5742,13 +6314,48 @@ void EC2Client::DescribeExportTasksAsyncHelper(const DescribeExportTasksRequest&
   handler(this, request, DescribeExportTasks(request), context);
 }
 
+DescribeFastSnapshotRestoresOutcome EC2Client::DescribeFastSnapshotRestores(const DescribeFastSnapshotRestoresRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeFastSnapshotRestoresOutcome(DescribeFastSnapshotRestoresResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeFastSnapshotRestoresOutcome(outcome.GetError());
+  }
+}
+
+DescribeFastSnapshotRestoresOutcomeCallable EC2Client::DescribeFastSnapshotRestoresCallable(const DescribeFastSnapshotRestoresRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeFastSnapshotRestoresOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeFastSnapshotRestores(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeFastSnapshotRestoresAsync(const DescribeFastSnapshotRestoresRequest& request, const DescribeFastSnapshotRestoresResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeFastSnapshotRestoresAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeFastSnapshotRestoresAsyncHelper(const DescribeFastSnapshotRestoresRequest& request, const DescribeFastSnapshotRestoresResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeFastSnapshotRestores(request), context);
+}
+
 DescribeFleetHistoryOutcome EC2Client::DescribeFleetHistory(const DescribeFleetHistoryRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeFleetHistoryOutcome(DescribeFleetHistoryResponse(outcome.GetResult()));
@@ -5783,7 +6390,7 @@ DescribeFleetInstancesOutcome EC2Client::DescribeFleetInstances(const DescribeFl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeFleetInstancesOutcome(DescribeFleetInstancesResponse(outcome.GetResult()));
@@ -5818,7 +6425,7 @@ DescribeFleetsOutcome EC2Client::DescribeFleets(const DescribeFleetsRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeFleetsOutcome(DescribeFleetsResponse(outcome.GetResult()));
@@ -5853,7 +6460,7 @@ DescribeFlowLogsOutcome EC2Client::DescribeFlowLogs(const DescribeFlowLogsReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeFlowLogsOutcome(DescribeFlowLogsResponse(outcome.GetResult()));
@@ -5888,7 +6495,7 @@ DescribeFpgaImageAttributeOutcome EC2Client::DescribeFpgaImageAttribute(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeFpgaImageAttributeOutcome(DescribeFpgaImageAttributeResponse(outcome.GetResult()));
@@ -5923,7 +6530,7 @@ DescribeFpgaImagesOutcome EC2Client::DescribeFpgaImages(const DescribeFpgaImages
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeFpgaImagesOutcome(DescribeFpgaImagesResponse(outcome.GetResult()));
@@ -5958,7 +6565,7 @@ DescribeHostReservationOfferingsOutcome EC2Client::DescribeHostReservationOfferi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeHostReservationOfferingsOutcome(DescribeHostReservationOfferingsResponse(outcome.GetResult()));
@@ -5993,7 +6600,7 @@ DescribeHostReservationsOutcome EC2Client::DescribeHostReservations(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeHostReservationsOutcome(DescribeHostReservationsResponse(outcome.GetResult()));
@@ -6028,7 +6635,7 @@ DescribeHostsOutcome EC2Client::DescribeHosts(const DescribeHostsRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeHostsOutcome(DescribeHostsResponse(outcome.GetResult()));
@@ -6063,7 +6670,7 @@ DescribeIamInstanceProfileAssociationsOutcome EC2Client::DescribeIamInstanceProf
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeIamInstanceProfileAssociationsOutcome(DescribeIamInstanceProfileAssociationsResponse(outcome.GetResult()));
@@ -6098,7 +6705,7 @@ DescribeIdFormatOutcome EC2Client::DescribeIdFormat(const DescribeIdFormatReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeIdFormatOutcome(DescribeIdFormatResponse(outcome.GetResult()));
@@ -6133,7 +6740,7 @@ DescribeIdentityIdFormatOutcome EC2Client::DescribeIdentityIdFormat(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeIdentityIdFormatOutcome(DescribeIdentityIdFormatResponse(outcome.GetResult()));
@@ -6168,7 +6775,7 @@ DescribeImageAttributeOutcome EC2Client::DescribeImageAttribute(const DescribeIm
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeImageAttributeOutcome(DescribeImageAttributeResponse(outcome.GetResult()));
@@ -6203,7 +6810,7 @@ DescribeImagesOutcome EC2Client::DescribeImages(const DescribeImagesRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeImagesOutcome(DescribeImagesResponse(outcome.GetResult()));
@@ -6238,7 +6845,7 @@ DescribeImportImageTasksOutcome EC2Client::DescribeImportImageTasks(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeImportImageTasksOutcome(DescribeImportImageTasksResponse(outcome.GetResult()));
@@ -6273,7 +6880,7 @@ DescribeImportSnapshotTasksOutcome EC2Client::DescribeImportSnapshotTasks(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeImportSnapshotTasksOutcome(DescribeImportSnapshotTasksResponse(outcome.GetResult()));
@@ -6308,7 +6915,7 @@ DescribeInstanceAttributeOutcome EC2Client::DescribeInstanceAttribute(const Desc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeInstanceAttributeOutcome(DescribeInstanceAttributeResponse(outcome.GetResult()));
@@ -6343,7 +6950,7 @@ DescribeInstanceCreditSpecificationsOutcome EC2Client::DescribeInstanceCreditSpe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeInstanceCreditSpecificationsOutcome(DescribeInstanceCreditSpecificationsResponse(outcome.GetResult()));
@@ -6378,7 +6985,7 @@ DescribeInstanceStatusOutcome EC2Client::DescribeInstanceStatus(const DescribeIn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeInstanceStatusOutcome(DescribeInstanceStatusResponse(outcome.GetResult()));
@@ -6407,13 +7014,83 @@ void EC2Client::DescribeInstanceStatusAsyncHelper(const DescribeInstanceStatusRe
   handler(this, request, DescribeInstanceStatus(request), context);
 }
 
+DescribeInstanceTypeOfferingsOutcome EC2Client::DescribeInstanceTypeOfferings(const DescribeInstanceTypeOfferingsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeInstanceTypeOfferingsOutcome(DescribeInstanceTypeOfferingsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeInstanceTypeOfferingsOutcome(outcome.GetError());
+  }
+}
+
+DescribeInstanceTypeOfferingsOutcomeCallable EC2Client::DescribeInstanceTypeOfferingsCallable(const DescribeInstanceTypeOfferingsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeInstanceTypeOfferingsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeInstanceTypeOfferings(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeInstanceTypeOfferingsAsync(const DescribeInstanceTypeOfferingsRequest& request, const DescribeInstanceTypeOfferingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeInstanceTypeOfferingsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeInstanceTypeOfferingsAsyncHelper(const DescribeInstanceTypeOfferingsRequest& request, const DescribeInstanceTypeOfferingsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeInstanceTypeOfferings(request), context);
+}
+
+DescribeInstanceTypesOutcome EC2Client::DescribeInstanceTypes(const DescribeInstanceTypesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeInstanceTypesOutcome(DescribeInstanceTypesResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeInstanceTypesOutcome(outcome.GetError());
+  }
+}
+
+DescribeInstanceTypesOutcomeCallable EC2Client::DescribeInstanceTypesCallable(const DescribeInstanceTypesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeInstanceTypesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeInstanceTypes(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeInstanceTypesAsync(const DescribeInstanceTypesRequest& request, const DescribeInstanceTypesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeInstanceTypesAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeInstanceTypesAsyncHelper(const DescribeInstanceTypesRequest& request, const DescribeInstanceTypesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeInstanceTypes(request), context);
+}
+
 DescribeInstancesOutcome EC2Client::DescribeInstances(const DescribeInstancesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeInstancesOutcome(DescribeInstancesResponse(outcome.GetResult()));
@@ -6448,7 +7125,7 @@ DescribeInternetGatewaysOutcome EC2Client::DescribeInternetGateways(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeInternetGatewaysOutcome(DescribeInternetGatewaysResponse(outcome.GetResult()));
@@ -6477,13 +7154,48 @@ void EC2Client::DescribeInternetGatewaysAsyncHelper(const DescribeInternetGatewa
   handler(this, request, DescribeInternetGateways(request), context);
 }
 
+DescribeIpv6PoolsOutcome EC2Client::DescribeIpv6Pools(const DescribeIpv6PoolsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeIpv6PoolsOutcome(DescribeIpv6PoolsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeIpv6PoolsOutcome(outcome.GetError());
+  }
+}
+
+DescribeIpv6PoolsOutcomeCallable EC2Client::DescribeIpv6PoolsCallable(const DescribeIpv6PoolsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeIpv6PoolsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeIpv6Pools(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeIpv6PoolsAsync(const DescribeIpv6PoolsRequest& request, const DescribeIpv6PoolsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeIpv6PoolsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeIpv6PoolsAsyncHelper(const DescribeIpv6PoolsRequest& request, const DescribeIpv6PoolsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeIpv6Pools(request), context);
+}
+
 DescribeKeyPairsOutcome EC2Client::DescribeKeyPairs(const DescribeKeyPairsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeKeyPairsOutcome(DescribeKeyPairsResponse(outcome.GetResult()));
@@ -6518,7 +7230,7 @@ DescribeLaunchTemplateVersionsOutcome EC2Client::DescribeLaunchTemplateVersions(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeLaunchTemplateVersionsOutcome(DescribeLaunchTemplateVersionsResponse(outcome.GetResult()));
@@ -6553,7 +7265,7 @@ DescribeLaunchTemplatesOutcome EC2Client::DescribeLaunchTemplates(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeLaunchTemplatesOutcome(DescribeLaunchTemplatesResponse(outcome.GetResult()));
@@ -6582,13 +7294,223 @@ void EC2Client::DescribeLaunchTemplatesAsyncHelper(const DescribeLaunchTemplates
   handler(this, request, DescribeLaunchTemplates(request), context);
 }
 
+DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutcome EC2Client::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutcome(DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutcome(outcome.GetError());
+  }
+}
+
+DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutcomeCallable EC2Client::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCallable(const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsAsync(const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest& request, const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsAsyncHelper(const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest& request, const DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(request), context);
+}
+
+DescribeLocalGatewayRouteTableVpcAssociationsOutcome EC2Client::DescribeLocalGatewayRouteTableVpcAssociations(const DescribeLocalGatewayRouteTableVpcAssociationsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLocalGatewayRouteTableVpcAssociationsOutcome(DescribeLocalGatewayRouteTableVpcAssociationsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLocalGatewayRouteTableVpcAssociationsOutcome(outcome.GetError());
+  }
+}
+
+DescribeLocalGatewayRouteTableVpcAssociationsOutcomeCallable EC2Client::DescribeLocalGatewayRouteTableVpcAssociationsCallable(const DescribeLocalGatewayRouteTableVpcAssociationsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLocalGatewayRouteTableVpcAssociationsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLocalGatewayRouteTableVpcAssociations(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeLocalGatewayRouteTableVpcAssociationsAsync(const DescribeLocalGatewayRouteTableVpcAssociationsRequest& request, const DescribeLocalGatewayRouteTableVpcAssociationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLocalGatewayRouteTableVpcAssociationsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeLocalGatewayRouteTableVpcAssociationsAsyncHelper(const DescribeLocalGatewayRouteTableVpcAssociationsRequest& request, const DescribeLocalGatewayRouteTableVpcAssociationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLocalGatewayRouteTableVpcAssociations(request), context);
+}
+
+DescribeLocalGatewayRouteTablesOutcome EC2Client::DescribeLocalGatewayRouteTables(const DescribeLocalGatewayRouteTablesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLocalGatewayRouteTablesOutcome(DescribeLocalGatewayRouteTablesResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLocalGatewayRouteTablesOutcome(outcome.GetError());
+  }
+}
+
+DescribeLocalGatewayRouteTablesOutcomeCallable EC2Client::DescribeLocalGatewayRouteTablesCallable(const DescribeLocalGatewayRouteTablesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLocalGatewayRouteTablesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLocalGatewayRouteTables(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeLocalGatewayRouteTablesAsync(const DescribeLocalGatewayRouteTablesRequest& request, const DescribeLocalGatewayRouteTablesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLocalGatewayRouteTablesAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeLocalGatewayRouteTablesAsyncHelper(const DescribeLocalGatewayRouteTablesRequest& request, const DescribeLocalGatewayRouteTablesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLocalGatewayRouteTables(request), context);
+}
+
+DescribeLocalGatewayVirtualInterfaceGroupsOutcome EC2Client::DescribeLocalGatewayVirtualInterfaceGroups(const DescribeLocalGatewayVirtualInterfaceGroupsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLocalGatewayVirtualInterfaceGroupsOutcome(DescribeLocalGatewayVirtualInterfaceGroupsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLocalGatewayVirtualInterfaceGroupsOutcome(outcome.GetError());
+  }
+}
+
+DescribeLocalGatewayVirtualInterfaceGroupsOutcomeCallable EC2Client::DescribeLocalGatewayVirtualInterfaceGroupsCallable(const DescribeLocalGatewayVirtualInterfaceGroupsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLocalGatewayVirtualInterfaceGroupsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLocalGatewayVirtualInterfaceGroups(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeLocalGatewayVirtualInterfaceGroupsAsync(const DescribeLocalGatewayVirtualInterfaceGroupsRequest& request, const DescribeLocalGatewayVirtualInterfaceGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLocalGatewayVirtualInterfaceGroupsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeLocalGatewayVirtualInterfaceGroupsAsyncHelper(const DescribeLocalGatewayVirtualInterfaceGroupsRequest& request, const DescribeLocalGatewayVirtualInterfaceGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLocalGatewayVirtualInterfaceGroups(request), context);
+}
+
+DescribeLocalGatewayVirtualInterfacesOutcome EC2Client::DescribeLocalGatewayVirtualInterfaces(const DescribeLocalGatewayVirtualInterfacesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLocalGatewayVirtualInterfacesOutcome(DescribeLocalGatewayVirtualInterfacesResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLocalGatewayVirtualInterfacesOutcome(outcome.GetError());
+  }
+}
+
+DescribeLocalGatewayVirtualInterfacesOutcomeCallable EC2Client::DescribeLocalGatewayVirtualInterfacesCallable(const DescribeLocalGatewayVirtualInterfacesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLocalGatewayVirtualInterfacesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLocalGatewayVirtualInterfaces(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeLocalGatewayVirtualInterfacesAsync(const DescribeLocalGatewayVirtualInterfacesRequest& request, const DescribeLocalGatewayVirtualInterfacesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLocalGatewayVirtualInterfacesAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeLocalGatewayVirtualInterfacesAsyncHelper(const DescribeLocalGatewayVirtualInterfacesRequest& request, const DescribeLocalGatewayVirtualInterfacesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLocalGatewayVirtualInterfaces(request), context);
+}
+
+DescribeLocalGatewaysOutcome EC2Client::DescribeLocalGateways(const DescribeLocalGatewaysRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeLocalGatewaysOutcome(DescribeLocalGatewaysResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeLocalGatewaysOutcome(outcome.GetError());
+  }
+}
+
+DescribeLocalGatewaysOutcomeCallable EC2Client::DescribeLocalGatewaysCallable(const DescribeLocalGatewaysRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeLocalGatewaysOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeLocalGateways(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeLocalGatewaysAsync(const DescribeLocalGatewaysRequest& request, const DescribeLocalGatewaysResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeLocalGatewaysAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeLocalGatewaysAsyncHelper(const DescribeLocalGatewaysRequest& request, const DescribeLocalGatewaysResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeLocalGateways(request), context);
+}
+
 DescribeMovingAddressesOutcome EC2Client::DescribeMovingAddresses(const DescribeMovingAddressesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeMovingAddressesOutcome(DescribeMovingAddressesResponse(outcome.GetResult()));
@@ -6623,7 +7545,7 @@ DescribeNatGatewaysOutcome EC2Client::DescribeNatGateways(const DescribeNatGatew
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeNatGatewaysOutcome(DescribeNatGatewaysResponse(outcome.GetResult()));
@@ -6658,7 +7580,7 @@ DescribeNetworkAclsOutcome EC2Client::DescribeNetworkAcls(const DescribeNetworkA
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeNetworkAclsOutcome(DescribeNetworkAclsResponse(outcome.GetResult()));
@@ -6693,7 +7615,7 @@ DescribeNetworkInterfaceAttributeOutcome EC2Client::DescribeNetworkInterfaceAttr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeNetworkInterfaceAttributeOutcome(DescribeNetworkInterfaceAttributeResponse(outcome.GetResult()));
@@ -6728,7 +7650,7 @@ DescribeNetworkInterfacePermissionsOutcome EC2Client::DescribeNetworkInterfacePe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeNetworkInterfacePermissionsOutcome(DescribeNetworkInterfacePermissionsResponse(outcome.GetResult()));
@@ -6763,7 +7685,7 @@ DescribeNetworkInterfacesOutcome EC2Client::DescribeNetworkInterfaces(const Desc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeNetworkInterfacesOutcome(DescribeNetworkInterfacesResponse(outcome.GetResult()));
@@ -6798,7 +7720,7 @@ DescribePlacementGroupsOutcome EC2Client::DescribePlacementGroups(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribePlacementGroupsOutcome(DescribePlacementGroupsResponse(outcome.GetResult()));
@@ -6833,7 +7755,7 @@ DescribePrefixListsOutcome EC2Client::DescribePrefixLists(const DescribePrefixLi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribePrefixListsOutcome(DescribePrefixListsResponse(outcome.GetResult()));
@@ -6868,7 +7790,7 @@ DescribePrincipalIdFormatOutcome EC2Client::DescribePrincipalIdFormat(const Desc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribePrincipalIdFormatOutcome(DescribePrincipalIdFormatResponse(outcome.GetResult()));
@@ -6903,7 +7825,7 @@ DescribePublicIpv4PoolsOutcome EC2Client::DescribePublicIpv4Pools(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribePublicIpv4PoolsOutcome(DescribePublicIpv4PoolsResponse(outcome.GetResult()));
@@ -6938,7 +7860,7 @@ DescribeRegionsOutcome EC2Client::DescribeRegions(const DescribeRegionsRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeRegionsOutcome(DescribeRegionsResponse(outcome.GetResult()));
@@ -6973,7 +7895,7 @@ DescribeReservedInstancesOutcome EC2Client::DescribeReservedInstances(const Desc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeReservedInstancesOutcome(DescribeReservedInstancesResponse(outcome.GetResult()));
@@ -7008,7 +7930,7 @@ DescribeReservedInstancesListingsOutcome EC2Client::DescribeReservedInstancesLis
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeReservedInstancesListingsOutcome(DescribeReservedInstancesListingsResponse(outcome.GetResult()));
@@ -7043,7 +7965,7 @@ DescribeReservedInstancesModificationsOutcome EC2Client::DescribeReservedInstanc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeReservedInstancesModificationsOutcome(DescribeReservedInstancesModificationsResponse(outcome.GetResult()));
@@ -7078,7 +8000,7 @@ DescribeReservedInstancesOfferingsOutcome EC2Client::DescribeReservedInstancesOf
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeReservedInstancesOfferingsOutcome(DescribeReservedInstancesOfferingsResponse(outcome.GetResult()));
@@ -7113,7 +8035,7 @@ DescribeRouteTablesOutcome EC2Client::DescribeRouteTables(const DescribeRouteTab
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeRouteTablesOutcome(DescribeRouteTablesResponse(outcome.GetResult()));
@@ -7148,7 +8070,7 @@ DescribeScheduledInstanceAvailabilityOutcome EC2Client::DescribeScheduledInstanc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeScheduledInstanceAvailabilityOutcome(DescribeScheduledInstanceAvailabilityResponse(outcome.GetResult()));
@@ -7183,7 +8105,7 @@ DescribeScheduledInstancesOutcome EC2Client::DescribeScheduledInstances(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeScheduledInstancesOutcome(DescribeScheduledInstancesResponse(outcome.GetResult()));
@@ -7218,7 +8140,7 @@ DescribeSecurityGroupReferencesOutcome EC2Client::DescribeSecurityGroupReference
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSecurityGroupReferencesOutcome(DescribeSecurityGroupReferencesResponse(outcome.GetResult()));
@@ -7253,7 +8175,7 @@ DescribeSecurityGroupsOutcome EC2Client::DescribeSecurityGroups(const DescribeSe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSecurityGroupsOutcome(DescribeSecurityGroupsResponse(outcome.GetResult()));
@@ -7288,7 +8210,7 @@ DescribeSnapshotAttributeOutcome EC2Client::DescribeSnapshotAttribute(const Desc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSnapshotAttributeOutcome(DescribeSnapshotAttributeResponse(outcome.GetResult()));
@@ -7323,7 +8245,7 @@ DescribeSnapshotsOutcome EC2Client::DescribeSnapshots(const DescribeSnapshotsReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSnapshotsOutcome(DescribeSnapshotsResponse(outcome.GetResult()));
@@ -7358,7 +8280,7 @@ DescribeSpotDatafeedSubscriptionOutcome EC2Client::DescribeSpotDatafeedSubscript
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSpotDatafeedSubscriptionOutcome(DescribeSpotDatafeedSubscriptionResponse(outcome.GetResult()));
@@ -7393,7 +8315,7 @@ DescribeSpotFleetInstancesOutcome EC2Client::DescribeSpotFleetInstances(const De
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSpotFleetInstancesOutcome(DescribeSpotFleetInstancesResponse(outcome.GetResult()));
@@ -7428,7 +8350,7 @@ DescribeSpotFleetRequestHistoryOutcome EC2Client::DescribeSpotFleetRequestHistor
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSpotFleetRequestHistoryOutcome(DescribeSpotFleetRequestHistoryResponse(outcome.GetResult()));
@@ -7463,7 +8385,7 @@ DescribeSpotFleetRequestsOutcome EC2Client::DescribeSpotFleetRequests(const Desc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSpotFleetRequestsOutcome(DescribeSpotFleetRequestsResponse(outcome.GetResult()));
@@ -7498,7 +8420,7 @@ DescribeSpotInstanceRequestsOutcome EC2Client::DescribeSpotInstanceRequests(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSpotInstanceRequestsOutcome(DescribeSpotInstanceRequestsResponse(outcome.GetResult()));
@@ -7533,7 +8455,7 @@ DescribeSpotPriceHistoryOutcome EC2Client::DescribeSpotPriceHistory(const Descri
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSpotPriceHistoryOutcome(DescribeSpotPriceHistoryResponse(outcome.GetResult()));
@@ -7568,7 +8490,7 @@ DescribeStaleSecurityGroupsOutcome EC2Client::DescribeStaleSecurityGroups(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeStaleSecurityGroupsOutcome(DescribeStaleSecurityGroupsResponse(outcome.GetResult()));
@@ -7603,7 +8525,7 @@ DescribeSubnetsOutcome EC2Client::DescribeSubnets(const DescribeSubnetsRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeSubnetsOutcome(DescribeSubnetsResponse(outcome.GetResult()));
@@ -7638,7 +8560,7 @@ DescribeTagsOutcome EC2Client::DescribeTags(const DescribeTagsRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeTagsOutcome(DescribeTagsResponse(outcome.GetResult()));
@@ -7673,7 +8595,7 @@ DescribeTrafficMirrorFiltersOutcome EC2Client::DescribeTrafficMirrorFilters(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeTrafficMirrorFiltersOutcome(DescribeTrafficMirrorFiltersResponse(outcome.GetResult()));
@@ -7708,7 +8630,7 @@ DescribeTrafficMirrorSessionsOutcome EC2Client::DescribeTrafficMirrorSessions(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeTrafficMirrorSessionsOutcome(DescribeTrafficMirrorSessionsResponse(outcome.GetResult()));
@@ -7743,7 +8665,7 @@ DescribeTrafficMirrorTargetsOutcome EC2Client::DescribeTrafficMirrorTargets(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeTrafficMirrorTargetsOutcome(DescribeTrafficMirrorTargetsResponse(outcome.GetResult()));
@@ -7778,7 +8700,7 @@ DescribeTransitGatewayAttachmentsOutcome EC2Client::DescribeTransitGatewayAttach
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeTransitGatewayAttachmentsOutcome(DescribeTransitGatewayAttachmentsResponse(outcome.GetResult()));
@@ -7807,13 +8729,83 @@ void EC2Client::DescribeTransitGatewayAttachmentsAsyncHelper(const DescribeTrans
   handler(this, request, DescribeTransitGatewayAttachments(request), context);
 }
 
+DescribeTransitGatewayMulticastDomainsOutcome EC2Client::DescribeTransitGatewayMulticastDomains(const DescribeTransitGatewayMulticastDomainsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeTransitGatewayMulticastDomainsOutcome(DescribeTransitGatewayMulticastDomainsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeTransitGatewayMulticastDomainsOutcome(outcome.GetError());
+  }
+}
+
+DescribeTransitGatewayMulticastDomainsOutcomeCallable EC2Client::DescribeTransitGatewayMulticastDomainsCallable(const DescribeTransitGatewayMulticastDomainsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeTransitGatewayMulticastDomainsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeTransitGatewayMulticastDomains(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeTransitGatewayMulticastDomainsAsync(const DescribeTransitGatewayMulticastDomainsRequest& request, const DescribeTransitGatewayMulticastDomainsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeTransitGatewayMulticastDomainsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeTransitGatewayMulticastDomainsAsyncHelper(const DescribeTransitGatewayMulticastDomainsRequest& request, const DescribeTransitGatewayMulticastDomainsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeTransitGatewayMulticastDomains(request), context);
+}
+
+DescribeTransitGatewayPeeringAttachmentsOutcome EC2Client::DescribeTransitGatewayPeeringAttachments(const DescribeTransitGatewayPeeringAttachmentsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DescribeTransitGatewayPeeringAttachmentsOutcome(DescribeTransitGatewayPeeringAttachmentsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeTransitGatewayPeeringAttachmentsOutcome(outcome.GetError());
+  }
+}
+
+DescribeTransitGatewayPeeringAttachmentsOutcomeCallable EC2Client::DescribeTransitGatewayPeeringAttachmentsCallable(const DescribeTransitGatewayPeeringAttachmentsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeTransitGatewayPeeringAttachmentsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeTransitGatewayPeeringAttachments(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DescribeTransitGatewayPeeringAttachmentsAsync(const DescribeTransitGatewayPeeringAttachmentsRequest& request, const DescribeTransitGatewayPeeringAttachmentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeTransitGatewayPeeringAttachmentsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DescribeTransitGatewayPeeringAttachmentsAsyncHelper(const DescribeTransitGatewayPeeringAttachmentsRequest& request, const DescribeTransitGatewayPeeringAttachmentsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeTransitGatewayPeeringAttachments(request), context);
+}
+
 DescribeTransitGatewayRouteTablesOutcome EC2Client::DescribeTransitGatewayRouteTables(const DescribeTransitGatewayRouteTablesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeTransitGatewayRouteTablesOutcome(DescribeTransitGatewayRouteTablesResponse(outcome.GetResult()));
@@ -7848,7 +8840,7 @@ DescribeTransitGatewayVpcAttachmentsOutcome EC2Client::DescribeTransitGatewayVpc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeTransitGatewayVpcAttachmentsOutcome(DescribeTransitGatewayVpcAttachmentsResponse(outcome.GetResult()));
@@ -7883,7 +8875,7 @@ DescribeTransitGatewaysOutcome EC2Client::DescribeTransitGateways(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeTransitGatewaysOutcome(DescribeTransitGatewaysResponse(outcome.GetResult()));
@@ -7918,7 +8910,7 @@ DescribeVolumeAttributeOutcome EC2Client::DescribeVolumeAttribute(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVolumeAttributeOutcome(DescribeVolumeAttributeResponse(outcome.GetResult()));
@@ -7953,7 +8945,7 @@ DescribeVolumeStatusOutcome EC2Client::DescribeVolumeStatus(const DescribeVolume
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVolumeStatusOutcome(DescribeVolumeStatusResponse(outcome.GetResult()));
@@ -7988,7 +8980,7 @@ DescribeVolumesOutcome EC2Client::DescribeVolumes(const DescribeVolumesRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVolumesOutcome(DescribeVolumesResponse(outcome.GetResult()));
@@ -8023,7 +9015,7 @@ DescribeVolumesModificationsOutcome EC2Client::DescribeVolumesModifications(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVolumesModificationsOutcome(DescribeVolumesModificationsResponse(outcome.GetResult()));
@@ -8058,7 +9050,7 @@ DescribeVpcAttributeOutcome EC2Client::DescribeVpcAttribute(const DescribeVpcAtt
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcAttributeOutcome(DescribeVpcAttributeResponse(outcome.GetResult()));
@@ -8093,7 +9085,7 @@ DescribeVpcClassicLinkOutcome EC2Client::DescribeVpcClassicLink(const DescribeVp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcClassicLinkOutcome(DescribeVpcClassicLinkResponse(outcome.GetResult()));
@@ -8128,7 +9120,7 @@ DescribeVpcClassicLinkDnsSupportOutcome EC2Client::DescribeVpcClassicLinkDnsSupp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcClassicLinkDnsSupportOutcome(DescribeVpcClassicLinkDnsSupportResponse(outcome.GetResult()));
@@ -8163,7 +9155,7 @@ DescribeVpcEndpointConnectionNotificationsOutcome EC2Client::DescribeVpcEndpoint
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcEndpointConnectionNotificationsOutcome(DescribeVpcEndpointConnectionNotificationsResponse(outcome.GetResult()));
@@ -8198,7 +9190,7 @@ DescribeVpcEndpointConnectionsOutcome EC2Client::DescribeVpcEndpointConnections(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcEndpointConnectionsOutcome(DescribeVpcEndpointConnectionsResponse(outcome.GetResult()));
@@ -8233,7 +9225,7 @@ DescribeVpcEndpointServiceConfigurationsOutcome EC2Client::DescribeVpcEndpointSe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcEndpointServiceConfigurationsOutcome(DescribeVpcEndpointServiceConfigurationsResponse(outcome.GetResult()));
@@ -8268,7 +9260,7 @@ DescribeVpcEndpointServicePermissionsOutcome EC2Client::DescribeVpcEndpointServi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcEndpointServicePermissionsOutcome(DescribeVpcEndpointServicePermissionsResponse(outcome.GetResult()));
@@ -8303,7 +9295,7 @@ DescribeVpcEndpointServicesOutcome EC2Client::DescribeVpcEndpointServices(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcEndpointServicesOutcome(DescribeVpcEndpointServicesResponse(outcome.GetResult()));
@@ -8338,7 +9330,7 @@ DescribeVpcEndpointsOutcome EC2Client::DescribeVpcEndpoints(const DescribeVpcEnd
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcEndpointsOutcome(DescribeVpcEndpointsResponse(outcome.GetResult()));
@@ -8373,7 +9365,7 @@ DescribeVpcPeeringConnectionsOutcome EC2Client::DescribeVpcPeeringConnections(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcPeeringConnectionsOutcome(DescribeVpcPeeringConnectionsResponse(outcome.GetResult()));
@@ -8408,7 +9400,7 @@ DescribeVpcsOutcome EC2Client::DescribeVpcs(const DescribeVpcsRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpcsOutcome(DescribeVpcsResponse(outcome.GetResult()));
@@ -8443,7 +9435,7 @@ DescribeVpnConnectionsOutcome EC2Client::DescribeVpnConnections(const DescribeVp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpnConnectionsOutcome(DescribeVpnConnectionsResponse(outcome.GetResult()));
@@ -8478,7 +9470,7 @@ DescribeVpnGatewaysOutcome EC2Client::DescribeVpnGateways(const DescribeVpnGatew
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DescribeVpnGatewaysOutcome(DescribeVpnGatewaysResponse(outcome.GetResult()));
@@ -8513,7 +9505,7 @@ DetachClassicLinkVpcOutcome EC2Client::DetachClassicLinkVpc(const DetachClassicL
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DetachClassicLinkVpcOutcome(DetachClassicLinkVpcResponse(outcome.GetResult()));
@@ -8548,7 +9540,7 @@ DetachInternetGatewayOutcome EC2Client::DetachInternetGateway(const DetachIntern
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DetachInternetGatewayOutcome(NoResult());
@@ -8583,7 +9575,7 @@ DetachNetworkInterfaceOutcome EC2Client::DetachNetworkInterface(const DetachNetw
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DetachNetworkInterfaceOutcome(NoResult());
@@ -8618,7 +9610,7 @@ DetachVolumeOutcome EC2Client::DetachVolume(const DetachVolumeRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DetachVolumeOutcome(DetachVolumeResponse(outcome.GetResult()));
@@ -8653,7 +9645,7 @@ DetachVpnGatewayOutcome EC2Client::DetachVpnGateway(const DetachVpnGatewayReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DetachVpnGatewayOutcome(NoResult());
@@ -8688,7 +9680,7 @@ DisableEbsEncryptionByDefaultOutcome EC2Client::DisableEbsEncryptionByDefault(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisableEbsEncryptionByDefaultOutcome(DisableEbsEncryptionByDefaultResponse(outcome.GetResult()));
@@ -8717,13 +9709,48 @@ void EC2Client::DisableEbsEncryptionByDefaultAsyncHelper(const DisableEbsEncrypt
   handler(this, request, DisableEbsEncryptionByDefault(request), context);
 }
 
+DisableFastSnapshotRestoresOutcome EC2Client::DisableFastSnapshotRestores(const DisableFastSnapshotRestoresRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DisableFastSnapshotRestoresOutcome(DisableFastSnapshotRestoresResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DisableFastSnapshotRestoresOutcome(outcome.GetError());
+  }
+}
+
+DisableFastSnapshotRestoresOutcomeCallable EC2Client::DisableFastSnapshotRestoresCallable(const DisableFastSnapshotRestoresRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DisableFastSnapshotRestoresOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DisableFastSnapshotRestores(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DisableFastSnapshotRestoresAsync(const DisableFastSnapshotRestoresRequest& request, const DisableFastSnapshotRestoresResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DisableFastSnapshotRestoresAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DisableFastSnapshotRestoresAsyncHelper(const DisableFastSnapshotRestoresRequest& request, const DisableFastSnapshotRestoresResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DisableFastSnapshotRestores(request), context);
+}
+
 DisableTransitGatewayRouteTablePropagationOutcome EC2Client::DisableTransitGatewayRouteTablePropagation(const DisableTransitGatewayRouteTablePropagationRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisableTransitGatewayRouteTablePropagationOutcome(DisableTransitGatewayRouteTablePropagationResponse(outcome.GetResult()));
@@ -8758,7 +9785,7 @@ DisableVgwRoutePropagationOutcome EC2Client::DisableVgwRoutePropagation(const Di
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisableVgwRoutePropagationOutcome(NoResult());
@@ -8793,7 +9820,7 @@ DisableVpcClassicLinkOutcome EC2Client::DisableVpcClassicLink(const DisableVpcCl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisableVpcClassicLinkOutcome(DisableVpcClassicLinkResponse(outcome.GetResult()));
@@ -8828,7 +9855,7 @@ DisableVpcClassicLinkDnsSupportOutcome EC2Client::DisableVpcClassicLinkDnsSuppor
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisableVpcClassicLinkDnsSupportOutcome(DisableVpcClassicLinkDnsSupportResponse(outcome.GetResult()));
@@ -8863,7 +9890,7 @@ DisassociateAddressOutcome EC2Client::DisassociateAddress(const DisassociateAddr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisassociateAddressOutcome(NoResult());
@@ -8898,7 +9925,7 @@ DisassociateClientVpnTargetNetworkOutcome EC2Client::DisassociateClientVpnTarget
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisassociateClientVpnTargetNetworkOutcome(DisassociateClientVpnTargetNetworkResponse(outcome.GetResult()));
@@ -8933,7 +9960,7 @@ DisassociateIamInstanceProfileOutcome EC2Client::DisassociateIamInstanceProfile(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisassociateIamInstanceProfileOutcome(DisassociateIamInstanceProfileResponse(outcome.GetResult()));
@@ -8968,7 +9995,7 @@ DisassociateRouteTableOutcome EC2Client::DisassociateRouteTable(const Disassocia
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisassociateRouteTableOutcome(NoResult());
@@ -9003,7 +10030,7 @@ DisassociateSubnetCidrBlockOutcome EC2Client::DisassociateSubnetCidrBlock(const 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisassociateSubnetCidrBlockOutcome(DisassociateSubnetCidrBlockResponse(outcome.GetResult()));
@@ -9032,13 +10059,48 @@ void EC2Client::DisassociateSubnetCidrBlockAsyncHelper(const DisassociateSubnetC
   handler(this, request, DisassociateSubnetCidrBlock(request), context);
 }
 
+DisassociateTransitGatewayMulticastDomainOutcome EC2Client::DisassociateTransitGatewayMulticastDomain(const DisassociateTransitGatewayMulticastDomainRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return DisassociateTransitGatewayMulticastDomainOutcome(DisassociateTransitGatewayMulticastDomainResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return DisassociateTransitGatewayMulticastDomainOutcome(outcome.GetError());
+  }
+}
+
+DisassociateTransitGatewayMulticastDomainOutcomeCallable EC2Client::DisassociateTransitGatewayMulticastDomainCallable(const DisassociateTransitGatewayMulticastDomainRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DisassociateTransitGatewayMulticastDomainOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DisassociateTransitGatewayMulticastDomain(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::DisassociateTransitGatewayMulticastDomainAsync(const DisassociateTransitGatewayMulticastDomainRequest& request, const DisassociateTransitGatewayMulticastDomainResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DisassociateTransitGatewayMulticastDomainAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::DisassociateTransitGatewayMulticastDomainAsyncHelper(const DisassociateTransitGatewayMulticastDomainRequest& request, const DisassociateTransitGatewayMulticastDomainResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DisassociateTransitGatewayMulticastDomain(request), context);
+}
+
 DisassociateTransitGatewayRouteTableOutcome EC2Client::DisassociateTransitGatewayRouteTable(const DisassociateTransitGatewayRouteTableRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisassociateTransitGatewayRouteTableOutcome(DisassociateTransitGatewayRouteTableResponse(outcome.GetResult()));
@@ -9073,7 +10135,7 @@ DisassociateVpcCidrBlockOutcome EC2Client::DisassociateVpcCidrBlock(const Disass
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return DisassociateVpcCidrBlockOutcome(DisassociateVpcCidrBlockResponse(outcome.GetResult()));
@@ -9108,7 +10170,7 @@ EnableEbsEncryptionByDefaultOutcome EC2Client::EnableEbsEncryptionByDefault(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return EnableEbsEncryptionByDefaultOutcome(EnableEbsEncryptionByDefaultResponse(outcome.GetResult()));
@@ -9137,13 +10199,48 @@ void EC2Client::EnableEbsEncryptionByDefaultAsyncHelper(const EnableEbsEncryptio
   handler(this, request, EnableEbsEncryptionByDefault(request), context);
 }
 
+EnableFastSnapshotRestoresOutcome EC2Client::EnableFastSnapshotRestores(const EnableFastSnapshotRestoresRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return EnableFastSnapshotRestoresOutcome(EnableFastSnapshotRestoresResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return EnableFastSnapshotRestoresOutcome(outcome.GetError());
+  }
+}
+
+EnableFastSnapshotRestoresOutcomeCallable EC2Client::EnableFastSnapshotRestoresCallable(const EnableFastSnapshotRestoresRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< EnableFastSnapshotRestoresOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->EnableFastSnapshotRestores(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::EnableFastSnapshotRestoresAsync(const EnableFastSnapshotRestoresRequest& request, const EnableFastSnapshotRestoresResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->EnableFastSnapshotRestoresAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::EnableFastSnapshotRestoresAsyncHelper(const EnableFastSnapshotRestoresRequest& request, const EnableFastSnapshotRestoresResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, EnableFastSnapshotRestores(request), context);
+}
+
 EnableTransitGatewayRouteTablePropagationOutcome EC2Client::EnableTransitGatewayRouteTablePropagation(const EnableTransitGatewayRouteTablePropagationRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return EnableTransitGatewayRouteTablePropagationOutcome(EnableTransitGatewayRouteTablePropagationResponse(outcome.GetResult()));
@@ -9178,7 +10275,7 @@ EnableVgwRoutePropagationOutcome EC2Client::EnableVgwRoutePropagation(const Enab
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return EnableVgwRoutePropagationOutcome(NoResult());
@@ -9213,7 +10310,7 @@ EnableVolumeIOOutcome EC2Client::EnableVolumeIO(const EnableVolumeIORequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return EnableVolumeIOOutcome(NoResult());
@@ -9248,7 +10345,7 @@ EnableVpcClassicLinkOutcome EC2Client::EnableVpcClassicLink(const EnableVpcClass
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return EnableVpcClassicLinkOutcome(EnableVpcClassicLinkResponse(outcome.GetResult()));
@@ -9283,7 +10380,7 @@ EnableVpcClassicLinkDnsSupportOutcome EC2Client::EnableVpcClassicLinkDnsSupport(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return EnableVpcClassicLinkDnsSupportOutcome(EnableVpcClassicLinkDnsSupportResponse(outcome.GetResult()));
@@ -9318,7 +10415,7 @@ ExportClientVpnClientCertificateRevocationListOutcome EC2Client::ExportClientVpn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ExportClientVpnClientCertificateRevocationListOutcome(ExportClientVpnClientCertificateRevocationListResponse(outcome.GetResult()));
@@ -9353,7 +10450,7 @@ ExportClientVpnClientConfigurationOutcome EC2Client::ExportClientVpnClientConfig
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ExportClientVpnClientConfigurationOutcome(ExportClientVpnClientConfigurationResponse(outcome.GetResult()));
@@ -9382,13 +10479,48 @@ void EC2Client::ExportClientVpnClientConfigurationAsyncHelper(const ExportClient
   handler(this, request, ExportClientVpnClientConfiguration(request), context);
 }
 
+ExportImageOutcome EC2Client::ExportImage(const ExportImageRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return ExportImageOutcome(ExportImageResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return ExportImageOutcome(outcome.GetError());
+  }
+}
+
+ExportImageOutcomeCallable EC2Client::ExportImageCallable(const ExportImageRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ExportImageOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ExportImage(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::ExportImageAsync(const ExportImageRequest& request, const ExportImageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ExportImageAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::ExportImageAsyncHelper(const ExportImageRequest& request, const ExportImageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ExportImage(request), context);
+}
+
 ExportTransitGatewayRoutesOutcome EC2Client::ExportTransitGatewayRoutes(const ExportTransitGatewayRoutesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ExportTransitGatewayRoutesOutcome(ExportTransitGatewayRoutesResponse(outcome.GetResult()));
@@ -9417,13 +10549,48 @@ void EC2Client::ExportTransitGatewayRoutesAsyncHelper(const ExportTransitGateway
   handler(this, request, ExportTransitGatewayRoutes(request), context);
 }
 
+GetAssociatedIpv6PoolCidrsOutcome EC2Client::GetAssociatedIpv6PoolCidrs(const GetAssociatedIpv6PoolCidrsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return GetAssociatedIpv6PoolCidrsOutcome(GetAssociatedIpv6PoolCidrsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return GetAssociatedIpv6PoolCidrsOutcome(outcome.GetError());
+  }
+}
+
+GetAssociatedIpv6PoolCidrsOutcomeCallable EC2Client::GetAssociatedIpv6PoolCidrsCallable(const GetAssociatedIpv6PoolCidrsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetAssociatedIpv6PoolCidrsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetAssociatedIpv6PoolCidrs(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::GetAssociatedIpv6PoolCidrsAsync(const GetAssociatedIpv6PoolCidrsRequest& request, const GetAssociatedIpv6PoolCidrsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetAssociatedIpv6PoolCidrsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::GetAssociatedIpv6PoolCidrsAsyncHelper(const GetAssociatedIpv6PoolCidrsRequest& request, const GetAssociatedIpv6PoolCidrsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetAssociatedIpv6PoolCidrs(request), context);
+}
+
 GetCapacityReservationUsageOutcome EC2Client::GetCapacityReservationUsage(const GetCapacityReservationUsageRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetCapacityReservationUsageOutcome(GetCapacityReservationUsageResponse(outcome.GetResult()));
@@ -9452,13 +10619,48 @@ void EC2Client::GetCapacityReservationUsageAsyncHelper(const GetCapacityReservat
   handler(this, request, GetCapacityReservationUsage(request), context);
 }
 
+GetCoipPoolUsageOutcome EC2Client::GetCoipPoolUsage(const GetCoipPoolUsageRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return GetCoipPoolUsageOutcome(GetCoipPoolUsageResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return GetCoipPoolUsageOutcome(outcome.GetError());
+  }
+}
+
+GetCoipPoolUsageOutcomeCallable EC2Client::GetCoipPoolUsageCallable(const GetCoipPoolUsageRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetCoipPoolUsageOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetCoipPoolUsage(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::GetCoipPoolUsageAsync(const GetCoipPoolUsageRequest& request, const GetCoipPoolUsageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetCoipPoolUsageAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::GetCoipPoolUsageAsyncHelper(const GetCoipPoolUsageRequest& request, const GetCoipPoolUsageResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetCoipPoolUsage(request), context);
+}
+
 GetConsoleOutputOutcome EC2Client::GetConsoleOutput(const GetConsoleOutputRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetConsoleOutputOutcome(GetConsoleOutputResponse(outcome.GetResult()));
@@ -9493,7 +10695,7 @@ GetConsoleScreenshotOutcome EC2Client::GetConsoleScreenshot(const GetConsoleScre
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetConsoleScreenshotOutcome(GetConsoleScreenshotResponse(outcome.GetResult()));
@@ -9522,13 +10724,48 @@ void EC2Client::GetConsoleScreenshotAsyncHelper(const GetConsoleScreenshotReques
   handler(this, request, GetConsoleScreenshot(request), context);
 }
 
+GetDefaultCreditSpecificationOutcome EC2Client::GetDefaultCreditSpecification(const GetDefaultCreditSpecificationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return GetDefaultCreditSpecificationOutcome(GetDefaultCreditSpecificationResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return GetDefaultCreditSpecificationOutcome(outcome.GetError());
+  }
+}
+
+GetDefaultCreditSpecificationOutcomeCallable EC2Client::GetDefaultCreditSpecificationCallable(const GetDefaultCreditSpecificationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetDefaultCreditSpecificationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetDefaultCreditSpecification(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::GetDefaultCreditSpecificationAsync(const GetDefaultCreditSpecificationRequest& request, const GetDefaultCreditSpecificationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetDefaultCreditSpecificationAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::GetDefaultCreditSpecificationAsyncHelper(const GetDefaultCreditSpecificationRequest& request, const GetDefaultCreditSpecificationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetDefaultCreditSpecification(request), context);
+}
+
 GetEbsDefaultKmsKeyIdOutcome EC2Client::GetEbsDefaultKmsKeyId(const GetEbsDefaultKmsKeyIdRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetEbsDefaultKmsKeyIdOutcome(GetEbsDefaultKmsKeyIdResponse(outcome.GetResult()));
@@ -9563,7 +10800,7 @@ GetEbsEncryptionByDefaultOutcome EC2Client::GetEbsEncryptionByDefault(const GetE
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetEbsEncryptionByDefaultOutcome(GetEbsEncryptionByDefaultResponse(outcome.GetResult()));
@@ -9598,7 +10835,7 @@ GetHostReservationPurchasePreviewOutcome EC2Client::GetHostReservationPurchasePr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetHostReservationPurchasePreviewOutcome(GetHostReservationPurchasePreviewResponse(outcome.GetResult()));
@@ -9633,7 +10870,7 @@ GetLaunchTemplateDataOutcome EC2Client::GetLaunchTemplateData(const GetLaunchTem
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetLaunchTemplateDataOutcome(GetLaunchTemplateDataResponse(outcome.GetResult()));
@@ -9668,7 +10905,7 @@ GetPasswordDataOutcome EC2Client::GetPasswordData(const GetPasswordDataRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetPasswordDataOutcome(GetPasswordDataResponse(outcome.GetResult()));
@@ -9703,7 +10940,7 @@ GetReservedInstancesExchangeQuoteOutcome EC2Client::GetReservedInstancesExchange
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetReservedInstancesExchangeQuoteOutcome(GetReservedInstancesExchangeQuoteResponse(outcome.GetResult()));
@@ -9738,7 +10975,7 @@ GetTransitGatewayAttachmentPropagationsOutcome EC2Client::GetTransitGatewayAttac
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetTransitGatewayAttachmentPropagationsOutcome(GetTransitGatewayAttachmentPropagationsResponse(outcome.GetResult()));
@@ -9767,13 +11004,48 @@ void EC2Client::GetTransitGatewayAttachmentPropagationsAsyncHelper(const GetTran
   handler(this, request, GetTransitGatewayAttachmentPropagations(request), context);
 }
 
+GetTransitGatewayMulticastDomainAssociationsOutcome EC2Client::GetTransitGatewayMulticastDomainAssociations(const GetTransitGatewayMulticastDomainAssociationsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return GetTransitGatewayMulticastDomainAssociationsOutcome(GetTransitGatewayMulticastDomainAssociationsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return GetTransitGatewayMulticastDomainAssociationsOutcome(outcome.GetError());
+  }
+}
+
+GetTransitGatewayMulticastDomainAssociationsOutcomeCallable EC2Client::GetTransitGatewayMulticastDomainAssociationsCallable(const GetTransitGatewayMulticastDomainAssociationsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetTransitGatewayMulticastDomainAssociationsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetTransitGatewayMulticastDomainAssociations(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::GetTransitGatewayMulticastDomainAssociationsAsync(const GetTransitGatewayMulticastDomainAssociationsRequest& request, const GetTransitGatewayMulticastDomainAssociationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetTransitGatewayMulticastDomainAssociationsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::GetTransitGatewayMulticastDomainAssociationsAsyncHelper(const GetTransitGatewayMulticastDomainAssociationsRequest& request, const GetTransitGatewayMulticastDomainAssociationsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetTransitGatewayMulticastDomainAssociations(request), context);
+}
+
 GetTransitGatewayRouteTableAssociationsOutcome EC2Client::GetTransitGatewayRouteTableAssociations(const GetTransitGatewayRouteTableAssociationsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetTransitGatewayRouteTableAssociationsOutcome(GetTransitGatewayRouteTableAssociationsResponse(outcome.GetResult()));
@@ -9808,7 +11080,7 @@ GetTransitGatewayRouteTablePropagationsOutcome EC2Client::GetTransitGatewayRoute
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return GetTransitGatewayRouteTablePropagationsOutcome(GetTransitGatewayRouteTablePropagationsResponse(outcome.GetResult()));
@@ -9843,7 +11115,7 @@ ImportClientVpnClientCertificateRevocationListOutcome EC2Client::ImportClientVpn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ImportClientVpnClientCertificateRevocationListOutcome(ImportClientVpnClientCertificateRevocationListResponse(outcome.GetResult()));
@@ -9878,7 +11150,7 @@ ImportImageOutcome EC2Client::ImportImage(const ImportImageRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ImportImageOutcome(ImportImageResponse(outcome.GetResult()));
@@ -9913,7 +11185,7 @@ ImportInstanceOutcome EC2Client::ImportInstance(const ImportInstanceRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ImportInstanceOutcome(ImportInstanceResponse(outcome.GetResult()));
@@ -9948,7 +11220,7 @@ ImportKeyPairOutcome EC2Client::ImportKeyPair(const ImportKeyPairRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ImportKeyPairOutcome(ImportKeyPairResponse(outcome.GetResult()));
@@ -9983,7 +11255,7 @@ ImportSnapshotOutcome EC2Client::ImportSnapshot(const ImportSnapshotRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ImportSnapshotOutcome(ImportSnapshotResponse(outcome.GetResult()));
@@ -10018,7 +11290,7 @@ ImportVolumeOutcome EC2Client::ImportVolume(const ImportVolumeRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ImportVolumeOutcome(ImportVolumeResponse(outcome.GetResult()));
@@ -10047,13 +11319,48 @@ void EC2Client::ImportVolumeAsyncHelper(const ImportVolumeRequest& request, cons
   handler(this, request, ImportVolume(request), context);
 }
 
+ModifyAvailabilityZoneGroupOutcome EC2Client::ModifyAvailabilityZoneGroup(const ModifyAvailabilityZoneGroupRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return ModifyAvailabilityZoneGroupOutcome(ModifyAvailabilityZoneGroupResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return ModifyAvailabilityZoneGroupOutcome(outcome.GetError());
+  }
+}
+
+ModifyAvailabilityZoneGroupOutcomeCallable EC2Client::ModifyAvailabilityZoneGroupCallable(const ModifyAvailabilityZoneGroupRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ModifyAvailabilityZoneGroupOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ModifyAvailabilityZoneGroup(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::ModifyAvailabilityZoneGroupAsync(const ModifyAvailabilityZoneGroupRequest& request, const ModifyAvailabilityZoneGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ModifyAvailabilityZoneGroupAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::ModifyAvailabilityZoneGroupAsyncHelper(const ModifyAvailabilityZoneGroupRequest& request, const ModifyAvailabilityZoneGroupResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ModifyAvailabilityZoneGroup(request), context);
+}
+
 ModifyCapacityReservationOutcome EC2Client::ModifyCapacityReservation(const ModifyCapacityReservationRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyCapacityReservationOutcome(ModifyCapacityReservationResponse(outcome.GetResult()));
@@ -10088,7 +11395,7 @@ ModifyClientVpnEndpointOutcome EC2Client::ModifyClientVpnEndpoint(const ModifyCl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyClientVpnEndpointOutcome(ModifyClientVpnEndpointResponse(outcome.GetResult()));
@@ -10117,13 +11424,48 @@ void EC2Client::ModifyClientVpnEndpointAsyncHelper(const ModifyClientVpnEndpoint
   handler(this, request, ModifyClientVpnEndpoint(request), context);
 }
 
+ModifyDefaultCreditSpecificationOutcome EC2Client::ModifyDefaultCreditSpecification(const ModifyDefaultCreditSpecificationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return ModifyDefaultCreditSpecificationOutcome(ModifyDefaultCreditSpecificationResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return ModifyDefaultCreditSpecificationOutcome(outcome.GetError());
+  }
+}
+
+ModifyDefaultCreditSpecificationOutcomeCallable EC2Client::ModifyDefaultCreditSpecificationCallable(const ModifyDefaultCreditSpecificationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ModifyDefaultCreditSpecificationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ModifyDefaultCreditSpecification(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::ModifyDefaultCreditSpecificationAsync(const ModifyDefaultCreditSpecificationRequest& request, const ModifyDefaultCreditSpecificationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ModifyDefaultCreditSpecificationAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::ModifyDefaultCreditSpecificationAsyncHelper(const ModifyDefaultCreditSpecificationRequest& request, const ModifyDefaultCreditSpecificationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ModifyDefaultCreditSpecification(request), context);
+}
+
 ModifyEbsDefaultKmsKeyIdOutcome EC2Client::ModifyEbsDefaultKmsKeyId(const ModifyEbsDefaultKmsKeyIdRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyEbsDefaultKmsKeyIdOutcome(ModifyEbsDefaultKmsKeyIdResponse(outcome.GetResult()));
@@ -10158,7 +11500,7 @@ ModifyFleetOutcome EC2Client::ModifyFleet(const ModifyFleetRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyFleetOutcome(ModifyFleetResponse(outcome.GetResult()));
@@ -10193,7 +11535,7 @@ ModifyFpgaImageAttributeOutcome EC2Client::ModifyFpgaImageAttribute(const Modify
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyFpgaImageAttributeOutcome(ModifyFpgaImageAttributeResponse(outcome.GetResult()));
@@ -10228,7 +11570,7 @@ ModifyHostsOutcome EC2Client::ModifyHosts(const ModifyHostsRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyHostsOutcome(ModifyHostsResponse(outcome.GetResult()));
@@ -10263,7 +11605,7 @@ ModifyIdFormatOutcome EC2Client::ModifyIdFormat(const ModifyIdFormatRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyIdFormatOutcome(NoResult());
@@ -10298,7 +11640,7 @@ ModifyIdentityIdFormatOutcome EC2Client::ModifyIdentityIdFormat(const ModifyIden
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyIdentityIdFormatOutcome(NoResult());
@@ -10333,7 +11675,7 @@ ModifyImageAttributeOutcome EC2Client::ModifyImageAttribute(const ModifyImageAtt
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyImageAttributeOutcome(NoResult());
@@ -10368,7 +11710,7 @@ ModifyInstanceAttributeOutcome EC2Client::ModifyInstanceAttribute(const ModifyIn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyInstanceAttributeOutcome(NoResult());
@@ -10403,7 +11745,7 @@ ModifyInstanceCapacityReservationAttributesOutcome EC2Client::ModifyInstanceCapa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyInstanceCapacityReservationAttributesOutcome(ModifyInstanceCapacityReservationAttributesResponse(outcome.GetResult()));
@@ -10438,7 +11780,7 @@ ModifyInstanceCreditSpecificationOutcome EC2Client::ModifyInstanceCreditSpecific
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyInstanceCreditSpecificationOutcome(ModifyInstanceCreditSpecificationResponse(outcome.GetResult()));
@@ -10473,7 +11815,7 @@ ModifyInstanceEventStartTimeOutcome EC2Client::ModifyInstanceEventStartTime(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyInstanceEventStartTimeOutcome(ModifyInstanceEventStartTimeResponse(outcome.GetResult()));
@@ -10502,13 +11844,48 @@ void EC2Client::ModifyInstanceEventStartTimeAsyncHelper(const ModifyInstanceEven
   handler(this, request, ModifyInstanceEventStartTime(request), context);
 }
 
+ModifyInstanceMetadataOptionsOutcome EC2Client::ModifyInstanceMetadataOptions(const ModifyInstanceMetadataOptionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return ModifyInstanceMetadataOptionsOutcome(ModifyInstanceMetadataOptionsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return ModifyInstanceMetadataOptionsOutcome(outcome.GetError());
+  }
+}
+
+ModifyInstanceMetadataOptionsOutcomeCallable EC2Client::ModifyInstanceMetadataOptionsCallable(const ModifyInstanceMetadataOptionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ModifyInstanceMetadataOptionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ModifyInstanceMetadataOptions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::ModifyInstanceMetadataOptionsAsync(const ModifyInstanceMetadataOptionsRequest& request, const ModifyInstanceMetadataOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ModifyInstanceMetadataOptionsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::ModifyInstanceMetadataOptionsAsyncHelper(const ModifyInstanceMetadataOptionsRequest& request, const ModifyInstanceMetadataOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ModifyInstanceMetadataOptions(request), context);
+}
+
 ModifyInstancePlacementOutcome EC2Client::ModifyInstancePlacement(const ModifyInstancePlacementRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyInstancePlacementOutcome(ModifyInstancePlacementResponse(outcome.GetResult()));
@@ -10543,7 +11920,7 @@ ModifyLaunchTemplateOutcome EC2Client::ModifyLaunchTemplate(const ModifyLaunchTe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyLaunchTemplateOutcome(ModifyLaunchTemplateResponse(outcome.GetResult()));
@@ -10578,7 +11955,7 @@ ModifyNetworkInterfaceAttributeOutcome EC2Client::ModifyNetworkInterfaceAttribut
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyNetworkInterfaceAttributeOutcome(NoResult());
@@ -10613,7 +11990,7 @@ ModifyReservedInstancesOutcome EC2Client::ModifyReservedInstances(const ModifyRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyReservedInstancesOutcome(ModifyReservedInstancesResponse(outcome.GetResult()));
@@ -10648,7 +12025,7 @@ ModifySnapshotAttributeOutcome EC2Client::ModifySnapshotAttribute(const ModifySn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifySnapshotAttributeOutcome(NoResult());
@@ -10683,7 +12060,7 @@ ModifySpotFleetRequestOutcome EC2Client::ModifySpotFleetRequest(const ModifySpot
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifySpotFleetRequestOutcome(ModifySpotFleetRequestResponse(outcome.GetResult()));
@@ -10718,7 +12095,7 @@ ModifySubnetAttributeOutcome EC2Client::ModifySubnetAttribute(const ModifySubnet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifySubnetAttributeOutcome(NoResult());
@@ -10753,7 +12130,7 @@ ModifyTrafficMirrorFilterNetworkServicesOutcome EC2Client::ModifyTrafficMirrorFi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyTrafficMirrorFilterNetworkServicesOutcome(ModifyTrafficMirrorFilterNetworkServicesResponse(outcome.GetResult()));
@@ -10788,7 +12165,7 @@ ModifyTrafficMirrorFilterRuleOutcome EC2Client::ModifyTrafficMirrorFilterRule(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyTrafficMirrorFilterRuleOutcome(ModifyTrafficMirrorFilterRuleResponse(outcome.GetResult()));
@@ -10823,7 +12200,7 @@ ModifyTrafficMirrorSessionOutcome EC2Client::ModifyTrafficMirrorSession(const Mo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyTrafficMirrorSessionOutcome(ModifyTrafficMirrorSessionResponse(outcome.GetResult()));
@@ -10858,7 +12235,7 @@ ModifyTransitGatewayVpcAttachmentOutcome EC2Client::ModifyTransitGatewayVpcAttac
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyTransitGatewayVpcAttachmentOutcome(ModifyTransitGatewayVpcAttachmentResponse(outcome.GetResult()));
@@ -10893,7 +12270,7 @@ ModifyVolumeOutcome EC2Client::ModifyVolume(const ModifyVolumeRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVolumeOutcome(ModifyVolumeResponse(outcome.GetResult()));
@@ -10928,7 +12305,7 @@ ModifyVolumeAttributeOutcome EC2Client::ModifyVolumeAttribute(const ModifyVolume
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVolumeAttributeOutcome(NoResult());
@@ -10963,7 +12340,7 @@ ModifyVpcAttributeOutcome EC2Client::ModifyVpcAttribute(const ModifyVpcAttribute
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVpcAttributeOutcome(NoResult());
@@ -10998,7 +12375,7 @@ ModifyVpcEndpointOutcome EC2Client::ModifyVpcEndpoint(const ModifyVpcEndpointReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVpcEndpointOutcome(ModifyVpcEndpointResponse(outcome.GetResult()));
@@ -11033,7 +12410,7 @@ ModifyVpcEndpointConnectionNotificationOutcome EC2Client::ModifyVpcEndpointConne
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVpcEndpointConnectionNotificationOutcome(ModifyVpcEndpointConnectionNotificationResponse(outcome.GetResult()));
@@ -11068,7 +12445,7 @@ ModifyVpcEndpointServiceConfigurationOutcome EC2Client::ModifyVpcEndpointService
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVpcEndpointServiceConfigurationOutcome(ModifyVpcEndpointServiceConfigurationResponse(outcome.GetResult()));
@@ -11103,7 +12480,7 @@ ModifyVpcEndpointServicePermissionsOutcome EC2Client::ModifyVpcEndpointServicePe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVpcEndpointServicePermissionsOutcome(ModifyVpcEndpointServicePermissionsResponse(outcome.GetResult()));
@@ -11138,7 +12515,7 @@ ModifyVpcPeeringConnectionOptionsOutcome EC2Client::ModifyVpcPeeringConnectionOp
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVpcPeeringConnectionOptionsOutcome(ModifyVpcPeeringConnectionOptionsResponse(outcome.GetResult()));
@@ -11173,7 +12550,7 @@ ModifyVpcTenancyOutcome EC2Client::ModifyVpcTenancy(const ModifyVpcTenancyReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVpcTenancyOutcome(ModifyVpcTenancyResponse(outcome.GetResult()));
@@ -11208,7 +12585,7 @@ ModifyVpnConnectionOutcome EC2Client::ModifyVpnConnection(const ModifyVpnConnect
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ModifyVpnConnectionOutcome(ModifyVpnConnectionResponse(outcome.GetResult()));
@@ -11237,13 +12614,83 @@ void EC2Client::ModifyVpnConnectionAsyncHelper(const ModifyVpnConnectionRequest&
   handler(this, request, ModifyVpnConnection(request), context);
 }
 
+ModifyVpnTunnelCertificateOutcome EC2Client::ModifyVpnTunnelCertificate(const ModifyVpnTunnelCertificateRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return ModifyVpnTunnelCertificateOutcome(ModifyVpnTunnelCertificateResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return ModifyVpnTunnelCertificateOutcome(outcome.GetError());
+  }
+}
+
+ModifyVpnTunnelCertificateOutcomeCallable EC2Client::ModifyVpnTunnelCertificateCallable(const ModifyVpnTunnelCertificateRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ModifyVpnTunnelCertificateOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ModifyVpnTunnelCertificate(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::ModifyVpnTunnelCertificateAsync(const ModifyVpnTunnelCertificateRequest& request, const ModifyVpnTunnelCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ModifyVpnTunnelCertificateAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::ModifyVpnTunnelCertificateAsyncHelper(const ModifyVpnTunnelCertificateRequest& request, const ModifyVpnTunnelCertificateResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ModifyVpnTunnelCertificate(request), context);
+}
+
+ModifyVpnTunnelOptionsOutcome EC2Client::ModifyVpnTunnelOptions(const ModifyVpnTunnelOptionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return ModifyVpnTunnelOptionsOutcome(ModifyVpnTunnelOptionsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return ModifyVpnTunnelOptionsOutcome(outcome.GetError());
+  }
+}
+
+ModifyVpnTunnelOptionsOutcomeCallable EC2Client::ModifyVpnTunnelOptionsCallable(const ModifyVpnTunnelOptionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ModifyVpnTunnelOptionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ModifyVpnTunnelOptions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::ModifyVpnTunnelOptionsAsync(const ModifyVpnTunnelOptionsRequest& request, const ModifyVpnTunnelOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ModifyVpnTunnelOptionsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::ModifyVpnTunnelOptionsAsyncHelper(const ModifyVpnTunnelOptionsRequest& request, const ModifyVpnTunnelOptionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ModifyVpnTunnelOptions(request), context);
+}
+
 MonitorInstancesOutcome EC2Client::MonitorInstances(const MonitorInstancesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return MonitorInstancesOutcome(MonitorInstancesResponse(outcome.GetResult()));
@@ -11278,7 +12725,7 @@ MoveAddressToVpcOutcome EC2Client::MoveAddressToVpc(const MoveAddressToVpcReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return MoveAddressToVpcOutcome(MoveAddressToVpcResponse(outcome.GetResult()));
@@ -11313,7 +12760,7 @@ ProvisionByoipCidrOutcome EC2Client::ProvisionByoipCidr(const ProvisionByoipCidr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ProvisionByoipCidrOutcome(ProvisionByoipCidrResponse(outcome.GetResult()));
@@ -11348,7 +12795,7 @@ PurchaseHostReservationOutcome EC2Client::PurchaseHostReservation(const Purchase
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return PurchaseHostReservationOutcome(PurchaseHostReservationResponse(outcome.GetResult()));
@@ -11383,7 +12830,7 @@ PurchaseReservedInstancesOfferingOutcome EC2Client::PurchaseReservedInstancesOff
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return PurchaseReservedInstancesOfferingOutcome(PurchaseReservedInstancesOfferingResponse(outcome.GetResult()));
@@ -11418,7 +12865,7 @@ PurchaseScheduledInstancesOutcome EC2Client::PurchaseScheduledInstances(const Pu
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return PurchaseScheduledInstancesOutcome(PurchaseScheduledInstancesResponse(outcome.GetResult()));
@@ -11453,7 +12900,7 @@ RebootInstancesOutcome EC2Client::RebootInstances(const RebootInstancesRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RebootInstancesOutcome(NoResult());
@@ -11488,7 +12935,7 @@ RegisterImageOutcome EC2Client::RegisterImage(const RegisterImageRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RegisterImageOutcome(RegisterImageResponse(outcome.GetResult()));
@@ -11517,13 +12964,118 @@ void EC2Client::RegisterImageAsyncHelper(const RegisterImageRequest& request, co
   handler(this, request, RegisterImage(request), context);
 }
 
+RegisterTransitGatewayMulticastGroupMembersOutcome EC2Client::RegisterTransitGatewayMulticastGroupMembers(const RegisterTransitGatewayMulticastGroupMembersRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return RegisterTransitGatewayMulticastGroupMembersOutcome(RegisterTransitGatewayMulticastGroupMembersResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return RegisterTransitGatewayMulticastGroupMembersOutcome(outcome.GetError());
+  }
+}
+
+RegisterTransitGatewayMulticastGroupMembersOutcomeCallable EC2Client::RegisterTransitGatewayMulticastGroupMembersCallable(const RegisterTransitGatewayMulticastGroupMembersRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< RegisterTransitGatewayMulticastGroupMembersOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->RegisterTransitGatewayMulticastGroupMembers(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::RegisterTransitGatewayMulticastGroupMembersAsync(const RegisterTransitGatewayMulticastGroupMembersRequest& request, const RegisterTransitGatewayMulticastGroupMembersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->RegisterTransitGatewayMulticastGroupMembersAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::RegisterTransitGatewayMulticastGroupMembersAsyncHelper(const RegisterTransitGatewayMulticastGroupMembersRequest& request, const RegisterTransitGatewayMulticastGroupMembersResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, RegisterTransitGatewayMulticastGroupMembers(request), context);
+}
+
+RegisterTransitGatewayMulticastGroupSourcesOutcome EC2Client::RegisterTransitGatewayMulticastGroupSources(const RegisterTransitGatewayMulticastGroupSourcesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return RegisterTransitGatewayMulticastGroupSourcesOutcome(RegisterTransitGatewayMulticastGroupSourcesResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return RegisterTransitGatewayMulticastGroupSourcesOutcome(outcome.GetError());
+  }
+}
+
+RegisterTransitGatewayMulticastGroupSourcesOutcomeCallable EC2Client::RegisterTransitGatewayMulticastGroupSourcesCallable(const RegisterTransitGatewayMulticastGroupSourcesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< RegisterTransitGatewayMulticastGroupSourcesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->RegisterTransitGatewayMulticastGroupSources(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::RegisterTransitGatewayMulticastGroupSourcesAsync(const RegisterTransitGatewayMulticastGroupSourcesRequest& request, const RegisterTransitGatewayMulticastGroupSourcesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->RegisterTransitGatewayMulticastGroupSourcesAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::RegisterTransitGatewayMulticastGroupSourcesAsyncHelper(const RegisterTransitGatewayMulticastGroupSourcesRequest& request, const RegisterTransitGatewayMulticastGroupSourcesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, RegisterTransitGatewayMulticastGroupSources(request), context);
+}
+
+RejectTransitGatewayPeeringAttachmentOutcome EC2Client::RejectTransitGatewayPeeringAttachment(const RejectTransitGatewayPeeringAttachmentRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return RejectTransitGatewayPeeringAttachmentOutcome(RejectTransitGatewayPeeringAttachmentResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return RejectTransitGatewayPeeringAttachmentOutcome(outcome.GetError());
+  }
+}
+
+RejectTransitGatewayPeeringAttachmentOutcomeCallable EC2Client::RejectTransitGatewayPeeringAttachmentCallable(const RejectTransitGatewayPeeringAttachmentRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< RejectTransitGatewayPeeringAttachmentOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->RejectTransitGatewayPeeringAttachment(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::RejectTransitGatewayPeeringAttachmentAsync(const RejectTransitGatewayPeeringAttachmentRequest& request, const RejectTransitGatewayPeeringAttachmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->RejectTransitGatewayPeeringAttachmentAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::RejectTransitGatewayPeeringAttachmentAsyncHelper(const RejectTransitGatewayPeeringAttachmentRequest& request, const RejectTransitGatewayPeeringAttachmentResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, RejectTransitGatewayPeeringAttachment(request), context);
+}
+
 RejectTransitGatewayVpcAttachmentOutcome EC2Client::RejectTransitGatewayVpcAttachment(const RejectTransitGatewayVpcAttachmentRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RejectTransitGatewayVpcAttachmentOutcome(RejectTransitGatewayVpcAttachmentResponse(outcome.GetResult()));
@@ -11558,7 +13110,7 @@ RejectVpcEndpointConnectionsOutcome EC2Client::RejectVpcEndpointConnections(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RejectVpcEndpointConnectionsOutcome(RejectVpcEndpointConnectionsResponse(outcome.GetResult()));
@@ -11593,7 +13145,7 @@ RejectVpcPeeringConnectionOutcome EC2Client::RejectVpcPeeringConnection(const Re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RejectVpcPeeringConnectionOutcome(RejectVpcPeeringConnectionResponse(outcome.GetResult()));
@@ -11628,7 +13180,7 @@ ReleaseAddressOutcome EC2Client::ReleaseAddress(const ReleaseAddressRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReleaseAddressOutcome(NoResult());
@@ -11663,7 +13215,7 @@ ReleaseHostsOutcome EC2Client::ReleaseHosts(const ReleaseHostsRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReleaseHostsOutcome(ReleaseHostsResponse(outcome.GetResult()));
@@ -11698,7 +13250,7 @@ ReplaceIamInstanceProfileAssociationOutcome EC2Client::ReplaceIamInstanceProfile
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReplaceIamInstanceProfileAssociationOutcome(ReplaceIamInstanceProfileAssociationResponse(outcome.GetResult()));
@@ -11733,7 +13285,7 @@ ReplaceNetworkAclAssociationOutcome EC2Client::ReplaceNetworkAclAssociation(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReplaceNetworkAclAssociationOutcome(ReplaceNetworkAclAssociationResponse(outcome.GetResult()));
@@ -11768,7 +13320,7 @@ ReplaceNetworkAclEntryOutcome EC2Client::ReplaceNetworkAclEntry(const ReplaceNet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReplaceNetworkAclEntryOutcome(NoResult());
@@ -11803,7 +13355,7 @@ ReplaceRouteOutcome EC2Client::ReplaceRoute(const ReplaceRouteRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReplaceRouteOutcome(NoResult());
@@ -11838,7 +13390,7 @@ ReplaceRouteTableAssociationOutcome EC2Client::ReplaceRouteTableAssociation(cons
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReplaceRouteTableAssociationOutcome(ReplaceRouteTableAssociationResponse(outcome.GetResult()));
@@ -11873,7 +13425,7 @@ ReplaceTransitGatewayRouteOutcome EC2Client::ReplaceTransitGatewayRoute(const Re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReplaceTransitGatewayRouteOutcome(ReplaceTransitGatewayRouteResponse(outcome.GetResult()));
@@ -11908,7 +13460,7 @@ ReportInstanceStatusOutcome EC2Client::ReportInstanceStatus(const ReportInstance
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ReportInstanceStatusOutcome(NoResult());
@@ -11943,7 +13495,7 @@ RequestSpotFleetOutcome EC2Client::RequestSpotFleet(const RequestSpotFleetReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RequestSpotFleetOutcome(RequestSpotFleetResponse(outcome.GetResult()));
@@ -11978,7 +13530,7 @@ RequestSpotInstancesOutcome EC2Client::RequestSpotInstances(const RequestSpotIns
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RequestSpotInstancesOutcome(RequestSpotInstancesResponse(outcome.GetResult()));
@@ -12013,7 +13565,7 @@ ResetEbsDefaultKmsKeyIdOutcome EC2Client::ResetEbsDefaultKmsKeyId(const ResetEbs
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ResetEbsDefaultKmsKeyIdOutcome(ResetEbsDefaultKmsKeyIdResponse(outcome.GetResult()));
@@ -12048,7 +13600,7 @@ ResetFpgaImageAttributeOutcome EC2Client::ResetFpgaImageAttribute(const ResetFpg
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ResetFpgaImageAttributeOutcome(ResetFpgaImageAttributeResponse(outcome.GetResult()));
@@ -12083,7 +13635,7 @@ ResetImageAttributeOutcome EC2Client::ResetImageAttribute(const ResetImageAttrib
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ResetImageAttributeOutcome(NoResult());
@@ -12118,7 +13670,7 @@ ResetInstanceAttributeOutcome EC2Client::ResetInstanceAttribute(const ResetInsta
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ResetInstanceAttributeOutcome(NoResult());
@@ -12153,7 +13705,7 @@ ResetNetworkInterfaceAttributeOutcome EC2Client::ResetNetworkInterfaceAttribute(
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ResetNetworkInterfaceAttributeOutcome(NoResult());
@@ -12188,7 +13740,7 @@ ResetSnapshotAttributeOutcome EC2Client::ResetSnapshotAttribute(const ResetSnaps
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return ResetSnapshotAttributeOutcome(NoResult());
@@ -12223,7 +13775,7 @@ RestoreAddressToClassicOutcome EC2Client::RestoreAddressToClassic(const RestoreA
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RestoreAddressToClassicOutcome(RestoreAddressToClassicResponse(outcome.GetResult()));
@@ -12258,7 +13810,7 @@ RevokeClientVpnIngressOutcome EC2Client::RevokeClientVpnIngress(const RevokeClie
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RevokeClientVpnIngressOutcome(RevokeClientVpnIngressResponse(outcome.GetResult()));
@@ -12293,7 +13845,7 @@ RevokeSecurityGroupEgressOutcome EC2Client::RevokeSecurityGroupEgress(const Revo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RevokeSecurityGroupEgressOutcome(NoResult());
@@ -12328,7 +13880,7 @@ RevokeSecurityGroupIngressOutcome EC2Client::RevokeSecurityGroupIngress(const Re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RevokeSecurityGroupIngressOutcome(NoResult());
@@ -12363,7 +13915,7 @@ RunInstancesOutcome EC2Client::RunInstances(const RunInstancesRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RunInstancesOutcome(RunInstancesResponse(outcome.GetResult()));
@@ -12398,7 +13950,7 @@ RunScheduledInstancesOutcome EC2Client::RunScheduledInstances(const RunScheduled
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return RunScheduledInstancesOutcome(RunScheduledInstancesResponse(outcome.GetResult()));
@@ -12427,13 +13979,83 @@ void EC2Client::RunScheduledInstancesAsyncHelper(const RunScheduledInstancesRequ
   handler(this, request, RunScheduledInstances(request), context);
 }
 
+SearchLocalGatewayRoutesOutcome EC2Client::SearchLocalGatewayRoutes(const SearchLocalGatewayRoutesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return SearchLocalGatewayRoutesOutcome(SearchLocalGatewayRoutesResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return SearchLocalGatewayRoutesOutcome(outcome.GetError());
+  }
+}
+
+SearchLocalGatewayRoutesOutcomeCallable EC2Client::SearchLocalGatewayRoutesCallable(const SearchLocalGatewayRoutesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< SearchLocalGatewayRoutesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->SearchLocalGatewayRoutes(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::SearchLocalGatewayRoutesAsync(const SearchLocalGatewayRoutesRequest& request, const SearchLocalGatewayRoutesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->SearchLocalGatewayRoutesAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::SearchLocalGatewayRoutesAsyncHelper(const SearchLocalGatewayRoutesRequest& request, const SearchLocalGatewayRoutesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, SearchLocalGatewayRoutes(request), context);
+}
+
+SearchTransitGatewayMulticastGroupsOutcome EC2Client::SearchTransitGatewayMulticastGroups(const SearchTransitGatewayMulticastGroupsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return SearchTransitGatewayMulticastGroupsOutcome(SearchTransitGatewayMulticastGroupsResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return SearchTransitGatewayMulticastGroupsOutcome(outcome.GetError());
+  }
+}
+
+SearchTransitGatewayMulticastGroupsOutcomeCallable EC2Client::SearchTransitGatewayMulticastGroupsCallable(const SearchTransitGatewayMulticastGroupsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< SearchTransitGatewayMulticastGroupsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->SearchTransitGatewayMulticastGroups(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::SearchTransitGatewayMulticastGroupsAsync(const SearchTransitGatewayMulticastGroupsRequest& request, const SearchTransitGatewayMulticastGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->SearchTransitGatewayMulticastGroupsAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::SearchTransitGatewayMulticastGroupsAsyncHelper(const SearchTransitGatewayMulticastGroupsRequest& request, const SearchTransitGatewayMulticastGroupsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, SearchTransitGatewayMulticastGroups(request), context);
+}
+
 SearchTransitGatewayRoutesOutcome EC2Client::SearchTransitGatewayRoutes(const SearchTransitGatewayRoutesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return SearchTransitGatewayRoutesOutcome(SearchTransitGatewayRoutesResponse(outcome.GetResult()));
@@ -12462,13 +14084,48 @@ void EC2Client::SearchTransitGatewayRoutesAsyncHelper(const SearchTransitGateway
   handler(this, request, SearchTransitGatewayRoutes(request), context);
 }
 
+SendDiagnosticInterruptOutcome EC2Client::SendDiagnosticInterrupt(const SendDiagnosticInterruptRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return SendDiagnosticInterruptOutcome(NoResult());
+  }
+  else
+  {
+    return SendDiagnosticInterruptOutcome(outcome.GetError());
+  }
+}
+
+SendDiagnosticInterruptOutcomeCallable EC2Client::SendDiagnosticInterruptCallable(const SendDiagnosticInterruptRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< SendDiagnosticInterruptOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->SendDiagnosticInterrupt(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::SendDiagnosticInterruptAsync(const SendDiagnosticInterruptRequest& request, const SendDiagnosticInterruptResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->SendDiagnosticInterruptAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::SendDiagnosticInterruptAsyncHelper(const SendDiagnosticInterruptRequest& request, const SendDiagnosticInterruptResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, SendDiagnosticInterrupt(request), context);
+}
+
 StartInstancesOutcome EC2Client::StartInstances(const StartInstancesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return StartInstancesOutcome(StartInstancesResponse(outcome.GetResult()));
@@ -12497,13 +14154,48 @@ void EC2Client::StartInstancesAsyncHelper(const StartInstancesRequest& request, 
   handler(this, request, StartInstances(request), context);
 }
 
+StartVpcEndpointServicePrivateDnsVerificationOutcome EC2Client::StartVpcEndpointServicePrivateDnsVerification(const StartVpcEndpointServicePrivateDnsVerificationRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
+  if(outcome.IsSuccess())
+  {
+    return StartVpcEndpointServicePrivateDnsVerificationOutcome(StartVpcEndpointServicePrivateDnsVerificationResponse(outcome.GetResult()));
+  }
+  else
+  {
+    return StartVpcEndpointServicePrivateDnsVerificationOutcome(outcome.GetError());
+  }
+}
+
+StartVpcEndpointServicePrivateDnsVerificationOutcomeCallable EC2Client::StartVpcEndpointServicePrivateDnsVerificationCallable(const StartVpcEndpointServicePrivateDnsVerificationRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartVpcEndpointServicePrivateDnsVerificationOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartVpcEndpointServicePrivateDnsVerification(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void EC2Client::StartVpcEndpointServicePrivateDnsVerificationAsync(const StartVpcEndpointServicePrivateDnsVerificationRequest& request, const StartVpcEndpointServicePrivateDnsVerificationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartVpcEndpointServicePrivateDnsVerificationAsyncHelper( request, handler, context ); } );
+}
+
+void EC2Client::StartVpcEndpointServicePrivateDnsVerificationAsyncHelper(const StartVpcEndpointServicePrivateDnsVerificationRequest& request, const StartVpcEndpointServicePrivateDnsVerificationResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartVpcEndpointServicePrivateDnsVerification(request), context);
+}
+
 StopInstancesOutcome EC2Client::StopInstances(const StopInstancesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return StopInstancesOutcome(StopInstancesResponse(outcome.GetResult()));
@@ -12538,7 +14230,7 @@ TerminateClientVpnConnectionsOutcome EC2Client::TerminateClientVpnConnections(co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return TerminateClientVpnConnectionsOutcome(TerminateClientVpnConnectionsResponse(outcome.GetResult()));
@@ -12573,7 +14265,7 @@ TerminateInstancesOutcome EC2Client::TerminateInstances(const TerminateInstances
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return TerminateInstancesOutcome(TerminateInstancesResponse(outcome.GetResult()));
@@ -12608,7 +14300,7 @@ UnassignIpv6AddressesOutcome EC2Client::UnassignIpv6Addresses(const UnassignIpv6
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return UnassignIpv6AddressesOutcome(UnassignIpv6AddressesResponse(outcome.GetResult()));
@@ -12643,7 +14335,7 @@ UnassignPrivateIpAddressesOutcome EC2Client::UnassignPrivateIpAddresses(const Un
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return UnassignPrivateIpAddressesOutcome(NoResult());
@@ -12678,7 +14370,7 @@ UnmonitorInstancesOutcome EC2Client::UnmonitorInstances(const UnmonitorInstances
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return UnmonitorInstancesOutcome(UnmonitorInstancesResponse(outcome.GetResult()));
@@ -12713,7 +14405,7 @@ UpdateSecurityGroupRuleDescriptionsEgressOutcome EC2Client::UpdateSecurityGroupR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return UpdateSecurityGroupRuleDescriptionsEgressOutcome(UpdateSecurityGroupRuleDescriptionsEgressResponse(outcome.GetResult()));
@@ -12748,7 +14440,7 @@ UpdateSecurityGroupRuleDescriptionsIngressOutcome EC2Client::UpdateSecurityGroup
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return UpdateSecurityGroupRuleDescriptionsIngressOutcome(UpdateSecurityGroupRuleDescriptionsIngressResponse(outcome.GetResult()));
@@ -12783,7 +14475,7 @@ WithdrawByoipCidrOutcome EC2Client::WithdrawByoipCidr(const WithdrawByoipCidrReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  XmlOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST);
+  XmlOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST);
   if(outcome.IsSuccess())
   {
     return WithdrawByoipCidrOutcome(WithdrawByoipCidrResponse(outcome.GetResult()));

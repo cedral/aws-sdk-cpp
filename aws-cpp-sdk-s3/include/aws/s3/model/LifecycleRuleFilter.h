@@ -35,9 +35,9 @@ namespace Model
 {
 
   /**
-   * <p>The Filter is used to identify objects that a Lifecycle Rule applies to. A
-   * Filter must have exactly one of Prefix, Tag, or And specified.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule
+   * applies to. A <code>Filter</code> must have exactly one of <code>Prefix</code>,
+   * <code>Tag</code>, or <code>And</code> specified.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/s3-2006-03-01/LifecycleRuleFilter">AWS
    * API Reference</a></p>
    */
@@ -129,34 +129,22 @@ namespace Model
     inline LifecycleRuleFilter& WithTag(Tag&& value) { SetTag(std::move(value)); return *this;}
 
 
-    /**
-     * <p/>
-     */
+    
     inline const LifecycleRuleAndOperator& GetAnd() const{ return m_and; }
 
-    /**
-     * <p/>
-     */
+    
     inline bool AndHasBeenSet() const { return m_andHasBeenSet; }
 
-    /**
-     * <p/>
-     */
+    
     inline void SetAnd(const LifecycleRuleAndOperator& value) { m_andHasBeenSet = true; m_and = value; }
 
-    /**
-     * <p/>
-     */
+    
     inline void SetAnd(LifecycleRuleAndOperator&& value) { m_andHasBeenSet = true; m_and = std::move(value); }
 
-    /**
-     * <p/>
-     */
+    
     inline LifecycleRuleFilter& WithAnd(const LifecycleRuleAndOperator& value) { SetAnd(value); return *this;}
 
-    /**
-     * <p/>
-     */
+    
     inline LifecycleRuleFilter& WithAnd(LifecycleRuleAndOperator&& value) { SetAnd(std::move(value)); return *this;}
 
   private:

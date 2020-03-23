@@ -28,7 +28,9 @@ UpdateBrokerRequest::UpdateBrokerRequest() :
     m_brokerIdHasBeenSet(false),
     m_configurationHasBeenSet(false),
     m_engineVersionHasBeenSet(false),
-    m_logsHasBeenSet(false)
+    m_hostInstanceTypeHasBeenSet(false),
+    m_logsHasBeenSet(false),
+    m_securityGroupsHasBeenSet(false)
 {
 }
 
@@ -54,9 +56,26 @@ Aws::String UpdateBrokerRequest::SerializePayload() const
 
   }
 
+  if(m_hostInstanceTypeHasBeenSet)
+  {
+   payload.WithString("hostInstanceType", m_hostInstanceType);
+
+  }
+
   if(m_logsHasBeenSet)
   {
    payload.WithObject("logs", m_logs.Jsonize());
+
+  }
+
+  if(m_securityGroupsHasBeenSet)
+  {
+   Array<JsonValue> securityGroupsJsonList(m_securityGroups.size());
+   for(unsigned securityGroupsIndex = 0; securityGroupsIndex < securityGroupsJsonList.GetLength(); ++securityGroupsIndex)
+   {
+     securityGroupsJsonList[securityGroupsIndex].AsString(m_securityGroups[securityGroupsIndex]);
+   }
+   payload.WithArray("securityGroups", std::move(securityGroupsJsonList));
 
   }
 

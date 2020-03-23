@@ -31,6 +31,7 @@ namespace Aws
       {
 
         static const int GPU_HASH = HashingUtils::HashString("GPU");
+        static const int InferenceAccelerator_HASH = HashingUtils::HashString("InferenceAccelerator");
 
 
         ResourceType GetResourceTypeForName(const Aws::String& name)
@@ -39,6 +40,10 @@ namespace Aws
           if (hashCode == GPU_HASH)
           {
             return ResourceType::GPU;
+          }
+          else if (hashCode == InferenceAccelerator_HASH)
+          {
+            return ResourceType::InferenceAccelerator;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -56,6 +61,8 @@ namespace Aws
           {
           case ResourceType::GPU:
             return "GPU";
+          case ResourceType::InferenceAccelerator:
+            return "InferenceAccelerator";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

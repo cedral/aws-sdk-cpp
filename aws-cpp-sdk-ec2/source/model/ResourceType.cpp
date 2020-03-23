@@ -41,14 +41,17 @@ namespace Aws
         static const int image_HASH = HashingUtils::HashString("image");
         static const int instance_HASH = HashingUtils::HashString("instance");
         static const int internet_gateway_HASH = HashingUtils::HashString("internet-gateway");
+        static const int key_pair_HASH = HashingUtils::HashString("key-pair");
         static const int launch_template_HASH = HashingUtils::HashString("launch-template");
         static const int natgateway_HASH = HashingUtils::HashString("natgateway");
         static const int network_acl_HASH = HashingUtils::HashString("network-acl");
         static const int network_interface_HASH = HashingUtils::HashString("network-interface");
+        static const int placement_group_HASH = HashingUtils::HashString("placement-group");
         static const int reserved_instances_HASH = HashingUtils::HashString("reserved-instances");
         static const int route_table_HASH = HashingUtils::HashString("route-table");
         static const int security_group_HASH = HashingUtils::HashString("security-group");
         static const int snapshot_HASH = HashingUtils::HashString("snapshot");
+        static const int spot_fleet_request_HASH = HashingUtils::HashString("spot-fleet-request");
         static const int spot_instances_request_HASH = HashingUtils::HashString("spot-instances-request");
         static const int subnet_HASH = HashingUtils::HashString("subnet");
         static const int traffic_mirror_filter_HASH = HashingUtils::HashString("traffic-mirror-filter");
@@ -56,12 +59,14 @@ namespace Aws
         static const int traffic_mirror_target_HASH = HashingUtils::HashString("traffic-mirror-target");
         static const int transit_gateway_HASH = HashingUtils::HashString("transit-gateway");
         static const int transit_gateway_attachment_HASH = HashingUtils::HashString("transit-gateway-attachment");
+        static const int transit_gateway_multicast_domain_HASH = HashingUtils::HashString("transit-gateway-multicast-domain");
         static const int transit_gateway_route_table_HASH = HashingUtils::HashString("transit-gateway-route-table");
         static const int volume_HASH = HashingUtils::HashString("volume");
         static const int vpc_HASH = HashingUtils::HashString("vpc");
         static const int vpc_peering_connection_HASH = HashingUtils::HashString("vpc-peering-connection");
         static const int vpn_connection_HASH = HashingUtils::HashString("vpn-connection");
         static const int vpn_gateway_HASH = HashingUtils::HashString("vpn-gateway");
+        static const int vpc_flow_log_HASH = HashingUtils::HashString("vpc-flow-log");
 
 
         ResourceType GetResourceTypeForName(const Aws::String& name)
@@ -111,6 +116,10 @@ namespace Aws
           {
             return ResourceType::internet_gateway;
           }
+          else if (hashCode == key_pair_HASH)
+          {
+            return ResourceType::key_pair;
+          }
           else if (hashCode == launch_template_HASH)
           {
             return ResourceType::launch_template;
@@ -127,6 +136,10 @@ namespace Aws
           {
             return ResourceType::network_interface;
           }
+          else if (hashCode == placement_group_HASH)
+          {
+            return ResourceType::placement_group;
+          }
           else if (hashCode == reserved_instances_HASH)
           {
             return ResourceType::reserved_instances;
@@ -142,6 +155,10 @@ namespace Aws
           else if (hashCode == snapshot_HASH)
           {
             return ResourceType::snapshot;
+          }
+          else if (hashCode == spot_fleet_request_HASH)
+          {
+            return ResourceType::spot_fleet_request;
           }
           else if (hashCode == spot_instances_request_HASH)
           {
@@ -171,6 +188,10 @@ namespace Aws
           {
             return ResourceType::transit_gateway_attachment;
           }
+          else if (hashCode == transit_gateway_multicast_domain_HASH)
+          {
+            return ResourceType::transit_gateway_multicast_domain;
+          }
           else if (hashCode == transit_gateway_route_table_HASH)
           {
             return ResourceType::transit_gateway_route_table;
@@ -194,6 +215,10 @@ namespace Aws
           else if (hashCode == vpn_gateway_HASH)
           {
             return ResourceType::vpn_gateway;
+          }
+          else if (hashCode == vpc_flow_log_HASH)
+          {
+            return ResourceType::vpc_flow_log;
           }
           EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
           if(overflowContainer)
@@ -231,6 +256,8 @@ namespace Aws
             return "instance";
           case ResourceType::internet_gateway:
             return "internet-gateway";
+          case ResourceType::key_pair:
+            return "key-pair";
           case ResourceType::launch_template:
             return "launch-template";
           case ResourceType::natgateway:
@@ -239,6 +266,8 @@ namespace Aws
             return "network-acl";
           case ResourceType::network_interface:
             return "network-interface";
+          case ResourceType::placement_group:
+            return "placement-group";
           case ResourceType::reserved_instances:
             return "reserved-instances";
           case ResourceType::route_table:
@@ -247,6 +276,8 @@ namespace Aws
             return "security-group";
           case ResourceType::snapshot:
             return "snapshot";
+          case ResourceType::spot_fleet_request:
+            return "spot-fleet-request";
           case ResourceType::spot_instances_request:
             return "spot-instances-request";
           case ResourceType::subnet:
@@ -261,6 +292,8 @@ namespace Aws
             return "transit-gateway";
           case ResourceType::transit_gateway_attachment:
             return "transit-gateway-attachment";
+          case ResourceType::transit_gateway_multicast_domain:
+            return "transit-gateway-multicast-domain";
           case ResourceType::transit_gateway_route_table:
             return "transit-gateway-route-table";
           case ResourceType::volume:
@@ -273,6 +306,8 @@ namespace Aws
             return "vpn-connection";
           case ResourceType::vpn_gateway:
             return "vpn-gateway";
+          case ResourceType::vpc_flow_log:
+            return "vpc-flow-log";
           default:
             EnumParseOverflowContainer* overflowContainer = Aws::GetEnumOverflowContainer();
             if(overflowContainer)

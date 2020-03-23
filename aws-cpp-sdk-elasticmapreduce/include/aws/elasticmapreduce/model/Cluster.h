@@ -396,11 +396,11 @@ namespace Model
     /**
      * <p>The Amazon EMR release label, which determines the version of open-source
      * application packages installed on the cluster. Release labels are in the form
-     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     * versions and included application versions and features, see <a
+     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
+     * <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
+     * and included application versions and features, see <a
      * href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-     * The release label applies only to Amazon EMR releases versions 4.x and later.
+     * The release label applies only to Amazon EMR releases version 4.0 and later.
      * Earlier versions use <code>AmiVersion</code>.</p>
      */
     inline const Aws::String& GetReleaseLabel() const{ return m_releaseLabel; }
@@ -408,11 +408,11 @@ namespace Model
     /**
      * <p>The Amazon EMR release label, which determines the version of open-source
      * application packages installed on the cluster. Release labels are in the form
-     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     * versions and included application versions and features, see <a
+     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
+     * <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
+     * and included application versions and features, see <a
      * href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-     * The release label applies only to Amazon EMR releases versions 4.x and later.
+     * The release label applies only to Amazon EMR releases version 4.0 and later.
      * Earlier versions use <code>AmiVersion</code>.</p>
      */
     inline bool ReleaseLabelHasBeenSet() const { return m_releaseLabelHasBeenSet; }
@@ -420,11 +420,11 @@ namespace Model
     /**
      * <p>The Amazon EMR release label, which determines the version of open-source
      * application packages installed on the cluster. Release labels are in the form
-     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     * versions and included application versions and features, see <a
+     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
+     * <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
+     * and included application versions and features, see <a
      * href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-     * The release label applies only to Amazon EMR releases versions 4.x and later.
+     * The release label applies only to Amazon EMR releases version 4.0 and later.
      * Earlier versions use <code>AmiVersion</code>.</p>
      */
     inline void SetReleaseLabel(const Aws::String& value) { m_releaseLabelHasBeenSet = true; m_releaseLabel = value; }
@@ -432,11 +432,11 @@ namespace Model
     /**
      * <p>The Amazon EMR release label, which determines the version of open-source
      * application packages installed on the cluster. Release labels are in the form
-     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     * versions and included application versions and features, see <a
+     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
+     * <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
+     * and included application versions and features, see <a
      * href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-     * The release label applies only to Amazon EMR releases versions 4.x and later.
+     * The release label applies only to Amazon EMR releases version 4.0 and later.
      * Earlier versions use <code>AmiVersion</code>.</p>
      */
     inline void SetReleaseLabel(Aws::String&& value) { m_releaseLabelHasBeenSet = true; m_releaseLabel = std::move(value); }
@@ -444,11 +444,11 @@ namespace Model
     /**
      * <p>The Amazon EMR release label, which determines the version of open-source
      * application packages installed on the cluster. Release labels are in the form
-     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     * versions and included application versions and features, see <a
+     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
+     * <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
+     * and included application versions and features, see <a
      * href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-     * The release label applies only to Amazon EMR releases versions 4.x and later.
+     * The release label applies only to Amazon EMR releases version 4.0 and later.
      * Earlier versions use <code>AmiVersion</code>.</p>
      */
     inline void SetReleaseLabel(const char* value) { m_releaseLabelHasBeenSet = true; m_releaseLabel.assign(value); }
@@ -456,11 +456,11 @@ namespace Model
     /**
      * <p>The Amazon EMR release label, which determines the version of open-source
      * application packages installed on the cluster. Release labels are in the form
-     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     * versions and included application versions and features, see <a
+     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
+     * <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
+     * and included application versions and features, see <a
      * href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-     * The release label applies only to Amazon EMR releases versions 4.x and later.
+     * The release label applies only to Amazon EMR releases version 4.0 and later.
      * Earlier versions use <code>AmiVersion</code>.</p>
      */
     inline Cluster& WithReleaseLabel(const Aws::String& value) { SetReleaseLabel(value); return *this;}
@@ -468,11 +468,11 @@ namespace Model
     /**
      * <p>The Amazon EMR release label, which determines the version of open-source
      * application packages installed on the cluster. Release labels are in the form
-     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     * versions and included application versions and features, see <a
+     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
+     * <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
+     * and included application versions and features, see <a
      * href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-     * The release label applies only to Amazon EMR releases versions 4.x and later.
+     * The release label applies only to Amazon EMR releases version 4.0 and later.
      * Earlier versions use <code>AmiVersion</code>.</p>
      */
     inline Cluster& WithReleaseLabel(Aws::String&& value) { SetReleaseLabel(std::move(value)); return *this;}
@@ -480,11 +480,11 @@ namespace Model
     /**
      * <p>The Amazon EMR release label, which determines the version of open-source
      * application packages installed on the cluster. Release labels are in the form
-     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version, for
-     * example, <code>emr-5.14.0</code>. For more information about Amazon EMR release
-     * versions and included application versions and features, see <a
+     * <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release version such as
+     * <code>emr-5.14.0</code>. For more information about Amazon EMR release versions
+     * and included application versions and features, see <a
      * href="https://docs.aws.amazon.com/emr/latest/ReleaseGuide/">https://docs.aws.amazon.com/emr/latest/ReleaseGuide/</a>.
-     * The release label applies only to Amazon EMR releases versions 4.x and later.
+     * The release label applies only to Amazon EMR releases version 4.0 and later.
      * Earlier versions use <code>AmiVersion</code>.</p>
      */
     inline Cluster& WithReleaseLabel(const char* value) { SetReleaseLabel(value); return *this;}
@@ -546,41 +546,53 @@ namespace Model
 
     /**
      * <p>Indicates whether the cluster is visible to all IAM users of the AWS account
-     * associated with the cluster. If this value is set to <code>true</code>, all IAM
-     * users of that AWS account can view and manage the cluster if they have the
-     * proper policy permissions set. If this value is <code>false</code>, only the IAM
-     * user that created the cluster can view and manage it. This value can be changed
-     * using the <a>SetVisibleToAllUsers</a> action.</p>
+     * associated with the cluster. The default value, <code>true</code>, indicates
+     * that all IAM users in the AWS account can perform cluster actions if they have
+     * the proper IAM policy permissions. If this value is <code>false</code>, only the
+     * IAM user that created the cluster can perform actions. This value can be changed
+     * on a running cluster by using the <a>SetVisibleToAllUsers</a> action. You can
+     * override the default value of <code>true</code> when you create a cluster by
+     * using the <code>VisibleToAllUsers</code> parameter of the
+     * <code>RunJobFlow</code> action.</p>
      */
     inline bool GetVisibleToAllUsers() const{ return m_visibleToAllUsers; }
 
     /**
      * <p>Indicates whether the cluster is visible to all IAM users of the AWS account
-     * associated with the cluster. If this value is set to <code>true</code>, all IAM
-     * users of that AWS account can view and manage the cluster if they have the
-     * proper policy permissions set. If this value is <code>false</code>, only the IAM
-     * user that created the cluster can view and manage it. This value can be changed
-     * using the <a>SetVisibleToAllUsers</a> action.</p>
+     * associated with the cluster. The default value, <code>true</code>, indicates
+     * that all IAM users in the AWS account can perform cluster actions if they have
+     * the proper IAM policy permissions. If this value is <code>false</code>, only the
+     * IAM user that created the cluster can perform actions. This value can be changed
+     * on a running cluster by using the <a>SetVisibleToAllUsers</a> action. You can
+     * override the default value of <code>true</code> when you create a cluster by
+     * using the <code>VisibleToAllUsers</code> parameter of the
+     * <code>RunJobFlow</code> action.</p>
      */
     inline bool VisibleToAllUsersHasBeenSet() const { return m_visibleToAllUsersHasBeenSet; }
 
     /**
      * <p>Indicates whether the cluster is visible to all IAM users of the AWS account
-     * associated with the cluster. If this value is set to <code>true</code>, all IAM
-     * users of that AWS account can view and manage the cluster if they have the
-     * proper policy permissions set. If this value is <code>false</code>, only the IAM
-     * user that created the cluster can view and manage it. This value can be changed
-     * using the <a>SetVisibleToAllUsers</a> action.</p>
+     * associated with the cluster. The default value, <code>true</code>, indicates
+     * that all IAM users in the AWS account can perform cluster actions if they have
+     * the proper IAM policy permissions. If this value is <code>false</code>, only the
+     * IAM user that created the cluster can perform actions. This value can be changed
+     * on a running cluster by using the <a>SetVisibleToAllUsers</a> action. You can
+     * override the default value of <code>true</code> when you create a cluster by
+     * using the <code>VisibleToAllUsers</code> parameter of the
+     * <code>RunJobFlow</code> action.</p>
      */
     inline void SetVisibleToAllUsers(bool value) { m_visibleToAllUsersHasBeenSet = true; m_visibleToAllUsers = value; }
 
     /**
      * <p>Indicates whether the cluster is visible to all IAM users of the AWS account
-     * associated with the cluster. If this value is set to <code>true</code>, all IAM
-     * users of that AWS account can view and manage the cluster if they have the
-     * proper policy permissions set. If this value is <code>false</code>, only the IAM
-     * user that created the cluster can view and manage it. This value can be changed
-     * using the <a>SetVisibleToAllUsers</a> action.</p>
+     * associated with the cluster. The default value, <code>true</code>, indicates
+     * that all IAM users in the AWS account can perform cluster actions if they have
+     * the proper IAM policy permissions. If this value is <code>false</code>, only the
+     * IAM user that created the cluster can perform actions. This value can be changed
+     * on a running cluster by using the <a>SetVisibleToAllUsers</a> action. You can
+     * override the default value of <code>true</code> when you create a cluster by
+     * using the <code>VisibleToAllUsers</code> parameter of the
+     * <code>RunJobFlow</code> action.</p>
      */
     inline Cluster& WithVisibleToAllUsers(bool value) { SetVisibleToAllUsers(value); return *this;}
 
@@ -1229,6 +1241,117 @@ namespace Model
      */
     inline Cluster& WithKerberosAttributes(KerberosAttributes&& value) { SetKerberosAttributes(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The Amazon Resource Name of the cluster.</p>
+     */
+    inline const Aws::String& GetClusterArn() const{ return m_clusterArn; }
+
+    /**
+     * <p>The Amazon Resource Name of the cluster.</p>
+     */
+    inline bool ClusterArnHasBeenSet() const { return m_clusterArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name of the cluster.</p>
+     */
+    inline void SetClusterArn(const Aws::String& value) { m_clusterArnHasBeenSet = true; m_clusterArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name of the cluster.</p>
+     */
+    inline void SetClusterArn(Aws::String&& value) { m_clusterArnHasBeenSet = true; m_clusterArn = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name of the cluster.</p>
+     */
+    inline void SetClusterArn(const char* value) { m_clusterArnHasBeenSet = true; m_clusterArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name of the cluster.</p>
+     */
+    inline Cluster& WithClusterArn(const Aws::String& value) { SetClusterArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name of the cluster.</p>
+     */
+    inline Cluster& WithClusterArn(Aws::String&& value) { SetClusterArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name of the cluster.</p>
+     */
+    inline Cluster& WithClusterArn(const char* value) { SetClusterArn(value); return *this;}
+
+
+    /**
+     * <p>Specifies the number of steps that can be executed concurrently.</p>
+     */
+    inline int GetStepConcurrencyLevel() const{ return m_stepConcurrencyLevel; }
+
+    /**
+     * <p>Specifies the number of steps that can be executed concurrently.</p>
+     */
+    inline bool StepConcurrencyLevelHasBeenSet() const { return m_stepConcurrencyLevelHasBeenSet; }
+
+    /**
+     * <p>Specifies the number of steps that can be executed concurrently.</p>
+     */
+    inline void SetStepConcurrencyLevel(int value) { m_stepConcurrencyLevelHasBeenSet = true; m_stepConcurrencyLevel = value; }
+
+    /**
+     * <p>Specifies the number of steps that can be executed concurrently.</p>
+     */
+    inline Cluster& WithStepConcurrencyLevel(int value) { SetStepConcurrencyLevel(value); return *this;}
+
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+     * </p>
+     */
+    inline const Aws::String& GetOutpostArn() const{ return m_outpostArn; }
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+     * </p>
+     */
+    inline bool OutpostArnHasBeenSet() const { return m_outpostArnHasBeenSet; }
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+     * </p>
+     */
+    inline void SetOutpostArn(const Aws::String& value) { m_outpostArnHasBeenSet = true; m_outpostArn = value; }
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+     * </p>
+     */
+    inline void SetOutpostArn(Aws::String&& value) { m_outpostArnHasBeenSet = true; m_outpostArn = std::move(value); }
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+     * </p>
+     */
+    inline void SetOutpostArn(const char* value) { m_outpostArnHasBeenSet = true; m_outpostArn.assign(value); }
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+     * </p>
+     */
+    inline Cluster& WithOutpostArn(const Aws::String& value) { SetOutpostArn(value); return *this;}
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+     * </p>
+     */
+    inline Cluster& WithOutpostArn(Aws::String&& value) { SetOutpostArn(std::move(value)); return *this;}
+
+    /**
+     * <p> The Amazon Resource Name (ARN) of the Outpost where the cluster is launched.
+     * </p>
+     */
+    inline Cluster& WithOutpostArn(const char* value) { SetOutpostArn(value); return *this;}
+
   private:
 
     Aws::String m_id;
@@ -1305,6 +1428,15 @@ namespace Model
 
     KerberosAttributes m_kerberosAttributes;
     bool m_kerberosAttributesHasBeenSet;
+
+    Aws::String m_clusterArn;
+    bool m_clusterArnHasBeenSet;
+
+    int m_stepConcurrencyLevel;
+    bool m_stepConcurrencyLevelHasBeenSet;
+
+    Aws::String m_outpostArn;
+    bool m_outpostArnHasBeenSet;
   };
 
 } // namespace Model

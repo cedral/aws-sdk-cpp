@@ -224,7 +224,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -270,7 +272,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -316,7 +320,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -362,7 +368,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -408,7 +416,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -454,7 +464,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -500,7 +512,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -546,7 +560,9 @@ namespace Model
      * <code>cache.m5.24xlarge</code> </p> <p> <b>M4 node types:</b>
      * <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
      * <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>,
-     * <code>cache.m4.10xlarge</code> </p> <p> <b>T2 node types:</b>
+     * <code>cache.m4.10xlarge</code> </p> <p> <b>T3 node types:</b>
+     * <code>cache.t3.micro</code>, <code>cache.t3.small</code>,
+     * <code>cache.t3.medium</code> </p> <p> <b>T2 node types:</b>
      * <code>cache.t2.micro</code>, <code>cache.t2.small</code>,
      * <code>cache.t2.medium</code> </p> </li> <li> <p>Previous generation: (not
      * recommended)</p> <p> <b>T1 node types:</b> <code>cache.t1.micro</code> </p> <p>
@@ -1401,6 +1417,37 @@ namespace Model
 
 
     /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline const Aws::Utils::DateTime& GetAuthTokenLastModifiedDate() const{ return m_authTokenLastModifiedDate; }
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline bool AuthTokenLastModifiedDateHasBeenSet() const { return m_authTokenLastModifiedDateHasBeenSet; }
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline void SetAuthTokenLastModifiedDate(const Aws::Utils::DateTime& value) { m_authTokenLastModifiedDateHasBeenSet = true; m_authTokenLastModifiedDate = value; }
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline void SetAuthTokenLastModifiedDate(Aws::Utils::DateTime&& value) { m_authTokenLastModifiedDateHasBeenSet = true; m_authTokenLastModifiedDate = std::move(value); }
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline CacheCluster& WithAuthTokenLastModifiedDate(const Aws::Utils::DateTime& value) { SetAuthTokenLastModifiedDate(value); return *this;}
+
+    /**
+     * <p>The date the auth token was last modified</p>
+     */
+    inline CacheCluster& WithAuthTokenLastModifiedDate(Aws::Utils::DateTime&& value) { SetAuthTokenLastModifiedDate(std::move(value)); return *this;}
+
+
+    /**
      * <p>A flag that enables in-transit encryption when set to <code>true</code>.</p>
      * <p>You cannot modify the value of <code>TransitEncryptionEnabled</code> after
      * the cluster is created. To enable in-transit encryption on a cluster you must
@@ -1559,6 +1606,9 @@ namespace Model
 
     bool m_authTokenEnabled;
     bool m_authTokenEnabledHasBeenSet;
+
+    Aws::Utils::DateTime m_authTokenLastModifiedDate;
+    bool m_authTokenLastModifiedDateHasBeenSet;
 
     bool m_transitEncryptionEnabled;
     bool m_transitEncryptionEnabledHasBeenSet;

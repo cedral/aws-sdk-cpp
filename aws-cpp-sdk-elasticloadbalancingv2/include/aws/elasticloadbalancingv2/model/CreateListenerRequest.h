@@ -162,58 +162,162 @@ namespace Model
 
 
     /**
-     * <p>[HTTPS and TLS listeners] The security policy that defines which ciphers and
-     * protocols are supported. The default is the current predefined security
-     * policy.</p>
+     * <p>[HTTPS and TLS listeners] The security policy that defines which protocols
+     * and ciphers are supported. The following are the possible values:</p> <ul> <li>
+     * <p> <code>ELBSecurityPolicy-2016-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-0-2015-04</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-1-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-1-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code> </p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Application Load Balancers Guide</i> and <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
      */
     inline const Aws::String& GetSslPolicy() const{ return m_sslPolicy; }
 
     /**
-     * <p>[HTTPS and TLS listeners] The security policy that defines which ciphers and
-     * protocols are supported. The default is the current predefined security
-     * policy.</p>
+     * <p>[HTTPS and TLS listeners] The security policy that defines which protocols
+     * and ciphers are supported. The following are the possible values:</p> <ul> <li>
+     * <p> <code>ELBSecurityPolicy-2016-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-0-2015-04</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-1-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-1-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code> </p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Application Load Balancers Guide</i> and <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
      */
     inline bool SslPolicyHasBeenSet() const { return m_sslPolicyHasBeenSet; }
 
     /**
-     * <p>[HTTPS and TLS listeners] The security policy that defines which ciphers and
-     * protocols are supported. The default is the current predefined security
-     * policy.</p>
+     * <p>[HTTPS and TLS listeners] The security policy that defines which protocols
+     * and ciphers are supported. The following are the possible values:</p> <ul> <li>
+     * <p> <code>ELBSecurityPolicy-2016-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-0-2015-04</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-1-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-1-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code> </p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Application Load Balancers Guide</i> and <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
      */
     inline void SetSslPolicy(const Aws::String& value) { m_sslPolicyHasBeenSet = true; m_sslPolicy = value; }
 
     /**
-     * <p>[HTTPS and TLS listeners] The security policy that defines which ciphers and
-     * protocols are supported. The default is the current predefined security
-     * policy.</p>
+     * <p>[HTTPS and TLS listeners] The security policy that defines which protocols
+     * and ciphers are supported. The following are the possible values:</p> <ul> <li>
+     * <p> <code>ELBSecurityPolicy-2016-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-0-2015-04</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-1-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-1-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code> </p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Application Load Balancers Guide</i> and <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
      */
     inline void SetSslPolicy(Aws::String&& value) { m_sslPolicyHasBeenSet = true; m_sslPolicy = std::move(value); }
 
     /**
-     * <p>[HTTPS and TLS listeners] The security policy that defines which ciphers and
-     * protocols are supported. The default is the current predefined security
-     * policy.</p>
+     * <p>[HTTPS and TLS listeners] The security policy that defines which protocols
+     * and ciphers are supported. The following are the possible values:</p> <ul> <li>
+     * <p> <code>ELBSecurityPolicy-2016-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-0-2015-04</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-1-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-1-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code> </p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Application Load Balancers Guide</i> and <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
      */
     inline void SetSslPolicy(const char* value) { m_sslPolicyHasBeenSet = true; m_sslPolicy.assign(value); }
 
     /**
-     * <p>[HTTPS and TLS listeners] The security policy that defines which ciphers and
-     * protocols are supported. The default is the current predefined security
-     * policy.</p>
+     * <p>[HTTPS and TLS listeners] The security policy that defines which protocols
+     * and ciphers are supported. The following are the possible values:</p> <ul> <li>
+     * <p> <code>ELBSecurityPolicy-2016-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-0-2015-04</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-1-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-1-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code> </p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Application Load Balancers Guide</i> and <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
      */
     inline CreateListenerRequest& WithSslPolicy(const Aws::String& value) { SetSslPolicy(value); return *this;}
 
     /**
-     * <p>[HTTPS and TLS listeners] The security policy that defines which ciphers and
-     * protocols are supported. The default is the current predefined security
-     * policy.</p>
+     * <p>[HTTPS and TLS listeners] The security policy that defines which protocols
+     * and ciphers are supported. The following are the possible values:</p> <ul> <li>
+     * <p> <code>ELBSecurityPolicy-2016-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-0-2015-04</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-1-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-1-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code> </p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Application Load Balancers Guide</i> and <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
      */
     inline CreateListenerRequest& WithSslPolicy(Aws::String&& value) { SetSslPolicy(std::move(value)); return *this;}
 
     /**
-     * <p>[HTTPS and TLS listeners] The security policy that defines which ciphers and
-     * protocols are supported. The default is the current predefined security
-     * policy.</p>
+     * <p>[HTTPS and TLS listeners] The security policy that defines which protocols
+     * and ciphers are supported. The following are the possible values:</p> <ul> <li>
+     * <p> <code>ELBSecurityPolicy-2016-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-0-2015-04</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-1-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-2017-01</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-2018-06</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-1-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-2019-08</code> </p> </li> <li> <p>
+     * <code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code> </p> </li> </ul> <p>For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Application Load Balancers Guide</i> and <a
+     * href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security
+     * Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
      */
     inline CreateListenerRequest& WithSslPolicy(const char* value) { SetSslPolicy(value); return *this;}
 
@@ -286,10 +390,10 @@ namespace Model
     /**
      * <p>The actions for the default rule. The rule must include one forward action or
      * one or more fixed-response actions.</p> <p>If the action type is
-     * <code>forward</code>, you specify a target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer. The protocol of
-     * the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
-     * Balancer.</p> <p>[HTTPS listeners] If the action type is
+     * <code>forward</code>, you specify one or more target groups. The protocol of the
+     * target group must be HTTP or HTTPS for an Application Load Balancer. The
+     * protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network
+     * Load Balancer.</p> <p>[HTTPS listeners] If the action type is
      * <code>authenticate-oidc</code>, you authenticate users through an identity
      * provider that is OpenID Connect (OIDC) compliant.</p> <p>[HTTPS listeners] If
      * the action type is <code>authenticate-cognito</code>, you authenticate users
@@ -304,10 +408,10 @@ namespace Model
     /**
      * <p>The actions for the default rule. The rule must include one forward action or
      * one or more fixed-response actions.</p> <p>If the action type is
-     * <code>forward</code>, you specify a target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer. The protocol of
-     * the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
-     * Balancer.</p> <p>[HTTPS listeners] If the action type is
+     * <code>forward</code>, you specify one or more target groups. The protocol of the
+     * target group must be HTTP or HTTPS for an Application Load Balancer. The
+     * protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network
+     * Load Balancer.</p> <p>[HTTPS listeners] If the action type is
      * <code>authenticate-oidc</code>, you authenticate users through an identity
      * provider that is OpenID Connect (OIDC) compliant.</p> <p>[HTTPS listeners] If
      * the action type is <code>authenticate-cognito</code>, you authenticate users
@@ -322,10 +426,10 @@ namespace Model
     /**
      * <p>The actions for the default rule. The rule must include one forward action or
      * one or more fixed-response actions.</p> <p>If the action type is
-     * <code>forward</code>, you specify a target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer. The protocol of
-     * the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
-     * Balancer.</p> <p>[HTTPS listeners] If the action type is
+     * <code>forward</code>, you specify one or more target groups. The protocol of the
+     * target group must be HTTP or HTTPS for an Application Load Balancer. The
+     * protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network
+     * Load Balancer.</p> <p>[HTTPS listeners] If the action type is
      * <code>authenticate-oidc</code>, you authenticate users through an identity
      * provider that is OpenID Connect (OIDC) compliant.</p> <p>[HTTPS listeners] If
      * the action type is <code>authenticate-cognito</code>, you authenticate users
@@ -340,10 +444,10 @@ namespace Model
     /**
      * <p>The actions for the default rule. The rule must include one forward action or
      * one or more fixed-response actions.</p> <p>If the action type is
-     * <code>forward</code>, you specify a target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer. The protocol of
-     * the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
-     * Balancer.</p> <p>[HTTPS listeners] If the action type is
+     * <code>forward</code>, you specify one or more target groups. The protocol of the
+     * target group must be HTTP or HTTPS for an Application Load Balancer. The
+     * protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network
+     * Load Balancer.</p> <p>[HTTPS listeners] If the action type is
      * <code>authenticate-oidc</code>, you authenticate users through an identity
      * provider that is OpenID Connect (OIDC) compliant.</p> <p>[HTTPS listeners] If
      * the action type is <code>authenticate-cognito</code>, you authenticate users
@@ -358,10 +462,10 @@ namespace Model
     /**
      * <p>The actions for the default rule. The rule must include one forward action or
      * one or more fixed-response actions.</p> <p>If the action type is
-     * <code>forward</code>, you specify a target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer. The protocol of
-     * the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
-     * Balancer.</p> <p>[HTTPS listeners] If the action type is
+     * <code>forward</code>, you specify one or more target groups. The protocol of the
+     * target group must be HTTP or HTTPS for an Application Load Balancer. The
+     * protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network
+     * Load Balancer.</p> <p>[HTTPS listeners] If the action type is
      * <code>authenticate-oidc</code>, you authenticate users through an identity
      * provider that is OpenID Connect (OIDC) compliant.</p> <p>[HTTPS listeners] If
      * the action type is <code>authenticate-cognito</code>, you authenticate users
@@ -376,10 +480,10 @@ namespace Model
     /**
      * <p>The actions for the default rule. The rule must include one forward action or
      * one or more fixed-response actions.</p> <p>If the action type is
-     * <code>forward</code>, you specify a target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer. The protocol of
-     * the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
-     * Balancer.</p> <p>[HTTPS listeners] If the action type is
+     * <code>forward</code>, you specify one or more target groups. The protocol of the
+     * target group must be HTTP or HTTPS for an Application Load Balancer. The
+     * protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network
+     * Load Balancer.</p> <p>[HTTPS listeners] If the action type is
      * <code>authenticate-oidc</code>, you authenticate users through an identity
      * provider that is OpenID Connect (OIDC) compliant.</p> <p>[HTTPS listeners] If
      * the action type is <code>authenticate-cognito</code>, you authenticate users
@@ -394,10 +498,10 @@ namespace Model
     /**
      * <p>The actions for the default rule. The rule must include one forward action or
      * one or more fixed-response actions.</p> <p>If the action type is
-     * <code>forward</code>, you specify a target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer. The protocol of
-     * the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
-     * Balancer.</p> <p>[HTTPS listeners] If the action type is
+     * <code>forward</code>, you specify one or more target groups. The protocol of the
+     * target group must be HTTP or HTTPS for an Application Load Balancer. The
+     * protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network
+     * Load Balancer.</p> <p>[HTTPS listeners] If the action type is
      * <code>authenticate-oidc</code>, you authenticate users through an identity
      * provider that is OpenID Connect (OIDC) compliant.</p> <p>[HTTPS listeners] If
      * the action type is <code>authenticate-cognito</code>, you authenticate users
@@ -412,10 +516,10 @@ namespace Model
     /**
      * <p>The actions for the default rule. The rule must include one forward action or
      * one or more fixed-response actions.</p> <p>If the action type is
-     * <code>forward</code>, you specify a target group. The protocol of the target
-     * group must be HTTP or HTTPS for an Application Load Balancer. The protocol of
-     * the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load
-     * Balancer.</p> <p>[HTTPS listeners] If the action type is
+     * <code>forward</code>, you specify one or more target groups. The protocol of the
+     * target group must be HTTP or HTTPS for an Application Load Balancer. The
+     * protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network
+     * Load Balancer.</p> <p>[HTTPS listeners] If the action type is
      * <code>authenticate-oidc</code>, you authenticate users through an identity
      * provider that is OpenID Connect (OIDC) compliant.</p> <p>[HTTPS listeners] If
      * the action type is <code>authenticate-cognito</code>, you authenticate users

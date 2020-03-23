@@ -30,7 +30,8 @@ namespace Model
     MEDICAL_CONDITION,
     PROTECTED_HEALTH_INFORMATION,
     TEST_TREATMENT_PROCEDURE,
-    ANATOMY
+    ANATOMY,
+    TIME_EXPRESSION
   };
 
 namespace EntityTypeMapper

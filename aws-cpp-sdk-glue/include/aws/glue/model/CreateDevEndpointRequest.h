@@ -426,7 +426,10 @@ namespace Model
      * worker type for memory-intensive jobs.</p> </li> <li> <p>For the
      * <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
      * memory, 128 GB disk), and provides 1 executor per worker. We recommend this
-     * worker type for memory-intensive jobs.</p> </li> </ul>
+     * worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a
+     * development endpoint is created with the <code>G.2X</code>
+     * <code>WorkerType</code> configuration, the Spark drivers for the development
+     * endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
      */
     inline const WorkerType& GetWorkerType() const{ return m_workerType; }
 
@@ -440,7 +443,10 @@ namespace Model
      * worker type for memory-intensive jobs.</p> </li> <li> <p>For the
      * <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
      * memory, 128 GB disk), and provides 1 executor per worker. We recommend this
-     * worker type for memory-intensive jobs.</p> </li> </ul>
+     * worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a
+     * development endpoint is created with the <code>G.2X</code>
+     * <code>WorkerType</code> configuration, the Spark drivers for the development
+     * endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
      */
     inline bool WorkerTypeHasBeenSet() const { return m_workerTypeHasBeenSet; }
 
@@ -454,7 +460,10 @@ namespace Model
      * worker type for memory-intensive jobs.</p> </li> <li> <p>For the
      * <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
      * memory, 128 GB disk), and provides 1 executor per worker. We recommend this
-     * worker type for memory-intensive jobs.</p> </li> </ul>
+     * worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a
+     * development endpoint is created with the <code>G.2X</code>
+     * <code>WorkerType</code> configuration, the Spark drivers for the development
+     * endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
      */
     inline void SetWorkerType(const WorkerType& value) { m_workerTypeHasBeenSet = true; m_workerType = value; }
 
@@ -468,7 +477,10 @@ namespace Model
      * worker type for memory-intensive jobs.</p> </li> <li> <p>For the
      * <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
      * memory, 128 GB disk), and provides 1 executor per worker. We recommend this
-     * worker type for memory-intensive jobs.</p> </li> </ul>
+     * worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a
+     * development endpoint is created with the <code>G.2X</code>
+     * <code>WorkerType</code> configuration, the Spark drivers for the development
+     * endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
      */
     inline void SetWorkerType(WorkerType&& value) { m_workerTypeHasBeenSet = true; m_workerType = std::move(value); }
 
@@ -482,7 +494,10 @@ namespace Model
      * worker type for memory-intensive jobs.</p> </li> <li> <p>For the
      * <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
      * memory, 128 GB disk), and provides 1 executor per worker. We recommend this
-     * worker type for memory-intensive jobs.</p> </li> </ul>
+     * worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a
+     * development endpoint is created with the <code>G.2X</code>
+     * <code>WorkerType</code> configuration, the Spark drivers for the development
+     * endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
      */
     inline CreateDevEndpointRequest& WithWorkerType(const WorkerType& value) { SetWorkerType(value); return *this;}
 
@@ -496,9 +511,133 @@ namespace Model
      * worker type for memory-intensive jobs.</p> </li> <li> <p>For the
      * <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of
      * memory, 128 GB disk), and provides 1 executor per worker. We recommend this
-     * worker type for memory-intensive jobs.</p> </li> </ul>
+     * worker type for memory-intensive jobs.</p> </li> </ul> <p>Known issue: when a
+     * development endpoint is created with the <code>G.2X</code>
+     * <code>WorkerType</code> configuration, the Spark drivers for the development
+     * endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
      */
     inline CreateDevEndpointRequest& WithWorkerType(WorkerType&& value) { SetWorkerType(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue
+     * supports. The Python version indicates the version supported for running your
+     * ETL scripts on development endpoints. </p> <p>For more information about the
+     * available AWS Glue versions and corresponding Spark and Python versions, see <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a>
+     * in the developer guide.</p> <p>Development endpoints that are created without
+     * specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version
+     * of Python support for development endpoints by using the <code>Arguments</code>
+     * parameter in the <code>CreateDevEndpoint</code> or
+     * <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version
+     * defaults to Python 2.</p>
+     */
+    inline const Aws::String& GetGlueVersion() const{ return m_glueVersion; }
+
+    /**
+     * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue
+     * supports. The Python version indicates the version supported for running your
+     * ETL scripts on development endpoints. </p> <p>For more information about the
+     * available AWS Glue versions and corresponding Spark and Python versions, see <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a>
+     * in the developer guide.</p> <p>Development endpoints that are created without
+     * specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version
+     * of Python support for development endpoints by using the <code>Arguments</code>
+     * parameter in the <code>CreateDevEndpoint</code> or
+     * <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version
+     * defaults to Python 2.</p>
+     */
+    inline bool GlueVersionHasBeenSet() const { return m_glueVersionHasBeenSet; }
+
+    /**
+     * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue
+     * supports. The Python version indicates the version supported for running your
+     * ETL scripts on development endpoints. </p> <p>For more information about the
+     * available AWS Glue versions and corresponding Spark and Python versions, see <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a>
+     * in the developer guide.</p> <p>Development endpoints that are created without
+     * specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version
+     * of Python support for development endpoints by using the <code>Arguments</code>
+     * parameter in the <code>CreateDevEndpoint</code> or
+     * <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version
+     * defaults to Python 2.</p>
+     */
+    inline void SetGlueVersion(const Aws::String& value) { m_glueVersionHasBeenSet = true; m_glueVersion = value; }
+
+    /**
+     * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue
+     * supports. The Python version indicates the version supported for running your
+     * ETL scripts on development endpoints. </p> <p>For more information about the
+     * available AWS Glue versions and corresponding Spark and Python versions, see <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a>
+     * in the developer guide.</p> <p>Development endpoints that are created without
+     * specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version
+     * of Python support for development endpoints by using the <code>Arguments</code>
+     * parameter in the <code>CreateDevEndpoint</code> or
+     * <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version
+     * defaults to Python 2.</p>
+     */
+    inline void SetGlueVersion(Aws::String&& value) { m_glueVersionHasBeenSet = true; m_glueVersion = std::move(value); }
+
+    /**
+     * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue
+     * supports. The Python version indicates the version supported for running your
+     * ETL scripts on development endpoints. </p> <p>For more information about the
+     * available AWS Glue versions and corresponding Spark and Python versions, see <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a>
+     * in the developer guide.</p> <p>Development endpoints that are created without
+     * specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version
+     * of Python support for development endpoints by using the <code>Arguments</code>
+     * parameter in the <code>CreateDevEndpoint</code> or
+     * <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version
+     * defaults to Python 2.</p>
+     */
+    inline void SetGlueVersion(const char* value) { m_glueVersionHasBeenSet = true; m_glueVersion.assign(value); }
+
+    /**
+     * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue
+     * supports. The Python version indicates the version supported for running your
+     * ETL scripts on development endpoints. </p> <p>For more information about the
+     * available AWS Glue versions and corresponding Spark and Python versions, see <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a>
+     * in the developer guide.</p> <p>Development endpoints that are created without
+     * specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version
+     * of Python support for development endpoints by using the <code>Arguments</code>
+     * parameter in the <code>CreateDevEndpoint</code> or
+     * <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version
+     * defaults to Python 2.</p>
+     */
+    inline CreateDevEndpointRequest& WithGlueVersion(const Aws::String& value) { SetGlueVersion(value); return *this;}
+
+    /**
+     * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue
+     * supports. The Python version indicates the version supported for running your
+     * ETL scripts on development endpoints. </p> <p>For more information about the
+     * available AWS Glue versions and corresponding Spark and Python versions, see <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a>
+     * in the developer guide.</p> <p>Development endpoints that are created without
+     * specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version
+     * of Python support for development endpoints by using the <code>Arguments</code>
+     * parameter in the <code>CreateDevEndpoint</code> or
+     * <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version
+     * defaults to Python 2.</p>
+     */
+    inline CreateDevEndpointRequest& WithGlueVersion(Aws::String&& value) { SetGlueVersion(std::move(value)); return *this;}
+
+    /**
+     * <p>Glue version determines the versions of Apache Spark and Python that AWS Glue
+     * supports. The Python version indicates the version supported for running your
+     * ETL scripts on development endpoints. </p> <p>For more information about the
+     * available AWS Glue versions and corresponding Spark and Python versions, see <a
+     * href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a>
+     * in the developer guide.</p> <p>Development endpoints that are created without
+     * specifying a Glue version default to Glue 0.9.</p> <p>You can specify a version
+     * of Python support for development endpoints by using the <code>Arguments</code>
+     * parameter in the <code>CreateDevEndpoint</code> or
+     * <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version
+     * defaults to Python 2.</p>
+     */
+    inline CreateDevEndpointRequest& WithGlueVersion(const char* value) { SetGlueVersion(value); return *this;}
 
 
     /**
@@ -904,6 +1043,9 @@ namespace Model
 
     WorkerType m_workerType;
     bool m_workerTypeHasBeenSet;
+
+    Aws::String m_glueVersion;
+    bool m_glueVersionHasBeenSet;
 
     int m_numberOfWorkers;
     bool m_numberOfWorkersHasBeenSet;

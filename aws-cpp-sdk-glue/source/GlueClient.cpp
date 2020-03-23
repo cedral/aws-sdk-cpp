@@ -42,12 +42,14 @@
 #include <aws/glue/model/BatchGetTriggersRequest.h>
 #include <aws/glue/model/BatchGetWorkflowsRequest.h>
 #include <aws/glue/model/BatchStopJobRunRequest.h>
+#include <aws/glue/model/CancelMLTaskRunRequest.h>
 #include <aws/glue/model/CreateClassifierRequest.h>
 #include <aws/glue/model/CreateConnectionRequest.h>
 #include <aws/glue/model/CreateCrawlerRequest.h>
 #include <aws/glue/model/CreateDatabaseRequest.h>
 #include <aws/glue/model/CreateDevEndpointRequest.h>
 #include <aws/glue/model/CreateJobRequest.h>
+#include <aws/glue/model/CreateMLTransformRequest.h>
 #include <aws/glue/model/CreatePartitionRequest.h>
 #include <aws/glue/model/CreateScriptRequest.h>
 #include <aws/glue/model/CreateSecurityConfigurationRequest.h>
@@ -61,6 +63,7 @@
 #include <aws/glue/model/DeleteDatabaseRequest.h>
 #include <aws/glue/model/DeleteDevEndpointRequest.h>
 #include <aws/glue/model/DeleteJobRequest.h>
+#include <aws/glue/model/DeleteMLTransformRequest.h>
 #include <aws/glue/model/DeletePartitionRequest.h>
 #include <aws/glue/model/DeleteResourcePolicyRequest.h>
 #include <aws/glue/model/DeleteSecurityConfigurationRequest.h>
@@ -85,10 +88,13 @@
 #include <aws/glue/model/GetDevEndpointsRequest.h>
 #include <aws/glue/model/GetJobRequest.h>
 #include <aws/glue/model/GetJobBookmarkRequest.h>
-#include <aws/glue/model/GetJobBookmarksRequest.h>
 #include <aws/glue/model/GetJobRunRequest.h>
 #include <aws/glue/model/GetJobRunsRequest.h>
 #include <aws/glue/model/GetJobsRequest.h>
+#include <aws/glue/model/GetMLTaskRunRequest.h>
+#include <aws/glue/model/GetMLTaskRunsRequest.h>
+#include <aws/glue/model/GetMLTransformRequest.h>
+#include <aws/glue/model/GetMLTransformsRequest.h>
 #include <aws/glue/model/GetMappingRequest.h>
 #include <aws/glue/model/GetPartitionRequest.h>
 #include <aws/glue/model/GetPartitionsRequest.h>
@@ -113,15 +119,21 @@
 #include <aws/glue/model/ListCrawlersRequest.h>
 #include <aws/glue/model/ListDevEndpointsRequest.h>
 #include <aws/glue/model/ListJobsRequest.h>
+#include <aws/glue/model/ListMLTransformsRequest.h>
 #include <aws/glue/model/ListTriggersRequest.h>
 #include <aws/glue/model/ListWorkflowsRequest.h>
 #include <aws/glue/model/PutDataCatalogEncryptionSettingsRequest.h>
 #include <aws/glue/model/PutResourcePolicyRequest.h>
 #include <aws/glue/model/PutWorkflowRunPropertiesRequest.h>
 #include <aws/glue/model/ResetJobBookmarkRequest.h>
+#include <aws/glue/model/SearchTablesRequest.h>
 #include <aws/glue/model/StartCrawlerRequest.h>
 #include <aws/glue/model/StartCrawlerScheduleRequest.h>
+#include <aws/glue/model/StartExportLabelsTaskRunRequest.h>
+#include <aws/glue/model/StartImportLabelsTaskRunRequest.h>
 #include <aws/glue/model/StartJobRunRequest.h>
+#include <aws/glue/model/StartMLEvaluationTaskRunRequest.h>
+#include <aws/glue/model/StartMLLabelingSetGenerationTaskRunRequest.h>
 #include <aws/glue/model/StartTriggerRequest.h>
 #include <aws/glue/model/StartWorkflowRunRequest.h>
 #include <aws/glue/model/StopCrawlerRequest.h>
@@ -136,6 +148,7 @@
 #include <aws/glue/model/UpdateDatabaseRequest.h>
 #include <aws/glue/model/UpdateDevEndpointRequest.h>
 #include <aws/glue/model/UpdateJobRequest.h>
+#include <aws/glue/model/UpdateMLTransformRequest.h>
 #include <aws/glue/model/UpdatePartitionRequest.h>
 #include <aws/glue/model/UpdateTableRequest.h>
 #include <aws/glue/model/UpdateTriggerRequest.h>
@@ -220,7 +233,7 @@ BatchCreatePartitionOutcome GlueClient::BatchCreatePartition(const BatchCreatePa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchCreatePartitionOutcome(BatchCreatePartitionResult(outcome.GetResult()));
@@ -255,7 +268,7 @@ BatchDeleteConnectionOutcome GlueClient::BatchDeleteConnection(const BatchDelete
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDeleteConnectionOutcome(BatchDeleteConnectionResult(outcome.GetResult()));
@@ -290,7 +303,7 @@ BatchDeletePartitionOutcome GlueClient::BatchDeletePartition(const BatchDeletePa
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDeletePartitionOutcome(BatchDeletePartitionResult(outcome.GetResult()));
@@ -325,7 +338,7 @@ BatchDeleteTableOutcome GlueClient::BatchDeleteTable(const BatchDeleteTableReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDeleteTableOutcome(BatchDeleteTableResult(outcome.GetResult()));
@@ -360,7 +373,7 @@ BatchDeleteTableVersionOutcome GlueClient::BatchDeleteTableVersion(const BatchDe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchDeleteTableVersionOutcome(BatchDeleteTableVersionResult(outcome.GetResult()));
@@ -395,7 +408,7 @@ BatchGetCrawlersOutcome GlueClient::BatchGetCrawlers(const BatchGetCrawlersReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchGetCrawlersOutcome(BatchGetCrawlersResult(outcome.GetResult()));
@@ -430,7 +443,7 @@ BatchGetDevEndpointsOutcome GlueClient::BatchGetDevEndpoints(const BatchGetDevEn
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchGetDevEndpointsOutcome(BatchGetDevEndpointsResult(outcome.GetResult()));
@@ -465,7 +478,7 @@ BatchGetJobsOutcome GlueClient::BatchGetJobs(const BatchGetJobsRequest& request)
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchGetJobsOutcome(BatchGetJobsResult(outcome.GetResult()));
@@ -500,7 +513,7 @@ BatchGetPartitionOutcome GlueClient::BatchGetPartition(const BatchGetPartitionRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchGetPartitionOutcome(BatchGetPartitionResult(outcome.GetResult()));
@@ -535,7 +548,7 @@ BatchGetTriggersOutcome GlueClient::BatchGetTriggers(const BatchGetTriggersReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchGetTriggersOutcome(BatchGetTriggersResult(outcome.GetResult()));
@@ -570,7 +583,7 @@ BatchGetWorkflowsOutcome GlueClient::BatchGetWorkflows(const BatchGetWorkflowsRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchGetWorkflowsOutcome(BatchGetWorkflowsResult(outcome.GetResult()));
@@ -605,7 +618,7 @@ BatchStopJobRunOutcome GlueClient::BatchStopJobRun(const BatchStopJobRunRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchStopJobRunOutcome(BatchStopJobRunResult(outcome.GetResult()));
@@ -634,13 +647,48 @@ void GlueClient::BatchStopJobRunAsyncHelper(const BatchStopJobRunRequest& reques
   handler(this, request, BatchStopJobRun(request), context);
 }
 
+CancelMLTaskRunOutcome GlueClient::CancelMLTaskRun(const CancelMLTaskRunRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CancelMLTaskRunOutcome(CancelMLTaskRunResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CancelMLTaskRunOutcome(outcome.GetError());
+  }
+}
+
+CancelMLTaskRunOutcomeCallable GlueClient::CancelMLTaskRunCallable(const CancelMLTaskRunRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CancelMLTaskRunOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CancelMLTaskRun(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::CancelMLTaskRunAsync(const CancelMLTaskRunRequest& request, const CancelMLTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CancelMLTaskRunAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::CancelMLTaskRunAsyncHelper(const CancelMLTaskRunRequest& request, const CancelMLTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CancelMLTaskRun(request), context);
+}
+
 CreateClassifierOutcome GlueClient::CreateClassifier(const CreateClassifierRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateClassifierOutcome(CreateClassifierResult(outcome.GetResult()));
@@ -675,7 +723,7 @@ CreateConnectionOutcome GlueClient::CreateConnection(const CreateConnectionReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateConnectionOutcome(CreateConnectionResult(outcome.GetResult()));
@@ -710,7 +758,7 @@ CreateCrawlerOutcome GlueClient::CreateCrawler(const CreateCrawlerRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateCrawlerOutcome(CreateCrawlerResult(outcome.GetResult()));
@@ -745,7 +793,7 @@ CreateDatabaseOutcome GlueClient::CreateDatabase(const CreateDatabaseRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDatabaseOutcome(CreateDatabaseResult(outcome.GetResult()));
@@ -780,7 +828,7 @@ CreateDevEndpointOutcome GlueClient::CreateDevEndpoint(const CreateDevEndpointRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDevEndpointOutcome(CreateDevEndpointResult(outcome.GetResult()));
@@ -815,7 +863,7 @@ CreateJobOutcome GlueClient::CreateJob(const CreateJobRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateJobOutcome(CreateJobResult(outcome.GetResult()));
@@ -844,13 +892,48 @@ void GlueClient::CreateJobAsyncHelper(const CreateJobRequest& request, const Cre
   handler(this, request, CreateJob(request), context);
 }
 
+CreateMLTransformOutcome GlueClient::CreateMLTransform(const CreateMLTransformRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateMLTransformOutcome(CreateMLTransformResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateMLTransformOutcome(outcome.GetError());
+  }
+}
+
+CreateMLTransformOutcomeCallable GlueClient::CreateMLTransformCallable(const CreateMLTransformRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateMLTransformOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateMLTransform(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::CreateMLTransformAsync(const CreateMLTransformRequest& request, const CreateMLTransformResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateMLTransformAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::CreateMLTransformAsyncHelper(const CreateMLTransformRequest& request, const CreateMLTransformResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateMLTransform(request), context);
+}
+
 CreatePartitionOutcome GlueClient::CreatePartition(const CreatePartitionRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreatePartitionOutcome(CreatePartitionResult(outcome.GetResult()));
@@ -885,7 +968,7 @@ CreateScriptOutcome GlueClient::CreateScript(const CreateScriptRequest& request)
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateScriptOutcome(CreateScriptResult(outcome.GetResult()));
@@ -920,7 +1003,7 @@ CreateSecurityConfigurationOutcome GlueClient::CreateSecurityConfiguration(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateSecurityConfigurationOutcome(CreateSecurityConfigurationResult(outcome.GetResult()));
@@ -955,7 +1038,7 @@ CreateTableOutcome GlueClient::CreateTable(const CreateTableRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateTableOutcome(CreateTableResult(outcome.GetResult()));
@@ -990,7 +1073,7 @@ CreateTriggerOutcome GlueClient::CreateTrigger(const CreateTriggerRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateTriggerOutcome(CreateTriggerResult(outcome.GetResult()));
@@ -1025,7 +1108,7 @@ CreateUserDefinedFunctionOutcome GlueClient::CreateUserDefinedFunction(const Cre
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateUserDefinedFunctionOutcome(CreateUserDefinedFunctionResult(outcome.GetResult()));
@@ -1060,7 +1143,7 @@ CreateWorkflowOutcome GlueClient::CreateWorkflow(const CreateWorkflowRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateWorkflowOutcome(CreateWorkflowResult(outcome.GetResult()));
@@ -1095,7 +1178,7 @@ DeleteClassifierOutcome GlueClient::DeleteClassifier(const DeleteClassifierReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteClassifierOutcome(DeleteClassifierResult(outcome.GetResult()));
@@ -1130,7 +1213,7 @@ DeleteConnectionOutcome GlueClient::DeleteConnection(const DeleteConnectionReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteConnectionOutcome(DeleteConnectionResult(outcome.GetResult()));
@@ -1165,7 +1248,7 @@ DeleteCrawlerOutcome GlueClient::DeleteCrawler(const DeleteCrawlerRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteCrawlerOutcome(DeleteCrawlerResult(outcome.GetResult()));
@@ -1200,7 +1283,7 @@ DeleteDatabaseOutcome GlueClient::DeleteDatabase(const DeleteDatabaseRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDatabaseOutcome(DeleteDatabaseResult(outcome.GetResult()));
@@ -1235,7 +1318,7 @@ DeleteDevEndpointOutcome GlueClient::DeleteDevEndpoint(const DeleteDevEndpointRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDevEndpointOutcome(DeleteDevEndpointResult(outcome.GetResult()));
@@ -1270,7 +1353,7 @@ DeleteJobOutcome GlueClient::DeleteJob(const DeleteJobRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteJobOutcome(DeleteJobResult(outcome.GetResult()));
@@ -1299,13 +1382,48 @@ void GlueClient::DeleteJobAsyncHelper(const DeleteJobRequest& request, const Del
   handler(this, request, DeleteJob(request), context);
 }
 
+DeleteMLTransformOutcome GlueClient::DeleteMLTransform(const DeleteMLTransformRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteMLTransformOutcome(DeleteMLTransformResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteMLTransformOutcome(outcome.GetError());
+  }
+}
+
+DeleteMLTransformOutcomeCallable GlueClient::DeleteMLTransformCallable(const DeleteMLTransformRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteMLTransformOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteMLTransform(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::DeleteMLTransformAsync(const DeleteMLTransformRequest& request, const DeleteMLTransformResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteMLTransformAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::DeleteMLTransformAsyncHelper(const DeleteMLTransformRequest& request, const DeleteMLTransformResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteMLTransform(request), context);
+}
+
 DeletePartitionOutcome GlueClient::DeletePartition(const DeletePartitionRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeletePartitionOutcome(DeletePartitionResult(outcome.GetResult()));
@@ -1340,7 +1458,7 @@ DeleteResourcePolicyOutcome GlueClient::DeleteResourcePolicy(const DeleteResourc
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteResourcePolicyOutcome(DeleteResourcePolicyResult(outcome.GetResult()));
@@ -1375,7 +1493,7 @@ DeleteSecurityConfigurationOutcome GlueClient::DeleteSecurityConfiguration(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteSecurityConfigurationOutcome(DeleteSecurityConfigurationResult(outcome.GetResult()));
@@ -1410,7 +1528,7 @@ DeleteTableOutcome GlueClient::DeleteTable(const DeleteTableRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTableOutcome(DeleteTableResult(outcome.GetResult()));
@@ -1445,7 +1563,7 @@ DeleteTableVersionOutcome GlueClient::DeleteTableVersion(const DeleteTableVersio
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTableVersionOutcome(DeleteTableVersionResult(outcome.GetResult()));
@@ -1480,7 +1598,7 @@ DeleteTriggerOutcome GlueClient::DeleteTrigger(const DeleteTriggerRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTriggerOutcome(DeleteTriggerResult(outcome.GetResult()));
@@ -1515,7 +1633,7 @@ DeleteUserDefinedFunctionOutcome GlueClient::DeleteUserDefinedFunction(const Del
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteUserDefinedFunctionOutcome(DeleteUserDefinedFunctionResult(outcome.GetResult()));
@@ -1550,7 +1668,7 @@ DeleteWorkflowOutcome GlueClient::DeleteWorkflow(const DeleteWorkflowRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteWorkflowOutcome(DeleteWorkflowResult(outcome.GetResult()));
@@ -1585,7 +1703,7 @@ GetCatalogImportStatusOutcome GlueClient::GetCatalogImportStatus(const GetCatalo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCatalogImportStatusOutcome(GetCatalogImportStatusResult(outcome.GetResult()));
@@ -1620,7 +1738,7 @@ GetClassifierOutcome GlueClient::GetClassifier(const GetClassifierRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetClassifierOutcome(GetClassifierResult(outcome.GetResult()));
@@ -1655,7 +1773,7 @@ GetClassifiersOutcome GlueClient::GetClassifiers(const GetClassifiersRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetClassifiersOutcome(GetClassifiersResult(outcome.GetResult()));
@@ -1690,7 +1808,7 @@ GetConnectionOutcome GlueClient::GetConnection(const GetConnectionRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetConnectionOutcome(GetConnectionResult(outcome.GetResult()));
@@ -1725,7 +1843,7 @@ GetConnectionsOutcome GlueClient::GetConnections(const GetConnectionsRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetConnectionsOutcome(GetConnectionsResult(outcome.GetResult()));
@@ -1760,7 +1878,7 @@ GetCrawlerOutcome GlueClient::GetCrawler(const GetCrawlerRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCrawlerOutcome(GetCrawlerResult(outcome.GetResult()));
@@ -1795,7 +1913,7 @@ GetCrawlerMetricsOutcome GlueClient::GetCrawlerMetrics(const GetCrawlerMetricsRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCrawlerMetricsOutcome(GetCrawlerMetricsResult(outcome.GetResult()));
@@ -1830,7 +1948,7 @@ GetCrawlersOutcome GlueClient::GetCrawlers(const GetCrawlersRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetCrawlersOutcome(GetCrawlersResult(outcome.GetResult()));
@@ -1865,7 +1983,7 @@ GetDataCatalogEncryptionSettingsOutcome GlueClient::GetDataCatalogEncryptionSett
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDataCatalogEncryptionSettingsOutcome(GetDataCatalogEncryptionSettingsResult(outcome.GetResult()));
@@ -1900,7 +2018,7 @@ GetDatabaseOutcome GlueClient::GetDatabase(const GetDatabaseRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDatabaseOutcome(GetDatabaseResult(outcome.GetResult()));
@@ -1935,7 +2053,7 @@ GetDatabasesOutcome GlueClient::GetDatabases(const GetDatabasesRequest& request)
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDatabasesOutcome(GetDatabasesResult(outcome.GetResult()));
@@ -1970,7 +2088,7 @@ GetDataflowGraphOutcome GlueClient::GetDataflowGraph(const GetDataflowGraphReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDataflowGraphOutcome(GetDataflowGraphResult(outcome.GetResult()));
@@ -2005,7 +2123,7 @@ GetDevEndpointOutcome GlueClient::GetDevEndpoint(const GetDevEndpointRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDevEndpointOutcome(GetDevEndpointResult(outcome.GetResult()));
@@ -2040,7 +2158,7 @@ GetDevEndpointsOutcome GlueClient::GetDevEndpoints(const GetDevEndpointsRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDevEndpointsOutcome(GetDevEndpointsResult(outcome.GetResult()));
@@ -2075,7 +2193,7 @@ GetJobOutcome GlueClient::GetJob(const GetJobRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobOutcome(GetJobResult(outcome.GetResult()));
@@ -2110,7 +2228,7 @@ GetJobBookmarkOutcome GlueClient::GetJobBookmark(const GetJobBookmarkRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobBookmarkOutcome(GetJobBookmarkResult(outcome.GetResult()));
@@ -2139,48 +2257,13 @@ void GlueClient::GetJobBookmarkAsyncHelper(const GetJobBookmarkRequest& request,
   handler(this, request, GetJobBookmark(request), context);
 }
 
-GetJobBookmarksOutcome GlueClient::GetJobBookmarks(const GetJobBookmarksRequest& request) const
-{
-  Aws::Http::URI uri = m_uri;
-  Aws::StringStream ss;
-  ss << "/";
-  uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
-  if(outcome.IsSuccess())
-  {
-    return GetJobBookmarksOutcome(GetJobBookmarksResult(outcome.GetResult()));
-  }
-  else
-  {
-    return GetJobBookmarksOutcome(outcome.GetError());
-  }
-}
-
-GetJobBookmarksOutcomeCallable GlueClient::GetJobBookmarksCallable(const GetJobBookmarksRequest& request) const
-{
-  auto task = Aws::MakeShared< std::packaged_task< GetJobBookmarksOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetJobBookmarks(request); } );
-  auto packagedFunction = [task]() { (*task)(); };
-  m_executor->Submit(packagedFunction);
-  return task->get_future();
-}
-
-void GlueClient::GetJobBookmarksAsync(const GetJobBookmarksRequest& request, const GetJobBookmarksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
-{
-  m_executor->Submit( [this, request, handler, context](){ this->GetJobBookmarksAsyncHelper( request, handler, context ); } );
-}
-
-void GlueClient::GetJobBookmarksAsyncHelper(const GetJobBookmarksRequest& request, const GetJobBookmarksResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
-{
-  handler(this, request, GetJobBookmarks(request), context);
-}
-
 GetJobRunOutcome GlueClient::GetJobRun(const GetJobRunRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobRunOutcome(GetJobRunResult(outcome.GetResult()));
@@ -2215,7 +2298,7 @@ GetJobRunsOutcome GlueClient::GetJobRuns(const GetJobRunsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobRunsOutcome(GetJobRunsResult(outcome.GetResult()));
@@ -2250,7 +2333,7 @@ GetJobsOutcome GlueClient::GetJobs(const GetJobsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobsOutcome(GetJobsResult(outcome.GetResult()));
@@ -2279,13 +2362,153 @@ void GlueClient::GetJobsAsyncHelper(const GetJobsRequest& request, const GetJobs
   handler(this, request, GetJobs(request), context);
 }
 
+GetMLTaskRunOutcome GlueClient::GetMLTaskRun(const GetMLTaskRunRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetMLTaskRunOutcome(GetMLTaskRunResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetMLTaskRunOutcome(outcome.GetError());
+  }
+}
+
+GetMLTaskRunOutcomeCallable GlueClient::GetMLTaskRunCallable(const GetMLTaskRunRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetMLTaskRunOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetMLTaskRun(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::GetMLTaskRunAsync(const GetMLTaskRunRequest& request, const GetMLTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetMLTaskRunAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::GetMLTaskRunAsyncHelper(const GetMLTaskRunRequest& request, const GetMLTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetMLTaskRun(request), context);
+}
+
+GetMLTaskRunsOutcome GlueClient::GetMLTaskRuns(const GetMLTaskRunsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetMLTaskRunsOutcome(GetMLTaskRunsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetMLTaskRunsOutcome(outcome.GetError());
+  }
+}
+
+GetMLTaskRunsOutcomeCallable GlueClient::GetMLTaskRunsCallable(const GetMLTaskRunsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetMLTaskRunsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetMLTaskRuns(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::GetMLTaskRunsAsync(const GetMLTaskRunsRequest& request, const GetMLTaskRunsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetMLTaskRunsAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::GetMLTaskRunsAsyncHelper(const GetMLTaskRunsRequest& request, const GetMLTaskRunsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetMLTaskRuns(request), context);
+}
+
+GetMLTransformOutcome GlueClient::GetMLTransform(const GetMLTransformRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetMLTransformOutcome(GetMLTransformResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetMLTransformOutcome(outcome.GetError());
+  }
+}
+
+GetMLTransformOutcomeCallable GlueClient::GetMLTransformCallable(const GetMLTransformRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetMLTransformOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetMLTransform(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::GetMLTransformAsync(const GetMLTransformRequest& request, const GetMLTransformResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetMLTransformAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::GetMLTransformAsyncHelper(const GetMLTransformRequest& request, const GetMLTransformResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetMLTransform(request), context);
+}
+
+GetMLTransformsOutcome GlueClient::GetMLTransforms(const GetMLTransformsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetMLTransformsOutcome(GetMLTransformsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetMLTransformsOutcome(outcome.GetError());
+  }
+}
+
+GetMLTransformsOutcomeCallable GlueClient::GetMLTransformsCallable(const GetMLTransformsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetMLTransformsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetMLTransforms(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::GetMLTransformsAsync(const GetMLTransformsRequest& request, const GetMLTransformsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetMLTransformsAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::GetMLTransformsAsyncHelper(const GetMLTransformsRequest& request, const GetMLTransformsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetMLTransforms(request), context);
+}
+
 GetMappingOutcome GlueClient::GetMapping(const GetMappingRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetMappingOutcome(GetMappingResult(outcome.GetResult()));
@@ -2320,7 +2543,7 @@ GetPartitionOutcome GlueClient::GetPartition(const GetPartitionRequest& request)
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetPartitionOutcome(GetPartitionResult(outcome.GetResult()));
@@ -2355,7 +2578,7 @@ GetPartitionsOutcome GlueClient::GetPartitions(const GetPartitionsRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetPartitionsOutcome(GetPartitionsResult(outcome.GetResult()));
@@ -2390,7 +2613,7 @@ GetPlanOutcome GlueClient::GetPlan(const GetPlanRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetPlanOutcome(GetPlanResult(outcome.GetResult()));
@@ -2425,7 +2648,7 @@ GetResourcePolicyOutcome GlueClient::GetResourcePolicy(const GetResourcePolicyRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetResourcePolicyOutcome(GetResourcePolicyResult(outcome.GetResult()));
@@ -2460,7 +2683,7 @@ GetSecurityConfigurationOutcome GlueClient::GetSecurityConfiguration(const GetSe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSecurityConfigurationOutcome(GetSecurityConfigurationResult(outcome.GetResult()));
@@ -2495,7 +2718,7 @@ GetSecurityConfigurationsOutcome GlueClient::GetSecurityConfigurations(const Get
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSecurityConfigurationsOutcome(GetSecurityConfigurationsResult(outcome.GetResult()));
@@ -2530,7 +2753,7 @@ GetTableOutcome GlueClient::GetTable(const GetTableRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTableOutcome(GetTableResult(outcome.GetResult()));
@@ -2565,7 +2788,7 @@ GetTableVersionOutcome GlueClient::GetTableVersion(const GetTableVersionRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTableVersionOutcome(GetTableVersionResult(outcome.GetResult()));
@@ -2600,7 +2823,7 @@ GetTableVersionsOutcome GlueClient::GetTableVersions(const GetTableVersionsReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTableVersionsOutcome(GetTableVersionsResult(outcome.GetResult()));
@@ -2635,7 +2858,7 @@ GetTablesOutcome GlueClient::GetTables(const GetTablesRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTablesOutcome(GetTablesResult(outcome.GetResult()));
@@ -2670,7 +2893,7 @@ GetTagsOutcome GlueClient::GetTags(const GetTagsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTagsOutcome(GetTagsResult(outcome.GetResult()));
@@ -2705,7 +2928,7 @@ GetTriggerOutcome GlueClient::GetTrigger(const GetTriggerRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTriggerOutcome(GetTriggerResult(outcome.GetResult()));
@@ -2740,7 +2963,7 @@ GetTriggersOutcome GlueClient::GetTriggers(const GetTriggersRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTriggersOutcome(GetTriggersResult(outcome.GetResult()));
@@ -2775,7 +2998,7 @@ GetUserDefinedFunctionOutcome GlueClient::GetUserDefinedFunction(const GetUserDe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetUserDefinedFunctionOutcome(GetUserDefinedFunctionResult(outcome.GetResult()));
@@ -2810,7 +3033,7 @@ GetUserDefinedFunctionsOutcome GlueClient::GetUserDefinedFunctions(const GetUser
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetUserDefinedFunctionsOutcome(GetUserDefinedFunctionsResult(outcome.GetResult()));
@@ -2845,7 +3068,7 @@ GetWorkflowOutcome GlueClient::GetWorkflow(const GetWorkflowRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetWorkflowOutcome(GetWorkflowResult(outcome.GetResult()));
@@ -2880,7 +3103,7 @@ GetWorkflowRunOutcome GlueClient::GetWorkflowRun(const GetWorkflowRunRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetWorkflowRunOutcome(GetWorkflowRunResult(outcome.GetResult()));
@@ -2915,7 +3138,7 @@ GetWorkflowRunPropertiesOutcome GlueClient::GetWorkflowRunProperties(const GetWo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetWorkflowRunPropertiesOutcome(GetWorkflowRunPropertiesResult(outcome.GetResult()));
@@ -2950,7 +3173,7 @@ GetWorkflowRunsOutcome GlueClient::GetWorkflowRuns(const GetWorkflowRunsRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetWorkflowRunsOutcome(GetWorkflowRunsResult(outcome.GetResult()));
@@ -2985,7 +3208,7 @@ ImportCatalogToGlueOutcome GlueClient::ImportCatalogToGlue(const ImportCatalogTo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ImportCatalogToGlueOutcome(ImportCatalogToGlueResult(outcome.GetResult()));
@@ -3020,7 +3243,7 @@ ListCrawlersOutcome GlueClient::ListCrawlers(const ListCrawlersRequest& request)
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListCrawlersOutcome(ListCrawlersResult(outcome.GetResult()));
@@ -3055,7 +3278,7 @@ ListDevEndpointsOutcome GlueClient::ListDevEndpoints(const ListDevEndpointsReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDevEndpointsOutcome(ListDevEndpointsResult(outcome.GetResult()));
@@ -3090,7 +3313,7 @@ ListJobsOutcome GlueClient::ListJobs(const ListJobsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListJobsOutcome(ListJobsResult(outcome.GetResult()));
@@ -3119,13 +3342,48 @@ void GlueClient::ListJobsAsyncHelper(const ListJobsRequest& request, const ListJ
   handler(this, request, ListJobs(request), context);
 }
 
+ListMLTransformsOutcome GlueClient::ListMLTransforms(const ListMLTransformsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListMLTransformsOutcome(ListMLTransformsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListMLTransformsOutcome(outcome.GetError());
+  }
+}
+
+ListMLTransformsOutcomeCallable GlueClient::ListMLTransformsCallable(const ListMLTransformsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListMLTransformsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListMLTransforms(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::ListMLTransformsAsync(const ListMLTransformsRequest& request, const ListMLTransformsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListMLTransformsAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::ListMLTransformsAsyncHelper(const ListMLTransformsRequest& request, const ListMLTransformsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListMLTransforms(request), context);
+}
+
 ListTriggersOutcome GlueClient::ListTriggers(const ListTriggersRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTriggersOutcome(ListTriggersResult(outcome.GetResult()));
@@ -3160,7 +3418,7 @@ ListWorkflowsOutcome GlueClient::ListWorkflows(const ListWorkflowsRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListWorkflowsOutcome(ListWorkflowsResult(outcome.GetResult()));
@@ -3195,7 +3453,7 @@ PutDataCatalogEncryptionSettingsOutcome GlueClient::PutDataCatalogEncryptionSett
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutDataCatalogEncryptionSettingsOutcome(PutDataCatalogEncryptionSettingsResult(outcome.GetResult()));
@@ -3230,7 +3488,7 @@ PutResourcePolicyOutcome GlueClient::PutResourcePolicy(const PutResourcePolicyRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutResourcePolicyOutcome(PutResourcePolicyResult(outcome.GetResult()));
@@ -3265,7 +3523,7 @@ PutWorkflowRunPropertiesOutcome GlueClient::PutWorkflowRunProperties(const PutWo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutWorkflowRunPropertiesOutcome(PutWorkflowRunPropertiesResult(outcome.GetResult()));
@@ -3300,7 +3558,7 @@ ResetJobBookmarkOutcome GlueClient::ResetJobBookmark(const ResetJobBookmarkReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ResetJobBookmarkOutcome(ResetJobBookmarkResult(outcome.GetResult()));
@@ -3329,13 +3587,48 @@ void GlueClient::ResetJobBookmarkAsyncHelper(const ResetJobBookmarkRequest& requ
   handler(this, request, ResetJobBookmark(request), context);
 }
 
+SearchTablesOutcome GlueClient::SearchTables(const SearchTablesRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return SearchTablesOutcome(SearchTablesResult(outcome.GetResult()));
+  }
+  else
+  {
+    return SearchTablesOutcome(outcome.GetError());
+  }
+}
+
+SearchTablesOutcomeCallable GlueClient::SearchTablesCallable(const SearchTablesRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< SearchTablesOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->SearchTables(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::SearchTablesAsync(const SearchTablesRequest& request, const SearchTablesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->SearchTablesAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::SearchTablesAsyncHelper(const SearchTablesRequest& request, const SearchTablesResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, SearchTables(request), context);
+}
+
 StartCrawlerOutcome GlueClient::StartCrawler(const StartCrawlerRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartCrawlerOutcome(StartCrawlerResult(outcome.GetResult()));
@@ -3370,7 +3663,7 @@ StartCrawlerScheduleOutcome GlueClient::StartCrawlerSchedule(const StartCrawlerS
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartCrawlerScheduleOutcome(StartCrawlerScheduleResult(outcome.GetResult()));
@@ -3399,13 +3692,83 @@ void GlueClient::StartCrawlerScheduleAsyncHelper(const StartCrawlerScheduleReque
   handler(this, request, StartCrawlerSchedule(request), context);
 }
 
+StartExportLabelsTaskRunOutcome GlueClient::StartExportLabelsTaskRun(const StartExportLabelsTaskRunRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartExportLabelsTaskRunOutcome(StartExportLabelsTaskRunResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartExportLabelsTaskRunOutcome(outcome.GetError());
+  }
+}
+
+StartExportLabelsTaskRunOutcomeCallable GlueClient::StartExportLabelsTaskRunCallable(const StartExportLabelsTaskRunRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartExportLabelsTaskRunOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartExportLabelsTaskRun(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::StartExportLabelsTaskRunAsync(const StartExportLabelsTaskRunRequest& request, const StartExportLabelsTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartExportLabelsTaskRunAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::StartExportLabelsTaskRunAsyncHelper(const StartExportLabelsTaskRunRequest& request, const StartExportLabelsTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartExportLabelsTaskRun(request), context);
+}
+
+StartImportLabelsTaskRunOutcome GlueClient::StartImportLabelsTaskRun(const StartImportLabelsTaskRunRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartImportLabelsTaskRunOutcome(StartImportLabelsTaskRunResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartImportLabelsTaskRunOutcome(outcome.GetError());
+  }
+}
+
+StartImportLabelsTaskRunOutcomeCallable GlueClient::StartImportLabelsTaskRunCallable(const StartImportLabelsTaskRunRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartImportLabelsTaskRunOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartImportLabelsTaskRun(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::StartImportLabelsTaskRunAsync(const StartImportLabelsTaskRunRequest& request, const StartImportLabelsTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartImportLabelsTaskRunAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::StartImportLabelsTaskRunAsyncHelper(const StartImportLabelsTaskRunRequest& request, const StartImportLabelsTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartImportLabelsTaskRun(request), context);
+}
+
 StartJobRunOutcome GlueClient::StartJobRun(const StartJobRunRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartJobRunOutcome(StartJobRunResult(outcome.GetResult()));
@@ -3434,13 +3797,83 @@ void GlueClient::StartJobRunAsyncHelper(const StartJobRunRequest& request, const
   handler(this, request, StartJobRun(request), context);
 }
 
+StartMLEvaluationTaskRunOutcome GlueClient::StartMLEvaluationTaskRun(const StartMLEvaluationTaskRunRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartMLEvaluationTaskRunOutcome(StartMLEvaluationTaskRunResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartMLEvaluationTaskRunOutcome(outcome.GetError());
+  }
+}
+
+StartMLEvaluationTaskRunOutcomeCallable GlueClient::StartMLEvaluationTaskRunCallable(const StartMLEvaluationTaskRunRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartMLEvaluationTaskRunOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartMLEvaluationTaskRun(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::StartMLEvaluationTaskRunAsync(const StartMLEvaluationTaskRunRequest& request, const StartMLEvaluationTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartMLEvaluationTaskRunAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::StartMLEvaluationTaskRunAsyncHelper(const StartMLEvaluationTaskRunRequest& request, const StartMLEvaluationTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartMLEvaluationTaskRun(request), context);
+}
+
+StartMLLabelingSetGenerationTaskRunOutcome GlueClient::StartMLLabelingSetGenerationTaskRun(const StartMLLabelingSetGenerationTaskRunRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return StartMLLabelingSetGenerationTaskRunOutcome(StartMLLabelingSetGenerationTaskRunResult(outcome.GetResult()));
+  }
+  else
+  {
+    return StartMLLabelingSetGenerationTaskRunOutcome(outcome.GetError());
+  }
+}
+
+StartMLLabelingSetGenerationTaskRunOutcomeCallable GlueClient::StartMLLabelingSetGenerationTaskRunCallable(const StartMLLabelingSetGenerationTaskRunRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< StartMLLabelingSetGenerationTaskRunOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->StartMLLabelingSetGenerationTaskRun(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::StartMLLabelingSetGenerationTaskRunAsync(const StartMLLabelingSetGenerationTaskRunRequest& request, const StartMLLabelingSetGenerationTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->StartMLLabelingSetGenerationTaskRunAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::StartMLLabelingSetGenerationTaskRunAsyncHelper(const StartMLLabelingSetGenerationTaskRunRequest& request, const StartMLLabelingSetGenerationTaskRunResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, StartMLLabelingSetGenerationTaskRun(request), context);
+}
+
 StartTriggerOutcome GlueClient::StartTrigger(const StartTriggerRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartTriggerOutcome(StartTriggerResult(outcome.GetResult()));
@@ -3475,7 +3908,7 @@ StartWorkflowRunOutcome GlueClient::StartWorkflowRun(const StartWorkflowRunReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StartWorkflowRunOutcome(StartWorkflowRunResult(outcome.GetResult()));
@@ -3510,7 +3943,7 @@ StopCrawlerOutcome GlueClient::StopCrawler(const StopCrawlerRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopCrawlerOutcome(StopCrawlerResult(outcome.GetResult()));
@@ -3545,7 +3978,7 @@ StopCrawlerScheduleOutcome GlueClient::StopCrawlerSchedule(const StopCrawlerSche
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopCrawlerScheduleOutcome(StopCrawlerScheduleResult(outcome.GetResult()));
@@ -3580,7 +4013,7 @@ StopTriggerOutcome GlueClient::StopTrigger(const StopTriggerRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopTriggerOutcome(StopTriggerResult(outcome.GetResult()));
@@ -3615,7 +4048,7 @@ TagResourceOutcome GlueClient::TagResource(const TagResourceRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -3650,7 +4083,7 @@ UntagResourceOutcome GlueClient::UntagResource(const UntagResourceRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -3685,7 +4118,7 @@ UpdateClassifierOutcome GlueClient::UpdateClassifier(const UpdateClassifierReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateClassifierOutcome(UpdateClassifierResult(outcome.GetResult()));
@@ -3720,7 +4153,7 @@ UpdateConnectionOutcome GlueClient::UpdateConnection(const UpdateConnectionReque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateConnectionOutcome(UpdateConnectionResult(outcome.GetResult()));
@@ -3755,7 +4188,7 @@ UpdateCrawlerOutcome GlueClient::UpdateCrawler(const UpdateCrawlerRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateCrawlerOutcome(UpdateCrawlerResult(outcome.GetResult()));
@@ -3790,7 +4223,7 @@ UpdateCrawlerScheduleOutcome GlueClient::UpdateCrawlerSchedule(const UpdateCrawl
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateCrawlerScheduleOutcome(UpdateCrawlerScheduleResult(outcome.GetResult()));
@@ -3825,7 +4258,7 @@ UpdateDatabaseOutcome GlueClient::UpdateDatabase(const UpdateDatabaseRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDatabaseOutcome(UpdateDatabaseResult(outcome.GetResult()));
@@ -3860,7 +4293,7 @@ UpdateDevEndpointOutcome GlueClient::UpdateDevEndpoint(const UpdateDevEndpointRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDevEndpointOutcome(UpdateDevEndpointResult(outcome.GetResult()));
@@ -3895,7 +4328,7 @@ UpdateJobOutcome GlueClient::UpdateJob(const UpdateJobRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateJobOutcome(UpdateJobResult(outcome.GetResult()));
@@ -3924,13 +4357,48 @@ void GlueClient::UpdateJobAsyncHelper(const UpdateJobRequest& request, const Upd
   handler(this, request, UpdateJob(request), context);
 }
 
+UpdateMLTransformOutcome GlueClient::UpdateMLTransform(const UpdateMLTransformRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateMLTransformOutcome(UpdateMLTransformResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateMLTransformOutcome(outcome.GetError());
+  }
+}
+
+UpdateMLTransformOutcomeCallable GlueClient::UpdateMLTransformCallable(const UpdateMLTransformRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateMLTransformOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateMLTransform(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void GlueClient::UpdateMLTransformAsync(const UpdateMLTransformRequest& request, const UpdateMLTransformResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateMLTransformAsyncHelper( request, handler, context ); } );
+}
+
+void GlueClient::UpdateMLTransformAsyncHelper(const UpdateMLTransformRequest& request, const UpdateMLTransformResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateMLTransform(request), context);
+}
+
 UpdatePartitionOutcome GlueClient::UpdatePartition(const UpdatePartitionRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdatePartitionOutcome(UpdatePartitionResult(outcome.GetResult()));
@@ -3965,7 +4433,7 @@ UpdateTableOutcome GlueClient::UpdateTable(const UpdateTableRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateTableOutcome(UpdateTableResult(outcome.GetResult()));
@@ -4000,7 +4468,7 @@ UpdateTriggerOutcome GlueClient::UpdateTrigger(const UpdateTriggerRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateTriggerOutcome(UpdateTriggerResult(outcome.GetResult()));
@@ -4035,7 +4503,7 @@ UpdateUserDefinedFunctionOutcome GlueClient::UpdateUserDefinedFunction(const Upd
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateUserDefinedFunctionOutcome(UpdateUserDefinedFunctionResult(outcome.GetResult()));
@@ -4070,7 +4538,7 @@ UpdateWorkflowOutcome GlueClient::UpdateWorkflow(const UpdateWorkflowRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateWorkflowOutcome(UpdateWorkflowResult(outcome.GetResult()));

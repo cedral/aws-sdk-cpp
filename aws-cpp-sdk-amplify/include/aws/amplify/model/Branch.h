@@ -882,6 +882,191 @@ namespace Model
      */
     inline Branch& AddAssociatedResources(const char* value) { m_associatedResourcesHasBeenSet = true; m_associatedResources.push_back(value); return *this; }
 
+
+    /**
+     * <p> Enables Pull Request Preview for this branch. </p>
+     */
+    inline bool GetEnablePullRequestPreview() const{ return m_enablePullRequestPreview; }
+
+    /**
+     * <p> Enables Pull Request Preview for this branch. </p>
+     */
+    inline bool EnablePullRequestPreviewHasBeenSet() const { return m_enablePullRequestPreviewHasBeenSet; }
+
+    /**
+     * <p> Enables Pull Request Preview for this branch. </p>
+     */
+    inline void SetEnablePullRequestPreview(bool value) { m_enablePullRequestPreviewHasBeenSet = true; m_enablePullRequestPreview = value; }
+
+    /**
+     * <p> Enables Pull Request Preview for this branch. </p>
+     */
+    inline Branch& WithEnablePullRequestPreview(bool value) { SetEnablePullRequestPreview(value); return *this;}
+
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline const Aws::String& GetPullRequestEnvironmentName() const{ return m_pullRequestEnvironmentName; }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline bool PullRequestEnvironmentNameHasBeenSet() const { return m_pullRequestEnvironmentNameHasBeenSet; }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline void SetPullRequestEnvironmentName(const Aws::String& value) { m_pullRequestEnvironmentNameHasBeenSet = true; m_pullRequestEnvironmentName = value; }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline void SetPullRequestEnvironmentName(Aws::String&& value) { m_pullRequestEnvironmentNameHasBeenSet = true; m_pullRequestEnvironmentName = std::move(value); }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline void SetPullRequestEnvironmentName(const char* value) { m_pullRequestEnvironmentNameHasBeenSet = true; m_pullRequestEnvironmentName.assign(value); }
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline Branch& WithPullRequestEnvironmentName(const Aws::String& value) { SetPullRequestEnvironmentName(value); return *this;}
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline Branch& WithPullRequestEnvironmentName(Aws::String&& value) { SetPullRequestEnvironmentName(std::move(value)); return *this;}
+
+    /**
+     * <p> The Amplify Environment name for the pull request. </p>
+     */
+    inline Branch& WithPullRequestEnvironmentName(const char* value) { SetPullRequestEnvironmentName(value); return *this;}
+
+
+    /**
+     * <p> The destination branch if the branch is a pull request branch. </p>
+     */
+    inline const Aws::String& GetDestinationBranch() const{ return m_destinationBranch; }
+
+    /**
+     * <p> The destination branch if the branch is a pull request branch. </p>
+     */
+    inline bool DestinationBranchHasBeenSet() const { return m_destinationBranchHasBeenSet; }
+
+    /**
+     * <p> The destination branch if the branch is a pull request branch. </p>
+     */
+    inline void SetDestinationBranch(const Aws::String& value) { m_destinationBranchHasBeenSet = true; m_destinationBranch = value; }
+
+    /**
+     * <p> The destination branch if the branch is a pull request branch. </p>
+     */
+    inline void SetDestinationBranch(Aws::String&& value) { m_destinationBranchHasBeenSet = true; m_destinationBranch = std::move(value); }
+
+    /**
+     * <p> The destination branch if the branch is a pull request branch. </p>
+     */
+    inline void SetDestinationBranch(const char* value) { m_destinationBranchHasBeenSet = true; m_destinationBranch.assign(value); }
+
+    /**
+     * <p> The destination branch if the branch is a pull request branch. </p>
+     */
+    inline Branch& WithDestinationBranch(const Aws::String& value) { SetDestinationBranch(value); return *this;}
+
+    /**
+     * <p> The destination branch if the branch is a pull request branch. </p>
+     */
+    inline Branch& WithDestinationBranch(Aws::String&& value) { SetDestinationBranch(std::move(value)); return *this;}
+
+    /**
+     * <p> The destination branch if the branch is a pull request branch. </p>
+     */
+    inline Branch& WithDestinationBranch(const char* value) { SetDestinationBranch(value); return *this;}
+
+
+    /**
+     * <p> The source branch if the branch is a pull request branch. </p>
+     */
+    inline const Aws::String& GetSourceBranch() const{ return m_sourceBranch; }
+
+    /**
+     * <p> The source branch if the branch is a pull request branch. </p>
+     */
+    inline bool SourceBranchHasBeenSet() const { return m_sourceBranchHasBeenSet; }
+
+    /**
+     * <p> The source branch if the branch is a pull request branch. </p>
+     */
+    inline void SetSourceBranch(const Aws::String& value) { m_sourceBranchHasBeenSet = true; m_sourceBranch = value; }
+
+    /**
+     * <p> The source branch if the branch is a pull request branch. </p>
+     */
+    inline void SetSourceBranch(Aws::String&& value) { m_sourceBranchHasBeenSet = true; m_sourceBranch = std::move(value); }
+
+    /**
+     * <p> The source branch if the branch is a pull request branch. </p>
+     */
+    inline void SetSourceBranch(const char* value) { m_sourceBranchHasBeenSet = true; m_sourceBranch.assign(value); }
+
+    /**
+     * <p> The source branch if the branch is a pull request branch. </p>
+     */
+    inline Branch& WithSourceBranch(const Aws::String& value) { SetSourceBranch(value); return *this;}
+
+    /**
+     * <p> The source branch if the branch is a pull request branch. </p>
+     */
+    inline Branch& WithSourceBranch(Aws::String&& value) { SetSourceBranch(std::move(value)); return *this;}
+
+    /**
+     * <p> The source branch if the branch is a pull request branch. </p>
+     */
+    inline Branch& WithSourceBranch(const char* value) { SetSourceBranch(value); return *this;}
+
+
+    /**
+     * <p> ARN for a Backend Environment, part of an Amplify App. </p>
+     */
+    inline const Aws::String& GetBackendEnvironmentArn() const{ return m_backendEnvironmentArn; }
+
+    /**
+     * <p> ARN for a Backend Environment, part of an Amplify App. </p>
+     */
+    inline bool BackendEnvironmentArnHasBeenSet() const { return m_backendEnvironmentArnHasBeenSet; }
+
+    /**
+     * <p> ARN for a Backend Environment, part of an Amplify App. </p>
+     */
+    inline void SetBackendEnvironmentArn(const Aws::String& value) { m_backendEnvironmentArnHasBeenSet = true; m_backendEnvironmentArn = value; }
+
+    /**
+     * <p> ARN for a Backend Environment, part of an Amplify App. </p>
+     */
+    inline void SetBackendEnvironmentArn(Aws::String&& value) { m_backendEnvironmentArnHasBeenSet = true; m_backendEnvironmentArn = std::move(value); }
+
+    /**
+     * <p> ARN for a Backend Environment, part of an Amplify App. </p>
+     */
+    inline void SetBackendEnvironmentArn(const char* value) { m_backendEnvironmentArnHasBeenSet = true; m_backendEnvironmentArn.assign(value); }
+
+    /**
+     * <p> ARN for a Backend Environment, part of an Amplify App. </p>
+     */
+    inline Branch& WithBackendEnvironmentArn(const Aws::String& value) { SetBackendEnvironmentArn(value); return *this;}
+
+    /**
+     * <p> ARN for a Backend Environment, part of an Amplify App. </p>
+     */
+    inline Branch& WithBackendEnvironmentArn(Aws::String&& value) { SetBackendEnvironmentArn(std::move(value)); return *this;}
+
+    /**
+     * <p> ARN for a Backend Environment, part of an Amplify App. </p>
+     */
+    inline Branch& WithBackendEnvironmentArn(const char* value) { SetBackendEnvironmentArn(value); return *this;}
+
   private:
 
     Aws::String m_branchArn;
@@ -946,6 +1131,21 @@ namespace Model
 
     Aws::Vector<Aws::String> m_associatedResources;
     bool m_associatedResourcesHasBeenSet;
+
+    bool m_enablePullRequestPreview;
+    bool m_enablePullRequestPreviewHasBeenSet;
+
+    Aws::String m_pullRequestEnvironmentName;
+    bool m_pullRequestEnvironmentNameHasBeenSet;
+
+    Aws::String m_destinationBranch;
+    bool m_destinationBranchHasBeenSet;
+
+    Aws::String m_sourceBranch;
+    bool m_sourceBranchHasBeenSet;
+
+    Aws::String m_backendEnvironmentArn;
+    bool m_backendEnvironmentArnHasBeenSet;
   };
 
 } // namespace Model

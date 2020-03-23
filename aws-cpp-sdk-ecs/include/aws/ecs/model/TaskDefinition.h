@@ -27,6 +27,7 @@
 #include <aws/ecs/model/Attribute.h>
 #include <aws/ecs/model/TaskDefinitionPlacementConstraint.h>
 #include <aws/ecs/model/Compatibility.h>
+#include <aws/ecs/model/InferenceAccelerator.h>
 #include <utility>
 
 namespace Aws
@@ -185,74 +186,90 @@ namespace Model
 
 
     /**
-     * <p>The name of a family that this task definition is registered to. A family
-     * groups multiple versions of a task definition. Amazon ECS gives the first task
-     * definition that you registered to a family a revision number of 1. Amazon ECS
-     * gives sequential revision numbers to each task definition that you add.</p>
+     * <p>The name of a family that this task definition is registered to. Up to 255
+     * letters (uppercase and lowercase), numbers, hyphens, and underscores are
+     * allowed.</p> <p>A family groups multiple versions of a task definition. Amazon
+     * ECS gives the first task definition that you registered to a family a revision
+     * number of 1. Amazon ECS gives sequential revision numbers to each task
+     * definition that you add.</p>
      */
     inline const Aws::String& GetFamily() const{ return m_family; }
 
     /**
-     * <p>The name of a family that this task definition is registered to. A family
-     * groups multiple versions of a task definition. Amazon ECS gives the first task
-     * definition that you registered to a family a revision number of 1. Amazon ECS
-     * gives sequential revision numbers to each task definition that you add.</p>
+     * <p>The name of a family that this task definition is registered to. Up to 255
+     * letters (uppercase and lowercase), numbers, hyphens, and underscores are
+     * allowed.</p> <p>A family groups multiple versions of a task definition. Amazon
+     * ECS gives the first task definition that you registered to a family a revision
+     * number of 1. Amazon ECS gives sequential revision numbers to each task
+     * definition that you add.</p>
      */
     inline bool FamilyHasBeenSet() const { return m_familyHasBeenSet; }
 
     /**
-     * <p>The name of a family that this task definition is registered to. A family
-     * groups multiple versions of a task definition. Amazon ECS gives the first task
-     * definition that you registered to a family a revision number of 1. Amazon ECS
-     * gives sequential revision numbers to each task definition that you add.</p>
+     * <p>The name of a family that this task definition is registered to. Up to 255
+     * letters (uppercase and lowercase), numbers, hyphens, and underscores are
+     * allowed.</p> <p>A family groups multiple versions of a task definition. Amazon
+     * ECS gives the first task definition that you registered to a family a revision
+     * number of 1. Amazon ECS gives sequential revision numbers to each task
+     * definition that you add.</p>
      */
     inline void SetFamily(const Aws::String& value) { m_familyHasBeenSet = true; m_family = value; }
 
     /**
-     * <p>The name of a family that this task definition is registered to. A family
-     * groups multiple versions of a task definition. Amazon ECS gives the first task
-     * definition that you registered to a family a revision number of 1. Amazon ECS
-     * gives sequential revision numbers to each task definition that you add.</p>
+     * <p>The name of a family that this task definition is registered to. Up to 255
+     * letters (uppercase and lowercase), numbers, hyphens, and underscores are
+     * allowed.</p> <p>A family groups multiple versions of a task definition. Amazon
+     * ECS gives the first task definition that you registered to a family a revision
+     * number of 1. Amazon ECS gives sequential revision numbers to each task
+     * definition that you add.</p>
      */
     inline void SetFamily(Aws::String&& value) { m_familyHasBeenSet = true; m_family = std::move(value); }
 
     /**
-     * <p>The name of a family that this task definition is registered to. A family
-     * groups multiple versions of a task definition. Amazon ECS gives the first task
-     * definition that you registered to a family a revision number of 1. Amazon ECS
-     * gives sequential revision numbers to each task definition that you add.</p>
+     * <p>The name of a family that this task definition is registered to. Up to 255
+     * letters (uppercase and lowercase), numbers, hyphens, and underscores are
+     * allowed.</p> <p>A family groups multiple versions of a task definition. Amazon
+     * ECS gives the first task definition that you registered to a family a revision
+     * number of 1. Amazon ECS gives sequential revision numbers to each task
+     * definition that you add.</p>
      */
     inline void SetFamily(const char* value) { m_familyHasBeenSet = true; m_family.assign(value); }
 
     /**
-     * <p>The name of a family that this task definition is registered to. A family
-     * groups multiple versions of a task definition. Amazon ECS gives the first task
-     * definition that you registered to a family a revision number of 1. Amazon ECS
-     * gives sequential revision numbers to each task definition that you add.</p>
+     * <p>The name of a family that this task definition is registered to. Up to 255
+     * letters (uppercase and lowercase), numbers, hyphens, and underscores are
+     * allowed.</p> <p>A family groups multiple versions of a task definition. Amazon
+     * ECS gives the first task definition that you registered to a family a revision
+     * number of 1. Amazon ECS gives sequential revision numbers to each task
+     * definition that you add.</p>
      */
     inline TaskDefinition& WithFamily(const Aws::String& value) { SetFamily(value); return *this;}
 
     /**
-     * <p>The name of a family that this task definition is registered to. A family
-     * groups multiple versions of a task definition. Amazon ECS gives the first task
-     * definition that you registered to a family a revision number of 1. Amazon ECS
-     * gives sequential revision numbers to each task definition that you add.</p>
+     * <p>The name of a family that this task definition is registered to. Up to 255
+     * letters (uppercase and lowercase), numbers, hyphens, and underscores are
+     * allowed.</p> <p>A family groups multiple versions of a task definition. Amazon
+     * ECS gives the first task definition that you registered to a family a revision
+     * number of 1. Amazon ECS gives sequential revision numbers to each task
+     * definition that you add.</p>
      */
     inline TaskDefinition& WithFamily(Aws::String&& value) { SetFamily(std::move(value)); return *this;}
 
     /**
-     * <p>The name of a family that this task definition is registered to. A family
-     * groups multiple versions of a task definition. Amazon ECS gives the first task
-     * definition that you registered to a family a revision number of 1. Amazon ECS
-     * gives sequential revision numbers to each task definition that you add.</p>
+     * <p>The name of a family that this task definition is registered to. Up to 255
+     * letters (uppercase and lowercase), numbers, hyphens, and underscores are
+     * allowed.</p> <p>A family groups multiple versions of a task definition. Amazon
+     * ECS gives the first task definition that you registered to a family a revision
+     * number of 1. Amazon ECS gives sequential revision numbers to each task
+     * definition that you add.</p>
      */
     inline TaskDefinition& WithFamily(const char* value) { SetFamily(value); return *this;}
 
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
-     * role that grants containers in the task permission to call AWS APIs on your
-     * behalf. For more information, see <a
+     * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and
+     * Access Management (IAM) role that grants containers in the task permission to
+     * call AWS APIs on your behalf. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_IAM_role.html">Amazon
      * ECS Task Role</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p> <p>IAM roles for tasks on Windows require that the
@@ -266,9 +283,9 @@ namespace Model
     inline const Aws::String& GetTaskRoleArn() const{ return m_taskRoleArn; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
-     * role that grants containers in the task permission to call AWS APIs on your
-     * behalf. For more information, see <a
+     * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and
+     * Access Management (IAM) role that grants containers in the task permission to
+     * call AWS APIs on your behalf. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_IAM_role.html">Amazon
      * ECS Task Role</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p> <p>IAM roles for tasks on Windows require that the
@@ -282,9 +299,9 @@ namespace Model
     inline bool TaskRoleArnHasBeenSet() const { return m_taskRoleArnHasBeenSet; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
-     * role that grants containers in the task permission to call AWS APIs on your
-     * behalf. For more information, see <a
+     * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and
+     * Access Management (IAM) role that grants containers in the task permission to
+     * call AWS APIs on your behalf. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_IAM_role.html">Amazon
      * ECS Task Role</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p> <p>IAM roles for tasks on Windows require that the
@@ -298,9 +315,9 @@ namespace Model
     inline void SetTaskRoleArn(const Aws::String& value) { m_taskRoleArnHasBeenSet = true; m_taskRoleArn = value; }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
-     * role that grants containers in the task permission to call AWS APIs on your
-     * behalf. For more information, see <a
+     * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and
+     * Access Management (IAM) role that grants containers in the task permission to
+     * call AWS APIs on your behalf. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_IAM_role.html">Amazon
      * ECS Task Role</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p> <p>IAM roles for tasks on Windows require that the
@@ -314,9 +331,9 @@ namespace Model
     inline void SetTaskRoleArn(Aws::String&& value) { m_taskRoleArnHasBeenSet = true; m_taskRoleArn = std::move(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
-     * role that grants containers in the task permission to call AWS APIs on your
-     * behalf. For more information, see <a
+     * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and
+     * Access Management (IAM) role that grants containers in the task permission to
+     * call AWS APIs on your behalf. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_IAM_role.html">Amazon
      * ECS Task Role</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p> <p>IAM roles for tasks on Windows require that the
@@ -330,9 +347,9 @@ namespace Model
     inline void SetTaskRoleArn(const char* value) { m_taskRoleArnHasBeenSet = true; m_taskRoleArn.assign(value); }
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
-     * role that grants containers in the task permission to call AWS APIs on your
-     * behalf. For more information, see <a
+     * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and
+     * Access Management (IAM) role that grants containers in the task permission to
+     * call AWS APIs on your behalf. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_IAM_role.html">Amazon
      * ECS Task Role</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p> <p>IAM roles for tasks on Windows require that the
@@ -346,9 +363,9 @@ namespace Model
     inline TaskDefinition& WithTaskRoleArn(const Aws::String& value) { SetTaskRoleArn(value); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
-     * role that grants containers in the task permission to call AWS APIs on your
-     * behalf. For more information, see <a
+     * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and
+     * Access Management (IAM) role that grants containers in the task permission to
+     * call AWS APIs on your behalf. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_IAM_role.html">Amazon
      * ECS Task Role</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p> <p>IAM roles for tasks on Windows require that the
@@ -362,9 +379,9 @@ namespace Model
     inline TaskDefinition& WithTaskRoleArn(Aws::String&& value) { SetTaskRoleArn(std::move(value)); return *this;}
 
     /**
-     * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM)
-     * role that grants containers in the task permission to call AWS APIs on your
-     * behalf. For more information, see <a
+     * <p>The short name or full Amazon Resource Name (ARN) of the AWS Identity and
+     * Access Management (IAM) role that grants containers in the task permission to
+     * call AWS APIs on your behalf. For more information, see <a
      * href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_IAM_role.html">Amazon
      * ECS Task Role</a> in the <i>Amazon Elastic Container Service Developer
      * Guide</i>.</p> <p>IAM roles for tasks on Windows require that the
@@ -1185,150 +1202,199 @@ namespace Model
 
 
     /**
-     * <p>The amount (in MiB) of memory used by the task. If using the EC2 launch type,
-     * this field is optional and any value can be used. If using the Fargate launch
-     * type, this field is required and you must use one of the following values, which
-     * determines your range of valid values for the <code>cpu</code> parameter:</p>
-     * <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code>
-     * values: 256 (.25 vCPU)</p> </li> <li> <p>1024 (1 GB), 2048 (2 GB), 3072 (3 GB),
-     * 4096 (4 GB) - Available <code>cpu</code> values: 512 (.5 vCPU)</p> </li> <li>
-     * <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB),
-     * 8192 (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</p> </li> <li>
-     * <p>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) -
-     * Available <code>cpu</code> values: 2048 (2 vCPU)</p> </li> <li> <p>Between 8192
-     * (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available
-     * <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
+     * <p>The amount (in MiB) of memory used by the task.</p> <p>If using the EC2
+     * launch type, this field is optional and any value can be used. If a task-level
+     * memory value is specified then the container-level memory value is optional.</p>
+     * <p>If using the Fargate launch type, this field is required and you must use one
+     * of the following values, which determines your range of valid values for the
+     * <code>cpu</code> parameter:</p> <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2
+     * GB) - Available <code>cpu</code> values: 256 (.25 vCPU)</p> </li> <li> <p>1024
+     * (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code>
+     * values: 512 (.5 vCPU)</p> </li> <li> <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB),
+     * 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available <code>cpu</code>
+     * values: 1024 (1 vCPU)</p> </li> <li> <p>Between 4096 (4 GB) and 16384 (16 GB) in
+     * increments of 1024 (1 GB) - Available <code>cpu</code> values: 2048 (2 vCPU)</p>
+     * </li> <li> <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+     * - Available <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
      */
     inline const Aws::String& GetMemory() const{ return m_memory; }
 
     /**
-     * <p>The amount (in MiB) of memory used by the task. If using the EC2 launch type,
-     * this field is optional and any value can be used. If using the Fargate launch
-     * type, this field is required and you must use one of the following values, which
-     * determines your range of valid values for the <code>cpu</code> parameter:</p>
-     * <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code>
-     * values: 256 (.25 vCPU)</p> </li> <li> <p>1024 (1 GB), 2048 (2 GB), 3072 (3 GB),
-     * 4096 (4 GB) - Available <code>cpu</code> values: 512 (.5 vCPU)</p> </li> <li>
-     * <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB),
-     * 8192 (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</p> </li> <li>
-     * <p>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) -
-     * Available <code>cpu</code> values: 2048 (2 vCPU)</p> </li> <li> <p>Between 8192
-     * (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available
-     * <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
+     * <p>The amount (in MiB) of memory used by the task.</p> <p>If using the EC2
+     * launch type, this field is optional and any value can be used. If a task-level
+     * memory value is specified then the container-level memory value is optional.</p>
+     * <p>If using the Fargate launch type, this field is required and you must use one
+     * of the following values, which determines your range of valid values for the
+     * <code>cpu</code> parameter:</p> <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2
+     * GB) - Available <code>cpu</code> values: 256 (.25 vCPU)</p> </li> <li> <p>1024
+     * (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code>
+     * values: 512 (.5 vCPU)</p> </li> <li> <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB),
+     * 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available <code>cpu</code>
+     * values: 1024 (1 vCPU)</p> </li> <li> <p>Between 4096 (4 GB) and 16384 (16 GB) in
+     * increments of 1024 (1 GB) - Available <code>cpu</code> values: 2048 (2 vCPU)</p>
+     * </li> <li> <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+     * - Available <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
      */
     inline bool MemoryHasBeenSet() const { return m_memoryHasBeenSet; }
 
     /**
-     * <p>The amount (in MiB) of memory used by the task. If using the EC2 launch type,
-     * this field is optional and any value can be used. If using the Fargate launch
-     * type, this field is required and you must use one of the following values, which
-     * determines your range of valid values for the <code>cpu</code> parameter:</p>
-     * <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code>
-     * values: 256 (.25 vCPU)</p> </li> <li> <p>1024 (1 GB), 2048 (2 GB), 3072 (3 GB),
-     * 4096 (4 GB) - Available <code>cpu</code> values: 512 (.5 vCPU)</p> </li> <li>
-     * <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB),
-     * 8192 (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</p> </li> <li>
-     * <p>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) -
-     * Available <code>cpu</code> values: 2048 (2 vCPU)</p> </li> <li> <p>Between 8192
-     * (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available
-     * <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
+     * <p>The amount (in MiB) of memory used by the task.</p> <p>If using the EC2
+     * launch type, this field is optional and any value can be used. If a task-level
+     * memory value is specified then the container-level memory value is optional.</p>
+     * <p>If using the Fargate launch type, this field is required and you must use one
+     * of the following values, which determines your range of valid values for the
+     * <code>cpu</code> parameter:</p> <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2
+     * GB) - Available <code>cpu</code> values: 256 (.25 vCPU)</p> </li> <li> <p>1024
+     * (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code>
+     * values: 512 (.5 vCPU)</p> </li> <li> <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB),
+     * 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available <code>cpu</code>
+     * values: 1024 (1 vCPU)</p> </li> <li> <p>Between 4096 (4 GB) and 16384 (16 GB) in
+     * increments of 1024 (1 GB) - Available <code>cpu</code> values: 2048 (2 vCPU)</p>
+     * </li> <li> <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+     * - Available <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
      */
     inline void SetMemory(const Aws::String& value) { m_memoryHasBeenSet = true; m_memory = value; }
 
     /**
-     * <p>The amount (in MiB) of memory used by the task. If using the EC2 launch type,
-     * this field is optional and any value can be used. If using the Fargate launch
-     * type, this field is required and you must use one of the following values, which
-     * determines your range of valid values for the <code>cpu</code> parameter:</p>
-     * <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code>
-     * values: 256 (.25 vCPU)</p> </li> <li> <p>1024 (1 GB), 2048 (2 GB), 3072 (3 GB),
-     * 4096 (4 GB) - Available <code>cpu</code> values: 512 (.5 vCPU)</p> </li> <li>
-     * <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB),
-     * 8192 (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</p> </li> <li>
-     * <p>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) -
-     * Available <code>cpu</code> values: 2048 (2 vCPU)</p> </li> <li> <p>Between 8192
-     * (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available
-     * <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
+     * <p>The amount (in MiB) of memory used by the task.</p> <p>If using the EC2
+     * launch type, this field is optional and any value can be used. If a task-level
+     * memory value is specified then the container-level memory value is optional.</p>
+     * <p>If using the Fargate launch type, this field is required and you must use one
+     * of the following values, which determines your range of valid values for the
+     * <code>cpu</code> parameter:</p> <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2
+     * GB) - Available <code>cpu</code> values: 256 (.25 vCPU)</p> </li> <li> <p>1024
+     * (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code>
+     * values: 512 (.5 vCPU)</p> </li> <li> <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB),
+     * 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available <code>cpu</code>
+     * values: 1024 (1 vCPU)</p> </li> <li> <p>Between 4096 (4 GB) and 16384 (16 GB) in
+     * increments of 1024 (1 GB) - Available <code>cpu</code> values: 2048 (2 vCPU)</p>
+     * </li> <li> <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+     * - Available <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
      */
     inline void SetMemory(Aws::String&& value) { m_memoryHasBeenSet = true; m_memory = std::move(value); }
 
     /**
-     * <p>The amount (in MiB) of memory used by the task. If using the EC2 launch type,
-     * this field is optional and any value can be used. If using the Fargate launch
-     * type, this field is required and you must use one of the following values, which
-     * determines your range of valid values for the <code>cpu</code> parameter:</p>
-     * <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code>
-     * values: 256 (.25 vCPU)</p> </li> <li> <p>1024 (1 GB), 2048 (2 GB), 3072 (3 GB),
-     * 4096 (4 GB) - Available <code>cpu</code> values: 512 (.5 vCPU)</p> </li> <li>
-     * <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB),
-     * 8192 (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</p> </li> <li>
-     * <p>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) -
-     * Available <code>cpu</code> values: 2048 (2 vCPU)</p> </li> <li> <p>Between 8192
-     * (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available
-     * <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
+     * <p>The amount (in MiB) of memory used by the task.</p> <p>If using the EC2
+     * launch type, this field is optional and any value can be used. If a task-level
+     * memory value is specified then the container-level memory value is optional.</p>
+     * <p>If using the Fargate launch type, this field is required and you must use one
+     * of the following values, which determines your range of valid values for the
+     * <code>cpu</code> parameter:</p> <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2
+     * GB) - Available <code>cpu</code> values: 256 (.25 vCPU)</p> </li> <li> <p>1024
+     * (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code>
+     * values: 512 (.5 vCPU)</p> </li> <li> <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB),
+     * 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available <code>cpu</code>
+     * values: 1024 (1 vCPU)</p> </li> <li> <p>Between 4096 (4 GB) and 16384 (16 GB) in
+     * increments of 1024 (1 GB) - Available <code>cpu</code> values: 2048 (2 vCPU)</p>
+     * </li> <li> <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+     * - Available <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
      */
     inline void SetMemory(const char* value) { m_memoryHasBeenSet = true; m_memory.assign(value); }
 
     /**
-     * <p>The amount (in MiB) of memory used by the task. If using the EC2 launch type,
-     * this field is optional and any value can be used. If using the Fargate launch
-     * type, this field is required and you must use one of the following values, which
-     * determines your range of valid values for the <code>cpu</code> parameter:</p>
-     * <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code>
-     * values: 256 (.25 vCPU)</p> </li> <li> <p>1024 (1 GB), 2048 (2 GB), 3072 (3 GB),
-     * 4096 (4 GB) - Available <code>cpu</code> values: 512 (.5 vCPU)</p> </li> <li>
-     * <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB),
-     * 8192 (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</p> </li> <li>
-     * <p>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) -
-     * Available <code>cpu</code> values: 2048 (2 vCPU)</p> </li> <li> <p>Between 8192
-     * (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available
-     * <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
+     * <p>The amount (in MiB) of memory used by the task.</p> <p>If using the EC2
+     * launch type, this field is optional and any value can be used. If a task-level
+     * memory value is specified then the container-level memory value is optional.</p>
+     * <p>If using the Fargate launch type, this field is required and you must use one
+     * of the following values, which determines your range of valid values for the
+     * <code>cpu</code> parameter:</p> <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2
+     * GB) - Available <code>cpu</code> values: 256 (.25 vCPU)</p> </li> <li> <p>1024
+     * (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code>
+     * values: 512 (.5 vCPU)</p> </li> <li> <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB),
+     * 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available <code>cpu</code>
+     * values: 1024 (1 vCPU)</p> </li> <li> <p>Between 4096 (4 GB) and 16384 (16 GB) in
+     * increments of 1024 (1 GB) - Available <code>cpu</code> values: 2048 (2 vCPU)</p>
+     * </li> <li> <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+     * - Available <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
      */
     inline TaskDefinition& WithMemory(const Aws::String& value) { SetMemory(value); return *this;}
 
     /**
-     * <p>The amount (in MiB) of memory used by the task. If using the EC2 launch type,
-     * this field is optional and any value can be used. If using the Fargate launch
-     * type, this field is required and you must use one of the following values, which
-     * determines your range of valid values for the <code>cpu</code> parameter:</p>
-     * <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code>
-     * values: 256 (.25 vCPU)</p> </li> <li> <p>1024 (1 GB), 2048 (2 GB), 3072 (3 GB),
-     * 4096 (4 GB) - Available <code>cpu</code> values: 512 (.5 vCPU)</p> </li> <li>
-     * <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB),
-     * 8192 (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</p> </li> <li>
-     * <p>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) -
-     * Available <code>cpu</code> values: 2048 (2 vCPU)</p> </li> <li> <p>Between 8192
-     * (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available
-     * <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
+     * <p>The amount (in MiB) of memory used by the task.</p> <p>If using the EC2
+     * launch type, this field is optional and any value can be used. If a task-level
+     * memory value is specified then the container-level memory value is optional.</p>
+     * <p>If using the Fargate launch type, this field is required and you must use one
+     * of the following values, which determines your range of valid values for the
+     * <code>cpu</code> parameter:</p> <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2
+     * GB) - Available <code>cpu</code> values: 256 (.25 vCPU)</p> </li> <li> <p>1024
+     * (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code>
+     * values: 512 (.5 vCPU)</p> </li> <li> <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB),
+     * 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available <code>cpu</code>
+     * values: 1024 (1 vCPU)</p> </li> <li> <p>Between 4096 (4 GB) and 16384 (16 GB) in
+     * increments of 1024 (1 GB) - Available <code>cpu</code> values: 2048 (2 vCPU)</p>
+     * </li> <li> <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+     * - Available <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
      */
     inline TaskDefinition& WithMemory(Aws::String&& value) { SetMemory(std::move(value)); return *this;}
 
     /**
-     * <p>The amount (in MiB) of memory used by the task. If using the EC2 launch type,
-     * this field is optional and any value can be used. If using the Fargate launch
-     * type, this field is required and you must use one of the following values, which
-     * determines your range of valid values for the <code>cpu</code> parameter:</p>
-     * <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code>
-     * values: 256 (.25 vCPU)</p> </li> <li> <p>1024 (1 GB), 2048 (2 GB), 3072 (3 GB),
-     * 4096 (4 GB) - Available <code>cpu</code> values: 512 (.5 vCPU)</p> </li> <li>
-     * <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB),
-     * 8192 (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)</p> </li> <li>
-     * <p>Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) -
-     * Available <code>cpu</code> values: 2048 (2 vCPU)</p> </li> <li> <p>Between 8192
-     * (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available
-     * <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
+     * <p>The amount (in MiB) of memory used by the task.</p> <p>If using the EC2
+     * launch type, this field is optional and any value can be used. If a task-level
+     * memory value is specified then the container-level memory value is optional.</p>
+     * <p>If using the Fargate launch type, this field is required and you must use one
+     * of the following values, which determines your range of valid values for the
+     * <code>cpu</code> parameter:</p> <ul> <li> <p>512 (0.5 GB), 1024 (1 GB), 2048 (2
+     * GB) - Available <code>cpu</code> values: 256 (.25 vCPU)</p> </li> <li> <p>1024
+     * (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code>
+     * values: 512 (.5 vCPU)</p> </li> <li> <p>2048 (2 GB), 3072 (3 GB), 4096 (4 GB),
+     * 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB) - Available <code>cpu</code>
+     * values: 1024 (1 vCPU)</p> </li> <li> <p>Between 4096 (4 GB) and 16384 (16 GB) in
+     * increments of 1024 (1 GB) - Available <code>cpu</code> values: 2048 (2 vCPU)</p>
+     * </li> <li> <p>Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)
+     * - Available <code>cpu</code> values: 4096 (4 vCPU)</p> </li> </ul>
      */
     inline TaskDefinition& WithMemory(const char* value) { SetMemory(value); return *this;}
+
+
+    /**
+     * <p>The Elastic Inference accelerator associated with the task.</p>
+     */
+    inline const Aws::Vector<InferenceAccelerator>& GetInferenceAccelerators() const{ return m_inferenceAccelerators; }
+
+    /**
+     * <p>The Elastic Inference accelerator associated with the task.</p>
+     */
+    inline bool InferenceAcceleratorsHasBeenSet() const { return m_inferenceAcceleratorsHasBeenSet; }
+
+    /**
+     * <p>The Elastic Inference accelerator associated with the task.</p>
+     */
+    inline void SetInferenceAccelerators(const Aws::Vector<InferenceAccelerator>& value) { m_inferenceAcceleratorsHasBeenSet = true; m_inferenceAccelerators = value; }
+
+    /**
+     * <p>The Elastic Inference accelerator associated with the task.</p>
+     */
+    inline void SetInferenceAccelerators(Aws::Vector<InferenceAccelerator>&& value) { m_inferenceAcceleratorsHasBeenSet = true; m_inferenceAccelerators = std::move(value); }
+
+    /**
+     * <p>The Elastic Inference accelerator associated with the task.</p>
+     */
+    inline TaskDefinition& WithInferenceAccelerators(const Aws::Vector<InferenceAccelerator>& value) { SetInferenceAccelerators(value); return *this;}
+
+    /**
+     * <p>The Elastic Inference accelerator associated with the task.</p>
+     */
+    inline TaskDefinition& WithInferenceAccelerators(Aws::Vector<InferenceAccelerator>&& value) { SetInferenceAccelerators(std::move(value)); return *this;}
+
+    /**
+     * <p>The Elastic Inference accelerator associated with the task.</p>
+     */
+    inline TaskDefinition& AddInferenceAccelerators(const InferenceAccelerator& value) { m_inferenceAcceleratorsHasBeenSet = true; m_inferenceAccelerators.push_back(value); return *this; }
+
+    /**
+     * <p>The Elastic Inference accelerator associated with the task.</p>
+     */
+    inline TaskDefinition& AddInferenceAccelerators(InferenceAccelerator&& value) { m_inferenceAcceleratorsHasBeenSet = true; m_inferenceAccelerators.push_back(std::move(value)); return *this; }
 
 
     /**
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1343,10 +1409,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1361,10 +1427,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1379,10 +1445,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1397,10 +1463,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1415,10 +1481,10 @@ namespace Model
      * <p>The process namespace to use for the containers in the task. The valid values
      * are <code>host</code> or <code>task</code>. If <code>host</code> is specified,
      * then all containers within the tasks that specified the <code>host</code> PID
-     * mode on the same container instance share the same IPC resources with the host
-     * Amazon EC2 instance. If <code>task</code> is specified, all containers within
-     * the specified task share the same process namespace. If no value is specified,
-     * the default is a private namespace. For more information, see <a
+     * mode on the same container instance share the same process namespace with the
+     * host Amazon EC2 instance. If <code>task</code> is specified, all containers
+     * within the specified task share the same process namespace. If no value is
+     * specified, the default is a private namespace. For more information, see <a
      * href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
      * settings</a> in the <i>Docker run reference</i>.</p> <p>If the <code>host</code>
      * PID mode is used, be aware that there is a heightened risk of undesired process
@@ -1747,6 +1813,9 @@ namespace Model
 
     Aws::String m_memory;
     bool m_memoryHasBeenSet;
+
+    Aws::Vector<InferenceAccelerator> m_inferenceAccelerators;
+    bool m_inferenceAcceleratorsHasBeenSet;
 
     PidMode m_pidMode;
     bool m_pidModeHasBeenSet;

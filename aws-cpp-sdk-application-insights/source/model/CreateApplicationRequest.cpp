@@ -23,7 +23,11 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 CreateApplicationRequest::CreateApplicationRequest() : 
-    m_resourceGroupNameHasBeenSet(false)
+    m_resourceGroupNameHasBeenSet(false),
+    m_opsCenterEnabled(false),
+    m_opsCenterEnabledHasBeenSet(false),
+    m_opsItemSNSTopicArnHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -34,6 +38,29 @@ Aws::String CreateApplicationRequest::SerializePayload() const
   if(m_resourceGroupNameHasBeenSet)
   {
    payload.WithString("ResourceGroupName", m_resourceGroupName);
+
+  }
+
+  if(m_opsCenterEnabledHasBeenSet)
+  {
+   payload.WithBool("OpsCenterEnabled", m_opsCenterEnabled);
+
+  }
+
+  if(m_opsItemSNSTopicArnHasBeenSet)
+  {
+   payload.WithString("OpsItemSNSTopicArn", m_opsItemSNSTopicArn);
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   Array<JsonValue> tagsJsonList(m_tags.size());
+   for(unsigned tagsIndex = 0; tagsIndex < tagsJsonList.GetLength(); ++tagsIndex)
+   {
+     tagsJsonList[tagsIndex].AsObject(m_tags[tagsIndex].Jsonize());
+   }
+   payload.WithArray("Tags", std::move(tagsJsonList));
 
   }
 

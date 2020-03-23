@@ -20,6 +20,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/ssm/model/DocumentType.h>
 #include <aws/ssm/model/DocumentFormat.h>
+#include <aws/ssm/model/DocumentRequires.h>
 #include <aws/ssm/model/AttachmentsSource.h>
 #include <aws/ssm/model/Tag.h>
 #include <utility>
@@ -88,6 +89,63 @@ namespace Model
      * <p>A valid JSON or YAML string.</p>
      */
     inline CreateDocumentRequest& WithContent(const char* value) { SetContent(value); return *this;}
+
+
+    /**
+     * <p>A list of SSM documents required by a document. For example, an
+     * <code>ApplicationConfiguration</code> document requires an
+     * <code>ApplicationConfigurationSchema</code> document.</p>
+     */
+    inline const Aws::Vector<DocumentRequires>& GetRequires() const{ return m_requires; }
+
+    /**
+     * <p>A list of SSM documents required by a document. For example, an
+     * <code>ApplicationConfiguration</code> document requires an
+     * <code>ApplicationConfigurationSchema</code> document.</p>
+     */
+    inline bool RequiresHasBeenSet() const { return m_requiresHasBeenSet; }
+
+    /**
+     * <p>A list of SSM documents required by a document. For example, an
+     * <code>ApplicationConfiguration</code> document requires an
+     * <code>ApplicationConfigurationSchema</code> document.</p>
+     */
+    inline void SetRequires(const Aws::Vector<DocumentRequires>& value) { m_requiresHasBeenSet = true; m_requires = value; }
+
+    /**
+     * <p>A list of SSM documents required by a document. For example, an
+     * <code>ApplicationConfiguration</code> document requires an
+     * <code>ApplicationConfigurationSchema</code> document.</p>
+     */
+    inline void SetRequires(Aws::Vector<DocumentRequires>&& value) { m_requiresHasBeenSet = true; m_requires = std::move(value); }
+
+    /**
+     * <p>A list of SSM documents required by a document. For example, an
+     * <code>ApplicationConfiguration</code> document requires an
+     * <code>ApplicationConfigurationSchema</code> document.</p>
+     */
+    inline CreateDocumentRequest& WithRequires(const Aws::Vector<DocumentRequires>& value) { SetRequires(value); return *this;}
+
+    /**
+     * <p>A list of SSM documents required by a document. For example, an
+     * <code>ApplicationConfiguration</code> document requires an
+     * <code>ApplicationConfigurationSchema</code> document.</p>
+     */
+    inline CreateDocumentRequest& WithRequires(Aws::Vector<DocumentRequires>&& value) { SetRequires(std::move(value)); return *this;}
+
+    /**
+     * <p>A list of SSM documents required by a document. For example, an
+     * <code>ApplicationConfiguration</code> document requires an
+     * <code>ApplicationConfigurationSchema</code> document.</p>
+     */
+    inline CreateDocumentRequest& AddRequires(const DocumentRequires& value) { m_requiresHasBeenSet = true; m_requires.push_back(value); return *this; }
+
+    /**
+     * <p>A list of SSM documents required by a document. For example, an
+     * <code>ApplicationConfiguration</code> document requires an
+     * <code>ApplicationConfigurationSchema</code> document.</p>
+     */
+    inline CreateDocumentRequest& AddRequires(DocumentRequires&& value) { m_requiresHasBeenSet = true; m_requires.push_back(std::move(value)); return *this; }
 
 
     /**
@@ -270,81 +328,69 @@ namespace Model
 
 
     /**
-     * <p>The type of document to create. Valid document types include:
-     * <code>Command</code>, <code>Policy</code>, <code>Automation</code>,
-     * <code>Session</code>, and <code>Package</code>.</p>
+     * <p>The type of document to create.</p>
      */
     inline const DocumentType& GetDocumentType() const{ return m_documentType; }
 
     /**
-     * <p>The type of document to create. Valid document types include:
-     * <code>Command</code>, <code>Policy</code>, <code>Automation</code>,
-     * <code>Session</code>, and <code>Package</code>.</p>
+     * <p>The type of document to create.</p>
      */
     inline bool DocumentTypeHasBeenSet() const { return m_documentTypeHasBeenSet; }
 
     /**
-     * <p>The type of document to create. Valid document types include:
-     * <code>Command</code>, <code>Policy</code>, <code>Automation</code>,
-     * <code>Session</code>, and <code>Package</code>.</p>
+     * <p>The type of document to create.</p>
      */
     inline void SetDocumentType(const DocumentType& value) { m_documentTypeHasBeenSet = true; m_documentType = value; }
 
     /**
-     * <p>The type of document to create. Valid document types include:
-     * <code>Command</code>, <code>Policy</code>, <code>Automation</code>,
-     * <code>Session</code>, and <code>Package</code>.</p>
+     * <p>The type of document to create.</p>
      */
     inline void SetDocumentType(DocumentType&& value) { m_documentTypeHasBeenSet = true; m_documentType = std::move(value); }
 
     /**
-     * <p>The type of document to create. Valid document types include:
-     * <code>Command</code>, <code>Policy</code>, <code>Automation</code>,
-     * <code>Session</code>, and <code>Package</code>.</p>
+     * <p>The type of document to create.</p>
      */
     inline CreateDocumentRequest& WithDocumentType(const DocumentType& value) { SetDocumentType(value); return *this;}
 
     /**
-     * <p>The type of document to create. Valid document types include:
-     * <code>Command</code>, <code>Policy</code>, <code>Automation</code>,
-     * <code>Session</code>, and <code>Package</code>.</p>
+     * <p>The type of document to create.</p>
      */
     inline CreateDocumentRequest& WithDocumentType(DocumentType&& value) { SetDocumentType(std::move(value)); return *this;}
 
 
     /**
-     * <p>Specify the document format for the request. The document format can be
-     * either JSON or YAML. JSON is the default format.</p>
+     * <p>Specify the document format for the request. The document format can be JSON,
+     * YAML, or TEXT. JSON is the default format.</p>
      */
     inline const DocumentFormat& GetDocumentFormat() const{ return m_documentFormat; }
 
     /**
-     * <p>Specify the document format for the request. The document format can be
-     * either JSON or YAML. JSON is the default format.</p>
+     * <p>Specify the document format for the request. The document format can be JSON,
+     * YAML, or TEXT. JSON is the default format.</p>
      */
     inline bool DocumentFormatHasBeenSet() const { return m_documentFormatHasBeenSet; }
 
     /**
-     * <p>Specify the document format for the request. The document format can be
-     * either JSON or YAML. JSON is the default format.</p>
+     * <p>Specify the document format for the request. The document format can be JSON,
+     * YAML, or TEXT. JSON is the default format.</p>
      */
     inline void SetDocumentFormat(const DocumentFormat& value) { m_documentFormatHasBeenSet = true; m_documentFormat = value; }
 
     /**
-     * <p>Specify the document format for the request. The document format can be
-     * either JSON or YAML. JSON is the default format.</p>
+     * <p>Specify the document format for the request. The document format can be JSON,
+     * YAML, or TEXT. JSON is the default format.</p>
      */
     inline void SetDocumentFormat(DocumentFormat&& value) { m_documentFormatHasBeenSet = true; m_documentFormat = std::move(value); }
 
     /**
-     * <p>Specify the document format for the request. The document format can be
-     * either JSON or YAML. JSON is the default format.</p>
+     * <p>Specify the document format for the request. The document format can be JSON,
+     * YAML, or TEXT. JSON is the default format.</p>
      */
     inline CreateDocumentRequest& WithDocumentFormat(const DocumentFormat& value) { SetDocumentFormat(value); return *this;}
 
     /**
-     * <p>Specify the document format for the request. The document format can be
-     * either JSON or YAML. JSON is the default format.</p>
+     * <p>Specify the document format for the request. The document format can be JSON,
+     * YAML, or TEXT. JSON is the default format.</p>
      */
     inline CreateDocumentRequest& WithDocumentFormat(DocumentFormat&& value) { SetDocumentFormat(std::move(value)); return *this;}
 
@@ -546,6 +592,9 @@ namespace Model
 
     Aws::String m_content;
     bool m_contentHasBeenSet;
+
+    Aws::Vector<DocumentRequires> m_requires;
+    bool m_requiresHasBeenSet;
 
     Aws::Vector<AttachmentsSource> m_attachments;
     bool m_attachmentsHasBeenSet;

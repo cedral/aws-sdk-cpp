@@ -258,32 +258,32 @@ namespace Model
 
 
     /**
-     * <p>Gender of the face and the confidence level in the determination.</p>
+     * <p>The predicted gender of a detected face. </p>
      */
     inline const Gender& GetGender() const{ return m_gender; }
 
     /**
-     * <p>Gender of the face and the confidence level in the determination.</p>
+     * <p>The predicted gender of a detected face. </p>
      */
     inline bool GenderHasBeenSet() const { return m_genderHasBeenSet; }
 
     /**
-     * <p>Gender of the face and the confidence level in the determination.</p>
+     * <p>The predicted gender of a detected face. </p>
      */
     inline void SetGender(const Gender& value) { m_genderHasBeenSet = true; m_gender = value; }
 
     /**
-     * <p>Gender of the face and the confidence level in the determination.</p>
+     * <p>The predicted gender of a detected face. </p>
      */
     inline void SetGender(Gender&& value) { m_genderHasBeenSet = true; m_gender = std::move(value); }
 
     /**
-     * <p>Gender of the face and the confidence level in the determination.</p>
+     * <p>The predicted gender of a detected face. </p>
      */
     inline FaceDetail& WithGender(const Gender& value) { SetGender(value); return *this;}
 
     /**
-     * <p>Gender of the face and the confidence level in the determination.</p>
+     * <p>The predicted gender of a detected face. </p>
      */
     inline FaceDetail& WithGender(Gender&& value) { SetGender(std::move(value)); return *this;}
 
@@ -437,50 +437,82 @@ namespace Model
 
 
     /**
-     * <p>The emotions detected on the face, and the confidence level in the
-     * determination. For example, HAPPY, SAD, and ANGRY. </p>
+     * <p>The emotions that appear to be expressed on the face, and the confidence
+     * level in the determination. The API is only making a determination of the
+     * physical appearance of a person's face. It is not a determination of the
+     * person’s internal emotional state and should not be used in such a way. For
+     * example, a person pretending to have a sad face might not be sad
+     * emotionally.</p>
      */
     inline const Aws::Vector<Emotion>& GetEmotions() const{ return m_emotions; }
 
     /**
-     * <p>The emotions detected on the face, and the confidence level in the
-     * determination. For example, HAPPY, SAD, and ANGRY. </p>
+     * <p>The emotions that appear to be expressed on the face, and the confidence
+     * level in the determination. The API is only making a determination of the
+     * physical appearance of a person's face. It is not a determination of the
+     * person’s internal emotional state and should not be used in such a way. For
+     * example, a person pretending to have a sad face might not be sad
+     * emotionally.</p>
      */
     inline bool EmotionsHasBeenSet() const { return m_emotionsHasBeenSet; }
 
     /**
-     * <p>The emotions detected on the face, and the confidence level in the
-     * determination. For example, HAPPY, SAD, and ANGRY. </p>
+     * <p>The emotions that appear to be expressed on the face, and the confidence
+     * level in the determination. The API is only making a determination of the
+     * physical appearance of a person's face. It is not a determination of the
+     * person’s internal emotional state and should not be used in such a way. For
+     * example, a person pretending to have a sad face might not be sad
+     * emotionally.</p>
      */
     inline void SetEmotions(const Aws::Vector<Emotion>& value) { m_emotionsHasBeenSet = true; m_emotions = value; }
 
     /**
-     * <p>The emotions detected on the face, and the confidence level in the
-     * determination. For example, HAPPY, SAD, and ANGRY. </p>
+     * <p>The emotions that appear to be expressed on the face, and the confidence
+     * level in the determination. The API is only making a determination of the
+     * physical appearance of a person's face. It is not a determination of the
+     * person’s internal emotional state and should not be used in such a way. For
+     * example, a person pretending to have a sad face might not be sad
+     * emotionally.</p>
      */
     inline void SetEmotions(Aws::Vector<Emotion>&& value) { m_emotionsHasBeenSet = true; m_emotions = std::move(value); }
 
     /**
-     * <p>The emotions detected on the face, and the confidence level in the
-     * determination. For example, HAPPY, SAD, and ANGRY. </p>
+     * <p>The emotions that appear to be expressed on the face, and the confidence
+     * level in the determination. The API is only making a determination of the
+     * physical appearance of a person's face. It is not a determination of the
+     * person’s internal emotional state and should not be used in such a way. For
+     * example, a person pretending to have a sad face might not be sad
+     * emotionally.</p>
      */
     inline FaceDetail& WithEmotions(const Aws::Vector<Emotion>& value) { SetEmotions(value); return *this;}
 
     /**
-     * <p>The emotions detected on the face, and the confidence level in the
-     * determination. For example, HAPPY, SAD, and ANGRY. </p>
+     * <p>The emotions that appear to be expressed on the face, and the confidence
+     * level in the determination. The API is only making a determination of the
+     * physical appearance of a person's face. It is not a determination of the
+     * person’s internal emotional state and should not be used in such a way. For
+     * example, a person pretending to have a sad face might not be sad
+     * emotionally.</p>
      */
     inline FaceDetail& WithEmotions(Aws::Vector<Emotion>&& value) { SetEmotions(std::move(value)); return *this;}
 
     /**
-     * <p>The emotions detected on the face, and the confidence level in the
-     * determination. For example, HAPPY, SAD, and ANGRY. </p>
+     * <p>The emotions that appear to be expressed on the face, and the confidence
+     * level in the determination. The API is only making a determination of the
+     * physical appearance of a person's face. It is not a determination of the
+     * person’s internal emotional state and should not be used in such a way. For
+     * example, a person pretending to have a sad face might not be sad
+     * emotionally.</p>
      */
     inline FaceDetail& AddEmotions(const Emotion& value) { m_emotionsHasBeenSet = true; m_emotions.push_back(value); return *this; }
 
     /**
-     * <p>The emotions detected on the face, and the confidence level in the
-     * determination. For example, HAPPY, SAD, and ANGRY. </p>
+     * <p>The emotions that appear to be expressed on the face, and the confidence
+     * level in the determination. The API is only making a determination of the
+     * physical appearance of a person's face. It is not a determination of the
+     * person’s internal emotional state and should not be used in such a way. For
+     * example, a person pretending to have a sad face might not be sad
+     * emotionally.</p>
      */
     inline FaceDetail& AddEmotions(Emotion&& value) { m_emotionsHasBeenSet = true; m_emotions.push_back(std::move(value)); return *this; }
 

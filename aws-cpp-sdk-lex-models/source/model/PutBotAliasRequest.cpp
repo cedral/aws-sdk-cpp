@@ -27,7 +27,9 @@ PutBotAliasRequest::PutBotAliasRequest() :
     m_descriptionHasBeenSet(false),
     m_botVersionHasBeenSet(false),
     m_botNameHasBeenSet(false),
-    m_checksumHasBeenSet(false)
+    m_checksumHasBeenSet(false),
+    m_conversationLogsHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -50,6 +52,23 @@ Aws::String PutBotAliasRequest::SerializePayload() const
   if(m_checksumHasBeenSet)
   {
    payload.WithString("checksum", m_checksum);
+
+  }
+
+  if(m_conversationLogsHasBeenSet)
+  {
+   payload.WithObject("conversationLogs", m_conversationLogs.Jsonize());
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   Array<JsonValue> tagsJsonList(m_tags.size());
+   for(unsigned tagsIndex = 0; tagsIndex < tagsJsonList.GetLength(); ++tagsIndex)
+   {
+     tagsJsonList[tagsIndex].AsObject(m_tags[tagsIndex].Jsonize());
+   }
+   payload.WithArray("tags", std::move(tagsJsonList));
 
   }
 

@@ -49,11 +49,14 @@
 #include <aws/kms/model/EnableKeyRotationRequest.h>
 #include <aws/kms/model/EncryptRequest.h>
 #include <aws/kms/model/GenerateDataKeyRequest.h>
+#include <aws/kms/model/GenerateDataKeyPairRequest.h>
+#include <aws/kms/model/GenerateDataKeyPairWithoutPlaintextRequest.h>
 #include <aws/kms/model/GenerateDataKeyWithoutPlaintextRequest.h>
 #include <aws/kms/model/GenerateRandomRequest.h>
 #include <aws/kms/model/GetKeyPolicyRequest.h>
 #include <aws/kms/model/GetKeyRotationStatusRequest.h>
 #include <aws/kms/model/GetParametersForImportRequest.h>
+#include <aws/kms/model/GetPublicKeyRequest.h>
 #include <aws/kms/model/ImportKeyMaterialRequest.h>
 #include <aws/kms/model/ListAliasesRequest.h>
 #include <aws/kms/model/ListGrantsRequest.h>
@@ -66,11 +69,13 @@
 #include <aws/kms/model/RetireGrantRequest.h>
 #include <aws/kms/model/RevokeGrantRequest.h>
 #include <aws/kms/model/ScheduleKeyDeletionRequest.h>
+#include <aws/kms/model/SignRequest.h>
 #include <aws/kms/model/TagResourceRequest.h>
 #include <aws/kms/model/UntagResourceRequest.h>
 #include <aws/kms/model/UpdateAliasRequest.h>
 #include <aws/kms/model/UpdateCustomKeyStoreRequest.h>
 #include <aws/kms/model/UpdateKeyDescriptionRequest.h>
+#include <aws/kms/model/VerifyRequest.h>
 
 using namespace Aws;
 using namespace Aws::Auth;
@@ -150,7 +155,7 @@ CancelKeyDeletionOutcome KMSClient::CancelKeyDeletion(const CancelKeyDeletionReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CancelKeyDeletionOutcome(CancelKeyDeletionResult(outcome.GetResult()));
@@ -185,7 +190,7 @@ ConnectCustomKeyStoreOutcome KMSClient::ConnectCustomKeyStore(const ConnectCusto
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ConnectCustomKeyStoreOutcome(ConnectCustomKeyStoreResult(outcome.GetResult()));
@@ -220,7 +225,7 @@ CreateAliasOutcome KMSClient::CreateAlias(const CreateAliasRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateAliasOutcome(NoResult());
@@ -255,7 +260,7 @@ CreateCustomKeyStoreOutcome KMSClient::CreateCustomKeyStore(const CreateCustomKe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateCustomKeyStoreOutcome(CreateCustomKeyStoreResult(outcome.GetResult()));
@@ -290,7 +295,7 @@ CreateGrantOutcome KMSClient::CreateGrant(const CreateGrantRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateGrantOutcome(CreateGrantResult(outcome.GetResult()));
@@ -325,7 +330,7 @@ CreateKeyOutcome KMSClient::CreateKey(const CreateKeyRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateKeyOutcome(CreateKeyResult(outcome.GetResult()));
@@ -360,7 +365,7 @@ DecryptOutcome KMSClient::Decrypt(const DecryptRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DecryptOutcome(DecryptResult(outcome.GetResult()));
@@ -395,7 +400,7 @@ DeleteAliasOutcome KMSClient::DeleteAlias(const DeleteAliasRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteAliasOutcome(NoResult());
@@ -430,7 +435,7 @@ DeleteCustomKeyStoreOutcome KMSClient::DeleteCustomKeyStore(const DeleteCustomKe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteCustomKeyStoreOutcome(DeleteCustomKeyStoreResult(outcome.GetResult()));
@@ -465,7 +470,7 @@ DeleteImportedKeyMaterialOutcome KMSClient::DeleteImportedKeyMaterial(const Dele
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteImportedKeyMaterialOutcome(NoResult());
@@ -500,7 +505,7 @@ DescribeCustomKeyStoresOutcome KMSClient::DescribeCustomKeyStores(const Describe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeCustomKeyStoresOutcome(DescribeCustomKeyStoresResult(outcome.GetResult()));
@@ -535,7 +540,7 @@ DescribeKeyOutcome KMSClient::DescribeKey(const DescribeKeyRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeKeyOutcome(DescribeKeyResult(outcome.GetResult()));
@@ -570,7 +575,7 @@ DisableKeyOutcome KMSClient::DisableKey(const DisableKeyRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisableKeyOutcome(NoResult());
@@ -605,7 +610,7 @@ DisableKeyRotationOutcome KMSClient::DisableKeyRotation(const DisableKeyRotation
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisableKeyRotationOutcome(NoResult());
@@ -640,7 +645,7 @@ DisconnectCustomKeyStoreOutcome KMSClient::DisconnectCustomKeyStore(const Discon
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DisconnectCustomKeyStoreOutcome(DisconnectCustomKeyStoreResult(outcome.GetResult()));
@@ -675,7 +680,7 @@ EnableKeyOutcome KMSClient::EnableKey(const EnableKeyRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EnableKeyOutcome(NoResult());
@@ -710,7 +715,7 @@ EnableKeyRotationOutcome KMSClient::EnableKeyRotation(const EnableKeyRotationReq
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EnableKeyRotationOutcome(NoResult());
@@ -745,7 +750,7 @@ EncryptOutcome KMSClient::Encrypt(const EncryptRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return EncryptOutcome(EncryptResult(outcome.GetResult()));
@@ -780,7 +785,7 @@ GenerateDataKeyOutcome KMSClient::GenerateDataKey(const GenerateDataKeyRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GenerateDataKeyOutcome(GenerateDataKeyResult(outcome.GetResult()));
@@ -809,13 +814,83 @@ void KMSClient::GenerateDataKeyAsyncHelper(const GenerateDataKeyRequest& request
   handler(this, request, GenerateDataKey(request), context);
 }
 
+GenerateDataKeyPairOutcome KMSClient::GenerateDataKeyPair(const GenerateDataKeyPairRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GenerateDataKeyPairOutcome(GenerateDataKeyPairResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GenerateDataKeyPairOutcome(outcome.GetError());
+  }
+}
+
+GenerateDataKeyPairOutcomeCallable KMSClient::GenerateDataKeyPairCallable(const GenerateDataKeyPairRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GenerateDataKeyPairOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GenerateDataKeyPair(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KMSClient::GenerateDataKeyPairAsync(const GenerateDataKeyPairRequest& request, const GenerateDataKeyPairResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GenerateDataKeyPairAsyncHelper( request, handler, context ); } );
+}
+
+void KMSClient::GenerateDataKeyPairAsyncHelper(const GenerateDataKeyPairRequest& request, const GenerateDataKeyPairResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GenerateDataKeyPair(request), context);
+}
+
+GenerateDataKeyPairWithoutPlaintextOutcome KMSClient::GenerateDataKeyPairWithoutPlaintext(const GenerateDataKeyPairWithoutPlaintextRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GenerateDataKeyPairWithoutPlaintextOutcome(GenerateDataKeyPairWithoutPlaintextResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GenerateDataKeyPairWithoutPlaintextOutcome(outcome.GetError());
+  }
+}
+
+GenerateDataKeyPairWithoutPlaintextOutcomeCallable KMSClient::GenerateDataKeyPairWithoutPlaintextCallable(const GenerateDataKeyPairWithoutPlaintextRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GenerateDataKeyPairWithoutPlaintextOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GenerateDataKeyPairWithoutPlaintext(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KMSClient::GenerateDataKeyPairWithoutPlaintextAsync(const GenerateDataKeyPairWithoutPlaintextRequest& request, const GenerateDataKeyPairWithoutPlaintextResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GenerateDataKeyPairWithoutPlaintextAsyncHelper( request, handler, context ); } );
+}
+
+void KMSClient::GenerateDataKeyPairWithoutPlaintextAsyncHelper(const GenerateDataKeyPairWithoutPlaintextRequest& request, const GenerateDataKeyPairWithoutPlaintextResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GenerateDataKeyPairWithoutPlaintext(request), context);
+}
+
 GenerateDataKeyWithoutPlaintextOutcome KMSClient::GenerateDataKeyWithoutPlaintext(const GenerateDataKeyWithoutPlaintextRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GenerateDataKeyWithoutPlaintextOutcome(GenerateDataKeyWithoutPlaintextResult(outcome.GetResult()));
@@ -850,7 +925,7 @@ GenerateRandomOutcome KMSClient::GenerateRandom(const GenerateRandomRequest& req
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GenerateRandomOutcome(GenerateRandomResult(outcome.GetResult()));
@@ -885,7 +960,7 @@ GetKeyPolicyOutcome KMSClient::GetKeyPolicy(const GetKeyPolicyRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetKeyPolicyOutcome(GetKeyPolicyResult(outcome.GetResult()));
@@ -920,7 +995,7 @@ GetKeyRotationStatusOutcome KMSClient::GetKeyRotationStatus(const GetKeyRotation
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetKeyRotationStatusOutcome(GetKeyRotationStatusResult(outcome.GetResult()));
@@ -955,7 +1030,7 @@ GetParametersForImportOutcome KMSClient::GetParametersForImport(const GetParamet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetParametersForImportOutcome(GetParametersForImportResult(outcome.GetResult()));
@@ -984,13 +1059,48 @@ void KMSClient::GetParametersForImportAsyncHelper(const GetParametersForImportRe
   handler(this, request, GetParametersForImport(request), context);
 }
 
+GetPublicKeyOutcome KMSClient::GetPublicKey(const GetPublicKeyRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetPublicKeyOutcome(GetPublicKeyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetPublicKeyOutcome(outcome.GetError());
+  }
+}
+
+GetPublicKeyOutcomeCallable KMSClient::GetPublicKeyCallable(const GetPublicKeyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetPublicKeyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetPublicKey(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KMSClient::GetPublicKeyAsync(const GetPublicKeyRequest& request, const GetPublicKeyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetPublicKeyAsyncHelper( request, handler, context ); } );
+}
+
+void KMSClient::GetPublicKeyAsyncHelper(const GetPublicKeyRequest& request, const GetPublicKeyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetPublicKey(request), context);
+}
+
 ImportKeyMaterialOutcome KMSClient::ImportKeyMaterial(const ImportKeyMaterialRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ImportKeyMaterialOutcome(ImportKeyMaterialResult(outcome.GetResult()));
@@ -1025,7 +1135,7 @@ ListAliasesOutcome KMSClient::ListAliases(const ListAliasesRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListAliasesOutcome(ListAliasesResult(outcome.GetResult()));
@@ -1060,7 +1170,7 @@ ListGrantsOutcome KMSClient::ListGrants(const ListGrantsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListGrantsOutcome(ListGrantsResult(outcome.GetResult()));
@@ -1095,7 +1205,7 @@ ListKeyPoliciesOutcome KMSClient::ListKeyPolicies(const ListKeyPoliciesRequest& 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListKeyPoliciesOutcome(ListKeyPoliciesResult(outcome.GetResult()));
@@ -1130,7 +1240,7 @@ ListKeysOutcome KMSClient::ListKeys(const ListKeysRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListKeysOutcome(ListKeysResult(outcome.GetResult()));
@@ -1165,7 +1275,7 @@ ListResourceTagsOutcome KMSClient::ListResourceTags(const ListResourceTagsReques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListResourceTagsOutcome(ListResourceTagsResult(outcome.GetResult()));
@@ -1200,7 +1310,7 @@ ListRetirableGrantsOutcome KMSClient::ListRetirableGrants(const ListRetirableGra
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListRetirableGrantsOutcome(ListRetirableGrantsResult(outcome.GetResult()));
@@ -1235,7 +1345,7 @@ PutKeyPolicyOutcome KMSClient::PutKeyPolicy(const PutKeyPolicyRequest& request) 
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutKeyPolicyOutcome(NoResult());
@@ -1270,7 +1380,7 @@ ReEncryptOutcome KMSClient::ReEncrypt(const ReEncryptRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ReEncryptOutcome(ReEncryptResult(outcome.GetResult()));
@@ -1305,7 +1415,7 @@ RetireGrantOutcome KMSClient::RetireGrant(const RetireGrantRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RetireGrantOutcome(NoResult());
@@ -1340,7 +1450,7 @@ RevokeGrantOutcome KMSClient::RevokeGrant(const RevokeGrantRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RevokeGrantOutcome(NoResult());
@@ -1375,7 +1485,7 @@ ScheduleKeyDeletionOutcome KMSClient::ScheduleKeyDeletion(const ScheduleKeyDelet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ScheduleKeyDeletionOutcome(ScheduleKeyDeletionResult(outcome.GetResult()));
@@ -1404,13 +1514,48 @@ void KMSClient::ScheduleKeyDeletionAsyncHelper(const ScheduleKeyDeletionRequest&
   handler(this, request, ScheduleKeyDeletion(request), context);
 }
 
+SignOutcome KMSClient::Sign(const SignRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return SignOutcome(SignResult(outcome.GetResult()));
+  }
+  else
+  {
+    return SignOutcome(outcome.GetError());
+  }
+}
+
+SignOutcomeCallable KMSClient::SignCallable(const SignRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< SignOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->Sign(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KMSClient::SignAsync(const SignRequest& request, const SignResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->SignAsyncHelper( request, handler, context ); } );
+}
+
+void KMSClient::SignAsyncHelper(const SignRequest& request, const SignResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, Sign(request), context);
+}
+
 TagResourceOutcome KMSClient::TagResource(const TagResourceRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(NoResult());
@@ -1445,7 +1590,7 @@ UntagResourceOutcome KMSClient::UntagResource(const UntagResourceRequest& reques
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(NoResult());
@@ -1480,7 +1625,7 @@ UpdateAliasOutcome KMSClient::UpdateAlias(const UpdateAliasRequest& request) con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateAliasOutcome(NoResult());
@@ -1515,7 +1660,7 @@ UpdateCustomKeyStoreOutcome KMSClient::UpdateCustomKeyStore(const UpdateCustomKe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateCustomKeyStoreOutcome(UpdateCustomKeyStoreResult(outcome.GetResult()));
@@ -1550,7 +1695,7 @@ UpdateKeyDescriptionOutcome KMSClient::UpdateKeyDescription(const UpdateKeyDescr
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateKeyDescriptionOutcome(NoResult());
@@ -1577,5 +1722,40 @@ void KMSClient::UpdateKeyDescriptionAsync(const UpdateKeyDescriptionRequest& req
 void KMSClient::UpdateKeyDescriptionAsyncHelper(const UpdateKeyDescriptionRequest& request, const UpdateKeyDescriptionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
 {
   handler(this, request, UpdateKeyDescription(request), context);
+}
+
+VerifyOutcome KMSClient::Verify(const VerifyRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return VerifyOutcome(VerifyResult(outcome.GetResult()));
+  }
+  else
+  {
+    return VerifyOutcome(outcome.GetError());
+  }
+}
+
+VerifyOutcomeCallable KMSClient::VerifyCallable(const VerifyRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< VerifyOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->Verify(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void KMSClient::VerifyAsync(const VerifyRequest& request, const VerifyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->VerifyAsyncHelper( request, handler, context ); } );
+}
+
+void KMSClient::VerifyAsyncHelper(const VerifyRequest& request, const VerifyResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, Verify(request), context);
 }
 

@@ -132,12 +132,13 @@ namespace Model
 
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of
-     * the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which
-     * the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of
-     * the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of
-     * the endpoint. (<code>pending</code> | <code>available</code> |
-     * <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p>
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in
+     * which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> -
+     * The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The
+     * state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> |
+     * <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+     * <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p>
      * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
      * the resource. Use the tag key in the filter name and the tag value as the filter
      * value. For example, to find all resources that have a tag with the key
@@ -150,12 +151,13 @@ namespace Model
     inline const Aws::Vector<Filter>& GetFilters() const{ return m_filters; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of
-     * the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which
-     * the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of
-     * the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of
-     * the endpoint. (<code>pending</code> | <code>available</code> |
-     * <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p>
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in
+     * which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> -
+     * The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The
+     * state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> |
+     * <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+     * <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p>
      * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
      * the resource. Use the tag key in the filter name and the tag value as the filter
      * value. For example, to find all resources that have a tag with the key
@@ -168,12 +170,13 @@ namespace Model
     inline bool FiltersHasBeenSet() const { return m_filtersHasBeenSet; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of
-     * the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which
-     * the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of
-     * the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of
-     * the endpoint. (<code>pending</code> | <code>available</code> |
-     * <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p>
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in
+     * which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> -
+     * The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The
+     * state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> |
+     * <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+     * <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p>
      * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
      * the resource. Use the tag key in the filter name and the tag value as the filter
      * value. For example, to find all resources that have a tag with the key
@@ -186,12 +189,13 @@ namespace Model
     inline void SetFilters(const Aws::Vector<Filter>& value) { m_filtersHasBeenSet = true; m_filters = value; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of
-     * the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which
-     * the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of
-     * the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of
-     * the endpoint. (<code>pending</code> | <code>available</code> |
-     * <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p>
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in
+     * which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> -
+     * The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The
+     * state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> |
+     * <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+     * <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p>
      * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
      * the resource. Use the tag key in the filter name and the tag value as the filter
      * value. For example, to find all resources that have a tag with the key
@@ -204,12 +208,13 @@ namespace Model
     inline void SetFilters(Aws::Vector<Filter>&& value) { m_filtersHasBeenSet = true; m_filters = std::move(value); }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of
-     * the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which
-     * the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of
-     * the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of
-     * the endpoint. (<code>pending</code> | <code>available</code> |
-     * <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p>
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in
+     * which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> -
+     * The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The
+     * state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> |
+     * <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+     * <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p>
      * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
      * the resource. Use the tag key in the filter name and the tag value as the filter
      * value. For example, to find all resources that have a tag with the key
@@ -222,12 +227,13 @@ namespace Model
     inline DescribeVpcEndpointsRequest& WithFilters(const Aws::Vector<Filter>& value) { SetFilters(value); return *this;}
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of
-     * the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which
-     * the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of
-     * the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of
-     * the endpoint. (<code>pending</code> | <code>available</code> |
-     * <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p>
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in
+     * which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> -
+     * The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The
+     * state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> |
+     * <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+     * <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p>
      * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
      * the resource. Use the tag key in the filter name and the tag value as the filter
      * value. For example, to find all resources that have a tag with the key
@@ -240,12 +246,13 @@ namespace Model
     inline DescribeVpcEndpointsRequest& WithFilters(Aws::Vector<Filter>&& value) { SetFilters(std::move(value)); return *this;}
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of
-     * the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which
-     * the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of
-     * the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of
-     * the endpoint. (<code>pending</code> | <code>available</code> |
-     * <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p>
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in
+     * which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> -
+     * The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The
+     * state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> |
+     * <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+     * <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p>
      * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
      * the resource. Use the tag key in the filter name and the tag value as the filter
      * value. For example, to find all resources that have a tag with the key
@@ -258,12 +265,13 @@ namespace Model
     inline DescribeVpcEndpointsRequest& AddFilters(const Filter& value) { m_filtersHasBeenSet = true; m_filters.push_back(value); return *this; }
 
     /**
-     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code>: The name of
-     * the service.</p> </li> <li> <p> <code>vpc-id</code>: The ID of the VPC in which
-     * the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code>: The ID of
-     * the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code>: The state of
-     * the endpoint. (<code>pending</code> | <code>available</code> |
-     * <code>deleting</code> | <code>deleted</code>)</p> </li> <li> <p>
+     * <p>One or more filters.</p> <ul> <li> <p> <code>service-name</code> - The name
+     * of the service.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC in
+     * which the endpoint resides.</p> </li> <li> <p> <code>vpc-endpoint-id</code> -
+     * The ID of the endpoint.</p> </li> <li> <p> <code>vpc-endpoint-state</code> - The
+     * state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> |
+     * <code>available</code> | <code>deleting</code> | <code>deleted</code> |
+     * <code>rejected</code> | <code>failed</code>).</p> </li> <li> <p>
      * <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to
      * the resource. Use the tag key in the filter name and the tag value as the filter
      * value. For example, to find all resources that have a tag with the key
@@ -279,32 +287,32 @@ namespace Model
     /**
      * <p>The maximum number of items to return for this request. The request returns a
      * token that you can specify in a subsequent call to get the next set of
-     * results.</p> <p>Constraint: If the value is greater than 1000, we return only
-     * 1000 items.</p>
+     * results.</p> <p>Constraint: If the value is greater than 1,000, we return only
+     * 1,000 items.</p>
      */
     inline int GetMaxResults() const{ return m_maxResults; }
 
     /**
      * <p>The maximum number of items to return for this request. The request returns a
      * token that you can specify in a subsequent call to get the next set of
-     * results.</p> <p>Constraint: If the value is greater than 1000, we return only
-     * 1000 items.</p>
+     * results.</p> <p>Constraint: If the value is greater than 1,000, we return only
+     * 1,000 items.</p>
      */
     inline bool MaxResultsHasBeenSet() const { return m_maxResultsHasBeenSet; }
 
     /**
      * <p>The maximum number of items to return for this request. The request returns a
      * token that you can specify in a subsequent call to get the next set of
-     * results.</p> <p>Constraint: If the value is greater than 1000, we return only
-     * 1000 items.</p>
+     * results.</p> <p>Constraint: If the value is greater than 1,000, we return only
+     * 1,000 items.</p>
      */
     inline void SetMaxResults(int value) { m_maxResultsHasBeenSet = true; m_maxResults = value; }
 
     /**
      * <p>The maximum number of items to return for this request. The request returns a
      * token that you can specify in a subsequent call to get the next set of
-     * results.</p> <p>Constraint: If the value is greater than 1000, we return only
-     * 1000 items.</p>
+     * results.</p> <p>Constraint: If the value is greater than 1,000, we return only
+     * 1,000 items.</p>
      */
     inline DescribeVpcEndpointsRequest& WithMaxResults(int value) { SetMaxResults(value); return *this;}
 

@@ -303,8 +303,8 @@ namespace Model
      * depending on the value that you choose for Audio codec (Codec). For each codec
      * enum that you choose, define the corresponding settings object. The following
      * lists the codec enum, settings object pairs. * AAC, AacSettings * MP2,
-     * Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3,
-     * Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
+     * Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3,
+     * Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
      */
     inline const AudioCodecSettings& GetCodecSettings() const{ return m_codecSettings; }
 
@@ -314,8 +314,8 @@ namespace Model
      * depending on the value that you choose for Audio codec (Codec). For each codec
      * enum that you choose, define the corresponding settings object. The following
      * lists the codec enum, settings object pairs. * AAC, AacSettings * MP2,
-     * Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3,
-     * Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
+     * Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3,
+     * Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
      */
     inline bool CodecSettingsHasBeenSet() const { return m_codecSettingsHasBeenSet; }
 
@@ -325,8 +325,8 @@ namespace Model
      * depending on the value that you choose for Audio codec (Codec). For each codec
      * enum that you choose, define the corresponding settings object. The following
      * lists the codec enum, settings object pairs. * AAC, AacSettings * MP2,
-     * Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3,
-     * Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
+     * Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3,
+     * Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
      */
     inline void SetCodecSettings(const AudioCodecSettings& value) { m_codecSettingsHasBeenSet = true; m_codecSettings = value; }
 
@@ -336,8 +336,8 @@ namespace Model
      * depending on the value that you choose for Audio codec (Codec). For each codec
      * enum that you choose, define the corresponding settings object. The following
      * lists the codec enum, settings object pairs. * AAC, AacSettings * MP2,
-     * Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3,
-     * Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
+     * Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3,
+     * Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
      */
     inline void SetCodecSettings(AudioCodecSettings&& value) { m_codecSettingsHasBeenSet = true; m_codecSettings = std::move(value); }
 
@@ -347,8 +347,8 @@ namespace Model
      * depending on the value that you choose for Audio codec (Codec). For each codec
      * enum that you choose, define the corresponding settings object. The following
      * lists the codec enum, settings object pairs. * AAC, AacSettings * MP2,
-     * Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3,
-     * Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
+     * Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3,
+     * Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
      */
     inline AudioDescription& WithCodecSettings(const AudioCodecSettings& value) { SetCodecSettings(value); return *this;}
 
@@ -358,73 +358,121 @@ namespace Model
      * depending on the value that you choose for Audio codec (Codec). For each codec
      * enum that you choose, define the corresponding settings object. The following
      * lists the codec enum, settings object pairs. * AAC, AacSettings * MP2,
-     * Mp2Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3,
-     * Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
+     * Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3,
+     * Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings
      */
     inline AudioDescription& WithCodecSettings(AudioCodecSettings&& value) { SetCodecSettings(std::move(value)); return *this;}
 
 
     /**
-     * Specify the language for this audio output track, using the ISO 639-2 or ISO
-     * 639-3 three-letter language code. The language specified will be used when
-     * 'Follow Input Language Code' is not selected or when 'Follow Input Language
-     * Code' is selected but there is no ISO 639 language code specified by the input.
+     * Specify the language for this audio output track. The service puts this language
+     * code into your output audio track when you set Language code control
+     * (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also
+     * uses your specified custom language code when you set Language code control
+     * (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file
+     * doesn't specify a language code. For all outputs, you can use an ISO 639-2 or
+     * ISO 639-3 code. For streaming outputs, you can also use any other code in the
+     * full RFC-5646 specification. Streaming outputs are those that are in one of the
+     * following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
+     * Streaming.
      */
     inline const Aws::String& GetCustomLanguageCode() const{ return m_customLanguageCode; }
 
     /**
-     * Specify the language for this audio output track, using the ISO 639-2 or ISO
-     * 639-3 three-letter language code. The language specified will be used when
-     * 'Follow Input Language Code' is not selected or when 'Follow Input Language
-     * Code' is selected but there is no ISO 639 language code specified by the input.
+     * Specify the language for this audio output track. The service puts this language
+     * code into your output audio track when you set Language code control
+     * (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also
+     * uses your specified custom language code when you set Language code control
+     * (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file
+     * doesn't specify a language code. For all outputs, you can use an ISO 639-2 or
+     * ISO 639-3 code. For streaming outputs, you can also use any other code in the
+     * full RFC-5646 specification. Streaming outputs are those that are in one of the
+     * following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
+     * Streaming.
      */
     inline bool CustomLanguageCodeHasBeenSet() const { return m_customLanguageCodeHasBeenSet; }
 
     /**
-     * Specify the language for this audio output track, using the ISO 639-2 or ISO
-     * 639-3 three-letter language code. The language specified will be used when
-     * 'Follow Input Language Code' is not selected or when 'Follow Input Language
-     * Code' is selected but there is no ISO 639 language code specified by the input.
+     * Specify the language for this audio output track. The service puts this language
+     * code into your output audio track when you set Language code control
+     * (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also
+     * uses your specified custom language code when you set Language code control
+     * (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file
+     * doesn't specify a language code. For all outputs, you can use an ISO 639-2 or
+     * ISO 639-3 code. For streaming outputs, you can also use any other code in the
+     * full RFC-5646 specification. Streaming outputs are those that are in one of the
+     * following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
+     * Streaming.
      */
     inline void SetCustomLanguageCode(const Aws::String& value) { m_customLanguageCodeHasBeenSet = true; m_customLanguageCode = value; }
 
     /**
-     * Specify the language for this audio output track, using the ISO 639-2 or ISO
-     * 639-3 three-letter language code. The language specified will be used when
-     * 'Follow Input Language Code' is not selected or when 'Follow Input Language
-     * Code' is selected but there is no ISO 639 language code specified by the input.
+     * Specify the language for this audio output track. The service puts this language
+     * code into your output audio track when you set Language code control
+     * (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also
+     * uses your specified custom language code when you set Language code control
+     * (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file
+     * doesn't specify a language code. For all outputs, you can use an ISO 639-2 or
+     * ISO 639-3 code. For streaming outputs, you can also use any other code in the
+     * full RFC-5646 specification. Streaming outputs are those that are in one of the
+     * following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
+     * Streaming.
      */
     inline void SetCustomLanguageCode(Aws::String&& value) { m_customLanguageCodeHasBeenSet = true; m_customLanguageCode = std::move(value); }
 
     /**
-     * Specify the language for this audio output track, using the ISO 639-2 or ISO
-     * 639-3 three-letter language code. The language specified will be used when
-     * 'Follow Input Language Code' is not selected or when 'Follow Input Language
-     * Code' is selected but there is no ISO 639 language code specified by the input.
+     * Specify the language for this audio output track. The service puts this language
+     * code into your output audio track when you set Language code control
+     * (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also
+     * uses your specified custom language code when you set Language code control
+     * (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file
+     * doesn't specify a language code. For all outputs, you can use an ISO 639-2 or
+     * ISO 639-3 code. For streaming outputs, you can also use any other code in the
+     * full RFC-5646 specification. Streaming outputs are those that are in one of the
+     * following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
+     * Streaming.
      */
     inline void SetCustomLanguageCode(const char* value) { m_customLanguageCodeHasBeenSet = true; m_customLanguageCode.assign(value); }
 
     /**
-     * Specify the language for this audio output track, using the ISO 639-2 or ISO
-     * 639-3 three-letter language code. The language specified will be used when
-     * 'Follow Input Language Code' is not selected or when 'Follow Input Language
-     * Code' is selected but there is no ISO 639 language code specified by the input.
+     * Specify the language for this audio output track. The service puts this language
+     * code into your output audio track when you set Language code control
+     * (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also
+     * uses your specified custom language code when you set Language code control
+     * (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file
+     * doesn't specify a language code. For all outputs, you can use an ISO 639-2 or
+     * ISO 639-3 code. For streaming outputs, you can also use any other code in the
+     * full RFC-5646 specification. Streaming outputs are those that are in one of the
+     * following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
+     * Streaming.
      */
     inline AudioDescription& WithCustomLanguageCode(const Aws::String& value) { SetCustomLanguageCode(value); return *this;}
 
     /**
-     * Specify the language for this audio output track, using the ISO 639-2 or ISO
-     * 639-3 three-letter language code. The language specified will be used when
-     * 'Follow Input Language Code' is not selected or when 'Follow Input Language
-     * Code' is selected but there is no ISO 639 language code specified by the input.
+     * Specify the language for this audio output track. The service puts this language
+     * code into your output audio track when you set Language code control
+     * (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also
+     * uses your specified custom language code when you set Language code control
+     * (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file
+     * doesn't specify a language code. For all outputs, you can use an ISO 639-2 or
+     * ISO 639-3 code. For streaming outputs, you can also use any other code in the
+     * full RFC-5646 specification. Streaming outputs are those that are in one of the
+     * following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
+     * Streaming.
      */
     inline AudioDescription& WithCustomLanguageCode(Aws::String&& value) { SetCustomLanguageCode(std::move(value)); return *this;}
 
     /**
-     * Specify the language for this audio output track, using the ISO 639-2 or ISO
-     * 639-3 three-letter language code. The language specified will be used when
-     * 'Follow Input Language Code' is not selected or when 'Follow Input Language
-     * Code' is selected but there is no ISO 639 language code specified by the input.
+     * Specify the language for this audio output track. The service puts this language
+     * code into your output audio track when you set Language code control
+     * (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also
+     * uses your specified custom language code when you set Language code control
+     * (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file
+     * doesn't specify a language code. For all outputs, you can use an ISO 639-2 or
+     * ISO 639-3 code. For streaming outputs, you can also use any other code in the
+     * full RFC-5646 specification. Streaming outputs are those that are in one of the
+     * following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth
+     * Streaming.
      */
     inline AudioDescription& WithCustomLanguageCode(const char* value) { SetCustomLanguageCode(value); return *this;}
 
@@ -479,50 +527,62 @@ namespace Model
 
 
     /**
-     * Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to
-     * follow the ISO 639 language code of the input. The language specified for
-     * languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT
-     * is selected but there is no ISO 639 language code specified by the input.
+     * Specify which source for language code takes precedence for this audio track.
+     * When you choose Follow input (FOLLOW_INPUT), the service uses the language code
+     * from the input track if it's present. If there's no languge code on the input
+     * track, the service uses the code that you specify in the setting Language code
+     * (languageCode or customLanguageCode). When you choose Use configured
+     * (USE_CONFIGURED), the service uses the language code that you specify.
      */
     inline const AudioLanguageCodeControl& GetLanguageCodeControl() const{ return m_languageCodeControl; }
 
     /**
-     * Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to
-     * follow the ISO 639 language code of the input. The language specified for
-     * languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT
-     * is selected but there is no ISO 639 language code specified by the input.
+     * Specify which source for language code takes precedence for this audio track.
+     * When you choose Follow input (FOLLOW_INPUT), the service uses the language code
+     * from the input track if it's present. If there's no languge code on the input
+     * track, the service uses the code that you specify in the setting Language code
+     * (languageCode or customLanguageCode). When you choose Use configured
+     * (USE_CONFIGURED), the service uses the language code that you specify.
      */
     inline bool LanguageCodeControlHasBeenSet() const { return m_languageCodeControlHasBeenSet; }
 
     /**
-     * Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to
-     * follow the ISO 639 language code of the input. The language specified for
-     * languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT
-     * is selected but there is no ISO 639 language code specified by the input.
+     * Specify which source for language code takes precedence for this audio track.
+     * When you choose Follow input (FOLLOW_INPUT), the service uses the language code
+     * from the input track if it's present. If there's no languge code on the input
+     * track, the service uses the code that you specify in the setting Language code
+     * (languageCode or customLanguageCode). When you choose Use configured
+     * (USE_CONFIGURED), the service uses the language code that you specify.
      */
     inline void SetLanguageCodeControl(const AudioLanguageCodeControl& value) { m_languageCodeControlHasBeenSet = true; m_languageCodeControl = value; }
 
     /**
-     * Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to
-     * follow the ISO 639 language code of the input. The language specified for
-     * languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT
-     * is selected but there is no ISO 639 language code specified by the input.
+     * Specify which source for language code takes precedence for this audio track.
+     * When you choose Follow input (FOLLOW_INPUT), the service uses the language code
+     * from the input track if it's present. If there's no languge code on the input
+     * track, the service uses the code that you specify in the setting Language code
+     * (languageCode or customLanguageCode). When you choose Use configured
+     * (USE_CONFIGURED), the service uses the language code that you specify.
      */
     inline void SetLanguageCodeControl(AudioLanguageCodeControl&& value) { m_languageCodeControlHasBeenSet = true; m_languageCodeControl = std::move(value); }
 
     /**
-     * Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to
-     * follow the ISO 639 language code of the input. The language specified for
-     * languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT
-     * is selected but there is no ISO 639 language code specified by the input.
+     * Specify which source for language code takes precedence for this audio track.
+     * When you choose Follow input (FOLLOW_INPUT), the service uses the language code
+     * from the input track if it's present. If there's no languge code on the input
+     * track, the service uses the code that you specify in the setting Language code
+     * (languageCode or customLanguageCode). When you choose Use configured
+     * (USE_CONFIGURED), the service uses the language code that you specify.
      */
     inline AudioDescription& WithLanguageCodeControl(const AudioLanguageCodeControl& value) { SetLanguageCodeControl(value); return *this;}
 
     /**
-     * Choosing FOLLOW_INPUT will cause the ISO 639 language code of the output to
-     * follow the ISO 639 language code of the input. The language specified for
-     * languageCode' will be used when USE_CONFIGURED is selected or when FOLLOW_INPUT
-     * is selected but there is no ISO 639 language code specified by the input.
+     * Specify which source for language code takes precedence for this audio track.
+     * When you choose Follow input (FOLLOW_INPUT), the service uses the language code
+     * from the input track if it's present. If there's no languge code on the input
+     * track, the service uses the code that you specify in the setting Language code
+     * (languageCode or customLanguageCode). When you choose Use configured
+     * (USE_CONFIGURED), the service uses the language code that you specify.
      */
     inline AudioDescription& WithLanguageCodeControl(AudioLanguageCodeControl&& value) { SetLanguageCodeControl(std::move(value)); return *this;}
 
@@ -559,58 +619,66 @@ namespace Model
 
 
     /**
-     * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the
-     * player (eg. English, or Director Commentary). Alphanumeric characters, spaces,
-     * and underscore are legal.
+     * Specify a label for this output audio stream. For example, "English", "Director
+     * commentary", or "track_2". For streaming outputs, MediaConvert passes this
+     * information into destination manifests for display on the end-viewer's player
+     * device. For outputs in other output groups, the service ignores this setting.
      */
     inline const Aws::String& GetStreamName() const{ return m_streamName; }
 
     /**
-     * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the
-     * player (eg. English, or Director Commentary). Alphanumeric characters, spaces,
-     * and underscore are legal.
+     * Specify a label for this output audio stream. For example, "English", "Director
+     * commentary", or "track_2". For streaming outputs, MediaConvert passes this
+     * information into destination manifests for display on the end-viewer's player
+     * device. For outputs in other output groups, the service ignores this setting.
      */
     inline bool StreamNameHasBeenSet() const { return m_streamNameHasBeenSet; }
 
     /**
-     * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the
-     * player (eg. English, or Director Commentary). Alphanumeric characters, spaces,
-     * and underscore are legal.
+     * Specify a label for this output audio stream. For example, "English", "Director
+     * commentary", or "track_2". For streaming outputs, MediaConvert passes this
+     * information into destination manifests for display on the end-viewer's player
+     * device. For outputs in other output groups, the service ignores this setting.
      */
     inline void SetStreamName(const Aws::String& value) { m_streamNameHasBeenSet = true; m_streamName = value; }
 
     /**
-     * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the
-     * player (eg. English, or Director Commentary). Alphanumeric characters, spaces,
-     * and underscore are legal.
+     * Specify a label for this output audio stream. For example, "English", "Director
+     * commentary", or "track_2". For streaming outputs, MediaConvert passes this
+     * information into destination manifests for display on the end-viewer's player
+     * device. For outputs in other output groups, the service ignores this setting.
      */
     inline void SetStreamName(Aws::String&& value) { m_streamNameHasBeenSet = true; m_streamName = std::move(value); }
 
     /**
-     * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the
-     * player (eg. English, or Director Commentary). Alphanumeric characters, spaces,
-     * and underscore are legal.
+     * Specify a label for this output audio stream. For example, "English", "Director
+     * commentary", or "track_2". For streaming outputs, MediaConvert passes this
+     * information into destination manifests for display on the end-viewer's player
+     * device. For outputs in other output groups, the service ignores this setting.
      */
     inline void SetStreamName(const char* value) { m_streamNameHasBeenSet = true; m_streamName.assign(value); }
 
     /**
-     * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the
-     * player (eg. English, or Director Commentary). Alphanumeric characters, spaces,
-     * and underscore are legal.
+     * Specify a label for this output audio stream. For example, "English", "Director
+     * commentary", or "track_2". For streaming outputs, MediaConvert passes this
+     * information into destination manifests for display on the end-viewer's player
+     * device. For outputs in other output groups, the service ignores this setting.
      */
     inline AudioDescription& WithStreamName(const Aws::String& value) { SetStreamName(value); return *this;}
 
     /**
-     * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the
-     * player (eg. English, or Director Commentary). Alphanumeric characters, spaces,
-     * and underscore are legal.
+     * Specify a label for this output audio stream. For example, "English", "Director
+     * commentary", or "track_2". For streaming outputs, MediaConvert passes this
+     * information into destination manifests for display on the end-viewer's player
+     * device. For outputs in other output groups, the service ignores this setting.
      */
     inline AudioDescription& WithStreamName(Aws::String&& value) { SetStreamName(std::move(value)); return *this;}
 
     /**
-     * Used for MS Smooth and Apple HLS outputs. Indicates the name displayed by the
-     * player (eg. English, or Director Commentary). Alphanumeric characters, spaces,
-     * and underscore are legal.
+     * Specify a label for this output audio stream. For example, "English", "Director
+     * commentary", or "track_2". For streaming outputs, MediaConvert passes this
+     * information into destination manifests for display on the end-viewer's player
+     * device. For outputs in other output groups, the service ignores this setting.
      */
     inline AudioDescription& WithStreamName(const char* value) { SetStreamName(value); return *this;}
 

@@ -60,7 +60,9 @@ UserPoolType::UserPoolType() :
     m_customDomainHasBeenSet(false),
     m_adminCreateUserConfigHasBeenSet(false),
     m_userPoolAddOnsHasBeenSet(false),
-    m_arnHasBeenSet(false)
+    m_usernameConfigurationHasBeenSet(false),
+    m_arnHasBeenSet(false),
+    m_accountRecoverySettingHasBeenSet(false)
 {
 }
 
@@ -96,7 +98,9 @@ UserPoolType::UserPoolType(JsonView jsonValue) :
     m_customDomainHasBeenSet(false),
     m_adminCreateUserConfigHasBeenSet(false),
     m_userPoolAddOnsHasBeenSet(false),
-    m_arnHasBeenSet(false)
+    m_usernameConfigurationHasBeenSet(false),
+    m_arnHasBeenSet(false),
+    m_accountRecoverySettingHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -314,11 +318,25 @@ UserPoolType& UserPoolType::operator =(JsonView jsonValue)
     m_userPoolAddOnsHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("UsernameConfiguration"))
+  {
+    m_usernameConfiguration = jsonValue.GetObject("UsernameConfiguration");
+
+    m_usernameConfigurationHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("Arn"))
   {
     m_arn = jsonValue.GetString("Arn");
 
     m_arnHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("AccountRecoverySetting"))
+  {
+    m_accountRecoverySetting = jsonValue.GetObject("AccountRecoverySetting");
+
+    m_accountRecoverySettingHasBeenSet = true;
   }
 
   return *this;
@@ -517,9 +535,21 @@ JsonValue UserPoolType::Jsonize() const
 
   }
 
+  if(m_usernameConfigurationHasBeenSet)
+  {
+   payload.WithObject("UsernameConfiguration", m_usernameConfiguration.Jsonize());
+
+  }
+
   if(m_arnHasBeenSet)
   {
    payload.WithString("Arn", m_arn);
+
+  }
+
+  if(m_accountRecoverySettingHasBeenSet)
+  {
+   payload.WithObject("AccountRecoverySetting", m_accountRecoverySetting.Jsonize());
 
   }
 

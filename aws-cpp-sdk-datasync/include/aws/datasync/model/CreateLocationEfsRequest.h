@@ -53,56 +53,72 @@ namespace Model
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
      * system is used to read data from the EFS source location or write data to the
-     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     * EFS destination. By default, AWS DataSync uses the root directory.</p> <note>
+     * <p> <code>Subdirectory</code> must be specified with forward slashes. For
+     * example <code>/path/to/folder</code>.</p> </note>
      */
     inline const Aws::String& GetSubdirectory() const{ return m_subdirectory; }
 
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
      * system is used to read data from the EFS source location or write data to the
-     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     * EFS destination. By default, AWS DataSync uses the root directory.</p> <note>
+     * <p> <code>Subdirectory</code> must be specified with forward slashes. For
+     * example <code>/path/to/folder</code>.</p> </note>
      */
     inline bool SubdirectoryHasBeenSet() const { return m_subdirectoryHasBeenSet; }
 
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
      * system is used to read data from the EFS source location or write data to the
-     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     * EFS destination. By default, AWS DataSync uses the root directory.</p> <note>
+     * <p> <code>Subdirectory</code> must be specified with forward slashes. For
+     * example <code>/path/to/folder</code>.</p> </note>
      */
     inline void SetSubdirectory(const Aws::String& value) { m_subdirectoryHasBeenSet = true; m_subdirectory = value; }
 
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
      * system is used to read data from the EFS source location or write data to the
-     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     * EFS destination. By default, AWS DataSync uses the root directory.</p> <note>
+     * <p> <code>Subdirectory</code> must be specified with forward slashes. For
+     * example <code>/path/to/folder</code>.</p> </note>
      */
     inline void SetSubdirectory(Aws::String&& value) { m_subdirectoryHasBeenSet = true; m_subdirectory = std::move(value); }
 
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
      * system is used to read data from the EFS source location or write data to the
-     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     * EFS destination. By default, AWS DataSync uses the root directory.</p> <note>
+     * <p> <code>Subdirectory</code> must be specified with forward slashes. For
+     * example <code>/path/to/folder</code>.</p> </note>
      */
     inline void SetSubdirectory(const char* value) { m_subdirectoryHasBeenSet = true; m_subdirectory.assign(value); }
 
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
      * system is used to read data from the EFS source location or write data to the
-     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     * EFS destination. By default, AWS DataSync uses the root directory.</p> <note>
+     * <p> <code>Subdirectory</code> must be specified with forward slashes. For
+     * example <code>/path/to/folder</code>.</p> </note>
      */
     inline CreateLocationEfsRequest& WithSubdirectory(const Aws::String& value) { SetSubdirectory(value); return *this;}
 
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
      * system is used to read data from the EFS source location or write data to the
-     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     * EFS destination. By default, AWS DataSync uses the root directory.</p> <note>
+     * <p> <code>Subdirectory</code> must be specified with forward slashes. For
+     * example <code>/path/to/folder</code>.</p> </note>
      */
     inline CreateLocationEfsRequest& WithSubdirectory(Aws::String&& value) { SetSubdirectory(std::move(value)); return *this;}
 
     /**
      * <p>A subdirectory in the location’s path. This subdirectory in the EFS file
      * system is used to read data from the EFS source location or write data to the
-     * EFS destination. By default, AWS DataSync uses the root directory.</p>
+     * EFS destination. By default, AWS DataSync uses the root directory.</p> <note>
+     * <p> <code>Subdirectory</code> must be specified with forward slashes. For
+     * example <code>/path/to/folder</code>.</p> </note>
      */
     inline CreateLocationEfsRequest& WithSubdirectory(const char* value) { SetSubdirectory(value); return *this;}
 
@@ -162,9 +178,8 @@ namespace Model
      * connections to the NFS port on one of the file system’s mount targets. You can
      * enable outbound connections either by IP address (CIDR range) or security
      * group.</p> <p>For information about security groups and mount targets, see
-     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
-     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
-     * EFS User Guide</i>.</p> </li> </ul>
+     * Security Groups for Amazon EC2 Instances and Mount Targets in the <i>Amazon EFS
+     * User Guide.</i> </p> </li> </ul>
      */
     inline const Ec2Config& GetEc2Config() const{ return m_ec2Config; }
 
@@ -182,9 +197,8 @@ namespace Model
      * connections to the NFS port on one of the file system’s mount targets. You can
      * enable outbound connections either by IP address (CIDR range) or security
      * group.</p> <p>For information about security groups and mount targets, see
-     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
-     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
-     * EFS User Guide</i>.</p> </li> </ul>
+     * Security Groups for Amazon EC2 Instances and Mount Targets in the <i>Amazon EFS
+     * User Guide.</i> </p> </li> </ul>
      */
     inline bool Ec2ConfigHasBeenSet() const { return m_ec2ConfigHasBeenSet; }
 
@@ -202,9 +216,8 @@ namespace Model
      * connections to the NFS port on one of the file system’s mount targets. You can
      * enable outbound connections either by IP address (CIDR range) or security
      * group.</p> <p>For information about security groups and mount targets, see
-     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
-     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
-     * EFS User Guide</i>.</p> </li> </ul>
+     * Security Groups for Amazon EC2 Instances and Mount Targets in the <i>Amazon EFS
+     * User Guide.</i> </p> </li> </ul>
      */
     inline void SetEc2Config(const Ec2Config& value) { m_ec2ConfigHasBeenSet = true; m_ec2Config = value; }
 
@@ -222,9 +235,8 @@ namespace Model
      * connections to the NFS port on one of the file system’s mount targets. You can
      * enable outbound connections either by IP address (CIDR range) or security
      * group.</p> <p>For information about security groups and mount targets, see
-     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
-     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
-     * EFS User Guide</i>.</p> </li> </ul>
+     * Security Groups for Amazon EC2 Instances and Mount Targets in the <i>Amazon EFS
+     * User Guide.</i> </p> </li> </ul>
      */
     inline void SetEc2Config(Ec2Config&& value) { m_ec2ConfigHasBeenSet = true; m_ec2Config = std::move(value); }
 
@@ -242,9 +254,8 @@ namespace Model
      * connections to the NFS port on one of the file system’s mount targets. You can
      * enable outbound connections either by IP address (CIDR range) or security
      * group.</p> <p>For information about security groups and mount targets, see
-     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
-     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
-     * EFS User Guide</i>.</p> </li> </ul>
+     * Security Groups for Amazon EC2 Instances and Mount Targets in the <i>Amazon EFS
+     * User Guide.</i> </p> </li> </ul>
      */
     inline CreateLocationEfsRequest& WithEc2Config(const Ec2Config& value) { SetEc2Config(value); return *this;}
 
@@ -262,9 +273,8 @@ namespace Model
      * connections to the NFS port on one of the file system’s mount targets. You can
      * enable outbound connections either by IP address (CIDR range) or security
      * group.</p> <p>For information about security groups and mount targets, see
-     * "https://docs.aws.amazon.com/efs/latest/ug/security-considerations.html#network-access"
-     * (Security Groups for Amazon EC2 Instances and Mount Targets) in the <i>Amazon
-     * EFS User Guide</i>.</p> </li> </ul>
+     * Security Groups for Amazon EC2 Instances and Mount Targets in the <i>Amazon EFS
+     * User Guide.</i> </p> </li> </ul>
      */
     inline CreateLocationEfsRequest& WithEc2Config(Ec2Config&& value) { SetEc2Config(std::move(value)); return *this;}
 

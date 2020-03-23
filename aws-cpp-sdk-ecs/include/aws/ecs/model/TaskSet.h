@@ -18,12 +18,14 @@
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/DateTime.h>
 #include <aws/ecs/model/LaunchType.h>
-#include <aws/ecs/model/NetworkConfiguration.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/ecs/model/NetworkConfiguration.h>
 #include <aws/ecs/model/Scale.h>
 #include <aws/ecs/model/StabilityStatus.h>
+#include <aws/ecs/model/CapacityProviderStrategyItem.h>
 #include <aws/ecs/model/LoadBalancer.h>
 #include <aws/ecs/model/ServiceRegistry.h>
+#include <aws/ecs/model/Tag.h>
 #include <utility>
 
 namespace Aws
@@ -715,6 +717,47 @@ namespace Model
 
 
     /**
+     * <p>The capacity provider strategy associated with the task set.</p>
+     */
+    inline const Aws::Vector<CapacityProviderStrategyItem>& GetCapacityProviderStrategy() const{ return m_capacityProviderStrategy; }
+
+    /**
+     * <p>The capacity provider strategy associated with the task set.</p>
+     */
+    inline bool CapacityProviderStrategyHasBeenSet() const { return m_capacityProviderStrategyHasBeenSet; }
+
+    /**
+     * <p>The capacity provider strategy associated with the task set.</p>
+     */
+    inline void SetCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy = value; }
+
+    /**
+     * <p>The capacity provider strategy associated with the task set.</p>
+     */
+    inline void SetCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy = std::move(value); }
+
+    /**
+     * <p>The capacity provider strategy associated with the task set.</p>
+     */
+    inline TaskSet& WithCapacityProviderStrategy(const Aws::Vector<CapacityProviderStrategyItem>& value) { SetCapacityProviderStrategy(value); return *this;}
+
+    /**
+     * <p>The capacity provider strategy associated with the task set.</p>
+     */
+    inline TaskSet& WithCapacityProviderStrategy(Aws::Vector<CapacityProviderStrategyItem>&& value) { SetCapacityProviderStrategy(std::move(value)); return *this;}
+
+    /**
+     * <p>The capacity provider strategy associated with the task set.</p>
+     */
+    inline TaskSet& AddCapacityProviderStrategy(const CapacityProviderStrategyItem& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy.push_back(value); return *this; }
+
+    /**
+     * <p>The capacity provider strategy associated with the task set.</p>
+     */
+    inline TaskSet& AddCapacityProviderStrategy(CapacityProviderStrategyItem&& value) { m_capacityProviderStrategyHasBeenSet = true; m_capacityProviderStrategy.push_back(std::move(value)); return *this; }
+
+
+    /**
      * <p>The platform version on which the tasks in the task set are running. A
      * platform version is only specified for tasks using the Fargate launch type. If
      * one is not specified, the <code>LATEST</code> platform version is used by
@@ -985,12 +1028,9 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> <note> <p>If a
-     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
-     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
-     * Load Balancing target health checks will be ignored until it expires.</p>
-     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
-     * status returns <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
+     * those conditions are not met, the stability status returns
+     * <code>STABILIZING</code>.</p>
      */
     inline const StabilityStatus& GetStabilityStatus() const{ return m_stabilityStatus; }
 
@@ -1002,12 +1042,9 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> <note> <p>If a
-     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
-     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
-     * Load Balancing target health checks will be ignored until it expires.</p>
-     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
-     * status returns <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
+     * those conditions are not met, the stability status returns
+     * <code>STABILIZING</code>.</p>
      */
     inline bool StabilityStatusHasBeenSet() const { return m_stabilityStatusHasBeenSet; }
 
@@ -1019,12 +1056,9 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> <note> <p>If a
-     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
-     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
-     * Load Balancing target health checks will be ignored until it expires.</p>
-     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
-     * status returns <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
+     * those conditions are not met, the stability status returns
+     * <code>STABILIZING</code>.</p>
      */
     inline void SetStabilityStatus(const StabilityStatus& value) { m_stabilityStatusHasBeenSet = true; m_stabilityStatus = value; }
 
@@ -1036,12 +1070,9 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> <note> <p>If a
-     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
-     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
-     * Load Balancing target health checks will be ignored until it expires.</p>
-     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
-     * status returns <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
+     * those conditions are not met, the stability status returns
+     * <code>STABILIZING</code>.</p>
      */
     inline void SetStabilityStatus(StabilityStatus&& value) { m_stabilityStatusHasBeenSet = true; m_stabilityStatus = std::move(value); }
 
@@ -1053,12 +1084,9 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> <note> <p>If a
-     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
-     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
-     * Load Balancing target health checks will be ignored until it expires.</p>
-     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
-     * status returns <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
+     * those conditions are not met, the stability status returns
+     * <code>STABILIZING</code>.</p>
      */
     inline TaskSet& WithStabilityStatus(const StabilityStatus& value) { SetStabilityStatus(value); return *this;}
 
@@ -1070,12 +1098,9 @@ namespace Model
      * <code>pendingCount</code> is <code>0</code>.</p> </li> <li> <p>There are no
      * tasks running on container instances in the <code>DRAINING</code> status.</p>
      * </li> <li> <p>All tasks are reporting a healthy status from the load balancers,
-     * service discovery, and container health checks.</p> <note> <p>If a
-     * <code>healthCheckGracePeriodSeconds</code> value was set when the service was
-     * created, you may see a <code>STEADY_STATE</code> reached since unhealthy Elastic
-     * Load Balancing target health checks will be ignored until it expires.</p>
-     * </note> </li> </ul> <p>If any of those conditions are not met, the stability
-     * status returns <code>STABILIZING</code>.</p>
+     * service discovery, and container health checks.</p> </li> </ul> <p>If any of
+     * those conditions are not met, the stability status returns
+     * <code>STABILIZING</code>.</p>
      */
     inline TaskSet& WithStabilityStatus(StabilityStatus&& value) { SetStabilityStatus(std::move(value)); return *this;}
 
@@ -1109,6 +1134,167 @@ namespace Model
      * <p>The Unix timestamp for when the task set stability status was retrieved.</p>
      */
     inline TaskSet& WithStabilityStatusAt(Aws::Utils::DateTime&& value) { SetStabilityStatusAt(std::move(value)); return *this;}
+
+
+    /**
+     * <p>The metadata that you apply to the task set to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
+     */
+    inline const Aws::Vector<Tag>& GetTags() const{ return m_tags; }
+
+    /**
+     * <p>The metadata that you apply to the task set to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * <p>The metadata that you apply to the task set to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
+     */
+    inline void SetTags(const Aws::Vector<Tag>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * <p>The metadata that you apply to the task set to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
+     */
+    inline void SetTags(Aws::Vector<Tag>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * <p>The metadata that you apply to the task set to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
+     */
+    inline TaskSet& WithTags(const Aws::Vector<Tag>& value) { SetTags(value); return *this;}
+
+    /**
+     * <p>The metadata that you apply to the task set to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
+     */
+    inline TaskSet& WithTags(Aws::Vector<Tag>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * <p>The metadata that you apply to the task set to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
+     */
+    inline TaskSet& AddTags(const Tag& value) { m_tagsHasBeenSet = true; m_tags.push_back(value); return *this; }
+
+    /**
+     * <p>The metadata that you apply to the task set to help you categorize and
+     * organize them. Each tag consists of a key and an optional value, both of which
+     * you define.</p> <p>The following basic restrictions apply to tags:</p> <ul> <li>
+     * <p>Maximum number of tags per resource - 50</p> </li> <li> <p>For each resource,
+     * each tag key must be unique, and each tag key can have only one value.</p> </li>
+     * <li> <p>Maximum key length - 128 Unicode characters in UTF-8</p> </li> <li>
+     * <p>Maximum value length - 256 Unicode characters in UTF-8</p> </li> <li> <p>If
+     * your tagging schema is used across multiple services and resources, remember
+     * that other services may have restrictions on allowed characters. Generally
+     * allowed characters are: letters, numbers, and spaces representable in UTF-8, and
+     * the following characters: + - = . _ : / @.</p> </li> <li> <p>Tag keys and values
+     * are case-sensitive.</p> </li> <li> <p>Do not use <code>aws:</code>,
+     * <code>AWS:</code>, or any upper or lowercase combination of such as a prefix for
+     * either keys or values as it is reserved for AWS use. You cannot edit or delete
+     * tag keys or values with this prefix. Tags with this prefix do not count against
+     * your tags per resource limit.</p> </li> </ul>
+     */
+    inline TaskSet& AddTags(Tag&& value) { m_tagsHasBeenSet = true; m_tags.push_back(std::move(value)); return *this; }
 
   private:
 
@@ -1154,6 +1340,9 @@ namespace Model
     LaunchType m_launchType;
     bool m_launchTypeHasBeenSet;
 
+    Aws::Vector<CapacityProviderStrategyItem> m_capacityProviderStrategy;
+    bool m_capacityProviderStrategyHasBeenSet;
+
     Aws::String m_platformVersion;
     bool m_platformVersionHasBeenSet;
 
@@ -1174,6 +1363,9 @@ namespace Model
 
     Aws::Utils::DateTime m_stabilityStatusAt;
     bool m_stabilityStatusAtHasBeenSet;
+
+    Aws::Vector<Tag> m_tags;
+    bool m_tagsHasBeenSet;
   };
 
 } // namespace Model

@@ -175,7 +175,7 @@ namespace Model
      * <p>The daily time range during which automated backups are created for your
      * database if automated backups are enabled.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p> <p>Example:
-     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Universal Coordinated
+     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Coordinated Universal
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
      * window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
      */
@@ -185,7 +185,7 @@ namespace Model
      * <p>The daily time range during which automated backups are created for your
      * database if automated backups are enabled.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p> <p>Example:
-     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Universal Coordinated
+     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Coordinated Universal
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
      * window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
      */
@@ -195,7 +195,7 @@ namespace Model
      * <p>The daily time range during which automated backups are created for your
      * database if automated backups are enabled.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p> <p>Example:
-     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Universal Coordinated
+     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Coordinated Universal
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
      * window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
      */
@@ -205,7 +205,7 @@ namespace Model
      * <p>The daily time range during which automated backups are created for your
      * database if automated backups are enabled.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p> <p>Example:
-     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Universal Coordinated
+     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Coordinated Universal
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
      * window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
      */
@@ -215,7 +215,7 @@ namespace Model
      * <p>The daily time range during which automated backups are created for your
      * database if automated backups are enabled.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p> <p>Example:
-     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Universal Coordinated
+     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Coordinated Universal
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
      * window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
      */
@@ -225,7 +225,7 @@ namespace Model
      * <p>The daily time range during which automated backups are created for your
      * database if automated backups are enabled.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p> <p>Example:
-     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Universal Coordinated
+     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Coordinated Universal
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
      * window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
      */
@@ -235,7 +235,7 @@ namespace Model
      * <p>The daily time range during which automated backups are created for your
      * database if automated backups are enabled.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p> <p>Example:
-     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Universal Coordinated
+     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Coordinated Universal
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
      * window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
      */
@@ -245,7 +245,7 @@ namespace Model
      * <p>The daily time range during which automated backups are created for your
      * database if automated backups are enabled.</p> <p>Constraints:</p> <ul> <li>
      * <p>Must be in the <code>hh24:mi-hh24:mi</code> format.</p> <p>Example:
-     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Universal Coordinated
+     * <code>16:00-16:30</code> </p> </li> <li> <p>Specified in Coordinated Universal
      * Time (UTC).</p> </li> <li> <p>Must not conflict with the preferred maintenance
      * window.</p> </li> <li> <p>Must be at least 30 minutes.</p> </li> </ul>
      */
@@ -259,7 +259,7 @@ namespace Model
      * week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the
      * <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon,
      * Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p>
-     * </li> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li>
+     * </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li>
      * <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
      */
     inline const Aws::String& GetPreferredMaintenanceWindow() const{ return m_preferredMaintenanceWindow; }
@@ -271,7 +271,7 @@ namespace Model
      * week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the
      * <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon,
      * Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p>
-     * </li> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li>
+     * </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li>
      * <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
      */
     inline bool PreferredMaintenanceWindowHasBeenSet() const { return m_preferredMaintenanceWindowHasBeenSet; }
@@ -283,7 +283,7 @@ namespace Model
      * week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the
      * <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon,
      * Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p>
-     * </li> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li>
+     * </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li>
      * <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
      */
     inline void SetPreferredMaintenanceWindow(const Aws::String& value) { m_preferredMaintenanceWindowHasBeenSet = true; m_preferredMaintenanceWindow = value; }
@@ -295,7 +295,7 @@ namespace Model
      * week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the
      * <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon,
      * Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p>
-     * </li> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li>
+     * </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li>
      * <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
      */
     inline void SetPreferredMaintenanceWindow(Aws::String&& value) { m_preferredMaintenanceWindowHasBeenSet = true; m_preferredMaintenanceWindow = std::move(value); }
@@ -307,7 +307,7 @@ namespace Model
      * week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the
      * <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon,
      * Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p>
-     * </li> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li>
+     * </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li>
      * <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
      */
     inline void SetPreferredMaintenanceWindow(const char* value) { m_preferredMaintenanceWindowHasBeenSet = true; m_preferredMaintenanceWindow.assign(value); }
@@ -319,7 +319,7 @@ namespace Model
      * week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the
      * <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon,
      * Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p>
-     * </li> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li>
+     * </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li>
      * <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
      */
     inline UpdateRelationalDatabaseRequest& WithPreferredMaintenanceWindow(const Aws::String& value) { SetPreferredMaintenanceWindow(value); return *this;}
@@ -331,7 +331,7 @@ namespace Model
      * week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the
      * <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon,
      * Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p>
-     * </li> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li>
+     * </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li>
      * <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
      */
     inline UpdateRelationalDatabaseRequest& WithPreferredMaintenanceWindow(Aws::String&& value) { SetPreferredMaintenanceWindow(std::move(value)); return *this;}
@@ -343,7 +343,7 @@ namespace Model
      * week.</p> <p>Constraints:</p> <ul> <li> <p>Must be in the
      * <code>ddd:hh24:mi-ddd:hh24:mi</code> format.</p> </li> <li> <p>Valid days: Mon,
      * Tue, Wed, Thu, Fri, Sat, Sun.</p> </li> <li> <p>Must be at least 30 minutes.</p>
-     * </li> <li> <p>Specified in Universal Coordinated Time (UTC).</p> </li> <li>
+     * </li> <li> <p>Specified in Coordinated Universal Time (UTC).</p> </li> <li>
      * <p>Example: <code>Tue:17:00-Tue:17:30</code> </p> </li> </ul>
      */
     inline UpdateRelationalDatabaseRequest& WithPreferredMaintenanceWindow(const char* value) { SetPreferredMaintenanceWindow(value); return *this;}
@@ -484,6 +484,47 @@ namespace Model
      */
     inline UpdateRelationalDatabaseRequest& WithApplyImmediately(bool value) { SetApplyImmediately(value); return *this;}
 
+
+    /**
+     * <p>Indicates the certificate that needs to be associated with the database.</p>
+     */
+    inline const Aws::String& GetCaCertificateIdentifier() const{ return m_caCertificateIdentifier; }
+
+    /**
+     * <p>Indicates the certificate that needs to be associated with the database.</p>
+     */
+    inline bool CaCertificateIdentifierHasBeenSet() const { return m_caCertificateIdentifierHasBeenSet; }
+
+    /**
+     * <p>Indicates the certificate that needs to be associated with the database.</p>
+     */
+    inline void SetCaCertificateIdentifier(const Aws::String& value) { m_caCertificateIdentifierHasBeenSet = true; m_caCertificateIdentifier = value; }
+
+    /**
+     * <p>Indicates the certificate that needs to be associated with the database.</p>
+     */
+    inline void SetCaCertificateIdentifier(Aws::String&& value) { m_caCertificateIdentifierHasBeenSet = true; m_caCertificateIdentifier = std::move(value); }
+
+    /**
+     * <p>Indicates the certificate that needs to be associated with the database.</p>
+     */
+    inline void SetCaCertificateIdentifier(const char* value) { m_caCertificateIdentifierHasBeenSet = true; m_caCertificateIdentifier.assign(value); }
+
+    /**
+     * <p>Indicates the certificate that needs to be associated with the database.</p>
+     */
+    inline UpdateRelationalDatabaseRequest& WithCaCertificateIdentifier(const Aws::String& value) { SetCaCertificateIdentifier(value); return *this;}
+
+    /**
+     * <p>Indicates the certificate that needs to be associated with the database.</p>
+     */
+    inline UpdateRelationalDatabaseRequest& WithCaCertificateIdentifier(Aws::String&& value) { SetCaCertificateIdentifier(std::move(value)); return *this;}
+
+    /**
+     * <p>Indicates the certificate that needs to be associated with the database.</p>
+     */
+    inline UpdateRelationalDatabaseRequest& WithCaCertificateIdentifier(const char* value) { SetCaCertificateIdentifier(value); return *this;}
+
   private:
 
     Aws::String m_relationalDatabaseName;
@@ -512,6 +553,9 @@ namespace Model
 
     bool m_applyImmediately;
     bool m_applyImmediatelyHasBeenSet;
+
+    Aws::String m_caCertificateIdentifier;
+    bool m_caCertificateIdentifierHasBeenSet;
   };
 
 } // namespace Model

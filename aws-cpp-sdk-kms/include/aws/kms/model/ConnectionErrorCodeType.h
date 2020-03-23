@@ -31,7 +31,10 @@ namespace Model
     NETWORK_ERRORS,
     INTERNAL_ERROR,
     INSUFFICIENT_CLOUDHSM_HSMS,
-    USER_LOCKED_OUT
+    USER_LOCKED_OUT,
+    USER_NOT_FOUND,
+    USER_LOGGED_IN,
+    SUBNET_NOT_FOUND
   };
 
 namespace ConnectionErrorCodeTypeMapper

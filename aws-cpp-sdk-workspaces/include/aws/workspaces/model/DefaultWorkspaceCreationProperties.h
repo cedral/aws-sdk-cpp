@@ -34,8 +34,10 @@ namespace Model
 {
 
   /**
-   * <p>Describes the default values used to create a WorkSpace.</p><p><h3>See
-   * Also:</h3>   <a
+   * <p>Describes the default values that are used to create WorkSpaces. For more
+   * information, see <a
+   * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html">Update
+   * Directory Details for Your WorkSpaces</a>.</p><p><h3>See Also:</h3>   <a
    * href="http://docs.aws.amazon.com/goto/WebAPI/workspaces-2015-04-08/DefaultWorkspaceCreationProperties">AWS
    * API Reference</a></p>
    */
@@ -70,26 +72,62 @@ namespace Model
 
 
     /**
-     * <p>The public IP address to attach to all WorkSpaces that are created or
-     * rebuilt.</p>
+     * <p>Specifies whether to automatically assign an Elastic public IP address to
+     * WorkSpaces in this directory by default. If enabled, the Elastic public IP
+     * address allows outbound internet access from your WorkSpaces when you’re using
+     * an internet gateway in the Amazon VPC in which your WorkSpaces are located. If
+     * you're using a Network Address Translation (NAT) gateway for outbound internet
+     * access from your VPC, or if your WorkSpaces are in public subnets and you
+     * manually assign them Elastic IP addresses, you should disable this setting. This
+     * setting applies to new WorkSpaces that you launch or to existing WorkSpaces that
+     * you rebuild. For more information, see <a
+     * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
+     * Configure a VPC for Amazon WorkSpaces</a>.</p>
      */
     inline bool GetEnableInternetAccess() const{ return m_enableInternetAccess; }
 
     /**
-     * <p>The public IP address to attach to all WorkSpaces that are created or
-     * rebuilt.</p>
+     * <p>Specifies whether to automatically assign an Elastic public IP address to
+     * WorkSpaces in this directory by default. If enabled, the Elastic public IP
+     * address allows outbound internet access from your WorkSpaces when you’re using
+     * an internet gateway in the Amazon VPC in which your WorkSpaces are located. If
+     * you're using a Network Address Translation (NAT) gateway for outbound internet
+     * access from your VPC, or if your WorkSpaces are in public subnets and you
+     * manually assign them Elastic IP addresses, you should disable this setting. This
+     * setting applies to new WorkSpaces that you launch or to existing WorkSpaces that
+     * you rebuild. For more information, see <a
+     * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
+     * Configure a VPC for Amazon WorkSpaces</a>.</p>
      */
     inline bool EnableInternetAccessHasBeenSet() const { return m_enableInternetAccessHasBeenSet; }
 
     /**
-     * <p>The public IP address to attach to all WorkSpaces that are created or
-     * rebuilt.</p>
+     * <p>Specifies whether to automatically assign an Elastic public IP address to
+     * WorkSpaces in this directory by default. If enabled, the Elastic public IP
+     * address allows outbound internet access from your WorkSpaces when you’re using
+     * an internet gateway in the Amazon VPC in which your WorkSpaces are located. If
+     * you're using a Network Address Translation (NAT) gateway for outbound internet
+     * access from your VPC, or if your WorkSpaces are in public subnets and you
+     * manually assign them Elastic IP addresses, you should disable this setting. This
+     * setting applies to new WorkSpaces that you launch or to existing WorkSpaces that
+     * you rebuild. For more information, see <a
+     * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
+     * Configure a VPC for Amazon WorkSpaces</a>.</p>
      */
     inline void SetEnableInternetAccess(bool value) { m_enableInternetAccessHasBeenSet = true; m_enableInternetAccess = value; }
 
     /**
-     * <p>The public IP address to attach to all WorkSpaces that are created or
-     * rebuilt.</p>
+     * <p>Specifies whether to automatically assign an Elastic public IP address to
+     * WorkSpaces in this directory by default. If enabled, the Elastic public IP
+     * address allows outbound internet access from your WorkSpaces when you’re using
+     * an internet gateway in the Amazon VPC in which your WorkSpaces are located. If
+     * you're using a Network Address Translation (NAT) gateway for outbound internet
+     * access from your VPC, or if your WorkSpaces are in public subnets and you
+     * manually assign them Elastic IP addresses, you should disable this setting. This
+     * setting applies to new WorkSpaces that you launch or to existing WorkSpaces that
+     * you rebuild. For more information, see <a
+     * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-vpc.html">
+     * Configure a VPC for Amazon WorkSpaces</a>.</p>
      */
     inline DefaultWorkspaceCreationProperties& WithEnableInternetAccess(bool value) { SetEnableInternetAccess(value); return *this;}
 
@@ -193,28 +231,61 @@ namespace Model
 
 
     /**
-     * <p>Specifies whether the WorkSpace user is an administrator on the
-     * WorkSpace.</p>
+     * <p>Specifies whether WorkSpace users are local administrators on their
+     * WorkSpaces.</p>
      */
     inline bool GetUserEnabledAsLocalAdministrator() const{ return m_userEnabledAsLocalAdministrator; }
 
     /**
-     * <p>Specifies whether the WorkSpace user is an administrator on the
-     * WorkSpace.</p>
+     * <p>Specifies whether WorkSpace users are local administrators on their
+     * WorkSpaces.</p>
      */
     inline bool UserEnabledAsLocalAdministratorHasBeenSet() const { return m_userEnabledAsLocalAdministratorHasBeenSet; }
 
     /**
-     * <p>Specifies whether the WorkSpace user is an administrator on the
-     * WorkSpace.</p>
+     * <p>Specifies whether WorkSpace users are local administrators on their
+     * WorkSpaces.</p>
      */
     inline void SetUserEnabledAsLocalAdministrator(bool value) { m_userEnabledAsLocalAdministratorHasBeenSet = true; m_userEnabledAsLocalAdministrator = value; }
 
     /**
-     * <p>Specifies whether the WorkSpace user is an administrator on the
-     * WorkSpace.</p>
+     * <p>Specifies whether WorkSpace users are local administrators on their
+     * WorkSpaces.</p>
      */
     inline DefaultWorkspaceCreationProperties& WithUserEnabledAsLocalAdministrator(bool value) { SetUserEnabledAsLocalAdministrator(value); return *this;}
+
+
+    /**
+     * <p>Specifies whether maintenance mode is enabled for WorkSpaces. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace
+     * Maintenance</a>.</p>
+     */
+    inline bool GetEnableMaintenanceMode() const{ return m_enableMaintenanceMode; }
+
+    /**
+     * <p>Specifies whether maintenance mode is enabled for WorkSpaces. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace
+     * Maintenance</a>.</p>
+     */
+    inline bool EnableMaintenanceModeHasBeenSet() const { return m_enableMaintenanceModeHasBeenSet; }
+
+    /**
+     * <p>Specifies whether maintenance mode is enabled for WorkSpaces. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace
+     * Maintenance</a>.</p>
+     */
+    inline void SetEnableMaintenanceMode(bool value) { m_enableMaintenanceModeHasBeenSet = true; m_enableMaintenanceMode = value; }
+
+    /**
+     * <p>Specifies whether maintenance mode is enabled for WorkSpaces. For more
+     * information, see <a
+     * href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html">WorkSpace
+     * Maintenance</a>.</p>
+     */
+    inline DefaultWorkspaceCreationProperties& WithEnableMaintenanceMode(bool value) { SetEnableMaintenanceMode(value); return *this;}
 
   private:
 
@@ -232,6 +303,9 @@ namespace Model
 
     bool m_userEnabledAsLocalAdministrator;
     bool m_userEnabledAsLocalAdministratorHasBeenSet;
+
+    bool m_enableMaintenanceMode;
+    bool m_enableMaintenanceModeHasBeenSet;
   };
 
 } // namespace Model

@@ -48,8 +48,11 @@ TableDescription::TableDescription() :
     m_streamSpecificationHasBeenSet(false),
     m_latestStreamLabelHasBeenSet(false),
     m_latestStreamArnHasBeenSet(false),
+    m_globalTableVersionHasBeenSet(false),
+    m_replicasHasBeenSet(false),
     m_restoreSummaryHasBeenSet(false),
-    m_sSEDescriptionHasBeenSet(false)
+    m_sSEDescriptionHasBeenSet(false),
+    m_archivalSummaryHasBeenSet(false)
 {
 }
 
@@ -73,8 +76,11 @@ TableDescription::TableDescription(JsonView jsonValue) :
     m_streamSpecificationHasBeenSet(false),
     m_latestStreamLabelHasBeenSet(false),
     m_latestStreamArnHasBeenSet(false),
+    m_globalTableVersionHasBeenSet(false),
+    m_replicasHasBeenSet(false),
     m_restoreSummaryHasBeenSet(false),
-    m_sSEDescriptionHasBeenSet(false)
+    m_sSEDescriptionHasBeenSet(false),
+    m_archivalSummaryHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -205,6 +211,23 @@ TableDescription& TableDescription::operator =(JsonView jsonValue)
     m_latestStreamArnHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("GlobalTableVersion"))
+  {
+    m_globalTableVersion = jsonValue.GetString("GlobalTableVersion");
+
+    m_globalTableVersionHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("Replicas"))
+  {
+    Array<JsonView> replicasJsonList = jsonValue.GetArray("Replicas");
+    for(unsigned replicasIndex = 0; replicasIndex < replicasJsonList.GetLength(); ++replicasIndex)
+    {
+      m_replicas.push_back(replicasJsonList[replicasIndex].AsObject());
+    }
+    m_replicasHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("RestoreSummary"))
   {
     m_restoreSummary = jsonValue.GetObject("RestoreSummary");
@@ -217,6 +240,13 @@ TableDescription& TableDescription::operator =(JsonView jsonValue)
     m_sSEDescription = jsonValue.GetObject("SSEDescription");
 
     m_sSEDescriptionHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("ArchivalSummary"))
+  {
+    m_archivalSummary = jsonValue.GetObject("ArchivalSummary");
+
+    m_archivalSummaryHasBeenSet = true;
   }
 
   return *this;
@@ -340,6 +370,23 @@ JsonValue TableDescription::Jsonize() const
 
   }
 
+  if(m_globalTableVersionHasBeenSet)
+  {
+   payload.WithString("GlobalTableVersion", m_globalTableVersion);
+
+  }
+
+  if(m_replicasHasBeenSet)
+  {
+   Array<JsonValue> replicasJsonList(m_replicas.size());
+   for(unsigned replicasIndex = 0; replicasIndex < replicasJsonList.GetLength(); ++replicasIndex)
+   {
+     replicasJsonList[replicasIndex].AsObject(m_replicas[replicasIndex].Jsonize());
+   }
+   payload.WithArray("Replicas", std::move(replicasJsonList));
+
+  }
+
   if(m_restoreSummaryHasBeenSet)
   {
    payload.WithObject("RestoreSummary", m_restoreSummary.Jsonize());
@@ -349,6 +396,12 @@ JsonValue TableDescription::Jsonize() const
   if(m_sSEDescriptionHasBeenSet)
   {
    payload.WithObject("SSEDescription", m_sSEDescription.Jsonize());
+
+  }
+
+  if(m_archivalSummaryHasBeenSet)
+  {
+   payload.WithObject("ArchivalSummary", m_archivalSummary.Jsonize());
 
   }
 

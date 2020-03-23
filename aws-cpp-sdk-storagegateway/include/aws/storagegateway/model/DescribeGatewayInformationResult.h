@@ -17,6 +17,7 @@
 #include <aws/storagegateway/StorageGateway_EXPORTS.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/core/utils/memory/stl/AWSVector.h>
+#include <aws/storagegateway/model/HostEnvironment.h>
 #include <aws/storagegateway/model/NetworkInterface.h>
 #include <aws/storagegateway/model/Tag.h>
 #include <utility>
@@ -580,6 +581,75 @@ namespace Model
      */
     inline DescribeGatewayInformationResult& WithVPCEndpoint(const char* value) { SetVPCEndpoint(value); return *this;}
 
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Log Group that is
+     * used to monitor events in the gateway.</p>
+     */
+    inline const Aws::String& GetCloudWatchLogGroupARN() const{ return m_cloudWatchLogGroupARN; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Log Group that is
+     * used to monitor events in the gateway.</p>
+     */
+    inline void SetCloudWatchLogGroupARN(const Aws::String& value) { m_cloudWatchLogGroupARN = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Log Group that is
+     * used to monitor events in the gateway.</p>
+     */
+    inline void SetCloudWatchLogGroupARN(Aws::String&& value) { m_cloudWatchLogGroupARN = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Log Group that is
+     * used to monitor events in the gateway.</p>
+     */
+    inline void SetCloudWatchLogGroupARN(const char* value) { m_cloudWatchLogGroupARN.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Log Group that is
+     * used to monitor events in the gateway.</p>
+     */
+    inline DescribeGatewayInformationResult& WithCloudWatchLogGroupARN(const Aws::String& value) { SetCloudWatchLogGroupARN(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Log Group that is
+     * used to monitor events in the gateway.</p>
+     */
+    inline DescribeGatewayInformationResult& WithCloudWatchLogGroupARN(Aws::String&& value) { SetCloudWatchLogGroupARN(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Log Group that is
+     * used to monitor events in the gateway.</p>
+     */
+    inline DescribeGatewayInformationResult& WithCloudWatchLogGroupARN(const char* value) { SetCloudWatchLogGroupARN(value); return *this;}
+
+
+    /**
+     * <p>The type of hypervisor environment used by the host.</p>
+     */
+    inline const HostEnvironment& GetHostEnvironment() const{ return m_hostEnvironment; }
+
+    /**
+     * <p>The type of hypervisor environment used by the host.</p>
+     */
+    inline void SetHostEnvironment(const HostEnvironment& value) { m_hostEnvironment = value; }
+
+    /**
+     * <p>The type of hypervisor environment used by the host.</p>
+     */
+    inline void SetHostEnvironment(HostEnvironment&& value) { m_hostEnvironment = std::move(value); }
+
+    /**
+     * <p>The type of hypervisor environment used by the host.</p>
+     */
+    inline DescribeGatewayInformationResult& WithHostEnvironment(const HostEnvironment& value) { SetHostEnvironment(value); return *this;}
+
+    /**
+     * <p>The type of hypervisor environment used by the host.</p>
+     */
+    inline DescribeGatewayInformationResult& WithHostEnvironment(HostEnvironment&& value) { SetHostEnvironment(std::move(value)); return *this;}
+
   private:
 
     Aws::String m_gatewayARN;
@@ -607,6 +677,10 @@ namespace Model
     Aws::Vector<Tag> m_tags;
 
     Aws::String m_vPCEndpoint;
+
+    Aws::String m_cloudWatchLogGroupARN;
+
+    HostEnvironment m_hostEnvironment;
   };
 
 } // namespace Model

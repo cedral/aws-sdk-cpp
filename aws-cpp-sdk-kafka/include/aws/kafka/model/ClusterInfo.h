@@ -22,7 +22,10 @@
 #include <aws/kafka/model/BrokerSoftwareInfo.h>
 #include <aws/kafka/model/EncryptionInfo.h>
 #include <aws/kafka/model/EnhancedMonitoring.h>
+#include <aws/kafka/model/OpenMonitoring.h>
+#include <aws/kafka/model/LoggingInfo.h>
 #include <aws/kafka/model/ClusterState.h>
+#include <aws/kafka/model/StateInfo.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
 
@@ -590,6 +593,68 @@ namespace Model
 
     /**
      * 
+            <p>Settings for open monitoring using Prometheus.</p>
+         
+     */
+    inline const OpenMonitoring& GetOpenMonitoring() const{ return m_openMonitoring; }
+
+    /**
+     * 
+            <p>Settings for open monitoring using Prometheus.</p>
+         
+     */
+    inline bool OpenMonitoringHasBeenSet() const { return m_openMonitoringHasBeenSet; }
+
+    /**
+     * 
+            <p>Settings for open monitoring using Prometheus.</p>
+         
+     */
+    inline void SetOpenMonitoring(const OpenMonitoring& value) { m_openMonitoringHasBeenSet = true; m_openMonitoring = value; }
+
+    /**
+     * 
+            <p>Settings for open monitoring using Prometheus.</p>
+         
+     */
+    inline void SetOpenMonitoring(OpenMonitoring&& value) { m_openMonitoringHasBeenSet = true; m_openMonitoring = std::move(value); }
+
+    /**
+     * 
+            <p>Settings for open monitoring using Prometheus.</p>
+         
+     */
+    inline ClusterInfo& WithOpenMonitoring(const OpenMonitoring& value) { SetOpenMonitoring(value); return *this;}
+
+    /**
+     * 
+            <p>Settings for open monitoring using Prometheus.</p>
+         
+     */
+    inline ClusterInfo& WithOpenMonitoring(OpenMonitoring&& value) { SetOpenMonitoring(std::move(value)); return *this;}
+
+
+    
+    inline const LoggingInfo& GetLoggingInfo() const{ return m_loggingInfo; }
+
+    
+    inline bool LoggingInfoHasBeenSet() const { return m_loggingInfoHasBeenSet; }
+
+    
+    inline void SetLoggingInfo(const LoggingInfo& value) { m_loggingInfoHasBeenSet = true; m_loggingInfo = value; }
+
+    
+    inline void SetLoggingInfo(LoggingInfo&& value) { m_loggingInfoHasBeenSet = true; m_loggingInfo = std::move(value); }
+
+    
+    inline ClusterInfo& WithLoggingInfo(const LoggingInfo& value) { SetLoggingInfo(value); return *this;}
+
+    
+    inline ClusterInfo& WithLoggingInfo(LoggingInfo&& value) { SetLoggingInfo(std::move(value)); return *this;}
+
+
+    /**
+     * 
             <p>The number of broker nodes in the cluster.</p>
          
      */
@@ -664,6 +729,25 @@ namespace Model
          
      */
     inline ClusterInfo& WithState(ClusterState&& value) { SetState(std::move(value)); return *this;}
+
+
+    
+    inline const StateInfo& GetStateInfo() const{ return m_stateInfo; }
+
+    
+    inline bool StateInfoHasBeenSet() const { return m_stateInfoHasBeenSet; }
+
+    
+    inline void SetStateInfo(const StateInfo& value) { m_stateInfoHasBeenSet = true; m_stateInfo = value; }
+
+    
+    inline void SetStateInfo(StateInfo&& value) { m_stateInfoHasBeenSet = true; m_stateInfo = std::move(value); }
+
+    
+    inline ClusterInfo& WithStateInfo(const StateInfo& value) { SetStateInfo(value); return *this;}
+
+    
+    inline ClusterInfo& WithStateInfo(StateInfo&& value) { SetStateInfo(std::move(value)); return *this;}
 
 
     /**
@@ -854,11 +938,20 @@ namespace Model
     EnhancedMonitoring m_enhancedMonitoring;
     bool m_enhancedMonitoringHasBeenSet;
 
+    OpenMonitoring m_openMonitoring;
+    bool m_openMonitoringHasBeenSet;
+
+    LoggingInfo m_loggingInfo;
+    bool m_loggingInfoHasBeenSet;
+
     int m_numberOfBrokerNodes;
     bool m_numberOfBrokerNodesHasBeenSet;
 
     ClusterState m_state;
     bool m_stateHasBeenSet;
+
+    StateInfo m_stateInfo;
+    bool m_stateInfoHasBeenSet;
 
     Aws::Map<Aws::String, Aws::String> m_tags;
     bool m_tagsHasBeenSet;

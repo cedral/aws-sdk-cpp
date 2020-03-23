@@ -246,26 +246,26 @@ namespace Model
 
 
     /**
-     * <p>Indicates whether principals outside your organization can be associated with
-     * a resource share.</p>
+     * <p>Indicates whether principals outside your AWS organization can be associated
+     * with a resource share.</p>
      */
     inline bool GetAllowExternalPrincipals() const{ return m_allowExternalPrincipals; }
 
     /**
-     * <p>Indicates whether principals outside your organization can be associated with
-     * a resource share.</p>
+     * <p>Indicates whether principals outside your AWS organization can be associated
+     * with a resource share.</p>
      */
     inline bool AllowExternalPrincipalsHasBeenSet() const { return m_allowExternalPrincipalsHasBeenSet; }
 
     /**
-     * <p>Indicates whether principals outside your organization can be associated with
-     * a resource share.</p>
+     * <p>Indicates whether principals outside your AWS organization can be associated
+     * with a resource share.</p>
      */
     inline void SetAllowExternalPrincipals(bool value) { m_allowExternalPrincipalsHasBeenSet = true; m_allowExternalPrincipals = value; }
 
     /**
-     * <p>Indicates whether principals outside your organization can be associated with
-     * a resource share.</p>
+     * <p>Indicates whether principals outside your AWS organization can be associated
+     * with a resource share.</p>
      */
     inline CreateResourceShareRequest& WithAllowExternalPrincipals(bool value) { SetAllowExternalPrincipals(value); return *this;}
 
@@ -318,6 +318,70 @@ namespace Model
      */
     inline CreateResourceShareRequest& WithClientToken(const char* value) { SetClientToken(value); return *this;}
 
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline const Aws::Vector<Aws::String>& GetPermissionArns() const{ return m_permissionArns; }
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline bool PermissionArnsHasBeenSet() const { return m_permissionArnsHasBeenSet; }
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline void SetPermissionArns(const Aws::Vector<Aws::String>& value) { m_permissionArnsHasBeenSet = true; m_permissionArns = value; }
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline void SetPermissionArns(Aws::Vector<Aws::String>&& value) { m_permissionArnsHasBeenSet = true; m_permissionArns = std::move(value); }
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline CreateResourceShareRequest& WithPermissionArns(const Aws::Vector<Aws::String>& value) { SetPermissionArns(value); return *this;}
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline CreateResourceShareRequest& WithPermissionArns(Aws::Vector<Aws::String>&& value) { SetPermissionArns(std::move(value)); return *this;}
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline CreateResourceShareRequest& AddPermissionArns(const Aws::String& value) { m_permissionArnsHasBeenSet = true; m_permissionArns.push_back(value); return *this; }
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline CreateResourceShareRequest& AddPermissionArns(Aws::String&& value) { m_permissionArnsHasBeenSet = true; m_permissionArns.push_back(std::move(value)); return *this; }
+
+    /**
+     * <p>The ARNs of the permissions to associate with the resource share. If you do
+     * not specify an ARN for the permission, AWS RAM automatically attaches the
+     * default version of the permission for each resource type.</p>
+     */
+    inline CreateResourceShareRequest& AddPermissionArns(const char* value) { m_permissionArnsHasBeenSet = true; m_permissionArns.push_back(value); return *this; }
+
   private:
 
     Aws::String m_name;
@@ -337,6 +401,9 @@ namespace Model
 
     Aws::String m_clientToken;
     bool m_clientTokenHasBeenSet;
+
+    Aws::Vector<Aws::String> m_permissionArns;
+    bool m_permissionArnsHasBeenSet;
   };
 
 } // namespace Model

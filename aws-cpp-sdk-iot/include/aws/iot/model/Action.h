@@ -26,11 +26,14 @@
 #include <aws/iot/model/FirehoseAction.h>
 #include <aws/iot/model/CloudwatchMetricAction.h>
 #include <aws/iot/model/CloudwatchAlarmAction.h>
+#include <aws/iot/model/CloudwatchLogsAction.h>
 #include <aws/iot/model/ElasticsearchAction.h>
 #include <aws/iot/model/SalesforceAction.h>
 #include <aws/iot/model/IotAnalyticsAction.h>
 #include <aws/iot/model/IotEventsAction.h>
+#include <aws/iot/model/IotSiteWiseAction.h>
 #include <aws/iot/model/StepFunctionsAction.h>
+#include <aws/iot/model/HttpAction.h>
 #include <utility>
 
 namespace Aws
@@ -416,6 +419,37 @@ namespace Model
 
 
     /**
+     * <p>Send data to CloudWatch logs.</p>
+     */
+    inline const CloudwatchLogsAction& GetCloudwatchLogs() const{ return m_cloudwatchLogs; }
+
+    /**
+     * <p>Send data to CloudWatch logs.</p>
+     */
+    inline bool CloudwatchLogsHasBeenSet() const { return m_cloudwatchLogsHasBeenSet; }
+
+    /**
+     * <p>Send data to CloudWatch logs.</p>
+     */
+    inline void SetCloudwatchLogs(const CloudwatchLogsAction& value) { m_cloudwatchLogsHasBeenSet = true; m_cloudwatchLogs = value; }
+
+    /**
+     * <p>Send data to CloudWatch logs.</p>
+     */
+    inline void SetCloudwatchLogs(CloudwatchLogsAction&& value) { m_cloudwatchLogsHasBeenSet = true; m_cloudwatchLogs = std::move(value); }
+
+    /**
+     * <p>Send data to CloudWatch logs.</p>
+     */
+    inline Action& WithCloudwatchLogs(const CloudwatchLogsAction& value) { SetCloudwatchLogs(value); return *this;}
+
+    /**
+     * <p>Send data to CloudWatch logs.</p>
+     */
+    inline Action& WithCloudwatchLogs(CloudwatchLogsAction&& value) { SetCloudwatchLogs(std::move(value)); return *this;}
+
+
+    /**
      * <p>Write data to an Amazon Elasticsearch Service domain.</p>
      */
     inline const ElasticsearchAction& GetElasticsearch() const{ return m_elasticsearch; }
@@ -540,6 +574,43 @@ namespace Model
 
 
     /**
+     * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise
+     * asset properties.</p>
+     */
+    inline const IotSiteWiseAction& GetIotSiteWise() const{ return m_iotSiteWise; }
+
+    /**
+     * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise
+     * asset properties.</p>
+     */
+    inline bool IotSiteWiseHasBeenSet() const { return m_iotSiteWiseHasBeenSet; }
+
+    /**
+     * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise
+     * asset properties.</p>
+     */
+    inline void SetIotSiteWise(const IotSiteWiseAction& value) { m_iotSiteWiseHasBeenSet = true; m_iotSiteWise = value; }
+
+    /**
+     * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise
+     * asset properties.</p>
+     */
+    inline void SetIotSiteWise(IotSiteWiseAction&& value) { m_iotSiteWiseHasBeenSet = true; m_iotSiteWise = std::move(value); }
+
+    /**
+     * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise
+     * asset properties.</p>
+     */
+    inline Action& WithIotSiteWise(const IotSiteWiseAction& value) { SetIotSiteWise(value); return *this;}
+
+    /**
+     * <p>Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise
+     * asset properties.</p>
+     */
+    inline Action& WithIotSiteWise(IotSiteWiseAction&& value) { SetIotSiteWise(std::move(value)); return *this;}
+
+
+    /**
      * <p>Starts execution of a Step Functions state machine.</p>
      */
     inline const StepFunctionsAction& GetStepFunctions() const{ return m_stepFunctions; }
@@ -568,6 +639,37 @@ namespace Model
      * <p>Starts execution of a Step Functions state machine.</p>
      */
     inline Action& WithStepFunctions(StepFunctionsAction&& value) { SetStepFunctions(std::move(value)); return *this;}
+
+
+    /**
+     * <p>Send data to an HTTPS endpoint.</p>
+     */
+    inline const HttpAction& GetHttp() const{ return m_http; }
+
+    /**
+     * <p>Send data to an HTTPS endpoint.</p>
+     */
+    inline bool HttpHasBeenSet() const { return m_httpHasBeenSet; }
+
+    /**
+     * <p>Send data to an HTTPS endpoint.</p>
+     */
+    inline void SetHttp(const HttpAction& value) { m_httpHasBeenSet = true; m_http = value; }
+
+    /**
+     * <p>Send data to an HTTPS endpoint.</p>
+     */
+    inline void SetHttp(HttpAction&& value) { m_httpHasBeenSet = true; m_http = std::move(value); }
+
+    /**
+     * <p>Send data to an HTTPS endpoint.</p>
+     */
+    inline Action& WithHttp(const HttpAction& value) { SetHttp(value); return *this;}
+
+    /**
+     * <p>Send data to an HTTPS endpoint.</p>
+     */
+    inline Action& WithHttp(HttpAction&& value) { SetHttp(std::move(value)); return *this;}
 
   private:
 
@@ -604,6 +706,9 @@ namespace Model
     CloudwatchAlarmAction m_cloudwatchAlarm;
     bool m_cloudwatchAlarmHasBeenSet;
 
+    CloudwatchLogsAction m_cloudwatchLogs;
+    bool m_cloudwatchLogsHasBeenSet;
+
     ElasticsearchAction m_elasticsearch;
     bool m_elasticsearchHasBeenSet;
 
@@ -616,8 +721,14 @@ namespace Model
     IotEventsAction m_iotEvents;
     bool m_iotEventsHasBeenSet;
 
+    IotSiteWiseAction m_iotSiteWise;
+    bool m_iotSiteWiseHasBeenSet;
+
     StepFunctionsAction m_stepFunctions;
     bool m_stepFunctionsHasBeenSet;
+
+    HttpAction m_http;
+    bool m_httpHasBeenSet;
   };
 
 } // namespace Model

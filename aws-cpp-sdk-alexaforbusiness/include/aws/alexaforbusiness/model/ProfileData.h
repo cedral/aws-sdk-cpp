@@ -195,42 +195,42 @@ namespace Model
 
 
     /**
-     * <p>The timezone of a room profile.</p>
+     * <p>The time zone of a room profile.</p>
      */
     inline const Aws::String& GetTimezone() const{ return m_timezone; }
 
     /**
-     * <p>The timezone of a room profile.</p>
+     * <p>The time zone of a room profile.</p>
      */
     inline bool TimezoneHasBeenSet() const { return m_timezoneHasBeenSet; }
 
     /**
-     * <p>The timezone of a room profile.</p>
+     * <p>The time zone of a room profile.</p>
      */
     inline void SetTimezone(const Aws::String& value) { m_timezoneHasBeenSet = true; m_timezone = value; }
 
     /**
-     * <p>The timezone of a room profile.</p>
+     * <p>The time zone of a room profile.</p>
      */
     inline void SetTimezone(Aws::String&& value) { m_timezoneHasBeenSet = true; m_timezone = std::move(value); }
 
     /**
-     * <p>The timezone of a room profile.</p>
+     * <p>The time zone of a room profile.</p>
      */
     inline void SetTimezone(const char* value) { m_timezoneHasBeenSet = true; m_timezone.assign(value); }
 
     /**
-     * <p>The timezone of a room profile.</p>
+     * <p>The time zone of a room profile.</p>
      */
     inline ProfileData& WithTimezone(const Aws::String& value) { SetTimezone(value); return *this;}
 
     /**
-     * <p>The timezone of a room profile.</p>
+     * <p>The time zone of a room profile.</p>
      */
     inline ProfileData& WithTimezone(Aws::String&& value) { SetTimezone(std::move(value)); return *this;}
 
     /**
-     * <p>The timezone of a room profile.</p>
+     * <p>The time zone of a room profile.</p>
      */
     inline ProfileData& WithTimezone(const char* value) { SetTimezone(value); return *this;}
 
@@ -327,6 +327,55 @@ namespace Model
      */
     inline ProfileData& WithWakeWord(WakeWord&& value) { SetWakeWord(std::move(value)); return *this;}
 
+
+    /**
+     * <p>The locale of a room profile. (This is currently available only to a limited
+     * preview audience.)</p>
+     */
+    inline const Aws::String& GetLocale() const{ return m_locale; }
+
+    /**
+     * <p>The locale of a room profile. (This is currently available only to a limited
+     * preview audience.)</p>
+     */
+    inline bool LocaleHasBeenSet() const { return m_localeHasBeenSet; }
+
+    /**
+     * <p>The locale of a room profile. (This is currently available only to a limited
+     * preview audience.)</p>
+     */
+    inline void SetLocale(const Aws::String& value) { m_localeHasBeenSet = true; m_locale = value; }
+
+    /**
+     * <p>The locale of a room profile. (This is currently available only to a limited
+     * preview audience.)</p>
+     */
+    inline void SetLocale(Aws::String&& value) { m_localeHasBeenSet = true; m_locale = std::move(value); }
+
+    /**
+     * <p>The locale of a room profile. (This is currently available only to a limited
+     * preview audience.)</p>
+     */
+    inline void SetLocale(const char* value) { m_localeHasBeenSet = true; m_locale.assign(value); }
+
+    /**
+     * <p>The locale of a room profile. (This is currently available only to a limited
+     * preview audience.)</p>
+     */
+    inline ProfileData& WithLocale(const Aws::String& value) { SetLocale(value); return *this;}
+
+    /**
+     * <p>The locale of a room profile. (This is currently available only to a limited
+     * preview audience.)</p>
+     */
+    inline ProfileData& WithLocale(Aws::String&& value) { SetLocale(std::move(value)); return *this;}
+
+    /**
+     * <p>The locale of a room profile. (This is currently available only to a limited
+     * preview audience.)</p>
+     */
+    inline ProfileData& WithLocale(const char* value) { SetLocale(value); return *this;}
+
   private:
 
     Aws::String m_profileArn;
@@ -352,6 +401,9 @@ namespace Model
 
     WakeWord m_wakeWord;
     bool m_wakeWordHasBeenSet;
+
+    Aws::String m_locale;
+    bool m_localeHasBeenSet;
   };
 
 } // namespace Model

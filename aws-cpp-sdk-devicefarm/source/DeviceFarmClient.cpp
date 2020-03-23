@@ -35,6 +35,8 @@
 #include <aws/devicefarm/model/CreateNetworkProfileRequest.h>
 #include <aws/devicefarm/model/CreateProjectRequest.h>
 #include <aws/devicefarm/model/CreateRemoteAccessSessionRequest.h>
+#include <aws/devicefarm/model/CreateTestGridProjectRequest.h>
+#include <aws/devicefarm/model/CreateTestGridUrlRequest.h>
 #include <aws/devicefarm/model/CreateUploadRequest.h>
 #include <aws/devicefarm/model/CreateVPCEConfigurationRequest.h>
 #include <aws/devicefarm/model/DeleteDevicePoolRequest.h>
@@ -43,6 +45,7 @@
 #include <aws/devicefarm/model/DeleteProjectRequest.h>
 #include <aws/devicefarm/model/DeleteRemoteAccessSessionRequest.h>
 #include <aws/devicefarm/model/DeleteRunRequest.h>
+#include <aws/devicefarm/model/DeleteTestGridProjectRequest.h>
 #include <aws/devicefarm/model/DeleteUploadRequest.h>
 #include <aws/devicefarm/model/DeleteVPCEConfigurationRequest.h>
 #include <aws/devicefarm/model/GetAccountSettingsRequest.h>
@@ -59,6 +62,8 @@
 #include <aws/devicefarm/model/GetRunRequest.h>
 #include <aws/devicefarm/model/GetSuiteRequest.h>
 #include <aws/devicefarm/model/GetTestRequest.h>
+#include <aws/devicefarm/model/GetTestGridProjectRequest.h>
+#include <aws/devicefarm/model/GetTestGridSessionRequest.h>
 #include <aws/devicefarm/model/GetUploadRequest.h>
 #include <aws/devicefarm/model/GetVPCEConfigurationRequest.h>
 #include <aws/devicefarm/model/InstallToRemoteAccessSessionRequest.h>
@@ -78,6 +83,10 @@
 #include <aws/devicefarm/model/ListSamplesRequest.h>
 #include <aws/devicefarm/model/ListSuitesRequest.h>
 #include <aws/devicefarm/model/ListTagsForResourceRequest.h>
+#include <aws/devicefarm/model/ListTestGridProjectsRequest.h>
+#include <aws/devicefarm/model/ListTestGridSessionActionsRequest.h>
+#include <aws/devicefarm/model/ListTestGridSessionArtifactsRequest.h>
+#include <aws/devicefarm/model/ListTestGridSessionsRequest.h>
 #include <aws/devicefarm/model/ListTestsRequest.h>
 #include <aws/devicefarm/model/ListUniqueProblemsRequest.h>
 #include <aws/devicefarm/model/ListUploadsRequest.h>
@@ -95,6 +104,7 @@
 #include <aws/devicefarm/model/UpdateInstanceProfileRequest.h>
 #include <aws/devicefarm/model/UpdateNetworkProfileRequest.h>
 #include <aws/devicefarm/model/UpdateProjectRequest.h>
+#include <aws/devicefarm/model/UpdateTestGridProjectRequest.h>
 #include <aws/devicefarm/model/UpdateUploadRequest.h>
 #include <aws/devicefarm/model/UpdateVPCEConfigurationRequest.h>
 
@@ -176,7 +186,7 @@ CreateDevicePoolOutcome DeviceFarmClient::CreateDevicePool(const CreateDevicePoo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateDevicePoolOutcome(CreateDevicePoolResult(outcome.GetResult()));
@@ -211,7 +221,7 @@ CreateInstanceProfileOutcome DeviceFarmClient::CreateInstanceProfile(const Creat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateInstanceProfileOutcome(CreateInstanceProfileResult(outcome.GetResult()));
@@ -246,7 +256,7 @@ CreateNetworkProfileOutcome DeviceFarmClient::CreateNetworkProfile(const CreateN
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateNetworkProfileOutcome(CreateNetworkProfileResult(outcome.GetResult()));
@@ -281,7 +291,7 @@ CreateProjectOutcome DeviceFarmClient::CreateProject(const CreateProjectRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateProjectOutcome(CreateProjectResult(outcome.GetResult()));
@@ -316,7 +326,7 @@ CreateRemoteAccessSessionOutcome DeviceFarmClient::CreateRemoteAccessSession(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateRemoteAccessSessionOutcome(CreateRemoteAccessSessionResult(outcome.GetResult()));
@@ -345,13 +355,83 @@ void DeviceFarmClient::CreateRemoteAccessSessionAsyncHelper(const CreateRemoteAc
   handler(this, request, CreateRemoteAccessSession(request), context);
 }
 
+CreateTestGridProjectOutcome DeviceFarmClient::CreateTestGridProject(const CreateTestGridProjectRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateTestGridProjectOutcome(CreateTestGridProjectResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateTestGridProjectOutcome(outcome.GetError());
+  }
+}
+
+CreateTestGridProjectOutcomeCallable DeviceFarmClient::CreateTestGridProjectCallable(const CreateTestGridProjectRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateTestGridProjectOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateTestGridProject(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::CreateTestGridProjectAsync(const CreateTestGridProjectRequest& request, const CreateTestGridProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateTestGridProjectAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::CreateTestGridProjectAsyncHelper(const CreateTestGridProjectRequest& request, const CreateTestGridProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateTestGridProject(request), context);
+}
+
+CreateTestGridUrlOutcome DeviceFarmClient::CreateTestGridUrl(const CreateTestGridUrlRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return CreateTestGridUrlOutcome(CreateTestGridUrlResult(outcome.GetResult()));
+  }
+  else
+  {
+    return CreateTestGridUrlOutcome(outcome.GetError());
+  }
+}
+
+CreateTestGridUrlOutcomeCallable DeviceFarmClient::CreateTestGridUrlCallable(const CreateTestGridUrlRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< CreateTestGridUrlOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->CreateTestGridUrl(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::CreateTestGridUrlAsync(const CreateTestGridUrlRequest& request, const CreateTestGridUrlResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->CreateTestGridUrlAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::CreateTestGridUrlAsyncHelper(const CreateTestGridUrlRequest& request, const CreateTestGridUrlResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, CreateTestGridUrl(request), context);
+}
+
 CreateUploadOutcome DeviceFarmClient::CreateUpload(const CreateUploadRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateUploadOutcome(CreateUploadResult(outcome.GetResult()));
@@ -386,7 +466,7 @@ CreateVPCEConfigurationOutcome DeviceFarmClient::CreateVPCEConfiguration(const C
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateVPCEConfigurationOutcome(CreateVPCEConfigurationResult(outcome.GetResult()));
@@ -421,7 +501,7 @@ DeleteDevicePoolOutcome DeviceFarmClient::DeleteDevicePool(const DeleteDevicePoo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteDevicePoolOutcome(DeleteDevicePoolResult(outcome.GetResult()));
@@ -456,7 +536,7 @@ DeleteInstanceProfileOutcome DeviceFarmClient::DeleteInstanceProfile(const Delet
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteInstanceProfileOutcome(DeleteInstanceProfileResult(outcome.GetResult()));
@@ -491,7 +571,7 @@ DeleteNetworkProfileOutcome DeviceFarmClient::DeleteNetworkProfile(const DeleteN
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteNetworkProfileOutcome(DeleteNetworkProfileResult(outcome.GetResult()));
@@ -526,7 +606,7 @@ DeleteProjectOutcome DeviceFarmClient::DeleteProject(const DeleteProjectRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteProjectOutcome(DeleteProjectResult(outcome.GetResult()));
@@ -561,7 +641,7 @@ DeleteRemoteAccessSessionOutcome DeviceFarmClient::DeleteRemoteAccessSession(con
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRemoteAccessSessionOutcome(DeleteRemoteAccessSessionResult(outcome.GetResult()));
@@ -596,7 +676,7 @@ DeleteRunOutcome DeviceFarmClient::DeleteRun(const DeleteRunRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteRunOutcome(DeleteRunResult(outcome.GetResult()));
@@ -625,13 +705,48 @@ void DeviceFarmClient::DeleteRunAsyncHelper(const DeleteRunRequest& request, con
   handler(this, request, DeleteRun(request), context);
 }
 
+DeleteTestGridProjectOutcome DeviceFarmClient::DeleteTestGridProject(const DeleteTestGridProjectRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DeleteTestGridProjectOutcome(DeleteTestGridProjectResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DeleteTestGridProjectOutcome(outcome.GetError());
+  }
+}
+
+DeleteTestGridProjectOutcomeCallable DeviceFarmClient::DeleteTestGridProjectCallable(const DeleteTestGridProjectRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DeleteTestGridProjectOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DeleteTestGridProject(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::DeleteTestGridProjectAsync(const DeleteTestGridProjectRequest& request, const DeleteTestGridProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DeleteTestGridProjectAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::DeleteTestGridProjectAsyncHelper(const DeleteTestGridProjectRequest& request, const DeleteTestGridProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DeleteTestGridProject(request), context);
+}
+
 DeleteUploadOutcome DeviceFarmClient::DeleteUpload(const DeleteUploadRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteUploadOutcome(DeleteUploadResult(outcome.GetResult()));
@@ -666,7 +781,7 @@ DeleteVPCEConfigurationOutcome DeviceFarmClient::DeleteVPCEConfiguration(const D
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteVPCEConfigurationOutcome(DeleteVPCEConfigurationResult(outcome.GetResult()));
@@ -701,7 +816,7 @@ GetAccountSettingsOutcome DeviceFarmClient::GetAccountSettings(const GetAccountS
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetAccountSettingsOutcome(GetAccountSettingsResult(outcome.GetResult()));
@@ -736,7 +851,7 @@ GetDeviceOutcome DeviceFarmClient::GetDevice(const GetDeviceRequest& request) co
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDeviceOutcome(GetDeviceResult(outcome.GetResult()));
@@ -771,7 +886,7 @@ GetDeviceInstanceOutcome DeviceFarmClient::GetDeviceInstance(const GetDeviceInst
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDeviceInstanceOutcome(GetDeviceInstanceResult(outcome.GetResult()));
@@ -806,7 +921,7 @@ GetDevicePoolOutcome DeviceFarmClient::GetDevicePool(const GetDevicePoolRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDevicePoolOutcome(GetDevicePoolResult(outcome.GetResult()));
@@ -841,7 +956,7 @@ GetDevicePoolCompatibilityOutcome DeviceFarmClient::GetDevicePoolCompatibility(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetDevicePoolCompatibilityOutcome(GetDevicePoolCompatibilityResult(outcome.GetResult()));
@@ -876,7 +991,7 @@ GetInstanceProfileOutcome DeviceFarmClient::GetInstanceProfile(const GetInstance
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetInstanceProfileOutcome(GetInstanceProfileResult(outcome.GetResult()));
@@ -911,7 +1026,7 @@ GetJobOutcome DeviceFarmClient::GetJob(const GetJobRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetJobOutcome(GetJobResult(outcome.GetResult()));
@@ -946,7 +1061,7 @@ GetNetworkProfileOutcome DeviceFarmClient::GetNetworkProfile(const GetNetworkPro
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetNetworkProfileOutcome(GetNetworkProfileResult(outcome.GetResult()));
@@ -981,7 +1096,7 @@ GetOfferingStatusOutcome DeviceFarmClient::GetOfferingStatus(const GetOfferingSt
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetOfferingStatusOutcome(GetOfferingStatusResult(outcome.GetResult()));
@@ -1016,7 +1131,7 @@ GetProjectOutcome DeviceFarmClient::GetProject(const GetProjectRequest& request)
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetProjectOutcome(GetProjectResult(outcome.GetResult()));
@@ -1051,7 +1166,7 @@ GetRemoteAccessSessionOutcome DeviceFarmClient::GetRemoteAccessSession(const Get
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRemoteAccessSessionOutcome(GetRemoteAccessSessionResult(outcome.GetResult()));
@@ -1086,7 +1201,7 @@ GetRunOutcome DeviceFarmClient::GetRun(const GetRunRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetRunOutcome(GetRunResult(outcome.GetResult()));
@@ -1121,7 +1236,7 @@ GetSuiteOutcome DeviceFarmClient::GetSuite(const GetSuiteRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetSuiteOutcome(GetSuiteResult(outcome.GetResult()));
@@ -1156,7 +1271,7 @@ GetTestOutcome DeviceFarmClient::GetTest(const GetTestRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetTestOutcome(GetTestResult(outcome.GetResult()));
@@ -1185,13 +1300,83 @@ void DeviceFarmClient::GetTestAsyncHelper(const GetTestRequest& request, const G
   handler(this, request, GetTest(request), context);
 }
 
+GetTestGridProjectOutcome DeviceFarmClient::GetTestGridProject(const GetTestGridProjectRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetTestGridProjectOutcome(GetTestGridProjectResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetTestGridProjectOutcome(outcome.GetError());
+  }
+}
+
+GetTestGridProjectOutcomeCallable DeviceFarmClient::GetTestGridProjectCallable(const GetTestGridProjectRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetTestGridProjectOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetTestGridProject(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::GetTestGridProjectAsync(const GetTestGridProjectRequest& request, const GetTestGridProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetTestGridProjectAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::GetTestGridProjectAsyncHelper(const GetTestGridProjectRequest& request, const GetTestGridProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetTestGridProject(request), context);
+}
+
+GetTestGridSessionOutcome DeviceFarmClient::GetTestGridSession(const GetTestGridSessionRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return GetTestGridSessionOutcome(GetTestGridSessionResult(outcome.GetResult()));
+  }
+  else
+  {
+    return GetTestGridSessionOutcome(outcome.GetError());
+  }
+}
+
+GetTestGridSessionOutcomeCallable DeviceFarmClient::GetTestGridSessionCallable(const GetTestGridSessionRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< GetTestGridSessionOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->GetTestGridSession(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::GetTestGridSessionAsync(const GetTestGridSessionRequest& request, const GetTestGridSessionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->GetTestGridSessionAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::GetTestGridSessionAsyncHelper(const GetTestGridSessionRequest& request, const GetTestGridSessionResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, GetTestGridSession(request), context);
+}
+
 GetUploadOutcome DeviceFarmClient::GetUpload(const GetUploadRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetUploadOutcome(GetUploadResult(outcome.GetResult()));
@@ -1226,7 +1411,7 @@ GetVPCEConfigurationOutcome DeviceFarmClient::GetVPCEConfiguration(const GetVPCE
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetVPCEConfigurationOutcome(GetVPCEConfigurationResult(outcome.GetResult()));
@@ -1261,7 +1446,7 @@ InstallToRemoteAccessSessionOutcome DeviceFarmClient::InstallToRemoteAccessSessi
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return InstallToRemoteAccessSessionOutcome(InstallToRemoteAccessSessionResult(outcome.GetResult()));
@@ -1296,7 +1481,7 @@ ListArtifactsOutcome DeviceFarmClient::ListArtifacts(const ListArtifactsRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListArtifactsOutcome(ListArtifactsResult(outcome.GetResult()));
@@ -1331,7 +1516,7 @@ ListDeviceInstancesOutcome DeviceFarmClient::ListDeviceInstances(const ListDevic
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDeviceInstancesOutcome(ListDeviceInstancesResult(outcome.GetResult()));
@@ -1366,7 +1551,7 @@ ListDevicePoolsOutcome DeviceFarmClient::ListDevicePools(const ListDevicePoolsRe
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDevicePoolsOutcome(ListDevicePoolsResult(outcome.GetResult()));
@@ -1401,7 +1586,7 @@ ListDevicesOutcome DeviceFarmClient::ListDevices(const ListDevicesRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListDevicesOutcome(ListDevicesResult(outcome.GetResult()));
@@ -1436,7 +1621,7 @@ ListInstanceProfilesOutcome DeviceFarmClient::ListInstanceProfiles(const ListIns
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListInstanceProfilesOutcome(ListInstanceProfilesResult(outcome.GetResult()));
@@ -1471,7 +1656,7 @@ ListJobsOutcome DeviceFarmClient::ListJobs(const ListJobsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListJobsOutcome(ListJobsResult(outcome.GetResult()));
@@ -1506,7 +1691,7 @@ ListNetworkProfilesOutcome DeviceFarmClient::ListNetworkProfiles(const ListNetwo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListNetworkProfilesOutcome(ListNetworkProfilesResult(outcome.GetResult()));
@@ -1541,7 +1726,7 @@ ListOfferingPromotionsOutcome DeviceFarmClient::ListOfferingPromotions(const Lis
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListOfferingPromotionsOutcome(ListOfferingPromotionsResult(outcome.GetResult()));
@@ -1576,7 +1761,7 @@ ListOfferingTransactionsOutcome DeviceFarmClient::ListOfferingTransactions(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListOfferingTransactionsOutcome(ListOfferingTransactionsResult(outcome.GetResult()));
@@ -1611,7 +1796,7 @@ ListOfferingsOutcome DeviceFarmClient::ListOfferings(const ListOfferingsRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListOfferingsOutcome(ListOfferingsResult(outcome.GetResult()));
@@ -1646,7 +1831,7 @@ ListProjectsOutcome DeviceFarmClient::ListProjects(const ListProjectsRequest& re
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListProjectsOutcome(ListProjectsResult(outcome.GetResult()));
@@ -1681,7 +1866,7 @@ ListRemoteAccessSessionsOutcome DeviceFarmClient::ListRemoteAccessSessions(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListRemoteAccessSessionsOutcome(ListRemoteAccessSessionsResult(outcome.GetResult()));
@@ -1716,7 +1901,7 @@ ListRunsOutcome DeviceFarmClient::ListRuns(const ListRunsRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListRunsOutcome(ListRunsResult(outcome.GetResult()));
@@ -1751,7 +1936,7 @@ ListSamplesOutcome DeviceFarmClient::ListSamples(const ListSamplesRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSamplesOutcome(ListSamplesResult(outcome.GetResult()));
@@ -1786,7 +1971,7 @@ ListSuitesOutcome DeviceFarmClient::ListSuites(const ListSuitesRequest& request)
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListSuitesOutcome(ListSuitesResult(outcome.GetResult()));
@@ -1821,7 +2006,7 @@ ListTagsForResourceOutcome DeviceFarmClient::ListTagsForResource(const ListTagsF
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsForResourceOutcome(ListTagsForResourceResult(outcome.GetResult()));
@@ -1850,13 +2035,153 @@ void DeviceFarmClient::ListTagsForResourceAsyncHelper(const ListTagsForResourceR
   handler(this, request, ListTagsForResource(request), context);
 }
 
+ListTestGridProjectsOutcome DeviceFarmClient::ListTestGridProjects(const ListTestGridProjectsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTestGridProjectsOutcome(ListTestGridProjectsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTestGridProjectsOutcome(outcome.GetError());
+  }
+}
+
+ListTestGridProjectsOutcomeCallable DeviceFarmClient::ListTestGridProjectsCallable(const ListTestGridProjectsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTestGridProjectsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTestGridProjects(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::ListTestGridProjectsAsync(const ListTestGridProjectsRequest& request, const ListTestGridProjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTestGridProjectsAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::ListTestGridProjectsAsyncHelper(const ListTestGridProjectsRequest& request, const ListTestGridProjectsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTestGridProjects(request), context);
+}
+
+ListTestGridSessionActionsOutcome DeviceFarmClient::ListTestGridSessionActions(const ListTestGridSessionActionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTestGridSessionActionsOutcome(ListTestGridSessionActionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTestGridSessionActionsOutcome(outcome.GetError());
+  }
+}
+
+ListTestGridSessionActionsOutcomeCallable DeviceFarmClient::ListTestGridSessionActionsCallable(const ListTestGridSessionActionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTestGridSessionActionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTestGridSessionActions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::ListTestGridSessionActionsAsync(const ListTestGridSessionActionsRequest& request, const ListTestGridSessionActionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTestGridSessionActionsAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::ListTestGridSessionActionsAsyncHelper(const ListTestGridSessionActionsRequest& request, const ListTestGridSessionActionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTestGridSessionActions(request), context);
+}
+
+ListTestGridSessionArtifactsOutcome DeviceFarmClient::ListTestGridSessionArtifacts(const ListTestGridSessionArtifactsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTestGridSessionArtifactsOutcome(ListTestGridSessionArtifactsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTestGridSessionArtifactsOutcome(outcome.GetError());
+  }
+}
+
+ListTestGridSessionArtifactsOutcomeCallable DeviceFarmClient::ListTestGridSessionArtifactsCallable(const ListTestGridSessionArtifactsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTestGridSessionArtifactsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTestGridSessionArtifacts(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::ListTestGridSessionArtifactsAsync(const ListTestGridSessionArtifactsRequest& request, const ListTestGridSessionArtifactsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTestGridSessionArtifactsAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::ListTestGridSessionArtifactsAsyncHelper(const ListTestGridSessionArtifactsRequest& request, const ListTestGridSessionArtifactsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTestGridSessionArtifacts(request), context);
+}
+
+ListTestGridSessionsOutcome DeviceFarmClient::ListTestGridSessions(const ListTestGridSessionsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListTestGridSessionsOutcome(ListTestGridSessionsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListTestGridSessionsOutcome(outcome.GetError());
+  }
+}
+
+ListTestGridSessionsOutcomeCallable DeviceFarmClient::ListTestGridSessionsCallable(const ListTestGridSessionsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListTestGridSessionsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListTestGridSessions(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::ListTestGridSessionsAsync(const ListTestGridSessionsRequest& request, const ListTestGridSessionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListTestGridSessionsAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::ListTestGridSessionsAsyncHelper(const ListTestGridSessionsRequest& request, const ListTestGridSessionsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListTestGridSessions(request), context);
+}
+
 ListTestsOutcome DeviceFarmClient::ListTests(const ListTestsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTestsOutcome(ListTestsResult(outcome.GetResult()));
@@ -1891,7 +2216,7 @@ ListUniqueProblemsOutcome DeviceFarmClient::ListUniqueProblems(const ListUniqueP
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListUniqueProblemsOutcome(ListUniqueProblemsResult(outcome.GetResult()));
@@ -1926,7 +2251,7 @@ ListUploadsOutcome DeviceFarmClient::ListUploads(const ListUploadsRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListUploadsOutcome(ListUploadsResult(outcome.GetResult()));
@@ -1961,7 +2286,7 @@ ListVPCEConfigurationsOutcome DeviceFarmClient::ListVPCEConfigurations(const Lis
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListVPCEConfigurationsOutcome(ListVPCEConfigurationsResult(outcome.GetResult()));
@@ -1996,7 +2321,7 @@ PurchaseOfferingOutcome DeviceFarmClient::PurchaseOffering(const PurchaseOfferin
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PurchaseOfferingOutcome(PurchaseOfferingResult(outcome.GetResult()));
@@ -2031,7 +2356,7 @@ RenewOfferingOutcome DeviceFarmClient::RenewOffering(const RenewOfferingRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RenewOfferingOutcome(RenewOfferingResult(outcome.GetResult()));
@@ -2066,7 +2391,7 @@ ScheduleRunOutcome DeviceFarmClient::ScheduleRun(const ScheduleRunRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ScheduleRunOutcome(ScheduleRunResult(outcome.GetResult()));
@@ -2101,7 +2426,7 @@ StopJobOutcome DeviceFarmClient::StopJob(const StopJobRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopJobOutcome(StopJobResult(outcome.GetResult()));
@@ -2136,7 +2461,7 @@ StopRemoteAccessSessionOutcome DeviceFarmClient::StopRemoteAccessSession(const S
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopRemoteAccessSessionOutcome(StopRemoteAccessSessionResult(outcome.GetResult()));
@@ -2171,7 +2496,7 @@ StopRunOutcome DeviceFarmClient::StopRun(const StopRunRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return StopRunOutcome(StopRunResult(outcome.GetResult()));
@@ -2206,7 +2531,7 @@ TagResourceOutcome DeviceFarmClient::TagResource(const TagResourceRequest& reque
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(TagResourceResult(outcome.GetResult()));
@@ -2241,7 +2566,7 @@ UntagResourceOutcome DeviceFarmClient::UntagResource(const UntagResourceRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(UntagResourceResult(outcome.GetResult()));
@@ -2276,7 +2601,7 @@ UpdateDeviceInstanceOutcome DeviceFarmClient::UpdateDeviceInstance(const UpdateD
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDeviceInstanceOutcome(UpdateDeviceInstanceResult(outcome.GetResult()));
@@ -2311,7 +2636,7 @@ UpdateDevicePoolOutcome DeviceFarmClient::UpdateDevicePool(const UpdateDevicePoo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateDevicePoolOutcome(UpdateDevicePoolResult(outcome.GetResult()));
@@ -2346,7 +2671,7 @@ UpdateInstanceProfileOutcome DeviceFarmClient::UpdateInstanceProfile(const Updat
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateInstanceProfileOutcome(UpdateInstanceProfileResult(outcome.GetResult()));
@@ -2381,7 +2706,7 @@ UpdateNetworkProfileOutcome DeviceFarmClient::UpdateNetworkProfile(const UpdateN
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateNetworkProfileOutcome(UpdateNetworkProfileResult(outcome.GetResult()));
@@ -2416,7 +2741,7 @@ UpdateProjectOutcome DeviceFarmClient::UpdateProject(const UpdateProjectRequest&
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateProjectOutcome(UpdateProjectResult(outcome.GetResult()));
@@ -2445,13 +2770,48 @@ void DeviceFarmClient::UpdateProjectAsyncHelper(const UpdateProjectRequest& requ
   handler(this, request, UpdateProject(request), context);
 }
 
+UpdateTestGridProjectOutcome DeviceFarmClient::UpdateTestGridProject(const UpdateTestGridProjectRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateTestGridProjectOutcome(UpdateTestGridProjectResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateTestGridProjectOutcome(outcome.GetError());
+  }
+}
+
+UpdateTestGridProjectOutcomeCallable DeviceFarmClient::UpdateTestGridProjectCallable(const UpdateTestGridProjectRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateTestGridProjectOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateTestGridProject(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DeviceFarmClient::UpdateTestGridProjectAsync(const UpdateTestGridProjectRequest& request, const UpdateTestGridProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateTestGridProjectAsyncHelper( request, handler, context ); } );
+}
+
+void DeviceFarmClient::UpdateTestGridProjectAsyncHelper(const UpdateTestGridProjectRequest& request, const UpdateTestGridProjectResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateTestGridProject(request), context);
+}
+
 UpdateUploadOutcome DeviceFarmClient::UpdateUpload(const UpdateUploadRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateUploadOutcome(UpdateUploadResult(outcome.GetResult()));
@@ -2486,7 +2846,7 @@ UpdateVPCEConfigurationOutcome DeviceFarmClient::UpdateVPCEConfiguration(const U
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateVPCEConfigurationOutcome(UpdateVPCEConfigurationResult(outcome.GetResult()));

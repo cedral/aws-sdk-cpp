@@ -17,6 +17,7 @@
 #include <aws/pinpoint/Pinpoint_EXPORTS.h>
 #include <aws/pinpoint/model/MessageConfiguration.h>
 #include <aws/pinpoint/model/Schedule.h>
+#include <aws/pinpoint/model/TemplateConfiguration.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <utility>
 
@@ -139,90 +140,121 @@ namespace Model
 
 
     /**
-     * <p>The custom description of the treatment.</p>
+     * <p>The message template to use for the treatment.</p>
+     */
+    inline const TemplateConfiguration& GetTemplateConfiguration() const{ return m_templateConfiguration; }
+
+    /**
+     * <p>The message template to use for the treatment.</p>
+     */
+    inline bool TemplateConfigurationHasBeenSet() const { return m_templateConfigurationHasBeenSet; }
+
+    /**
+     * <p>The message template to use for the treatment.</p>
+     */
+    inline void SetTemplateConfiguration(const TemplateConfiguration& value) { m_templateConfigurationHasBeenSet = true; m_templateConfiguration = value; }
+
+    /**
+     * <p>The message template to use for the treatment.</p>
+     */
+    inline void SetTemplateConfiguration(TemplateConfiguration&& value) { m_templateConfigurationHasBeenSet = true; m_templateConfiguration = std::move(value); }
+
+    /**
+     * <p>The message template to use for the treatment.</p>
+     */
+    inline WriteTreatmentResource& WithTemplateConfiguration(const TemplateConfiguration& value) { SetTemplateConfiguration(value); return *this;}
+
+    /**
+     * <p>The message template to use for the treatment.</p>
+     */
+    inline WriteTreatmentResource& WithTemplateConfiguration(TemplateConfiguration&& value) { SetTemplateConfiguration(std::move(value)); return *this;}
+
+
+    /**
+     * <p>A custom description of the treatment.</p>
      */
     inline const Aws::String& GetTreatmentDescription() const{ return m_treatmentDescription; }
 
     /**
-     * <p>The custom description of the treatment.</p>
+     * <p>A custom description of the treatment.</p>
      */
     inline bool TreatmentDescriptionHasBeenSet() const { return m_treatmentDescriptionHasBeenSet; }
 
     /**
-     * <p>The custom description of the treatment.</p>
+     * <p>A custom description of the treatment.</p>
      */
     inline void SetTreatmentDescription(const Aws::String& value) { m_treatmentDescriptionHasBeenSet = true; m_treatmentDescription = value; }
 
     /**
-     * <p>The custom description of the treatment.</p>
+     * <p>A custom description of the treatment.</p>
      */
     inline void SetTreatmentDescription(Aws::String&& value) { m_treatmentDescriptionHasBeenSet = true; m_treatmentDescription = std::move(value); }
 
     /**
-     * <p>The custom description of the treatment.</p>
+     * <p>A custom description of the treatment.</p>
      */
     inline void SetTreatmentDescription(const char* value) { m_treatmentDescriptionHasBeenSet = true; m_treatmentDescription.assign(value); }
 
     /**
-     * <p>The custom description of the treatment.</p>
+     * <p>A custom description of the treatment.</p>
      */
     inline WriteTreatmentResource& WithTreatmentDescription(const Aws::String& value) { SetTreatmentDescription(value); return *this;}
 
     /**
-     * <p>The custom description of the treatment.</p>
+     * <p>A custom description of the treatment.</p>
      */
     inline WriteTreatmentResource& WithTreatmentDescription(Aws::String&& value) { SetTreatmentDescription(std::move(value)); return *this;}
 
     /**
-     * <p>The custom description of the treatment.</p>
+     * <p>A custom description of the treatment.</p>
      */
     inline WriteTreatmentResource& WithTreatmentDescription(const char* value) { SetTreatmentDescription(value); return *this;}
 
 
     /**
-     * <p>The custom name of the treatment. A treatment is a variation of a campaign
+     * <p>A custom name for the treatment. A treatment is a variation of a campaign
      * that's used for A/B testing of a campaign.</p>
      */
     inline const Aws::String& GetTreatmentName() const{ return m_treatmentName; }
 
     /**
-     * <p>The custom name of the treatment. A treatment is a variation of a campaign
+     * <p>A custom name for the treatment. A treatment is a variation of a campaign
      * that's used for A/B testing of a campaign.</p>
      */
     inline bool TreatmentNameHasBeenSet() const { return m_treatmentNameHasBeenSet; }
 
     /**
-     * <p>The custom name of the treatment. A treatment is a variation of a campaign
+     * <p>A custom name for the treatment. A treatment is a variation of a campaign
      * that's used for A/B testing of a campaign.</p>
      */
     inline void SetTreatmentName(const Aws::String& value) { m_treatmentNameHasBeenSet = true; m_treatmentName = value; }
 
     /**
-     * <p>The custom name of the treatment. A treatment is a variation of a campaign
+     * <p>A custom name for the treatment. A treatment is a variation of a campaign
      * that's used for A/B testing of a campaign.</p>
      */
     inline void SetTreatmentName(Aws::String&& value) { m_treatmentNameHasBeenSet = true; m_treatmentName = std::move(value); }
 
     /**
-     * <p>The custom name of the treatment. A treatment is a variation of a campaign
+     * <p>A custom name for the treatment. A treatment is a variation of a campaign
      * that's used for A/B testing of a campaign.</p>
      */
     inline void SetTreatmentName(const char* value) { m_treatmentNameHasBeenSet = true; m_treatmentName.assign(value); }
 
     /**
-     * <p>The custom name of the treatment. A treatment is a variation of a campaign
+     * <p>A custom name for the treatment. A treatment is a variation of a campaign
      * that's used for A/B testing of a campaign.</p>
      */
     inline WriteTreatmentResource& WithTreatmentName(const Aws::String& value) { SetTreatmentName(value); return *this;}
 
     /**
-     * <p>The custom name of the treatment. A treatment is a variation of a campaign
+     * <p>A custom name for the treatment. A treatment is a variation of a campaign
      * that's used for A/B testing of a campaign.</p>
      */
     inline WriteTreatmentResource& WithTreatmentName(Aws::String&& value) { SetTreatmentName(std::move(value)); return *this;}
 
     /**
-     * <p>The custom name of the treatment. A treatment is a variation of a campaign
+     * <p>A custom name for the treatment. A treatment is a variation of a campaign
      * that's used for A/B testing of a campaign.</p>
      */
     inline WriteTreatmentResource& WithTreatmentName(const char* value) { SetTreatmentName(value); return *this;}
@@ -237,6 +269,9 @@ namespace Model
 
     int m_sizePercent;
     bool m_sizePercentHasBeenSet;
+
+    TemplateConfiguration m_templateConfiguration;
+    bool m_templateConfigurationHasBeenSet;
 
     Aws::String m_treatmentDescription;
     bool m_treatmentDescriptionHasBeenSet;

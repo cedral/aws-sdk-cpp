@@ -29,7 +29,9 @@ CreateClusterRequest::CreateClusterRequest() :
     m_resourcesVpcConfigHasBeenSet(false),
     m_loggingHasBeenSet(false),
     m_clientRequestToken(Aws::Utils::UUID::RandomUUID()),
-    m_clientRequestTokenHasBeenSet(true)
+    m_clientRequestTokenHasBeenSet(true),
+    m_tagsHasBeenSet(false),
+    m_encryptionConfigHasBeenSet(false)
 {
 }
 
@@ -70,6 +72,28 @@ Aws::String CreateClusterRequest::SerializePayload() const
   if(m_clientRequestTokenHasBeenSet)
   {
    payload.WithString("clientRequestToken", m_clientRequestToken);
+
+  }
+
+  if(m_tagsHasBeenSet)
+  {
+   JsonValue tagsJsonMap;
+   for(auto& tagsItem : m_tags)
+   {
+     tagsJsonMap.WithString(tagsItem.first, tagsItem.second);
+   }
+   payload.WithObject("tags", std::move(tagsJsonMap));
+
+  }
+
+  if(m_encryptionConfigHasBeenSet)
+  {
+   Array<JsonValue> encryptionConfigJsonList(m_encryptionConfig.size());
+   for(unsigned encryptionConfigIndex = 0; encryptionConfigIndex < encryptionConfigJsonList.GetLength(); ++encryptionConfigIndex)
+   {
+     encryptionConfigJsonList[encryptionConfigIndex].AsObject(m_encryptionConfig[encryptionConfigIndex].Jsonize());
+   }
+   payload.WithArray("encryptionConfig", std::move(encryptionConfigJsonList));
 
   }
 

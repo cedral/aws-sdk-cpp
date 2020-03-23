@@ -45,44 +45,58 @@ namespace Model
 
 
     /**
-     * <p>If the object expiration is configured, this will contain the expiration date
-     * (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
+     * <p> If the expiration is configured for the object (see
+     * <a>PutBucketLifecycleConfiguration</a>), the response includes this header. It
+     * includes the expiry-date and rule-id key-value pairs that provide information
+     * about object expiration. The value of the rule-id is URL encoded.</p>
      */
     inline const Aws::String& GetExpiration() const{ return m_expiration; }
 
     /**
-     * <p>If the object expiration is configured, this will contain the expiration date
-     * (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
+     * <p> If the expiration is configured for the object (see
+     * <a>PutBucketLifecycleConfiguration</a>), the response includes this header. It
+     * includes the expiry-date and rule-id key-value pairs that provide information
+     * about object expiration. The value of the rule-id is URL encoded.</p>
      */
     inline void SetExpiration(const Aws::String& value) { m_expiration = value; }
 
     /**
-     * <p>If the object expiration is configured, this will contain the expiration date
-     * (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
+     * <p> If the expiration is configured for the object (see
+     * <a>PutBucketLifecycleConfiguration</a>), the response includes this header. It
+     * includes the expiry-date and rule-id key-value pairs that provide information
+     * about object expiration. The value of the rule-id is URL encoded.</p>
      */
     inline void SetExpiration(Aws::String&& value) { m_expiration = std::move(value); }
 
     /**
-     * <p>If the object expiration is configured, this will contain the expiration date
-     * (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
+     * <p> If the expiration is configured for the object (see
+     * <a>PutBucketLifecycleConfiguration</a>), the response includes this header. It
+     * includes the expiry-date and rule-id key-value pairs that provide information
+     * about object expiration. The value of the rule-id is URL encoded.</p>
      */
     inline void SetExpiration(const char* value) { m_expiration.assign(value); }
 
     /**
-     * <p>If the object expiration is configured, this will contain the expiration date
-     * (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
+     * <p> If the expiration is configured for the object (see
+     * <a>PutBucketLifecycleConfiguration</a>), the response includes this header. It
+     * includes the expiry-date and rule-id key-value pairs that provide information
+     * about object expiration. The value of the rule-id is URL encoded.</p>
      */
     inline PutObjectResult& WithExpiration(const Aws::String& value) { SetExpiration(value); return *this;}
 
     /**
-     * <p>If the object expiration is configured, this will contain the expiration date
-     * (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
+     * <p> If the expiration is configured for the object (see
+     * <a>PutBucketLifecycleConfiguration</a>), the response includes this header. It
+     * includes the expiry-date and rule-id key-value pairs that provide information
+     * about object expiration. The value of the rule-id is URL encoded.</p>
      */
     inline PutObjectResult& WithExpiration(Aws::String&& value) { SetExpiration(std::move(value)); return *this;}
 
     /**
-     * <p>If the object expiration is configured, this will contain the expiration date
-     * (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>
+     * <p> If the expiration is configured for the object (see
+     * <a>PutBucketLifecycleConfiguration</a>), the response includes this header. It
+     * includes the expiry-date and rule-id key-value pairs that provide information
+     * about object expiration. The value of the rule-id is URL encoded.</p>
      */
     inline PutObjectResult& WithExpiration(const char* value) { SetExpiration(value); return *this;}
 
@@ -124,32 +138,42 @@ namespace Model
 
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If you specified server-side encryption either with an AWS KMS customer
+     * master key (CMK) or Amazon S3-managed encryption key in your PUT request, the
+     * response includes this header. It confirms the encryption algorithm that Amazon
+     * S3 used to encrypt the object.</p>
      */
     inline const ServerSideEncryption& GetServerSideEncryption() const{ return m_serverSideEncryption; }
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If you specified server-side encryption either with an AWS KMS customer
+     * master key (CMK) or Amazon S3-managed encryption key in your PUT request, the
+     * response includes this header. It confirms the encryption algorithm that Amazon
+     * S3 used to encrypt the object.</p>
      */
     inline void SetServerSideEncryption(const ServerSideEncryption& value) { m_serverSideEncryption = value; }
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If you specified server-side encryption either with an AWS KMS customer
+     * master key (CMK) or Amazon S3-managed encryption key in your PUT request, the
+     * response includes this header. It confirms the encryption algorithm that Amazon
+     * S3 used to encrypt the object.</p>
      */
     inline void SetServerSideEncryption(ServerSideEncryption&& value) { m_serverSideEncryption = std::move(value); }
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If you specified server-side encryption either with an AWS KMS customer
+     * master key (CMK) or Amazon S3-managed encryption key in your PUT request, the
+     * response includes this header. It confirms the encryption algorithm that Amazon
+     * S3 used to encrypt the object.</p>
      */
     inline PutObjectResult& WithServerSideEncryption(const ServerSideEncryption& value) { SetServerSideEncryption(value); return *this;}
 
     /**
-     * <p>The Server-side encryption algorithm used when storing this object in S3
-     * (e.g., AES256, aws:kms).</p>
+     * <p>If you specified server-side encryption either with an AWS KMS customer
+     * master key (CMK) or Amazon S3-managed encryption key in your PUT request, the
+     * response includes this header. It confirms the encryption algorithm that Amazon
+     * S3 used to encrypt the object.</p>
      */
     inline PutObjectResult& WithServerSideEncryption(ServerSideEncryption&& value) { SetServerSideEncryption(std::move(value)); return *this;}
 
@@ -242,93 +266,107 @@ namespace Model
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline const Aws::String& GetSSECustomerKeyMD5() const{ return m_sSECustomerKeyMD5; }
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline void SetSSECustomerKeyMD5(const Aws::String& value) { m_sSECustomerKeyMD5 = value; }
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline void SetSSECustomerKeyMD5(Aws::String&& value) { m_sSECustomerKeyMD5 = std::move(value); }
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline void SetSSECustomerKeyMD5(const char* value) { m_sSECustomerKeyMD5.assign(value); }
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline PutObjectResult& WithSSECustomerKeyMD5(const Aws::String& value) { SetSSECustomerKeyMD5(value); return *this;}
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline PutObjectResult& WithSSECustomerKeyMD5(Aws::String&& value) { SetSSECustomerKeyMD5(std::move(value)); return *this;}
 
     /**
      * <p>If server-side encryption with a customer-provided encryption key was
-     * requested, the response will include this header to provide round trip message
+     * requested, the response will include this header to provide round-trip message
      * integrity verification of the customer-provided encryption key.</p>
      */
     inline PutObjectResult& WithSSECustomerKeyMD5(const char* value) { SetSSECustomerKeyMD5(value); return *this;}
 
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
+     * <code>aws:kms</code>, this header specifies the ID of the AWS Key Management
+     * Service (AWS KMS) symmetric customer managed customer master key (CMK) that was
+     * used for the object. </p>
      */
     inline const Aws::String& GetSSEKMSKeyId() const{ return m_sSEKMSKeyId; }
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
+     * <code>aws:kms</code>, this header specifies the ID of the AWS Key Management
+     * Service (AWS KMS) symmetric customer managed customer master key (CMK) that was
+     * used for the object. </p>
      */
     inline void SetSSEKMSKeyId(const Aws::String& value) { m_sSEKMSKeyId = value; }
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
+     * <code>aws:kms</code>, this header specifies the ID of the AWS Key Management
+     * Service (AWS KMS) symmetric customer managed customer master key (CMK) that was
+     * used for the object. </p>
      */
     inline void SetSSEKMSKeyId(Aws::String&& value) { m_sSEKMSKeyId = std::move(value); }
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
+     * <code>aws:kms</code>, this header specifies the ID of the AWS Key Management
+     * Service (AWS KMS) symmetric customer managed customer master key (CMK) that was
+     * used for the object. </p>
      */
     inline void SetSSEKMSKeyId(const char* value) { m_sSEKMSKeyId.assign(value); }
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
+     * <code>aws:kms</code>, this header specifies the ID of the AWS Key Management
+     * Service (AWS KMS) symmetric customer managed customer master key (CMK) that was
+     * used for the object. </p>
      */
     inline PutObjectResult& WithSSEKMSKeyId(const Aws::String& value) { SetSSEKMSKeyId(value); return *this;}
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
+     * <code>aws:kms</code>, this header specifies the ID of the AWS Key Management
+     * Service (AWS KMS) symmetric customer managed customer master key (CMK) that was
+     * used for the object. </p>
      */
     inline PutObjectResult& WithSSEKMSKeyId(Aws::String&& value) { SetSSEKMSKeyId(std::move(value)); return *this;}
 
     /**
-     * <p>If present, specifies the ID of the AWS Key Management Service (KMS) master
-     * encryption key that was used for the object.</p>
+     * <p>If <code>x-amz-server-side-encryption</code> is present and has the value of
+     * <code>aws:kms</code>, this header specifies the ID of the AWS Key Management
+     * Service (AWS KMS) symmetric customer managed customer master key (CMK) that was
+     * used for the object. </p>
      */
     inline PutObjectResult& WithSSEKMSKeyId(const char* value) { SetSSEKMSKeyId(value); return *this;}
 

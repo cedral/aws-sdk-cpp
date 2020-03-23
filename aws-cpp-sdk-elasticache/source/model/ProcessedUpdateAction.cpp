@@ -32,6 +32,7 @@ namespace Model
 
 ProcessedUpdateAction::ProcessedUpdateAction() : 
     m_replicationGroupIdHasBeenSet(false),
+    m_cacheClusterIdHasBeenSet(false),
     m_serviceUpdateNameHasBeenSet(false),
     m_updateActionStatus(UpdateActionStatus::NOT_SET),
     m_updateActionStatusHasBeenSet(false)
@@ -40,6 +41,7 @@ ProcessedUpdateAction::ProcessedUpdateAction() :
 
 ProcessedUpdateAction::ProcessedUpdateAction(const XmlNode& xmlNode) : 
     m_replicationGroupIdHasBeenSet(false),
+    m_cacheClusterIdHasBeenSet(false),
     m_serviceUpdateNameHasBeenSet(false),
     m_updateActionStatus(UpdateActionStatus::NOT_SET),
     m_updateActionStatusHasBeenSet(false)
@@ -56,19 +58,25 @@ ProcessedUpdateAction& ProcessedUpdateAction::operator =(const XmlNode& xmlNode)
     XmlNode replicationGroupIdNode = resultNode.FirstChild("ReplicationGroupId");
     if(!replicationGroupIdNode.IsNull())
     {
-      m_replicationGroupId = replicationGroupIdNode.GetText();
+      m_replicationGroupId = Aws::Utils::Xml::DecodeEscapedXmlText(replicationGroupIdNode.GetText());
       m_replicationGroupIdHasBeenSet = true;
+    }
+    XmlNode cacheClusterIdNode = resultNode.FirstChild("CacheClusterId");
+    if(!cacheClusterIdNode.IsNull())
+    {
+      m_cacheClusterId = Aws::Utils::Xml::DecodeEscapedXmlText(cacheClusterIdNode.GetText());
+      m_cacheClusterIdHasBeenSet = true;
     }
     XmlNode serviceUpdateNameNode = resultNode.FirstChild("ServiceUpdateName");
     if(!serviceUpdateNameNode.IsNull())
     {
-      m_serviceUpdateName = serviceUpdateNameNode.GetText();
+      m_serviceUpdateName = Aws::Utils::Xml::DecodeEscapedXmlText(serviceUpdateNameNode.GetText());
       m_serviceUpdateNameHasBeenSet = true;
     }
     XmlNode updateActionStatusNode = resultNode.FirstChild("UpdateActionStatus");
     if(!updateActionStatusNode.IsNull())
     {
-      m_updateActionStatus = UpdateActionStatusMapper::GetUpdateActionStatusForName(StringUtils::Trim(updateActionStatusNode.GetText().c_str()).c_str());
+      m_updateActionStatus = UpdateActionStatusMapper::GetUpdateActionStatusForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(updateActionStatusNode.GetText()).c_str()).c_str());
       m_updateActionStatusHasBeenSet = true;
     }
   }
@@ -81,6 +89,11 @@ void ProcessedUpdateAction::OutputToStream(Aws::OStream& oStream, const char* lo
   if(m_replicationGroupIdHasBeenSet)
   {
       oStream << location << index << locationValue << ".ReplicationGroupId=" << StringUtils::URLEncode(m_replicationGroupId.c_str()) << "&";
+  }
+
+  if(m_cacheClusterIdHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".CacheClusterId=" << StringUtils::URLEncode(m_cacheClusterId.c_str()) << "&";
   }
 
   if(m_serviceUpdateNameHasBeenSet)
@@ -100,6 +113,10 @@ void ProcessedUpdateAction::OutputToStream(Aws::OStream& oStream, const char* lo
   if(m_replicationGroupIdHasBeenSet)
   {
       oStream << location << ".ReplicationGroupId=" << StringUtils::URLEncode(m_replicationGroupId.c_str()) << "&";
+  }
+  if(m_cacheClusterIdHasBeenSet)
+  {
+      oStream << location << ".CacheClusterId=" << StringUtils::URLEncode(m_cacheClusterId.c_str()) << "&";
   }
   if(m_serviceUpdateNameHasBeenSet)
   {

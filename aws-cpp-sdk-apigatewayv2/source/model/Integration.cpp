@@ -29,6 +29,8 @@ namespace Model
 {
 
 Integration::Integration() : 
+    m_apiGatewayManaged(false),
+    m_apiGatewayManagedHasBeenSet(false),
     m_connectionIdHasBeenSet(false),
     m_connectionType(ConnectionType::NOT_SET),
     m_connectionTypeHasBeenSet(false),
@@ -44,15 +46,19 @@ Integration::Integration() :
     m_integrationUriHasBeenSet(false),
     m_passthroughBehavior(PassthroughBehavior::NOT_SET),
     m_passthroughBehaviorHasBeenSet(false),
+    m_payloadFormatVersionHasBeenSet(false),
     m_requestParametersHasBeenSet(false),
     m_requestTemplatesHasBeenSet(false),
     m_templateSelectionExpressionHasBeenSet(false),
     m_timeoutInMillis(0),
-    m_timeoutInMillisHasBeenSet(false)
+    m_timeoutInMillisHasBeenSet(false),
+    m_tlsConfigHasBeenSet(false)
 {
 }
 
 Integration::Integration(JsonView jsonValue) : 
+    m_apiGatewayManaged(false),
+    m_apiGatewayManagedHasBeenSet(false),
     m_connectionIdHasBeenSet(false),
     m_connectionType(ConnectionType::NOT_SET),
     m_connectionTypeHasBeenSet(false),
@@ -68,17 +74,26 @@ Integration::Integration(JsonView jsonValue) :
     m_integrationUriHasBeenSet(false),
     m_passthroughBehavior(PassthroughBehavior::NOT_SET),
     m_passthroughBehaviorHasBeenSet(false),
+    m_payloadFormatVersionHasBeenSet(false),
     m_requestParametersHasBeenSet(false),
     m_requestTemplatesHasBeenSet(false),
     m_templateSelectionExpressionHasBeenSet(false),
     m_timeoutInMillis(0),
-    m_timeoutInMillisHasBeenSet(false)
+    m_timeoutInMillisHasBeenSet(false),
+    m_tlsConfigHasBeenSet(false)
 {
   *this = jsonValue;
 }
 
 Integration& Integration::operator =(JsonView jsonValue)
 {
+  if(jsonValue.ValueExists("apiGatewayManaged"))
+  {
+    m_apiGatewayManaged = jsonValue.GetBool("apiGatewayManaged");
+
+    m_apiGatewayManagedHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("connectionId"))
   {
     m_connectionId = jsonValue.GetString("connectionId");
@@ -156,6 +171,13 @@ Integration& Integration::operator =(JsonView jsonValue)
     m_passthroughBehaviorHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("payloadFormatVersion"))
+  {
+    m_payloadFormatVersion = jsonValue.GetString("payloadFormatVersion");
+
+    m_payloadFormatVersionHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("requestParameters"))
   {
     Aws::Map<Aws::String, JsonView> requestParametersJsonMap = jsonValue.GetObject("requestParameters").GetAllObjects();
@@ -190,12 +212,25 @@ Integration& Integration::operator =(JsonView jsonValue)
     m_timeoutInMillisHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("tlsConfig"))
+  {
+    m_tlsConfig = jsonValue.GetObject("tlsConfig");
+
+    m_tlsConfigHasBeenSet = true;
+  }
+
   return *this;
 }
 
 JsonValue Integration::Jsonize() const
 {
   JsonValue payload;
+
+  if(m_apiGatewayManagedHasBeenSet)
+  {
+   payload.WithBool("apiGatewayManaged", m_apiGatewayManaged);
+
+  }
 
   if(m_connectionIdHasBeenSet)
   {
@@ -259,6 +294,12 @@ JsonValue Integration::Jsonize() const
    payload.WithString("passthroughBehavior", PassthroughBehaviorMapper::GetNameForPassthroughBehavior(m_passthroughBehavior));
   }
 
+  if(m_payloadFormatVersionHasBeenSet)
+  {
+   payload.WithString("payloadFormatVersion", m_payloadFormatVersion);
+
+  }
+
   if(m_requestParametersHasBeenSet)
   {
    JsonValue requestParametersJsonMap;
@@ -290,6 +331,12 @@ JsonValue Integration::Jsonize() const
   if(m_timeoutInMillisHasBeenSet)
   {
    payload.WithInteger("timeoutInMillis", m_timeoutInMillis);
+
+  }
+
+  if(m_tlsConfigHasBeenSet)
+  {
+   payload.WithObject("tlsConfig", m_tlsConfig.Jsonize());
 
   }
 

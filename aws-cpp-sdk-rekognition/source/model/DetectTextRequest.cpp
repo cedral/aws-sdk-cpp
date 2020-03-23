@@ -23,7 +23,8 @@ using namespace Aws::Utils::Json;
 using namespace Aws::Utils;
 
 DetectTextRequest::DetectTextRequest() : 
-    m_imageHasBeenSet(false)
+    m_imageHasBeenSet(false),
+    m_filtersHasBeenSet(false)
 {
 }
 
@@ -34,6 +35,12 @@ Aws::String DetectTextRequest::SerializePayload() const
   if(m_imageHasBeenSet)
   {
    payload.WithObject("Image", m_image.Jsonize());
+
+  }
+
+  if(m_filtersHasBeenSet)
+  {
+   payload.WithObject("Filters", m_filters.Jsonize());
 
   }
 

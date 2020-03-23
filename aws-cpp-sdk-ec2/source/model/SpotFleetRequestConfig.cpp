@@ -37,7 +37,8 @@ SpotFleetRequestConfig::SpotFleetRequestConfig() :
     m_spotFleetRequestConfigHasBeenSet(false),
     m_spotFleetRequestIdHasBeenSet(false),
     m_spotFleetRequestState(BatchState::NOT_SET),
-    m_spotFleetRequestStateHasBeenSet(false)
+    m_spotFleetRequestStateHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
 }
 
@@ -48,7 +49,8 @@ SpotFleetRequestConfig::SpotFleetRequestConfig(const XmlNode& xmlNode) :
     m_spotFleetRequestConfigHasBeenSet(false),
     m_spotFleetRequestIdHasBeenSet(false),
     m_spotFleetRequestState(BatchState::NOT_SET),
-    m_spotFleetRequestStateHasBeenSet(false)
+    m_spotFleetRequestStateHasBeenSet(false),
+    m_tagsHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -62,13 +64,13 @@ SpotFleetRequestConfig& SpotFleetRequestConfig::operator =(const XmlNode& xmlNod
     XmlNode activityStatusNode = resultNode.FirstChild("activityStatus");
     if(!activityStatusNode.IsNull())
     {
-      m_activityStatus = ActivityStatusMapper::GetActivityStatusForName(StringUtils::Trim(activityStatusNode.GetText().c_str()).c_str());
+      m_activityStatus = ActivityStatusMapper::GetActivityStatusForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(activityStatusNode.GetText()).c_str()).c_str());
       m_activityStatusHasBeenSet = true;
     }
     XmlNode createTimeNode = resultNode.FirstChild("createTime");
     if(!createTimeNode.IsNull())
     {
-      m_createTime = DateTime(StringUtils::Trim(createTimeNode.GetText().c_str()).c_str(), DateFormat::ISO_8601);
+      m_createTime = DateTime(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(createTimeNode.GetText()).c_str()).c_str(), DateFormat::ISO_8601);
       m_createTimeHasBeenSet = true;
     }
     XmlNode spotFleetRequestConfigNode = resultNode.FirstChild("spotFleetRequestConfig");
@@ -80,14 +82,26 @@ SpotFleetRequestConfig& SpotFleetRequestConfig::operator =(const XmlNode& xmlNod
     XmlNode spotFleetRequestIdNode = resultNode.FirstChild("spotFleetRequestId");
     if(!spotFleetRequestIdNode.IsNull())
     {
-      m_spotFleetRequestId = spotFleetRequestIdNode.GetText();
+      m_spotFleetRequestId = Aws::Utils::Xml::DecodeEscapedXmlText(spotFleetRequestIdNode.GetText());
       m_spotFleetRequestIdHasBeenSet = true;
     }
     XmlNode spotFleetRequestStateNode = resultNode.FirstChild("spotFleetRequestState");
     if(!spotFleetRequestStateNode.IsNull())
     {
-      m_spotFleetRequestState = BatchStateMapper::GetBatchStateForName(StringUtils::Trim(spotFleetRequestStateNode.GetText().c_str()).c_str());
+      m_spotFleetRequestState = BatchStateMapper::GetBatchStateForName(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(spotFleetRequestStateNode.GetText()).c_str()).c_str());
       m_spotFleetRequestStateHasBeenSet = true;
+    }
+    XmlNode tagsNode = resultNode.FirstChild("tagSet");
+    if(!tagsNode.IsNull())
+    {
+      XmlNode tagsMember = tagsNode.FirstChild("item");
+      while(!tagsMember.IsNull())
+      {
+        m_tags.push_back(tagsMember);
+        tagsMember = tagsMember.NextNode("item");
+      }
+
+      m_tagsHasBeenSet = true;
     }
   }
 
@@ -123,6 +137,17 @@ void SpotFleetRequestConfig::OutputToStream(Aws::OStream& oStream, const char* l
       oStream << location << index << locationValue << ".SpotFleetRequestState=" << BatchStateMapper::GetNameForBatchState(m_spotFleetRequestState) << "&";
   }
 
+  if(m_tagsHasBeenSet)
+  {
+      unsigned tagsIdx = 1;
+      for(auto& item : m_tags)
+      {
+        Aws::StringStream tagsSs;
+        tagsSs << location << index << locationValue << ".TagSet." << tagsIdx++;
+        item.OutputToStream(oStream, tagsSs.str().c_str());
+      }
+  }
+
 }
 
 void SpotFleetRequestConfig::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -148,6 +173,16 @@ void SpotFleetRequestConfig::OutputToStream(Aws::OStream& oStream, const char* l
   if(m_spotFleetRequestStateHasBeenSet)
   {
       oStream << location << ".SpotFleetRequestState=" << BatchStateMapper::GetNameForBatchState(m_spotFleetRequestState) << "&";
+  }
+  if(m_tagsHasBeenSet)
+  {
+      unsigned tagsIdx = 1;
+      for(auto& item : m_tags)
+      {
+        Aws::StringStream tagsSs;
+        tagsSs << location <<  ".TagSet." << tagsIdx++;
+        item.OutputToStream(oStream, tagsSs.str().c_str());
+      }
   }
 }
 

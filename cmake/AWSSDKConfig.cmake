@@ -1,12 +1,12 @@
 #
 # Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License").
 # You may not use this file except in compliance with the License.
 # A copy of the License is located at
-# 
+#
 #  http://aws.amazon.com/apache2.0
-# 
+#
 # or in the "license" file accompanying this file. This file is distributed
 # on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
 # express or implied. See the License for the specific language governing
@@ -25,7 +25,7 @@
 
 #   The libraries will all be in <prefix>/lib/<platform_prefix> dir
 #   The binaries will all be in <prefix>/bin/<platform_prefix> dir
-#   The archives will all be in <prefix>/lib/<platform_prefix> dir if target is shared, 
+#   The archives will all be in <prefix>/lib/<platform_prefix> dir if target is shared,
 #   otherwise will be in <prefix>/bin/<platform_prefix> dir.
 
 # Platfrom_prefix is determined on compile time nbu option SIMPLE_INSTALL
@@ -129,7 +129,7 @@ get_filename_component(TEMP_NAME "${TEMP_PATH}" NAME)
 
 while (NOT TEMP_NAME STREQUAL ${LIB_SEARCH_PREFIX})
     set(TEMP_PLATFORM_PREFIX "${TEMP_NAME}/${TEMP_PLATFORM_PREFIX}")
-    get_filename_component(TEMP_PATH "${TEMP_PATH}" PATH) 
+    get_filename_component(TEMP_PATH "${TEMP_PATH}" PATH)
     get_filename_component(TEMP_NAME "${TEMP_PATH}" NAME)
 endwhile()
 
@@ -143,19 +143,19 @@ set(AWSSDK_BIN_DIR "${AWSSDK_ROOT_DIR}/${AWSSDK_INSTALL_BINDIR}/${AWSSDK_PLATFOR
 
 
 if (AWSSDK_PLATFORM_DEPS_LIBS)
-	set(AWSSDK_PLATFORM_DEPS "${AWSSDK_PLATFORM_DEPS_LIBS}")
+    set(AWSSDK_PLATFORM_DEPS "${AWSSDK_PLATFORM_DEPS_LIBS}")
 endif()
 
 if (AWSSDK_CRYPTO_LIBS)
-	set(AWSSDK_PLATFORM_DEPS "${AWSSDK_PLATFORM_DEPS}" "${AWSSDK_CRYPTO_LIBS}")
+    set(AWSSDK_PLATFORM_DEPS "${AWSSDK_PLATFORM_DEPS}" "${AWSSDK_CRYPTO_LIBS}")
 endif()
 
 if (AWSSDK_CLIENT_LIBS)
-	set(AWSSDK_PLATFORM_DEPS "${AWSSDK_PLATFORM_DEPS}" "${AWSSDK_CLIENT_LIBS}")
+    set(AWSSDK_PLATFORM_DEPS "${AWSSDK_PLATFORM_DEPS}" "${AWSSDK_CLIENT_LIBS}")
 endif()
 
 if (AWSSDK_ADDITIONAL_LIBS)
-	set(AWSSDK_PLATFORM_DEPS "${AWSSDK_PLATFORM_DEPS}" "${AWSSDK_ADDITIONAL_LIBS}")
+    set(AWSSDK_PLATFORM_DEPS "${AWSSDK_PLATFORM_DEPS}" "${AWSSDK_ADDITIONAL_LIBS}")
 endif()
 
 message(STATUS "Found AWS SDK for C++, Version: ${PACKAGE_VERSION}, Install Root:${AWSSDK_ROOT_DIR}, Platform Prefix:${AWSSDK_PLATFORM_PREFIX}, Platform Dependent Libraries: ${AWSSDK_PLATFORM_DEPS}")
@@ -164,7 +164,7 @@ message(STATUS "Found AWS SDK for C++, Version: ${PACKAGE_VERSION}, Install Root
 # copy libs of services in SERVICE_LIST and all there dependent libs to DEST_DIR
 # CONFIG denote copy release or debug version
 macro(AWSSDK_CPY_DYN_LIBS SERVICE_LIST CONFIG DEST_DIR)
-    set(ALL_SERVICES "core")
+    set(ALL_SERVICES "core" ${AWSSDK_THIRD_PARTY_LIBS})
 
     foreach(SVC IN LISTS ${SERVICE_LIST})
         list(APPEND ALL_SERVICES ${SVC})
@@ -178,15 +178,18 @@ macro(AWSSDK_CPY_DYN_LIBS SERVICE_LIST CONFIG DEST_DIR)
     list(REMOVE_DUPLICATES ALL_SERVICES)
 
     foreach(SVC IN LISTS ALL_SERVICES)
-		if (WIN32)
+        if (WIN32)
             set(CMAKE_FIND_LIBRARY_SUFFIXES_TEMP ${CMAKE_FIND_LIBRARY_SUFFIXES})
-			set(CMAKE_FIND_LIBRARY_SUFFIXES ".dll")
-		endif()
+            set(CMAKE_FIND_LIBRARY_SUFFIXES ".dll")
+        endif()
         find_library(LIB_PATH "aws-cpp-sdk-${SVC}" "${AWSSDK_LIB_DIR}/${CONFIG}" NO_DEFAULT_PATH)
         if (NOT LIB_PATH)
-            message(FATAL_ERROR "Couldn't find library aws-cpp-sdk-${SVC}")
+            find_library(LIB_PATH "${SVC}" "${AWSSDK_LIB_DIR}/${CONFIG}" NO_DEFAULT_PATH)
+            if (NOT LIB_PATH)
+                message(FATAL_ERROR "Couldn't find library aws-cpp-sdk-${SVC} or ${SVC}")
+            endif()
         endif()
-        file(COPY ${LIB_PATH} DESTINATION ${DEST_DIR}) 
+        file(COPY ${LIB_PATH} DESTINATION ${DEST_DIR})
         unset(LIB_PATH CACHE)
         if (WIN32)
             set(CMAKE_FIND_LIBRARY_SUFFIXES ${CMAKE_FIND_LIBRARY_SUFFIXES_TEMP})
@@ -259,7 +262,7 @@ macro(AWSSDK_DETERMINE_LIBS_TO_LINK SERVICE_LIST OUTPUT_VAR)
         list(APPEND ${OUTPUT_VAR} "aws-cpp-sdk-${DEP}")
     endforeach()
     if (NOT AWSSDK_INSTALL_AS_SHARED_LIBS)
-        list(APPEND ${OUTPUT_VAR} ${AWSSDK_PLATFORM_DEPS})
+        list(APPEND ${OUTPUT_VAR} ${AWSSDK_THIRD_PARTY_LIBS} ${AWSSDK_PLATFORM_DEPS})
     endif()
 endmacro(AWSSDK_DETERMINE_LIBS_TO_LINK)
 
@@ -275,16 +278,32 @@ macro(AWSSDK_LIB_DEPS HIGH_LEVEL_LIB_NAME OUTPUT_VAR)
 endmacro(AWSSDK_LIB_DEPS)
 
 if (AWSSDK_FIND_COMPONENTS)
-    message(STATUS "Components specified for AWSSDK: ${AWSSDK_FIND_COMPONENTS}")
+    #AWSSDK_LINK_LIBRARIES includes all the libraries (including dependencies) used by SDK and needed by customer application when doing linking.
+    #It only comes with COMPONENTS when doing find_package in customer application. e.g. find_package(AWSSDK REQUIRED COMPONENT s3 ec2)
+    #While SDK will resolve all the dependencies for customer application by doing find_package when COMPONENTS are specified,
+    #there is no need to add those dependencies into AWSSDK_LINK_LIBRARIES. Dependencies in AWSSDK_LINK_LIBRARIES will also become a problem when
+    #customer specified CMAKE_PREFIX_PATH and set it with non-default CMake search directories for dependencies when building SDK. In this case, when building customer
+    #application, target_link_libraries(target ${AWSSDK_LINK_LIBRARIES}) will fail to find the dependencies even when you specify CMAKE_PREFIX_PATH to the same directories.
+    #See https://github.com/aws/aws-sdk-cpp/issues/1279
+    #Because CMAKE_PREFIX_PATH is used for find_package, find_dependency, find_library, etc, but not target_link_libraries.
+    #Well, you could still solve it by adding an additional target_link_directories call before target_link_libraries, whereas remove those dependencies from
+    #AWSSDK_LINK_LIBRARIES will be more convenient and less confusing.
     AWSSDK_DETERMINE_LIBS_TO_LINK(AWSSDK_FIND_COMPONENTS AWSSDK_LINK_LIBRARIES)
-    set(AWSSDK_TARGETS ${AWSSDK_LINK_LIBRARIES})
-    # for static sdk, platform dependencies will be included in AWSSDK_LINK_LIBRARIES.
-    list(REMOVE_ITEM AWSSDK_TARGETS ${AWSSDK_PLATFORM_DEPS})
-    list(REVERSE AWSSDK_TARGETS)
+    message(STATUS "Components specified for AWSSDK: ${AWSSDK_FIND_COMPONENTS}, application wll be depending on libs: ${AWSSDK_LINK_LIBRARIES}")
 
+    # platform dependencies will be resolved automatically when doing find_package(aws-cpp-sdk-core).
+    list(REMOVE_ITEM AWSSDK_LINK_LIBRARIES ${AWSSDK_PLATFORM_DEPS})
+    # third_party dependencies will be resolved automatically when doing fidn_package(aws-cpp-sdk-core) as well.
+    list(REMOVE_ITEM AWSSDK_LINK_LIBRARIES ${AWSSDK_THIRD_PARTY_LIBS})
+
+    set(AWSSDK_TARGETS ${AWSSDK_LINK_LIBRARIES})
+    list(REVERSE AWSSDK_TARGETS)
     foreach(TARGET IN LISTS AWSSDK_TARGETS)
         message(STATUS "Try finding ${TARGET}")
         find_package(${TARGET} REQUIRED)
         message(STATUS "Found ${TARGET}")
     endforeach()
 endif()
+
+set(AWSSDK_INCLUDE_DIRS ${AWSSDK_INCLUDE_DIR})
+set(AWSSDK_LIBRARIES ${AWSSDK_LINK_LIBRARIES})

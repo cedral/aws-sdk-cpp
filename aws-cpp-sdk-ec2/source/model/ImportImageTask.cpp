@@ -44,7 +44,9 @@ ImportImageTask::ImportImageTask() :
     m_progressHasBeenSet(false),
     m_snapshotDetailsHasBeenSet(false),
     m_statusHasBeenSet(false),
-    m_statusMessageHasBeenSet(false)
+    m_statusMessageHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_licenseSpecificationsHasBeenSet(false)
 {
 }
 
@@ -62,7 +64,9 @@ ImportImageTask::ImportImageTask(const XmlNode& xmlNode) :
     m_progressHasBeenSet(false),
     m_snapshotDetailsHasBeenSet(false),
     m_statusHasBeenSet(false),
-    m_statusMessageHasBeenSet(false)
+    m_statusMessageHasBeenSet(false),
+    m_tagsHasBeenSet(false),
+    m_licenseSpecificationsHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -76,61 +80,61 @@ ImportImageTask& ImportImageTask::operator =(const XmlNode& xmlNode)
     XmlNode architectureNode = resultNode.FirstChild("architecture");
     if(!architectureNode.IsNull())
     {
-      m_architecture = architectureNode.GetText();
+      m_architecture = Aws::Utils::Xml::DecodeEscapedXmlText(architectureNode.GetText());
       m_architectureHasBeenSet = true;
     }
     XmlNode descriptionNode = resultNode.FirstChild("description");
     if(!descriptionNode.IsNull())
     {
-      m_description = descriptionNode.GetText();
+      m_description = Aws::Utils::Xml::DecodeEscapedXmlText(descriptionNode.GetText());
       m_descriptionHasBeenSet = true;
     }
     XmlNode encryptedNode = resultNode.FirstChild("encrypted");
     if(!encryptedNode.IsNull())
     {
-      m_encrypted = StringUtils::ConvertToBool(StringUtils::Trim(encryptedNode.GetText().c_str()).c_str());
+      m_encrypted = StringUtils::ConvertToBool(StringUtils::Trim(Aws::Utils::Xml::DecodeEscapedXmlText(encryptedNode.GetText()).c_str()).c_str());
       m_encryptedHasBeenSet = true;
     }
     XmlNode hypervisorNode = resultNode.FirstChild("hypervisor");
     if(!hypervisorNode.IsNull())
     {
-      m_hypervisor = hypervisorNode.GetText();
+      m_hypervisor = Aws::Utils::Xml::DecodeEscapedXmlText(hypervisorNode.GetText());
       m_hypervisorHasBeenSet = true;
     }
     XmlNode imageIdNode = resultNode.FirstChild("imageId");
     if(!imageIdNode.IsNull())
     {
-      m_imageId = imageIdNode.GetText();
+      m_imageId = Aws::Utils::Xml::DecodeEscapedXmlText(imageIdNode.GetText());
       m_imageIdHasBeenSet = true;
     }
     XmlNode importTaskIdNode = resultNode.FirstChild("importTaskId");
     if(!importTaskIdNode.IsNull())
     {
-      m_importTaskId = importTaskIdNode.GetText();
+      m_importTaskId = Aws::Utils::Xml::DecodeEscapedXmlText(importTaskIdNode.GetText());
       m_importTaskIdHasBeenSet = true;
     }
     XmlNode kmsKeyIdNode = resultNode.FirstChild("kmsKeyId");
     if(!kmsKeyIdNode.IsNull())
     {
-      m_kmsKeyId = kmsKeyIdNode.GetText();
+      m_kmsKeyId = Aws::Utils::Xml::DecodeEscapedXmlText(kmsKeyIdNode.GetText());
       m_kmsKeyIdHasBeenSet = true;
     }
     XmlNode licenseTypeNode = resultNode.FirstChild("licenseType");
     if(!licenseTypeNode.IsNull())
     {
-      m_licenseType = licenseTypeNode.GetText();
+      m_licenseType = Aws::Utils::Xml::DecodeEscapedXmlText(licenseTypeNode.GetText());
       m_licenseTypeHasBeenSet = true;
     }
     XmlNode platformNode = resultNode.FirstChild("platform");
     if(!platformNode.IsNull())
     {
-      m_platform = platformNode.GetText();
+      m_platform = Aws::Utils::Xml::DecodeEscapedXmlText(platformNode.GetText());
       m_platformHasBeenSet = true;
     }
     XmlNode progressNode = resultNode.FirstChild("progress");
     if(!progressNode.IsNull())
     {
-      m_progress = progressNode.GetText();
+      m_progress = Aws::Utils::Xml::DecodeEscapedXmlText(progressNode.GetText());
       m_progressHasBeenSet = true;
     }
     XmlNode snapshotDetailsNode = resultNode.FirstChild("snapshotDetailSet");
@@ -148,14 +152,38 @@ ImportImageTask& ImportImageTask::operator =(const XmlNode& xmlNode)
     XmlNode statusNode = resultNode.FirstChild("status");
     if(!statusNode.IsNull())
     {
-      m_status = statusNode.GetText();
+      m_status = Aws::Utils::Xml::DecodeEscapedXmlText(statusNode.GetText());
       m_statusHasBeenSet = true;
     }
     XmlNode statusMessageNode = resultNode.FirstChild("statusMessage");
     if(!statusMessageNode.IsNull())
     {
-      m_statusMessage = statusMessageNode.GetText();
+      m_statusMessage = Aws::Utils::Xml::DecodeEscapedXmlText(statusMessageNode.GetText());
       m_statusMessageHasBeenSet = true;
+    }
+    XmlNode tagsNode = resultNode.FirstChild("tagSet");
+    if(!tagsNode.IsNull())
+    {
+      XmlNode tagsMember = tagsNode.FirstChild("item");
+      while(!tagsMember.IsNull())
+      {
+        m_tags.push_back(tagsMember);
+        tagsMember = tagsMember.NextNode("item");
+      }
+
+      m_tagsHasBeenSet = true;
+    }
+    XmlNode licenseSpecificationsNode = resultNode.FirstChild("licenseSpecifications");
+    if(!licenseSpecificationsNode.IsNull())
+    {
+      XmlNode licenseSpecificationsMember = licenseSpecificationsNode.FirstChild("item");
+      while(!licenseSpecificationsMember.IsNull())
+      {
+        m_licenseSpecifications.push_back(licenseSpecificationsMember);
+        licenseSpecificationsMember = licenseSpecificationsMember.NextNode("item");
+      }
+
+      m_licenseSpecificationsHasBeenSet = true;
     }
   }
 
@@ -235,6 +263,28 @@ void ImportImageTask::OutputToStream(Aws::OStream& oStream, const char* location
       oStream << location << index << locationValue << ".StatusMessage=" << StringUtils::URLEncode(m_statusMessage.c_str()) << "&";
   }
 
+  if(m_tagsHasBeenSet)
+  {
+      unsigned tagsIdx = 1;
+      for(auto& item : m_tags)
+      {
+        Aws::StringStream tagsSs;
+        tagsSs << location << index << locationValue << ".TagSet." << tagsIdx++;
+        item.OutputToStream(oStream, tagsSs.str().c_str());
+      }
+  }
+
+  if(m_licenseSpecificationsHasBeenSet)
+  {
+      unsigned licenseSpecificationsIdx = 1;
+      for(auto& item : m_licenseSpecifications)
+      {
+        Aws::StringStream licenseSpecificationsSs;
+        licenseSpecificationsSs << location << index << locationValue << ".LicenseSpecifications." << licenseSpecificationsIdx++;
+        item.OutputToStream(oStream, licenseSpecificationsSs.str().c_str());
+      }
+  }
+
 }
 
 void ImportImageTask::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -296,6 +346,26 @@ void ImportImageTask::OutputToStream(Aws::OStream& oStream, const char* location
   if(m_statusMessageHasBeenSet)
   {
       oStream << location << ".StatusMessage=" << StringUtils::URLEncode(m_statusMessage.c_str()) << "&";
+  }
+  if(m_tagsHasBeenSet)
+  {
+      unsigned tagsIdx = 1;
+      for(auto& item : m_tags)
+      {
+        Aws::StringStream tagsSs;
+        tagsSs << location <<  ".TagSet." << tagsIdx++;
+        item.OutputToStream(oStream, tagsSs.str().c_str());
+      }
+  }
+  if(m_licenseSpecificationsHasBeenSet)
+  {
+      unsigned licenseSpecificationsIdx = 1;
+      for(auto& item : m_licenseSpecifications)
+      {
+        Aws::StringStream licenseSpecificationsSs;
+        licenseSpecificationsSs << location <<  ".LicenseSpecifications." << licenseSpecificationsIdx++;
+        item.OutputToStream(oStream, licenseSpecificationsSs.str().c_str());
+      }
   }
 }
 

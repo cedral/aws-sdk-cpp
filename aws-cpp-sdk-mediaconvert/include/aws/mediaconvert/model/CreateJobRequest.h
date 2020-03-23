@@ -20,6 +20,7 @@
 #include <aws/mediaconvert/model/BillingTagsSource.h>
 #include <aws/core/utils/memory/stl/AWSString.h>
 #include <aws/mediaconvert/model/JobSettings.h>
+#include <aws/mediaconvert/model/SimulateReservedQueue.h>
 #include <aws/mediaconvert/model/StatusUpdateInterval.h>
 #include <aws/core/utils/memory/stl/AWSMap.h>
 #include <utility>
@@ -429,6 +430,55 @@ namespace Model
 
 
     /**
+     * Enable this setting when you run a test job to estimate how many reserved
+     * transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your
+     * job from an on-demand queue with similar performance to what you will see with
+     * one RTS in a reserved queue. This setting is disabled by default.
+     */
+    inline const SimulateReservedQueue& GetSimulateReservedQueue() const{ return m_simulateReservedQueue; }
+
+    /**
+     * Enable this setting when you run a test job to estimate how many reserved
+     * transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your
+     * job from an on-demand queue with similar performance to what you will see with
+     * one RTS in a reserved queue. This setting is disabled by default.
+     */
+    inline bool SimulateReservedQueueHasBeenSet() const { return m_simulateReservedQueueHasBeenSet; }
+
+    /**
+     * Enable this setting when you run a test job to estimate how many reserved
+     * transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your
+     * job from an on-demand queue with similar performance to what you will see with
+     * one RTS in a reserved queue. This setting is disabled by default.
+     */
+    inline void SetSimulateReservedQueue(const SimulateReservedQueue& value) { m_simulateReservedQueueHasBeenSet = true; m_simulateReservedQueue = value; }
+
+    /**
+     * Enable this setting when you run a test job to estimate how many reserved
+     * transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your
+     * job from an on-demand queue with similar performance to what you will see with
+     * one RTS in a reserved queue. This setting is disabled by default.
+     */
+    inline void SetSimulateReservedQueue(SimulateReservedQueue&& value) { m_simulateReservedQueueHasBeenSet = true; m_simulateReservedQueue = std::move(value); }
+
+    /**
+     * Enable this setting when you run a test job to estimate how many reserved
+     * transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your
+     * job from an on-demand queue with similar performance to what you will see with
+     * one RTS in a reserved queue. This setting is disabled by default.
+     */
+    inline CreateJobRequest& WithSimulateReservedQueue(const SimulateReservedQueue& value) { SetSimulateReservedQueue(value); return *this;}
+
+    /**
+     * Enable this setting when you run a test job to estimate how many reserved
+     * transcoding slots (RTS) you need. When this is enabled, MediaConvert runs your
+     * job from an on-demand queue with similar performance to what you will see with
+     * one RTS in a reserved queue. This setting is disabled by default.
+     */
+    inline CreateJobRequest& WithSimulateReservedQueue(SimulateReservedQueue&& value) { SetSimulateReservedQueue(std::move(value)); return *this;}
+
+
+    /**
      * Specify how often MediaConvert sends STATUS_UPDATE events to Amazon CloudWatch
      * Events. Set the interval, in seconds, between status updates. MediaConvert sends
      * an update at this interval from the time the service begins processing your job
@@ -475,6 +525,85 @@ namespace Model
      * to the time it completes the transcode or encounters an error.
      */
     inline CreateJobRequest& WithStatusUpdateInterval(StatusUpdateInterval&& value) { SetStatusUpdateInterval(std::move(value)); return *this;}
+
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
+
+    /**
+     * The tags that you want to add to the resource. You can tag resources with a
+     * key-value pair or with only a key.
+     */
+    inline CreateJobRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
 
 
     /**
@@ -581,8 +710,14 @@ namespace Model
     JobSettings m_settings;
     bool m_settingsHasBeenSet;
 
+    SimulateReservedQueue m_simulateReservedQueue;
+    bool m_simulateReservedQueueHasBeenSet;
+
     StatusUpdateInterval m_statusUpdateInterval;
     bool m_statusUpdateIntervalHasBeenSet;
+
+    Aws::Map<Aws::String, Aws::String> m_tags;
+    bool m_tagsHasBeenSet;
 
     Aws::Map<Aws::String, Aws::String> m_userMetadata;
     bool m_userMetadataHasBeenSet;

@@ -40,14 +40,17 @@
 #include <aws/dynamodb/model/DeleteTableRequest.h>
 #include <aws/dynamodb/model/DescribeBackupRequest.h>
 #include <aws/dynamodb/model/DescribeContinuousBackupsRequest.h>
+#include <aws/dynamodb/model/DescribeContributorInsightsRequest.h>
 #include <aws/dynamodb/model/DescribeEndpointsRequest.h>
 #include <aws/dynamodb/model/DescribeGlobalTableRequest.h>
 #include <aws/dynamodb/model/DescribeGlobalTableSettingsRequest.h>
 #include <aws/dynamodb/model/DescribeLimitsRequest.h>
 #include <aws/dynamodb/model/DescribeTableRequest.h>
+#include <aws/dynamodb/model/DescribeTableReplicaAutoScalingRequest.h>
 #include <aws/dynamodb/model/DescribeTimeToLiveRequest.h>
 #include <aws/dynamodb/model/GetItemRequest.h>
 #include <aws/dynamodb/model/ListBackupsRequest.h>
+#include <aws/dynamodb/model/ListContributorInsightsRequest.h>
 #include <aws/dynamodb/model/ListGlobalTablesRequest.h>
 #include <aws/dynamodb/model/ListTablesRequest.h>
 #include <aws/dynamodb/model/ListTagsOfResourceRequest.h>
@@ -61,10 +64,12 @@
 #include <aws/dynamodb/model/TransactWriteItemsRequest.h>
 #include <aws/dynamodb/model/UntagResourceRequest.h>
 #include <aws/dynamodb/model/UpdateContinuousBackupsRequest.h>
+#include <aws/dynamodb/model/UpdateContributorInsightsRequest.h>
 #include <aws/dynamodb/model/UpdateGlobalTableRequest.h>
 #include <aws/dynamodb/model/UpdateGlobalTableSettingsRequest.h>
 #include <aws/dynamodb/model/UpdateItemRequest.h>
 #include <aws/dynamodb/model/UpdateTableRequest.h>
+#include <aws/dynamodb/model/UpdateTableReplicaAutoScalingRequest.h>
 #include <aws/dynamodb/model/UpdateTimeToLiveRequest.h>
 
 using namespace Aws;
@@ -172,7 +177,7 @@ BatchGetItemOutcome DynamoDBClient::BatchGetItem(const BatchGetItemRequest& requ
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("BatchGetItem", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("BatchGetItem", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -181,7 +186,7 @@ BatchGetItemOutcome DynamoDBClient::BatchGetItem(const BatchGetItemRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchGetItemOutcome(BatchGetItemResult(outcome.GetResult()));
@@ -234,7 +239,7 @@ BatchWriteItemOutcome DynamoDBClient::BatchWriteItem(const BatchWriteItemRequest
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("BatchWriteItem", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("BatchWriteItem", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -243,7 +248,7 @@ BatchWriteItemOutcome DynamoDBClient::BatchWriteItem(const BatchWriteItemRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return BatchWriteItemOutcome(BatchWriteItemResult(outcome.GetResult()));
@@ -296,7 +301,7 @@ CreateBackupOutcome DynamoDBClient::CreateBackup(const CreateBackupRequest& requ
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("CreateBackup", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("CreateBackup", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -305,7 +310,7 @@ CreateBackupOutcome DynamoDBClient::CreateBackup(const CreateBackupRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateBackupOutcome(CreateBackupResult(outcome.GetResult()));
@@ -358,7 +363,7 @@ CreateGlobalTableOutcome DynamoDBClient::CreateGlobalTable(const CreateGlobalTab
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("CreateGlobalTable", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("CreateGlobalTable", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -367,7 +372,7 @@ CreateGlobalTableOutcome DynamoDBClient::CreateGlobalTable(const CreateGlobalTab
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateGlobalTableOutcome(CreateGlobalTableResult(outcome.GetResult()));
@@ -420,7 +425,7 @@ CreateTableOutcome DynamoDBClient::CreateTable(const CreateTableRequest& request
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("CreateTable", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("CreateTable", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -429,7 +434,7 @@ CreateTableOutcome DynamoDBClient::CreateTable(const CreateTableRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return CreateTableOutcome(CreateTableResult(outcome.GetResult()));
@@ -482,7 +487,7 @@ DeleteBackupOutcome DynamoDBClient::DeleteBackup(const DeleteBackupRequest& requ
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DeleteBackup", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DeleteBackup", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -491,7 +496,7 @@ DeleteBackupOutcome DynamoDBClient::DeleteBackup(const DeleteBackupRequest& requ
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteBackupOutcome(DeleteBackupResult(outcome.GetResult()));
@@ -544,7 +549,7 @@ DeleteItemOutcome DynamoDBClient::DeleteItem(const DeleteItemRequest& request) c
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DeleteItem", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DeleteItem", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -553,7 +558,7 @@ DeleteItemOutcome DynamoDBClient::DeleteItem(const DeleteItemRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteItemOutcome(DeleteItemResult(outcome.GetResult()));
@@ -606,7 +611,7 @@ DeleteTableOutcome DynamoDBClient::DeleteTable(const DeleteTableRequest& request
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DeleteTable", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DeleteTable", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -615,7 +620,7 @@ DeleteTableOutcome DynamoDBClient::DeleteTable(const DeleteTableRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DeleteTableOutcome(DeleteTableResult(outcome.GetResult()));
@@ -668,7 +673,7 @@ DescribeBackupOutcome DynamoDBClient::DescribeBackup(const DescribeBackupRequest
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DescribeBackup", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DescribeBackup", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -677,7 +682,7 @@ DescribeBackupOutcome DynamoDBClient::DescribeBackup(const DescribeBackupRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeBackupOutcome(DescribeBackupResult(outcome.GetResult()));
@@ -730,7 +735,7 @@ DescribeContinuousBackupsOutcome DynamoDBClient::DescribeContinuousBackups(const
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DescribeContinuousBackups", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DescribeContinuousBackups", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -739,7 +744,7 @@ DescribeContinuousBackupsOutcome DynamoDBClient::DescribeContinuousBackups(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeContinuousBackupsOutcome(DescribeContinuousBackupsResult(outcome.GetResult()));
@@ -768,13 +773,48 @@ void DynamoDBClient::DescribeContinuousBackupsAsyncHelper(const DescribeContinuo
   handler(this, request, DescribeContinuousBackups(request), context);
 }
 
+DescribeContributorInsightsOutcome DynamoDBClient::DescribeContributorInsights(const DescribeContributorInsightsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeContributorInsightsOutcome(DescribeContributorInsightsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeContributorInsightsOutcome(outcome.GetError());
+  }
+}
+
+DescribeContributorInsightsOutcomeCallable DynamoDBClient::DescribeContributorInsightsCallable(const DescribeContributorInsightsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeContributorInsightsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeContributorInsights(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DynamoDBClient::DescribeContributorInsightsAsync(const DescribeContributorInsightsRequest& request, const DescribeContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeContributorInsightsAsyncHelper( request, handler, context ); } );
+}
+
+void DynamoDBClient::DescribeContributorInsightsAsyncHelper(const DescribeContributorInsightsRequest& request, const DescribeContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeContributorInsights(request), context);
+}
+
 DescribeEndpointsOutcome DynamoDBClient::DescribeEndpoints(const DescribeEndpointsRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeEndpointsOutcome(DescribeEndpointsResult(outcome.GetResult()));
@@ -827,7 +867,7 @@ DescribeGlobalTableOutcome DynamoDBClient::DescribeGlobalTable(const DescribeGlo
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DescribeGlobalTable", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DescribeGlobalTable", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -836,7 +876,7 @@ DescribeGlobalTableOutcome DynamoDBClient::DescribeGlobalTable(const DescribeGlo
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeGlobalTableOutcome(DescribeGlobalTableResult(outcome.GetResult()));
@@ -889,7 +929,7 @@ DescribeGlobalTableSettingsOutcome DynamoDBClient::DescribeGlobalTableSettings(c
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DescribeGlobalTableSettings", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DescribeGlobalTableSettings", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -898,7 +938,7 @@ DescribeGlobalTableSettingsOutcome DynamoDBClient::DescribeGlobalTableSettings(c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeGlobalTableSettingsOutcome(DescribeGlobalTableSettingsResult(outcome.GetResult()));
@@ -951,7 +991,7 @@ DescribeLimitsOutcome DynamoDBClient::DescribeLimits(const DescribeLimitsRequest
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DescribeLimits", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DescribeLimits", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -960,7 +1000,7 @@ DescribeLimitsOutcome DynamoDBClient::DescribeLimits(const DescribeLimitsRequest
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeLimitsOutcome(DescribeLimitsResult(outcome.GetResult()));
@@ -1013,7 +1053,7 @@ DescribeTableOutcome DynamoDBClient::DescribeTable(const DescribeTableRequest& r
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DescribeTable", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DescribeTable", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1022,7 +1062,7 @@ DescribeTableOutcome DynamoDBClient::DescribeTable(const DescribeTableRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeTableOutcome(DescribeTableResult(outcome.GetResult()));
@@ -1051,6 +1091,41 @@ void DynamoDBClient::DescribeTableAsyncHelper(const DescribeTableRequest& reques
   handler(this, request, DescribeTable(request), context);
 }
 
+DescribeTableReplicaAutoScalingOutcome DynamoDBClient::DescribeTableReplicaAutoScaling(const DescribeTableReplicaAutoScalingRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return DescribeTableReplicaAutoScalingOutcome(DescribeTableReplicaAutoScalingResult(outcome.GetResult()));
+  }
+  else
+  {
+    return DescribeTableReplicaAutoScalingOutcome(outcome.GetError());
+  }
+}
+
+DescribeTableReplicaAutoScalingOutcomeCallable DynamoDBClient::DescribeTableReplicaAutoScalingCallable(const DescribeTableReplicaAutoScalingRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< DescribeTableReplicaAutoScalingOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->DescribeTableReplicaAutoScaling(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DynamoDBClient::DescribeTableReplicaAutoScalingAsync(const DescribeTableReplicaAutoScalingRequest& request, const DescribeTableReplicaAutoScalingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->DescribeTableReplicaAutoScalingAsyncHelper( request, handler, context ); } );
+}
+
+void DynamoDBClient::DescribeTableReplicaAutoScalingAsyncHelper(const DescribeTableReplicaAutoScalingRequest& request, const DescribeTableReplicaAutoScalingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, DescribeTableReplicaAutoScaling(request), context);
+}
+
 DescribeTimeToLiveOutcome DynamoDBClient::DescribeTimeToLive(const DescribeTimeToLiveRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -1075,7 +1150,7 @@ DescribeTimeToLiveOutcome DynamoDBClient::DescribeTimeToLive(const DescribeTimeT
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("DescribeTimeToLive", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("DescribeTimeToLive", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1084,7 +1159,7 @@ DescribeTimeToLiveOutcome DynamoDBClient::DescribeTimeToLive(const DescribeTimeT
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return DescribeTimeToLiveOutcome(DescribeTimeToLiveResult(outcome.GetResult()));
@@ -1137,7 +1212,7 @@ GetItemOutcome DynamoDBClient::GetItem(const GetItemRequest& request) const
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("GetItem", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("GetItem", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1146,7 +1221,7 @@ GetItemOutcome DynamoDBClient::GetItem(const GetItemRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return GetItemOutcome(GetItemResult(outcome.GetResult()));
@@ -1199,7 +1274,7 @@ ListBackupsOutcome DynamoDBClient::ListBackups(const ListBackupsRequest& request
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("ListBackups", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("ListBackups", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1208,7 +1283,7 @@ ListBackupsOutcome DynamoDBClient::ListBackups(const ListBackupsRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListBackupsOutcome(ListBackupsResult(outcome.GetResult()));
@@ -1237,6 +1312,41 @@ void DynamoDBClient::ListBackupsAsyncHelper(const ListBackupsRequest& request, c
   handler(this, request, ListBackups(request), context);
 }
 
+ListContributorInsightsOutcome DynamoDBClient::ListContributorInsights(const ListContributorInsightsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return ListContributorInsightsOutcome(ListContributorInsightsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return ListContributorInsightsOutcome(outcome.GetError());
+  }
+}
+
+ListContributorInsightsOutcomeCallable DynamoDBClient::ListContributorInsightsCallable(const ListContributorInsightsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< ListContributorInsightsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->ListContributorInsights(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DynamoDBClient::ListContributorInsightsAsync(const ListContributorInsightsRequest& request, const ListContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->ListContributorInsightsAsyncHelper( request, handler, context ); } );
+}
+
+void DynamoDBClient::ListContributorInsightsAsyncHelper(const ListContributorInsightsRequest& request, const ListContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, ListContributorInsights(request), context);
+}
+
 ListGlobalTablesOutcome DynamoDBClient::ListGlobalTables(const ListGlobalTablesRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -1261,7 +1371,7 @@ ListGlobalTablesOutcome DynamoDBClient::ListGlobalTables(const ListGlobalTablesR
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("ListGlobalTables", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("ListGlobalTables", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1270,7 +1380,7 @@ ListGlobalTablesOutcome DynamoDBClient::ListGlobalTables(const ListGlobalTablesR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListGlobalTablesOutcome(ListGlobalTablesResult(outcome.GetResult()));
@@ -1323,7 +1433,7 @@ ListTablesOutcome DynamoDBClient::ListTables(const ListTablesRequest& request) c
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("ListTables", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("ListTables", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1332,7 +1442,7 @@ ListTablesOutcome DynamoDBClient::ListTables(const ListTablesRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTablesOutcome(ListTablesResult(outcome.GetResult()));
@@ -1385,7 +1495,7 @@ ListTagsOfResourceOutcome DynamoDBClient::ListTagsOfResource(const ListTagsOfRes
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("ListTagsOfResource", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("ListTagsOfResource", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1394,7 +1504,7 @@ ListTagsOfResourceOutcome DynamoDBClient::ListTagsOfResource(const ListTagsOfRes
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ListTagsOfResourceOutcome(ListTagsOfResourceResult(outcome.GetResult()));
@@ -1447,7 +1557,7 @@ PutItemOutcome DynamoDBClient::PutItem(const PutItemRequest& request) const
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("PutItem", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("PutItem", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1456,7 +1566,7 @@ PutItemOutcome DynamoDBClient::PutItem(const PutItemRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return PutItemOutcome(PutItemResult(outcome.GetResult()));
@@ -1509,7 +1619,7 @@ QueryOutcome DynamoDBClient::Query(const QueryRequest& request) const
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("Query", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("Query", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1518,7 +1628,7 @@ QueryOutcome DynamoDBClient::Query(const QueryRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return QueryOutcome(QueryResult(outcome.GetResult()));
@@ -1571,7 +1681,7 @@ RestoreTableFromBackupOutcome DynamoDBClient::RestoreTableFromBackup(const Resto
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("RestoreTableFromBackup", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("RestoreTableFromBackup", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1580,7 +1690,7 @@ RestoreTableFromBackupOutcome DynamoDBClient::RestoreTableFromBackup(const Resto
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RestoreTableFromBackupOutcome(RestoreTableFromBackupResult(outcome.GetResult()));
@@ -1633,7 +1743,7 @@ RestoreTableToPointInTimeOutcome DynamoDBClient::RestoreTableToPointInTime(const
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("RestoreTableToPointInTime", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("RestoreTableToPointInTime", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1642,7 +1752,7 @@ RestoreTableToPointInTimeOutcome DynamoDBClient::RestoreTableToPointInTime(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return RestoreTableToPointInTimeOutcome(RestoreTableToPointInTimeResult(outcome.GetResult()));
@@ -1695,7 +1805,7 @@ ScanOutcome DynamoDBClient::Scan(const ScanRequest& request) const
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("Scan", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("Scan", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1704,7 +1814,7 @@ ScanOutcome DynamoDBClient::Scan(const ScanRequest& request) const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return ScanOutcome(ScanResult(outcome.GetResult()));
@@ -1757,7 +1867,7 @@ TagResourceOutcome DynamoDBClient::TagResource(const TagResourceRequest& request
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("TagResource", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("TagResource", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1766,7 +1876,7 @@ TagResourceOutcome DynamoDBClient::TagResource(const TagResourceRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TagResourceOutcome(NoResult());
@@ -1819,7 +1929,7 @@ TransactGetItemsOutcome DynamoDBClient::TransactGetItems(const TransactGetItemsR
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("TransactGetItems", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("TransactGetItems", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1828,7 +1938,7 @@ TransactGetItemsOutcome DynamoDBClient::TransactGetItems(const TransactGetItemsR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TransactGetItemsOutcome(TransactGetItemsResult(outcome.GetResult()));
@@ -1881,7 +1991,7 @@ TransactWriteItemsOutcome DynamoDBClient::TransactWriteItems(const TransactWrite
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("TransactWriteItems", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("TransactWriteItems", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1890,7 +2000,7 @@ TransactWriteItemsOutcome DynamoDBClient::TransactWriteItems(const TransactWrite
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return TransactWriteItemsOutcome(TransactWriteItemsResult(outcome.GetResult()));
@@ -1943,7 +2053,7 @@ UntagResourceOutcome DynamoDBClient::UntagResource(const UntagResourceRequest& r
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("UntagResource", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("UntagResource", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -1952,7 +2062,7 @@ UntagResourceOutcome DynamoDBClient::UntagResource(const UntagResourceRequest& r
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UntagResourceOutcome(NoResult());
@@ -2005,7 +2115,7 @@ UpdateContinuousBackupsOutcome DynamoDBClient::UpdateContinuousBackups(const Upd
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("UpdateContinuousBackups", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("UpdateContinuousBackups", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -2014,7 +2124,7 @@ UpdateContinuousBackupsOutcome DynamoDBClient::UpdateContinuousBackups(const Upd
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateContinuousBackupsOutcome(UpdateContinuousBackupsResult(outcome.GetResult()));
@@ -2043,6 +2153,41 @@ void DynamoDBClient::UpdateContinuousBackupsAsyncHelper(const UpdateContinuousBa
   handler(this, request, UpdateContinuousBackups(request), context);
 }
 
+UpdateContributorInsightsOutcome DynamoDBClient::UpdateContributorInsights(const UpdateContributorInsightsRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateContributorInsightsOutcome(UpdateContributorInsightsResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateContributorInsightsOutcome(outcome.GetError());
+  }
+}
+
+UpdateContributorInsightsOutcomeCallable DynamoDBClient::UpdateContributorInsightsCallable(const UpdateContributorInsightsRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateContributorInsightsOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateContributorInsights(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DynamoDBClient::UpdateContributorInsightsAsync(const UpdateContributorInsightsRequest& request, const UpdateContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateContributorInsightsAsyncHelper( request, handler, context ); } );
+}
+
+void DynamoDBClient::UpdateContributorInsightsAsyncHelper(const UpdateContributorInsightsRequest& request, const UpdateContributorInsightsResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateContributorInsights(request), context);
+}
+
 UpdateGlobalTableOutcome DynamoDBClient::UpdateGlobalTable(const UpdateGlobalTableRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -2067,7 +2212,7 @@ UpdateGlobalTableOutcome DynamoDBClient::UpdateGlobalTable(const UpdateGlobalTab
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("UpdateGlobalTable", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("UpdateGlobalTable", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -2076,7 +2221,7 @@ UpdateGlobalTableOutcome DynamoDBClient::UpdateGlobalTable(const UpdateGlobalTab
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateGlobalTableOutcome(UpdateGlobalTableResult(outcome.GetResult()));
@@ -2129,7 +2274,7 @@ UpdateGlobalTableSettingsOutcome DynamoDBClient::UpdateGlobalTableSettings(const
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("UpdateGlobalTableSettings", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("UpdateGlobalTableSettings", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -2138,7 +2283,7 @@ UpdateGlobalTableSettingsOutcome DynamoDBClient::UpdateGlobalTableSettings(const
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateGlobalTableSettingsOutcome(UpdateGlobalTableSettingsResult(outcome.GetResult()));
@@ -2191,7 +2336,7 @@ UpdateItemOutcome DynamoDBClient::UpdateItem(const UpdateItemRequest& request) c
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("UpdateItem", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("UpdateItem", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -2200,7 +2345,7 @@ UpdateItemOutcome DynamoDBClient::UpdateItem(const UpdateItemRequest& request) c
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateItemOutcome(UpdateItemResult(outcome.GetResult()));
@@ -2253,7 +2398,7 @@ UpdateTableOutcome DynamoDBClient::UpdateTable(const UpdateTableRequest& request
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("UpdateTable", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("UpdateTable", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -2262,7 +2407,7 @@ UpdateTableOutcome DynamoDBClient::UpdateTable(const UpdateTableRequest& request
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateTableOutcome(UpdateTableResult(outcome.GetResult()));
@@ -2291,6 +2436,41 @@ void DynamoDBClient::UpdateTableAsyncHelper(const UpdateTableRequest& request, c
   handler(this, request, UpdateTable(request), context);
 }
 
+UpdateTableReplicaAutoScalingOutcome DynamoDBClient::UpdateTableReplicaAutoScaling(const UpdateTableReplicaAutoScalingRequest& request) const
+{
+  Aws::Http::URI uri = m_uri;
+  Aws::StringStream ss;
+  ss << "/";
+  uri.SetPath(uri.GetPath() + ss.str());
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  if(outcome.IsSuccess())
+  {
+    return UpdateTableReplicaAutoScalingOutcome(UpdateTableReplicaAutoScalingResult(outcome.GetResult()));
+  }
+  else
+  {
+    return UpdateTableReplicaAutoScalingOutcome(outcome.GetError());
+  }
+}
+
+UpdateTableReplicaAutoScalingOutcomeCallable DynamoDBClient::UpdateTableReplicaAutoScalingCallable(const UpdateTableReplicaAutoScalingRequest& request) const
+{
+  auto task = Aws::MakeShared< std::packaged_task< UpdateTableReplicaAutoScalingOutcome() > >(ALLOCATION_TAG, [this, request](){ return this->UpdateTableReplicaAutoScaling(request); } );
+  auto packagedFunction = [task]() { (*task)(); };
+  m_executor->Submit(packagedFunction);
+  return task->get_future();
+}
+
+void DynamoDBClient::UpdateTableReplicaAutoScalingAsync(const UpdateTableReplicaAutoScalingRequest& request, const UpdateTableReplicaAutoScalingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  m_executor->Submit( [this, request, handler, context](){ this->UpdateTableReplicaAutoScalingAsyncHelper( request, handler, context ); } );
+}
+
+void DynamoDBClient::UpdateTableReplicaAutoScalingAsyncHelper(const UpdateTableReplicaAutoScalingRequest& request, const UpdateTableReplicaAutoScalingResponseReceivedHandler& handler, const std::shared_ptr<const Aws::Client::AsyncCallerContext>& context) const
+{
+  handler(this, request, UpdateTableReplicaAutoScaling(request), context);
+}
+
 UpdateTimeToLiveOutcome DynamoDBClient::UpdateTimeToLive(const UpdateTimeToLiveRequest& request) const
 {
   Aws::Http::URI uri = m_uri;
@@ -2315,7 +2495,7 @@ UpdateTimeToLiveOutcome DynamoDBClient::UpdateTimeToLive(const UpdateTimeToLiveR
         uri = item.GetAddress();
         AWS_LOGSTREAM_TRACE("UpdateTimeToLive", "Endpoints cache updated. Address: " << item.GetAddress() << ". Valid in: " << item.GetCachePeriodInMinutes() << " minutes. Making request to newly discovered endpoint.");
       }
-      else 
+      else
       {
         AWS_LOGSTREAM_ERROR("UpdateTimeToLive", "Failed to discover endpoints " << endpointOutcome.GetError() << "\n Endpoint discovery is not required for this operation, falling back to the regional endpoint.");
       }
@@ -2324,7 +2504,7 @@ UpdateTimeToLiveOutcome DynamoDBClient::UpdateTimeToLive(const UpdateTimeToLiveR
   Aws::StringStream ss;
   ss << "/";
   uri.SetPath(uri.GetPath() + ss.str());
-  JsonOutcome outcome = MakeRequest(uri, request, HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
+  JsonOutcome outcome = MakeRequest(uri, request, Aws::Http::HttpMethod::HTTP_POST, Aws::Auth::SIGV4_SIGNER);
   if(outcome.IsSuccess())
   {
     return UpdateTimeToLiveOutcome(UpdateTimeToLiveResult(outcome.GetResult()));

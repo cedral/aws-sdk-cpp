@@ -39,7 +39,11 @@ UpdateBranchRequest::UpdateBranchRequest() :
     m_enableBasicAuthHasBeenSet(false),
     m_buildSpecHasBeenSet(false),
     m_ttlHasBeenSet(false),
-    m_displayNameHasBeenSet(false)
+    m_displayNameHasBeenSet(false),
+    m_enablePullRequestPreview(false),
+    m_enablePullRequestPreviewHasBeenSet(false),
+    m_pullRequestEnvironmentNameHasBeenSet(false),
+    m_backendEnvironmentArnHasBeenSet(false)
 {
 }
 
@@ -114,6 +118,24 @@ Aws::String UpdateBranchRequest::SerializePayload() const
   if(m_displayNameHasBeenSet)
   {
    payload.WithString("displayName", m_displayName);
+
+  }
+
+  if(m_enablePullRequestPreviewHasBeenSet)
+  {
+   payload.WithBool("enablePullRequestPreview", m_enablePullRequestPreview);
+
+  }
+
+  if(m_pullRequestEnvironmentNameHasBeenSet)
+  {
+   payload.WithString("pullRequestEnvironmentName", m_pullRequestEnvironmentName);
+
+  }
+
+  if(m_backendEnvironmentArnHasBeenSet)
+  {
+   payload.WithString("backendEnvironmentArn", m_backendEnvironmentArn);
 
   }
 

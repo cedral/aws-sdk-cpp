@@ -1,12 +1,12 @@
 #
 # Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License").
 # You may not use this file except in compliance with the License.
 # A copy of the License is located at
-# 
+#
 #  http://aws.amazon.com/apache2.0
-# 
+#
 # or in the "license" file accompanying this file. This file is distributed
 # on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
 # express or implied. See the License for the specific language governing
@@ -73,12 +73,39 @@ option(ENABLE_ADDRESS_SANITIZER "Flags to enable/disable Address Sanitizer for g
 option(BYPASS_DEFAULT_PROXY "Bypass the machine's default proxy settings when using IXmlHttpRequest2" ON)
 option(BUILD_DEPS "Build third-party dependencies" ON)
 option(ENABLE_CURL_LOGGING "If enabled, Curl's internal log will be piped to SDK's logger" OFF)
+option(ENABLE_HTTP_CLIENT_TESTING "If enabled, corresponding http client test suites will be built and run" OFF)
+option(ENABLE_VIRTUAL_OPERATIONS "This option usually works with REGENERATE_CLIENTS. \
+                                If enabled when doing code generation, operation related functions in service clients will be marked as virtual. \
+                                If disabled when doing code generation, virtual will not be added to operation functions and service client class will be marked as final. \
+                                If disabled, SDK will add compiler flags '-ffunction-sections -fdata-sections' for gcc and clang when compiling. \
+                                You can utilize this feature to work with your linker to reduce binary size of your application on Unix platforms when doing static linking in Release mode." ON)
 
 set(BUILD_ONLY "" CACHE STRING "A semi-colon delimited list of the projects to build")
 set(CPP_STANDARD "11" CACHE STRING "Flag to upgrade the C++ standard used. The default is 11. The minimum is 11.")
 
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
+endif()
+
+#From https://stackoverflow.com/questions/18968979/how-to-get-colorized-output-with-cmake
+if(NOT WIN32)
+  string(ASCII 27 Esc)
+  set(ColourReset "${Esc}[m")
+  set(ColourBold  "${Esc}[1m")
+  set(Red         "${Esc}[31m")
+  set(Green       "${Esc}[32m")
+  set(Yellow      "${Esc}[33m")
+  set(Blue        "${Esc}[34m")
+  set(Magenta     "${Esc}[35m")
+  set(Cyan        "${Esc}[36m")
+  set(White       "${Esc}[37m")
+  set(BoldRed     "${Esc}[1;31m")
+  set(BoldGreen   "${Esc}[1;32m")
+  set(BoldYellow  "${Esc}[1;33m")
+  set(BoldBlue    "${Esc}[1;34m")
+  set(BoldMagenta "${Esc}[1;35m")
+  set(BoldCyan    "${Esc}[1;36m")
+  set(BoldWhite   "${Esc}[1;37m")
 endif()
 
 # backwards compatibility with old command line params
@@ -93,7 +120,7 @@ endif()
 
 set(PYTHON_CMD "python")
 
-# CMAKE_MODULE_PATH is a CMAKE variable. It contains a list of paths 
+# CMAKE_MODULE_PATH is a CMAKE variable. It contains a list of paths
 # which could be used to search CMAKE modules by "include()" or "find_package()", but the default value is empty.
 # Add cmake dir to search list
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
@@ -101,6 +128,12 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 # include() will "load and run" cmake script
 include(resolve_platform)
 include(CMakePackageConfigHelpers)
+
+if (REGENERATE_CLIENTS AND NOT ENABLE_VIRTUAL_OPERATIONS)
+    if (PLATFORM_LINUX OR PLATFORM_APPLE)
+        Message(STATUS "${BoldYellow}You are regenerating service client's source code and is turning ENABLE_VIRTUAL_OPERATIONS off. If you are targeting smaller binary size, read description string of ENABLE_VIRTUAL_OPERATIONS.${ColourReset}")
+    endif()
+endif()
 
 # use response files to prevent command-line-too-big errors for large libraries like iam
 set(CMAKE_CXX_USE_RESPONSE_FILE_FOR_OBJECTS 1)
@@ -118,6 +151,9 @@ if (BUILD_SHARED_LIBS OR FORCE_SHARED_CRT)
 else()
     set(STATIC_CRT ON)
 endif()
+
+# Add Linker search paths to RPATH so as to fix the problem where some linkers can't find cross-compiled depenpent libraries in customer paths when linking executables.
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH true)
 
 # build third-party targets
 if (BUILD_DEPS)
@@ -201,6 +237,7 @@ if (BUILD_DEPS)
     message(STATUS "Third-party dependencies are installed at: ${AWS_DEPS_INSTALL_DIR}")
     list(APPEND CMAKE_PREFIX_PATH "${AWS_DEPS_INSTALL_DIR}")
 endif()
+set(THIRD_PARTY_LIBS "aws-c-event-stream;aws-checksums;aws-c-common")
 
 # build the sdk targets
 project("aws-cpp-sdk-all" VERSION "${PROJECT_VERSION}" LANGUAGES CXX)

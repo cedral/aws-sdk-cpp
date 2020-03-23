@@ -33,7 +33,11 @@ CreateFlowLogsRequest::CreateFlowLogsRequest() :
     m_trafficTypeHasBeenSet(false),
     m_logDestinationType(LogDestinationType::NOT_SET),
     m_logDestinationTypeHasBeenSet(false),
-    m_logDestinationHasBeenSet(false)
+    m_logDestinationHasBeenSet(false),
+    m_logFormatHasBeenSet(false),
+    m_tagSpecificationsHasBeenSet(false),
+    m_maxAggregationInterval(0),
+    m_maxAggregationIntervalHasBeenSet(false)
 {
 }
 
@@ -90,6 +94,26 @@ Aws::String CreateFlowLogsRequest::SerializePayload() const
   if(m_logDestinationHasBeenSet)
   {
     ss << "LogDestination=" << StringUtils::URLEncode(m_logDestination.c_str()) << "&";
+  }
+
+  if(m_logFormatHasBeenSet)
+  {
+    ss << "LogFormat=" << StringUtils::URLEncode(m_logFormat.c_str()) << "&";
+  }
+
+  if(m_tagSpecificationsHasBeenSet)
+  {
+    unsigned tagSpecificationsCount = 1;
+    for(auto& item : m_tagSpecifications)
+    {
+      item.OutputToStream(ss, "TagSpecification.", tagSpecificationsCount, "");
+      tagSpecificationsCount++;
+    }
+  }
+
+  if(m_maxAggregationIntervalHasBeenSet)
+  {
+    ss << "MaxAggregationInterval=" << m_maxAggregationInterval << "&";
   }
 
   ss << "Version=2016-11-15";

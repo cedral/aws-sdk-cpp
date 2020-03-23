@@ -40,10 +40,13 @@ TranscriptionJob::TranscriptionJob() :
     m_mediaFormatHasBeenSet(false),
     m_mediaHasBeenSet(false),
     m_transcriptHasBeenSet(false),
+    m_startTimeHasBeenSet(false),
     m_creationTimeHasBeenSet(false),
     m_completionTimeHasBeenSet(false),
     m_failureReasonHasBeenSet(false),
-    m_settingsHasBeenSet(false)
+    m_settingsHasBeenSet(false),
+    m_jobExecutionSettingsHasBeenSet(false),
+    m_contentRedactionHasBeenSet(false)
 {
 }
 
@@ -59,10 +62,13 @@ TranscriptionJob::TranscriptionJob(JsonView jsonValue) :
     m_mediaFormatHasBeenSet(false),
     m_mediaHasBeenSet(false),
     m_transcriptHasBeenSet(false),
+    m_startTimeHasBeenSet(false),
     m_creationTimeHasBeenSet(false),
     m_completionTimeHasBeenSet(false),
     m_failureReasonHasBeenSet(false),
-    m_settingsHasBeenSet(false)
+    m_settingsHasBeenSet(false),
+    m_jobExecutionSettingsHasBeenSet(false),
+    m_contentRedactionHasBeenSet(false)
 {
   *this = jsonValue;
 }
@@ -118,6 +124,13 @@ TranscriptionJob& TranscriptionJob::operator =(JsonView jsonValue)
     m_transcriptHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("StartTime"))
+  {
+    m_startTime = jsonValue.GetDouble("StartTime");
+
+    m_startTimeHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("CreationTime"))
   {
     m_creationTime = jsonValue.GetDouble("CreationTime");
@@ -144,6 +157,20 @@ TranscriptionJob& TranscriptionJob::operator =(JsonView jsonValue)
     m_settings = jsonValue.GetObject("Settings");
 
     m_settingsHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("JobExecutionSettings"))
+  {
+    m_jobExecutionSettings = jsonValue.GetObject("JobExecutionSettings");
+
+    m_jobExecutionSettingsHasBeenSet = true;
+  }
+
+  if(jsonValue.ValueExists("ContentRedaction"))
+  {
+    m_contentRedaction = jsonValue.GetObject("ContentRedaction");
+
+    m_contentRedactionHasBeenSet = true;
   }
 
   return *this;
@@ -192,6 +219,11 @@ JsonValue TranscriptionJob::Jsonize() const
 
   }
 
+  if(m_startTimeHasBeenSet)
+  {
+   payload.WithDouble("StartTime", m_startTime.SecondsWithMSPrecision());
+  }
+
   if(m_creationTimeHasBeenSet)
   {
    payload.WithDouble("CreationTime", m_creationTime.SecondsWithMSPrecision());
@@ -211,6 +243,18 @@ JsonValue TranscriptionJob::Jsonize() const
   if(m_settingsHasBeenSet)
   {
    payload.WithObject("Settings", m_settings.Jsonize());
+
+  }
+
+  if(m_jobExecutionSettingsHasBeenSet)
+  {
+   payload.WithObject("JobExecutionSettings", m_jobExecutionSettings.Jsonize());
+
+  }
+
+  if(m_contentRedactionHasBeenSet)
+  {
+   payload.WithObject("ContentRedaction", m_contentRedaction.Jsonize());
 
   }
 

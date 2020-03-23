@@ -19,6 +19,7 @@
 #include <aws/core/utils/memory/stl/AWSVector.h>
 #include <aws/ec2/model/ResponseMetadata.h>
 #include <aws/ec2/model/SnapshotDetail.h>
+#include <aws/ec2/model/ImportImageLicenseConfigurationResponse.h>
 #include <utility>
 
 namespace Aws
@@ -242,44 +243,44 @@ namespace Model
 
 
     /**
-     * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) that was used to create the encrypted AMI.</p>
+     * <p>The identifier for the symmetric AWS Key Management Service (AWS KMS)
+     * customer master key (CMK) that was used to create the encrypted AMI.</p>
      */
     inline const Aws::String& GetKmsKeyId() const{ return m_kmsKeyId; }
 
     /**
-     * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) that was used to create the encrypted AMI.</p>
+     * <p>The identifier for the symmetric AWS Key Management Service (AWS KMS)
+     * customer master key (CMK) that was used to create the encrypted AMI.</p>
      */
     inline void SetKmsKeyId(const Aws::String& value) { m_kmsKeyId = value; }
 
     /**
-     * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) that was used to create the encrypted AMI.</p>
+     * <p>The identifier for the symmetric AWS Key Management Service (AWS KMS)
+     * customer master key (CMK) that was used to create the encrypted AMI.</p>
      */
     inline void SetKmsKeyId(Aws::String&& value) { m_kmsKeyId = std::move(value); }
 
     /**
-     * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) that was used to create the encrypted AMI.</p>
+     * <p>The identifier for the symmetric AWS Key Management Service (AWS KMS)
+     * customer master key (CMK) that was used to create the encrypted AMI.</p>
      */
     inline void SetKmsKeyId(const char* value) { m_kmsKeyId.assign(value); }
 
     /**
-     * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) that was used to create the encrypted AMI.</p>
+     * <p>The identifier for the symmetric AWS Key Management Service (AWS KMS)
+     * customer master key (CMK) that was used to create the encrypted AMI.</p>
      */
     inline ImportImageResponse& WithKmsKeyId(const Aws::String& value) { SetKmsKeyId(value); return *this;}
 
     /**
-     * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) that was used to create the encrypted AMI.</p>
+     * <p>The identifier for the symmetric AWS Key Management Service (AWS KMS)
+     * customer master key (CMK) that was used to create the encrypted AMI.</p>
      */
     inline ImportImageResponse& WithKmsKeyId(Aws::String&& value) { SetKmsKeyId(std::move(value)); return *this;}
 
     /**
-     * <p>The identifier for the AWS Key Management Service (AWS KMS) customer master
-     * key (CMK) that was used to create the encrypted AMI.</p>
+     * <p>The identifier for the symmetric AWS Key Management Service (AWS KMS)
+     * customer master key (CMK) that was used to create the encrypted AMI.</p>
      */
     inline ImportImageResponse& WithKmsKeyId(const char* value) { SetKmsKeyId(value); return *this;}
 
@@ -500,6 +501,42 @@ namespace Model
     inline ImportImageResponse& WithStatusMessage(const char* value) { SetStatusMessage(value); return *this;}
 
 
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline const Aws::Vector<ImportImageLicenseConfigurationResponse>& GetLicenseSpecifications() const{ return m_licenseSpecifications; }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline void SetLicenseSpecifications(const Aws::Vector<ImportImageLicenseConfigurationResponse>& value) { m_licenseSpecifications = value; }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline void SetLicenseSpecifications(Aws::Vector<ImportImageLicenseConfigurationResponse>&& value) { m_licenseSpecifications = std::move(value); }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline ImportImageResponse& WithLicenseSpecifications(const Aws::Vector<ImportImageLicenseConfigurationResponse>& value) { SetLicenseSpecifications(value); return *this;}
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline ImportImageResponse& WithLicenseSpecifications(Aws::Vector<ImportImageLicenseConfigurationResponse>&& value) { SetLicenseSpecifications(std::move(value)); return *this;}
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline ImportImageResponse& AddLicenseSpecifications(const ImportImageLicenseConfigurationResponse& value) { m_licenseSpecifications.push_back(value); return *this; }
+
+    /**
+     * <p>The ARNs of the license configurations.</p>
+     */
+    inline ImportImageResponse& AddLicenseSpecifications(ImportImageLicenseConfigurationResponse&& value) { m_licenseSpecifications.push_back(std::move(value)); return *this; }
+
+
     
     inline const ResponseMetadata& GetResponseMetadata() const{ return m_responseMetadata; }
 
@@ -542,6 +579,8 @@ namespace Model
     Aws::String m_status;
 
     Aws::String m_statusMessage;
+
+    Aws::Vector<ImportImageLicenseConfigurationResponse> m_licenseSpecifications;
 
     ResponseMetadata m_responseMetadata;
   };

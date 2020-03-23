@@ -28,6 +28,7 @@ namespace Model
     NOT_SET,
     AVAILABLE,
     CREATING,
+    QUEUED,
     RUNNING,
     UNAVAILABLE
   };

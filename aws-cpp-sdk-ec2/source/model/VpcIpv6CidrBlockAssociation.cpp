@@ -33,14 +33,18 @@ namespace Model
 VpcIpv6CidrBlockAssociation::VpcIpv6CidrBlockAssociation() : 
     m_associationIdHasBeenSet(false),
     m_ipv6CidrBlockHasBeenSet(false),
-    m_ipv6CidrBlockStateHasBeenSet(false)
+    m_ipv6CidrBlockStateHasBeenSet(false),
+    m_networkBorderGroupHasBeenSet(false),
+    m_ipv6PoolHasBeenSet(false)
 {
 }
 
 VpcIpv6CidrBlockAssociation::VpcIpv6CidrBlockAssociation(const XmlNode& xmlNode) : 
     m_associationIdHasBeenSet(false),
     m_ipv6CidrBlockHasBeenSet(false),
-    m_ipv6CidrBlockStateHasBeenSet(false)
+    m_ipv6CidrBlockStateHasBeenSet(false),
+    m_networkBorderGroupHasBeenSet(false),
+    m_ipv6PoolHasBeenSet(false)
 {
   *this = xmlNode;
 }
@@ -54,13 +58,13 @@ VpcIpv6CidrBlockAssociation& VpcIpv6CidrBlockAssociation::operator =(const XmlNo
     XmlNode associationIdNode = resultNode.FirstChild("associationId");
     if(!associationIdNode.IsNull())
     {
-      m_associationId = associationIdNode.GetText();
+      m_associationId = Aws::Utils::Xml::DecodeEscapedXmlText(associationIdNode.GetText());
       m_associationIdHasBeenSet = true;
     }
     XmlNode ipv6CidrBlockNode = resultNode.FirstChild("ipv6CidrBlock");
     if(!ipv6CidrBlockNode.IsNull())
     {
-      m_ipv6CidrBlock = ipv6CidrBlockNode.GetText();
+      m_ipv6CidrBlock = Aws::Utils::Xml::DecodeEscapedXmlText(ipv6CidrBlockNode.GetText());
       m_ipv6CidrBlockHasBeenSet = true;
     }
     XmlNode ipv6CidrBlockStateNode = resultNode.FirstChild("ipv6CidrBlockState");
@@ -68,6 +72,18 @@ VpcIpv6CidrBlockAssociation& VpcIpv6CidrBlockAssociation::operator =(const XmlNo
     {
       m_ipv6CidrBlockState = ipv6CidrBlockStateNode;
       m_ipv6CidrBlockStateHasBeenSet = true;
+    }
+    XmlNode networkBorderGroupNode = resultNode.FirstChild("networkBorderGroup");
+    if(!networkBorderGroupNode.IsNull())
+    {
+      m_networkBorderGroup = Aws::Utils::Xml::DecodeEscapedXmlText(networkBorderGroupNode.GetText());
+      m_networkBorderGroupHasBeenSet = true;
+    }
+    XmlNode ipv6PoolNode = resultNode.FirstChild("ipv6Pool");
+    if(!ipv6PoolNode.IsNull())
+    {
+      m_ipv6Pool = Aws::Utils::Xml::DecodeEscapedXmlText(ipv6PoolNode.GetText());
+      m_ipv6PoolHasBeenSet = true;
     }
   }
 
@@ -93,6 +109,16 @@ void VpcIpv6CidrBlockAssociation::OutputToStream(Aws::OStream& oStream, const ch
       m_ipv6CidrBlockState.OutputToStream(oStream, ipv6CidrBlockStateLocationAndMemberSs.str().c_str());
   }
 
+  if(m_networkBorderGroupHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".NetworkBorderGroup=" << StringUtils::URLEncode(m_networkBorderGroup.c_str()) << "&";
+  }
+
+  if(m_ipv6PoolHasBeenSet)
+  {
+      oStream << location << index << locationValue << ".Ipv6Pool=" << StringUtils::URLEncode(m_ipv6Pool.c_str()) << "&";
+  }
+
 }
 
 void VpcIpv6CidrBlockAssociation::OutputToStream(Aws::OStream& oStream, const char* location) const
@@ -110,6 +136,14 @@ void VpcIpv6CidrBlockAssociation::OutputToStream(Aws::OStream& oStream, const ch
       Aws::String ipv6CidrBlockStateLocationAndMember(location);
       ipv6CidrBlockStateLocationAndMember += ".Ipv6CidrBlockState";
       m_ipv6CidrBlockState.OutputToStream(oStream, ipv6CidrBlockStateLocationAndMember.c_str());
+  }
+  if(m_networkBorderGroupHasBeenSet)
+  {
+      oStream << location << ".NetworkBorderGroup=" << StringUtils::URLEncode(m_networkBorderGroup.c_str()) << "&";
+  }
+  if(m_ipv6PoolHasBeenSet)
+  {
+      oStream << location << ".Ipv6Pool=" << StringUtils::URLEncode(m_ipv6Pool.c_str()) << "&";
   }
 }
 

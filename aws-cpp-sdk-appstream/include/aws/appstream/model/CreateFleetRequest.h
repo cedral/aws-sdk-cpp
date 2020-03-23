@@ -684,7 +684,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline const Aws::Map<Aws::String, Aws::String>& GetTags() const{ return m_tags; }
 
@@ -696,7 +696,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline bool TagsHasBeenSet() const { return m_tagsHasBeenSet; }
 
@@ -708,7 +708,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline void SetTags(const Aws::Map<Aws::String, Aws::String>& value) { m_tagsHasBeenSet = true; m_tags = value; }
 
@@ -720,7 +720,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline void SetTags(Aws::Map<Aws::String, Aws::String>&& value) { m_tagsHasBeenSet = true; m_tags = std::move(value); }
 
@@ -732,7 +732,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& WithTags(const Aws::Map<Aws::String, Aws::String>& value) { SetTags(value); return *this;}
 
@@ -744,7 +744,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& WithTags(Aws::Map<Aws::String, Aws::String>&& value) { SetTags(std::move(value)); return *this;}
 
@@ -756,7 +756,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& AddTags(const Aws::String& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
 
@@ -768,7 +768,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& AddTags(Aws::String&& key, const Aws::String& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
 
@@ -780,7 +780,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& AddTags(const Aws::String& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
 
@@ -792,7 +792,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& AddTags(Aws::String&& key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), std::move(value)); return *this; }
 
@@ -804,7 +804,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& AddTags(const char* key, Aws::String&& value) { m_tagsHasBeenSet = true; m_tags.emplace(key, std::move(value)); return *this; }
 
@@ -816,7 +816,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& AddTags(Aws::String&& key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(std::move(key), value); return *this; }
 
@@ -828,7 +828,7 @@ namespace Model
      * spaces representable in UTF-8, and the following special characters: </p> <p>_ .
      * : / = + \ - @</p> <p>For more information, see <a
      * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
-     * Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</p>
+     * Your Resources</a> in the <i>Amazon AppStream 2.0 Administration Guide</i>.</p>
      */
     inline CreateFleetRequest& AddTags(const char* key, const char* value) { m_tagsHasBeenSet = true; m_tags.emplace(key, value); return *this; }
 
@@ -929,6 +929,127 @@ namespace Model
      */
     inline CreateFleetRequest& WithIdleDisconnectTimeoutInSeconds(int value) { SetIdleDisconnectTimeoutInSeconds(value); return *this;}
 
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
+     * assume a role, a fleet instance calls the AWS Security Token Service (STS)
+     * <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+     * operation creates a new session with temporary credentials. AppStream 2.0
+     * retrieves the temporary credentials and creates the
+     * <b>AppStream_Machine_Role</b> credential profile on the instance.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+     * an IAM Role to Grant Permissions to Applications and Scripts Running on
+     * AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0
+     * Administration Guide</i>.</p>
+     */
+    inline const Aws::String& GetIamRoleArn() const{ return m_iamRoleArn; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
+     * assume a role, a fleet instance calls the AWS Security Token Service (STS)
+     * <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+     * operation creates a new session with temporary credentials. AppStream 2.0
+     * retrieves the temporary credentials and creates the
+     * <b>AppStream_Machine_Role</b> credential profile on the instance.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+     * an IAM Role to Grant Permissions to Applications and Scripts Running on
+     * AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0
+     * Administration Guide</i>.</p>
+     */
+    inline bool IamRoleArnHasBeenSet() const { return m_iamRoleArnHasBeenSet; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
+     * assume a role, a fleet instance calls the AWS Security Token Service (STS)
+     * <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+     * operation creates a new session with temporary credentials. AppStream 2.0
+     * retrieves the temporary credentials and creates the
+     * <b>AppStream_Machine_Role</b> credential profile on the instance.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+     * an IAM Role to Grant Permissions to Applications and Scripts Running on
+     * AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0
+     * Administration Guide</i>.</p>
+     */
+    inline void SetIamRoleArn(const Aws::String& value) { m_iamRoleArnHasBeenSet = true; m_iamRoleArn = value; }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
+     * assume a role, a fleet instance calls the AWS Security Token Service (STS)
+     * <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+     * operation creates a new session with temporary credentials. AppStream 2.0
+     * retrieves the temporary credentials and creates the
+     * <b>AppStream_Machine_Role</b> credential profile on the instance.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+     * an IAM Role to Grant Permissions to Applications and Scripts Running on
+     * AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0
+     * Administration Guide</i>.</p>
+     */
+    inline void SetIamRoleArn(Aws::String&& value) { m_iamRoleArnHasBeenSet = true; m_iamRoleArn = std::move(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
+     * assume a role, a fleet instance calls the AWS Security Token Service (STS)
+     * <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+     * operation creates a new session with temporary credentials. AppStream 2.0
+     * retrieves the temporary credentials and creates the
+     * <b>AppStream_Machine_Role</b> credential profile on the instance.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+     * an IAM Role to Grant Permissions to Applications and Scripts Running on
+     * AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0
+     * Administration Guide</i>.</p>
+     */
+    inline void SetIamRoleArn(const char* value) { m_iamRoleArnHasBeenSet = true; m_iamRoleArn.assign(value); }
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
+     * assume a role, a fleet instance calls the AWS Security Token Service (STS)
+     * <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+     * operation creates a new session with temporary credentials. AppStream 2.0
+     * retrieves the temporary credentials and creates the
+     * <b>AppStream_Machine_Role</b> credential profile on the instance.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+     * an IAM Role to Grant Permissions to Applications and Scripts Running on
+     * AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0
+     * Administration Guide</i>.</p>
+     */
+    inline CreateFleetRequest& WithIamRoleArn(const Aws::String& value) { SetIamRoleArn(value); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
+     * assume a role, a fleet instance calls the AWS Security Token Service (STS)
+     * <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+     * operation creates a new session with temporary credentials. AppStream 2.0
+     * retrieves the temporary credentials and creates the
+     * <b>AppStream_Machine_Role</b> credential profile on the instance.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+     * an IAM Role to Grant Permissions to Applications and Scripts Running on
+     * AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0
+     * Administration Guide</i>.</p>
+     */
+    inline CreateFleetRequest& WithIamRoleArn(Aws::String&& value) { SetIamRoleArn(std::move(value)); return *this;}
+
+    /**
+     * <p>The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
+     * assume a role, a fleet instance calls the AWS Security Token Service (STS)
+     * <code>AssumeRole</code> API operation and passes the ARN of the role to use. The
+     * operation creates a new session with temporary credentials. AppStream 2.0
+     * retrieves the temporary credentials and creates the
+     * <b>AppStream_Machine_Role</b> credential profile on the instance.</p> <p>For
+     * more information, see <a
+     * href="https://docs.aws.amazon.com/appstream2/latest/developerguide/using-iam-roles-to-grant-permissions-to-applications-scripts-streaming-instances.html">Using
+     * an IAM Role to Grant Permissions to Applications and Scripts Running on
+     * AppStream 2.0 Streaming Instances</a> in the <i>Amazon AppStream 2.0
+     * Administration Guide</i>.</p>
+     */
+    inline CreateFleetRequest& WithIamRoleArn(const char* value) { SetIamRoleArn(value); return *this;}
+
   private:
 
     Aws::String m_name;
@@ -975,6 +1096,9 @@ namespace Model
 
     int m_idleDisconnectTimeoutInSeconds;
     bool m_idleDisconnectTimeoutInSecondsHasBeenSet;
+
+    Aws::String m_iamRoleArn;
+    bool m_iamRoleArnHasBeenSet;
   };
 
 } // namespace Model

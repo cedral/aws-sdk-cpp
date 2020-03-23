@@ -29,30 +29,41 @@ namespace Model
 {
 
 ContainerSettings::ContainerSettings() : 
+    m_cmfcSettingsHasBeenSet(false),
     m_container(ContainerType::NOT_SET),
     m_containerHasBeenSet(false),
     m_f4vSettingsHasBeenSet(false),
     m_m2tsSettingsHasBeenSet(false),
     m_m3u8SettingsHasBeenSet(false),
     m_movSettingsHasBeenSet(false),
-    m_mp4SettingsHasBeenSet(false)
+    m_mp4SettingsHasBeenSet(false),
+    m_mpdSettingsHasBeenSet(false)
 {
 }
 
 ContainerSettings::ContainerSettings(JsonView jsonValue) : 
+    m_cmfcSettingsHasBeenSet(false),
     m_container(ContainerType::NOT_SET),
     m_containerHasBeenSet(false),
     m_f4vSettingsHasBeenSet(false),
     m_m2tsSettingsHasBeenSet(false),
     m_m3u8SettingsHasBeenSet(false),
     m_movSettingsHasBeenSet(false),
-    m_mp4SettingsHasBeenSet(false)
+    m_mp4SettingsHasBeenSet(false),
+    m_mpdSettingsHasBeenSet(false)
 {
   *this = jsonValue;
 }
 
 ContainerSettings& ContainerSettings::operator =(JsonView jsonValue)
 {
+  if(jsonValue.ValueExists("cmfcSettings"))
+  {
+    m_cmfcSettings = jsonValue.GetObject("cmfcSettings");
+
+    m_cmfcSettingsHasBeenSet = true;
+  }
+
   if(jsonValue.ValueExists("container"))
   {
     m_container = ContainerTypeMapper::GetContainerTypeForName(jsonValue.GetString("container"));
@@ -95,12 +106,25 @@ ContainerSettings& ContainerSettings::operator =(JsonView jsonValue)
     m_mp4SettingsHasBeenSet = true;
   }
 
+  if(jsonValue.ValueExists("mpdSettings"))
+  {
+    m_mpdSettings = jsonValue.GetObject("mpdSettings");
+
+    m_mpdSettingsHasBeenSet = true;
+  }
+
   return *this;
 }
 
 JsonValue ContainerSettings::Jsonize() const
 {
   JsonValue payload;
+
+  if(m_cmfcSettingsHasBeenSet)
+  {
+   payload.WithObject("cmfcSettings", m_cmfcSettings.Jsonize());
+
+  }
 
   if(m_containerHasBeenSet)
   {
@@ -134,6 +158,12 @@ JsonValue ContainerSettings::Jsonize() const
   if(m_mp4SettingsHasBeenSet)
   {
    payload.WithObject("mp4Settings", m_mp4Settings.Jsonize());
+
+  }
+
+  if(m_mpdSettingsHasBeenSet)
+  {
+   payload.WithObject("mpdSettings", m_mpdSettings.Jsonize());
 
   }
 
